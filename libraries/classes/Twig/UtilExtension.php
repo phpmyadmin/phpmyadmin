@@ -77,11 +77,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_start_and_number_of_rows_panel',
-                'PhpMyAdmin\Html\Generator::getStartAndNumberOfRowsPanel',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_supported_datatypes',
                 'PhpMyAdmin\Util::getSupportedDatatypes',
                 ['is_safe' => ['html']]

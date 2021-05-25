@@ -19,8 +19,7 @@ class ExportPluginProperties extends PluginPropertyItem
      *
      * @var bool
      */
-    private $forceFile;
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+    private $forceFile = false;
 
     /**
      * Returns the property item type of either an instance of

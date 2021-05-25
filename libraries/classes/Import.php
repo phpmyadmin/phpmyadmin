@@ -1492,7 +1492,7 @@ class Import
             $result = $this->getMatchedRows($analyzedSqlResults);
             $error = $dbi->getError();
 
-            if ($error) {
+            if ($error !== false) {
                 break;
             }
 

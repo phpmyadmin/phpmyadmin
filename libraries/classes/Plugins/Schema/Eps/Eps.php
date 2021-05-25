@@ -23,10 +23,10 @@ use function strlen;
 class Eps
 {
     /** @var string */
-    public $font;
+    public $font = 'Arial';
 
     /** @var int */
-    public $fontSize;
+    public $fontSize = 12;
 
     /** @var string */
     public $stringCommands;

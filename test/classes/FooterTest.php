@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use ArrayIterator;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 
@@ -94,19 +95,12 @@ class FooterTest extends AbstractTestCase
     {
         $object = (object) [];
         $object->child = (object) [];
+        $object->childIterator = new ArrayIterator();
         $object->child->parent = $object;
 
-        $this->callFunction(
-            $this->object,
-            Footer::class,
-            'removeRecursion',
-            [
-                &$object,
-            ]
-        );
-
+        $this->callFunction($this->object, Footer::class, 'removeRecursion', [&$object]);
         $this->assertEquals(
-            '{"child":{"parent":"***RECURSION***"}}',
+            '{"child":{"parent":"***RECURSION***"},"childIterator":"***ITERATOR***"}',
             json_encode($object)
         );
     }

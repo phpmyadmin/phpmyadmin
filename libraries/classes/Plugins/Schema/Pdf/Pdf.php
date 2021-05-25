@@ -51,10 +51,10 @@ if (getcwd() == __DIR__) {
 class Pdf extends PdfLib
 {
     /** @var int|float */
-    public $xMin;
+    public $xMin = 0;
 
     /** @var int|float */
-    public $yMin;
+    public $yMin = 0;
 
     /** @var int|float */
     public $leftMargin = 10;
@@ -63,22 +63,22 @@ class Pdf extends PdfLib
     public $topMargin = 10;
 
     /** @var int|float */
-    public $scale;
+    public $scale = 1;
 
     /** @var array */
-    public $customLinks;
+    public $customLinks = [];
 
     /** @var array */
-    public $widths;
+    public $widths = [];
 
     /** @var float */
-    public $cMargin;
+    public $cMargin = 0;
 
     /** @var string */
     private $ff = PdfLib::PMA_PDF_FONT;
 
-    /** @var string */
-    private $offline;
+    /** @var bool */
+    private $offline = false;
 
     /** @var int */
     private $pageNumber;
@@ -464,7 +464,7 @@ class Pdf extends PdfLib
     /**
      * Set whether the document is generated from client side DB
      *
-     * @param string $value whether offline
+     * @param bool $value whether offline
      *
      * @return void
      *

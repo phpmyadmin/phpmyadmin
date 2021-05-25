@@ -32,12 +32,12 @@ interface DbiExtension
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param object $link   connection object
+     * @param string|DatabaseName $databaseName database name to select
+     * @param object              $link         connection object
      *
      * @return bool
      */
-    public function selectDb($dbname, $link);
+    public function selectDb($databaseName, $link);
 
     /**
      * runs a query and returns the result
@@ -166,7 +166,7 @@ interface DbiExtension
     /**
      * returns the number of rows returned by last query
      *
-     * @param object $result result set identifier
+     * @param object|bool $result result set identifier
      *
      * @return string|int
      */
@@ -222,12 +222,12 @@ interface DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mixed  $link database link
-     * @param string $str  string to be escaped
+     * @param mixed  $link   database link
+     * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($link, $str);
+    public function escapeString($link, $string);
 
     /**
      * Prepare an SQL statement for execution.

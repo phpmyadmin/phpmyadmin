@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Util;
 
 use function sprintf;
@@ -19,7 +20,7 @@ final class Partition
         $this->dbi = $dbi;
     }
 
-    public function analyze(string $db, string $table, string $partition): array
+    public function analyze(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s ANALYZE PARTITION %s;',
@@ -38,7 +39,7 @@ final class Partition
         return [$rows, $query];
     }
 
-    public function check(string $db, string $table, string $partition): array
+    public function check(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s CHECK PARTITION %s;',
@@ -57,7 +58,7 @@ final class Partition
         return [$rows, $query];
     }
 
-    public function drop(string $db, string $table, string $partition): array
+    public function drop(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s DROP PARTITION %s;',
@@ -71,7 +72,7 @@ final class Partition
         return [(bool) $result, $query];
     }
 
-    public function optimize(string $db, string $table, string $partition): array
+    public function optimize(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s OPTIMIZE PARTITION %s;',
@@ -90,7 +91,7 @@ final class Partition
         return [$rows, $query];
     }
 
-    public function rebuild(string $db, string $table, string $partition): array
+    public function rebuild(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s REBUILD PARTITION %s;',
@@ -104,7 +105,7 @@ final class Partition
         return [(bool) $result, $query];
     }
 
-    public function repair(string $db, string $table, string $partition): array
+    public function repair(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s REPAIR PARTITION %s;',
@@ -123,7 +124,7 @@ final class Partition
         return [$rows, $query];
     }
 
-    public function truncate(string $db, string $table, string $partition): array
+    public function truncate(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s TRUNCATE PARTITION %s;',

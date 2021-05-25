@@ -166,7 +166,7 @@ function drawChart () {
     }
 
     var columnNames = [];
-    $('select[name="chartXAxis"] option').each(function () {
+    $('#chartXAxisSelect option').each(function () {
         columnNames.push(Functions.escapeHtml($(this).text()));
     });
     try {
@@ -180,7 +180,7 @@ function drawChart () {
 }
 
 function getSelectedSeries () {
-    var val = $('select[name="chartSeries"]').val() || [];
+    var val = $('#chartSeriesSelect').val() || [];
     var ret = [];
     $.each(val, function (i, v) {
         ret.push(parseInt(v, 10));
@@ -189,47 +189,47 @@ function getSelectedSeries () {
 }
 
 function onXAxisChange () {
-    var $xAxisSelect = $('select[name="chartXAxis"]');
+    var $xAxisSelect = $('#chartXAxisSelect');
     currentSettings.mainAxis = parseInt($xAxisSelect.val(), 10);
     if (dateTimeCols.indexOf(currentSettings.mainAxis) !== -1) {
-        $('span.span_timeline').show();
+        document.getElementById('timelineChartType').classList.remove('d-none');
     } else {
-        $('span.span_timeline').hide();
+        document.getElementById('timelineChartType').classList.add('d-none');
         if (currentSettings.type === 'timeline') {
-            $('input#radio_line').prop('checked', true);
+            $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
     }
     if (numericCols.indexOf(currentSettings.mainAxis) !== -1) {
-        $('span.span_scatter').show();
+        document.getElementById('scatterChartType').classList.remove('d-none');
     } else {
-        $('span.span_scatter').hide();
+        document.getElementById('scatterChartType').classList.add('d-none');
         if (currentSettings.type === 'scatter') {
-            $('input#radio_line').prop('checked', true);
+            $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
     }
     var xAxisTitle = $xAxisSelect.children('option:selected').text();
-    $('input[name="xaxis_label"]').val(xAxisTitle);
+    $('#xAxisLabelInput').val(xAxisTitle);
     currentSettings.xaxisLabel = xAxisTitle;
 }
 
 function onDataSeriesChange () {
-    var $seriesSelect = $('select[name="chartSeries"]');
+    var $seriesSelect = $('#chartSeriesSelect');
     currentSettings.selectedSeries = getSelectedSeries();
     var yAxisTitle;
     if (currentSettings.selectedSeries.length === 1) {
-        $('span.span_pie').show();
+        document.getElementById('pieChartType').classList.remove('d-none');
         yAxisTitle = $seriesSelect.children('option:selected').text();
     } else {
-        $('span.span_pie').hide();
+        document.getElementById('pieChartType').classList.add('d-none');
         if (currentSettings.type === 'pie') {
-            $('input#radio_line').prop('checked', true);
+            $('#lineChartTypeRadio').prop('checked', true);
             currentSettings.type = 'line';
         }
         yAxisTitle = Messages.strYValues;
     }
-    $('input[name="yaxis_label"]').val(yAxisTitle);
+    $('#yAxisLabelInput').val(yAxisTitle);
     currentSettings.yaxisLabel = yAxisTitle;
 }
 
@@ -238,15 +238,15 @@ function onDataSeriesChange () {
  */
 AJAX.registerTeardown('table/chart.js', function () {
     $('input[name="chartType"]').off('click');
-    $('input[name="barStacked"]').off('click');
-    $('input[name="chkAlternative"]').off('click');
-    $('input[name="chartTitle"]').off('focus').off('keyup').off('blur');
-    $('select[name="chartXAxis"]').off('change');
-    $('select[name="chartSeries"]').off('change');
-    $('select[name="chartSeriesColumn"]').off('change');
-    $('select[name="chartValueColumn"]').off('change');
-    $('input[name="xaxis_label"]').off('keyup');
-    $('input[name="yaxis_label"]').off('keyup');
+    $('#barStackedCheckbox').off('click');
+    $('#seriesColumnCheckbox').off('click');
+    $('#chartTitleInput').off('focus').off('keyup').off('blur');
+    $('#chartXAxisSelect').off('change');
+    $('#chartSeriesSelect').off('change');
+    $('#chartSeriesColumnSelect').off('change');
+    $('#chartValueColumnSelect').off('change');
+    $('#xAxisLabelInput').off('keyup');
+    $('#yAxisLabelInput').off('keyup');
     $('#resizer').off('resizestop');
     $('#tblchartform').off('submit');
 });
@@ -268,20 +268,20 @@ AJAX.registerOnload('table/chart.js', function () {
     $('input[name="chartType"]').on('click', function () {
         var type = currentSettings.type = $(this).val();
         if (type === 'bar' || type === 'column' || type === 'area') {
-            $('span.barStacked').show();
+            document.getElementById('barStacked').classList.remove('d-none');
         } else {
-            $('input[name="barStacked"]').prop('checked', false);
+            $('#barStackedCheckbox').prop('checked', false);
             $.extend(true, currentSettings, { stackSeries : false });
-            $('span.barStacked').hide();
+            document.getElementById('barStacked').classList.add('d-none');
         }
         drawChart();
     });
 
     // handle chosing alternative data format
-    $('input[name="chkAlternative"]').on('click', function () {
-        var $seriesColumn = $('select[name="chartSeriesColumn"]');
-        var $valueColumn  = $('select[name="chartValueColumn"]');
-        var $chartSeries  = $('select[name="chartSeries"]');
+    $('#seriesColumnCheckbox').on('click', function () {
+        var $seriesColumn = $('#chartSeriesColumnSelect');
+        var $valueColumn  = $('#chartValueColumnSelect');
+        var $chartSeries  = $('#chartSeriesSelect');
         if ($(this).is(':checked')) {
             $seriesColumn.prop('disabled', false);
             $valueColumn.prop('disabled', false);
@@ -299,7 +299,7 @@ AJAX.registerOnload('table/chart.js', function () {
     });
 
     // handle stacking for bar, column and area charts
-    $('input[name="barStacked"]').on('click', function () {
+    $('#barStackedCheckbox').on('click', function () {
         if ($(this).is(':checked')) {
             $.extend(true, currentSettings, { stackSeries : true });
         } else {
@@ -309,12 +309,12 @@ AJAX.registerOnload('table/chart.js', function () {
     });
 
     // handle changes in chart title
-    $('input[name="chartTitle"]')
+    $('#chartTitleInput')
         .on('focus', function () {
             tempChartTitle = $(this).val();
         })
         .on('keyup', function () {
-            currentSettings.title = $('input[name="chartTitle"]').val();
+            currentSettings.title = $('#chartTitleInput').val();
             drawChart();
         })
         .on('blur', function () {
@@ -324,37 +324,37 @@ AJAX.registerOnload('table/chart.js', function () {
         });
 
     // handle changing the x-axis
-    $('select[name="chartXAxis"]').on('change', function () {
+    $('#chartXAxisSelect').on('change', function () {
         onXAxisChange();
         drawChart();
     });
 
     // handle changing the selected data series
-    $('select[name="chartSeries"]').on('change', function () {
+    $('#chartSeriesSelect').on('change', function () {
         onDataSeriesChange();
         drawChart();
     });
 
     // handle changing the series column
-    $('select[name="chartSeriesColumn"]').on('change', function () {
+    $('#chartSeriesColumnSelect').on('change', function () {
         currentSettings.seriesColumn = parseInt($(this).val(), 10);
         drawChart();
     });
 
     // handle changing the value column
-    $('select[name="chartValueColumn"]').on('change', function () {
+    $('#chartValueColumnSelect').on('change', function () {
         currentSettings.valueColumn = parseInt($(this).val(), 10);
         drawChart();
     });
 
     // handle manual changes to the chart x-axis labels
-    $('input[name="xaxis_label"]').on('keyup', function () {
+    $('#xAxisLabelInput').on('keyup', function () {
         currentSettings.xaxisLabel = $(this).val();
         drawChart();
     });
 
     // handle manual changes to the chart y-axis labels
-    $('input[name="yaxis_label"]').on('keyup', function () {
+    $('#yAxisLabelInput').on('keyup', function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });
@@ -398,11 +398,11 @@ AJAX.registerOnload('table/chart.js', function () {
         type : 'line',
         width : $('#resizer').width() - 20,
         height : $('#resizer').height() - 20,
-        xaxisLabel : $('input[name="xaxis_label"]').val(),
-        yaxisLabel : $('input[name="yaxis_label"]').val(),
-        title : $('input[name="chartTitle"]').val(),
+        xaxisLabel : $('#xAxisLabelInput').val(),
+        yaxisLabel : $('#yAxisLabelInput').val(),
+        title : $('#chartTitleInput').val(),
         stackSeries : false,
-        mainAxis : parseInt($('select[name="chartXAxis"]').val(), 10),
+        mainAxis : parseInt($('#chartXAxisSelect').val(), 10),
         selectedSeries : getSelectedSeries(),
         seriesColumn : null
     };

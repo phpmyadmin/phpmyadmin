@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
@@ -159,6 +160,8 @@ class ChartController extends AbstractController
         $url_params['db'] = $db;
         $url_params['reload'] = 1;
 
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sql_query);
+
         /**
          * Displays the page
          */
@@ -167,7 +170,7 @@ class ChartController extends AbstractController
             'keys' => $keys,
             'fields_meta' => $fields_meta,
             'table_has_a_numeric_column' => $numericColumnFound,
-            'sql_query' => $sql_query,
+            'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
     }
 

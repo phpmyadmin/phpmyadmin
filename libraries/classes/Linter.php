@@ -26,7 +26,7 @@ class Linter
     /**
      * Gets the starting position of each line.
      *
-     * @param string $str String to be analyzed.
+     * @param string|UtfString $str String to be analyzed.
      *
      * @return array
      */

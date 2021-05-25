@@ -17,21 +17,9 @@
     </projectFiles>
 
     <issueHandlers>
-        <InternalMethod errorLevel="info" />
-        <MissingClosureReturnType errorLevel="info" />
-        <MissingPropertyType errorLevel="info" />
         <PropertyNotSetInConstructor errorLevel="info" />
-
-        <MissingConstructor>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Properties/Plugins/ExportPluginProperties.php" />
-            </errorLevel>
-        </MissingConstructor>
-
         <RedundantCondition errorLevel="info" />
-
         <DocblockTypeContradiction errorLevel="info" />
-        <RedundantConditionGivenDocblockType errorLevel="info" />
 
         <UnresolvableInclude>
             <errorLevel type="suppress">
@@ -42,12 +30,6 @@
                 <file name="libraries/classes/Plugins.php" />
             </errorLevel>
         </UnresolvableInclude>
-
-        <RawObjectIteration>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Plugins/Export/ExportSql.php" />
-            </errorLevel>
-        </RawObjectIteration>
 
         <PossiblyUndefinedGlobalVariable>
             <errorLevel type="suppress">

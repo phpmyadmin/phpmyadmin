@@ -18,6 +18,8 @@ use stdClass;
 use function defined;
 use function is_array;
 use function is_bool;
+use function mysqli_connect_errno;
+use function mysqli_connect_error;
 use function mysqli_init;
 use function mysqli_report;
 use function stripos;
@@ -61,6 +63,10 @@ class DbiMysqli implements DbiExtension
         mysqli_report(MYSQLI_REPORT_OFF);
 
         $mysqli = mysqli_init();
+
+        if ($mysqli === false) {
+            return false;
+        }
 
         $client_flags = 0;
 
@@ -118,7 +124,7 @@ class DbiMysqli implements DbiExtension
             $client_flags
         );
 
-        if ($return_value === false || $return_value === null) {
+        if ($return_value === false) {
             /*
              * Switch to SSL if server asked us to do so, unfortunately
              * there are more ways MySQL server can tell this:
@@ -159,26 +165,26 @@ class DbiMysqli implements DbiExtension
     /**
      * selects given database
      *
-     * @param string $databaseName database name to select
-     * @param mysqli $mysqli       the mysqli object
+     * @param string|DatabaseName $databaseName database name to select
+     * @param mysqli              $link         the mysqli object
      *
      * @return bool
      */
-    public function selectDb($databaseName, $mysqli)
+    public function selectDb($databaseName, $link)
     {
-        return $mysqli->select_db($databaseName);
+        return $link->select_db((string) $databaseName);
     }
 
     /**
      * runs a query and returns the result
      *
      * @param string $query   query to execute
-     * @param mysqli $mysqli  mysqli object
+     * @param mysqli $link    mysqli object
      * @param int    $options query options
      *
      * @return mysqli_result|bool
      */
-    public function realQuery($query, $mysqli, $options)
+    public function realQuery($query, $link, $options)
     {
         if ($options == ($options | DatabaseInterface::QUERY_STORE)) {
             $method = MYSQLI_STORE_RESULT;
@@ -188,20 +194,20 @@ class DbiMysqli implements DbiExtension
             $method = 0;
         }
 
-        return $mysqli->query($query, $method);
+        return $link->query($query, $method);
     }
 
     /**
      * Run the multi query and output the results
      *
-     * @param mysqli $mysqli mysqli object
-     * @param string $query  multi query statement to execute
+     * @param mysqli $link  mysqli object
+     * @param string $query multi query statement to execute
      *
      * @return bool
      */
-    public function realMultiQuery($mysqli, $query)
+    public function realMultiQuery($link, $query)
     {
-        return $mysqli->multi_query($query);
+        return $link->multi_query($query);
     }
 
     /**
@@ -278,95 +284,95 @@ class DbiMysqli implements DbiExtension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return bool true or false
      */
-    public function moreResults($mysqli)
+    public function moreResults($link)
     {
-        return $mysqli->more_results();
+        return $link->more_results();
     }
 
     /**
      * Prepare next result from multi_query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return bool true or false
      */
-    public function nextResult($mysqli)
+    public function nextResult($link)
     {
-        return $mysqli->next_result();
+        return $link->next_result();
     }
 
     /**
      * Store the result returned from multi query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return mysqli_result|bool false when empty results / result set when not empty
      */
-    public function storeResult($mysqli)
+    public function storeResult($link)
     {
-        return $mysqli->store_result();
+        return $link->store_result();
     }
 
     /**
      * Returns a string representing the type of connection used
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string type of connection used
      */
-    public function getHostInfo($mysqli)
+    public function getHostInfo($link)
     {
-        return $mysqli->host_info;
+        return $link->host_info;
     }
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string version of the MySQL protocol used
      */
-    public function getProtoInfo($mysqli)
+    public function getProtoInfo($link)
     {
-        return $mysqli->protocol_version;
+        return $link->protocol_version;
     }
 
     /**
      * returns a string that represents the client library version
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string MySQL client library version
      */
-    public function getClientInfo($mysqli)
+    public function getClientInfo($link)
     {
-        return $mysqli->get_client_info();
+        return $link->get_client_info();
     }
 
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli|false|null $link mysql link
      *
      * @return string|bool error or false
      */
-    public function getError($mysqli)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
 
-        if ($mysqli !== null && $mysqli !== false) {
-            $error_number = $mysqli->errno;
-            $error_message = $mysqli->error;
+        if ($link !== null && $link !== false) {
+            $error_number = $link->errno;
+            $error_message = $link->error;
         } else {
-            $error_number = $mysqli->connect_errno;
-            $error_message = $mysqli->connect_error;
+            $error_number = mysqli_connect_errno();
+            $error_message = (string) mysqli_connect_error();
         }
 
-        if ($error_number == 0) {
+        if ($error_number === 0 || $error_message === '') {
             return false;
         }
 
@@ -380,7 +386,7 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows returned by last query
      *
-     * @param mysqli_result $result result set identifier
+     * @param mysqli_result|bool $result result set identifier
      *
      * @return string|int
      */
@@ -397,13 +403,13 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return int
      */
-    public function affectedRows($mysqli)
+    public function affectedRows($link)
     {
-        return $mysqli->affected_rows;
+        return $link->affected_rows;
     }
 
     /**
@@ -457,7 +463,7 @@ class DbiMysqli implements DbiExtension
             return false;
         }
 
-        /** @var stdClass $fieldDefinition */
+        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
@@ -480,7 +486,7 @@ class DbiMysqli implements DbiExtension
             return '';
         }
 
-        /** @var stdClass $fieldDefinition */
+        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
@@ -492,26 +498,26 @@ class DbiMysqli implements DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mysqli $mysqli database link
+     * @param mysqli $link   database link
      * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($mysqli, $string)
+    public function escapeString($link, $string)
     {
-        return $mysqli->real_escape_string($string);
+        return $link->real_escape_string($string);
     }
 
     /**
      * Prepare an SQL statement for execution.
      *
-     * @param mysqli $mysqli database link
-     * @param string $query  The query, as a string.
+     * @param mysqli $link  database link
+     * @param string $query The query, as a string.
      *
      * @return mysqli_stmt|false A statement object or false.
      */
-    public function prepare($mysqli, string $query)
+    public function prepare($link, string $query)
     {
-        return $mysqli->prepare($query);
+        return $link->prepare($query);
     }
 }

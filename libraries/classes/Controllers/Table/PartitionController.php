@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
+use Throwable;
 
 use function strlen;
 
@@ -36,7 +39,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$rows, $query] = $this->model->analyze($this->db, $this->table, $partitionName);
+        try {
+            [$rows, $query] = $this->model->analyze(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -59,7 +69,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$rows, $query] = $this->model->check($this->db, $this->table, $partitionName);
+        try {
+            [$rows, $query] = $this->model->check(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -82,7 +99,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$result, $query] = $this->model->drop($this->db, $this->table, $partitionName);
+        try {
+            [$result, $query] = $this->model->drop(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         if ($result) {
             $message = Generator::getMessage(
@@ -112,7 +136,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$rows, $query] = $this->model->optimize($this->db, $this->table, $partitionName);
+        try {
+            [$rows, $query] = $this->model->optimize(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -135,7 +166,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$result, $query] = $this->model->rebuild($this->db, $this->table, $partitionName);
+        try {
+            [$result, $query] = $this->model->rebuild(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         if ($result) {
             $message = Generator::getMessage(
@@ -165,7 +203,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$rows, $query] = $this->model->repair($this->db, $this->table, $partitionName);
+        try {
+            [$rows, $query] = $this->model->repair(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
@@ -188,7 +233,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$result, $query] = $this->model->truncate($this->db, $this->table, $partitionName);
+        try {
+            [$result, $query] = $this->model->truncate(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         if ($result) {
             $message = Generator::getMessage(

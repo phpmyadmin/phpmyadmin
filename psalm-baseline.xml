@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.7.2@83a0325c0a95c0ab531d6b90c877068b464377b5">
+<files psalm-version="4.7.3@38c452ae584467e939d55377aaf83b5a26f19dd1">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -101,11 +101,6 @@
       <code>mb_strpos($row, ' ON ')</code>
       <code>mb_strpos($row, ' ON ')</code>
     </PossiblyFalseOperand>
-  </file>
-  <file src="libraries/classes/Command/CacheWarmupCommand.php">
-    <TooFewArguments occurrences="1">
-      <code>loadTemplate</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Command/SetVersionCommand.php">
     <NonInvariantDocblockPropertyType occurrences="1">
@@ -503,6 +498,12 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="4">
+      <code>$current_timestamp ? '' : $data['Default']</code>
+      <code>$data['Collation'] ?? ''</code>
+      <code>$data['Expression']</code>
+      <code>$data['Virtuality']</code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="14">
       <code>$avg_size</code>
       <code>$avg_unit</code>
@@ -671,24 +672,20 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <InvalidPropertyFetch occurrences="2">
-      <code>$mysqli-&gt;connect_errno</code>
-      <code>$mysqli-&gt;connect_error</code>
-    </InvalidPropertyFetch>
     <MoreSpecificImplementedParamType occurrences="23">
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -700,23 +697,6 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
-    <ParamNameMismatch occurrences="7">
-      <code>$databaseName</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$string</code>
-    </ParamNameMismatch>
-    <PossiblyNullPropertyFetch occurrences="2">
-      <code>$mysqli-&gt;connect_errno</code>
-      <code>$mysqli-&gt;connect_error</code>
-    </PossiblyNullPropertyFetch>
-    <TypeDoesNotContainNull occurrences="2">
-      <code>$return_value === false || $return_value === null</code>
-      <code>$return_value === null</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <InvalidArgument occurrences="9">
@@ -736,11 +716,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <ParadoxicalCondition occurrences="3">
-      <code>! isset($column) || $column === null</code>
-      <code>! isset($column) || $column === null</code>
-      <code>! isset($column) || $column === null</code>
-    </ParadoxicalCondition>
     <PossiblyInvalidArgument occurrences="3">
       <code>$colVisib</code>
       <code>$colVisib</code>
@@ -790,11 +765,6 @@
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
-    <TypeDoesNotContainNull occurrences="3">
-      <code>$column === null</code>
-      <code>$column === null</code>
-      <code>$column === null</code>
-    </TypeDoesNotContainNull>
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($map)</code>
     </TypeDoesNotContainType>
@@ -862,6 +832,9 @@
     <NullableReturnStatement occurrences="1">
       <code>Util::formatByteDown($value)</code>
     </NullableReturnStatement>
+    <ParamNameMismatch occurrences="1">
+      <code>$formatted_size</code>
+    </ParamNameMismatch>
     <UndefinedConstant occurrences="12">
       <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
       <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
@@ -935,17 +908,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>empty($charLists)</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Footer.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$object</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>object</code>
-    </InvalidReturnType>
-    <ReferenceConstraintViolation occurrences="1">
-      <code>return $object;</code>
-    </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
     <PossiblyFalseOperand occurrences="2">
@@ -1095,9 +1057,6 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <ParadoxicalCondition occurrences="1">
-      <code>$error</code>
-    </ParadoxicalCondition>
     <PossiblyFalseOperand occurrences="3">
       <code>$decPos</code>
       <code>strpos($lastCumulativeSize, ',')</code>
@@ -1290,6 +1249,11 @@
       <code>(string) $pack_keys</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/Pdf.php">
+    <ParamNameMismatch occurrences="1">
+      <code>$error_message</code>
+    </ParamNameMismatch>
+  </file>
   <file src="libraries/classes/Plugins.php">
     <InvalidNullableReturnType occurrences="1">
       <code>string</code>
@@ -1305,10 +1269,6 @@
     <NullableReturnStatement occurrences="1">
       <code>$ret</code>
     </NullableReturnStatement>
-    <PossiblyNullArgument occurrences="2">
-      <code>$text</code>
-      <code>$text</code>
-    </PossiblyNullArgument>
     <RedundantCast occurrences="2">
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
@@ -1325,15 +1285,6 @@
     <RedundantCast occurrences="1">
       <code>(string) $conn_error</code>
     </RedundantCast>
-  </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$sessionCookieParams['domain']</code>
-      <code>$sessionCookieParams['httponly']</code>
-      <code>$sessionCookieParams['lifetime']</code>
-      <code>$sessionCookieParams['path']</code>
-      <code>$sessionCookieParams['secure']</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
     <PossiblyNullArgument occurrences="6">
@@ -1459,12 +1410,6 @@
       <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
-    <UndefinedMethod occurrences="4">
-      <code>$statement-&gt;fields</code>
-      <code>$statement-&gt;fields</code>
-      <code>$statement-&gt;fields</code>
-      <code>$statement-&gt;fields</code>
-    </UndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
     <ParamNameMismatch occurrences="3">
@@ -1486,6 +1431,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <ParamNameMismatch occurrences="1">
+      <code>$topMargin</code>
+    </ParamNameMismatch>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>
@@ -1501,9 +1449,6 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <ParadoxicalCondition occurrences="1">
-      <code>$error</code>
-    </ParadoxicalCondition>
     <PossiblyNullReference occurrences="2">
       <code>addProperty</code>
       <code>addProperty</code>
@@ -1572,13 +1517,6 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="5">
-      <code>$this-&gt;orientation</code>
-      <code>$this-&gt;paper</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;showKeys</code>
-    </PossiblyNullArgument>
     <PossiblyNullReference occurrences="3">
       <code>endDiaDoc</code>
       <code>showOutput</code>
@@ -1638,20 +1576,10 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="16">
+    <PossiblyNullArgument occurrences="6">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
-      <code>$this-&gt;offline</code>
-      <code>$this-&gt;orientation</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tablewidth</code>
@@ -1746,23 +1674,10 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="21">
+    <PossiblyNullArgument occurrences="8">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
-      <code>$this-&gt;offline</code>
-      <code>$this-&gt;orientation</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;paper</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
       <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tablewidth</code>
       <code>$this-&gt;tablewidth</code>
@@ -1982,9 +1897,6 @@
       <code>setWidths</code>
     </PossiblyUndefinedMethod>
     <RedundantCast occurrences="2"/>
-    <RedundantPropertyInitializationCheck occurrences="1">
-      <code>isset($this-&gt;orientation)</code>
-    </RedundantPropertyInitializationCheck>
     <UndefinedPropertyAssignment occurrences="5">
       <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$this-&gt;diagram-&gt;customLinks</code>
@@ -2077,26 +1989,11 @@
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;tables[$table]</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="15">
+    <PossiblyNullArgument occurrences="3">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
-      <code>$this-&gt;offline</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;pageNumber</code>
-      <code>$this-&gt;showKeys</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tableDimension</code>
-      <code>$this-&gt;tablewidth</code>
-      <code>$this-&gt;tablewidth</code>
-      <code>$this-&gt;tablewidth</code>
     </PossiblyNullArgument>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;tablewidth</code>
-    </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference occurrences="13">
       <code>SetAuthor</code>
       <code>endSvgDoc</code>
@@ -2376,15 +2273,14 @@
     <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$result</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1">
       <code>$insertId</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="21">
+    <PossiblyNullArgument occurrences="20">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
@@ -2395,7 +2291,6 @@
       <code>$messageToShow ?? null</code>
       <code>$printView</code>
       <code>$printView</code>
-      <code>$result</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
       <code>$showtable</code>
@@ -2472,11 +2367,6 @@
       <code>(string) $table</code>
       <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
-    <RedundantPropertyInitializationCheck occurrences="3">
-      <code>isset($this-&gt;uiprefs)</code>
-      <code>isset($this-&gt;uiprefs)</code>
-      <code>isset($this-&gt;uiprefs)</code>
-    </RedundantPropertyInitializationCheck>
     <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
@@ -2485,6 +2375,10 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
+    <PossiblyFalseArgument occurrences="2">
+      <code>$form_params['db']</code>
+      <code>$form_params['table']</code>
+    </PossiblyFalseArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>
@@ -2588,9 +2482,10 @@
     <EmptyArrayAccess occurrences="1">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
-    <InvalidArrayOffset occurrences="3">
+    <InvalidArrayOffset occurrences="4">
       <code>$group[$groupName]['is' . $sep . 'group']</code>
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
+      <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
@@ -2615,9 +2510,8 @@
       <code>$group[$tableName]</code>
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayAssignment>
-    <PossiblyInvalidArrayOffset occurrences="2">
+    <PossiblyInvalidArrayOffset occurrences="1">
       <code>$table['Name']</code>
-      <code>$table['disp_name']</code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument occurrences="2">
       <code>$maxSize</code>

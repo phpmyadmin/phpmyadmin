@@ -131,7 +131,10 @@ class TrackingTest extends AbstractTestCase
         $this->assertStringContainsString('PMA_db.PMA_table', $html);
         $this->assertStringContainsString('<td>date_created</td>', $html);
         $this->assertStringContainsString(__('Delete version'), $html);
-        $this->assertStringContainsString('<div id="div_create_version">', $html);
+        $this->assertStringContainsString('<div class="card mt-3">', $html);
+        $this->assertStringContainsString('<div class="card-header">', $html);
+        $this->assertStringContainsString('<div class="card-body">', $html);
+        $this->assertStringContainsString('<div class="card-footer">', $html);
         $this->assertStringContainsString(Url::getHiddenInputs($GLOBALS['db']), $html);
         $this->assertStringContainsString(
             sprintf(

@@ -3541,7 +3541,7 @@ class Results
         $defaultFunction,
         array $transformOptions
     ) {
-        if (! isset($column) || $column === null) {
+        if (! isset($column)) {
             $cell = $this->buildNullDisplay(
                 'text-end ' . $class,
                 $conditionField,
@@ -3616,7 +3616,7 @@ class Results
         $transformOptions,
         array $analyzedSqlResults
     ) {
-        if (! isset($column) || $column === null) {
+        if (! isset($column)) {
             return $this->buildNullDisplay($class, $conditionField, $meta);
         }
 
@@ -3793,7 +3793,7 @@ class Results
             $class = str_replace('grid_edit', '', $class);
         }
 
-        if (! isset($column) || $column === null) {
+        if (! isset($column)) {
             return $this->buildNullDisplay($class, $conditionField, $meta);
         }
 

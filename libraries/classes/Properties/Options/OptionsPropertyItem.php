@@ -20,19 +20,19 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Name
      *
-     * @var string
+     * @var string|null
      */
     private $name;
     /**
      * Text
      *
-     * @var string
+     * @var string|null
      */
     private $text;
     /**
      * What to force
      *
-     * @var string
+     * @var string|null
      */
     private $force;
 
@@ -58,7 +58,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -80,7 +80,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the text
      *
-     * @return string
+     * @return string|null
      */
     public function getText()
     {
@@ -102,7 +102,7 @@ abstract class OptionsPropertyItem extends PropertyItem
     /**
      * Gets the force parameter
      *
-     * @return string
+     * @return string|null
      */
     public function getForce()
     {

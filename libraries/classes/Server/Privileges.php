@@ -121,7 +121,7 @@ class Privileges
     /**
      * Generates a condition on the user name
      *
-     * @param string $initial the user's initial
+     * @param string|null $initial the user's initial
      *
      * @return string   the generated condition
      */
@@ -231,7 +231,11 @@ class Privileges
             ) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
-                    /** @param string $val */
+                    /**
+                     * @param string $val
+                     *
+                     * @return string
+                     */
                     static function ($val) {
                         return Util::backquote($val);
                     },

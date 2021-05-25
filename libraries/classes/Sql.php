@@ -26,6 +26,7 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_object;
 use function microtime;
 use function session_start;
 use function session_write_close;
@@ -1460,7 +1461,7 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param object|null         $result               executed query results
+     * @param object|bool|null    $result               executed query results
      * @param array               $analyzedSqlResults   analysed sql results
      * @param string              $db                   current database
      * @param string              $table                current table
@@ -1495,13 +1496,13 @@ class Sql
 
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
+        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true && is_object($result)) {
             $this->getResponseForGridEdit($result);
             exit;
         }
 
         // Gets the list of fields properties
-        if (isset($result) && $result) {
+        if (isset($result) && is_object($result)) {
             $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
         } else {
             $fieldsMeta = [];
@@ -1803,7 +1804,7 @@ class Sql
         }
 
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($db ?? '');
 
         [
             $result,
@@ -1851,7 +1852,7 @@ class Sql
             $htmlOutput = $this->getQueryResponseForResultsReturned(
                 $result ?? null,
                 $analyzedSqlResults,
-                $db,
+                $db ?? '',
                 $table,
                 $sqlData ?? null,
                 $displayResultsObject,

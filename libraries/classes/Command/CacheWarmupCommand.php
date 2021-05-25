@@ -16,7 +16,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
-use Twig\Environment;
 
 use function fclose;
 use function fopen;
@@ -157,20 +156,19 @@ final class CacheWarmupCommand extends Command
 
             $name = str_replace(Template::TEMPLATES_FOLDER . '/', '', $file->getPathname());
             $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
-            if (Environment::MAJOR_VERSION === 3) {
-                $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
-            } else {// @phpstan-ignore-line Twig 2
-                $template = $twig->loadTemplate($name);// @phpstan-ignore-line Twig 2
-            }
+            /** @psalm-suppress InternalMethod */
+            $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
 
             if (! $writeReplacements) {
                 continue;
             }
 
             // Generate line map
+            /** @psalm-suppress InternalMethod */
             $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
             $template_file = 'templates/' . $name;
             $cache_file = str_replace($tmpDir, 'twig-templates', $cacheFilename);
+            /** @psalm-suppress InternalMethod */
             $replacements[$cache_file] = [$template_file, $template->getDebugInfo()];
         }
 
