@@ -50,7 +50,12 @@ class TrackingTest extends AbstractTestCase
         ];
 
         $template = new Template();
-        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($GLOBALS['dbi']));
+        $this->tracking = new Tracking(
+            new SqlQueryForm($template),
+            $template,
+            new Relation($GLOBALS['dbi']),
+            $GLOBALS['dbi']
+        );
     }
 
     /**
@@ -126,7 +131,7 @@ class TrackingTest extends AbstractTestCase
 
     public function testGetHtmlForMain(): void
     {
-        $html = $this->tracking->getHtmlForMainPage([], 'ltr');
+        $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', [], 'ltr');
 
         $this->assertStringContainsString('PMA_db.PMA_table', $html);
         $this->assertStringContainsString('<td>date_created</td>', $html);
@@ -158,7 +163,7 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetTableLastVersionNumber(): void
     {
-        $sql_result = $this->tracking->getSqlResultForSelectableTables();
+        $sql_result = $this->tracking->getSqlResultForSelectableTables('PMA_db');
         $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
 
         $this->assertEquals(
@@ -172,7 +177,7 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetSQLResultForSelectableTables(): void
     {
-        $ret = $this->tracking->getSqlResultForSelectableTables();
+        $ret = $this->tracking->getSqlResultForSelectableTables('PMA_db');
 
         $this->assertNotFalse($ret);
     }
@@ -278,7 +283,7 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetListOfVersionsOfTable(): void
     {
-        $ret = $this->tracking->getListOfVersionsOfTable();
+        $ret = $this->tracking->getListOfVersionsOfTable('PMA_db', 'PMA_table');
 
         $this->assertNotFalse($ret);
     }

@@ -54,6 +54,6 @@ class SqlController extends AbstractController
             $this->dbi->selectDb('mysql');
         }
 
-        $this->response->addHTML($this->sqlQueryForm->getHtml());
+        $this->response->addHTML($this->sqlQueryForm->getHtml('', ''));
     }
 }
