@@ -119,6 +119,7 @@ class ImportShpTest extends AbstractTestCase
      * Test for doImport with complex data
      *
      * @group medium
+     * @group 32bit-incompatible
      */
     public function testImportOsm(): void
     {
@@ -153,6 +154,7 @@ class ImportShpTest extends AbstractTestCase
      * Test for doImport
      *
      * @group medium
+     * @group 32bit-incompatible
      */
     public function testDoImport(): void
     {
