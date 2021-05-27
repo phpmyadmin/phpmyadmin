@@ -1210,6 +1210,35 @@ class InsertEditTest extends AbstractTestCase
             '<input type="hidden" name="fields_typeb" value="datetime">',
             $result
         );
+
+        // case 4: (else -> date)
+        $column['pma_type'] = 'date';
+        $result = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getValueColumnForOtherDatatypes',
+            [
+                $column,
+                'defchar',
+                'a',
+                'b',
+                'c',
+                22,
+                '&lt;',
+                12,
+                1,
+                '/',
+                '&lt;',
+                "foo\nbar",
+                $extracted_columnspec,
+                false,
+            ]
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" name="fields_typeb" value="date">',
+            $result
+        );
     }
 
     /**

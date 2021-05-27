@@ -114,6 +114,7 @@ phpMyAdmin - ChangeLog
 - issue #16437 Fixed sticky top position when using smaller screen sizes
 - issue #16895 Fixed wrong table count on space separated numbers
 - issue #16882 Fixed table delete resets count to 0
+- issue #16892 Fixed current_timestamp() stringified on INSERT for date field
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

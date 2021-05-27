@@ -915,9 +915,10 @@ class InsertEdit
                     . $columnNameAppendix . '" value="timestamp">';
             }
 
-            if (substr($column['pma_type'], 0, 8) === 'datetime') {
+            if (substr($column['pma_type'], 0, 4) === 'date') {
+                $type = substr($column['pma_type'], 0, 8) === 'datetime' ? 'datetime' : 'date';
                 $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="datetime">';
+                    . $columnNameAppendix . '" value="' . $type . '">';
             }
 
             if ($column['True_Type'] === 'bit') {
@@ -1973,7 +1974,7 @@ class InsertEdit
                 $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
                 $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
             } elseif (
-                ! ($type === 'datetime' || $type === 'timestamp')
+                ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
                 || ($currentValue !== 'CURRENT_TIMESTAMP'
                     && $currentValue !== 'current_timestamp()')
             ) {
