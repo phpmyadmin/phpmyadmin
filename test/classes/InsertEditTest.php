@@ -1314,123 +1314,15 @@ class InsertEditTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getActionsPanel
-     */
-    public function testGetActionsPanel(): void
+    public function testIsWhereClauseNumeric(): void
     {
-        $GLOBALS['cfg']['ShowHint'] = false;
-        $result = $this->insertEdit->getActionsPanel(null, 'back', 2, 1, false);
-
-        $this->assertStringContainsString(
-            '<select name="submit_type" class="control_at_footer" tabindex="4">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<select name="after_insert"',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="submit" class="btn btn-primary control_at_footer" value="Go" '
-            . 'tabindex="11" id="buttonYes"',
-            $result
-        );
-    }
-
-    /**
-     * Test for getSubmitTypeDropDown
-     */
-    public function testGetSubmitTypeDropDown(): void
-    {
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getSubmitTypeDropDown',
-            [
-                [],
-                2,
-                2,
-            ]
-        );
-
-        $this->assertStringContainsString(
-            '<select name="submit_type" class="control_at_footer" tabindex="5">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<option value="save">',
-            $result
-        );
-    }
-
-    /**
-     * Test for getAfterInsertDropDown
-     */
-    public function testGetAfterInsertDropDown(): void
-    {
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getAfterInsertDropDown',
-            [
-                '`t`.`f` = 2',
-                'new_insert',
-                true,
-            ]
-        );
-
-        $this->assertStringContainsString(
-            '<option value="new_insert" selected="selected">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<option value="same_insert"',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<option value="edit_next" >',
-            $result
-        );
-    }
-
-    /**
-     * Test for getSubmitAndResetButtonForActionsPanel
-     */
-    public function testGetSubmitAndResetButtonForActionsPanel(): void
-    {
-        $GLOBALS['cfg']['ShowHint'] = false;
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getSubmitAndResetButtonForActionsPanel',
-            [
-                1,
-                0,
-            ]
-        );
-
-        $this->assertStringContainsString(
-            '<input type="submit" class="btn btn-primary control_at_footer" value="Go" '
-            . 'tabindex="9" id="buttonYes">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="button" class="btn btn-secondary preview_sql" value="Preview SQL" '
-            . 'tabindex="7">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="reset" class="btn btn-secondary control_at_footer" value="Reset" '
-            . 'tabindex="8">',
-            $result
-        );
+        $this->assertFalse(InsertEdit::isWhereClauseNumeric(null));
+        $this->assertFalse(InsertEdit::isWhereClauseNumeric(''));
+        $this->assertFalse(InsertEdit::isWhereClauseNumeric([]));
+        $this->assertTrue(InsertEdit::isWhereClauseNumeric('`actor`.`actor_id` = 1'));
+        $this->assertTrue(InsertEdit::isWhereClauseNumeric(['`actor`.`actor_id` = 1']));
+        $this->assertFalse(InsertEdit::isWhereClauseNumeric('`actor`.`first_name` = \'value\''));
+        $this->assertFalse(InsertEdit::isWhereClauseNumeric(['`actor`.`first_name` = \'value\'']));
     }
 
     /**

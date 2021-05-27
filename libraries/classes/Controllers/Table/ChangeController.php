@@ -265,14 +265,13 @@ class ChangeController extends AbstractController
             $after_insert = 'back';
         }
 
-        //action panel
-        $html_output .= $this->insertEdit->getActionsPanel(
-            $where_clause,
-            $after_insert,
-            $tabindex,
-            $tabindex_for_value,
-            $found_unique_key
-        );
+        $isNumeric = InsertEdit::isWhereClauseNumeric($where_clause);
+        $html_output .= $this->template->render('table/insert/actions_panel', [
+            'where_clause' => $where_clause,
+            'after_insert' => $after_insert,
+            'found_unique_key' => $found_unique_key,
+            'is_numeric' => $isNumeric,
+        ]);
 
         if ($biggest_max_file_size > 0) {
             $html_output .= '<input type="hidden" name="MAX_FILE_SIZE" value="' . $biggest_max_file_size . '">' . "\n";
