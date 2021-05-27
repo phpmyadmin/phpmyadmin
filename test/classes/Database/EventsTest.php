@@ -179,46 +179,16 @@ class EventsTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                '<input name="add_item"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_name"',
-            ],
-            [
-                $data,
-                '<select name="item_status"',
-            ],
-            [
-                $data,
-                '<input name="item_type"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_execute_at"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_ends"',
-            ],
-            [
-                $data,
-                '<textarea name="item_definition"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_definer"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_comment"',
-            ],
-            [
-                $data,
-                '<input type="submit" name="editor_process_add"',
-            ],
+            [$data, '<input name="add_item"'],
+            [$data, '<input type="text" name="item_name"'],
+            [$data, '<select name="item_status"'],
+            [$data, '<input name="item_type"'],
+            [$data, '<input type="text" name="item_execute_at"'],
+            [$data, '<input type="text" name="item_ends"'],
+            [$data, '<textarea name="item_definition"'],
+            [$data, '<input type="text" name="item_definer"'],
+            [$data, '<input type="text" name="item_comment"'],
+            [$data, '<input class="btn btn-primary" type="submit" name="editor_process_add"'],
         ];
     }
 
@@ -263,46 +233,16 @@ class EventsTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                '<input name="edit_item"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_name"',
-            ],
-            [
-                $data,
-                '<select name="item_status"',
-            ],
-            [
-                $data,
-                '<input name="item_type"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_execute_at"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_ends"',
-            ],
-            [
-                $data,
-                '<textarea name="item_definition"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_definer"',
-            ],
-            [
-                $data,
-                '<input type="text" name="item_comment"',
-            ],
-            [
-                $data,
-                '<input type="submit" name="editor_process_edit"',
-            ],
+            [$data, '<input name="edit_item"'],
+            [$data, '<input type="text" name="item_name"'],
+            [$data, '<select name="item_status"'],
+            [$data, '<input name="item_type"'],
+            [$data, '<input type="text" name="item_execute_at"'],
+            [$data, '<input type="text" name="item_ends"'],
+            [$data, '<textarea name="item_definition"'],
+            [$data, '<input type="text" name="item_definer"'],
+            [$data, '<input type="text" name="item_comment"'],
+            [$data, '<input class="btn btn-primary" type="submit" name="editor_process_edit"'],
         ];
     }
 
@@ -349,18 +289,9 @@ class EventsTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                '<select name="item_type"',
-            ],
-            [
-                $data,
-                '<input type="hidden" name="editor_process_edit"',
-            ],
-            [
-                $data,
-                '<input type="hidden" name="ajax_request"',
-            ],
+            [$data, '<select name="item_type"'],
+            [$data, '<input type="hidden" name="editor_process_edit"'],
+            [$data, '<input type="hidden" name="ajax_request"'],
         ];
     }
 
