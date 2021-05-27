@@ -646,29 +646,27 @@ class Triggers
             }
         }
 
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($exportData !== false) {
-            $exportData = htmlspecialchars(trim($exportData));
-            $title = sprintf(__('Export of trigger %s'), $itemName);
+            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($itemName)));
 
             if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $exportData);
+                $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
                 $this->response->addJSON('title', $title);
 
                 exit;
             }
 
-            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
-                . $exportData . '</textarea>';
-            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
-                . $exportData . "</fieldset>\n";
+            $this->response->addHTML($this->template->render('database/triggers/export', [
+                'data' => $exportData,
+                'item_name' => $itemName,
+            ]));
 
             return;
         }
 
         $message = sprintf(
             __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
-            $itemName,
+            htmlspecialchars(Util::backquote($itemName)),
             htmlspecialchars(Util::backquote($db))
         );
         $message = Message::error($message);
@@ -680,6 +678,6 @@ class Triggers
             exit;
         }
 
-        echo $message->getDisplay();
+        $this->response->addHTML($message->getDisplay());
     }
 }
