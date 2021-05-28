@@ -123,7 +123,7 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param int|string $max_upload_size the size
+     * @param int|float|string $max_upload_size the size
      *
      * @return string the message
      *
@@ -696,9 +696,9 @@ class Util
      *
      * @param string|int $formatted_size the size expression (for example 8MB)
      *
-     * @return int The numerical part of the expression (for example 8)
+     * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formatted_size): int
+    public static function extractValueFromFormattedSize($formatted_size)
     {
         $return_value = -1;
 
