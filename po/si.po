@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-03-12 07:02+0000\n"
+"PO-Revision-Date: 2021-05-29 06:33+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@protonmail.ch>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "si/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7595,7 +7595,7 @@ msgstr "කරුණාකර දත්තගබඩාව අඩංගු ඩි
 
 #: libraries/classes/DatabaseInterface.php:2203
 msgid "Details…"
-msgstr "තොරතුරු…"
+msgstr "විස්තර…"
 
 #: libraries/classes/DatabaseInterface.php:2507
 #, fuzzy
@@ -11317,7 +11317,7 @@ msgstr "සිද්ධිය සංස්කරණය කරන්න"
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
 msgid "Details"
-msgstr "තොරතුරු"
+msgstr "විස්තර"
 
 #: libraries/classes/Rte/Events.php:407
 msgid "Event name"
