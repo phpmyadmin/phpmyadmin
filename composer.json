@@ -81,7 +81,7 @@
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
-        "php-webdriver/webdriver": "^1.8",
+        "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^2.1.1",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^0.12.79",
