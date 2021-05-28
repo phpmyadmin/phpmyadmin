@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function str_repeat;
 
 /**
