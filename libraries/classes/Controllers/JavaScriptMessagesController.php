@@ -535,6 +535,7 @@ final class JavaScriptMessagesController
             'strSavePageAs' => __('Save page as'),
             'strOpenPage' => __('Open page'),
             'strDeletePage' => __('Delete page'),
+            'strSavedPageTableMissing' => __('Some tables saved in this page might have been renamed or deleted.'),
             'strUntitled' => __('Untitled'),
             'strSelectPage' => __('Please select a page to continue'),
             'strEnterValidPageName' => __('Please enter a valid page name'),

@@ -120,6 +120,7 @@ phpMyAdmin - ChangeLog
 - issue #14130 Created new messages for U2F errors
 - issue #16920 Fixed "Uncaught TypeError: PhpMyAdmin\Import::detectType()" on ODS import
 - issue #16926 Fixed ODS import warning: Undefined array key "ods_empty_rows"
+- issue #16888 Fixed JS error on renaming tables in saved Designer page
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
