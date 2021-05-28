@@ -753,6 +753,9 @@
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
     </PossiblyNullPropertyFetch>
+    <TooFewArguments occurrences="1">
+      <code>mysqli_get_client_info()</code>
+    </TooFewArguments>
     <TypeDoesNotContainNull occurrences="2">
       <code>$return_value === false || $return_value === null</code>
       <code>$return_value === null</code>
@@ -2340,11 +2343,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
-  </file>
-  <file src="libraries/classes/Routing.php">
-    <UnresolvableInclude occurrences="1">
-      <code>require self::ROUTES_CACHE_FILE</code>
-    </UnresolvableInclude>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <RedundantCast occurrences="4">
