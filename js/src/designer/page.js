@@ -128,19 +128,28 @@ DesignerPage.showNewPageTables = function (check) {
 };
 
 DesignerPage.loadHtmlForPage = function (pageId) {
-    DesignerPage.showNewPageTables(false);
+    DesignerPage.showNewPageTables(true);
     DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
         $('#name-panel').find('#page_name').text(page.pageDescr);
-        DesignerMove.markSaved();
+        var tableMissing = false;
         for (var t = 0; t < tblCords.length; t++) {
             var tbId = db + '.' + tblCords[t].tableName;
             var table = document.getElementById(tbId);
+            if (table === null) {
+                tableMissing = true;
+                continue;
+            }
             table.style.top = tblCords[t].y + 'px';
             table.style.left = tblCords[t].x + 'px';
 
             var checkbox = document.getElementById('check_vis_' + tbId);
             checkbox.checked = true;
             DesignerMove.visibleTab(checkbox, checkbox.value);
+        }
+        DesignerMove.markSaved();
+        if (tableMissing === true) {
+            DesignerMove.markUnsaved();
+            Functions.ajaxShowMessage(Messages.strSavedPageTableMissing);
         }
         selectedPage = page.pgNr;
     });
