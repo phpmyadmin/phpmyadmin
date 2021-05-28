@@ -2344,6 +2344,11 @@
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
   </file>
+  <file src="libraries/classes/Routing.php">
+    <UnresolvableInclude occurrences="1">
+      <code>require self::ROUTES_CACHE_FILE</code>
+    </UnresolvableInclude>
+  </file>
   <file src="libraries/classes/Sanitize.php">
     <RedundantCast occurrences="4">
       <code>(array) $_COOKIE</code>
@@ -2705,12 +2710,6 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement occurrences="1">
-      <code>$return_value</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int</code>
-    </InvalidReturnType>
     <NullableReturnStatement occurrences="1">
       <code>$wktval</code>
     </NullableReturnStatement>
