@@ -9,21 +9,34 @@ namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
  * Tests basic functionality of dummy dbi driver
  */
 class DbiDummyTest extends AbstractTestCase
 {
+    /** @var DbiDummy */
+    protected $object;
+
     /**
      * Configures test parameters.
      */
     protected function setUp(): void
     {
         parent::setUp();
+        $this->object = new DbiDummy();
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';
         $GLOBALS['server'] = 1;
+    }
+
+    public function testGetClientInfo(): void
+    {
+        $obj = (object) [];
+        $this->assertNotEmpty($this->object->getClientInfo($obj));
+        // Call the DatabaseInterface
+        $this->assertSame($GLOBALS['dbi']->getClientInfo(), $this->object->getClientInfo($obj));
     }
 
     /**
