@@ -270,7 +270,8 @@ class InsertEdit
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+        // Can be a string on some old configuration storage settings
+        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
 
         return [
             $result,

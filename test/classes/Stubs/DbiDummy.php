@@ -960,6 +960,16 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Shop\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'pma_bookmark\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_dataset\' AND TABLE_NAME = \'company_users\'',
                 'result' => [],
             ],

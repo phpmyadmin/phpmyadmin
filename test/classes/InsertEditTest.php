@@ -297,12 +297,52 @@ class InsertEditTest extends AbstractTestCase
         $this->assertFalse($result);
     }
 
+    public function dataProviderConfigValueInsertRows(): array
+    {
+        return [
+            [
+                2,
+                [
+                    false,
+                    false,
+                ],
+            ],
+            [
+                '2',
+                [
+                    false,
+                    false,
+                ],
+            ],
+            [
+                3,
+                [
+                    false,
+                    false,
+                    false,
+                ],
+            ],
+            [
+                '3',
+                [
+                    false,
+                    false,
+                    false,
+                ],
+            ],
+        ];
+    }
+
     /**
      * Test for loadFirstRow
+     *
+     * @param string|int $configValue
+     *
+     * @dataProvider dataProviderConfigValueInsertRows
      */
-    public function testLoadFirstRow(): void
+    public function testLoadFirstRow($configValue, array $rowsValue): void
     {
-        $GLOBALS['cfg']['InsertRows'] = 2;
+        $GLOBALS['cfg']['InsertRows'] = $configValue;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -330,10 +370,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'result1',
-                [
-                    false,
-                    false,
-                ],
+                $rowsValue,
             ],
             $result
         );
