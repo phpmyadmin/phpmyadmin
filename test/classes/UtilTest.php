@@ -754,12 +754,12 @@ class UtilTest extends AbstractTestCase
      * Test for Util::extractValueFromFormattedSize
      *
      * @param int|string $size     Size
-     * @param int        $expected Expected value
+     * @param int|float  $expected Expected value (float on some cpu architectures)
      *
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
-    public function testExtractValueFromFormattedSize($size, int $expected): void
+    public function testExtractValueFromFormattedSize($size, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1138,14 +1138,14 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::getFormattedMaximumUploadSize
      *
-     * @param int    $size Size
-     * @param string $unit Unit
-     * @param string $res  Result
+     * @param int|float $size Size (float on some cpu architectures)
+     * @param string    $unit Unit
+     * @param string    $res  Result
      *
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
-    public function testGetFormattedMaximumUploadSize(int $size, string $unit, string $res): void
+    public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
     {
         $this->assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',

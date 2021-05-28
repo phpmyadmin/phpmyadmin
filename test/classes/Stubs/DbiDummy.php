@@ -308,7 +308,7 @@ class DbiDummy implements DbiExtension
      */
     public function getClientInfo($link)
     {
-        return '';
+        return 'libmysql - mysqlnd x.x.x-dev (phpMyAdmin tests)';
     }
 
     /**
