@@ -608,7 +608,31 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
 
 DesignerMove.addOtherDbTables = function () {
     var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
+
+    var $selectDb = $('<select id="add_table_from"></select>');
+    $selectDb.append('<option value="">' + Messages.strNone + '</option>');
+
+    var $selectTable = $('<select id="add_table"></select>');
+    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
+
+    $.post('index.php?route=/sql', {
+        'ajax_request' : true,
+        'sql_query' : 'SHOW databases;',
+        'server': CommonParams.get('server')
+    }, function (data) {
+        $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
+            var val = $(this)[0].innerText;
+            $selectDb.append($('<option></option>').val(val).text(val));
+        });
+    });
+
+    var modal = $('#designerGoModalModal');
+    modal.modal('show');
+    var $form = $('<form action="" class="ajax"></form>')
+        .append($selectDb).append($selectTable);
+    modal.find('.modal-body').first().html($form);
+    $('#designerGoModalLabel').first().html(Messages.strAddTables);
+    $('#designerModalGoButton').on('click', function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
 
@@ -644,44 +668,8 @@ DesignerMove.addOtherDbTables = function () {
                 DesignerMove.markUnsaved();
             }
         });
-        $(this).dialog('close');
-    };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
-
-    var $selectDb = $('<select id="add_table_from"></select>');
-    $selectDb.append('<option value="">' + Messages.strNone + '</option>');
-
-    var $selectTable = $('<select id="add_table"></select>');
-    $selectTable.append('<option value="">' + Messages.strNone + '</option>');
-
-    $.post('index.php?route=/sql', {
-        'ajax_request' : true,
-        'sql_query' : 'SHOW databases;',
-        'server': CommonParams.get('server')
-    }, function (data) {
-        $(data.message).find('table.table_results.data.ajax').find('td.data').each(function () {
-            var val = $(this)[0].innerText;
-            $selectDb.append($('<option></option>').val(val).text(val));
-        });
+        modal.modal('hide');
     });
-
-    var $form = $('<form action="" class="ajax"></form>')
-        .append($selectDb).append($selectTable);
-    $('<div id="page_add_tables_dialog"></div>')
-        .append($form)
-        .dialog({
-            appendTo: '#page_content',
-            title: Messages.strAddTables,
-            width: 500,
-            modal: true,
-            buttons: buttonOptions,
-            close: function () {
-                $(this).remove();
-            }
-        });
-
     $('#add_table_from').on('change', function () {
         if ($(this).val()) {
             var dbName = $(this).val();

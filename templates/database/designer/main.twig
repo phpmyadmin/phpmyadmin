@@ -1097,3 +1097,18 @@ var designerConfig = {{ designer_config|raw }};
     </div>
 {% endif %}
 <div id="PMA_disable_floating_menubar"></div>
+<div class="modal fade" id="designerGoModalModal" tabindex="-1" aria-labelledby="designerGoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="designerGoModalLabel">{% trans 'Loading' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
