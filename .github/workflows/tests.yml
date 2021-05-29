@@ -9,6 +9,53 @@ on:
       - QA_**
 
 jobs:
+    multi-arch-tests-php:
+        name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        runs-on: ubuntu-latest
+        strategy:
+          fail-fast: false
+          matrix:
+            include:
+              - { php-version: '7', arch: 'amd64', exclude-phpunit-groups: 'selenium,extension-iconv' }
+              - { php-version: '7', arch: 'arm64v8', exclude-phpunit-groups: 'selenium,extension-iconv' }
+              - { php-version: '7', arch: 'arm32v7', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'arm32v6', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'i386', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'ppc64le', exclude-phpunit-groups: 'selenium,extension-iconv' }
+              - { php-version: '7', arch: 's390x', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+        steps:
+            - uses: actions/checkout@v2
+            - name: Write script
+              # tcpdf allowed memory exhausted needs the memory_limit workaround
+              # musl-locales and musl-locales-lang are needed to run some locale specific tests
+              # gettext is needed to run generate-mo
+              # pcov for code coverage
+              run: |
+                  printf "set -exu && \
+                  export V='%s' && \
+                  apk add --update --no-cache \
+                  php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring \
+                  php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
+                  php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
+                  musl-locales musl-locales-lang \
+                  gettext composer && \
+                  apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
+                  composer update && \
+                  ./scripts/generate-mo && \
+                  php -d memory_limit=512M ./vendor/bin/phpunit --exclude-group=%s" \
+                  "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
+            - name: Setup multi arch support
+              run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+            - name: Print arch
+              run: docker run --rm ${{ matrix.arch }}/alpine:3.13 uname -a
+            - name: Run tests on php ${{ matrix.php-version }}
+              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.13 sh /app/do-tests.sh
+            - name: Send coverage
+              uses: codecov/codecov-action@v1
+              with:
+                flags: arch-${{ matrix.php-version }}-${{ matrix.arch }}
+                name: phpunit-${{ matrix.php-version }}-${{ matrix.arch }}
     test-php:
         name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"

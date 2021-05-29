@@ -20,6 +20,7 @@ use function is_array;
 use function is_bool;
 use function mysqli_connect_errno;
 use function mysqli_connect_error;
+use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
 use function stripos;
@@ -37,6 +38,7 @@ use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
 use const MYSQLI_REPORT_OFF;
 use const MYSQLI_STORE_RESULT;
 use const MYSQLI_USE_RESULT;
+use const PHP_VERSION_ID;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
@@ -350,7 +352,12 @@ class DbiMysqli implements DbiExtension
      */
     public function getClientInfo($link)
     {
-        return $link->get_client_info();
+        // See: https://github.com/phpmyadmin/phpmyadmin/issues/16911
+        if (PHP_VERSION_ID < 80100) {
+            return $link->get_client_info();
+        }
+
+        return mysqli_get_client_info();
     }
 
     /**

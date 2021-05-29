@@ -697,6 +697,9 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
+    <TooFewArguments occurrences="1">
+      <code>mysqli_get_client_info()</code>
+    </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <InvalidArgument occurrences="9">
@@ -2473,12 +2476,6 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <InvalidReturnStatement occurrences="1">
-      <code>$returnValue</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int</code>
-    </InvalidReturnType>
     <PossiblyFalseOperand occurrences="2">
       <code>mb_strpos($value, '.')</code>
       <code>mb_strrpos($columnSpecification, ')')</code>
