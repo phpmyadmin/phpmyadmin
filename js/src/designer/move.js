@@ -607,7 +607,6 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
 };
 
 DesignerMove.addOtherDbTables = function () {
-
     var $selectDb = $('<select id="add_table_from"></select>');
     $selectDb.append('<option value="">' + Messages.strNone + '</option>');
 
@@ -982,71 +981,6 @@ DesignerMove.deletePages = function () {
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
 DesignerMove.saveAs = function () {
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
-        var $form           = $('#save_as_pages');
-        var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
-        var $selectedPage  = $form.find('select[name="selected_page"]');
-        var choice          = $form.find('input[name="save_page"]:checked').val();
-        var name            = '';
-
-        if (choice === 'same') {
-            if ($selectedPage.val() === '0') {
-                Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
-                return;
-            }
-            name = $selectedPage.find('option:selected').text();
-        } else if (choice === 'new') {
-            if (selectedValue === '') {
-                Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
-                return;
-            }
-            name = selectedValue;
-        }
-
-        var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        if (designerTablesEnabled) {
-            Functions.prepareForAjaxRequest($form);
-            $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
-                if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
-                } else {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    DesignerMove.markSaved();
-                    if (data.id) {
-                        selectedPage = data.id;
-                    }
-                    DesignerMove.loadPage(selectedPage);
-                }
-            }); // end $.post()
-        } else {
-            if (choice === 'same') {
-                var selectedPageId = $selectedPage.find('option:selected').val();
-                DesignerPage.saveToSelectedPage(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    DesignerMove.markSaved();
-                    if (page.pgNr) {
-                        selectedPage = page.pgNr;
-                    }
-                    DesignerMove.loadPage(selectedPage);
-                });
-            } else if (choice === 'new') {
-                DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    DesignerMove.markSaved();
-                    if (page.pgNr) {
-                        selectedPage = page.pgNr;
-                    }
-                    DesignerMove.loadPage(selectedPage);
-                });
-            }
-        }
-
-        $(this).dialog('close');
-    };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
 
     var $msgbox = Functions.ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
@@ -1066,18 +1000,71 @@ DesignerMove.saveAs = function () {
                 });
             }
 
-            $('<div id="page_save_as_dialog"></div>')
-                .append(data.message)
-                .dialog({
-                    appendTo: '#page_content',
-                    title: Messages.strSavePageAs,
-                    width: 450,
-                    modal: true,
-                    buttons: buttonOptions,
-                    close: function () {
-                        $(this).remove();
+            var modal = $('#designerGoModal');
+            modal.modal('show');
+            modal.find('.modal-body').first().html(data.message);
+            $('#designerGoModalLabel').first().html(Messages.strSavePageAs);
+            $('#designerModalGoButton').on('click', function () {
+                var $form           = $('#save_as_pages');
+                var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
+                var $selectedPage  = $form.find('select[name="selected_page"]');
+                var choice          = $form.find('input[name="save_page"]:checked').val();
+                var name            = '';
+
+                if (choice === 'same') {
+                    if ($selectedPage.val() === '0') {
+                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        return;
                     }
-                });
+                    name = $selectedPage.find('option:selected').text();
+                } else if (choice === 'new') {
+                    if (selectedValue === '') {
+                        Functions.ajaxShowMessage(Messages.strEnterValidPageName, 2000);
+                        return;
+                    }
+                    name = selectedValue;
+                }
+
+                var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+                if (designerTablesEnabled) {
+                    Functions.prepareForAjaxRequest($form);
+                    $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
+                        if (data.success === false) {
+                            Functions.ajaxShowMessage(data.error, false);
+                        } else {
+                            Functions.ajaxRemoveMessage($msgbox);
+                            DesignerMove.markSaved();
+                            if (data.id) {
+                                selectedPage = data.id;
+                            }
+                            DesignerMove.loadPage(selectedPage);
+                        }
+                    }); // end $.post()
+                } else {
+                    if (choice === 'same') {
+                        var selectedPageId = $selectedPage.find('option:selected').val();
+                        DesignerPage.saveToSelectedPage(db, selectedPageId, name, DesignerMove.getUrlPos(), function (page) {
+                            Functions.ajaxRemoveMessage($msgbox);
+                            DesignerMove.markSaved();
+                            if (page.pgNr) {
+                                selectedPage = page.pgNr;
+                            }
+                            DesignerMove.loadPage(selectedPage);
+                        });
+                    } else if (choice === 'new') {
+                        DesignerPage.saveToNewPage(db, name, DesignerMove.getUrlPos(), function (page) {
+                            Functions.ajaxRemoveMessage($msgbox);
+                            DesignerMove.markSaved();
+                            if (page.pgNr) {
+                                selectedPage = page.pgNr;
+                            }
+                            DesignerMove.loadPage(selectedPage);
+                        });
+                    }
+                }
+
+                modal.modal('hide');
+            });
             // select current page by default
             if (selectedPage !== -1) {
                 $('select[name="selected_page"]').val(selectedPage);
