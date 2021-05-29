@@ -610,14 +610,15 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
  * This function shows modal with Go buttons where required in designer
  * @param {object} form
  * @param {string} heading
+ * @param {string} type
  *
  * @return {object} modal;
  */
-DesignerMove.displayGoModal = function (form, heading) {
-    var modal = $('#designerGoModal');
+DesignerMove.displayModal = function (form, heading, type) {
+    var modal = $(type);
     modal.modal('show');
     modal.find('.modal-body').first().html(form);
-    $('#designerGoModalLabel').first().html(heading);
+    $(type + 'Label').first().html(heading);
     return modal;
 };
 
@@ -641,7 +642,7 @@ DesignerMove.addOtherDbTables = function () {
 
     var $form = $('<form action="" class="ajax"></form>')
         .append($selectDb).append($selectTable);
-    var modal = DesignerMove.displayGoModal($form, Messages.strAddTables);
+    var modal = DesignerMove.displayModal($form, Messages.strAddTables, '#designerGoModal');
     $('#designerModalGoButton').on('click', function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
@@ -844,7 +845,7 @@ DesignerMove.save3 = function (callback) {
             e.preventDefault();
             DesignerMove.submitSaveDialogAndClose(callback);
         });
-        var modal = DesignerMove.displayGoModal($form, Messages.strSavePage);
+        var modal = DesignerMove.displayModal($form, Messages.strSavePage, '#designerGoModal');
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
@@ -925,7 +926,7 @@ DesignerMove.deletePages = function () {
                 });
             }
 
-            var modal = DesignerMove.displayGoModal(data.message, Messages.strDeletePage);
+            var modal = DesignerMove.displayModal(data.message, Messages.strDeletePage, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#edit_delete_pages');
                 var selected = $form.find('select[name="selected_page"]').val();
@@ -991,7 +992,7 @@ DesignerMove.saveAs = function () {
                 });
             }
 
-            var modal = DesignerMove.displayGoModal(data.message, Messages.strSavePageAs);
+            var modal = DesignerMove.displayModal(data.message, Messages.strSavePageAs, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 var $form           = $('#save_as_pages');
                 var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
@@ -1127,7 +1128,7 @@ DesignerMove.exportPages = function () {
                 $form.find('#' + format + '_options').show();
             }).trigger('change');
 
-            var modal = DesignerMove.displayGoModal($form, Messages.strExportRelationalSchema);
+            var modal = DesignerMove.displayModal($form, Messages.strExportRelationalSchema, '#designerGoModal');
             $('#designerModalGoButton').on('click', function () {
                 $('#id_export_pages').trigger('submit');
                 modal.modal('hide');
