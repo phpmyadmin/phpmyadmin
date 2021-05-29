@@ -607,7 +607,6 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
 };
 
 DesignerMove.addOtherDbTables = function () {
-    var buttonOptions = {};
 
     var $selectDb = $('<select id="add_table_from"></select>');
     $selectDb.append('<option value="">' + Messages.strNone + '</option>');
