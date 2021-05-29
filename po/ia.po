@@ -8,65 +8,73 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:07+0200\n"
-"PO-Revision-Date: 2021-04-14 22:38+0000\n"
+"PO-Revision-Date: 2021-05-30 21:32+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-1/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-1/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime inferior a un die"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Uptime es inferior a un die, adjustamento de execution pote non esser "
+"accurate."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Per haber medias plus accurate il es recommendate lassar que le servitor "
+"executa per un tempore plus longe de un die ante executar iste analysator"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Le uptime es solmente %s"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
-msgstr ""
+msgstr "Questiones infra 1.000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Minus que 1.000 questiones ha essite executate contra iste servitor. Le "
+"recommendationes poterea non esser accurate."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Lassar que le servitor executa per un tempore plus longe usque il ha "
+"executate un amonta plus grande de queries."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr ""
+msgstr "Amonta currente de Questiones: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
-msgstr ""
+msgstr "Percentage de queries lente"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Il ha multe queries lente comparate al amonta total de Queries."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -78,16 +86,18 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Le taxa de query lente deberea esser infra 5%%, tu valor es %s%%."
 
 #: libraries/advisory_rules_generic.php:51
 msgid "Slow query rate"
-msgstr ""
+msgstr "Taxa de query lente"
 
 #: libraries/advisory_rules_generic.php:55
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Il ha un percentage alte de queries lente comparate con le uptime de "
+"servitor."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -95,10 +105,12 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Tu ha un taxa d query lente de %s per hora, tu deberea haber minus que 1%% "
+"per hora."
 
 #: libraries/advisory_rules_generic.php:65
 msgid "Long query time"
-msgstr ""
+msgstr "Tempore de query longe"
 
 #: libraries/advisory_rules_generic.php:69
 msgid ""
@@ -7212,8 +7224,6 @@ msgstr "Forte"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
@@ -7222,19 +7232,15 @@ msgstr ""
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Typo de exportar invalide"
+msgstr "Requesta invalide inviata al clave de securitate."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Error Incognite"
+msgstr "Error de clave de securitate Incognite."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
@@ -7244,19 +7250,15 @@ msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Le activation de clave de securitate (%s) falleva."
+msgstr "Le activation de clave de securitate falleva."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Typo de exportar invalide"
+msgstr "Clave de securitate invalide."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, php-format
