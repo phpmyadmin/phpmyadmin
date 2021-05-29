@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:12+0200\n"
-"PO-Revision-Date: 2021-05-22 18:16+0000\n"
+"PO-Revision-Date: 2021-05-30 21:33+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -7006,6 +7006,8 @@ msgstr "Pagina verwijderen"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Sommige tabellen opgeslagen in deze pagina zijn mogelijk hernoemd of "
+"verwijderd."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:10
@@ -7392,8 +7394,6 @@ msgstr "Sterk"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Wachttijd verstreken voor activatie beveiligingssleutel."
@@ -7402,37 +7402,31 @@ msgstr "Wachttijd verstreken voor activatie beveiligingssleutel."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Ongeldig verzoek verzonden naar beveiligingsapparaat."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Onbekende fout"
+msgstr "Onbekende beveiligingsapparaat fout."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Cliënt ondersteund geen beveiligingsapparaat."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Activatie (%s) beveiligingssleutel gefaald."
+msgstr "Activatie beveiligingsapparaat is mislukt."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Ongeldig exporttype"
+msgstr "Ongeldig beveiligingsapparaat."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, php-format
