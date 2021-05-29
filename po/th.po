@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-10 23:30+0200\n"
+"POT-Creation-Date: 2021-05-29 15:38+0200\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/"
@@ -1289,7 +1289,7 @@ msgstr "ค้นหา:"
 #: libraries/classes/Database/Routines.php:1027
 #: libraries/classes/Database/Routines.php:1743
 #: libraries/classes/Database/Triggers.php:463
-#: libraries/classes/InsertEdit.php:1979 libraries/classes/InsertEdit.php:2013
+#: libraries/classes/InsertEdit.php:1981 libraries/classes/InsertEdit.php:2015
 #: libraries/classes/Normalization.php:261
 #: libraries/classes/Normalization.php:973 libraries/classes/Tracking.php:332
 #: libraries/classes/Tracking.php:485
@@ -1364,7 +1364,7 @@ msgid "Page number:"
 msgstr "หมายเลขหน้า:"
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -3656,7 +3656,7 @@ msgid "Navigation panel width"
 msgstr "แผงนำทาง"
 
 #: libraries/classes/Config/Descriptions.php:840
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #: libraries/classes/Navigation/NavigationTree.php:1474
 msgid "Link with main panel"
 msgstr "เชื่อมกับแผงหลัก"
@@ -4643,8 +4643,8 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
-#: libraries/classes/Import.php:1382 libraries/classes/Menu.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Import.php:1383 libraries/classes/Menu.php:282
 #: libraries/classes/Menu.php:401
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
@@ -4759,36 +4759,36 @@ msgstr "การแปลงที่เรียกใช้ได้"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:740
+#: libraries/classes/Config.php:741
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: libraries/classes/Config.php:778
+#: libraries/classes/Config.php:779
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
 
-#: libraries/classes/Config.php:793
+#: libraries/classes/Config.php:794
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "ไม่สามารถโหลดการตั้งค่าเริ่มต้นจาก: %1$s"
 
-#: libraries/classes/Config.php:803
+#: libraries/classes/Config.php:804
 msgid "Failed to read configuration file!"
 msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
 
-#: libraries/classes/Config.php:806
+#: libraries/classes/Config.php:807
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้านล่าง"
 
-#: libraries/classes/Config.php:1387
+#: libraries/classes/Config.php:1388
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
-#: libraries/classes/Config.php:1400
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Server %d"
 msgstr "เซิร์ฟเวอร์ %d"
@@ -5293,7 +5293,7 @@ msgid "Succeeded"
 msgstr "สำเร็จ"
 
 #: libraries/classes/Controllers/ImportController.php:143
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Failed"
 msgstr "ล้มเหลว"
 
@@ -5525,7 +5525,7 @@ msgid "Save & close"
 msgstr "บันทึกและปิด"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:95
-#: libraries/classes/InsertEdit.php:1977
+#: libraries/classes/InsertEdit.php:1979
 #: templates/config/form_display/fieldset_bottom.twig:9
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5589,7 +5589,7 @@ msgid "Please select column(s) for the index."
 msgstr "โปรดเลือกคอลัมน์ให้กับดัชนี"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: libraries/classes/InsertEdit.php:1975
+#: libraries/classes/InsertEdit.php:1977
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
@@ -6422,7 +6422,7 @@ msgid "%d is not valid row number."
 msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/InsertEdit.php:924
+#: libraries/classes/InsertEdit.php:925
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
@@ -6541,7 +6541,7 @@ msgid "No partial dependencies selected!"
 msgstr "ไม่มีการอ้างอิงบางส่วนที่ถูกเลือก!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1022
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6596,7 +6596,7 @@ msgid "No dependencies selected!"
 msgstr "ไม่มีการอ้างอิงที่ถูกเลือก!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:449
-#: libraries/classes/InsertEdit.php:1888
+#: libraries/classes/InsertEdit.php:1890
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
 #: templates/database/central_columns/main.twig:274
@@ -6680,8 +6680,8 @@ msgid "Data point content"
 msgstr "สารบัญ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
-#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3139
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "ข้าม"
@@ -6849,69 +6849,73 @@ msgid "Delete page"
 msgstr "ลบหน้า"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+msgid "Some tables saved in this page might have been renamed or deleted."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "ไม่มีชื่อ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Please select a page to continue"
 msgstr "กรุณาเลือกหน้าที่จะดำเนินต่อ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Please enter a valid page name"
 msgstr "กรุณากรอกชื่อหน้าให้ถูกต้อง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 msgid "Do you want to save the changes to the current page?"
 msgstr "คุณต้องการที่จะบันทึกการเปลี่ยนแปลงในหน้าปัจจุบันหรือไม่?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Successfully deleted the page"
 msgstr "ลบหน้าสำเร็จ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Export relational schema"
 msgstr "ส่งออกสคีเชิงสัมพันธ์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Modifications have been saved"
 msgstr "บันทึกการแก้ไขเรียบร้อยแล้ว"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 #, php-format
 msgid "%d object(s) created."
 msgstr "สร้างวัตถุจำนวน %d วัตถุแล้ว"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "ชื่อคอลัมน์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 #: templates/sql/query.twig:165
 msgid "Submit"
 msgstr "ส่ง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 msgid "Press escape to cancel editing."
 msgstr "กด ESC เพื่อยกเลิกการแก้ไข"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Drag to reorder."
 msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Click to sort results by this column."
 msgstr "คลิกเพื่อเรียงตามคอลัมน์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -6920,20 +6924,20 @@ msgstr ""
 "Shift + คลิก เพื่อเพิ่มคอลัมน์นี้ไปยังประโยค ORDER BY หรือเพื่อสลับ ASC / DESC <br> - Ctrl "
 "+ คลิกหรือ Alt + คลิก (Mac: Shift + Option + คลิก) เพื่อลบคอลัมน์จากประโยค ORDER BY"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid "Click to mark/unmark."
 msgstr "คลิกเพื่อทำเครื่องหมาย/ยกเลิกทำเครื่องหมาย"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Double-click to copy column name."
 msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 #, fuzzy
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "กดเพื่อเลือก <br>เพื่อดูสดมภ์."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -6941,47 +6945,47 @@ msgstr ""
 "ตารางนี้ไม่มีคอลัมน์เอกลักษณ์ การแก้ไขผ่านตาราง กล่องเครื่องหมาย แก้ไข คัดลอก "
 "และลบจะไม่ได้ผลหลังจากบันทึก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "โปรดกรอกเลขฐานสิบหกที่ถูกต้อง ตัวอักษรที่ถูกต้องจะมี 0-9 และ A-F"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr "คุณต้องการเห็นแถวทั้งหมดหรือไม่? สำหรับตารางที่มีขนาดใหญ่ อาจทำให้เบราว์เซอร์ขัดข้อง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Original length"
 msgstr "ความยาวดั้งเดิม"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "cancel"
 msgstr "ยกเลิก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 #: libraries/classes/Controllers/Server/Status/StatusController.php:225
 msgid "Aborted"
 msgstr "ยกเลิก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Success"
 msgstr "สำเร็จ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Import status"
 msgstr "นำเข้าสถิติ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "วางไฟล์ที่นี่"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Select database first"
 msgstr "เลือกฐานข้อมูลก่อน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:241
@@ -6989,69 +6993,69 @@ msgstr "เลือกฐานข้อมูลก่อน"
 msgid "Print"
 msgstr "พิมพ์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "คุณยังสามารถแก้ไขค่าส่วนใหญ่<br>โดยการคลิกสองครั้งที่ค่าโดยตรง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "คุณยังสามารถแก้ไขค่าส่วนใหญ่<br>โดยการคลิกสองครั้งที่ค่าโดยตรง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 msgid "Go to link:"
 msgstr "ไปที่หน้า:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 msgid "Copy column name."
 msgstr "คัดลอกชื่อคอลัมน์"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "คลิกขวาที่ชื่อคอลัมน์เพื่อคัดลอก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "Generate password"
 msgstr "สร้างรหัสผ่าน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "สร้าง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: libraries/classes/Controllers/UserPasswordController.php:80
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "เปลี่ยนรหัสผ่าน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "เพิ่มเติม"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid "Show panel"
 msgstr "แสดงแผง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Hide panel"
 msgstr "ซ่อนแผง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show hidden navigation tree items."
 msgstr "แสดงรายการต้นไม้นำทางที่ถูกซ่อน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 #: libraries/classes/Navigation/NavigationTree.php:1477
 msgid "Unlink from main panel"
 msgstr "เลิกเชื่อมกับแผงหลัก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "ไม่พบหน้าดังกล่าวในประวัติการเรียกดู อาจเป็นเพราะหน้านั้นไม่มีหรือหมดอายุที่จะแสดงได้แล้ว"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
 #: libraries/classes/Setup/Index.php:184
 #, php-format
 msgid ""
@@ -7060,51 +7064,51 @@ msgid ""
 msgstr "phpMyAdmin มีรุ่นใหม่แล้ว กรุณาพิจารณาอัพเกรดเป็นรุ่นใหม่ %s โดยออกเมื่อ %s"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid ", latest stable version:"
 msgstr ", รุ่นเสถียรล่าสุด:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 msgid "up to date"
 msgstr "ล่าสุด"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "สร้างมุมมอง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Send error report"
 msgstr "ส่งรายงานการผิดพลาด"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid "Submit error report"
 msgstr "เสนอรายงานการผิดพลาด"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "เกิดข้อผิดพลาด JavaScript ที่ร้ายแรงต้องการส่งรายงานข้อผิดพลาดหรือไม่?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Change report settings"
 msgstr "เปลี่ยนการตั้งค่ารายงาน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid "Show report details"
 msgstr "แสดงรายละเอียดรายงาน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "การส่งออกของคุณไม่ประสบความสำเร็จ เนื่องจากการจำกัดของเวลาในการเรียกใช้คำสั่งใน PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7113,70 +7117,70 @@ msgstr ""
 "คำเตือน: ฟอร์มในหน้านี้มีช่องฟิลด์มากกว่า %d ช่อง "
 "ในการส่งข้อมูลบางส่วนของฟิลด์อาจถูกละเว้นเนื่องจากการกำหนดค่า max_input_vars ของ PHP"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Some errors have been detected on the server!"
 msgstr "มีข้อผิดพลาดบางอย่างถูกตรวจจับบนเซิร์ฟเวอร์ของคุณ!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Please look at the bottom of this window."
 msgstr "กรุณาดูที่ด้านล่างของหน้าต่าง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 #: libraries/classes/ErrorHandler.php:406
 msgid "Ignore All"
 msgstr "ไม่สนใจทั้งหมด"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "ตามการตั้งค่าของคุณ พวกมันกำลังถูกส่งในขณะนี้กรุณาอดทนรอ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "กำลังคัดลอกฐานข้อมูล"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgid "Execute this query again?"
 msgstr "เรียกใช้คำสั่งนี้อีกครั้งหรือไม่?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Do you really want to delete this bookmark?"
 msgstr "คุณแน่ใจว่าต้องการจะลบบุ๊กมาร์กนี้?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgid "Some error occurred while getting SQL debug info."
 msgstr "มีข้อผิดพลาดบางส่วนเกิดขึ้นในขณะที่กำลังได้รับข้อมูลการแก้ไขข้อผิดพลาด SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s คำสั่งถูกเรียกใช้ %s ครั้งภายใน %s วินาที"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "ตัวแปรเข้า %s ตัวถูกตรวจผ่าน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid "Show arguments"
 msgstr "แสดงตัวแปรเข้า"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgid "Hide arguments"
 msgstr "ซ่อนตัวแปรเข้า"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgid "Time taken:"
 msgstr "ใช้เวลา:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7189,66 +7193,87 @@ msgstr ""
 "การจัดเก็บข้อมูลที่เสียหายอาจทำให้เกิดปัญหาเช่นการล้างข้อมูล \"ข้อมูลเว็บไซต์แบบออฟไลน์\" "
 "ของคุณอาจช่วยได้ ใน Safari ปัญหาดังกล่าวมักเกิดจาก \"การเรียกดูโหมดส่วนตัว\""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid "Copy tables to"
 msgstr "คัดลอกตารางไปยัง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 msgid "Add table prefix"
 msgstr "เพิ่มคำนำหน้าตาราง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid "Replace table with prefix"
 msgstr "แทนที่ตารางด้วยคำนำหน้า"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "คัดลอกคำนำไปยังตาราง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Extremely weak"
 msgstr "อ่อนแออย่างมาก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "Very weak"
 msgstr "อ่อนแอมาก"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 msgid "Weak"
 msgstr "อ่อนแอ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Good"
 msgstr "ดี"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Strong"
 msgstr "แข็งแรง"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "Timed out waiting for security key activation."
 msgstr "หมดเวลาการรอการใช้งานคีย์ความปลอดภัย"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#, php-format
-msgid "Failed security key activation (%s)."
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+msgid "Invalid request sent to security key."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#, fuzzy
+#| msgid "Unknown error"
+msgid "Unknown security key error."
+msgstr "ข้อผิดพลาดที่ไม่รู้จัก"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+msgid "Client does not support security key."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#, fuzzy
+#| msgid "Failed security key activation (%s)."
+msgid "Failed security key activation."
 msgstr "การใช้งานคีย์ความปลอดภัยล้มเหลว (%s)"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#, fuzzy
+#| msgid "Invalid export type"
+msgid "Invalid security key."
+msgstr "ประเภทที่ส่งออกไม่ถูกต้อง"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "มีตาราง %s อยู่แล้ว!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#: libraries/classes/InsertEdit.php:338
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/InsertEdit.php:339
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "ซ่อน"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 #: libraries/classes/Controllers/Table/ChangeController.php:198
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -8193,7 +8218,7 @@ msgstr "ตารางจำลอง (View)"
 #: libraries/classes/Controllers/Table/PartitionController.php:200
 #: libraries/classes/Controllers/ViewOperationsController.php:87
 #: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
-#: libraries/classes/InsertEdit.php:1575 libraries/classes/Message.php:195
+#: libraries/classes/InsertEdit.php:1576 libraries/classes/Message.php:195
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -8727,7 +8752,7 @@ msgstr "ชื่อคอลัมน์"
 #: libraries/classes/Database/Routines.php:850
 #: libraries/classes/Database/Routines.php:880
 #: libraries/classes/Database/Routines.php:1656
-#: libraries/classes/InsertEdit.php:356
+#: libraries/classes/InsertEdit.php:357
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
 #: libraries/classes/Plugins/Export/ExportLatex.php:554
@@ -8801,7 +8826,7 @@ msgid "Length/Values"
 msgstr "ความยาว/เซต*"
 
 #: libraries/classes/Database/Routines.php:882
-#: libraries/classes/Import.php:1349 libraries/classes/Import.php:1383
+#: libraries/classes/Import.php:1350 libraries/classes/Import.php:1384
 #: libraries/classes/Plugins/Export/ExportCodegen.php:71
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
@@ -8987,7 +9012,7 @@ msgid "Routine parameters"
 msgstr "พารามิเตอร์ตามปกติ"
 
 #: libraries/classes/Database/Routines.php:1658
-#: libraries/classes/InsertEdit.php:354
+#: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
@@ -8995,7 +9020,7 @@ msgid "Function"
 msgstr "ฟังก์ชั่น"
 
 #: libraries/classes/Database/Routines.php:1660
-#: libraries/classes/InsertEdit.php:2007
+#: libraries/classes/InsertEdit.php:2009
 #: templates/database/designer/main.twig:485
 #: templates/database/designer/main.twig:650
 #: templates/database/designer/main.twig:856
@@ -9152,7 +9177,7 @@ msgid ""
 "%2$s."
 msgstr "ไม่พบ Trigger %1$s ในฐานข้อมูล %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:192
+#: libraries/classes/Dbal/DbiMysqli.php:194
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9795,55 +9820,55 @@ msgstr ""
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1337
+#: libraries/classes/Import.php:1338
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1340
+#: libraries/classes/Import.php:1341
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1343
+#: libraries/classes/Import.php:1344
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1345
+#: libraries/classes/Import.php:1346
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1352
+#: libraries/classes/Import.php:1353
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/classes/Import.php:1358 libraries/classes/Import.php:1401
+#: libraries/classes/Import.php:1359 libraries/classes/Import.php:1402
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1386
+#: libraries/classes/Import.php:1387
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/classes/Import.php:1394
+#: libraries/classes/Import.php:1395
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "เฉพาะโครงสร้าง"
 
-#: libraries/classes/Import.php:1412
+#: libraries/classes/Import.php:1413
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1436
+#: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1667
+#: libraries/classes/Import.php:1668
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9856,26 +9881,26 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: libraries/classes/InsertEdit.php:535
+#: libraries/classes/InsertEdit.php:536
 msgid "Binary"
 msgstr "ข้อมูลไบนารี"
 
-#: libraries/classes/InsertEdit.php:793
+#: libraries/classes/InsertEdit.php:794
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br> this column might not be editable."
 msgstr "เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้"
 
-#: libraries/classes/InsertEdit.php:1415
+#: libraries/classes/InsertEdit.php:1416
 msgid "Binary - do not edit"
 msgstr "ข้อมูลไบนารี - ห้ามแก้ไข"
 
-#: libraries/classes/InsertEdit.php:1576 templates/import.twig:78
+#: libraries/classes/InsertEdit.php:1577 templates/import.twig:78
 #: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
-#: libraries/classes/InsertEdit.php:1581
+#: libraries/classes/InsertEdit.php:1582
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -9885,58 +9910,58 @@ msgstr "ไม่สามารถใช้งาน ไดเรกทอร�
 msgid "Or"
 msgstr "หรือ"
 
-#: libraries/classes/InsertEdit.php:1582
+#: libraries/classes/InsertEdit.php:1583
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/classes/InsertEdit.php:1784
+#: libraries/classes/InsertEdit.php:1786
 #: templates/table/search/input_box.twig:37
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "แทรก"
 
-#: libraries/classes/InsertEdit.php:1852
+#: libraries/classes/InsertEdit.php:1854
 msgid "and then"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1891
+#: libraries/classes/InsertEdit.php:1893
 msgid "Insert as new row"
 msgstr "แทรกเป็นแถวใหม่"
 
-#: libraries/classes/InsertEdit.php:1894
+#: libraries/classes/InsertEdit.php:1896
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1897
+#: libraries/classes/InsertEdit.php:1899
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1918
+#: libraries/classes/InsertEdit.php:1920
 msgid "Go back to previous page"
 msgstr "ส่งกลับ"
 
-#: libraries/classes/InsertEdit.php:1921
+#: libraries/classes/InsertEdit.php:1923
 msgid "Insert another new row"
 msgstr "แทรกระเบียนใหม่"
 
-#: libraries/classes/InsertEdit.php:1926
+#: libraries/classes/InsertEdit.php:1928
 #, fuzzy
 msgid "Go back to this page"
 msgstr "ส่งกลับ"
 
-#: libraries/classes/InsertEdit.php:1949
+#: libraries/classes/InsertEdit.php:1951
 msgid "Edit next row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1969
+#: libraries/classes/InsertEdit.php:1971
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1997
+#: libraries/classes/InsertEdit.php:1999
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:389
@@ -9968,7 +9993,7 @@ msgstr ""
 msgid "Column"
 msgstr "คอลัมน์"
 
-#: libraries/classes/InsertEdit.php:2006
+#: libraries/classes/InsertEdit.php:2008
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:395
 #: libraries/classes/Plugins/Export/ExportLatex.php:555
@@ -9993,11 +10018,11 @@ msgstr "คอลัมน์"
 msgid "Null"
 msgstr "ค่าว่าง"
 
-#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -19374,9 +19399,6 @@ msgstr "รายงานผลการติดตาม"
 #~| msgid "Relations"
 #~ msgid "Related Links"
 #~ msgstr "รีเลชัน"
-
-#~ msgid "Invalid export type"
-#~ msgstr "ประเภทที่ส่งออกไม่ถูกต้อง"
 
 #, fuzzy
 #~| msgid "Column"

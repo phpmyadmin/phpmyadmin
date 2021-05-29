@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-10 23:30+0200\n"
+"POT-Creation-Date: 2021-05-29 15:38+0200\n"
 "PO-Revision-Date: 2021-03-26 09:29+0000\n"
 "Last-Translator: inecmc <silence0225@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1287,7 +1287,7 @@ msgstr "搜尋："
 #: libraries/classes/Database/Routines.php:1027
 #: libraries/classes/Database/Routines.php:1743
 #: libraries/classes/Database/Triggers.php:463
-#: libraries/classes/InsertEdit.php:1979 libraries/classes/InsertEdit.php:2013
+#: libraries/classes/InsertEdit.php:1981 libraries/classes/InsertEdit.php:2015
 #: libraries/classes/Normalization.php:261
 #: libraries/classes/Normalization.php:973 libraries/classes/Tracking.php:332
 #: libraries/classes/Tracking.php:485
@@ -1362,7 +1362,7 @@ msgid "Page number:"
 msgstr "頁碼："
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -3577,7 +3577,7 @@ msgid "Navigation panel width"
 msgstr "導覽面板寬度"
 
 #: libraries/classes/Config/Descriptions.php:840
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #: libraries/classes/Navigation/NavigationTree.php:1474
 msgid "Link with main panel"
 msgstr "連結主面板"
@@ -4466,8 +4466,8 @@ msgstr "自訂"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
-#: libraries/classes/Import.php:1382 libraries/classes/Menu.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/Import.php:1383 libraries/classes/Menu.php:282
 #: libraries/classes/Menu.php:401
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
@@ -4577,36 +4577,36 @@ msgstr "預設轉換"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "無法儲存設定，送出的設定值表單內容錯誤！"
 
-#: libraries/classes/Config.php:740
+#: libraries/classes/Config.php:741
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "無法讀取現有設定檔 (%s)。"
 
-#: libraries/classes/Config.php:778
+#: libraries/classes/Config.php:779
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "設定檔權限錯誤，檔案不應讓所有人可以寫入！"
 
-#: libraries/classes/Config.php:793
+#: libraries/classes/Config.php:794
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "無法載入預設設定：%1$s"
 
-#: libraries/classes/Config.php:803
+#: libraries/classes/Config.php:804
 msgid "Failed to read configuration file!"
 msgstr "無法讀取設定檔！"
 
-#: libraries/classes/Config.php:806
+#: libraries/classes/Config.php:807
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "此情況通常是有語法錯誤，請檢查以下顯示的錯誤。"
 
-#: libraries/classes/Config.php:1387
+#: libraries/classes/Config.php:1388
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "伺服器索引無效：%s"
 
-#: libraries/classes/Config.php:1400
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Server %d"
 msgstr "伺服器 %d"
@@ -5106,7 +5106,7 @@ msgid "Succeeded"
 msgstr "成功"
 
 #: libraries/classes/Controllers/ImportController.php:143
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Failed"
 msgstr "失敗"
 
@@ -5330,7 +5330,7 @@ msgid "Save & close"
 msgstr "儲存並關閉"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:95
-#: libraries/classes/InsertEdit.php:1977
+#: libraries/classes/InsertEdit.php:1979
 #: templates/config/form_display/fieldset_bottom.twig:9
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5395,7 +5395,7 @@ msgid "Please select column(s) for the index."
 msgstr "請選擇要建立索引的欄位。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: libraries/classes/InsertEdit.php:1975
+#: libraries/classes/InsertEdit.php:1977
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
@@ -6225,7 +6225,7 @@ msgid "%d is not valid row number."
 msgstr "%d 不是有效的資料列號。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/InsertEdit.php:924
+#: libraries/classes/InsertEdit.php:925
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
@@ -6343,7 +6343,7 @@ msgid "No partial dependencies selected!"
 msgstr "尚未選擇部份依存！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1022
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6398,7 +6398,7 @@ msgid "No dependencies selected!"
 msgstr "尚未選擇依存！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:449
-#: libraries/classes/InsertEdit.php:1888
+#: libraries/classes/InsertEdit.php:1890
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
 #: templates/database/central_columns/main.twig:274
@@ -6482,8 +6482,8 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
-#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3139
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "略過"
@@ -6648,69 +6648,73 @@ msgid "Delete page"
 msgstr "刪除頁面"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+msgid "Some tables saved in this page might have been renamed or deleted."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "未命名"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Please select a page to continue"
 msgstr "請選擇頁面以繼續執行"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Please enter a valid page name"
 msgstr "請輸入有效的頁面名稱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 msgid "Do you want to save the changes to the current page?"
 msgstr "是否要儲存變更至目前頁面？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Successfully deleted the page"
 msgstr "已成功刪除頁面"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Export relational schema"
 msgstr "匯出關聯綱要"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Modifications have been saved"
 msgstr "已儲存修改"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 #, php-format
 msgid "%d object(s) created."
 msgstr "已建立 %d 個物件。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "欄位名稱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 #: templates/sql/query.twig:165
 msgid "Submit"
 msgstr "送出"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 msgid "Press escape to cancel editing."
 msgstr "按 ESC 取消編輯。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "有一些資料修改過，但尚未儲存；確定不儲存並離開本頁？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Drag to reorder."
 msgstr "使用拖曳來重新排序。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Click to sort results by this column."
 msgstr "使用本欄位進行資料排序。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -6720,65 +6724,65 @@ msgstr ""
 "+滑鼠點選」或「Alt+滑鼠點選」(Mac: Shift+Option+滑鼠點選) 來從 ORDER BY 子句"
 "中移除欄位"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid "Click to mark/unmark."
 msgstr "點此標記或取消標記。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Double-click to copy column name."
 msgstr "雙擊點選以複製欄位名稱。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "點選下拉箭頭<br>以切換欄位的顯示。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr "此資料表沒有獨一欄位。有關資料表修改、複製、刪除的功能可能會無法儲存。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "請輸入有效的十六進位字串。有效字元為 0-9、A-F。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr "確定要顯示所有資料列？若資料表很大，可能會拖垮瀏覽器。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Original length"
 msgstr "原始長度"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "cancel"
 msgstr "取消"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 #: libraries/classes/Controllers/Server/Status/StatusController.php:225
 msgid "Aborted"
 msgstr "中斷連線"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Success"
 msgstr "成功"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Import status"
 msgstr "匯入狀態"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "將檔案拖放至此處"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Select database first"
 msgstr "請先選擇資料庫"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:241
@@ -6786,69 +6790,69 @@ msgstr "請先選擇資料庫"
 msgid "Print"
 msgstr "列印"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "可以點兩下選取表格內容<br>並直接編輯修改。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "可以直接點選絕大部分的值<br>進行編輯修改。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 msgid "Go to link:"
 msgstr "前往此連結："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 msgid "Copy column name."
 msgstr "複製欄位名稱。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "點選右鍵，將欄位名稱複製到剪貼簿。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "Generate password"
 msgstr "產生密碼"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "產生"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: libraries/classes/Controllers/UserPasswordController.php:80
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "更改密碼"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "更多"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid "Show panel"
 msgstr "顯示面板"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Hide panel"
 msgstr "隱藏面板"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show hidden navigation tree items."
 msgstr "顯示隱藏的導覽樹項目。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 #: libraries/classes/Navigation/NavigationTree.php:1477
 msgid "Unlink from main panel"
 msgstr "取消連結主面板"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "已無歷史記錄頁面，或許頁面已經逾期。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
 #: libraries/classes/Setup/Index.php:184
 #, php-format
 msgid ""
@@ -6858,50 +6862,50 @@ msgstr ""
 "新的 phpMyAdmin 已經發佈，請考慮升級至最新版本（版本 %s，於 %s 發佈）。"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid ", latest stable version:"
 msgstr "，最新的穩定版："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 msgid "up to date"
 msgstr "最新"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "新增檢視表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Send error report"
 msgstr "傳送錯誤報告"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid "Submit error report"
 msgstr "送出錯誤報告"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "發生 JavaScript 嚴重錯誤，是否要回報錯誤報告？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Change report settings"
 msgstr "更改報告設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid "Show report details"
 msgstr "顯示報告詳細資訊"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "因 PHP 執行期時間限制太短，資料未完成匯出動作！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -6910,68 +6914,68 @@ msgstr ""
 "警告：此頁面中的表單超過 %d 個欄位，因超出 PHP 中 max_input_vars 設定值的限"
 "制，在送出時可能會忽略部份欄位。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Some errors have been detected on the server!"
 msgstr "偵測到伺服器發生錯誤！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
 #: libraries/classes/ErrorHandler.php:406
 msgid "Ignore All"
 msgstr "全部略過"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "根據設定正在提交，請耐心等候。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Successfully copied!"
 msgstr "已成功複製！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Copying failed!"
 msgstr "複製失敗！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgid "Execute this query again?"
 msgstr "再執行此查詢一次？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Do you really want to delete this bookmark?"
 msgstr "真的要刪除此書籤？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgid "Some error occurred while getting SQL debug info."
 msgstr "取得 SQL 除錯資訊時發生一些錯誤。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s 筆查詢已執行 %s 次，使用 %s 秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "已傳入 %s 個引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid "Show arguments"
 msgstr "顯示引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgid "Hide arguments"
 msgstr "隱藏引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 msgid "Time taken:"
 msgstr "使用時間："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -6984,66 +6988,87 @@ msgstr ""
 "題，可試著清空「離線網站資料」來解決；在 Safari 則通常是「隱私模式瀏覽」引起"
 "的問題。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid "Copy tables to"
 msgstr "複製資料表到"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 msgid "Add table prefix"
 msgstr "增加資料表字首"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid "Replace table with prefix"
 msgstr "取代此字首的資料表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "複製此字首的資料表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Extremely weak"
 msgstr "極差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "Very weak"
 msgstr "很差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 msgid "Weak"
 msgstr "差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Good"
 msgstr "好"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Strong"
 msgstr "很好"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "Timed out waiting for security key activation."
 msgstr "等候啟用安全金鑰逾時。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#, php-format
-msgid "Failed security key activation (%s)."
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+msgid "Invalid request sent to security key."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#, fuzzy
+#| msgid "Unknown error"
+msgid "Unknown security key error."
+msgstr "不明錯誤"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+msgid "Client does not support security key."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#, fuzzy
+#| msgid "Failed security key activation (%s)."
+msgid "Failed security key activation."
 msgstr "未能啟用安全金鑰 (%s)。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#, fuzzy
+#| msgid "Invalid export type"
+msgid "Invalid security key."
+msgstr "無效的匯出類型"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#: libraries/classes/InsertEdit.php:338
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
+#: libraries/classes/InsertEdit.php:339
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "隱藏"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:727
 #: libraries/classes/Controllers/Table/ChangeController.php:198
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -8029,7 +8054,7 @@ msgstr "檢視表"
 #: libraries/classes/Controllers/Table/PartitionController.php:200
 #: libraries/classes/Controllers/ViewOperationsController.php:87
 #: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
-#: libraries/classes/InsertEdit.php:1575 libraries/classes/Message.php:195
+#: libraries/classes/InsertEdit.php:1576 libraries/classes/Message.php:195
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "錯誤"
@@ -8505,7 +8530,7 @@ msgstr "預存程序名稱"
 #: libraries/classes/Database/Routines.php:850
 #: libraries/classes/Database/Routines.php:880
 #: libraries/classes/Database/Routines.php:1656
-#: libraries/classes/InsertEdit.php:356
+#: libraries/classes/InsertEdit.php:357
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
 #: libraries/classes/Plugins/Export/ExportLatex.php:554
@@ -8576,7 +8601,7 @@ msgid "Length/Values"
 msgstr "長度／值"
 
 #: libraries/classes/Database/Routines.php:882
-#: libraries/classes/Import.php:1349 libraries/classes/Import.php:1383
+#: libraries/classes/Import.php:1350 libraries/classes/Import.php:1384
 #: libraries/classes/Plugins/Export/ExportCodegen.php:71
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
@@ -8747,7 +8772,7 @@ msgid "Routine parameters"
 msgstr "預存程序的參數"
 
 #: libraries/classes/Database/Routines.php:1658
-#: libraries/classes/InsertEdit.php:354
+#: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
@@ -8755,7 +8780,7 @@ msgid "Function"
 msgstr "函式"
 
 #: libraries/classes/Database/Routines.php:1660
-#: libraries/classes/InsertEdit.php:2007
+#: libraries/classes/InsertEdit.php:2009
 #: templates/database/designer/main.twig:485
 #: templates/database/designer/main.twig:650
 #: templates/database/designer/main.twig:856
@@ -8896,7 +8921,7 @@ msgid ""
 "%2$s."
 msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
 
-#: libraries/classes/Dbal/DbiMysqli.php:192
+#: libraries/classes/Dbal/DbiMysqli.php:194
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "伺服器強制使用 SSL 連線，正在自動啟用。"
 
@@ -9526,54 +9551,54 @@ msgstr "分析過程中發生 %d 個錯誤。"
 msgid "[ROLLBACK occurred.]"
 msgstr "[已發生回退(ROLLBACK)。]"
 
-#: libraries/classes/Import.php:1337
+#: libraries/classes/Import.php:1338
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "以下結構已被建立或修改。您可以："
 
-#: libraries/classes/Import.php:1340
+#: libraries/classes/Import.php:1341
 msgid "View a structure's contents by clicking on its name."
 msgstr "點選結構的名稱來查看其內容。"
 
-#: libraries/classes/Import.php:1343
+#: libraries/classes/Import.php:1344
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "點選「選項」連結以修改項目的設定。"
 
-#: libraries/classes/Import.php:1345
+#: libraries/classes/Import.php:1346
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "點選「結構」連結以編輯。"
 
-#: libraries/classes/Import.php:1352
+#: libraries/classes/Import.php:1353
 #, php-format
 msgid "Go to database: %s"
 msgstr "前往資料庫：%s"
 
-#: libraries/classes/Import.php:1358 libraries/classes/Import.php:1401
+#: libraries/classes/Import.php:1359 libraries/classes/Import.php:1402
 #, php-format
 msgid "Edit settings for %s"
 msgstr "修改 %s 的設定"
 
-#: libraries/classes/Import.php:1386
+#: libraries/classes/Import.php:1387
 #, php-format
 msgid "Go to table: %s"
 msgstr "前往資料表：%s"
 
-#: libraries/classes/Import.php:1394
+#: libraries/classes/Import.php:1395
 #, php-format
 msgid "Structure of %s"
 msgstr "%s 的結構"
 
-#: libraries/classes/Import.php:1412
+#: libraries/classes/Import.php:1413
 #, php-format
 msgid "Go to view: %s"
 msgstr "前往檢視：%s"
 
-#: libraries/classes/Import.php:1436
+#: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "僅能模擬單一資料表的更新(UPDATE)與刪除(DELETE)查詢。"
 
-#: libraries/classes/Import.php:1667
+#: libraries/classes/Import.php:1668
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9588,24 +9613,24 @@ msgid ""
 "removed."
 msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除。"
 
-#: libraries/classes/InsertEdit.php:535
+#: libraries/classes/InsertEdit.php:536
 msgid "Binary"
 msgstr "二進位"
 
-#: libraries/classes/InsertEdit.php:793
+#: libraries/classes/InsertEdit.php:794
 msgid "Because of its length,<br> this column might not be editable."
 msgstr "因長度問題，<br> 該欄位可能無法編輯。"
 
-#: libraries/classes/InsertEdit.php:1415
+#: libraries/classes/InsertEdit.php:1416
 msgid "Binary - do not edit"
 msgstr "二進位 - 無法編輯"
 
-#: libraries/classes/InsertEdit.php:1576 templates/import.twig:78
+#: libraries/classes/InsertEdit.php:1577 templates/import.twig:78
 #: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄發生錯誤，無法使用。"
 
-#: libraries/classes/InsertEdit.php:1581
+#: libraries/classes/InsertEdit.php:1582
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -9615,53 +9640,53 @@ msgstr "設定之上傳目錄發生錯誤，無法使用。"
 msgid "Or"
 msgstr "或"
 
-#: libraries/classes/InsertEdit.php:1582
+#: libraries/classes/InsertEdit.php:1583
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: libraries/classes/InsertEdit.php:1784
+#: libraries/classes/InsertEdit.php:1786
 #: templates/table/search/input_box.twig:37
 msgid "Edit/Insert"
 msgstr "修改／新增"
 
-#: libraries/classes/InsertEdit.php:1852
+#: libraries/classes/InsertEdit.php:1854
 msgid "and then"
 msgstr "然後"
 
-#: libraries/classes/InsertEdit.php:1891
+#: libraries/classes/InsertEdit.php:1893
 msgid "Insert as new row"
 msgstr "以新資料列新增"
 
-#: libraries/classes/InsertEdit.php:1894
+#: libraries/classes/InsertEdit.php:1896
 msgid "Insert as new row and ignore errors"
 msgstr "以新資料列新增 (忽略錯誤)"
 
-#: libraries/classes/InsertEdit.php:1897
+#: libraries/classes/InsertEdit.php:1899
 msgid "Show insert query"
 msgstr "顯示新增查詢"
 
-#: libraries/classes/InsertEdit.php:1918
+#: libraries/classes/InsertEdit.php:1920
 msgid "Go back to previous page"
 msgstr "返回上一頁"
 
-#: libraries/classes/InsertEdit.php:1921
+#: libraries/classes/InsertEdit.php:1923
 msgid "Insert another new row"
 msgstr "新增其他新資料列"
 
-#: libraries/classes/InsertEdit.php:1926
+#: libraries/classes/InsertEdit.php:1928
 msgid "Go back to this page"
 msgstr "返回到本頁"
 
-#: libraries/classes/InsertEdit.php:1949
+#: libraries/classes/InsertEdit.php:1951
 msgid "Edit next row"
 msgstr "編輯下一行"
 
-#: libraries/classes/InsertEdit.php:1969
+#: libraries/classes/InsertEdit.php:1971
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr "按 TAB 鍵跳到下一個值，或按「CTRL+方向鍵」作隨意移動。"
 
-#: libraries/classes/InsertEdit.php:1997
+#: libraries/classes/InsertEdit.php:1999
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:389
@@ -9693,7 +9718,7 @@ msgstr "按 TAB 鍵跳到下一個值，或按「CTRL+方向鍵」作隨意移�
 msgid "Column"
 msgstr "欄位"
 
-#: libraries/classes/InsertEdit.php:2006
+#: libraries/classes/InsertEdit.php:2008
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:395
 #: libraries/classes/Plugins/Export/ExportLatex.php:555
@@ -9718,11 +9743,11 @@ msgstr "欄位"
 msgid "Null"
 msgstr "空值(Null)"
 
-#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -18425,9 +18450,6 @@ msgstr "帶您至目標網站。"
 #~ msgstr ""
 #~ "已上傳的檔案無法被移出暫存區，因為伺服器上的 open_basedir 設定被啟用，但卻"
 #~ "沒有提供資料夾 %s 的存取權限。"
-
-#~ msgid "Invalid export type"
-#~ msgstr "無效的匯出類型"
 
 #~ msgid "Count:"
 #~ msgstr "次數："
