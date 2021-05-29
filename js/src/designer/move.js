@@ -898,53 +898,6 @@ DesignerMove.editPages = function () {
 
 // -----------------------------  DELETE PAGES ---------------------------------------
 DesignerMove.deletePages = function () {
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
-        var $form = $('#edit_delete_pages');
-        var selected = $form.find('select[name="selected_page"]').val();
-        if (selected === '0') {
-            Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
-            return;
-        }
-
-        var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-        var deletingCurrentPage = selected === selectedPage;
-        Functions.prepareForAjaxRequest($form);
-
-        if (designerTablesEnabled) {
-            $.post($form.attr('action'), $form.serialize(), function (data) {
-                if (data.success === false) {
-                    Functions.ajaxShowMessage(data.error, false);
-                } else {
-                    Functions.ajaxRemoveMessage($messageBox);
-                    if (deletingCurrentPage) {
-                        DesignerMove.loadPage(null);
-                    } else {
-                        Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
-                    }
-                }
-            }); // end $.post()
-        } else {
-            DesignerPage.deletePage(selected, function (success) {
-                if (! success) {
-                    Functions.ajaxShowMessage('Error', false);
-                } else {
-                    Functions.ajaxRemoveMessage($messageBox);
-                    if (deletingCurrentPage) {
-                        DesignerMove.loadPage(null);
-                    } else {
-                        Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
-                    }
-                }
-            });
-        }
-
-        $(this).dialog('close');
-    };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
-
     var $msgbox = Functions.ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
@@ -963,18 +916,51 @@ DesignerMove.deletePages = function () {
                 });
             }
 
-            $('<div id="page_delete_dialog"></div>')
-                .append(data.message)
-                .dialog({
-                    appendTo: '#page_content',
-                    title: Messages.strDeletePage,
-                    width: 350,
-                    modal: true,
-                    buttons: buttonOptions,
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
+            var modal = $('#designerGoModal');
+            modal.modal('show');
+            modal.find('.modal-body').first().html(data.message);
+            $('#designerGoModalLabel').first().html(Messages.strDeletePage);
+            $('#designerModalGoButton').on('click', function () {
+                var $form = $('#edit_delete_pages');
+                var selected = $form.find('select[name="selected_page"]').val();
+                if (selected === '0') {
+                    Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                    return;
+                }
+
+                var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
+                var deletingCurrentPage = selected === selectedPage;
+                Functions.prepareForAjaxRequest($form);
+
+                if (designerTablesEnabled) {
+                    $.post($form.attr('action'), $form.serialize(), function (data) {
+                        if (data.success === false) {
+                            Functions.ajaxShowMessage(data.error, false);
+                        } else {
+                            Functions.ajaxRemoveMessage($messageBox);
+                            if (deletingCurrentPage) {
+                                DesignerMove.loadPage(null);
+                            } else {
+                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                            }
+                        }
+                    }); // end $.post()
+                } else {
+                    DesignerPage.deletePage(selected, function (success) {
+                        if (! success) {
+                            Functions.ajaxShowMessage('Error', false);
+                        } else {
+                            Functions.ajaxRemoveMessage($messageBox);
+                            if (deletingCurrentPage) {
+                                DesignerMove.loadPage(null);
+                            } else {
+                                Functions.ajaxShowMessage(Messages.strSuccessfulPageDelete);
+                            }
+                        }
+                    });
+                }
+                modal.modal('hide');
+            });
         }
     }); // end $.post()
 };
