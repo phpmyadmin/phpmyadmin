@@ -606,6 +606,22 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
     $tablesCounter.text(parseInt($tablesCounter.text(), 10) + 1);
 };
 
+/**
+ * This function enables the events on table items.
+ * It helps to enable them on page loading and when a table is added on the fly.
+ * @param {object} form
+ * @param {string} element
+ *
+ * @return {object} modal;
+ */
+DesignerMove.displayGoModal = function (form, heading) {
+    var modal = $('#designerGoModal');
+    modal.modal('show');
+    modal.find('.modal-body').first().html(form);
+    $('#designerGoModalLabel').first().html(heading);
+    return modal;
+}
+
 DesignerMove.addOtherDbTables = function () {
     var $selectDb = $('<select id="add_table_from"></select>');
     $selectDb.append('<option value="">' + Messages.strNone + '</option>');
@@ -624,12 +640,9 @@ DesignerMove.addOtherDbTables = function () {
         });
     });
 
-    var modal = $('#designerGoModal');
-    modal.modal('show');
     var $form = $('<form action="" class="ajax"></form>')
         .append($selectDb).append($selectTable);
-    modal.find('.modal-body').first().html($form);
-    $('#designerGoModalLabel').first().html(Messages.strAddTables);
+    var modal = DesignerMove.displayGoModal($form, Messages.strAddTables);
     $('#designerModalGoButton').on('click', function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
