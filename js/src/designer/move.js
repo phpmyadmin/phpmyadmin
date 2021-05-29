@@ -609,7 +609,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
 /**
  * This function shows modal with Go buttons where required in designer
  * @param {object} form
- * @param {string} element
+ * @param {string} heading
  *
  * @return {object} modal;
  */
@@ -619,7 +619,7 @@ DesignerMove.displayGoModal = function (form, heading) {
     modal.find('.modal-body').first().html(form);
     $('#designerGoModalLabel').first().html(heading);
     return modal;
-}
+};
 
 DesignerMove.addOtherDbTables = function () {
     var $selectDb = $('<select id="add_table_from"></select>');
@@ -935,7 +935,7 @@ DesignerMove.deletePages = function () {
                 }
 
                 var $messageBox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
-                var deletingCurrentPage = selected === selectedPage;
+                var deletingCurrentPage = parseInt(selected) === selectedPage;
                 Functions.prepareForAjaxRequest($form);
 
                 if (designerTablesEnabled) {
@@ -973,7 +973,6 @@ DesignerMove.deletePages = function () {
 
 // ------------------------------ SAVE AS PAGES ---------------------------------------
 DesignerMove.saveAs = function () {
-
     var $msgbox = Functions.ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
         'ajax_request': true,
