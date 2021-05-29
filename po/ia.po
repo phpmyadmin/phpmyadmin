@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-04-14 20:26+0000\n"
+"PO-Revision-Date: 2021-05-30 20:31+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -16292,52 +16292,60 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime inferior a un die"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Uptime es inferior a un die, adjustamento de execution pote non esser "
+"accurate."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Per haber medias plus accurate il es recommendate lassar que le servitor "
+"executa per un tempore plus longe de un die ante executar iste analysator"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Le uptime es solmente %s"
 
 #: libraries/advisory_rules_generic.txt:56
 msgid "Questions below 1,000"
-msgstr ""
+msgstr "Questiones infra 1.000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Minus que 1.000 questiones ha essite executate contra iste servitor. Le "
+"recommendationes poterea non esser accurate."
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Lassar que le servitor executa per un tempore plus longe usque il ha "
+"executate un amonta plus grande de queries."
 
 #: libraries/advisory_rules_generic.txt:61
 #, php-format
 msgid "Current amount of Questions: %s"
-msgstr ""
+msgstr "Amonta currente de Questiones: %s"
 
 #: libraries/advisory_rules_generic.txt:63
 msgid "Percentage of slow queries"
-msgstr ""
+msgstr "Percentage de queries lente"
 
 #: libraries/advisory_rules_generic.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Il ha multe queries lente comparate al amonta total de Queries."
 
 #: libraries/advisory_rules_generic.txt:67
 #: libraries/advisory_rules_generic.txt:74
@@ -16349,16 +16357,18 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Le taxa de query lente deberea esser infra 5%%, tu valor es %s%%."
 
 #: libraries/advisory_rules_generic.txt:70
 msgid "Slow query rate"
-msgstr ""
+msgstr "Taxa de query lente"
 
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Il ha un percentage alte de queries lente comparate con le uptime de "
+"servitor."
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
@@ -16366,10 +16376,12 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Tu ha un taxa d query lente de %s per hora, tu deberea haber minus que 1%% "
+"per hora."
 
 #: libraries/advisory_rules_generic.txt:77
 msgid "Long query time"
-msgstr ""
+msgstr "Tempore de query longe"
 
 #: libraries/advisory_rules_generic.txt:80
 msgid ""
