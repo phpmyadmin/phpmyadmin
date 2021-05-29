@@ -1076,18 +1076,16 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
         buttonOptions[Messages.strCancel] = function () {
             $(this).dialog('close');
         };
-        $('<div id="prompt_save_dialog"></div>')
-            .append('<div>' + Messages.strLeavingPage + '</div>')
-            .dialog({
-                appendTo: '#page_content',
-                title: Messages.strSavePage,
-                width: 300,
-                modal: true,
-                buttons: buttonOptions,
-                close: function () {
-                    $(this).remove();
-                }
-            });
+        var modal = DesignerMove.displayModal('<div>' + Messages.strLeavingPage + '</div>',
+            Messages.strSavePage, '#designerPromptModal');
+        $('#designerModalYesButton').on('click', function () {
+            modal.modal('hide');
+            DesignerMove.save3(callback);
+        });
+        $('#designerModalNoButton').on('click', function () {
+            modal.modal('hide');
+            callback();
+        });
     } else {
         callback();
     }
