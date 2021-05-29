@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:12+0200\n"
-"PO-Revision-Date: 2021-05-22 18:16+0000\n"
+"PO-Revision-Date: 2021-05-30 21:33+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -6916,7 +6916,7 @@ msgstr "Izbriši stran"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "Nekatere tabele na tej strani so morda bile preimenovane ali izbrisane."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:10
@@ -7301,8 +7301,6 @@ msgstr "Močno"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Čas za čakanje na aktivacijo varnostnega ključa je potekel."
@@ -7311,37 +7309,31 @@ msgstr "Čas za čakanje na aktivacijo varnostnega ključa je potekel."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Varnostnemu ključu je bila poslana neveljavna zahteva."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Neznana napaka"
+msgstr "Neznana napaka varnostnega ključa."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Klient ne podpira varnostnega ključa."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Aktivacija varnostnega ključa je spodletela (%s)."
+msgstr "Aktivacija varnostnega ključa je spodletela."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Neveljavna vrsta izvoza"
+msgstr "Neveljaven varnostni ključ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, php-format
