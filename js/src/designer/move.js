@@ -1094,14 +1094,6 @@ DesignerMove.promptToSaveCurrentPage = function (callback) {
 
 // ------------------------------ EXPORT PAGES ---------------------------------------
 DesignerMove.exportPages = function () {
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
-        $('#id_export_pages').trigger('submit');
-        $(this).dialog('close');
-    };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
     var $msgbox = Functions.ajaxShowMessage();
     var argsep = CommonParams.get('arg_separator');
 
@@ -1135,18 +1127,11 @@ DesignerMove.exportPages = function () {
                 $form.find('#' + format + '_options').show();
             }).trigger('change');
 
-            $('<div id="page_export_dialog"></div>')
-                .append($form)
-                .dialog({
-                    appendTo: '#page_content',
-                    title: Messages.strExportRelationalSchema,
-                    width: 550,
-                    modal: true,
-                    buttons: buttonOptions,
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
+            var modal = DesignerMove.displayGoModal($form, Messages.strExportRelationalSchema);
+            $('#designerModalGoButton').on('click', function () {
+                $('#id_export_pages').trigger('submit');
+                modal.modal('hide');
+            });
         }
     }); // end $.post()
 };
