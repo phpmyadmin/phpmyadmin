@@ -355,7 +355,7 @@ final class JavaScriptMessagesController
             /* For Foreign key checks */
             'strForeignKeyCheck' => __('Enable foreign key checks'),
 
-            /* For db_stucture.js */
+            /* For database/structure.js */
             'strErrorRealRowCount' => __('Failed to get real row count.'),
 
             /* For database/search.js */
@@ -366,7 +366,7 @@ final class JavaScriptMessagesController
             'strDeleting' => __('Deleting'),
             'strConfirmDeleteResults' => __('Delete the matches for the %s table?'),
 
-            /* For db_routines.js */
+            /* For rte.js */
             'MissingReturn' => __('The definition of a stored function must contain a RETURN statement!'),
             'strExport' => __('Export'),
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
