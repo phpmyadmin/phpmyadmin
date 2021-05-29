@@ -607,8 +607,7 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
 };
 
 /**
- * This function enables the events on table items.
- * It helps to enable them on page loading and when a table is added on the fly.
+ * This function shows modal with Go buttons where required in designer
  * @param {object} form
  * @param {string} element
  *
@@ -845,10 +844,7 @@ DesignerMove.save3 = function (callback) {
             e.preventDefault();
             DesignerMove.submitSaveDialogAndClose(callback);
         });
-        var modal = $('#designerGoModal');
-        modal.modal('show');
-        modal.find('.modal-body').first().html($form);
-        $('#designerGoModalLabel').first().html(Messages.strSavePage);
+        var modal = DesignerMove.displayGoModal($form, Messages.strSavePage);
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
@@ -929,10 +925,7 @@ DesignerMove.deletePages = function () {
                 });
             }
 
-            var modal = $('#designerGoModal');
-            modal.modal('show');
-            modal.find('.modal-body').first().html(data.message);
-            $('#designerGoModalLabel').first().html(Messages.strDeletePage);
+            var modal = DesignerMove.displayGoModal(data.message, Messages.strDeletePage);
             $('#designerModalGoButton').on('click', function () {
                 var $form = $('#edit_delete_pages');
                 var selected = $form.find('select[name="selected_page"]').val();
@@ -999,10 +992,7 @@ DesignerMove.saveAs = function () {
                 });
             }
 
-            var modal = $('#designerGoModal');
-            modal.modal('show');
-            modal.find('.modal-body').first().html(data.message);
-            $('#designerGoModalLabel').first().html(Messages.strSavePageAs);
+            var modal = DesignerMove.displayGoModal(data.message, Messages.strSavePageAs);
             $('#designerModalGoButton').on('click', function () {
                 var $form           = $('#save_as_pages');
                 var selectedValue  = $form.find('input[name="selected_value"]').val().trim();
