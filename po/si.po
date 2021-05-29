@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-20 12:21-0300\n"
+"POT-Creation-Date: 2021-05-29 16:12+0200\n"
 "PO-Revision-Date: 2021-05-29 06:32+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@protonmail.ch>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1223,23 +1223,23 @@ msgstr "සෙවීම:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
-#: libraries/classes/Controllers/Server/PrivilegesController.php:339
-#: libraries/classes/Database/Triggers.php:486
-#: libraries/classes/InsertEdit.php:1154 libraries/classes/InsertEdit.php:1189
+#: libraries/classes/Controllers/Server/PrivilegesController.php:338
+#: libraries/classes/InsertEdit.php:1058
 #: libraries/classes/Normalization.php:270
 #: libraries/classes/Normalization.php:1000 libraries/classes/Tracking.php:336
 #: libraries/classes/Tracking.php:490
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
-#: templates/database/events/editor_form.twig:112
+#: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
-#: templates/database/routines/editor_form.twig:175
-#: templates/database/routines/execute_form.twig:57
+#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
+#: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/import.twig:220 templates/preferences/manage/main.twig:46
@@ -1260,6 +1260,7 @@ msgstr "සෙවීම:"
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:148 templates/sql/query.twig:199
 #: templates/table/find_replace/index.twig:59
+#: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1293,13 +1294,13 @@ msgstr "විස්තරය"
 #: libraries/classes/BrowseForeigners.php:331
 #: libraries/classes/Html/Generator.php:1228 libraries/classes/Language.php:210
 #: libraries/classes/Pdf.php:93
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:546
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:544
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:578
 msgid "Page number:"
 msgstr "පිටු අංකය:"
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -3423,8 +3424,8 @@ msgstr "වගු ශිර්ෂ පාඨ ඇතුලත් කරන්න"
 #: libraries/classes/Plugins/Export/ExportOdt.php:520
 #: libraries/classes/Plugins/Export/ExportTexytext.php:414
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:600
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:738
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:761
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:736
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3936,7 +3937,7 @@ msgid "Navigation panel width"
 msgstr "යාත්‍රණ පැනලය"
 
 #: libraries/classes/Config/Descriptions.php:841
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 #: libraries/classes/Navigation/NavigationTree.php:1549
 #, fuzzy
 #| msgid "Customize main panel"
@@ -4506,8 +4507,8 @@ msgstr "පෙළ පෙදෙසේ උස"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:196
 #: libraries/classes/Plugins/Export/ExportTexytext.php:134
-#: libraries/classes/Server/Privileges.php:1917
-#: libraries/classes/Server/Privileges.php:1919
+#: libraries/classes/Server/Privileges.php:1921
+#: libraries/classes/Server/Privileges.php:1923
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4534,14 +4535,14 @@ msgid "Server"
 msgstr "සේවාදායකය"
 
 #: libraries/classes/Config/Descriptions.php:967
-#: libraries/classes/Database/Triggers.php:413
 #: libraries/classes/Plugins/Export/ExportXml.php:535
-#: libraries/classes/Server/Privileges.php:1923
-#: libraries/classes/Server/Privileges.php:1925
+#: libraries/classes/Server/Privileges.php:1927
+#: libraries/classes/Server/Privileges.php:1929
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
+#: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
@@ -4767,8 +4768,8 @@ msgstr "අභිමත"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#: libraries/classes/Import.php:1398 libraries/classes/Menu.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Import.php:1399 libraries/classes/Menu.php:270
 #: libraries/classes/Menu.php:394
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:41
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:49
@@ -4817,7 +4818,7 @@ msgstr "OpenDocument පෙළ"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #: libraries/classes/Menu.php:300 libraries/classes/Menu.php:419
-#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1589
+#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1593
 #: libraries/classes/Util.php:2108 libraries/classes/Util.php:2123
 #: libraries/classes/Util.php:2140 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5289,7 +5290,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:662
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:651
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:810
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -5488,7 +5489,7 @@ msgid "Succeeded"
 msgstr "සාර්ථක විය"
 
 #: libraries/classes/Controllers/ImportController.php:146
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "අසාර්ථකයි"
 
@@ -5523,7 +5524,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:684
 #: libraries/classes/Controllers/SqlController.php:378
-#: libraries/classes/Sql.php:1254
+#: libraries/classes/Sql.php:1255
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
@@ -5721,10 +5722,10 @@ msgid "Save & close"
 msgstr "සුරකින්න සහ වසන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: libraries/classes/InsertEdit.php:1152
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
+#: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "ප්‍රතිසකසන්න"
 
@@ -5802,10 +5803,10 @@ msgid "Please select column(s) for the index."
 msgstr "සුචියට ක්ෂේත්‍ර %s ක් එක් කරන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:116
-#: libraries/classes/InsertEdit.php:1150
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
+#: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:221
 msgid "Preview SQL"
 msgstr ""
@@ -5849,13 +5850,13 @@ msgid "The user name is empty!"
 msgstr "භාවිත නාමය හිස්ව පවතී!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
-#: libraries/classes/Server/Privileges.php:974
+#: libraries/classes/Server/Privileges.php:978
 #: libraries/classes/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "මුරපදය හිස්ව පවතී!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:972
+#: libraries/classes/Server/Privileges.php:976
 #: libraries/classes/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "මුරපද නොගැලපේ!"
@@ -6104,7 +6105,7 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: libraries/classes/Display/Results.php:1331
-#: libraries/classes/Plugins/Export/ExportSql.php:2391
+#: libraries/classes/Plugins/Export/ExportSql.php:2394
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6315,7 +6316,7 @@ msgstr "ප්‍රතිදානය පහදන්න"
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:242
 #: libraries/classes/Menu.php:533 libraries/classes/Util.php:2106
 #: libraries/config.values.php:157
-#: templates/database/events/editor_form.twig:23
+#: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
@@ -6613,7 +6614,7 @@ msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින
 #: libraries/classes/Plugins/Export/ExportLatex.php:662
 #: libraries/classes/Plugins/Export/ExportOdt.php:819
 #: libraries/classes/Plugins/Export/ExportTexytext.php:651
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:807
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -6863,7 +6864,7 @@ msgid "No partial dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:1036
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:313
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6924,12 +6925,12 @@ msgid "No dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:446
-#: libraries/classes/InsertEdit.php:1060
 #: templates/columns_definitions/column_definitions_form.twig:160
-#: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
+#: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:222
 #: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
@@ -7022,8 +7023,8 @@ msgid "Data point content"
 msgstr "ලක්ෂයට අදාල දත්ත"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
-#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:2346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:2215
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "නොසලකන්න"
@@ -7205,99 +7206,104 @@ msgstr "නිදහස් පිටු"
 msgid "Delete page"
 msgstr "පිටුව තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#. l10n: When the user opens a page saved in the Designer
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+msgid "Some tables saved in this page might have been renamed or deleted."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "ඒකකය"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Modifications have been saved"
 msgstr "වෙනස් කිරීම් සුරකින ලදි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 #, php-format
 msgid "%d object(s) created."
 msgstr "වස්තූන් %d ක් නිමැවිණි."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "තීර නම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 #: templates/sql/query.twig:179
 msgid "Submit"
 msgstr "ඉදිරිපත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Drag to reorder."
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Click to mark/unmark."
 msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Double-click to copy column name."
 msgstr "තීර නාමය පිටපත් කිරීම සඳහා ද්වි ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br>ඊතලය ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7305,55 +7311,55 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "මුල් පිහිටුම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "අවලංගු කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 #: libraries/classes/Controllers/Server/Status/StatusController.php:229
 msgid "Aborted"
 msgstr "අත්හැර දමන ලදි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "ආනයන පෙරනිමි"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "වගු තෝරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:20
 #: templates/display/results/table.twig:241
@@ -7361,75 +7367,75 @@ msgstr "වගු තෝරන්න"
 msgid "Print"
 msgstr "මුද්‍රණය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "අන්තර්ගත දත්ත මත ද්විත්ව-ක්ලික් කිරීමෙන් ඔබට<br>බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br>බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
 msgstr "සබැඳීම වෙත යන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "Copy column name."
 msgstr "තීර නම් පිටපත් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "පසුරු පුවරුව වෙත පිටපත් කිරීම සඳහා තීර නාමය දකුණු ක්ලික් කරන්න."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "Generate password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 #: libraries/classes/Controllers/UserPasswordController.php:82
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "මුරපදය වෙනස් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "තවත්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "පැනලය පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "පැනලය සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
 #: libraries/classes/Navigation/NavigationTree.php:1552
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
 msgstr "ප්‍රධාන පැනලය රිසි සේ සකසන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/Setup/Index.php:185
 #, php-format
 msgid ""
@@ -7440,127 +7446,127 @@ msgstr ""
 "අනුවාදය %s අනුවාදයයි (%s දින නිකුත් කරන ලද)."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 msgid ", latest stable version:"
 msgstr ", නවතම ස්ථායි අනුවාදය:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "up to date"
 msgstr "යාවත්කාලීන"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "දසුනක් සාදන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "විවෘත වගු පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #: libraries/classes/ErrorHandler.php:418
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "නොසලකන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "වගු විස්තර"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "සෙවුම් ප්‍රතිඵල සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgid "Time taken:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7569,59 +7575,90 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "වෙත දත්තගබඩාව පිටවත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "වගු නාම මූලයක් එක් කරන්න:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "වගු නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "නාම මූලය සහිත වගු පිටපත් කරන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Strong"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#. l10n: error code 5 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
+msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
-#, php-format
-msgid "Failed security key activation (%s)."
+#. l10n: error code 2 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+msgctxt "U2F error"
+msgid "Invalid request sent to security key."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#. l10n: unknown error code (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#, fuzzy
+#| msgid "Unknown error"
+msgctxt "U2F error"
+msgid "Unknown security key error."
+msgstr "හඳුනා නොගත් දෝෂය"
+
+#. l10n: error code 3 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+msgctxt "U2F error"
+msgid "Client does not support security key."
+msgstr ""
+
+#. l10n: error code 4 (from U2F API) on register
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+msgctxt "U2F error"
+msgid "Failed security key activation."
+msgstr ""
+
+#. l10n: error code 4 (from U2F API) on authanticate
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#, fuzzy
+#| msgid "Invalid export type"
+msgctxt "U2F error"
+msgid "Invalid security key."
+msgstr "වැරදි අපනයන වර්ගයකි"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7629,13 +7666,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s වගුව දැනටමත් පවතී!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/InsertEdit.php:341
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "සඟවන්න"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Controllers/Table/ChangeController.php:199
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -7754,7 +7791,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:420
+#: libraries/classes/Controllers/Server/PrivilegesController.php:419
 msgid "User has been added."
 msgstr "භාවිතා කරන්නා එක් කරන ලදි."
 
@@ -7774,7 +7811,7 @@ msgid "ID"
 msgstr "හැඳුනුම් අංකය"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:222
-#: libraries/classes/Server/Privileges.php:3005
+#: libraries/classes/Server/Privileges.php:3009
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "භාවිතා කරන්නා"
@@ -8468,7 +8505,7 @@ msgstr "පොත් සලකුණ නොසාදන ලදි!"
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි."
 
-#: libraries/classes/Controllers/Table/ChangeController.php:305
+#: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:122
 #: libraries/classes/Controllers/Table/ExportController.php:156
 #, fuzzy
@@ -8507,16 +8544,16 @@ msgstr "%s වගුව දැනටමත් පවතී!"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:133
 #: libraries/classes/Controllers/Table/MaintenanceController.php:169
 #: libraries/classes/Controllers/Table/MaintenanceController.php:204
-#: libraries/classes/Controllers/Table/PartitionController.php:42
-#: libraries/classes/Controllers/Table/PartitionController.php:65
-#: libraries/classes/Controllers/Table/PartitionController.php:89
-#: libraries/classes/Controllers/Table/PartitionController.php:118
-#: libraries/classes/Controllers/Table/PartitionController.php:142
-#: libraries/classes/Controllers/Table/PartitionController.php:171
-#: libraries/classes/Controllers/Table/PartitionController.php:195
+#: libraries/classes/Controllers/Table/PartitionController.php:52
+#: libraries/classes/Controllers/Table/PartitionController.php:82
+#: libraries/classes/Controllers/Table/PartitionController.php:113
+#: libraries/classes/Controllers/Table/PartitionController.php:149
+#: libraries/classes/Controllers/Table/PartitionController.php:180
+#: libraries/classes/Controllers/Table/PartitionController.php:216
+#: libraries/classes/Controllers/Table/PartitionController.php:247
 #: libraries/classes/Controllers/Table/RelationController.php:284
 #: libraries/classes/Controllers/ViewOperationsController.php:84
-#: libraries/classes/Database/Routines.php:1324
+#: libraries/classes/Database/Routines.php:1322
 #: libraries/classes/Display/Results.php:4183 libraries/classes/Message.php:176
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -8560,9 +8597,9 @@ msgid "There is an issue with your request."
 msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
-#: libraries/classes/Database/Routines.php:1346
+#: libraries/classes/Database/Routines.php:1344
 #: libraries/classes/Import.php:158 libraries/classes/InsertEdit.php:228
-#: libraries/classes/Sql.php:1059
+#: libraries/classes/Sql.php:1060
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
@@ -8589,12 +8626,12 @@ msgstr ""
 msgid "View"
 msgstr "දසුන"
 
-#: libraries/classes/Controllers/Table/PartitionController.php:95
-#: libraries/classes/Controllers/Table/PartitionController.php:148
-#: libraries/classes/Controllers/Table/PartitionController.php:201
+#: libraries/classes/Controllers/Table/PartitionController.php:119
+#: libraries/classes/Controllers/Table/PartitionController.php:186
+#: libraries/classes/Controllers/Table/PartitionController.php:253
 #: libraries/classes/Controllers/ViewOperationsController.php:87
 #: libraries/classes/Html/Generator.php:908 libraries/classes/Import.php:139
-#: libraries/classes/InsertEdit.php:760 libraries/classes/Message.php:196
+#: libraries/classes/InsertEdit.php:761 libraries/classes/Message.php:196
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "දෝෂය"
@@ -8626,7 +8663,7 @@ msgstr "ශීර්ෂකය ලබා ගැනීමට නොහැකි �
 
 #: libraries/classes/Controllers/Table/StructureController.php:933
 #: libraries/classes/Controllers/Table/StructureController.php:1223
-#: libraries/classes/Tracking.php:785
+#: libraries/classes/Tracking.php:789
 msgid "Query error"
 msgstr "විමසුම් දෝෂය"
 
@@ -8852,10 +8889,10 @@ msgstr "ආනයනය පේනු පූරණය අසමත් විය. 
 #: libraries/classes/Database/Routines.php:234
 #: libraries/classes/Database/Routines.php:259
 #: libraries/classes/Database/Routines.php:374
-#: libraries/classes/Database/Routines.php:1354
-#: libraries/classes/Database/Triggers.php:128
-#: libraries/classes/Database/Triggers.php:137
-#: libraries/classes/Database/Triggers.php:162
+#: libraries/classes/Database/Routines.php:1352
+#: libraries/classes/Database/Triggers.php:123
+#: libraries/classes/Database/Triggers.php:132
+#: libraries/classes/Database/Triggers.php:157
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "පහත විමසුම් අසමත් විය: \"%s\""
@@ -8867,12 +8904,12 @@ msgstr "පහත විමසුම් අසමත් විය: \"%s\""
 #: libraries/classes/Database/Routines.php:238
 #: libraries/classes/Database/Routines.php:263
 #: libraries/classes/Database/Routines.php:378
-#: libraries/classes/Database/Routines.php:1358
-#: libraries/classes/Database/Routines.php:1679
-#: libraries/classes/Database/Triggers.php:132
-#: libraries/classes/Database/Triggers.php:141
-#: libraries/classes/Database/Triggers.php:166
-#: libraries/classes/Database/Triggers.php:584
+#: libraries/classes/Database/Routines.php:1356
+#: libraries/classes/Database/Routines.php:1677
+#: libraries/classes/Database/Triggers.php:127
+#: libraries/classes/Database/Triggers.php:136
+#: libraries/classes/Database/Triggers.php:161
+#: libraries/classes/Database/Triggers.php:463
 #: libraries/classes/Html/Generator.php:980
 msgid "MySQL said: "
 msgstr "MySQL පවසන ලදි: "
@@ -8889,7 +8926,7 @@ msgstr "%1$s සිද්ධිය සාදන ලදි."
 
 #: libraries/classes/Database/Events.php:166
 #: libraries/classes/Database/Routines.php:279
-#: libraries/classes/Database/Triggers.php:183
+#: libraries/classes/Database/Triggers.php:178
 msgid "One or more errors have occurred while processing your request:"
 msgstr "ඔබගේ ඉල්ලීම පිරිසකසන අතරතුර දෝෂ එකක් හෝ වැඩි ගණනක් ඇති විය:"
 
@@ -8903,7 +8940,7 @@ msgstr "සිද්ධිය සංස්කරණය කරන්න"
 
 #: libraries/classes/Database/Events.php:412
 #: libraries/classes/Database/Routines.php:1061
-#: libraries/classes/Database/Triggers.php:514
+#: libraries/classes/Database/Triggers.php:393
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "අර්ථ දක්වන්නා \"භාවිත නාමය@සේවාදායක නාමය\" ආකෘතියේ විය යුතුය!"
 
@@ -8932,16 +8969,16 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "හලන ලද සිද්ධිය ප්‍රතිස්ථාපනය කිරීම අසමත් විය."
 
 #: libraries/classes/Database/Events.php:525
-#: libraries/classes/Database/Routines.php:1677
-#: libraries/classes/Database/Triggers.php:582
+#: libraries/classes/Database/Routines.php:1675
+#: libraries/classes/Database/Triggers.php:461
 msgid "The backed up query was:"
 msgstr "රක්ෂිත විමසුම වූයේ:"
 
 #: libraries/classes/Database/Events.php:558
 #: libraries/classes/Database/Routines.php:157
 #: libraries/classes/Database/Routines.php:1239
-#: libraries/classes/Database/Routines.php:1422
-#: libraries/classes/Database/Triggers.php:614
+#: libraries/classes/Database/Routines.php:1420
+#: libraries/classes/Database/Triggers.php:495
 msgid "Error in processing request:"
 msgstr "ඉල්ලීම පිරිසැකසීමේදී දෝශ ඇතිවිය:"
 
@@ -8956,14 +8993,14 @@ msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධ
 msgid "Export of event %s"
 msgstr "%s සිද්ධියේ අපනයන"
 
-#: libraries/classes/Database/Events.php:610
+#: libraries/classes/Database/Events.php:613
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධි කිසිවක් හමු නොවිණි"
 
-#: libraries/classes/DatabaseInterface.php:1085
+#: libraries/classes/DatabaseInterface.php:1086
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8971,23 +9008,23 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1134
+#: libraries/classes/DatabaseInterface.php:1135
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "වින්‍යාස ගොනුව කියවීමට අසමත් විය!"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1938
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "නොමැති පරාමිතිය:"
 
-#: libraries/classes/DatabaseInterface.php:1966
+#: libraries/classes/DatabaseInterface.php:1967
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "වින්‍යාසයන් හි අර්ථදක්වා ඇති පරිදි පරිපාලක භාවිතා කරන්නා ලෙස සම්බන්ධ වීම අසමත් විය."
 
-#: libraries/classes/DatabaseInterface.php:2455
+#: libraries/classes/DatabaseInterface.php:2456
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9108,7 +9145,7 @@ msgid "You must provide a routine definition."
 msgstr "ඔබ නෛත්‍යක අර්ථදක්වීමක් ලබා දිය යුතුය."
 
 #: libraries/classes/Database/Routines.php:1241
-#: libraries/classes/Database/Routines.php:1424
+#: libraries/classes/Database/Routines.php:1422
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
@@ -9119,7 +9156,7 @@ msgstr "%2$s දත්තගබඩාවේ %1$s නමින් නෛත්‍
 msgid "Execution results of routine %s"
 msgstr "%s නෛත්‍යකයේ ප්‍රතිදානය"
 
-#: libraries/classes/Database/Routines.php:1332
+#: libraries/classes/Database/Routines.php:1330
 #, fuzzy, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -9128,21 +9165,21 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "කාර්ය පටිපාටියේ අවසන් ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන් පේළි %d කට බලපෑවේ ය"
 msgstr[1] "කාර්ය පටිපාටියේ අවසන් ප්‍රකාශය ක්‍රියාත්මක කිරීමෙන් පේළි %d කට බලපෑවේ ය"
 
-#: libraries/classes/Database/Routines.php:1407
-#: libraries/classes/Database/Routines.php:1414
+#: libraries/classes/Database/Routines.php:1405
+#: libraries/classes/Database/Routines.php:1412
 msgid "Execute routine"
 msgstr "නෛත්‍යකය ක්‍රියාත්මක කරන්න"
 
-#: libraries/classes/Database/Routines.php:1676
+#: libraries/classes/Database/Routines.php:1674
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "හලන ලද නෛත්‍යකය ප්‍රතිස්ථාපනය කිරීම අසමත් විය."
 
-#: libraries/classes/Database/Routines.php:1706
+#: libraries/classes/Database/Routines.php:1704
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s නෛත්‍යකයේ අපනයනය"
 
-#: libraries/classes/Database/Routines.php:1725
+#: libraries/classes/Database/Routines.php:1726
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9181,102 +9218,61 @@ msgstr "හරියටම වාක්‍යාංශය"
 msgid "as regular expression"
 msgstr "regular expression ලෙස"
 
-#: libraries/classes/Database/Triggers.php:149
+#: libraries/classes/Database/Triggers.php:144
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "%1$s ප්‍රේරකය වෙනස් කරන ලදි."
 
-#: libraries/classes/Database/Triggers.php:169
+#: libraries/classes/Database/Triggers.php:164
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "%1$s ප්‍රේරකය සාදන ලදි."
 
-#: libraries/classes/Database/Triggers.php:267
+#: libraries/classes/Database/Triggers.php:262
 msgid "Add trigger"
 msgstr "ප්‍රේරකයක් එක් කරන්න"
 
-#: libraries/classes/Database/Triggers.php:271
+#: libraries/classes/Database/Triggers.php:266
 msgid "Edit trigger"
 msgstr "ප්‍රේරකය සංස්කරණය කරන්න"
 
-#: libraries/classes/Database/Triggers.php:400
-#: templates/database/events/editor_form.twig:10
-#: templates/database/routines/editor_form.twig:11 templates/view_create.twig:8
-msgid "Details"
-msgstr "විස්තර"
-
-#: libraries/classes/Database/Triggers.php:408
-msgid "Trigger name"
-msgstr "ප්‍රේරකයේ නම"
-
-#: libraries/classes/Database/Triggers.php:433
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "වේලාව"
-
-#: libraries/classes/Database/Triggers.php:450
-#: libraries/classes/Navigation/Nodes/NodeEvent.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
-#: libraries/classes/Plugins/Export/ExportOdt.php:635
-#: libraries/classes/Plugins/Export/ExportTexytext.php:486
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:412
-#: templates/database/triggers/list.twig:48
-msgid "Event"
-msgstr "සිද්ධිය"
-
-#: libraries/classes/Database/Triggers.php:467
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:512
-#: libraries/classes/Plugins/Export/ExportOdt.php:638
-#: libraries/classes/Plugins/Export/ExportTexytext.php:487
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:414
-#: templates/database/events/editor_form.twig:80
-#: templates/database/routines/editor_form.twig:108
-msgid "Definition"
-msgstr "අර්ථ දැක්වීම"
-
-#: libraries/classes/Database/Triggers.php:473
-#: templates/database/events/editor_form.twig:94
-#: templates/database/routines/editor_form.twig:137
-#: templates/view_create.twig:45
-msgid "Definer"
-msgstr "අර්ථ දක්වන්නා"
-
-#: libraries/classes/Database/Triggers.php:522
+#: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a trigger name!"
 msgstr "ඔබ ප්‍රේරකය සඳහා නමක් ලබාදිය යුතුයි!"
 
-#: libraries/classes/Database/Triggers.php:531
+#: libraries/classes/Database/Triggers.php:410
 msgid "You must provide a valid timing for the trigger!"
 msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු වේලාවක් ලබාදිය යුතුයි!"
 
-#: libraries/classes/Database/Triggers.php:540
+#: libraries/classes/Database/Triggers.php:419
 msgid "You must provide a valid event for the trigger!"
 msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු සිද්ධියක් ලබාදිය යුතුයි!"
 
-#: libraries/classes/Database/Triggers.php:550
+#: libraries/classes/Database/Triggers.php:429
 msgid "You must provide a valid table name!"
 msgstr "ඔබ වලංගු වගු නාමයක් ලබාදිය යුතුයි!"
 
-#: libraries/classes/Database/Triggers.php:557
+#: libraries/classes/Database/Triggers.php:436
 msgid "You must provide a trigger definition."
 msgstr "ඔබ ප්‍රේරක අර්ථදක්වීමක් ලබා දිය යුතුය."
 
-#: libraries/classes/Database/Triggers.php:581
+#: libraries/classes/Database/Triggers.php:460
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "හලන ලද ප්‍රේරකය ප්‍රතිස්ථාපනය කිරීම අසමත් විය."
 
-#: libraries/classes/Database/Triggers.php:616
+#: libraries/classes/Database/Triggers.php:497
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් ප්‍රේරක කිසිවක් හමු නොවිණි"
 
-#: libraries/classes/Database/Triggers.php:652
+#: libraries/classes/Database/Triggers.php:531
+#: templates/database/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr "%s ප්‍රේරකයේ අපනයන"
 
-#: libraries/classes/Database/Triggers.php:670
+#: libraries/classes/Database/Triggers.php:549
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -9284,7 +9280,7 @@ msgid ""
 "%2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් ප්‍රේරක කිසිවක් හමු නොවිණි"
 
-#: libraries/classes/Dbal/DbiMysqli.php:139
+#: libraries/classes/Dbal/DbiMysqli.php:147
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9385,7 +9381,7 @@ msgstr ""
 msgid "%d total"
 msgstr "මුළු එකතුව %d"
 
-#: libraries/classes/Display/Results.php:4560 libraries/classes/Sql.php:1065
+#: libraries/classes/Display/Results.php:4560 libraries/classes/Sql.php:1066
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
@@ -9745,64 +9741,64 @@ msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකි
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: libraries/classes/File.php:288
+#: libraries/classes/File.php:275
 msgid "File was not an uploaded file."
 msgstr "ගොනුව උඩුගත කරන ලද්දක් නොවේ."
 
-#: libraries/classes/File.php:331
+#: libraries/classes/File.php:318
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "උඩුගත කෙරුනු ගොනුව php.ini හි upload_max_filesize අගය ඉක්මවයි."
 
-#: libraries/classes/File.php:337
+#: libraries/classes/File.php:324
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "උඩුගත කෙරුනු ගොනුව HTML පෝරමයෙහි සඳහන් MAX_FILE_SIZE අගය ඉක්මවයි."
 
-#: libraries/classes/File.php:343
+#: libraries/classes/File.php:330
 msgid "The uploaded file was only partially uploaded."
 msgstr "උඩුගත කෙරුනු ගොනුවේ කොටසක් පමණක් උඩුගත විය."
 
-#: libraries/classes/File.php:347
+#: libraries/classes/File.php:334
 msgid "Missing a temporary folder."
 msgstr "තාවකාලික ෆෝල්ඩරයක් නැතිවී ඇත."
 
-#: libraries/classes/File.php:350
+#: libraries/classes/File.php:337
 msgid "Failed to write file to disk."
 msgstr "ගොනුව ඩිස්කයට පිටපත් කිරීම අසාර්ථක විය."
 
-#: libraries/classes/File.php:353
+#: libraries/classes/File.php:340
 msgid "File upload stopped by extension."
 msgstr "දිගුව නිසා ගොනුව උඩුගත කිරීම නවතන ලදි."
 
-#: libraries/classes/File.php:356
+#: libraries/classes/File.php:343
 msgid "Unknown error in file upload."
 msgstr "ගොනුව උඩුගත කිරීමේදී දෝෂයක් ඇති විය."
 
-#: libraries/classes/File.php:506
+#: libraries/classes/File.php:493
 msgid "File is a symbolic link"
 msgstr ""
 
-#: libraries/classes/File.php:513 libraries/classes/File.php:612
+#: libraries/classes/File.php:500 libraries/classes/File.php:599
 msgid "File could not be read!"
 msgstr "ගොනුව කියවිය නොහැක!"
 
-#: libraries/classes/File.php:556
+#: libraries/classes/File.php:543
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "උඩුගත කෙරුණු ගොනුව ගෙන යාමේදී දෝෂයක් ඇති විය, [doc@faq1-11]FAQ 1.11[/doc] බලන්න."
 
-#: libraries/classes/File.php:576
+#: libraries/classes/File.php:563
 msgid "Error while moving uploaded file."
 msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී දෝෂයක් මතු විය."
 
-#: libraries/classes/File.php:585
+#: libraries/classes/File.php:572
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "උඩුගත කරන ලද ගොනුව කියවීමට නොහැක."
 
-#: libraries/classes/File.php:663
+#: libraries/classes/File.php:650
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -9900,22 +9896,22 @@ msgstr "ස්ථිතික දත්ත"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1073
+#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1074
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1353
+#: libraries/classes/Import.php:1354
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "පහත සැකිලි අලුතින් සාදා හෝ වෙනස් කර ඇත. මෙහිදී ඔබට:"
 
-#: libraries/classes/Import.php:1356
+#: libraries/classes/Import.php:1357
 #, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "සැකිල්ලක අන්තර්ගතය එහි නම මත ක්ලික් කිරීමෙන් බලන්න"
 
-#: libraries/classes/Import.php:1359
+#: libraries/classes/Import.php:1360
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -9923,13 +9919,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "අදාල \"විකල්ප\" සබැඳිය මත ක්ලික් කිරීමෙන් එහි ඕනෑම සිටුවමක් වෙනස් කරන්න"
 
-#: libraries/classes/Import.php:1361
+#: libraries/classes/Import.php:1362
 #, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "\"සැකිල්ල\" සබැඳිය ඔස්සේ යාමෙන් සැකිල්ල සංස්කරණය කරන්න"
 
-#: libraries/classes/Import.php:1365 libraries/classes/Import.php:1399
+#: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
 #: libraries/classes/Plugins/Export/ExportCodegen.php:72
 #: libraries/classes/Plugins/Export/ExportCsv.php:48
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
@@ -9944,7 +9940,7 @@ msgstr "\"සැකිල්ල\" සබැඳිය ඔස්සේ යාම�
 #: libraries/classes/Plugins/Export/ExportSql.php:115
 #: libraries/classes/Plugins/Export/ExportTexytext.php:47
 #: libraries/classes/Plugins/Export/ExportXml.php:93
-#: libraries/classes/Plugins/Export/ExportYaml.php:45
+#: libraries/classes/Plugins/Export/ExportYaml.php:46
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
 #: libraries/classes/Plugins/Import/ImportOds.php:56
@@ -9953,43 +9949,43 @@ msgstr "\"සැකිල්ල\" සබැඳිය ඔස්සේ යාම�
 #: libraries/classes/Plugins/Import/ImportXml.php:55
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
-#: templates/database/routines/editor_form.twig:52
+#: templates/database/routines/editor_form.twig:53
 #: templates/display/results/table.twig:107
 #: templates/table/search/index.twig:100
 #: templates/table/structure/display_table_stats.twig:97
 msgid "Options"
 msgstr "විකල්ප"
 
-#: libraries/classes/Import.php:1368
+#: libraries/classes/Import.php:1369
 #, php-format
 msgid "Go to database: %s"
 msgstr "%s දත්තගබඩාව වෙත යන්න"
 
-#: libraries/classes/Import.php:1374 libraries/classes/Import.php:1417
+#: libraries/classes/Import.php:1375 libraries/classes/Import.php:1418
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s සඳහා සිටුවම් සංස්කරණය කරන්න"
 
-#: libraries/classes/Import.php:1402
+#: libraries/classes/Import.php:1403
 #, php-format
 msgid "Go to table: %s"
 msgstr "%s වගුව වෙත යන්න"
 
-#: libraries/classes/Import.php:1410
+#: libraries/classes/Import.php:1411
 #, php-format
 msgid "Structure of %s"
 msgstr "%s හි සැකිල්ල"
 
-#: libraries/classes/Import.php:1428
+#: libraries/classes/Import.php:1429
 #, php-format
 msgid "Go to view: %s"
 msgstr "%s දසුන වෙත යන්න"
 
-#: libraries/classes/Import.php:1452
+#: libraries/classes/Import.php:1453
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1686
+#: libraries/classes/Import.php:1687
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10002,15 +9998,15 @@ msgid ""
 "removed."
 msgstr "%1$s හා %2$s සුචි එක සමාන බැවින් එකක් ඉවත් කල හැක."
 
-#: libraries/classes/InsertEdit.php:356
+#: libraries/classes/InsertEdit.php:357
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:26
-#: templates/database/routines/execute_form.twig:21
+#: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
 msgid "Function"
 msgstr "ශ්‍රිතය"
 
-#: libraries/classes/InsertEdit.php:359
+#: libraries/classes/InsertEdit.php:360
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:402
 #: libraries/classes/Plugins/Export/ExportLatex.php:573
@@ -10019,19 +10015,19 @@ msgstr "ශ්‍රිතය"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:579
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/database/central_columns/edit.twig:7
+#: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
-#: templates/database/routines/editor_form.twig:25
-#: templates/database/routines/editor_form.twig:50
-#: templates/database/routines/execute_form.twig:19
+#: templates/database/routines/editor_form.twig:26
+#: templates/database/routines/editor_form.twig:51
+#: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:50
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
@@ -10044,12 +10040,12 @@ msgstr "ශ්‍රිතය"
 msgid "Type"
 msgstr "වර්ගය"
 
-#: libraries/classes/InsertEdit.php:761 templates/import.twig:77
+#: libraries/classes/InsertEdit.php:762 templates/import.twig:77
 #: templates/import.twig:107
 msgid "The directory you set for upload work cannot be reached."
 msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක."
 
-#: libraries/classes/InsertEdit.php:766
+#: libraries/classes/InsertEdit.php:767
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -10059,48 +10055,11 @@ msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩි�
 msgid "Or"
 msgstr "හෝ"
 
-#: libraries/classes/InsertEdit.php:767
+#: libraries/classes/InsertEdit.php:768
 msgid "web server upload directory:"
 msgstr "වෙබ් සේවාදායකයේ උඩුගත ඩිරෙක්ටරිය:"
 
-#: libraries/classes/InsertEdit.php:1024
-msgid "and then"
-msgstr "අනතුරුව"
-
-#: libraries/classes/InsertEdit.php:1064
-msgid "Insert as new row"
-msgstr "නව පේළියක් ලෙස ඇතුල් කරන්න"
-
-#: libraries/classes/InsertEdit.php:1067
-msgid "Insert as new row and ignore errors"
-msgstr "දෝෂ නොසලකමින් නව පේළියක් ලෙස ඇතුල් කරන්න"
-
-#: libraries/classes/InsertEdit.php:1070
-msgid "Show insert query"
-msgstr "ඇතුල් කිරීමේ විමසුම පෙන්වන්න"
-
-#: libraries/classes/InsertEdit.php:1091
-msgid "Go back to previous page"
-msgstr "පෙර පිටුවට ආපසු යන්න"
-
-#: libraries/classes/InsertEdit.php:1094
-msgid "Insert another new row"
-msgstr "නව පේළියක් එක් කරන්න"
-
-#: libraries/classes/InsertEdit.php:1099
-msgid "Go back to this page"
-msgstr "මෙම පිටුව වෙත ආපසු යන්න"
-
-#: libraries/classes/InsertEdit.php:1124
-msgid "Edit next row"
-msgstr "මීලඟ පේළිය සංස්කරණය කරන්න"
-
-#: libraries/classes/InsertEdit.php:1144
-msgid ""
-"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr ""
-
-#: libraries/classes/InsertEdit.php:1172
+#: libraries/classes/InsertEdit.php:1041
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:31
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:399
@@ -10110,8 +10069,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:311
 #: libraries/classes/Plugins/Export/ExportTexytext.php:405
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:577
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -10132,7 +10091,7 @@ msgstr ""
 msgid "Column"
 msgstr "තීර"
 
-#: libraries/classes/InsertEdit.php:1182
+#: libraries/classes/InsertEdit.php:1051
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:304
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:405
 #: libraries/classes/Plugins/Export/ExportLatex.php:574
@@ -10141,10 +10100,10 @@ msgstr "තීර"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:581
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/database/central_columns/edit.twig:12
+#: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
 #: templates/database/data_dictionary/index.twig:18
@@ -10157,12 +10116,12 @@ msgstr "තීර"
 msgid "Null"
 msgstr "ශුන්‍ය"
 
-#: libraries/classes/InsertEdit.php:1183
+#: libraries/classes/InsertEdit.php:1052
 #: templates/database/designer/main.twig:484
 #: templates/database/designer/main.twig:649
 #: templates/database/designer/main.twig:855
 #: templates/database/designer/main.twig:1048
-#: templates/database/routines/execute_form.twig:23
+#: templates/database/routines/execute_form.twig:20
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -10172,11 +10131,11 @@ msgstr "ශුන්‍ය"
 msgid "Value"
 msgstr "අගය"
 
-#: libraries/classes/InsertEdit.php:1593 libraries/classes/Sql.php:1056
+#: libraries/classes/InsertEdit.php:1462 libraries/classes/Sql.php:1057
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: libraries/classes/InsertEdit.php:1623 libraries/classes/Sql.php:1033
+#: libraries/classes/InsertEdit.php:1492 libraries/classes/Sql.php:1034
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"
@@ -10230,7 +10189,7 @@ msgid "Insert"
 msgstr "ඇතුල් කරන්න"
 
 #: libraries/classes/Menu.php:322 libraries/classes/Menu.php:443
-#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2126
+#: libraries/classes/Server/Privileges.php:2983 libraries/classes/Util.php:2126
 #: libraries/classes/Util.php:2142 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10258,7 +10217,7 @@ msgstr "අවධානය"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:740
 #: libraries/classes/Plugins/Export/ExportPdf.php:300
-#: libraries/classes/Plugins/Export/ExportSql.php:2231
+#: libraries/classes/Plugins/Export/ExportSql.php:2234
 #: libraries/classes/Plugins/Export/ExportTexytext.php:573
 #: libraries/classes/Plugins/Export/ExportXml.php:139
 #: libraries/classes/Util.php:2129 libraries/classes/Util.php:2145
@@ -10463,6 +10422,16 @@ msgstr "ඉඟිය පෙන්වන්න"
 msgctxt "Create new event"
 msgid "New"
 msgstr "නව සිද්ධියක්"
+
+#: libraries/classes/Navigation/Nodes/NodeEvent.php:26
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
+#: libraries/classes/Plugins/Export/ExportOdt.php:635
+#: libraries/classes/Plugins/Export/ExportTexytext.php:486
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:412
+#: templates/database/triggers/editor_form.twig:47
+#: templates/database/triggers/list.twig:48
+msgid "Event"
+msgstr "සිද්ධිය"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:23
@@ -10980,7 +10949,7 @@ msgstr "MySQL සේවාදායකයට ලොග් විය නොහැ
 msgid "Wrong username/password. Access denied."
 msgstr "වැරදි භාවිත නාමය/මුරපදය. පිවිසුම වලක්වා ඇත."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:156
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:154
 msgid "Can not find signon authentication script:"
 msgstr "signon සත්‍යාපන විධානාවලිය සොයාගත නොහැක:"
 
@@ -11098,7 +11067,7 @@ msgstr "දත්ත නික්ෂේපන විකල්ප"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:209
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
-#: libraries/classes/Plugins/Export/ExportSql.php:2551
+#: libraries/classes/Plugins/Export/ExportSql.php:2554
 #: libraries/classes/Plugins/Export/ExportTexytext.php:193
 msgid "Dumping data for table"
 msgstr "වගු සඳහා නික්ෂේප දත්ත"
@@ -11111,10 +11080,10 @@ msgstr "වගු සඳහා නික්ෂේප දත්ත"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:583
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/central_columns/edit.twig:9
+#: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
 #: templates/database/data_dictionary/index.twig:19
@@ -11130,8 +11099,8 @@ msgstr "පෙරනිමි"
 #: libraries/classes/Plugins/Export/ExportOdt.php:514
 #: libraries/classes/Plugins/Export/ExportTexytext.php:410
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:592
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:726
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "සම්බන්ද වන්නේ"
@@ -11141,37 +11110,47 @@ msgstr "සම්බන්ද වන්නේ"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:408
 #: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/central_columns/edit.twig:6
+#: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
 #: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
 #: templates/database/operations/index.twig:33
-#: templates/database/routines/editor_form.twig:49
-#: templates/database/routines/execute_form.twig:18
+#: templates/database/routines/editor_form.twig:50
+#: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
 #: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
 #: templates/table/structure/display_structure.twig:22
 msgid "Name"
 msgstr "නම"
 
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:512
+#: libraries/classes/Plugins/Export/ExportOdt.php:638
+#: libraries/classes/Plugins/Export/ExportTexytext.php:487
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:414
+#: templates/database/events/editor_form.twig:82
+#: templates/database/routines/editor_form.twig:109
+#: templates/database/triggers/editor_form.twig:57
+msgid "Definition"
+msgstr "අර්ථ දැක්වීම"
+
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:586
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2200
+#: libraries/classes/Plugins/Export/ExportSql.php:2203
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 msgid "Table structure for table"
 msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:612
 #: libraries/classes/Plugins/Export/ExportOdt.php:750
-#: libraries/classes/Plugins/Export/ExportSql.php:2274
+#: libraries/classes/Plugins/Export/ExportSql.php:2277
 #: libraries/classes/Plugins/Export/ExportTexytext.php:579
 msgid "Structure for view"
 msgstr "දසුන සඳහා සැකිල්ල"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:626
 #: libraries/classes/Plugins/Export/ExportOdt.php:770
-#: libraries/classes/Plugins/Export/ExportSql.php:2322
+#: libraries/classes/Plugins/Export/ExportSql.php:2325
 #: libraries/classes/Plugins/Export/ExportTexytext.php:595
 msgid "Stand-in structure for view"
 msgstr "දසුන සැදීම සඳහා තාවකාලික සැකිල්ල"
@@ -11277,7 +11256,7 @@ msgid "Database:"
 msgstr "දත්තගබඩාව:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:337
-#: libraries/classes/Plugins/Export/ExportSql.php:2391
+#: libraries/classes/Plugins/Export/ExportSql.php:2394
 msgid "Data:"
 msgstr "දත්ත:"
 
@@ -11401,7 +11380,7 @@ msgid "Data creation options"
 msgstr "දත්ත සෑදීමේ විකල්ප"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:407
-#: libraries/classes/Plugins/Export/ExportSql.php:2497
+#: libraries/classes/Plugins/Export/ExportSql.php:2500
 msgid "Truncate table before insert"
 msgstr "ඇතුල් කිරීම් වලට පෙර වගුව හිස් කරන්න"
 
@@ -11482,7 +11461,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
 #: libraries/classes/Plugins/Export/ExportSql.php:1711
-#: libraries/classes/Plugins/Export/ExportSql.php:2262
+#: libraries/classes/Plugins/Export/ExportSql.php:2265
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -11505,17 +11484,17 @@ msgid "Metadata for database %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:682
 msgid "Creation:"
 msgstr "සෑදීම:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1543
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:693
 msgid "Last update:"
 msgstr "අවසන් යාවත්කාලීන කිරීම:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1557
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
 msgid "Last check:"
 msgstr "අවසන් පරීක්ෂාව:"
 
@@ -11529,65 +11508,65 @@ msgstr "වගුවක් සඳහා වගු සැකිල්ල"
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1889
+#: libraries/classes/Plugins/Export/ExportSql.php:1892
 msgid "Constraints for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1890
+#: libraries/classes/Plugins/Export/ExportSql.php:1893
 msgid "Constraints for table"
 msgstr "වගුව සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1920
+#: libraries/classes/Plugins/Export/ExportSql.php:1923
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "නික්ෂේපනය කරන ලද වගු සඳහා සීමා බාධක"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1921
+#: libraries/classes/Plugins/Export/ExportSql.php:1924
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "වගු තුල:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1957
+#: libraries/classes/Plugins/Export/ExportSql.php:1960
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "ශුන්‍ය අගයන් සඳහා AUTO_INCREMENT භාවිතා නොකරන්න"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1958
+#: libraries/classes/Plugins/Export/ExportSql.php:1961
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT අගයක් එක් කරන්න"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2035
+#: libraries/classes/Plugins/Export/ExportSql.php:2038
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2059
+#: libraries/classes/Plugins/Export/ExportSql.php:2062
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2259
+#: libraries/classes/Plugins/Export/ExportSql.php:2262
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2299
+#: libraries/classes/Plugins/Export/ExportSql.php:2302
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "දසුන සඳහා සැකිල්ල"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2325
+#: libraries/classes/Plugins/Export/ExportSql.php:2328
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2406
+#: libraries/classes/Plugins/Export/ExportSql.php:2409
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
@@ -11759,7 +11738,7 @@ msgstr "මෙම ආකෘතියේ ආකෘති-විශේෂී ත�
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
-#: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:79
+#: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:75
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:96
 #: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:99
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:94
@@ -11768,7 +11747,7 @@ msgid "The %s table doesn't exist!"
 msgstr "%s නමින් වගුවක් නොපවතියි!"
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:77
+#: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:75
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය - %sවන පිටුව"
@@ -11783,38 +11762,38 @@ msgstr "ක්‍රමානුරූප දෝෂය: "
 msgid "PDF export page"
 msgstr "වැරදි අපනයන වර්ගයකි"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:144
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:142
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "%s දත්තගබඩාවේ ක්‍රමානුරූපය - %sවන පිටුව"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:172
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:591
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:170
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:589
 msgid "Relational schema"
 msgstr "ක්‍රමානුරූපය"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:534
 msgid "Table of contents"
 msgstr "පටුන"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "වගු විස්තර:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/columns_definitions/table_fields_definitions.twig:27
-#: templates/database/central_columns/edit.twig:11
+#: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "ගුණාංග"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -12113,25 +12092,25 @@ msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:74
+#: libraries/classes/Plugins/TwoFactorPlugin.php:72
 #, fuzzy, php-format
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed: %s"
 msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය!"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:79
+#: libraries/classes/Plugins/TwoFactorPlugin.php:77
 #, fuzzy
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "දෘඪාංග සත්‍යාපනය අසමත් විය!"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:133
+#: libraries/classes/Plugins/TwoFactorPlugin.php:131
 #, fuzzy
 #| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
 msgstr "Config සත්‍යාපනය"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:143
+#: libraries/classes/Plugins/TwoFactorPlugin.php:141
 msgid "Login using password only."
 msgstr ""
 
@@ -12470,8 +12449,8 @@ msgid "Error while loading the search."
 msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී දෝෂයක් මතු විය."
 
 #: libraries/classes/Server/Plugins.php:68
-#: libraries/classes/Server/Privileges.php:817
-#: libraries/classes/Server/Privileges.php:3989
+#: libraries/classes/Server/Privileges.php:821
+#: libraries/classes/Server/Privileges.php:3993
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -12501,16 +12480,16 @@ msgstr "Cookie සත්‍යාපනය"
 msgid "Old MySQL-4.0 authentication"
 msgstr "Cookie සත්‍යාපනය"
 
-#: libraries/classes/Server/Privileges.php:256
+#: libraries/classes/Server/Privileges.php:260
 msgid "No privileges."
 msgstr "වරප්‍රසාද නොමැත."
 
-#: libraries/classes/Server/Privileges.php:267
+#: libraries/classes/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:289
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -12518,7 +12497,7 @@ msgstr ""
 msgid "Allows deleting data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:294
+#: libraries/classes/Server/Privileges.php:298
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -12526,7 +12505,7 @@ msgstr ""
 msgid "Allows creating new tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:299
+#: libraries/classes/Server/Privileges.php:303
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -12534,8 +12513,8 @@ msgstr ""
 msgid "Allows dropping tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:308
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -12543,8 +12522,8 @@ msgstr ""
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:313
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -12552,9 +12531,9 @@ msgstr ""
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:440
-#: libraries/classes/Server/Privileges.php:456
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -12564,9 +12543,9 @@ msgstr ""
 msgid "Allows creating new views."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:461
-#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:323
+#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -12574,8 +12553,8 @@ msgstr ""
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:328
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -12583,76 +12562,76 @@ msgstr ""
 msgid "Allows creating and dropping triggers."
 msgstr "ප්‍රේරක සැදීමට හා ඉවත් කිරීමට අවසර ලබා දෙයි."
 
-#: libraries/classes/Server/Privileges.php:341
+#: libraries/classes/Server/Privileges.php:345
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:412
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -12661,39 +12640,39 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:420
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:425
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:435
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:474
-#: libraries/classes/Server/Privileges.php:483
+#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -12701,47 +12680,47 @@ msgstr ""
 msgid "Allows deleting historical rows."
 msgstr "නිර්ණායක පේළියක් එක් කරන්න/ඉවත් කරන්න"
 
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:493
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:498
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:503
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1116
+#: libraries/classes/Server/Privileges.php:1120
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s ගේ මුරපදය සාර්ථකව වෙනස් කරන ලදි."
 
-#: libraries/classes/Server/Privileges.php:1166
+#: libraries/classes/Server/Privileges.php:1170
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "ඔබ %s සඳහා වරප්‍රසාද අහෝසි කර ඇත."
 
-#: libraries/classes/Server/Privileges.php:1514
+#: libraries/classes/Server/Privileges.php:1518
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1583
+#: libraries/classes/Server/Privileges.php:1587
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12751,24 +12730,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "වරප්‍රසාද සංස්කරණය කරන්න:"
 
-#: libraries/classes/Server/Privileges.php:1586
+#: libraries/classes/Server/Privileges.php:1590
 msgid "Revoke"
 msgstr "අහෝසි කරන්න"
 
-#: libraries/classes/Server/Privileges.php:1918
+#: libraries/classes/Server/Privileges.php:1922
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "දත්තගබඩා විශේෂිත වරප්‍රසාද"
 
-#: libraries/classes/Server/Privileges.php:1924
+#: libraries/classes/Server/Privileges.php:1928
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "වගු-විශේෂී වරප්‍රසාද"
 
-#: libraries/classes/Server/Privileges.php:1929
-#: libraries/classes/Server/Privileges.php:1931
+#: libraries/classes/Server/Privileges.php:1933
+#: libraries/classes/Server/Privileges.php:1935
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -12777,63 +12756,63 @@ msgstr "වගු-විශේෂී වරප්‍රසාද"
 msgid "Routine"
 msgstr "නෛත්‍යක"
 
-#: libraries/classes/Server/Privileges.php:1930
+#: libraries/classes/Server/Privileges.php:1934
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "තීර-විශේෂී වරප්‍රසාද"
 
-#: libraries/classes/Server/Privileges.php:2287
+#: libraries/classes/Server/Privileges.php:2291
 msgid "No users selected for deleting!"
 msgstr "ඉවත් කිරීම සඳහා භාවිතා කරන්නන් කිසිවෙක් තෝරාගෙන නොමැත!"
 
-#: libraries/classes/Server/Privileges.php:2290
+#: libraries/classes/Server/Privileges.php:2294
 msgid "Reloading the privileges"
 msgstr "වරප්‍රසාද පූරණය කෙරෙමින්"
 
-#: libraries/classes/Server/Privileges.php:2315
+#: libraries/classes/Server/Privileges.php:2319
 msgid "The selected users have been deleted successfully."
 msgstr "තෝරාගත් භාවිතා කරන්නන් සාර්ථකව ඉවත් කරන ලදි."
 
-#: libraries/classes/Server/Privileges.php:2395
+#: libraries/classes/Server/Privileges.php:2399
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "ඔබ %s සඳහා වරප්‍රසාද අලුත් කර ඇත."
 
-#: libraries/classes/Server/Privileges.php:2484
+#: libraries/classes/Server/Privileges.php:2488
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "භාවිතා කරන්නන් හමු නොවිණි."
 
-#: libraries/classes/Server/Privileges.php:2571
+#: libraries/classes/Server/Privileges.php:2575
 #, php-format
 msgid "Deleting %s"
 msgstr "%s ඉවත් කරමින් පවතී"
 
-#: libraries/classes/Server/Privileges.php:2602
+#: libraries/classes/Server/Privileges.php:2606
 msgid "The privileges were reloaded successfully."
 msgstr "සාර්ථකව වරප්‍රසාද පූරණය කරන්න ලදි."
 
-#: libraries/classes/Server/Privileges.php:2706
+#: libraries/classes/Server/Privileges.php:2710
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s භාවිතා කරන්නා දැනටමත් පවතී!"
 
-#: libraries/classes/Server/Privileges.php:2996
+#: libraries/classes/Server/Privileges.php:3000
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s සඳහා වරප්‍රසාද"
 
-#: libraries/classes/Server/Privileges.php:3135
+#: libraries/classes/Server/Privileges.php:3139
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3179
+#: libraries/classes/Server/Privileges.php:3183
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12850,7 +12829,7 @@ msgstr ""
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
 "වඩා වෙනස් විය හැකිය. එවැනි අවස්ථාවක ඔබ %sවරප්‍රසාද පූරණය%s කල යුතුය."
 
-#: libraries/classes/Server/Privileges.php:3195
+#: libraries/classes/Server/Privileges.php:3199
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12868,7 +12847,7 @@ msgstr ""
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
 "වඩා වෙනස් විය හැකිය. එවැනි අවස්ථාවක ඔබ %sවරප්‍රසාද පූරණය%s කල යුතුය."
 
-#: libraries/classes/Server/Privileges.php:3540
+#: libraries/classes/Server/Privileges.php:3544
 msgid "You have added a new user."
 msgstr "ඔබ නව භාවිතා කරන්නනෙක් එක් කරන ලදි."
 
@@ -12992,16 +12971,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "අලුත් ස්ථායී අනුවාදයක් නොමැත"
 
-#: libraries/classes/Sql.php:529
+#: libraries/classes/Sql.php:530
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්."
 
-#: libraries/classes/Sql.php:1053
+#: libraries/classes/Sql.php:1054
 msgid "Showing as PHP code"
 msgstr "PHP කේත ලෙස පෙන්වමින්"
 
-#: libraries/classes/Sql.php:1431
+#: libraries/classes/Sql.php:1432
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13013,7 +12992,7 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/Sql.php:1445
+#: libraries/classes/Sql.php:1446
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13025,45 +13004,45 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/SqlQueryForm.php:155
+#: libraries/classes/SqlQueryForm.php:148
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "SQL විමසුමක් සිදු කරන්න/%s සේවාදායකය මත විමසුම්"
 
-#: libraries/classes/SqlQueryForm.php:174
+#: libraries/classes/SqlQueryForm.php:167
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්තගබඩාව මත විමසුම්"
 
-#: libraries/classes/SqlQueryForm.php:200
+#: libraries/classes/SqlQueryForm.php:193
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "SQL විමසුමක් සිදු කරන්න/%s දත්තගබඩාව මත විමසුම්"
 
-#: libraries/classes/StorageEngine.php:275
+#: libraries/classes/StorageEngine.php:276
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "ගබඩා යන්ත්‍රයෙහි තත්වය පිලිබඳ වැඩිදුර තොරතුරු නැත."
 
-#: libraries/classes/StorageEngine.php:384
+#: libraries/classes/StorageEngine.php:385
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s මෙම සේවාදායකයේ පෙරනිමි ගබඩා යන්ත්‍රයයි."
 
-#: libraries/classes/StorageEngine.php:387
+#: libraries/classes/StorageEngine.php:388
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "මෙම MySQL සේවාදායකයේ %s ඇත."
 
-#: libraries/classes/StorageEngine.php:390
+#: libraries/classes/StorageEngine.php:391
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය කර ඇත."
 
-#: libraries/classes/StorageEngine.php:395
+#: libraries/classes/StorageEngine.php:396
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
@@ -13250,50 +13229,50 @@ msgstr "සැකිල්ලේ සැණරුව"
 msgid "Version %s snapshot (SQL code)"
 msgstr "%s වන අනුවාදයේ සැණරුව (SQL කේත)"
 
-#: libraries/classes/Tracking.php:739
+#: libraries/classes/Tracking.php:741
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:749
+#: libraries/classes/Tracking.php:753
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:806
+#: libraries/classes/Tracking.php:810
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/classes/Tracking.php:810
+#: libraries/classes/Tracking.php:814
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/classes/Tracking.php:821
+#: libraries/classes/Tracking.php:825
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/classes/Tracking.php:871
+#: libraries/classes/Tracking.php:865
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "`%s` වගුව සඳහා අවධානය පිළිබඳ වාර්තාව"
 
-#: libraries/classes/Tracking.php:903
+#: libraries/classes/Tracking.php:897
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%2$s වන අනුවාදයේදී %1$s සඳහා අවධානය සක්‍රීය කරන ලදී."
 
-#: libraries/classes/Tracking.php:906
+#: libraries/classes/Tracking.php:900
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%2$s වන අනුවාදයේදී %1$s සඳහා අවධානය අක්‍රීය කරන ලදී."
 
-#: libraries/classes/Tracking.php:1014
+#: libraries/classes/Tracking.php:999
 #, fuzzy, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
 
-#: libraries/classes/Tracking.php:1047
+#: libraries/classes/Tracking.php:1030
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "%1$s වන අනුවාදය සාදන ලදි. %2$s සඳහා අවධානය සක්‍රීයයි."
@@ -14112,8 +14091,8 @@ msgstr "යන්ත්‍රයන්"
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:73
-#: templates/database/events/editor_form.twig:100
-#: templates/database/routines/editor_form.twig:162
+#: templates/database/events/editor_form.twig:102
+#: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:421
@@ -14159,8 +14138,8 @@ msgid "Node group"
 msgstr "භාවිතා කරන්නන් කණ්ඩායම"
 
 #: templates/columns_definitions/table_fields_definitions.twig:16
-#: templates/database/central_columns/edit.twig:8
-#: templates/database/routines/editor_form.twig:51
+#: templates/database/central_columns/edit.twig:10
+#: templates/database/routines/editor_form.twig:52
 msgid "Length/Values"
 msgstr "දිග/අගයන්"
 
@@ -14189,7 +14168,7 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/database/central_columns/edit.twig:10
+#: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
@@ -14214,7 +14193,7 @@ msgstr "පරිතුලනය"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
-#: templates/database/routines/editor_form.twig:123
+#: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -14471,30 +14450,30 @@ msgid ""
 "permanent, view settings."
 msgstr ""
 
-#: templates/create_tracking_version.twig:11
+#: templates/create_tracking_version.twig:10
 #, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "%2$s හි %1$s වන අනුවාදය සාදන්න"
 
-#: templates/create_tracking_version.twig:16
+#: templates/create_tracking_version.twig:15
 #, fuzzy, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
 msgstr "අනුවාදය සාදන්න"
 
-#: templates/create_tracking_version.twig:20
+#: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: templates/create_tracking_version.twig:59
+#: templates/create_tracking_version.twig:60
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: templates/create_tracking_version.twig:76
+#: templates/create_tracking_version.twig:77
 msgid "Create version"
 msgstr "අනුවාදය සාදන්න"
 
-#: templates/database/central_columns/edit.twig:13
+#: templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr ""
@@ -14865,42 +14844,55 @@ msgstr "පිටුව තෝරන්න"
 msgid "Select Export Relational Type"
 msgstr "ක්‍රමානුරූපය අපනයනය කල යුතු ආකෘතිය තෝරන්න"
 
-#: templates/database/events/editor_form.twig:17
+#: templates/database/events/editor_form.twig:10
+#: templates/database/routines/editor_form.twig:11
+#: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
+msgid "Details"
+msgstr "විස්තර"
+
+#: templates/database/events/editor_form.twig:19
 msgid "Event name"
 msgstr "සිද්ධියේ නම"
 
-#: templates/database/events/editor_form.twig:33
+#: templates/database/events/editor_form.twig:35
 #: templates/server/binlog/index.twig:86
 msgid "Event type"
 msgstr "සිද්ධි වර්ගය"
 
-#: templates/database/events/editor_form.twig:46
-#: templates/database/routines/editor_form.twig:37
+#: templates/database/events/editor_form.twig:48
+#: templates/database/routines/editor_form.twig:38
 #, php-format
 msgid "Change to %s"
 msgstr "%s ලෙස වෙනස් කරන්න"
 
-#: templates/database/events/editor_form.twig:51
+#: templates/database/events/editor_form.twig:53
 msgid "Execute at"
 msgstr "ක්‍රියාත්මක කල යුත්තේ"
 
-#: templates/database/events/editor_form.twig:57
+#: templates/database/events/editor_form.twig:59
 msgid "Execute every"
 msgstr "ක්‍රියාත්මක කරන්න සෑම"
 
-#: templates/database/events/editor_form.twig:68
+#: templates/database/events/editor_form.twig:70
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "අරඹන්න"
 
-#: templates/database/events/editor_form.twig:74
+#: templates/database/events/editor_form.twig:76
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "නවතන්න"
 
-#: templates/database/events/editor_form.twig:88
+#: templates/database/events/editor_form.twig:90
 msgid "On completion preserve"
 msgstr "සමාප්තියේදී සුරකින්න"
+
+#: templates/database/events/editor_form.twig:96
+#: templates/database/routines/editor_form.twig:138
+#: templates/database/triggers/editor_form.twig:61
+#: templates/view_create.twig:45
+msgid "Definer"
+msgstr "අර්ථ දක්වන්නා"
 
 #: templates/database/events/index.twig:13
 #: templates/database/privileges/index.twig:113
@@ -15300,64 +15292,64 @@ msgstr "වගු භාවිතා කරන්න"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> දත්තගබඩාව මත SQL විමසුම:"
 
-#: templates/database/routines/editor_form.twig:19
+#: templates/database/routines/editor_form.twig:20
 msgid "Routine name"
 msgstr "නෛත්‍යකයේ නම"
 
-#: templates/database/routines/editor_form.twig:42
+#: templates/database/routines/editor_form.twig:43
 msgid "Parameters"
 msgstr "පරාමිතියන්"
 
-#: templates/database/routines/editor_form.twig:48
+#: templates/database/routines/editor_form.twig:49
 msgid "Direction"
 msgstr "දිශාව"
 
-#: templates/database/routines/editor_form.twig:65
+#: templates/database/routines/editor_form.twig:66
 msgid "Add parameter"
 msgstr "පරාමිතය එක් කරන්න"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
 msgid "Remove last parameter"
 msgstr "අවසන් පරාමිතය ඉවත් කරන්න"
 
-#: templates/database/routines/editor_form.twig:70
+#: templates/database/routines/editor_form.twig:71
 msgid "Return type"
 msgstr "ප්‍රතිදාන වර්ගය"
 
-#: templates/database/routines/editor_form.twig:78
+#: templates/database/routines/editor_form.twig:79
 msgid "Return length/values"
 msgstr "ප්‍රතිදානයේ දිග/අගයන්"
 
-#: templates/database/routines/editor_form.twig:85
+#: templates/database/routines/editor_form.twig:86
 msgid "Return options"
 msgstr "ප්‍රතිදාන විකල්ප"
 
-#: templates/database/routines/editor_form.twig:89
+#: templates/database/routines/editor_form.twig:90
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "අක්ෂර කට්ටලය"
 
-#: templates/database/routines/editor_form.twig:114
+#: templates/database/routines/editor_form.twig:115
 msgid "Is deterministic"
 msgstr "නිර්ණයනය කල හැකිද යන වග"
 
-#: templates/database/routines/editor_form.twig:130
+#: templates/database/routines/editor_form.twig:131
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:143
+#: templates/database/routines/editor_form.twig:144
 msgid "Security type"
 msgstr "ආරක්ෂණ වර්ගය"
 
-#: templates/database/routines/editor_form.twig:152
+#: templates/database/routines/editor_form.twig:153
 msgid "SQL data access"
 msgstr "SQL දත්ත පරිශීලනය"
 
-#: templates/database/routines/execute_form.twig:11
-#: templates/database/routines/execute_form.twig:14
+#: templates/database/routines/execute_form.twig:7
+#: templates/database/routines/execute_form.twig:12
 msgid "Routine parameters"
 msgstr "නෛත්‍යක පරාමිති"
 
@@ -15700,6 +15692,15 @@ msgstr "අවධානය අක්‍රීය වගු"
 #: templates/table/structure/display_structure.twig:352
 msgid "Track table"
 msgstr "වගුව අවධානයට ලක් කරන්න"
+
+#: templates/database/triggers/editor_form.twig:23
+msgid "Trigger name"
+msgstr "ප්‍රේරකයේ නම"
+
+#: templates/database/triggers/editor_form.twig:37
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "වේලාව"
 
 #: templates/database/triggers/list.twig:27
 #, fuzzy
@@ -18836,6 +18837,43 @@ msgstr "ටීකාව:"
 msgid "Drag to reorder"
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න."
 
+#: templates/table/insert/actions_panel.twig:9
+msgid "Insert as new row"
+msgstr "නව පේළියක් ලෙස ඇතුල් කරන්න"
+
+#: templates/table/insert/actions_panel.twig:10
+msgid "Insert as new row and ignore errors"
+msgstr "දෝෂ නොසලකමින් නව පේළියක් ලෙස ඇතුල් කරන්න"
+
+#: templates/table/insert/actions_panel.twig:11
+msgid "Show insert query"
+msgstr "ඇතුල් කිරීමේ විමසුම පෙන්වන්න"
+
+#: templates/table/insert/actions_panel.twig:15
+msgid "and then"
+msgstr "අනතුරුව"
+
+#: templates/table/insert/actions_panel.twig:19
+msgid "Go back to previous page"
+msgstr "පෙර පිටුවට ආපසු යන්න"
+
+#: templates/table/insert/actions_panel.twig:20
+msgid "Insert another new row"
+msgstr "නව පේළියක් එක් කරන්න"
+
+#: templates/table/insert/actions_panel.twig:22
+msgid "Go back to this page"
+msgstr "මෙම පිටුව වෙත ආපසු යන්න"
+
+#: templates/table/insert/actions_panel.twig:24
+msgid "Edit next row"
+msgstr "මීලඟ පේළිය සංස්කරණය කරන්න"
+
+#: templates/table/insert/actions_panel.twig:32
+msgid ""
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
+msgstr ""
+
 #: templates/table/insert/column_row.twig:15
 msgid "Binary"
 msgstr "ද්වීමය"
@@ -19808,9 +19846,6 @@ msgstr "අවධානය පිළිබඳ වාර්තාව"
 
 #~ msgid "The PrimeBase XT Blog by Paul McCullagh"
 #~ msgstr "Paul McCullagh ගේ PrimeBase XT බ්ලොගය"
-
-#~ msgid "Invalid export type"
-#~ msgstr "වැරදි අපනයන වර්ගයකි"
 
 #, fuzzy
 #~| msgid "Column"
