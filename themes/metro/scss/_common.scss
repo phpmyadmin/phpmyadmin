@@ -762,15 +762,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-/* Also used for the variables page */
-.pma-fieldset#tableFilter {
-  padding: 0.1em 1em;
-
-  input[type="submit"] {
-    margin-top: 9px;
-  }
-}
-
 div#serverStatusTabs {
   margin-top: 1em;
 }
@@ -1338,10 +1329,6 @@ input#input_import_file {
 
 .formelementrow {
   margin: 5px 0 5px 0;
-}
-
-#filterText {
-  vertical-align: baseline;
 }
 
 #popup_background {

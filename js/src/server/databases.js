@@ -135,12 +135,6 @@ AJAX.registerOnload('server/databases.js', function () {
         }); // end $.post()
     }); // end $(document).on()
 
-    /* Don't show filter if number of databases are very few */
-    var databasesCount = $('#filter-rows-count').html();
-    if (databasesCount <= 10) {
-        $('#tableFilter').hide();
-    }
-
     var tableRows = $('.server_databases');
     $.each(tableRows, function () {
         $(this).on('click', function () {

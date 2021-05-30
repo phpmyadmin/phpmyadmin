@@ -95,10 +95,7 @@ class VariablesControllerTest extends AbstractTestCase
             Generator::getIcon('b_close', __('Cancel')),
             $html
         );
-        $this->assertStringContainsString(
-            '<legend>' . __('Filters') . '</legend>',
-            $html
-        );
+        $this->assertStringContainsString('<div class="card-header">' . __('Filters') . '</div>', $html);
         $this->assertStringContainsString(
             __('Containing the word:'),
             $html
