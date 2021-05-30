@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:07+0200\n"
-"PO-Revision-Date: 2021-05-30 21:32+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2021-05-30 22:47+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/fr/"
 ">\n"
 "Language: fr\n"
@@ -7477,49 +7477,39 @@ msgstr "Fort"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "Délai de l'attente pour l'activation de la clé de sécurité dépassé."
+msgstr "Délai d'attente pour l'activation de la clé de sécurité dépassé."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Type d'exportation invalide"
+msgstr "Requête invalide envoyée à la clé de sécurité."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Erreur inconnue"
+msgstr "Erreur inconnue de la clé de sécurité."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Le client ne prend pas en charge la clé de sécurité."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Activation de la clé de sécurité échouée (%s)."
+msgstr "Échec de l'activation de la clé de sécurité."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Type d'exportation invalide"
+msgstr "Clé de sécurité invalide."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, php-format
@@ -15914,7 +15904,7 @@ msgstr "enregistrée le %s par %s"
 #: templates/home/git_info.twig:32
 #, php-format
 msgid "authored on %s by %s"
-msgstr "l'auteur était %s en date du %s"
+msgstr "en date du %s l'auteur était %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
