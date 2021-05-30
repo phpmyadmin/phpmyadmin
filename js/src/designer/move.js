@@ -789,14 +789,14 @@ DesignerMove.save2 = function (callback) {
     }
 };
 
-DesignerMove.submitSaveDialogAndClose = function (callback) {
+DesignerMove.submitSaveDialogAndClose = function (callback, modal) {
     var $form = $('#save_page');
     var name = $form.find('input[name="selected_value"]').val().trim();
     if (name === '') {
         Functions.ajaxShowMessage(Messages.strEnterValidPageName, false);
         return;
     }
-    $('#page_save_dialog').dialog('close');
+    modal.modal('hide');
 
     if (designerTablesEnabled) {
         var $msgbox = Functions.ajaxShowMessage(Messages.strProcessingRequest);
@@ -841,11 +841,11 @@ DesignerMove.save3 = function (callback) {
             .append('<input type="hidden" name="save_page" value="new">')
             .append('<label for="selected_value">' + Messages.strPageName +
                 '</label>:<input type="text" name="selected_value">');
+        var modal = DesignerMove.displayModal($form, Messages.strSavePage, '#designerGoModal');
         $form.on('submit', function (e) {
             e.preventDefault();
-            DesignerMove.submitSaveDialogAndClose(callback);
+            DesignerMove.submitSaveDialogAndClose(callback, modal);
         });
-        var modal = DesignerMove.displayModal($form, Messages.strSavePage, '#designerGoModal');
         $('#designerModalGoButton').on('click', function () {
             var $form = $('#save_page');
             $form.trigger('submit');
@@ -1048,18 +1048,6 @@ DesignerMove.saveAs = function () {
 
 DesignerMove.promptToSaveCurrentPage = function (callback) {
     if (change === 1 || selectedPage === -1) {
-        var buttonOptions = {};
-        buttonOptions[Messages.strYes] = function () {
-            $(this).dialog('close');
-            DesignerMove.save3(callback);
-        };
-        buttonOptions[Messages.strNo] = function () {
-            $(this).dialog('close');
-            callback();
-        };
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
         var modal = DesignerMove.displayModal('<div>' + Messages.strLeavingPage + '</div>',
             Messages.strSavePage, '#designerPromptModal');
         $('#designerModalYesButton').on('click', function () {
