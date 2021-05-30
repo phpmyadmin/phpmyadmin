@@ -998,10 +998,6 @@ li {
   }
 }
 
-#fieldset_select_fields {
-  float: left;
-}
-
 #selflink {
   clear: both;
   display: block;
@@ -1615,20 +1611,6 @@ form {
 
 #create_table_form_minimal {
   display: block;
-}
-
-#fieldset_zoom_search table {
-  th,
-  td {
-    line-height: 35px;
-  }
-}
-
-#fieldset_table_qbe table {
-  th,
-  td {
-    line-height: 35px;
-  }
 }
 
 #db_or_table_specific_priv .tblFooters {
