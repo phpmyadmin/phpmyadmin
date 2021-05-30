@@ -604,8 +604,6 @@ final class JavaScriptMessagesController
                     : ''),
 
             'strGoToLink' => __('Go to link:'),
-            'strColNameCopyTitle' => __('Copy column name.'),
-            'strColNameCopyText' => __('Right-click the column name to copy it to your clipboard.'),
 
             /* password generation */
             'strGeneratePassword' => __('Generate password'),
@@ -674,6 +672,8 @@ final class JavaScriptMessagesController
                 . $ajaxClockSmallGifPath
                 . '" width="16" height="16" alt="ajax clock">'
                 . '</div>',
+            'strCopyColumnSuccess' => __('Column name successfully copied to clipboard!'),
+            'strCopyColumnFailure' => __('Column name copying to clipboard failed!'),
             'strCopyQueryButtonSuccess' => __('Successfully copied!'),
             'strCopyQueryButtonFailure' => __('Copying failed!'),
 

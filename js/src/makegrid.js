@@ -1636,20 +1636,12 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 })
                 .on('dblclick', function (e) {
                     e.preventDefault();
-                    $('<div></div>')
-                        .prop('title', Messages.strColNameCopyTitle)
-                        .addClass('modal-copy')
-                        .text(Messages.strColNameCopyText)
-                        .append(
-                            $('<input>')
-                                .prop('readonly', true)
-                                .val($(this).data('column'))
-                        )
-                        .dialog({
-                            resizable: false,
-                            modal: true
-                        })
-                        .find('input').trigger('focus').trigger('select');
+                    var res = Functions.copyToClipboard($(this).data('column'));
+                    if (res) {
+                        Functions.ajaxShowMessage(Messages.strCopyColumnSuccess, false, 'success');
+                    } else {
+                        Functions.ajaxShowMessage(Messages.strCopyColumnFailure, false, 'error');
+                    }
                 });
             $(g.t).find('th.draggable a')
                 .on('dblclick', function (e) {
