@@ -857,21 +857,6 @@ DesignerMove.save3 = function (callback) {
 // ------------------------------ EDIT PAGES ------------------------------------------
 DesignerMove.editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
-        var buttonOptions = {};
-        buttonOptions[Messages.strGo] = function () {
-            var $form = $('#edit_delete_pages');
-            var selected = $form.find('select[name="selected_page"]').val();
-            if (selected === '0') {
-                Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
-                return;
-            }
-            $(this).dialog('close');
-            DesignerMove.loadPage(selected);
-        };
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
         var $msgbox = Functions.ajaxShowMessage();
         $.post('index.php?route=/database/designer', {
             'ajax_request': true,
@@ -889,18 +874,17 @@ DesignerMove.editPages = function () {
                         $('#selected_page').append(options);
                     });
                 }
-                $('<div id="page_edit_dialog"></div>')
-                    .append(data.message)
-                    .dialog({
-                        appendTo: '#page_content',
-                        title: Messages.strOpenPage,
-                        width: 350,
-                        modal: true,
-                        buttons: buttonOptions,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
+                var modal = DesignerMove.displayModal(data.message, Messages.strOpenPage, '#designerGoModal');
+                $('#designerModalGoButton').on('click', function () {
+                    var $form = $('#edit_delete_pages');
+                    var selected = $form.find('select[name="selected_page"]').val();
+                    if (selected === '0') {
+                        Functions.ajaxShowMessage(Messages.strSelectPage, 2000);
+                        return;
+                    }
+                    modal.modal('hide');
+                    DesignerMove.loadPage(selected);
+                });
             }
         }); // end $.post()
     });
