@@ -173,8 +173,6 @@ AJAX.registerOnload('table/select.js', function () {
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
-                // needed for the display options slider in the results
-                Functions.initSlider();
                 $('html, body').animate({ scrollTop: 0 }, 'fast');
             } else {
                 $('#sqlqueryresultsouter').html(data.error);

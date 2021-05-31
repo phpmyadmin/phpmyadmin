@@ -66,14 +66,14 @@ class ProceduresTest extends TestBase
         $this->dbQuery(
             'SELECT @@GLOBAL.SQL_MODE as globalsqm;',
             function () use (&$sqlMode): void {
-                $optionsSelector = '//a[contains(., "+ Options")]';
+                $optionsSelector = '//button[contains(., "Extra options")]';
                 $fullTextSelector = '//label[contains(., "Full texts")]';
                 $this->assertTrue($this->isElementPresent('xpath', $optionsSelector));
                 $this->byXPath($optionsSelector)->click();
                 $this->waitForElement('xpath', $fullTextSelector);
                 sleep(2);// Wait for the animation to display the box
                 $this->byXPath($fullTextSelector)->click();
-                $this->byCssSelector('.slide-wrapper .tblFooters input[type=submit]')->click();
+                $this->byCssSelector('.collapse .tblFooters input[type=submit]')->click();
                 $this->waitAjax();
                 sleep(2);// Waitfor the new results
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));

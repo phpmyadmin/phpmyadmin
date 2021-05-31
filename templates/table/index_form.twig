@@ -48,9 +48,14 @@
               </select>
             </div>
 
-            <div id="indexoptions"{% if default_sliders_state != 'disabled' -%}
-                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Advanced options' %}"
-            {%- endif %}>
+            {% if default_sliders_state != 'disabled' %}
+            <div class="mb-3">
+              <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedOptions" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="advancedOptions">
+                {% trans 'Advanced options' %}
+              </button>
+            </div>
+            <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="advancedOptions">
+            {% endif %}
 
             <div>
                 <div class="label">
@@ -118,8 +123,10 @@
                     maxlength="1024"
                     value="{{ index.getComment() }}">
             </div>
-        </div>
-        <!-- end of indexoptions div -->
+
+            {% if default_sliders_state != 'disabled' %}
+            </div>
+            {% endif %}
 
         <div class="clearfloat"></div>
 

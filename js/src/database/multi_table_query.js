@@ -32,7 +32,6 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     editor.setSize(-1, 50);
 
     var columnCount = 3;
-    Functions.initSlider();
     addNewColumnCallbacks();
 
     $('#update_query_button').on('click', function () {
@@ -155,12 +154,10 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     $('#add_column_button').on('click', function () {
         columnCount++;
         var $newColumnDom = $($('#new_column_layout').html()).clone();
-        $newColumnDom.find('div').first().find('div').first().attr('id', columnCount.toString());
-        $newColumnDom.find('a').first().remove();
-        $newColumnDom.find('.pma_auto_slider').first().unwrap();
-        $newColumnDom.find('.pma_auto_slider').first().attr('title', 'criteria');
+        $newColumnDom.find('.jsCriteriaButton').first().attr('data-bs-target', '#criteriaOptionsExtra' + columnCount.toString());
+        $newColumnDom.find('.jsCriteriaButton').first().attr('aria-controls', 'criteriaOptionsExtra' + columnCount.toString());
+        $newColumnDom.find('.jsCriteriaOptions').first().attr('id', 'criteriaOptionsExtra' + columnCount.toString());
         $('#add_column_button').parent().before($newColumnDom);
-        Functions.initSlider();
         addNewColumnCallbacks();
     });
 
@@ -175,13 +172,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             });
         });
 
-        $('.removeColumn').each(function () {
+        $('.jsRemoveColumn').each(function () {
             $(this).on('click', function () {
                 $(this).parent().remove();
             });
         });
 
-        $('a.ajax').each(function () {
+        $('.jsCriteriaButton').each(function () {
             $(this).on('click', function (event, from) {
                 if (from === null) {
                     var $checkbox = $(this).siblings('.criteria_col').first();
@@ -189,14 +186,14 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 }
                 var $criteriaColCount = $('.criteria_col:checked').length;
                 if ($criteriaColCount > 1) {
-                    $(this).siblings('.slide-wrapper').first().find('.logical_operator').first().css('display','table-row');
+                    $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display','table-row');
                 }
             });
         });
 
         $('.criteria_col').each(function () {
             $(this).on('change', function () {
-                var $anchor = $(this).siblings('a.ajax').first();
+                var $anchor = $(this).siblings('.jsCriteriaButton').first();
                 $anchor.trigger('click', ['Trigger']);
             });
         });
