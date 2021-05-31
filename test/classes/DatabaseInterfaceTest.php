@@ -35,19 +35,22 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentUser() method.
      *
-     * @param array|false $value    value
-     * @param string      $string   string
-     * @param array       $expected expected result
+     * @param array|false $value           value
+     * @param string      $string          string
+     * @param array       $expected        expected result
+     * @param bool        $needsSecondCall The test will need to call another time the DB
      *
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser($value, string $string, array $expected): void
+    public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
     {
         SessionCache::remove('mysql_cur_user');
         parent::setGlobalDbi();
 
         $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
-        $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        if ($needsSecondCall) {
+            $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        }
 
         $this->assertEquals(
             $expected,
@@ -58,6 +61,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $string,
             $this->dbi->getCurrentUser()
         );
+
+        $this->assertAllQueriesConsumed();
     }
 
     /**
@@ -75,6 +80,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     'pma',
                     'localhost',
                 ],
+                false,
             ],
             [
                 [['@localhost']],
@@ -83,6 +89,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '',
                     'localhost',
                 ],
+                false,
             ],
             [
                 false,
@@ -91,6 +98,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '',
                     '',
                 ],
+                true,
             ],
         ];
     }
@@ -281,6 +289,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
             $expected,
             $this->dbi->isAmazonRds()
         );
+
+        $this->assertAllQueriesConsumed();
     }
 
     /**

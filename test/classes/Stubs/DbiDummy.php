@@ -106,6 +106,19 @@ class DbiDummy implements DbiExtension
         return true;
     }
 
+    public function hasUnUsedQueries(): bool
+    {
+        foreach ($this->filoQueries as $query) {
+            if (($query['used'] ?? false) === true) {
+                continue;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @return false|int|null
      */

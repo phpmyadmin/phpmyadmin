@@ -93,6 +93,17 @@ abstract class AbstractTestCase extends TestCase
         require ROOT_PATH . 'libraries/config.default.php';
     }
 
+    protected function assertAllQueriesConsumed(): void
+    {
+        if ($this->dummyDbi->hasUnUsedQueries() === false) {
+            $this->assertTrue(true);// increment the assertion count
+
+            return;
+        }
+
+        $this->fail('Some queries where no used !');
+    }
+
     protected function loadContainerBuilder(): void
     {
         global $containerBuilder;
