@@ -44,6 +44,20 @@ abstract class AbstractTestCase extends TestCase
     ];
 
     /**
+     * The DatabaseInterface loaded by setGlobalDbi
+     *
+     * @var DatabaseInterface
+     */
+    protected $dbi;
+
+    /**
+     * The DbiDummy loaded by setGlobalDbi
+     *
+     * @var DbiDummy
+     */
+    protected $dummyDbi;
+
+    /**
      * Prepares environment for the test.
      * Clean all variables
      */
@@ -126,7 +140,9 @@ abstract class AbstractTestCase extends TestCase
     protected function setGlobalDbi(): void
     {
         global $dbi;
-        $dbi = DatabaseInterface::load(new DbiDummy());
+        $this->dummyDbi = new DbiDummy();
+        $this->dbi = DatabaseInterface::load($this->dummyDbi);
+        $dbi = $this->dbi;
     }
 
     protected function setGlobalConfig(): void
