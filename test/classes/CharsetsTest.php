@@ -74,6 +74,8 @@ class CharsetsTest extends AbstractTestCase
             $GLOBALS['cfg']['Server']['DisableIS']
         );
         $this->assertSame('utf8', $charset->getName());
+
+        $this->assertAllQueriesConsumed();
     }
 
     public function testFindCollationByName(): void
