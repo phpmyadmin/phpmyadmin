@@ -2561,19 +2561,6 @@ class DbiDummy implements DbiExtension
                 'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);',
                 'result' => [],
             ],
-            [
-                'query' => 'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
-                'columns' => [
-                    'Variable_name',
-                    'Value',
-                ],
-                'result' => [
-                    [
-                        'character_set_server',
-                        'utf8mb3',
-                    ],
-                ],
-            ],
         ];
         /**
          * Current database.

@@ -25,6 +25,50 @@ class CharsetsTest extends AbstractTestCase
 
     public function testGetServerCharset(): void
     {
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            [
+                [
+                    'character_set_server',
+                    'utf8mb3',
+                ],
+            ],
+            [
+                'Variable_name',
+                'Value',
+            ]
+        );
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SELECT @@character_set_server;',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SELECT @@character_set_server;',
+            [
+                ['utf8mb3'],
+            ]
+        );
+
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('utf8', $charset->getName());
+
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('Unknown', $charset->getName());
+
         $charset = Charsets::getServerCharset(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['DisableIS']
