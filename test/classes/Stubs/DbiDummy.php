@@ -38,8 +38,34 @@ use const MYSQLI_TYPE_STRING;
  */
 class DbiDummy implements DbiExtension
 {
-    /** @var array */
-    private $queries = [];
+    /**
+     * First in, last out queries
+     *
+     * The results will be distributed in the filo way
+     *
+     * @var array
+     * @phpstan-var array{
+     *     'query': string,
+     *     'result': ((int[]|string[]|array{string: string})[])|bool|empty-array,
+     *     'columns'?: string[],
+     *     'metadata'?: object[]|empty-array,
+     *     'used'?: bool,
+     *     'pos'?: int
+     * }[]
+     */
+    private $filoQueries = [];
+
+    /**
+     * @var array
+     * @phpstan-var array{
+     *     'query': string,
+     *     'result': ((int[]|string[]|array{string: string})[])|bool|empty-array,
+     *     'columns'?: string[],
+     *     'metadata'?: object[]|empty-array,
+     *     'pos'?: int
+     * }[]
+     */
+    private $dummyQueries = [];
 
     public const OFFSET_GLOBAL = 1000;
 
@@ -81,6 +107,33 @@ class DbiDummy implements DbiExtension
     }
 
     /**
+     * @return false|int|null
+     */
+    private function findFiloQuery(string $query)
+    {
+        for ($i = 0, $nb = count($this->filoQueries); $i < $nb; $i++) {
+            if ($this->filoQueries[$i]['query'] !== $query) {
+                continue;
+            }
+
+            if ($this->filoQueries[$i]['used'] ?? false) {
+                continue;// Is has already been used
+            }
+
+            $this->filoQueries[$i]['pos'] = 0;
+            $this->filoQueries[$i]['used'] = true;
+
+            if (! is_array($this->filoQueries[$i]['result'])) {
+                return false;
+            }
+
+            return $i;
+        }
+
+        return null;
+    }
+
+    /**
      * runs a query and returns the result
      *
      * @param string $query   query to run
@@ -92,26 +145,18 @@ class DbiDummy implements DbiExtension
     public function realQuery($query, $link = null, $options = 0)
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-        for ($i = 0, $nb = count($this->queries); $i < $nb; $i++) {
-            if ($this->queries[$i]['query'] != $query) {
-                continue;
-            }
-
-            $this->queries[$i]['pos'] = 0;
-            if (! is_array($this->queries[$i]['result'])) {
-                return false;
-            }
-
-            return $i;
+        $filoQuery = $this->findFiloQuery($query);
+        if ($filoQuery !== null) {// Found a matching query
+            return $filoQuery;
         }
 
-        for ($i = 0, $nb = count($GLOBALS['dummy_queries']); $i < $nb; $i++) {
-            if ($GLOBALS['dummy_queries'][$i]['query'] != $query) {
+        for ($i = 0, $nb = count($this->dummyQueries); $i < $nb; $i++) {
+            if ($this->dummyQueries[$i]['query'] !== $query) {
                 continue;
             }
 
-            $GLOBALS['dummy_queries'][$i]['pos'] = 0;
-            if (! is_array($GLOBALS['dummy_queries'][$i]['result'])) {
+            $this->dummyQueries[$i]['pos'] = 0;
+            if (! is_array($this->dummyQueries[$i]['result'])) {
                 return false;
             }
 
@@ -437,16 +482,21 @@ class DbiDummy implements DbiExtension
     /**
      * Adds query result for testing
      *
-     * @param string      $query  SQL
-     * @param array|false $result Expected result
+     * @param string     $query    SQL
+     * @param array|bool $result   Expected result
+     * @param string[]   $columns  The result columns
+     * @param object[]   $metadata The result metadata
+     * @phpstan-param (int[]|string[]|array{string: string})[]|bool $result
      *
      * @return void
      */
-    public function setResult($query, $result)
+    public function addResult(string $query, $result, array $columns = [], array $metadata = [])
     {
-        $this->queries[] = [
+        $this->filoQueries[] = [
             'query' => $query,
             'result' => $result,
+            'columns' => $columns,
+            'metadata' => $metadata,
         ];
     }
 
@@ -476,10 +526,10 @@ class DbiDummy implements DbiExtension
         }
 
         if ($result >= self::OFFSET_GLOBAL) {
-            return $GLOBALS['dummy_queries'][$result - self::OFFSET_GLOBAL];
+            return $this->dummyQueries[$result - self::OFFSET_GLOBAL];
         }
 
-        return $this->queries[$result];
+        return $this->filoQueries[$result];
     }
 
     private function init(): void
@@ -487,7 +537,7 @@ class DbiDummy implements DbiExtension
         /**
          * Array of queries this "driver" supports
          */
-        $GLOBALS['dummy_queries'] = [
+        $this->dummyQueries = [
             [
                 'query' => 'SELECT 1',
                 'result' => [['1']],
@@ -818,10 +868,22 @@ class DbiDummy implements DbiExtension
                 ],
                 'result'  => [
                     [
+                        'armscii8',
+                        'ARMSCII-8 Armenian',
+                        'armscii8_general_ci',
+                        '1',
+                    ],
+                    [
                         'utf8',
                         'utf8_general_ci',
                         'UTF-8 Unicode',
                         '3',
+                    ],
+                    [
+                        'utf8mb4',
+                        'UTF-8 Unicode',
+                        'utf8mb4_0900_ai_ci',
+                        '4',
                     ],
                     [
                         'latin1',
@@ -848,6 +910,22 @@ class DbiDummy implements DbiExtension
                     'Sortlen',
                 ],
                 'result'  => [
+                    [
+                        'utf8mb4_general_ci',
+                        'utf8mb4',
+                        '45',
+                        'Yes',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'armscii8_general_ci',
+                        'armscii8',
+                        '32',
+                        'Yes',
+                        'Yes',
+                        '1',
+                    ],
                     [
                         'utf8_general_ci',
                         'utf8',

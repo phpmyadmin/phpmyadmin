@@ -20,9 +20,6 @@ use stdClass;
  */
 class DatabaseInterfaceTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
     /**
      * Configures test parameters.
      */
@@ -47,20 +44,19 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetCurrentUser($value, string $string, array $expected): void
     {
         SessionCache::remove('mysql_cur_user');
+        parent::setGlobalDbi();
 
-        $extension = new DbiDummy();
-        $extension->setResult('SELECT CURRENT_USER();', $value);
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
 
         $this->assertEquals(
             $expected,
-            $dbi->getCurrentUserAndHost()
+            $this->dbi->getCurrentUserAndHost()
         );
 
         $this->assertEquals(
             $string,
-            $dbi->getCurrentUser()
+            $this->dbi->getCurrentUser()
         );
     }
 
@@ -277,15 +273,13 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         SessionCache::remove('is_amazon_rds');
+        parent::setGlobalDbi();
 
-        $extension = new DbiDummy();
-        $extension->setResult('SELECT @@basedir', $value);
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult('SELECT @@basedir', $value);
 
         $this->assertEquals(
             $expected,
-            $dbi->isAmazonRds()
+            $this->dbi->isAmazonRds()
         );
     }
 

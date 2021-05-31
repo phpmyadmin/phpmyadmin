@@ -4565,6 +4565,7 @@ Functions.createViewDialog = function ($this) {
             var $dialog = $('<div></div>').attr('id', 'createViewDialog').append(data.message).dialog({
                 width: 600,
                 minWidth: 400,
+                height: $(window).height(),
                 modal: true,
                 buttons: buttonOptions,
                 title: Messages.strCreateView,

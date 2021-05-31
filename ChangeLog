@@ -121,6 +121,8 @@ phpMyAdmin - ChangeLog
 - issue #16920 Fixed "Uncaught TypeError: PhpMyAdmin\Import::detectType()" on ODS import
 - issue #16926 Fixed ODS import warning: Undefined array key "ods_empty_rows"
 - issue #16888 Fixed JS error on renaming tables in saved Designer page
+- issue #16504 Fixed create view dialog is too big and won't scroll (on small screens)
+- issue #16931 Fixed php notice "Undefined index: utf8mb3" on MySQL 8.0.11+ servers with default utf8 server charset
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

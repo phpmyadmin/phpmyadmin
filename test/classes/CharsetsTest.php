@@ -17,9 +17,63 @@ class CharsetsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+    }
+
+    public function testGetServerCharset(): void
+    {
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            [
+                [
+                    'character_set_server',
+                    'utf8mb3',
+                ],
+            ],
+            [
+                'Variable_name',
+                'Value',
+            ]
+        );
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SELECT @@character_set_server;',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+            false
+        );
+        $this->dummyDbi->addResult(
+            'SELECT @@character_set_server;',
+            [
+                ['utf8mb3'],
+            ]
+        );
+
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('utf8', $charset->getName());
+
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('Unknown', $charset->getName());
+
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('utf8', $charset->getName());
     }
 
     public function testFindCollationByName(): void
