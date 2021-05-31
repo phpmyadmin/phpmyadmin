@@ -46,7 +46,7 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|empty-array,
+     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
      *     'columns'?: string[],
      *     'metadata'?: object[]|empty-array,
      *     'used'?: bool,
@@ -59,7 +59,7 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|empty-array,
+     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
      *     'columns'?: string[],
      *     'metadata'?: object[]|empty-array,
      *     'pos'?: int
@@ -499,7 +499,7 @@ class DbiDummy implements DbiExtension
      * @param array|bool $result   Expected result
      * @param string[]   $columns  The result columns
      * @param object[]   $metadata The result metadata
-     * @phpstan-param (int[]|string[]|array{string: string})[]|bool $result
+     * @phpstan-param (int[]|string[]|array{string: string})[]|bool|bool[] $result
      *
      * @return void
      */

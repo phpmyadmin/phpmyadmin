@@ -8,12 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Database\DatabaseList;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Utils\SessionCache;
-use stdClass;
 
 /**
  * Tests basic functionality of dummy dbi driver
@@ -27,9 +24,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
+        parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
-        $extension = new DbiDummy();
-        $this->dbi = new DatabaseInterface($extension);
     }
 
     /**
@@ -45,7 +41,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
     {
         SessionCache::remove('mysql_cur_user');
-        parent::setGlobalDbi();
 
         $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
         if ($needsSecondCall) {
@@ -108,34 +103,21 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPMAGetColumnMap(): void
     {
-        $extension = $this->getMockBuilder(DbiDummy::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $extension->expects($this->any())
-            ->method('realQuery')
-            ->will($this->returnValue(true));
-
-        $meta1 = new stdClass();
-        $meta1->table = 'meta1_table';
-        $meta1->name = 'meta1_name';
-
-        $meta2 = new stdClass();
-        $meta2->table = 'meta2_table';
-        $meta2->name = 'meta2_name';
-
-        $extension->expects($this->any())
-            ->method('getFieldsMeta')
-            ->will(
-                $this->returnValue(
-                    [
-                        $meta1,
-                        $meta2,
-                    ]
-                )
-            );
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult(
+            'PMA_sql_query',
+            [true],
+            [],
+            [
+                (object) [
+                    'table' => 'meta1_table',
+                    'name' => 'meta1_name',
+                ],
+                (object) [
+                    'table' => 'meta2_table',
+                    'name' => 'meta2_name',
+                ],
+            ]
+        );
 
         $sql_query = 'PMA_sql_query';
         $view_columns = [
@@ -143,7 +125,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'view_columns2',
         ];
 
-        $column_map = $dbi->getColumnMapFromSql(
+        $column_map = $this->dbi->getColumnMapFromSql(
             $sql_query,
             $view_columns
         );
@@ -164,6 +146,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ],
             $column_map[1]
         );
+
+        $this->assertAllQueriesConsumed();
     }
 
     /**
@@ -281,7 +265,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         SessionCache::remove('is_amazon_rds');
-        parent::setGlobalDbi();
 
         $this->dummyDbi->addResult('SELECT @@basedir', $value);
 
@@ -369,38 +352,22 @@ class DatabaseInterfaceTest extends AbstractTestCase
     }
 
     /**
-     * Tests for DBI::setCollationl() method.
+     * Tests for DBI::setCollation() method.
      */
     public function testSetCollation(): void
     {
-        $extension = $this->getMockBuilder(DbiDummy::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $extension->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(1));
-
-        $extension->expects($this->exactly(4))
-            ->method('realQuery')
-            ->withConsecutive(
-                ["SET collation_connection = 'utf8_czech_ci';"],
-                ["SET collation_connection = 'utf8mb4_bin_ci';"],
-                ["SET collation_connection = 'utf8_czech_ci';"],
-                ["SET collation_connection = 'utf8_bin_ci';"]
-            )
-            ->willReturnOnConsecutiveCalls(
-                true,
-                true,
-                true,
-                true
-            );
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
+        $this->dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', [true]);
+        $this->dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', [true]);
+        $this->dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', [true]);
 
         $GLOBALS['charset_connection'] = 'utf8mb4';
-        $dbi->setCollation('utf8_czech_ci');
-        $dbi->setCollation('utf8mb4_bin_ci');
+        $this->dbi->setCollation('utf8_czech_ci');
+        $this->dbi->setCollation('utf8mb4_bin_ci');
         $GLOBALS['charset_connection'] = 'utf8';
-        $dbi->setCollation('utf8_czech_ci');
-        $dbi->setCollation('utf8mb4_bin_ci');
+        $this->dbi->setCollation('utf8_czech_ci');
+        $this->dbi->setCollation('utf8mb4_bin_ci');
+
+        $this->assertAllQueriesConsumed();
     }
 }
