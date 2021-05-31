@@ -312,15 +312,50 @@
     </div>
 </form>
 <hr class="print_ignore">
-<div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
-    <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
-    <form action="{{ url('/table/structure/move-columns') }}" name="move_column_form" id="move_column_form">
-        <div>
-            {{ get_hidden_inputs(db, table) }}
-            <ul></ul>
+
+<div class="modal fade" id="moveColumnsModal" tabindex="-1" aria-labelledby="moveColumnsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="moveColumnsModalLabel">{% trans 'Move columns' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+        <div id="move_columns_dialog" title="{% trans 'Move columns' %}">
+          <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
+          <form action="{{ url('/table/structure/move-columns') }}" name="move_column_form" id="move_column_form">
+            <div>
+              {{ get_hidden_inputs(db, table) }}
+              <ul></ul>
+            </div>
+          </form>
         </div>
-    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="designerModalGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalPreviewButton">{% trans 'Preview SQL' %}</button>
+        <button type="button" class="btn btn-secondary" id="designerModalCloseButton" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="modal fade" id="moveColumnsErrorModal" tabindex="-1" aria-labelledby="moveColumnsErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="moveColumnsErrorModalLabel">{% trans 'Error' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Ok' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}

@@ -2297,6 +2297,8 @@ Functions.previewSql = function ($form) {
         sep + 'preview_sql=1' +
         sep + 'ajax_request=1';
     var $messageBox = Functions.ajaxShowMessage();
+    var modal = $('#previewSqlModal');
+    modal.modal('show');
     $.ajax({
         type: 'POST',
         url: formUrl,
@@ -2304,26 +2306,9 @@ Functions.previewSql = function ($form) {
         success: function (response) {
             Functions.ajaxRemoveMessage($messageBox);
             if (response.success) {
-                var $dialogContent = $('<div></div>')
-                    .append(response.sql_data);
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                $dialogContent.dialog({
-                    minWidth: 550,
-                    maxHeight: 400,
-                    modal: true,
-                    buttons: buttonOptions,
-                    title: Messages.strPreviewSQL,
-                    close: function () {
-                        $(this).remove();
-                    },
-                    open: function () {
-                        // Pretty SQL printing.
-                        Functions.highlightSql($(this));
-                    }
-                });
+                modal.find('.modal-body').first().html(response.sql_data);
+                $('#previewSqlModalLabel').first().html(Messages.strPreviewSQL);
+                Functions.highlightSql(modal);
             } else {
                 Functions.ajaxShowMessage(response.message);
             }

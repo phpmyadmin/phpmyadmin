@@ -288,75 +288,6 @@ AJAX.registerOnload('table/structure.js', function () {
             return;
         }
 
-        /**
-         * @var    button_options  Object that stores the options passed to jQueryUI
-         *                          dialog
-         */
-        var buttonOptions = {};
-
-        buttonOptions[Messages.strGo] = function (event) {
-            event.preventDefault();
-            var $msgbox = Functions.ajaxShowMessage();
-            var $this = $(this);
-            var $form = $this.find('form');
-            var serialized = $form.serialize();
-            // check if any columns were moved at all
-            if (serialized === $form.data('serialized-unmoved')) {
-                Functions.ajaxRemoveMessage($msgbox);
-                $this.dialog('close');
-                return;
-            }
-            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
-                if (data.success === false) {
-                    Functions.ajaxRemoveMessage($msgbox);
-                    $this
-                        .clone()
-                        .html(data.error)
-                        .dialog({
-                            title: $(this).prop('title'),
-                            height: 230,
-                            width: 900,
-                            modal: true,
-                            buttons: buttonOptionsError
-                        }); // end dialog options
-                } else {
-                    // sort the fields table
-                    var $fieldsTable = $('table#tablestructure tbody');
-                    // remove all existing rows and remember them
-                    var $rows = $fieldsTable.find('tr').remove();
-                    // loop through the correct order
-                    for (var i in data.columns) {
-                        var theColumn = data.columns[i];
-                        var $theRow = $rows
-                            .find('input:checkbox[value=\'' + theColumn + '\']')
-                            .closest('tr');
-                        // append the row for this column to the table
-                        $fieldsTable.append($theRow);
-                    }
-                    var $firstrow = $fieldsTable.find('tr').eq(0);
-                    // Adjust the row numbers and colors
-                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
-                        $row
-                            .find('td').eq(1)
-                            .text($row.index() + 1)
-                            .end()
-                            .removeClass('odd even')
-                            .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
-                    }
-                    Functions.ajaxShowMessage(data.message);
-                    $this.dialog('close');
-                }
-            });
-        };
-        buttonOptions[Messages.strPreviewSQL] = function () {
-            // Function for Previewing SQL
-            var $form = $('#move_column_form');
-            Functions.previewSql($form);
-        };
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
         var buttonOptionsError = {};
         buttonOptionsError[Messages.strOK] = function () {
             $(this).dialog('close').remove();
@@ -391,17 +322,70 @@ AJAX.registerOnload('table/structure.js', function () {
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
-        $('#move_columns_dialog').dialog({
-            modal: true,
-            buttons: buttonOptions,
-            open: function () {
-                if ($('#move_columns_dialog').parents('.ui-dialog').height() > $(window).height()) {
-                    $('#move_columns_dialog').dialog('option', 'height', $(window).height());
-                }
-            },
-            beforeClose: function () {
-                $('#move_columns_anchor').removeClass('move-active');
+        var modal = $('#moveColumnsModal');
+        modal.modal('show');
+        $('#designerModalGoButton').on('click', function () {
+            // Off event necessary, else the function fires multiple times
+            $('#designerModalGoButton').off('click');
+            event.preventDefault();
+            var $msgbox = Functions.ajaxShowMessage();
+            var $this = $('#moveColumnsModal');
+            var $form = $this.find('form');
+            var serialized = $form.serialize();
+            // check if any columns were moved at all
+            modal.modal('hide');
+            if (serialized === $form.data('serialized-unmoved')) {
+                Functions.ajaxRemoveMessage($msgbox);
+                return;
             }
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+                if (data.success === false) {
+                    Functions.ajaxRemoveMessage($msgbox);
+                    var errorModal = $('#moveColumnsErrorModal');
+                    errorModal.modal('show');
+                    errorModal.find('.modal-body').first().html(data.error);
+                } else {
+                    // sort the fields table
+                    var $fieldsTable = $('table#tablestructure tbody');
+                    // remove all existing rows and remember them
+                    var $rows = $fieldsTable.find('tr').remove();
+                    // loop through the correct order
+                    for (var i in data.columns) {
+                        var theColumn = data.columns[i];
+                        var $theRow = $rows
+                            .find('input:checkbox[value=\'' + theColumn + '\']')
+                            .closest('tr');
+                        // append the row for this column to the table
+                        $fieldsTable.append($theRow);
+                    }
+                    var $firstrow = $fieldsTable.find('tr').eq(0);
+                    // Adjust the row numbers and colors
+                    for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
+                        $row
+                            .find('td').eq(1)
+                            .text($row.index() + 1)
+                            .end()
+                            .removeClass('odd even')
+                            .addClass($row.index() % 2 === 0 ? 'odd' : 'even');
+                    }
+                    Functions.ajaxShowMessage(data.message);
+                }
+            });
+        });
+
+        $('#designerModalPreviewButton').on('click', function () {
+            // Function for Previewing SQL
+            modal.modal('hide');
+            var $form = $('#move_column_form');
+            Functions.previewSql($form);
+        });
+
+        $('#previewSQLCloseButton').on('click', function () {
+            modal.modal('show');
+        });
+
+        $('#designerModalCloseButton').on('click', function () {
+            $('#move_columns_anchor').removeClass('move-active');
         });
     });
 
