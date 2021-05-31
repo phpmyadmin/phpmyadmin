@@ -527,9 +527,14 @@
             {% set first_sub_partition = sub_partitions[0] %}
         {% endif %}
 
-        <div id="partitions-2"{% if default_sliders_state != 'disabled' -%}
-            {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Partitions' %}"
-        {%- endif %}>
+        {% if default_sliders_state != 'disabled' %}
+        <div class="mb-3">
+          <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#partitionsCollapse" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="partitionsCollapse">
+            {% trans 'Partitions' %}
+          </button>
+        </div>
+        <div class="collapse mb-3{{ default_sliders_state == 'open' ? ' show' }}" id="partitionsCollapse">
+        {% endif %}
 
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,
@@ -549,7 +554,9 @@
             'table': table
         } only %}
     {% endif %}
+    {% if default_sliders_state != 'disabled' %}
     </div>
+    {% endif %}
 {% endif %}
 
 {# Displays Space usage and row statistics #}

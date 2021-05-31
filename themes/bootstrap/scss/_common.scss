@@ -2773,7 +2773,6 @@ body .ui-dialog {
 /* templates/database/multi_table_query */
 
 .multi_table_query_form {
-  .query-form__div--hide,
   .query-form__tr--hide {
     display: none;
   }
@@ -2789,11 +2788,6 @@ body .ui-dialog {
 
   .query-form__input--wide {
     width: 91%;
-  }
-
-  .query-form__remove-column {
-    float: right;
-    color: red;
   }
 
   .query-form__multi-sql-query {

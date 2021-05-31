@@ -166,7 +166,6 @@ AJAX.registerOnload('table/operations.js', function () {
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
                 Functions.highlightSql($('#page_content'));
-                Functions.initSlider();
                 $('.sqlqueryresults').children('fieldset,br').remove();
                 scrollToTop();
             } else {

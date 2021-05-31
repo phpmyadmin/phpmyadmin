@@ -3881,7 +3881,6 @@ Functions.showIndexEditDialog = function ($outer) {
         tolerance: 'pointer'
     });
     Functions.showHints($outer);
-    Functions.initSlider();
     // Add a slider for selecting how many columns to add to the index
     $outer.find('.slider').slider({
         animate: true,
@@ -3952,21 +3951,6 @@ $(function () {
         $('#topmenu').menuResizer('resize');
     });
 });
-
-/**
- * Changes status of slider
- *
- * @param $element
- */
-Functions.setStatusLabel = function ($element) {
-    var text;
-    if ($element.css('display') === 'none') {
-        text = '+ ';
-    } else {
-        text = '- ';
-    }
-    $element.closest('.slide-wrapper').prev().find('span').text(text);
-};
 
 /**
  * var  toggleButton  This is a function that creates a toggle
@@ -4146,11 +4130,6 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 
-    /**
-     * Slider effect.
-     */
-    Functions.initSlider();
-
     var $updateRecentTables = $('#update_recent_tables');
     if ($updateRecentTables.length) {
         $.get(
@@ -4187,60 +4166,6 @@ AJAX.registerOnload('functions.js', function () {
         });
     }
 }); // end of $()
-
-/**
- * Initializes slider effect.
- */
-Functions.initSlider = function () {
-    $('div.pma_auto_slider').each(function () {
-        var $this = $(this);
-        if ($this.data('slider_init_done')) {
-            return;
-        }
-        var $wrapper = $('<div>', { 'class': 'slide-wrapper' });
-        $wrapper.toggle($this.is(':visible'));
-        $('<a>', { href: '#' + this.id, 'class': 'ajax' })
-            .text($this.attr('title'))
-            .prepend($('<span>'))
-            .insertBefore($this)
-            .on('click', function () {
-                var $wrapper = $this.closest('.slide-wrapper');
-                var visible = $this.is(':visible');
-                if (!visible) {
-                    $wrapper.show();
-                }
-                $this[visible ? 'hide' : 'show']('blind', function () {
-                    $wrapper.toggle(!visible);
-                    $wrapper.parent().toggleClass('print_ignore', visible);
-                    Functions.setStatusLabel($this);
-                });
-                return false;
-            });
-        $this.wrap($wrapper);
-        $this.removeAttr('title');
-        Functions.setStatusLabel($this);
-        $this.data('slider_init_done', 1);
-    });
-};
-
-/**
- * Initializes slider effect.
- */
-AJAX.registerOnload('functions.js', function () {
-    Functions.initSlider();
-});
-
-/**
- * Restores sliders to the state they were in before initialisation.
- */
-AJAX.registerTeardown('functions.js', function () {
-    $('div.pma_auto_slider').each(function () {
-        var $this = $(this);
-        $this.removeData();
-        $this.parent().replaceWith($this);
-        $this.parent().children('a').remove();
-    });
-});
 
 /**
  * Creates a message inside an object with a sliding effect

@@ -51,7 +51,7 @@ function generateWhereBlock () {
     var count = 0;
     var query = '';
     $('.tableNameSelect').each(function () {
-        var criteriaDiv = $(this).siblings('.slide-wrapper').first();
+        var criteriaDiv = $(this).siblings('.jsCriteriaOptions').first();
         var useCriteria = $(this).siblings('.criteria_col').first();
         if ($(this).val() !== '' && useCriteria.prop('checked')) {
             if (count > 0) {
