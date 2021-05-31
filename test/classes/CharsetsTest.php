@@ -17,9 +17,19 @@ class CharsetsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+    }
+
+    public function testGetServerCharset(): void
+    {
+        $charset = Charsets::getServerCharset(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
+        $this->assertSame('utf8', $charset->getName());
     }
 
     public function testFindCollationByName(): void

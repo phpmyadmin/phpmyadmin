@@ -807,10 +807,22 @@ class DbiDummy implements DbiExtension
                 ],
                 'result'  => [
                     [
+                        'armscii8',
+                        'ARMSCII-8 Armenian',
+                        'armscii8_general_ci',
+                        '1',
+                    ],
+                    [
                         'utf8',
                         'utf8_general_ci',
                         'UTF-8 Unicode',
                         '3',
+                    ],
+                    [
+                        'utf8mb4',
+                        'UTF-8 Unicode',
+                        'utf8mb4_0900_ai_ci',
+                        '4',
                     ],
                     [
                         'latin1',
@@ -837,6 +849,22 @@ class DbiDummy implements DbiExtension
                     'Sortlen',
                 ],
                 'result'  => [
+                    [
+                        'utf8mb4_general_ci',
+                        'utf8mb4',
+                        '45',
+                        'Yes',
+                        'Yes',
+                        '1',
+                    ],
+                    [
+                        'armscii8_general_ci',
+                        'armscii8',
+                        '32',
+                        'Yes',
+                        'Yes',
+                        '1',
+                    ],
                     [
                         'utf8_general_ci',
                         'utf8',
@@ -2481,6 +2509,19 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);',
                 'result' => [],
+            ],
+            [
+                'query' => 'SHOW SESSION VARIABLES LIKE \'character_set_server\';',
+                'columns' => [
+                    'Variable_name',
+                    'Value',
+                ],
+                'result' => [
+                    [
+                        'character_set_server',
+                        'utf8mb3',
+                    ],
+                ],
             ],
         ];
         /**
