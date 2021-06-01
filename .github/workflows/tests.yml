@@ -31,6 +31,7 @@ jobs:
               # musl-locales and musl-locales-lang are needed to run some locale specific tests
               # gettext is needed to run generate-mo
               # pcov for code coverage
+              # git is needed to workaround a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
               run: |
                   printf "set -exu && \
                   export V='%s' && \
@@ -39,7 +40,7 @@ jobs:
                   php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
                   php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
                   musl-locales musl-locales-lang \
-                  gettext composer && \
+                  gettext composer git && \
                   apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
                   composer update && \
                   ./scripts/generate-mo && \
