@@ -35,7 +35,6 @@ class RecentFavoriteTable
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
-     * @access private
      * @var array
      */
     private $tables;
@@ -43,7 +42,6 @@ class RecentFavoriteTable
     /**
      * Defines type of action, Favorite or Recent table.
      *
-     * @access private
      * @var string
      */
     private $tableType;
@@ -51,8 +49,7 @@ class RecentFavoriteTable
     /**
      * RecentFavoriteTable instances.
      *
-     * @access private
-     * @var array
+     * @var array<string,RecentFavoriteTable>
      */
     private static $instances = [];
 
@@ -63,10 +60,8 @@ class RecentFavoriteTable
      * Creates a new instance of RecentFavoriteTable
      *
      * @param string $type the table type
-     *
-     * @access private
      */
-    private function __construct($type)
+    private function __construct(string $type)
     {
         global $dbi;
 
@@ -88,10 +83,8 @@ class RecentFavoriteTable
      * Returns class instance.
      *
      * @param string $type the table type
-     *
-     * @return RecentFavoriteTable
      */
-    public static function getInstance($type)
+    public static function getInstance(string $type): RecentFavoriteTable
     {
         if (! array_key_exists($type, self::$instances)) {
             self::$instances[$type] = new RecentFavoriteTable($type);
@@ -115,7 +108,7 @@ class RecentFavoriteTable
      *
      * @return array
      */
-    public function getFromDb()
+    public function getFromDb(): array
     {
         global $dbi;
 
@@ -185,30 +178,28 @@ class RecentFavoriteTable
      *
      * @return bool True if trimming occurred
      */
-    public function trim()
+    public function trim(): bool
     {
         $max = max(
             $GLOBALS['cfg']['Num' . ucfirst($this->tableType) . 'Tables'],
             0
         );
-        $trimming_occurred = count($this->tables) > $max;
+        $trimmingOccurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
 
-        return $trimming_occurred;
+        return $trimmingOccurred;
     }
 
     /**
      * Return HTML ul.
-     *
-     * @return string
      */
-    public function getHtmlList()
+    public function getHtmlList(): string
     {
-        $html = '';
         if (count($this->tables)) {
             if ($this->tableType === 'recent') {
+                $html = '';
                 foreach ($this->tables as $table) {
                     $html .= '<li class="warp_link">';
                     $recent_url = Url::getFromRoute('/table/recent-favorite', [
@@ -220,52 +211,50 @@ class RecentFavoriteTable
                           . htmlspecialchars($table['table']) . '`</a>';
                     $html .= '</li>';
                 }
-            } else {
-                foreach ($this->tables as $table) {
-                    $html .= '<li class="warp_link">';
 
-                    $html .= '<a class="ajax favorite_table_anchor" ';
-                    $fav_rm_url = Url::getFromRoute('/database/structure/favorite-table', [
-                        'db' => $table['db'],
-                        'ajax_request' => true,
-                        'favorite_table' => $table['table'],
-                        'remove_favorite' => true,
-                    ]);
-                    $html .= 'href="' . $fav_rm_url
-                        . '" title="' . __('Remove from Favorites')
-                        . '" data-favtargetn="'
-                        . md5($table['db'] . '.' . $table['table'])
-                        . '" >'
-                        . Generator::getIcon('b_favorite')
-                        . '</a>';
-
-                    $table_url = Url::getFromRoute('/table/recent-favorite', [
-                        'db' => $table['db'],
-                        'table' => $table['table'],
-                    ]);
-                    $html .= '<a href="' . $table_url . '">`'
-                        . htmlspecialchars($table['db']) . '`.`'
-                        . htmlspecialchars($table['table']) . '`</a>';
-                    $html .= '</li>';
-                }
+                return $html;
             }
-        } else {
-            $html .= '<li class="warp_link">'
-                  . ($this->tableType === 'recent'
-                    ? __('There are no recent tables.')
-                    : __('There are no favorite tables.'))
-                  . '</li>';
+
+            $html = '';
+            foreach ($this->tables as $table) {
+                $html .= '<li class="warp_link">';
+
+                $html .= '<a class="ajax favorite_table_anchor" ';
+                $fav_rm_url = Url::getFromRoute('/database/structure/favorite-table', [
+                    'db' => $table['db'],
+                    'ajax_request' => true,
+                    'favorite_table' => $table['table'],
+                    'remove_favorite' => true,
+                ]);
+                $html .= 'href="' . $fav_rm_url
+                    . '" title="' . __('Remove from Favorites')
+                    . '" data-favtargetn="'
+                    . md5($table['db'] . '.' . $table['table'])
+                    . '" >'
+                    . Generator::getIcon('b_favorite')
+                    . '</a>';
+
+                $table_url = Url::getFromRoute('/table/recent-favorite', [
+                    'db' => $table['db'],
+                    'table' => $table['table'],
+                ]);
+                $html .= '<a href="' . $table_url . '">`'
+                    . htmlspecialchars($table['db']) . '`.`'
+                    . htmlspecialchars($table['table']) . '`</a>';
+                $html .= '</li>';
+            }
+
+            return $html;
         }
 
-        return $html;
+        return '<li class="warp_link">'
+                . ($this->tableType === 'recent'
+                ? __('There are no recent tables.')
+                : __('There are no favorite tables.'))
+                . '</li>';
     }
 
-    /**
-     * Return HTML.
-     *
-     * @return string
-     */
-    public function getHtml()
+    public function getHtml(): string
     {
         $html  = '<div class="drop_list">';
         if ($this->tableType === 'recent') {
@@ -372,10 +361,8 @@ class RecentFavoriteTable
 
     /**
      * Generate Html for sync Favorite tables anchor. (from localStorage to pmadb)
-     *
-     * @return string
      */
-    public function getHtmlSyncFavoriteTables()
+    public function getHtmlSyncFavoriteTables(): string
     {
         $retval = '';
         $server_id = $GLOBALS['server'];
@@ -400,19 +387,15 @@ class RecentFavoriteTable
 
     /**
      * Generate Html to update recent tables.
-     *
-     * @return string html
      */
-    public static function getHtmlUpdateRecentTables()
+    public static function getHtmlUpdateRecentTables(): string
     {
-        $retval = '<a class="hide" id="update_recent_tables" href="';
-        $retval .= Url::getFromRoute('/recent-table', [
-            'ajax_request' => true,
-            'recent_table' => true,
-        ]);
-        $retval .= '"></a>';
-
-        return $retval;
+        return '<a class="hide" id="update_recent_tables" href="'
+                    . Url::getFromRoute('/recent-table', [
+                        'ajax_request' => true,
+                        'recent_table' => true,
+                    ])
+                . '"></a>';
     }
 
     /**
