@@ -292,7 +292,7 @@ class BrowseTest extends TestBase
         );
 
         $this->scrollToBottom();
-        $elem = $this->waitForElement('cssSelector', '.tblFooters input[name=submit]');
+        $elem = $this->waitForElement('cssSelector', '.card-footer input[name=submit]');
         $this->moveto($elem);
         $elem->click();
 
