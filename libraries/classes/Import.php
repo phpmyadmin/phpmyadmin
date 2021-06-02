@@ -1051,7 +1051,7 @@ class Import
         ?array &$analyses = null,
         ?array &$additional_sql = null,
         ?array $options = null,
-        array &$sql_data
+        array &$sql_data = []
     ): void {
         global $import_notice, $dbi;
 
