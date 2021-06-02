@@ -81,6 +81,7 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetAuthentication(): void
     {
+        $GLOBALS['server'] = 0;
         $this->plugins = new Plugins($GLOBALS['dbi']);
         $plugins = $this->plugins->getAuthentication();
         $this->assertIsArray($plugins);

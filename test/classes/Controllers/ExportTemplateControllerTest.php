@@ -43,6 +43,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         $_SESSION['relation'][$GLOBALS['server']] = [
             'version' => Version::VERSION,
             'exporttemplateswork' => true,
+            'trackingwork' => false,
             'db' => 'db',
             'export_templates' => 'table',
         ];

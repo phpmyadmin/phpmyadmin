@@ -39,13 +39,6 @@ use const PHP_OS;
 
 class ConfigTest extends AbstractTestCase
 {
-    /**
-     * Turn off backup globals
-     *
-     * @var bool
-     */
-    protected $backupGlobals = false;
-
     /** @var Config */
     protected $object;
 

@@ -46,6 +46,7 @@ class ReplaceControllerTest extends AbstractTestCase
             'bookmark' => 'bookmark',
             'uiprefswork' => 'uiprefswork',
             'table_uiprefs' => 'table_uiprefs',
+            'trackingwork' => false,
         ];
     }
 
