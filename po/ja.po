@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:12+0200\n"
-"PO-Revision-Date: 2021-05-22 18:16+0000\n"
+"PO-Revision-Date: 2021-06-03 15:33+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -6869,7 +6869,7 @@ msgstr "ページの削除"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "このページに保存されたページの一部に名前変更や削除が行われました。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:10
@@ -7246,47 +7246,39 @@ msgstr "強固"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "セキュリティキーを有効化している最中にタイムアウトされました。"
+msgstr "セキュリティキーを有効化している最中にタイムアウトしました。"
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "セキュリティキーに無効なリクエストが送られました。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "不明なエラーです"
+msgstr "セキュリティキーの不明なエラーです。"
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "クライアントがセキュリティキーに対応していません。"
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "セキュリティキー「%s」の有効化が失敗しました。"
+msgstr "セキュリティキーの有効化に失敗しました。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "無効なエクスポート形式"
+msgstr "セキュリティキーが無効です。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, php-format
