@@ -76,7 +76,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
  */
 AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#emptyDialog').remove();
-    $('#addChartDialog').remove();
     $('a.popupLink').off('click');
     $('body').off('click');
 });
@@ -86,8 +85,6 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
 AJAX.registerOnload('server/status/monitor.js', function () {
     $('<div></div>')
         .attr('id', 'emptyDialog')
-        .appendTo('#page_content');
-    $('#addChartDialog')
         .appendTo('#page_content');
 
     $('a.popupLink').on('click', function () {
@@ -535,13 +532,13 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     $('a[href="#addNewChart"]').on('click', function (event) {
         event.preventDefault();
-        var dlgButtons = { };
+        var modal = $('#addChartModal');
 
-        dlgButtons[Messages.strAddChart] = function () {
+        $('#addChartButton').on('click', function () {
             var type = $('input[name="chartType"]:checked').val();
 
             if (type === 'preset') {
-                newChart = presetCharts[$('#addChartDialog').find('select[name="presetCharts"]').prop('value')];
+                newChart = presetCharts[$('#addChartModal').find('select[name="presetCharts"]').prop('value')];
             } else {
                 // If user builds their own chart, it's being set/updated
                 // each time they add a series
@@ -560,17 +557,17 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             saveMonitor(); // Save settings
 
-            $(this).dialog('close');
-        };
+            $('#closeModalButton').off('click');
+        });
 
-        dlgButtons[Messages.strClose] = function () {
+        $('#closeModalButton').on('click', function () {
             newChart = null;
             $('span#clearSeriesLink').hide();
             $('#seriesPreview').html('');
-            $(this).dialog('close');
-        };
+            $('#closeModalButton').off('click');
+        });
 
-        var $presetList = $('#addChartDialog').find('select[name="presetCharts"]');
+        var $presetList = $('#addChartModal').find('select[name="presetCharts"]');
         if ($presetList.html().length === 0) {
             $.each(presetCharts, function (key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
@@ -598,11 +595,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             });
         }
 
-        $('#addChartDialog').dialog({
-            width: 'auto',
-            height: 'auto',
-            buttons: dlgButtons
-        });
+        modal.modal('show');
 
         $('#seriesPreview').html('<i>' + Messages.strNone + '</i>');
 
