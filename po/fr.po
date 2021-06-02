@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-29 16:12+0200\n"
-"PO-Revision-Date: 2021-05-30 22:47+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-06-03 15:33+0000\n"
+"Last-Translator: Simon Picot <simonpicot06@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -18150,10 +18150,8 @@ msgid "Use this value"
 msgstr "Utiliser cette valeur"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Titre du graphique"
+msgstr "Type du graphique"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
