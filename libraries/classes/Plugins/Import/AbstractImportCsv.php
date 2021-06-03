@@ -14,6 +14,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
+use function __;
+
 /**
  * Super class of the import plugins for the CSV format
  */

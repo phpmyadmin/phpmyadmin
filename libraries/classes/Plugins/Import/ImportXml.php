@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
 
+use function __;
 use function count;
 use function in_array;
 use function libxml_disable_entity_loader;

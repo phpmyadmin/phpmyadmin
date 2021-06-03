@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
 
+use function __;
 use function in_array;
 use function shuffle;
 use function sprintf;

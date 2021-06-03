@@ -11,6 +11,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function explode;
 use function htmlspecialchars;

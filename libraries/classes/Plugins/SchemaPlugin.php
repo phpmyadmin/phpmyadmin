@@ -11,6 +11,8 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
+use function __;
+
 /**
  * Provides a common interface that will have to be implemented by all of the
  * schema export plugins. Some of the plugins will also implement other public

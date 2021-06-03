@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
+use function __;
 use function count;
 use function fclose;
 use function feof;

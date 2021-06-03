@@ -8,6 +8,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Server\Privileges;
 
+use function __;
 use function strlen;
 
 /**

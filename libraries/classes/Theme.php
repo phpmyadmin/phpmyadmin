@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
 use function file_exists;
 use function file_get_contents;
 use function filemtime;

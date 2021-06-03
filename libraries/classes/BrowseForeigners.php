@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
 use function asort;
 use function ceil;
 use function floor;

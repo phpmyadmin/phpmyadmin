@@ -12,6 +12,7 @@ use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
 use Throwable;
 
+use function __;
 use function strlen;
 
 final class PartitionController extends AbstractController

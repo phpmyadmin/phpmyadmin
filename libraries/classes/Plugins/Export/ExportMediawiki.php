@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_values;
 use function count;
 use function htmlspecialchars;

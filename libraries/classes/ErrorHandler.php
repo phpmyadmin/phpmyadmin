@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use ErrorException;
 
+use function __;
 use function array_splice;
 use function count;
 use function defined;

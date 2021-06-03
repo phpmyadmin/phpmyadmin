@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 
+use function __;
 use function htmlspecialchars;
 
 /**

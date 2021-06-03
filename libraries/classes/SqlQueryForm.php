@@ -16,6 +16,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function htmlspecialchars;
 use function sprintf;
 use function strlen;

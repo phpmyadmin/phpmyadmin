@@ -14,6 +14,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
 
+use function __;
 use function count;
 use function in_array;
 use function is_string;

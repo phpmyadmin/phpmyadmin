@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
 
+use function __;
 use function defined;
 use function gmdate;
 use function header;

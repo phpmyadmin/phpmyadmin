@@ -14,6 +14,8 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
 
+use function __;
+use function _setlocale;
 use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;

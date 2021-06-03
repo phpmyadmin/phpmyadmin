@@ -11,6 +11,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
 
+use function __;
 use function array_merge;
 use function defined;
 use function htmlspecialchars;

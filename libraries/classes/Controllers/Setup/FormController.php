@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
+use function __;
 use function ob_get_clean;
 use function ob_start;
 

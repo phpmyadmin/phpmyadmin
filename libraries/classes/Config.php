@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
 use function array_filter;
 use function array_merge;
 use function array_replace_recursive;

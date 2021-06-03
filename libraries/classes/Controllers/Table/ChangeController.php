@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+use function __;
 use function array_fill;
 use function count;
 use function is_array;

@@ -20,6 +20,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+use function __;
+use function _ngettext;
 use function array_intersect_key;
 use function array_key_exists;
 use function array_keys;

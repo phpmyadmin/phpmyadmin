@@ -11,6 +11,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 
+use function __;
+
 /**
  * Displays and handles the form where the user can change their password.
  */

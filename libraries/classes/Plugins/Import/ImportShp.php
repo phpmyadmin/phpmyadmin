@@ -21,6 +21,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
+use function __;
 use function count;
 use function extension_loaded;
 use function file_exists;

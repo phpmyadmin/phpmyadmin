@@ -8,6 +8,8 @@ use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */

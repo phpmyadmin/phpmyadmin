@@ -9,6 +9,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Template;
 
+use function __;
 use function count;
 use function is_array;
 

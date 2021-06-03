@@ -13,6 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
+use function __;
 use function is_bool;
 use function parse_str;
 use function sprintf;

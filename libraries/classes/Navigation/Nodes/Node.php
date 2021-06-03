@@ -12,6 +12,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_keys;
 use function array_reverse;
 use function array_slice;

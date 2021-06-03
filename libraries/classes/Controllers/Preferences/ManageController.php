@@ -18,6 +18,7 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_merge;
 use function define;
 use function file_exists;

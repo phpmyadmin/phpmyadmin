@@ -24,6 +24,8 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
 
+use function __;
+use function _ngettext;
 use function define;
 use function htmlspecialchars;
 use function in_array;

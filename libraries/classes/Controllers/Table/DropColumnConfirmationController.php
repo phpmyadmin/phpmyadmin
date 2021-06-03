@@ -8,6 +8,8 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
+
 final class DropColumnConfirmationController extends AbstractController
 {
     public function process(): void

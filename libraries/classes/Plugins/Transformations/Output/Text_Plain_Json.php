@@ -11,6 +11,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 
+use function __;
 use function htmlspecialchars;
 
 /**

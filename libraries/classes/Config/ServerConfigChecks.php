@@ -13,6 +13,7 @@ use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function function_exists;
 use function htmlspecialchars;

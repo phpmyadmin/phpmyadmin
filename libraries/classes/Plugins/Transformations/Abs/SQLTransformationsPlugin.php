@@ -11,6 +11,8 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
+use function __;
+
 /**
  * Provides common methods for all of the SQL transformations plugins.
  */

@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 
+use function __;
+
 /**
  * The BDB storage engine
  */

@@ -18,6 +18,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
+use function __;
 use function json_decode;
 use function json_encode;
 

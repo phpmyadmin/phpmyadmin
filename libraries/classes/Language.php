@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
+use function _bindtextdomain;
+use function _setlocale;
+use function _textdomain;
 use function addcslashes;
 use function function_exists;
 use function in_array;

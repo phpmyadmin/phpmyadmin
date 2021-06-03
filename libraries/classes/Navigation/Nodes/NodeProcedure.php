@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use function __;
+
 /**
  * Represents a procedure node in the navigation tree
  */

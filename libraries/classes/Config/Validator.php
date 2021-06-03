@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_map;
 use function array_merge;
 use function array_shift;

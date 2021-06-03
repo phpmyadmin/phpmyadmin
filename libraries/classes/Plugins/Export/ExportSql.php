@@ -29,6 +29,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
+use function __;
 use function bin2hex;
 use function count;
 use function defined;

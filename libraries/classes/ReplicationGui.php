@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Query\Utilities;
 
+use function __;
 use function htmlspecialchars;
 use function in_array;
 use function is_array;

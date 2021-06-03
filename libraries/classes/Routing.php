@@ -12,6 +12,7 @@ use FastRoute\RouteParser\Std as RouteParserStd;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
 
+use function __;
 use function fclose;
 use function file_exists;
 use function fopen;

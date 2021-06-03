@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use ZipArchive;
 
+use function __;
 use function basename;
 use function bin2hex;
 use function bzopen;

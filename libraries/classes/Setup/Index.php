@@ -11,6 +11,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Version;
 use PhpMyAdmin\VersionInformation;
 
+use function __;
 use function htmlspecialchars;
 use function is_array;
 use function sprintf;

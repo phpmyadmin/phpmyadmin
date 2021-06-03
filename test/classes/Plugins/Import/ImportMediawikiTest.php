@@ -9,6 +9,8 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */

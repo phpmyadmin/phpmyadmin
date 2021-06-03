@@ -11,6 +11,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function in_array;
 use function intval;
 use function substr;

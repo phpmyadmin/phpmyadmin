@@ -19,6 +19,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_flip;
 use function array_keys;
 use function array_search;

@@ -14,6 +14,8 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
+use function __;
+
 /**
  * Handles the schema export for the Dia format
  */

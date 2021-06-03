@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
 
+use function __;
 use function is_string;
 use function preg_match;
 use function sprintf;

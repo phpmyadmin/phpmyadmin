@@ -11,6 +11,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+use function __;
+use function _pgettext;
+
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**

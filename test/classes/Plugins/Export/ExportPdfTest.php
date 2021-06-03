@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 
+use function __;
 use function array_shift;
 
 /**

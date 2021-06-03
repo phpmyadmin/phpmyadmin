@@ -11,6 +11,7 @@ use Exception;
 use TCPDF;
 use TCPDF_FONTS;
 
+use function __;
 use function count;
 use function strlen;
 use function strtr;

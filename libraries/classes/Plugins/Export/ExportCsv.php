@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+use function __;
 use function mb_strtolower;
 use function mb_substr;
 use function preg_replace;

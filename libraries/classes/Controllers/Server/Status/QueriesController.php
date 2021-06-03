@@ -13,6 +13,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+use function __;
 use function array_sum;
 use function arsort;
 use function count;

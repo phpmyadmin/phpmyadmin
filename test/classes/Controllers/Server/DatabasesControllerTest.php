@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
+use function __;
 use function sprintf;
 
 class DatabasesControllerTest extends AbstractTestCase

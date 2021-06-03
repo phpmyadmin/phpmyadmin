@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
 use PhpMyAdmin\Version;
 
+use function __;
 use function date;
 use function in_array;
 use function sprintf;

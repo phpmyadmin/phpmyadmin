@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\UtfString;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 
+use function __;
 use function defined;
 use function htmlspecialchars;
 use function mb_strlen;

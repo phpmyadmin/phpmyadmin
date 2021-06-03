@@ -12,6 +12,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Utils\SessionCache;
 
+use function __;
+
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var Data */

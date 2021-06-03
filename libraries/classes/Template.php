@@ -29,6 +29,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
+use function __;
 use function is_array;
 use function sprintf;
 use function trigger_error;

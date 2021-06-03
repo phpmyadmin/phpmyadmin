@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 
+use function __;
+
 /**
  * Provides common methods for all of the Bool2Text transformations plugins.
  */

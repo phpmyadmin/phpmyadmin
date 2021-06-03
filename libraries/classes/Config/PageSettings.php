@@ -13,6 +13,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\UserPreferences;
 
+use function __;
+
 /**
  * Page-related settings
  */

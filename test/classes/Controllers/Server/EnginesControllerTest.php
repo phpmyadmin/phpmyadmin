@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 
+use function __;
 use function htmlspecialchars;
 
 class EnginesControllerTest extends AbstractTestCase

@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
+use function __;
 use function checkdate;
 use function gmdate;
 use function htmlspecialchars;

@@ -12,6 +12,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
+use function _ngettext;
 use function count;
 
 final class DropColumnController extends AbstractController

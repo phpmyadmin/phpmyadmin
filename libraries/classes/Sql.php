@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function array_map;
 use function array_sum;
 use function bin2hex;

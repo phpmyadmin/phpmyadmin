@@ -14,6 +14,7 @@ use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
 use function sprintf;
 use function strlen;
 

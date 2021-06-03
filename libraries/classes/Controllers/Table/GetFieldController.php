@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
 use function htmlspecialchars;
 use function ini_set;
 use function sprintf;

@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Version;
 
+use function __;
 use function bin2hex;
 use function explode;
 use function json_encode;

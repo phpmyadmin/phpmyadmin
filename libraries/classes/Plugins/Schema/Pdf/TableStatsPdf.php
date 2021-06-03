@@ -11,6 +11,7 @@ use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
 
+use function __;
 use function count;
 use function in_array;
 use function max;

@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+use function __;
+
 class FeaturesForm extends BaseForm
 {
     /**

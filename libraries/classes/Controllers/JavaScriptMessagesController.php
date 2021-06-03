@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Theme;
 
+use function __;
+use function _pgettext;
 use function json_encode;
 
 /**

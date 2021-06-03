@@ -14,6 +14,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+use function __;
 use function in_array;
 use function is_numeric;
 use function mb_strpos;

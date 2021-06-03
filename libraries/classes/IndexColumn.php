@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
+
 /**
  * Index column wrapper
  */

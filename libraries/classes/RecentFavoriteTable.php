@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 
+use function __;
 use function array_key_exists;
 use function array_merge;
 use function array_pop;

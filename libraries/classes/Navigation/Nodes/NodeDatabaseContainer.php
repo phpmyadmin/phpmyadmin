@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\NodeFactory;
 
+use function _pgettext;
+
 /**
  * Represents a container for database nodes in the navigation tree
  */

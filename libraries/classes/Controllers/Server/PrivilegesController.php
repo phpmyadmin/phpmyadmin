@@ -21,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function header;
 use function implode;
 use function is_array;

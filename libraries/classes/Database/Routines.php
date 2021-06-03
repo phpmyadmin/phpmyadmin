@@ -16,6 +16,8 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
+use function _ngettext;
 use function array_merge;
 use function count;
 use function explode;

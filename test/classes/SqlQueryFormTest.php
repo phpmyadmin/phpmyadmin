@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Version;
 
+use function __;
 use function htmlspecialchars;
 
 /**

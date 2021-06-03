@@ -8,6 +8,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use stdClass;
 
+use function __;
+use function _pgettext;
 use function hash;
 use function htmlspecialchars;
 use function mb_strpos;

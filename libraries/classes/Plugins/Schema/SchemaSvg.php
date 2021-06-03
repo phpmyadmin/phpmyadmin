@@ -14,6 +14,8 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
+use function __;
+
 /**
  * Handles the schema export for the SVG format
  */

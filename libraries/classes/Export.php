@@ -13,6 +13,7 @@ use PhpMyAdmin\Controllers\Table\ExportController as TableExportController;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 
+use function __;
 use function array_merge_recursive;
 use function error_get_last;
 use function fclose;

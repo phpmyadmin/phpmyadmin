@@ -19,6 +19,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function htmlentities;
 use function mb_strpos;
 use function strlen;

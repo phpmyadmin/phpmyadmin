@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use function __;
 use function array_keys;
 use function file_get_contents;
 use function htmlspecialchars;

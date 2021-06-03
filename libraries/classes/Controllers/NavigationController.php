@@ -12,6 +12,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\SessionCache;
 
+use function __;
+
 /**
  * The navigation panel
  *

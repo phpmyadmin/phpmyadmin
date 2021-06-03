@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 
+use function __;
 use function sprintf;
 
 class IndexesControllerTest extends AbstractTestCase

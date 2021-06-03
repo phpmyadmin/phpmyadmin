@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
 use function array_key_exists;
 use function closedir;
 use function htmlspecialchars;

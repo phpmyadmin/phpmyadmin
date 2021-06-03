@@ -15,6 +15,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use TCPDF_STATIC;
 
+use function __;
 use function array_key_exists;
 use function count;
 use function ksort;

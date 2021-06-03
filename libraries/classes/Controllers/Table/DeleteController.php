@@ -17,6 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function is_array;
 use function sprintf;
 

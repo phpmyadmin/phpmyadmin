@@ -8,6 +8,8 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
+use function __;
+
 /**
  * PhpMyAdmin\Tests\Server\SelectTest class
  *

@@ -30,6 +30,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function array_search;
 use function ceil;
 use function count;

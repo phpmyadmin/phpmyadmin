@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
 use function closedir;
 use function count;
 use function explode;

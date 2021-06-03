@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 
+use function __;
 use function array_keys;
 use function count;
 use function explode;

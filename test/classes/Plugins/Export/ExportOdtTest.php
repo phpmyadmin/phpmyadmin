@@ -20,6 +20,7 @@ use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 
+use function __;
 use function array_shift;
 
 use const MYSQLI_BLOB_FLAG;

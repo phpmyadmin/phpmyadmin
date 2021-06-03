@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Version;
 
+use function __;
 use function in_array;
 use function max;
 use function min;

@@ -10,6 +10,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 
+use function __;
+
 class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**

@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 class MyisamTest extends AbstractTestCase
 {
     /** @var Myisam */

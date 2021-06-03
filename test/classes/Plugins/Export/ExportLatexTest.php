@@ -18,6 +18,7 @@ use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 
+use function __;
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;

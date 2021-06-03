@@ -12,6 +12,8 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
+use function _pgettext;
 use function count;
 use function explode;
 use function in_array;

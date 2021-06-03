@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_merge;
 use function defined;
 use function file_exists;

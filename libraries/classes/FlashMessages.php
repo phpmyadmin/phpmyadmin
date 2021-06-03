@@ -6,6 +6,8 @@ namespace PhpMyAdmin;
 
 use RuntimeException;
 
+use function __;
+
 final class FlashMessages
 {
     private const STORAGE_KEY = 'flashMessages';

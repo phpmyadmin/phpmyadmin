@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 class InnodbTest extends AbstractTestCase
 {
     /** @var Innodb */

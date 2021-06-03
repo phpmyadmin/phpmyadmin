@@ -31,6 +31,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
+use function __;
+use function _pgettext;
 use function array_filter;
 use function array_keys;
 use function array_merge;

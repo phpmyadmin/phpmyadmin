@@ -11,6 +11,7 @@ use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
+use function __;
 use function class_exists;
 use function count;
 use function getcwd;

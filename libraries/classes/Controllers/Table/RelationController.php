@@ -15,6 +15,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function array_key_exists;
 use function array_keys;
 use function array_values;

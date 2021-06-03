@@ -9,6 +9,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
 use function basename;
 
 class ImportCsvTest extends AbstractTestCase

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
 
+use function _ngettext;
 use function count;
 use function is_readable;
 use function strtolower;

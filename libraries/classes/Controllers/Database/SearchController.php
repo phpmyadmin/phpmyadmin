@@ -12,6 +12,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
+
 class SearchController extends AbstractController
 {
     /** @var DatabaseInterface */

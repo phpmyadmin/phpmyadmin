@@ -21,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_values;
 use function class_exists;
 use function count;

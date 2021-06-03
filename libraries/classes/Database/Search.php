@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_intersect;
 use function array_key_exists;
 use function count;

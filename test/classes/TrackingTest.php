@@ -11,6 +11,8 @@ use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Version;
 
+use function __;
+use function _pgettext;
 use function htmlspecialchars;
 use function sprintf;
 

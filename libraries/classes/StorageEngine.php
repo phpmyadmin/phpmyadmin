@@ -22,6 +22,7 @@ use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Utils\SessionCache;
 
+use function __;
 use function array_key_exists;
 use function define;
 use function explode;

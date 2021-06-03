@@ -21,6 +21,8 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
+use function _ngettext;
 use function array_key_exists;
 use function array_keys;
 use function array_search;

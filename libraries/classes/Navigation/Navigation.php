@@ -19,6 +19,7 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function defined;
 use function file_exists;

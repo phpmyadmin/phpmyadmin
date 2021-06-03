@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
 
+use function __;
 use function array_keys;
 use function array_merge;
 use function count;

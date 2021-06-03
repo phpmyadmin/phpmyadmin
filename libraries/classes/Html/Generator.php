@@ -23,6 +23,8 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
+use function __;
+use function _pgettext;
 use function addslashes;
 use function array_key_exists;
 use function ceil;

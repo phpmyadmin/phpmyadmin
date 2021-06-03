@@ -21,6 +21,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
 
+use function __;
 use function array_diff;
 use function array_keys;
 use function array_map;

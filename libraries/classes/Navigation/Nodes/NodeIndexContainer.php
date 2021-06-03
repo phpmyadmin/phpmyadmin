@@ -9,6 +9,9 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 
+use function __;
+use function _pgettext;
+
 /**
  * Represents a container for index nodes in the navigation tree
  */

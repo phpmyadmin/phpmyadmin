@@ -11,6 +11,8 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 
+use function __;
+
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
  */

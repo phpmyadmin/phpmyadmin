@@ -11,6 +11,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
 
+use function __;
 use function htmlspecialchars;
 
 /**

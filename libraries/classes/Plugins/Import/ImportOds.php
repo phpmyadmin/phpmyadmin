@@ -20,6 +20,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
 
+use function __;
 use function count;
 use function implode;
 use function libxml_disable_entity_loader;

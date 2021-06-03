@@ -9,6 +9,8 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 /**
  * @requires extension xml
  * @requires extension xmlwriter

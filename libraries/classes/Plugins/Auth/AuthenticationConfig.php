@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function defined;
 use function sprintf;

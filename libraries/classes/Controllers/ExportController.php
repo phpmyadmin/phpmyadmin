@@ -22,6 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function function_exists;
 use function in_array;

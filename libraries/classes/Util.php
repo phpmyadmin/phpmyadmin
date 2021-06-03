@@ -13,6 +13,8 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
 use phpseclib3\Crypt\Random;
 
+use function __;
+use function _pgettext;
 use function abs;
 use function array_key_exists;
 use function array_map;

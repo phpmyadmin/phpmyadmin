@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
+use function __;
 use function htmlspecialchars;
 use function in_array;
 use function str_replace;

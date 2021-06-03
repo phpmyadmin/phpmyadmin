@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Sanitize;
 
+use function __;
 use function htmlspecialchars;
 use function sprintf;
 use function str_replace;

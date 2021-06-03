@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Server\Status;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
 
+use function __;
 use function basename;
 use function mb_strpos;
 use function mb_strtolower;

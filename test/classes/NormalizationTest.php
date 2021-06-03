@@ -14,6 +14,8 @@ use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use stdClass;
 
+use function __;
+use function _pgettext;
 use function json_encode;
 
 class NormalizationTest extends AbstractTestCase

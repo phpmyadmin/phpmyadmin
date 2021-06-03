@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
+use function __;
+
 /**
  * SQL editing with syntax highlighted CodeMirror editor
  */

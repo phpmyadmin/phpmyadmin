@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function __;
+
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */

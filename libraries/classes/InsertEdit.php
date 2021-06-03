@@ -12,6 +12,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
 
+use function __;
 use function array_fill;
 use function array_merge;
 use function array_values;

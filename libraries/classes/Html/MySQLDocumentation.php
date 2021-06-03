@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Html;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
 
+use function __;
 use function defined;
 use function file_exists;
 use function htmlspecialchars;

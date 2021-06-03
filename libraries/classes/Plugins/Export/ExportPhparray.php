@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
+use function __;
 use function preg_match;
 use function preg_replace;
 use function stripslashes;

@@ -15,6 +15,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Query\Utilities;
 use stdClass;
 
+use function __;
 use function defined;
 use function is_array;
 use function is_bool;

@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
+use function __;
 use function array_merge;
 use function count;
 use function explode;

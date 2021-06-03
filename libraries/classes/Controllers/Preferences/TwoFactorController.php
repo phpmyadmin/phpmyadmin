@@ -11,6 +11,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
+use function __;
 use function count;
 
 class TwoFactorController extends AbstractController

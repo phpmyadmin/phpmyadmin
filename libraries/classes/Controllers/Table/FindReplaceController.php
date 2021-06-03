@@ -12,6 +12,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
 use function array_key_exists;
 use function count;
 use function is_array;

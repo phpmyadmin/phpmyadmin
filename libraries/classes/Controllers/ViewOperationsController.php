@@ -14,6 +14,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function __;
+
 /**
  * View manipulations
  */

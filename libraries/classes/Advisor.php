@@ -8,6 +8,7 @@ use PhpMyAdmin\Server\SysInfo\SysInfo;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Throwable;
 
+use function __;
 use function array_merge;
 use function htmlspecialchars;
 use function implode;

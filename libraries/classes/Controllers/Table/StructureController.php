@@ -41,6 +41,8 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use stdClass;
 
+use function __;
+use function _ngettext;
 use function array_keys;
 use function array_splice;
 use function count;

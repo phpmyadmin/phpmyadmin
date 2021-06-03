@@ -9,6 +9,8 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Compatibility;
 
+use function __;
+use function _pgettext;
 use function array_merge;
 use function array_pop;
 use function array_unique;

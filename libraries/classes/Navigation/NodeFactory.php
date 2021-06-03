@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Navigation\Nodes\Node;
 
+use function __;
 use function class_exists;
 use function preg_match;
 use function sprintf;

@@ -13,6 +13,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
+use function __;
 use function count;
 use function is_array;
 use function preg_split;

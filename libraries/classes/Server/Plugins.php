@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\DatabaseInterface;
 
+use function __;
+
 class Plugins
 {
     /** @var DatabaseInterface */

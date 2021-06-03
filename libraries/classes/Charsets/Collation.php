@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Charsets;
 
+use function __;
+use function _pgettext;
 use function count;
 use function explode;
 use function implode;

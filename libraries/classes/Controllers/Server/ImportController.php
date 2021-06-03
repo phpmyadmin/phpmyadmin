@@ -21,6 +21,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
+use function __;
 use function intval;
 
 final class ImportController extends AbstractController

@@ -14,6 +14,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 
+use function __;
 use function base64_decode;
 use function defined;
 use function hash_equals;

@@ -18,6 +18,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
+use function __;
 use function count;
 use function in_array;
 use function mb_strpos;

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
+use function _ngettext;
 use function array_unshift;
 use function count;
 use function htmlspecialchars;

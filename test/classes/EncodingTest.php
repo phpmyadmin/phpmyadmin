@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
 
+use function _setlocale;
 use function fclose;
 use function file_get_contents;
 use function fopen;

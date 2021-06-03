@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 
+use function __;
+
 /**
  * @group medium
  */

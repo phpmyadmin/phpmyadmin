@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Controllers\Database\SqlController;
 
+use function __;
 use function defined;
 use function strlen;
 

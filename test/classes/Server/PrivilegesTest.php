@@ -20,6 +20,8 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 use stdClass;
 
+use function __;
+use function _pgettext;
 use function htmlspecialchars;
 use function implode;
 

@@ -15,6 +15,8 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+use function __;
+
 /**
  * Handles the export for the CSV-Excel format
  */

@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
+use function __;
 use function ceil;
 use function class_exists;
 use function getcwd;

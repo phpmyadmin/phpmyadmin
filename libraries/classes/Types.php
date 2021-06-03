@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function __;
+use function _pgettext;
 use function array_diff;
 use function array_merge;
 use function array_push;

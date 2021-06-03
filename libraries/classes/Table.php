@@ -18,6 +18,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
+use function __;
 use function array_key_exists;
 use function array_map;
 use function count;
