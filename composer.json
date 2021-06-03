@@ -23,7 +23,8 @@
     "autoload": {
         "psr-4": {
             "PhpMyAdmin\\": "libraries/classes"
-        }
+        },
+        "files": ["vendor/phpmyadmin/motranslator/src/functions.php"]
     },
     "autoload-dev": {
         "psr-4": {

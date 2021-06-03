@@ -8,7 +8,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 if (! defined('ROOT_PATH')) {
@@ -46,7 +45,6 @@ if (! defined('PHPMYADMIN')) {
 
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
-Loader::loadFunctions();
 
 $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
 

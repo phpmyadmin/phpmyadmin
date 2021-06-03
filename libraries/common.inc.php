@@ -37,7 +37,6 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Response;
@@ -117,11 +116,6 @@ if ($route === '/import-status') {
 }
 
 $containerBuilder = Core::getContainerBuilder();
-
-/**
- * Load gettext functions.
- */
-Loader::loadFunctions();
 
 /** @var ErrorHandler $errorHandler */
 $errorHandler = $containerBuilder->get('error_handler');

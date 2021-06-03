@@ -5,8 +5,6 @@
 
 declare(strict_types=1);
 
-use PhpMyAdmin\MoTranslator\Loader;
-
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -35,8 +33,6 @@ define('PMA_USR_BROWSER_VER', 1);
 define('PMA_USR_OS', 'os');
 define('PMA_IS_WINDOWS', false);
 // phpcs:enable
-
-Loader::loadFunctions();
 
 // for PhpMyAdmin\Plugins\Import\ImportLdi
 $GLOBALS['plugin_param'] = 'table';
