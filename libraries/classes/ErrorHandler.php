@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use ErrorException;
+
 use function array_splice;
 use function count;
 use function defined;
@@ -176,6 +178,8 @@ class ErrorHandler
      * @param string $errstr  error string
      * @param string $errfile error file
      * @param int    $errline error line
+     *
+     * @throws ErrorException
      */
     public function handleError(
         int $errno,
@@ -183,6 +187,8 @@ class ErrorHandler
         string $errfile,
         int $errline
     ): void {
+        global $cfg;
+
         if (Util::isErrorReportingAvailable()) {
             /**
             * Check if Error Control Operator (@) was used, but still show
@@ -192,6 +198,10 @@ class ErrorHandler
             $isSilenced = ! (error_reporting() & $errno);
             if (PHP_VERSION_ID < 80000) {
                 $isSilenced = error_reporting() == 0;
+            }
+
+            if (isset($cfg['environment']) && $cfg['environment'] === 'development' && ! $isSilenced) {
+                throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
             }
 
             if (
