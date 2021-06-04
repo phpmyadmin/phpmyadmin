@@ -176,12 +176,14 @@ class GisMultiPointTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertImage($return);
     }

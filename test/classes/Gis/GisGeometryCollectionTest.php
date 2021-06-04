@@ -181,13 +181,15 @@ class GisGeometryCollectionTest extends AbstractTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
             . '(20 30,35 32,30 20,20 30)))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertEquals(120, imagesx($return));
         $this->assertEquals(150, imagesy($return));

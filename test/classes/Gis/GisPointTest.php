@@ -185,17 +185,20 @@ class GisPointTest extends GisGeomTestCase
         ];
     }
 
-    public function testPrepareRowAsPng(): void {
+    public function testPrepareRowAsPng(): void
+    {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertImage($return);
     }

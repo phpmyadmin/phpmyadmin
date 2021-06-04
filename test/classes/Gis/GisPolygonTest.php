@@ -433,12 +433,14 @@ class GisPolygonTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'POLYGON((123 0,23 30,17 63,123 0))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertImage($return);
     }

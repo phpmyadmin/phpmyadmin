@@ -256,12 +256,14 @@ class GisMultiLineStringTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertImage($return);
     }

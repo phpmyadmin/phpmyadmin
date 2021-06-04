@@ -343,13 +343,15 @@ class GisMultiPolygonTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
+        $image = imagecreatetruecolor(120, 150);
+        $this->assertNotFalse($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
             . '((105 0,56 20,78 73,105 0)))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
-            imagecreatetruecolor(120, 150)
+            $image
         );
         $this->assertImage($return);
     }

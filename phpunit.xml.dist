@@ -5,6 +5,11 @@
     colors="true"
     verbose="true">
 
+    <php>
+        <const name="PHPMYADMIN" value="1"/>
+        <const name="TESTSUITE" value="1"/>
+    </php>
+
     <testsuites>
         <testsuite name="default">
             <directory suffix="Test.php">test/classes</directory>

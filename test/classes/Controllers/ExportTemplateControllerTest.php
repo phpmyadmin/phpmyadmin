@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\ExportTemplateController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
