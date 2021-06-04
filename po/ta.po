@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-29 16:07+0200\n"
+"POT-Creation-Date: 2021-06-04 11:50-0300\n"
 "PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/"
@@ -1210,6 +1210,7 @@ msgid "Show all"
 msgstr "அனைத்தையும் காட்டு"
 
 #: libraries/classes/Charsets/Collation.php:168
+#: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
 msgid "Unknown"
 msgstr ""
 
@@ -5009,7 +5010,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1241
+#: libraries/classes/Sql.php:1236
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
@@ -7974,7 +7975,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1046
+#: libraries/classes/Sql.php:1041
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -9005,7 +9006,7 @@ msgstr "இவ்வினவலில் %1$d மொத்தம், - %2$d"
 msgid "%d total"
 msgstr "%d மொத்தம்"
 
-#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1047
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
@@ -9518,7 +9519,7 @@ msgstr "நிலையான தரவு"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1055
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9712,11 +9713,11 @@ msgstr "நிரல்வரிசை"
 msgid "Null"
 msgstr "வெற்று"
 
-#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1038
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1016
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -12322,11 +12323,11 @@ msgstr "புதிய நிலையான பதிப்புகள் ஏ
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1040
+#: libraries/classes/Sql.php:1035
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1418
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12338,7 +12339,7 @@ msgstr ""
 "இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1432
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "

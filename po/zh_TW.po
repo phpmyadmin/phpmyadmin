@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-29 16:07+0200\n"
+"POT-Creation-Date: 2021-06-04 11:50-0300\n"
 "PO-Revision-Date: 2021-03-26 09:29+0000\n"
 "Last-Translator: inecmc <silence0225@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1370,6 +1370,7 @@ msgid "Show all"
 msgstr "全部顯示"
 
 #: libraries/classes/Charsets/Collation.php:168
+#: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
 msgid "Unknown"
 msgstr "不明"
 
@@ -5138,7 +5139,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1241
+#: libraries/classes/Sql.php:1236
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
@@ -8039,7 +8040,7 @@ msgstr "有太多的資料表連結(join)未使用索引。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1046
+#: libraries/classes/Sql.php:1041
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
@@ -9040,7 +9041,7 @@ msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1047
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
@@ -9564,7 +9565,7 @@ msgstr "靜態分析："
 msgid "%d errors were found during analysis."
 msgstr "分析過程中發生 %d 個錯誤。"
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1055
 msgid "[ROLLBACK occurred.]"
 msgstr "[已發生回退(ROLLBACK)。]"
 
@@ -9760,11 +9761,11 @@ msgstr "欄位"
 msgid "Null"
 msgstr "空值(Null)"
 
-#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1038
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1016
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -12399,11 +12400,11 @@ msgstr "無更新版本提供"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤「%s」作為預設的瀏覽查詢。"
 
-#: libraries/classes/Sql.php:1040
+#: libraries/classes/Sql.php:1035
 msgid "Showing as PHP code"
 msgstr "顯示的內容為 PHP 程式碼"
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1418
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12412,7 +12413,7 @@ msgstr ""
 "目前選擇的項目不含獨一的資料欄位，以下功能無法執行：網格編輯、核選、編輯、複"
 "製、刪除。%s"
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1432
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

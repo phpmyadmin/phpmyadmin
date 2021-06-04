@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-29 16:07+0200\n"
+"POT-Creation-Date: 2021-06-04 11:50-0300\n"
 "PO-Revision-Date: 2021-06-03 14:33+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -1444,6 +1444,7 @@ msgid "Show all"
 msgstr "すべて表示"
 
 #: libraries/classes/Charsets/Collation.php:168
+#: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
 msgid "Unknown"
 msgstr "不明"
 
@@ -5353,7 +5354,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1241
+#: libraries/classes/Sql.php:1236
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -8323,7 +8324,7 @@ msgstr "リクエストに問題があります。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1046
+#: libraries/classes/Sql.php:1041
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -9329,7 +9330,7 @@ msgstr "合計 %1$d, クエリで %2$d"
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1047
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
@@ -9884,7 +9885,7 @@ msgstr "静的解析:"
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1055
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -10086,11 +10087,11 @@ msgstr "カラム"
 msgid "Null"
 msgstr "NULL"
 
-#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1038
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1016
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -12786,11 +12787,11 @@ msgstr "入手可能な新しい安定バージョンはありません"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/classes/Sql.php:1040
+#: libraries/classes/Sql.php:1035
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1418
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12799,7 +12800,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1432
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

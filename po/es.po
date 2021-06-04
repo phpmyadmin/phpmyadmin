@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
+"Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-29 16:07+0200\n"
+"POT-Creation-Date: 2021-06-04 11:50-0300\n"
 "PO-Revision-Date: 2021-03-21 21:40+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -1517,6 +1517,7 @@ msgid "Show all"
 msgstr "Mostrar todo"
 
 #: libraries/classes/Charsets/Collation.php:168
+#: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -5560,7 +5561,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1241
+#: libraries/classes/Sql.php:1236
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Se creó el favorito %s."
@@ -8654,7 +8655,7 @@ msgstr "Hay demasiadas uniones («JOIN») sin índices."
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1046
+#: libraries/classes/Sql.php:1041
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas)."
@@ -9676,7 +9677,7 @@ msgstr "%1$d en total, %2$d en la consulta"
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1047
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
@@ -10245,7 +10246,7 @@ msgstr "Análisis estático:"
 msgid "%d errors were found during analysis."
 msgstr "Se encontraron %d errores durante el análisis."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1055
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocurrió un ROLLBACK.]"
 
@@ -10448,11 +10449,11 @@ msgstr "Columna"
 msgid "Null"
 msgstr "Nulo"
 
-#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1043
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1038
 msgid "Showing SQL query"
 msgstr "Mostrando la consulta SQL"
 
-#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1021
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1016
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "La Id de la fila insertada es: %1$d"
@@ -13242,11 +13243,11 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
-#: libraries/classes/Sql.php:1040
+#: libraries/classes/Sql.php:1035
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1418
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13255,7 +13256,7 @@ msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
 "los enlaces de copiado, eliminación y edición no están disponibles. %s"
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1432
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
