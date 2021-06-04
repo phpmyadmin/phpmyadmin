@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 12:02-0300\n"
-"PO-Revision-Date: 2021-05-30 21:33+0000\n"
+"PO-Revision-Date: 2021-06-05 20:33+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -14405,10 +14405,8 @@ msgstr "Etkin seçenekler"
 
 #: templates/database/designer/main.twig:1104
 #: templates/database/designer/main.twig:1119
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Yükleniyor…"
+msgstr "Yükleme"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -15254,10 +15252,8 @@ msgstr "Tümü"
 
 #: templates/display/results/table.twig:109
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Dönüş seçenekleri"
+msgstr "Fazladan seçenekler"
 
 #: templates/display/results/table.twig:131
 msgid "Relational key"
