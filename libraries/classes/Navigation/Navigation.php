@@ -89,8 +89,13 @@ class Navigation
                         [],
                         is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
                     );
+                    // Internal link detected
+                    $logo['attributes'] = '';
+                } else {
+                    // External links having a domain name should not be considered
+                    // to be links that can use our internal ajax loading
+                    $logo['attributes'] = ' class="disableAjax"';
                 }
-                $logo['attributes'] = '';
             }
 
             if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
@@ -121,6 +126,7 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
+            'config_navigation_width' => $cfg['NavigationWidth'],
             'is_synced' => $cfg['NavigationLinkWithMainPanel'],
             'is_highlighted' => $cfg['NavigationTreePointerEnable'],
             'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],

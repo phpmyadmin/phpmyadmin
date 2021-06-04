@@ -337,8 +337,8 @@ class Import
     ): ?array {
         if (! empty($sql) || ! empty($full)) {
             return [
-                'sql' => $sql,
-                'full' => $full,
+                'sql' => $sql . ';',
+                'full' => $full . ';',
             ];
         }
 
@@ -877,10 +877,10 @@ class Import
     /**
      * Determines what MySQL type a cell is
      *
-     * @param int    $last_cumulative_type Last cumulative column type
-     *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     * @param string $cell                 String representation of the cell for which
-     *                                     a best-fit type is to be determined
+     * @param int         $last_cumulative_type Last cumulative column type
+     *                                          (VARCHAR or INT or BIGINT or DECIMAL or NONE)
+     * @param string|null $cell                 String representation of the cell for which
+     *                                          a best-fit type is to be determined
      *
      * @return int  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
@@ -973,14 +973,15 @@ class Import
         for ($i = 0; $i < $numCols; ++$i) {
             /* Analyze the column in each row */
             for ($j = 0; $j < $numRows; ++$j) {
+                $cellValue = $table[self::ROWS][$j][$i];
                 /* Determine type of the current cell */
-                $curr_type = $this->detectType($types[$i], $table[self::ROWS][$j][$i]);
+                $curr_type = $this->detectType($types[$i], $cellValue === null ? null : (string) $cellValue);
                 /* Determine size of the current cell */
                 $sizes[$i] = $this->detectSize(
                     $sizes[$i],
                     $types[$i],
                     $curr_type,
-                    (string) $table[self::ROWS][$j][$i]
+                    (string) $cellValue
                 );
 
                 /**
@@ -1050,7 +1051,7 @@ class Import
         ?array &$analyses = null,
         ?array &$additional_sql = null,
         ?array $options = null,
-        array &$sql_data
+        array &$sql_data = []
     ): void {
         global $import_notice, $dbi;
 

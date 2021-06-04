@@ -1163,7 +1163,8 @@ class NavigationTree
                 $retval .= '<i>';
             }
 
-            $divClass = '';
+            // The .second class is used in js/src/navigation.js
+            $divClass = 'second';
 
             $iconLinks = [];
             $icons = [];
@@ -1177,11 +1178,12 @@ class NavigationTree
                 }
                 /** @var array $icons */
                 if (count($icons) > 1) {
-                    $divClass = 'double';
+                    // Generates: .second double class for NavigationTreeDefaultTabTable2
+                    $divClass = 'second double';
                 }
             }
 
-            $retval .= '<div class="block second' . $divClass . '">';
+            $retval .= '<div class="block ' . $divClass . '">';
 
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $args = [];

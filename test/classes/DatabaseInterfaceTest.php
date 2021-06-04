@@ -20,9 +20,6 @@ use stdClass;
  */
 class DatabaseInterfaceTest extends AbstractTestCase
 {
-    /** @var DatabaseInterface */
-    private $dbi;
-
     /**
      * Configures test parameters.
      */
@@ -39,31 +36,34 @@ class DatabaseInterfaceTest extends AbstractTestCase
     /**
      * Tests for DBI::getCurrentUser() method.
      *
-     * @param array|false $value    value
-     * @param string      $string   string
-     * @param array       $expected expected result
+     * @param array|false $value           value
+     * @param string      $string          string
+     * @param array       $expected        expected result
+     * @param bool        $needsSecondCall The test will need to call another time the DB
      *
      * @dataProvider currentUserData
      */
-    public function testGetCurrentUser($value, string $string, array $expected): void
+    public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
     {
         SessionCache::remove('mysql_cur_user');
+        parent::setGlobalDbi();
 
-        $extension = new DbiDummy();
-        /** @var array $value */
-        $extension->setResult('SELECT CURRENT_USER();', $value);
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        if ($needsSecondCall) {
+            $this->dummyDbi->addResult('SELECT CURRENT_USER();', $value);
+        }
 
         $this->assertEquals(
             $expected,
-            $dbi->getCurrentUserAndHost()
+            $this->dbi->getCurrentUserAndHost()
         );
 
         $this->assertEquals(
             $string,
-            $dbi->getCurrentUser()
+            $this->dbi->getCurrentUser()
         );
+
+        $this->assertAllQueriesConsumed();
     }
 
     /**
@@ -81,6 +81,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     'pma',
                     'localhost',
                 ],
+                false,
             ],
             [
                 [['@localhost']],
@@ -89,6 +90,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '',
                     'localhost',
                 ],
+                false,
             ],
             [
                 false,
@@ -97,6 +99,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
                     '',
                     '',
                 ],
+                true,
             ],
         ];
     }
@@ -279,16 +282,16 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         SessionCache::remove('is_amazon_rds');
+        parent::setGlobalDbi();
 
-        $extension = new DbiDummy();
-        $extension->setResult('SELECT @@basedir', $value);
-
-        $dbi = new DatabaseInterface($extension);
+        $this->dummyDbi->addResult('SELECT @@basedir', $value);
 
         $this->assertEquals(
             $expected,
-            $dbi->isAmazonRds()
+            $this->dbi->isAmazonRds()
         );
+
+        $this->assertAllQueriesConsumed();
     }
 
     /**

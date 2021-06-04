@@ -151,7 +151,29 @@ class Charsets
         if (! is_string($serverCharset)) {// MySQL 5.7.8 fallback, issue #15614
             $serverCharset = $dbi->fetchValue('SELECT @@character_set_server;');
         }
-        self::$serverCharset = self::$charsets[$serverCharset];
+
+        self::$serverCharset = self::$charsets[$serverCharset] ?? null;
+
+        // MySQL 8.0.11+ fallback, issue #16931
+        if (self::$serverCharset === null && $serverCharset === 'utf8mb3') {
+            // See: https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-11.html#mysqld-8-0-11-charset
+            // The utf8mb3 character set will be replaced by utf8mb4 in a future MySQL version.
+            // The utf8 character set is currently an alias for utf8mb3,
+            // but will at that point become a reference to utf8mb4.
+            // To avoid ambiguity about the meaning of utf8,
+            // consider specifying utf8mb4 explicitly for character set references instead of utf8.
+            // Warning: #3719 'utf8' is currently an alias for the character set UTF8MB3 [...]
+            return self::$charsets['utf8'];
+        }
+
+        if (self::$serverCharset === null) {// Fallback in case nothing is found
+            return Charset::fromServer(
+                [
+                    'Charset' => __('Unknown'),
+                    'Description' => __('Unknown'),
+                ]
+            );
+        }
 
         return self::$serverCharset;
     }

@@ -54,6 +54,8 @@ jobs:
                 db-server: ["mysql:5.7"]
         steps:
             - uses: actions/checkout@v2
+            - name: Refresh apt cache
+              run: sudo apt-get update
             - name: Install gettext
               run: sudo apt-get install -y gettext
             - name: Generate mo files
@@ -62,8 +64,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:v2
+                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
             - name: Cache module
               uses: actions/cache@v2
               with:

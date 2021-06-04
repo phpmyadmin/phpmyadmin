@@ -147,7 +147,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
-        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
@@ -159,6 +159,10 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
         vendor/williamdes/mariadb-mysql-kbs/test/ \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
@@ -187,6 +191,14 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/.github/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
+    rm -rf \
+        vendor/google/recaptcha/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/PERFORMANCE.md \
+        vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
         -not -name AES.php \
         -not -name Base.php \
@@ -240,6 +252,7 @@ ensure_local_branch $branch
 
 VERSION_FILE=libraries/classes/Version.php
 
+# Keep in sync with update-po script
 fetchReleaseFromFile() {
     php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
 }
@@ -288,6 +301,14 @@ if [ $do_pull -eq 1 ] ; then
 fi
 if [ $do_daily -eq 1 ] ; then
     git_head=`git log -n 1 --format=%H`
+    git_head_short=`git log -n 1 --format=%h`
+    today_date=`date +'%Y%m%d' -u`
+fi
+
+if [ $do_daily -eq 1 ] ; then
+    echo '* setting the version suffix for the snapshot'
+    sed -i "s/'VERSION_SUFFIX', '.*'/'VERSION_SUFFIX', '+$today_date.$git_head_short'/" libraries/vendor_config.php
+    php -l libraries/vendor_config.php
 fi
 
 # Check release version

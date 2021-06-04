@@ -1,6 +1,116 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.1 (2021-06-04)
+- issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
+- issue        Fixed adding an event shows an empty row
+- issue #16706 Fixed a PHP error when visualizing a nullable geometry column
+- issue        Fixed a PHP type error when exporting triggers to ODF
+- issue #16659 Fixed the Column Drop arrow to make it responsive
+- issue #16677 Improved the Font size of an executed SQL query
+- issue #16677 Fixed Metro theme DB tree background
+- issue #16713 Fixed "PhpMyAdmin\Url::getFromRoute" PHP error for old config values
+- issue #16713 Add a legacy fallback for the old config value of "$cfg['DefaultTabDatabase']" and others
+- issue #16698 Fix relative fallback URL to './' instead of '/'
+- issue        Fixed Yaml export to quote strings even when they are numeric
+- issue #16704 Fixed PHP type errors on the substring transformation
+- issue #14026 Fixed error messages and conditions for MD5 and AES_* functions
+- issue #16708 Fixed PHP "Uncaught TypeError: hash_hmac()" on double quick edit
+- issue #16709 Fix TCPDF open_basedir issue due to internal guessing code from TCPDF
+- issue #16729 Fixed the silencing error management for PHP >= 8.0
+- issue #16604 Set back tables width like in 5.0 versions
+- issue #16716 Fixed rename button disappears after a column drop on table structure page
+- issue #15628 Fixed "JSON encoding failed: Malformed UTF-8 characters" when browsing data that uses binary to IP transformation
+- issue #14395 Fixed display chart with timeline & series name column trigger JS error
+- issue #16738 Fixed quick search submit is not working on multi server server > 1
+- issue #16717 Fixed main drawer js call slowing down the page and remove the reflow effect
+- issue        Fixed a PHP notice "Undefined index: pred_username"
+- issue #16744 Fixed "Uncaught TypeError: XMLWriter::writeAttribute()" on Designer SVG export
+- issue        Fixed an PHP undefined index notice on export
+- issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
+- issue #16647 Fixed preferences form not showing texts and not respecting TabsMode config
+- issue        Fixed escape_mysql_wildcards Twig filter
+- issue        Change text from "Null" to "NULL" on grid edit popup
+- issue        Translate a non translated string on a change password page
+- issue        Fix designer modal buttons sizes for pmahomme and bootstrap themes
+- issue #16694 Fixed "Triggers" page not visible for user table specific privileges
+- issue #14430 Fixed execute button is disabled for routines
+- issue #16703 Fixed SQL option to Export specific rows from a table
+- issue #16656 Fixed error messages are not always translated
+- issue #16728 Fixed wrong SQL query built on table structure index for new column
+- issue #16647 Fixed table search forms not showing texts and not respecting TabsMode config
+- issue #16758 Fixed copy to clipboard feature not working on ja or zh_TW languages because of the non ascii colon
+- issue #16601 Update tcpdf dependency to ^6.4.1
+- issue #16770 Fixed a notice or warning, when clicking on Structure tab
+- issue #16756 Fixed refresh UI on server status
+- issue        Fixed a PHP notice when searching for .git/commondir on the login page for users using ShowGitRevision
+- issue        Fixed reported PHP notice on export save template
+- issue        Fixed reported PHP warnings on server status page
+- issue #15629 Fixed datetime decimals displayed (.00000) after edit
+- issue #16780 Fixed new event shows an empty row
+- issue #16765 Fixed new lines in text fields are doubled
+- issue        Fix "Connection" label always shown on table create, should be hidden like it's input
+- issue #16773 Fix do not use cast as binary for an empty text value on edit button condition
+- issue        Fixed a JS error on a missing script on zoom search
+- issue        Added button style on the reset charts of zoom search
+- issue        Fixed number of rows not kept when changing sort by index value
+- issue #16784 Fixed spacing between icons when using NavigationTreeDefaultTabTable2 configuration
+- issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
+- issue        Fixed a type error when getting the special schema links
+- issue #16789 Fix create PHP code removes ; from SQL query on Structure snapshot
+- issue #16791 Fixed "Undefined index table_schema" on special schema table
+- issue        Fixed "DESCRIBE FILES;" broken links in query results
+- issue #16790 Fixed "Undefined index field_name" PHP error
+- issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
+- issue #16798 Fix ServerConfigChecks: Link 'trusted proxies list' not terminated properly (translation)
+- issue #16805 Fixed shortcut keys not working
+- issue #16821 Fix "Show all rows" un-check checkbox creates a JS error if the page was reloaded
+- issue        Remove redundant jQuery Event Drag plugin
+- issue        Fix PHP type error on GIS nullable data
+- issue        Fix not working export to PNG, SVG, PDF on GIS visualization
+- issue        Fix float values type errors on GIS export to PNG, SVG, PDF
+- issue #16792 Fixed URL generation by removing un-needed &amp; escaping for & char
+- issue #16777 Fixed Non-UTF8 Primary Key text value edit row
+- issue #16836 Fixed extra whitespaces in binary edit values causes a JS validation error message
+- issue #15566 Support RTL mode on the Designer
+- issue #16810 Fixed SQL query shown twice on drop column success
+- issue #16404 Fixed JS password generation fails after a new user creation failure
+- issue #16837 Fixed PHP error on execute query "create table event(...)"
+- issue        Fixed a PHP warning that was occuring on wrong chmod on config files
+- issue        Fixed a JS error on dismiss notification modal
+- issue #16793 Upgrade CodeMirror to 5.61.0 to fix a JS error on scroll in SQL query box
+- issue        Fix password management for Percona Server lacking PASSWORD function
+- issue        Fixed "data is undefined" JS error
+- issue        Fixed 2 un-translated buttons on central columns edit
+- issue #16810 Fixed SQL query shown twice on central columns actions
+- issue #16771 Fixed PHP array export to work on very large datasets
+- issue #16847 Fixed JSON export nullable binary PHP error
+- issue #16847 Fixed JSON export text fields and binary data
+- issue #14773 Fix exporting a raw query is not working
+- issue #16734 Fixed memory limit reached, use SQL COUNT(*) instead of fetch and count results
+- issue #16723 Fixed option to perform ALTER ONLINE is not available on edit of an existing column
+- issue        Add missing CSS style on "Filter" button on monitor results table header
+- issue        Fixed non working "Filter" button on monitor results table header
+- issue #16420 Fixed single clicking on row starts editing even if GridEditing is set to double-click
+- issue #16854 Fixed "Undefined index: SERVER_SOFTWARE" on very minimal PHP FPM setups
+- issue #16863 Fixed replication setting up a replica is not working
+- issue #16843 Fixed vertical alignment in Metro and pmahomme themes on user accounts overview
+- issue        Fixed "phpMyAdmin configuration storage" link on settings page warning
+- issue #16871 Fixed PHP and JS errors on normalization steps
+- issue        Fixed CSS missing classes on normalization buttons
+- issue #16437 Fixed sticky top position when using smaller screen sizes
+- issue #16895 Fixed wrong table count on space separated numbers
+- issue #16882 Fixed table delete resets count to 0
+- issue #16892 Fixed current_timestamp() stringified on INSERT for date field
+- issue #16911 Fixed PHP 8.1 "Method mysqli::get_client_info() is deprecated"
+- issue        Fix "array_fill(): Argument #2 ($count) must be of type int, string" for "$cfg['InsertRows']"
+- issue #14130 Created new messages for U2F errors
+- issue #16920 Fixed "Uncaught TypeError: PhpMyAdmin\Import::detectType()" on ODS import
+- issue #16926 Fixed ODS import warning: Undefined array key "ods_empty_rows"
+- issue #16888 Fixed JS error on renaming tables in saved Designer page
+- issue #16504 Fixed create view dialog is too big and won't scroll (on small screens)
+- issue #16931 Fixed php notice "Undefined index: utf8mb3" on MySQL 8.0.11+ servers with default utf8 server charset
+
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
 - issue #15377 Add a request router

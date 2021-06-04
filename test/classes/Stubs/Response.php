@@ -11,20 +11,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 use function is_array;
 
 class Response extends \PhpMyAdmin\Response
 {
-    /**
-     * PhpMyAdmin\Header instance
-     *
-     * @access private
-     * @var Header
-     */
-    protected $header;
-
     /**
      * HTML data to be used in the response
      *
@@ -43,23 +36,6 @@ class Response extends \PhpMyAdmin\Response
     protected $json;
 
     /**
-     * Whether there were any errors during the processing of the request
-     * Only used for ajax responses
-     *
-     * @access private
-     * @var bool
-     */
-    protected $isSuccess;
-
-    /**
-     * Whether we are servicing an ajax request.
-     *
-     * @access private
-     * @var bool
-     */
-    private $isAjax;
-
-    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -71,6 +47,7 @@ class Response extends \PhpMyAdmin\Response
 
         $GLOBALS['lang'] = 'en';
         $this->header = new Header();
+        $this->footer = new Footer();
     }
 
     /**

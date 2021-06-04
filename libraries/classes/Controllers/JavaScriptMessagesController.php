@@ -355,7 +355,7 @@ final class JavaScriptMessagesController
             /* For Foreign key checks */
             'strForeignKeyCheck' => __('Enable foreign key checks'),
 
-            /* For db_stucture.js */
+            /* For database/structure.js */
             'strErrorRealRowCount' => __('Failed to get real row count.'),
 
             /* For database/search.js */
@@ -366,7 +366,7 @@ final class JavaScriptMessagesController
             'strDeleting' => __('Deleting'),
             'strConfirmDeleteResults' => __('Delete the matches for the %s table?'),
 
-            /* For db_routines.js */
+            /* For rte.js */
             'MissingReturn' => __('The definition of a stored function must contain a RETURN statement!'),
             'strExport' => __('Export'),
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
@@ -538,6 +538,8 @@ final class JavaScriptMessagesController
             'strSavePageAs' => __('Save page as'),
             'strOpenPage' => __('Open page'),
             'strDeletePage' => __('Delete page'),
+            /* l10n: When the user opens a page saved in the Designer */
+            'strSavedPageTableMissing' => __('Some tables saved in this page might have been renamed or deleted.'),
             'strUntitled' => __('Untitled'),
             'strSelectPage' => __('Please select a page to continue'),
             'strEnterValidPageName' => __('Please enter a valid page name'),
@@ -710,8 +712,18 @@ final class JavaScriptMessagesController
             'strStrong' => __('Strong'),
 
             /* U2F errors */
-            'strU2FTimeout' => __('Timed out waiting for security key activation.'),
-            'strU2FError' => __('Failed security key activation (%s).'),
+            // l10n: error code 5 (from U2F API)
+            'strU2FTimeout' => _pgettext('U2F error', 'Timed out waiting for security key activation.'),
+            // l10n: error code 2 (from U2F API)
+            'strU2FBadRequest' => _pgettext('U2F error', 'Invalid request sent to security key.'),
+            // l10n: unknown error code (from U2F API)
+            'strU2FUnknown' => _pgettext('U2F error', 'Unknown security key error.'),
+            // l10n: error code 3 (from U2F API)
+            'strU2FInvalidClient' => _pgettext('U2F error', 'Client does not support security key.'),
+            // l10n: error code 4 (from U2F API) on register
+            'strU2FErrorRegister' => _pgettext('U2F error', 'Failed security key activation.'),
+            // l10n: error code 4 (from U2F API) on authanticate
+            'strU2FErrorAuthenticate' => _pgettext('U2F error', 'Invalid security key.'),
 
             /* Designer */
             'strTableAlreadyExists' => _pgettext(

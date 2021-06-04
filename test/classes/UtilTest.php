@@ -208,6 +208,66 @@ class UtilTest extends AbstractTestCase
             )
         );
         $this->assertSame(
+            ['= \'value\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 32,// armscii8_general_ci
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= \'value\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 48,// latin1_general_ci
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= CAST(0x76616c7565 AS BINARY)', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    ((object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 63,// binary
+                    ]),// field meta
+                    '',// field flags
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
             ['= CAST(0x76616c7565 AS BINARY)', ''],
             $this->callFunction(
                 null,
@@ -888,12 +948,12 @@ class UtilTest extends AbstractTestCase
      * Test for Util::extractValueFromFormattedSize
      *
      * @param int|string $size     Size
-     * @param int        $expected Expected value
+     * @param int|float  $expected Expected value (float on some cpu architectures)
      *
      * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
-    public function testExtractValueFromFormattedSize($size, int $expected): void
+    public function testExtractValueFromFormattedSize($size, $expected): void
     {
         $this->assertEquals(
             $expected,
@@ -1318,14 +1378,14 @@ class UtilTest extends AbstractTestCase
     /**
      * Test for Util::getFormattedMaximumUploadSize
      *
-     * @param int    $size Size
-     * @param string $unit Unit
-     * @param string $res  Result
+     * @param int|float $size Size (float on some cpu architectures)
+     * @param string    $unit Unit
+     * @param string    $res  Result
      *
      * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
-    public function testGetFormattedMaximumUploadSize(int $size, string $unit, string $res): void
+    public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
     {
         $this->assertEquals(
             '(' . __('Max: ') . $res . $unit . ')',
@@ -1553,6 +1613,20 @@ class UtilTest extends AbstractTestCase
                 '2008 年 2 � 24 日 00:52',
                 'Asia/Tokyo',
                 'ja',
+            ],
+            [
+                1617153941,
+                'H:i:s Y-d-m',
+                'H:i:s Y-d-m',// Not a valid strftime format
+                'Europe/Paris',
+                'fr',
+            ],
+            [
+                1617153941,
+                '',
+                'mer. 31 mars 2021 à 03:25',// No format uses format "%B %d, %Y at %I:%M %p"
+                'Europe/Paris',
+                'fr',
             ],
         ];
     }
@@ -2392,5 +2466,385 @@ class UtilTest extends AbstractTestCase
         Util::handleDisableFKCheckCleanup($fkChecksValue);
 
         $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasPrivilegeSkipGrantTables(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['', '']));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasUserPrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->with(
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+            )
+            ->will($this->returnValue('EVENT'));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasNotUserPrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->once())
+            ->method('fetchValue')
+            ->with(
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+            )
+            ->will($this->returnValue(false));
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->exactly(2))
+            ->method('fetchValue')
+            ->withConsecutive(
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                ]
+            )
+            ->willReturnOnConsecutiveCalls(
+                false,
+                'EVENT'
+            );
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->exactly(2))
+            ->method('fetchValue')
+            ->withConsecutive(
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                ]
+            )
+            ->willReturnOnConsecutiveCalls(
+                false,
+                false
+            );
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->exactly(3))
+            ->method('fetchValue')
+            ->withConsecutive(
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                ]
+            )
+            ->willReturnOnConsecutiveCalls(
+                false,
+                false,
+                'EVENT'
+            );
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->once())
+            ->method('getCurrentUserAndHost')
+            ->will($this->returnValue(['groot_%', '%']));
+        $dbi->expects($this->exactly(3))
+            ->method('fetchValue')
+            ->withConsecutive(
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                ],
+                [
+                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                ]
+            )
+            ->willReturnOnConsecutiveCalls(
+                false,
+                false,
+                false
+            );
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * @return array[]
+     */
+    public function dataProviderScriptNames(): array
+    {
+        // target
+        // location
+        // function output
+        return [
+            [
+                'structure', // Notice the typo on db_structure.php
+                'databasesss',
+                './',// Fallback to a relative path, impossible to build a valid route link
+            ],
+            [
+                'db_structures.php', // Notice the typo on databases
+                'database',
+                './',// Fallback to a relative path, impossible to build a valid route link
+            ],
+            [
+                'tbl_structure.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/structure&lang=en',
+            ],
+            [
+                'structure',
+                'table',
+                'index.php?route=/table/structure&lang=en',
+            ],
+            [
+                'tbl_sql.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/sql&lang=en',
+            ],
+            [
+                'sql',
+                'table',
+                'index.php?route=/table/sql&lang=en',
+            ],
+            [
+                'tbl_select.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/search&lang=en',
+            ],
+            [
+                'search',
+                'table',
+                'index.php?route=/table/search&lang=en',
+            ],
+            [
+                'tbl_change.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/change&lang=en',
+            ],
+            [
+                'insert',
+                'table',
+                'index.php?route=/table/change&lang=en',
+            ],
+            [
+                'sql.php', // Support the legacy value
+                'table',
+                'index.php?route=/sql&lang=en',
+            ],
+            [
+                'browse',
+                'table',
+                'index.php?route=/sql&lang=en',
+            ],
+            [
+                'db_structure.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/structure&lang=en',
+            ],
+            [
+                'structure',
+                'database',
+                'index.php?route=/database/structure&lang=en',
+            ],
+            [
+                'db_sql.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/sql&lang=en',
+            ],
+            [
+                'sql',
+                'database',
+                'index.php?route=/database/sql&lang=en',
+            ],
+            [
+                'db_search.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/search&lang=en',
+            ],
+            [
+                'search',
+                'database',
+                'index.php?route=/database/search&lang=en',
+            ],
+            [
+                'db_operations.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/operations&lang=en',
+            ],
+            [
+                'operations',
+                'database',
+                'index.php?route=/database/operations&lang=en',
+            ],
+            [
+                'index.php', // Support the legacy value
+                'server',
+                'index.php?route=/&lang=en',
+            ],
+            [
+                'welcome',
+                'server',
+                'index.php?route=/&lang=en',
+            ],
+            [
+                'server_databases.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/databases&lang=en',
+            ],
+            [
+                'databases',
+                'server',
+                'index.php?route=/server/databases&lang=en',
+            ],
+            [
+                'server_status.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/status&lang=en',
+            ],
+            [
+                'status',
+                'server',
+                'index.php?route=/server/status&lang=en',
+            ],
+            [
+                'server_variables.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/variables&lang=en',
+            ],
+            [
+                'variables',
+                'server',
+                'index.php?route=/server/variables&lang=en',
+            ],
+            [
+                'server_privileges.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/privileges&lang=en',
+            ],
+            [
+                'privileges',
+                'server',
+                'index.php?route=/server/privileges&lang=en',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderScriptNames
+     */
+    public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
+    {
+        $this->assertSame(
+            $finalLink,
+            Util::getScriptNameForOption($target, $location)
+        );
     }
 }

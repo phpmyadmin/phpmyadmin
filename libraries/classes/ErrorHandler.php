@@ -27,6 +27,7 @@ use function headers_sent;
 use function htmlspecialchars;
 use function set_error_handler;
 use function trigger_error;
+use const PHP_VERSION_ID;
 
 /**
  * handling errors
@@ -183,8 +184,13 @@ class ErrorHandler
             /**
             * Check if Error Control Operator (@) was used, but still show
             * user errors even in this case.
+            * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
             */
-            if (error_reporting() == 0 &&
+            $isSilenced = ! (error_reporting() & $errno);
+            if (PHP_VERSION_ID < 80000) {
+                $isSilenced = error_reporting() == 0;
+            }
+            if ($isSilenced &&
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {

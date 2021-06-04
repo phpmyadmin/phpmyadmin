@@ -57,7 +57,7 @@ echo "Changing from ${oldVersion} to ${newVersion}..."
 oldVersion=${oldVersion//./\.}
 newVersion=${newVersion//./\.}
 
-for f in README doc/conf.py libraries/classes/Config.php package.json
+for f in README doc/conf.py package.json
 do
     if ! grep --quiet "${oldVersion}" "${dir}${f}"
     then
@@ -71,4 +71,5 @@ done
 
 echo
 echo "Next, you need to manually edit ChangeLog to manually change the version number and set the release date, and verify the changes with 'git diff'."
+echo "You will probably want to call: \"./scripts/console set-version ${newVersion}\" afterwards"
 echo "Suggested commit message: Prepare for version ${newVersion}"

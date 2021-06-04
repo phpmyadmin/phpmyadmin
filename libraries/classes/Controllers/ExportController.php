@@ -264,18 +264,18 @@ final class ExportController extends AbstractController
             $asfile = false;
         } else {
             $asfile = true;
+            $selectedCompression = $_POST['compression'] ?? '';
             if (isset($_POST['as_separate_files'])
                 && ! empty($_POST['as_separate_files'])
             ) {
-                if (isset($_POST['compression'])
-                    && ! empty($_POST['compression'])
-                    && $_POST['compression'] === 'zip'
+                if (! empty($selectedCompression)
+                    && $selectedCompression === 'zip'
                 ) {
                     $separate_files = $_POST['as_separate_files'];
                 }
             }
-            if (in_array($_POST['compression'], $compression_methods)) {
-                $compression = $_POST['compression'];
+            if (in_array($selectedCompression, $compression_methods)) {
+                $compression = $selectedCompression;
                 $buffer_needed = true;
             }
             if (($quick_export && ! empty($_POST['quick_export_onserver']))

@@ -123,7 +123,7 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param int|string $max_upload_size the size
+     * @param int|float|string $max_upload_size the size
      *
      * @return string the message
      *
@@ -696,9 +696,9 @@ class Util
      *
      * @param string|int $formatted_size the size expression (for example 8MB)
      *
-     * @return int The numerical part of the expression (for example 8)
+     * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formatted_size): int
+    public static function extractValueFromFormattedSize($formatted_size)
     {
         $return_value = -1;
 
@@ -957,6 +957,9 @@ class Util
         }
 
         $conditionValue = '';
+        $isBinaryString = $meta->type === 'string' && stripos($fieldFlags, 'BINARY') !== false;
+        // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
+        $isBlobAndIsBinaryCharset = $meta->type === 'blob' && $meta->charsetnr === 63;
         // timestamp is numeric on some MySQL 4.1
         // for real we use CONCAT above and it should compare to string
         if ($meta->numeric
@@ -964,14 +967,12 @@ class Util
             && ($meta->type !== 'real')
         ) {
             $conditionValue = '= ' . $row;
-        } elseif (($meta->type === 'blob') || ($meta->type === 'string')
-            && stripos($fieldFlags, 'BINARY') !== false
-            && ! empty($row)
-        ) {
+        } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
 
             // do not waste memory building a too big condition
-            if (mb_strlen((string) $row) < 1000) {
+            $rowLength = mb_strlen((string) $row);
+            if ($rowLength > 0 && $rowLength < 1000) {
                 // use a CAST if possible, to avoid problems
                 // if the field contains wildcard characters % or _
                 $conditionValue = '= CAST(0x' . bin2hex((string) $row) . ' AS BINARY)';
@@ -979,7 +980,7 @@ class Util
                 // when this blob is the only field present
                 // try settling with length comparison
                 $condition = ' CHAR_LENGTH(' . $conditionKey . ') ';
-                $conditionValue = ' = ' . mb_strlen((string) $row);
+                $conditionValue = ' = ' . $rowLength;
             } else {
                 // this blob won't be part of the final condition
                 $conditionValue = null;
@@ -1524,7 +1525,7 @@ class Util
         }
 
         // for the case ENUM('&#8211;','&ldquo;')
-        $displayed_type = htmlspecialchars($printtype);
+        $displayed_type = htmlspecialchars($printtype, ENT_COMPAT);
         if (mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
             $displayed_type  = '<abbr title="' . htmlspecialchars($printtype) . '">';
             $displayed_type .= htmlspecialchars(
@@ -1532,7 +1533,8 @@ class Util
                     $printtype,
                     0,
                     (int) $GLOBALS['cfg']['LimitChars']
-                ) . '...'
+                ) . '...',
+                ENT_COMPAT
             );
             $displayed_type .= '</abbr>';
         }
@@ -1742,7 +1744,7 @@ class Util
     {
         $url = self::getUrlForOption($target, $location);
         if ($url === null) {
-            return '/';
+            return './';
         }
 
         return Url::getFromRoute($url);
@@ -1767,26 +1769,35 @@ class Util
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
+                case 'index.php':
                     return '/';
                 case 'databases':
+                case 'server_databases.php':
                     return '/server/databases';
                 case 'status':
+                case 'server_status.php':
                     return '/server/status';
                 case 'variables':
+                case 'server_variables.php':
                     return '/server/variables';
                 case 'privileges':
+                case 'server_privileges.php':
                     return '/server/privileges';
             }
         } elseif ($location === 'database') {
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
+                case 'db_structure.php':
                     return '/database/structure';
                 case 'sql':
+                case 'db_sql.php':
                     return '/database/sql';
                 case 'search':
+                case 'db_search.php':
                     return '/database/search';
                 case 'operations':
+                case 'db_operations.php':
                     return '/database/operations';
             }
         } elseif ($location === 'table') {
@@ -1795,14 +1806,19 @@ class Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
                 case 'structure':
+                case 'tbl_structure.php':
                     return '/table/structure';
                 case 'sql':
+                case 'tbl_sql.php':
                     return '/table/sql';
                 case 'search':
+                case 'tbl_select.php':
                     return '/table/search';
                 case 'insert':
+                case 'tbl_change.php':
                     return '/table/change';
                 case 'browse':
+                case 'sql.php':
                     return '/sql';
             }
         }
@@ -2310,8 +2326,6 @@ class Util
         // If a table name was also provided and we still didn't
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
-            // need to escape wildcards in db and table names, see bug #3518484
-            $tbl = str_replace(['%', '_'], ['\%', '\_'], $tbl);
             $query .= " AND TABLE_NAME='%s'";
             $table_privileges = $dbi->fetchValue(
                 sprintf(

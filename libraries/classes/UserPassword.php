@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Server\Privileges;
 use function strlen;
+use function in_array;
 
 /**
  * Functions for user password
@@ -86,19 +87,18 @@ class UserPassword
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        if ($serverType === 'MySQL'
-            && $serverVersion >= 50706
+        $isPerconaOrMySql = in_array($serverType, ['MySQL', 'Percona Server'], true);
+        if ($isPerconaOrMySql && $serverVersion >= 50706
         ) {
             $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
-        } elseif (($serverType === 'MySQL'
-            && $serverVersion >= 50507)
-            || ($serverType === 'MariaDB'
-            && $serverVersion >= 50200)
+        } elseif (
+            ($isPerconaOrMySql && $serverVersion >= 50507)
+            || ($serverType === 'MariaDB' && $serverVersion >= 50200)
         ) {
-            // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
+            // For MySQL and Percona versions 5.5.7+ and MariaDB versions 5.2+,
             // explicitly set value of `old_passwords` so that
             // it does not give an error while using
             // the PASSWORD() function
@@ -171,7 +171,10 @@ class UserPassword
         $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
-        if ($serverType === 'MySQL' && $serverVersion >= 50706) {
+        if (
+            in_array($serverType, ['MySQL', 'Percona Server'], true)
+            && $serverVersion >= 50706
+        ) {
             $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '

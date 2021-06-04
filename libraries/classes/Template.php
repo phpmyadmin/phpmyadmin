@@ -28,6 +28,7 @@ use const DIRECTORY_SEPARATOR;
 use const E_USER_WARNING;
 use function sprintf;
 use function trigger_error;
+use function is_array;
 
 /**
  * Handle front end templating
@@ -63,7 +64,9 @@ class Template
             'auto_reload' => true,
             'cache' => $cache_dir,
         ]);
-        if ($cfg['environment'] === 'development') {
+
+        // It was reported that the config could not be loaded correctly
+        if (is_array($cfg) && $cfg['environment'] === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
         }

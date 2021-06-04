@@ -126,7 +126,7 @@ class NodeDatabase extends Node
             $query  = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $db . "' ";
-            $query .= 'AND `TABLE_TYPE`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . $this->getWhereClauseForSearch(
                     $searchClause,
@@ -138,7 +138,7 @@ class NodeDatabase extends Node
         } else {
             $query = 'SHOW FULL TABLES FROM ';
             $query .= Util::backquote($db);
-            $query .= ' WHERE `Table_type`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . $this->getWhereClauseForSearch(
                     $searchClause,
@@ -478,7 +478,7 @@ class NodeDatabase extends Node
             $query  = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $escdDb . "' ";
-            $query .= 'AND `TABLE_TYPE`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
                 $query .= $dbi->escapeString($searchClause);
@@ -490,7 +490,7 @@ class NodeDatabase extends Node
         } else {
             $query = ' SHOW FULL TABLES FROM ';
             $query .= Util::backquote($db);
-            $query .= ' WHERE `Table_type`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . Util::backquote(
                     'Tables_in_' . $db

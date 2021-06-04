@@ -504,7 +504,7 @@ class Descriptions
                 'edit/insert mode.'
             ),
             'ShowPhpInfo_desc' => __(
-                'Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] ' .
+                'Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] ' .
                 'output.'
             ),
             'ShowAll_desc' => __('Whether a user should be displayed a "show all (rows)" button.'),

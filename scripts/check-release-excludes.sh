@@ -23,93 +23,99 @@ foundFile() {
 for filePath in ${FILE_LIST}; do
     case $filePath in
         */.editorconfig)
-        foundFile "${foundFile}";;
+        foundFile;;
         */easy-coding-standard.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.travis.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */psalm.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.coveralls.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */appveyor.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpunit.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phive.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */Makefile)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpbench.json)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.php_cs.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */psalm.xml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpcs.xml.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpunit.xml.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.scrutinizer.yml)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.gitattributes)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.gitignore)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.php_cs.cache)
-        foundFile "${foundFile}";;
+        foundFile;;
         */makefile)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.phpunit.result.cache)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan.neon.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpstan-baseline.neon)
-        foundFile "${foundFile}";;
+        foundFile;;
         */phpmd.xml.dist)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.travis.php.ini)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/tests/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/Tests/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/*/test/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.dependabot/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.github/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.circleci/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */vendor/examples/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         */.git/*)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.rst)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.po)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.pot)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.m4)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.c)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.h)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.sh)
-        foundFile "${foundFile}";;
+        foundFile;;
         *vendor/*.w32)
-        foundFile "${foundFile}";;
+        foundFile;;
         *.hhconfig)
-        foundFile "${foundFile}";;
+        foundFile;;
         *.hhi)
-        foundFile "${foundFile}";;
+        foundFile;;
+        *vendor/*CONTRIBUTING.md*)
+        foundFile;;
+        *CODE_OF_CONDUCT.md*)
+        foundFile;;
+        *PERFORMANCE.md*)
+        foundFile;;
         *) ;;
     esac
 done

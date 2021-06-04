@@ -51,8 +51,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" '
+            . '&db=' . $database
+            . '&server=99&lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
@@ -65,7 +65,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLink(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test_database';
         $this->assertEquals(
@@ -73,8 +72,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&db=' . $database
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
@@ -86,7 +85,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkWithSpecialChars(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test&data\'base';
         $this->assertEquals(
@@ -95,9 +93,9 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db='
+            . '&db='
             . htmlspecialchars(urlencode($database))
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
@@ -174,7 +172,7 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';

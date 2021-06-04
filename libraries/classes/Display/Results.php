@@ -19,6 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table;
@@ -1268,6 +1269,11 @@ class Results
             'sort_by_key' => '1',
         ];
 
+        // Keep the number of rows (25, 50, 100, ...) when changing sort key value
+        if (isset($_SESSION['tmpval']) && isset($_SESSION['tmpval']['max_rows'])) {
+            $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
+        }
+
         $isIndexUsed = false;
         $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
 
@@ -1679,6 +1685,11 @@ class Results
             $multi_order_url
         );
 
+        $order_link .= $this->getSortOrderHiddenInputs(
+            $_multi_url_params,
+            $name_to_use_in_sort
+        );
+
         $sorted_header_html .= $this->getDraggableClassForSortableColumns(
             $col_visib,
             $col_visib_j,
@@ -2007,6 +2018,48 @@ class Results
             $inner_link_content,
             $order_link_params
         );
+    }
+
+    private function getSortOrderHiddenInputs(
+        array $multipleUrlParams,
+        string $nameToUseInSort
+    ): string {
+        $sqlQuery = $multipleUrlParams['sql_query'];
+        $sqlQueryAdd = $sqlQuery;
+        $sqlQueryRemove = null;
+        $parser = new Parser($sqlQuery);
+
+        $firstStatement = $parser->statements[0] ?? null;
+        $numberOfClausesFound = null;
+        if ($firstStatement instanceof SelectStatement) {
+            $orderClauses = $firstStatement->order ?? [];
+            foreach ($orderClauses as $key => $order) {
+                // If this is the column name, then remove it from the order clause
+                if ($order->expr->column !== $nameToUseInSort) {
+                    continue;
+                }
+                // remove the order clause for this column and from the counted array
+                unset($firstStatement->order[$key], $orderClauses[$key]);
+            }
+            $numberOfClausesFound = count($orderClauses);
+            $sqlQueryRemove = $firstStatement->build();
+        }
+
+        $multipleUrlParams['sql_query'] = $sqlQueryRemove ?? $sqlQuery;
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+
+        $urlRemoveOrder = Url::getFromRoute('/sql', $multipleUrlParams);
+        if ($numberOfClausesFound !== null && $numberOfClausesFound === 0) {
+            $urlRemoveOrder .= '&discard_remembered_sort=1';
+        }
+
+        $multipleUrlParams['sql_query'] = $sqlQueryAdd;
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+
+        $urlAddOrder = Url::getFromRoute('/sql', $multipleUrlParams);
+
+        return '<input type="hidden" name="url-remove-order" value="' . $urlRemoveOrder . '">' . "\n"
+             . '<input type="hidden" name="url-add-order" value="' . $urlAddOrder . '">';
     }
 
     /**
@@ -2830,10 +2883,9 @@ class Results
             // Check for the predefined fields need to show as link in schemas
             if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linking_url = $this->getSpecialLinkUrl(
-                    $specialSchemaLinks,
+                    $specialSchemaLinks[$dbLower][$tblLower][$nameLower],
                     $row[$i],
-                    $row_info,
-                    mb_strtolower($meta->orgname)
+                    $row_info
                 );
                 $transformation_plugin = new Text_Plain_Link();
 
@@ -2975,34 +3027,29 @@ class Results
     /**
      * Get link for display special schema links
      *
-     * @param array  $specialSchemaLinks special schema links
-     * @param string $column_value       column value
-     * @param array  $row_info           information about row
-     * @param string $field_name         column name
+     * @param array<string,array<int,array<string,string>>|string> $link_relations
+     * @param string                                               $column_value   column value
+     * @param array                                                $row_info       information about row
      *
      * @return string generated link
+     *
+     * @phpstan-param array{
+     *                         'link_param': string,
+     *                         'link_dependancy_params'?: array<
+     *                                                      int,
+     *                                                      array{'param_info': string, 'column_name': string}
+     *                                                     >,
+     *                         'default_page': string
+     *                     } $link_relations
      */
     private function getSpecialLinkUrl(
-        array $specialSchemaLinks,
+        array $link_relations,
         $column_value,
-        array $row_info,
-        $field_name
+        array $row_info
     ) {
         $linking_url_params = [];
-        $db = mb_strtolower($this->properties['db']);
-        $table = mb_strtolower($this->properties['table']);
-        $link_relations = $specialSchemaLinks[$db][$table][$field_name];
 
-        if (! is_array($link_relations['link_param'])) {
-            $linking_url_params[$link_relations['link_param']] = $column_value;
-        } else {
-            // Consider only the case of creating link for column field
-            // sql query that needs to be passed as url param
-            $sql = 'SELECT `' . $column_value . '` FROM `'
-                . $row_info[$link_relations['link_param'][1]] . '`.`'
-                . $row_info[$link_relations['link_param'][2]] . '`';
-            $linking_url_params[$link_relations['link_param'][0]] = $sql;
-        }
+        $linking_url_params[$link_relations['link_param']] = $column_value;
 
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
@@ -3011,16 +3058,13 @@ class Results
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
-            // If param_info is an array, set the key and value
-            // from that array
-            if (is_array($new_param['param_info'])) {
-                $linking_url_params[$new_param['param_info'][0]]
-                    = $new_param['param_info'][1];
-                continue;
-            }
+            $columnName = mb_strtolower($new_param['column_name']);
 
-            $linking_url_params[$new_param['param_info']]
-                = $row_info[mb_strtolower($new_param['column_name'])];
+            // If there is a value for this column name in the row_info provided
+            if (isset($row_info[$columnName])) {
+                $urlParameterName = $new_param['param_info'];
+                $linking_url_params[$urlParameterName] = $row_info[$columnName];
+            }
 
             // Special case 1 - when executing routines, according
             // to the type of the routine, url param changes
@@ -3506,7 +3550,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param array                 $analyzed_sql_results  the analyzed query
      *
      * @return string the prepared data cell, html content
@@ -3647,7 +3691,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param bool                  $is_field_truncated    is data truncated due to
      *                                                     LimitChars
      * @param array                 $analyzed_sql_results  the analyzed query
@@ -3711,6 +3755,7 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $originalDataForWhereClause = $column;
         $displayedColumn = $column;
         if (! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
@@ -3792,7 +3837,7 @@ class Results
             || $bool_nowrap ? 'nowrap' : 'pre_wrap';
 
         $where_comparison = ' = \''
-            . $dbi->escapeString($column)
+            . $dbi->escapeString($originalDataForWhereClause)
             . '\'';
 
         return $this->getRowData(
@@ -4704,7 +4749,7 @@ class Results
      *                                           Can also be the
      *                                           default function:
      *                                           Core::mimeDefaultFunction
-     * @param string      $transform_options     transformation parameters
+     * @param array       $transform_options     transformation parameters
      * @param string      $default_function      default transformation function
      * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the

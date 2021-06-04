@@ -224,7 +224,11 @@ class ExportPhparray extends ExportPlugin
             . $this->commentString(Util::backquote($db_alias)) . '.'
             . $this->commentString(Util::backquote($table_alias)) . ' */' . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
-
+        if (! $this->export->outputHandler($buffer)) {
+            return false;
+        }
+        // Reset the buffer
+        $buffer = '';
         while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
@@ -241,6 +245,11 @@ class ExportPhparray extends ExportPlugin
             }
 
             $buffer .= ')';
+            if (! $this->export->outputHandler($buffer)) {
+                return false;
+            }
+            // Reset the buffer
+            $buffer = '';
         }
 
         $buffer .= $crlf . ');' . $crlf;

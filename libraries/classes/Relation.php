@@ -829,16 +829,12 @@ class Relation
         $foreign = [];
 
         if ($cfgRelation['relwork'] && ($source === 'both' || $source === 'internal')) {
-            $rel_query = '
-                SELECT `master_field`,
-                    `foreign_db`,
-                    `foreign_table`,
-                    `foreign_field`
-                FROM ' . Util::backquote($cfgRelation['db'])
-                    . '.' . Util::backquote($cfgRelation['relation']) . '
-                WHERE `master_db`    = \'' . $this->dbi->escapeString($db) . '\'
-                    AND `master_table` = \'' . $this->dbi->escapeString($table)
-                . '\' ';
+            $rel_query = 'SELECT `master_field`, `foreign_db`, '
+                . '`foreign_table`, `foreign_field`'
+                . ' FROM ' . Util::backquote($cfgRelation['db'])
+                . '.' . Util::backquote($cfgRelation['relation'])
+                . ' WHERE `master_db` = \'' . $this->dbi->escapeString($db) . '\''
+                . ' AND `master_table` = \'' . $this->dbi->escapeString($table) . '\'';
             if (strlen($column) > 0) {
                 $rel_query .= ' AND `master_field` = '
                     . '\'' . $this->dbi->escapeString($column) . '\'';
@@ -914,13 +910,11 @@ class Relation
          * Try to fetch the display field from DB.
          */
         if ($cfgRelation['displaywork']) {
-            $disp_query = '
-                SELECT `display_field`
-                FROM ' . Util::backquote($cfgRelation['db'])
-                    . '.' . Util::backquote($cfgRelation['table_info']) . '
-                WHERE `db_name`    = \'' . $this->dbi->escapeString((string) $db) . '\'
-                    AND `table_name` = \'' . $this->dbi->escapeString((string) $table)
-                . '\'';
+            $disp_query = 'SELECT `display_field`'
+                    . ' FROM ' . Util::backquote($cfgRelation['db'])
+                    . '.' . Util::backquote($cfgRelation['table_info'])
+                    . ' WHERE `db_name` = \'' . $this->dbi->escapeString((string) $db) . '\''
+                    . ' AND `table_name` = \'' . $this->dbi->escapeString((string) $table) . '\'';
 
             $row = $this->dbi->fetchSingleRow(
                 $disp_query,
@@ -1008,14 +1002,12 @@ class Relation
 
         if ($cfgRelation['commwork']) {
             // pmadb internal db comment
-            $com_qry = '
-                SELECT `comment`
-                FROM ' . Util::backquote($cfgRelation['db'])
+            $com_qry = 'SELECT `comment`'
+                    . ' FROM ' . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation['column_info'])
-                    . "
-                WHERE db_name     = '" . $this->dbi->escapeString($db) . "'
-                    AND table_name  = ''
-                    AND column_name = '(db_comment)'";
+                    . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
+                    . ' AND table_name  = \'\''
+                    . ' AND column_name = \'(db_comment)\'';
             $com_rs = $this->queryAsControlUser(
                 $com_qry,
                 false,
@@ -1046,12 +1038,10 @@ class Relation
 
         if ($cfgRelation['commwork']) {
             // pmadb internal db comment
-            $com_qry = '
-                SELECT `db_name`, `comment`
-                FROM ' . Util::backquote($cfgRelation['db'])
+            $com_qry = 'SELECT `db_name`, `comment`'
+                    . ' FROM ' . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation['column_info'])
-                    . "
-                WHERE `column_name` = '(db_comment)'";
+                    . ' WHERE `column_name` = \'(db_comment)\'';
             $com_rs = $this->queryAsControlUser(
                 $com_qry,
                 false,

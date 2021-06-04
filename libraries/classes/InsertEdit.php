@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use const ENT_COMPAT;
 use const PASSWORD_DEFAULT;
 use function array_fill;
 use function array_flip;
@@ -266,7 +267,8 @@ class InsertEdit
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+        // Can be a string on some old configuration storage settings
+        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
 
         return [
             $result,
@@ -1724,9 +1726,10 @@ class InsertEdit
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="timestamp">';
             }
-            if (substr($column['pma_type'], 0, 8) === 'datetime') {
+            if (substr($column['pma_type'], 0, 4) === 'date') {
+                $type = substr($column['pma_type'], 0, 8) === 'datetime' ? 'datetime' : 'date';
                 $html_output .= '<input type="hidden" name="fields_type'
-                    . $column_name_appendix . '" value="datetime">';
+                    . $column_name_appendix . '" value="' . $type . '">';
             }
             if ($column['True_Type'] === 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
@@ -2067,7 +2070,7 @@ class InsertEdit
                 : Util::addMicroseconds(
                     $current_row[$column['Field']]
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } elseif (in_array($column['True_Type'], $gis_data_types)) {
             // Convert gis data to Well Know Text format
             $current_row[$column['Field']] = $as_is
@@ -2076,7 +2079,7 @@ class InsertEdit
                     $current_row[$column['Field']],
                     true
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } else {
             // special binary "characters"
             if ($column['is_binary']
@@ -2088,7 +2091,7 @@ class InsertEdit
                         $current_row[$column['Field']]
                     );
             }
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
@@ -2115,7 +2118,7 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backup_field = '<input type="hidden" name="fields_prev'
             . $column_name_appendix . '" value="'
-            . htmlspecialchars($current_row[$column['Field']]) . '">';
+            . htmlspecialchars($current_row[$column['Field']], ENT_COMPAT) . '">';
 
         return [
             $real_null_value,
@@ -2397,7 +2400,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_POST['submit_type'] === 'showinsert') {
+            if (isset($_POST['submit_type']) && $_POST['submit_type'] === 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }
@@ -2600,11 +2603,13 @@ class InsertEdit
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
+            // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
+            $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
-                'where_clause_sign' => Core::signSqlQuery($_POST['where_clause']),
-                'where_clause'  => $_POST['where_clause'],
+                'where_clause_sign' => Core::signSqlQuery($whereClause),
+                'where_clause'  => $whereClause,
                 'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
@@ -2899,7 +2904,7 @@ class InsertEdit
                 $current_value = preg_replace('/[^01]/', '0', $current_value);
                 $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
-            } elseif (! ($type === 'datetime' || $type === 'timestamp')
+            } elseif (! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
                 || ($current_value !== 'CURRENT_TIMESTAMP'
                     && $current_value !== 'current_timestamp()')
             ) {

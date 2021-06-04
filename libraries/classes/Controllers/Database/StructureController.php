@@ -371,13 +371,14 @@ class StructureController extends AbstractController
         global $db, $message;
 
         $selected = $_POST['selected'] ?? [];
+        $targetDb = $_POST['target_db'] ?? null;
         $selectedCount = count($selected);
 
         for ($i = 0; $i < $selectedCount; $i++) {
             Table::moveCopy(
                 $db,
                 $selected[$i],
-                $_POST['target_db'],
+                $targetDb,
                 $selected[$i],
                 $_POST['what'],
                 false,
@@ -391,7 +392,7 @@ class StructureController extends AbstractController
             $this->operations->adjustPrivilegesCopyTable(
                 $db,
                 $selected[$i],
-                $_POST['target_db'],
+                $targetDb,
                 $selected[$i]
             );
         }

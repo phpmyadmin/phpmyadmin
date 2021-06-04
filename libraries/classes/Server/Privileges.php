@@ -461,6 +461,8 @@ class Privileges
                 __('Allows deleting historical rows.'),
             ],
             [
+                // This was finally removed in the following MariaDB versions
+                // @see https://jira.mariadb.org/browse/MDEV-20382
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
                 // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1038,7 +1040,8 @@ class Privileges
                 ));
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
-            if ($serverType === 'MySQL'
+            if (
+                in_array($serverType, ['MySQL', 'Percona Server'], true)
                 && $serverVersion >= 50706
             ) {
                 if ($authentication_plugin !== 'mysql_old_password') {
@@ -1924,7 +1927,7 @@ class Privileges
     }
 
     /**
-     * Get a HTML table for display user's tabel specific or database specific rights
+     * Get a HTML table for display user's table specific or database specific rights
      *
      * @param string $username username
      * @param string $hostname host name
@@ -2660,7 +2663,6 @@ class Privileges
         ?string $password,
         $is_menuwork
     ) {
-        $_add_user_error = false;
         $message = null;
         $queries = null;
         $queries_for_display = null;
@@ -2672,12 +2674,15 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                false, // Add user error
             ];
         }
 
         $sql_query = '';
-        if ($_POST['pred_username'] === 'any') {
+        // Some reports where sent to the error reporting server with phpMyAdmin 5.1.0
+        // pred_username was reported to be not defined
+        $predUsername = $_POST['pred_username'] ?? '';
+        if ($predUsername === 'any') {
             $username = '';
         }
         switch ($_POST['pred_hostname']) {
@@ -2706,14 +2711,13 @@ class Privileges
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
             $_GET['adduser'] = true;
-            $_add_user_error = true;
 
             return [
                 $message,
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                true, // Add user error
             ];
         }
 
@@ -2769,7 +2773,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                $_error, // Add user error if the query fails
             ];
         }
 
@@ -2810,7 +2814,7 @@ class Privileges
             $queries,
             $queries_for_display,
             $sql_query,
-            $_add_user_error,
+            false, // Add user error
         ];
     }
 
@@ -3612,7 +3616,7 @@ class Privileges
      * Check if MariaDB's 'simple_password_check'
      * OR 'cracklib_password_check' is ACTIVE
      *
-     * @return bool if atleast one of the plugins is ACTIVE
+     * @return bool if at least one of the plugins is ACTIVE
      */
     public function checkIfMariaDBPwdCheckPluginActive()
     {

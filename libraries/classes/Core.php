@@ -10,7 +10,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+
 use const DATE_RFC1123;
 use const E_USER_ERROR;
 use const E_USER_WARNING;
@@ -144,7 +148,7 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
-     * @see https://secure.php.net/gettype
+     * @see https://www.php.net/gettype
      *
      * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
@@ -321,10 +325,8 @@ class Core
             'de',
             'it',
             'ja',
-            'pl',
             'ro',
             'ru',
-            'fa',
             'es',
             'tr',
         ];
@@ -334,7 +336,7 @@ class Core
             $lang = $GLOBALS['lang'];
         }
 
-        return self::linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
+        return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);
     }
 
     /**
@@ -817,7 +819,7 @@ class Core
             'mariadb.com',
             /* php.net domains */
             'php.net',
-            'secure.php.net',
+            'www.php.net',
             /* Github domains*/
             'github.com',
             'www.github.com',
@@ -1411,5 +1413,17 @@ class Core
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+    }
+
+    /**
+     * Get the container builder
+     */
+    public static function getContainerBuilder(): ContainerBuilder
+    {
+        $containerBuilder = new ContainerBuilder();
+        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
+        $loader->load('services_loader.php');
+
+        return $containerBuilder;
     }
 }

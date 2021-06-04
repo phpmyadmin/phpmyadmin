@@ -1103,7 +1103,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         initGrid();
     }
 
-    /* Calculactes the dynamic chart size that depends on the column width */
+    /* Calculates the dynamic chart size that depends on the column width */
     function calculateChartSize () {
         var panelWidth;
         if ($('body').height() > $(window).height()) { // has vertical scroll bar
@@ -1720,9 +1720,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         '    <legend>' + Messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
                         '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +
-                        '        <input name="filterQueryText" type="text" id="filter_query_text">' +
+                        '        <input name="filterQueryText" type="text" id="filterQueryText">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
+                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +
                         '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
                         '       <label for="noWHEREData"> ' + Messages.strIgnoreWhereAndGroup + '</label>' +

@@ -166,6 +166,7 @@ final class GisVisualizationController extends AbstractController
         );
         $url_params['back'] = Url::getFromRoute('/sql');
         $url_params['sql_query'] = $sqlQuery;
+        $url_params['sql_signature'] = Core::signSqlQuery($sqlQuery);
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
             $url_params,
             [

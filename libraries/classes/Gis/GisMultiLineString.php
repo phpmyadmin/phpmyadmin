@@ -129,10 +129,10 @@ class GisMultiLineString extends GisGeometry
                     // draw line section
                     imageline(
                         $image,
-                        $temp_point[0],
-                        $temp_point[1],
-                        $point[0],
-                        $point[1],
+                        (int) $temp_point[0],
+                        (int) $temp_point[1],
+                        (int) $point[0],
+                        (int) $point[1],
                         $color
                     );
                     $temp_point = $point;

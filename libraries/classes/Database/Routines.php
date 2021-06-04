@@ -306,6 +306,7 @@ class Routines
         $this->response->addJSON('new_row', $this->getRow($routine));
         $this->response->addJSON('insert', ! empty($routine));
         $this->response->addJSON('message', $output);
+        $this->response->addJSON('tableType', 'routines');
         exit;
     }
 
@@ -1779,11 +1780,17 @@ class Routines
         $routineDefiner = $this->dbi->fetchValue($query);
 
         $currentUser = $this->dbi->getCurrentUser();
+        $currentUserIsRoutineDefiner = $currentUser === $routineDefiner;
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
-        $hasEditPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
-            && $currentUser == $routineDefiner) || $this->dbi->isSuperUser();
+        $hasCreateRoutine = Util::currentUserHasPrivilege('CREATE ROUTINE', $db);
+        $hasEditPrivilege = ($hasCreateRoutine && $currentUserIsRoutineDefiner)
+                            || $this->dbi->isSuperUser();
+        $hasExportPrivilege = ($hasCreateRoutine && $currentUserIsRoutineDefiner)
+                            || $this->dbi->isSuperUser();
+        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db)
+                            || $currentUserIsRoutineDefiner;
 
         // There is a problem with Util::currentUserHasPrivilege():
         // it does not detect all kinds of privileges, for example
@@ -1801,7 +1808,6 @@ class Routines
             $routine['type'],
             $routine['name']
         );
-        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db);
         $executeAction = '';
 
         if ($definition !== null) {
@@ -1827,9 +1833,6 @@ class Routines
                 }
             }
         }
-
-        $hasExportPrivilege = (Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
-            && $currentUser == $routineDefiner) || $this->dbi->isSuperUser();
 
         return $this->template->render('database/routines/row', [
             'db' => $db,

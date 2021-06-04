@@ -192,6 +192,7 @@ class ExportJsonTest extends AbstractTestCase
         $a->numeric = false;
         $a->type = 'string';
         $a->name = 'f1';
+        $a->charsetnr = 33;
         $a->length = 20;
         $flags[] = $a;
 
@@ -207,7 +208,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $dbi->expects($this->at(3))
             ->method('fieldName')
-            ->with(null, 0)
+            ->with(null)
             ->will($this->returnValue('f1'));
 
         $dbi->expects($this->at(4))
@@ -238,6 +239,204 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
+        );
+    }
+
+    public function testExportComplexData(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $flags = [];
+        $normalString = new stdClass();
+        $normalString->blob = false;
+        $normalString->numeric = false;
+        $normalString->type = 'string';
+        $normalString->name = 'f1';
+        $normalString->charsetnr = 33;
+        $normalString->length = 20;
+        $flags[] = $normalString;
+        $binaryField = new stdClass();
+        $binaryField->blob = false;
+        $binaryField->numeric = false;
+        $binaryField->type = 'string';
+        $binaryField->name = 'f1';
+        $binaryField->charsetnr = 63;
+        $binaryField->length = 20;
+        $flags[] = $binaryField;
+        $textField = new stdClass();
+        $textField->blob = false;
+        $textField->numeric = false;
+        $textField->type = 'blob';
+        $textField->name = 'f1';
+        $textField->charsetnr = 23;
+        $textField->length = 20;
+        $flags[] = $textField;
+        $blobField = new stdClass();
+        $blobField->blob = false;
+        $blobField->numeric = false;
+        $blobField->type = 'blob';
+        $blobField->name = 'f1';
+        $blobField->charsetnr = 63;
+        $blobField->length = 20;
+        $flags[] = $blobField;
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with(null)
+            ->will($this->returnValue($flags));
+
+        $dbi->expects($this->once())
+            ->method('numFields')
+            ->with(null)
+            ->will($this->returnValue(4));
+
+        $dbi->expects($this->exactly(4))
+            ->method('fieldName')
+            ->withConsecutive(
+                [null, 0],
+                [null, 1],
+                [null, 2],
+                [null, 3]
+            )
+            ->willReturnOnConsecutiveCalls(
+                'f1',
+                'f2',
+                'f3',
+                'f4'
+            );
+
+        $dbi->expects($this->exactly(4))
+            ->method('fetchRow')
+            ->withConsecutive(
+                [null],
+                [null],
+                [null],
+                [null]
+            )
+            ->willReturnOnConsecutiveCalls(
+                // normalString binaryField textField blobField
+                ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
+                [null, null, null, null],
+                ['', '0x1', 'шеллы', '0x2'],
+                null// No more data
+            );
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $this->expectOutputString(
+            '{"type":"table","name":"tbl","database":"db","data":'
+            . "\n[\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
+        );
+
+        $this->assertTrue(
+            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
+        );
+    }
+
+    public function testExportRawComplexData(): void
+    {
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $flags = [];
+        $normalString = new stdClass();
+        $normalString->blob = false;
+        $normalString->numeric = false;
+        $normalString->type = 'string';
+        $normalString->name = 'f1';
+        $normalString->charsetnr = 33;
+        $normalString->length = 20;
+        $flags[] = $normalString;
+        $binaryField = new stdClass();
+        $binaryField->blob = false;
+        $binaryField->numeric = false;
+        $binaryField->type = 'string';
+        $binaryField->name = 'f1';
+        $binaryField->charsetnr = 63;
+        $binaryField->length = 20;
+        $flags[] = $binaryField;
+        $textField = new stdClass();
+        $textField->blob = false;
+        $textField->numeric = false;
+        $textField->type = 'blob';
+        $textField->name = 'f1';
+        $textField->charsetnr = 23;
+        $textField->length = 20;
+        $flags[] = $textField;
+        $blobField = new stdClass();
+        $blobField->blob = false;
+        $blobField->numeric = false;
+        $blobField->type = 'blob';
+        $blobField->name = 'f1';
+        $blobField->charsetnr = 63;
+        $blobField->length = 20;
+        $flags[] = $blobField;
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with(null)
+            ->will($this->returnValue($flags));
+
+        $dbi->expects($this->once())
+            ->method('numFields')
+            ->with(null)
+            ->will($this->returnValue(4));
+
+        $dbi->expects($this->exactly(4))
+            ->method('fieldName')
+            ->withConsecutive(
+                [null, 0],
+                [null, 1],
+                [null, 2],
+                [null, 3]
+            )
+            ->willReturnOnConsecutiveCalls(
+                'f1',
+                'f2',
+                'f3',
+                'f4'
+            );
+
+        $dbi->expects($this->exactly(4))
+            ->method('fetchRow')
+            ->withConsecutive(
+                [null],
+                [null],
+                [null],
+                [null]
+            )
+            ->willReturnOnConsecutiveCalls(
+                // normalString binaryField textField blobField
+                ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
+                [null, null, null, null],
+                ['', '0x1', 'шеллы', '0x2'],
+                null// No more data
+            );
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $this->expectOutputString(
+            '{"type":"raw","data":'
+            . "\n[\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
+        );
+
+        $this->assertTrue(
+            $this->object->exportRawQuery('example.com', 'SELECT', "\n")
         );
     }
 }

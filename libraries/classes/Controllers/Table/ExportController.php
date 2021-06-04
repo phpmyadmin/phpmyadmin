@@ -107,7 +107,7 @@ class ExportController extends AbstractController
             $unlim_num_rows = 0;
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport('table', isset($GLOBALS['single_table']));
 
@@ -119,8 +119,14 @@ class ExportController extends AbstractController
             return;
         }
 
+        $exportType = 'table';
+        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
+        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
+            $exportType = 'raw';
+        }
+
         $options = $this->export->getOptions(
-            'table',
+            $exportType,
             $db,
             $table,
             $sql_query,
@@ -130,6 +136,7 @@ class ExportController extends AbstractController
         );
 
         $this->render('table/export/index', array_merge($options, [
+            'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'message' => $message,
