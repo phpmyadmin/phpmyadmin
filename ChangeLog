@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.2 (not yet released)
+
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
 - issue        Fixed adding an event shows an empty row
