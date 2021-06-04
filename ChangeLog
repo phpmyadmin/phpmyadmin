@@ -14,7 +14,9 @@ phpMyAdmin - ChangeLog
 - issue #16845 Fixed some links not passing through url.php
 - issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
 
-5.1.1 (not yet released)
+5.1.2 (not yet released)
+
+5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
 - issue        Fixed adding an event shows an empty row
 - issue #16706 Fixed a PHP error when visualizing a nullable geometry column
