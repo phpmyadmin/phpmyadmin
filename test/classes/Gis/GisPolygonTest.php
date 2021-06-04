@@ -427,59 +427,20 @@ class GisPolygonTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * test case for prepareRowAsPng()
-     *
-     * @param string   $spatial    GIS POLYGON object
-     * @param string   $label      label for the GIS POLYGON object
-     * @param string   $fill_color color for the GIS POLYGON object
-     * @param array    $scale_data array containing data related to scaling
-     * @param resource $image      image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
-     */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $fill_color,
-        array $scale_data,
-        $image
-    ): void {
-        $return = $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $fill_color,
-            $scale_data,
-            $image
-        );
-        $this->assertImage($return);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
+    public function testPrepareRowAsPng(): void
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
 
-        return [
-            [
-                'POLYGON((123 0,23 30,17 63,123 0))',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $return = $this->object->prepareRowAsPng(
+            'POLYGON((123 0,23 30,17 63,123 0))',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            imagecreatetruecolor(120, 150)
+        );
+        $this->assertImage($return);
     }
 
     /**

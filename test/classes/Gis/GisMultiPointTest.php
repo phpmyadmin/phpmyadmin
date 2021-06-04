@@ -170,59 +170,20 @@ class GisMultiPointTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * test case for prepareRowAsPng() method
-     *
-     * @param string   $spatial     GIS MULTIPOINT object
-     * @param string   $label       label for the GIS MULTIPOINT object
-     * @param string   $point_color color for the GIS MULTIPOINT object
-     * @param array    $scale_data  array containing data related to scaling
-     * @param resource $image       image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
-     */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $point_color,
-        array $scale_data,
-        $image
-    ): void {
-        $return = $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
-            $image
-        );
-        $this->assertImage($return);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
+    public function testPrepareRowAsPng(): void
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
 
-        return [
-            [
-                'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $return = $this->object->prepareRowAsPng(
+            'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            imagecreatetruecolor(120, 150)
+        );
+        $this->assertImage($return);
     }
 
     /**

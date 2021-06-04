@@ -168,60 +168,20 @@ class GisLineStringTest extends GisGeomTestCase
         ];
     }
 
-    /**
-     * test case for prepareRowAsPng() method
-     *
-     * @param string   $spatial    GIS LINESTRING object
-     * @param string   $label      label for the GIS LINESTRING object
-     * @param string   $line_color color for the GIS LINESTRING object
-     * @param array    $scale_data array containing data related to scaling
-     * @param resource $image      image object
-     *
-     * @dataProvider providerForPrepareRowAsPng
-     */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $line_color,
-        array $scale_data,
-        $image
-    ): void {
-        $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $line_color,
-            $scale_data,
-            $image
-        );
-        /* TODO: this never fails */
-        $this->assertTrue(true);
-    }
-
-    /**
-     * data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
+    public function testPrepareRowAsPng(): void
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
 
-        return [
-            [
-                'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $return = $this->object->prepareRowAsPng(
+            'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            imagecreatetruecolor(120, 150)
+        );
+        $this->assertImage($return);
     }
 
     /**

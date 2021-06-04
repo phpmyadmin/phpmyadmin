@@ -175,61 +175,22 @@ class GisGeometryCollectionTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for prepareRowAsPng
-     *
-     * @param string   $spatial    string to parse
-     * @param string   $label      field label
-     * @param string   $line_color line color
-     * @param array    $scale_data scaling parameters
-     * @param resource $image      initial image
-     *
-     * @dataProvider providerForPrepareRowAsPng
-     */
-    public function testPrepareRowAsPng(
-        string $spatial,
-        string $label,
-        string $line_color,
-        array $scale_data,
-        $image
-    ): void {
-        $return = $this->object->prepareRowAsPng(
-            $spatial,
-            $label,
-            $line_color,
-            $scale_data,
-            $image
-        );
-        $this->assertEquals(120, imagesx($return));
-        $this->assertEquals(150, imagesy($return));
-    }
-
-    /**
-     * Data provider for testPrepareRowAsPng() test case
-     *
-     * @return array test data for testPrepareRowAsPng() test case
-     */
-    public function providerForPrepareRowAsPng(): array
+    public function testPrepareRowAsPng(): void
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
 
-        return [
-            [
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
-                'image',
-                '#B02EE0',
-                [
-                    'x' => 12,
-                    'y' => 69,
-                    'scale' => 2,
-                    'height' => 150,
-                ],
-                imagecreatetruecolor(120, 150),
-            ],
-        ];
+        $return = $this->object->prepareRowAsPng(
+            'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
+            . '(20 30,35 32,30 20,20 30)))',
+            'image',
+            '#B02EE0',
+            ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
+            imagecreatetruecolor(120, 150)
+        );
+        $this->assertEquals(120, imagesx($return));
+        $this->assertEquals(150, imagesy($return));
     }
 
     /**
