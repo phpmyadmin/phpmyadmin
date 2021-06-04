@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-05-30 21:32+0000\n"
+"PO-Revision-Date: 2021-06-05 20:33+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-1/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-1/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,6 +82,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Tu poterea voler augmentar {long_query_time} o optimisar le queries listate "
+"in le registro de query lente"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
@@ -117,27 +119,31 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} es fixate a 10 secundas o plus, ergo solmente le queries "
+"lente que prende plus de 10 secundas es registrate"
 
 #: libraries/advisory_rules_generic.php:73
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Il es suggerite fixar {long_query_time} a un valor plus basse, dependente de "
+"tu ambiente.Usualmente un valor de 1-15 secundas es suggerite."
 
 #: libraries/advisory_rules_generic.php:76
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time es currentemente fixate a %ds."
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
 msgid "Slow query logging"
-msgstr ""
+msgstr "Registrar query lente"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
 msgid "The slow query log is disabled."
-msgstr ""
+msgstr "Le registro de query lente es disactivate."
 
 #: libraries/advisory_rules_generic.php:87
 msgid ""
@@ -147,7 +153,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:90
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries es fixate a 'OFF'"
 
 #: libraries/advisory_rules_generic.php:100
 msgid ""
@@ -157,47 +163,51 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:103
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log es fixate a 'OFF'"
 
 #: libraries/advisory_rules_generic.php:108
 msgid "Release Series"
-msgstr ""
+msgstr "Discarga series"
 
 #: libraries/advisory_rules_generic.php:111
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Le version de servitor MySQL es minus que 5.1."
 
 #: libraries/advisory_rules_generic.php:113
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Tu deberea actualisar, proque MySQL5.1 ha execution meliorate, e MySQL 5.5. "
+"etiam anque plus."
 
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
 #: libraries/advisory_rules_generic.php:140
 #, php-format
 msgid "Current version: %s"
-msgstr ""
+msgstr "Version currente:%s"
 
 #: libraries/advisory_rules_generic.php:120
 #: libraries/advisory_rules_generic.php:134
 msgid "Minor Version"
-msgstr ""
+msgstr "Version minor"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Version minus que 5.1.30 (le prime release GA de 5.1)."
 
 #: libraries/advisory_rules_generic.php:126
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Tu deberea actualisar, proque versiones recente de MySQL 5.1 ha execution "
+"meliorate e MySQL 5.5 etiam anque plus."
 
 #: libraries/advisory_rules_generic.php:138
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Version minus que 5.5.8 (le prime release GA de 5.5)."
 
 #: libraries/advisory_rules_generic.php:139
 msgid "You should upgrade, to a stable version of MySQL 5.5."
@@ -210,7 +220,7 @@ msgstr "Distribution"
 
 #: libraries/advisory_rules_generic.php:148
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Version es compilate ab fonte, non un binari officia de MySQL."
 
 #: libraries/advisory_rules_generic.php:150
 msgid ""
@@ -221,11 +231,11 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:154
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' trovate in version_comment"
 
 #: libraries/advisory_rules_generic.php:161
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "Le manual de MySQL es solmente accurate per binari official de MySQL."
 
 #: libraries/advisory_rules_generic.php:163
 msgid ""
