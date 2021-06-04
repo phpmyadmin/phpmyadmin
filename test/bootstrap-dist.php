@@ -5,11 +5,6 @@
 
 declare(strict_types=1);
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
-
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -45,12 +40,3 @@ if (! defined('PHPMYADMIN')) {
 
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
-
-$GLOBALS['containerBuilder'] = Core::getContainerBuilder();
-
-$GLOBALS['config'] = new Config();
-$GLOBALS['config']->set('environment', 'development');
-$GLOBALS['cfg']['environment'] = 'development';
-
-/* Load Database interface */
-$GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());

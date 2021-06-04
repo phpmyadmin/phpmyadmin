@@ -83,6 +83,8 @@ abstract class AbstractTestCase extends TestCase
         $_REQUEST = [];
         // Config before DBI
         $this->setGlobalConfig();
+        $GLOBALS['cfg']['environment'] = 'development';
+        $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
         $this->setGlobalDbi();
     }
 
