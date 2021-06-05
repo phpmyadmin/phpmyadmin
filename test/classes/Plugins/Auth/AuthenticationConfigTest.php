@@ -12,6 +12,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function ob_get_clean;
 use function ob_start;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
+ */
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */

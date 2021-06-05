@@ -12,6 +12,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
 
+/**
+ * @covers \PhpMyAdmin\Database\Designer
+ */
 class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */

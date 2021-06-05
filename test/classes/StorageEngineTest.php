@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for StorageEngine.php
- */
 
 declare(strict_types=1);
 
@@ -23,7 +20,7 @@ use PhpMyAdmin\StorageEngine;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
- * Tests for StorageEngine.php
+ * @covers \PhpMyAdmin\StorageEngine
  */
 class StorageEngineTest extends AbstractTestCase
 {

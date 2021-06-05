@@ -8,6 +8,7 @@ use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
  * @requires extension xmlwriter
  */
 class SvgRelationSchemaTest extends AbstractTestCase

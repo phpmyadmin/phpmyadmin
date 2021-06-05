@@ -10,6 +10,9 @@ use PhpMyAdmin\Utils\Gis;
 
 use function hex2bin;
 
+/**
+ * @covers \PhpMyAdmin\Utils\Gis
+ */
 class GisTest extends AbstractTestCase
 {
     /**

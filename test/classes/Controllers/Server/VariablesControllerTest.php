@@ -19,6 +19,9 @@ use function __;
 use function htmlspecialchars;
 use function str_replace;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\VariablesController
+ */
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

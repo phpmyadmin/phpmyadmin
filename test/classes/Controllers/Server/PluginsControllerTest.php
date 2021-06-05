@@ -11,6 +11,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\PluginsController
+ */
 class PluginsControllerTest extends AbstractTestCase
 {
     /**

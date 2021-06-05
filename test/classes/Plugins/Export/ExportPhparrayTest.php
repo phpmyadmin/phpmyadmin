@@ -18,6 +18,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
  */
 class ExportPhparrayTest extends AbstractTestCase

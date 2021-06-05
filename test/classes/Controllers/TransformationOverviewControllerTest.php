@@ -12,6 +12,9 @@ use PhpMyAdmin\Transformations;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\TransformationOverviewController
+ */
 class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**

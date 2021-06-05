@@ -9,6 +9,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function json_encode;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\NormalizationController
+ */
 class NormalizationControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
 
+/**
+ * @covers \PhpMyAdmin\ListDatabase
+ */
 class ListDatabaseTest extends AbstractTestCase
 {
     /**

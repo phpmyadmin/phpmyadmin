@@ -11,6 +11,9 @@ use function function_exists;
 use function imagecreatetruecolor;
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisMultiLineString
+ */
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /**

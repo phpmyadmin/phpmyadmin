@@ -20,6 +20,9 @@ use PhpMyAdmin\Url;
 use function __;
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\IndexesController
+ */
 class IndexesControllerTest extends AbstractTestCase
 {
     /**

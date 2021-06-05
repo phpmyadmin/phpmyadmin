@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Plugins\PluginPropertyItem
+ */
 class PluginPropertyItemTest extends AbstractTestCase
 {
     /** @var PluginPropertyItem */

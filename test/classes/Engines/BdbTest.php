@@ -9,6 +9,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Bdb
+ */
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */

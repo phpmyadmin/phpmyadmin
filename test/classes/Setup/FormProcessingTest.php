@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for methods under Formset processing library
- */
 
 declare(strict_types=1);
 
@@ -15,7 +12,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for methods under Formset processing library
+ * @covers \PhpMyAdmin\Setup\FormProcessing
  */
 class FormProcessingTest extends AbstractNetworkTestCase
 {

@@ -20,6 +20,7 @@ use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
 /**
+ * @covers \PhpMyAdmin\Git
  * @group git-revision
  */
 class GitTest extends AbstractTestCase

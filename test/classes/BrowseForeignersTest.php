@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 
+/**
+ * @covers \PhpMyAdmin\BrowseForeigners
+ */
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */

@@ -12,6 +12,9 @@ use PhpMyAdmin\Version;
 
 use function htmlspecialchars;
 
+/**
+ * @covers \PhpMyAdmin\Server\UserGroups
+ */
 class UserGroupsTest extends AbstractTestCase
 {
     /**

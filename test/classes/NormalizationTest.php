@@ -18,6 +18,9 @@ use function __;
 use function _pgettext;
 use function json_encode;
 
+/**
+ * @covers \PhpMyAdmin\Normalization
+ */
 class NormalizationTest extends AbstractTestCase
 {
     /** @var Normalization */

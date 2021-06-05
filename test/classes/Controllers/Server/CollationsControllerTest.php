@@ -9,6 +9,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\CollationsController
+ */
 class CollationsControllerTest extends AbstractTestCase
 {
     /**

@@ -39,6 +39,9 @@ use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
+/**
+ * @covers \PhpMyAdmin\Util
+ */
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -321,11 +324,6 @@ class UtilTest extends AbstractTestCase
         $this->assertEquals(16, strlen(Util::generateRandom(16)));
     }
 
-    /**
-     * Test clearing user cache
-     *
-     * @covers \PhpMyAdmin\Util::clearUserCache
-     */
     public function testClearUserCache(): void
     {
         $GLOBALS['server'] = 'server';
@@ -342,11 +340,6 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Util::checkParameters
-     *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     */
     public function testCheckParameterMissing(): void
     {
         parent::setGlobalConfig();
@@ -369,11 +362,6 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Util::checkParameters
-     *
-     * @covers \PhpMyAdmin\Util::checkParameters
-     */
     public function testCheckParameter(): void
     {
         parent::setGlobalConfig();
@@ -402,7 +390,6 @@ class UtilTest extends AbstractTestCase
      * @param string|null $bit Value
      * @param string      $val Expected value
      *
-     * @covers \PhpMyAdmin\Util::convertBitDefaultValue
      * @dataProvider providerConvertBitDefaultValue
      */
     public function testConvertBitDefaultValue(?string $bit, string $val): void
@@ -505,7 +492,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a Expected value
      * @param string $b String to escape
      *
-     * @covers \PhpMyAdmin\Util::escapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
     public function testEscapeMysqlWildcards(string $a, string $b): void
@@ -522,7 +508,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String to unescape
      * @param string $b Expected value
      *
-     * @covers \PhpMyAdmin\Util::unescapeMysqlWildcards
      * @dataProvider providerUnEscapeMysqlWildcards
      */
     public function testUnescapeMysqlWildcards(string $a, string $b): void
@@ -539,7 +524,6 @@ class UtilTest extends AbstractTestCase
      * @param string $in  string to evaluate
      * @param string $out expected output
      *
-     * @covers \PhpMyAdmin\Util::expandUserString
      * @dataProvider providerExpandUserString
      */
     public function testExpandUserString(string $in, string $out): void
@@ -610,7 +594,6 @@ class UtilTest extends AbstractTestCase
      * @param string $in  Column specification
      * @param array  $out Expected value
      *
-     * @covers \PhpMyAdmin\Util::extractColumnSpec
      * @dataProvider providerExtractColumnSpec
      */
     public function testExtractColumnSpec(string $in, array $out): void
@@ -758,7 +741,6 @@ class UtilTest extends AbstractTestCase
      * @param int|string $size     Size
      * @param int|float  $expected Expected value (float on some cpu architectures)
      *
-     * @covers \PhpMyAdmin\Util::extractValueFromFormattedSize
      * @dataProvider providerExtractValueFromFormattedSize
      */
     public function testExtractValueFromFormattedSize($size, $expected): void
@@ -804,7 +786,6 @@ class UtilTest extends AbstractTestCase
      * @param int              $c Number of decimals to retain
      * @param array            $e Expected value
      *
-     * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
      */
     public function testFormatByteDown($a, int $b, int $c, array $e): void
@@ -972,7 +953,6 @@ class UtilTest extends AbstractTestCase
      * @param int              $c Number of decimals to retain
      * @param string           $d Expected value
      *
-     * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
     public function testFormatNumber($a, int $b, int $c, string $d): void
@@ -1144,7 +1124,6 @@ class UtilTest extends AbstractTestCase
      * @param string    $unit Unit
      * @param string    $res  Result
      *
-     * @covers \PhpMyAdmin\Util::getFormattedMaximumUploadSize
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
     public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
@@ -1207,7 +1186,6 @@ class UtilTest extends AbstractTestCase
      * @param string $target Target
      * @param string $result Expected value
      *
-     * @covers \PhpMyAdmin\Util::getTitleForTarget
      * @dataProvider providerGetTitleForTarget
      */
     public function testGetTitleForTarget(string $target, string $result): void
@@ -1262,7 +1240,6 @@ class UtilTest extends AbstractTestCase
      * @param string $tz     Timezone to set
      * @param string $locale Locale to set
      *
-     * @covers \PhpMyAdmin\Util::localisedDate
      * @dataProvider providerLocalisedDate
      */
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
@@ -1399,7 +1376,6 @@ class UtilTest extends AbstractTestCase
      * @param int    $a Timespan in seconds
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::timespanFormat
      * @dataProvider providerTimespanFormat
      */
     public function testTimespanFormat(int $a, string $e): void
@@ -1442,7 +1418,6 @@ class UtilTest extends AbstractTestCase
      * @param int    $b Length
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::printableBitValue
      * @dataProvider providerPrintableBitValue
      */
     public function testPrintableBitValue(int $a, int $b, string $e): void
@@ -1480,7 +1455,6 @@ class UtilTest extends AbstractTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuote
      */
     public function testUnQuote(string $param, string $expected): void
@@ -1524,7 +1498,6 @@ class UtilTest extends AbstractTestCase
      * @param string $param    String
      * @param string $expected Expected output
      *
-     * @covers \PhpMyAdmin\Util::unQuote
      * @dataProvider providerUnQuoteSelectedChar
      */
     public function testUnQuoteSelectedChar(string $param, string $expected): void
@@ -1568,7 +1541,6 @@ class UtilTest extends AbstractTestCase
      * @param string|array $a String
      * @param string|array $b Expected output
      *
-     * @covers \PhpMyAdmin\Util::backquote
      * @dataProvider providerBackquote
      */
     public function testBackquote($a, $b): void
@@ -1624,7 +1596,6 @@ class UtilTest extends AbstractTestCase
      * @param string|array $expectedNoneOutput  Expected none output
      * @param string|array $expectedMssqlOutput Expected MSSQL output
      *
-     * @covers \PhpMyAdmin\Util::backquoteCompat
      * @dataProvider providerBackquoteCompat
      */
     public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
@@ -1691,8 +1662,6 @@ class UtilTest extends AbstractTestCase
 
     /**
      * backquoteCompat test with forbidden words
-     *
-     * @covers \PhpMyAdmin\Util::backquote
      */
     public function testBackquoteForbidenWords(): void
     {
@@ -1717,7 +1686,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::userDir
      * @dataProvider providerUserDir
      */
     public function testUserDir(string $a, string $e): void
@@ -1752,7 +1720,6 @@ class UtilTest extends AbstractTestCase
      * @param string $a String
      * @param string $e Expected output
      *
-     * @covers \PhpMyAdmin\Util::duplicateFirstNewline
      * @dataProvider providerDuplicateFirstNewline
      */
     public function testDuplicateFirstNewline(string $a, string $e): void
@@ -1790,11 +1757,6 @@ class UtilTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for Util::unsupportedDatatypes
-     *
-     * @covers \PhpMyAdmin\Util::unsupportedDatatypes
-     */
     public function testUnsupportedDatatypes(): void
     {
         $no_support_types = [];
@@ -1804,11 +1766,6 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for Util::getPageFromPosition
-     *
-     * @covers \PhpMyAdmin\Util::getPageFromPosition
-     */
     public function testGetPageFromPosition(): void
     {
         $this->assertEquals(Util::getPageFromPosition(0, 1), 1);

@@ -19,6 +19,7 @@ use function __;
 use function array_shift;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
  * @group medium
  */
 class ExportPdfTest extends AbstractTestCase

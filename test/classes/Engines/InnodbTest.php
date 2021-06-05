@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_innodb
- */
 
 declare(strict_types=1);
 
@@ -12,6 +9,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Innodb
+ */
 class InnodbTest extends AbstractTestCase
 {
     /** @var Innodb */

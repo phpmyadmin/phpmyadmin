@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_pbxt
- */
 
 declare(strict_types=1);
 
@@ -14,6 +11,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function __;
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Pbxt
+ */
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */

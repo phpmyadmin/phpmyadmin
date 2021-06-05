@@ -19,6 +19,9 @@ use function ob_start;
 use function preg_quote;
 use function serialize;
 
+/**
+ * @covers \PhpMyAdmin\Core
+ */
 class CoreTest extends AbstractNetworkTestCase
 {
     /**

@@ -9,6 +9,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
+ */
 class ReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

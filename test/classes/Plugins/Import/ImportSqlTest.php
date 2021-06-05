@@ -9,6 +9,9 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportSql
+ */
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */

@@ -14,6 +14,9 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
+/**
+ * @covers \PhpMyAdmin\Export\Options
+ */
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */

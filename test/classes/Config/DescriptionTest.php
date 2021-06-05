@@ -9,6 +9,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function in_array;
 
+/**
+ * @covers \PhpMyAdmin\Config\Descriptions
+ */
 class DescriptionTest extends AbstractTestCase
 {
     /**

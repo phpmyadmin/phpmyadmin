@@ -15,6 +15,9 @@ use ReflectionProperty;
 use function function_exists;
 use function gettype;
 
+/**
+ * @covers \PhpMyAdmin\Config\FormDisplay
+ */
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */

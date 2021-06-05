@@ -12,6 +12,7 @@ use function define;
 use function defined;
 
 /**
+ * @covers \PhpMyAdmin\Header
  * @group medium
  */
 class HeaderTest extends AbstractTestCase

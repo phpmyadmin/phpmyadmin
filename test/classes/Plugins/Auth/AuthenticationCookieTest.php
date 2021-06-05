@@ -24,6 +24,9 @@ use function str_shuffle;
 use function strlen;
 use function time;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
+ */
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */

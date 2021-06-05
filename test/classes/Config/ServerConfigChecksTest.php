@@ -12,6 +12,9 @@ use ReflectionProperty;
 
 use function array_keys;
 
+/**
+ * @covers \PhpMyAdmin\Config\ServerConfigChecks
+ */
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */

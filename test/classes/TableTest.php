@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Table.php
- */
 
 declare(strict_types=1);
 
@@ -15,6 +12,9 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use stdClass;
 
+/**
+ * @covers \PhpMyAdmin\Table
+ */
 class TableTest extends AbstractTestCase
 {
     /**

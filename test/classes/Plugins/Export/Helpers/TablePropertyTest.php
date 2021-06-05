@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty
+ */
 class TablePropertyTest extends AbstractTestCase
 {
     /** @var TableProperty */

@@ -8,6 +8,9 @@ use PhpMyAdmin\Theme;
 
 use function filemtime;
 
+/**
+ * @covers \PhpMyAdmin\Theme
+ */
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */

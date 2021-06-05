@@ -12,6 +12,9 @@ use Symfony\Component\Console\Command\Command;
 use function class_exists;
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Command\SetVersionCommand
+ */
 class SetVersionCommandTest extends AbstractTestCase
 {
     /** @var SetVersionCommand */

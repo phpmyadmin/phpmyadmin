@@ -9,7 +9,7 @@ use PhpMyAdmin\Mime;
 use function chr;
 
 /**
- * Test for mime detection.
+ * @covers \PhpMyAdmin\Mime
  */
 class MimeTest extends AbstractTestCase
 {

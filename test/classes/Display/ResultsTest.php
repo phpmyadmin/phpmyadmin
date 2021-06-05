@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for displaying results
- */
 
 declare(strict_types=1);
 
@@ -36,7 +33,7 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIMESTAMP;
 
 /**
- * Test cases for displaying results.
+ * @covers \PhpMyAdmin\Display\Results
  */
 class ResultsTest extends AbstractTestCase
 {

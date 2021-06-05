@@ -14,6 +14,9 @@ use PhpMyAdmin\Version;
 use function json_encode;
 use function time;
 
+/**
+ * @covers \PhpMyAdmin\UserPreferences
+ */
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */

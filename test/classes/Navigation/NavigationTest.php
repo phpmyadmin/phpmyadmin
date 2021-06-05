@@ -11,6 +11,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Navigation
+ */
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */

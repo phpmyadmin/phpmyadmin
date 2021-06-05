@@ -11,6 +11,9 @@ use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 
+/**
+ * @covers \PhpMyAdmin\Tracker
+ */
 class TrackerTest extends AbstractTestCase
 {
     /**

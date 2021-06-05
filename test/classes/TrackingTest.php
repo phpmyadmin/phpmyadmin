@@ -16,6 +16,9 @@ use function _pgettext;
 use function htmlspecialchars;
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Tracking
+ */
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */

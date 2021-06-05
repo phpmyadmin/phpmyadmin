@@ -19,6 +19,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportCodegen
  * @group medium
  */
 class ExportCodegenTest extends AbstractTestCase

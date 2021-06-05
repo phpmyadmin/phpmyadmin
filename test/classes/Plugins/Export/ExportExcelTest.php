@@ -19,6 +19,7 @@ use ReflectionProperty;
 use function array_shift;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportExcel
  * @group medium
  */
 class ExportExcelTest extends AbstractTestCase

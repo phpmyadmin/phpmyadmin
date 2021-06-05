@@ -15,6 +15,7 @@ use function defined;
 use function extension_loaded;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportShp
  * @requires extension zip
  */
 class ImportShpTest extends AbstractTestCase

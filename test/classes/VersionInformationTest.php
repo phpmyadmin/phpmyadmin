@@ -9,6 +9,9 @@ use stdClass;
 
 use function count;
 
+/**
+ * @covers \PhpMyAdmin\VersionInformation
+ */
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */

@@ -8,6 +8,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\ForeignKey;
 
+/**
+ * @covers \PhpMyAdmin\Utils\ForeignKey
+ */
 class ForeignKeyTest extends AbstractTestCase
 {
     /**

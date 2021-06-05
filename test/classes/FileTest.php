@@ -9,6 +9,9 @@ use PhpMyAdmin\File;
 use function bin2hex;
 use function file_get_contents;
 
+/**
+ * @covers \PhpMyAdmin\File
+ */
 class FileTest extends AbstractTestCase
 {
     /**

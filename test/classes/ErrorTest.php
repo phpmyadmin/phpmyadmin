@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Error.php
- */
 
 declare(strict_types=1);
 
@@ -14,7 +11,7 @@ use function preg_match;
 use const DIRECTORY_SEPARATOR;
 
 /**
- * Error class testing.
+ * @covers \PhpMyAdmin\Error
  */
 class ErrorTest extends AbstractTestCase
 {

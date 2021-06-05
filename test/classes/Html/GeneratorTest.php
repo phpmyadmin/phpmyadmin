@@ -14,6 +14,9 @@ use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
+/**
+ * @covers \PhpMyAdmin\Html\Generator
+ */
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -260,11 +263,6 @@ class GeneratorTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for formatSql
-     *
-     * @covers \PhpMyAdmin\Html\Generator::formatSql
-     */
     public function testFormatSql(): void
     {
         $this->assertEquals(

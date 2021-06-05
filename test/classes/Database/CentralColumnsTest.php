@@ -12,6 +12,9 @@ use PhpMyAdmin\Version;
 
 use function array_slice;
 
+/**
+ * @covers \PhpMyAdmin\Database\CentralColumns
+ */
 class CentralColumnsTest extends AbstractTestCase
 {
     /** @var CentralColumns */

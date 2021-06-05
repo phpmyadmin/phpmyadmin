@@ -13,6 +13,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use stdClass;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\RelationController
+ */
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

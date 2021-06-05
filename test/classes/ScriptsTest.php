@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Script.php
- */
 
 declare(strict_types=1);
 
@@ -16,7 +13,7 @@ use function defined;
 use function rawurlencode;
 
 /**
- * Tests for Script.php
+ * @covers \PhpMyAdmin\Scripts
  */
 class ScriptsTest extends AbstractTestCase
 {

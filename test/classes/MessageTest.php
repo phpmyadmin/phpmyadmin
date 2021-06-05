@@ -8,6 +8,9 @@ use PhpMyAdmin\Message;
 
 use function md5;
 
+/**
+ * @covers \PhpMyAdmin\Message
+ */
 class MessageTest extends AbstractTestCase
 {
     /**

@@ -12,6 +12,9 @@ use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_FLOAT;
 use const MYSQLI_TYPE_STRING;
 
+/**
+ * @covers \PhpMyAdmin\FieldMetadata
+ */
 class FieldMetadataTest extends AbstractTestCase
 {
     public function testEmptyConstruct(): void

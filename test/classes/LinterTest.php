@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Linter.php.
- */
 
 declare(strict_types=1);
 
@@ -11,6 +8,9 @@ use PhpMyAdmin\Linter;
 
 use function str_repeat;
 
+/**
+ * @covers \PhpMyAdmin\Linter
+ */
 class LinterTest extends AbstractTestCase
 {
     /**

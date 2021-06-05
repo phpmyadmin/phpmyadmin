@@ -18,6 +18,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportYaml
  * @group medium
  */
 class ExportYamlTest extends AbstractTestCase

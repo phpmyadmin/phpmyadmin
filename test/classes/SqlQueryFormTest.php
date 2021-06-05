@@ -17,9 +17,7 @@ use function __;
 use function htmlspecialchars;
 
 /**
- * PhpMyAdmin\Tests\SqlQueryFormTest class
- *
- * this class is for testing PhpMyAdmin\SqlQueryForm methods
+ * @covers \PhpMyAdmin\SqlQueryForm
  */
 class SqlQueryFormTest extends AbstractTestCase
 {

@@ -15,6 +15,9 @@ use function imagesy;
 use function method_exists;
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisGeometryCollection
+ */
 class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @var GisGeometryCollection */

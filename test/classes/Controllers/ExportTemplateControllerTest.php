@@ -13,6 +13,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Version;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\ExportTemplateController
+ */
 class ExportTemplateControllerTest extends AbstractTestCase
 {
     /** @var ExportTemplateController */

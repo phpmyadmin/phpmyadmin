@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for FormDisplayTemplate
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for FormDisplayTemplate
+ * @covers \PhpMyAdmin\Config\FormDisplayTemplate
  */
 class FormDisplayTemplateTest extends AbstractTestCase
 {

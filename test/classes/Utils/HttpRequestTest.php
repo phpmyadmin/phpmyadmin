@@ -15,6 +15,9 @@ use function stripos;
 use const CURLOPT_CAINFO;
 use const CURLOPT_CAPATH;
 
+/**
+ * @covers \PhpMyAdmin\Utils\HttpRequest
+ */
 class HttpRequestTest extends AbstractTestCase
 {
     /** @var HttpRequest */

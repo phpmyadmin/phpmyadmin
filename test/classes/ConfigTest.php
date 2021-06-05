@@ -37,6 +37,9 @@ use const INFO_MODULES;
 use const PHP_EOL;
 use const PHP_OS;
 
+/**
+ * @covers \PhpMyAdmin\Config
+ */
 class ConfigTest extends AbstractTestCase
 {
     /** @var Config */

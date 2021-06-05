@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
 
+/**
+ * @covers \PhpMyAdmin\Index
+ */
 class IndexTest extends AbstractTestCase
 {
     /** @var array */

@@ -30,6 +30,7 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportOdt
  * @requires extension zip
  * @group medium
  */

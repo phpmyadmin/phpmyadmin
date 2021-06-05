@@ -1,9 +1,4 @@
 <?php
-/**
- * TableStructureController_Test class
- *
- * this class is for testing StructureController class
- */
 
 declare(strict_types=1);
 
@@ -23,9 +18,7 @@ use PhpMyAdmin\Transformations;
 use ReflectionClass;
 
 /**
- * TableStructureController_Test class
- *
- * this class is for testing StructureController class
+ * @covers \PhpMyAdmin\Controllers\Table\StructureController
  */
 class StructureControllerTest extends AbstractTestCase
 {

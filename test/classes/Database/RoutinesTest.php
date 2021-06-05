@@ -11,6 +11,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
+/**
+ * @covers \PhpMyAdmin\Database\Routines
+ */
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */

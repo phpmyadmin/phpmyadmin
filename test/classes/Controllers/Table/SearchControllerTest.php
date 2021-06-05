@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_TableSearch
- */
 
 declare(strict_types=1);
 
@@ -24,7 +21,7 @@ use function hash;
 use const MYSQLI_TYPE_LONG;
 
 /**
- * Tests for PMA_TableSearch
+ * @covers \PhpMyAdmin\Controllers\Table\SearchController
  */
 class SearchControllerTest extends AbstractTestCase
 {

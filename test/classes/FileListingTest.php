@@ -10,6 +10,9 @@ use function array_values;
 use function extension_loaded;
 use function is_bool;
 
+/**
+ * @covers \PhpMyAdmin\FileListing
+ */
 class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */

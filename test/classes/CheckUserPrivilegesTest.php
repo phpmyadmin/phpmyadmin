@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
 
+/**
+ * @covers \PhpMyAdmin\CheckUserPrivileges
+ */
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */

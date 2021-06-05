@@ -17,6 +17,9 @@ use stdClass;
 use function __;
 use function sprintf;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
+ */
 class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -16,6 +16,9 @@ use function session_id;
 use function session_name;
 use function version_compare;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
+ */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */

@@ -10,9 +10,7 @@ use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
 
 /**
- * PhpMyAdmin\Tests\ReplicationGuiTest class
- *
- * this class is for testing PhpMyAdmin\ReplicationGui methods
+ * @covers \PhpMyAdmin\ReplicationGui
  */
 class ReplicationGuiTest extends AbstractTestCase
 {

@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function __;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportXml
  * @requires extension xml
  * @requires extension xmlwriter
  */

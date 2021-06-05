@@ -23,6 +23,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportTexytext
  * @group medium
  */
 class ExportTexytextTest extends AbstractTestCase

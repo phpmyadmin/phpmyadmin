@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \PhpMyAdmin\Utils\SessionCache
+ */
 class SessionCacheTest extends TestCase
 {
     public function testGet(): void

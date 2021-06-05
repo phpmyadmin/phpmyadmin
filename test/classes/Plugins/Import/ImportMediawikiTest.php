@@ -11,6 +11,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
+ */
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */

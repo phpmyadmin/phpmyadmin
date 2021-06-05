@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Types.php
- */
 
 declare(strict_types=1);
 
@@ -10,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Types;
 
 /**
- * Testcase for MySQL types handling.
+ * @covers \PhpMyAdmin\Types
  */
 class TypesTest extends AbstractTestCase
 {

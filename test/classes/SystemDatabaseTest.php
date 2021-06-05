@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for libraries/SystemDatabase.php
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Version;
 
 /**
- * Tests for libraries/SystemDatabase.php
+ * @covers \PhpMyAdmin\SystemDatabase
  */
 class SystemDatabaseTest extends AbstractTestCase
 {

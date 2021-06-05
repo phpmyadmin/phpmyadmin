@@ -12,6 +12,9 @@ use Samyoul\U2F\U2FServer\SignRequest;
 use function count;
 use function in_array;
 
+/**
+ * @covers \PhpMyAdmin\TwoFactor
+ */
 class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void

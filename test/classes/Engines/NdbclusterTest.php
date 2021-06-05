@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_ndbcluster
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,9 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Ndbcluster
+ */
 class NdbclusterTest extends AbstractTestCase
 {
     /** @var Ndbcluster */

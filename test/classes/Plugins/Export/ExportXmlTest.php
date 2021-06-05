@@ -21,6 +21,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportXml
  * @group medium
  */
 class ExportXmlTest extends AbstractTestCase

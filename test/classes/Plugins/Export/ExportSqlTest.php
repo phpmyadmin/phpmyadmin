@@ -37,6 +37,7 @@ use const MYSQLI_TYPE_STRING;
 use const MYSQLI_UNIQUE_KEY_FLAG;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportSql
  * @group medium
  */
 class ExportSqlTest extends AbstractTestCase

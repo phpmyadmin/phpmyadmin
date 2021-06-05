@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Server\Plugin
+ */
 class PluginTest extends AbstractTestCase
 {
     public function testFromState(): Plugin

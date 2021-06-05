@@ -29,6 +29,7 @@ use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TINY_BLOB;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportOds
  * @requires extension zip
  * @group medium
  */

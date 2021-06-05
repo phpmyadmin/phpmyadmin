@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Advisor;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+/**
+ * @covers \PhpMyAdmin\Advisor
+ */
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void

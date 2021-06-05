@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 use function str_repeat;
 
+/**
+ * @covers \PhpMyAdmin\Dbal\DatabaseName
+ */
 class DatabaseNameTest extends TestCase
 {
     public function testEmptyName(): void

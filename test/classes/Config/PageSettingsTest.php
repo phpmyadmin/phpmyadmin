@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Page-related settings
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,9 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Config\PageSettings
+ */
 class PageSettingsTest extends AbstractTestCase
 {
     /**

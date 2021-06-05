@@ -8,6 +8,9 @@ use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisGeometry
+ */
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */

@@ -26,6 +26,7 @@ use const MYSQLI_TYPE_TIMESTAMP;
 use const MYSQLI_TYPE_TINY;
 
 /**
+ * @covers \PhpMyAdmin\InsertEdit
  * @group medium
  */
 class InsertEditTest extends AbstractTestCase

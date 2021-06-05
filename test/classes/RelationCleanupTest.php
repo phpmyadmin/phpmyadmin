@@ -12,9 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use function array_merge;
 
 /**
- * PhpMyAdmin\Tests\RelationCleanupTest class
- *
- * this class is for testing PhpMyAdmin\RelationCleanup methods
+ * @covers \PhpMyAdmin\RelationCleanup
  */
 class RelationCleanupTest extends AbstractTestCase
 {

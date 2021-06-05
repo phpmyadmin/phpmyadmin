@@ -20,6 +20,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportCsv
  * @group medium
  */
 class ExportCsvTest extends AbstractTestCase

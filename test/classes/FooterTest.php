@@ -10,6 +10,9 @@ use PhpMyAdmin\Footer;
 
 use function json_encode;
 
+/**
+ * @covers \PhpMyAdmin\Footer
+ */
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */

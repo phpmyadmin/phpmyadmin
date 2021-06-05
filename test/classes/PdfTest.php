@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
 
+/**
+ * @covers \PhpMyAdmin\Pdf
+ */
 class PdfTest extends AbstractTestCase
 {
     /**

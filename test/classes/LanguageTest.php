@@ -11,6 +11,11 @@ use function count;
 use function is_readable;
 use function strtolower;
 
+/**
+ * @uses \PhpMyAdmin\LanguageManager
+ *
+ * @covers \PhpMyAdmin\Language
+ */
 class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */

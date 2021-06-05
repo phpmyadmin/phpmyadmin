@@ -11,6 +11,9 @@ use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\BinlogController
+ */
 class BinlogControllerTest extends AbstractTestCase
 {
     /**

@@ -14,7 +14,7 @@ use function time;
 use const PHP_INT_MAX;
 
 /**
- * Tests for import functions
+ * @covers \PhpMyAdmin\Import
  */
 class ImportTest extends AbstractTestCase
 {

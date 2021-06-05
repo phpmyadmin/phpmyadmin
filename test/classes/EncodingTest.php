@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Charset Conversions
- */
 
 declare(strict_types=1);
 
@@ -24,7 +21,7 @@ use const LC_ALL;
 use const PHP_INT_SIZE;
 
 /**
- * Tests for Charset Conversions
+ * @covers \PhpMyAdmin\Encoding
  */
 class EncodingTest extends AbstractTestCase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for faked database access
- */
 
 declare(strict_types=1);
 
@@ -13,7 +10,7 @@ use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
 
 /**
- * Tests basic functionality of dummy dbi driver
+ * @covers \PhpMyAdmin\DatabaseInterface
  */
 class DatabaseInterfaceTest extends AbstractTestCase
 {

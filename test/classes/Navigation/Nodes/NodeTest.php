@@ -10,6 +10,9 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\Node
+ */
 class NodeTest extends AbstractTestCase
 {
     /**

@@ -6,6 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
 
+/**
+ * @covers \PhpMyAdmin\Bookmark
+ */
 class BookmarkTest extends AbstractTestCase
 {
     /**

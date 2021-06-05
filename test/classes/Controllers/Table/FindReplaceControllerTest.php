@@ -11,6 +11,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\FindReplaceController
+ */
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

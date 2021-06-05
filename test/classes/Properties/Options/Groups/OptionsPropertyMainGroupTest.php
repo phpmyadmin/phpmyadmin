@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup
+ */
 class OptionsPropertyMainGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyMainGroup */

@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema
+ */
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @var EpsRelationSchema */

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for faked database access
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 
 /**
- * Tests basic functionality of dummy dbi driver
+ * @coversNothing
  */
 class DbiDummyTest extends AbstractTestCase
 {

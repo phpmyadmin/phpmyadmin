@@ -8,10 +8,7 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 
 /**
- * PhpMyAdmin\ExportTest class
- *
- * this class is for testing PhpMyAdmin\Export methods
- *
+ * @covers \PhpMyAdmin\Export
  * @group large
  */
 class ExportTest extends AbstractTestCase

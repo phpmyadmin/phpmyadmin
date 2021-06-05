@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\MrgMyisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Engines\MrgMyisam
+ */
 class MrgMyisamTest extends AbstractTestCase
 {
     /** @var MrgMyisam */

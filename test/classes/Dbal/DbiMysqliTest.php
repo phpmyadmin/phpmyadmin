@@ -14,6 +14,9 @@ use const MYSQLI_BOTH;
 use const MYSQLI_NUM;
 use const PHP_VERSION_ID;
 
+/**
+ * @covers \PhpMyAdmin\Dbal\DbiMysqli
+ */
 class DbiMysqliTest extends AbstractTestCase
 {
     /** @var DbiMysqli */

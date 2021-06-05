@@ -8,6 +8,9 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem
+ */
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem|MockObject */

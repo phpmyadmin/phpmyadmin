@@ -10,6 +10,9 @@ use PhpMyAdmin\Menu;
 use function define;
 use function defined;
 
+/**
+ * @covers \PhpMyAdmin\Menu
+ */
 class MenuTest extends AbstractTestCase
 {
     /**

@@ -14,6 +14,9 @@ use PhpMyAdmin\Url;
 use function __;
 use function _pgettext;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Table\PrivilegesController
+ */
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**

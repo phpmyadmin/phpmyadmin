@@ -9,6 +9,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Database\Triggers
+ */
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */

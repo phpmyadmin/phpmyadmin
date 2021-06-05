@@ -12,6 +12,7 @@ use function __;
 use function str_repeat;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportOds
  * @requires extension zip
  */
 class ImportOdsTest extends AbstractTestCase

@@ -15,6 +15,9 @@ use function __;
 use function array_sum;
 use function htmlspecialchars;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController
+ */
 class QueriesControllerTest extends AbstractTestCase
 {
     /** @var Data */

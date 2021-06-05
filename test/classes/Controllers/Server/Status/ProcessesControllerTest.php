@@ -14,6 +14,9 @@ use PhpMyAdmin\Url;
 use function __;
 use function htmlspecialchars;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\ProcessesController
+ */
 class ProcessesControllerTest extends AbstractTestCase
 {
     /** @var Data */

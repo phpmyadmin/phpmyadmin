@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Engines\PerformanceSchema
+ */
 class PerformanceSchemaTest extends AbstractTestCase
 {
     /** @var PerformanceSchema */

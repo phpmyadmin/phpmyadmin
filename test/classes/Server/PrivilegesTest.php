@@ -26,9 +26,7 @@ use function htmlspecialchars;
 use function implode;
 
 /**
- * PhpMyAdmin\Tests\Server\PrivilegesTest class
- *
- * this class is for testing PhpMyAdmin\Server\Privileges methods
+ * @covers \PhpMyAdmin\Server\Privileges
  */
 class PrivilegesTest extends AbstractTestCase
 {

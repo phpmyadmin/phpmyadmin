@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for ErrorHandler
- */
 
 declare(strict_types=1);
 
@@ -14,6 +11,9 @@ use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
+/**
+ * @covers \PhpMyAdmin\ErrorHandler
+ */
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */

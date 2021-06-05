@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema
+ */
 class PdfRelationSchemaTest extends AbstractTestCase
 {
     /** @var PdfRelationSchema */

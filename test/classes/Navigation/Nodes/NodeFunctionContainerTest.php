@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer
+ */
 class NodeFunctionContainerTest extends AbstractTestCase
 {
     /**

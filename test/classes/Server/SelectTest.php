@@ -11,9 +11,7 @@ use PhpMyAdmin\Util;
 use function __;
 
 /**
- * PhpMyAdmin\Tests\Server\SelectTest class
- *
- * this class is for testing PhpMyAdmin\Server\Select methods
+ * @covers \PhpMyAdmin\Server\Select
  */
 class SelectTest extends AbstractTestCase
 {

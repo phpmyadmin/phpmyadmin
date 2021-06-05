@@ -12,6 +12,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function __;
 use function basename;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
+ */
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */

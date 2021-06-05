@@ -10,6 +10,9 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Database\Qbe
+ */
 class QbeTest extends AbstractTestCase
 {
     /** @var Qbe */

@@ -8,6 +8,9 @@ use PhpMyAdmin\Url;
 
 use function urldecode;
 
+/**
+ * @covers \PhpMyAdmin\Url
+ */
 class UrlTest extends AbstractTestCase
 {
     /**

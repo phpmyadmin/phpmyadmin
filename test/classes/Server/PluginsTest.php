@@ -10,6 +10,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Server\Plugins
+ */
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */

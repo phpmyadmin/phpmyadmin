@@ -9,6 +9,9 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Exception;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\NodeFactory
+ */
 class NodeFactoryTest extends AbstractTestCase
 {
     /**

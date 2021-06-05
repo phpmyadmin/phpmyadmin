@@ -14,6 +14,9 @@ use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
+ */
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */

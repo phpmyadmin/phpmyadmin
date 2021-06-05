@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for methods under Config file generator
- */
 
 declare(strict_types=1);
 
@@ -13,6 +10,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionClass;
 
+/**
+ * @covers \PhpMyAdmin\Setup\ConfigGenerator
+ */
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**

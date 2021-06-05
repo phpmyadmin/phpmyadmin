@@ -8,6 +8,7 @@ use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema
  * @requires extension xmlwriter
  */
 class DiaRelationSchemaTest extends AbstractTestCase

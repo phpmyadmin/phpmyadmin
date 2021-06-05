@@ -22,6 +22,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportMediawiki
  * @group medium
  */
 class ExportMediawikiTest extends AbstractTestCase

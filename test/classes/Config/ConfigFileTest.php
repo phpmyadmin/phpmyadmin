@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Config File Management
- */
 
 declare(strict_types=1);
 
@@ -15,7 +12,7 @@ use function array_keys;
 use function count;
 
 /**
- * Tests for Config File Management
+ * @covers \PhpMyAdmin\Config\ConfigFile
  */
 class ConfigFileTest extends AbstractTestCase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests zip extension usage.
- */
 
 declare(strict_types=1);
 
@@ -17,8 +14,7 @@ use function tempnam;
 use function unlink;
 
 /**
- * Tests zip extension usage.
- *
+ * @covers \PhpMyAdmin\ZipExtension
  * @requires extension zip
  */
 class ZipExtensionTest extends AbstractTestCase

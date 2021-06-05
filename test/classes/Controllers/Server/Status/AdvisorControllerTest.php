@@ -12,6 +12,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
+ */
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var Response */

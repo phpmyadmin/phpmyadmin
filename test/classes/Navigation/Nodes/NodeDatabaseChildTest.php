@@ -11,6 +11,9 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\MockObject\MockObject;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
+ */
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**

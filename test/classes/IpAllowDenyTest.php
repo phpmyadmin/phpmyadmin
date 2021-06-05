@@ -8,9 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 
 /**
- * PhpMyAdmin\Tests\IpAllowDenyTest class
- *
- * this class is for testing PhpMyAdmin\IpAllowDeny
+ * @covers \PhpMyAdmin\IpAllowDeny
  */
 class IpAllowDenyTest extends AbstractTestCase
 {

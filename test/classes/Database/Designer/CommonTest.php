@@ -10,6 +10,9 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 
+/**
+ * @covers \PhpMyAdmin\Database\Designer\Common
+ */
 class CommonTest extends AbstractTestCase
 {
     /** @var Common */

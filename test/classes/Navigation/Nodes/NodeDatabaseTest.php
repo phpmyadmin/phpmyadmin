@@ -8,6 +8,9 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
+ */
 class NodeDatabaseTest extends AbstractTestCase
 {
     /**

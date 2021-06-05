@@ -15,6 +15,9 @@ use function ob_start;
 use function strlen;
 use function substr;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController
+ */
 class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void

@@ -10,6 +10,7 @@ use PhpMyAdmin\Relation;
 use function __;
 
 /**
+ * @covers \PhpMyAdmin\Relation
  * @group medium
  */
 class RelationTest extends AbstractTestCase

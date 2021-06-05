@@ -8,6 +8,9 @@ use FastRoute\Dispatcher;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
 
+/**
+ * @covers \PhpMyAdmin\Routing
+ */
 class RoutingTest extends AbstractTestCase
 {
     /**

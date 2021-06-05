@@ -13,6 +13,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
+/**
+ * @covers \PhpMyAdmin\Sql
+ */
 class SqlTest extends AbstractTestCase
 {
     /** @var Sql */

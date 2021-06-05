@@ -12,6 +12,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
+ */
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */

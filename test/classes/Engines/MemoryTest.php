@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_memory
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,9 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Memory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Memory
+ */
 class MemoryTest extends AbstractTestCase
 {
     /** @var Memory */

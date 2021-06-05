@@ -14,6 +14,9 @@ use PhpMyAdmin\Tests\Stubs\Response;
 use function __;
 use function htmlspecialchars;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\EnginesController
+ */
 class EnginesControllerTest extends AbstractTestCase
 {
     /**

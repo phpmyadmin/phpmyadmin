@@ -24,6 +24,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
+ * @covers \PhpMyAdmin\Plugins\Export\ExportLatex
  * @group medium
  */
 class ExportLatexTest extends AbstractTestCase

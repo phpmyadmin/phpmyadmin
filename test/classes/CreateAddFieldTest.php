@@ -9,7 +9,7 @@ use PhpMyAdmin\CreateAddField;
 use function json_encode;
 
 /**
- * This class is for testing PhpMyAdmin\CreateAddField methods
+ * @covers \PhpMyAdmin\CreateAddField
  */
 class CreateAddFieldTest extends AbstractTestCase
 {

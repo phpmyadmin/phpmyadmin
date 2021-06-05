@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Config\Forms;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @coversNothing
+ */
 class FormListTest extends AbstractTestCase
 {
     protected function setUp(): void

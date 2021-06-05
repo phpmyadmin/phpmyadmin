@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for MySQL Charsets
- */
 
 declare(strict_types=1);
 
@@ -10,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Charsets;
 
 /**
- * Tests for MySQL Charsets
+ * @covers \PhpMyAdmin\Charsets
  */
 class CharsetsTest extends AbstractTestCase
 {

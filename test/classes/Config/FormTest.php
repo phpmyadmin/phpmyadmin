@@ -14,6 +14,9 @@ use function array_keys;
 use function method_exists;
 use function preg_match;
 
+/**
+ * @covers \PhpMyAdmin\Config\Form
+ */
 class FormTest extends AbstractTestCase
 {
     /** @var Form */

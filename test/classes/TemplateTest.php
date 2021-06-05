@@ -8,6 +8,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\Error\LoaderError;
 
+/**
+ * @covers \PhpMyAdmin\Template
+ */
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */

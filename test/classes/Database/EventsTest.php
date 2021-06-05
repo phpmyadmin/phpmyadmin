@@ -10,6 +10,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Database\Events
+ */
 class EventsTest extends AbstractTestCase
 {
     /** @var Events */

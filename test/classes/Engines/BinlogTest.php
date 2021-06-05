@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PMA_StorageEngine_binlog
- */
 
 declare(strict_types=1);
 
@@ -10,6 +7,9 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Binlog;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Engines\Binlog
+ */
 class BinlogTest extends AbstractTestCase
 {
     /** @var Binlog */

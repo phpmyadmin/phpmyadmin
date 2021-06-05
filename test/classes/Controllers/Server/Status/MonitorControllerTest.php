@@ -14,6 +14,9 @@ use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController
+ */
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var Data */

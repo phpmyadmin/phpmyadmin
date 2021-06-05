@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\Database\MultiTableQueryController
+ */
 class MultiTableQueryControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

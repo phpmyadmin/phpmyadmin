@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for all input/output transformation plugins
- */
 
 declare(strict_types=1);
 
@@ -38,6 +35,8 @@ use const MYSQLI_TYPE_TINY;
 
 /**
  * Tests for different input/output transformation plugins
+ *
+ * @coversNothing
  */
 class TransformationPluginsTest extends AbstractTestCase
 {

@@ -10,6 +10,9 @@ use TCPDF;
 use function function_exists;
 use function imagecreatetruecolor;
 
+/**
+ * @covers \PhpMyAdmin\Gis\GisPoint
+ */
 class GisPointTest extends GisGeomTestCase
 {
     /**

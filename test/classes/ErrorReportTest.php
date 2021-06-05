@@ -22,9 +22,7 @@ use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 
 /**
- * PhpMyAdmin\Tests\ErrorReportTest class
- *
- * this class is for testing PhpMyAdmin\ErrorReport methods
+ * @covers \PhpMyAdmin\ErrorReport
  */
 class ErrorReportTest extends AbstractTestCase
 {

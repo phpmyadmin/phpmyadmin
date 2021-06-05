@@ -10,7 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for database search.
+ * @covers \PhpMyAdmin\Database\Search
  */
 class SearchTest extends AbstractTestCase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for environment like OS, PHP, modules, ...
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use function version_compare;
 use const PHP_VERSION;
 
 /**
- * Environment tests
+ * @coversNothing
  */
 class EnvironmentTest extends AbstractTestCase
 {

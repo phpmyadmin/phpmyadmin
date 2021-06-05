@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for transformation wrappers
- */
 
 declare(strict_types=1);
 
@@ -12,7 +9,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Version;
 
 /**
- * tests for transformation wrappers
+ * @covers \PhpMyAdmin\Transformations
  */
 class TransformationsTest extends AbstractTestCase
 {

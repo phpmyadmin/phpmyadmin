@@ -1,9 +1,4 @@
 <?php
-/**
- * StructureControllerTest class
- *
- * this class is for testing StructureController class
- */
 
 declare(strict_types=1);
 
@@ -30,9 +25,7 @@ use function defined;
 use function json_encode;
 
 /**
- * StructureControllerTest class
- *
- * this class is for testing StructureController class
+ * @covers \PhpMyAdmin\Controllers\Database\StructureController
  */
 class StructureControllerTest extends AbstractTestCase
 {
