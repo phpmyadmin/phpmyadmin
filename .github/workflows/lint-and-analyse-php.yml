@@ -45,11 +45,16 @@ jobs:
                   php-version: 7.1
             - name: Validate composer.json and composer.lock
               run: composer validate
-            - name: Cache module
-              uses: actions/cache@v2
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - uses: actions/cache@v2
               with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
             - name: Cache coding-standard
               uses: actions/cache@v2
               with:
@@ -75,11 +80,16 @@ jobs:
               with:
                   php-version: 7.2
                   extensions: mbstring, iconv, mysqli, zip, gd, bz2
-            - name: Cache module
-              uses: actions/cache@v2
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - uses: actions/cache@v2
               with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install
             - name: Analyse files with phpstan
