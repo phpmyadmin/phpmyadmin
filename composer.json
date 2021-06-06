@@ -63,10 +63,10 @@
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
-        "tecnickcom/tcpdf": "<6.2",
-        "pragmarx/google2fa": "<6.1.0 || >8.0",
-        "pragmarx/google2fa-qrcode": "<1.0.1",
-        "samyoul/u2f-php-server": "<1.1"
+        "bacon/bacon-qr-code": "<2.0",
+        "pragmarx/google2fa-qrcode": "<2.1",
+        "samyoul/u2f-php-server": "<1.1",
+        "tecnickcom/tcpdf": "<6.2"
     },
     "suggest": {
         "ext-openssl": "Cookie encryption",
@@ -78,10 +78,12 @@
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
-        "pragmarx/google2fa-qrcode": "For 2FA authentication",
+        "pragmarx/google2fa-qrcode": "^2.1 - For 2FA authentication",
+        "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
+        "bacon/bacon-qr-code": "^2.0",
         "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
@@ -89,7 +91,7 @@
         "phpstan/phpstan-phpunit": "^0.12.17",
         "phpstan/phpstan-webmozart-assert": "^0.12.12",
         "phpunit/phpunit": "^8.5 || ^9.5",
-        "pragmarx/google2fa-qrcode": "^1.0.1",
+        "pragmarx/google2fa-qrcode": "^2.1",
         "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",

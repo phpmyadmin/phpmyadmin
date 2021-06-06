@@ -396,7 +396,7 @@ composer update --no-interaction --no-dev --optimize-autoloader
 PACKAGES_VERSIONS=''
 case "$branch" in
     QA_4*) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server" ;;
-    *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server" ;;
+    *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code samyoul/u2f-php-server" ;;
 esac
 
 for PACKAGES in $PACKAGE_LIST
