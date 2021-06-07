@@ -388,7 +388,8 @@ fi
 # suggested package. Let's require it and then revert
 # composer.json to original state.
 cp composer.json composer.json.backup
-echo "* Running composer"
+COMPOSER_VERSION="$(composer --version)"
+echo "* Running composer (version: $COMPOSER_VERSION)"
 composer config platform.php "$PHP_REQ"
 composer update --no-interaction --no-dev --optimize-autoloader
 
@@ -435,8 +436,8 @@ if [ $do_test -eq 1 ] ; then
     create_phpunit_sandbox
     # Backup the files because the new autoloader will change the composer vendor
     backup_vendor_folder
-    # Generate an autoload for test class files
-    composer dump-autoload
+    # Generate an autoload for test class files (and include dev namespaces)
+    composer dump-autoload --dev || php -r "echo 'Requires: composer >= v2.1.2' . PHP_EOL; exit(1);"
     "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
@@ -453,6 +454,8 @@ if [ $do_test -eq 1 ] ; then
     fi
     # Remove PHPUnit cache file
     rm -f .phpunit.result.cache
+    # Generate an normal autoload (this is just a security, because normally the vendor folder will be restored)
+    composer dump-autoload
     # Remove libs installed for testing
     rm -rf build
     delete_phpunit_sandbox
