@@ -435,8 +435,8 @@ if [ $do_test -eq 1 ] ; then
     create_phpunit_sandbox
     # Backup the files because the new autoloader will change the composer vendor
     backup_vendor_folder
-    # Generate an autoload for test class files
-    composer dump-autoload
+    # Generate an autoload for test class files (and include dev namespaces)
+    composer dump-autoload --dev
     "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
@@ -453,6 +453,8 @@ if [ $do_test -eq 1 ] ; then
     fi
     # Remove PHPUnit cache file
     rm -f .phpunit.result.cache
+    # Generate an normal autoload (this is just a security, because normally the vendor folder will be restored)
+    composer dump-autoload
     # Remove libs installed for testing
     rm -rf build
     delete_phpunit_sandbox
