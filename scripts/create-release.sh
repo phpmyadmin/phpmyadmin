@@ -437,7 +437,7 @@ if [ $do_test -eq 1 ] ; then
     # Backup the files because the new autoloader will change the composer vendor
     backup_vendor_folder
     # Generate an autoload for test class files (and include dev namespaces)
-    composer dump-autoload --dev
+    composer dump-autoload --dev || php -r "echo 'Requires: composer >= v2.1.2' . PHP_EOL; exit(1);"
     "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
