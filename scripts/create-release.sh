@@ -388,7 +388,8 @@ fi
 # suggested package. Let's require it and then revert
 # composer.json to original state.
 cp composer.json composer.json.backup
-echo "* Running composer"
+COMPOSER_VERSION="$(composer --version)"
+echo "* Running composer (version: $COMPOSER_VERSION)"
 composer config platform.php "$PHP_REQ"
 composer update --no-interaction --no-dev --optimize-autoloader
 
