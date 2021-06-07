@@ -77,7 +77,6 @@
         "ext-zip": "For zip import and export",
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
-        "ext-imagick": "For 2FA authentication QR code generation",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "^2.1 - For 2FA authentication",
         "bacon/bacon-qr-code": "^2.0 - For 2FA authentication",

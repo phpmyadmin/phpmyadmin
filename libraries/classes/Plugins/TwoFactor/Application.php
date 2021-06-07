@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\TwoFactor;
 use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
@@ -39,12 +38,7 @@ class Application extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        if (extension_loaded('imagick')) {
-            $this->google2fa = new Google2FA();
-        } else {
-            $this->google2fa = new Google2FA(new SvgImageBackEnd());
-        }
-
+        $this->google2fa = new Google2FA();
         $this->google2fa->setWindow(8);
         if (isset($this->twofactor->config['settings']['secret'])) {
             return;

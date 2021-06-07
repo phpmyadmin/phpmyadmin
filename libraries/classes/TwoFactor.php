@@ -123,7 +123,7 @@ class TwoFactor
             $result[] = 'simple';
         }
 
-        if (class_exists(Google2FA::class)) {
+        if (class_exists(Google2FA::class) && class_exists('BaconQrCode\Renderer\ImageRenderer')) {
             $result[] = 'application';
         }
 
@@ -149,7 +149,7 @@ class TwoFactor
             ];
         }
 
-        if (! class_exists('BaconQrCode\Renderer\Image\Png')) {
+        if (! class_exists('BaconQrCode\Renderer\ImageRenderer')) {
             $result[] = [
                 'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
