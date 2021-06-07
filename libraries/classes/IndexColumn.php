@@ -17,17 +17,14 @@ class IndexColumn
     /** @var int The column sequence number in the index, starting with 1. */
     private $seqInIndex = 1;
 
-    /**
-     * @var string How the column is sorted in the index. "A" (Ascending) or
-     * NULL (Not sorted)
-     */
+    /** @var string|null How the column is sorted in the index. "A" (Ascending) or NULL (Not sorted) */
     private $collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
      * NULL if the entire column is indexed.
      *
-     * @var int
+     * @var int|null
      */
     private $subPart = null;
 
@@ -46,7 +43,7 @@ class IndexColumn
      * for small tables. The higher the cardinality, the greater the chance that
      * MySQL uses the index when doing joins.
      *
-     * @var int
+     * @var int|null
      */
     private $cardinality = null;
 
@@ -107,7 +104,7 @@ class IndexColumn
     /**
      * Return the column collation
      *
-     * @return string column collation
+     * @return string|null column collation
      */
     public function getCollation()
     {
@@ -117,7 +114,7 @@ class IndexColumn
     /**
      * Returns the cardinality of the column
      *
-     * @return int cardinality of the column
+     * @return int|null cardinality of the column
      */
     public function getCardinality()
     {
@@ -159,7 +156,7 @@ class IndexColumn
      * Returns the number of indexed characters if the column is only
      * partly indexed
      *
-     * @return int the number of indexed characters
+     * @return int|null the number of indexed characters
      */
     public function getSubPart()
     {

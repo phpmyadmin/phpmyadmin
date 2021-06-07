@@ -1094,13 +1094,6 @@
       <code>(string) $name</code>
     </RedundantCastGivenDocblockType>
   </file>
-  <file src="libraries/classes/IndexColumn.php">
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-  </file>
   <file src="libraries/classes/InsertEdit.php">
     <InvalidArgument occurrences="1">
       <code>$currentResult</code>
