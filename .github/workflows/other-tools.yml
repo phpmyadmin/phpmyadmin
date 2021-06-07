@@ -32,7 +32,7 @@ jobs:
               with:
                   php-version: 7.1
                   extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:2.0.14
+                  tools: composer:v2
             - name: Get Composer Cache Directory
               id: composer-cache
               run: |
