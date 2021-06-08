@@ -60,6 +60,8 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.gitignore)
         foundFile;;
+        */infection.json.dist)
+        foundFile;;
         */.php_cs.cache)
         foundFile;;
         */makefile)

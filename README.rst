@@ -40,6 +40,10 @@ Code status
     :alt: Type coverage
     :target: https://shepherd.dev/github/phpmyadmin/phpmyadmin
 
+.. image:: https://badge.stryker-mutator.io/github.com/phpmyadmin/phpmyadmin/master
+    :alt: Infection MSI
+    :target: https://infection.github.io
+
 
 Download
 --------
