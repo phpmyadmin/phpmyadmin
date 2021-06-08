@@ -1,0 +1,17 @@
+{
+    "source": {
+        "directories": [
+            "libraries\/classes"
+        ]
+    },
+    "logs": {
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "mutators": {
+        "@default": true
+    },
+    "minMsi": 28,
+    "minCoveredMsi": 58
+}
