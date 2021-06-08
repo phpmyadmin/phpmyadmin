@@ -203,6 +203,34 @@ class StructureControllerTest extends AbstractTestCase
     }
 
     /**
+     * Tests for adjustViews()
+     */
+    public function testAdjustViewsPrivileges(): void
+    {
+        $class = new ReflectionClass(StructureController::class);
+        $method = $class->getMethod('adjustViews');
+        $method->setAccessible(true);
+
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
+        $ctrl = new StructureController(
+            $this->response,
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $relation,
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            $GLOBALS['dbi'],
+            new FlashMessages()
+        );
+
+        $this->assertFalse(
+            $method->invokeArgs($ctrl, [[]])
+        );
+    }
+
+    /**
      * Tests for displayHtmlForColumnChange()
      */
     public function testDisplayHtmlForColumnChange(): void

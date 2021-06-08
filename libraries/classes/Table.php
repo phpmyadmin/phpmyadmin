@@ -1209,7 +1209,7 @@ class Table
                 // This is to avoid some issues when renaming databases with views
                 // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
                 // Executing it.
-                if ($move || $_POST['adjust_views']) {
+                if ($move || isset($_POST['adjust_views'])) {
                     $dbi->selectDb($targetDb);
                 }
 

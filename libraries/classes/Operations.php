@@ -926,9 +926,8 @@ class Operations
             return;
         }
 
-        $this->dbi->selectDb('information_schema');
         $query_views = 'SELECT `TABLE_SCHEMA`,`VIEW_DEFINITION`,`TABLE_NAME` '
-            . 'FROM `VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
+            . 'FROM `information_schema`.`VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
 
         $views = $this->dbi->query($query_views);
 
