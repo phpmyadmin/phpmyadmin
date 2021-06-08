@@ -42,22 +42,19 @@ class VariablesControllerTest extends AbstractTestCase
         $controller->index();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            '<fieldset class="pma-fieldset" id="tableFilter">',
-            $html
-        );
+        $this->assertStringContainsString('<div class="card mb-3" id="tableFilter">', $html);
         $this->assertStringContainsString(
             'index.php?route=/server/status/variables',
             $html
         );
 
         $this->assertStringContainsString(
-            '<label for="filterText">Containing the word:</label>',
+            '<label class="col-12 col-form-label" for="filterText">Containing the word:</label>',
             $html
         );
 
         $this->assertStringContainsString(
-            '<label for="filterAlert">',
+            '<label class="form-check-label" for="filterAlert">',
             $html
         );
         $this->assertStringContainsString(
@@ -112,10 +109,7 @@ class VariablesControllerTest extends AbstractTestCase
             'Aborted clients',
             $html
         );
-        $this->assertStringContainsString(
-            '<span class="allfine">',
-            $html
-        );
+        $this->assertStringContainsString('<span class="text-success">', $html);
         $this->assertStringContainsString(
             'Aborted connects',
             $html

@@ -15,7 +15,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Subgroup Header
      *
-     * @var PropertyItem
+     * @var PropertyItem|null
      */
     private $subgroupHeader;
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -38,7 +38,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Gets the subgroup header
      *
-     * @return PropertyItem
+     * @return PropertyItem|null
      */
     public function getSubgroupHeader()
     {

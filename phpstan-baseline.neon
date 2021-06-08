@@ -311,6 +311,11 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
+			message: "#^Comparison operation \"\\<\\=\\>\" between \\(array\\|float\\|int\\) and \\(array\\|float\\|int\\) results in an error\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getProtoInfo\\(\\) should return bool\\|int but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -319,41 +324,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Cannot access property \\$connect_errno on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot access property \\$connect_error on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method options\\(\\) on mysqli\\|false\\.$#"
-			count: 3
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method real_connect\\(\\) on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method ssl_set\\(\\) on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between true and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
-			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:getMIMESubtype\\(\\)\\.$#"
@@ -408,11 +378,6 @@ parameters:
 		-
 			message: "#^Parameter \\#9 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 3
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -526,16 +491,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
@@ -547,28 +502,13 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
 			count: 4
 			path: libraries/classes/File.php
-
-		-
-			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:getDebugMessage\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
@@ -831,11 +771,6 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
-			message: "#^Argument of an invalid type \\(array\\<int, string\\>\\|false\\) supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Offset int does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Import.php
@@ -951,11 +886,6 @@ parameters:
 			path: libraries/classes/Plugins.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Plugins\\:\\:getString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
@@ -989,11 +919,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
@@ -1821,17 +1746,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:getResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -1872,11 +1787,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2021,11 +1931,6 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
-			count: 1
-			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
 			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
@@ -2079,11 +1984,6 @@ parameters:
 			message: "#^Cannot call method getNativeName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
 			count: 1
 			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$name of static method PhpMyAdmin\\\\Navigation\\\\NodeFactory\\:\\:getInstance\\(\\) expects string, array\\<string, string\\> given\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeColumnTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"

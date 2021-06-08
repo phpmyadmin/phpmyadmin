@@ -146,7 +146,7 @@ class HomeController extends AbstractController
         }
 
         $databaseServer = [];
-        if ($server > 0 && $cfg['ShowServerInfo']) {
+        if ($server > 0) {
             $hostInfo = '';
             if (! empty($cfg['Server']['verbose'])) {
                 $hostInfo .= $cfg['Server']['verbose'];
@@ -320,7 +320,7 @@ class HomeController extends AbstractController
             if ($gc_time < $cfg['LoginCookieValidity']) {
                 trigger_error(
                     __(
-                        'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .
+                        'Your PHP parameter [a@https://www.php.net/manual/en/session.' .
                         'configuration.php#ini.session.gc-maxlifetime@_blank]session.' .
                         'gc_maxlifetime[/a] is lower than cookie validity configured ' .
                         'in phpMyAdmin, because of this, your login might expire sooner ' .

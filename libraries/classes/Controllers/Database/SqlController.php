@@ -63,6 +63,8 @@ class SqlController extends AbstractController
         $back = $goto;
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
+            $db,
+            '',
             true,
             false,
             isset($_POST['delimiter'])

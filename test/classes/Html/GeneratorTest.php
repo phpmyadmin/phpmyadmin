@@ -173,7 +173,7 @@ class GeneratorTest extends AbstractTestCase
 
         $target = 'docu';
         $lang = _pgettext('PHP documentation language', 'en');
-        $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
+        $expected = '<a href="./url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
             . __('Documentation') . '" class="icon ic_b_help"></a>';

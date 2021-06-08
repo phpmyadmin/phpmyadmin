@@ -301,7 +301,7 @@ class ExportOdt extends ExportPlugin
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
 
-                if (! isset($row[$j]) || $row[$j] === null) {
+                if (! isset($row[$j])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($GLOBALS[$what . '_null'])

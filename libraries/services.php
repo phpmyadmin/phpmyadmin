@@ -206,6 +206,7 @@ return [
                 '$sqlQueryForm' => '@sql_query_form',
                 '$template' => '@template',
                 '$relation' => '@relation',
+                '$dbi' => '@dbi',
             ],
         ],
         'transformations' => [

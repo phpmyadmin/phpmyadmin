@@ -215,7 +215,7 @@ class ExportHtmlword extends ExportPlugin
 
         if (
             ! $this->export->outputHandler(
-                '<table class="pma-table w-100" cellspacing="1">'
+                '<table width="100%" cellspacing="1">'
             )
         ) {
             return false;
@@ -254,7 +254,7 @@ class ExportHtmlword extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $schema_insert = '<tr class="print-category">';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j]) || $row[$j] === null) {
+                if (! isset($row[$j])) {
                     $value = $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     $value = $row[$j];
@@ -292,7 +292,7 @@ class ExportHtmlword extends ExportPlugin
     {
         global $dbi;
 
-        $schema_insert = '<table class="pma-table w-100" cellspacing="1">'
+        $schema_insert = '<table width="100%" cellspacing="1">'
             . '<tr class="print-category">'
             . '<th class="print">'
             . __('Column')
@@ -392,7 +392,7 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $schema_insert .= '<table class="pma-table w-100" cellspacing="1">';
+        $schema_insert .= '<table width="100%" cellspacing="1">';
 
         $schema_insert .= '<tr class="print-category">';
         $schema_insert .= '<th class="print">'
@@ -504,7 +504,7 @@ class ExportHtmlword extends ExportPlugin
     {
         global $dbi;
 
-        $dump = '<table class="pma-table w-100" cellspacing="1">';
+        $dump = '<table width="100%" cellspacing="1">';
         $dump .= '<tr class="print-category">';
         $dump .= '<th class="print">' . __('Name') . '</th>';
         $dump .= '<td class="print"><strong>' . __('Time') . '</strong></td>';

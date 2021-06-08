@@ -532,7 +532,7 @@ class CoreTest extends AbstractNetworkTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $this->assertEquals(
             Core::getPHPDocLink('function'),
-            './url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F'
+            './url.php?url=https%3A%2F%2Fwww.php.net%2Fmanual%2F'
             . $lang . '%2Ffunction'
         );
     }

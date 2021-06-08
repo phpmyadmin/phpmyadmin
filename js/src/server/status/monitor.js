@@ -1939,7 +1939,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     function buildLogTable (data, groupInserts) {
         var rows = data.rows;
         var cols = [];
-        var $table = $('<table class="pma-table sortable"></table>');
+        var $table = $('<table class="table table-light table-striped table-hover align-middle sortable"></table>');
         var $tBody;
         var $tRow;
         var $tCell;
@@ -2092,7 +2092,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             var totalTime = 0;
             // Float sux, I'll use table :(
             $('#queryAnalyzerDialog').find('div.placeHolder')
-                .html('<table class="pma-table" width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
+                .html('<table class="table table-borderless"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
             var explain = '<b>' + Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
@@ -2111,10 +2111,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 var newValue = (value === null) ? 'null' : Functions.escapeHtml(value);
 
                 if (key === 'type' && newValue.toLowerCase() === 'all') {
-                    newValue = '<span class="attention">' + newValue + '</span>';
+                    newValue = '<span class="text-danger">' + newValue + '</span>';
                 }
                 if (key === 'Extra') {
-                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
+                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="text-danger">$1</span>');
                 }
                 explain += key + ': ' + newValue + '<br>';
             };
@@ -2137,7 +2137,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="pma-table queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="table table-sm table-light table-striped table-hover w-auto queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 

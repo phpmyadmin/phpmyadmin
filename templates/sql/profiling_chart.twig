@@ -1,8 +1,8 @@
 <fieldset class="pma-fieldset">
   <legend>{% trans 'Profiling' %}</legend>
-  <div class="float-start">
+  <div class="float-start mx-2">
     <h3>{% trans 'Detailed profile' %}</h3>
-    <table class="pma-table" id="profiletable">
+    <table class="table table-sm table-striped" id="profiletable">
       <thead>
       <tr>
         <th>
@@ -34,9 +34,9 @@
     </table>
   </div>
 
-  <div class="float-start">
+  <div class="float-start mx-2">
     <h3>{% trans 'Summary by state' %}{{ show_mysql_docu('general-thread-states') }}</h3>
-    <table class="pma-table" id="profilesummarytable">
+    <table class="table table-sm table-striped" id="profilesummarytable">
       <thead>
       <tr>
         <th>

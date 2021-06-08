@@ -149,7 +149,7 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
-     * @see https://secure.php.net/gettype
+     * @see https://www.php.net/gettype
      *
      * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
@@ -328,10 +328,8 @@ class Core
             'de',
             'it',
             'ja',
-            'pl',
             'ro',
             'ru',
-            'fa',
             'es',
             'tr',
         ];
@@ -341,7 +339,7 @@ class Core
             $lang = $GLOBALS['lang'];
         }
 
-        return self::linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
+        return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);
     }
 
     /**
@@ -840,7 +838,7 @@ class Core
             'mariadb.com',
             /* php.net domains */
             'php.net',
-            'secure.php.net',
+            'www.php.net',
             /* Github domains*/
             'github.com',
             'www.github.com',

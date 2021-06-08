@@ -58,6 +58,7 @@
         "symfony/polyfill-ctype": "^1.17.0",
         "symfony/polyfill-mbstring": "^1.17.0",
         "twig/twig": "^3.0.1",
+        "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
@@ -80,19 +81,21 @@
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
-        "php-webdriver/webdriver": "^1.8",
+        "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^0.12.79",
         "phpstan/phpstan-phpunit": "^0.12.17",
+        "phpstan/phpstan-webmozart-assert": "^0.12.12",
         "phpunit/phpunit": "^8.5 || ^9.5",
         "pragmarx/google2fa-qrcode": "^1.0.1",
+        "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",
         "symfony/finder": "^5.2.3",
         "symfony/twig-bridge": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.1",
-        "vimeo/psalm": "^4.7.0"
+        "vimeo/psalm": "^4.7.3"
     },
     "extra": {
         "branch-alias": {

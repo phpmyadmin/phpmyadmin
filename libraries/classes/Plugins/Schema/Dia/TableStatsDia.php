@@ -19,10 +19,6 @@ use function sprintf;
  *
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
- *
- * @see     PMA_DIA
- *
- * @name    Table_Stats_Dia
  */
 class TableStatsDia extends TableStats
 {
@@ -30,7 +26,7 @@ class TableStatsDia extends TableStats
     public $tableId;
 
     /** @var string */
-    public $tableColor;
+    public $tableColor = '#000000';
 
     /**
      * @param Dia    $diagram    The current dia document

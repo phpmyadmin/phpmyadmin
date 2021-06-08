@@ -201,18 +201,6 @@ dfn:hover {
   border-bottom: 1px solid $border-color;
 }
 
-.pma-table th {
-  font-family: $font-family-bold;
-  color: $th-color !important;
-  font-weight: normal;
-
-  a {
-    font-family: $font-family-bold;
-    color: $th-color !important;
-    font-weight: normal;
-  }
-}
-
 .data th a:hover {
   color: #999 !important;
 }
@@ -305,30 +293,10 @@ legend {
   font-size: 1em;
 }
 
-.some-margin {
-  margin: 20px;
-}
-
 /* buttons in some browsers (eg. Konqueror) are block elements,
    this breaks design */
 button {
   display: inline;
-}
-
-.pma-table {
-  border-collapse: collapse;
-
-  caption,
-  th,
-  td {
-    padding: 0.6em;
-    vertical-align: top;
-    touch-action: manipulation;
-  }
-}
-
-.pma-table th {
-  text-align: left;
 }
 
 img,
@@ -359,19 +327,6 @@ select {
   clear: both;
 }
 
-.pma-table {
-  &.nospacing {
-    border-spacing: 0;
-  }
-
-  &.nopadding tr {
-    th,
-    td {
-      padding: 0;
-    }
-  }
-}
-
 .paddingtop {
   padding-top: 1em;
 }
@@ -397,10 +352,6 @@ div.tools {
   a {
     color: $blue-header !important;
   }
-}
-
-.pma-table tr.noclick td:first-child::before {
-  content: "";
 }
 
 .pma-fieldset.tblFooters {
@@ -437,72 +388,6 @@ button.mult_submit {
   margin: 0;
 }
 
-.pma-table tr {
-  text-align: left;
-  border-bottom: 1px solid #eee;
-
-  // odd items 1,3,5,7...
-  &:nth-child(odd) {
-    background: $bg-two;
-    border-bottom: none;
-  }
-
-  // even items 2,4,6,8...
-  &:nth-child(even) {
-    background: $bg-one;
-    border-bottom: none;
-  }
-
-  // only one item
-  &:only-child {
-    background: none;
-  }
-
-  th {
-    text-align: left;
-    border-bottom: 1px solid #eee;
-  }
-
-  &.odd,
-  &.even {
-    border-left: 3px solid transparent;
-  }
-}
-
-/* marked table rows */
-.pma-table td.marked:not(.nomarker) {
-  color: $main-color;
-}
-
-.pma-table tr.marked:not(.nomarker) {
-  color: $main-color;
-
-  td,
-  th {
-    color: $main-color;
-  }
-}
-
-.pma-table td.marked:not(.nomarker) {
-  background-color: $browse-marker-background;
-}
-
-.pma-table tr {
-  &.marked:not(.nomarker) {
-    border-left: 3px solid #24a0da;
-  }
-
-  &:not(.nopointer):hover {
-    background-color: $browse-marker-background;
-    color: $main-color;
-  }
-}
-
-.hover:not(.nopointer) {
-  background-color: $browse-marker-background;
-  color: $main-color;
-}
-
 .structure_actions_dropdown {
   background-color: $browse-marker-background;
   color: $main-color;
@@ -512,26 +397,13 @@ button.mult_submit {
   }
 }
 
-.pma-table tr.hover:not(.nopointer) th {
-  background-color: $browse-marker-background;
-  color: $th-pointer-color;
-}
-
-/* hovered index table rows */
-#table_index tbody:hover tr,
-#table_index tbody:hover th,
-#table_index tbody:hover td {
-  background: $browse-marker-background;
-  color: $main-color;
-}
-
 /* marks table rows/cells if the db field is in a where condition */
 
 .condition {
   border-color: $browse-warning-color !important;
 }
 
-.pma-table th.condition {
+th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
   color: $body-bg !important;
@@ -543,7 +415,7 @@ button.mult_submit {
   }
 }
 
-.pma-table td {
+td {
   &.condition {
     border: 1px solid;
   }
@@ -555,30 +427,16 @@ button.mult_submit {
   }
 }
 
-.pma-table {
+table {
   .valueHeader,
   .value {
     text-align: right;
-    white-space: normal;
-  }
-
-  // IE doesnt handles 'pre' right
-  [class="value"] {
     white-space: normal;
   }
 }
 
 .value {
   font-family: $font-family-monospace;
-}
-
-.attention {
-  color: red;
-  font-weight: bold;
-}
-
-.allfine {
-  color: green;
 }
 
 img.lightbulb {
@@ -613,11 +471,6 @@ img.lightbulb {
   text-decoration: none;
   border-bottom: 1px dotted #999;
   color: inherit !important;
-}
-
-/* no extra space in table cells */
-.pma-table td .icon {
-  margin: 0;
 }
 
 .selectallarrow {
@@ -746,32 +599,6 @@ div#dataDisplay {
 
   th {
     line-height: 2em;
-  }
-}
-
-.pma-table {
-  &.calendar {
-    width: 100%;
-
-    td {
-      text-align: center;
-
-      a {
-        display: block;
-
-        &:hover {
-          background-color: #cfc;
-        }
-      }
-    }
-
-    th {
-      background-color: #d3dce3;
-    }
-
-    td.selected {
-      background-color: #fc9;
-    }
   }
 }
 
@@ -935,15 +762,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-/* Also used for the variables page */
-.pma-fieldset#tableFilter {
-  padding: 0.1em 1em;
-
-  input[type="submit"] {
-    margin-top: 9px;
-  }
-}
-
 div#serverStatusTabs {
   margin-top: 1em;
 }
@@ -1082,13 +900,6 @@ div#profilingchart {
   padding: 10px;
 }
 
-.chartOption {
-  float: left;
-  margin-right: 40px;
-}
-
-/* END table charting */
-
 /* querybox */
 
 #togglequerybox {
@@ -1185,10 +996,6 @@ li {
   a:hover img {
     border: 0.1em solid red;
   }
-}
-
-#fieldset_select_fields {
-  float: left;
 }
 
 #selflink {
@@ -1520,10 +1327,6 @@ input#input_import_file {
   margin: 5px 0 5px 0;
 }
 
-#filterText {
-  vertical-align: baseline;
-}
-
 #popup_background {
   display: none;
   position: fixed;
@@ -1808,20 +1611,6 @@ form {
 
 #create_table_form_minimal {
   display: block;
-}
-
-#fieldset_zoom_search table {
-  th,
-  td {
-    line-height: 35px;
-  }
-}
-
-#fieldset_table_qbe table {
-  th,
-  td {
-    line-height: 35px;
-  }
 }
 
 #db_or_table_specific_priv .tblFooters {
@@ -2397,6 +2186,10 @@ form.append_fields_form .tblFooters {
       margin: 0 65px 10px 10px;
     }
   }
+}
+
+.ui_tpicker_time_input {
+  width: 100%;
 }
 
 body .ui-widget {
@@ -3076,48 +2869,6 @@ meter {
     background: linear-gradient(white 3%, #ffd700 5%, transparent 10%, #ffd700);
   }
 }
-
-/* styles for sortable tables created with tablesorter jquery plugin */
-.pma-table th {
-  &.header {
-    cursor: pointer;
-    color: #235a81;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    .sorticon {
-      width: 16px;
-      height: 16px;
-      background-repeat: no-repeat;
-      background-position: right center;
-      display: inline-table;
-      vertical-align: middle;
-      float: right;
-    }
-  }
-
-  &.headerSortUp .sorticon {
-    background-image: url("../img/s_desc.png");
-  }
-
-  &.headerSortDown {
-    &:hover .sorticon {
-      background-image: url("../img/s_desc.png");
-    }
-
-    .sorticon {
-      background-image: url("../img/s_asc.png");
-    }
-  }
-
-  &.headerSortUp:hover .sorticon {
-    background-image: url("../img/s_asc.png");
-  }
-}
-
-/* end of styles of sortable tables */
 
 /* styles for jQuery-ui to support rtl languages */
 

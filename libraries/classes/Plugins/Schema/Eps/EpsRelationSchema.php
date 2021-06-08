@@ -39,7 +39,7 @@ class EpsRelationSchema extends ExportRelationSchema
     private $relations = [];
 
     /** @var int */
-    private $tablewidth;
+    private $tablewidth = 0;
 
     /**
      * Upon instantiation This starts writing the EPS document

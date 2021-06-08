@@ -29,13 +29,13 @@ class NodeTableContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTableContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
+                'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/structure',
-            $parent->links['text']
         );
         $this->assertEquals('tables', $parent->realName);
         $this->assertStringContainsString('tableContainer', $parent->classes);

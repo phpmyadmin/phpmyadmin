@@ -64,7 +64,7 @@ class UserGroups
         $dbi->freeResult($result);
         $template = new Template();
 
-        return $template->render('/server/user_groups/user_listings', [
+        return $template->render('server/user_groups/user_listings', [
             'user_group_special_chars' => $userGroupSpecialChars,
             'num_rows' => $numRows,
             'users' => $users,
@@ -275,7 +275,7 @@ class UserGroups
 
         $template = new Template();
 
-        return $template->render('/server/user_groups/edit_user_groups', [
+        return $template->render('server/user_groups/edit_user_groups', [
             'user_group' => $userGroup,
             'edit_user_group_special_chars' => $editUserGroupSpecialChars,
             'user_group_url' => Url::getFromRoute('/server/user-groups'),
@@ -308,7 +308,7 @@ class UserGroups
 
         $template = new Template();
 
-        return $template->render('/server/user_groups/tab_list', [
+        return $template->render('server/user_groups/tab_list', [
             'title' => $title,
             'level' => $level,
             'tab_details' => $tabDetails,

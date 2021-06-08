@@ -104,22 +104,10 @@ class ReplicationGuiTest extends AbstractTestCase
             $html
         );
         //slave host
-        $this->assertStringContainsString(
-            '<td class="value">Server_id1</td>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<td class="value">Server_id2</td>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<td class="value">Host1</td>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<td class="value">Host2</td>',
-            $html
-        );
+        $this->assertStringContainsString('<td class="text-end font-monospace">Server_id1</td>', $html);
+        $this->assertStringContainsString('<td class="text-end font-monospace">Server_id2</td>', $html);
+        $this->assertStringContainsString('<td class="text-end font-monospace">Host1</td>', $html);
+        $this->assertStringContainsString('<td class="text-end font-monospace">Host2</td>', $html);
         //Notice
         $this->assertStringContainsString(
             'Only slaves started with the',

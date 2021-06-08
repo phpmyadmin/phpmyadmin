@@ -541,6 +541,10 @@ class StructureControllerTest extends AbstractTestCase
         $tablesProperty = $class->getProperty('tables');
         $tablesProperty->setAccessible(true);
 
+        $numTables = $class->getProperty('numTables');
+        $numTables->setAccessible(true);
+        $numTables->setValue($controller, 1);
+
         //no tables
         $_REQUEST['db'] = 'my_unique_test_db';
         $tablesProperty->setValue($controller, []);

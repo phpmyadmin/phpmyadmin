@@ -127,9 +127,9 @@
     </form>
 </div>
 {% if total_rows <= 0 %}
-    <fieldset class="pma-fieldset">
-        {% trans 'The central list of columns for the current database is empty' %}
-    </fieldset>
+  <div class="alert alert-info" role="alert">
+    {% trans 'The central list of columns for the current database is empty' %}
+  </div>
 {% else %}
     <table class="table table-borderless table-sm w-auto d-inline-block navigation">
         <tr>

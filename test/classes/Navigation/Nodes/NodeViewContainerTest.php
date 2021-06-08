@@ -29,13 +29,13 @@ class NodeViewContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeViewContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
+                'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/structure',
-            $parent->links['text']
         );
         $this->assertEquals('views', $parent->realName);
         $this->assertStringContainsString('viewContainer', $parent->classes);

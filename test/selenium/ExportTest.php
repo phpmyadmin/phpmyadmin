@@ -154,6 +154,7 @@ class ExportTest extends TestBase
         if ($type === 'table') {
             $this->scrollIntoView('radio_allrows_0');
             $this->byCssSelector('label[for=radio_allrows_0]')->click();
+            $this->scrollIntoView('limit_to');
             $this->byName('limit_to')->clear();
             $this->byName('limit_to')->sendKeys('1');
         }

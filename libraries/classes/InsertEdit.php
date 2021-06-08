@@ -270,7 +270,8 @@ class InsertEdit
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
+        // Can be a string on some old configuration storage settings
+        $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
 
         return [
             $result,
@@ -915,9 +916,10 @@ class InsertEdit
                     . $columnNameAppendix . '" value="timestamp">';
             }
 
-            if (substr($column['pma_type'], 0, 8) === 'datetime') {
+            if (substr($column['pma_type'], 0, 4) === 'date') {
+                $type = substr($column['pma_type'], 0, 8) === 'datetime' ? 'datetime' : 'date';
                 $htmlOutput .= '<input type="hidden" name="fields_type'
-                    . $columnNameAppendix . '" value="datetime">';
+                    . $columnNameAppendix . '" value="' . $type . '">';
             }
 
             if ($column['True_Type'] === 'bit') {
@@ -994,166 +996,33 @@ class InsertEdit
     }
 
     /**
-     * Get action panel
+     * @param string[]|string|null $whereClause
      *
-     * @param array|null $whereClause      where clause
-     * @param string     $afterInsert      insert mode, e.g. new_insert, same_insert
-     * @param int        $tabindex         tab index
-     * @param int        $tabindexForValue offset for the values tabindex
-     * @param bool       $foundUniqueKey   boolean variable for unique key
-     *
-     * @return string an html snippet
+     * @psalm-pure
      */
-    public function getActionsPanel(
-        $whereClause,
-        $afterInsert,
-        $tabindex,
-        $tabindexForValue,
-        $foundUniqueKey
-    ) {
-        $htmlOutput = '<fieldset class="pma-fieldset" id="actions_panel">'
-            . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
-            . '<tr>'
-            . '<td class="text-nowrap align-middle">'
-            . $this->getSubmitTypeDropDown($whereClause, $tabindex, $tabindexForValue)
-            . "\n";
-
-        $htmlOutput .= '</td>'
-            . '<td class="align-middle">'
-            . '&nbsp;&nbsp;&nbsp;<strong>'
-            . __('and then') . '</strong>&nbsp;&nbsp;&nbsp;'
-            . '</td>'
-            . '<td class="text-nowrap align-middle">'
-            . $this->getAfterInsertDropDown(
-                $whereClause,
-                $afterInsert,
-                $foundUniqueKey
-            )
-            . '</td>'
-            . '</tr>';
-        $htmlOutput .= '<tr>'
-            . $this->getSubmitAndResetButtonForActionsPanel($tabindex, $tabindexForValue)
-            . '</tr>'
-            . '</table>'
-            . '</fieldset>';
-
-        return $htmlOutput;
-    }
-
-    /**
-     * Get a HTML drop down for submit types
-     *
-     * @param array|null $whereClause      where clause
-     * @param int        $tabindex         tab index
-     * @param int        $tabindexForValue offset for the values tabindex
-     *
-     * @return string                       an html snippet
-     */
-    private function getSubmitTypeDropDown(
-        $whereClause,
-        $tabindex,
-        $tabindexForValue
-    ) {
-        $htmlOutput = '<select name="submit_type" class="control_at_footer" tabindex="'
-            . ($tabindex + $tabindexForValue + 1) . '">';
-        if (isset($whereClause)) {
-            $htmlOutput .= '<option value="save">' . __('Save') . '</option>';
+    public static function isWhereClauseNumeric($whereClause): bool
+    {
+        if (! isset($whereClause)) {
+            return false;
         }
 
-        $htmlOutput .= '<option value="insert">'
-            . __('Insert as new row')
-            . '</option>'
-            . '<option value="insertignore">'
-            . __('Insert as new row and ignore errors')
-            . '</option>'
-            . '<option value="showinsert">'
-            . __('Show insert query')
-            . '</option>'
-            . '</select>';
+        $isNumeric = false;
 
-        return $htmlOutput;
-    }
+        if (! is_array($whereClause)) {
+            $whereClause = [$whereClause];
+        }
 
-    /**
-     * Get HTML drop down for after insert
-     *
-     * @param array|null $whereClause    where clause
-     * @param string     $afterInsert    insert mode, e.g. new_insert, same_insert
-     * @param bool       $foundUniqueKey boolean variable for unique key
-     *
-     * @return string                   an html snippet
-     */
-    private function getAfterInsertDropDown($whereClause, $afterInsert, $foundUniqueKey)
-    {
-        $htmlOutput = '<select name="after_insert" class="control_at_footer">'
-            . '<option value="back" '
-            . ($afterInsert === 'back' ? 'selected="selected"' : '') . '>'
-            . __('Go back to previous page') . '</option>'
-            . '<option value="new_insert" '
-            . ($afterInsert === 'new_insert' ? 'selected="selected"' : '') . '>'
-            . __('Insert another new row') . '</option>';
-
-        if (isset($whereClause)) {
-            $htmlOutput .= '<option value="same_insert" '
-                . ($afterInsert === 'same_insert' ? 'selected="selected"' : '') . '>'
-                . __('Go back to this page') . '</option>';
-
-            // If we have just numeric primary key, we can also edit next
-            // in 2.8.2, we were looking for `field_name` = numeric_value
-            //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
-            // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
-            $isNumeric = false;
-            if (! is_array($whereClause)) {
-                $whereClause = [$whereClause];
-            }
-
-            for ($i = 0, $nb = count($whereClause); $i < $nb; $i++) {
-                // preg_match() returns 1 if there is a match
-                $isNumeric = (preg_match(
-                    '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',
-                    $whereClause[$i]
-                ) == 1);
-                if ($isNumeric === true) {
-                    break;
-                }
-            }
-
-            if ($foundUniqueKey && $isNumeric) {
-                $htmlOutput .= '<option value="edit_next" '
-                    . ($afterInsert === 'edit_next' ? 'selected="selected"' : '') . '>'
-                    . __('Edit next row') . '</option>';
+        // If we have just numeric primary key, we can also edit next
+        // we are looking for `table_name`.`field_name` = numeric_value
+        foreach ($whereClause as $clause) {
+            // preg_match() returns 1 if there is a match
+            $isNumeric = preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $clause) === 1;
+            if ($isNumeric === true) {
+                break;
             }
         }
 
-        return $htmlOutput . '</select>';
-    }
-
-    /**
-     * get Submit button and Reset button for action panel
-     *
-     * @param int $tabindex         tab index
-     * @param int $tabindexForValue offset for the values tabindex
-     *
-     * @return string an html snippet
-     */
-    private function getSubmitAndResetButtonForActionsPanel($tabindex, $tabindexForValue)
-    {
-        return '<td>'
-            . Generator::showHint(
-                __(
-                    'Use TAB key to move from value to value,'
-                    . ' or CTRL+arrows to move anywhere.'
-                )
-            )
-            . '</td>'
-            . '<td colspan="3" class="text-end align-middle">'
-            . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue + 6) . '">'
-            . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue + 7) . '">'
-            . '<input type="submit" class="btn btn-primary control_at_footer" value="' . __('Go') . '"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue + 8) . '" id="buttonYes">'
-            . '</td>';
+        return $isNumeric;
     }
 
     /**
@@ -1165,8 +1034,8 @@ class InsertEdit
      */
     private function getHeadAndFootOfInsertRowTable(array $urlParams)
     {
-        $htmlOutput = '<div class="responsivetable">'
-            . '<table class="pma-table insertRowTable topmargin">'
+        $htmlOutput = '<div class="table-responsive-lg">'
+            . '<table class="table table-light table-striped align-middle my-3 insertRowTable">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';
@@ -1180,7 +1049,7 @@ class InsertEdit
         }
 
         $htmlOutput .= '<th>' . __('Null') . '</th>'
-            . '<th class="fillPage">' . __('Value') . '</th>'
+            . '<th class="w-50">' . __('Value') . '</th>'
             . '</tr>'
             . '</thead>'
             . ' <tfoot>'
@@ -2106,7 +1975,7 @@ class InsertEdit
                 $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
                 $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
             } elseif (
-                ! ($type === 'datetime' || $type === 'timestamp')
+                ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
                 || ($currentValue !== 'CURRENT_TIMESTAMP'
                     && $currentValue !== 'current_timestamp()')
             ) {

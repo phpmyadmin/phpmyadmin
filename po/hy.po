@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 01:32+0200\n"
+"POT-Creation-Date: 2021-05-29 16:12+0200\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1125,23 +1125,23 @@ msgstr "Որոնում՝"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
-#: libraries/classes/Controllers/Server/PrivilegesController.php:339
-#: libraries/classes/Database/Triggers.php:486
-#: libraries/classes/InsertEdit.php:1154 libraries/classes/InsertEdit.php:1189
+#: libraries/classes/Controllers/Server/PrivilegesController.php:338
+#: libraries/classes/InsertEdit.php:1058
 #: libraries/classes/Normalization.php:270
 #: libraries/classes/Normalization.php:1000 libraries/classes/Tracking.php:336
 #: libraries/classes/Tracking.php:490
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
-#: templates/database/events/editor_form.twig:112
+#: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
 #: templates/database/operations/index.twig:44
 #: templates/database/operations/index.twig:81
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
-#: templates/database/routines/editor_form.twig:175
-#: templates/database/routines/execute_form.twig:57
+#: templates/database/routines/editor_form.twig:176
+#: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
+#: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
 #: templates/import.twig:220 templates/preferences/manage/main.twig:46
@@ -1161,8 +1161,8 @@ msgstr "Որոնում՝"
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:148 templates/sql/query.twig:199
-#: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
+#: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -1170,6 +1170,7 @@ msgstr "Որոնում՝"
 #: templates/table/operations/index.twig:483
 #: templates/table/operations/view.twig:20
 #: templates/table/search/index.twig:161
+#: templates/table/start_and_number_of_rows_fieldset.twig:15
 #: templates/table/structure/display_structure.twig:393
 #: templates/table/structure/display_structure.twig:509
 #: templates/table/zoom_search/index.twig:155 templates/view_create.twig:116
@@ -1193,15 +1194,15 @@ msgid "Description"
 msgstr "Նկարագրություն"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1247 libraries/classes/Language.php:210
+#: libraries/classes/Html/Generator.php:1228 libraries/classes/Language.php:210
 #: libraries/classes/Pdf.php:93
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:546
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:544
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:578
 msgid "Page number:"
 msgstr "էջի համարը՝"
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -2406,8 +2407,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output."
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
+"[/a] output."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -3018,8 +3019,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportOdt.php:520
 #: libraries/classes/Plugins/Export/ExportTexytext.php:414
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:600
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:738
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:761
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:736
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3200,7 +3201,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:758
 #: libraries/classes/Config/Descriptions.php:769 libraries/classes/Menu.php:523
-#: libraries/classes/Util.php:2109 libraries/config.values.php:155
+#: libraries/classes/Util.php:2104 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:3
 #: templates/server/privileges/user_properties.twig:20
@@ -3256,14 +3257,14 @@ msgid "Navigation tree"
 msgstr "Նավարկման ծառ"
 
 #: libraries/classes/Config/Descriptions.php:772
-#: libraries/classes/Server/Select.php:61 templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Սպասարկիչներ"
 
 #: libraries/classes/Config/Descriptions.php:773
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
 #: libraries/classes/Plugins/Export/ExportXml.php:134
 #: libraries/classes/Server/Status/Data.php:160
 #: templates/database/export/index.twig:23
@@ -3315,9 +3316,9 @@ msgstr "Փոփոխությունների հետագծում"
 
 #: libraries/classes/Config/Descriptions.php:785 libraries/classes/Menu.php:278
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:528
-#: libraries/classes/Navigation/Nodes/NodeTable.php:327
-#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2110
-#: libraries/classes/Util.php:2125 libraries/classes/Util.php:2142
+#: libraries/classes/Navigation/Nodes/NodeTable.php:317
+#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2105
+#: libraries/classes/Util.php:2120 libraries/classes/Util.php:2137
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3514,8 +3515,8 @@ msgid "Navigation panel width"
 msgstr "Նավարկման փեղկ"
 
 #: libraries/classes/Config/Descriptions.php:841
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
-#: libraries/classes/Navigation/NavigationTree.php:1560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Navigation/NavigationTree.php:1549
 msgid "Link with main panel"
 msgstr "Կապել հիմնական փեղկին"
 
@@ -3975,8 +3976,8 @@ msgstr "Զանցել կողպված աղյուսակները"
 #: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/Display/Results.php:3303
-#: libraries/classes/Html/Generator.php:712
-#: libraries/classes/Html/Generator.php:979
+#: libraries/classes/Html/Generator.php:693
+#: libraries/classes/Html/Generator.php:960
 #: libraries/classes/Server/UserGroups.php:128
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4000,12 +4001,12 @@ msgid "Edit"
 msgstr "Խմբագրել"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:655
 msgid "Explain SQL"
 msgstr "SQL-ի վերլուծում"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Export.php:626 libraries/classes/Html/Generator.php:757
+#: libraries/classes/Export.php:626 libraries/classes/Html/Generator.php:738
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4013,7 +4014,7 @@ msgid "Refresh"
 msgstr "Թարմացնել"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Html/Generator.php:741
+#: libraries/classes/Html/Generator.php:722
 msgid "Create PHP code"
 msgstr "Ստեղծել PHP կոդը"
 
@@ -4038,8 +4039,8 @@ msgstr "Գրվածքի դաշտի տողերը"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:196
 #: libraries/classes/Plugins/Export/ExportTexytext.php:134
-#: libraries/classes/Server/Privileges.php:1959
-#: libraries/classes/Server/Privileges.php:1961
+#: libraries/classes/Server/Privileges.php:1921
+#: libraries/classes/Server/Privileges.php:1923
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4066,14 +4067,14 @@ msgid "Server"
 msgstr "Սպասարկիչ"
 
 #: libraries/classes/Config/Descriptions.php:967
-#: libraries/classes/Database/Triggers.php:413
 #: libraries/classes/Plugins/Export/ExportXml.php:535
-#: libraries/classes/Server/Privileges.php:1965
-#: libraries/classes/Server/Privileges.php:1967
+#: libraries/classes/Server/Privileges.php:1927
+#: libraries/classes/Server/Privileges.php:1929
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:153
+#: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
@@ -4295,14 +4296,14 @@ msgstr "Ընտելական"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#: libraries/classes/Import.php:1398 libraries/classes/Menu.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:730
+#: libraries/classes/Import.php:1399 libraries/classes/Menu.php:270
 #: libraries/classes/Menu.php:394
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:44
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:58
-#: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2124
-#: libraries/classes/Util.php:2141 libraries/config.values.php:60
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:41
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:49
+#: libraries/classes/Navigation/Nodes/NodeTable.php:308
+#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2119
+#: libraries/classes/Util.php:2136 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4345,9 +4346,9 @@ msgstr "OpenDocument-ի ձևաչափ"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #: libraries/classes/Menu.php:300 libraries/classes/Menu.php:419
-#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1631
-#: libraries/classes/Util.php:2113 libraries/classes/Util.php:2128
-#: libraries/classes/Util.php:2145 templates/database/events/index.twig:16
+#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1593
+#: libraries/classes/Util.php:2108 libraries/classes/Util.php:2123
+#: libraries/classes/Util.php:2140 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4390,8 +4391,8 @@ msgstr "CSV, օգտագործելով LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:429
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2114
-#: libraries/classes/Util.php:2129 libraries/classes/Util.php:2146
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2109
+#: libraries/classes/Util.php:2124 libraries/classes/Util.php:2141
 #: templates/import.twig:32 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4409,27 +4410,27 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Հնարավոր չէ պահպանել կայանքները, լրացված կազմաձևի ձևը պարունակում է սխալներ։"
 
-#: libraries/classes/Config.php:758
+#: libraries/classes/Config.php:759
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Առկա կազմաձևի ֆայլը (%s) կարդացվող չէ։"
 
-#: libraries/classes/Config.php:796
+#: libraries/classes/Config.php:797
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Անվավեր արտոնություններ կազմաձևի ֆայլում։ Այն չպետք է բոլորի կողմից գրվող "
 "լինի։"
 
-#: libraries/classes/Config.php:811
+#: libraries/classes/Config.php:812
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/classes/Config.php:821
+#: libraries/classes/Config.php:822
 msgid "Failed to read configuration file!"
 msgstr ""
 
-#: libraries/classes/Config.php:824
+#: libraries/classes/Config.php:825
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4437,12 +4438,12 @@ msgstr ""
 "Սա սովորաբար նշանակում է շարահյուսության սխալների առկայություն, խնդրում ենք "
 "ստուգել ստորև ցուցադրվող սխալները։"
 
-#: libraries/classes/Config.php:1389
+#: libraries/classes/Config.php:1393
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/classes/Config.php:1402
+#: libraries/classes/Config.php:1406
 #, php-format
 msgid "Server %d"
 msgstr "Սպասարկիչ %d"
@@ -4510,25 +4511,25 @@ msgstr ""
 "%sZip սեզմումը%s պահանջում է %s գործառույթների առկայությունը, որոնք ձեր "
 "համակարգի կողմից չեն աջակցվում։"
 
-#: libraries/classes/Config/ServerConfigChecks.php:372
+#: libraries/classes/Config/ServerConfigChecks.php:370
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:384
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr "Ծածկագրման բանալին շատ կարճ է, այն պետք է պարունակի առնվազն 8 նշան։"
 
-#: libraries/classes/Config/ServerConfigChecks.php:395
+#: libraries/classes/Config/ServerConfigChecks.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 "Բանալին պետք է պարունակի՝ գրանշաններ, թվանշաններ [em]և[/em] հատուկ նշաններ։"
 
-#: libraries/classes/Config/ServerConfigChecks.php:432
+#: libraries/classes/Config/ServerConfigChecks.php:434
 #, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
@@ -4536,21 +4537,21 @@ msgid ""
 "%5$d)."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:454
+#: libraries/classes/Config/ServerConfigChecks.php:456
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:480
+#: libraries/classes/Config/ServerConfigChecks.php:482
 #, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
-#: libraries/classes/Config/ServerConfigChecks.php:521
+#: libraries/classes/Config/ServerConfigChecks.php:523
 #, fuzzy, php-format
 #| msgid ""
 #| "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -4562,7 +4563,7 @@ msgstr ""
 "%sBzip2 սեղմումը և արձակումը%s պահանջում է %s գործառույթներ, որոնք ձեր "
 "համակարգի կողմից չեն աջակցվում։"
 
-#: libraries/classes/Config/ServerConfigChecks.php:554
+#: libraries/classes/Config/ServerConfigChecks.php:556
 #, fuzzy, php-format
 #| msgid ""
 #| "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -4665,7 +4666,7 @@ msgid "No databases selected."
 msgstr "Տվյալների բազան ընտրած չէ։"
 
 #: libraries/classes/Controllers/ChangeLogController.php:37
-#: libraries/classes/Controllers/LicenseController.php:32
+#: libraries/classes/Controllers/LicenseController.php:35
 #, fuzzy, php-format
 #| msgid ""
 #| "The %s file is not available on this system, please visit www.phpmyadmin."
@@ -4697,15 +4698,15 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:181
-#: libraries/classes/Controllers/Database/StructureController.php:1203
-#: libraries/classes/Controllers/Database/StructureController.php:1244
-#: libraries/classes/Controllers/Database/StructureController.php:1277
-#: libraries/classes/Controllers/Database/StructureController.php:1300
-#: libraries/classes/Controllers/Database/StructureController.php:1323
-#: libraries/classes/Controllers/Database/StructureController.php:1346
-#: libraries/classes/Controllers/Database/StructureController.php:1369
-#: libraries/classes/Controllers/Database/StructureController.php:1399
-#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1202
+#: libraries/classes/Controllers/Database/StructureController.php:1243
+#: libraries/classes/Controllers/Database/StructureController.php:1276
+#: libraries/classes/Controllers/Database/StructureController.php:1299
+#: libraries/classes/Controllers/Database/StructureController.php:1322
+#: libraries/classes/Controllers/Database/StructureController.php:1345
+#: libraries/classes/Controllers/Database/StructureController.php:1368
+#: libraries/classes/Controllers/Database/StructureController.php:1398
+#: libraries/classes/Controllers/Database/StructureController.php:1451
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #: libraries/classes/Controllers/Table/MaintenanceController.php:45
 #: libraries/classes/Controllers/Table/MaintenanceController.php:80
@@ -4765,31 +4766,31 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Մուտքն արգելված է"
 
-#: libraries/classes/Controllers/Database/StructureController.php:309
+#: libraries/classes/Controllers/Database/StructureController.php:308
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:590
+#: libraries/classes/Controllers/Database/StructureController.php:589
 #: templates/table/operations/index.twig:430
 #: templates/table/operations/view.twig:31
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s ներկայացումը ջնջվեց։"
 
-#: libraries/classes/Controllers/Database/StructureController.php:591
+#: libraries/classes/Controllers/Database/StructureController.php:590
 #: templates/table/operations/index.twig:430
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s աղյուսակը ջնջվեց։"
 
-#: libraries/classes/Controllers/Database/StructureController.php:647
+#: libraries/classes/Controllers/Database/StructureController.php:646
 #: templates/table/operations/index.twig:409
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s աղյուսակը դատարկվել է։"
 
-#: libraries/classes/Controllers/Database/StructureController.php:819
-#: libraries/classes/Display/Results.php:4515
+#: libraries/classes/Controllers/Database/StructureController.php:818
+#: libraries/classes/Display/Results.php:4516
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4798,29 +4799,29 @@ msgstr ""
 "Այս ներկայացումը ունի առնվազն այս տողերի քանակը։ Խնդրում ենք դիմել "
 "%sփաստաթղթերին%s։"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1060
+#: libraries/classes/Controllers/Database/StructureController.php:1059
 msgid "unknown"
 msgstr "անհայտ"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1285
-#: libraries/classes/Controllers/Database/StructureController.php:1308
-#: libraries/classes/Controllers/Database/StructureController.php:1331
+#: libraries/classes/Controllers/Database/StructureController.php:1284
+#: libraries/classes/Controllers/Database/StructureController.php:1307
+#: libraries/classes/Controllers/Database/StructureController.php:1330
 msgid "Success!"
 msgstr "Հաջողում"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1483
-#: libraries/classes/Controllers/Database/StructureController.php:1566
+#: libraries/classes/Controllers/Database/StructureController.php:1482
+#: libraries/classes/Controllers/Database/StructureController.php:1565
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #: libraries/classes/Controllers/Table/DeleteController.php:58
-#: libraries/classes/Controllers/Table/StructureController.php:460
-#: libraries/classes/Controllers/Table/StructureController.php:484
-#: libraries/classes/Controllers/Table/StructureController.php:529
+#: libraries/classes/Controllers/Table/DropColumnController.php:61
+#: libraries/classes/Controllers/Table/StructureController.php:466
+#: libraries/classes/Controllers/Table/StructureController.php:490
 #: libraries/classes/IndexColumn.php:140 libraries/classes/Index.php:546
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:687
 #: libraries/classes/Plugins/Export/ExportLatex.php:662
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:651
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:810
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -4849,11 +4850,12 @@ msgstr "Հաջողում"
 msgid "Yes"
 msgstr "Այո"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1484
-#: libraries/classes/Controllers/Database/StructureController.php:1567
+#: libraries/classes/Controllers/Database/StructureController.php:1483
+#: libraries/classes/Controllers/Database/StructureController.php:1566
+#: libraries/classes/Controllers/Table/DropColumnController.php:78
 #: libraries/classes/Controllers/Table/OperationsController.php:340
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
-#: libraries/classes/Core.php:880 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:878 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Առանց փոփոխությունների"
 
@@ -4940,12 +4942,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Ձեր PHP-ի հարաչափի [a@https://secure.php.net/manual/en/session.configuration."
+"Ձեր PHP-ի հարաչափի [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] արժեքը "
 "ավելի ցածր է, քան phpMyAdmin-ում սահմանված թխուկի վավերականությունը, այդ իսկ "
 "պատճառով, ձեր աշխատաշրջանը կարող է սպառվել ավելի շուտ, քան նշանակված է "
@@ -5031,7 +5033,7 @@ msgid "Succeeded"
 msgstr "Հաջողվեց"
 
 #: libraries/classes/Controllers/ImportController.php:146
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Ձախողվեց"
 
@@ -5066,7 +5068,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:684
 #: libraries/classes/Controllers/SqlController.php:378
-#: libraries/classes/Sql.php:1246
+#: libraries/classes/Sql.php:1255
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s էջանիշը ստեղծվեց։"
@@ -5273,10 +5275,10 @@ msgid "Save & close"
 msgstr "Պահպանել և փակել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: libraries/classes/InsertEdit.php:1152
 #: templates/config/form_display/display.twig:47
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
+#: templates/table/insert/actions_panel.twig:36
 msgid "Reset"
 msgstr "Վերակայել"
 
@@ -5338,10 +5340,10 @@ msgid "Please select column(s) for the index."
 msgstr "Ընտրեք սյունակներ՝ ցուցակագրի համար։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:116
-#: libraries/classes/InsertEdit.php:1150
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
+#: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:221
 msgid "Preview SQL"
 msgstr "SQL-ի նախադիտում"
@@ -5355,7 +5357,7 @@ msgid "Matched rows:"
 msgstr "Համապատասխանող տողեր՝"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: libraries/classes/Html/Generator.php:951 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:932 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL հարցում՝"
 
@@ -5379,13 +5381,13 @@ msgid "The user name is empty!"
 msgstr "Օգտանունը դատարկ է։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
-#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:978
 #: libraries/classes/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "Գաղտնաբառը դատարկ է։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:1015
+#: libraries/classes/Server/Privileges.php:976
 #: libraries/classes/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "Գաղտնաբառերը նույնը չեն։"
@@ -5396,8 +5398,11 @@ msgstr "Նշված օգտվողների ջնջում"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 #: libraries/classes/Tracking.php:239 libraries/classes/Tracking.php:650
-#: templates/error/report_modal.twig:14 templates/home/index.twig:270
-#: templates/home/index.twig:278 templates/server/status/advisor/index.twig:20
+#: templates/error/report_modal.twig:14 templates/home/index.twig:272
+#: templates/home/index.twig:280
+#: templates/server/privileges/users_overview.twig:153
+#: templates/server/privileges/users_overview.twig:161
+#: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
@@ -5598,7 +5603,7 @@ msgid "Traffic"
 msgstr "Փոխանակում"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:2115
+#: libraries/classes/Menu.php:566 libraries/classes/Util.php:2110
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Կայանքներ"
@@ -5613,13 +5618,13 @@ msgstr "Ավելացրեք առնվազն մեկ փոփոխական այս շա�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 #: libraries/classes/Display/Results.php:1331
-#: libraries/classes/Plugins/Export/ExportSql.php:2391
+#: libraries/classes/Plugins/Export/ExportSql.php:2394
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:590 templates/export.twig:355
+#: templates/database/designer/main.twig:588 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -5832,9 +5837,9 @@ msgstr "Արդյունքների բացատրություն"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:242
-#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2111
+#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2106
 #: libraries/config.values.php:157
-#: templates/database/events/editor_form.twig:23
+#: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
@@ -5999,13 +6004,13 @@ msgstr "Հարաչափերը չեն գտնվել։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 #: templates/database/central_columns/main.twig:271
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:392
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:736
-#: templates/database/designer/main.twig:875
-#: templates/database/designer/main.twig:960
-#: templates/database/designer/main.twig:1065
+#: templates/database/designer/main.twig:339
+#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:668
+#: templates/database/designer/main.twig:734
+#: templates/database/designer/main.twig:873
+#: templates/database/designer/main.twig:958
+#: templates/database/designer/main.twig:1063
 #: templates/database/structure/check_all_tables.twig:48
 #: templates/database/structure/check_all_tables.twig:52
 #: templates/database/structure/check_all_tables.twig:66
@@ -6018,7 +6023,7 @@ msgid "Cancel"
 msgstr "Չեղարկել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:329
-#: templates/header.twig:49
+#: templates/header.twig:48
 msgid "Page-related settings"
 msgstr "Էջերի կայանքներ"
 
@@ -6028,7 +6033,8 @@ msgid "Apply"
 msgstr "Կիրառել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
-#: templates/home/index.twig:274 templates/navigation/main.twig:58
+#: templates/home/index.twig:276 templates/navigation/main.twig:58
+#: templates/server/privileges/users_overview.twig:157
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Բեռնում …"
@@ -6080,12 +6086,12 @@ msgid "Adding primary key"
 msgstr "Առաջնային բանալիի ավելացում"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:349
-#: templates/console/display.twig:129 templates/database/designer/main.twig:339
-#: templates/database/designer/main.twig:668
-#: templates/database/designer/main.twig:732
-#: templates/database/designer/main.twig:871
-#: templates/database/designer/main.twig:956
-#: templates/database/designer/main.twig:1063
+#: templates/console/display.twig:129 templates/database/designer/main.twig:337
+#: templates/database/designer/main.twig:666
+#: templates/database/designer/main.twig:730
+#: templates/database/designer/main.twig:869
+#: templates/database/designer/main.twig:954
+#: templates/database/designer/main.twig:1061
 msgid "OK"
 msgstr "Լավ"
 
@@ -6112,7 +6118,7 @@ msgstr "Կոդավորման փոփոխում"
 #: libraries/classes/Plugins/Export/ExportLatex.php:662
 #: libraries/classes/Plugins/Export/ExportOdt.php:819
 #: libraries/classes/Plugins/Export/ExportTexytext.php:651
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:807
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -6230,7 +6236,7 @@ msgstr "Ցուցադրել հարցման դաշտը"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
 #: templates/database/central_columns/main.twig:385
-#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -6353,8 +6359,8 @@ msgid "No partial dependencies selected!"
 msgstr "Ընտրած մասնակի կախվածություններ չկան։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:1055
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:1036
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:313
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6412,12 +6418,12 @@ msgid "No dependencies selected!"
 msgstr "Ընտրած կախվածություններ չկան։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:446
-#: libraries/classes/InsertEdit.php:1060
 #: templates/columns_definitions/column_definitions_form.twig:160
-#: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
-#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/gis_visualization/gis_visualization.twig:40
+#: templates/table/insert/actions_panel.twig:7
 #: templates/table/relation/common_form.twig:222
 #: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
@@ -6499,15 +6505,15 @@ msgid "Data point content"
 msgstr "Տվյալների կետի պարունակությունը"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
-#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:2346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/ErrorHandler.php:413 libraries/classes/InsertEdit.php:2215
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Անտեսել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 #: libraries/classes/Display/Results.php:3307
-#: libraries/classes/Html/Generator.php:74
+#: libraries/classes/Html/Generator.php:73
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -6670,58 +6676,63 @@ msgstr "Բացել էջը"
 msgid "Delete page"
 msgstr "Ջնջել էջը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#. l10n: When the user opens a page saved in the Designer
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+msgid "Some tables saved in this page might have been renamed or deleted."
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Առանց վերնագրի"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 msgid "Please select a page to continue"
 msgstr "Ընտրեք հաջորդ էջը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Please enter a valid page name"
 msgstr "Տրամադրեք վավերական էջի անունը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Do you want to save the changes to the current page?"
 msgstr "Ցանկանու՞մ եք պահպանել փոփոխությունները ընթացիկ էջում։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Successfully deleted the page"
 msgstr "Էջը հաջողությամբ ջնջվեց"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 msgid "Export relational schema"
 msgstr "Կապակցումների ուրվագրի արտահանում"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Modifications have been saved"
 msgstr "Փոփոխությունները պահպանվեցին"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 #, php-format
 msgid "%d object(s) created."
 msgstr "ստեղծվել է %d առարկա։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Սյունակների անուններ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 #: templates/sql/query.twig:179
 msgid "Submit"
 msgstr "Կատարել"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 #, fuzzy
 #| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Սեղմեք Esc ստեղնը՝ խմբագրումը չեղարկելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -6729,34 +6740,34 @@ msgstr ""
 "Դուք խմբագրել եք որոշ տվյալներ, և դրանք դեռ չեն պահպանվել։ Համոզվա՞ծ եք, որ "
 "ցանկանում եք լքել այս էջը՝ առանց տվյալների պահպանման։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Drag to reorder."
 msgstr "Քաշեք՝ վերադասակարգելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 msgid "Click to sort results by this column."
 msgstr "Կտտացրեք՝ այդյունքները այս սյունակով դասակարգելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Click to mark/unmark."
 msgstr "Կտտացրեք՝ նշելու/ապանշելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Double-click to copy column name."
 msgstr "Երկկտտացրեք՝ սյունակի անունը պատճենելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Կտտացրեք ելնող սլաքը<br>սյունակի տեսանելիությունը փոխարկելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -6765,13 +6776,13 @@ msgstr ""
 "պահպանելուց հետո ցանցավորման խմբագրման, նշատուփի, խմբագրման և ջնջման "
 "հղումների հետ կապված հատկությունները կարող են չաշխատել։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Տրամադրեք վավերական տասնվեցերորդական տող։ Վավերական նշաններ են հանդիսանում "
 "0-9, A-F։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -6779,37 +6790,37 @@ msgstr ""
 "Իսկապե՞ս եք ցանկանում ցուցադրել բոլոր տողերը։ Մեծ աղյուսակի դեպքում դա կարող "
 "է խանգարել դիտարկչի աշխատանքը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
 msgid "Original length"
 msgstr "Սկզբնական երկարություն"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 msgid "cancel"
 msgstr "չեղարկել"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 #: libraries/classes/Controllers/Server/Status/StatusController.php:229
 msgid "Aborted"
 msgstr "Ընդհատված"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
 msgstr "Հաջողում"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Import status"
 msgstr "Ներմուծել կարգավիճակը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Քաշեք ֆայլերը այստեղ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 msgid "Select database first"
 msgstr "Սկզբից նշեք տվյալների բազան"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:20
 #: templates/display/results/table.twig:241
@@ -6817,69 +6828,69 @@ msgstr "Սկզբից նշեք տվյալների բազան"
 msgid "Print"
 msgstr "Տպել"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Դուք կարող եք խմբագրել արժեքների մեծ մասը<br>դրանց վրա անմիջապես "
 "երկկտտացնելով։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br>անմիջապես դրանց վրա "
 "կտտացնելով։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 msgid "Go to link:"
 msgstr "Անցնել հղմանը՝"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "Copy column name."
 msgstr "Պատճենել սյունակի անունը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Աջ-կտտացրեք սյունակի անունը՝ այն պատճենելու համար։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "Generate password"
 msgstr "Ստեղծել գաղտնաբառը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Ստեղծել"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 #: libraries/classes/Controllers/UserPasswordController.php:82
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Փոխել գաղտնաբառը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Ավելին"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Show panel"
 msgstr "Ցուցադրել փեղկը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Hide panel"
 msgstr "Թաքցնել փեղկը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid "Show hidden navigation tree items."
 msgstr "Ցուցադրել թաքնված նավարկման ստորակարգման տարրերը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
-#: libraries/classes/Navigation/NavigationTree.php:1563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Navigation/NavigationTree.php:1552
 msgid "Unlink from main panel"
 msgstr "Ապակապել հիմնական փեղկից"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/Setup/Index.php:185
 #, php-format
 msgid ""
@@ -6890,22 +6901,22 @@ msgstr ""
 "այն։ Ամենավերջին տարբերակն է՝ %s, թողարկված՝ %s։"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 msgid ", latest stable version:"
 msgstr ", վերջին կայուն տարբերակն է՝"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "up to date"
 msgstr "արդի է"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Ստեղծել ներկայացում"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -6913,15 +6924,15 @@ msgstr ""
 "Տեղի է ունեցել JavaScript-ի ճակատագրական սխալը։ Ցանկանու՞մ եք ուղարկել սխալի "
 "զեկույցը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid "Change report settings"
 msgstr "Փոխել զեկուցման կայանքները"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Show report details"
 msgstr "Ցուցադրել զեկույցի մանրամասները"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -6929,7 +6940,7 @@ msgstr ""
 "Ձեր արտահանումը թերի է՝ PHP-ի մակարդակում կատարման ժամանակի ցածր սահմանաչափի "
 "պատճառով։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -6939,74 +6950,74 @@ msgstr ""
 "ժամանակ որոշ դաշտերը կարող են անտեսվել՝ PHP-ի կազմաձևի max_input_vars արժեքի "
 "պատճառով։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid "Some errors have been detected on the server!"
 msgstr "Սպասարկչում հայտնաբերվել են որոշակի սխալներ։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Please look at the bottom of this window."
 msgstr "Նայեք ընթացիկ պատուհանի ներքևի մասը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #: libraries/classes/ErrorHandler.php:418
 msgid "Ignore All"
 msgstr "Անտեսել բոլորը"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Ձեր կայանքներին համապատասխան դրանք այժմ ներառվում են, խնդրում ենք սպասել։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Էջը հաջողությամբ ջնջվեց"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Տվյալների բազայի կրկնապատկում"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Execute this query again?"
 msgstr "Կատարե՞լ այս հարցումը ևս մեկ անգամ։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Do you really want to delete this bookmark?"
 msgstr "Իսկապե՞ս եք ցանկանում ջնջել այս էջանիշը։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 "SQL-ի վրիպազերծման տեղեկությունները ստանալու ընթացքում տեղի է ունեցել սխալ։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s հարցում կատարվեց %s անգամ %s վայրկյանում։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "փոխանցվեց %s փաստարկ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Show arguments"
 msgstr "Ցուցադրել փաստարկները"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgid "Hide arguments"
 msgstr "Թաքցնել փաստարկները"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgid "Time taken:"
 msgstr "Տևողությունը՝"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7015,59 +7026,90 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Կրկնապատկել տվյալների բազան"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "Ավելացնել աղյուսակին նախածանցը՝"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #, fuzzy
 #| msgid "Replace table prefix:"
 msgid "Replace table with prefix"
 msgstr "Փոխարինել աղյուսակի նախածանցը՝"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Կրկնապատկել աղյուսակը նախածանցով"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Strong"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#. l10n: error code 5 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
+msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
-#, php-format
-msgid "Failed security key activation (%s)."
+#. l10n: error code 2 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
+msgctxt "U2F error"
+msgid "Invalid request sent to security key."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#. l10n: unknown error code (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#, fuzzy
+#| msgid "Unknown error"
+msgctxt "U2F error"
+msgid "Unknown security key error."
+msgstr "Անհայտ սպալ"
+
+#. l10n: error code 3 (from U2F API)
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+msgctxt "U2F error"
+msgid "Client does not support security key."
+msgstr ""
+
+#. l10n: error code 4 (from U2F API) on register
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+msgctxt "U2F error"
+msgid "Failed security key activation."
+msgstr ""
+
+#. l10n: error code 4 (from U2F API) on authanticate
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#, fuzzy
+#| msgid "Invalid export type"
+msgctxt "U2F error"
+msgid "Invalid security key."
+msgstr "Անվավեր արտահանման տեսակ"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7075,13 +7117,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s աղյուսակը արդեն սիկ առկա է։"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#: libraries/classes/InsertEdit.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
+#: libraries/classes/InsertEdit.php:341
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "Թաքցնել"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #: libraries/classes/Controllers/Table/ChangeController.php:199
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -7158,8 +7200,8 @@ msgid "Rows"
 msgstr "Տողեր"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:498
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:401
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
@@ -7180,7 +7222,7 @@ msgid "Overhead"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:150
-#: libraries/classes/Controllers/Server/UserGroupsController.php:51
+#: libraries/classes/Controllers/Server/UserGroupsController.php:56
 msgid "No Privileges"
 msgstr "Արտոնություններ չկան"
 
@@ -7196,7 +7238,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:433
+#: libraries/classes/Controllers/Server/PrivilegesController.php:419
 msgid "User has been added."
 msgstr "Օգտվողը ավելացվեց։"
 
@@ -7216,7 +7258,7 @@ msgid "ID"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:222
-#: libraries/classes/Server/Privileges.php:3047
+#: libraries/classes/Server/Privileges.php:3009
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Օգտվող"
@@ -7829,6 +7871,17 @@ msgstr ""
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
+#: libraries/classes/Controllers/Server/UserGroupsController.php:115
+#: libraries/classes/Util.php:919
+msgid "Missing parameter:"
+msgstr "Բացակայող հարաչափը՝"
+
+#: libraries/classes/Controllers/Server/UserGroupsController.php:130
+#, fuzzy
+#| msgid "The query cache is not enabled."
+msgid "User groups management is not enabled."
+msgstr "Հարցումների շտեմը միացրած չէ։"
+
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
 msgstr "Արժեքի սահմանունը ձախողվեց"
@@ -7882,28 +7935,28 @@ msgstr "Էջանիշը չի ստեղծվել։"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:169
 #: libraries/classes/Controllers/Table/IndexesController.php:250
-#: libraries/classes/Controllers/Table/StructureController.php:1006
-#: libraries/classes/Controllers/Table/StructureController.php:1236
+#: libraries/classes/Controllers/Table/StructureController.php:941
+#: libraries/classes/Controllers/Table/StructureController.php:1171
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s աղյուսակը հաջողությամբ փոխվել է։"
 
-#: libraries/classes/Controllers/Table/ChangeController.php:305
+#: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:122
 #: libraries/classes/Controllers/Table/ExportController.php:156
 msgid "No row selected."
 msgstr "Ընտրած տողեր չկան։"
 
-#: libraries/classes/Controllers/Table/ChartController.php:61
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:68
+#: libraries/classes/Controllers/Table/ChartController.php:62
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
 msgid "No SQL query was set to fetch data."
 msgstr "Տվյալներ ստանալու համար որևէ SQL հարցում չի տրվել։"
 
-#: libraries/classes/Controllers/Table/ChartController.php:153
+#: libraries/classes/Controllers/Table/ChartController.php:154
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/ChartController.php:220
+#: libraries/classes/Controllers/Table/ChartController.php:223
 msgid "No data to display"
 msgstr "Ցուցադրելու տվյալներ չկան"
 
@@ -7925,20 +7978,43 @@ msgstr "%s աղյուսակը արդեն սիկ առկա է։"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:133
 #: libraries/classes/Controllers/Table/MaintenanceController.php:169
 #: libraries/classes/Controllers/Table/MaintenanceController.php:204
-#: libraries/classes/Controllers/Table/PartitionController.php:42
-#: libraries/classes/Controllers/Table/PartitionController.php:65
-#: libraries/classes/Controllers/Table/PartitionController.php:89
-#: libraries/classes/Controllers/Table/PartitionController.php:118
-#: libraries/classes/Controllers/Table/PartitionController.php:142
-#: libraries/classes/Controllers/Table/PartitionController.php:171
-#: libraries/classes/Controllers/Table/PartitionController.php:195
+#: libraries/classes/Controllers/Table/PartitionController.php:52
+#: libraries/classes/Controllers/Table/PartitionController.php:82
+#: libraries/classes/Controllers/Table/PartitionController.php:113
+#: libraries/classes/Controllers/Table/PartitionController.php:149
+#: libraries/classes/Controllers/Table/PartitionController.php:180
+#: libraries/classes/Controllers/Table/PartitionController.php:216
+#: libraries/classes/Controllers/Table/PartitionController.php:247
 #: libraries/classes/Controllers/Table/RelationController.php:284
 #: libraries/classes/Controllers/ViewOperationsController.php:84
-#: libraries/classes/Database/Routines.php:1324
-#: libraries/classes/Display/Results.php:4182 libraries/classes/Message.php:176
+#: libraries/classes/Database/Routines.php:1322
+#: libraries/classes/Display/Results.php:4183 libraries/classes/Message.php:176
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ձեր SQL հարցումը հաջողությամբ կատարվեց։"
+
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:21
+#: libraries/classes/Controllers/Table/DropColumnController.php:55
+#: libraries/classes/Controllers/Table/StructureController.php:216
+#: libraries/classes/Controllers/Table/StructureController.php:236
+#: libraries/classes/Controllers/Table/StructureController.php:252
+#: libraries/classes/Controllers/Table/StructureController.php:282
+#: libraries/classes/Controllers/Table/StructureController.php:313
+#: libraries/classes/Controllers/Table/StructureController.php:349
+#: libraries/classes/Controllers/Table/StructureController.php:385
+#: libraries/classes/Controllers/Table/StructureController.php:421
+#: libraries/classes/Controllers/Table/StructureController.php:458
+msgid "No column selected."
+msgstr "Ընտրած սյունակներ չկան։"
+
+#: libraries/classes/Controllers/Table/DropColumnController.php:84
+#, fuzzy, php-format
+#| msgid "%1$d database has been dropped successfully."
+#| msgid_plural "%1$d databases have been dropped successfully."
+msgid "%1$d column has been dropped successfully."
+msgid_plural "%1$d columns have been dropped successfully."
+msgstr[0] "%1$d տվյալների բազա հաջողությամբ ջնջվեց։"
+msgstr[1] "%1$d տվյալների բազա հաջողությամբ ջնջվեցին։"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -7951,9 +8027,9 @@ msgid "There is an issue with your request."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
-#: libraries/classes/Database/Routines.php:1346
+#: libraries/classes/Database/Routines.php:1344
 #: libraries/classes/Import.php:158 libraries/classes/InsertEdit.php:228
-#: libraries/classes/Sql.php:1051
+#: libraries/classes/Sql.php:1060
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -7972,20 +8048,20 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:116
 #: libraries/classes/Controllers/Table/OperationsController.php:320
-#: libraries/classes/Controllers/Table/StructureController.php:125
-#: libraries/classes/Navigation/Nodes/NodeView.php:29
+#: libraries/classes/Controllers/Table/StructureController.php:131
+#: libraries/classes/Navigation/Nodes/NodeView.php:26
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
 #: templates/database/structure/structure_table_row.twig:186
 msgid "View"
 msgstr "Ներկայացում"
 
-#: libraries/classes/Controllers/Table/PartitionController.php:95
-#: libraries/classes/Controllers/Table/PartitionController.php:148
-#: libraries/classes/Controllers/Table/PartitionController.php:201
+#: libraries/classes/Controllers/Table/PartitionController.php:119
+#: libraries/classes/Controllers/Table/PartitionController.php:186
+#: libraries/classes/Controllers/Table/PartitionController.php:253
 #: libraries/classes/Controllers/ViewOperationsController.php:87
-#: libraries/classes/Html/Generator.php:927 libraries/classes/Import.php:139
-#: libraries/classes/InsertEdit.php:760 libraries/classes/Message.php:196
+#: libraries/classes/Html/Generator.php:908 libraries/classes/Import.php:139
+#: libraries/classes/InsertEdit.php:761 libraries/classes/Message.php:196
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "Սխալ"
@@ -8005,43 +8081,29 @@ msgstr "Ներքին կապակցումները հաջողությամբ արդ�
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:210
-#: libraries/classes/Controllers/Table/StructureController.php:230
-#: libraries/classes/Controllers/Table/StructureController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:276
-#: libraries/classes/Controllers/Table/StructureController.php:307
-#: libraries/classes/Controllers/Table/StructureController.php:343
-#: libraries/classes/Controllers/Table/StructureController.php:379
-#: libraries/classes/Controllers/Table/StructureController.php:415
-#: libraries/classes/Controllers/Table/StructureController.php:452
-#: libraries/classes/Controllers/Table/StructureController.php:522
-#: libraries/classes/Controllers/Table/StructureController.php:563
-msgid "No column selected."
-msgstr "Ընտրած սյունակներ չկան։"
-
-#: libraries/classes/Controllers/Table/StructureController.php:713
+#: libraries/classes/Controllers/Table/StructureController.php:656
 msgid "The columns have been moved successfully."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:750
+#: libraries/classes/Controllers/Table/StructureController.php:691
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Չհաջողվեց ստանալ տողերի իրական քանակը։"
 
-#: libraries/classes/Controllers/Table/StructureController.php:998
-#: libraries/classes/Controllers/Table/StructureController.php:1288
-#: libraries/classes/Tracking.php:785
+#: libraries/classes/Controllers/Table/StructureController.php:933
+#: libraries/classes/Controllers/Table/StructureController.php:1223
+#: libraries/classes/Tracking.php:789
 msgid "Query error"
 msgstr "Հարցման սխալ"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1230
+#: libraries/classes/Controllers/Table/StructureController.php:1165
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:1520
+#: libraries/classes/Controllers/Table/StructureController.php:1455
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8051,8 +8113,8 @@ msgstr ""
 msgid "Primary"
 msgstr "Առաջնային"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1524
-#: libraries/classes/Navigation/Nodes/NodeIndex.php:29
+#: libraries/classes/Controllers/Table/StructureController.php:1459
+#: libraries/classes/Navigation/Nodes/NodeIndex.php:26
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_structure.twig:168
@@ -8063,7 +8125,7 @@ msgstr "Առաջնային"
 msgid "Index"
 msgstr "Ցուցակագիր"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1783
+#: libraries/classes/Controllers/Table/StructureController.php:1719
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8095,12 +8157,12 @@ msgstr ""
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:364 libraries/classes/ZipExtension.php:61
+#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:61
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:1263
+#: libraries/classes/Core.php:1261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8110,21 +8172,21 @@ msgstr ""
 "դրույթը անհամատեղելի է phpMyAdmin-ի հետ և կարող է հանգեցնել որոշ տվյալների "
 "վնասմանը։"
 
-#: libraries/classes/Core.php:1280
+#: libraries/classes/Core.php:1278
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1292
+#: libraries/classes/Core.php:1290
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS վրագրելու փորձ"
 
-#: libraries/classes/Core.php:1302
+#: libraries/classes/Core.php:1300
 msgid "possible exploit"
 msgstr "հնարավոր խոցելիություն"
 
-#: libraries/classes/Core.php:1371
+#: libraries/classes/Core.php:1369
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8254,10 +8316,10 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:234
 #: libraries/classes/Database/Routines.php:259
 #: libraries/classes/Database/Routines.php:374
-#: libraries/classes/Database/Routines.php:1354
-#: libraries/classes/Database/Triggers.php:128
-#: libraries/classes/Database/Triggers.php:137
-#: libraries/classes/Database/Triggers.php:162
+#: libraries/classes/Database/Routines.php:1352
+#: libraries/classes/Database/Triggers.php:123
+#: libraries/classes/Database/Triggers.php:132
+#: libraries/classes/Database/Triggers.php:157
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
@@ -8269,13 +8331,13 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:238
 #: libraries/classes/Database/Routines.php:263
 #: libraries/classes/Database/Routines.php:378
-#: libraries/classes/Database/Routines.php:1358
-#: libraries/classes/Database/Routines.php:1679
-#: libraries/classes/Database/Triggers.php:132
-#: libraries/classes/Database/Triggers.php:141
-#: libraries/classes/Database/Triggers.php:166
-#: libraries/classes/Database/Triggers.php:584
-#: libraries/classes/Html/Generator.php:999
+#: libraries/classes/Database/Routines.php:1356
+#: libraries/classes/Database/Routines.php:1677
+#: libraries/classes/Database/Triggers.php:127
+#: libraries/classes/Database/Triggers.php:136
+#: libraries/classes/Database/Triggers.php:161
+#: libraries/classes/Database/Triggers.php:463
+#: libraries/classes/Html/Generator.php:980
 msgid "MySQL said: "
 msgstr "MySQL-ի պատասխանը՝ "
 
@@ -8291,7 +8353,7 @@ msgstr "%1$s իրադարձությունը ստեղծվեց։"
 
 #: libraries/classes/Database/Events.php:166
 #: libraries/classes/Database/Routines.php:279
-#: libraries/classes/Database/Triggers.php:183
+#: libraries/classes/Database/Triggers.php:178
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Ձեր հարցումը կատարելու ժամանակ առաջացել են մեկ կամ ավել սխալներ՝"
 
@@ -8305,7 +8367,7 @@ msgstr "Խմբագրել իրադարձությունը"
 
 #: libraries/classes/Database/Events.php:412
 #: libraries/classes/Database/Routines.php:1061
-#: libraries/classes/Database/Triggers.php:514
+#: libraries/classes/Database/Triggers.php:393
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Սահմանիչը պետք է համապատասխանի \"օգտանուն@խնամորդի_անուն\" ձևաչափին։"
 
@@ -8335,16 +8397,16 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: libraries/classes/Database/Events.php:525
-#: libraries/classes/Database/Routines.php:1677
-#: libraries/classes/Database/Triggers.php:582
+#: libraries/classes/Database/Routines.php:1675
+#: libraries/classes/Database/Triggers.php:461
 msgid "The backed up query was:"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:558
 #: libraries/classes/Database/Routines.php:157
 #: libraries/classes/Database/Routines.php:1239
-#: libraries/classes/Database/Routines.php:1422
-#: libraries/classes/Database/Triggers.php:614
+#: libraries/classes/Database/Routines.php:1420
+#: libraries/classes/Database/Triggers.php:495
 msgid "Error in processing request:"
 msgstr "Հարցումը կատարելու սխալ՝"
 
@@ -8359,14 +8421,14 @@ msgstr "%2$s տվյալների բազայում %1$s անունով իրադա�
 msgid "Export of event %s"
 msgstr "%s իրադարձության արտահանում"
 
-#: libraries/classes/Database/Events.php:610
+#: libraries/classes/Database/Events.php:613
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "%2$s տվյալների բազայում %1$s անունով իրադարձությունը չի գտնվել"
 
-#: libraries/classes/DatabaseInterface.php:1108
+#: libraries/classes/DatabaseInterface.php:1086
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -8383,22 +8445,22 @@ msgstr ""
 "[/em]-ի համար։ Տվյալ պահին phpMyAdmin-ը օգտագործում է սպասարկչի լռելյայն "
 "ժամային գոտին։"
 
-#: libraries/classes/DatabaseInterface.php:1156
+#: libraries/classes/DatabaseInterface.php:1135
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1957
+#: libraries/classes/DatabaseInterface.php:1938
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Բացակայող հարաչափը՝"
 
-#: libraries/classes/DatabaseInterface.php:1986
+#: libraries/classes/DatabaseInterface.php:1967
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
 
-#: libraries/classes/DatabaseInterface.php:2475
+#: libraries/classes/DatabaseInterface.php:2456
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8506,7 +8568,7 @@ msgid "You must provide a routine definition."
 msgstr "Դուք պետք է տրամադրեք գործընթացի սահմանումը։"
 
 #: libraries/classes/Database/Routines.php:1241
-#: libraries/classes/Database/Routines.php:1424
+#: libraries/classes/Database/Routines.php:1422
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
@@ -8517,28 +8579,28 @@ msgstr "%2$s տվյալների բազայում %1$s անունով ձգանը 
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1332
+#: libraries/classes/Database/Routines.php:1330
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 msgstr[1] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 
-#: libraries/classes/Database/Routines.php:1407
-#: libraries/classes/Database/Routines.php:1414
+#: libraries/classes/Database/Routines.php:1405
+#: libraries/classes/Database/Routines.php:1412
 msgid "Execute routine"
 msgstr "Կատարել գործընթացը"
 
-#: libraries/classes/Database/Routines.php:1676
+#: libraries/classes/Database/Routines.php:1674
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1706
+#: libraries/classes/Database/Routines.php:1704
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1725
+#: libraries/classes/Database/Routines.php:1726
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -8577,101 +8639,61 @@ msgstr "ըստ ամբողջական արտահայտության"
 msgid "as regular expression"
 msgstr "որպես կանոնավոր արտահայտություն"
 
-#: libraries/classes/Database/Triggers.php:149
+#: libraries/classes/Database/Triggers.php:144
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "%1$s ձգանը փոփոխվեց։"
 
-#: libraries/classes/Database/Triggers.php:169
+#: libraries/classes/Database/Triggers.php:164
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "%1$s ձգանը ստեղծվեց։"
 
-#: libraries/classes/Database/Triggers.php:267
+#: libraries/classes/Database/Triggers.php:262
 msgid "Add trigger"
 msgstr "Ավելացնել ձգան"
 
-#: libraries/classes/Database/Triggers.php:271
+#: libraries/classes/Database/Triggers.php:266
 msgid "Edit trigger"
 msgstr "Խմբագրել ձգանը"
 
-#: libraries/classes/Database/Triggers.php:400
-#: templates/database/events/editor_form.twig:10
-#: templates/database/routines/editor_form.twig:11 templates/view_create.twig:8
-msgid "Details"
-msgstr "Մանրամասները"
-
-#: libraries/classes/Database/Triggers.php:408
-msgid "Trigger name"
-msgstr "Ձգանի անունը"
-
-#: libraries/classes/Database/Triggers.php:433
-msgctxt "Trigger action time"
-msgid "Time"
-msgstr "Ժամանակ"
-
-#: libraries/classes/Database/Triggers.php:450
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
-#: libraries/classes/Plugins/Export/ExportOdt.php:635
-#: libraries/classes/Plugins/Export/ExportTexytext.php:486
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:412
-#: templates/database/triggers/list.twig:48
-msgid "Event"
-msgstr "Իրադարձություն"
-
-#: libraries/classes/Database/Triggers.php:467
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:512
-#: libraries/classes/Plugins/Export/ExportOdt.php:638
-#: libraries/classes/Plugins/Export/ExportTexytext.php:487
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:414
-#: templates/database/events/editor_form.twig:80
-#: templates/database/routines/editor_form.twig:108
-msgid "Definition"
-msgstr "Սահմանում"
-
-#: libraries/classes/Database/Triggers.php:473
-#: templates/database/events/editor_form.twig:94
-#: templates/database/routines/editor_form.twig:137
-#: templates/view_create.twig:45
-msgid "Definer"
-msgstr "Սահմանիչ"
-
-#: libraries/classes/Database/Triggers.php:522
+#: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a trigger name!"
 msgstr "Դուք պետք է տրամադրեք ձգանի անունը։"
 
-#: libraries/classes/Database/Triggers.php:531
+#: libraries/classes/Database/Triggers.php:410
 msgid "You must provide a valid timing for the trigger!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:540
+#: libraries/classes/Database/Triggers.php:419
 msgid "You must provide a valid event for the trigger!"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:550
+#: libraries/classes/Database/Triggers.php:429
 msgid "You must provide a valid table name!"
 msgstr "Դուք պետք է տրամադրեք աղյուսակի վավերական անունը։"
 
-#: libraries/classes/Database/Triggers.php:557
+#: libraries/classes/Database/Triggers.php:436
 msgid "You must provide a trigger definition."
 msgstr "Դուք պետք է տրամադրեք ձգանի սահմանումը։"
 
-#: libraries/classes/Database/Triggers.php:581
+#: libraries/classes/Database/Triggers.php:460
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:616
+#: libraries/classes/Database/Triggers.php:497
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "%2$s տվյալների բազայում %1$s անունով ձգանը չի գտնվել"
 
-#: libraries/classes/Database/Triggers.php:652
+#: libraries/classes/Database/Triggers.php:531
+#: templates/database/triggers/export.twig:2
 #, php-format
 msgid "Export of trigger %s"
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:670
+#: libraries/classes/Database/Triggers.php:549
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -8679,36 +8701,36 @@ msgid ""
 "%2$s."
 msgstr "%2$s տվյալների բազայում %1$s անունով ձգանը չի գտնվել"
 
-#: libraries/classes/Dbal/DbiMysqli.php:139
+#: libraries/classes/Dbal/DbiMysqli.php:147
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:914
-#: libraries/classes/Html/Generator.php:1260
-#: libraries/classes/Html/Generator.php:1264
+#: libraries/classes/Html/Generator.php:1241
+#: libraries/classes/Html/Generator.php:1245
 msgctxt "First page"
 msgid "Begin"
 msgstr "Սկիզբ"
 
 #: libraries/classes/Display/Results.php:921
-#: libraries/classes/Html/Generator.php:1261
-#: libraries/classes/Html/Generator.php:1265
+#: libraries/classes/Html/Generator.php:1242
+#: libraries/classes/Html/Generator.php:1246
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Նախորդ"
 
 #: libraries/classes/Display/Results.php:949
-#: libraries/classes/Html/Generator.php:1294
-#: libraries/classes/Html/Generator.php:1303
+#: libraries/classes/Html/Generator.php:1275
+#: libraries/classes/Html/Generator.php:1284
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Հաջորդ"
 
 #: libraries/classes/Display/Results.php:980
-#: libraries/classes/Html/Generator.php:1295
-#: libraries/classes/Html/Generator.php:1304
+#: libraries/classes/Html/Generator.php:1276
+#: libraries/classes/Html/Generator.php:1285
 msgctxt "Last page"
 msgid "End"
 msgstr "Վերջ"
@@ -8724,8 +8746,8 @@ msgid "Full texts"
 msgstr "Ամբողջական գրվածքներ"
 
 #: libraries/classes/Display/Results.php:1977
-#: libraries/classes/Display/Results.php:2003 libraries/classes/Util.php:2764
-#: libraries/classes/Util.php:2787 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:2003 libraries/classes/Util.php:2759
+#: libraries/classes/Util.php:2782 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -8738,8 +8760,8 @@ msgid "Descending"
 msgstr "Ըստ նվազման"
 
 #: libraries/classes/Display/Results.php:1985
-#: libraries/classes/Display/Results.php:1995 libraries/classes/Util.php:2756
-#: libraries/classes/Util.php:2779 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1995 libraries/classes/Util.php:2751
+#: libraries/classes/Util.php:2774 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -8761,31 +8783,31 @@ msgstr "Տողը ջնջվեց։"
 msgid "Kill"
 msgstr "Ավարտել"
 
-#: libraries/classes/Display/Results.php:4106
+#: libraries/classes/Display/Results.php:4107
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Կարող է մոտավոր լինել։ Դիմեք [doc@faq3-11]FAQ 3.11[/doc]։"
 
-#: libraries/classes/Display/Results.php:4527
+#: libraries/classes/Display/Results.php:4528
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s -ից %2s տողերի ցուցադրում"
 
-#: libraries/classes/Display/Results.php:4541
+#: libraries/classes/Display/Results.php:4542
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Ընդամենը %1$d,%2$d հարցման մեջ"
 
-#: libraries/classes/Display/Results.php:4546
+#: libraries/classes/Display/Results.php:4547
 #, php-format
 msgid "%d total"
 msgstr "Ընդամենը %d"
 
-#: libraries/classes/Display/Results.php:4559 libraries/classes/Sql.php:1057
+#: libraries/classes/Display/Results.php:4560 libraries/classes/Sql.php:1066
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Հարցումը տևեց %01.4f վայրկյան։"
 
-#: libraries/classes/Display/Results.php:4936
+#: libraries/classes/Display/Results.php:4937
 msgid "Link not found!"
 msgstr "Հղումներ չեն գտնվել։"
 
@@ -9081,10 +9103,10 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:170
-#: libraries/classes/Html/Generator.php:844
+#: libraries/classes/Html/Generator.php:825
 #: libraries/classes/Html/MySQLDocumentation.php:51
 #: libraries/classes/Sanitize.php:207
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:229
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:231
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -9136,17 +9158,17 @@ msgstr ""
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: libraries/classes/File.php:288
+#: libraries/classes/File.php:275
 msgid "File was not an uploaded file."
 msgstr "Ֆայլը՝ վերբեռնված ֆայլ չէր։"
 
-#: libraries/classes/File.php:331
+#: libraries/classes/File.php:318
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Վերբեռնված ֆայլը գերազանցում է php.ini-ում նշված upload_max_filesize "
 "հարաչափի սահմանաչափը։"
 
-#: libraries/classes/File.php:337
+#: libraries/classes/File.php:324
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -9154,47 +9176,47 @@ msgstr ""
 "Վերբեռնված ֆայլը գերազանցում է HTML ձևի մեջ նշված MAX_FILE_SIZE հարաչափի "
 "սահմանաչափը։"
 
-#: libraries/classes/File.php:343
+#: libraries/classes/File.php:330
 msgid "The uploaded file was only partially uploaded."
 msgstr "Վերբեռնված ֆայլը միայն մասնակի է վերբեռնվել։"
 
-#: libraries/classes/File.php:347
+#: libraries/classes/File.php:334
 msgid "Missing a temporary folder."
 msgstr "Բացակայում է ժամանակավոր պանակը։"
 
-#: libraries/classes/File.php:350
+#: libraries/classes/File.php:337
 msgid "Failed to write file to disk."
 msgstr "Չհաջողվեց գրել ֆայլը սկավառակի վրա։"
 
-#: libraries/classes/File.php:353
+#: libraries/classes/File.php:340
 msgid "File upload stopped by extension."
 msgstr "Ֆայլի վերբեռնումը կասեցվել է ընդլայնման պատճառով։"
 
-#: libraries/classes/File.php:356
+#: libraries/classes/File.php:343
 msgid "Unknown error in file upload."
 msgstr "Ֆայլի վերբեռման անհայտ սխալ։"
 
-#: libraries/classes/File.php:506
+#: libraries/classes/File.php:493
 msgid "File is a symbolic link"
 msgstr ""
 
-#: libraries/classes/File.php:513 libraries/classes/File.php:612
+#: libraries/classes/File.php:500 libraries/classes/File.php:599
 msgid "File could not be read!"
 msgstr "Չհաջողվեց կարդալ ֆայլը։"
 
-#: libraries/classes/File.php:556
+#: libraries/classes/File.php:543
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ, դիմեք [doc@faq1-11]FAQ 1.11[/doc]։"
 
-#: libraries/classes/File.php:576
+#: libraries/classes/File.php:563
 msgid "Error while moving uploaded file."
 msgstr "Վերբեռնված ֆայլի տեղափոխման սխալ։"
 
-#: libraries/classes/File.php:585
+#: libraries/classes/File.php:572
 msgid "Cannot read uploaded file."
 msgstr "Չհաջողվեց կարդալ վերբեռնված ֆայլը։"
 
-#: libraries/classes/File.php:663
+#: libraries/classes/File.php:650
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -9209,111 +9231,106 @@ msgstr ""
 msgid "Session not found."
 msgstr "Հղումներ չեն գտնվել։"
 
-#: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
-#: libraries/classes/Footer.php:224
-msgid "Open new phpMyAdmin window"
-msgstr "Բացել phpMyAdmin-ը նոր պատուհանում"
-
 #: libraries/classes/Header.php:370
 msgid "Print view"
 msgstr "Տպման տարբերակը"
 
-#: libraries/classes/Html/Generator.php:154
+#: libraries/classes/Html/Generator.php:153
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Զանցել \"%s\" տվյալների բազային։"
 
-#: libraries/classes/Html/Generator.php:182
+#: libraries/classes/Html/Generator.php:181
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:253
+#: libraries/classes/Html/Generator.php:252
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:258
+#: libraries/classes/Html/Generator.php:257
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:260
+#: libraries/classes/Html/Generator.php:259
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:263
+#: libraries/classes/Html/Generator.php:262
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:363
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:365
+#: libraries/classes/Html/Generator.php:364
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:686
+#: libraries/classes/Html/Generator.php:667
 msgid "Skip Explain SQL"
 msgstr "Զանցել SQL-ի վերլուծումը"
 
-#: libraries/classes/Html/Generator.php:694
+#: libraries/classes/Html/Generator.php:675
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:725
+#: libraries/classes/Html/Generator.php:706
 msgid "Without PHP code"
 msgstr "Առանց PHP կոդի"
 
-#: libraries/classes/Html/Generator.php:732
+#: libraries/classes/Html/Generator.php:713
 #: templates/database/multi_table_query/form.twig:171
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Կատարել հարցումը"
 
-#: libraries/classes/Html/Generator.php:778 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:759 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Հարցումների հսկում"
 
-#: libraries/classes/Html/Generator.php:794
+#: libraries/classes/Html/Generator.php:775
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Ներտող խմբագրում"
 
-#: libraries/classes/Html/Generator.php:934
+#: libraries/classes/Html/Generator.php:915
 msgid "Static analysis:"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:937
+#: libraries/classes/Html/Generator.php:918
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Վերլուծման ժամանակ գտնվել է %d սխալ։"
 
-#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1065
+#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1074
 msgid "[ROLLBACK occurred.]"
 msgstr "[Տեղի է ունեցել ՀԵՏԴԱՐՁ]"
 
-#: libraries/classes/Import.php:1353
+#: libraries/classes/Import.php:1354
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1356
+#: libraries/classes/Import.php:1357
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1359
+#: libraries/classes/Import.php:1360
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1361
+#: libraries/classes/Import.php:1362
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1365 libraries/classes/Import.php:1399
+#: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
 #: libraries/classes/Plugins/Export/ExportCodegen.php:72
 #: libraries/classes/Plugins/Export/ExportCsv.php:48
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
@@ -9328,7 +9345,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:115
 #: libraries/classes/Plugins/Export/ExportTexytext.php:47
 #: libraries/classes/Plugins/Export/ExportXml.php:93
-#: libraries/classes/Plugins/Export/ExportYaml.php:45
+#: libraries/classes/Plugins/Export/ExportYaml.php:46
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
 #: libraries/classes/Plugins/Import/ImportOds.php:56
@@ -9337,43 +9354,43 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportXml.php:55
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
-#: templates/database/routines/editor_form.twig:52
+#: templates/database/routines/editor_form.twig:53
 #: templates/display/results/table.twig:107
 #: templates/table/search/index.twig:100
 #: templates/table/structure/display_table_stats.twig:97
 msgid "Options"
 msgstr "Կայանքներ"
 
-#: libraries/classes/Import.php:1368
+#: libraries/classes/Import.php:1369
 #, php-format
 msgid "Go to database: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1374 libraries/classes/Import.php:1417
+#: libraries/classes/Import.php:1375 libraries/classes/Import.php:1418
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Խմբագրել կայանքներ %s-ի համար"
 
-#: libraries/classes/Import.php:1402
+#: libraries/classes/Import.php:1403
 #, php-format
 msgid "Go to table: %s"
 msgstr "Անցնել աղյուսակին՝ %s"
 
-#: libraries/classes/Import.php:1410
+#: libraries/classes/Import.php:1411
 #, php-format
 msgid "Structure of %s"
 msgstr "%s-ի կառուցվածքը"
 
-#: libraries/classes/Import.php:1428
+#: libraries/classes/Import.php:1429
 #, php-format
 msgid "Go to view: %s"
 msgstr "Անցնել ներկայացնամնը (VIEW)՝ %s"
 
-#: libraries/classes/Import.php:1452
+#: libraries/classes/Import.php:1453
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1686
+#: libraries/classes/Import.php:1687
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9390,15 +9407,15 @@ msgstr ""
 "%1$s և %2$s ցուցակարգերը նույնն են, այդպես որ դրանցից մեկը հնարավոր է "
 "հեռացնել։"
 
-#: libraries/classes/InsertEdit.php:356
-#: libraries/classes/Navigation/Nodes/NodeFunction.php:29
-#: templates/database/routines/execute_form.twig:21
+#: libraries/classes/InsertEdit.php:357
+#: libraries/classes/Navigation/Nodes/NodeFunction.php:26
+#: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
 msgid "Function"
 msgstr "Գործառույթ"
 
-#: libraries/classes/InsertEdit.php:359
+#: libraries/classes/InsertEdit.php:360
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:402
 #: libraries/classes/Plugins/Export/ExportLatex.php:573
@@ -9407,19 +9424,19 @@ msgstr "Գործառույթ"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:579
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/columns_definitions/table_fields_definitions.twig:12
-#: templates/database/central_columns/edit.twig:7
+#: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
-#: templates/database/routines/editor_form.twig:25
-#: templates/database/routines/editor_form.twig:50
-#: templates/database/routines/execute_form.twig:19
+#: templates/database/routines/editor_form.twig:26
+#: templates/database/routines/editor_form.twig:51
+#: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:50
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
@@ -9432,12 +9449,12 @@ msgstr "Գործառույթ"
 msgid "Type"
 msgstr "Տեսակ"
 
-#: libraries/classes/InsertEdit.php:761 templates/import.twig:77
+#: libraries/classes/InsertEdit.php:762 templates/import.twig:77
 #: templates/import.twig:107
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Վերբեռնումների համար նախատեսված պանակը անհասանելի է։"
 
-#: libraries/classes/InsertEdit.php:766
+#: libraries/classes/InsertEdit.php:767
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -9447,51 +9464,12 @@ msgstr "Վերբեռնումների համար նախատեսված պանակ�
 msgid "Or"
 msgstr "Կամ"
 
-#: libraries/classes/InsertEdit.php:767
+#: libraries/classes/InsertEdit.php:768
 msgid "web server upload directory:"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1024
-msgid "and then"
-msgstr "և հետո"
-
-#: libraries/classes/InsertEdit.php:1064
-msgid "Insert as new row"
-msgstr "Զետեղել որպես նոր տող"
-
-#: libraries/classes/InsertEdit.php:1067
-msgid "Insert as new row and ignore errors"
-msgstr "Զետեղել որպես նոր տող և անտեսել սխալներ"
-
-#: libraries/classes/InsertEdit.php:1070
-msgid "Show insert query"
-msgstr "Ցուցադրել զետեղման հարցումը"
-
-#: libraries/classes/InsertEdit.php:1091
-msgid "Go back to previous page"
-msgstr "Վերադառնալ նախորդ էջին"
-
-#: libraries/classes/InsertEdit.php:1094
-msgid "Insert another new row"
-msgstr "Զետեղել մեկ այլ նոր տող"
-
-#: libraries/classes/InsertEdit.php:1099
-msgid "Go back to this page"
-msgstr ""
-
-#: libraries/classes/InsertEdit.php:1124
-msgid "Edit next row"
-msgstr "Խմբագրել հաջորդ տողը"
-
-#: libraries/classes/InsertEdit.php:1144
-msgid ""
-"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr ""
-"Օգտագործեք TAB ստեղնը՝ արժեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
-"ցանկացած տեղ տեղափոխվելու համար։"
-
-#: libraries/classes/InsertEdit.php:1172
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:34
+#: libraries/classes/InsertEdit.php:1041
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:31
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:399
 #: libraries/classes/Plugins/Export/ExportLatex.php:572
@@ -9500,8 +9478,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:311
 #: libraries/classes/Plugins/Export/ExportTexytext.php:405
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:577
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:718
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -9522,7 +9500,7 @@ msgstr ""
 msgid "Column"
 msgstr "Սյունակ"
 
-#: libraries/classes/InsertEdit.php:1182
+#: libraries/classes/InsertEdit.php:1051
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:304
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:405
 #: libraries/classes/Plugins/Export/ExportLatex.php:574
@@ -9531,10 +9509,10 @@ msgstr "Սյունակ"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:581
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
 #: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/database/central_columns/edit.twig:12
+#: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
 #: templates/database/data_dictionary/index.twig:18
@@ -9547,12 +9525,12 @@ msgstr "Սյունակ"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/InsertEdit.php:1183
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
-#: templates/database/designer/main.twig:857
-#: templates/database/designer/main.twig:1050
-#: templates/database/routines/execute_form.twig:23
+#: libraries/classes/InsertEdit.php:1052
+#: templates/database/designer/main.twig:484
+#: templates/database/designer/main.twig:649
+#: templates/database/designer/main.twig:855
+#: templates/database/designer/main.twig:1048
+#: templates/database/routines/execute_form.twig:20
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -9562,11 +9540,11 @@ msgstr "Null"
 msgid "Value"
 msgstr "Արժեքը"
 
-#: libraries/classes/InsertEdit.php:1593 libraries/classes/Sql.php:1048
+#: libraries/classes/InsertEdit.php:1462 libraries/classes/Sql.php:1057
 msgid "Showing SQL query"
 msgstr "SQL հարցման ցուցադրում"
 
-#: libraries/classes/InsertEdit.php:1623 libraries/classes/Sql.php:1025
+#: libraries/classes/InsertEdit.php:1492 libraries/classes/Sql.php:1034
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Զետեղված տողի id՝ %1$d"
@@ -9588,8 +9566,8 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (<code>%2$s</code>-ի մոտ)"
 
 #: libraries/classes/Menu.php:263
-#: libraries/classes/Navigation/Nodes/NodeTable.php:330
-#: libraries/classes/Util.php:1603 libraries/classes/Util.php:2140
+#: libraries/classes/Navigation/Nodes/NodeTable.php:320
+#: libraries/classes/Util.php:1603 libraries/classes/Util.php:2135
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -9598,9 +9576,9 @@ msgid "Browse"
 msgstr "Դիտարկում"
 
 #: libraries/classes/Menu.php:282 libraries/classes/Menu.php:403
-#: libraries/classes/Navigation/Nodes/NodeTable.php:321
-#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2126
-#: libraries/classes/Util.php:2143 libraries/config.values.php:64
+#: libraries/classes/Navigation/Nodes/NodeTable.php:311
+#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2121
+#: libraries/classes/Util.php:2138 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -9611,8 +9589,8 @@ msgid "Search"
 msgstr "Որոնում"
 
 #: libraries/classes/Menu.php:293
-#: libraries/classes/Navigation/Nodes/NodeTable.php:324
-#: libraries/classes/Util.php:1602 libraries/classes/Util.php:2144
+#: libraries/classes/Navigation/Nodes/NodeTable.php:314
+#: libraries/classes/Util.php:1602 libraries/classes/Util.php:2139
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9622,8 +9600,8 @@ msgid "Insert"
 msgstr "Զետեղել"
 
 #: libraries/classes/Menu.php:322 libraries/classes/Menu.php:443
-#: libraries/classes/Server/Privileges.php:3021 libraries/classes/Util.php:2131
-#: libraries/classes/Util.php:2147 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2983 libraries/classes/Util.php:2126
+#: libraries/classes/Util.php:2142 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9633,26 +9611,27 @@ msgstr "Արտոնություններ"
 
 #: libraries/classes/Menu.php:333 libraries/classes/Menu.php:343
 #: libraries/classes/Menu.php:434 libraries/classes/Util.php:1604
-#: libraries/classes/Util.php:2130 libraries/classes/Util.php:2148
+#: libraries/classes/Util.php:2125 libraries/classes/Util.php:2143
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Գործողություններ"
 
 #: libraries/classes/Menu.php:349 libraries/classes/Menu.php:469
-#: libraries/classes/Relation.php:320 libraries/classes/Util.php:2135
-#: libraries/classes/Util.php:2149
+#: libraries/classes/Relation.php:320 libraries/classes/Util.php:2130
+#: libraries/classes/Util.php:2144
 msgid "Tracking"
 msgstr "Հետագծում"
 
 #: libraries/classes/Menu.php:364 libraries/classes/Menu.php:462
-#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:23
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:740
 #: libraries/classes/Plugins/Export/ExportPdf.php:300
-#: libraries/classes/Plugins/Export/ExportSql.php:2231
+#: libraries/classes/Plugins/Export/ExportSql.php:2234
 #: libraries/classes/Plugins/Export/ExportTexytext.php:573
 #: libraries/classes/Plugins/Export/ExportXml.php:139
-#: libraries/classes/Util.php:2134 libraries/classes/Util.php:2150
+#: libraries/classes/Util.php:2129 libraries/classes/Util.php:2145
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Ձգաններ"
@@ -9662,28 +9641,29 @@ msgstr "Ձգաններ"
 msgid "Database seems to be empty!"
 msgstr "Տվյալների բազան դատարկ է"
 
-#: libraries/classes/Menu.php:411 libraries/classes/Util.php:2127
+#: libraries/classes/Menu.php:411 libraries/classes/Util.php:2122
 msgid "Query"
 msgstr "Հարցում"
 
-#: libraries/classes/Menu.php:449 libraries/classes/Util.php:2132
+#: libraries/classes/Menu.php:449 libraries/classes/Util.php:2127
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Գործընթացներ"
 
 #: libraries/classes/Menu.php:455
-#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:1046
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#: libraries/classes/Util.php:2133 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:2128 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Իրադարձություններ"
 
-#: libraries/classes/Menu.php:476 libraries/classes/Util.php:2136
+#: libraries/classes/Menu.php:476 libraries/classes/Util.php:2131
 msgid "Designer"
 msgstr "Ձևավորող"
 
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2137
+#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2132
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Կենտրոնական սյունակներ"
@@ -9693,12 +9673,12 @@ msgid "User accounts"
 msgstr "Օգտվողների հաշիվներ"
 
 #: libraries/classes/Menu.php:581 libraries/classes/Server/Status/Data.php:153
-#: libraries/classes/Util.php:2116 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2111 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Երկուական մատյան"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:158
-#: libraries/classes/Util.php:2117
+#: libraries/classes/Util.php:2112
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -9706,21 +9686,21 @@ msgid "Replication"
 msgstr "Կրկնապատկում"
 
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:230
-#: libraries/classes/Util.php:2118 libraries/config.values.php:159
+#: libraries/classes/Util.php:2113 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:192
 msgid "Variables"
 msgstr "Փոփոխականներ"
 
-#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2119
+#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2114
 msgid "Charsets"
 msgstr "Կոդավորումներ"
 
-#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2121
+#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2116
 msgid "Engines"
 msgstr "Պահպանման տեսակներ"
 
-#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2120
+#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2115
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Խրվակներ"
@@ -9771,7 +9751,7 @@ msgstr "Աղյուսակներ՝"
 msgid "Views:"
 msgstr "Ներկայացումներ՝"
 
-#: libraries/classes/Navigation/NavigationTree.php:854
+#: libraries/classes/Navigation/NavigationTree.php:856
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -9783,24 +9763,14 @@ msgstr ""
 msgid "Groups"
 msgstr "Խմբավորել հարցումները"
 
-#: libraries/classes/Navigation/NavigationTree.php:1047
+#: libraries/classes/Navigation/NavigationTree.php:1051
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "գտնվել է %s արդյունք"
 msgstr[1] "գտնվել է %s արդյունք"
 
-#: libraries/classes/Navigation/NavigationTree.php:1491
-#: libraries/classes/Navigation/NavigationTree.php:1527
-msgid "Type to filter these, Enter to search all"
-msgstr ""
-
-#: libraries/classes/Navigation/NavigationTree.php:1493
-#: libraries/classes/Navigation/NavigationTree.php:1528
-msgid "Clear fast filter"
-msgstr ""
-
-#: libraries/classes/Navigation/NavigationTree.php:1554
+#: libraries/classes/Navigation/NavigationTree.php:1543
 msgid "Collapse all"
 msgstr "Կոծկել բոլորը"
 
@@ -9815,90 +9785,106 @@ msgstr ""
 msgid "Could not load class \"%1$s\""
 msgstr "Չհաջողվեց բեռնել \"%1$s\" դասը"
 
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "Սյունակներ"
 
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:30
 msgctxt "Create new column"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:41
+#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:39
 msgctxt "Create new database"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:44
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
 msgstr "Տվյալների բազայի հետ գործողություններ"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:727
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:720
 msgid "Show hidden items"
 msgstr "Ցուցադրել թաքնված տարրերը"
 
-#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:30
 msgctxt "Create new event"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeEvent.php:26
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
+#: libraries/classes/Plugins/Export/ExportOdt.php:635
+#: libraries/classes/Plugins/Export/ExportTexytext.php:486
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:412
+#: templates/database/triggers/editor_form.twig:47
+#: templates/database/triggers/list.twig:48
+msgid "Event"
+msgstr "Իրադարձություն"
+
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:637
 #: libraries/classes/Plugins/Export/ExportXml.php:124
 msgid "Functions"
 msgstr "Գործառույթներ"
 
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:30
 msgctxt "Create new function"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:30
 msgctxt "Create new index"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/Node.php:636
+#: libraries/classes/Navigation/Nodes/Node.php:657
 msgid "Expand/Collapse"
 msgstr "Ընդարձակել/Կոծկել"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:23
 #: libraries/classes/Plugins/Export/ExportSql.php:626
 #: libraries/classes/Plugins/Export/ExportXml.php:129
 msgid "Procedures"
 msgstr "Ընթացակարգեր"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:30
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
+#: libraries/classes/Navigation/Nodes/NodeProcedure.php:26
 msgid "Procedure"
 msgstr "Ընթացակարգ"
 
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:31
 msgctxt "Create new table"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:30
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Նոր"
 
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
+#: libraries/classes/Navigation/Nodes/NodeTrigger.php:26
+#, fuzzy
+#| msgid "Triggers"
+msgid "Trigger"
+msgstr "Ձգաններ"
+
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:22
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Plugins/Export/ExportXml.php:144
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Ներկայացումներ"
 
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:31
 msgctxt "Create new view"
 msgid "New"
 msgstr "Նոր"
@@ -10322,7 +10308,7 @@ msgstr ""
 msgid "Wrong username/password. Access denied."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:156
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:154
 msgid "Can not find signon authentication script:"
 msgstr ""
 
@@ -10440,7 +10426,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:209
 #: libraries/classes/Plugins/Export/ExportOdt.php:266
-#: libraries/classes/Plugins/Export/ExportSql.php:2551
+#: libraries/classes/Plugins/Export/ExportSql.php:2554
 #: libraries/classes/Plugins/Export/ExportTexytext.php:193
 msgid "Dumping data for table"
 msgstr ""
@@ -10453,10 +10439,10 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:583
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
 #: templates/columns_definitions/table_fields_definitions.twig:20
-#: templates/database/central_columns/edit.twig:9
+#: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
 #: templates/database/data_dictionary/index.twig:19
@@ -10472,8 +10458,8 @@ msgstr "Լռելյան"
 #: libraries/classes/Plugins/Export/ExportOdt.php:514
 #: libraries/classes/Plugins/Export/ExportTexytext.php:410
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:592
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:726
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "Հղումներ դեպի"
@@ -10483,37 +10469,47 @@ msgstr "Հղումներ դեպի"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:408
 #: templates/columns_definitions/table_fields_definitions.twig:9
-#: templates/database/central_columns/edit.twig:6
+#: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
 #: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
 #: templates/database/operations/index.twig:33
-#: templates/database/routines/editor_form.twig:49
-#: templates/database/routines/execute_form.twig:18
+#: templates/database/routines/editor_form.twig:50
+#: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
 #: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
 #: templates/table/structure/display_structure.twig:22
 msgid "Name"
 msgstr "Անուն"
 
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:512
+#: libraries/classes/Plugins/Export/ExportOdt.php:638
+#: libraries/classes/Plugins/Export/ExportTexytext.php:487
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:414
+#: templates/database/events/editor_form.twig:82
+#: templates/database/routines/editor_form.twig:109
+#: templates/database/triggers/editor_form.twig:57
+msgid "Definition"
+msgstr "Սահմանում"
+
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:586
 #: libraries/classes/Plugins/Export/ExportOdt.php:718
-#: libraries/classes/Plugins/Export/ExportSql.php:2200
+#: libraries/classes/Plugins/Export/ExportSql.php:2203
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 msgid "Table structure for table"
 msgstr "Աղյուսակի կառուցվածքը"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:612
 #: libraries/classes/Plugins/Export/ExportOdt.php:750
-#: libraries/classes/Plugins/Export/ExportSql.php:2274
+#: libraries/classes/Plugins/Export/ExportSql.php:2277
 #: libraries/classes/Plugins/Export/ExportTexytext.php:579
 msgid "Structure for view"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:626
 #: libraries/classes/Plugins/Export/ExportOdt.php:770
-#: libraries/classes/Plugins/Export/ExportSql.php:2322
+#: libraries/classes/Plugins/Export/ExportSql.php:2325
 #: libraries/classes/Plugins/Export/ExportTexytext.php:595
 msgid "Stand-in structure for view"
 msgstr ""
@@ -10619,7 +10615,7 @@ msgid "Database:"
 msgstr "Տվյալների բազան՝"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:337
-#: libraries/classes/Plugins/Export/ExportSql.php:2391
+#: libraries/classes/Plugins/Export/ExportSql.php:2394
 msgid "Data:"
 msgstr "Տվյալներ՝"
 
@@ -10727,7 +10723,7 @@ msgid "Data creation options"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:407
-#: libraries/classes/Plugins/Export/ExportSql.php:2497
+#: libraries/classes/Plugins/Export/ExportSql.php:2500
 msgid "Truncate table before insert"
 msgstr "Դատարկել աղյուսակը՝ տվյալներ զետեղելուց առաջ"
 
@@ -10798,7 +10794,7 @@ msgstr "Ըստ երևույթի, ձեր ՏԲ-ն օգտագործում է գոր
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
 #: libraries/classes/Plugins/Export/ExportSql.php:1711
-#: libraries/classes/Plugins/Export/ExportSql.php:2262
+#: libraries/classes/Plugins/Export/ExportSql.php:2265
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -10817,17 +10813,17 @@ msgid "Metadata for database %s"
 msgstr "%s տվյալների բազայի անդրտվյալները"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1529
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:682
 msgid "Creation:"
 msgstr "Ստեղծում՝"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1543
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:693
 msgid "Last update:"
 msgstr "Վերջին թարմացումը՝"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1557
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
 msgid "Last check:"
 msgstr "Վերջին ստուգումը՝"
 
@@ -10841,56 +10837,56 @@ msgstr "Աղյուսակի կառուցվածքը"
 msgid "It appears your database uses views;"
 msgstr "Ըստ երևույթի, ձեր ՏԲ-ն օգտագործում է ներկայացումներ;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1889
+#: libraries/classes/Plugins/Export/ExportSql.php:1892
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1890
+#: libraries/classes/Plugins/Export/ExportSql.php:1893
 msgid "Constraints for table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1920
+#: libraries/classes/Plugins/Export/ExportSql.php:1923
 msgid "Indexes for dumped tables"
 msgstr "Պահպանված աղյուսակների ցուցակագրերը"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1921
+#: libraries/classes/Plugins/Export/ExportSql.php:1924
 msgid "Indexes for table"
 msgstr "Աղյուսակի ցուցակագրերը"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1957
+#: libraries/classes/Plugins/Export/ExportSql.php:1960
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT՝ պահպանված աղյուսակների համար"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1958
+#: libraries/classes/Plugins/Export/ExportSql.php:1961
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT՝ աղյուսակի համար"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2035
+#: libraries/classes/Plugins/Export/ExportSql.php:2038
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "ԱՂՅՈՒՍԱԿՆԵՐԻ MIME ՏԵՍԱԿՆԵՐԸ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2059
+#: libraries/classes/Plugins/Export/ExportSql.php:2062
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "ԱՂՅՈՒՍԱԿՆԵՐԻ MIME ՏԵՍԱԿՆԵՐԸ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2259
+#: libraries/classes/Plugins/Export/ExportSql.php:2262
 msgid "It appears your table uses triggers;"
 msgstr "Ըստ երևույթի, ձեր ՏԲ-ն օգտագործում է ձգաններ;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2299
+#: libraries/classes/Plugins/Export/ExportSql.php:2302
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2325
+#: libraries/classes/Plugins/Export/ExportSql.php:2328
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2406
+#: libraries/classes/Plugins/Export/ExportSql.php:2409
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
@@ -11054,7 +11050,7 @@ msgstr "Այս ձևաչափի համար կայանքներ չկան"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Կազմաձևի ֆայլում նշված վավերացման եղանակը անվավեր է՝"
 
-#: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:79
+#: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:75
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:96
 #: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:99
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:94
@@ -11063,7 +11059,7 @@ msgid "The %s table doesn't exist!"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:77
+#: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:75
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
@@ -11076,37 +11072,37 @@ msgstr ""
 msgid "PDF export page"
 msgstr "PDF-ին արտահանման էջ"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:144
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:142
 #, php-format
 msgid "Schema of the %s database"
 msgstr "%s տվյալների բազայի ուրվագիծը"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:172
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:591
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:170
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:589
 msgid "Relational schema"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:534
 msgid "Table of contents"
 msgstr "Բովանդակության աղյուսակը"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Աղյուսակների մեկնաբանությունները՝"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/columns_definitions/table_fields_definitions.twig:27
-#: templates/database/central_columns/edit.twig:11
+#: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "Հատկանիշներ"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
@@ -11365,25 +11361,25 @@ msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:74
+#: libraries/classes/Plugins/TwoFactorPlugin.php:72
 #, fuzzy, php-format
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed: %s"
 msgstr "Սարքաշարով վավերացումը ձախողվեց"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:79
+#: libraries/classes/Plugins/TwoFactorPlugin.php:77
 #, fuzzy
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "Սարքաշարով վավերացումը ձախողվեց"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:133
+#: libraries/classes/Plugins/TwoFactorPlugin.php:131
 #, fuzzy
 #| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
 msgstr "Վավերացում config ֆայլի միջոցով"
 
-#: libraries/classes/Plugins/TwoFactorPlugin.php:143
+#: libraries/classes/Plugins/TwoFactorPlugin.php:141
 msgid "Login using password only."
 msgstr ""
 
@@ -11550,110 +11546,110 @@ msgstr ""
 msgid "Saving export templates"
 msgstr "Արտահանման ձևանմուշների պահպանում"
 
-#: libraries/classes/Relation.php:1878
+#: libraries/classes/Relation.php:1868
 msgid "no description"
 msgstr "նկարագրություն չկա"
 
-#: libraries/classes/Relation.php:2082
+#: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2202
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2220
+#: libraries/classes/Relation.php:2210
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:453
+#: libraries/classes/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:464
+#: libraries/classes/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "Կրկնապատկումը հաջողությամբ մեկնարկվեց։"
 
-#: libraries/classes/ReplicationGui.php:465
+#: libraries/classes/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "Կարկնապատկումը մեկնարկելու սխալ։"
 
-#: libraries/classes/ReplicationGui.php:468
+#: libraries/classes/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "Կրկնապատկումը հաջողությամբ կանգնեցվեց։"
 
-#: libraries/classes/ReplicationGui.php:469
+#: libraries/classes/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "Կրկնապատկումը կանգնեցնելու սխալ։"
 
-#: libraries/classes/ReplicationGui.php:472
+#: libraries/classes/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "Կրկնապատկումը հաջողությամբ վերակայվեց։"
 
-#: libraries/classes/ReplicationGui.php:473
+#: libraries/classes/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "Կրկնապատկումը վերակայելու սխալ։"
 
-#: libraries/classes/ReplicationGui.php:476
+#: libraries/classes/ReplicationGui.php:474
 msgid "Success."
 msgstr "Հաջողում։"
 
-#: libraries/classes/ReplicationGui.php:477
+#: libraries/classes/ReplicationGui.php:475
 msgid "Error."
 msgstr "Սխալ։"
 
-#: libraries/classes/ReplicationGui.php:527
+#: libraries/classes/ReplicationGui.php:523
 msgid "Unknown error"
 msgstr "Անհայտ սպալ"
 
-#: libraries/classes/ReplicationGui.php:540
+#: libraries/classes/ReplicationGui.php:536
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Չհաջողվեց միանալ հիմնական սպասարկչին %s։"
 
-#: libraries/classes/ReplicationGui.php:550
+#: libraries/classes/ReplicationGui.php:546
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:568
+#: libraries/classes/ReplicationGui.php:565
 msgid "Unable to change master!"
 msgstr "Հնարավոր չէ փոխել հիմնական սպասարկիչը։"
 
-#: libraries/classes/ReplicationGui.php:572
+#: libraries/classes/ReplicationGui.php:569
 #, php-format
 msgid "Master server changed successfully to %s."
 msgstr "Հիմնական սպասարկիչը հաջողությամբ փոխվեց %s-ին։"
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:166
+#: libraries/classes/Routing.php:167
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "`%s` ելակետային տվյալների բազան չի գտնվել։"
 
-#: libraries/classes/Routing.php:177
+#: libraries/classes/Routing.php:178
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -11683,8 +11679,8 @@ msgid "Error while loading the search."
 msgstr "Որոնումը բեռնելու սխալ։"
 
 #: libraries/classes/Server/Plugins.php:68
-#: libraries/classes/Server/Privileges.php:860
-#: libraries/classes/Server/Privileges.php:4031
+#: libraries/classes/Server/Privileges.php:821
+#: libraries/classes/Server/Privileges.php:3993
 msgid "Native MySQL authentication"
 msgstr "MySQL-ի բնականոն վավերացումը"
 
@@ -11710,16 +11706,16 @@ msgstr "Թխուկներով վավերացում"
 msgid "Old MySQL-4.0 authentication"
 msgstr "MySQL-ի բնականոն վավերացումը"
 
-#: libraries/classes/Server/Privileges.php:255
+#: libraries/classes/Server/Privileges.php:260
 msgid "No privileges."
 msgstr "Արտոնություններ չկան։"
 
-#: libraries/classes/Server/Privileges.php:266
+#: libraries/classes/Server/Privileges.php:271
 msgid "Includes all privileges except GRANT."
 msgstr "Ներառում է բոլոր արտոնությունները բացառությամբ GRANT-ի։"
 
-#: libraries/classes/Server/Privileges.php:288
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:360
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -11727,7 +11723,7 @@ msgstr "Ներառում է բոլոր արտոնությունները բացա
 msgid "Allows deleting data."
 msgstr "Թույլատրում է տվյալների ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:298
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -11735,7 +11731,7 @@ msgstr "Թույլատրում է տվյալների ջնջումը։"
 msgid "Allows creating new tables."
 msgstr "Թույլատրում է նոր աղյուսակների ստեղծումը։"
 
-#: libraries/classes/Server/Privileges.php:298
+#: libraries/classes/Server/Privileges.php:303
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -11743,8 +11739,8 @@ msgstr "Թույլատրում է նոր աղյուսակների ստեղծու
 msgid "Allows dropping tables."
 msgstr "Թույլատրում է աղյուսակների ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:303
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:308
+#: libraries/classes/Server/Privileges.php:400
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -11752,8 +11748,8 @@ msgstr "Թույլատրում է աղյուսակների ջնջումը։"
 msgid "Allows creating and dropping indexes."
 msgstr "Թույլատրում է ցուցակագրերի ստեղծումը և ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:308
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:313
+#: libraries/classes/Server/Privileges.php:405
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -11761,9 +11757,9 @@ msgstr "Թույլատրում է ցուցակագրերի ստեղծումը և
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:313
-#: libraries/classes/Server/Privileges.php:439
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:318
+#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:460
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -11773,9 +11769,9 @@ msgstr ""
 msgid "Allows creating new views."
 msgstr "Թույլատրում է նոր ներկայացումների ստեղծումը։"
 
-#: libraries/classes/Server/Privileges.php:318
-#: libraries/classes/Server/Privileges.php:460
-#: libraries/classes/Server/Privileges.php:466
+#: libraries/classes/Server/Privileges.php:323
+#: libraries/classes/Server/Privileges.php:465
+#: libraries/classes/Server/Privileges.php:471
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -11783,8 +11779,8 @@ msgstr "Թույլատրում է նոր ներկայացումների ստեղ
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Թույլատրում է SHOW CREATE VIEW հարցումների կատարումը։"
 
-#: libraries/classes/Server/Privileges.php:323
-#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:328
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -11792,76 +11788,76 @@ msgstr "Թույլատրում է SHOW CREATE VIEW հարցումների կատ
 msgid "Allows creating and dropping triggers."
 msgstr "Թույլատրում է ձգանների ստեղծումը և ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:340
+#: libraries/classes/Server/Privileges.php:345
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr "Թույլատրում է տվյալների կարդալը։"
 
-#: libraries/classes/Server/Privileges.php:345
+#: libraries/classes/Server/Privileges.php:350
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr "Թույլատրում է տվյալների զետեղումը և փոխարինումը։"
 
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:355
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr "Թույլ է տալիս տվյալների փոփոխումը։"
 
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:365
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Թույլատրում է նոր տվյալների բազաների և աղյուսակների ստեղծումը։"
 
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:370
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr "Թույլատրում է տվյալների բազաների և աղյուսակների ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:375
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:380
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Թույլատրում է սպասարկչի անջատելը։"
 
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:385
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr "Թույլատրում է բոլոր օգտվողների ընթացքների դիտումը։"
 
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:390
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:395
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:410
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -11870,39 +11866,39 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:419
+#: libraries/classes/Server/Privileges.php:424
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Թույլատրում է ժամանակավոր աղյուսակների ստեղծումը։"
 
-#: libraries/classes/Server/Privileges.php:424
+#: libraries/classes/Server/Privileges.php:429
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr "Թույլատրում է աղյուսակների կողպումը՝ տվյալ հոսքի համար։"
 
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:434
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr "Անհրաժեշտ է ենթարկվող սպասարկիչներին՝ կրկնապատկման ժամանակ։"
 
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:439
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Թուլյատրում է հարցնել հիմնական և ենթարկվող սպասարկիչների տեղակայումը։"
 
-#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:449
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:473
-#: libraries/classes/Server/Privileges.php:480
+#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:487
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -11910,47 +11906,47 @@ msgstr ""
 msgid "Allows deleting historical rows."
 msgstr "Թույլատրում է տվյալների ջնջումը։"
 
-#: libraries/classes/Server/Privileges.php:485
+#: libraries/classes/Server/Privileges.php:492
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "Թույլատրում է պահված գործընթացների ստեղծումը։"
 
-#: libraries/classes/Server/Privileges.php:490
+#: libraries/classes/Server/Privileges.php:497
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:495
+#: libraries/classes/Server/Privileges.php:502
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Թույլատրում է օգտվողների հաշիվների ստեղծումը, ջնջումը և անվանափոխումը։"
 
-#: libraries/classes/Server/Privileges.php:500
+#: libraries/classes/Server/Privileges.php:507
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Թույլատրում է պահված գործընթացների կատարումը։"
 
-#: libraries/classes/Server/Privileges.php:1159
+#: libraries/classes/Server/Privileges.php:1120
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1209
+#: libraries/classes/Server/Privileges.php:1170
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Դուք չեղարկեցիք արտոնությունները %s-ի համար։"
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1518
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Օգտնողներին դիտելու համար արտոնությունները բավարար չեն։"
 
-#: libraries/classes/Server/Privileges.php:1625
+#: libraries/classes/Server/Privileges.php:1587
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11958,85 +11954,85 @@ msgstr "Օգտնողներին դիտելու համար արտոնությու�
 msgid "Edit privileges"
 msgstr "Խմբագրել արտոնությունները"
 
-#: libraries/classes/Server/Privileges.php:1628
+#: libraries/classes/Server/Privileges.php:1590
 msgid "Revoke"
 msgstr "Հետարկել"
 
-#: libraries/classes/Server/Privileges.php:1960
+#: libraries/classes/Server/Privileges.php:1922
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1966
+#: libraries/classes/Server/Privileges.php:1928
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1971
-#: libraries/classes/Server/Privileges.php:1973
+#: libraries/classes/Server/Privileges.php:1933
+#: libraries/classes/Server/Privileges.php:1935
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Գործընթաց"
 
-#: libraries/classes/Server/Privileges.php:1972
+#: libraries/classes/Server/Privileges.php:1934
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Գործընթացին բնորոշ արտոնություններ"
 
-#: libraries/classes/Server/Privileges.php:2329
+#: libraries/classes/Server/Privileges.php:2291
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2332
+#: libraries/classes/Server/Privileges.php:2294
 msgid "Reloading the privileges"
 msgstr "Արտոնությունների վերաբեռնում"
 
-#: libraries/classes/Server/Privileges.php:2357
+#: libraries/classes/Server/Privileges.php:2319
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2437
+#: libraries/classes/Server/Privileges.php:2399
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2526
+#: libraries/classes/Server/Privileges.php:2488
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Օգտվողը չի գտնվել։"
 
-#: libraries/classes/Server/Privileges.php:2613
+#: libraries/classes/Server/Privileges.php:2575
 #, php-format
 msgid "Deleting %s"
 msgstr "%s-ի ջնջում"
 
-#: libraries/classes/Server/Privileges.php:2644
+#: libraries/classes/Server/Privileges.php:2606
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2748
+#: libraries/classes/Server/Privileges.php:2710
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s օգտվողը արդեն իսկ առկա է։"
 
-#: libraries/classes/Server/Privileges.php:3038
+#: libraries/classes/Server/Privileges.php:3000
 #, php-format
 msgid "Privileges for %s"
 msgstr "Արտոնություններ %s-ի համար"
 
-#: libraries/classes/Server/Privileges.php:3177
+#: libraries/classes/Server/Privileges.php:3139
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3221
+#: libraries/classes/Server/Privileges.php:3183
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12045,7 +12041,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3237
+#: libraries/classes/Server/Privileges.php:3199
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12054,14 +12050,9 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3582
+#: libraries/classes/Server/Privileges.php:3544
 msgid "You have added a new user."
 msgstr ""
-
-#: libraries/classes/Server/Select.php:58
-#: libraries/classes/Server/Select.php:63
-msgid "Current server:"
-msgstr "Ընթացիկ սպասարկիչը՝"
 
 #: libraries/classes/Server/Status/Data.php:150
 msgid "Handler"
@@ -12170,53 +12161,53 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: libraries/classes/Sql.php:529
+#: libraries/classes/Sql.php:530
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1045
+#: libraries/classes/Sql.php:1054
 msgid "Showing as PHP code"
 msgstr "PHP կոդի տեսքով ցուցադրում"
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1432
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1446
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/SqlQueryForm.php:155
+#: libraries/classes/SqlQueryForm.php:148
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Կատարել SQL հարցում(ներ)ը %s սպասարկչում"
 
-#: libraries/classes/SqlQueryForm.php:174
+#: libraries/classes/SqlQueryForm.php:167
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Կատարել SQL հարցում(ներ)ը %s տվյալների բազային"
 
-#: libraries/classes/SqlQueryForm.php:200
+#: libraries/classes/SqlQueryForm.php:193
 #, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "Կատարել SQL հարցում(ներ)ը %s աղյուսակին"
 
-#: libraries/classes/StorageEngine.php:275
+#: libraries/classes/StorageEngine.php:276
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Աղյուսակների պահպանման այս տեսակի համար մանրակրկիտ կարգավիճակի "
 "տեղեկությունները բացակայում են։"
 
-#: libraries/classes/StorageEngine.php:384
+#: libraries/classes/StorageEngine.php:385
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
@@ -12224,17 +12215,17 @@ msgstr ""
 "%s-ը հանդիսանում է տվյալ MySQL սպասարկչում աղյուսակների պահպանման լռելյայն "
 "տեսակը։"
 
-#: libraries/classes/StorageEngine.php:387
+#: libraries/classes/StorageEngine.php:388
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s աղյուսակների տասակը աջակցվում է այս MySQL սպասարկչում։"
 
-#: libraries/classes/StorageEngine.php:390
+#: libraries/classes/StorageEngine.php:391
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s աղյուսակների տեսակը կասեցվել է այս MySQL սպասարկչում։"
 
-#: libraries/classes/StorageEngine.php:395
+#: libraries/classes/StorageEngine.php:396
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Այս MySQL սպասարկիչը չի աջակցում աղյուսակների պահպանման %s տեսակը։"
@@ -12413,49 +12404,49 @@ msgstr "Կառուցվածքի պատկերը"
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: libraries/classes/Tracking.php:739
+#: libraries/classes/Tracking.php:741
 msgid "Tracking data definition successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:749
+#: libraries/classes/Tracking.php:753
 msgid "Tracking data manipulation successfully deleted"
 msgstr ""
 
-#: libraries/classes/Tracking.php:806
+#: libraries/classes/Tracking.php:810
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: libraries/classes/Tracking.php:810
+#: libraries/classes/Tracking.php:814
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: libraries/classes/Tracking.php:821
+#: libraries/classes/Tracking.php:825
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: libraries/classes/Tracking.php:871
+#: libraries/classes/Tracking.php:865
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Հետագծման զեկույց `%s` աղյուսակի համար"
 
-#: libraries/classes/Tracking.php:903
+#: libraries/classes/Tracking.php:897
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: libraries/classes/Tracking.php:906
+#: libraries/classes/Tracking.php:900
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: libraries/classes/Tracking.php:1014
+#: libraries/classes/Tracking.php:999
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%1$s տարբերակը %2$s-ից ջնջվել է։"
 
-#: libraries/classes/Tracking.php:1047
+#: libraries/classes/Tracking.php:1030
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -12865,15 +12856,11 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s օր, %s ժամ, %s րոպե և %s վայրկյան"
 
-#: libraries/classes/Util.php:919
-msgid "Missing parameter:"
-msgstr "Բացակայող հարաչափը՝"
-
-#: libraries/classes/Util.php:2112
+#: libraries/classes/Util.php:2107
 msgid "Users"
 msgstr "Օգտվողներ"
 
-#: libraries/classes/Util.php:2748
+#: libraries/classes/Util.php:2743
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "Դասավորել"
@@ -12891,7 +12878,7 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Անհրաժեշտ է արդիացնել %s-ը %s կամ բարձր տարբերակին։"
 
-#: libraries/common.inc.php:317
+#: libraries/common.inc.php:315
 msgid "Error: Token mismatch"
 msgstr "Սխալ՝ հետքանշիչի անհամապատասխանություն"
 
@@ -13215,8 +13202,8 @@ msgstr "Պահպանման տեսակ"
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
 #: templates/database/data_dictionary/index.twig:73
-#: templates/database/events/editor_form.twig:100
-#: templates/database/routines/editor_form.twig:162
+#: templates/database/events/editor_form.twig:102
+#: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:421
@@ -13250,8 +13237,8 @@ msgid "Node group"
 msgstr "Հանգույցի խումբ"
 
 #: templates/columns_definitions/table_fields_definitions.twig:16
-#: templates/database/central_columns/edit.twig:8
-#: templates/database/routines/editor_form.twig:51
+#: templates/database/central_columns/edit.twig:10
+#: templates/database/routines/editor_form.twig:52
 msgid "Length/Values"
 msgstr "Երկարությունը/Արժեքները"
 
@@ -13270,7 +13257,7 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:24
-#: templates/database/central_columns/edit.twig:10
+#: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
@@ -13295,7 +13282,7 @@ msgstr "Համադրում"
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
-#: templates/database/routines/editor_form.twig:123
+#: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
@@ -13492,29 +13479,29 @@ msgstr ""
 "Կատարել հարցումը՝  Enter սեղմելով, և զետեղել նոր տող՝ Shift + Enter "
 "սեղմելով։ Այս հնարավորությունը մշտական դարձնելու համար՝ դիմեք կայանքներին։"
 
-#: templates/create_tracking_version.twig:11
+#: templates/create_tracking_version.twig:10
 #, php-format
 msgid "Create version %1$s of %2$s"
 msgstr "Ստեղծել %1$s տարբերակ %2$s-ից"
 
-#: templates/create_tracking_version.twig:16
+#: templates/create_tracking_version.twig:15
 #, php-format
 msgid "Create version %1$s"
 msgstr "Ստեղծել %1$s տարբերակը"
 
-#: templates/create_tracking_version.twig:20
+#: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
 msgstr ""
 
-#: templates/create_tracking_version.twig:59
+#: templates/create_tracking_version.twig:60
 msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: templates/create_tracking_version.twig:76
+#: templates/create_tracking_version.twig:77
 msgid "Create version"
 msgstr "Ստեղծել տարբերակը"
 
-#: templates/database/central_columns/edit.twig:13
+#: templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr ""
@@ -13689,7 +13676,7 @@ msgstr "Ջնջել էջերը"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:273
+#: templates/database/designer/main.twig:271
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create relationship"
@@ -13700,129 +13687,129 @@ msgstr "Ստեղծել կապակցումը"
 msgid "Reload"
 msgstr "Թարմացնել"
 
-#: templates/database/designer/main.twig:114
-#: templates/database/designer/main.twig:117
+#: templates/database/designer/main.twig:112
+#: templates/database/designer/main.twig:115
 msgid "Help"
 msgstr "Օգնություն"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Angular links"
 msgstr "Անկյունային հղումներ"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Direct links"
 msgstr ""
 
+#: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
-#: templates/database/designer/main.twig:131
 msgid "Snap to grid"
 msgstr ""
 
-#: templates/database/designer/main.twig:135
-#: templates/database/designer/main.twig:141
+#: templates/database/designer/main.twig:133
+#: templates/database/designer/main.twig:139
 msgid "Small/Big All"
 msgstr ""
 
-#: templates/database/designer/main.twig:145
-#: templates/database/designer/main.twig:148
+#: templates/database/designer/main.twig:143
+#: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
 msgstr "Փոխարկել փոքր/մեծ"
 
-#: templates/database/designer/main.twig:152
-#: templates/database/designer/main.twig:155
+#: templates/database/designer/main.twig:150
+#: templates/database/designer/main.twig:153
 msgid "Toggle relationship lines"
 msgstr ""
 
-#: templates/database/designer/main.twig:160
-#: templates/database/designer/main.twig:163
+#: templates/database/designer/main.twig:158
+#: templates/database/designer/main.twig:161
 msgid "Export schema"
 msgstr "Ուրվագծի արտահանում"
 
-#: templates/database/designer/main.twig:171
-#: templates/database/designer/main.twig:174
+#: templates/database/designer/main.twig:169
+#: templates/database/designer/main.twig:172
 msgid "Build Query"
 msgstr "Կազմել հարցումը"
 
-#: templates/database/designer/main.twig:179
-#: templates/database/designer/main.twig:183
+#: templates/database/designer/main.twig:177
+#: templates/database/designer/main.twig:181
 msgid "Move Menu"
 msgstr "Տեղափոխել ընտրացանկը"
 
-#: templates/database/designer/main.twig:187
-#: templates/database/designer/main.twig:192
+#: templates/database/designer/main.twig:185
+#: templates/database/designer/main.twig:190
 msgid "Pin text"
 msgstr ""
 
-#: templates/database/designer/main.twig:204
+#: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
 msgstr ""
 
-#: templates/database/designer/main.twig:214
+#: templates/database/designer/main.twig:212
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Hide/Show tables with no relationship"
 msgstr "Ջնջել կապակցումը"
 
-#: templates/database/designer/main.twig:225
+#: templates/database/designer/main.twig:223
 msgid "Number of tables:"
 msgstr "Աղյուսակների քանակը՝"
 
-#: templates/database/designer/main.twig:383
+#: templates/database/designer/main.twig:381
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Ջնջել կապակցումը"
 
-#: templates/database/designer/main.twig:447
-#: templates/database/designer/main.twig:612
+#: templates/database/designer/main.twig:445
+#: templates/database/designer/main.twig:610
 #, fuzzy
 #| msgid "Relations"
 msgid "Relationship operator"
 msgstr "Կապակցումներ"
 
-#: templates/database/designer/main.twig:476
-#: templates/database/designer/main.twig:641
-#: templates/database/designer/main.twig:847
-#: templates/database/designer/main.twig:1040
+#: templates/database/designer/main.twig:474
+#: templates/database/designer/main.twig:639
+#: templates/database/designer/main.twig:845
+#: templates/database/designer/main.twig:1038
 msgid "Except"
 msgstr "Բացառությամբ"
 
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:486
+#: templates/database/designer/main.twig:651
+#: templates/database/designer/main.twig:857
+#: templates/database/designer/main.twig:1050
 msgid "subquery"
 msgstr "ենթահարցում"
 
-#: templates/database/designer/main.twig:497
-#: templates/database/designer/main.twig:713
+#: templates/database/designer/main.twig:495
+#: templates/database/designer/main.twig:711
 msgid "Rename to"
 msgstr "Վերանվանել"
 
-#: templates/database/designer/main.twig:503
-#: templates/database/designer/main.twig:721
+#: templates/database/designer/main.twig:501
+#: templates/database/designer/main.twig:719
 msgid "New name"
 msgstr "Նոր անուն"
 
-#: templates/database/designer/main.twig:512
-#: templates/database/designer/main.twig:918
+#: templates/database/designer/main.twig:510
+#: templates/database/designer/main.twig:916
 msgid "Aggregate"
 msgstr "Միաձուլել"
 
-#: templates/database/designer/main.twig:518
-#: templates/database/designer/main.twig:582
-#: templates/database/designer/main.twig:787
-#: templates/database/designer/main.twig:818
-#: templates/database/designer/main.twig:926
-#: templates/database/designer/main.twig:1011
+#: templates/database/designer/main.twig:516
+#: templates/database/designer/main.twig:580
+#: templates/database/designer/main.twig:785
+#: templates/database/designer/main.twig:816
+#: templates/database/designer/main.twig:924
+#: templates/database/designer/main.twig:1009
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "Գործարկու"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1090
 msgid "Active options"
 msgstr "Գործուն կայանքներ"
 
@@ -13846,42 +13833,55 @@ msgstr "Ընտրեք էջը"
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: templates/database/events/editor_form.twig:17
+#: templates/database/events/editor_form.twig:10
+#: templates/database/routines/editor_form.twig:11
+#: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
+msgid "Details"
+msgstr "Մանրամասները"
+
+#: templates/database/events/editor_form.twig:19
 msgid "Event name"
 msgstr "Իրադարձության անուն"
 
-#: templates/database/events/editor_form.twig:33
+#: templates/database/events/editor_form.twig:35
 #: templates/server/binlog/index.twig:86
 msgid "Event type"
 msgstr "Իրադարձության տեսակը"
 
-#: templates/database/events/editor_form.twig:46
-#: templates/database/routines/editor_form.twig:37
+#: templates/database/events/editor_form.twig:48
+#: templates/database/routines/editor_form.twig:38
 #, php-format
 msgid "Change to %s"
 msgstr "Փոխել %s-ի"
 
-#: templates/database/events/editor_form.twig:51
+#: templates/database/events/editor_form.twig:53
 msgid "Execute at"
 msgstr "Կատարել"
 
-#: templates/database/events/editor_form.twig:57
+#: templates/database/events/editor_form.twig:59
 msgid "Execute every"
 msgstr "Կատարել ամեն"
 
-#: templates/database/events/editor_form.twig:68
+#: templates/database/events/editor_form.twig:70
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Սկիզբ"
 
-#: templates/database/events/editor_form.twig:74
+#: templates/database/events/editor_form.twig:76
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Վերջ"
 
-#: templates/database/events/editor_form.twig:88
+#: templates/database/events/editor_form.twig:90
 msgid "On completion preserve"
 msgstr "Վերջացնելուց պահպանել"
+
+#: templates/database/events/editor_form.twig:96
+#: templates/database/routines/editor_form.twig:138
+#: templates/database/triggers/editor_form.twig:61
+#: templates/view_create.twig:45
+msgid "Definer"
+msgstr "Սահմանիչ"
 
 #: templates/database/events/index.twig:13
 #: templates/database/privileges/index.twig:113
@@ -14285,64 +14285,64 @@ msgstr "Օգտագործել աղյուսակներ"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> տվյալների բազային ուղղված SQL հարցումը՝"
 
-#: templates/database/routines/editor_form.twig:19
+#: templates/database/routines/editor_form.twig:20
 msgid "Routine name"
 msgstr "Գործընթացի անունը"
 
-#: templates/database/routines/editor_form.twig:42
+#: templates/database/routines/editor_form.twig:43
 msgid "Parameters"
 msgstr "Հարաչափեր"
 
-#: templates/database/routines/editor_form.twig:48
+#: templates/database/routines/editor_form.twig:49
 msgid "Direction"
 msgstr "Ուղղություն"
 
-#: templates/database/routines/editor_form.twig:65
+#: templates/database/routines/editor_form.twig:66
 msgid "Add parameter"
 msgstr "Ավելացնել հարաչափ"
 
-#: templates/database/routines/editor_form.twig:66
+#: templates/database/routines/editor_form.twig:67
 msgid "Remove last parameter"
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:70
+#: templates/database/routines/editor_form.twig:71
 msgid "Return type"
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:78
+#: templates/database/routines/editor_form.twig:79
 msgid "Return length/values"
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:85
+#: templates/database/routines/editor_form.twig:86
 msgid "Return options"
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:89
+#: templates/database/routines/editor_form.twig:90
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Կոդավորում"
 
-#: templates/database/routines/editor_form.twig:114
+#: templates/database/routines/editor_form.twig:115
 msgid "Is deterministic"
 msgstr "Կողմնորոշիչ է"
 
-#: templates/database/routines/editor_form.twig:130
+#: templates/database/routines/editor_form.twig:131
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 
-#: templates/database/routines/editor_form.twig:143
+#: templates/database/routines/editor_form.twig:144
 msgid "Security type"
 msgstr "Անվտանգության տեսակը"
 
-#: templates/database/routines/editor_form.twig:152
+#: templates/database/routines/editor_form.twig:153
 msgid "SQL data access"
 msgstr "SQL տվյալների մատչում"
 
-#: templates/database/routines/execute_form.twig:11
-#: templates/database/routines/execute_form.twig:14
+#: templates/database/routines/execute_form.twig:7
+#: templates/database/routines/execute_form.twig:12
 msgid "Routine parameters"
 msgstr "Գործընթացի հարաչափերը"
 
@@ -14666,6 +14666,15 @@ msgstr "Չհետագծվող աղյուսակներ"
 msgid "Track table"
 msgstr "Հետագծել աղյուսակը"
 
+#: templates/database/triggers/editor_form.twig:23
+msgid "Trigger name"
+msgstr "Ձգանի անունը"
+
+#: templates/database/triggers/editor_form.twig:37
+msgctxt "Trigger action time"
+msgid "Time"
+msgstr "Ժամանակ"
+
 #: templates/database/triggers/list.twig:27
 #, fuzzy
 #| msgid "Create version"
@@ -14691,7 +14700,7 @@ msgid "Restore column order"
 msgstr "Վերականգնել սյունակների հերթականությունը"
 
 #: templates/display/results/table.twig:49 templates/export.twig:110
-#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Տողերի քանակը՝"
 
@@ -14739,7 +14748,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: templates/display/results/table.twig:264
-#: templates/table/chart/tbl_chart.twig:7
+#: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Ցուցադրել գծապատկերը"
 
@@ -14978,17 +14987,21 @@ msgstr "Զտիչներ"
 msgid "Containing the word:"
 msgstr "Պարունակում է բառը՝"
 
-#: templates/footer.twig:16 templates/home/index.twig:18
+#: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
+msgid "Open new phpMyAdmin window"
+msgstr "Բացել phpMyAdmin-ը նոր պատուհանում"
+
+#: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin-ի ցուցադրողական սպասարկիչ"
 
-#: templates/footer.twig:24
+#: templates/footer.twig:34
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "Այս պահին մեկնարկված է Git %1$s խմբագրությունը %2$s ճյուղից։"
 
-#: templates/footer.twig:26
+#: templates/footer.twig:36
 msgid "Git information missing!"
 msgstr "Git-ի վերաբերյալ տեղեկությունները բացակայում են։"
 
@@ -14998,7 +15011,7 @@ msgid "Value for the column \"%s\""
 msgstr "\"%s\" սյունակի համար արժեքը"
 
 #: templates/gis_data_editor_form.twig:22
-#: templates/table/gis_visualization/gis_visualization.twig:38
+#: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Օգտագործեք OpenStreetMaps որպես հիմնական շերտ"
 
@@ -15071,11 +15084,11 @@ msgstr ""
 "\"Գործառույթ\" սյունակից ընտրեք \"GeomFromText\" և տեղադրեք տողը ներքևում՝ "
 "\"Արժեքը\" դաշտի մեջ։"
 
-#: templates/header.twig:40 templates/login/header.twig:13
+#: templates/header.twig:39 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript-ը պետք է միացրած լինի այս պահից սկսած։"
 
-#: templates/header.twig:51
+#: templates/header.twig:50
 msgid "Click on the bar to scroll to top of page"
 msgstr "Կտտացրեք փեղկի վրա՝ դեպի էջի վերևը ոլորելու համար"
 
@@ -15183,53 +15196,53 @@ msgstr "Սպասարկչի կոդավորումը՝"
 msgid "Web server"
 msgstr "Վեբ սպասարկիչ"
 
-#: templates/home/index.twig:192
+#: templates/home/index.twig:194
 msgid "Database client version:"
 msgstr "Տվյալների բազայի սպասառուի տարբերակը՝"
 
-#: templates/home/index.twig:196
+#: templates/home/index.twig:198
 msgid "PHP extension:"
 msgstr "PHP ընդլայնումը՝"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:205
 msgid "PHP version:"
 msgstr "PHP-ի տարբերակը՝"
 
-#: templates/home/index.twig:210
+#: templates/home/index.twig:212
 msgid "Show PHP information"
 msgstr "Ցուցադրել PHP-ի տվյալները"
 
-#: templates/home/index.twig:224
+#: templates/home/index.twig:226
 msgid "Version information:"
 msgstr "Տարբերակի վերաբերյալ տեղեկությունները՝"
 
-#: templates/home/index.twig:234
+#: templates/home/index.twig:236
 msgid "Official Homepage"
 msgstr "phpMyAdmin-ի պաշտոնական կայքէջ"
 
-#: templates/home/index.twig:239
+#: templates/home/index.twig:241
 msgid "Contribute"
 msgstr "Աջակցել"
 
-#: templates/home/index.twig:244
+#: templates/home/index.twig:246
 msgid "Get support"
 msgstr "Դիմել օգնությանը"
 
-#: templates/home/index.twig:249
+#: templates/home/index.twig:251
 msgid "List of changes"
 msgstr "Փոփոխացանկ"
 
-#: templates/home/index.twig:254 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:256 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Արտոնագիր"
 
-#: templates/home/index.twig:269
+#: templates/home/index.twig:271
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin-ի կայքէջ"
 
-#: templates/home/index.twig:280
+#: templates/home/index.twig:282
 msgid "Get more themes!"
 msgstr "Այլ ոճեր"
 
@@ -15749,6 +15762,14 @@ msgstr "Նավարկման փեղկի բեռման ժամանակ առաջացե
 msgid "SQL upload"
 msgstr ""
 
+#: templates/navigation/tree/fast_filter.twig:10
+msgid "Type to filter these, Enter to search all"
+msgstr ""
+
+#: templates/navigation/tree/fast_filter.twig:12
+msgid "Clear fast filter"
+msgstr ""
+
 #: templates/preferences/autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
@@ -16190,12 +16211,7 @@ msgid ""
 "the server."
 msgstr ""
 
-#: templates/server/privileges/choose_user_group.twig:4
-#: templates/server/privileges/users_overview.twig:16
-msgid "User group"
-msgstr "Օգտվողների խումբ"
-
-#: templates/server/privileges/choose_user_group.twig:6
+#: templates/server/privileges/choose_user_group.twig:5
 #, fuzzy
 #| msgid "User group"
 msgid "User group:"
@@ -16357,6 +16373,7 @@ msgstr ""
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
+#: templates/server/privileges/users_overview.twig:152
 msgid "Edit user group"
 msgstr "Խմբագրել օգտվողների խումբը"
 
@@ -16542,6 +16559,10 @@ msgid ""
 "afterwards."
 msgstr ""
 
+#: templates/server/privileges/users_overview.twig:16
+msgid "User group"
+msgstr "Օգտվողների խումբ"
+
 #: templates/server/privileges/users_overview.twig:131
 msgid "Remove selected user accounts"
 msgstr "Ջնջել նշված օգտվողների հաշիվները"
@@ -16555,6 +16576,12 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Ջնջել տվյալների բազաները, որոնց անունները համընկնում են օգտվողների անունների "
 "հետ։"
+
+#: templates/server/privileges/users_overview.twig:162
+#, fuzzy
+#| msgid "Save page"
+msgid "Save changes"
+msgstr "Պահպանել էջը"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -16764,6 +16791,10 @@ msgstr "Slave կարգավիճակ"
 #: templates/server/variables/index.twig:31
 msgid "Variable"
 msgstr "Փոփոխական"
+
+#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
+msgid "Current server:"
+msgstr "Ընթացիկ սպասարկիչը՝"
 
 #: templates/server/status/advisor/index.twig:6
 #: templates/server/status/advisor/index.twig:19
@@ -17419,91 +17450,93 @@ msgstr "բաց"
 msgid "View only"
 msgstr "Միայն դիտում"
 
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Սկզբնական տողը՝"
-
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
 msgstr "Օգտագործել այս արժեքը"
 
-#: templates/table/chart/tbl_chart.twig:12
+#: templates/table/chart/tbl_chart.twig:10
+#, fuzzy
+#| msgid "Chart title"
+msgid "Chart type"
+msgstr "Գծապատկերի վերնագիր"
+
+#: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Շարք"
 
-#: templates/table/chart/tbl_chart.twig:16
+#: templates/table/chart/tbl_chart.twig:17
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Սյունակ"
 
-#: templates/table/chart/tbl_chart.twig:20
+#: templates/table/chart/tbl_chart.twig:21
 msgctxt "Chart type"
 msgid "Line"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:24
+#: templates/table/chart/tbl_chart.twig:25
 msgctxt "Chart type"
 msgid "Spline"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:28
+#: templates/table/chart/tbl_chart.twig:29
 msgctxt "Chart type"
 msgid "Area"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:32
+#: templates/table/chart/tbl_chart.twig:33
 msgctxt "Chart type"
 msgid "Pie"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:36
+#: templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Ժամագիծ"
 
-#: templates/table/chart/tbl_chart.twig:40
+#: templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:45
+#: templates/table/chart/tbl_chart.twig:47
 msgid "Stacked"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:48
+#: templates/table/chart/tbl_chart.twig:51
 msgid "Chart title:"
 msgstr "Գծապատկերի վերնագիր՝"
 
-#: templates/table/chart/tbl_chart.twig:53
+#: templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
 msgstr "X առանցք`"
 
-#: templates/table/chart/tbl_chart.twig:68
+#: templates/table/chart/tbl_chart.twig:73
 msgid "Series:"
 msgstr "Շարքեր՝"
 
-#: templates/table/chart/tbl_chart.twig:96
+#: templates/table/chart/tbl_chart.twig:101
 msgid "X-Axis label:"
 msgstr "X առանցքի պիտակը՝"
 
-#: templates/table/chart/tbl_chart.twig:98
+#: templates/table/chart/tbl_chart.twig:102
 msgid "X Values"
 msgstr "X արժեքները"
 
-#: templates/table/chart/tbl_chart.twig:101
+#: templates/table/chart/tbl_chart.twig:106
 msgid "Y-Axis label:"
 msgstr "Y առանցքի պիտակը՝"
 
-#: templates/table/chart/tbl_chart.twig:103
+#: templates/table/chart/tbl_chart.twig:107
 msgid "Y Values"
 msgstr "Y արժեքը"
 
-#: templates/table/chart/tbl_chart.twig:109
+#: templates/table/chart/tbl_chart.twig:112
 msgid "Series names are in a column"
 msgstr ""
 
-#: templates/table/chart/tbl_chart.twig:112
+#: templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
 msgstr "Շարքի սյունակ՝"
 
@@ -17570,19 +17603,19 @@ msgstr "Փոխարինված տողը"
 msgid "Replace"
 msgstr "Փոխարինում"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
+#: templates/table/gis_visualization/gis_visualization.twig:2
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: templates/table/gis_visualization/gis_visualization.twig:8
+#: templates/table/gis_visualization/gis_visualization.twig:10
 msgid "Label column"
 msgstr "Սյունակի պիտակը"
 
-#: templates/table/gis_visualization/gis_visualization.twig:11
+#: templates/table/gis_visualization/gis_visualization.twig:12
 msgid "-- None --"
 msgstr "-- Չկա --"
 
-#: templates/table/gis_visualization/gis_visualization.twig:19
+#: templates/table/gis_visualization/gis_visualization.twig:21
 msgid "Spatial column"
 msgstr ""
 
@@ -17629,6 +17662,45 @@ msgstr "Մեկնաբանություն՝"
 #: templates/table/index_form.twig:152 templates/table/index_form.twig:189
 msgid "Drag to reorder"
 msgstr "Քաշեք՝ վերադասակարգելու համար"
+
+#: templates/table/insert/actions_panel.twig:9
+msgid "Insert as new row"
+msgstr "Զետեղել որպես նոր տող"
+
+#: templates/table/insert/actions_panel.twig:10
+msgid "Insert as new row and ignore errors"
+msgstr "Զետեղել որպես նոր տող և անտեսել սխալներ"
+
+#: templates/table/insert/actions_panel.twig:11
+msgid "Show insert query"
+msgstr "Ցուցադրել զետեղման հարցումը"
+
+#: templates/table/insert/actions_panel.twig:15
+msgid "and then"
+msgstr "և հետո"
+
+#: templates/table/insert/actions_panel.twig:19
+msgid "Go back to previous page"
+msgstr "Վերադառնալ նախորդ էջին"
+
+#: templates/table/insert/actions_panel.twig:20
+msgid "Insert another new row"
+msgstr "Զետեղել մեկ այլ նոր տող"
+
+#: templates/table/insert/actions_panel.twig:22
+msgid "Go back to this page"
+msgstr ""
+
+#: templates/table/insert/actions_panel.twig:24
+msgid "Edit next row"
+msgstr "Խմբագրել հաջորդ տողը"
+
+#: templates/table/insert/actions_panel.twig:32
+msgid ""
+"Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
+msgstr ""
+"Օգտագործեք TAB ստեղնը՝ արժեքների դաշտերի միջև տեղափոխվելու, կամ CTRL+սլաքեր՝ "
+"ցանկացած տեղ տեղափոխվելու համար։"
 
 #: templates/table/insert/column_row.twig:15
 msgid "Binary"
@@ -17880,6 +17952,10 @@ msgstr "Տողերի քանակը մեկ էջում"
 #: templates/table/search/index.twig:137
 msgid "Display order:"
 msgstr "Ցուցադրման դասակարգումը՝"
+
+#: templates/table/start_and_number_of_rows_fieldset.twig:3
+msgid "Start row:"
+msgstr "Սկզբնական տողը՝"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:531
@@ -18492,9 +18568,6 @@ msgstr "Անցում դեպի նպատակային կայք։"
 #~ msgstr ""
 #~ "Հնարավոր չէ տեղափոխել վերբեռնված ֆայլը, քանի որ սպասարկչում open_basedir "
 #~ "հարաչափը միացրած է առանց %s ժամանակավոր պանակի մատչման արտոնությանը։"
-
-#~ msgid "Invalid export type"
-#~ msgstr "Անվավեր արտահանման տեսակ"
 
 #~ msgid "Count:"
 #~ msgstr "Քանակ՝"

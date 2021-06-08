@@ -56,6 +56,8 @@ class SqlQueryForm
      * @usedby  /table/tracking
      */
     public function getHtml(
+        string $db,
+        string $table,
         $query = true,
         $display_tab = false,
         $delimiter = ';'
@@ -74,18 +76,13 @@ class SqlQueryForm
             }
         }
 
-        $table = '';
-        $db = '';
-        if (strlen($GLOBALS['db']) === 0) {
+        if (strlen($db) === 0) {
             // prepare for server related
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
-        } elseif (strlen($GLOBALS['table']) === 0) {
+        } elseif (strlen($table) === 0) {
             // prepare for db related
-            $db = $GLOBALS['db'];
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
         } else {
-            $table = $GLOBALS['table'];
-            $db = $GLOBALS['db'];
             $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
         }
 
@@ -98,11 +95,7 @@ class SqlQueryForm
         $bookmarks = [];
         if ($display_tab === 'full') {
             if ($cfgBookmark) {
-                $bookmark_list = Bookmark::getList(
-                    $dbi,
-                    $GLOBALS['cfg']['Server']['user'],
-                    $GLOBALS['db']
-                );
+                $bookmark_list = Bookmark::getList($dbi, $GLOBALS['cfg']['Server']['user'], $db);
 
                 foreach ($bookmark_list as $bookmarkItem) {
                     $bookmarks[] = [

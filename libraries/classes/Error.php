@@ -427,7 +427,7 @@ class Error extends Message
      * if $function is one of include/require
      * the $arg is converted to a relative path
      *
-     * @param string $arg      argument to process
+     * @param mixed  $arg      argument to process
      * @param string $function function name
      */
     public static function getArg($arg, string $function): string

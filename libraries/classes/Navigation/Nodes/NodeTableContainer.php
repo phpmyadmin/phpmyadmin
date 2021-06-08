@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for table nodes in the navigation tree
@@ -23,14 +22,8 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Tables'), Node::CONTAINER);
         $this->icon = ['image' => 'b_browse', 'title' => __('Tables')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/structure', [
-                'server' => $GLOBALS['server'],
-                'tbl_type' => 'table',
-            ]) . '&amp;db=%1$s',
-            'icon' => Url::getFromRoute('/database/structure', [
-                'server' => $GLOBALS['server'],
-                'tbl_type' => 'table',
-            ]) . '&amp;db=%1$s',
+            'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
+            'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'table', 'db' => null]],
         ];
         $this->realName = 'tables';
         $this->classes = 'tableContainer subContainer';
@@ -42,12 +35,8 @@ class NodeTableContainer extends NodeDatabaseChildContainer
         );
         $new->icon = ['image' => 'b_table_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/table/create', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s',
-            'icon' => Url::getFromRoute('/table/create', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s',
+            'text' => ['route' => '/table/create', 'params' => ['db' => null]],
+            'icon' => ['route' => '/table/create', 'params' => ['db' => null]],
         ];
         $this->addChild($new);
     }

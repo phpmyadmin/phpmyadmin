@@ -888,10 +888,10 @@ class Import
     /**
      * Determines what MySQL type a cell is
      *
-     * @param int    $lastCumulativeType Last cumulative column type
-     *                                     (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     * @param string $cell               String representation of the cell for which
-     *                                   a best-fit type is to be determined
+     * @param int         $lastCumulativeType Last cumulative column type
+     *                                        (VARCHAR or INT or BIGINT or DECIMAL or NONE)
+     * @param string|null $cell               String representation of the cell for which
+     *                                        a best-fit type is to be determined
      *
      * @return int  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
@@ -986,14 +986,15 @@ class Import
         for ($i = 0; $i < $numCols; ++$i) {
             /* Analyze the column in each row */
             for ($j = 0; $j < $numRows; ++$j) {
+                $cellValue = $table[self::ROWS][$j][$i];
                 /* Determine type of the current cell */
-                $currType = $this->detectType($types[$i], $table[self::ROWS][$j][$i]);
+                $currType = $this->detectType($types[$i], $cellValue === null ? null : (string) $cellValue);
                 /* Determine size of the current cell */
                 $sizes[$i] = $this->detectSize(
                     $sizes[$i],
                     $types[$i],
                     $currType,
-                    (string) $table[self::ROWS][$j][$i]
+                    (string) $cellValue
                 );
 
                 /**
@@ -1492,7 +1493,7 @@ class Import
             $result = $this->getMatchedRows($analyzedSqlResults);
             $error = $dbi->getError();
 
-            if ($error) {
+            if ($error !== false) {
                 break;
             }
 

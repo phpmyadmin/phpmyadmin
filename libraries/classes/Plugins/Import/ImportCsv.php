@@ -670,7 +670,7 @@ class ImportCsv extends AbstractImportCsv
         // Commit any possible data in buffers
         $this->import->runQuery('', '', $sql_data);
 
-        if (count($values) == 0 || $error) {
+        if (count($values) == 0 || $error !== false) {
             return;
         }
 

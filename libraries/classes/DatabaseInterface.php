@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
@@ -1984,10 +1985,10 @@ class DatabaseInterface implements DbalInterface
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param int    $link   link type
+     * @param string|DatabaseName $dbname database name to select
+     * @param int                 $link   link type
      */
-    public function selectDb(string $dbname, $link = self::CONNECT_USER): bool
+    public function selectDb($dbname, $link = self::CONNECT_USER): bool
     {
         if (! isset($this->links[$link])) {
             return false;
@@ -2164,7 +2165,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns the number of rows returned by last query
      *
-     * @param object $result result set identifier
+     * @param object|bool $result result set identifier
      *
      * @return string|int
      */

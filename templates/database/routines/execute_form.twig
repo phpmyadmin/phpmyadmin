@@ -1,19 +1,16 @@
-<!-- START ROUTINE EXECUTE FORM -->
 <form action="{{ url('/database/routines') }}" method="post" class="rte_form ajax" onsubmit="return false">
   <input type="hidden" name="item_name" value="{{ routine['item_name'] }}">
   <input type="hidden" name="item_type" value="{{ routine['item_type'] }}">
   {{ get_hidden_inputs(db) }}
-  <fieldset class="pma-fieldset">
-    {% if not ajax %}
-      <legend>{{ routine['item_name'] }}</legend>
-      <table class="pma-table rte_table">
-        <caption class="tblHeaders">
-          {% trans 'Routine parameters' %}
-        </caption>
-    {% else %}
-      <legend>{% trans 'Routine parameters' %}</legend>
-      <table class="pma-table rte_table">
-    {% endif %}
+
+  <div class="card">
+    <div class="card-header">{{ ajax ? 'Routine parameters'|trans : routine['item_name'] }}</div>
+
+    <div class="card-body">
+      <table class="table w-auto rte_table{{ not ajax ? ' caption-top' }}">
+        {% if not ajax %}
+          <caption class="tblHeaders">{% trans 'Routine parameters' %}</caption>
+        {% endif %}
         <tr>
           <th>{% trans 'Name' %}</th>
           <th>{% trans 'Type' %}</th>
@@ -51,14 +48,15 @@
           </tr>
         {% endfor %}
       </table>
-      {% if not ajax %}
-  </fieldset>
-  <fieldset class="pma-fieldset tblFooters">
-    <input type="submit" name="execute_routine" value="{% trans 'Go' %}">
-  </fieldset>
-{% else %}
-  <input type="hidden" name="execute_routine" value="true">
-  <input type="hidden" name="ajax_request" value="true">
-  {% endif %}
+    </div>
+
+    {% if not ajax %}
+      <div class="card-footer">
+        <input class="btn btn-primary" type="submit" name="execute_routine" value="{% trans 'Go' %}">
+      </div>
+    {% else %}
+      <input type="hidden" name="execute_routine" value="true">
+      <input type="hidden" name="ajax_request" value="true">
+    {% endif %}
+  </div>
 </form>
-<!-- END ROUTINE EXECUTE FORM -->

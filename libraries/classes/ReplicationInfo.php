@@ -56,19 +56,19 @@ final class ReplicationInfo
     ];
 
     /** @var array */
-    private $primaryStatus;
+    private $primaryStatus = [];
 
     /** @var array */
-    private $replicaStatus;
+    private $replicaStatus = [];
 
     /** @var array */
-    private $multiPrimaryStatus;
+    private $multiPrimaryStatus = [];
 
     /** @var array */
-    private $primaryInfo;
+    private $primaryInfo = [];
 
     /** @var array */
-    private $replicaInfo;
+    private $replicaInfo = [];
 
     /** @var DatabaseInterface */
     private $dbi;

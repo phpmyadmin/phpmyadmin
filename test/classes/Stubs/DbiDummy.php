@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\FieldMetadata;
 
@@ -67,14 +68,14 @@ class DbiDummy implements DbiExtension
     /**
      * selects given database
      *
-     * @param string $dbname name of db to select
-     * @param object $link   mysql link resource
+     * @param string|DatabaseName $databaseName name of db to select
+     * @param object              $link         mysql link resource
      *
      * @return bool
      */
-    public function selectDb($dbname, $link)
+    public function selectDb($databaseName, $link)
     {
-        $GLOBALS['dummy_db'] = $dbname;
+        $GLOBALS['dummy_db'] = (string) $databaseName;
 
         return true;
     }
@@ -307,7 +308,7 @@ class DbiDummy implements DbiExtension
      */
     public function getClientInfo($link)
     {
-        return '';
+        return 'libmysql - mysqlnd x.x.x-dev (phpMyAdmin tests)';
     }
 
     /**
@@ -325,7 +326,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows returned by last query
      *
-     * @param object $result MySQL result
+     * @param object|bool $result MySQL result
      *
      * @return string|int
      */
@@ -423,14 +424,14 @@ class DbiDummy implements DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mixed  $link database link
-     * @param string $str  string to be escaped
+     * @param mixed  $link   database link
+     * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($link, $str)
+    public function escapeString($link, $string)
     {
-        return addslashes($str);
+        return addslashes($string);
     }
 
     /**
@@ -955,6 +956,16 @@ class DbiDummy implements DbiExtension
             [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'Shop\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'ODS_DB\' AND TABLE_NAME = \'pma_bookmark\'',
                 'result' => [],
             ],
             [
@@ -2581,17 +2592,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['hostname', 'username', 'password']],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM company_users WHERE not_working_count != 0',
+                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE not_working_count != 0 ) as cnt',
                 'result' => false,
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM company_users',
+                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users ) as cnt',
                 'result' => [
                     [4],
                 ],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM company_users WHERE working_count = 0',
+                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE working_count = 0 ) as cnt',
                 'result' => [
                     [15],
                 ],
@@ -2603,7 +2614,9 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM company_users WHERE subquery_case = 0',
+                'query' => 'SELECT COUNT(*) FROM ('
+                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
+                . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0 ) as cnt',
                 'result' => [
                     [42],
                 ],

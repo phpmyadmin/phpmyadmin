@@ -123,7 +123,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('add', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'add', $data)
         );
     }
 
@@ -145,38 +145,14 @@ class TriggersTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                "name='add_item'",
-            ],
-            [
-                $data,
-                "name='item_name'",
-            ],
-            [
-                $data,
-                "name='item_table'",
-            ],
-            [
-                $data,
-                "name='item_timing'",
-            ],
-            [
-                $data,
-                "name='item_event'",
-            ],
-            [
-                $data,
-                "name='item_definition'",
-            ],
-            [
-                $data,
-                "name='item_definer'",
-            ],
-            [
-                $data,
-                "name='editor_process_add'",
-            ],
+            [$data, 'name="add_item"'],
+            [$data, 'name="item_name"'],
+            [$data, 'name="item_table"'],
+            [$data, 'name="item_timing"'],
+            [$data, 'name="item_event"'],
+            [$data, 'name="item_definition"'],
+            [$data, 'name="item_definer"'],
+            [$data, 'name="editor_process_add"'],
         ];
     }
 
@@ -193,7 +169,7 @@ class TriggersTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
         );
     }
 
@@ -215,38 +191,14 @@ class TriggersTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                "name='edit_item'",
-            ],
-            [
-                $data,
-                "name='item_name'",
-            ],
-            [
-                $data,
-                "name='item_table'",
-            ],
-            [
-                $data,
-                "name='item_timing'",
-            ],
-            [
-                $data,
-                "name='item_event'",
-            ],
-            [
-                $data,
-                "name='item_definition'",
-            ],
-            [
-                $data,
-                "name='item_definer'",
-            ],
-            [
-                $data,
-                "name='editor_process_edit'",
-            ],
+            [$data, 'name="edit_item"'],
+            [$data, 'name="item_name"'],
+            [$data, 'name="item_table"'],
+            [$data, 'name="item_timing"'],
+            [$data, 'name="item_event"'],
+            [$data, 'name="item_definition"'],
+            [$data, 'name="item_definer"'],
+            [$data, 'name="editor_process_edit"'],
         ];
     }
 
@@ -263,7 +215,7 @@ class TriggersTest extends AbstractTestCase
         Response::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
-            $this->triggers->getEditorForm('edit', $data)
+            $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -286,14 +238,8 @@ class TriggersTest extends AbstractTestCase
         ];
 
         return [
-            [
-                $data,
-                "name='editor_process_edit'",
-            ],
-            [
-                $data,
-                "name='ajax_request'",
-            ],
+            [$data, 'name="editor_process_edit"'],
+            [$data, 'name="ajax_request"'],
         ];
     }
 

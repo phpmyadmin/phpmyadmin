@@ -70,7 +70,7 @@ class Table
     public $type = '';
 
     /** @var array UI preferences */
-    public $uiprefs;
+    public $uiprefs = [];
 
     /** @var array errors occurred */
     public $errors = [];

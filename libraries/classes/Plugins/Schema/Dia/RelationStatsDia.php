@@ -17,10 +17,6 @@ use function shuffle;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in dia XML document.
- *
- * @see     PMA_DIA
- *
- * @name    Relation_Stats_Dia
  */
 class RelationStatsDia
 {
@@ -52,7 +48,7 @@ class RelationStatsDia
     public $foreignTablePos;
 
     /** @var string */
-    public $referenceColor;
+    public $referenceColor = '#000000';
 
     /**
      * @see Relation_Stats_Dia::getXy

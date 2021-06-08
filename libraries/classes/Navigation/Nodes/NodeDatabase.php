@@ -13,7 +13,6 @@ use PhpMyAdmin\Util;
 
 use function in_array;
 use function intval;
-use function strpos;
 use function substr;
 
 /**
@@ -41,20 +40,17 @@ class NodeDatabase extends Node
         parent::__construct($name, $type, $isGroup);
         $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
-            'database'
-        );
-        $hasRoute = strpos($scriptName, '?');
         $this->links = [
-            'text'  => $scriptName . ($hasRoute === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%1$s',
-            'icon'  => Url::getFromRoute('/database/operations') . '&amp;server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;',
+            'text' => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
+                'params' => ['db' => null],
+            ],
+            'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
             'title' => __('Structure'),
         ];
+
         $this->classes = 'database';
+        $this->urlParamName = 'db';
     }
 
     /**

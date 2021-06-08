@@ -57,10 +57,10 @@ abstract class TableStats
     public $primary = [];
 
     /** @var int|float */
-    public $x;
+    public $x = 0;
 
     /** @var int|float */
-    public $y;
+    public $y = 0;
 
     /** @var int */
     public $width = 0;
@@ -78,15 +78,14 @@ abstract class TableStats
     protected $font;
 
     /**
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
-     * @param string                                  $db             current db name
-     * @param int                                     $pageNumber     current page number (from the
-     *                                                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param string                                  $tableName      table name
-     * @param bool                                    $showKeys       whether to display keys or not
-     * @param bool                                    $tableDimension whether to display table position or not
-     * @param bool                                    $offline        whether the coordinates are sent
-     *                                                                from the browser
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia $diagram        schema diagram
+     * @param string                          $db             current db name
+     * @param int                             $pageNumber     current page number (from the
+     *                                                        $cfg['Servers'][$i]['table_coords'] table)
+     * @param string                          $tableName      table name
+     * @param bool                            $showKeys       whether to display keys or not
+     * @param bool                            $tableDimension whether to display table position or not
+     * @param bool                            $offline        whether the coordinates are sent from the browser
      */
     public function __construct(
         $diagram,

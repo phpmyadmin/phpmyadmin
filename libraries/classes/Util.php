@@ -121,7 +121,7 @@ class Util
     /**
      * Returns the formatted maximum size for an upload
      *
-     * @param int|string $maxUploadSize the size
+     * @param int|float|string $maxUploadSize the size
      *
      * @return string the message
      *
@@ -693,9 +693,9 @@ class Util
      *
      * @param string|int $formattedSize the size expression (for example 8MB)
      *
-     * @return int The numerical part of the expression (for example 8)
+     * @return int|float The numerical part of the expression (for example 8)
      */
-    public static function extractValueFromFormattedSize($formattedSize): int
+    public static function extractValueFromFormattedSize($formattedSize)
     {
         $returnValue = -1;
 
@@ -1622,12 +1622,7 @@ class Util
      */
     public static function getScriptNameForOption($target, string $location): string
     {
-        $url = self::getUrlForOption($target, $location);
-        if ($url === null) {
-            return './';
-        }
-
-        return Url::getFromRoute($url);
+        return Url::getFromRoute(self::getUrlForOption($target, $location));
     }
 
     /**
@@ -1641,9 +1636,9 @@ class Util
      *                         $cfg['DefaultTabServer']
      * @param string $location one out of 'server', 'table', 'database'
      *
-     * @return string The URL corresponding to the config word or null if nothing was found
+     * @return string The URL corresponding to the config word
      */
-    public static function getUrlForOption($target, string $location): ?string
+    public static function getUrlForOption($target, string $location): string
     {
         if ($location === 'server') {
             // Values for $cfg['DefaultTabServer']
@@ -1714,7 +1709,7 @@ class Util
             }
         }
 
-        return null;
+        return '/';
     }
 
     /**

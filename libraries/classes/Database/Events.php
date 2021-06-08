@@ -586,7 +586,7 @@ class Events
             $exportData = false;
         }
 
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+        $itemName = htmlspecialchars(Util::backquote($itemName));
         if ($exportData !== false) {
             $exportData = htmlspecialchars(trim($exportData));
             $title = sprintf(__('Export of event %s'), $itemName);
@@ -598,10 +598,13 @@ class Events
                 exit;
             }
 
-            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
-                . $exportData . '</textarea>';
-            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
-                . $exportData . "</fieldset>\n";
+            $output = '<div class="container">';
+            $output .= '<h2>' . $title . '</h2>';
+            $output .= '<div class="card"><div class="card-body">';
+            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
+            $output .= '</div></div></div>';
+
+            $this->response->addHTML($output);
 
             return;
         }
@@ -620,6 +623,6 @@ class Events
             exit;
         }
 
-        echo $message->getDisplay();
+        $this->response->addHTML($message->getDisplay());
     }
 }

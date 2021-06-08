@@ -14,7 +14,7 @@
         table_name_url="{{ designerTable.getTableName()|escape('url') }}"
         cellpadding="0"
         cellspacing="0"
-        class="pma-table designer_tab"
+        class="table table-sm table-striped table-hover w-auto designer_tab"
         style="position:absolute; {{ text_dir == 'rtl' ? 'right' : 'left' }}:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:

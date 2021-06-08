@@ -112,6 +112,15 @@ phpMyAdmin - ChangeLog
 - issue #16871 Fixed PHP and JS errors on normalization steps
 - issue        Fixed CSS missing classes on normalization buttons
 - issue #16437 Fixed sticky top position when using smaller screen sizes
+- issue #16895 Fixed wrong table count on space separated numbers
+- issue #16882 Fixed table delete resets count to 0
+- issue #16892 Fixed current_timestamp() stringified on INSERT for date field
+- issue #16911 Fixed PHP 8.1 "Method mysqli::get_client_info() is deprecated"
+- issue        Fix "array_fill(): Argument #2 ($count) must be of type int, string" for "$cfg['InsertRows']"
+- issue #14130 Created new messages for U2F errors
+- issue #16920 Fixed "Uncaught TypeError: PhpMyAdmin\Import::detectType()" on ODS import
+- issue #16926 Fixed ODS import warning: Undefined array key "ods_empty_rows"
+- issue #16888 Fixed JS error on renaming tables in saved Designer page
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

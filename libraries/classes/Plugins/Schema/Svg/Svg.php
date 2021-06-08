@@ -27,16 +27,16 @@ use function strlen;
 class Svg extends XMLWriter
 {
     /** @var string */
-    public $title;
+    public $title = '';
 
     /** @var string */
-    public $author;
+    public $author = 'phpMyAdmin';
 
     /** @var string */
-    public $font;
+    public $font = 'Arial';
 
     /** @var int */
-    public $fontSize;
+    public $fontSize = 12;
 
     /**
      * Upon instantiation This starts writing the RelationStatsSvg XML document

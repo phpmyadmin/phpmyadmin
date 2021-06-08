@@ -64,7 +64,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         /* Sanitize cookie params */
-        $defaultCookieParams = static function (string $key) {
+        $defaultCookieParams = /** @return mixed */ static function (string $key) {
             switch ($key) {
                 case 'lifetime':
                     return 0;
@@ -76,8 +76,6 @@ class AuthenticationSignon extends AuthenticationPlugin
                     return '';
 
                 case 'secure':
-                    return false;
-
                 case 'httponly':
                     return false;
             }

@@ -132,7 +132,7 @@ class StructureTest extends TestBase
         $this->waitForElement(
             'xpath',
             "//div[@class='alert alert-success' and contains(., "
-            . "'Your SQL query has been executed successfully')]"
+            . "'2 columns have been dropped successfully.')]"
         );
         $this->waitAjax();
 

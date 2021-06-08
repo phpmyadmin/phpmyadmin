@@ -6,24 +6,19 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
-
-use const ENT_QUOTES;
 
 /**
  * Functions for trigger management.
@@ -353,144 +348,28 @@ class Triggers
     /**
      * Displays a form used to add/edit a trigger
      *
-     * @param string $mode If the editor will be used to edit a trigger
-     *                     or add a new one: 'edit' or 'add'.
-     * @param array  $item Data for the trigger returned by getDataFromRequest()
-     *                     or getDataFromName()
-     *
-     * @return string HTML code for the editor.
+     * @param string $db
+     * @param string $table
+     * @param string $mode  If the editor will be used to edit a trigger or add a new one: 'edit' or 'add'.
+     * @param array  $item  Data for the trigger returned by getDataFromRequest() or getDataFromName()
      */
-    public function getEditorForm($mode, array $item)
+    public function getEditorForm($db, $table, $mode, array $item): string
     {
-        global $db, $table;
-
-        $modeToUpper = mb_strtoupper($mode);
-
-        // Escape special characters
-        $need_escape = [
-            'item_original_name',
-            'item_name',
-            'item_definition',
-            'item_definer',
-        ];
-        foreach ($need_escape as $key => $index) {
-            $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
-        }
-
-        $original_data = '';
-        if ($mode === 'edit') {
-            $original_data = "<input name='item_original_name' "
-                           . "type='hidden' value='" . $item['item_original_name'] . "'>\n";
-        }
-
-        $query  = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
-        $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
-        $query .= "AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
+        $query = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
+        $query .= 'WHERE `TABLE_SCHEMA`=\'' . $this->dbi->escapeString($db) . '\' ';
+        $query .= 'AND `TABLE_TYPE` IN (\'BASE TABLE\', \'SYSTEM VERSIONED\')';
         $tables = $this->dbi->fetchResult($query);
 
-        // Create the output
-        $retval  = '';
-        $retval .= '<!-- START ' . $modeToUpper . " TRIGGER FORM -->\n\n";
-        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/triggers')
-            . '" method="post">' . "\n";
-        $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
-        $retval .= $original_data;
-        $retval .= Url::getHiddenInputs($db, $table) . "\n";
-        $retval .= "<fieldset class=\"pma-fieldset\">\n";
-        $retval .= '<legend>' . __('Details');
-        if ($mode !== 'edit') {
-            $retval .= MySQLDocumentation::show('CREATE_TRIGGER');
-        }
-
-        $retval .= '</legend>' . "\n";
-        $retval .= "<table class='rte_table table table-borderless table-sm'>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Trigger name') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-        $retval .= "               value='" . $item['item_name'] . "'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Table') . "</td>\n";
-        $retval .= "    <td>\n";
-        $retval .= "        <select name='item_table'>\n";
-        foreach ($tables as $key => $value) {
-            $selected = '';
-            if ($mode === 'add' && $value == $table) {
-                $selected = " selected='selected'";
-            } elseif ($mode === 'edit' && $value == $item['item_table']) {
-                $selected = " selected='selected'";
-            }
-
-            $retval .= '<option' . $selected . '>';
-            $retval .= htmlspecialchars($value);
-            $retval .= "</option>\n";
-        }
-
-        $retval .= "        </select>\n";
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . _pgettext('Trigger action time', 'Time') . "</td>\n";
-        $retval .= "    <td><select name='item_timing'>\n";
-        foreach ($this->time as $key => $value) {
-            $selected = '';
-            if (
-                ! empty($item['item_action_timing'])
-                && $item['item_action_timing'] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-
-            $retval .= '<option' . $selected . '>' . $value . '</option>';
-        }
-
-        $retval .= "    </select></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Event') . "</td>\n";
-        $retval .= "    <td><select name='item_event'>\n";
-        foreach ($this->event as $key => $value) {
-            $selected = '';
-            if (
-                ! empty($item['item_event_manipulation'])
-                && $item['item_event_manipulation'] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-
-            $retval .= '<option' . $selected . '>' . $value . '</option>';
-        }
-
-        $retval .= "    </select></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Definition') . "</td>\n";
-        $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
-        $retval .= $item['item_definition'];
-        $retval .= "</textarea></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Definer') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_definer'\n";
-        $retval .= "               value='" . $item['item_definer'] . "'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "</table>\n";
-        $retval .= "</fieldset>\n";
-        if ($this->response->isAjax()) {
-            $retval .= "<input type='hidden' name='editor_process_" . $mode . "'\n";
-            $retval .= "       value='true'>\n";
-            $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
-        } else {
-            $retval .= "<fieldset class=\"pma-fieldset tblFooters\">\n";
-            $retval .= "    <input type='submit' name='editor_process_" . $mode . "'\n";
-            $retval .= "           value='" . __('Go') . "'>\n";
-            $retval .= "</fieldset>\n";
-        }
-
-        $retval .= "</form>\n\n";
-        $retval .= '<!-- END ' . $modeToUpper . " TRIGGER FORM -->\n\n";
-
-        return $retval;
+        return $this->template->render('database/triggers/editor_form', [
+            'db' => $db,
+            'table' => $table,
+            'is_edit' => $mode === 'edit',
+            'item' => $item,
+            'tables' => $tables,
+            'time' => $this->time,
+            'events' => $this->event,
+            'is_ajax' => $this->response->isAjax(),
+        ]);
     }
 
     /**
@@ -598,8 +477,10 @@ class Triggers
      */
     private function sendEditor($mode, ?array $item, $title, $db)
     {
+        global $db, $table;
+
         if ($item !== null) {
-            $editor = $this->getEditorForm($mode, $item);
+            $editor = $this->getEditorForm($db, $table, $mode, $item);
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', $editor);
                 $this->response->addJSON('title', $title);
@@ -646,29 +527,27 @@ class Triggers
             }
         }
 
-        $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($exportData !== false) {
-            $exportData = htmlspecialchars(trim($exportData));
-            $title = sprintf(__('Export of trigger %s'), $itemName);
+            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($itemName)));
 
             if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $exportData);
+                $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
                 $this->response->addJSON('title', $title);
 
                 exit;
             }
 
-            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
-                . $exportData . '</textarea>';
-            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
-                . $exportData . "</fieldset>\n";
+            $this->response->addHTML($this->template->render('database/triggers/export', [
+                'data' => $exportData,
+                'item_name' => $itemName,
+            ]));
 
             return;
         }
 
         $message = sprintf(
             __('Error in processing request: No trigger with name %1$s found in database %2$s.'),
-            $itemName,
+            htmlspecialchars(Util::backquote($itemName)),
             htmlspecialchars(Util::backquote($db))
         );
         $message = Message::error($message);
@@ -680,6 +559,6 @@ class Triggers
             exit;
         }
 
-        echo $message->getDisplay();
+        $this->response->addHTML($message->getDisplay());
     }
 }

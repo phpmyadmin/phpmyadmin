@@ -97,7 +97,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         echo '</h1>
     </div>
     <br>
-    <table cellpadding="0" cellspacing="3" class= "pma-table auth_config_tbl" width="80%">
+    <table class="table table-borderless text-start w-75 mx-auto">
         <tr>
             <td>';
         if (

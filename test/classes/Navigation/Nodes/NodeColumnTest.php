@@ -21,20 +21,21 @@ class NodeColumnTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        $parent = NodeFactory::getInstance(
-            'NodeColumn',
+        $parent = NodeFactory::getInstance('NodeColumn', ['name' => 'name', 'key' => 'key']);
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
             [
-                'name' => 'name',
-                'key' => 'key',
-            ]
-        );
-        $this->assertArrayHasKey(
-            'text',
+                'text' => [
+                    'route' => '/table/structure/change',
+                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+                ],
+                'icon' => [
+                    'route' => '/table/structure/change',
+                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+                ],
+                'title' => 'Structure',
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/table/structure',
-            $parent->links['text']
         );
     }
 }

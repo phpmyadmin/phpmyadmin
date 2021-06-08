@@ -296,12 +296,12 @@ class ReplicationGui
                 isset($variablesAlerts[$variable])
                 && $variablesAlerts[$variable] === $serverReplicationVariable
             ) {
-                $variables[$variable]['status'] = 'attention';
+                $variables[$variable]['status'] = 'text-danger';
             } elseif (
                 isset($variablesOks[$variable])
                 && $variablesOks[$variable] === $serverReplicationVariable
             ) {
-                $variables[$variable]['status'] = 'allfine';
+                $variables[$variable]['status'] = 'text-success';
             }
 
             $variablesWrap = [

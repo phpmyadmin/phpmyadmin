@@ -71,7 +71,7 @@ class BinlogControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="pma-table" id="binlogTable">',
+            '<table class="table table-light table-striped table-hover align-middle" id="binlogTable">',
             $actual
         );
 

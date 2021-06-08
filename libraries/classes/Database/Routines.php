@@ -1275,19 +1275,19 @@ class Routines
             $output  = Generator::formatSql(implode("\n", $queries));
 
             // Display results
-            $output .= '<fieldset class="pma-fieldset"><legend>';
+            $output .= '<div class="card my-3"><div class="card-header">';
             $output .= sprintf(
                 __('Execution results of routine %s'),
                 Util::backquote(htmlspecialchars($routine['item_name']))
             );
-            $output .= '</legend>';
+            $output .= '</div><div class="card-body">';
 
             do {
                 $result = $this->dbi->storeResult();
                 $num_rows = $this->dbi->numRows($result);
 
                 if (($result !== false) && ($num_rows > 0)) {
-                    $output .= '<table class="pma-table"><tr>';
+                    $output .= '<table class="table table-light table-striped w-auto"><tr>';
                     $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
                     foreach ($fieldsMeta as $field) {
                         $output .= '<th>';
@@ -1310,8 +1310,6 @@ class Routines
                     break;
                 }
 
-                $output .= '<br>';
-
                 $this->dbi->freeResult($result);
 
                 $outcome = $this->dbi->nextResult();
@@ -1319,7 +1317,7 @@ class Routines
         }
 
         if ($outcome) {
-            $output .= '</fieldset>';
+            $output .= '</div></div>';
 
             $message = __('Your SQL query has been executed successfully.');
             if ($routine['item_type'] === 'PROCEDURE') {
@@ -1712,10 +1710,13 @@ class Routines
                 exit;
             }
 
-            $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
-                . $exportData . '</textarea>';
-            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
-                . $exportData . "</fieldset>\n";
+            $output = '<div class="container">';
+            $output .= '<h2>' . $title . '</h2>';
+            $output .= '<div class="card"><div class="card-body">';
+            $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
+            $output .= '</div></div></div>';
+
+            $this->response->addHTML($output);
 
             return;
         }
@@ -1737,6 +1738,6 @@ class Routines
             exit;
         }
 
-        echo $message->getDisplay();
+        $this->response->addHTML($message->getDisplay());
     }
 }

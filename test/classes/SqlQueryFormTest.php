@@ -108,7 +108,7 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['is_upload'] = true;
         //Call the test function
         $query = 'select * from PMA';
-        $html = $this->sqlQueryForm->getHtml($query);
+        $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
         $this->assertStringContainsString(
@@ -171,7 +171,7 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = 'select * from PMA';
-        $html = $this->sqlQueryForm->getHtml($query);
+        $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
         //validate 1: query
         $this->assertStringContainsString(

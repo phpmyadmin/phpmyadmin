@@ -64,6 +64,8 @@ final class SqlController extends AbstractController
         $back = Url::getFromRoute('/table/sql');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
+            $db,
+            $table,
             $_GET['sql_query'] ?? true,
             false,
             isset($_POST['delimiter'])

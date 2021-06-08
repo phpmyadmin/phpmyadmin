@@ -76,7 +76,7 @@ class Response
      * @access private
      * @var bool
      */
-    protected $isAjax;
+    protected $isAjax = false;
     /**
      * Whether response object is disabled
      *

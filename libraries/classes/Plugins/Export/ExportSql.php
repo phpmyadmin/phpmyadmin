@@ -1765,7 +1765,10 @@ class ExportSql extends ExportPlugin
             }
 
             /* Avoid operation on ARCHIVE tables as those can not be altered */
-            if (! empty($statement->fields) && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')) {
+            if (
+                (! empty($statement->fields) && is_array($statement->fields))
+                && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')
+            ) {
 
                 /**
                  * Fragments containing definition of each constraint.
@@ -2583,7 +2586,7 @@ class ExportSql extends ExportPlugin
             $values = [];
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 // NULL
-                if (! isset($row[$j]) || $row[$j] === null) {
+                if (! isset($row[$j])) {
                     $values[] = 'NULL';
                 } elseif (
                     $fieldsMeta[$j]->isNumeric
@@ -2935,8 +2938,9 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
-            /** @var CreateDefinition $field */
-            foreach ($statement->fields as $field) {
+            /** @var CreateDefinition[] $fields */
+            $fields = $statement->fields;
+            foreach ($fields as $field) {
                 // Column name.
                 if (! empty($field->type)) {
                     if (! empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$field->name])) {
