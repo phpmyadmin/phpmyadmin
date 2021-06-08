@@ -1064,13 +1064,15 @@ class StructureController extends AbstractController
                 $this->tableObj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
-            if (! empty($_POST['field_adjust_privileges'][$i])
+            if (
+                ! empty($_POST['field_adjust_privileges'][$i])
                 && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
             ) {
                 $adjust_privileges[$_POST['field_orig'][$i]] = $_POST['field_name'][$i];
             }
 
-            if (empty($_POST['field_adjust_views'][$i])
+            if (
+                empty($_POST['field_adjust_views'][$i])
                 && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
             ) {
                 continue;
@@ -1348,7 +1350,7 @@ class StructureController extends AbstractController
      * @return bool boolean whether at least one column privileges
      * adjusted
      */
-    protected function adjustViews(array $adjustViews)
+    protected function adjustViews(array $adjustViews): bool
     {
         $changed = false;
 
@@ -1356,9 +1358,8 @@ class StructureController extends AbstractController
             return $changed;
         }
 
-        $this->dbi->selectDb('information_schema');
         $query_views = 'SELECT `TABLE_SCHEMA`,`VIEW_DEFINITION`,`TABLE_NAME` '
-            . 'FROM `VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
+            . 'FROM `information_schema`.`VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
 
         $views = $this->dbi->query($query_views);
 
@@ -1374,9 +1375,11 @@ class StructureController extends AbstractController
                 if (! strpos($view_definition, $oldColName)) {
                     continue;
                 }
+
                 $change = 1;
                 $view_definition = str_ireplace($oldColName, $newColName, $view_definition);
             }
+
             if (! $change) {
                 continue;
             }

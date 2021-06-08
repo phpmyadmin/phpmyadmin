@@ -919,7 +919,8 @@ class Operations
      */
     public function adjustViews($oldDb, $oldTable, $newDb, $newTable)
     {
-        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+        if (
+            ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
             || ! $GLOBALS['is_reload_priv']
         ) {
             return;

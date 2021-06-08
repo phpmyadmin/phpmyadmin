@@ -1210,10 +1210,11 @@ class Table
                 // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
                 // Executing it.
                 if ($move || $_POST['adjust_views']) {
-                    $dbi->selectDb($target_db);
+                    $dbi->selectDb($targetDb);
                 }
-                $dbi->query($sql_structure);
-                $GLOBALS['sql_query'] .= "\n" . $sql_structure;
+
+                $dbi->query($sqlStructure);
+                $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
             }
 
             // -----------------------------------------------------------------

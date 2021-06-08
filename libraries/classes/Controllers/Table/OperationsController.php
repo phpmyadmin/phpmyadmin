@@ -201,6 +201,7 @@ class OperationsController extends AbstractController
                             $_POST['new_name']
                         );
                     }
+
                     // Alter view
                     if (! empty($_POST['adjust_views'])) {
                         $this->operations->adjustViews(
