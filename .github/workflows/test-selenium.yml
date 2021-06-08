@@ -65,16 +65,20 @@ jobs:
               with:
                   php-version: ${{ matrix.php-version }}
                   extensions: mbstring, iconv, mysqli, zip, gd, bz2
-            - name: Get Composer Cache Directory
+
+            - name: Get Composer cache directory
               id: composer-cache
               run: |
                 echo "::set-output name=dir::$(composer config cache-files-dir)"
-            - uses: actions/cache@v2
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
               with:
                 path: ${{ steps.composer-cache.outputs.dir }}
-                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
                 restore-keys: |
-                  ${{ runner.os }}-composer-
+                  composer-${{ runner.os }}-${{ matrix.php-version }}-
+
             - name: Install dependencies
               run: composer install --no-interaction
             - uses: actions/setup-node@v1
