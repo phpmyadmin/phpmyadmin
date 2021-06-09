@@ -1,0 +1,58 @@
+name: Update translation files
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  update-po:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ["8.0"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Gettext
+        run: |
+          sudo apt-get install -y gettext
+
+      - name: Install PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
+          restore-keys: |
+            composer-${{ runner.os }}-${{ matrix.php-version }}-
+
+      - name: Install dependencies
+        run: |
+          composer update --no-interaction --no-progress
+
+      - name: Setup git config
+        run: |
+          git config user.name "phpMyAdmin bot"
+          git config user.email bot@phpmyadmin.net
+
+      - name: Update PO files
+        run: |
+          ./scripts/update-po
+
+      - name: Push changes
+        run: |
+          git push
