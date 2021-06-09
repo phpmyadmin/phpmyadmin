@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-04 12:02-0300\n"
+"POT-Creation-Date: 2021-06-09 02:24+0000\n"
 "PO-Revision-Date: 2021-06-05 20:33+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5079,7 +5079,7 @@ msgstr "Başarılı!"
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
 #: libraries/classes/Controllers/Table/StructureController.php:468
 #: libraries/classes/Controllers/Table/StructureController.php:492
-#: libraries/classes/IndexColumn.php:142 libraries/classes/Index.php:547
+#: libraries/classes/IndexColumn.php:139 libraries/classes/Index.php:547
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:688
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
@@ -6374,7 +6374,7 @@ msgid "Changing charset"
 msgstr "Karakter grubu değiştiriliyor"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
-#: libraries/classes/IndexColumn.php:139 libraries/classes/Index.php:520
+#: libraries/classes/IndexColumn.php:136 libraries/classes/Index.php:520
 #: libraries/classes/Index.php:548
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:687
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
@@ -11875,11 +11875,11 @@ msgstr "Sözdizimi vurgulaması ile JSON olarak metni biçimlendirir."
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Sözdizimi vurgulaması ile XML olarak metni biçimlendirir."
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:148
+#: libraries/classes/Plugins/TwoFactor/Application.php:142
 msgid "Authentication Application (2FA)"
 msgstr "Kimlik Doğrulama Uygulaması (2FA)"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:159
+#: libraries/classes/Plugins/TwoFactor/Application.php:153
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
