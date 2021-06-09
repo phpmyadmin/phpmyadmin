@@ -209,17 +209,13 @@
     </InvalidOperand>
   </file>
   <file src="libraries/classes/Config/Validator.php">
-    <InvalidArgument occurrences="1">
-      <code>$port</code>
-    </InvalidArgument>
-    <PossiblyFalseArgument occurrences="2">
-      <code>$test</code>
-      <code>$test</code>
-    </PossiblyFalseArgument>
     <PossiblyInvalidArgument occurrences="2">
       <code>$uv[$i]</code>
       <code>$uv[$i]</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$port</code>
+    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/BrowseForeignersController.php">
     <PossiblyNullArgument occurrences="1">
@@ -2415,10 +2411,6 @@
     </InvalidScalarArgument>
   </file>
   <file src="libraries/classes/Transformations.php">
-    <InvalidArgument occurrences="2">
-      <code>$class_name</code>
-      <code>$class_name</code>
-    </InvalidArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$row['comment']</code>
     </PossiblyNullArgument>

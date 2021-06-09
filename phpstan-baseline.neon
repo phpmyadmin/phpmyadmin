@@ -91,17 +91,7 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, string given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#5 \\$port of function mysqli_connect expects int, string\\|null given\\.$#"
+			message: "#^Parameter \\#5 \\$port of function mysqli_connect expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
 
@@ -387,31 +377,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function feof expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fgets expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -911,11 +876,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Parameter \\#1 \\$newname of function session_name expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
@@ -963,11 +923,6 @@ parameters:
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
 			count: 7
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|false given\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
@@ -1879,11 +1834,6 @@ parameters:
 			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
 			count: 2
 			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$classname of function class_exists expects string, PhpMyAdmin\\\\Plugins\\\\TransformationsInterface given\\.$#"
-			count: 2
-			path: libraries/classes/Transformations.php
 
 		-
 			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"

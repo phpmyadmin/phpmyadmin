@@ -303,11 +303,23 @@ class Encoding
         }
 
         $tmpfname = (string) tempnam($GLOBALS['config']->getUploadTempDir(), $enc);
-        $fpd      = fopen($tmpfname, 'wb');
-        $fps      = fopen($file, 'r');
+        $fpd = fopen($tmpfname, 'wb');
+        if ($fpd === false) {
+            return $file;
+        }
+
+        $fps = fopen($file, 'r');
+        if ($fps === false) {
+            return $file;
+        }
+
         self::kanjiChangeOrder();
         while (! feof($fps)) {
             $line = fgets($fps, 4096);
+            if ($line === false) {
+                continue;
+            }
+
             $dist = self::kanjiStrConv($line, $enc, $kana);
             fwrite($fpd, $dist);
         }

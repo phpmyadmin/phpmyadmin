@@ -26,6 +26,8 @@ use function sprintf;
 use function str_replace;
 use function strpos;
 
+use const CACHE_DIR;
+
 final class CacheWarmupCommand extends Command
 {
     /** @var string|null */

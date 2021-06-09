@@ -220,7 +220,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restart phpMyAdmin session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams($oldCookieParams);
-                if ($old_session !== null) {
+                if ($old_session !== null && $old_session !== false) {
                     session_name($old_session);
                 }
 

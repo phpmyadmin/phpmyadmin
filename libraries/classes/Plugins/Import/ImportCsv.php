@@ -779,12 +779,15 @@ class ImportCsv extends AbstractImportCsv
             // check to see if {filename} as table exist
             $nameArray = preg_grep('/' . $importFileName . '/isU', $result);
             // if no use filename as table name
-            if (count($nameArray) === 0) {
+            if ($nameArray === false || count($nameArray) === 0) {
                 return $importFileName;
             }
 
             // check if {filename}_ as table exist
             $nameArray = preg_grep('/' . $importFileName . '_/isU', $result);
+            if ($nameArray === false) {
+                return $importFileName;
+            }
 
             return $importFileName . '_' . (count($nameArray) + 1);
         }

@@ -211,7 +211,7 @@ class Transformations
     public function getDescription($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /** @var TransformationsInterface $class_name */
+        /** @psalm-var class-string<TransformationsInterface> $class_name */
         $class_name = $this->getClassName($include_file);
         if (class_exists($class_name)) {
             return $class_name::getInfo();
@@ -230,7 +230,7 @@ class Transformations
     public function getName($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /** @var TransformationsInterface $class_name */
+        /** @psalm-var class-string<TransformationsInterface> $class_name */
         $class_name = $this->getClassName($include_file);
         if (class_exists($class_name)) {
             return $class_name::getName();

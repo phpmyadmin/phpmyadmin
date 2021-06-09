@@ -165,6 +165,7 @@ class Validator
             foreach ((array) $validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
+                /** @var callable $vname */
                 $vname = 'PhpMyAdmin\Config\Validator::' . $vname;
                 $args = array_merge([$vid, &$arguments], $vdef);
                 $r = call_user_func_array($vname, $args);
@@ -237,7 +238,7 @@ class Validator
         error_clear_last();
 
         $socket = empty($socket) ? null : $socket;
-        $port = empty($port) ? null : $port;
+        $port = empty($port) ? null : (int) $port;
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
@@ -330,7 +331,7 @@ class Validator
                 'Server'
             );
 
-            if ($test !== true) {
+            if (is_array($test)) {
                 $result = array_merge($result, $test);
             }
         }
@@ -387,7 +388,7 @@ class Validator
                 empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass'],
                 'Server_pmadb'
             );
-            if ($test !== true) {
+            if (is_array($test)) {
                 $result = array_merge($result, $test);
             }
         }
