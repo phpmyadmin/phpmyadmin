@@ -9,7 +9,7 @@ use function array_merge;
 use function array_splice;
 use function min;
 
-class TablePartitionDefinition
+final class TablePartitionDefinition
 {
     /**
      * @param array|null $details Details that may be pre-filled
@@ -28,7 +28,7 @@ class TablePartitionDefinition
     /**
      * @return array
      */
-    protected static function generateDetails(): array
+    private static function generateDetails(): array
     {
         $partitionDetails = self::extractDetailsFromRequest();
 
@@ -55,7 +55,7 @@ class TablePartitionDefinition
      *
      * @return array
      */
-    protected static function extractDetailsFromRequest(): array
+    private static function extractDetailsFromRequest(): array
     {
         $partitionParams = [
             'partition_by' => null,
@@ -79,10 +79,11 @@ class TablePartitionDefinition
     /**
      * @param string $paramLabel Label searched in request
      */
-    protected static function extractPartitionCount(string $paramLabel): int
+    private static function extractPartitionCount(string $paramLabel): int
     {
         if (Core::isValid($_POST[$paramLabel], 'numeric')) {
             // MySQL's limit is 8192, so do not allow more
+            // @see https://dev.mysql.com/doc/refman/en/partitioning-limitations.html
             $count = min((int) $_POST[$paramLabel], 8192);
         } else {
             $count = 0;
@@ -96,7 +97,7 @@ class TablePartitionDefinition
      *
      * @return array
      */
-    protected static function extractPartitions(array $partitionDetails): array
+    private static function extractPartitions(array $partitionDetails): array
     {
         $partitionCount = $partitionDetails['partition_count'];
         $subpartitionCount = $partitionDetails['subpartition_count'];
@@ -151,7 +152,7 @@ class TablePartitionDefinition
             }
 
             // No subpartitions
-            if ($subpartitionCount <= 1 || $partitionDetails['can_have_subpartitions'] !== true) {
+            if ($subpartitionCount < 2 || $partitionDetails['can_have_subpartitions'] !== true) {
                 unset($partition['subpartitions'], $partition['subpartition_count']);
                 continue;
             }
