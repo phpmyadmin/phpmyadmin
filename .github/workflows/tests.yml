@@ -67,8 +67,13 @@ jobs:
                 php-version: ["7.2", "7.3", "7.4", "8.0"]
                 experimental: [false]
                 os: [ubuntu-latest]
+                phpunit-options: ['--exclude-group selenium']
                 include:
-                    - { php-version: '8.1', composer-options: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
+                  - php-version: '8.1'
+                    experimental: true
+                    os: ubuntu-latest
+                    phpunit-options: '--configuration test/phpunit-php-nightly.xml'
+                    composer-options: '--ignore-platform-req=php'
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
@@ -98,7 +103,7 @@ jobs:
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
+              run: composer run phpunit -- ${{ matrix.phpunit-options }}
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:
