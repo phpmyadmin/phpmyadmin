@@ -1549,6 +1549,35 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` WHERE '
+                    . '`TABLE_SCHEMA` = \'database\' AND `TABLE_NAME` = \'no_partition_method\' LIMIT 1',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` WHERE '
+                    . '`TABLE_SCHEMA` = \'database\' AND `TABLE_NAME` = \'range_partition_method\' LIMIT 1',
+                'columns' => ['PARTITION_METHOD'],
+                'result' => [['RANGE']],
+            ],
+            [
+                'query'  => 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` WHERE '
+                    . '`TABLE_SCHEMA` = \'database\' AND `TABLE_NAME` = \'range_columns_partition_method\' LIMIT 1',
+                'columns' => ['PARTITION_METHOD'],
+                'result' => [['RANGE COLUMNS']],
+            ],
+            [
+                'query'  => 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` WHERE '
+                    . '`TABLE_SCHEMA` = \'database\' AND `TABLE_NAME` = \'list_partition_method\' LIMIT 1',
+                'columns' => ['PARTITION_METHOD'],
+                'result' => [['LIST']],
+            ],
+            [
+                'query'  => 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS` WHERE '
+                    . '`TABLE_SCHEMA` = \'database\' AND `TABLE_NAME` = \'list_columns_partition_method\' LIMIT 1',
+                'columns' => ['PARTITION_METHOD'],
+                'result' => [['LIST COLUMNS']],
+            ],
+            [
                 'query' => 'SHOW PLUGINS',
                 'result' => [
                     [
