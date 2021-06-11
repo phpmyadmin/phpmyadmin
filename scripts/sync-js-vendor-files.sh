@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -eu
+
 #
 # vim: expandtab sw=4 ts=4 sts=4:
 #
@@ -13,9 +14,7 @@ cd ${ROOT_DIR}
 
 # Remove each '-not -path' when a new package can be used from npm
 echo 'Delete vendor files we can replace from source dists'
-find ./js/vendor/ \
-    -not -path './js/vendor/openlayers/*' \
-    -type f -delete -print
+find ./js/vendor/ -type f -delete -print
 
 echo 'Updating codemirror'
 cp ./node_modules/codemirror/addon/hint/sql-hint.js ./js/vendor/codemirror/addon/hint/sql-hint.js
@@ -74,8 +73,20 @@ echo 'Updating jquery-debounce'
 cp ./node_modules/jquery-debounce-throttle/index.js ./js/vendor/jquery/jquery.debounce-1.0.6.js
 echo 'Updating jquery-Timepicker-Addon'
 cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
+echo 'Updating OpenLayers'
+cp ./node_modules/ol/ol.css ./js/vendor/openlayers/theme/ol.css
+npx webpack-cli --config ./js/config/ol/webpack.config.js
+echo "/*!
+  * OpenLayers v$(yarn -s info ol version) (https://openlayers.org/)
+  * Copyright 2005-present, OpenLayers Contributors All rights reserved.
+  * Licensed under BSD 2-Clause License (https://github.com/openlayers/openlayers/blob/main/LICENSE.md)
+  *
+  * @license $(yarn -s info ol license)
+  */
+$(cat ./js/vendor/openlayers/OpenLayers.js)" > ./js/vendor/openlayers/OpenLayers.js
 echo 'Updating sprintf'
 cp ./node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js ./js/vendor/sprintf.js
+
 echo 'Update jqplot'
 
 echo 'Build jquery.jqplot.js'
@@ -103,7 +114,5 @@ cp ./node_modules/updated-jqplot/build/plugins/jqplot.canvasAxisLabelRenderer.js
 
 cp ./node_modules/updated-jqplot/build/plugins/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
 cp ./node_modules/updated-jqplot/build/plugins/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js
-
-# There's no available bundle file distribution for openlayers. See: https://github.com/phpmyadmin/phpmyadmin/pull/16303#issuecomment-679205088
 
 echo 'Done.'
