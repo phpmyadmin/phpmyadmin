@@ -21,6 +21,8 @@ class OperationsTest extends AbstractTestCase
     {
         parent::setUp();
 
+        $GLOBALS['server'] = 1;
+
         $this->object = new Operations($this->dbi, new Relation($this->dbi));
     }
 

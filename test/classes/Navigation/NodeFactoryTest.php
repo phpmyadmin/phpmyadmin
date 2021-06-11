@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PHPUnit\Framework\Exception;
 
 /**
  * @covers \PhpMyAdmin\Navigation\NodeFactory
@@ -56,15 +55,23 @@ class NodeFactoryTest extends AbstractTestCase
         $this->assertTrue($node->isGroup);
     }
 
+    /**
+     * @group with-trigger-error
+     */
     public function testFileError(): void
     {
-        $this->expectException(Exception::class);
+        $this->expectError();
+        $this->expectErrorMessage('Could not load class "PhpMyAdmin\Navigation\Nodes\Node"');
         NodeFactory::getInstance('NodeDoesNotExist');
     }
 
+    /**
+     * @group with-trigger-error
+     */
     public function testClassNameError(): void
     {
-        $this->expectException(Exception::class);
+        $this->expectError();
+        $this->expectErrorMessage('Invalid class name "Node", using default of "Node"');
         NodeFactory::getInstance('Invalid');
     }
 }

@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PHPUnit\Framework\Exception;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -1123,16 +1122,11 @@ class ConfigTest extends AbstractTestCase
      *
      * @param array $settings settings array
      * @param array $expected expected result
-     * @param bool  $error    error
      *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers(array $settings, array $expected, bool $error = false): void
+    public function testCheckServers(array $settings, array $expected): void
     {
-        if ($error) {
-            $this->expectException(Exception::class);
-        }
-
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
         if ($expected === null) {
@@ -1167,12 +1161,22 @@ class ConfigTest extends AbstractTestCase
                     'host' => '',
                 ],
             ],
-            'invalid' => [
-                ['invalid' => ['host' => '127.0.0.1']],
-                ['host' => '127.0.0.1'],
-                true,
-            ],
         ];
+    }
+
+    /**
+     * @group with-trigger-error
+     */
+    public function testCheckServersWithInvalidServer(): void
+    {
+        $this->expectError();
+        $this->expectErrorMessage('Invalid server index: invalid');
+
+        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+
+        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
     /**
