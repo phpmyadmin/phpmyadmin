@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-09 02:24+0000\n"
-"PO-Revision-Date: 2021-06-03 15:33+0000\n"
+"PO-Revision-Date: 2021-06-12 00:25+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -14231,10 +14231,8 @@ msgstr "アクティブオプション"
 
 #: templates/database/designer/main.twig:1104
 #: templates/database/designer/main.twig:1119
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "読み込み中…"
+msgstr "読み込み中"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -15075,10 +15073,8 @@ msgstr "全部"
 
 #: templates/display/results/table.twig:109
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "返り値のオプション"
+msgstr "拡張オプション"
 
 #: templates/display/results/table.twig:131
 msgid "Relational key"
