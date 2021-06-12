@@ -2830,7 +2830,7 @@ class Results
                     $file = $mime_map[$orgFullColName]['transformation'];
                     $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists($include_file)) {
+                    if (@file_exists(ROOT_PATH . $include_file)) {
                         $class_name = $this->transformations->getClassName($include_file);
                         if (class_exists($class_name)) {
                             // todo add $plugin_manager
@@ -2863,7 +2863,7 @@ class Results
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                include_once $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
+                include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
                 $transformation_plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options = $this->transformations->getOptions(
