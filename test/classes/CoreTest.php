@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use stdClass;
 
@@ -446,6 +447,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testFatalErrorMessage(): void
     {
+        $_REQUEST = [];
+        Response::getInstance()->setAjax(false);
+
         $this->expectOutputRegex('/FatalError!/');
         Core::fatalError('FatalError!');
     }
@@ -455,6 +459,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testFatalErrorMessageWithArgs(): void
     {
+        $_REQUEST = [];
+        Response::getInstance()->setAjax(false);
+
         $message = 'Fatal error #%d in file %s.';
         $params = [
             1,
