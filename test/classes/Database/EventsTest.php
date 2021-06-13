@@ -151,6 +151,7 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
+        Response::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('add', 'change', $data)
