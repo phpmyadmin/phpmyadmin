@@ -8,8 +8,6 @@ use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Version;
 use ReflectionProperty;
 
-use function define;
-use function defined;
 use function rawurlencode;
 
 /**
@@ -29,12 +27,8 @@ class ScriptsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $GLOBALS['config']->enableBc();
         $this->object = new Scripts();
-        if (defined('PMA_USR_BROWSER_AGENT')) {
-            return;
-        }
-
-        define('PMA_USR_BROWSER_AGENT', 'MOZILLA');
     }
 
     /**

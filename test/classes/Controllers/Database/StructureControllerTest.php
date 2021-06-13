@@ -20,8 +20,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
 
-use function define;
-use function defined;
 use function json_encode;
 
 /**
@@ -58,16 +56,13 @@ class StructureControllerTest extends AbstractTestCase
         parent::setUp();
         parent::loadDefaultConfig();
         parent::setTheme();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'Other');
-        }
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
