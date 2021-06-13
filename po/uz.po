@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Uzbek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5025,7 +5025,7 @@ msgid "Missing data for %s"
 msgstr "\"%s\" майдонида маълумот йўқ"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 #, fuzzy
 #| msgid "Incorrect value"
@@ -5447,19 +5447,19 @@ msgstr ""
 "тиклаш[/a] учун махсус функциялар (\"%s\") керак, лекин улар тизимингизда "
 "топилмади."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
 msgstr "Нишонга уланиб бўлмади"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Аутентификация усули"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -5467,7 +5467,7 @@ msgstr ""
 "config аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида фойдаланувчи номи белгиланмаган"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid ""
@@ -5477,7 +5477,7 @@ msgstr ""
 "signon аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида сессия номи белгиланмаган"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
@@ -5485,7 +5485,7 @@ msgstr ""
 "signon аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида URL (унификация қилинган ахборот ресурс кўрсатгичи) белгиланмаган"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
@@ -5495,7 +5495,7 @@ msgstr ""
 "pmadb усули ишлатилмоқда, лекин phpMyAdmin конфигурацион файлида "
 "фойдаланувчи белгиланмаган"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 #, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
@@ -5507,39 +5507,39 @@ msgstr ""
 "pmadb усули ишлатилмоқда, лекин phpMyAdmin конфигурацион файлида парол "
 "белгиланмаган"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
 msgstr "Нотўғри қиймат"
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Нотўғри IP-адрес: \"%s\""
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Нотўғри порт номери"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Мусбат сон эмас"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Номанфий сон эмас"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -12632,7 +12632,7 @@ msgstr ""
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV импортидаги парамерт нотўғри: \"%s\""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -13494,20 +13494,20 @@ msgstr "Бош серверни ўзгартириб бўлмади"
 msgid "Master server changed successfully to %s."
 msgstr "Бош репликация сервери қуйидагига ўзгартирилди: %s"
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Error 404! The page %s was not found."
 msgstr "Манба база"
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

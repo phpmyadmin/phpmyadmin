@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4513,7 +4513,7 @@ msgid "Missing data for %s"
 msgstr "%s 데이터 누락"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "잘못된 값!"
@@ -4875,36 +4875,36 @@ msgstr ""
 "%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 "
 "시스템이서는 사용할 수 없습니다."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "데이터베이스 서버에 접속할 수 없습니다!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "잘못된 인증 방식!"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "[kbd]config[/kbd] 권한 기능을 사용하지만 사용자명이 빈 값입니다!"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon 세션 이름이 빈 값입니다!"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon URL 값이 빈 값입니다!"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자를 비웁니다!"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -4912,31 +4912,31 @@ msgstr ""
 "phpMyAdmin 설정 저장공간을 사용하는 동안 phpMyAdmin 관리 사용자 패스워드를 비"
 "웁니다!"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 msgid "Incorrect value:"
 msgstr "부정확한 값:"
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "잘못된 IP 주소: %s"
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "유효한 포트번호가 아닙니다!"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "양수가 아닙니다!"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "0 또는 양수가 아닙니다!"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11294,7 +11294,7 @@ msgstr "%d 행에 잘못된 컬럼 수."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12011,20 +12011,20 @@ msgstr "마스터를 변경할 수 없음"
 msgid "Master server changed successfully to %s."
 msgstr "마스터 서버가 성공적으로 %s로 변경되었습니다."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다!"
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

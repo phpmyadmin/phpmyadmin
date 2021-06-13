@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -4312,7 +4312,7 @@ msgid "Missing data for %s"
 msgstr "缺少 %s 所需的資料"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "輸入的值不正確！"
@@ -4640,64 +4640,64 @@ msgid ""
 "are unavailable on this system."
 msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 (%3$s) 函式。"
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "無法連線到資料庫伺服器！"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "認證方式無效！"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "使用 [kbd]config[/kbd] 認證方式時使用者帳號不能為空！"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr "選擇使用 [kbd]signon[/kbd] 認證方式時，signon 連線階段名稱必須填寫！"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "使用 [kbd]signon[/kbd] 認證方式時，登入網址不能為空！"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者！"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者密碼！"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 msgid "Incorrect value:"
 msgstr "輸入的值不正確："
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "%s 是錯誤的 IP 位址"
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "連結埠無效！"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "輸入值不是正數！"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "輸入值不是非負數！"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -10971,7 +10971,7 @@ msgstr "CSV 輸入的第 %d 行欄位數有錯。"
 msgid "Invalid parameter for CSV import: %s"
 msgstr "匯入 CSV 檔案 %s 時，有參數無效"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11685,19 +11685,19 @@ msgstr "無法更改主要備援伺服器！"
 msgid "Master server changed successfully to %s."
 msgstr "主要備援伺服器成功更改至 %s。"
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "錯誤 404！找不到 %s 頁面。"
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

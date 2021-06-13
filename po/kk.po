@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4576,7 +4576,7 @@ msgid "Missing data for %s"
 msgstr "%s úshin jetispeıtin derekter"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Durys emes mán!"
@@ -4927,21 +4927,21 @@ msgstr ""
 "%1$sGZip qysý men qysýdan shyǵarý%2$s osy júıede qoljetimdi emes "
 "fýnksıalardy qajet etedi (%3$s)."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Derekqor serverine qosylý múmkin bolmady!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "Túpnusqalyq rastamanyń túri jaramsyz!"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "[kbd]config[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, bos paıdalanýshy "
 "aty!"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -4949,20 +4949,20 @@ msgstr ""
 "[kbd]signon[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, bos «Signon» "
 "seansynyń atyn bosatý!"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "[kbd]signon[/kbd] túpnusqalyq rastama ádisin paıdalanǵanda, «Signon» URL-y "
 "bosatý!"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "phpMyAdmin konfıgýrasıasy saqtaýyshyn paıdalanǵanda, bos phpMyAdmin basqarý "
 "paıdalanýshysy!"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -4970,31 +4970,31 @@ msgstr ""
 "PhpMyAdmin konfıgýrasıa saqtaýyshyn paıdalanǵanda, bos phpMyAdmin basqarý "
 "paıdalanýshynyń paróli!"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 msgid "Incorrect value:"
 msgstr "Durys emes mán:"
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Durys emes IP-mekenjaı: %s"
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Jaramdy port nómiri emes!"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Oń san emes!"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Teris-emes san emes!"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11538,7 +11538,7 @@ msgstr "CSV kirisindegi %d jolynda baǵan sany jaramsyz."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ımporttaý úshin parametr jaramsyz: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12287,20 +12287,20 @@ msgstr "Jetekshini ózgertý múmkin emes!"
 msgid "Master server changed successfully to %s."
 msgstr "Jetekshi server %s úshin sátti ózgertildi."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "«%s» qaınar derekqory tabylmady!"
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr ""
 

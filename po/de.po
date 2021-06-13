@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2021-02-06 17:50+0000\n"
 "Last-Translator: Markus Staab <maggus.staab@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4577,7 +4577,7 @@ msgid "Missing data for %s"
 msgstr "Fehlende Daten für %s"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Ungültiger Wert!"
@@ -4937,21 +4937,21 @@ msgstr ""
 "%1$sGZip-Komprimierung und Dekomprimierung%2$s benötigt Funktionen (%3$s), "
 "die auf diesem System nicht verfügbar sind."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "Falscher Authentifikationstyp!"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Leerer Benutzername, obwohl die [kbd]config[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -4959,20 +4959,20 @@ msgstr ""
 "Leerer Sessionname, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Leere signon-URL, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Kein phpMyAdmin Control-user angegeben, obwohl der Konfigurationsspeicher "
 "von phpMyAdmin verwendet wird!"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -4980,31 +4980,31 @@ msgstr ""
 "Passwort des phpMyAdmin Control-users ist leer, obwohl der "
 "Konfigurationsspeicher von phpMyAdmin verwendet wird!"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 msgid "Incorrect value:"
 msgstr "Ungültiger Wert:"
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Ungültige IP-Adresse: %s"
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Keine gültige Portnummer!"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Keine positive Zahl!"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Keine nicht-negative Zahl!"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11680,7 +11680,7 @@ msgstr "Ungültige Anzahl an Spalten im CSV-Import in Zeile %d."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ungültiger Parameter für CSV-Import: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12440,7 +12440,7 @@ msgstr "Kann Master nicht wechseln!"
 msgid "Master server changed successfully to %s."
 msgstr "Master-Server wurde erfolgreich auf %s geändert."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12448,12 +12448,12 @@ msgid ""
 msgstr ""
 
 # source != search / Source != Suche
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fehler 404! Die Seite %s wurde nicht gefunden."
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr "Fehler 405! Anforderungsmethode nicht zulässig."
 

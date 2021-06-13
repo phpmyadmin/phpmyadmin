@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-09 02:24+0000\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4579,7 +4579,7 @@ msgid "Missing data for %s"
 msgstr "Manglende data for %s"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:608
+#: libraries/classes/Config/Validator.php:609
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Ukorrekt værdi!"
@@ -4929,36 +4929,36 @@ msgstr ""
 "%1$sGZip komprimering og dekomprimering%2$s kræver funktioner (%3$s) som "
 "ikke er tilgængelige på dette system."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:247
 msgid "Could not connect to the database server!"
 msgstr "Kunne ikke forbinde databaseserveren!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:283
 msgid "Invalid authentication type!"
 msgstr "Invalid autentifikationstype!"
 
-#: libraries/classes/Config/Validator.php:291
+#: libraries/classes/Config/Validator.php:292
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tomt brugernavn ved brug af [kbd]config[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:301
+#: libraries/classes/Config/Validator.php:302
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Tomt signon sessionsnavn ved brug af [kbd]signon[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:312
+#: libraries/classes/Config/Validator.php:313
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tom signon URL ved brug af [kbd]signon[/kbd] autentifikation!"
 
-#: libraries/classes/Config/Validator.php:367
+#: libraries/classes/Config/Validator.php:368
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tom phpMyAdmin kontrolbruger ved brug af phpMyAdmin konfiguration lager!"
 
-#: libraries/classes/Config/Validator.php:375
+#: libraries/classes/Config/Validator.php:376
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -4966,31 +4966,31 @@ msgstr ""
 "Tom phpMyAdmin adgangskode for kontrolbruger ved brug af phpMyAdmin "
 "konfiguration lager!"
 
-#: libraries/classes/Config/Validator.php:467
+#: libraries/classes/Config/Validator.php:468
 msgid "Incorrect value:"
 msgstr "Forkert værdi:"
 
-#: libraries/classes/Config/Validator.php:478
+#: libraries/classes/Config/Validator.php:479
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Ukorrekt IP-adresse: %s"
 
-#: libraries/classes/Config/Validator.php:541
+#: libraries/classes/Config/Validator.php:542
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Ikke et gyldigt portnummer!"
 
-#: libraries/classes/Config/Validator.php:563
+#: libraries/classes/Config/Validator.php:564
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Ikke et positivt tal!"
 
-#: libraries/classes/Config/Validator.php:585
+#: libraries/classes/Config/Validator.php:586
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Ikke et ikke-negativt tal!"
 
-#: libraries/classes/Config/Validator.php:626
+#: libraries/classes/Config/Validator.php:627
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -11543,7 +11543,7 @@ msgstr "Ugyldigt kolonneantal i CSV-input på linie %d."
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ugyldigt parameter for CSV-import: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:863
+#: libraries/classes/Plugins/Import/ImportCsv.php:866
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12287,20 +12287,20 @@ msgstr "Ikke muligt at ændre master!"
 msgid "Master server changed successfully to %s."
 msgstr "Master server ændret til %s."
 
-#: libraries/classes/Routing.php:104
+#: libraries/classes/Routing.php:105
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:168
+#: libraries/classes/Routing.php:169
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Kildedatabasen '%s' blev ikke fundet!"
 
-#: libraries/classes/Routing.php:179
+#: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
