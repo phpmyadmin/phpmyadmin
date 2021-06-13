@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
     bootstrap="test/bootstrap-dist.php"
-    forceCoversAnnotation="true"
     colors="true"
-    verbose="true">
-
+    forceCoversAnnotation="true"
+    verbose="true"
+    executionOrder="random"
+>
     <php>
         <const name="PHPMYADMIN" value="1"/>
         <const name="TESTSUITE" value="1"/>
