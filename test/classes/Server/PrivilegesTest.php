@@ -1845,6 +1845,7 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetHtmlForUserOverview(): void
     {
+        $_REQUEST = ['ajax_page_request' => '1'];
         $actual = $this->serverPrivileges->getHtmlForUserOverview('ltr');
         $this->assertStringContainsString(
             'Note: MySQL privilege names are expressed in English.',

@@ -11,8 +11,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
 
-use function define;
-use function defined;
 use function htmlspecialchars;
 use function json_encode;
 use function phpversion;
@@ -41,18 +39,7 @@ class ErrorReportTest extends AbstractTestCase
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
         $GLOBALS['config']->set('is_https', false);
-
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'Other');
-        }
-
-        if (! defined('PMA_USR_BROWSER_VER')) {
-            define('PMA_USR_BROWSER_VER', 1);
-        }
-
-        if (! defined('PMA_USR_OS')) {
-            define('PMA_USR_OS', 'os');
-        }
+        $GLOBALS['config']->enableBc();
 
         $template = new Template();
         $this->errorReport = new ErrorReport(

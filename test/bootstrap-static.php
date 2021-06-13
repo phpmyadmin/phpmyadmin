@@ -30,7 +30,7 @@ $GLOBALS['server'] = 0;
 define('PMA_PATH_TO_BASEDIR', '');
 define('PMA_USR_BROWSER_AGENT', 'CHROME');
 define('PMA_USR_BROWSER_VER', 1);
-define('PMA_USR_OS', 'os');
+define('PMA_USR_OS', 'Other');
 define('PMA_IS_WINDOWS', false);
 // phpcs:enable
 

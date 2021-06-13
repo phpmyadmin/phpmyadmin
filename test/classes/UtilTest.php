@@ -8,6 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
@@ -343,6 +344,7 @@ class UtilTest extends AbstractTestCase
     public function testCheckParameterMissing(): void
     {
         parent::setGlobalConfig();
+        $_REQUEST = [];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = 'db';
@@ -350,6 +352,7 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        Response::getInstance()->setAjax(false);
 
         $this->expectOutputRegex('/Missing parameter: field/');
 
