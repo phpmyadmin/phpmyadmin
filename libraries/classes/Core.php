@@ -285,7 +285,15 @@ class Core
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
-        } elseif (! empty($_REQUEST['ajax_request'])) {
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
+
+            return;
+        }
+
+        if (! empty($_REQUEST['ajax_request'])) {
             // Generate JSON manually
             self::headerJSON();
             echo json_encode(
@@ -294,16 +302,22 @@ class Core
                     'message' => Message::error($error_message)->getDisplay(),
                 ]
             );
-        } else {
-            $error_message = strtr($error_message, ['<br>' => '[br]']);
-            $template = new Template();
 
-            echo $template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => $GLOBALS['text_dir'] ?? 'ltr',
-                'error_message' => Sanitize::sanitizeMessage($error_message),
-            ]);
+            if (! defined('TESTSUITE')) {
+                exit;
+            }
+
+            return;
         }
+
+        $error_message = strtr($error_message, ['<br>' => '[br]']);
+        $template = new Template();
+
+        echo $template->render('error/generic', [
+            'lang' => $GLOBALS['lang'] ?? 'en',
+            'dir' => $GLOBALS['text_dir'] ?? 'ltr',
+            'error_message' => Sanitize::sanitizeMessage($error_message),
+        ]);
 
         if (! defined('TESTSUITE')) {
             exit;
