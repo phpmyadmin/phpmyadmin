@@ -181,46 +181,6 @@ jobs:
                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
                 coverage-reports: build/logs/clover.xml
 
-    test-php-random:
-        name: Test (random) on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        strategy:
-            matrix:
-                php-version: ["7.4"]
-                os: [ubuntu-latest]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Generate mo files
-              run: ./scripts/generate-mo --quiet
-            - name: Use php ${{ matrix.php-version }}
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
-
-            - name: Get Composer cache directory
-              id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-                restore-keys: |
-                  composer-${{ runner.os }}-${{ matrix.php-version }}-
-
-            - name: Install dependencies
-              run: composer install
-            - name: Run random php tests
-              # This one is allowed to fail, but we hope it will not
-              continue-on-error: true
-              run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
-
     test-js:
         name: Test javascript files
         runs-on: ubuntu-latest

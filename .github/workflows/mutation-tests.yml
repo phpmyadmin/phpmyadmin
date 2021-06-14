@@ -72,8 +72,6 @@ jobs:
           CHANGED_FILES=$(git diff origin/$GITHUB_BASE_REF --diff-filter=AM --name-only | grep libraries/classes/ | paste -sd "," -);
           ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs \
             --ignore-msi-with-no-mutations \
-            --git-diff-filter=AM \
-            --git-diff-base=origin/${{ github.base_ref }}
             --filter=$CHANGED_FILES
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
