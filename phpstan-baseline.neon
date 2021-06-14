@@ -1881,6 +1881,16 @@ parameters:
 			path: test/classes/ConfigTest.php
 
 		-
+			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, null given\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
+			message: "#^Parameter \\#15 \\$printView of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, null given\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
 			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
