@@ -1309,7 +1309,8 @@ class Import
          * A work in progress
          */
 
-        /* Add the viewable structures from $additional_sql
+        /**
+         * Add the viewable structures from $additional_sql
          * to $tables so they are also displayed
          */
         $viewPattern = '@VIEW `[^`]+`\.`([^`]+)@';

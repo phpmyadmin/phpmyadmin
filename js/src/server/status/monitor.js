@@ -1750,13 +1750,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             }
         );
 
-        /* Handles the actions performed when the user uses any of the
+        /**
+         * Handles the actions performed when the user uses any of the
          * log table filters which are the filter by name and grouping
          * with ignoring data in WHERE clauses
          *
          * @param {boolean} varFilterChange Should be true when the users enabled or disabled
          *                to group queries ignoring data in WHERE clauses
-        */
+         */
         function filterQueries (varFilterChange) {
             var textFilter;
             var val = $('#filterQueryText').val();

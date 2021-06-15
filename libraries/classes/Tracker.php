@@ -83,7 +83,8 @@ class Tracker
             return false;
         }
 
-        /* We need to avoid attempt to track any queries
+        /**
+         * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
@@ -149,7 +150,8 @@ class Tracker
             return self::$trackingCache[$dbName][$tableName];
         }
 
-        /* We need to avoid attempt to track any queries
+        /**
+         * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
