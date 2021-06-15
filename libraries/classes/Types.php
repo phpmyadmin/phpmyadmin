@@ -873,7 +873,7 @@ class Types
      */
     public function getIntegerRange($type, $signed = true)
     {
-        static $min_max_data = [
+        $min_max_data = [
             'unsigned' => [
                 'tinyint'   => [
                     '0',
