@@ -48,7 +48,6 @@ use function strcmp;
 use function strtolower;
 use function ucfirst;
 use function usort;
-use const DIRECTORY_SEPARATOR;
 
 /**
  * PhpMyAdmin\Plugins class
@@ -79,7 +78,7 @@ class Plugins
             . mb_strtolower(mb_substr($plugin_format, 1));
         $file = $class_name . '.php';
 
-        $fullFsPathPluginDir = ROOT_PATH . DIRECTORY_SEPARATOR . $plugins_dir;
+        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
 
         if (is_file($fullFsPathPluginDir . $file)) {
             //include_once $fullFsPathPluginDir . $file;
@@ -140,7 +139,7 @@ class Plugins
 
         $GLOBALS['plugin_param'] = $plugin_param;
 
-        $fullFsPathPluginDir = ROOT_PATH . DIRECTORY_SEPARATOR . $plugins_dir;
+        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
 
         $handle = @opendir($fullFsPathPluginDir);
         if (! $handle) {
