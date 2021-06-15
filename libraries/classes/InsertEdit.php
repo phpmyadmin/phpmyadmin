@@ -2602,7 +2602,7 @@ class InsertEdit
         $type
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        if (is_file($include_file)) {
+        if (is_file(ROOT_PATH . $include_file)) {
             // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
             $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
             $_url_params = [
@@ -3425,7 +3425,7 @@ class InsertEdit
         if (! empty($column_mime['input_transformation'])) {
             $file = $column_mime['input_transformation'];
             $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-            if (is_file($include_file)) {
+            if (is_file(ROOT_PATH . $include_file)) {
                 $class_name = $this->transformations->getClassName($include_file);
                 if (class_exists($class_name)) {
                     $transformation_plugin = new $class_name();
