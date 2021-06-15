@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue        Replaced MySQL documentation redirected links
 - issue #16960 Fix JS error on Designer visual builder on some modal buttons
 - issue        Re-build openlayers JS dependency from the source files and provide a smaller JS bundle
+- issue        Fixed imports and theme detection depending on the current working dir
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
