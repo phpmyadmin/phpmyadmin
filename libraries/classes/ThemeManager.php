@@ -33,7 +33,16 @@ class ThemeManager
      */
     private static $instance;
 
-    /** @var array<string, Theme> available themes */
+    /**
+     * @var string file-system path to the theme folder
+     * @access protected
+     */
+    private $themesPath;
+
+    /** @var string path to theme folder as an URL */
+    private $themesPathUrl = './themes/';
+
+    /** @var array<string,Theme> available themes */
     public $themes = [];
 
     /** @var string  cookie name */
@@ -61,6 +70,7 @@ class ThemeManager
         $this->themes = [];
         $this->themeDefault = self::FALLBACK_THEME;
         $this->activeTheme = '';
+        $this->themesPath = self::getThemesFsDir();
 
         $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
 
@@ -226,7 +236,7 @@ class ThemeManager
         }
 
         while (($dir = readdir($dirHandle)) !== false) {
-            if ($dir === '.' || $dir === '..' || ! @is_dir(ROOT_PATH . 'themes/' . $dir . '/')) {
+            if ($dir === '.' || $dir === '..' || ! @is_dir($this->themesPath . $dir)) {
                 continue;
             }
 
@@ -234,7 +244,10 @@ class ThemeManager
                 continue;
             }
 
-            $newTheme = Theme::load($dir);
+            $newTheme = Theme::load(
+                $this->themesPathUrl . $dir,
+                $this->themesPath . $dir . DIRECTORY_SEPARATOR
+            );
             if (! $newTheme instanceof Theme) {
                 continue;
             }

@@ -2886,7 +2886,7 @@ class Results
                     $file = $mediaTypeMap[$orgFullColName]['transformation'];
                     $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists($includeFile)) {
+                    if (@file_exists(ROOT_PATH . $includeFile)) {
                         $className = $this->transformations->getClassName($includeFile);
                         if (class_exists($className)) {
                             // todo add $plugin_manager
@@ -2920,7 +2920,7 @@ class Results
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                include_once $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
+                include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
                 $transformationPlugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
 
                 $transformOptions = $this->transformations->getOptions(
