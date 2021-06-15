@@ -228,7 +228,7 @@ class ThemeManager
     public function loadThemes(): void
     {
         $this->themes = [];
-        $dirHandle = opendir(ROOT_PATH . 'themes/');
+        $dirHandle = opendir($this->themesPath);
 
         if ($dirHandle === false) {
             trigger_error('Error: cannot open themes folder: ./themes', E_USER_WARNING);
