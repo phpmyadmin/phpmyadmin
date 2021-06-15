@@ -118,90 +118,104 @@ class Results
     public const ACTION_LINK_CONTENT_ICONS = 'icons';
     public const ACTION_LINK_CONTENT_TEXT = 'text';
 
-    // Declare global fields
-
-    /** @var array<string, mixed> */
+    /**
+     * @psalm-var array{
+     *   server: int,
+     *   db: string,
+     *   table: string,
+     *   goto: string,
+     *   sql_query: string,
+     *   unlim_num_rows: int|numeric-string,
+     *   fields_meta: FieldMetadata[],
+     *   is_count: bool|null,
+     *   is_export: bool|null,
+     *   is_func: bool|null,
+     *   is_analyse: bool|null,
+     *   num_rows: int|numeric-string,
+     *   fields_cnt: int,
+     *   querytime: float|null,
+     *   text_dir: string|null,
+     *   is_maint: bool|null,
+     *   is_explain: bool|null,
+     *   is_show: bool|null,
+     *   is_browse_distinct: bool|null,
+     *   showtable: array<string, mixed>|null,
+     *   printview: string|null,
+     *   highlight_columns: array|null,
+     *   display_params: array|null,
+     *   mime_map: array|null,
+     *   editable: bool|null,
+     *   unique_id: int,
+     *   whereClauseMap: array,
+     * }
+     */
     public $properties = [
-        /* integer server id */
-        'server' => null,
+        /* server id */
+        'server' => 0,
 
-        /* string Database name */
-        'db' => null,
+        /* Database name */
+        'db' => '',
 
-        /* string Table name */
-        'table' => null,
+        /* Table name */
+        'table' => '',
 
-        /* string the URL to go back in case of errors */
-        'goto' => null,
+        /* the URL to go back in case of errors */
+        'goto' => '',
 
-        /* string the SQL query */
-        'sql_query' => null,
+        /* the SQL query */
+        'sql_query' => '',
 
-        /*
-         * integer the total number of rows returned by the SQL query without any
-         *         appended "LIMIT" clause programmatically
-         */
-        'unlim_num_rows' => null,
+        /* the total number of rows returned by the SQL query without any appended "LIMIT" clause programmatically */
+        'unlim_num_rows' => 0,
 
-        /* array meta information about fields */
-        'fields_meta' => null,
+        /* meta information about fields */
+        'fields_meta' => [],
 
-        /* boolean */
         'is_count' => null,
 
-        /* integer */
         'is_export' => null,
 
-        /* boolean */
         'is_func' => null,
 
-        /* integer */
         'is_analyse' => null,
 
-        /* integer the total number of rows returned by the SQL query */
-        'num_rows' => null,
+        /* the total number of rows returned by the SQL query */
+        'num_rows' => 0,
 
-        /* integer the total number of fields returned by the SQL query */
-        'fields_cnt' => null,
+        /* the total number of fields returned by the SQL query */
+        'fields_cnt' => 0,
 
-        /* double time taken for execute the SQL query */
+        /* time taken for execute the SQL query */
         'querytime' => null,
 
-        /* string */
         'text_dir' => null,
 
-        /* boolean */
         'is_maint' => null,
 
-        /* boolean */
         'is_explain' => null,
 
-        /* boolean */
         'is_show' => null,
 
-        /* boolean */
         'is_browse_distinct' => null,
 
-        /* array table definitions */
+        /* table definitions */
         'showtable' => null,
 
-        /* string */
         'printview' => null,
 
-        /* array column names to highlight */
+        /* column names to highlight */
         'highlight_columns' => null,
 
-        /* array holding various display information */
+        /* display information */
         'display_params' => null,
 
-        /* array mime types information of fields */
+        /* mime types information of fields */
         'mime_map' => null,
 
-        /* boolean */
         'editable' => null,
 
         /* random unique ID to distinguish result set */
-        'unique_id' => null,
+        'unique_id' => 0,
 
         /* where clauses for each row, each table in the row */
         'whereClauseMap' => [],
@@ -365,25 +379,26 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param int    $unlimNumRows     the total number of rows returned by
-     *                                   the SQL query without any appended
-     *                                   "LIMIT" clause programmatically
-     * @param array  $fieldsMeta       meta information about fields
-     * @param bool   $isCount          statement is SELECT COUNT
-     * @param int    $isExport         statement contains INTO OUTFILE
-     * @param bool   $isFunction       statement contains a function like SUM()
-     * @param int    $isAnalyse        statement contains PROCEDURE ANALYSE
-     * @param int    $numRows          total no. of rows returned by SQL query
-     * @param int    $fieldsCount      total no.of fields returned by SQL query
-     * @param double $queryTime        time taken for execute the SQL query
-     * @param string $textDirection    text direction
-     * @param bool   $isMaintenance    statement contains a maintenance command
-     * @param bool   $isExplain        statement contains EXPLAIN
-     * @param bool   $isShow           statement contains SHOW
-     * @param array  $showTable        table definitions
-     * @param string $printView        print view was requested
-     * @param bool   $editable         whether the results set is editable
-     * @param bool   $isBrowseDistinct whether browsing distinct values
+     * @param int|string                $unlimNumRows     the total number of rows returned by the SQL query without
+     *                                                    any appended "LIMIT" clause programmatically
+     * @param FieldMetadata[]           $fieldsMeta       meta information about fields
+     * @param bool                      $isCount          statement is SELECT COUNT
+     * @param bool                      $isExport         statement contains INTO OUTFILE
+     * @param bool                      $isFunction       statement contains a function like SUM()
+     * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
+     * @param int|string                $numRows          total no. of rows returned by SQL query
+     * @param int                       $fieldsCount      total no.of fields returned by SQL query
+     * @param double                    $queryTime        time taken for execute the SQL query
+     * @param string                    $textDirection    text direction
+     * @param bool                      $isMaintenance    statement contains a maintenance command
+     * @param bool                      $isExplain        statement contains EXPLAIN
+     * @param bool                      $isShow           statement contains SHOW
+     * @param array<string, mixed>|null $showTable        table definitions
+     * @param string|null               $printView        print view was requested
+     * @param bool                      $editable         whether the results set is editable
+     * @param bool                      $isBrowseDistinct whether browsing distinct values
+     * @psalm-param int|numeric-string $unlimNumRows
+     * @psalm-param int|numeric-string $numRows
      *
      * @return void
      */
@@ -401,7 +416,7 @@ class Results
         $isMaintenance,
         $isExplain,
         $isShow,
-        $showTable,
+        ?array $showTable,
         $printView,
         $editable,
         $isBrowseDistinct
@@ -439,11 +454,11 @@ class Results
         // set all elements to false!
         $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '0';
-        $displayParts['text_btn']  = (string) '0';
-        $displayParts['pview_lnk'] = (string) '0';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '0';
+        $displayParts['text_btn'] = '0';
+        $displayParts['pview_lnk'] = '0';
 
         return $displayParts;
     }
@@ -488,11 +503,11 @@ class Results
         }
 
         // Other settings
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '1';
-        $displayParts['text_btn']  = (string) '1';
-        $displayParts['pview_lnk'] = (string) '1';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '1';
+        $displayParts['text_btn'] = '1';
+        $displayParts['pview_lnk'] = '1';
 
         return $displayParts;
     }
@@ -513,17 +528,17 @@ class Results
         // contains a "PROC ANALYSE" part
         $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '1';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '1';
 
         if ($this->properties['is_maint']) {
-            $displayParts['text_btn']  = (string) '1';
+            $displayParts['text_btn'] = '1';
         } else {
-            $displayParts['text_btn']  = (string) '0';
+            $displayParts['text_btn'] = '0';
         }
 
-        $displayParts['pview_lnk'] = (string) '1';
+        $displayParts['pview_lnk'] = '1';
 
         return $displayParts;
     }
@@ -546,7 +561,7 @@ class Results
         /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
-        $displayParts['text_btn']  = (string) '1';
+        $displayParts['text_btn'] = '1';
         $numberOfColumns = $this->properties['fields_cnt'];
 
         for ($i = 0; $i < $numberOfColumns; $i++) {
@@ -568,14 +583,13 @@ class Results
                  * @todo May be problematic with same field names
                  * in two joined table.
                  */
-                // $displayParts['sort_lnk'] = (string) '0';
                 if ($displayParts['text_btn'] == '1') {
                     break;
                 }
             }
 
             // Always display print view link
-            $displayParts['pview_lnk'] = (string) '1';
+            $displayParts['pview_lnk'] = '1';
             if ($fieldsMeta[$i]->table == '') {
                 continue;
             }
@@ -639,7 +653,7 @@ class Results
         }
 
         // 3. Gets the total number of rows if it is unknown
-        if (isset($unlimNumRows) && $unlimNumRows != '') {
+        if ($unlimNumRows > 0) {
             $theTotal = $unlimNumRows;
         } elseif (
             ($displayParts['nav_bar'] == '1')
@@ -651,9 +665,9 @@ class Results
 
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
-        if ($this->properties['is_count'] && isset($numRows) && $numRows > 1) {
-            $displayParts['nav_bar']   = (string) '1';
-            $displayParts['sort_lnk']  = (string) '1';
+        if ($this->properties['is_count'] && $numRows > 1) {
+            $displayParts['nav_bar'] = '1';
+            $displayParts['sort_lnk'] = '1';
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -665,12 +679,8 @@ class Results
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
             $tableObject = new Table($table, $db);
-            if (
-                isset($unlimNumRows)
-                && ($unlimNumRows < 2)
-                && ! $tableObject->isView()
-            ) {
-                $displayParts['sort_lnk'] = (string) '0';
+            if ($unlimNumRows < 2 && ! $tableObject->isView()) {
+                $displayParts['sort_lnk'] = '0';
             }
         }
 
@@ -859,9 +869,10 @@ class Results
         // Move to the next page or to the last one
         $moveForwardButtons = '';
         if (
-            $this->properties['unlim_num_rows'] === false // view with unknown number of rows
+            $this->properties['unlim_num_rows'] === -1 // view with unknown number of rows
             || (! $isShowingAll
-            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->properties['unlim_num_rows']
+            && intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
+                < $this->properties['unlim_num_rows']
             && $this->properties['num_rows'] >= $_SESSION['tmpval']['max_rows'])
         ) {
             $moveForwardButtons = $this->getMoveForwardButtonsForTableNavigation(
@@ -967,9 +978,9 @@ class Results
             $inputForRealEnd = $onclick = '';
         }
 
-        $maxRows = $_SESSION['tmpval']['max_rows'];
+        $maxRows = (int) $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmpval']['pos']
+            . (intval($_SESSION['tmpval']['pos'])
                 + $maxRows
                 < $this->properties['unlim_num_rows']
                 && $this->properties['num_rows'] >= $maxRows
@@ -1061,7 +1072,7 @@ class Results
 
             // Prepare comment-HTML-wrappers for each row, if defined/enabled.
             $comments = $this->getCommentForRow($commentsMap, $fieldsMeta[$i]);
-            $displayParams = $this->properties['display_params'];
+            $displayParams = $this->properties['display_params'] ?? [];
 
             if (($displayParts['sort_lnk'] == '1') && ! $isLimitedDisplay) {
                 [$orderLink, $sortedHeaderHtml] = $this->getOrderLinkAndSortedHeaderHtml(
@@ -2991,7 +3002,7 @@ class Results
             $transformOptions['wrapper_link'] = Url::getCommon($urlParams);
             $transformOptions['wrapper_params'] = $urlParams;
 
-            $displayParams = $this->properties['display_params'];
+            $displayParams = $this->properties['display_params'] ?? [];
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
@@ -4539,7 +4550,7 @@ class Results
         $message->addText('(');
 
         if ($messageViewWarning === false) {
-            if (isset($unlimNumRows) && ($unlimNumRows != $total)) {
+            if ($unlimNumRows != $total) {
                 $messageTotal = Message::notice(
                     $preCount . __('%1$d total, %2$d in query')
                 );
@@ -4707,7 +4718,21 @@ class Results
      * @param array $displayParts       the parts to display
      * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return array<string, bool|array<string, string>>
+     * @psalm-return array{
+     *   has_export_link: bool,
+     *   has_geometry: bool,
+     *   has_print_link: bool,
+     *   has_procedure: bool,
+     *   url_params: array{
+     *     db: string,
+     *     table: string,
+     *     printview: "1",
+     *     sql_query: string,
+     *     single_table?: "true",
+     *     raw_query?: "true",
+     *     unlim_num_rows?: int|numeric-string
+     *   }
+     * }
      */
     private function getResultsOperations(
         array $displayParts,
@@ -4755,12 +4780,8 @@ class Results
              * first table of this database, so that /table/export and
              * the script it calls do not fail
              */
-            if (empty($urlParams['table']) && ! empty($urlParams['db'])) {
-                $urlParams['table'] = $dbi->fetchValue('SHOW TABLES');
-                /* No result (probably no database selected) */
-                if ($urlParams['table'] === false) {
-                    unset($urlParams['table']);
-                }
+            if ($urlParams['table'] === '' && strlen($urlParams['db']) > 0) {
+                $urlParams['table'] = (string) $dbi->fetchValue('SHOW TABLES');
             }
 
             /** @var FieldMetadata[] $fieldsMeta */

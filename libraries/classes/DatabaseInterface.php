@@ -2169,6 +2169,7 @@ class DatabaseInterface implements DbalInterface
      * @param object|bool $result result set identifier
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
     public function numRows($result)
     {
@@ -2202,14 +2203,15 @@ class DatabaseInterface implements DbalInterface
      * @param int  $link           link type
      * @param bool $get_from_cache whether to retrieve from cache
      *
-     * @return int|bool
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows(
         $link = self::CONNECT_USER,
         bool $get_from_cache = true
     ) {
         if (! isset($this->links[$link])) {
-            return false;
+            return -1;
         }
 
         if ($get_from_cache) {

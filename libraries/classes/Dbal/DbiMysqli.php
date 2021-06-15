@@ -397,6 +397,7 @@ class DbiMysqli implements DbiExtension
      * @param mysqli_result|bool $result result set identifier
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
     public function numRows($result)
     {
@@ -413,7 +414,8 @@ class DbiMysqli implements DbiExtension
      *
      * @param mysqli $link the mysqli object
      *
-     * @return int
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows($link)
     {

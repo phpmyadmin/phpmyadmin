@@ -683,7 +683,8 @@ class Sql
      * @param bool  $isAffected whether the query affected a table
      * @param mixed $result     results of executing the query
      *
-     * @return int    number of rows affected or changed
+     * @return int|string number of rows affected or changed
+     * @psalm-return int|numeric-string
      */
     private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
     {
@@ -747,14 +748,15 @@ class Sql
      * Function to count the total number of rows for the same 'SELECT' query without
      * the 'LIMIT' clause that may have been programatically added
      *
-     * @param int    $numRows            number of rows affected/changed by the query
-     * @param bool   $justBrowsing       whether just browsing or not
-     * @param string $db                 the current database
-     * @param string $table              the current table
-     * @param array  $analyzedSqlResults the analyzed query and other variables set
-     *                                     after analyzing the query
+     * @param int|string $numRows            number of rows affected/changed by the query
+     * @param bool       $justBrowsing       whether just browsing or not
+     * @param string     $db                 the current database
+     * @param string     $table              the current table
+     * @param array      $analyzedSqlResults the analyzed query and other variables set after analyzing the query
+     * @psalm-param int|numeric-string $numRows
      *
-     * @return int unlimited number of rows
+     * @return int|string unlimited number of rows
+     * @psalm-return int|numeric-string
      */
     private function countQueryResults(
         $numRows,
@@ -853,7 +855,7 @@ class Sql
      * @param string      $sqlQueryForBookmark sql query to be stored as bookmark
      * @param array       $extraData           extra data
      *
-     * @return mixed
+     * @return array
      */
     private function executeTheQuery(
         array $analyzedSqlResults,
@@ -1171,7 +1173,7 @@ class Sql
             false,
             0,
             $numRows,
-            true,
+            null,
             $result,
             $analyzedSqlResults,
             true
@@ -1266,7 +1268,7 @@ class Sql
      *                                               editable or not
      * @param int              $unlimNumRows         unlimited number of rows
      * @param int              $numRows              number of rows
-     * @param bool             $showTable            whether to show table or not
+     * @param array|null       $showTable            table definitions
      * @param object|bool|null $result               result of the executed query
      * @param array            $analyzedSqlResults   analyzed sql results
      * @param bool             $isLimitedDisplay     Show only limited operations or not
@@ -1279,7 +1281,7 @@ class Sql
         $editable,
         $unlimNumRows,
         $numRows,
-        $showTable,
+        ?array $showTable,
         $result,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
@@ -1505,7 +1507,9 @@ class Sql
         }
 
         // Should be initialized these parameters before parsing
-        $showtable = $showtable ?? null;
+        if (! is_array($showtable)) {
+            $showtable = null;
+        }
 
         $response = Response::getInstance();
         $header   = $response->getHeader();

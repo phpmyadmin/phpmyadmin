@@ -1011,6 +1011,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
+			message: "#^Used function uploadprogress_get_info not found\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getIdKey\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
@@ -1676,11 +1681,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getNumberOfRowsAffectedOrChanged\\(\\) should return int but returns bool\\|int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
@@ -1708,21 +1708,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Menu\\:\\:setTable\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#15 \\$printView of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
-			count: 2
 			path: libraries/classes/Sql.php
 
 		-
@@ -1767,11 +1752,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#7 \\$numRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -1879,16 +1859,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Parameter \\#15 \\$printView of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"

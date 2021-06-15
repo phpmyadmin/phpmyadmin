@@ -733,29 +733,6 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$analyzedSqlResults['statement']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast occurrences="21">
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '0'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-      <code>(string) '1'</code>
-    </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="6">
       <code>(int) $meta-&gt;length</code>
       <code>(string) $fieldsMeta-&gt;name</code>
@@ -1097,9 +1074,8 @@
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
-    <PossiblyInvalidOperand occurrences="2">
+    <PossiblyInvalidOperand occurrences="1">
       <code>$insertId</code>
-      <code>$tmp</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
@@ -2229,22 +2205,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Sql.php">
-    <InvalidArgument occurrences="4">
+    <InvalidArgument occurrences="2">
       <code>$result</code>
       <code>$result</code>
-      <code>$showTable</code>
-      <code>$showTable</code>
     </InvalidArgument>
-    <InvalidReturnStatement occurrences="1">
-      <code>$numRows</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int</code>
-    </InvalidReturnType>
-    <InvalidScalarArgument occurrences="4">
+    <InvalidScalarArgument occurrences="2">
       <code>$error</code>
-      <code>$numRows</code>
-      <code>$numRows</code>
       <code>''</code>
     </InvalidScalarArgument>
     <PossiblyFalseReference occurrences="1">
@@ -2257,7 +2223,7 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$insertId</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="20">
+    <PossiblyNullArgument occurrences="17">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
@@ -2266,11 +2232,8 @@
       <code>$db</code>
       <code>$extraData ?? null</code>
       <code>$messageToShow ?? null</code>
-      <code>$printView</code>
-      <code>$printView</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
-      <code>$showtable</code>
       <code>$sqlData ?? null</code>
       <code>$sqlQueryForBookmark ?? null</code>
       <code>$table</code>

@@ -387,6 +387,7 @@ class DbiDummy implements DbiExtension
      * @param object|bool $result MySQL result
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
     public function numRows($result)
     {
@@ -405,7 +406,8 @@ class DbiDummy implements DbiExtension
      * @param object $link           the mysql object
      * @param bool   $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
