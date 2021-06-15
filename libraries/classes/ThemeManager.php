@@ -41,7 +41,7 @@ class ThemeManager
     private $themesPath;
 
     /** @var string path to theme folder as an URL */
-    private $themesPathUrl = './themes/';
+    private $themesPathUrl;
 
     /** @var array available themes */
     public $themes = [];
@@ -72,6 +72,7 @@ class ThemeManager
         $this->themeDefault = self::FALLBACK_THEME;
         $this->activeTheme = '';
         $this->themesPath = self::getThemesFsDir();
+        $this->themesPathUrl = self::getThemesDir();
 
         if (! $this->checkThemeFolder($this->themesPath)) {
             return;
@@ -383,6 +384,6 @@ class ThemeManager
      */
     public static function getThemesDir(): string
     {
-        return './themes' . DIRECTORY_SEPARATOR;
+        return './themes/';// This is an URL
     }
 }
