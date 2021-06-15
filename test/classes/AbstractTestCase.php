@@ -13,11 +13,14 @@ use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
 use function in_array;
+
+use const DIRECTORY_SEPARATOR;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -168,7 +171,11 @@ abstract class AbstractTestCase extends TestCase
     protected function setTheme(): void
     {
         global $theme;
-        $theme = Theme::load('pmahomme');
+        $theme = Theme::load(
+            ThemeManager::getThemesDir() . 'pmahomme',
+            ThemeManager::getThemesFsDir() . 'pmahomme' . DIRECTORY_SEPARATOR,
+            'pmahomme'
+        );
     }
 
     protected function setLanguage(string $code = 'en'): void

@@ -163,19 +163,19 @@ class Theme
         return true;
     }
 
-    public static function load(string $themeDirectory): ?self
+    public static function load(string $themeUrl, string $themeFsPath, string $themeName): ?self
     {
         $theme = new self();
 
-        $theme->setPath('./themes/' . $themeDirectory);
-        $theme->setFsPath(ROOT_PATH . 'themes/' . $themeDirectory . '/');
+        $theme->setPath($themeUrl);
+        $theme->setFsPath($themeFsPath);
 
         if (! $theme->loadInfo()) {
             return null;
         }
 
         $theme->checkImgPath();
-        $theme->setId($themeDirectory);
+        $theme->setId($themeName);
 
         return $theme;
     }

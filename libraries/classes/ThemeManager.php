@@ -247,7 +247,8 @@ class ThemeManager
 
             $newTheme = Theme::load(
                 $this->themesPathUrl . $dir,
-                $this->themesPath . $dir . DIRECTORY_SEPARATOR
+                $this->themesPath . $dir . DIRECTORY_SEPARATOR,
+                $dir
             );
             if (! $newTheme instanceof Theme) {
                 continue;

@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\ThemeManager;
 
 use function filemtime;
+
+use const DIRECTORY_SEPARATOR;
 
 /**
  * @covers \PhpMyAdmin\Theme
@@ -109,7 +112,11 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoad(): void
     {
-        $newTheme = Theme::load('original');
+        $newTheme = Theme::load(
+            ThemeManager::getThemesDir() . 'original',
+            ThemeManager::getThemesFsDir() . 'original' . DIRECTORY_SEPARATOR,
+            'original'
+        );
         $this->assertNotNull($newTheme);
         $this->assertInstanceOf(Theme::class, $newTheme);
     }
@@ -117,9 +124,15 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for Theme::load
      */
-    public function testLoadNotExisted(): void
+    public function testLoadNonExistent(): void
     {
-        $this->assertNull(Theme::load('nonexistent'));
+        $this->assertNull(
+            Theme::load(
+                ThemeManager::getThemesDir() . 'nonexistent',
+                ThemeManager::getThemesFsDir() . 'nonexistent' . DIRECTORY_SEPARATOR,
+                'nonexistent'
+            )
+        );
     }
 
     /**
