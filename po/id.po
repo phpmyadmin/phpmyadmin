@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-1/id/>\n"
+"PO-Revision-Date: 2021-06-17 17:34+0000\n"
+"Last-Translator: whenwesober <naomi16i_1298q@cikuh.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-1/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -287,10 +287,8 @@ msgid "Query caching method"
 msgstr "Metode penyinggahan kueri"
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "Metode penyinggahan kueri"
+msgstr "Metode penyinggahan kueri."
 
 #: libraries/advisory_rules_generic.php:192
 #, fuzzy
@@ -325,40 +323,33 @@ msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer."
 
 #: libraries/advisory_rules_generic.php:212
 #: libraries/advisory_rules_generic.php:225
-#, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Pertimbangkan untuk meningkatkan {sort_buffer_size} dan / atau "
-"{read_rnd_buffer_size}, tergantung pada batas memori sistem Anda"
+"{read_rnd_buffer_size}, tergantung pada batas memori sistem Anda."
 
 #: libraries/advisory_rules_generic.php:215
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"per jam."
 
 #: libraries/advisory_rules_generic.php:220
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Laju pengurutan yang menyebabkan tabel temporer"
 
 #: libraries/advisory_rules_generic.php:228
-#, fuzzy, php-format
-#| msgid ""
-#| "Rate of temporary tables being written to disk: %s, this value should be "
-#| "less than 1 per hour"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
-"per jam"
+"per jam."
 
 #: libraries/advisory_rules_generic.php:233
 msgid "Sort rows"
@@ -370,7 +361,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Ada banyak baris yang diurutkan."
 
 #: libraries/advisory_rules_generic.php:238
-#, fuzzy
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -380,7 +370,7 @@ msgstr ""
 "Sementara tidak ada yang salah dengan jumlah tinggi baris menyortir, Anda "
 "mungkin ingin memastikan bahwa pertanyaan yang memerlukan banyak menyortir "
 "penggunaan diindeks kolom dalam klausa ORDER BY, karena hal ini akan "
-"menghasilkan lebih cepat menyortir"
+"menghasilkan lebih cepat menyortir."
 
 #: libraries/advisory_rules_generic.php:242
 #, fuzzy, php-format
@@ -396,14 +386,13 @@ msgid "There are too many joins without indexes."
 msgstr "Terlalu banyak join tanpa indeks."
 
 #: libraries/advisory_rules_generic.php:253
-#, fuzzy
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Ini berarti bahwa bergabung melakukan scan meja penuh. Menambahkan indeks "
 "untuk kolom yang digunakan dalam kondisi bergabung akan sangat mempercepat "
-"meja bergabung"
+"meja bergabung."
 
 #: libraries/advisory_rules_generic.php:256
 #, fuzzy, php-format
@@ -422,10 +411,8 @@ msgid "Rate of reading first index entry"
 msgstr "Laju join tanpa indeks"
 
 #: libraries/advisory_rules_generic.php:264
-#, fuzzy
-#| msgid "Where to show the table row links"
 msgid "The rate of reading the first index entry is high."
-msgstr "Tempat menampilkan tautan baris tabel"
+msgstr "Tempat menampilkan tautan baris tabel."
 
 #: libraries/advisory_rules_generic.php:266
 #, fuzzy
@@ -461,10 +448,8 @@ msgid "Rate of reading fixed position"
 msgstr "Tingkat berkas yang terbuka"
 
 #: libraries/advisory_rules_generic.php:280
-#, fuzzy
-#| msgid "Where to show the table row links"
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Tempat menampilkan tautan baris tabel"
+msgstr "Tempat menampilkan tautan baris tabel."
 
 #: libraries/advisory_rules_generic.php:282
 #, fuzzy
@@ -496,10 +481,8 @@ msgid "Rate of reading next table row"
 msgstr "Tingkat tabel yang terbuka"
 
 #: libraries/advisory_rules_generic.php:293
-#, fuzzy
-#| msgid "Where to show the table row links"
 msgid "The rate of reading the next table row is high."
-msgstr "Tempat menampilkan tautan baris tabel"
+msgstr "Tempat menampilkan tautan baris tabel."
 
 #: libraries/advisory_rules_generic.php:295
 msgid ""
@@ -763,10 +746,8 @@ msgid "Rate of open files"
 msgstr "Tingkat berkas yang terbuka"
 
 #: libraries/advisory_rules_generic.php:451
-#, fuzzy
-#| msgid "Rate of open files"
 msgid "The rate of opening files is high."
-msgstr "Tingkat berkas yang terbuka"
+msgstr "Tingkat berkas yang terbuka."
 
 #: libraries/advisory_rules_generic.php:456
 #, php-format
@@ -878,10 +859,8 @@ msgid "Slow launch time"
 msgstr "Waktu peluncuran lambat"
 
 #: libraries/advisory_rules_generic.php:521
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time diatas 2 detik"
+msgstr "Slow_launch_time diatas 2 detik."
 
 #: libraries/advisory_rules_generic.php:523
 #, fuzzy
@@ -1911,14 +1890,20 @@ msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Masukkan snippet Kebijakan-Keamanan-Konten untuk API yang kompatibel dari "
+"reCaptcha v2 Anda."
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Masukkan parameter permintaan yang digunakan oleh APi yang kompatibel dari "
+"reCaptcha Anda."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Masukkan parameter respon yang digunakan oleh APi yang kompatibel dari "
+"reCaptcha Anda."
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -2343,10 +2328,10 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr "Apakah akan menampilkan prosedur di bawah database di pohon navigasi"
 
 #: libraries/classes/Config/Descriptions.php:310
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Entah untuk menampilkan events di bawah database di navigation tree"
+msgstr ""
+"Entah untuk menampilkan events di bawah database di navigation tree secara "
+"otomatis."
 
 #: libraries/classes/Config/Descriptions.php:312
 msgid "Set to 0 to collapse navigation panel."
@@ -2570,40 +2555,28 @@ msgstr ""
 "dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:404
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:408
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:412
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:417
 #, fuzzy
@@ -2617,40 +2590,28 @@ msgstr ""
 "auth_types#signon]authentication types[/a]."
 
 #: libraries/classes/Config/Descriptions.php:421
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:424
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:428
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:432
 #, fuzzy
@@ -2686,16 +2647,12 @@ msgstr ""
 "versi baru."
 
 #: libraries/classes/Config/Descriptions.php:447
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:451
 #, fuzzy
@@ -2707,16 +2664,12 @@ msgstr ""
 "otomatis."
 
 #: libraries/classes/Config/Descriptions.php:455
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:459
 #, fuzzy
@@ -2741,16 +2694,12 @@ msgstr ""
 "fitur ini, disarankan: [kbd] pma__usergroups [/ kbd]."
 
 #: libraries/classes/Config/Descriptions.php:469
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:473
 msgid ""
@@ -2857,13 +2806,11 @@ msgid ""
 "[/a] output."
 msgstr ""
 "Tampilkan tautan sebagai keluaran [a@https://www.php.net/manual/en/function."
-"phpinfo.php]phpinfo()[/a]"
+"phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
-#, fuzzy
-#| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Tampilkan tombol \"tampilkan semua (baris)\" kepada pengguna"
+msgstr "Tampilkan tombol \"tampilkan semua (baris)\" kepada pengguna."
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "Show or hide a column displaying the comments for all tables."
@@ -2911,12 +2858,10 @@ msgstr ""
 "tabel terkunci."
 
 #: libraries/classes/Config/Descriptions.php:521
-#, fuzzy
-#| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
-msgstr "Menampilkan peringatan pada halaman utama jika Suhosin terdeteksi"
+msgstr "Menampilkan peringatan pada halaman utama jika Suhosin terdeteksi."
 
 #: libraries/classes/Config/Descriptions.php:525
 #, fuzzy
@@ -3183,16 +3128,12 @@ msgstr ""
 "penyerahan."
 
 #: libraries/classes/Config/Descriptions.php:607
-#, fuzzy
-#| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
-msgstr "Judul jendela peramban sewaktu basis data dipilih"
+msgstr "Judul jendela peramban sewaktu basis data dipilih."
 
 #: libraries/classes/Config/Descriptions.php:608
-#, fuzzy
-#| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "Judul jendela peramban sewaktu tidak ada yang dipilih"
+msgstr "Judul jendela peramban sewaktu tidak ada yang dipilih."
 
 #: libraries/classes/Config/Descriptions.php:609
 msgid "Title of browser window when a server is selected."
@@ -4630,15 +4571,15 @@ msgstr "URL untuk situs reCaptcha verifikasi"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "snippet Kebijakan-Keamanan-Konten untuk API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Paramater perrmintaan untuk API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Paramater respon untuk API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -4686,11 +4627,10 @@ msgid "Show current browsing query"
 msgstr "Tampilkan kueri saat ini"
 
 #: libraries/classes/Config/Descriptions.php:989
-#, fuzzy
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Mengeksekusi query pada Masukkan dan memasukkan baris baru dengan Shift + "
-"Enter. Untuk membuat ini permanen, pengaturan tampilan."
+"Enter. Untuk membuat ini permanen, pengaturan tampilan"
 
 #: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:168
@@ -5985,10 +5925,8 @@ msgid "Y values"
 msgstr "Nilai Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Silakan masukkan lagi nilai yang sama"
+msgstr "Silakan masukkan lagi nilai yang sama."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
@@ -6578,16 +6516,12 @@ msgid "Please select the file you want to import."
 msgstr "Silahkan pilih berkas yang ingin anda impor."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Masukan halaman yang benar"
+msgstr "Masukan sebuah halaman yang valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Masukan halaman yang benar"
+msgstr "Masukan nama database yang valid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
@@ -6820,7 +6754,7 @@ msgstr "Menjelajahi nilai luar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr "Auto-save kueri sebelumnya tidak ditemukan. Menggunakan kueri bawaan"
+msgstr "Auto-save kueri sebelumnya tidak ditemukan. Menggunakan kueri bawaan."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 msgid ""
@@ -7261,6 +7195,8 @@ msgstr "Hapus halaman"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Beberapa tabel yang disimpan di halaman ini mungkin telah dinamai ulang atau "
+"dihapus."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7672,25 +7608,21 @@ msgstr "Waktu tunggu untuk aktivasi kunci keamanan."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Jenis ekspor invalid"
+msgstr "Permintaan yang tidak valid terkirim ke kunci keamanan."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Galat tidak dikenal"
+msgstr "Galat kunci keamanan tidak dikenal."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Klien tidak mendukung kunci keamanan."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
@@ -7702,11 +7634,9 @@ msgstr "Gagal mengaktivasi kunci keamanan (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Jenis ekspor invalid"
+msgstr "Jenis ekspor invalid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy, php-format
@@ -7772,10 +7702,8 @@ msgid "Two-factor authentication has been removed."
 msgstr "Relasi internal telah dihapus."
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:64
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
+msgstr "Metode autentikasi dalam konfigurasi tidak sah."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:245
 #, php-format
@@ -8759,10 +8687,8 @@ msgstr "Tabel %1$s berhasil diubah."
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
 #: libraries/classes/Controllers/Table/ExportController.php:152
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "Tidak ada baris yang dipilih"
+msgstr "Tidak ada baris yang dipilih."
 
 #: libraries/classes/Controllers/Table/ChartController.php:59
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:67
@@ -8894,10 +8820,9 @@ msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Gagal mengambil jumlah baris sebenarnya."
+msgstr "Gagal mengambil deskripsi dari kolom %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
 #: libraries/classes/Controllers/Table/StructureController.php:1273
@@ -8952,10 +8877,8 @@ msgid "Tracking versions deleted successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:152
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "Tidak ada baris yang dipilih"
+msgstr "Tidak ada versi yang dipilih."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:185
 msgid "SQL statements executed."
@@ -9232,10 +9155,8 @@ msgstr "Didukung query adalah:"
 #: libraries/classes/Database/Routines.php:1399
 #: libraries/classes/Database/Routines.php:1577
 #: libraries/classes/Database/Triggers.php:580
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Galat sewaktu memproses permintaan."
+msgstr "Galat sewaktu memproses permintaan:"
 
 #: libraries/classes/Database/Events.php:534
 #, php-format
@@ -9338,16 +9259,13 @@ msgid "Edit routine"
 msgstr "Edit rutinitas"
 
 #: libraries/classes/Database/Routines.php:154
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to edit this routine"
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 "Tidak ada rutinitas ditemukan dengan nama %1$s dalam database %2$s. Anda "
-"mungkin tidak memiliki otoritas untuk menyunting rutinitas ini"
+"mungkin tidak memiliki otoritas untuk menyunting rutinitas ini."
 
 #: libraries/classes/Database/Routines.php:208
 #: libraries/classes/Database/Routines.php:1245
@@ -9606,10 +9524,9 @@ msgstr "Anda harus memasukkan definisi routine."
 
 #: libraries/classes/Database/Routines.php:1401
 #: libraries/classes/Database/Routines.php:1579
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s"
+msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
 #: libraries/classes/Database/Routines.php:1440
 #, php-format
@@ -9665,17 +9582,14 @@ msgid "Export of routine %s"
 msgstr "Ekspor routine %s"
 
 #: libraries/classes/Database/Routines.php:1917
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine"
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
 "Tidak ada rutinitas bernama %1$s ditemukan di database %2$s. Anda mungkin "
-"tidak memiliki otoritas untuk melihat/mengkespor rutinitas ini"
+"tidak memiliki otoritas untuk melihat/mengkespor rutinitas ini."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9773,10 +9687,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Maaf, kami gagal memulihkan trigger yang dihapus."
 
 #: libraries/classes/Database/Triggers.php:582
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s"
+msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
 #: libraries/classes/Database/Triggers.php:618
 #, php-format
@@ -9784,12 +9697,11 @@ msgid "Export of trigger %s"
 msgstr "Ekspor trigger %s"
 
 #: libraries/classes/Database/Triggers.php:636
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s"
+msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:194
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -11039,13 +10951,12 @@ msgid "Show me the central list of columns that are not already in this table"
 msgstr "Tunjukkan daftar pusat kolom yang belum diatur di tabel ini"
 
 #: libraries/classes/Normalization.php:244
-#, fuzzy
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 "Pilih kolom yang dapat dipecah menjadi lebih dari satu. (di pilih dari 'ada "
-"kolom seperti', itu akan pindah ke langkah berikutnya)"
+"kolom seperti', itu akan pindah ke langkah berikutnya)."
 
 #: libraries/classes/Normalization.php:259
 #, fuzzy
@@ -11251,10 +11162,8 @@ msgstr "Langkah kedua normalisasi selesai untuk tabel '%1$s'."
 #: libraries/classes/Normalization.php:593
 #: libraries/classes/Normalization.php:755
 #: libraries/classes/Normalization.php:831
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Galat sewaktu memproses permintaan."
+msgstr "Galat sewaktu memproses permintaan!"
 
 #: libraries/classes/Normalization.php:640
 #, fuzzy, php-format
@@ -11503,6 +11412,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Kata sandi Anda terlalu panjang. Untuk menghindari serangan denial-of-"
+"service, phpMyAdmin membatasi kata sandi untuk kurang dari 1000 karakter."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -12619,12 +12530,10 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner"
+msgstr "Mengkonversi alamat jaringan internet di (IPv4/IPv6) ke format biner."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 #, fuzzy
@@ -12690,10 +12599,8 @@ msgid "Two-factor authentication failed: %s"
 msgstr "Autentikasi perangkat keras gagal!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Autentikasi perangkat keras gagal!"
+msgstr "Autentikasi dua-faktor gagal."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 #, fuzzy
@@ -12887,25 +12794,22 @@ msgstr ""
 "mengatur penyimpanan konfigurasi phpMyAdmin disana."
 
 #: libraries/classes/Relation.php:2157
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2165
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2173
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/ReplicationGui.php:449
 msgid ""
@@ -12970,10 +12874,9 @@ msgid "Unable to change master!"
 msgstr "Tidak dapat mengubah master"
 
 #: libraries/classes/ReplicationGui.php:570
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s"
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Server master berhasil diubah menjadi %s"
+msgstr "Server master berhasil diubah menjadi %s."
 
 #: libraries/classes/Routing.php:102
 #, php-format
@@ -12981,12 +12884,13 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Perutean cache tidak dapat ditulis, Anda perlu mengatur perizinan di folder/"
+"file \"%s\""
 
 #: libraries/classes/Routing.php:165
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Sumber Basis data `%s` tidak ditemukan!"
+msgstr "Sumber Basis data `%s` tidak ditemukan."
 
 #: libraries/classes/Routing.php:176
 msgid "Error 405! Request method not allowed."
@@ -13211,10 +13115,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:432
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
-#, fuzzy
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Mengizinkan penyiapan event untuk penjadwal event"
+msgstr "Mengizinkan penyiapan event untuk penjadwal event."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:461
@@ -13549,30 +13451,24 @@ msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
 #: libraries/classes/Sql.php:1418
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "Tabel ini tidak berisi kolom yang unik. Fitur yang berhubungan dengan edit "
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
-"setelah disimpan."
+"setelah disimpan. %s"
 
 #: libraries/classes/Sql.php:1432
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 "Tabel ini tidak berisi kolom yang unik. Fitur yang berhubungan dengan edit "
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
-"setelah disimpan."
+"setelah disimpan. %s"
 
 #: libraries/classes/SqlQueryForm.php:152
 #, fuzzy, php-format
@@ -13692,10 +13588,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Kesalahan membuat kunci asing pada %1$s (periksa tipe data)"
 
 #: libraries/classes/Template.php:111
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Terjadi kesalahan ketika memuat pencarian."
+msgstr "Terjadi kesalahan ketika memuat pencarian: %s"
 
 #: libraries/classes/ThemeManager.php:88
 #, php-format
@@ -13851,10 +13746,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Pelacakan %s.%s diaktifkan."
 
 #: libraries/classes/Tracking.php:986
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Buat versi %s dari %s.%s"
+msgstr "versi %1$s dari %2$s dihapus."
 
 #: libraries/classes/Tracking.php:1019
 #, fuzzy, php-format
@@ -14608,16 +14502,13 @@ msgid "Online transaction"
 msgstr "Jalankan ekspor dalam transaksi"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Pilih kunci rujukan"
+msgstr "Dirujuk oleh %s."
 
 #: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Pilih Foreign Key"
+msgstr "Adalah sebuah foreign key."
 
 #: templates/columns_definitions/column_name.twig:39
 #, fuzzy
@@ -15022,10 +14913,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:131
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Daftar utama kolom untuk database saat ini kosong."
+msgstr "Daftar utama kolom untuk database saat ini kosong"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -15459,12 +15348,10 @@ msgid "OFF"
 msgstr "NONAKTIF"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ akan menjadi nama basis data"
+msgstr ", @DATABASE@ akan menjadi nama basis data."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:8
@@ -15592,12 +15479,10 @@ msgstr "Nama database baru"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "Hak Akses Anda untuk melanjut tidak cukup!"
+msgstr "Hak Akses Anda untuk melanjut tidak cukup."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -17007,7 +16892,7 @@ msgstr "Silakan masukkan input HEX yang valid"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Kolom ini tidak boleh berisi sebuah nilai 32 karakter"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -17015,6 +16900,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Fungsi ini dimaksudkan untuk mengembalikan sebuah hasil biner; untuk "
+"menghindari hasil yang tidak konsisten, Anda harus menyimpannya di sebuah "
+"kolom BINARY, VARBINARY, or BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -17086,12 +16974,10 @@ msgstr ""
 "autentikasi dan verifikasi identitas Anda."
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -17332,10 +17218,8 @@ msgid "Disable two-factor authentication"
 msgstr "Konfigurasi Autentikasi"
 
 #: templates/preferences/two_factor/main.twig:5
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Pengaturan otentikasi."
+msgstr "Status otentikasi dua-faktor"
 
 #: templates/preferences/two_factor/main.twig:11
 msgid ""
@@ -17360,12 +17244,10 @@ msgstr ""
 "Otentikasi dua langkah tersedia, tetapi tidak dikonfigurasikan pada akun ini."
 
 #: templates/preferences/two_factor/main.twig:26
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
@@ -17462,10 +17344,8 @@ msgid "Create database"
 msgstr "Buat basis data"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Periksa hak akses untuk basis data \"%s\"."
+msgstr "Periksa hak akses untuk basis data \"%s\""
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -17523,16 +17403,12 @@ msgid "Storage Engine"
 msgstr "Mesin Penyimpanan"
 
 #: templates/server/engines/show.twig:45
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Unknown storage engine."
-msgstr "Mesin Penyimpanan"
+msgstr "Mesin penyimpanan tidak diketahui."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ akan menjadi nama server"
+msgstr "@SERVER@ akan menjadi nama server."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -17669,10 +17545,8 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
 #: templates/server/privileges/privileges_table.twig:248
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris"
+msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris."
 
 #: templates/server/privileges/edit_routine_privileges.twig:63
 #: templates/server/privileges/edit_routine_privileges.twig:67
@@ -17902,7 +17776,7 @@ msgstr "Mengizinkan untuk membuat routine tersimpan."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Tidak digunakan di MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
 #, fuzzy
@@ -18069,10 +17943,8 @@ msgstr ""
 "Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Tanpa hak akses."
+msgstr "Tanpa hak akses"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
@@ -18221,10 +18093,9 @@ msgid "Skip current error"
 msgstr "Lewati galat saat ini"
 
 #: templates/server/replication/slave_configuration.twig:87
-#, fuzzy, php-format
-#| msgid "Skip current error"
+#, php-format
 msgid "Skip next %s errors."
-msgstr "Lewati galat saat ini"
+msgstr "Lewati galat %s berikutnya."
 
 #: templates/server/replication/slave_configuration.twig:107
 #, fuzzy, php-format
@@ -18310,10 +18181,8 @@ msgstr ""
 "membatalkan perubahan jika tidak ada perbaikan jelas terukur."
 
 #: templates/server/status/advisor/index.twig:55
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "Terjadi beberapa kesalahan saat mendapatkan info debug SQL."
+msgstr "Terjadi beberapa kesalahan saat mendapatkan info debug SQL:"
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
@@ -18738,10 +18607,8 @@ msgid "Edit user group: '%s'"
 msgstr "Edit grup pengguna: '%s'"
 
 #: templates/server/user_groups/edit_user_groups.twig:9
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Tanpa hak akses."
+msgstr "Penugasan menu grup pengguna"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
@@ -19056,12 +18923,10 @@ msgid "Save chart as image"
 msgstr "Simpan grafik sebagai gambar"
 
 #: templates/table/export/index.twig:15
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ akan menjadi nama basis data"
+msgstr ", @DATABASE@ akan menjadi nama basis data."
 
 #: templates/table/export/index.twig:10
 #, php-format
@@ -19757,7 +19622,7 @@ msgstr "Nama kolom"
 
 #: url.php:52
 msgid "Taking you to the target site."
-msgstr "Taking you to the target site"
+msgstr "Membawa Anda ke situs target."
 
 #~ msgid ""
 #~ "Error in reading file: The file '%s' does not exist or is not readable!"
