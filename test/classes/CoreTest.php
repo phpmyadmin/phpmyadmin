@@ -1291,6 +1291,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testMissingExtensionFatalWithExtra(): void
     {
+        $_REQUEST = [];
+        Response::getInstance()->setAjax(false);
+
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
 
