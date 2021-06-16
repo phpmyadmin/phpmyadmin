@@ -833,10 +833,10 @@ class Results
      *
      * @see getTable()
      *
-     * @param int    $posNext       the offset for the "next" page
-     * @param int    $posPrevious   the offset for the "previous" page
-     * @param bool   $isInnodb      whether its InnoDB or not
-     * @param string $sortByKeyHtml the sort by key dialog
+     * @param int   $posNext       the offset for the "next" page
+     * @param int   $posPrevious   the offset for the "previous" page
+     * @param bool  $isInnodb      whether its InnoDB or not
+     * @param array $sortByKeyData the sort by key dialog
      *
      * @return array
      */
@@ -844,7 +844,7 @@ class Results
         $posNext,
         $posPrevious,
         $isInnodb,
-        $sortByKeyHtml
+        array $sortByKeyData
     ): array {
         $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
 
@@ -902,7 +902,7 @@ class Results
             'is_showing_all' => $isShowingAll,
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
-            'sort_by_key' => $sortByKeyHtml,
+            'sort_by_key' => $sortByKeyData,
         ];
     }
 
@@ -1231,7 +1231,7 @@ class Results
         array $analyzedSqlResults,
         ?array $sortExpression
     ) {
-        $dropDownHtml = '';
+        $dropDownData = [];
 
         $unsortedSqlQuery = Query::replaceClause(
             $analyzedSqlResults['statement'],
@@ -1250,18 +1250,11 @@ class Results
 
             // do we have any index?
             if (! empty($indexes)) {
-                $dropDownHtml = $this->getSortByKeyDropDown(
-                    $indexes,
-                    $sortExpression,
-                    $unsortedSqlQuery
-                );
+                $dropDownData = $this->getSortByKeyDropDown($indexes, $sortExpression, $unsortedSqlQuery);
             }
         }
 
-        return [
-            $unsortedSqlQuery,
-            $dropDownHtml,
-        ];
+        return [$unsortedSqlQuery, $dropDownData];
     }
 
     /**
@@ -1273,15 +1266,13 @@ class Results
      * @param array|null $sortExpression   the sort expression
      * @param string     $unsortedSqlQuery the unsorted sql query
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
     private function getSortByKeyDropDown(
         $indexes,
         ?array $sortExpression,
         $unsortedSqlQuery
-    ): string {
+    ): array {
         $hiddenFields = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -1345,10 +1336,7 @@ class Results
             'is_selected' => ! $isIndexUsed,
         ];
 
-        return $this->template->render('display/results/sort_by_key', [
-            'hidden_fields' => $hiddenFields,
-            'options' => $options,
-        ]);
+        return ['hidden_fields' => $hiddenFields, 'options' => $options];
     }
 
     /**
@@ -4214,12 +4202,13 @@ class Results
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && $analyzedSqlResults['statement'] !== null) {
             // At this point, $sort_expression is an array
-            [$unsortedSqlQuery, $sortByKeyHtml] = $this->getUnsortedSqlAndSortByKeyDropDown(
+            [$unsortedSqlQuery, $sortByKeyData] = $this->getUnsortedSqlAndSortByKeyDropDown(
                 $analyzedSqlResults,
                 $sortExpression
             );
         } else {
-            $sortByKeyHtml = $unsortedSqlQuery = '';
+            $unsortedSqlQuery = '';
+            $sortByKeyData = [];
         }
 
         $navigation = [];
@@ -4228,7 +4217,7 @@ class Results
                 $posNext,
                 $posPrev,
                 $isInnodb,
-                $sortByKeyHtml
+                $sortByKeyData
             );
         }
 

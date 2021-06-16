@@ -179,23 +179,6 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Provider for testing table navigation
-     *
-     * @return array data for testGetTableNavigation
-     */
-    public function providerForTestGetTableNavigation(): array
-    {
-        return [
-            [
-                21,
-                41,
-                false,
-                '310',
-            ],
-        ];
-    }
-
-    /**
      * Data provider for testGetClassesForColumn
      *
      * @return array parameters and output
@@ -1405,32 +1388,6 @@ class ResultsTest extends AbstractTestCase
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
 
         $template = new Template();
-        $sortByKeyTemplate = $template->render('display/results/sort_by_key', [
-            'hidden_fields' => [
-                'db' => $db,
-                'table' => $table,
-                'server' => 1,
-                'sort_by_key' => '1',
-                'session_max_rows' => 25,
-            ],
-            'options' => [
-                [
-                    'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` ASC',
-                    'content' => 'PRIMARY (ASC)',
-                    'is_selected' => false,
-                ],
-                [
-                    'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` DESC',
-                    'content' => 'PRIMARY (DESC)',
-                    'is_selected' => false,
-                ],
-                [
-                    'value' => 'SELECT * FROM `test_db`.`test_table`  ',
-                    'content' => 'None',
-                    'is_selected' => true,
-                ],
-            ],
-        ]);
         $tableTemplate = $template->render('display/results/table', [
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
@@ -1455,7 +1412,32 @@ class ResultsTest extends AbstractTestCase
                 'is_showing_all' => false,
                 'max_rows' => 25,
                 'pos' => 0,
-                'sort_by_key' => $sortByKeyTemplate,
+                'sort_by_key' => [
+                    'hidden_fields' => [
+                        'db' => $db,
+                        'table' => $table,
+                        'server' => 1,
+                        'sort_by_key' => '1',
+                        'session_max_rows' => 25,
+                    ],
+                    'options' => [
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` ASC',
+                            'content' => 'PRIMARY (ASC)',
+                            'is_selected' => false,
+                        ],
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` DESC',
+                            'content' => 'PRIMARY (DESC)',
+                            'is_selected' => false,
+                        ],
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`  ',
+                            'content' => 'None',
+                            'is_selected' => true,
+                        ],
+                    ],
+                ],
             ],
             'headers' => [
                 'column_order' => [
