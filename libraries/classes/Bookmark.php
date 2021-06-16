@@ -213,6 +213,7 @@ class Bookmark
      *
      * @return array|false the bookmark parameters for the current user
      *
+     * @staticvar array|false|null $cfgBookmark
      * @access public
      */
     public static function getParams(string $user)
@@ -228,14 +229,18 @@ class Bookmark
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
-            return [
+            $cfgBookmark = [
                 'user'  => $user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
             ];
+
+            return $cfgBookmark;
         }
 
-        return false;
+        $cfgBookmark = false;
+
+        return $cfgBookmark;
     }
 
     /**
