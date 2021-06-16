@@ -3952,7 +3952,7 @@ class Results
         }
 
         if (Core::isValid($_REQUEST['pos'], 'numeric')) {
-            $query['pos'] = $_REQUEST['pos'];
+            $query['pos'] = (int) $_REQUEST['pos'];
             unset($_REQUEST['pos']);
         } elseif (empty($query['pos'])) {
             $query['pos'] = 0;

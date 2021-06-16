@@ -1316,6 +1316,239 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
+    /**
+     * @dataProvider providerSetConfigParamsForDisplayTable
+     */
+    public function testSetConfigParamsForDisplayTable(
+        array $session,
+        array $get,
+        array $post,
+        array $request,
+        array $expected
+    ): void {
+        $_SESSION = $session;
+        $_GET = $get;
+        $_POST = $post;
+        $_REQUEST = $request;
+
+        $db = 'test_db';
+        $table = 'test_table';
+        $query = 'SELECT * FROM `test_db`.`test_table`;';
+
+        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable();
+
+        $this->assertArrayHasKey('tmpval', $_SESSION);
+        $this->assertIsArray($_SESSION['tmpval']);
+        $this->assertSame($expected, $_SESSION['tmpval']);
+    }
+
+    public function providerSetConfigParamsForDisplayTable(): array
+    {
+        $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];
+
+        return [
+            'default values' => [
+                [],
+                [],
+                [],
+                [],
+                [
+                    'query' => [
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => $cfg['MaxRows'],
+                            'pos' => 0,
+                            'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                            'relational_display' => $cfg['RelationalDisplay'],
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                            'display_binary' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => $cfg['RelationalDisplay'],
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                    'display_binary' => true,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 0,
+                    'max_rows' => $cfg['MaxRows'],
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+            'cached values' => [
+                [
+                    'tmpval' => [
+                        'query' => [
+                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                                'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                                'repeat_cells' => 90,
+                                'max_rows' => 26,
+                                'pos' => 1,
+                                'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                                'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                                'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                                'display_binary' => false,
+                            ],
+                            'a' => [],
+                            'b' => [],
+                            'c' => [],
+                            'd' => [],
+                            'e' => [],
+                            'f' => [],
+                            'g' => [],
+                            'h' => [],
+                            'i' => [],
+                            'j' => [],
+                        ],
+                    ],
+                ],
+                [],
+                [],
+                [],
+                [
+                    'query' => [
+                        'b' => [],
+                        'c' => [],
+                        'd' => [],
+                        'e' => [],
+                        'f' => [],
+                        'g' => [],
+                        'h' => [],
+                        'i' => [],
+                        'j' => [],
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => 90,
+                            'max_rows' => 26,
+                            'pos' => 1,
+                            'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                            'display_binary' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_binary' => true,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 1,
+                    'max_rows' => 26,
+                    'repeat_cells' => 90,
+                ],
+            ],
+            'default and request values' => [
+                [],
+                ['session_max_rows' => '27'],
+                ['session_max_rows' => '28'],
+                [
+                    'pos' => '2',
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                    'display_binary' => '0',
+                    'display_blob' => '0',
+                    'hide_transformation' => '0',
+                ],
+                [
+                    'query' => [
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => 27,
+                            'pos' => 2,
+                            'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                            'display_binary' => true,
+                            'display_blob' => true,
+                            'hide_transformation' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                    'display_binary' => true,
+                    'display_blob' => true,
+                    'hide_transformation' => true,
+                    'pos' => 2,
+                    'max_rows' => 27,
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+            'cached and request values' => [
+                [
+                    'tmpval' => [
+                        'query' => [
+                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                                'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                                'repeat_cells' => $cfg['RepeatCells'],
+                                'max_rows' => $cfg['MaxRows'],
+                                'pos' => 0,
+                                'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                                'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                                'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                                'display_binary' => true,
+                            ],
+                            'a' => [],
+                            'b' => [],
+                            'c' => [],
+                            'd' => [],
+                            'e' => [],
+                            'f' => [],
+                            'g' => [],
+                            'h' => [],
+                            'i' => [],
+                        ],
+                    ],
+                ],
+                [],
+                ['session_max_rows' => DisplayResults::ALL_ROWS],
+                [
+                    'pos' => 'NaN',
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_KEY,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_options_form' => '0',
+                ],
+                [
+                    'query' => [
+                        'a' => [],
+                        'b' => [],
+                        'c' => [],
+                        'd' => [],
+                        'e' => [],
+                        'f' => [],
+                        'g' => [],
+                        'h' => [],
+                        'i' => [],
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => DisplayResults::ALL_ROWS,
+                            'pos' => 0,
+                            'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_KEY,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_KEY,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_binary' => false,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 0,
+                    'max_rows' => DisplayResults::ALL_ROWS,
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+        ];
+    }
+
     public function testGetTable(): void
     {
         global $db, $table, $dbi;
