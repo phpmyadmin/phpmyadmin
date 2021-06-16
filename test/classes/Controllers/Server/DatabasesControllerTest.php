@@ -117,12 +117,6 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testCreateDatabaseAction(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->method('getError')
-            ->willReturn('CreateDatabaseError');
-
         $response = new Response();
         $response->setAjax(true);
 
@@ -132,21 +126,17 @@ class DatabasesControllerTest extends AbstractTestCase
             $response,
             $template,
             $transformations,
-            new RelationCleanup($dbi, new Relation($dbi, $template)),
-            $dbi
+            new RelationCleanup($this->dbi, new Relation($this->dbi, $template)),
+            $this->dbi
         );
 
-        $_POST['new_db'] = 'pma_test';
+        $_POST['new_db'] = 'test_db_error';
 
         $controller->create();
         $actual = $response->getJSONResult();
 
         $this->assertArrayHasKey('message', $actual);
         $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-        $this->assertStringContainsString('CreateDatabaseError', $actual['message']);
-
-        $dbi->method('tryQuery')
-            ->willReturn(true);
 
         $response = new Response();
         $response->setAjax(true);
@@ -155,10 +145,11 @@ class DatabasesControllerTest extends AbstractTestCase
             $response,
             $template,
             $transformations,
-            new RelationCleanup($dbi, new Relation($dbi, $template)),
-            $dbi
+            new RelationCleanup($this->dbi, new Relation($this->dbi, $template)),
+            $this->dbi
         );
 
+        $_POST['new_db'] = 'test_db';
         $_POST['db_collation'] = 'utf8_general_ci';
 
         $controller->create();
@@ -167,7 +158,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertArrayHasKey('message', $actual);
         $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
         $this->assertStringContainsString(
-            sprintf(__('Database %1$s has been created.'), 'pma_test'),
+            sprintf(__('Database %1$s has been created.'), 'test_db'),
             $actual['message']
         );
     }

@@ -2781,6 +2781,14 @@ class DbiDummy implements DbiExtension
                 'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);',
                 'result' => [],
             ],
+            [
+                'query' => 'CREATE DATABASE `test_db_error`;',
+                'result' => false,
+            ],
+            [
+                'query' => 'CREATE DATABASE `test_db` DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;',
+                'result' => [],
+            ],
         ];
         /**
          * Current database.
