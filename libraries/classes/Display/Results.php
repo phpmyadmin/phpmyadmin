@@ -1075,7 +1075,7 @@ class Results
             $displayParams = $this->properties['display_params'] ?? [];
 
             if (($displayParts['sort_lnk'] == '1') && ! $isLimitedDisplay) {
-                [$orderLink, $sortedHeaderHtml] = $this->getOrderLinkAndSortedHeaderHtml(
+                [$orderLink, $sortedHeaderData] = $this->getOrderLinkAndSortedHeaderHtml(
                     $fieldsMeta[$i],
                     $sortExpression,
                     $sortExpressionNoDirection,
@@ -1088,7 +1088,7 @@ class Results
                     $colVisibCurrent
                 );
 
-                $html .= $sortedHeaderHtml;
+                $html .= $this->template->render('display/results/sorted_header', $sortedHeaderData);
 
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1634,8 +1634,6 @@ class Results
         $colVisib,
         $colVisibElement
     ) {
-        $sortedHeaderHtml = '';
-
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column
         // isn't aliased, or in queries like
@@ -1712,18 +1710,19 @@ class Results
             $nameToUseInSort
         );
 
-        $sortedHeaderHtml .= $this->getDraggableClassForSortableColumns(
-            $colVisib,
-            $colVisibElement,
-            $fieldsMeta,
-            $orderLink,
-            $comments
-        );
-
-        return [
-            $orderLink,
-            $sortedHeaderHtml,
+        $thClass = [];
+        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
+        $sortedHeaderData = [
+            'column_name' => $fieldsMeta->name,
+            'order_link' => $orderLink,
+            'comments' => $comments,
+            'is_browse_pointer_enabled' => $GLOBALS['cfg']['BrowsePointerEnable'] === true,
+            'is_browse_marker_enabled' => $GLOBALS['cfg']['BrowseMarkerEnable'] === true,
+            'is_column_hidden' => $colVisib && ! $colVisibElement,
+            'is_column_numeric' => ! empty($thClass),
         ];
+
+        return [$orderLink, $sortedHeaderData];
     }
 
     /**
@@ -2096,8 +2095,6 @@ class Results
      * Check if the column contains numeric data. If yes, then set the
      * column header's alignment right
      *
-     * @see  getDraggableClassForSortableColumns()
-     *
      * @param FieldMetadata $fieldsMeta set of field properties
      * @param array         $thClass    array containing classes
      *
@@ -2116,55 +2113,6 @@ class Results
         }
 
         $thClass[] = 'text-end';
-    }
-
-    /**
-     * Prepare columns to draggable effect for sortable columns
-     *
-     * @see getTableHeaders()
-     *
-     * @param bool          $colVisib        the column is visible (false)
-     *                                        array                the column is not visible (string array)
-     * @param string        $colVisibElement element of $col_visib array
-     * @param FieldMetadata $fieldsMeta      set of field properties
-     * @param string        $orderLink       the order link
-     * @param string        $comments        the comment for the column
-     *
-     * @return string  html content
-     *
-     * @access private
-     */
-    private function getDraggableClassForSortableColumns(
-        $colVisib,
-        $colVisibElement,
-        FieldMetadata $fieldsMeta,
-        $orderLink,
-        $comments
-    ) {
-        $draggableHtml = '<th';
-        $thClass = [];
-        $thClass[] = 'draggable';
-        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-        if ($colVisib && ! $colVisibElement) {
-            $thClass[] = 'hide';
-        }
-
-        $thClass[] = 'column_heading';
-        $thClass[] = 'sticky';
-        if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-            $thClass[] = 'pointer';
-        }
-
-        if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-            $thClass[] = 'marker';
-        }
-
-        $draggableHtml .= ' class="' . implode(' ', $thClass) . '"';
-
-        $draggableHtml .= ' data-column="' . htmlspecialchars((string) $fieldsMeta->name)
-            . '">' . $orderLink . $comments . '</th>';
-
-        return $draggableHtml;
     }
 
     /**
