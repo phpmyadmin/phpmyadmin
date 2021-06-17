@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Cache;
 
 /**
  * @covers \PhpMyAdmin\Bookmark
@@ -23,6 +24,8 @@ class BookmarkTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['server'] = 1;
     }
 
@@ -31,7 +34,25 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testGetParams(): void
     {
+        $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
+
         $this->assertFalse(
+            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
+        );
+    }
+
+    /**
+     * Tests for Bookmark:getParams()
+     */
+    public function testGetParamsFromCache(): void
+    {
+        $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
+        $this->assertFalse(
+            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
+        );
+        $this->assertTrue(Cache::set('Bookmark.params', ['cacheworks' => true]), 'The cache should to be filled');
+        $this->assertSame(
+            ['cacheworks' => true],
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
     }

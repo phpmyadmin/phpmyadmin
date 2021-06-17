@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -89,6 +90,7 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['cfg']['environment'] = 'development';
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
         $this->setGlobalDbi();
+        Cache::purge();
     }
 
     protected function loadDefaultConfig(): void
