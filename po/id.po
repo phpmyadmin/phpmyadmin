@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"PO-Revision-Date: 2021-06-17 22:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
@@ -6557,19 +6557,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie validity%s sudah lebih dari %ssession.gc_maxlifetime%s dapat "
-"menyebabkan pembatalan session secara acak (saat ini session.gc_maxlifetime "
-"adalah %d)."
+"%1$sLogin cookie validity%2$s sudah lebih dari %3$ssession.gc_maxlifetime%4$"
+"s dapat menyebabkan pembatalan session secara acak (saat ini "
+"session.gc_maxlifetime adalah %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6592,16 +6588,13 @@ msgstr ""
 "dengan itu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 compression and decompression%s membutuhkan fungsi (%s) yang tidak "
-"tersedia pada sistem ini."
+"%1$sBzip2 compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
+"tidak tersedia pada sistem ini."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
 #, php-format
@@ -10097,7 +10090,7 @@ msgstr "Ekspor halaman PDF"
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Skema basis data %s - Halaman %s"
+msgstr "Skema basis data %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:130
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
@@ -10618,10 +10611,9 @@ msgid "Quick steps to set up advanced features:"
 msgstr "Langkah cepat untuk menyiapkan fitur lanjut:"
 
 #: libraries/classes/Relation.php:376
-#, fuzzy, php-format
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Membuat tabel yang dibutuhkan dengan <code>contoh/create_tables.sql</code>."
+msgstr "Membuat tabel yang dibutuhkan dengan <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:381
 #, fuzzy
@@ -10662,20 +10654,20 @@ msgstr ""
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2064
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2072
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/ReplicationGui.php:58
 #: libraries/classes/ReplicationGui.php:352
@@ -10821,16 +10813,13 @@ msgid "Change or reconfigure master server"
 msgstr "Ubah atau konfigurasikan ulang server master"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10852,16 +10841,13 @@ msgid "Skip next %s errors."
 msgstr "Lewati galat saat ini"
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai master dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -14926,7 +14912,7 @@ msgstr "Tidak ada baris yang dipilih"
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Pelacakan %s.%s diaktifkan."
+msgstr "Pelacakan %s diaktifkan."
 
 #: tbl_tracking.php:103
 #, fuzzy
@@ -15779,10 +15765,9 @@ msgid "Add/Delete columns"
 msgstr "Tambahkan/Hapus kolom"
 
 #: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "Buat versi %1$s dari %2$s"
 
 #: templates/table/tracking/create_version.twig:16
 #, fuzzy, php-format
@@ -15994,10 +15979,9 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Lakukan \"kueri dengan contoh\" (wildcard: \"%\")"
 
 #: templates/table/tracking/activate_deactivate.twig:7
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
+#, php-format
 msgid "Activate tracking for %s"
-msgstr "Aktifkan pelacakan untuk %s.%s"
+msgstr "Aktifkan pelacakan untuk %s"
 
 #: templates/table/tracking/activate_deactivate.twig:9
 msgid "Activate now"
