@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 03:17+0000\n"
+"PO-Revision-Date: 2021-06-17 22:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/id/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
@@ -6301,19 +6301,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie validity%s sudah lebih dari %ssession.gc_maxlifetime%s dapat "
-"menyebabkan pembatalan session secara acak (saat ini session.gc_maxlifetime "
-"adalah %d)."
+"%1$sLogin cookie validity%2$s sudah lebih dari %3$ssession.gc_maxlifetime%4$"
+"s dapat menyebabkan pembatalan session secara acak (saat ini "
+"session.gc_maxlifetime adalah %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:465
 #, php-format
@@ -6336,16 +6332,13 @@ msgstr ""
 "dengan itu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:529
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 compression and decompression%s membutuhkan fungsi (%s) yang tidak "
-"tersedia pada sistem ini."
+"%1$sBzip2 compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
+"tidak tersedia pada sistem ini."
 
 #: libraries/classes/Config/ServerConfigChecks.php:561
 #, php-format
@@ -10828,7 +10821,7 @@ msgstr "Ekspor halaman PDF"
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Skema basis data %s - Halaman %s"
+msgstr "Skema basis data %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:553
@@ -11351,10 +11344,9 @@ msgid "Quick steps to set up advanced features:"
 msgstr "Langkah cepat untuk menyiapkan fitur lanjut:"
 
 #: libraries/classes/Relation.php:392
-#, fuzzy, php-format
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Membuat tabel yang dibutuhkan dengan <code>contoh/create_tables.sql</code>."
+msgstr "Membuat tabel yang dibutuhkan dengan <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:397
 #, fuzzy
@@ -11395,20 +11387,20 @@ msgstr ""
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2176
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2184
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/ReplicationGui.php:423
 msgid ""
@@ -13934,7 +13926,7 @@ msgstr "Tidak ada baris yang dipilih"
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Pelacakan %s.%s diaktifkan."
+msgstr "Pelacakan %s diaktifkan."
 
 #: tbl_tracking.php:121
 #, fuzzy
@@ -14355,10 +14347,9 @@ msgstr ""
 "Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
 #: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "Buat versi %1$s dari %2$s"
 
 #: templates/create_tracking_version.twig:16
 #, fuzzy, php-format
@@ -16076,16 +16067,13 @@ msgid "Port:"
 msgstr "Porta"
 
 #: templates/server/replication/index.twig:16
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai master dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: templates/server/replication/index.twig:35
 #, fuzzy
@@ -16258,16 +16246,13 @@ msgid "Skip next %s errors."
 msgstr "Lewati galat saat ini"
 
 #: templates/server/replication/slave_configuration.twig:106
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -17349,10 +17334,9 @@ msgid "Delete version"
 msgstr "Buat versi"
 
 #: templates/table/tracking/main.twig:107
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
+#, php-format
 msgid "Activate tracking for %s"
-msgstr "Aktifkan pelacakan untuk %s.%s"
+msgstr "Aktifkan pelacakan untuk %s"
 
 #: templates/table/tracking/main.twig:109
 msgid "Activate now"
