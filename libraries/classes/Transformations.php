@@ -111,6 +111,7 @@ class Transformations
      *
      * @return array    array[mimetype], array[transformation]
      *
+     * @staticvar array $stack
      * @access public
      */
     public function getAvailableMimeTypes()

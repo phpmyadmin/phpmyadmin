@@ -967,6 +967,8 @@ class Config
 
     /**
      * Get phpMyAdmin root path
+     *
+     * @staticvar string|null $cookie_path
      */
     public function getRootPath(): string
     {
@@ -1265,6 +1267,8 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
+     *
+     * @staticvar array<string,string|null> $temp_dir
      */
     public function getTempDir(string $name): ?string
     {

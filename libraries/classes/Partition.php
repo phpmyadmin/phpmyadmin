@@ -247,8 +247,8 @@ class Partition extends SubPartition
      * @return bool
      *
      * @static
-     * @staticvar boolean $have_partitioning
-     * @staticvar boolean $already_checked
+     * @staticvar bool $have_partitioning
+     * @staticvar bool $already_checked
      * @access public
      */
     public static function havePartitioning()
