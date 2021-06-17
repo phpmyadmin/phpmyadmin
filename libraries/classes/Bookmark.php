@@ -213,17 +213,15 @@ class Bookmark
      *
      * @return array|false the bookmark parameters for the current user
      *
-     * @staticvar array|false|null $cfgBookmark
      * @access public
      */
     public static function getParams(string $user)
     {
         global $dbi;
+        $cacheKey = 'Bookmark.params';
 
-        static $cfgBookmark = null;
-
-        if ($cfgBookmark !== null) {
-            return $cfgBookmark;
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
         }
 
         $relation = new Relation($dbi);
@@ -234,11 +232,13 @@ class Bookmark
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
             ];
+            Cache::set($cacheKey, $cfgBookmark);
 
             return $cfgBookmark;
         }
 
         $cfgBookmark = false;
+        Cache::set($cacheKey, $cfgBookmark);
 
         return $cfgBookmark;
     }
