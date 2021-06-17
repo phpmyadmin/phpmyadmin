@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-06-17 17:34+0000\n"
-"Last-Translator: whenwesober <naomi16i_1298q@cikuh.com>\n"
+"PO-Revision-Date: 2021-06-17 22:46+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/id/>\n"
 "Language: id\n"
@@ -5047,12 +5047,7 @@ msgstr ""
 "mendukungnya."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -5060,9 +5055,9 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Jika kamu merasa ini perlu, gunakan pengaturan perlindungan tambahan - "
-"pengaturan %shost authentication%s dan %strusted proxies list%s. Namun, "
-"perlindungan berbasis IP tidak dapat diandalkan jika IP mu merupakan milik "
-"ISP dimana ribuan pengguna, termasuk anda, saling terhubung."
+"pengaturan %1$shost authentication%2$s dan %3$strusted proxies list%4$s. "
+"Namun, perlindungan berbasis IP tidak dapat diandalkan jika IP mu merupakan "
+"milik ISP dimana ribuan pengguna, termasuk anda, saling terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200
 #, fuzzy, php-format
@@ -5128,19 +5123,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 
 #: libraries/classes/Config/ServerConfigChecks.php:428
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie validity%s sudah lebih dari %ssession.gc_maxlifetime%s dapat "
-"menyebabkan pembatalan session secara acak (saat ini session.gc_maxlifetime "
-"adalah %d)."
+"%1$sLogin cookie validity%2$s sudah lebih dari %3$ssession.gc_maxlifetime%4$"
+"s dapat menyebabkan pembatalan session secara acak (saat ini "
+"session.gc_maxlifetime adalah %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:450
 #, php-format
@@ -5163,16 +5154,13 @@ msgstr ""
 "dengan itu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:515
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 compression and decompression%s membutuhkan fungsi (%s) yang tidak "
-"tersedia pada sistem ini."
+"%1$sBzip2 compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
+"tidak tersedia pada sistem ini."
 
 #: libraries/classes/Config/ServerConfigChecks.php:547
 #, php-format
@@ -8868,7 +8856,7 @@ msgstr[0] "Nama '%s' adalah kata kunci pesanan MySQL."
 #, fuzzy, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Pelacakan %s.%s diaktifkan."
+msgstr "Pelacakan %s diaktifkan."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:147
 #, fuzzy
@@ -12222,7 +12210,7 @@ msgstr "Ekspor halaman PDF"
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
-msgstr "Skema basis data %s - Halaman %s"
+msgstr "Skema basis data %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:170
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
@@ -12794,22 +12782,22 @@ msgstr ""
 "mengatur penyimpanan konfigurasi phpMyAdmin disana."
 
 #: libraries/classes/Relation.php:2157
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2165
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/Relation.php:2173
-#, php-format
+#, fuzzy, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
+msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: libraries/classes/ReplicationGui.php:449
 msgid ""
@@ -14861,10 +14849,9 @@ msgstr ""
 "Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
 #: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "Create version %s of %s.%s"
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "Buat versi %1$s dari %2$s"
 
 #: templates/create_tracking_version.twig:16
 #, fuzzy, php-format
@@ -16418,10 +16405,9 @@ msgid "committed on %s by %s"
 msgstr "committ pada %1$s oleh %2$s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "Ditulis pada %1$s oleh %2$s"
+msgstr "Ditulis pada %s oleh %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -17258,10 +17244,9 @@ msgid "Quick steps to set up advanced features:"
 msgstr "Langkah cepat untuk menyiapkan fitur lanjut:"
 
 #: templates/relation/diagnostic_info.twig:5
-#, fuzzy, php-format
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Membuat tabel yang dibutuhkan dengan <code>contoh/create_tables.sql</code>."
+msgstr "Membuat tabel yang dibutuhkan dengan <code>%screate_tables.sql</code>."
 
 #: templates/relation/diagnostic_info.twig:9
 #, fuzzy
@@ -17931,16 +17916,13 @@ msgid "Port:"
 msgstr "Porta"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai master dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -18098,16 +18080,13 @@ msgid "Skip next %s errors."
 msgstr "Lewati galat %s berikutnya."
 
 #: templates/server/replication/slave_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. "
-"Apakah Anda ingin <a href=\"%s\">mengonfigurasikannya</a>?"
+"Apakah Anda ingin %smengonfigurasikannya%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -19496,10 +19475,9 @@ msgid "Delete version"
 msgstr "Buat versi"
 
 #: templates/table/tracking/main.twig:103
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
+#, php-format
 msgid "Activate tracking for %s"
-msgstr "Aktifkan pelacakan untuk %s.%s"
+msgstr "Aktifkan pelacakan untuk %s"
 
 #: templates/table/tracking/main.twig:105
 msgid "Activate now"
