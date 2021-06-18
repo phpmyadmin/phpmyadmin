@@ -14,9 +14,9 @@
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.12",
     "blueimp-md5": "^2.18.0",
-    "bootstrap": "4.5.3",
-    "codemirror": "5.61.0",
-    "jquery": "3.5.1",
+    "bootstrap": "4.6.0",
+    "codemirror": "5.61.1",
+    "jquery": "3.6.0",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-fullscreen-plugin": "^1.1.5",
     "jquery-hashchange": "^2.0.0",
@@ -34,7 +34,7 @@
     "sass": "^1.32.8",
     "stickyfilljs": "2.1.0",
     "tablesorter": "^2.31.3",
-    "tracekit": "0.4.5",
+    "tracekit": "0.4.6",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
@@ -47,7 +47,7 @@
     "jest": "^26.6.3",
     "stylelint": "^13.12.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-config-standard": "^21.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0"
   },
   "resolutions": {
