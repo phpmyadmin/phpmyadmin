@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.7.3@38c452ae584467e939d55377aaf83b5a26f19dd1">
+  <file src="js/messages.php">
+    <InvalidGlobal occurrences="1">
+      <code>global $containerBuilder;</code>
+    </InvalidGlobal>
+  </file>
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -733,11 +738,8 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$analyzedSqlResults['statement']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCastGivenDocblockType occurrences="6">
+    <RedundantCastGivenDocblockType occurrences="3">
       <code>(int) $meta-&gt;length</code>
-      <code>(string) $fieldsMeta-&gt;name</code>
-      <code>(string) $fieldsMeta-&gt;name</code>
-      <code>(string) $fieldsMeta-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
@@ -2513,5 +2515,459 @@
     <MoreSpecificReturnType occurrences="1">
       <code>stdClass|null</code>
     </MoreSpecificReturnType>
+  </file>
+  <file src="setup/index.php">
+    <InvalidGlobal occurrences="1">
+      <code>global $cfg;</code>
+    </InvalidGlobal>
+  </file>
+  <file src="setup/validate.php">
+    <PossiblyNullArgument occurrences="2">
+      <code>$ids</code>
+      <code>$vals</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="test/classes/BookmarkTest.php">
+    <PossiblyFalseReference occurrences="1">
+      <code>save</code>
+    </PossiblyFalseReference>
+  </file>
+  <file src="test/classes/CacheTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testCacheHas</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Command/SetVersionCommandTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testGetGeneratedClassInvalidVersion</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Config/ConfigFileTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'stdClass'</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/classes/Config/FormTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>assertRegExp</code>
+      <code>assertRegExp</code>
+    </DeprecatedMethod>
+  </file>
+  <file src="test/classes/Config/Forms/FormListTest.php">
+    <InvalidStringClass occurrences="6">
+      <code>$class::get($form)</code>
+      <code>$class::get('Export')</code>
+      <code>$class::getAll()</code>
+      <code>$class::getFields()</code>
+      <code>$class::isValid('Export')</code>
+      <code>new $class($cf)</code>
+    </InvalidStringClass>
+  </file>
+  <file src="test/classes/ConfigTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$v</code>
+    </InvalidArgument>
+    <TypeDoesNotContainNull occurrences="1">
+      <code>$expected === null</code>
+    </TypeDoesNotContainNull>
+    <UnresolvableInclude occurrences="1">
+      <code>include $this-&gt;object-&gt;defaultSource</code>
+    </UnresolvableInclude>
+  </file>
+  <file src="test/classes/CoreTest.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$page</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="test/classes/CreateAddFieldTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testGetColumnCreationQuery</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Display/ResultsTest.php">
+    <PropertyTypeCoercion occurrences="2">
+      <code>$this-&gt;object-&gt;properties</code>
+      <code>$this-&gt;object-&gt;properties</code>
+    </PropertyTypeCoercion>
+  </file>
+  <file src="test/classes/ErrorReportTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testSanitizeUrl</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Gis/GisFactoryTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testFactory</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Gis/GisGeomTestCase.php">
+    <UndefinedMethod occurrences="2">
+      <code>testGenerateParams</code>
+      <code>testScaleRow</code>
+    </UndefinedMethod>
+  </file>
+  <file src="test/classes/Gis/GisGeometryCollectionTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <DeprecatedMethod occurrences="1">
+      <code>assertRegExp</code>
+    </DeprecatedMethod>
+    <PossiblyNullArgument occurrences="1">
+      <code>$empty</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="test/classes/Gis/GisLineStringTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Gis/GisMultiLineStringTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Gis/GisMultiPointTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Gis/GisMultiPolygonTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Gis/GisPointTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Gis/GisPolygonTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>'TCPDF'</code>
+    </ArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyFalseArgument occurrences="1">
+      <code>$this-&gt;object-&gt;getPointOnSurface($ring)</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="test/classes/GitTest.php">
+    <RedundantCast occurrences="1">
+      <code>(string) $this-&gt;testDir</code>
+    </RedundantCast>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $this-&gt;cwd</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="test/classes/ImportTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testSkipByteOrderMarksFromContents</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="4">
+      <code>$cell</code>
+      <code>$name</code>
+      <code>$size</code>
+      <code>$size</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="test/classes/InsertEditTest.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>0</code>
+    </InvalidScalarArgument>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="test/classes/IpAllowDenyTest.php">
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$GLOBALS['cfg']['TrustedProxies']</code>
+    </PossiblyNullArrayOffset>
+  </file>
+  <file src="test/classes/LanguageTest.php">
+    <PossiblyFalseReference occurrences="3">
+      <code>activate</code>
+      <code>activate</code>
+      <code>getEnglishName</code>
+    </PossiblyFalseReference>
+  </file>
+  <file src="test/classes/ListDatabaseTest.php">
+    <InvalidArgument occurrences="1">
+      <code>'single_db'</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/classes/MessageTest.php">
+    <InvalidArgument occurrences="5">
+      <code>'%s string'</code>
+      <code>'a'</code>
+      <code>'test string'</code>
+      <code>'test string'</code>
+      <code>'test string'</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;object</code>
+    </PossiblyInvalidArgument>
+    <PossiblyUndefinedMethod occurrences="2">
+      <code>expects</code>
+      <code>getHtmlForControlButtons</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
+    <InvalidArgument occurrences="3">
+      <code>401</code>
+      <code>401</code>
+      <code>401</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/classes/Plugins/Export/ExportOdsTest.php">
+    <InternalMethod occurrences="1">
+      <code>setOutputCallback</code>
+    </InternalMethod>
+  </file>
+  <file src="test/classes/Plugins/Export/ExportOdtTest.php">
+    <InternalMethod occurrences="1">
+      <code>setOutputCallback</code>
+    </InternalMethod>
+  </file>
+  <file src="test/classes/Plugins/Import/ImportLdiTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertTrue</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php">
+    <InvalidArgument occurrences="1">
+      <code>'subGroupHeader123'</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyGroupTest.php">
+    <InvalidArgument occurrences="3">
+      <code>'2'</code>
+      <code>'test'</code>
+      <code>2</code>
+    </InvalidArgument>
+    <PossiblyUndefinedMethod occurrences="6">
+      <code>addProperty</code>
+      <code>addProperty</code>
+      <code>getGroup</code>
+      <code>getNrOfProperties</code>
+      <code>getProperties</code>
+      <code>removeProperty</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyItemTest.php">
+    <PossiblyUndefinedMethod occurrences="7">
+      <code>getForce</code>
+      <code>getName</code>
+      <code>getPropertyType</code>
+      <code>getText</code>
+      <code>setForce</code>
+      <code>setName</code>
+      <code>setText</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Properties/Options/OptionsPropertyOneItemTest.php">
+    <PossiblyUndefinedMethod occurrences="10">
+      <code>getDoc</code>
+      <code>getForce</code>
+      <code>getLen</code>
+      <code>getSize</code>
+      <code>getValues</code>
+      <code>setDoc</code>
+      <code>setForce</code>
+      <code>setLen</code>
+      <code>setSize</code>
+      <code>setValues</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Properties/Plugins/ExportPluginPropertiesTest.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$object</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="test/classes/Properties/PropertyItemTest.php">
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>getGroup</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/RelationCleanupTest.php">
+    <PossiblyUndefinedMethod occurrences="8">
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/StorageEngineTest.php">
+    <NoInterfaceProperties occurrences="3">
+      <code>$this-&gt;object-&gt;support</code>
+      <code>$this-&gt;object-&gt;support</code>
+      <code>$this-&gt;object-&gt;support</code>
+    </NoInterfaceProperties>
+    <PossiblyUndefinedMethod occurrences="18">
+      <code>getArray</code>
+      <code>getComment</code>
+      <code>getInfoPages</code>
+      <code>getMysqlHelpPage</code>
+      <code>getPage</code>
+      <code>getStorageEngines</code>
+      <code>getSupportInformationMessage</code>
+      <code>getSupportInformationMessage</code>
+      <code>getSupportInformationMessage</code>
+      <code>getSupportInformationMessage</code>
+      <code>getTitle</code>
+      <code>getVariables</code>
+      <code>getVariablesLikePattern</code>
+      <code>isValid</code>
+      <code>isValid</code>
+      <code>isValid</code>
+      <code>isValid</code>
+      <code>resolveTypeSize</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Stubs/DbiDummy.php">
+    <InvalidDocblock occurrences="2">
+      <code>private $dummyQueries = [];</code>
+      <code>private $filoQueries = [];</code>
+    </InvalidDocblock>
+    <MissingPropertyType occurrences="2">
+      <code>$dummyQueries</code>
+      <code>$filoQueries</code>
+    </MissingPropertyType>
+  </file>
+  <file src="test/classes/Stubs/Response.php">
+    <RedundantCast occurrences="1">
+      <code>(bool) $isAjax</code>
+    </RedundantCast>
+  </file>
+  <file src="test/classes/SystemDatabaseTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$pma_transformation_data</code>
+    </InvalidArgument>
+  </file>
+  <file src="test/classes/TableTest.php">
+    <InvalidScalarArgument occurrences="7">
+      <code>$default_value</code>
+      <code>$default_value</code>
+      <code>$default_value</code>
+      <code>$default_value</code>
+      <code>$default_value</code>
+      <code>$default_value</code>
+      <code>$default_value</code>
+    </InvalidScalarArgument>
+    <NullArgument occurrences="4">
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="test/classes/TrackingTest.php">
+    <InvalidArgument occurrences="5">
+      <code>$filter_ts_from</code>
+      <code>$filter_ts_to</code>
+      <code>$selection_both</code>
+      <code>$selection_data</code>
+      <code>$selection_schema</code>
+    </InvalidArgument>
+    <InvalidScalarArgument occurrences="2">
+      <code>$filter_ts_from</code>
+      <code>$filter_ts_to</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="test/classes/UserPreferencesTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>assertTrue</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="test/classes/UtilTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testGetScriptNameForOption</code>
+    </PossiblyInvalidArgument>
+    <RedundantCastGivenDocblockType occurrences="1"/>
+  </file>
+  <file src="test/classes/Utils/ForeignKeyTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testHandleDisableCheckInit</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Utils/HttpRequestTest.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>'?'</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="test/classes/VersionInformationTest.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/selenium/ChangePasswordTest.php">
+    <InternalMethod occurrences="3">
+      <code>toString</code>
+      <code>toString</code>
+      <code>toString</code>
+    </InternalMethod>
+  </file>
+  <file src="test/selenium/CreateRemoveUserTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$ele</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/selenium/ServerSettingsTest.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$ele</code>
+      <code>$ele</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/selenium/Table/BrowseTest.php">
+    <ArgumentTypeCoercion occurrences="4">
+      <code>$ele</code>
+      <code>$ele</code>
+      <code>$elem</code>
+      <code>$element</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/selenium/Table/CreateTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$ele</code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="test/selenium/TestBase.php">
+    <InternalMethod occurrences="1">
+      <code>getName</code>
+    </InternalMethod>
+    <PossiblyFalseOperand occurrences="5">
+      <code>getenv('GITHUB_ACTION')</code>
+      <code>getenv('TESTSUITE_BROWSERSTACK_KEY')</code>
+      <code>getenv('TESTSUITE_BROWSERSTACK_USER')</code>
+      <code>getenv('TESTSUITE_SELENIUM_HOST')</code>
+      <code>getenv('TESTSUITE_SELENIUM_PORT')</code>
+    </PossiblyFalseOperand>
+  </file>
+  <file src="test/selenium/TrackingTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$ele</code>
+    </ArgumentTypeCoercion>
   </file>
 </files>

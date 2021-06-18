@@ -92,6 +92,7 @@
         "phpstan/phpstan-webmozart-assert": "^0.12.12",
         "phpunit/phpunit": "^8.5 || ^9.5",
         "pragmarx/google2fa-qrcode": "^2.1",
+        "psalm/plugin-phpunit": "^0.16.0",
         "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",
