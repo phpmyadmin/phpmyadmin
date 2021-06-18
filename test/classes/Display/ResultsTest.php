@@ -1621,78 +1621,94 @@ class ResultsTest extends AbstractTestCase
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
 
         $template = new Template();
-        $tableHeadersForColumns = $template->render('display/results/sorted_header', [
-            'column_name' => 'id',
-            'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
-                . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
-                . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
-                . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
-                . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en&discard_remembered_sort=1">' . "\n"
-                . '<input type="hidden" name="url-add-order" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
-            'comments' => '',
-            'is_browse_pointer_enabled' => true,
-            'is_browse_marker_enabled' => true,
-            'is_column_hidden' => false,
-            'is_column_numeric' => true,
+
+        $tableHeadersForColumns = $template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => true,
+            'columns' => [
+                [
+                    'column_name' => 'id',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => true,
+                ],
+                [
+                    'column_name' => 'name',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+                [
+                    'column_name' => 'datetimefield',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+            ],
         ]);
-        $tableHeadersForColumns .= $template->render('display/results/sorted_header', [
-            'column_name' => 'name',
-            'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
-                . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
-                . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
-                . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
-                . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en&discard_remembered_sort=1">' . "\n"
-                . '<input type="hidden" name="url-add-order" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
-            'comments' => '',
-            'is_browse_pointer_enabled' => true,
-            'is_browse_marker_enabled' => true,
-            'is_column_hidden' => false,
-            'is_column_numeric' => false,
-        ]);
-        $tableHeadersForColumns .= $template->render('display/results/sorted_header', [
-            'column_name' => 'datetimefield',
-            'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60datetimefield%60+DESC'
-                . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
-                . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60datetimefield%60+DESC'
-                . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
-                . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
-                . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
-                . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en&discard_remembered_sort=1">' . "\n"
-                . '<input type="hidden" name="url-add-order" value="index.php?route=/sql&db=test_db&table=test_table'
-                . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60datetimefield%60+DESC'
-                . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
-                . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
-            'comments' => '',
-            'is_browse_pointer_enabled' => true,
-            'is_browse_marker_enabled' => true,
-            'is_column_hidden' => false,
-            'is_column_numeric' => false,
-        ]);
+
         $tableTemplate = $template->render('display/results/table', [
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),

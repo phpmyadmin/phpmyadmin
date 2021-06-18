@@ -1031,8 +1031,6 @@ class Results
         $isLimitedDisplay,
         $unsortedSqlQuery
     ) {
-        $html = '';
-
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
         $sqlMd5 = md5($this->properties['sql_query']);
@@ -1056,6 +1054,8 @@ class Results
 
         // optimize: avoid calling a method on each iteration
         $numberOfColumns = $this->properties['fields_cnt'];
+
+        $columns = [];
 
         for ($j = 0; $j < $numberOfColumns; $j++) {
             // PHP 7.4 fix for accessing array offset on bool
@@ -1088,7 +1088,7 @@ class Results
                     $colVisibCurrent
                 );
 
-                $html .= $this->template->render('display/results/sorted_header', $sortedHeaderData);
+                $columns[] = $sortedHeaderData;
 
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1097,7 +1097,7 @@ class Results
                     . '">' . "\n" . $orderLink . $comments . '    </th>' . "\n";
             } else {
                 // Results can't be sorted
-                $html .= $this->getDraggableClassForNonSortableColumns(
+                $columns[] = $this->getDraggableClassForNonSortableColumns(
                     $colVisib,
                     $colVisibCurrent,
                     $conditionField,
@@ -1117,7 +1117,10 @@ class Results
             $this->properties['display_params'] = $displayParams;
         }
 
-        return $html;
+        return $this->template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => $displayParts['sort_lnk'] == '1' && ! $isLimitedDisplay,
+            'columns' => $columns,
+        ]);
     }
 
     /**
@@ -1728,8 +1731,6 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @see    getOrderLinkAndSortedHeaderHtml()
-     *
      * @param array         $sortExpression            sort expression
      * @param array         $sortExpressionNoDirection sort expression without direction
      * @param string        $sortTable                 The name of the table to which
@@ -2127,9 +2128,7 @@ class Results
      * @param FieldMetadata $fieldsMeta      set of field properties
      * @param string        $comments        the comment for the column
      *
-     * @return string  html content
-     *
-     * @access private
+     * @return array
      */
     private function getDraggableClassForNonSortableColumns(
         $colVisib,
@@ -2138,29 +2137,16 @@ class Results
         FieldMetadata $fieldsMeta,
         $comments
     ) {
-        $draggableHtml = '<th';
         $thClass = [];
-        $thClass[] = 'draggable';
-        $thClass[] = 'sticky';
         $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-        if ($colVisib && ! $colVisibElement) {
-            $thClass[] = 'hide';
-        }
 
-        if ($conditionField) {
-            $thClass[] = 'condition';
-        }
-
-        $draggableHtml .= ' class="' . implode(' ', $thClass) . '"';
-
-        $draggableHtml .= ' data-column="'
-            . htmlspecialchars((string) $fieldsMeta->name) . '">';
-
-        $draggableHtml .= htmlspecialchars((string) $fieldsMeta->name);
-
-        $draggableHtml .= "\n" . $comments . '</th>';
-
-        return $draggableHtml;
+        return [
+            'column_name' => $fieldsMeta->name,
+            'comments' => $comments,
+            'is_column_hidden' => $colVisib && ! $colVisibElement,
+            'is_column_numeric' => ! empty($thClass),
+            'has_condition' => $conditionField,
+        ];
     }
 
     /**
