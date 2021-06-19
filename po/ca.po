@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-04-20 15:11+0000\n"
-"Last-Translator: Joan Montané <joan@montane.cat>\n"
+"PO-Revision-Date: 2021-06-20 09:34+0000\n"
+"Last-Translator: Xean <xeanhort007@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.7\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -979,8 +979,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Realment voleu esborrar la (es)  partició (ons)  seleccionada (es).  Això "
-"també esborrarà les dades de la (es)  partició (ons)  seleccionada (es)!"
+"Realment voleu esborrar la(es) partició(ons) seleccionada(es)? Això també "
+"esborrarà les dades de la(es) partició(ons) seleccionada(es)!"
 
 #: js/messages.php:84
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
@@ -1029,8 +1029,8 @@ msgstr ""
 "entre col·lacions. Si els conjunts de caràcters són incompatibles, hi pot "
 "haver pèrdua de dades i aquesta pèrdua <b>NO</b> es pot recuperar simplement "
 "en desfer les col·lacions de les columnes. <b>Per convertir les dades "
-"existents, es recomana utilitzar la característica d'edició de les columnes  "
-"(l'enllaç \"Canvia\") a la pàgina de l'estructura de la taula.</b>"
+"existents, es recomana utilitzar la característica d'edició de les columnes ("
+"l'enllaç \"Canvia\") a la pàgina de l'estructura de la taula.</b>"
 
 #: js/messages.php:108
 msgid ""
@@ -1125,7 +1125,7 @@ msgstr "Valors Y"
 
 #: js/messages.php:142
 msgid "Please enter the SQL query first."
-msgstr "Introduïu primer la consulta SQL."
+msgstr "Si us plau, introduïu la consulta SQL primer."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2017,7 +2017,7 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"No hi ha columnes a la llista central. Assegura't que la llista central de  "
+"No hi ha columnes a la llista central. Assegura't que la llista central de "
 "columnes per a la base de dades %s tingui columnes que no estiguin a la "
 "taula actual."
 
@@ -2387,10 +2387,8 @@ msgid "%d object(s) created."
 msgstr "%d objecte(s) creat(s)."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nom de les columnes"
+msgstr "Nom de la columna"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -3580,12 +3578,9 @@ msgid "accent-sensitive"
 msgstr "sensible a accents"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "sensible a accents"
+msgstr "sensible al kana"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3600,7 +3595,7 @@ msgstr "binari"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "sense emplenament"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -6983,18 +6978,14 @@ msgstr ""
 "instal·lació!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"L'emmagatzematge de configuració no està preparat per a la funcionalitat de "
-"la llista central de columnes."
+"La configuració d'emmagatzematge de phpMyAdmin no està configurat per "
+"\"Funcions de visualització\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
 msgid "Error: relationship already exists."
@@ -7226,6 +7217,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Si us plau, desactiveu mysql.allow_local_infile a la configuració de PHP o "
+"instal·leu l'extensió mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:178
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10104,18 +10097,6 @@ msgstr ""
 "utilitzeu la segona opció, heu d'establir la primera opció a la cadena buida."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10132,13 +10113,13 @@ msgstr ""
 "a través de l'entrada estàndard. Retorna la sortida estàndard de "
 "l'aplicació. El predeterminat és Tidy, per imprimir de forma elegant el codi "
 "HTML. Per motius de seguretat, heu d'editar manualment el fitxer libraries/"
-"classes/Plugins/Transformations/Output/Text_Plain_External.php i llistar les "
-"eines que vulgueu que estiguin disponibles. La primera opció és, llavors, el "
-"número del programa que voleu utilitzar i la segona opció són els paràmetres "
-"per al programa. La tercera opció, si s'estableix a 1, convertirà la sortida "
-"mitjançant htmlspecialchars() (per defecte és 1). La quarta opció, si "
-"s'estableix a 1, evitarà la divisió estructurada en línies i farà que la "
-"sortida aparegui tota en una sola línia (per defecte 1)."
+"classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php i "
+"llistar les eines que vulgueu que estiguin disponibles. La primera opció és, "
+"llavors, el número del programa que voleu utilitzar. La segona opció hauria "
+"d’estar en blanc per motius històrics. La tercera opció, si s'estableix a 1, "
+"convertirà la sortida mitjançant htmlspecialchars() (per defecte és 1). La "
+"quarta opció, si s'estableix a 1, evitarà la divisió estructurada en línies "
+"i farà que la sortida aparegui tota en una sola línia (per defecte 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10147,6 +10128,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Esteu fent servir el camp d'opcions de línia de comandes de transformació "
+"externa, que ha quedat obsolet per motius de seguretat. Afegiu totes les "
+"opcions de línia de comandes directament a la definició a %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14153,7 +14137,7 @@ msgstr "cap dels anteriors"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "No s'ha proporcionat cap col·lació."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -14540,10 +14524,8 @@ msgstr "Nom de taula incorrecte"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Hi ha massa unions sense índexs."
+msgstr "Hi ha un problema amb la vostra sol·licitud."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14923,10 +14905,9 @@ msgid "See table structure"
 msgstr "Mostra l'estructura de taula"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Selecciona-ho tot"
+msgstr "Selecciona \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
