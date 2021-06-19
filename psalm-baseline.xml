@@ -113,9 +113,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
-    <ForbiddenCode occurrences="1">
-      <code>shell_exec('git ' . $command)</code>
-    </ForbiddenCode>
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$defaultName</code>
     </NonInvariantDocblockPropertyType>
@@ -2179,11 +2176,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $privs</code>
     </RedundantCastGivenDocblockType>
-  </file>
-  <file src="libraries/classes/Server/SysInfo/SunOs.php">
-    <ForbiddenCode occurrences="1">
-      <code>shell_exec('kstat -p d ' . $key)</code>
-    </ForbiddenCode>
   </file>
   <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
     <PossiblyNullReference occurrences="1">

@@ -113,6 +113,7 @@ PHP;
 
     protected function gitCli(string $command): ?string
     {
+        /** @psalm-suppress ForbiddenCode */
         return shell_exec('git ' . $command);
     }
 
