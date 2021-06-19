@@ -129,6 +129,7 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/sql-parser/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/tests/ \
+        vendor/phpmyadmin/shapefile/codecov.yml \
         vendor/phpmyadmin/shapefile/phpunit.xml \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
@@ -144,10 +145,11 @@ cleanup_composer_vendors() {
         vendor/symfony/cache/Tests/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
+        vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
-        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
@@ -186,6 +188,7 @@ cleanup_composer_vendors() {
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/google/recaptcha/app.yaml \
         vendor/google/recaptcha/.travis.yml \
         vendor/google/recaptcha/phpunit.xml.dist \
         vendor/google/recaptcha/.github/ \

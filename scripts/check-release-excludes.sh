@@ -54,6 +54,11 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
+        js/config/*)
+            if [ "${extension}" != "js" ];then
+                foundFileExt
+            fi
+        ;;
         js/dist/*)
             if [ "${extension}" != "js" ];then
                 foundFileExt
@@ -61,7 +66,7 @@ validateExtension() {
         ;;
         js/src/*)
             if [ \
-                "${extension}" != "js" \
+                "${extension}" != "js" -a "${extension}" != "mjs" \
             ]; then
                 foundFileExt
             fi
@@ -159,6 +164,8 @@ validateExtension() {
         LICENSE)
         ;;
         RELEASE-DATE-[1-9].[0-9].[0-9])
+        ;;
+        RELEASE-DATE-[1-9].[0-9].[0-9]-dev)
         ;;
         CONTRIBUTING.md)
         ;;
