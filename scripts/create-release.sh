@@ -130,10 +130,12 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/motranslator/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpmyadmin/shapefile/codecov.yml \
-        vendor/phpmyadmin/shapefile/phpunit.xml \
+        vendor/phpmyadmin/shapefile/phpunit.xml.dist \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/phpmyadmin/shapefile/phpstan-baseline.neon \
+        vendor/phpmyadmin/shapefile/phpstan.neon.dist \
         vendor/phpmyadmin/twig-i18n-extension/README.rst \
         vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
@@ -142,6 +144,7 @@ cleanup_composer_vendors() {
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
         vendor/phpseclib/phpseclib/appveyor.yml \
+        vendor/phpseclib/phpseclib/.github \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
@@ -179,10 +182,18 @@ cleanup_composer_vendors() {
         vendor/twig/twig/.editorconfig \
         vendor/twig/twig/.php_cs.dist \
         vendor/twig/twig/drupal_test.sh \
+        vendor/webmozart/assert/.editorconfig \
+        vendor/webmozart/assert/.github/ \
+        vendor/webmozart/assert/.php_cs \
+        vendor/webmozart/assert/psalm.xml \
         vendor/paragonie/constant_time_encoding/tests/ \
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/paragonie/random_compat/build-phar.sh \
+        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
+        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
+        vendor/paragonie/random_compat/psalm.xml \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
@@ -200,6 +211,7 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
