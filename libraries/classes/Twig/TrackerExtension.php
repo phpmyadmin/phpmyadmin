@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Tracker;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -19,7 +20,7 @@ class TrackerExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'get_tracker_version',
-                'PhpMyAdmin\Tracker::getVersion'
+                [Tracker::class, 'getVersion']
             ),
         ];
     }

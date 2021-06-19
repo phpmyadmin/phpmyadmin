@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Plugins;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -19,22 +20,22 @@ class PluginsExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'checkbox_check',
-                'PhpMyAdmin\Plugins::checkboxCheck',
+                [Plugins::class, 'checkboxCheck'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_choice',
-                'PhpMyAdmin\Plugins::getChoice',
+                [Plugins::class, 'getChoice'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_default_plugin',
-                'PhpMyAdmin\Plugins::getDefault',
+                [Plugins::class, 'getDefault'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'get_options',
-                'PhpMyAdmin\Plugins::getOptions',
+                [Plugins::class, 'getOptions'],
                 ['is_safe' => ['html']]
             ),
         ];
