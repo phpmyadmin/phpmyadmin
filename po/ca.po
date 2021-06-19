@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2021-06-20 09:34+0000\n"
-"Last-Translator: Xean <xeanhort007@gmail.com>\n"
+"Last-Translator: Gavin Sykes <gavin@gavinsykes.uk>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ca/>\n"
 "Language: ca\n"
@@ -9203,7 +9203,7 @@ msgstr "No es pot connectar: paràmetres incorrectes."
 #: templates/login/header.twig:5
 #, php-format
 msgid "Welcome to %s"
-msgstr "Benvingut o benvinguda a %s"
+msgstr "Benvingut/da a %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, php-format
@@ -14073,7 +14073,7 @@ msgstr "visualitza la columna"
 
 #: libraries/config.values.php:103
 msgid "Welcome"
-msgstr "Benvinguda"
+msgstr "Benvingut/da"
 
 #: libraries/config.values.php:123
 msgid "Open"
