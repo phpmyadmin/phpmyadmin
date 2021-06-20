@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-20 00:09+0000\n"
-"PO-Revision-Date: 2021-01-22 04:18+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"POT-Creation-Date: 2021-06-13 00:08+0000\n"
+"PO-Revision-Date: 2021-06-20 00:10+0000\n"
+"Last-Translator: Xean <xeanhort007@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5871,7 +5871,7 @@ msgstr "Valors Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:130
 msgid "Please enter the SQL query first."
-msgstr "Si us plau introduiu la consulta SQL primer."
+msgstr "Si us plau, introduïu la consulta SQL primer."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
 msgid "The host name is empty!"
@@ -11004,7 +11004,7 @@ msgstr "No es pot connectar: paràmetres incorrectes."
 #: templates/login/header.twig:10
 #, php-format
 msgid "Welcome to %s"
-msgstr "Benvingut o benvinguda a %s"
+msgstr "Benvingut/da a %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:114
 #, php-format
@@ -13876,7 +13876,7 @@ msgstr "visualitza la columna"
 
 #: libraries/config.values.php:153
 msgid "Welcome"
-msgstr "Benvinguda"
+msgstr "Benvingut/da"
 
 #: libraries/config.values.php:186
 msgid "Open"
