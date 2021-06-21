@@ -2950,7 +2950,9 @@ class Results
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
-            if (($meta->numeric == 1 && $meta->type !== 'string') || $meta->type === 'real') {
+            // Nullable text fields and text fields have the blob flag (issue 16896)
+            $isNumericAndNotBlob = $meta->numeric == 1 && $meta->blob == 0;
+            if (($isNumericAndNotBlob && $meta->type !== 'string') || $meta->type === 'real') {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
