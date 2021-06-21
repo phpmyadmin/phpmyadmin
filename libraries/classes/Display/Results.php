@@ -2977,7 +2977,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->getDataCellForGeometryColumns(
-                        $row[$i],
+                        $row[$i] === null ? null : (string) $row[$i],
                         $class,
                         $meta,
                         $map,
@@ -2993,7 +2993,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->getDataCellForNonNumericColumns(
-                        $row[$i],
+                        $row[$i] === null ? null : (string) $row[$i],
                         $class,
                         $meta,
                         $map,
