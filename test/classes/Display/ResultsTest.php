@@ -1096,6 +1096,7 @@ class ResultsTest extends AbstractTestCase
         $meta->numeric = true;
         $meta->primary_key = false;
         $meta->unique_key = false;
+        $meta->blob = false;
         $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
@@ -1108,6 +1109,7 @@ class ResultsTest extends AbstractTestCase
         $meta2->numeric = true;
         $meta2->primary_key = false;
         $meta2->unique_key = false;
+        $meta2->blob = false;
         $fields_meta = [
             $meta,
             $meta2,
