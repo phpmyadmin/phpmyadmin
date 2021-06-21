@@ -3036,7 +3036,7 @@ Text fields
 .. config:option:: $cfg['CharTextareaRows']
 
     :type: integer
-    :default: 2
+    :default: 7
 
     Number of columns and rows for the textareas. This value will be
     emphasized (\*2) for :term:`SQL` query
