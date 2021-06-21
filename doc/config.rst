@@ -3046,6 +3046,10 @@ Text fields
     The Char\* values are used for CHAR
     and VARCHAR editing (if configured via :config:option:`$cfg['CharEditing']`).
 
+    .. versionchanged:: 5.0.0
+
+        The default value was changed from 2 to 7.
+
 .. config:option:: $cfg['LongtextDoubleTextarea']
 
     :type: boolean
