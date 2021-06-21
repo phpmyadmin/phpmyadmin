@@ -140,9 +140,10 @@ class ServerConfigChecks
         $blowfishSecretSet
     ) {
         $serverCnt = $this->cfg->getServerCount();
+        $isCookieAuthUsed = (int) $cookieAuthUsed;
         for ($i = 1; $i <= $serverCnt; $i++) {
             $cookieAuthServer = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
-            $cookieAuthUsed |= $cookieAuthServer;
+            $isCookieAuthUsed |= (int) $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
                 $i
@@ -233,7 +234,7 @@ class ServerConfigChecks
         }
 
         return [
-            $cookieAuthUsed,
+            (bool) $isCookieAuthUsed,
             $blowfishSecret,
             $blowfishSecretSet,
         ];

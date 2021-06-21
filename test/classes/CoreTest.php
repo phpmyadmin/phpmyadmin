@@ -1133,7 +1133,8 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testOtherTypes(): void
     {
-        $var = new CoreTest();
+        $var = new class {
+        };
         $this->assertFalse(Core::isValid($var, 'class'));
     }
 
