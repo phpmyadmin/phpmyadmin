@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\UploadInterface;
 use function array_key_exists;
 use function function_exists;
 use function trim;
+use function uploadprogress_get_info;
 
 /**
  * Implementation for upload progress
