@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
@@ -66,6 +67,7 @@ class ImportCsv extends AbstractImportCsv
             $this->setAnalyze(true);
         }
 
+        /** @var OptionsPropertyMainGroup $generalOptions */
         $generalOptions = parent::setProperties();
         $this->properties->setText('CSV');
         $this->properties->setExtension('csv');
@@ -845,7 +847,11 @@ class ImportCsv extends AbstractImportCsv
                 $sqlTemplate .= ' (';
                 $fields = [];
                 $tmp = preg_split('/,( ?)/', $csvColumns);
-                foreach ($tmp as $key => $val) {
+                if ($tmp === false) {
+                    $tmp = [];
+                }
+
+                foreach ($tmp as $val) {
                     if (count($fields) > 0) {
                         $sqlTemplate .= ', ';
                     }

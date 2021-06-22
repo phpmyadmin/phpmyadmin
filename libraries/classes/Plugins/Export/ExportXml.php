@@ -55,7 +55,7 @@ class ExportXml extends ExportPlugin
      *
      * @var array
      */
-    private $tables;
+    private $tables = [];
 
     public function __construct()
     {
@@ -287,10 +287,6 @@ class ExportXml extends ExportPlugin
             $head .= '        <pma:database name="' . htmlspecialchars($db)
                 . '" collation="' . htmlspecialchars($db_collation) . '" charset="' . htmlspecialchars($db_charset)
                 . '">' . $crlf;
-
-            if ($tables === null) {
-                $tables = [];
-            }
 
             if (count($tables) === 0) {
                 $tables[] = $table;

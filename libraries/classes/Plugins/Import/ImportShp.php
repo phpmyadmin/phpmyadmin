@@ -28,6 +28,7 @@ use function file_exists;
 use function file_put_contents;
 use function mb_strlen;
 use function mb_substr;
+use function method_exists;
 use function pathinfo;
 use function strcmp;
 use function strlen;
@@ -67,7 +68,6 @@ class ImportShp extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
-        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -238,7 +238,7 @@ class ImportShp extends ImportPlugin
         if ($num_rows != 0) {
             foreach ($shp->records as $record) {
                 $tempRow = [];
-                if ($gis_obj == null) {
+                if ($gis_obj == null || ! method_exists($gis_obj, 'getShape')) {
                     $tempRow[] = null;
                 } else {
                     $tempRow[] = "GeomFromText('"

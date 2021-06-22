@@ -670,6 +670,10 @@ class ExportSql extends ExportPlugin
             }
 
             $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+            if ($lines === false) {
+                return '--' . $GLOBALS['crlf'];
+            }
+
             $result = [];
             foreach ($lines as $line) {
                 $result[] = '-- ' . $line . $GLOBALS['crlf'];
@@ -1716,7 +1720,7 @@ class ExportSql extends ExportPlugin
 
             // Adding IF NOT EXISTS, if required.
             if (isset($GLOBALS['sql_if_not_exists'])) {
-                $createQuery = preg_replace(
+                $createQuery = (string) preg_replace(
                     '/^CREATE TABLE/',
                     'CREATE TABLE IF NOT EXISTS',
                     $createQuery

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.7.3@38c452ae584467e939d55377aaf83b5a26f19dd1">
+<files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
   <file src="js/messages.php">
     <InvalidGlobal occurrences="1">
       <code>global $containerBuilder;</code>
@@ -204,11 +204,6 @@
     <ReferenceConstraintViolation occurrences="1">
       <code>return $retval;</code>
     </ReferenceConstraintViolation>
-  </file>
-  <file src="libraries/classes/Config/ServerConfigChecks.php">
-    <InvalidOperand occurrences="1">
-      <code>$cookieAuthUsed</code>
-    </InvalidOperand>
   </file>
   <file src="libraries/classes/Config/Validator.php">
     <PossiblyInvalidArgument occurrences="2">
@@ -1336,12 +1331,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
-    <InvalidArgument occurrences="5"/>
-    <InvalidOperand occurrences="3">
-      <code>$r</code>
-      <code>$r</code>
-      <code>$r</code>
-    </InvalidOperand>
     <PossiblyInvalidOperand occurrences="1"/>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
@@ -1415,21 +1404,7 @@
       <code>OptionsPropertyMainGroup|void</code>
     </ImplementedReturnTypeMismatch>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <PossiblyNullReference occurrences="2">
-      <code>addProperty</code>
-      <code>addProperty</code>
-    </PossiblyNullReference>
-  </file>
-  <file src="libraries/classes/Plugins/Import/ImportLdi.php">
-    <PossiblyNullReference occurrences="1">
-      <code>addProperty</code>
-    </PossiblyNullReference>
-  </file>
   <file src="libraries/classes/Plugins/Import/ImportMediawiki.php">
-    <InvalidArgument occurrences="1">
-      <code>[]</code>
-    </InvalidArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$cur_temp_line</code>
     </PossiblyUndefinedVariable>
@@ -1446,18 +1421,7 @@
       <code>$xml-&gt;children('office', true)-&gt;{'body'}</code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="libraries/classes/Plugins/Import/ImportShp.php">
-    <InvalidArgument occurrences="1">
-      <code>[]</code>
-    </InvalidArgument>
-  </file>
-  <file src="libraries/classes/Plugins/Import/ImportSql.php">
-    <InvalidArgument occurrences="2"/>
-  </file>
   <file src="libraries/classes/Plugins/Import/ImportXml.php">
-    <InvalidArgument occurrences="1">
-      <code>[]</code>
-    </InvalidArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidArgument>
@@ -2476,29 +2440,9 @@
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
     </InvalidArrayOffset>
-    <InvalidOperand occurrences="15">
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-      <code>$curlStatus</code>
-    </InvalidOperand>
     <TypeDoesNotContainNull occurrences="1">
       <code>isset($http_response_header)</code>
     </TypeDoesNotContainNull>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$curlStatus</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/VersionInformation.php">
     <LessSpecificReturnStatement occurrences="1">

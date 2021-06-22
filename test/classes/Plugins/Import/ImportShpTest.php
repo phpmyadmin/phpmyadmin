@@ -107,10 +107,7 @@ class ImportShpTest extends AbstractTestCase
             'shp',
             $properties->getExtension()
         );
-        $this->assertEquals(
-            [],
-            $properties->getOptions()
-        );
+        $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()

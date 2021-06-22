@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
@@ -70,6 +71,7 @@ class ImportLdi extends AbstractImportCsv
             unset($result);
         }
 
+        /** @var OptionsPropertyMainGroup $generalOptions */
         $generalOptions = parent::setProperties();
         $this->properties->setText('CSV using LOAD DATA');
         $this->properties->setExtension('ldi');

@@ -876,16 +876,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Binary operation \"\\.\" between 'FOREIGN KEY ' and array\\|string results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -896,54 +886,14 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$createQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$doc of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$token \\(string\\) does not accept array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
-			count: 7
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
@@ -966,26 +916,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$doc of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportSql.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
@@ -1001,11 +931,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
 			message: "#^Function uploadprogress_get_info not found\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
@@ -1014,11 +939,6 @@ parameters:
 			message: "#^Used function uploadprogress_get_info not found\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getIdKey\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
 
 		-
 			message: "#^Cannot call method endDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
