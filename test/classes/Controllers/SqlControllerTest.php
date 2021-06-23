@@ -23,7 +23,7 @@ class SqlControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
     }
 
-    public function testGetSetValues(): void
+    public function testGetSetValuesError(): void
     {
         global $containerBuilder, $_POST;
 
@@ -56,7 +56,64 @@ class SqlControllerTest extends AbstractTestCase
         );
     }
 
-    public function testGetEnumValues(): void
+    public function testGetSetValuesSuccess(): void
+    {
+        global $containerBuilder, $_POST;
+
+        $this->dummyDbi->addResult(
+            'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
+            [
+                [
+                    'set',
+                    'set(\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
+                    'No',
+                    '',
+                    'NULL',
+                    '',
+                ],
+            ],
+            [
+                'Field',
+                'Type',
+                'Null',
+                'Key',
+                'Default',
+                'Extra',
+            ]
+        );
+
+        $_POST = [
+            'ajax_request' => true,
+            'db' => 'cvv',
+            'table' => 'enums',
+            'column' => 'set',
+            'curr_value' => 'b&c',
+        ];
+        $GLOBALS['db'] = $_POST['db'];
+        $GLOBALS['table'] = $_POST['table'];
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var SqlController $sqlController */
+        $sqlController = $containerBuilder->get(SqlController::class);
+        $sqlController->getSetValues();
+
+        $this->assertResponseWasSuccessfull();
+
+        $this->assertSame(
+            [
+                'select' => '<select size="4" multiple>' . "\n"
+                . '      <option value="a&amp;amp;b">a&amp;amp;b</option>' . "\n"
+                . '      <option value="b&amp;amp;c" selected>b&amp;amp;c</option>' . "\n"
+                . '      <option value="vrai&amp;amp;amp">vrai&amp;amp;amp</option>' . "\n"
+                . '      <option value=""></option>' . "\n"
+                . '  </select>' . "\n",
+            ],
+            $this->getResponseJsonResult()
+        );
+    }
+
+    public function testGetEnumValuesError(): void
     {
         global $containerBuilder, $_POST;
 
@@ -85,6 +142,64 @@ class SqlControllerTest extends AbstractTestCase
 
         $this->assertSame(
             ['message' => 'Error in processing request'],
+            $this->getResponseJsonResult()
+        );
+    }
+
+    public function testGetEnumValuesSuccess(): void
+    {
+        global $containerBuilder, $_POST;
+
+        $this->dummyDbi->addResult(
+            'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
+            [
+                [
+                    'set',
+                    'set(\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
+                    'No',
+                    '',
+                    'NULL',
+                    '',
+                ],
+            ],
+            [
+                'Field',
+                'Type',
+                'Null',
+                'Key',
+                'Default',
+                'Extra',
+            ]
+        );
+
+        $_POST = [
+            'ajax_request' => true,
+            'db' => 'cvv',
+            'table' => 'enums',
+            'column' => 'set',
+            'curr_value' => 'b&c',
+        ];
+        $GLOBALS['db'] = $_POST['db'];
+        $GLOBALS['table'] = $_POST['table'];
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var SqlController $sqlController */
+        $sqlController = $containerBuilder->get(SqlController::class);
+        $sqlController->getEnumValues();
+
+        $this->assertResponseWasSuccessfull();
+
+        $this->assertSame(
+            [
+                'dropdown' => '<select>' . "\n"
+                . '  <option value="">&nbsp;</option>' . "\n"
+                . '      <option value="a&amp;amp;b">a&amp;amp;b</option>' . "\n"
+                . '      <option value="b&amp;amp;c">b&amp;amp;c</option>' . "\n"
+                . '      <option value="vrai&amp;amp;amp">vrai&amp;amp;amp</option>' . "\n"
+                . '      <option value=""></option>' . "\n"
+                . '  </select>' . "\n",
+            ],
             $this->getResponseJsonResult()
         );
     }
