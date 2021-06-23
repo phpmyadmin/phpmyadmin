@@ -103,9 +103,9 @@ class SqlControllerTest extends AbstractTestCase
         $this->assertSame(
             [
                 'select' => '<select size="4" multiple>' . "\n"
-                . '      <option value="a&amp;amp;b">a&amp;amp;b</option>' . "\n"
-                . '      <option value="b&amp;amp;c" selected>b&amp;amp;c</option>' . "\n"
-                . '      <option value="vrai&amp;amp;amp">vrai&amp;amp;amp</option>' . "\n"
+                . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
+                . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
+                . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
                 . '      <option value=""></option>' . "\n"
                 . '  </select>' . "\n",
             ],
@@ -194,9 +194,9 @@ class SqlControllerTest extends AbstractTestCase
             [
                 'dropdown' => '<select>' . "\n"
                 . '  <option value="">&nbsp;</option>' . "\n"
-                . '      <option value="a&amp;amp;b">a&amp;amp;b</option>' . "\n"
-                . '      <option value="b&amp;amp;c">b&amp;amp;c</option>' . "\n"
-                . '      <option value="vrai&amp;amp;amp">vrai&amp;amp;amp</option>' . "\n"
+                . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
+                . '      <option value="b&amp;c">b&amp;c</option>' . "\n"
+                . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
                 . '      <option value=""></option>' . "\n"
                 . '  </select>' . "\n",
             ],
