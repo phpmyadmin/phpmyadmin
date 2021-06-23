@@ -65,7 +65,7 @@ class SqlControllerTest extends AbstractTestCase
             [
                 [
                     'set',
-                    'set(\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
+                    'set(\'<script>alert("ok")</script>\',\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
                     'No',
                     '',
                     'NULL',
@@ -102,7 +102,9 @@ class SqlControllerTest extends AbstractTestCase
 
         $this->assertSame(
             [
-                'select' => '<select size="4" multiple>' . "\n"
+                'select' => '<select size="5" multiple>' . "\n"
+                . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
+                . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
                 . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
                 . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
                 . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
@@ -155,7 +157,7 @@ class SqlControllerTest extends AbstractTestCase
             [
                 [
                     'set',
-                    'set(\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
+                    'set(\'<script>alert("ok")</script>\',\'a&b\',\'b&c\',\'vrai&amp\',\'\')',
                     'No',
                     '',
                     'NULL',
@@ -194,6 +196,8 @@ class SqlControllerTest extends AbstractTestCase
             [
                 'dropdown' => '<select>' . "\n"
                 . '  <option value="">&nbsp;</option>' . "\n"
+                . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
+                . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
                 . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
                 . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
                 . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
