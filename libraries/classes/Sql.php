@@ -336,9 +336,9 @@ class Sql
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array array containing the value list for the column
+     * @return array|null array containing the value list for the column, null on failure
      */
-    public function getValuesForColumn($db, $table, $column)
+    public function getValuesForColumn(string $db, string $table, string $column): ?array
     {
         $fieldInfoQuery = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
@@ -349,6 +349,10 @@ class Sql
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
+
+        if (! isset($fieldInfoResult[0])) {
+            return null;
+        }
 
         return Util::parseEnumSetValues($fieldInfoResult[0]['Type']);
     }

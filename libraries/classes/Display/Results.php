@@ -2930,8 +2930,10 @@ class Results
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
+            // Nullable text fields and text fields have the blob flag (issue 16896)
+            $isNumericAndNotBlob = $meta->isNumeric && ! $meta->isBlob;
             if (
-                ($meta->isNumeric && $meta->isNotType(FieldMetadata::TYPE_STRING))
+                ($isNumericAndNotBlob && $meta->isNotType(FieldMetadata::TYPE_STRING))
                 || $meta->isType(FieldMetadata::TYPE_REAL)
             ) {
                 // n u m e r i c
@@ -2956,7 +2958,7 @@ class Results
                 $class = str_replace('grid_edit', '', $class);
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForGeometryColumns(
-                    $row[$i],
+                    $row[$i] === null ? null : (string) $row[$i],
                     $class,
                     $meta,
                     $map,
@@ -2971,7 +2973,7 @@ class Results
                 // n o t   n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNonNumericColumns(
-                    $row[$i],
+                    $row[$i] === null ? null : (string) $row[$i],
                     $class,
                     $meta,
                     $map,

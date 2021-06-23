@@ -937,6 +937,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     };
                     g.lastXHR = $.post('index.php?route=/sql/get-enum-values', postParams, function (data) {
                         g.lastXHR = null;
+                        if (typeof data === 'object' && data.success === false) {
+                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            return;
+                        }
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
@@ -975,6 +979,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                     g.lastXHR = $.post('index.php?route=/sql/get-set-values', postParams, function (data) {
                         g.lastXHR = null;
+                        if (typeof data === 'object' && data.success === false) {
+                            Functions.ajaxShowMessage(data.error, undefined, 'error');
+                            return;
+                        }
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
                         $td.data('original_data', $(data.select).val().join());

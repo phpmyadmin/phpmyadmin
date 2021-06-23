@@ -2516,7 +2516,7 @@ $cfg['CharTextareaCols'] = 40;
  *
  * @global integer $cfg['CharTextareaRows']
  */
-$cfg['CharTextareaRows'] = 2;
+$cfg['CharTextareaRows'] = 7;
 
 /**
  * Max field data length in browse mode for all non-numeric fields

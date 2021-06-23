@@ -155,6 +155,24 @@ abstract class AbstractTestCase extends TestCase
         return $response->getJSONResult();
     }
 
+    protected function assertResponseWasNotSuccessfull(): void
+    {
+        global $containerBuilder;
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
+    }
+
+    protected function assertResponseWasSuccessfull(): void
+    {
+        global $containerBuilder;
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
+    }
+
     protected function setGlobalDbi(): void
     {
         global $dbi;

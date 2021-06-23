@@ -1078,12 +1078,14 @@ class ResultsTest extends AbstractTestCase
         $meta->orgtable = 'table';
         $meta->name = '1';
         $meta->orgname = '1';
+        $meta->blob = false;
         $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
         $meta2->orgtable = 'table';
         $meta2->name = '2';
         $meta2->orgname = '2';
+        $meta2->blob = false;
         $fields_meta = [
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
