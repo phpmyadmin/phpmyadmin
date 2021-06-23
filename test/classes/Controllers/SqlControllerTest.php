@@ -195,7 +195,7 @@ class SqlControllerTest extends AbstractTestCase
                 'dropdown' => '<select>' . "\n"
                 . '  <option value="">&nbsp;</option>' . "\n"
                 . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
-                . '      <option value="b&amp;c">b&amp;c</option>' . "\n"
+                . '      <option value="b&amp;c" selected>b&amp;c</option>' . "\n"
                 . '      <option value="vrai&amp;amp">vrai&amp;amp</option>' . "\n"
                 . '      <option value=""></option>' . "\n"
                 . '  </select>' . "\n",

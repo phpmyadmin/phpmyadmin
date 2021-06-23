@@ -269,9 +269,12 @@ class SqlController extends AbstractController
             return;
         }
 
+        // Converts characters of $curr_value to HTML entities.
+        $convertedCurrentValue = htmlentities($curr_value, ENT_COMPAT, 'UTF-8');
+
         $dropdown = $this->template->render('sql/enum_column_dropdown', [
             'values' => $values,
-            'selected_values' => [$curr_value],
+            'selected_values' => [$convertedCurrentValue],
         ]);
 
         $this->response->addJSON('dropdown', $dropdown);
