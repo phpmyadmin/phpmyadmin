@@ -189,7 +189,7 @@ abstract class TestBase extends TestCase
 
     private function getBrowserStackCredentials(): string
     {
-        return getenv('TESTSUITE_BROWSERSTACK_USER') . ':' . getenv('TESTSUITE_BROWSERSTACK_KEY');
+        return (string) getenv('TESTSUITE_BROWSERSTACK_USER') . ':' . (string) getenv('TESTSUITE_BROWSERSTACK_KEY');
     }
 
     protected function getTestSuiteUserLogin(): string
@@ -257,8 +257,8 @@ abstract class TestBase extends TestCase
 
         if ($this->hasSeleniumConfig()) {
             return 'http://'
-            . getenv('TESTSUITE_SELENIUM_HOST') . ':'
-            . getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';
+            . (string) getenv('TESTSUITE_SELENIUM_HOST') . ':'
+            . (string) getenv('TESTSUITE_SELENIUM_PORT') . '/wd/hub';
         }
 
         return '';
@@ -310,13 +310,15 @@ abstract class TestBase extends TestCase
         $buildLocal = true;
         $buildId = 'Manual';
         $projectName = 'phpMyAdmin';
+        $buildTagEnv = getenv('BUILD_TAG');
+        $githubActionEnv = getenv('GITHUB_ACTION');
 
-        if (getenv('BUILD_TAG')) {
-            $buildId = getenv('BUILD_TAG');
+        if ($buildTagEnv) {
+            $buildId = $buildTagEnv;
             $buildLocal = false;
             $projectName = 'phpMyAdmin (Jenkins)';
-        } elseif (getenv('GITHUB_ACTION')) {
-            $buildId = 'github-' . getenv('GITHUB_ACTION');
+        } elseif ($githubActionEnv) {
+            $buildId = 'github-' . $githubActionEnv;
             $buildLocal = true;
             $projectName = 'phpMyAdmin (GitHub - Actions)';
         }
@@ -536,7 +538,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $id The element ID
      */
-    public function byId(string $id): WebDriverElement
+    public function byId(string $id): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::id($id));
     }
@@ -546,7 +548,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $selector The element css selector
      */
-    public function byCssSelector(string $selector): WebDriverElement
+    public function byCssSelector(string $selector): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::cssSelector($selector));
     }
@@ -556,7 +558,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $xpath The xpath
      */
-    public function byXPath(string $xpath): WebDriverElement
+    public function byXPath(string $xpath): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::xpath($xpath));
     }
@@ -566,7 +568,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $linkText The link text
      */
-    public function byLinkText(string $linkText): WebDriverElement
+    public function byLinkText(string $linkText): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::linkText($linkText));
     }
@@ -592,7 +594,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $partialLinkText The partial link text
      */
-    public function byPartialLinkText(string $partialLinkText): WebDriverElement
+    public function byPartialLinkText(string $partialLinkText): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::partialLinkText($partialLinkText));
     }
@@ -610,7 +612,7 @@ abstract class TestBase extends TestCase
      *
      * @param string $name The name
      */
-    public function byName(string $name): WebDriverElement
+    public function byName(string $name): RemoteWebElement
     {
         return $this->webDriver->findElement(WebDriverBy::name($name));
     }
@@ -764,10 +766,8 @@ abstract class TestBase extends TestCase
      *
      * @param string $func Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
      * @param string $arg  Selector
-     *
-     * @return WebDriverElement Element waited for
      */
-    public function waitForElement(string $func, string $arg): WebDriverElement
+    public function waitForElement(string $func, string $arg): RemoteWebElement
     {
         return $this->webDriver->wait(30, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))
@@ -781,7 +781,7 @@ abstract class TestBase extends TestCase
      * @param string $arg     Selector
      * @param int    $timeout Timeout in seconds
      */
-    public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): WebDriverElement
+    public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): RemoteWebElement
     {
         return $this->webDriver->wait($timeout, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg))

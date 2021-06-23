@@ -2858,52 +2858,9 @@
       <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="test/selenium/ChangePasswordTest.php">
-    <InternalMethod occurrences="3">
-      <code>toString</code>
-      <code>toString</code>
-      <code>toString</code>
-    </InternalMethod>
-  </file>
-  <file src="test/selenium/CreateRemoveUserTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$ele</code>
-    </ArgumentTypeCoercion>
-  </file>
-  <file src="test/selenium/ServerSettingsTest.php">
-    <ArgumentTypeCoercion occurrences="2">
-      <code>$ele</code>
-      <code>$ele</code>
-    </ArgumentTypeCoercion>
-  </file>
-  <file src="test/selenium/Table/BrowseTest.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>$ele</code>
-      <code>$ele</code>
-      <code>$elem</code>
-      <code>$element</code>
-    </ArgumentTypeCoercion>
-  </file>
-  <file src="test/selenium/Table/CreateTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$ele</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="test/selenium/TestBase.php">
     <InternalMethod occurrences="1">
       <code>getName</code>
     </InternalMethod>
-    <PossiblyFalseOperand occurrences="5">
-      <code>getenv('GITHUB_ACTION')</code>
-      <code>getenv('TESTSUITE_BROWSERSTACK_KEY')</code>
-      <code>getenv('TESTSUITE_BROWSERSTACK_USER')</code>
-      <code>getenv('TESTSUITE_SELENIUM_HOST')</code>
-      <code>getenv('TESTSUITE_SELENIUM_PORT')</code>
-    </PossiblyFalseOperand>
-  </file>
-  <file src="test/selenium/TrackingTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$ele</code>
-    </ArgumentTypeCoercion>
   </file>
 </files>

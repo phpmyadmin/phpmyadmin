@@ -52,21 +52,21 @@ class ChangePasswordTest extends TestBase
             $ele = $this->waitForElement('name', 'pma_pw');
             $this->assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->toString());
+            array_push($this->verificationErrors, $e->getMessage());
         }
 
         try {
             $ele = $this->waitForElement('name', 'pma_pw2');
             $this->assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->toString());
+            array_push($this->verificationErrors, $e->getMessage());
         }
 
         try {
             $ele = $this->waitForElement('name', 'generated_pw');
             $this->assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
-            array_push($this->verificationErrors, $e->toString());
+            array_push($this->verificationErrors, $e->getMessage());
         }
 
         $this->byId('button_generate_password')->click();

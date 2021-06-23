@@ -1915,28 +1915,3 @@ parameters:
 			count: 1
 			path: test/classes/TrackingTest.php
 
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/CreateRemoveUserTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 2
-			path: test/selenium/ServerSettingsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 4
-			path: test/selenium/Table/BrowseTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/Table/CreateTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/TrackingTest.php
-

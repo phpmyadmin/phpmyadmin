@@ -9,6 +9,7 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
@@ -176,6 +177,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testAuthError(): void
     {
+        $_REQUEST = [];
+        Response::getInstance()->setAjax(false);
+
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
