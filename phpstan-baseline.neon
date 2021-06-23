@@ -1271,6 +1271,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
+			message: "#^Used function uploadprogress_get_info not found\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getIdKey\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
