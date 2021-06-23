@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #16977 Fix encoding of enum and set values on edit value
 - issue        Fix set value as selected when it has special chars on edit value enum
 - issue #16896 Fix distinct URLs broken on nullable text fields
+- issue        Fixed two possible PHP errors using INT data
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
