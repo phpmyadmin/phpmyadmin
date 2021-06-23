@@ -6143,6 +6143,7 @@
     getRange: function(from, to, lineSep) {
       var lines = getBetween(this, clipPos(this, from), clipPos(this, to));
       if (lineSep === false) { return lines }
+      if (lineSep === '') { return lines.join('') }
       return lines.join(lineSep || this.lineSeparator())
     },
 
@@ -9806,7 +9807,7 @@
 
   addLegacyProps(CodeMirror);
 
-  CodeMirror.version = "5.61.1";
+  CodeMirror.version = "5.62.0";
 
   return CodeMirror;
 
