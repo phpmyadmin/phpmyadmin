@@ -48,9 +48,9 @@ cp ./node_modules/js-cookie/src/js.cookie.js ./js/vendor/js.cookie.js
 echo 'Updating bootstrap'
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js ./js/vendor/bootstrap/bootstrap.bundle.min.js
 cp ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map ./js/vendor/bootstrap/bootstrap.bundle.min.js.map
-echo 'Updating zxcvbn'
-cp ./node_modules/zxcvbn/dist/zxcvbn.js ./js/vendor/zxcvbn.js
-cp ./node_modules/zxcvbn/dist/zxcvbn.js.map ./js/vendor/zxcvbn.js.map
+echo 'Updating zxcvbn-ts'
+cp ./node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js ./js/vendor/zxcvbn-ts.js
+cp ./node_modules/@zxcvbn-ts/core/dist/zxcvbn-ts.js.map ./js/vendor/zxcvbn-ts.js.map
 echo 'Updating tracekit'
 cp ./node_modules/tracekit/tracekit.js ./js/vendor/tracekit.js
 echo 'Updating u2f-api-polyfill'

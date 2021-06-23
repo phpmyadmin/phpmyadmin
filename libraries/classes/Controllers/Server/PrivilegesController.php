@@ -65,7 +65,7 @@ class PrivilegesController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $relationCleanup = new RelationCleanup($this->dbi, $this->relation);
         $serverPrivileges = new Privileges(
