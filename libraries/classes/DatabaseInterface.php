@@ -1209,8 +1209,7 @@ class DatabaseInterface implements DbalInterface
      *                               starting at 0, with 0 being default
      * @param int        $link       link type
      *
-     * @return mixed value of first field in first row from result
-     *               or false if not found
+     * @return mixed|false value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
@@ -2182,7 +2181,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return int|bool
+     * @return int|false
      */
     public function insertId($link = self::CONNECT_USER)
     {
@@ -2316,11 +2315,11 @@ class DatabaseInterface implements DbalInterface
     public function isAmazonRds(): bool
     {
         if (SessionCache::has('is_amazon_rds')) {
-            return SessionCache::get('is_amazon_rds');
+            return (bool) SessionCache::get('is_amazon_rds');
         }
 
         $sql = 'SELECT @@basedir';
-        $result = $this->fetchValue($sql);
+        $result = (string) $this->fetchValue($sql);
         $rds = (substr($result, 0, 10) === '/rdsdbbin/');
         SessionCache::set('is_amazon_rds', $rds);
 
@@ -2381,11 +2380,11 @@ class DatabaseInterface implements DbalInterface
                 . ' WHERE SCHEMA_NAME = \'' . $this->escapeString($db)
                 . '\' LIMIT 1';
 
-            return $this->fetchValue($sql);
+            return (string) $this->fetchValue($sql);
         }
 
         $this->selectDb($db);
-        $return = $this->fetchValue('SELECT @@collation_database');
+        $return = (string) $this->fetchValue('SELECT @@collation_database');
         if ($db !== $GLOBALS['db']) {
             $this->selectDb($GLOBALS['db']);
         }
@@ -2398,7 +2397,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getServerCollation(): string
     {
-        return $this->fetchValue('SELECT @@collation_server');
+        return (string) $this->fetchValue('SELECT @@collation_server');
     }
 
     /**

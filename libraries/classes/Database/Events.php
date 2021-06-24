@@ -495,7 +495,7 @@ class Events
 
     public function getEventSchedulerStatus(): bool
     {
-        $state = $this->dbi->fetchValue(
+        $state = (string) $this->dbi->fetchValue(
             'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
             0,
             1

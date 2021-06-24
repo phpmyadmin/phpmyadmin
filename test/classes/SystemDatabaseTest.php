@@ -96,7 +96,6 @@ class SystemDatabaseTest extends AbstractTestCase
     public function testPMAGetNewTransformationDataSql(): void
     {
         $db = 'PMA_db';
-        $pma_transformation_data = [];
         $column_map = [
             [
                 'table_name' => 'table_name',
@@ -106,7 +105,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $view_name = 'view_name';
 
         $ret = $this->sysDb->getNewTransformationDataSql(
-            $pma_transformation_data,
+            (object) [],
             $column_map,
             $view_name,
             $db

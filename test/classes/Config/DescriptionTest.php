@@ -87,6 +87,7 @@ class DescriptionTest extends AbstractTestCase
 
         $cfg = [];
         include ROOT_PATH . 'libraries/config.default.php';
+        // @phpstan-ignore-next-line
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
             if ($key == 'Servers') {

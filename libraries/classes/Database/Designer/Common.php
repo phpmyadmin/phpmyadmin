@@ -483,11 +483,9 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['pdfwork']) {
-            return $this->relation->createPage(
-                $pageName,
-                $cfgRelation,
-                $db
-            );
+            $page = $this->relation->createPage($pageName, $cfgRelation, $db);
+
+            return $page !== false ? $page : null;
         }
 
         return null;

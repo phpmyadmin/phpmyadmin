@@ -833,7 +833,7 @@ class Export
                               WHERE table_schema = "' . $this->dbi->escapeString($db) . '"
                               AND table_name = "' . $this->dbi->escapeString($table) . '"';
 
-                        $size = $this->dbi->fetchValue($query);
+                        $size = (int) $this->dbi->fetchValue($query);
                         //Converting the size to MB
                         $size /= 1024 / 1024;
                         if ($size > $tableSize) {

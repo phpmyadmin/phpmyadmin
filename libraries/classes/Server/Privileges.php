@@ -1600,17 +1600,15 @@ class Privileges
 
     /**
      * Returns number of defined user groups
-     *
-     * @return int
      */
-    public function getUserGroupCount()
+    public function getUserGroupCount(): int
     {
         $cfgRelation = $this->relation->getRelationsParam();
         $userGroupTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
-        return $this->dbi->fetchValue(
+        return (int) $this->dbi->fetchValue(
             $sqlQuery,
             0,
             0,
@@ -2696,11 +2694,11 @@ class Privileges
                 break;
             case 'thishost':
                 $currentUserName = $this->dbi->fetchValue('SELECT USER()');
-                $hostname = mb_substr(
-                    $currentUserName,
-                    mb_strrpos($currentUserName, '@') + 1
-                );
-                unset($currentUserName);
+                if ($currentUserName !== false) {
+                    $hostname = mb_substr($currentUserName, mb_strrpos($currentUserName, '@') + 1);
+                    unset($currentUserName);
+                }
+
                 break;
         }
 

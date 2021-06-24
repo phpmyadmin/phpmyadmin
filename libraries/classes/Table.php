@@ -1139,9 +1139,7 @@ class Table
             // Find server's SQL mode so the builder can generate correct
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode(
-                $dbi->fetchValue('SELECT @@sql_mode')
-            );
+            Context::setMode((string) $dbi->fetchValue('SELECT @@sql_mode'));
 
             // -----------------------------------------------------------------
             // Phase 1: Dropping existent element of the same name (if exists
@@ -1961,8 +1959,8 @@ class Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $table;
-        $rowsCount = $this->dbi->fetchValue($sqlQuery);
-        $maxRows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        $rowsCount = (int) $this->dbi->fetchValue($sqlQuery);
+        $maxRows = (int) $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table .

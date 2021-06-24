@@ -87,6 +87,8 @@ class GetFieldController extends AbstractController
                 __('MySQL returned an empty result set (i.e. zero rows).'),
                 $sql
             );
+
+            return;
         }
 
         /* Avoid corrupting data */

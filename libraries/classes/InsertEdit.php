@@ -1482,7 +1482,7 @@ class InsertEdit
                 unset($tmp);
 
                 $insertId = $this->dbi->insertId();
-                if ($insertId != 0) {
+                if ($insertId !== false && $insertId != 0) {
                     // insert_id is id of FIRST record inserted in one insert, so if we
                     // inserted multiple rows, we had to increment this
 
@@ -2071,9 +2071,9 @@ class InsertEdit
     /**
      * Function to determine Insert/Edit rows
      *
-     * @param string $whereClause where clause
-     * @param string $db          current database
-     * @param string $table       current table
+     * @param string|null $whereClause where clause
+     * @param string      $db          current database
+     * @param string      $table       current table
      *
      * @return array
      */

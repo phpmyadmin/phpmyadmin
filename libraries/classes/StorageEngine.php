@@ -256,8 +256,10 @@ class StorageEngine
             switch ($details['type']) {
                 case PMA_ENGINE_DETAILS_TYPE_SIZE:
                     $parsed_size = $this->resolveTypeSize($details['value']);
-                    $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
-                    unset($parsed_size);
+                    if ($parsed_size !== null) {
+                        $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
+                    }
+
                     break;
                 case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
                     $ret .= Util::formatNumber($details['value']) . ' ';
@@ -297,9 +299,9 @@ class StorageEngine
      *
      * @param int $value Value to format
      *
-     * @return array the formatted value and its unit
+     * @return array|null the formatted value and its unit
      */
-    public function resolveTypeSize($value)
+    public function resolveTypeSize($value): ?array
     {
         return Util::formatByteDown($value);
     }

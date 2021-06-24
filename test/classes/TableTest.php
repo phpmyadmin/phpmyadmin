@@ -449,7 +449,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsView(): void
     {
-        $table = new Table(null, null);
+        $table = new Table('', '');
         $this->assertFalse(
             $table->isView()
         );
@@ -479,7 +479,7 @@ class TableTest extends AbstractTestCase
         $collation = 'PMA_collation';
         $null = 'YES';
         $default_type = 'USER_DEFINED';
-        $default_value = 12;
+        $default_value = '12';
         $extra = 'AUTO_INCREMENT';
         $comment = 'PMA_comment';
         $virtuality = '';
@@ -949,7 +949,7 @@ class TableTest extends AbstractTestCase
      */
     public function testIsUpdatableView(): void
     {
-        $table = new Table(null, null);
+        $table = new Table('', '');
         $this->assertFalse(
             $table->isUpdatableView()
         );

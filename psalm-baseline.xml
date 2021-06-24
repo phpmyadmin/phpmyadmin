@@ -428,9 +428,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$where_clause ?? null</code>
-    </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="1">
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
@@ -459,12 +456,6 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>array</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
-    </NullableReturnStatement>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $fields_meta[$i]-&gt;length</code>
     </RedundantCastGivenDocblockType>
@@ -650,8 +641,7 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
-    <NullableReturnStatement occurrences="5">
-      <code>SessionCache::get('is_amazon_rds')</code>
+    <NullableReturnStatement occurrences="4">
       <code>SessionCache::get('is_createuser')</code>
       <code>SessionCache::get('is_grantuser')</code>
       <code>SessionCache::get('is_superuser')</code>
@@ -793,15 +783,9 @@
     </UndefinedConstant>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>array</code>
-    </InvalidNullableReturnType>
     <LessSpecificImplementedReturnType occurrences="1">
       <code>array</code>
     </LessSpecificImplementedReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>Util::formatByteDown($value)</code>
-    </NullableReturnStatement>
     <ParamNameMismatch occurrences="1">
       <code>$formatted_size</code>
     </ParamNameMismatch>
@@ -1068,9 +1052,6 @@
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$insertId</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
@@ -1217,20 +1198,6 @@
     </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>string</code>
-    </InvalidNullableReturnType>
-    <NullOperand occurrences="6">
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-    </NullOperand>
-    <NullableReturnStatement occurrences="1">
-      <code>$ret</code>
-    </NullableReturnStatement>
     <RedundantCast occurrences="2">
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
@@ -2021,13 +1988,9 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Relation.php">
-    <InvalidReturnStatement occurrences="2">
+    <InvalidReturnStatement occurrences="1">
       <code>$cfgRelation</code>
-      <code>$this-&gt;dbi-&gt;insertId(DatabaseInterface::CONNECT_CONTROL)</code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int</code>
-    </InvalidReturnType>
     <NullableReturnStatement occurrences="1">
       <code>$comment</code>
     </NullableReturnStatement>
@@ -2178,9 +2141,6 @@
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$insertId</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="17">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
@@ -2209,14 +2169,6 @@
     <PossiblyFalseArgument occurrences="1">
       <code>$query</code>
     </PossiblyFalseArgument>
-  </file>
-  <file src="libraries/classes/StorageEngine.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>array</code>
-    </InvalidNullableReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>Util::formatByteDown($value)</code>
-    </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
     <InvalidReturnStatement occurrences="1">
@@ -2322,14 +2274,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-  </file>
-  <file src="libraries/classes/Tracking.php">
-    <InvalidScalarArgument occurrences="4">
-      <code>$filter_ts_from</code>
-      <code>$filter_ts_from</code>
-      <code>$filter_ts_to</code>
-      <code>$filter_ts_to</code>
-    </InvalidScalarArgument>
   </file>
   <file src="libraries/classes/Transformations.php">
     <PossiblyNullArgument occurrences="1">
@@ -2463,11 +2407,6 @@
       <code>$vals</code>
     </PossiblyNullArgument>
   </file>
-  <file src="test/classes/BookmarkTest.php">
-    <PossiblyFalseReference occurrences="1">
-      <code>save</code>
-    </PossiblyFalseReference>
-  </file>
   <file src="test/classes/CacheTest.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>testCacheHas</code>
@@ -2503,9 +2442,6 @@
     <InvalidArgument occurrences="1">
       <code>$v</code>
     </InvalidArgument>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>$expected === null</code>
-    </TypeDoesNotContainNull>
     <UnresolvableInclude occurrences="1">
       <code>include $this-&gt;object-&gt;defaultSource</code>
     </UnresolvableInclude>
@@ -2549,9 +2485,6 @@
     <DeprecatedMethod occurrences="1">
       <code>assertRegExp</code>
     </DeprecatedMethod>
-    <PossiblyNullArgument occurrences="1">
-      <code>$empty</code>
-    </PossiblyNullArgument>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -2600,9 +2533,6 @@
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$object</code>
     </NonInvariantDocblockPropertyType>
-    <PossiblyFalseArgument occurrences="1">
-      <code>$this-&gt;object-&gt;getPointOnSurface($ring)</code>
-    </PossiblyFalseArgument>
   </file>
   <file src="test/classes/GitTest.php">
     <RedundantCast occurrences="1">
@@ -2616,32 +2546,11 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testSkipByteOrderMarksFromContents</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="4">
-      <code>$cell</code>
-      <code>$name</code>
-      <code>$size</code>
-      <code>$size</code>
-    </PossiblyNullArgument>
-  </file>
-  <file src="test/classes/InsertEditTest.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>0</code>
-    </InvalidScalarArgument>
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
     <PossiblyNullArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['TrustedProxies']</code>
     </PossiblyNullArrayOffset>
-  </file>
-  <file src="test/classes/LanguageTest.php">
-    <PossiblyFalseReference occurrences="3">
-      <code>activate</code>
-      <code>activate</code>
-      <code>getEnglishName</code>
-    </PossiblyFalseReference>
   </file>
   <file src="test/classes/ListDatabaseTest.php">
     <InvalidArgument occurrences="1">
@@ -2796,41 +2705,6 @@
     <RedundantCast occurrences="1">
       <code>(bool) $isAjax</code>
     </RedundantCast>
-  </file>
-  <file src="test/classes/SystemDatabaseTest.php">
-    <InvalidArgument occurrences="1">
-      <code>$pma_transformation_data</code>
-    </InvalidArgument>
-  </file>
-  <file src="test/classes/TableTest.php">
-    <InvalidScalarArgument occurrences="7">
-      <code>$default_value</code>
-      <code>$default_value</code>
-      <code>$default_value</code>
-      <code>$default_value</code>
-      <code>$default_value</code>
-      <code>$default_value</code>
-      <code>$default_value</code>
-    </InvalidScalarArgument>
-    <NullArgument occurrences="4">
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </NullArgument>
-  </file>
-  <file src="test/classes/TrackingTest.php">
-    <InvalidArgument occurrences="5">
-      <code>$filter_ts_from</code>
-      <code>$filter_ts_to</code>
-      <code>$selection_both</code>
-      <code>$selection_data</code>
-      <code>$selection_schema</code>
-    </InvalidArgument>
-    <InvalidScalarArgument occurrences="2">
-      <code>$filter_ts_from</code>
-      <code>$filter_ts_to</code>
-    </InvalidScalarArgument>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <TypeDoesNotContainType occurrences="1">

@@ -118,9 +118,9 @@ abstract class GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array  $gis_data GIS data
-     * @param int    $index    index into the parameter object
-     * @param string $empty    value for empty points
+     * @param array       $gis_data GIS data
+     * @param int         $index    index into the parameter object
+     * @param string|null $empty    value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      *

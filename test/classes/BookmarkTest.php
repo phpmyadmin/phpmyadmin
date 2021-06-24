@@ -104,6 +104,7 @@ class BookmarkTest extends AbstractTestCase
             $GLOBALS['cfg']['Server']['user'],
             $bookmarkData
         );
+        $this->assertNotFalse($bookmark);
         $this->assertFalse($bookmark->save());
     }
 }

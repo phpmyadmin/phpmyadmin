@@ -1862,7 +1862,7 @@ class Relation
      * @param array       $cfgRelation Relation configuration
      * @param string      $db          database name
      *
-     * @return int
+     * @return int|false
      */
     public function createPage(?string $newpage, array $cfgRelation, $db)
     {

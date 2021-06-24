@@ -370,13 +370,9 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testGetPointOnSurface(array $ring): void
     {
-        $this->assertEquals(
-            $this->object->isPointInsidePolygon(
-                $this->object->getPointOnSurface($ring),
-                $ring
-            ),
-            true
-        );
+        $point = $this->object->getPointOnSurface($ring);
+        $this->assertIsArray($point);
+        $this->assertTrue($this->object->isPointInsidePolygon($point, $ring));
     }
 
     /**

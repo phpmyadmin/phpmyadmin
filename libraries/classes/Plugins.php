@@ -520,7 +520,7 @@ class Plugins
         $plugin_name,
         $propertyItem
     ) {
-        $ret = null;
+        $ret = '';
         $property_class = get_class($propertyItem);
         switch ($property_class) {
             case BoolPropertyItem::class:

@@ -206,11 +206,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Cannot cast ''\\|int to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -384,11 +379,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
 
 		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
@@ -844,11 +834,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getHtmlForProperty\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
@@ -1481,11 +1466,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:createPage\\(\\) should return int but returns bool\\|int\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -1686,11 +1666,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/StorageEngine.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
 			path: libraries/classes/Table.php
@@ -1726,16 +1701,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Types.php
@@ -1766,76 +1731,6 @@ parameters:
 			path: libraries/classes/ZipExtension.php
 
 		-
-			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Empty array passed to foreach\\.$#"
-			count: 1
-			path: test/classes/Config/DescriptionTest.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|false given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$cell of method PhpMyAdmin\\\\Import\\:\\:getDecimalSize\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Import\\:\\:getColumnNumberFromName\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Parameter \\#11 \\$key of method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Cannot call method activate\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 2
-			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Cannot call method getEnglishName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Cannot call method getNativeName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/classes/LanguageTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
@@ -1854,64 +1749,4 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$transformationData of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"
-			count: 1
-			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
-			count: 2
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
-			count: 2
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Parameter \\#8 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
-			count: 7
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
-			count: 1
-			path: test/classes/ThemeTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$selection_schema of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$selection_data of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#5 \\$selection_both of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#6 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#7 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
 

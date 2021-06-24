@@ -1129,11 +1129,7 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
-        if ($expected === null) {
-            $expected = $this->object->defaultServer;
-        } else {
-            $expected = array_merge($this->object->defaultServer, $expected);
-        }
+        $expected = array_merge($this->object->defaultServer, $expected);
 
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }

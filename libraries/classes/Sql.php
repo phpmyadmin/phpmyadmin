@@ -1026,7 +1026,7 @@ class Sql
             }
 
             $insertId = $this->dbi->insertId();
-            if ($insertId != 0) {
+            if ($insertId !== false && $insertId != 0) {
                 // insert_id is id of FIRST record inserted in one insert,
                 // so if we inserted multiple rows, we had to increment this
                 $message->addText('[br]');

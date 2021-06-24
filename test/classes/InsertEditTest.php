@@ -2201,7 +2201,7 @@ class InsertEditTest extends AbstractTestCase
             [2],
             'foo',
             [],
-            0,
+            '0',
             []
         );
 

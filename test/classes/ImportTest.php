@@ -188,12 +188,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getColumnNumberFromName
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $name     column name(i.e. "A", or "BC", etc.)
+     * @param int    $expected Expected result of the function
+     * @param string $name     column name(i.e. "A", or "BC", etc.)
      *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName(int $expected, ?string $name): void
+    public function testGetColumnNumberFromName(int $expected, string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -236,12 +236,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalPrecision
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $size     Size of field
+     * @param int    $expected Expected result of the function
+     * @param string $size     Size of field
      *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision(int $expected, ?string $size): void
+    public function testGetDecimalPrecision(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -276,12 +276,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalScale
      *
-     * @param int         $expected Expected result of the function
-     * @param string|null $size     Size of field
+     * @param int    $expected Expected result of the function
+     * @param string $size     Size of field
      *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale(int $expected, ?string $size): void
+    public function testGetDecimalScale(int $expected, string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -316,12 +316,12 @@ class ImportTest extends AbstractTestCase
     /**
      * Test for getDecimalSize
      *
-     * @param array       $expected Expected result of the function
-     * @param string|null $cell     Cell content
+     * @param array  $expected Expected result of the function
+     * @param string $cell     Cell content
      *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize(array $expected, ?string $cell): void
+    public function testGetDecimalSize(array $expected, string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
