@@ -734,53 +734,11 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="libraries/classes/Engines/Bdb.php">
-    <UndefinedConstant occurrences="3">
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-    </UndefinedConstant>
-  </file>
   <file src="libraries/classes/Engines/Innodb.php">
     <LessSpecificImplementedReturnType occurrences="1">
       <code>array</code>
     </LessSpecificImplementedReturnType>
     <PossiblyNullArgument occurrences="1"/>
-    <UndefinedConstant occurrences="18">
-      <code>PMA_ENGINE_DETAILS_TYPE_BOOLEAN</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_SUPPORT_YES</code>
-    </UndefinedConstant>
-  </file>
-  <file src="libraries/classes/Engines/Memory.php">
-    <UndefinedConstant occurrences="1">
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-    </UndefinedConstant>
-  </file>
-  <file src="libraries/classes/Engines/Myisam.php">
-    <UndefinedConstant occurrences="6">
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
     <LessSpecificImplementedReturnType occurrences="1">
@@ -789,20 +747,6 @@
     <ParamNameMismatch occurrences="1">
       <code>$formatted_size</code>
     </ParamNameMismatch>
-    <UndefinedConstant occurrences="12">
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-      <code>PMA_ENGINE_DETAILS_TYPE_SIZE</code>
-    </UndefinedConstant>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
     <ArgumentTypeCoercion occurrences="1">

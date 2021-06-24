@@ -1,7 +1,4 @@
 <?php
-/**
- * Library for extracting information about the available storage engines
- */
 
 declare(strict_types=1);
 
@@ -24,7 +21,6 @@ use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 use function array_key_exists;
-use function define;
 use function explode;
 use function htmlspecialchars;
 use function mb_stripos;
@@ -32,23 +28,20 @@ use function mb_strtolower;
 use function sprintf;
 
 /**
-* defines
-*/
-define('PMA_ENGINE_SUPPORT_NO', 0);
-define('PMA_ENGINE_SUPPORT_DISABLED', 1);
-define('PMA_ENGINE_SUPPORT_YES', 2);
-define('PMA_ENGINE_SUPPORT_DEFAULT', 3);
-
-define('PMA_ENGINE_DETAILS_TYPE_PLAINTEXT', 0);
-define('PMA_ENGINE_DETAILS_TYPE_SIZE', 1);
-define('PMA_ENGINE_DETAILS_TYPE_NUMERIC', 2); //Has no effect yet...
-define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN', 3); // 'ON' or 'OFF'
-
-/**
- * Base Storage Engine Class
+ * Library for extracting information about the available storage engines
  */
 class StorageEngine
 {
+    protected const SUPPORT_NO = 0;
+    protected const SUPPORT_DISABLED = 1;
+    protected const SUPPORT_YES = 2;
+    protected const SUPPORT_DEFAULT = 3;
+
+    protected const DETAILS_TYPE_PLAINTEXT = 0;
+    protected const DETAILS_TYPE_SIZE = 1;
+    protected const DETAILS_TYPE_NUMERIC = 2; // Has no effect yet...
+    protected const DETAILS_TYPE_BOOLEAN = 3; // 'ON' or 'OFF'
+
     /** @var string engine name */
     public $engine  = 'dummy';
 
@@ -58,8 +51,13 @@ class StorageEngine
     /** @var string engine lang description */
     public $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
 
-    /** @var int engine supported by current server */
-    public $support = PMA_ENGINE_SUPPORT_NO;
+    /**
+     * Engine supported by current server.
+     *
+     * @var int
+     * @psalm-var self::SUPPORT_NO|self::SUPPORT_DISABLED|self::SUPPORT_YES|self::SUPPORT_DEFAULT
+     */
+    public $support = self::SUPPORT_NO;
 
     /**
      * @param string $engine The engine ID
@@ -76,17 +74,17 @@ class StorageEngine
         $this->comment = ($storage_engines[$engine]['Comment'] ?? '');
         switch ($storage_engines[$engine]['Support']) {
             case 'DEFAULT':
-                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                $this->support = self::SUPPORT_DEFAULT;
                 break;
             case 'YES':
-                $this->support = PMA_ENGINE_SUPPORT_YES;
+                $this->support = self::SUPPORT_YES;
                 break;
             case 'DISABLED':
-                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                $this->support = self::SUPPORT_DISABLED;
                 break;
             case 'NO':
             default:
-                $this->support = PMA_ENGINE_SUPPORT_NO;
+                $this->support = self::SUPPORT_NO;
         }
     }
 
@@ -254,14 +252,14 @@ class StorageEngine
                   . "\n"
                   . '    <td class="font-monospace text-end">';
             switch ($details['type']) {
-                case PMA_ENGINE_DETAILS_TYPE_SIZE:
+                case self::DETAILS_TYPE_SIZE:
                     $parsed_size = $this->resolveTypeSize($details['value']);
                     if ($parsed_size !== null) {
                         $ret .= $parsed_size[0] . '&nbsp;' . $parsed_size[1];
                     }
 
                     break;
-                case PMA_ENGINE_DETAILS_TYPE_NUMERIC:
+                case self::DETAILS_TYPE_NUMERIC:
                     $ret .= Util::formatNumber($details['value']) . ' ';
                     break;
                 default:
@@ -291,10 +289,10 @@ class StorageEngine
 
     /**
      * Returns the engine specific handling for
-     * PMA_ENGINE_DETAILS_TYPE_SIZE type variables.
+     * DETAILS_TYPE_SIZE type variables.
      *
      * This function should be overridden when
-     * PMA_ENGINE_DETAILS_TYPE_SIZE type needs to be
+     * DETAILS_TYPE_SIZE type needs to be
      * handled differently for a particular engine.
      *
      * @param int $value Value to format
@@ -348,7 +346,7 @@ class StorageEngine
                 continue;
             }
 
-            $mysql_vars[$row['Variable_name']]['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+            $mysql_vars[$row['Variable_name']]['type'] = self::DETAILS_TYPE_PLAINTEXT;
         }
 
         $dbi->freeResult($res);
@@ -384,16 +382,16 @@ class StorageEngine
     public function getSupportInformationMessage()
     {
         switch ($this->support) {
-            case PMA_ENGINE_SUPPORT_DEFAULT:
+            case self::SUPPORT_DEFAULT:
                 $message = __('%s is the default storage engine on this MySQL server.');
                 break;
-            case PMA_ENGINE_SUPPORT_YES:
+            case self::SUPPORT_YES:
                 $message = __('%s is available on this MySQL server.');
                 break;
-            case PMA_ENGINE_SUPPORT_DISABLED:
+            case self::SUPPORT_DISABLED:
                 $message = __('%s has been disabled for this MySQL server.');
                 break;
-            case PMA_ENGINE_SUPPORT_NO:
+            case self::SUPPORT_NO:
             default:
                 $message = __(
                     'This MySQL server does not support the %s storage engine.'
