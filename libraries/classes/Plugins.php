@@ -1,7 +1,4 @@
 <?php
-/**
- * Generic plugin interface.
- */
 
 declare(strict_types=1);
 
@@ -44,6 +41,7 @@ use function opendir;
 use function preg_match;
 use function preg_match_all;
 use function readdir;
+use function sprintf;
 use function str_replace;
 use function strcasecmp;
 use function strcmp;
@@ -51,47 +49,31 @@ use function strtolower;
 use function ucfirst;
 use function usort;
 
-/**
- * PhpMyAdmin\Plugins class
- */
 class Plugins
 {
     /**
-     * Includes and instantiates the specified plugin type for a certain format
+     * Instantiates the specified plugin type for a certain format
      *
-     * @param string $plugin_type   the type of the plugin (import, export, etc)
-     * @param string $plugin_format the format of the plugin (sql, xml, et )
-     * @param string $plugins_dir   directory with plugins
-     * @param mixed  $plugin_param  parameter to plugin by which they can
-     *                              decide whether they can work
+     * @param string            $type   the type of the plugin (import, export, etc)
+     * @param string            $format the format of the plugin (sql, xml, et )
+     * @param array|string|null $param  parameter to plugin by which they can decide whether they can work
+     * @psalm-param array{export_type: string, single_table: bool}|string|null $param
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(
-        $plugin_type,
-        $plugin_format,
-        $plugins_dir,
-        $plugin_param = false
-    ) {
-        $GLOBALS['plugin_param'] = $plugin_param;
-        $class_name = mb_strtoupper($plugin_type[0])
-            . mb_strtolower(mb_substr($plugin_type, 1))
-            . mb_strtoupper($plugin_format[0])
-            . mb_strtolower(mb_substr($plugin_format, 1));
-        $file = $class_name . '.php';
+    public static function getPlugin(string $type, string $format, $param = null): ?object
+    {
+        global $plugin_param;
 
-        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
-
-        if (is_file($fullFsPathPluginDir . $file)) {
-            //include_once $fullFsPathPluginDir . $file;
-            $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
-            // check if class exists, could be caused by skip_import
-            if (class_exists($fqnClass)) {
-                return new $fqnClass();
-            }
+        $plugin_param = $param;
+        $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
+        $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
+        $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
+        if (! class_exists($class)) {
+            return null;
         }
 
-        return null;
+        return new $class();
     }
 
     /**

@@ -213,15 +213,10 @@ final class ExportController extends AbstractController
 
         // export class instance, not array of properties, as before
         /** @var ExportPlugin $export_plugin */
-        $export_plugin = Plugins::getPlugin(
-            'export',
-            $what,
-            'libraries/classes/Plugins/Export/',
-            [
-                'export_type' => $export_type,
-                'single_table' => isset($single_table),
-            ]
-        );
+        $export_plugin = Plugins::getPlugin('export', $what, [
+            'export_type' => (string) $export_type,
+            'single_table' => isset($single_table),
+        ]);
 
         // Check export type
         if (empty($export_plugin)) {

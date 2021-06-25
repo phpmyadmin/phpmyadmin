@@ -1089,15 +1089,10 @@ class Table
              *
              * @var ExportSql $exportSqlPlugin
              */
-            $exportSqlPlugin = Plugins::getPlugin(
-                'export',
-                'sql',
-                'libraries/classes/Plugins/Export/',
-                [
-                    'export_type' => 'table',
-                    'single_table' => false,
-                ]
-            );
+            $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
+                'export_type' => 'table',
+                'single_table' => false,
+            ]);
 
             $noConstraintsComments = true;
             $GLOBALS['sql_constraints_query'] = '';

@@ -1403,11 +1403,7 @@ class Export
 
         // get the specific plugin
         /** @var SchemaPlugin $exportPlugin */
-        $exportPlugin = Plugins::getPlugin(
-            'schema',
-            $exportType,
-            'libraries/classes/Plugins/Schema/'
-        );
+        $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
         if ($exportPlugin === null || ! is_object($exportPlugin)) {

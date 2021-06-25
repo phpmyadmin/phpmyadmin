@@ -222,15 +222,10 @@ class Tracker
          *
          * @var ExportSql $exportSqlPlugin
          */
-        $exportSqlPlugin = Plugins::getPlugin(
-            'export',
-            'sql',
-            'libraries/classes/Plugins/Export/',
-            [
-                'export_type' => $export_type,
-                'single_table' => false,
-            ]
-        );
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
+            'export_type' => (string) $export_type,
+            'single_table' => false,
+        ]);
 
         $sql_backquotes = true;
 

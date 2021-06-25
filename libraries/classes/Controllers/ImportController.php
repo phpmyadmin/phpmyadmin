@@ -632,12 +632,7 @@ final class ImportController extends AbstractController
             /**
              * @var ImportPlugin $import_plugin
              */
-            $import_plugin = Plugins::getPlugin(
-                'import',
-                $format,
-                'libraries/classes/Plugins/Import/',
-                $import_type
-            );
+            $import_plugin = Plugins::getPlugin('import', $format, $import_type);
             if ($import_plugin == null) {
                 $message = Message::error(
                     __('Could not load import plugins, please check your installation!')
