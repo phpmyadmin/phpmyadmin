@@ -2291,20 +2291,15 @@ class Results
      * @see buildNullDisplay(), getRowData()
      *
      * @param string                       $class                class of table cell
-     * @param bool                         $conditionField       whether to add CSS class
-     *                                                            condition
-     * @param FieldMetadata                $meta                 the meta-information about the
-     *                                                           field
+     * @param bool                         $conditionField       whether to add CSS class condition
+     * @param FieldMetadata                $meta                 the meta-information about the field
      * @param string                       $nowrap               avoid wrapping
      * @param bool                         $isFieldTruncated     is field truncated (display ...)
-     * @param TransformationsPlugin|string $transformationPlugin transformation plugin.
-     *                                                            Can also be the default function:
-     *                                                            Core::mimeDefaultFunction
-     * @param string                       $defaultFunction      default transformation function
+     * @param TransformationsPlugin|string $transformationPlugin Can also be the default function:
+     *                                                           Core::mimeDefaultFunction
+     * @param callable|null                $defaultFunction      default transformation function
      *
      * @return string the list of classes
-     *
-     * @access private
      */
     private function addClass(
         $class,
@@ -2313,7 +2308,7 @@ class Results
         $nowrap,
         $isFieldTruncated = false,
         $transformationPlugin = '',
-        $defaultFunction = ''
+        $defaultFunction = null
     ) {
         $classes = [
             $class,
@@ -2983,9 +2978,7 @@ class Results
                     $defaultFunction,
                     $transformOptions,
                     $isFieldTruncated,
-                    $analyzedSqlResults,
-                    $dtResult,
-                    $i
+                    $analyzedSqlResults
                 );
             }
 
@@ -3449,22 +3442,16 @@ class Results
      *
      * @param string|null           $column               the column's value
      * @param string                $class                the html class for column
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param FieldMetadata         $meta                 the meta-information about this
-     *                                               field
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param FieldMetadata         $meta                 the meta-information about this field
      * @param array                 $map                  the list of relations
-     * @param bool                  $isFieldTruncated     the condition for blob data
-     *                                                      replacements
+     * @param bool                  $isFieldTruncated     the condition for blob data replacements
      * @param array                 $analyzedSqlResults   the analyzed query
      * @param TransformationsPlugin $transformationPlugin the name of transformation plugin
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
      *
      * @return string the prepared cell, html content
-     *
-     * @access private
      */
     private function getDataCellForNumericColumns(
         ?string $column,
@@ -3524,22 +3511,16 @@ class Results
      *
      * @param string|null           $column               the relevant column in data row
      * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about
-     *                                               this field
+     * @param FieldMetadata         $meta                 the meta-information about this field
      * @param array                 $map                  the list of relations
      * @param array                 $urlParams            the parameters for generate url
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation
-     *                                                     function
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param TransformationsPlugin $transformationPlugin the name of transformation function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
      * @param array                 $analyzedSqlResults   the analyzed query
      *
      * @return string the prepared data cell, html content
-     *
-     * @access private
      */
     private function getDataCellForGeometryColumns(
         ?string $column,
@@ -3664,29 +3645,17 @@ class Results
      *
      * @param string|null           $column               the relevant column in data row
      * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about
-     *                                               the field
+     * @param FieldMetadata         $meta                 the meta-information about the field
      * @param array                 $map                  the list of relations
-     * @param array                 $urlParams            the parameters for generate
-     *                                                      url
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation
-     *                                                     function
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param array                 $urlParams            the parameters for generate url
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param TransformationsPlugin $transformationPlugin the name of transformation function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
-     * @param bool                  $isFieldTruncated     is data truncated due to
-     *                                                      LimitChars
+     * @param bool                  $isFieldTruncated     is data truncated due to LimitChars
      * @param array                 $analyzedSqlResults   the analyzed query
-     * @param int                   $dtResult             the link id associated to
-     *                                                     the query which results
-     *                                                     have to be displayed
-     * @param int                   $colIndex             the column index
      *
      * @return string the prepared data cell, html content
-     *
-     * @access private
      */
     private function getDataCellForNonNumericColumns(
         ?string $column,
@@ -3699,9 +3668,7 @@ class Results
         $defaultFunction,
         $transformOptions,
         $isFieldTruncated,
-        array $analyzedSqlResults,
-        &$dtResult,
-        $colIndex
+        array $analyzedSqlResults
     ) {
         global $dbi;
 
@@ -3813,12 +3780,9 @@ class Results
         }
 
         // transform functions may enable no-wrapping:
-        $functionNoWrap = 'applyTransformationNoWrap';
-
-        $boolNoWrap = ($defaultFunction != $transformationPlugin)
-            && method_exists($transformationPlugin, $functionNoWrap)
-            ? $transformationPlugin->$functionNoWrap($transformOptions)
-            : false;
+        $boolNoWrap = ($defaultFunction !== $transformationPlugin)
+            && method_exists($transformationPlugin, 'applyTransformationNoWrap')
+            && $transformationPlugin->applyTransformationNoWrap($transformOptions);
 
         // do not wrap if date field type or if no-wrapping enabled by transform functions
         // otherwise, preserve whitespaces and wrap
@@ -4136,7 +4100,7 @@ class Results
         }
 
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1' && $analyzedSqlResults['statement'] !== null) {
+        if ($displayParts['sort_lnk'] == '1' && isset($analyzedSqlResults['statement'])) {
             // At this point, $sort_expression is an array
             [$unsortedSqlQuery, $sortByKeyData] = $this->getUnsortedSqlAndSortByKeyDropDown(
                 $analyzedSqlResults,
@@ -4741,7 +4705,7 @@ class Results
      *                                             default function:
      *                                             Core::mimeDefaultFunction
      * @param array         $transformOptions     transformation parameters
-     * @param string        $defaultFunction      default transformation function
+     * @param callable      $defaultFunction      default transformation function
      * @param FieldMetadata $meta                 the meta-information about the field
      * @param array         $urlParams            parameters that should go to the
      *                                             download link
@@ -4767,7 +4731,9 @@ class Results
         if ($content !== null) {
             $size = strlen($content);
             $displaySize = Util::formatByteDown($size, 3, 1);
-            $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
+            if ($displaySize !== null) {
+                $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
+            }
         } else {
             $result .= ' - NULL';
             $size = 0;
@@ -4906,7 +4872,7 @@ class Results
      * @param string                $displayedData        data that will be displayed (maybe be chunked)
      * @param TransformationsPlugin $transformationPlugin transformation plugin. Can also be the default function:
      *                                                    Core::mimeDefaultFunction
-     * @param string                $defaultFunction      default function
+     * @param callable              $defaultFunction      default function
      * @param string                $nowrap               'nowrap' if the content should not be wrapped
      * @param string                $whereComparison      data for the where clause
      * @param array                 $transformOptions     options for transformation

@@ -685,13 +685,8 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <InvalidArgument occurrences="9">
+    <InvalidArgument occurrences="4">
       <code>$added[$orgFullTableName]</code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
-      <code>$defaultFunction</code>
       <code>$transformationPlugin</code>
       <code>$transformationPlugin</code>
       <code>$transformationPlugin</code>
@@ -713,13 +708,6 @@
       <code>$isFieldTruncated</code>
       <code>$isFieldTruncated</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="2">
-      <code>$displaySize[0]</code>
-      <code>$displaySize[1]</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$analyzedSqlResults['statement']</code>
-    </PossiblyUndefinedArrayOffset>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(int) $meta-&gt;length</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
@@ -1896,9 +1884,6 @@
       <code>$allowed_programs[$options[0]]</code>
       <code>$allowed_programs[0]</code>
     </EmptyArrayAccess>
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>bool</code>
-    </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
     <RedundantCastGivenDocblockType occurrences="3">
@@ -2399,12 +2384,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetColumnCreationQuery</code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="test/classes/Display/ResultsTest.php">
-    <PropertyTypeCoercion occurrences="2">
-      <code>$this-&gt;object-&gt;properties</code>
-      <code>$this-&gt;object-&gt;properties</code>
-    </PropertyTypeCoercion>
   </file>
   <file src="test/classes/ErrorReportTest.php">
     <PossiblyInvalidArgument occurrences="1">

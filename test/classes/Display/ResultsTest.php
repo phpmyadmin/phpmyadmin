@@ -474,11 +474,11 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getRowInfoForSpecialLinks
      *
-     * @param array $fields_meta  meta information about fields
-     * @param int   $fields_count number of fields
-     * @param array $row          current row data
-     * @param array $col_order    the column order
-     * @param array $output       output of getRowInfoForSpecialLinks
+     * @param FieldMetadata[] $fields_meta  meta information about fields
+     * @param int             $fields_count number of fields
+     * @param array           $row          current row data
+     * @param array           $col_order    the column order
+     * @param array           $output       output of getRowInfoForSpecialLinks
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
