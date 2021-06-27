@@ -2004,6 +2004,10 @@ class Relation
             return $foreigners[$column];
         }
 
+        if (! isset($foreigners['foreign_keys_data'])) {
+            return false;
+        }
+
         $foreigner = [];
         foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
