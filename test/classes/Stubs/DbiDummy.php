@@ -2345,8 +2345,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\_table%\'',
-                'columns' => ['Name'],
-                'result' => [['PMA_table']],
+                'columns' => ['Name', 'Engine'],
+                'result' => [['PMA_table', 'InnoDB']],
             ],
             [
                 'query' => 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
