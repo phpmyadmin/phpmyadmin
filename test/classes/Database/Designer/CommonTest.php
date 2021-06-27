@@ -264,7 +264,7 @@ class CommonTest extends AbstractTestCase
         $this->assertEquals($first_pg, $result);
     }
 
-    private function loadTestDataForRelationDeleteAddTests(): void
+    private function loadTestDataForRelationDeleteAddTests(string $createTableString): void
     {
         $tableSearchQuery = 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`,'
             . ' `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
@@ -341,11 +341,8 @@ class CommonTest extends AbstractTestCase
             'SHOW CREATE TABLE `db\'2`.`table\'2`',
             [
                 [
-                    'test',
-                    'CREATE TABLE `table\'2` ('
-                    . '    `id` int(11) NOT NULL,'
-                    . '    `id2` int(5) DEFAULT NULL'
-                    . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
+                    'table\'2',
+                    $createTableString,
                 ],
             ],
             ['Table', 'Create Table']
@@ -366,13 +363,15 @@ class CommonTest extends AbstractTestCase
             'relation' => 'rel db',
         ];
         parent::setGlobalDbi();
-        $this->loadTestDataForRelationDeleteAddTests();
+        $this->loadTestDataForRelationDeleteAddTests(
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+        );
 
         $result = $this->designerCommon->removeRelation(
             'db\'1.table\'1',
             'field\'1',
             'db\'2.table\'2',
-            'field\'2',
+            'field\'2'
         );
 
         $this->assertSame([
@@ -396,7 +395,9 @@ class CommonTest extends AbstractTestCase
         ];
         parent::setGlobalDbi();
 
-        $this->loadTestDataForRelationDeleteAddTests();
+        $this->loadTestDataForRelationDeleteAddTests(
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+        );
 
         $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
             . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
@@ -420,12 +421,83 @@ class CommonTest extends AbstractTestCase
             'db\'1.table\'1',
             'field\'1',
             'db\'2.table\'2',
-            'field\'2',
+            'field\'2'
         );
 
         $this->assertSame([
             true,
             'Internal relationship has been removed.',
+        ], $result);
+    }
+
+    /**
+     * @covers removeRelation
+     */
+    public function testRemoveRelationWorkingRelationDbFoundFk(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $_SESSION['relation'][$GLOBALS['server']] = [
+            'PMA_VERSION' => PMA_VERSION,
+            'db' => 'pmadb',
+            'relwork' => true,
+            'relation' => 'rel db',
+        ];
+
+        parent::setGlobalDbi();
+
+        $this->loadTestDataForRelationDeleteAddTests(
+            'CREATE TABLE `table\'2` ('
+                . '    `field\'1` int(11) NOT NULL,'
+                . '    `field\'2` int(5) DEFAULT NULL,'
+                . '    `vc1` varchar(32) NOT NULL,'
+                . '    UNIQUE KEY `field\'1` (`field\'1`),'
+                . '    UNIQUE KEY `field\'2` (`field\'2`),'
+                . '    UNIQUE KEY `vc1` (`vc1`),'
+                . '    CONSTRAINT `table\'1_ibfk_field\'2` FOREIGN KEY (`field\'2`) REFERENCES `t2` (`field\'1`)'
+                . ') ENGINE=InnoDB DEFAULT CHARSET=latin1'
+        );
+
+        $GLOBALS['db'] = 'db\'1';// Fallback for Relation::searchColumnInForeigners
+
+        $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
+            . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
+            . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
+            . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $configurationStorageDeleteQuery,
+                'db\\\'2', // master_db
+                'table\\\'2', // master_table
+                'field\\\'2', // master_field
+                'db\\\'1', // foreign_db
+                'table\\\'1', // foreign_table
+                'field\\\'1'// foreign_field
+            ),
+            []
+        );
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                'ALTER TABLE `%s`.`%s` DROP FOREIGN KEY `%s`;',
+                'db\'2', // db
+                'table\'2', // table
+                'table\'1_ibfk_field\'2' // fk name
+            ),
+            []
+        );
+
+        $result = $this->designerCommon->removeRelation(
+            'db\'1.table\'1',
+            'field\'1',
+            'db\'2.table\'2',
+            'field\'2'
+        );
+
+        $this->assertSame([
+            true,
+            'FOREIGN KEY relationship has been removed.',
         ], $result);
     }
 
@@ -444,7 +516,9 @@ class CommonTest extends AbstractTestCase
         ];
         parent::setGlobalDbi();
 
-        $this->loadTestDataForRelationDeleteAddTests();
+        $this->loadTestDataForRelationDeleteAddTests(
+            'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
+        );
 
         $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
             . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
@@ -468,7 +542,7 @@ class CommonTest extends AbstractTestCase
             'db\'1.table\'1',
             'field\'1',
             'db\'2.table\'2',
-            'field\'2',
+            'field\'2'
         );
 
         $this->assertSame([
