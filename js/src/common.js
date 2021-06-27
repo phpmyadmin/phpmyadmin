@@ -13,7 +13,7 @@ $(function () {
  */
 var CommonParams = (function () {
     /**
-     * @var hash params An associative array of key value pairs
+     * @var {Object} params An associative array of key value pairs
      * @access private
      */
     var params = {};
