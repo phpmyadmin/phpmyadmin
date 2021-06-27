@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed warning "Undefined index: ods_recognize_percentages" on Import ODS
 - issue        Fixed warning "Undefined array key "ods_recognize_currency" on Import ODS
 - issue #16982 Fixed "Notice: Undefined index: foreign_keys_data" on Designer remove relation
+- issue        Backquote phpMyAdmin table name on internal relation delete query for Designer
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
