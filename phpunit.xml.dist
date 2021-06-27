@@ -11,6 +11,7 @@
     <php>
         <const name="PHPMYADMIN" value="1"/>
         <const name="TESTSUITE" value="1"/>
+        <env name="LC_ALL" value="C.UTF8" force="true"/>
     </php>
 
     <testsuites>
