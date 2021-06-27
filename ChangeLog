@@ -17,6 +17,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed warning "Undefined array key "ods_recognize_currency" on Import ODS
 - issue #16982 Fixed "Notice: Undefined index: foreign_keys_data" on Designer remove relation
 - issue        Backquote phpMyAdmin table name on internal relation delete query for Designer
+- issue #16982 Do not try to delete internal relations if they are not configured
+- issue #16982 Show success messages on Designer for add and remove relation operations
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
