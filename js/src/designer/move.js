@@ -1367,6 +1367,7 @@ DesignerMove.newRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            Functions.ajaxShowMessage(data.message);
             DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()
@@ -1596,6 +1597,7 @@ DesignerMove.updRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            Functions.ajaxShowMessage(data.message);
             DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()
