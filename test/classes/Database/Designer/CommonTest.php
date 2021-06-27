@@ -364,6 +364,7 @@ class CommonTest extends AbstractTestCase
             'version' => Version::VERSION,
             'db' => 'pmadb',
             'relwork' => false,
+            'trackingwork' => false,
             'relation' => 'rel db',
         ];
         parent::setGlobalDbi();
@@ -395,6 +396,7 @@ class CommonTest extends AbstractTestCase
             'version' => Version::VERSION,
             'db' => 'pmadb',
             'relwork' => true,
+            'trackingwork' => false,
             'relation' => 'rel db',
         ];
         parent::setGlobalDbi();
@@ -445,6 +447,7 @@ class CommonTest extends AbstractTestCase
             'version' => Version::VERSION,
             'db' => 'pmadb',
             'relwork' => true,
+            'trackingwork' => false,
             'relation' => 'rel db',
         ];
 
@@ -516,6 +519,7 @@ class CommonTest extends AbstractTestCase
             'version' => Version::VERSION,
             'db' => 'pmadb',
             'relwork' => true,
+            'trackingwork' => false,
             'relation' => 'rel db',
         ];
         parent::setGlobalDbi();
