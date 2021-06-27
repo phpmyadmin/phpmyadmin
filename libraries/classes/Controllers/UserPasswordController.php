@@ -39,7 +39,7 @@ class UserPasswordController extends AbstractController
     {
         global $cfg, $hostname, $username, $password, $change_password_message, $msg;
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         /**
          * Displays an error message and exits if the user isn't allowed to use this

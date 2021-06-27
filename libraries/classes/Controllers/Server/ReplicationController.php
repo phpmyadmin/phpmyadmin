@@ -61,7 +61,7 @@ class ReplicationController extends AbstractController
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
-        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
             $urlParams = $params['url_params'];
