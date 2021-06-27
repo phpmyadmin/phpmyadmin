@@ -765,25 +765,25 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                  */
                 var $editArea = $(g.cEdit).find('.edit_area');
                 /**
-                 * @var where_clause WHERE clause for the edited cell
+                 * @var whereClause WHERE clause for the edited cell
                  */
                 var whereClause = $td.parent('tr').find('.where_clause').val();
                 /**
-                 * @var field_name  String containing the name of this field.
+                 * @var fieldName  String containing the name of this field.
                  * @see Sql.getFieldName()
                  */
                 var fieldName = Sql.getFieldName($(t), $td);
                 /**
-                 * @var relation_curr_value String current value of the field (for fields that are foreign keyed).
+                 * @var relationCurrValue String current value of the field (for fields that are foreign keyed).
                  */
                 var relationCurrValue = $td.text();
                 /**
-                 * @var relation_key_or_display_column String relational key if in 'Relational display column' mode,
+                 * @var relationKeyOrDisplayColumn String relational key if in 'Relational display column' mode,
                  * relational display column if in 'Relational key' mode (for fields that are foreign keyed).
                  */
                 var relationKeyOrDisplayColumn = $td.find('a').attr('title');
                 /**
-                 * @var curr_value String current value of the field (for fields that are of type enum or set).
+                 * @var currValue String current value of the field (for fields that are of type enum or set).
                  */
                 var currValue = $td.find('span').text();
 
@@ -880,7 +880,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $td.data('original_data', null);
 
                     /**
-                     * @var post_params Object containing parameters for the POST request
+                     * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
                         'ajax_request' : true,
@@ -925,7 +925,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     $editArea.addClass('edit_area_loading');
 
                     /**
-                     * @var post_params Object containing parameters for the POST request
+                     * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
                         'ajax_request' : true,
@@ -1015,7 +1015,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         $td.data('original_data', null);
 
                         /**
-                         * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
+                         * @var sqlQuery   String containing the SQL query used to retrieve value of truncated/transformed data
                          */
                         var sqlQuery = 'SELECT `' + fieldName + '` FROM `' + g.table + '` WHERE ' + whereClause;
 
@@ -1145,39 +1145,39 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             }
             g.isSaving = true;
             /**
-             * @var relation_fields Array containing the name/value pairs of relational fields
+             * @var relationFields Array containing the name/value pairs of relational fields
              */
             var relationFields = {};
             /**
-             * @var relational_display string 'K' if relational key, 'D' if relational display column
+             * @var relationalDisplay string 'K' if relational key, 'D' if relational display column
              */
             var relationalDisplay = $(g.o).find('input[name=relational_display]:checked').val();
             /**
-             * @var transform_fields    Array containing the name/value pairs for transformed fields
+             * @var transformFields    Array containing the name/value pairs for transformed fields
              */
             var transformFields = {};
             /**
-             * @var transformation_fields   Boolean, if there are any transformed fields in the edited cells
+             * @var transformationFields   Boolean, if there are any transformed fields in the edited cells
              */
             var transformationFields = false;
             /**
-             * @var full_sql_query String containing the complete SQL query to update this table
+             * @var fullSqlQuery String containing the complete SQL query to update this table
              */
             var fullSqlQuery = '';
             /**
-             * @var rel_fields_list  String, url encoded representation of {@link relations_fields}
+             * @var relFieldsList  String, url encoded representation of {@link relations_fields}
              */
             var relFieldsList = '';
             /**
-             * @var transform_fields_list  String, url encoded representation of {@link transformFields}
+             * @var transformFieldsList  String, url encoded representation of {@link transformFields}
              */
             var transformFieldsList = '';
             /**
-             * @var where_clause Array containing where clause for updated fields
+             * @var fullWhereClause Array containing where clause for updated fields
              */
             var fullWhereClause = [];
             /**
-             * @var is_unique   Boolean, whether the rows in this table is unique or not
+             * @var isUnique   Boolean, whether the rows in this table is unique or not
              */
             var isUnique = $(g.t).find('td.edit_row_anchor').is('.nonunique') ? 0 : 1;
             /**
@@ -1215,18 +1215,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 // loop each edited cell in a row
                 $tr.find('.to_be_saved').each(function () {
                     /**
-                     * @var $this_field    Object referring to the td that is being edited
+                     * @var $thisField    Object referring to the td that is being edited
                      */
                     var $thisField = $(this);
 
                     /**
-                     * @var field_name  String containing the name of this field.
+                     * @var fieldName  String containing the name of this field.
                      * @see Sql.getFieldName()
                      */
                     var fieldName = Sql.getFieldName($(g.t), $thisField);
 
                     /**
-                     * @var this_field_params   Array temporary storage for the name/value of current field
+                     * @var thisFieldParams   Array temporary storage for the name/value of current field
                      */
                     var thisFieldParams = {};
 
@@ -1236,7 +1236,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                     thisFieldParams[fieldName] = $thisField.data('value');
 
                     /**
-                     * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+                     * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
                      */
                     var isNull = thisFieldParams[fieldName] === null;
 
@@ -1298,7 +1298,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
             // Make the Ajax post after setting all parameters
             /**
-             * @var post_params Object containing parameters for the POST request
+             * @var postParams Object containing parameters for the POST request
              */
             var postParams = { 'ajax_request' : true,
                 'sql_query' : fullSqlQuery,
@@ -1433,7 +1433,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         saveEditedCell: function () {
             /**
-             * @var $this_field    Object referring to the td that is being edited
+             * @var $thisField    Object referring to the td that is being edited
              */
             var $thisField = $(g.currentEditCell);
             var $testElement = ''; // to test the presence of a element
@@ -1441,18 +1441,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             var needToPost = false;
 
             /**
-             * @var field_name  String containing the name of this field.
+             * @var fieldName  String containing the name of this field.
              * @see Sql.getFieldName()
              */
             var fieldName = Sql.getFieldName($(g.t), $thisField);
 
             /**
-             * @var this_field_params   Array temporary storage for the name/value of current field
+             * @var thisFieldParams   Array temporary storage for the name/value of current field
              */
             var thisFieldParams = {};
 
             /**
-             * @var is_null String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
+             * @var isNull String capturing whether 'checkbox_null_<field_name>_<row_index>' is checked.
              */
             var isNull = $(g.cEdit).find('input:checkbox').is(':checked');
 
