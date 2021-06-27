@@ -256,7 +256,8 @@ class ImportOds extends ImportPlugin
             return (float) $cell_attrs['value'];
         }
 
-        if ($_REQUEST['ods_recognize_currency']
+        if (isset($_REQUEST['ods_recognize_currency'])
+            && $_REQUEST['ods_recognize_currency']
             && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
             return (float) $cell_attrs['value'];
