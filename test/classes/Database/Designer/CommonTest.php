@@ -8,6 +8,7 @@ use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use function sprintf;
 
 class CommonTest extends AbstractTestCase
 {
@@ -261,5 +262,218 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($first_pg, $result);
+    }
+
+    private function loadTestDataForRelationDeleteAddTests(): void
+    {
+        $tableSearchQuery = 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`,'
+            . ' `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
+            . ' `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`,'
+            . ' `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
+            . ' `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+            . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
+            . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
+            . ' WHERE `TABLE_SCHEMA` IN (\'%s\') AND t.`TABLE_NAME` = \'%s\' ORDER BY Name ASC';
+
+        $tableStatusQuery = 'SHOW TABLE STATUS FROM `%s` WHERE `Name` LIKE \'%s\'';
+
+        $this->designerCommon = new Common($this->dbi, new Relation($this->dbi));
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $tableSearchQuery,
+                'db\\\'1',
+                'table\\\'1'
+            ),
+            false// Make it fallback onto SHOW TABLE STATUS
+        );
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $tableSearchQuery,
+                'db\\\'2',
+                'table\\\'2'
+            ),
+            false// Make it fallback onto SHOW TABLE STATUS
+        );
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $tableStatusQuery,
+                'db\'1',
+                'table\\\'1%'
+            ),
+            [
+                [
+                    // Partial
+                    'table\'1',
+                    'InnoDB',
+                ],
+            ],
+            [
+                // Partial
+                'Name',
+                'Engine',
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $tableStatusQuery,
+                'db\'2',
+                'table\\\'2%'
+            ),
+            [
+                [
+                    // Partial
+                    'table\'2',
+                    'InnoDB',
+                ],
+            ],
+            [
+                // Partial
+                'Name',
+                'Engine',
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `db\'2`.`table\'2`',
+            [
+                [
+                    'test',
+                    'CREATE TABLE `table\'2` ('
+                    . '    `id` int(11) NOT NULL,'
+                    . '    `id2` int(5) DEFAULT NULL'
+                    . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
+                ],
+            ],
+            ['Table', 'Create Table']
+        );
+    }
+
+    /**
+     * @covers removeRelation
+     */
+    public function testRemoveRelationRelationDbNotWorking(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $_SESSION['relation'][$GLOBALS['server']] = [
+            'PMA_VERSION' => PMA_VERSION,
+            'db' => 'pmadb',
+            'relwork' => false,
+            'relation' => 'rel db',
+        ];
+        parent::setGlobalDbi();
+        $this->loadTestDataForRelationDeleteAddTests();
+
+        $result = $this->designerCommon->removeRelation(
+            'db\'1.table\'1',
+            'field\'1',
+            'db\'2.table\'2',
+            'field\'2',
+        );
+
+        $this->assertSame([
+            false,
+            'Error: Relational features are disabled!',
+        ], $result);
+    }
+
+    /**
+     * @covers removeRelation
+     */
+    public function testRemoveRelationWorkingRelationDb(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $_SESSION['relation'][$GLOBALS['server']] = [
+            'PMA_VERSION' => PMA_VERSION,
+            'db' => 'pmadb',
+            'relwork' => true,
+            'relation' => 'rel db',
+        ];
+        parent::setGlobalDbi();
+
+        $this->loadTestDataForRelationDeleteAddTests();
+
+        $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
+            . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
+            . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
+            . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $configurationStorageDeleteQuery,
+                'db\\\'2', // master_db
+                'table\\\'2', // master_table
+                'field\\\'2', // master_field
+                'db\\\'1', // foreign_db
+                'table\\\'1', // foreign_table
+                'field\\\'1'// foreign_field
+            ),
+            []
+        );
+
+        $result = $this->designerCommon->removeRelation(
+            'db\'1.table\'1',
+            'field\'1',
+            'db\'2.table\'2',
+            'field\'2',
+        );
+
+        $this->assertSame([
+            true,
+            'Internal relationship has been removed.',
+        ], $result);
+    }
+
+    /**
+     * @covers removeRelation
+     */
+    public function testRemoveRelationWorkingRelationDbDeleteFails(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $_SESSION['relation'][$GLOBALS['server']] = [
+            'PMA_VERSION' => PMA_VERSION,
+            'db' => 'pmadb',
+            'relwork' => true,
+            'relation' => 'rel db',
+        ];
+        parent::setGlobalDbi();
+
+        $this->loadTestDataForRelationDeleteAddTests();
+
+        $configurationStorageDeleteQuery = 'DELETE FROM `pmadb`.`rel db`'
+            . ' WHERE master_db = \'%s\' AND master_table = \'%s\''
+            . ' AND master_field = \'%s\' AND foreign_db = \'%s\''
+            . ' AND foreign_table = \'%s\' AND foreign_field = \'%s\'';
+
+        $this->dummyDbi->addResult(
+            sprintf(
+                $configurationStorageDeleteQuery,
+                'db\\\'2', // master_db
+                'table\\\'2', // master_table
+                'field\\\'2', // master_field
+                'db\\\'1', // foreign_db
+                'table\\\'1', // foreign_table
+                'field\\\'1'// foreign_field
+            ),
+            false// Delete failed
+        );
+
+        $result = $this->designerCommon->removeRelation(
+            'db\'1.table\'1',
+            'field\'1',
+            'db\'2.table\'2',
+            'field\'2',
+        );
+
+        $this->assertSame([
+            false,
+            'Error: Internal relationship could not be removed!<br>',
+        ], $result);
     }
 }
