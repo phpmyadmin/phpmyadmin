@@ -96,8 +96,6 @@
         "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",
-        "symfony/finder": "^5.2.3",
-        "symfony/twig-bridge": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.1",
         "vimeo/psalm": "^4.8.1"
     },
@@ -119,7 +117,7 @@
             "@phpunit"
         ],
         "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
-        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
+        "twig-lint": "php scripts/console lint:twig --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,

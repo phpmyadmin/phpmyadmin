@@ -75,7 +75,7 @@ jobs:
             - name: Check coding-standard
               run: composer phpcs
             - name: Check twig templates
-              run: php scripts/console lint:twig templates --show-deprecations
+              run: composer run twig-lint
 
     analyse-php:
         runs-on: ubuntu-latest
