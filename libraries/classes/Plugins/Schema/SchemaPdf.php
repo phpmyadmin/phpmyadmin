@@ -14,8 +14,10 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use TCPDF;
 
 use function __;
+use function class_exists;
 
 /**
  * Handles the schema export for the PDF format
@@ -123,5 +125,10 @@ class SchemaPdf extends SchemaPlugin
         $export->showOutput();
 
         return true;
+    }
+
+    public function isAvailable(): bool
+    {
+        return class_exists(TCPDF::class);
     }
 }

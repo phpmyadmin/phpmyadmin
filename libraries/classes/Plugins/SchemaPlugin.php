@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 use function __;
@@ -19,7 +20,7 @@ use function __;
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.
  */
-abstract class SchemaPlugin
+abstract class SchemaPlugin implements Plugin
 {
     /**
      * PhpMyAdmin\Properties\Plugins\SchemaPluginProperties object containing
@@ -34,7 +35,7 @@ abstract class SchemaPlugin
      *
      * @return SchemaPluginProperties
      */
-    public function getProperties()
+    public function getProperties(): PluginPropertyItem
     {
         return $this->properties;
     }
@@ -84,5 +85,10 @@ abstract class SchemaPlugin
         }
 
         return $ret;
+    }
+
+    public function isAvailable(): bool
+    {
+        return true;
     }
 }

@@ -1,7 +1,4 @@
 <?php
-/**
- * Set of functions used to build XML dumps of tables
- */
 
 declare(strict_types=1);
 
@@ -29,18 +26,8 @@ use function strlen;
 
 use const PHP_VERSION;
 
-// phpcs:disable PSR1.Files.SideEffects
-/* Can't do server export */
-if (! isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-// phpcs:enable
-
 /**
- * Handles the export for the XML class
+ * Used to build XML dumps of tables
  */
 class ExportXml extends ExportPlugin
 {
@@ -615,5 +602,13 @@ class ExportXml extends ExportPlugin
     private function setTables(array $tables)
     {
         $this->tables = $tables;
+    }
+
+    public function isAvailable(): bool
+    {
+        global $db;
+
+        // Can't do server export.
+        return isset($db) && strlen($db) > 0;
     }
 }

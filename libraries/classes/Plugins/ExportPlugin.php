@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 
@@ -20,7 +21,7 @@ use function stripos;
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.
  */
-abstract class ExportPlugin
+abstract class ExportPlugin implements Plugin
 {
     /**
      * PhpMyAdmin\Properties\Plugins\ExportPluginProperties object containing
@@ -259,7 +260,7 @@ abstract class ExportPlugin
      *
      * @return ExportPluginProperties
      */
-    public function getProperties()
+    public function getProperties(): PluginPropertyItem
     {
         return $this->properties;
     }
@@ -410,5 +411,10 @@ abstract class ExportPlugin
         }
 
         return $relation;
+    }
+
+    public function isAvailable(): bool
+    {
+        return true;
     }
 }

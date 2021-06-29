@@ -1,7 +1,4 @@
 <?php
-/**
- * Produce a PDF report (export) from a query
- */
 
 declare(strict_types=1);
 
@@ -14,24 +11,13 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use TCPDF;
 
 use function __;
 use function class_exists;
 
-// phpcs:disable PSR1.Files.SideEffects
 /**
- * Skip the plugin if TCPDF is not available.
- */
-if (! class_exists('TCPDF')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-// phpcs:enable
-
-/**
- * Handles the export for the PDF class
+ * Produce a PDF report (export) from a query
  */
 class ExportPdf extends ExportPlugin
 {
@@ -377,5 +363,10 @@ class ExportPdf extends ExportPlugin
     private function setPdf($pdf)
     {
         $this->pdf = $pdf;
+    }
+
+    public function isAvailable(): bool
+    {
+        return class_exists(TCPDF::class);
     }
 }
