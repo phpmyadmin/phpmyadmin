@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 
 use function strlen;
 
@@ -17,7 +18,7 @@ use function strlen;
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
  */
-abstract class ImportPlugin
+abstract class ImportPlugin implements Plugin
 {
     /**
      * ImportPluginProperties object containing the import plugin properties
@@ -50,7 +51,7 @@ abstract class ImportPlugin
      *
      * @return ImportPluginProperties
      */
-    public function getProperties()
+    public function getProperties(): PluginPropertyItem
     {
         return $this->properties;
     }
@@ -85,5 +86,10 @@ abstract class ImportPlugin
             $db_name,
             $options,
         ];
+    }
+
+    public function isAvailable(): bool
+    {
+        return true;
     }
 }

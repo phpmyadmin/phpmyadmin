@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use FilesystemIterator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ImportPlugin;
+use PhpMyAdmin\Plugins\Plugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -22,6 +24,8 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use SplFileInfo;
+use Throwable;
 
 use function __;
 use function array_pop;
@@ -30,19 +34,16 @@ use function count;
 use function explode;
 use function get_class;
 use function htmlspecialchars;
-use function is_file;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function method_exists;
-use function opendir;
-use function preg_match;
 use function preg_match_all;
-use function readdir;
 use function sprintf;
 use function str_replace;
+use function str_starts_with;
 use function strcasecmp;
 use function strcmp;
 use function strtolower;
@@ -83,10 +84,11 @@ class Plugins
      */
     public static function getExport(string $type, bool $singleTable): array
     {
-        return self::getPlugins('export', 'libraries/classes/Plugins/Export/', [
-            'export_type' => $type,
-            'single_table' => $singleTable,
-        ]);
+        global $plugin_param;
+
+        $plugin_param = ['export_type' => $type, 'single_table' => $singleTable];
+
+        return self::getPlugins('Export');
     }
 
     /**
@@ -96,7 +98,11 @@ class Plugins
      */
     public static function getImport(string $type): array
     {
-        return self::getPlugins('import', 'libraries/classes/Plugins/Import/', $type);
+        global $plugin_param;
+
+        $plugin_param = $type;
+
+        return self::getPlugins('Import');
     }
 
     /**
@@ -104,89 +110,54 @@ class Plugins
      */
     public static function getSchema(): array
     {
-        return self::getPlugins('schema', 'libraries/classes/Plugins/Schema/', null);
+        return self::getPlugins('Schema');
     }
 
     /**
-     * Reads all plugin information from directory $plugins_dir
+     * Reads all plugin information
      *
-     * @param string            $plugin_type  the type of the plugin (import, export, etc)
-     * @param string            $plugins_dir  directory with plugins
-     * @param array|string|null $plugin_param parameter to plugin by which they can
-     *                                        decide whether they can work
+     * @param string $type the type of the plugin (import, export, etc)
      *
      * @return array list of plugin instances
      */
-    private static function getPlugins(string $plugin_type, string $plugins_dir, $plugin_param): array
+    private static function getPlugins(string $type): array
     {
-        global $skip_import;
-
-        $GLOBALS['plugin_param'] = $plugin_param;
-
-        $fullFsPathPluginDir = ROOT_PATH . $plugins_dir;
-
-        $handle = @opendir($fullFsPathPluginDir);
-        if (! $handle) {
+        try {
+            $files = new FilesystemIterator(ROOT_PATH . 'libraries/classes/Plugins/' . $type);
+        } catch (Throwable $e) {
             return [];
         }
 
-        $plugin_list = [];
+        $plugins = [];
 
-        $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
-        $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
-            . mb_strtolower(mb_substr($plugin_type, 1), 'UTF-8');
-
-        $prefix_class_name = $namespace . $class_type;
-
-        while ($file = @readdir($handle)) {
-            // In some situations, Mac OS creates a new file for each file
-            // (for example ._csv.php) so the following regexp
-            // matches a file which does not start with a dot but ends
-            // with ".php"
-            if (
-                ! is_file($fullFsPathPluginDir . $file)
-                || ! preg_match(
-                    '@^' . $class_type . '([^\.]+)\.php$@i',
-                    $file,
-                    $matches
-                )
-            ) {
+        /** @var SplFileInfo $fileInfo */
+        foreach ($files as $fileInfo) {
+            if (! $fileInfo->isReadable() || ! $fileInfo->isFile() || $fileInfo->getExtension() !== 'php') {
                 continue;
             }
 
-            /** @var bool $skip_import */
-            $skip_import = false;
-
-            include_once $fullFsPathPluginDir . $file;
-
-            if ($skip_import) {
+            if (! str_starts_with($fileInfo->getFilename(), $type)) {
                 continue;
             }
 
-            $class_name = $prefix_class_name . $matches[1];
-            $plugin = new $class_name();
-            if ($plugin->getProperties() === null) {
+            $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s', $type, $fileInfo->getBasename('.php'));
+            if (! class_exists($class)) {
                 continue;
             }
 
-            $plugin_list[] = $plugin;
+            $plugin = new $class();
+            if (! ($plugin instanceof Plugin) || ! $plugin->isAvailable()) {
+                continue;
+            }
+
+            $plugins[] = $plugin;
         }
 
-        usort(
-            $plugin_list,
-            /**
-             * @param mixed $cmp_name_1
-             * @param mixed $cmp_name_2
-             */
-            static function ($cmp_name_1, $cmp_name_2) {
-                return strcasecmp(
-                    $cmp_name_1->getProperties()->getText(),
-                    $cmp_name_2->getProperties()->getText()
-                );
-            }
-        );
+        usort($plugins, static function (Plugin $plugin1, Plugin $plugin2): int {
+            return strcasecmp($plugin1->getProperties()->getText(), $plugin2->getProperties()->getText());
+        });
 
-        return $plugin_list;
+        return $plugins;
     }
 
     /**

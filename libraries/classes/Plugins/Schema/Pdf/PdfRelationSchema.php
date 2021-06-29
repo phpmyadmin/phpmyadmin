@@ -14,7 +14,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function ceil;
-use function class_exists;
 use function getcwd;
 use function in_array;
 use function intval;
@@ -27,15 +26,6 @@ use function str_replace;
 use function strtotime;
 
 // phpcs:disable PSR1.Files.SideEffects
-/**
- * Skip the plugin if TCPDF is not available.
- */
-if (! class_exists('TCPDF')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
 /**
  * block attempts to directly run this script
  */

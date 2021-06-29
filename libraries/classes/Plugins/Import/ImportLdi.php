@@ -1,7 +1,4 @@
 <?php
-/**
- * CSV import plugin for phpMyAdmin using LOAD DATA
- */
 
 declare(strict_types=1);
 
@@ -23,24 +20,18 @@ use function trim;
 
 use const PHP_EOL;
 
-// phpcs:disable PSR1.Files.SideEffects
-// We need relations enabled and we work only on database
-if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-// phpcs:enable
-
 /**
- * Handles the import for the CSV format using load data
+ * CSV import plugin for phpMyAdmin using LOAD DATA
  */
 class ImportLdi extends AbstractImportCsv
 {
     public function __construct()
     {
         parent::__construct();
+        if (! $this->isAvailable()) {
+            return;
+        }
+
         $this->setProperties();
     }
 
@@ -197,5 +188,13 @@ class ImportLdi extends AbstractImportCsv
         $this->import->runQuery($sql, $sql, $sql_data);
         $this->import->runQuery('', '', $sql_data);
         $finished = true;
+    }
+
+    public function isAvailable(): bool
+    {
+        global $plugin_param;
+
+        // We need relations enabled and we work only on database.
+        return isset($plugin_param) && $plugin_param === 'table';
     }
 }

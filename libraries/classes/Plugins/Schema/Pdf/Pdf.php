@@ -12,7 +12,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 use function __;
-use function class_exists;
 use function count;
 use function getcwd;
 use function is_array;
@@ -23,15 +22,6 @@ use function strlen;
 use function ucfirst;
 
 // phpcs:disable PSR1.Files.SideEffects
-/**
- * Skip the plugin if TCPDF is not available.
- */
-if (! class_exists('TCPDF')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
 /**
  * block attempts to directly run this script
  */
