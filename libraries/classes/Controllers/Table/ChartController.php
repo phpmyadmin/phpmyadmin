@@ -60,7 +60,7 @@ class ChartController extends AbstractController
         if (! isset($sql_query) || $sql_query == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
             );
 
             return;

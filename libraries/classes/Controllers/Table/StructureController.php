@@ -693,7 +693,7 @@ class StructureController extends AbstractController
                     __('Failed to get description of column %s!')
                 );
                 $message->addParam($selected[$i]);
-                $this->response->addHTML($message);
+                $this->response->addHTML($message->getDisplay());
             } else {
                 $fields_meta[] = $value;
             }

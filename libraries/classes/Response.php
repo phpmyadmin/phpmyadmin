@@ -272,21 +272,11 @@ class Response
     }
 
     /**
-     * Add HTML code to the response
-     *
-     * @param string|Message|array<int, string|Message> $content A string to be appended to the current output buffer
+     * Append HTML code to the current output buffer
      */
-    public function addHTML($content): void
+    public function addHTML(string $content): void
     {
-        if (is_array($content)) {
-            foreach ($content as $msg) {
-                $this->addHTML($msg);
-            }
-        } elseif ($content instanceof Message) {
-            $this->HTML .= $content->getDisplay();
-        } else {
-            $this->HTML .= $content;
-        }
+        $this->HTML .= $content;
     }
 
     /**

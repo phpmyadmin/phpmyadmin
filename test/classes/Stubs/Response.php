@@ -52,21 +52,11 @@ class Response extends \PhpMyAdmin\Response
     }
 
     /**
-     * Add HTML code to the response stub
-     *
-     * @param string|Message|array<int, string|Message> $content
+     * Append HTML code to the response stub
      */
-    public function addHTML($content): void
+    public function addHTML(string $content): void
     {
-        if (is_array($content)) {
-            foreach ($content as $msg) {
-                $this->addHTML($msg);
-            }
-        } elseif ($content instanceof Message) {
-            $this->htmlString .= $content->getDisplay();
-        } else {
-            $this->htmlString .= $content;
-        }
+        $this->htmlString .= $content;
     }
 
     /**
