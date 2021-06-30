@@ -220,10 +220,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$success</code>
-      <code>$success</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="3">
       <code>$display_page</code>
       <code>$display_page</code>
@@ -2623,11 +2619,6 @@
       <code>$dummyQueries</code>
       <code>$filoQueries</code>
     </MissingPropertyType>
-  </file>
-  <file src="test/classes/Stubs/Response.php">
-    <RedundantCast occurrences="1">
-      <code>(bool) $isAjax</code>
-    </RedundantCast>
   </file>
   <file src="test/classes/UserPreferencesTest.php">
     <TypeDoesNotContainType occurrences="1">

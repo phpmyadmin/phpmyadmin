@@ -16,7 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -2482,7 +2482,7 @@ class Privileges
                 'SELECT * FROM `mysql`.`user` ' . $userHostCondition
             );
             if (! $row) {
-                $response = Response::getInstance();
+                $response = ResponseRenderer::getInstance();
                 $response->addHTML(
                     Message::notice(__('No user found.'))->getDisplay()
                 );
@@ -3171,7 +3171,7 @@ class Privileges
                 );
             }
 
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if (
                 ! $response->isAjax()
                 || ! empty($_REQUEST['ajax_page_request'])

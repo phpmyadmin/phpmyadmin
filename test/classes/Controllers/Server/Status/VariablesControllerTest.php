@@ -8,7 +8,7 @@ use PhpMyAdmin\Controllers\Server\Status\VariablesController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\VariablesController
@@ -38,7 +38,7 @@ class VariablesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 

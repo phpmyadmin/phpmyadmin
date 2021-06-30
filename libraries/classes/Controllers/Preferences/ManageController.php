@@ -12,7 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
@@ -52,7 +52,7 @@ class ManageController extends AbstractController
     private $config;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct(
         $response,

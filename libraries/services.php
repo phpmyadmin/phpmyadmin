@@ -146,8 +146,8 @@ return [
             ],
         ],
         'response' => [
-            'class' => PhpMyAdmin\Response::class,
-            'factory' => [PhpMyAdmin\Response::class, 'getInstance'],
+            'class' => PhpMyAdmin\ResponseRenderer::class,
+            'factory' => [PhpMyAdmin\ResponseRenderer::class, 'getInstance'],
         ],
         'server_plugins' => [
             'class' => PhpMyAdmin\Server\Plugins::class,
@@ -221,6 +221,6 @@ return [
         ],
         PhpMyAdmin\DatabaseInterface::class => 'dbi',
         PhpMyAdmin\FlashMessages::class => 'flash',
-        PhpMyAdmin\Response::class => 'response',
+        PhpMyAdmin\ResponseRenderer::class => 'response',
     ],
 ];

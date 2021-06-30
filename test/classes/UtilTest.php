@@ -8,7 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\MoTranslator\Loader;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
@@ -352,7 +352,7 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $this->expectOutputRegex('/Missing parameter: field/');
 

@@ -586,7 +586,7 @@ class Sql
     {
         if ($isGotoFile) {
             $message = Message::rawError($error);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
@@ -871,7 +871,7 @@ class Sql
         $sqlQueryForBookmark,
         $extraData
     ) {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table);
 
         // Only if we ask to see the php code
@@ -1154,7 +1154,7 @@ class Sql
             }
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
 
         if (empty($analyzedSqlResults['is_select']) || isset($extraData['error'])) {
@@ -1241,7 +1241,7 @@ class Sql
             $row[0] = bin2hex($row[0]);
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->addJSON('value', $row[0]);
     }
 
@@ -1515,7 +1515,7 @@ class Sql
             $showtable = null;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
 

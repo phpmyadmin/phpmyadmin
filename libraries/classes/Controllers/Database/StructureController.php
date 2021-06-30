@@ -19,7 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table;
@@ -98,7 +98,7 @@ class StructureController extends AbstractController
     private $flash;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db          Database name
      * @param Relation          $relation
      * @param Replication       $replication

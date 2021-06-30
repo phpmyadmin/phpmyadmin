@@ -10,7 +10,7 @@ use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\StatusController
@@ -49,7 +49,7 @@ class StatusControllerTest extends AbstractTestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $template = new Template();
 
         $controller = new StatusController(

@@ -174,7 +174,7 @@ class Pdf extends TCPDF
     public function download($filename)
     {
         $pdfData = $this->getPDFData();
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         Core::downloadHeader(
             $filename,
             'application/pdf',

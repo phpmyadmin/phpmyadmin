@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\ReplaceController;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 
@@ -57,7 +57,7 @@ class ReplaceControllerTest extends AbstractTestCase
     {
         global $containerBuilder;
         $GLOBALS['urlParams'] = [];
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];
         $_POST['ajax_request'] = 'true';

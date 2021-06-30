@@ -10,7 +10,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
@@ -54,7 +54,7 @@ class DatabasesControllerTest extends AbstractTestCase
             new Relation($GLOBALS['dbi'], $template)
         );
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new DatabasesController(
             $response,
@@ -83,7 +83,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertStringContainsString(__('No privileges to create databases'), $actual);
         $this->assertStringNotContainsString(__('Indexes'), $actual);
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new DatabasesController(
             $response,
@@ -117,7 +117,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testCreateDatabaseAction(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $template = new Template();
@@ -138,7 +138,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertArrayHasKey('message', $actual);
         $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new DatabasesController(
@@ -171,7 +171,7 @@ class DatabasesControllerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $cfg['AllowUserDropDatabase'] = true;

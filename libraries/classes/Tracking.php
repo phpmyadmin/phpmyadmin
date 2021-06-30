@@ -872,7 +872,7 @@ class Tracking
         }
 
         $filename = 'log_' . $table . '.sql';
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         Core::downloadHeader(
             $filename,
             'text/x-sql',

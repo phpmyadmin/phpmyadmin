@@ -63,7 +63,7 @@ final class Profiling
     /**
      * Check if profiling was requested and remember it.
      */
-    public static function check(DatabaseInterface $dbi, Response $response): void
+    public static function check(DatabaseInterface $dbi, ResponseRenderer $response): void
     {
         if (isset($_REQUEST['profiling']) && self::isSupported($dbi)) {
             $_SESSION['profiling'] = true;

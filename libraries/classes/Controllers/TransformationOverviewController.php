@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 
@@ -19,8 +19,8 @@ class TransformationOverviewController extends AbstractController
     private $transformations;
 
     /**
-     * @param Response        $response
-     * @param Transformations $transformations
+     * @param ResponseRenderer $response
+     * @param Transformations  $transformations
      */
     public function __construct($response, Template $template, $transformations)
     {

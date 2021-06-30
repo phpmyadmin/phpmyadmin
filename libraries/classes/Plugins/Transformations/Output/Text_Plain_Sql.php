@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\SQLTransformationsPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 
 /**
  * Handles the sql transformation for text plain
@@ -22,7 +22,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $scripts = $response->getHeader()
             ->getScripts();
         $scripts->addFile('vendor/codemirror/lib/codemirror.js');

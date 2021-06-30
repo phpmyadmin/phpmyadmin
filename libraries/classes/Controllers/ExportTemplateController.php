@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function is_array;
@@ -22,7 +22,7 @@ final class ExportTemplateController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct(
         $response,

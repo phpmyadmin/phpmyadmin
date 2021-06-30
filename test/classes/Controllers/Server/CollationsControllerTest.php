@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\CollationsController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\CollationsController
@@ -34,7 +34,7 @@ class CollationsControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new CollationsController($response, new Template(), $GLOBALS['dbi']);
 

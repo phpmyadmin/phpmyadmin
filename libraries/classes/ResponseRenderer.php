@@ -31,14 +31,14 @@ use const PHP_SAPI;
 /**
  * Singleton class used to manage the rendering of pages in PMA
  */
-class Response
+class ResponseRenderer
 {
     /**
      * Response instance
      *
      * @access private
      * @static
-     * @var Response
+     * @var ResponseRenderer
      */
     private static $instance;
     /**
@@ -207,12 +207,12 @@ class Response
     /**
      * Returns the singleton Response object
      *
-     * @return Response object
+     * @return ResponseRenderer object
      */
     public static function getInstance()
     {
         if (empty(self::$instance)) {
-            self::$instance = new Response();
+            self::$instance = new ResponseRenderer();
         }
 
         return self::$instance;

@@ -560,6 +560,7 @@ class Common
      * @param string $field display field name
      *
      * @return array<int,string|bool|null>
+     * @psalm-return array{0: bool, 1: string|null}
      */
     public function saveDisplayField($db, $table, $field): array
     {
@@ -598,6 +599,7 @@ class Common
      * @param string $DB2       database
      *
      * @return array<int,string|bool> array of success/failure and message
+     * @psalm-return array{0: bool, 1: string}
      */
     public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2): array
     {

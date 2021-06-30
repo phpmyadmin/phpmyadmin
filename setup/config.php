@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Url;
 
@@ -25,7 +25,7 @@ require ROOT_PATH . 'setup/lib/common.inc.php';
 $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');
 
-$response = Response::getInstance();
+$response = ResponseRenderer::getInstance();
 $response->disable();
 
 if (isset($_POST['eol'])) {

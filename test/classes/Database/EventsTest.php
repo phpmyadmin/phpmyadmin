@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -38,7 +38,7 @@ class EventsTest extends AbstractTestCase
         $this->events = new Events(
             $GLOBALS['dbi'],
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
     }
 
@@ -151,7 +151,7 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('add', 'change', $data)
@@ -206,7 +206,7 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
@@ -261,12 +261,12 @@ class EventsTest extends AbstractTestCase
      */
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->events->getEditorForm('edit', 'change', $data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**

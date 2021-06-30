@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Template;
 
@@ -19,9 +19,9 @@ final class MaintenanceController extends AbstractController
     private $model;
 
     /**
-     * @param Response $response
-     * @param string   $db
-     * @param string   $table
+     * @param ResponseRenderer $response
+     * @param string           $db
+     * @param string           $table
      */
     public function __construct(
         $response,

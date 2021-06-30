@@ -9,7 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
@@ -80,7 +80,7 @@ class InsertEditTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue(null);
         $response->setAccessible(false);
@@ -270,13 +270,13 @@ class InsertEditTest extends AbstractTestCase
         // case 2
         $GLOBALS['cfg']['ShowSQL'] = false;
 
-        $responseMock = $this->getMockBuilder(Response::class)
+        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['addHtml'])
             ->getMock();
 
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $restoreInstance = ResponseRenderer::getInstance();
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -1752,7 +1752,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('getScripts')
             ->will($this->returnValue($scriptsMock));
 
-        $responseMock = $this->getMockBuilder(Response::class)
+        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['getHeader'])
             ->getMock();
@@ -1761,8 +1761,8 @@ class InsertEditTest extends AbstractTestCase
             ->method('getHeader')
             ->will($this->returnValue($headerMock));
 
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $restoreInstance = ResponseRenderer::getInstance();
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -2665,13 +2665,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowSQL'] = false;
         $_POST['default_action'] = 'insert';
 
-        $responseMock = $this->getMockBuilder(Response::class)
+        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['addHtml'])
             ->getMock();
 
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $restoreInstance = ResponseRenderer::getInstance();
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 

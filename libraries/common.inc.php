@@ -39,7 +39,7 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Profiling;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -291,12 +291,12 @@ if (! empty($cfg['Server'])) {
 
     // TODO: Set SQL modes too.
 } else { // end server connecting
-    $response = Response::getInstance();
+    $response = ResponseRenderer::getInstance();
     $response->getHeader()->disableMenuAndConsole();
     $response->getFooter()->setMinimal();
 }
 
-$response = Response::getInstance();
+$response = ResponseRenderer::getInstance();
 
 /**
  * There is no point in even attempting to process
@@ -313,7 +313,7 @@ if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_misma
 
 Profiling::check($dbi, $response);
 
-$containerBuilder->set('response', Response::getInstance());
+$containerBuilder->set('response', ResponseRenderer::getInstance());
 
 // load user preferences
 $config->loadUserPreferences();

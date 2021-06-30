@@ -351,7 +351,7 @@ class ErrorHandler
      */
     protected function dispPageStart(?Error $error = null): void
     {
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';
         if ($error) {
             echo $error->getTitle();
@@ -572,7 +572,7 @@ class ErrorHandler
 
         // Delete all the prev_errors in session & store new prev_errors in session
         $this->savePreviousErrors();
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $jsCode = '';
         if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
             if ($response->isAjax()) {

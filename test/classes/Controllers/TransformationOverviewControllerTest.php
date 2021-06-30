@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 
 use function __;
@@ -36,7 +36,7 @@ class TransformationOverviewControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new TransformationOverviewController($response, new Template(), new Transformations());
 

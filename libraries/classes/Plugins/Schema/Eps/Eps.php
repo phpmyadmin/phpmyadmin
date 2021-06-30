@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 
 use function strlen;
 
@@ -271,7 +271,7 @@ class Eps
         //ob_end_clean();
         //}
         $output = $this->stringCommands;
-        Response::getInstance()
+        ResponseRenderer::getInstance()
             ->disable();
         Core::downloadHeader(
             $fileName,

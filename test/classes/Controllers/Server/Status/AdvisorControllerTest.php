@@ -9,7 +9,7 @@ use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -17,7 +17,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  */
 class AdvisorControllerTest extends AbstractTestCase
 {
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /** @var Template */
@@ -39,7 +39,7 @@ class AdvisorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->response = new Response();
+        $this->response = new ResponseRenderer();
         $this->template = new Template();
         $this->data = new Data();
     }

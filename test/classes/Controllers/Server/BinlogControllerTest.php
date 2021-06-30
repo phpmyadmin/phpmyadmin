@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -41,7 +41,7 @@ class BinlogControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new BinlogController($response, new Template(), $GLOBALS['dbi']);
 

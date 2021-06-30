@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
@@ -42,7 +42,7 @@ class RoutinesTest extends AbstractTestCase
         $this->routines = new Routines(
             $GLOBALS['dbi'],
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
     }
 
@@ -396,12 +396,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetParameterRowAjax(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getParameterRow($data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -705,12 +705,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetEditorForm3(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getEditorForm('edit', 'remove', $data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -1019,12 +1019,12 @@ class RoutinesTest extends AbstractTestCase
      */
     public function testGetExecuteForm2(array $data, string $matcher): void
     {
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->routines->getExecuteForm($data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**
@@ -1175,7 +1175,7 @@ class RoutinesTest extends AbstractTestCase
         $routines = new Routines(
             $dbi,
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
 
         unset($_POST);

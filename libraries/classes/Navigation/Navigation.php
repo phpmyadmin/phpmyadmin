@@ -11,7 +11,7 @@ namespace PhpMyAdmin\Navigation;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
@@ -77,7 +77,7 @@ class Navigation
             'source' => '',
         ];
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if (! $response->isAjax()) {
             $logo['source'] = $this->getLogoSource();
             $logo['has_link'] = (string) $cfg['NavigationLogoLink'] !== '';

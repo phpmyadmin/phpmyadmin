@@ -9,7 +9,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -32,9 +32,9 @@ class ChangeController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name.
+     * @param string           $table    Table name.
      */
     public function __construct(
         $response,

@@ -9,7 +9,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
@@ -28,9 +28,9 @@ class ExportController extends AbstractController
     private $export;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name.
+     * @param string           $table    Table name.
      */
     public function __construct(
         $response,

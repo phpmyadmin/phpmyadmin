@@ -106,16 +106,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
 			message: "#^Parameter \\#9 \\$selectedPage of method PhpMyAdmin\\\\Database\\\\Designer\\:\\:getHtmlForMain\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php

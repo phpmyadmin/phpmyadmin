@@ -16,7 +16,7 @@ use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -1056,7 +1056,7 @@ class NavigationTree
                 ),
                 $results
             );
-            Response::getInstance()
+            ResponseRenderer::getInstance()
                 ->addJSON(
                     'results',
                     $results
@@ -1145,7 +1145,7 @@ class NavigationTree
             $node->hasSiblings()
             || $node->realParent() === false
         ) {
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if (
                 $nodeIsContainer
                 && count($node->children) === 0

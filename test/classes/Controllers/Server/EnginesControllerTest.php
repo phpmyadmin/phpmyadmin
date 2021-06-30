@@ -9,7 +9,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function __;
 use function htmlspecialchars;
@@ -41,7 +41,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         global $dbi;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
@@ -88,7 +88,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         global $dbi;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new EnginesController($response, new Template(), $dbi);
 

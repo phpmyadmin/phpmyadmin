@@ -17,7 +17,7 @@ use PhpMyAdmin\Message;
 
 use function is_array;
 
-class Response extends \PhpMyAdmin\Response
+class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
 {
     /**
      * HTML data to be used in the response
@@ -150,7 +150,7 @@ class Response extends \PhpMyAdmin\Response
      */
     public function setAjax(bool $isAjax): void
     {
-        $this->isAjax = (bool) $isAjax;
+        $this->isAjax = $isAjax;
     }
 
     /**

@@ -11,7 +11,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -30,7 +30,7 @@ class IndexesController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param DatabaseInterface $dbi
@@ -245,7 +245,7 @@ class IndexesController extends AbstractController
             );
         } elseif (! $error) {
             $this->dbi->query($sql_query);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if ($response->isAjax()) {
                 $message = Message::success(
                     __('Table %1$s has been altered successfully.')

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
@@ -20,7 +20,7 @@ class TwoFactorController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template, Relation $relation)
     {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\PrivilegesController;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -46,7 +46,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             ->willReturn($privileges);
 
         $controller = new PrivilegesController(
-            Response::getInstance(),
+            ResponseRenderer::getInstance(),
             new Template(),
             $db,
             $serverPrivileges,

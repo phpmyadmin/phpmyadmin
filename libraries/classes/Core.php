@@ -280,9 +280,9 @@ class Core
         if (
             isset($dbi, $GLOBALS['config']) && $dbi !== null
             && $GLOBALS['config']->get('is_setup') === false
-            && Response::getInstance()->isAjax()
+            && ResponseRenderer::getInstance()->isAjax()
         ) {
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
 
@@ -552,7 +552,7 @@ class Core
     public static function sendHeaderLocation(string $uri, bool $use_refresh = false): void
     {
         if ($GLOBALS['config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
-            Response::getInstance()->disable();
+            ResponseRenderer::getInstance()->disable();
 
             $template = new Template();
             echo $template->render('header_location', ['uri' => $uri]);
@@ -568,7 +568,7 @@ class Core
             $uri = $GLOBALS['config']->getRootPath() . substr($uri, 2);
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         session_write_close();
         if ($response->headersSent()) {
@@ -900,7 +900,7 @@ class Core
         }
 
         $retval .= '</div>';
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->addJSON('sql_data', $retval);
     }
 

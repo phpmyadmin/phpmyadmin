@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use stdClass;
 
@@ -448,7 +448,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testFatalErrorMessage(): void
     {
         $_REQUEST = [];
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $this->expectOutputRegex('/FatalError!/');
         Core::fatalError('FatalError!');
@@ -460,7 +460,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testFatalErrorMessageWithArgs(): void
     {
         $_REQUEST = [];
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $message = 'Fatal error #%d in file %s.';
         $params = [
@@ -1293,7 +1293,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testMissingExtensionFatalWithExtra(): void
     {
         $_REQUEST = [];
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $ext = 'php_ext';
         $extra = 'Appended Extra String';

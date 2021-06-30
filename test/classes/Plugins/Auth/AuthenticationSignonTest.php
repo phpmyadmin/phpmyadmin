@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
 use function ob_get_clean;
@@ -55,7 +55,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
         $_REQUEST = [];
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
 
         ob_start();
         $this->object->showLoginForm();

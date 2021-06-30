@@ -12,7 +12,7 @@ use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Utils\HttpRequest;
@@ -130,17 +130,17 @@ abstract class AbstractTestCase extends TestCase
     {
         global $containerBuilder;
 
-        $response = new Response();
-        $containerBuilder->set(Response::class, $response);
-        $containerBuilder->setAlias('response', Response::class);
+        $response = new ResponseRenderer();
+        $containerBuilder->set(ResponseRenderer::class, $response);
+        $containerBuilder->setAlias('response', ResponseRenderer::class);
     }
 
     protected function getResponseHtmlResult(): string
     {
         global $containerBuilder;
 
-        /** @var Response $response */
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
         return $response->getHTMLResult();
     }
@@ -149,8 +149,8 @@ abstract class AbstractTestCase extends TestCase
     {
         global $containerBuilder;
 
-        /** @var Response $response */
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
         return $response->getJSONResult();
     }
@@ -158,8 +158,8 @@ abstract class AbstractTestCase extends TestCase
     protected function assertResponseWasNotSuccessfull(): void
     {
         global $containerBuilder;
-        /** @var Response $response */
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
         $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
     }
@@ -167,8 +167,8 @@ abstract class AbstractTestCase extends TestCase
     protected function assertResponseWasSuccessfull(): void
     {
         global $containerBuilder;
-        /** @var Response $response */
-        $response = $containerBuilder->get(Response::class);
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
 
         $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
     }

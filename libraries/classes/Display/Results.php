@@ -17,7 +17,7 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -2552,7 +2552,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
@@ -2565,7 +2565,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 }
@@ -2610,7 +2610,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause ?? '',
                         'condition' => json_encode($conditionArray ?? []),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 }

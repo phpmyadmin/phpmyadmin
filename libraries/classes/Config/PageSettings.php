@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\UserPreferences;
 
 use function __;
@@ -111,7 +111,7 @@ class PageSettings
         $result = $this->userPreferences->save($cf->getConfigArray());
         if ($result === true) {
             // reload page
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             Core::sendHeaderLocation(
                 $response->getFooter()->getSelfUrl()
             );
@@ -160,7 +160,7 @@ class PageSettings
      */
     private function getPageSettingsDisplay(&$formDisplay, &$error)
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         $retval = '';
 

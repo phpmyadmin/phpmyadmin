@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -25,8 +25,8 @@ class DesignerController extends AbstractController
     private $designerCommon;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name
      */
     public function __construct(
         $response,

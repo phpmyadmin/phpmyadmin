@@ -1450,7 +1450,7 @@ class Import
     {
         global $dbi;
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $error = false;
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         $sqlDelimiter = $_POST['sql_delimiter'];
@@ -1711,7 +1711,7 @@ class Import
 
         if ($error) {
             unset($_POST['rollback_query']);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $message = Message::rawError($error);
             $response->addJSON('message', $message);
             exit;

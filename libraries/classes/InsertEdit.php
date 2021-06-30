@@ -224,7 +224,7 @@ class InsertEdit
         // No row returned
         if (! $rows[$keyId]) {
             unset($rows[$keyId], $whereClauseArray[$keyId]);
-            Response::getInstance()->addHTML(
+            ResponseRenderer::getInstance()->addHTML(
                 Generator::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
                     $localQuery
@@ -1294,7 +1294,7 @@ class InsertEdit
         }
 
         $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $header = $response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/additional-methods.js');

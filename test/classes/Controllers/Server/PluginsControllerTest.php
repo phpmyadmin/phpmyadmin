@@ -9,7 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\PluginsController
@@ -65,7 +65,7 @@ class PluginsControllerTest extends AbstractTestCase
             ->method('freeResult')
             ->will($this->returnValue(true));
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new PluginsController($response, new Template(), new Plugins($dbi), $GLOBALS['dbi']);
         $controller->index();

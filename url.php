@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 
 if (! defined('ROOT_PATH')) {
@@ -29,7 +29,7 @@ $dbi = DatabaseInterface::load();
 $containerBuilder->set(DatabaseInterface::class, $dbi);
 
 // Only output the http headers
-$response = Response::getInstance();
+$response = ResponseRenderer::getInstance();
 $response->getHeader()->sendHttpHeaders();
 $response->disable();
 

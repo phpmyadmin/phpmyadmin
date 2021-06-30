@@ -162,8 +162,8 @@ class Routing
         );
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(404);
             echo Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
@@ -174,8 +174,8 @@ class Routing
         }
 
         if ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(405);
             echo Message::error(__('Error 405! Request method not allowed.'))->getDisplay();
 

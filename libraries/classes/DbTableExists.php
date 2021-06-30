@@ -39,7 +39,7 @@ final class DbTableExists
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON(

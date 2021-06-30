@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Util;
 
@@ -34,7 +34,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function showLoginForm()
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -84,7 +84,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->getFooter()
             ->setMinimal();
         $header = $response->getHeader();
