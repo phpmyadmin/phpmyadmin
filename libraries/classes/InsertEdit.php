@@ -1036,7 +1036,7 @@ class InsertEdit
     private function getHeadAndFootOfInsertRowTable(array $urlParams)
     {
         $htmlOutput = '<div class="table-responsive-lg">'
-            . '<table class="table table-light table-striped align-middle my-3 insertRowTable">'
+            . '<table class="table table-light table-striped align-middle my-3 insertRowTable w-auto">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';
