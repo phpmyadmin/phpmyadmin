@@ -600,13 +600,20 @@ class Core
         }
 
         // No caching
-        self::noCacheHeader();
-        // MIME type
-        header('Content-Type: application/json; charset=UTF-8');
-        // Disable content sniffing in browser
-        // This is needed in case we include HTML in JSON, browser might assume it's
-        // html to display
-        header('X-Content-Type-Options: nosniff');
+        $headers = self::getNoCacheHeaders();
+
+        // Media type
+        $headers['Content-Type'] = 'application/json; charset=UTF-8';
+
+        /**
+         * Disable content sniffing in browser.
+         * This is needed in case we include HTML in JSON, browser might assume it's html to display.
+         */
+        $headers['X-Content-Type-Options'] = 'nosniff';
+
+        foreach ($headers as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
     }
 
     /**
@@ -618,19 +625,36 @@ class Core
             return;
         }
 
-        // rfc2616 - Section 14.21
-        header('Expires: ' . gmdate(DATE_RFC1123));
-        // HTTP/1.1
-        header(
-            'Cache-Control: no-store, no-cache, must-revalidate,'
-            . '  pre-check=0, post-check=0, max-age=0'
-        );
+        $headers = self::getNoCacheHeaders();
 
-        header('Pragma: no-cache'); // HTTP/1.0
+        foreach ($headers as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public static function getNoCacheHeaders(): array
+    {
+        $headers = [];
+        $date = (string) gmdate(DATE_RFC1123);
+
+        // rfc2616 - Section 14.21
+        $headers['Expires'] = $date;
+
+        // HTTP/1.1
+        $headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0';
+
+        // HTTP/1.0
+        $headers['Pragma'] = 'no-cache';
+
         // test case: exporting a database into a .gz file with Safari
         // would produce files not having the current time
         // (added this header for Safari but should not harm other browsers)
-        header('Last-Modified: ' . gmdate(DATE_RFC1123));
+        $headers['Last-Modified'] = $date;
+
+        return $headers;
     }
 
     /**
@@ -648,32 +672,37 @@ class Core
         int $length = 0,
         bool $no_cache = true
     ): void {
+        $headers = [];
+
         if ($no_cache) {
-            self::noCacheHeader();
+            $headers = self::getNoCacheHeaders();
         }
 
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
         if (! empty($filename)) {
-            header('Content-Description: File Transfer');
-            header('Content-Disposition: attachment; filename="' . $filename . '"');
+            $headers['Content-Description'] = 'File Transfer';
+            $headers['Content-Disposition'] = 'attachment; filename="' . $filename . '"';
         }
 
-        header('Content-Type: ' . $mimetype);
+        $headers['Content-Type'] = $mimetype;
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
         $notChromeOrLessThan43 = PMA_USR_BROWSER_AGENT != 'CHROME' // see bug #4942
             || (PMA_USR_BROWSER_AGENT == 'CHROME' && PMA_USR_BROWSER_VER < 43);
         if (strpos($mimetype, 'gzip') !== false && $notChromeOrLessThan43) {
-            header('Content-Encoding: gzip');
+            $headers['Content-Encoding'] = 'gzip';
         }
 
-        header('Content-Transfer-Encoding: binary');
-        if ($length <= 0) {
-            return;
+        $headers['Content-Transfer-Encoding'] = 'binary';
+
+        if ($length > 0) {
+            $headers['Content-Length'] = (string) $length;
         }
 
-        header('Content-Length: ' . $length);
+        foreach ($headers as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
     }
 
     /**
