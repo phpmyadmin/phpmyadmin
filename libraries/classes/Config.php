@@ -532,6 +532,8 @@ class Config
      */
     public function loadUserPreferences(): void
     {
+        global $isMinimumCommon;
+
         $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
@@ -539,7 +541,7 @@ class Config
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
+        if ($server > 0 && ! isset($isMinimumCommon)) {
             $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
             // cache user preferences, use database only when needed
             if (
@@ -575,7 +577,8 @@ class Config
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
-        if (defined('PMA_MINIMUM_COMMON')) {
+
+        if (isset($isMinimumCommon)) {
             return;
         }
 

@@ -18,9 +18,7 @@ if (! defined('ROOT_PATH')) {
 
 global $containerBuilder, $dbi;
 
-// phpcs:disable PSR1.Files.SideEffects
-define('PMA_MINIMUM_COMMON', true);
-// phpcs:enable
+$isMinimumCommon = true;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
