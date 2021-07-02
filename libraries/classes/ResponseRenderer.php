@@ -12,20 +12,11 @@ use function headers_sent;
 use function http_response_code;
 use function is_array;
 use function json_encode;
-use function json_last_error;
+use function json_last_error_msg;
 use function mb_strlen;
 use function register_shutdown_function;
 use function strlen;
 
-use const JSON_ERROR_CTRL_CHAR;
-use const JSON_ERROR_DEPTH;
-use const JSON_ERROR_INF_OR_NAN;
-use const JSON_ERROR_NONE;
-use const JSON_ERROR_RECURSION;
-use const JSON_ERROR_STATE_MISMATCH;
-use const JSON_ERROR_SYNTAX;
-use const JSON_ERROR_UNSUPPORTED_TYPE;
-use const JSON_ERROR_UTF8;
 use const PHP_SAPI;
 
 /**
@@ -301,10 +292,8 @@ class ResponseRenderer
 
     /**
      * Renders the HTML response text
-     *
-     * @return string
      */
-    private function getDisplay()
+    private function getDisplay(): string
     {
         // The header may contain nothing at all,
         // if its content was already rendered
@@ -318,29 +307,15 @@ class ResponseRenderer
     }
 
     /**
-     * Sends an HTML response to the browser
-     *
-     * @return void
-     */
-    private function htmlResponse()
-    {
-        echo $this->getDisplay();
-    }
-
-    /**
      * Sends a JSON response to the browser
-     *
-     * @return void
      */
-    private function ajaxResponse()
+    private function ajaxResponse(): string
     {
         global $dbi;
 
         /* Avoid wrapping in case we're disabled */
         if ($this->isDisabled) {
-            echo $this->getDisplay();
-
-            return;
+            return $this->getDisplay();
         }
 
         if (! isset($this->JSON['message'])) {
@@ -424,46 +399,13 @@ class ResponseRenderer
 
         $result = json_encode($this->JSON);
         if ($result === false) {
-            switch (json_last_error()) {
-                case JSON_ERROR_NONE:
-                    $error = 'No errors';
-                    break;
-                case JSON_ERROR_DEPTH:
-                    $error = 'Maximum stack depth exceeded';
-                    break;
-                case JSON_ERROR_STATE_MISMATCH:
-                    $error = 'Underflow or the modes mismatch';
-                    break;
-                case JSON_ERROR_CTRL_CHAR:
-                    $error = 'Unexpected control character found';
-                    break;
-                case JSON_ERROR_SYNTAX:
-                    $error = 'Syntax error, malformed JSON';
-                    break;
-                case JSON_ERROR_UTF8:
-                    $error = 'Malformed UTF-8 characters, possibly incorrectly encoded';
-                    break;
-                case JSON_ERROR_RECURSION:
-                    $error = 'One or more recursive references in the value to be encoded';
-                    break;
-                case JSON_ERROR_INF_OR_NAN:
-                    $error = 'One or more NAN or INF values in the value to be encoded';
-                    break;
-                case JSON_ERROR_UNSUPPORTED_TYPE:
-                    $error = 'A value of a type that cannot be encoded was given';
-                    break;
-                default:
-                    $error = 'Unknown error';
-                    break;
-            }
-
-            echo json_encode([
+            return (string) json_encode([
                 'success' => false,
-                'error' => 'JSON encoding failed: ' . $error,
+                'error' => 'JSON encoding failed: ' . json_last_error_msg(),
             ]);
-        } else {
-            echo $result;
         }
+
+        return $result;
     }
 
     /**
@@ -479,9 +421,9 @@ class ResponseRenderer
         }
 
         if ($this->isAjax()) {
-            $this->ajaxResponse();
+            echo $this->ajaxResponse();
         } else {
-            $this->htmlResponse();
+            echo $this->getDisplay();
         }
 
         $buffer->flush();
