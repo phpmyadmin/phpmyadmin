@@ -8,22 +8,20 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 
-// phpcs:disable PSR1.Files.SideEffects
-define('PMA_MINIMUM_COMMON', true);
-// phpcs:enable
-
 chdir('..');
 
 if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
     die('Bad invocation!');
 }
 
+$isMinimumCommon = true;
+
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // use default error handler
 restore_error_handler();
 
-// Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
+// Save current language in a cookie, required since we set $isMinimumCommon
 $GLOBALS['config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
 $GLOBALS['config']->set('is_setup', true);
 

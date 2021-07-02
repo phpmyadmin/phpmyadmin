@@ -110,9 +110,7 @@ if (! defined('K_PATH_IMAGES')) {
 $route = Routing::getCurrentRoute();
 
 if ($route === '/import-status') {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('PMA_MINIMUM_COMMON', true);
-    // phpcs:enable
+    $isMinimumCommon = true;
 }
 
 $containerBuilder = Core::getContainerBuilder();
@@ -238,7 +236,7 @@ $theme = ThemeManager::initializeTheme();
 /** @var DatabaseInterface $dbi */
 $dbi = null;
 
-if (defined('PMA_MINIMUM_COMMON')) {
+if (isset($isMinimumCommon)) {
     $config->loadUserPreferences();
     $containerBuilder->set('theme_manager', ThemeManager::getInstance());
     Tracker::enable();

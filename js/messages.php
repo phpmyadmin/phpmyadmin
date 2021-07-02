@@ -22,8 +22,8 @@ header('Content-Type: text/javascript; charset=UTF-8');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 // Avoid loading the full common.inc.php because this would add many non-js-compatible stuff like DOCTYPE.
+$isMinimumCommon = true;
 // phpcs:disable PSR1.Files.SideEffects
-define('PMA_MINIMUM_COMMON', true);
 define('PMA_PATH_TO_BASEDIR', '../');
 define('PMA_NO_SESSION', true);
 // phpcs:enable
