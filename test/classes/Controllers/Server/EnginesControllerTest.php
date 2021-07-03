@@ -10,6 +10,7 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use Psr\Http\Message\ServerRequestInterface;
 
 use function __;
 use function htmlspecialchars;
@@ -92,7 +93,9 @@ class EnginesControllerTest extends AbstractTestCase
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
-        $controller->show([
+        $request = $this->createMock(ServerRequestInterface::class);
+
+        $controller->show($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);

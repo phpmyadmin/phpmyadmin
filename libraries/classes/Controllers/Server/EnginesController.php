@@ -10,6 +10,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 /**
  * Handles viewing storage engine details
@@ -49,7 +50,7 @@ class EnginesController extends AbstractController
      *
      * @param array $params Request params
      */
-    public function show(array $params): void
+    public function show(Request $request, array $params): void
     {
         global $errorUrl;
 

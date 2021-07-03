@@ -12,6 +12,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 use function __;
 use function array_keys;
@@ -100,7 +101,7 @@ class ProcessesController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function kill(array $params): void
+    public function kill(Request $request, array $params): void
     {
         if (! $this->response->isAjax()) {
             return;
