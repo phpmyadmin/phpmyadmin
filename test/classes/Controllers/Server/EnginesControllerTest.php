@@ -6,11 +6,11 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use Psr\Http\Message\ServerRequestInterface;
 
 use function __;
 use function htmlspecialchars;
@@ -93,7 +93,7 @@ class EnginesControllerTest extends AbstractTestCase
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createMock(ServerRequest::class);
 
         $controller->show($request, [
             'engine' => 'Pbxt',

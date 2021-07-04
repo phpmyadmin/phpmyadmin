@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Factory;
 
+use PhpMyAdmin\Http\ServerRequest;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Psr7\Factory\ServerRequestFactory as RequestFactory;
@@ -25,16 +26,20 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function createServerRequest(string $method, $uri, array $serverParams = []): ServerRequestInterface
     {
-        return $this->factory->createServerRequest($method, $uri, $serverParams);
+        $serverRequest = $this->factory->createServerRequest($method, $uri, $serverParams);
+
+        return new ServerRequest($serverRequest);
     }
 
-    public static function createFromGlobals(): ServerRequestInterface
+    public static function createFromGlobals(): ServerRequest
     {
         /** @psalm-suppress InternalMethod */
-        return RequestFactory::createFromGlobals();
+        $serverRequest = RequestFactory::createFromGlobals();
+
+        return new ServerRequest($serverRequest);
     }
 }
