@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-27 00:08+0000\n"
+"POT-Creation-Date: 2021-07-04 00:07+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1409,8 +1409,8 @@ msgstr "বর্ণনা"
 #: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Html/Generator.php:1230 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "পাতার সংখ্যা:"
 
@@ -3211,7 +3211,7 @@ msgstr "SQL ত্রুটিমুক্ত করন"
 
 #: libraries/classes/Config/Descriptions.php:644
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Paper size"
 msgstr "পাতার আকার"
 
@@ -3418,7 +3418,7 @@ msgstr "টেবলের নামের নকশা"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportPdf.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "Dump table"
@@ -3437,8 +3437,8 @@ msgstr "টেবিলের শিরোনামসহ"
 #: libraries/classes/Plugins/Export/ExportOdt.php:521
 #: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:737
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3693,7 +3693,7 @@ msgstr "সার্ভার"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3771,7 +3771,7 @@ msgid "Database structure"
 msgstr "ডাটাবেইজ সার্ভার"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:284
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "টেবলের জন্য টেবলের গঠন"
@@ -3824,7 +3824,7 @@ msgstr "আংশিক আমদানি: বাধা অনুমোদি�
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#: libraries/classes/Plugins/Import/ImportLdi.php:87
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "ভুল হলেও ইনর্সাট বাতিল করবে না"
 
@@ -3838,7 +3838,7 @@ msgid "Format of imported file"
 msgstr "আমদানিকৃত ফাইলের গঠন"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:93
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "LOCAL কীওর্য়াড ব্যবহার কর"
 
@@ -4546,7 +4546,7 @@ msgid "Server"
 msgstr "সার্ভার"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:532
+#: libraries/classes/Plugins/Export/ExportXml.php:519
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4889,38 +4889,38 @@ msgstr "ব্রাউজারের রুপান্তর"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
-#: libraries/classes/Config.php:760
+#: libraries/classes/Config.php:763
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: libraries/classes/Config.php:798
+#: libraries/classes/Config.php:801
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
-#: libraries/classes/Config.php:813
+#: libraries/classes/Config.php:816
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "স্বাভাবিক কনফিগারেশন লোড করা যাচ্ছে না:%1$s"
 
-#: libraries/classes/Config.php:823
+#: libraries/classes/Config.php:826
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:829
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ইহা সাধারনত বাক্যে ভুল বোঝায়, কোন ভুল আছে কিনা পরীক্ষা করুন।"
 
-#: libraries/classes/Config.php:1398
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "অকার্যকর সার্ভার ইনডেক্স:%s"
 
-#: libraries/classes/Config.php:1411
+#: libraries/classes/Config.php:1414
 #, php-format
 msgid "Server %d"
 msgstr "সার্ভার %d"
@@ -5362,7 +5362,7 @@ msgstr "সফল।"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:799
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -5396,8 +5396,8 @@ msgstr "হ্যাঁ"
 #: libraries/classes/Controllers/Database/StructureController.php:1567
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
-#: libraries/classes/Controllers/Table/ReplaceController.php:398
-#: libraries/classes/Core.php:893 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:399
+#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
@@ -6215,7 +6215,7 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: libraries/classes/Display/Results.php:1338
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6735,7 +6735,7 @@ msgstr "বর্ণ রাশি পরিবর্তন করছি"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -8970,7 +8970,7 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s সংযোজনক পাওয়া যাচ্ছে না। পিএইছপি কনফিগারেশন দেখুন।"
 
-#: libraries/classes/Core.php:1276
+#: libraries/classes/Core.php:1305
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8979,21 +8979,21 @@ msgstr ""
 "আপনার পিএইছপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা  "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: libraries/classes/Core.php:1293
+#: libraries/classes/Core.php:1322
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1305
+#: libraries/classes/Core.php:1334
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Core.php:1315
+#: libraries/classes/Core.php:1344
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
-#: libraries/classes/Core.php:1384
+#: libraries/classes/Core.php:1413
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -9038,7 +9038,7 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:574
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -9048,63 +9048,64 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:626
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:680
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:686
+#: libraries/classes/Database/Designer/Common.php:688
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:693
+#: libraries/classes/Database/Designer/Common.php:695
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:701
+#: libraries/classes/Database/Designer/Common.php:703
+#: libraries/classes/Database/Designer/Common.php:796
 msgid "Error: Relational features are disabled!"
 msgstr "ভুল: সর্ম্পক তৈরী অকার্যকর করা আছে!"
 
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:729
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:737
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:776
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:784
+#: libraries/classes/Database/Designer/Common.php:786
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:812
+#: libraries/classes/Database/Designer/Common.php:822
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:818
+#: libraries/classes/Database/Designer/Common.php:828
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -10094,7 +10095,7 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP সংযোজক পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Header.php:371
+#: libraries/classes/Header.php:373
 msgid "Print view"
 msgstr "মুদ্রনের দেখা"
 
@@ -10218,11 +10219,11 @@ msgstr "আকৃতি সম্পাদনা কর এই \"Structure\" স
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:48
 #: libraries/classes/Plugins/Export/ExportOds.php:54
 #: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:74
 #: libraries/classes/Plugins/Export/ExportPhparray.php:48
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
@@ -10296,8 +10297,8 @@ msgstr "ফাংশন"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -10350,8 +10351,8 @@ msgstr "ওয়েব সার্ভারের আপলোড ডিরেক
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:709
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:743
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -10381,8 +10382,8 @@ msgstr "স্তম্ভ"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -10497,10 +10498,10 @@ msgstr "ট্রেকিং"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:605
 #: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:287
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Util.php:2131 libraries/classes/Util.php:2147
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10524,7 +10525,7 @@ msgstr "রুটিনসমূহ"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Util.php:2130 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "ইভেন্টসমূহ"
@@ -10706,7 +10707,7 @@ msgstr "ইভেন্ট"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr "ফাংশনসমূহ"
 
@@ -10727,7 +10728,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr "প্রোসিডিউরস"
 
@@ -10758,7 +10759,7 @@ msgstr "ট্রিগারসমূহ"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "ভিউসমূহ"
@@ -11288,7 +11289,7 @@ msgstr "Excel সংস্করন:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:71
 #: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:116
+#: libraries/classes/Plugins/Export/ExportPdf.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:66
 #: libraries/config.values.php:254 libraries/config.values.php:320
@@ -11301,7 +11302,7 @@ msgstr "কাঠামো"
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:72
 #: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:117
+#: libraries/classes/Plugins/Export/ExportPdf.php:103
 #: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:67
 #: libraries/config.values.php:255 libraries/config.values.php:321
@@ -11314,7 +11315,7 @@ msgstr "তথ্য"
 #: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:73
 #: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:118
+#: libraries/classes/Plugins/Export/ExportPdf.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:256 libraries/config.values.php:322
@@ -11327,7 +11328,7 @@ msgstr "কাঠামো এবং তথ্য"
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 #: libraries/classes/Plugins/Export/ExportOdt.php:126
 #: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Data dump options"
 msgstr "তথ্য স্তুপের অপশন"
 
@@ -11346,8 +11347,8 @@ msgstr "টেবলের জন্য তথ্য স্তুপ করছ�
 #: libraries/classes/Plugins/Export/ExportTexytext.php:315
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -11365,8 +11366,8 @@ msgstr "ডিফল্ট"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "এর সংযোগ"
@@ -11487,7 +11488,7 @@ msgstr "প্রথম সারিতে স্তম্ভের নাম �
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:222
 #: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:256
+#: libraries/classes/Plugins/Export/ExportXml.php:243
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
@@ -11495,26 +11496,26 @@ msgstr "হোষ্ট:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:262
+#: libraries/classes/Plugins/Export/ExportXml.php:249
 msgid "Generation Time:"
 msgstr "তৈরী করতে ব্যবহৃত সময়:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:264
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/home/index.twig:160
 msgid "Server version:"
 msgstr "সার্ভার সংস্করন:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:231
 #: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:265
+#: libraries/classes/Plugins/Export/ExportXml.php:252
 msgid "PHP Version:"
 msgstr "পিএইছপির সংস্করন:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:438
+#: libraries/classes/Plugins/Export/ExportXml.php:425
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11545,29 +11546,29 @@ msgstr "সমান্তরাল (rotated headers)"
 msgid "Dumping data for query result"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
 msgid "Report title:"
 msgstr "প্রতিবেদনের শিরোনাম:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:228
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:248
+#: libraries/classes/Plugins/Export/ExportPdf.php:234
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "অনুসন্ধান ফলাফল"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: libraries/classes/Plugins/Export/ExportPdf.php:290
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "কাঠামো"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:307
+#: libraries/classes/Plugins/Export/ExportPdf.php:293
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
@@ -11759,17 +11760,17 @@ msgid "Metadata for database %s"
 msgstr "%s এর তথ্য নাই"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1534
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 msgid "Creation:"
 msgstr "প্রস্তুত:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:694
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
 msgid "Last update:"
 msgstr "সর্বশেষ আপডেট:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1562
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 msgid "Last check:"
 msgstr "সর্বশেষ যাচাই:"
 
@@ -11838,11 +11839,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "তথ্য পড়ার ভুল:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr "ওবজেক্ট তৈরীর অপশন (সবগুলো সুপারিশকৃত)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:158
+#: libraries/classes/Plugins/Export/ExportXml.php:145
 msgid "Export contents"
 msgstr "তথ্য রফতানী কর"
 
@@ -11925,11 +11926,11 @@ msgstr ""
 "অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা হয়েছে "
 "কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন।"
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:81
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "স্তম্ভের নাম: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:123
+#: libraries/classes/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "এই সংযোজকটি সংকোচিত আমদানি সমর্থন করে না!"
 
@@ -11998,11 +11999,11 @@ msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code>
 msgid "XML"
 msgstr "এক্সএমএল"
 
-#: libraries/classes/Plugins.php:710
+#: libraries/classes/Plugins.php:681
 msgid "This format has no options"
 msgstr "এই গঠনের কোন অপশন নাই"
 
-#: libraries/classes/Plugins.php:727
+#: libraries/classes/Plugins.php:698
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
@@ -12024,105 +12025,105 @@ msgstr "%s ডাটাবেইজের রূপরেখা - পাতা %
 msgid "SCHEMA ERROR: "
 msgstr "রূপরেখায় ভুল : "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:304
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:294
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "রফতানীর ধরন সঠিক নয়"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:133
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "%s ডাটাবেইজের রূপরেখা - পাতা %s"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:171
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:590
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:161
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 msgid "Relational schema"
 msgstr "সর্ম্পকের রূপরেখা"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
 msgid "Table of contents"
 msgstr "সুচিপত্র"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:662
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "টেবিলের মন্তব্য সমূহ:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "গুনাবলী"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "বেশতী"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:68
+#: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
 msgstr "রং দেখাও"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:70
+#: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
 msgstr "শুধু কী দেখাও"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:55
 #: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:63
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "পরিস্থিতি"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Landscape"
 msgstr "আড়াআড়ীভাবে"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:60
 #: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Portrait"
 msgstr "লম্বাকৃতিতে"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:57
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:82
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
 msgid "Show grid"
 msgstr "গ্রীড দেখাও"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:88
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
 #: templates/database/structure/index.twig:23
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "তথ্য অভিধান"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:94
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
 msgstr "উপরের কোনটি নয়"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:99
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "উর্ধ্ব মূখী"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 #, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
@@ -12607,14 +12608,14 @@ msgstr "রফতানীর ধরন সঠিক নয়"
 msgid "no description"
 msgstr "বণর্না নাই"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2078
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2200
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -12622,14 +12623,14 @@ msgid ""
 "configuration storage there."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2208
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2216
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -14018,12 +14019,12 @@ msgstr "জিপ আর্কাইভের ভুল:"
 msgid "No files found inside ZIP archive!"
 msgstr "জিপ আর্কাইভের ভিতর কোন ফাইল পাওয়া যায়নি!"
 
-#: libraries/common.inc.php:279
+#: libraries/common.inc.php:277
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/common.inc.php:309
+#: libraries/common.inc.php:307
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
@@ -19802,7 +19803,7 @@ msgstr "ভিউ এর নাম"
 msgid "Column names"
 msgstr "স্তম্ভের নাম"
 
-#: url.php:53
+#: url.php:51
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to the target site."

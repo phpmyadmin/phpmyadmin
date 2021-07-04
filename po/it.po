@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-27 00:08+0000\n"
+"POT-Creation-Date: 2021-07-04 00:07+0000\n"
 "PO-Revision-Date: 2021-04-16 22:27+0000\n"
 "Last-Translator: Alessandro Mandelli <mandelli.alessandro@ngi.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1510,8 +1510,8 @@ msgstr "Descrizione"
 #: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Html/Generator.php:1230 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "Numero pagina:"
 
@@ -3265,7 +3265,7 @@ msgstr "Debug SQL"
 
 #: libraries/classes/Config/Descriptions.php:644
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Paper size"
 msgstr "Dimensioni carta"
 
@@ -3449,7 +3449,7 @@ msgstr "Modello per nomi delle tabelle"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportPdf.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "Dump table"
@@ -3468,8 +3468,8 @@ msgstr "Includi sottotitolo della tabella"
 #: libraries/classes/Plugins/Export/ExportOdt.php:521
 #: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:737
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3713,7 +3713,7 @@ msgstr "Server"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3791,7 +3791,7 @@ msgid "Database structure"
 msgstr "Struttura del database"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:284
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Struttura della tabella"
@@ -3845,7 +3845,7 @@ msgstr "Importazione parziale: consenti interruzione"
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#: libraries/classes/Plugins/Import/ImportLdi.php:87
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "Non interrompere su errore durante un operazione di INSERT"
 
@@ -3859,7 +3859,7 @@ msgid "Format of imported file"
 msgstr "Formato del file importato"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:93
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "Usa parola chiave LOCAL"
 
@@ -4511,7 +4511,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:532
+#: libraries/classes/Plugins/Export/ExportXml.php:519
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4845,27 +4845,27 @@ msgstr ""
 "Impossibile salvare le impostazioni, il modulo di configurazione inviato "
 "contiene errori!"
 
-#: libraries/classes/Config.php:760
+#: libraries/classes/Config.php:763
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File di configurazione esistente (%s) non è leggibile."
 
-#: libraries/classes/Config.php:798
+#: libraries/classes/Config.php:801
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permessi incorretti sul file di configurazione, non deve essere scrivibile "
 "da tutti!"
 
-#: libraries/classes/Config.php:813
+#: libraries/classes/Config.php:816
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Non posso caricare la configurazione predefinita da: %1$s"
 
-#: libraries/classes/Config.php:823
+#: libraries/classes/Config.php:826
 msgid "Failed to read configuration file!"
 msgstr "Lettura del file di configurazione fallita!"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:829
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4873,12 +4873,12 @@ msgstr ""
 "Questo di solito significa che vi è un errore di sintassi in esso, verifica "
 "eventuali errori riportati in basso."
 
-#: libraries/classes/Config.php:1398
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Indice server non valido: %s"
 
-#: libraries/classes/Config.php:1411
+#: libraries/classes/Config.php:1414
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -5287,7 +5287,7 @@ msgstr "Successo!"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:799
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -5321,8 +5321,8 @@ msgstr "Sì"
 #: libraries/classes/Controllers/Database/StructureController.php:1567
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
-#: libraries/classes/Controllers/Table/ReplaceController.php:398
-#: libraries/classes/Core.php:893 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:399
+#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nessun cambiamento"
 
@@ -6108,7 +6108,7 @@ msgstr "Aggiungi almeno una variabile alla serie!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: libraries/classes/Display/Results.php:1338
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6602,7 +6602,7 @@ msgstr "Cambio il charset"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -8822,7 +8822,7 @@ msgstr "Nome vista non può essere vuoto!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "L'estensione %s è mancante. Controlla la tua configurazione di PHP."
 
-#: libraries/classes/Core.php:1276
+#: libraries/classes/Core.php:1305
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8832,7 +8832,7 @@ msgstr ""
 "opzione è incompatibile con phpMyAdmin e potrebbe causare la corruzione di "
 "alcuni dati!"
 
-#: libraries/classes/Core.php:1293
+#: libraries/classes/Core.php:1322
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -8840,15 +8840,15 @@ msgstr ""
 "Le funzioni ini_get e/o ini_set sono disabilitate in php.ini. phpMyAdmin "
 "richiede queste funzioni!"
 
-#: libraries/classes/Core.php:1305
+#: libraries/classes/Core.php:1334
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativo di sovrascrivere GLOBALS"
 
-#: libraries/classes/Core.php:1315
+#: libraries/classes/Core.php:1344
 msgid "possible exploit"
 msgstr "possibile exploit"
 
-#: libraries/classes/Core.php:1384
+#: libraries/classes/Core.php:1413
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8894,7 +8894,7 @@ msgstr "SI"
 msgid "NO"
 msgstr "NO"
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:574
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -8908,47 +8908,48 @@ msgstr ""
 "Il salvataggio della configurazione non è pronto per la funzionalità della "
 "lista centrale dei campi."
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:626
 msgid "Error: relationship already exists."
 msgstr "Errore: relazione già esistente."
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:680
 msgid "FOREIGN KEY relationship has been added."
 msgstr "La relazione FOREIGN KEY è stata aggiunta."
 
-#: libraries/classes/Database/Designer/Common.php:686
+#: libraries/classes/Database/Designer/Common.php:688
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Errore: non è stato possibile aggiungere la relazione FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:693
+#: libraries/classes/Database/Designer/Common.php:695
 msgid "Error: Missing index on column(s)."
 msgstr "Errore: manca l'indice su campo/i."
 
-#: libraries/classes/Database/Designer/Common.php:701
+#: libraries/classes/Database/Designer/Common.php:703
+#: libraries/classes/Database/Designer/Common.php:796
 msgid "Error: Relational features are disabled!"
 msgstr "Errore: Le funzionalità relazionali sono disabilitate!"
 
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:729
 msgid "Internal relationship has been added."
 msgstr "La relazione interna è stata aggiunta."
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:737
 msgid "Error: Internal relationship could not be added!"
 msgstr "Errore: non è stato possibile aggiungere la relazione interna!"
 
-#: libraries/classes/Database/Designer/Common.php:776
+#: libraries/classes/Database/Designer/Common.php:778
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "La relazione FOREIGN KEY è stata rimossa."
 
-#: libraries/classes/Database/Designer/Common.php:784
+#: libraries/classes/Database/Designer/Common.php:786
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Errore: non è stato possibile rimuovere la relazione FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:812
+#: libraries/classes/Database/Designer/Common.php:822
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Errore: non è stato possibile rimuovere la relazione interna!"
 
-#: libraries/classes/Database/Designer/Common.php:818
+#: libraries/classes/Database/Designer/Common.php:828
 msgid "Internal relationship has been removed."
 msgstr "La relazione interna è stata rimossa."
 
@@ -9936,7 +9937,7 @@ msgstr ""
 msgid "Session not found."
 msgstr "Estensione SOAP non trovata"
 
-#: libraries/classes/Header.php:371
+#: libraries/classes/Header.php:373
 msgid "Print view"
 msgstr "Visualizza per stampa"
 
@@ -10046,11 +10047,11 @@ msgstr "Modifica la struttura seguendo il link \"Struttura\"."
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:48
 #: libraries/classes/Plugins/Export/ExportOds.php:54
 #: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:74
 #: libraries/classes/Plugins/Export/ExportPhparray.php:48
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
@@ -10128,8 +10129,8 @@ msgstr "Funzione"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -10182,8 +10183,8 @@ msgstr "directory di upload del web-server:"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:709
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:743
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -10213,8 +10214,8 @@ msgstr "Colonna"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -10331,10 +10332,10 @@ msgstr "Monitoraggio"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:605
 #: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:287
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Util.php:2131 libraries/classes/Util.php:2147
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10358,7 +10359,7 @@ msgstr "Routine"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Util.php:2130 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Eventi"
@@ -10532,7 +10533,7 @@ msgstr "Evento"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr "Funzioni"
 
@@ -10553,7 +10554,7 @@ msgstr "Espandi/Riduci"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr "Procedure"
 
@@ -10584,7 +10585,7 @@ msgstr "Trigger"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Viste"
@@ -11147,7 +11148,7 @@ msgstr "Edizione Excel:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:71
 #: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:116
+#: libraries/classes/Plugins/Export/ExportPdf.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:66
 #: libraries/config.values.php:254 libraries/config.values.php:320
@@ -11160,7 +11161,7 @@ msgstr "struttura"
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:72
 #: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:117
+#: libraries/classes/Plugins/Export/ExportPdf.php:103
 #: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:67
 #: libraries/config.values.php:255 libraries/config.values.php:321
@@ -11173,7 +11174,7 @@ msgstr "dati"
 #: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:73
 #: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:118
+#: libraries/classes/Plugins/Export/ExportPdf.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:256 libraries/config.values.php:322
@@ -11186,7 +11187,7 @@ msgstr "struttura e dati"
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 #: libraries/classes/Plugins/Export/ExportOdt.php:126
 #: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Data dump options"
 msgstr "Opzioni del dump dei dati"
 
@@ -11205,8 +11206,8 @@ msgstr "Dump dei dati per la tabella"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:315
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -11224,8 +11225,8 @@ msgstr "Predefinito"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "Collegamenti a"
@@ -11348,7 +11349,7 @@ msgstr "Metti i nomi dei campi nella prima riga:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:222
 #: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:256
+#: libraries/classes/Plugins/Export/ExportXml.php:243
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
@@ -11356,26 +11357,26 @@ msgstr "Host:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:262
+#: libraries/classes/Plugins/Export/ExportXml.php:249
 msgid "Generation Time:"
 msgstr "Creato il:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:264
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/home/index.twig:160
 msgid "Server version:"
 msgstr "Versione del server:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:231
 #: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:265
+#: libraries/classes/Plugins/Export/ExportXml.php:252
 msgid "PHP Version:"
 msgstr "Versione PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:438
+#: libraries/classes/Plugins/Export/ExportXml.php:425
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11406,25 +11407,25 @@ msgstr "Esporta le intestazioni della tabella"
 msgid "Dumping data for query result"
 msgstr "Dump dei dati per la tabella"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
 msgid "Report title:"
 msgstr "Titolo del report:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:228
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 msgid "Dumping data"
 msgstr "Dump dei dati"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:248
+#: libraries/classes/Plugins/Export/ExportPdf.php:234
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Risultati della query"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: libraries/classes/Plugins/Export/ExportPdf.php:290
 msgid "View structure"
 msgstr "Vedi struttura"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:307
+#: libraries/classes/Plugins/Export/ExportPdf.php:293
 msgid "Stand in"
 msgstr "Stand in"
 
@@ -11609,17 +11610,17 @@ msgid "Metadata for database %s"
 msgstr "Metadati per database %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1534
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 msgid "Creation:"
 msgstr "Creazione:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:694
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
 msgid "Last update:"
 msgstr "Ultimo aggiornamento:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1562
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 msgid "Last check:"
 msgstr "Ultimo controllo:"
 
@@ -11687,11 +11688,11 @@ msgid "Error reading data for table %s:"
 msgstr ""
 "Si è verificato un errore durante la lettura dei dati della tabella %s:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr "Opzioni di creazione degli oggetti (sono tutte consigliate)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:158
+#: libraries/classes/Plugins/Export/ExportXml.php:145
 msgid "Export contents"
 msgstr "Esporta contenuti"
 
@@ -11776,11 +11777,11 @@ msgstr ""
 "scritti correttemente, sono separati da virgole e non racchiusi in "
 "virgolette."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:81
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "Nomi dei campi: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:123
+#: libraries/classes/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "Questo plugin non supporta importazioni di dati compressi!"
 
@@ -11849,11 +11850,11 @@ msgstr "Non usare <code>AUTO_INCREMENT</code> per il valori zero"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:710
+#: libraries/classes/Plugins.php:681
 msgid "This format has no options"
 msgstr "Questo formato non ha opzioni"
 
-#: libraries/classes/Plugins.php:727
+#: libraries/classes/Plugins.php:698
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodo di autenticazione impostato nella configurazione non valido:"
 
@@ -11875,96 +11876,96 @@ msgstr "Schema del database %s - Pagina %s"
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA ERROR: "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:304
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:294
 msgid "PDF export page"
 msgstr "Pagina di esportazione PDF"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:133
 #, php-format
 msgid "Schema of the %s database"
 msgstr "Schema del database %s"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:171
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:590
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:161
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 msgid "Relational schema"
 msgstr "Schema relazionale"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
 msgid "Table of contents"
 msgstr "Tabella dei contenuti"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:662
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Commenti alla tabella:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "Attributi"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Extra"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:68
+#: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
 msgstr "Mostra il colore"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:70
+#: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
 msgstr "Mostra solo le chiavi"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:55
 #: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:63
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "Orientamento"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Landscape"
 msgstr "Orizzontale"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:60
 #: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Portrait"
 msgstr "Verticale"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:57
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr "Stessa larghezza per tutte le tabelle"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:82
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
 msgid "Show grid"
 msgstr "Mostra la griglia"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:88
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
 #: templates/database/structure/index.twig:23
 msgid "Data dictionary"
 msgstr "Dizionario dei dati"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:94
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 msgid "Order of the tables"
 msgstr "Ordine delle tabelle"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:99
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 msgid "Name (Ascending)"
 msgstr "Nome (ascendente)"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 msgid "Name (Descending)"
 msgstr "Nome (Decrescente)"
 
@@ -12429,7 +12430,7 @@ msgstr "Salvataggio template esportazione"
 msgid "no description"
 msgstr "nessuna descrizione"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2078
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -12440,7 +12441,7 @@ msgstr ""
 "database per impostare in quel database la memorizzazione della "
 "configurazione di phpMyAdmin."
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2200
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -12449,14 +12450,14 @@ msgstr ""
 "%sCrea%s un database denominato 'phpmyadmin' e imposta la configurazione di "
 "storage phpMyAdmin lì."
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2208
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "%sCreate%s la configurazione salvata di phpMyAdmin nel database corrente."
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2216
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -13833,12 +13834,12 @@ msgstr "Errore nell'archivio ZIP:"
 msgid "No files found inside ZIP archive!"
 msgstr "Non sono stati trovati file ZIP all'interno dell'archivio!"
 
-#: libraries/common.inc.php:279
+#: libraries/common.inc.php:277
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Si dovrebbe aggiornare %s alla versione %s o successiva."
 
-#: libraries/common.inc.php:309
+#: libraries/common.inc.php:307
 msgid "Error: Token mismatch"
 msgstr "Errore: token non corrispondente"
 
@@ -19208,7 +19209,7 @@ msgstr "Nome VISTA"
 msgid "Column names"
 msgstr "Nomi colonne"
 
-#: url.php:53
+#: url.php:51
 msgid "Taking you to the target site."
 msgstr "Trasferimento al sito di destinazione."
 

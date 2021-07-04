@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-27 00:08+0000\n"
+"POT-Creation-Date: 2021-07-04 00:07+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -1279,8 +1279,8 @@ msgstr "Opis"
 #: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Html/Generator.php:1230 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "Broj strane:"
 
@@ -3140,7 +3140,7 @@ msgstr "Debagovanje SQL-a"
 
 #: libraries/classes/Config/Descriptions.php:644
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Paper size"
 msgstr "Dimenzije papira"
 
@@ -3359,7 +3359,7 @@ msgstr "Šablon imena tabele"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportPdf.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "Dump table"
@@ -3378,8 +3378,8 @@ msgstr "Uključi komentar tabele"
 #: libraries/classes/Plugins/Export/ExportOdt.php:521
 #: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:737
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3638,7 +3638,7 @@ msgstr "Serveri"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3720,7 +3720,7 @@ msgid "Database structure"
 msgstr "Baza za korisnika"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:284
 #: templates/table/page_with_secondary_tabs.twig:5
 #, fuzzy
 #| msgid "Database for user"
@@ -3775,7 +3775,7 @@ msgstr "Delimični uvoz: dozvolite prekid"
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#: libraries/classes/Plugins/Import/ImportLdi.php:87
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "Ne prekidaj izvršavanje ako se desi greška kod umetanja"
 
@@ -3789,7 +3789,7 @@ msgid "Format of imported file"
 msgstr "Format datoteka za uvoz"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:93
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "Koristi ključnu reč LOCAL"
 
@@ -4503,7 +4503,7 @@ msgid "Server"
 msgstr "Server"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:532
+#: libraries/classes/Plugins/Export/ExportXml.php:519
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4857,29 +4857,29 @@ msgstr "Tranformacije čitača"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:760
+#: libraries/classes/Config.php:763
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Postojeću konfiguracionu datoteku (%s) nije moguće pročitati."
 
-#: libraries/classes/Config.php:798
+#: libraries/classes/Config.php:801
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Pogrešno podešena prava pristupa na konfiguracionoj datoteci, ne bi trebala "
 "da bude svima dostupna za pisanje!"
 
-#: libraries/classes/Config.php:813
+#: libraries/classes/Config.php:816
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/classes/Config.php:823
+#: libraries/classes/Config.php:826
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "Neuspelo čitanje iz konfiguracione datoteke"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:829
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4887,12 +4887,12 @@ msgstr ""
 "Ovo obično znači da postoji sintaksna greška, molimo vas pogledajte greške "
 "prikazane ispod."
 
-#: libraries/classes/Config.php:1398
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks servera: %s"
 
-#: libraries/classes/Config.php:1411
+#: libraries/classes/Config.php:1414
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -5269,7 +5269,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:799
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -5303,8 +5303,8 @@ msgstr "Da"
 #: libraries/classes/Controllers/Database/StructureController.php:1567
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
-#: libraries/classes/Controllers/Table/ReplaceController.php:398
-#: libraries/classes/Core.php:893 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:399
+#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nema izmena"
 
@@ -6130,7 +6130,7 @@ msgstr "Molimo vas da dodate bar jednu promenljivu u seriju podataka"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: libraries/classes/Display/Results.php:1338
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6655,7 +6655,7 @@ msgstr "Izmena seta znakova"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -8925,7 +8925,7 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:1276
+#: libraries/classes/Core.php:1305
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8935,21 +8935,21 @@ msgstr ""
 "opcija je nekompatibilna sa phpMyAdmin i može dovesti do grešaka u nekim "
 "podacima!"
 
-#: libraries/classes/Core.php:1293
+#: libraries/classes/Core.php:1322
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1305
+#: libraries/classes/Core.php:1334
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Core.php:1315
+#: libraries/classes/Core.php:1344
 msgid "possible exploit"
 msgstr "moguća zloupotreba"
 
-#: libraries/classes/Core.php:1384
+#: libraries/classes/Core.php:1413
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8994,7 +8994,7 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:574
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -9004,65 +9004,66 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "Nedostaju phpMyAdmin skladišne tabele"
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:626
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Greška: relacija već postoji."
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:680
 #, fuzzy
 #| msgid "Configuration has been saved."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Konfiguracija je sačuvana"
 
-#: libraries/classes/Database/Designer/Common.php:686
+#: libraries/classes/Database/Designer/Common.php:688
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Greška: relacija nije dodata."
 
-#: libraries/classes/Database/Designer/Common.php:693
+#: libraries/classes/Database/Designer/Common.php:695
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:701
+#: libraries/classes/Database/Designer/Common.php:703
+#: libraries/classes/Database/Designer/Common.php:796
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
 msgstr "Greška: relacija nije dodata."
 
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:729
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Dodata interna relacija"
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:737
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Greška: relacija nije dodata."
 
-#: libraries/classes/Database/Designer/Common.php:776
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "Configuration has been saved."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Konfiguracija je sačuvana"
 
-#: libraries/classes/Database/Designer/Common.php:784
+#: libraries/classes/Database/Designer/Common.php:786
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Greška: relacija nije dodata."
 
-#: libraries/classes/Database/Designer/Common.php:812
+#: libraries/classes/Database/Designer/Common.php:822
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Greška: relacija nije dodata."
 
-#: libraries/classes/Database/Designer/Common.php:818
+#: libraries/classes/Database/Designer/Common.php:828
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -10056,7 +10057,7 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP ekstenzija nije pronađena"
 
-#: libraries/classes/Header.php:371
+#: libraries/classes/Header.php:373
 msgid "Print view"
 msgstr "Za štampu"
 
@@ -10173,11 +10174,11 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:48
 #: libraries/classes/Plugins/Export/ExportOds.php:54
 #: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:74
 #: libraries/classes/Plugins/Export/ExportPhparray.php:48
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
@@ -10253,8 +10254,8 @@ msgstr "Funkcija"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -10309,8 +10310,8 @@ msgstr "direktorijum za slanje veb servera"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:709
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:743
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -10340,8 +10341,8 @@ msgstr "Kolona"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -10456,10 +10457,10 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:605
 #: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:287
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Util.php:2131 libraries/classes/Util.php:2147
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10483,7 +10484,7 @@ msgstr "Rutine"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Util.php:2130 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Događaji"
@@ -10681,7 +10682,7 @@ msgstr "Događaji"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr "Funkcije"
 
@@ -10702,7 +10703,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr "Procedure"
 
@@ -10735,7 +10736,7 @@ msgstr "Okidači"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Pogledi"
@@ -11268,7 +11269,7 @@ msgstr "Excel izdanje:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:71
 #: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:116
+#: libraries/classes/Plugins/Export/ExportPdf.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:66
 #: libraries/config.values.php:254 libraries/config.values.php:320
@@ -11281,7 +11282,7 @@ msgstr "Struktura"
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:72
 #: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:117
+#: libraries/classes/Plugins/Export/ExportPdf.php:103
 #: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:67
 #: libraries/config.values.php:255 libraries/config.values.php:321
@@ -11294,7 +11295,7 @@ msgstr "podatak"
 #: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:73
 #: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:118
+#: libraries/classes/Plugins/Export/ExportPdf.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:256 libraries/config.values.php:322
@@ -11307,7 +11308,7 @@ msgstr "Struktura i podaci"
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 #: libraries/classes/Plugins/Export/ExportOdt.php:126
 #: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Data dump options"
 msgstr "Opcije za izvoz podataka"
 
@@ -11326,8 +11327,8 @@ msgstr "Prikaz podataka tabele"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:315
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -11345,8 +11346,8 @@ msgstr "Podrazumevano"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "Veze ka"
@@ -11475,7 +11476,7 @@ msgstr "Stavi imena kolona u prvi red"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:222
 #: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:256
+#: libraries/classes/Plugins/Export/ExportXml.php:243
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 #, fuzzy
@@ -11485,7 +11486,7 @@ msgstr "Domaćin"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:262
+#: libraries/classes/Plugins/Export/ExportXml.php:249
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -11493,14 +11494,14 @@ msgstr "Vreme kreiranja"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:264
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/home/index.twig:160
 msgid "Server version:"
 msgstr "Verzija servera:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:231
 #: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:265
+#: libraries/classes/Plugins/Export/ExportXml.php:252
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
@@ -11508,7 +11509,7 @@ msgstr "verzija PHP-a"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:438
+#: libraries/classes/Plugins/Export/ExportXml.php:425
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -11548,29 +11549,29 @@ msgstr "horizontalnom (rotirana zaglavlja)"
 msgid "Dumping data for query result"
 msgstr "Prikaz podataka tabele"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
 msgid "Report title:"
 msgstr "Naslov izveštaja:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:228
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "Prikaz podataka tabele"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:248
+#: libraries/classes/Plugins/Export/ExportPdf.php:234
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Rezultat upita"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: libraries/classes/Plugins/Export/ExportPdf.php:290
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "Struktura"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:307
+#: libraries/classes/Plugins/Export/ExportPdf.php:293
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
@@ -11738,21 +11739,21 @@ msgid "Metadata for database %s"
 msgstr "Nedostaju podaci za %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1534
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Napravljeno"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:694
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Poslednja izmena"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1562
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -11832,11 +11833,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "Greška kod čitanja podataka:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:158
+#: libraries/classes/Plugins/Export/ExportXml.php:145
 msgid "Export contents"
 msgstr "Izvoz sadržajaTip izvoza"
 
@@ -11915,11 +11916,11 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:81
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "Imena kolona: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:123
+#: libraries/classes/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "Ovaj dodatak ne podržava kompresovane uvoze!"
 
@@ -11988,11 +11989,11 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:710
+#: libraries/classes/Plugins.php:681
 msgid "This format has no options"
 msgstr "Ovaj format nema opcije"
 
-#: libraries/classes/Plugins.php:727
+#: libraries/classes/Plugins.php:698
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neispravan metod autentikacije je zadat u konfiguraciji:"
 
@@ -12014,105 +12015,105 @@ msgstr "Shema baze %s - Strana %s"
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:304
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:294
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "Pogrešan tip izvoza"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:133
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "Shema baze %s - Strana %s"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:171
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:590
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:161
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 msgid "Relational schema"
 msgstr "Relaciona shema"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
 msgid "Table of contents"
 msgstr "Sadržaj"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:662
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Komentari tabele:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "Atributi"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Dodatno"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:68
+#: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
 msgstr "Prikaži boju"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:70
+#: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:55
 #: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:63
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "Orijentacija"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Landscape"
 msgstr "Položeno"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:60
 #: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Portrait"
 msgstr "Uspravno"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:57
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:82
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
 msgid "Show grid"
 msgstr "Prikaži mrežu"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:88
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
 #: templates/database/structure/index.twig:23
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Rečnik podataka"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:94
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #, fuzzy
 #| msgid "neither of the above"
 msgid "Order of the tables"
 msgstr "nijedan od gore navedenih"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:99
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "Rastući"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 #, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
@@ -12589,14 +12590,14 @@ msgstr "Pogrešan tip izvoza"
 msgid "no description"
 msgstr "nema opisa"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2078
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2200
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -12604,14 +12605,14 @@ msgid ""
 "configuration storage there."
 msgstr "Nedostaju phpMyAdmin skladišne tabele"
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2208
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Nedostaju phpMyAdmin skladišne tabele"
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2216
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -13988,12 +13989,12 @@ msgstr "Greška u ZIP arhivi:"
 msgid "No files found inside ZIP archive!"
 msgstr "U ZIP arhivi nema datoteka!"
 
-#: libraries/common.inc.php:279
+#: libraries/common.inc.php:277
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Trebalo bi da unapredite vaš %s server na verziju %s ili noviju."
 
-#: libraries/common.inc.php:309
+#: libraries/common.inc.php:307
 msgid "Error: Token mismatch"
 msgstr ""
 
@@ -19806,7 +19807,7 @@ msgstr "naziv za VIEW"
 msgid "Column names"
 msgstr "Imena kolona"
 
-#: url.php:53
+#: url.php:51
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to the target site."

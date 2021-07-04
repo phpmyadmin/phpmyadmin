@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-27 00:08+0000\n"
+"POT-Creation-Date: 2021-07-04 00:07+0000\n"
 "PO-Revision-Date: 2017-04-12 15:07+0000\n"
 "Last-Translator: bhargavi sabbisetty <bhargavi_sabbisetty@yahoo.in>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1276,8 +1276,8 @@ msgstr "వివరణ"
 #: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Html/Generator.php:1230 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "పుట సంఖ్య:"
 
@@ -2855,7 +2855,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:644
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Paper size"
 msgstr "కాగితపు పరిమాణం"
 
@@ -3064,7 +3064,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportPdf.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "Dump table"
@@ -3083,8 +3083,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportOdt.php:521
 #: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:737
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3335,7 +3335,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3422,7 +3422,7 @@ msgstr "డేటాబేస్"
 
 # మొదటి అనువాదము
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:284
 #: templates/table/page_with_secondary_tabs.twig:5
 #, fuzzy
 #| msgid "Database"
@@ -3480,7 +3480,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#: libraries/classes/Plugins/Import/ImportLdi.php:87
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr ""
 
@@ -3494,7 +3494,7 @@ msgid "Format of imported file"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:93
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr ""
 
@@ -4209,7 +4209,7 @@ msgid "Server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:532
+#: libraries/classes/Plugins/Export/ExportXml.php:519
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4551,38 +4551,38 @@ msgstr "సమాచారం"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: libraries/classes/Config.php:760
+#: libraries/classes/Config.php:763
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/classes/Config.php:798
+#: libraries/classes/Config.php:801
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/classes/Config.php:813
+#: libraries/classes/Config.php:816
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/classes/Config.php:823
+#: libraries/classes/Config.php:826
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Failed to read configuration file!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:829
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1398
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
-#: libraries/classes/Config.php:1411
+#: libraries/classes/Config.php:1414
 #, fuzzy, php-format
 #| msgid "Security"
 msgid "Server %d"
@@ -4949,7 +4949,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:799
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -4983,8 +4983,8 @@ msgstr "అవును"
 #: libraries/classes/Controllers/Database/StructureController.php:1567
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
-#: libraries/classes/Controllers/Table/ReplaceController.php:398
-#: libraries/classes/Core.php:893 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:399
+#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
@@ -5742,7 +5742,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: libraries/classes/Display/Results.php:1338
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6291,7 +6291,7 @@ msgstr "అక్షరమాల"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -8392,28 +8392,28 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:1276
+#: libraries/classes/Core.php:1305
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Core.php:1293
+#: libraries/classes/Core.php:1322
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1305
+#: libraries/classes/Core.php:1334
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Core.php:1315
+#: libraries/classes/Core.php:1344
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/classes/Core.php:1384
+#: libraries/classes/Core.php:1413
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8458,7 +8458,7 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:574
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -8466,63 +8466,64 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:626
 #, fuzzy
 #| msgid "Table %s already exists!"
 msgid "Error: relationship already exists."
 msgstr "%s అనే పట్టిక ఇప్పటికే ఉంది!"
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:680
 #, fuzzy
 #| msgid "Server configuration"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Database/Designer/Common.php:686
+#: libraries/classes/Database/Designer/Common.php:688
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Database/Designer/Common.php:693
+#: libraries/classes/Database/Designer/Common.php:695
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:701
+#: libraries/classes/Database/Designer/Common.php:703
+#: libraries/classes/Database/Designer/Common.php:796
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:729
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been added."
 msgstr "అంతర్గత సంబంధాలు"
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:737
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Error: Internal relationship could not be added!"
 msgstr "అంతర్గత సంబంధాలు"
 
-#: libraries/classes/Database/Designer/Common.php:776
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "Server configuration"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Database/Designer/Common.php:784
+#: libraries/classes/Database/Designer/Common.php:786
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "సేవకి స్వరూపణం"
 
-#: libraries/classes/Database/Designer/Common.php:812
+#: libraries/classes/Database/Designer/Common.php:822
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "అంతర్గత సంబంధాలు"
 
-#: libraries/classes/Database/Designer/Common.php:818
+#: libraries/classes/Database/Designer/Common.php:828
 #, fuzzy
 #| msgid "Internal relations"
 msgid "Internal relationship has been removed."
@@ -9487,7 +9488,7 @@ msgstr ""
 msgid "Session not found."
 msgstr ""
 
-#: libraries/classes/Header.php:371
+#: libraries/classes/Header.php:373
 msgid "Print view"
 msgstr ""
 
@@ -9603,11 +9604,11 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:48
 #: libraries/classes/Plugins/Export/ExportOds.php:54
 #: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:74
 #: libraries/classes/Plugins/Export/ExportPhparray.php:48
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
@@ -9683,8 +9684,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -9739,8 +9740,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:709
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:743
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -9770,8 +9771,8 @@ msgstr "వరుస"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -9887,10 +9888,10 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:605
 #: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:287
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Util.php:2131 libraries/classes/Util.php:2147
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -9914,7 +9915,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Util.php:2130 templates/database/events/index.twig:3
 msgid "Events"
 msgstr ""
@@ -10108,7 +10109,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr ""
 
@@ -10129,7 +10130,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr ""
 
@@ -10161,7 +10162,7 @@ msgstr "క్రొత్త వాడుకరిని చేర్చు"
 # మొదటి అనువాదము
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:28
 #, fuzzy
 #| msgid "View"
@@ -10688,7 +10689,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:71
 #: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:116
+#: libraries/classes/Plugins/Export/ExportPdf.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:66
 #: libraries/config.values.php:254 libraries/config.values.php:320
@@ -10701,7 +10702,7 @@ msgstr "నిర్మాణాకృతి"
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:72
 #: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:117
+#: libraries/classes/Plugins/Export/ExportPdf.php:103
 #: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:67
 #: libraries/config.values.php:255 libraries/config.values.php:321
@@ -10714,7 +10715,7 @@ msgstr "భోగట్టా"
 #: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:73
 #: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:118
+#: libraries/classes/Plugins/Export/ExportPdf.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:256 libraries/config.values.php:322
@@ -10727,7 +10728,7 @@ msgstr "నిర్మాణాకృతి మరియు భోగట్ట�
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 #: libraries/classes/Plugins/Export/ExportOdt.php:126
 #: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Data dump options"
 msgstr ""
 
@@ -10746,8 +10747,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:315
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -10765,8 +10766,8 @@ msgstr "అప్రమేయం"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr ""
@@ -10895,7 +10896,7 @@ msgstr "వ్యాఖ్యలు"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:222
 #: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:256
+#: libraries/classes/Plugins/Export/ExportXml.php:243
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
@@ -10903,13 +10904,13 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:262
+#: libraries/classes/Plugins/Export/ExportXml.php:249
 msgid "Generation Time:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:264
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/home/index.twig:160
 #, fuzzy
 #| msgid "Last version"
@@ -10918,7 +10919,7 @@ msgstr "చివరి కూర్పు"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:231
 #: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:265
+#: libraries/classes/Plugins/Export/ExportXml.php:252
 #, fuzzy
 #| msgid "Last version"
 msgid "PHP Version:"
@@ -10927,7 +10928,7 @@ msgstr "చివరి కూర్పు"
 # మొదటి అనువాదము
 #: libraries/classes/Plugins/Export/ExportLatex.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:438
+#: libraries/classes/Plugins/Export/ExportXml.php:425
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -10967,30 +10968,30 @@ msgstr "ఎగుమతి పద్ధతి"
 msgid "Dumping data for query result"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
 msgid "Report title:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:228
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 #, fuzzy
 #| msgid "data"
 msgid "Dumping data"
 msgstr "భోగట్టా"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:248
+#: libraries/classes/Plugins/Export/ExportPdf.php:234
 #, fuzzy
 #| msgid "Show statistics"
 msgid "Query result data"
 msgstr "గణాంకాలను చూపించు"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: libraries/classes/Plugins/Export/ExportPdf.php:290
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "నిర్మాణాకృతి"
 
 # మొదటి అనువాదము
-#: libraries/classes/Plugins/Export/ExportPdf.php:307
+#: libraries/classes/Plugins/Export/ExportPdf.php:293
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
@@ -11160,21 +11161,21 @@ msgid "Metadata for database %s"
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1534
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "సృష్టి"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:694
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "చివరి మార్పు"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1562
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -11244,11 +11245,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:158
+#: libraries/classes/Plugins/Export/ExportXml.php:145
 msgid "Export contents"
 msgstr ""
 
@@ -11327,13 +11328,13 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:81
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 #, fuzzy
 #| msgid "Comments"
 msgid "Column names: "
 msgstr "వ్యాఖ్యలు"
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:123
+#: libraries/classes/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
@@ -11399,11 +11400,11 @@ msgstr ""
 msgid "XML"
 msgstr ""
 
-#: libraries/classes/Plugins.php:710
+#: libraries/classes/Plugins.php:681
 msgid "This format has no options"
 msgstr ""
 
-#: libraries/classes/Plugins.php:727
+#: libraries/classes/Plugins.php:698
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
@@ -11425,109 +11426,109 @@ msgstr ""
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:304
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:294
 #, fuzzy
 #| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "చెల్లని ఎగుమతి రకం"
 
 # మొదటి అనువాదము
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:133
 #, fuzzy, php-format
 #| msgctxt "short form"
 #| msgid "Create table"
 msgid "Schema of the %s database"
 msgstr "పట్టికను సృష్టించు"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:171
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:590
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:161
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 msgid "Relational schema"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
 msgid "Table of contents"
 msgstr "విషయ సూచిక"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:662
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "పట్టిక వ్యాఖ్యలు:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr ""
 
-#: libraries/classes/Plugins/SchemaPlugin.php:68
+#: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
 msgstr "రంగుని చూపించు"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:70
+#: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:55
 #: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:63
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "దిశ"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Landscape"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:60
 #: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 #, fuzzy
 #| msgid "Print"
 msgid "Portrait"
 msgstr "ముద్రించు"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:57
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:82
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
 msgid "Show grid"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:88
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
 #: templates/database/structure/index.twig:23
 #, fuzzy
 #| msgid "dictionary"
 msgid "Data dictionary"
 msgstr "నిఘంటువు"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:94
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #, fuzzy
 #| msgid "Table of contents"
 msgid "Order of the tables"
 msgstr "విషయ సూచిక"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:99
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "ఆరోహణ"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 #, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
@@ -11951,27 +11952,27 @@ msgstr "చెల్లని ఎగుమతి రకం"
 msgid "no description"
 msgstr "వివరణ లేదు"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2078
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2200
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2208
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2216
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -13301,12 +13302,12 @@ msgstr ""
 msgid "No files found inside ZIP archive!"
 msgstr ""
 
-#: libraries/common.inc.php:279
+#: libraries/common.inc.php:277
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:309
+#: libraries/common.inc.php:307
 msgid "Error: Token mismatch"
 msgstr ""
 
@@ -19098,7 +19099,7 @@ msgid "Column names"
 msgstr ""
 
 # మొదటి అనువాదము
-#: url.php:53
+#: url.php:51
 #, fuzzy
 #| msgid "Change"
 msgid "Taking you to the target site."

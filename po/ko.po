@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-27 00:08+0000\n"
+"POT-Creation-Date: 2021-07-04 00:07+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1408,8 +1408,8 @@ msgstr "설명"
 #: libraries/classes/BrowseForeigners.php:332
 #: libraries/classes/Html/Generator.php:1230 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:545
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "페이지 번호:"
 
@@ -3069,7 +3069,7 @@ msgstr "SQL 디버그"
 
 #: libraries/classes/Config/Descriptions.php:644
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Paper size"
 msgstr "용지 크기"
 
@@ -3271,7 +3271,7 @@ msgstr "파일명 템플릿"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:60
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportPdf.php:97
 #: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:60
 msgid "Dump table"
@@ -3290,8 +3290,8 @@ msgstr "테이블 설명 포함하기"
 #: libraries/classes/Plugins/Export/ExportOdt.php:521
 #: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:737
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:760
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:23
 #: templates/table/structure/display_structure.twig:29
@@ -3535,7 +3535,7 @@ msgstr "서버"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3613,7 +3613,7 @@ msgid "Database structure"
 msgstr "데이터베이스 구조"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:284
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "테이블 구조"
@@ -3666,7 +3666,7 @@ msgstr "일부분만 가져오기: 인터럽트 허용"
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#: libraries/classes/Plugins/Import/ImportLdi.php:87
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
 
@@ -3680,7 +3680,7 @@ msgid "Format of imported file"
 msgstr "가져올 파일의 형식"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:93
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "LOCAL 키워드 사용"
 
@@ -4336,7 +4336,7 @@ msgid "Server"
 msgstr "서버"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:532
+#: libraries/classes/Plugins/Export/ExportXml.php:519
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4680,26 +4680,26 @@ msgstr "브라우저 변형"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "설정을 저장할 수 없습니다. 제출하신 구성 폼에 오류가 있습니다!"
 
-#: libraries/classes/Config.php:760
+#: libraries/classes/Config.php:763
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없습니다."
 
-#: libraries/classes/Config.php:798
+#: libraries/classes/Config.php:801
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다!"
 
-#: libraries/classes/Config.php:813
+#: libraries/classes/Config.php:816
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "기본 설정을 가져올 수 없습니다: %1$s"
 
-#: libraries/classes/Config.php:823
+#: libraries/classes/Config.php:826
 msgid "Failed to read configuration file!"
 msgstr "설정 파일을 읽는데 실패했습니다!"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:829
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4707,12 +4707,12 @@ msgstr ""
 "일반적으로 이것은 문법 오류가 있음을 의미합니다. 다음의 모든 오류를 확인하십"
 "시오."
 
-#: libraries/classes/Config.php:1398
+#: libraries/classes/Config.php:1401
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "잘못된 서버 인덱스: %s"
 
-#: libraries/classes/Config.php:1411
+#: libraries/classes/Config.php:1414
 #, php-format
 msgid "Server %d"
 msgstr "서버 %d"
@@ -5119,7 +5119,7 @@ msgstr "성공!"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:821
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:809
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:799
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -5153,8 +5153,8 @@ msgstr "예"
 #: libraries/classes/Controllers/Database/StructureController.php:1567
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
-#: libraries/classes/Controllers/Table/ReplaceController.php:398
-#: libraries/classes/Core.php:893 templates/preview_sql.twig:3
+#: libraries/classes/Controllers/Table/ReplaceController.php:399
+#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "변화 없음"
 
@@ -5910,7 +5910,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 #: libraries/classes/Display/Results.php:1338
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6398,7 +6398,7 @@ msgstr "문자셋 변경 중"
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
 #: libraries/classes/Plugins/Export/ExportOdt.php:820
 #: libraries/classes/Plugins/Export/ExportTexytext.php:652
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:808
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
@@ -8468,7 +8468,7 @@ msgstr "뷰 이름은 비워둘 수 없습니다!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
 
-#: libraries/classes/Core.php:1276
+#: libraries/classes/Core.php:1305
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8477,21 +8477,21 @@ msgstr ""
 "PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
-#: libraries/classes/Core.php:1293
+#: libraries/classes/Core.php:1322
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1305
+#: libraries/classes/Core.php:1334
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/classes/Core.php:1315
+#: libraries/classes/Core.php:1344
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
-#: libraries/classes/Core.php:1384
+#: libraries/classes/Core.php:1413
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8532,7 +8532,7 @@ msgstr "예"
 msgid "NO"
 msgstr "아니오"
 
-#: libraries/classes/Database/Designer/Common.php:573
+#: libraries/classes/Database/Designer/Common.php:574
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -8544,63 +8544,64 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "구성 저장소가 중앙 열 기능 목록에 준비되지 않았습니다."
 
-#: libraries/classes/Database/Designer/Common.php:624
+#: libraries/classes/Database/Designer/Common.php:626
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "오류: 릴레이션이 이미 존재함."
 
-#: libraries/classes/Database/Designer/Common.php:678
+#: libraries/classes/Database/Designer/Common.php:680
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY 릴레이션이 추가됨"
 
-#: libraries/classes/Database/Designer/Common.php:686
+#: libraries/classes/Database/Designer/Common.php:688
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "오류: 외래키 릴레이션을 추가할 수 없습니다!"
 
-#: libraries/classes/Database/Designer/Common.php:693
+#: libraries/classes/Database/Designer/Common.php:695
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:701
+#: libraries/classes/Database/Designer/Common.php:703
+#: libraries/classes/Database/Designer/Common.php:796
 msgid "Error: Relational features are disabled!"
 msgstr "오류: 릴레이션 기능이 비활성화 되어 있음!"
 
-#: libraries/classes/Database/Designer/Common.php:727
+#: libraries/classes/Database/Designer/Common.php:729
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "내부 릴레이션이 추가됨"
 
-#: libraries/classes/Database/Designer/Common.php:735
+#: libraries/classes/Database/Designer/Common.php:737
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "오류: 릴레이션이 추가되지 않음."
 
-#: libraries/classes/Database/Designer/Common.php:776
+#: libraries/classes/Database/Designer/Common.php:778
 #, fuzzy
 #| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "외래키 릴레이션이 제거되었습니다."
 
-#: libraries/classes/Database/Designer/Common.php:784
+#: libraries/classes/Database/Designer/Common.php:786
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "오류: 외래키 릴레이션을 제거할 수 없습니다!"
 
-#: libraries/classes/Database/Designer/Common.php:812
+#: libraries/classes/Database/Designer/Common.php:822
 #, fuzzy
 #| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "오류: 내부 릴레이션을 제거할 수 없습니다!"
 
-#: libraries/classes/Database/Designer/Common.php:818
+#: libraries/classes/Database/Designer/Common.php:828
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
@@ -9550,7 +9551,7 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP 확장을 찾을 수 없습니다."
 
-#: libraries/classes/Header.php:371
+#: libraries/classes/Header.php:373
 msgid "Print view"
 msgstr "인쇄용 보기"
 
@@ -9659,11 +9660,11 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:48
 #: libraries/classes/Plugins/Export/ExportOds.php:54
 #: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:74
 #: libraries/classes/Plugins/Export/ExportPhparray.php:48
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 #: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:94
+#: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:62
@@ -9738,8 +9739,8 @@ msgstr "함수"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:313
 #: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
@@ -9792,8 +9793,8 @@ msgstr "웹 서버 업로드 디렉터리:"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:312
 #: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:719
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:709
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:743
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
@@ -9823,8 +9824,8 @@ msgstr "컬럼명"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:314
 #: libraries/classes/Plugins/Export/ExportTexytext.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:722
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:756
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
@@ -9939,10 +9940,10 @@ msgstr "SQL 명령어 트래킹"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:605
 #: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:287
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Util.php:2131 libraries/classes/Util.php:2147
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -9966,7 +9967,7 @@ msgstr "루틴"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Util.php:2130 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "이벤트"
@@ -10135,7 +10136,7 @@ msgstr "이벤트"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr "함수"
 
@@ -10156,7 +10157,7 @@ msgstr "펼치기/접기"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr "프로시저"
 
@@ -10187,7 +10188,7 @@ msgstr "트리거"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "뷰"
@@ -10698,7 +10699,7 @@ msgstr "엑셀 형식:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:106
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:71
 #: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:116
+#: libraries/classes/Plugins/Export/ExportPdf.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:247
 #: libraries/classes/Plugins/Export/ExportTexytext.php:66
 #: libraries/config.values.php:254 libraries/config.values.php:320
@@ -10711,7 +10712,7 @@ msgstr "구조"
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:72
 #: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:117
+#: libraries/classes/Plugins/Export/ExportPdf.php:103
 #: libraries/classes/Plugins/Export/ExportSql.php:248
 #: libraries/classes/Plugins/Export/ExportTexytext.php:67
 #: libraries/config.values.php:255 libraries/config.values.php:321
@@ -10724,7 +10725,7 @@ msgstr "데이터"
 #: libraries/classes/Plugins/Export/ExportLatex.php:108
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:73
 #: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:118
+#: libraries/classes/Plugins/Export/ExportPdf.php:104
 #: libraries/classes/Plugins/Export/ExportSql.php:249
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:256 libraries/config.values.php:322
@@ -10737,7 +10738,7 @@ msgstr "구조와 데이터 모두"
 #: libraries/classes/Plugins/Export/ExportLatex.php:169
 #: libraries/classes/Plugins/Export/ExportOdt.php:126
 #: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Data dump options"
 msgstr "데이터 덤프 옵션"
 
@@ -10756,8 +10757,8 @@ msgstr "테이블의 덤프 데이터"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:315
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:723
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:757
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
@@ -10775,8 +10776,8 @@ msgstr "기본값"
 #: libraries/classes/Plugins/Export/ExportOdt.php:515
 #: libraries/classes/Plugins/Export/ExportTexytext.php:411
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:725
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:759
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
 #: templates/database/data_dictionary/index.twig:21
 msgid "Links to"
 msgstr "링크 대상"
@@ -10897,7 +10898,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:222
 #: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:256
+#: libraries/classes/Plugins/Export/ExportXml.php:243
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
@@ -10905,26 +10906,26 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:262
+#: libraries/classes/Plugins/Export/ExportXml.php:249
 msgid "Generation Time:"
 msgstr "생성 시간:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:264
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/home/index.twig:160
 msgid "Server version:"
 msgstr "서버 버전:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:231
 #: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:265
+#: libraries/classes/Plugins/Export/ExportXml.php:252
 msgid "PHP Version:"
 msgstr "PHP 버전:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:438
+#: libraries/classes/Plugins/Export/ExportXml.php:425
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
@@ -10955,25 +10956,25 @@ msgstr "테이블 제목(header) 내보내기"
 msgid "Dumping data for query result"
 msgstr "테이블의 덤프 데이터"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
 msgid "Report title:"
 msgstr "보고서 제목:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:228
+#: libraries/classes/Plugins/Export/ExportPdf.php:214
 msgid "Dumping data"
 msgstr "덤프 데이터"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:248
+#: libraries/classes/Plugins/Export/ExportPdf.php:234
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "쿼리 결과"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: libraries/classes/Plugins/Export/ExportPdf.php:290
 msgid "View structure"
 msgstr "구조 보기"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:307
+#: libraries/classes/Plugins/Export/ExportPdf.php:293
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
@@ -11146,17 +11147,17 @@ msgid "Metadata for database %s"
 msgstr "%s 데이터 누락"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1534
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:683
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 msgid "Creation:"
 msgstr "생성:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:694
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:684
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1562
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:695
 msgid "Last check:"
 msgstr "마지막 검사:"
 
@@ -11222,11 +11223,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "데이터 읽기 오류:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:114
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:158
+#: libraries/classes/Plugins/Export/ExportXml.php:145
 msgid "Export contents"
 msgstr "내용 내보내기"
 
@@ -11305,11 +11306,11 @@ msgstr ""
 "지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마"
 "로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 묶지 않도록 하세요."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:81
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:123
+#: libraries/classes/Plugins/Import/ImportLdi.php:114
 msgid "This plugin does not support compressed imports!"
 msgstr "이 플러그인은 압축파일의 가져오기를 지원하지 않습니다!"
 
@@ -11375,11 +11376,11 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:710
+#: libraries/classes/Plugins.php:681
 msgid "This format has no options"
 msgstr "이 형식은 옵션이 없음"
 
-#: libraries/classes/Plugins.php:727
+#: libraries/classes/Plugins.php:698
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
@@ -11401,96 +11402,96 @@ msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 msgid "SCHEMA ERROR: "
 msgstr "스키마 에러: "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:304
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:294
 msgid "PDF export page"
 msgstr "PDF 내보내기 페이지"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:133
 #, php-format
 msgid "Schema of the %s database"
 msgstr "데이터베이스 %s의 스키마"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:171
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:590
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:161
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 msgid "Relational schema"
 msgstr "릴레이션 스키마"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
 msgid "Table of contents"
 msgstr "목차(차례)"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:662
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/database/data_dictionary/index.twig:11
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "테이블 설명:"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:721
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:755
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
 msgstr "보기"
 
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:724
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:758
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
 #: templates/table/structure/display_structure.twig:31
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "추가"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:68
+#: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
 msgstr "색깔 보기"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:70
+#: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
 msgstr "키만 보기"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:55
 #: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:63
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "화면 방향"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Landscape"
 msgstr "가로"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:60
 #: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Portrait"
 msgstr "세로"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:57
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:82
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
 msgid "Show grid"
 msgstr "그리드 표시"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:88
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
 #: templates/database/structure/index.twig:23
 msgid "Data dictionary"
 msgstr "데이터 사전"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:94
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 msgid "Order of the tables"
 msgstr "테이블 정렬 순서"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:99
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 msgid "Name (Ascending)"
 msgstr "이름 (오름차순)"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 msgid "Name (Descending)"
 msgstr "이름 (내림차순)"
 
@@ -11909,14 +11910,14 @@ msgstr "잘못된 내보내기 타입"
 msgid "no description"
 msgstr "설명이 없습니다"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2078
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2200
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -11924,14 +11925,14 @@ msgid ""
 "configuration storage there."
 msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2208
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2216
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -13330,12 +13331,12 @@ msgstr "ZIP 압축파일 오류:"
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
 
-#: libraries/common.inc.php:279
+#: libraries/common.inc.php:277
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:309
+#: libraries/common.inc.php:307
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
@@ -18857,7 +18858,7 @@ msgstr "뷰 이름"
 msgid "Column names"
 msgstr "열(칼럼) 이름"
 
-#: url.php:53
+#: url.php:51
 msgid "Taking you to the target site."
 msgstr "해당 사이트로 가는 중."
 
