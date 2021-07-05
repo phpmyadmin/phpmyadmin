@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\SqlController
+ */
 class SqlControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -22,9 +25,6 @@ class SqlControllerTest extends AbstractTestCase
         parent::loadResponseIntoContainerBuilder();
     }
 
-    /**
-     * @covers getSetValues
-     */
     public function testGetSetValuesError(): void
     {
         global $containerBuilder, $_POST;
@@ -58,9 +58,6 @@ class SqlControllerTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers getSetValues
-     */
     public function testGetSetValuesSuccess(): void
     {
         global $containerBuilder, $_POST;
@@ -120,9 +117,6 @@ class SqlControllerTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers getEnumValues
-     */
     public function testGetEnumValuesError(): void
     {
         global $containerBuilder, $_POST;
@@ -156,9 +150,6 @@ class SqlControllerTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers getEnumValues
-     */
     public function testGetEnumValuesSuccess(): void
     {
         global $containerBuilder, $_POST;

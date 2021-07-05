@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,8 @@ use function sleep;
 use function strtotime;
 
 /**
- * EventsTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class EventsTest extends TestBase
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for export related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,8 @@ namespace PhpMyAdmin\Tests\Selenium;
 use function sleep;
 
 /**
- * ExportTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class ExportTest extends TestBase
 {

@@ -39,9 +39,6 @@ class TwigLintCommandTest extends AbstractTestCase
         $this->command = new TwigLintCommand();
     }
 
-    /**
-     * @covers getTemplateContents
-     */
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
@@ -51,9 +48,6 @@ class TwigLintCommandTest extends AbstractTestCase
         $this->assertSame('key=value' . "\n", $contents);
     }
 
-    /**
-     * @covers findFiles
-     */
     public function testFindFiles(): void
     {
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [
@@ -71,9 +65,6 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesFound);
     }
 
-    /**
-     * @covers getFilesInfo
-     */
     public function testGetFilesInfo(): void
     {
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [
@@ -107,9 +98,6 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesInfos);
     }
 
-    /**
-     * @covers validate
-     */
     public function testGetFilesInfoInvalidFile(): void
     {
         $command = $this->getMockBuilder(TwigLintCommand::class)
@@ -159,9 +147,6 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesFound);
     }
 
-    /**
-     * @covers getContext
-     */
     public function testGetContext(): void
     {
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', [

@@ -1,16 +1,12 @@
 <?php
-/**
- * Selenium TestCase for typing and executing SQL query tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * SqlQueryTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class SqlQueryTest extends TestBase
 {

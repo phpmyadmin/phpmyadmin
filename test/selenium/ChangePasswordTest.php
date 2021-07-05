@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for change password related tests
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,8 @@ use function array_push;
 use function trim;
 
 /**
- * PrivilegesTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class ChangePasswordTest extends TestBase
 {

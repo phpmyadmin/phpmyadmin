@@ -353,9 +353,6 @@ class CommonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationRelationDbNotWorking(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -385,9 +382,6 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDb(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -436,9 +430,6 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -508,9 +499,6 @@ class CommonTest extends AbstractTestCase
         ], $result);
     }
 
-    /**
-     * @covers removeRelation
-     */
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

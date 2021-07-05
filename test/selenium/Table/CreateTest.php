@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,8 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 use function sleep;
 
 /**
- * CreateTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class CreateTest extends TestBase
 {

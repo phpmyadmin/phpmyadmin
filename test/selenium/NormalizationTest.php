@@ -1,16 +1,12 @@
 <?php
-/**
- * Selenium TestCase for normalization
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PMA_SeleniumNormalizationTest class
- *
- * @group      selenium
+ * @group selenium
+ * @coversNothing
  */
 class NormalizationTest extends TestBase
 {

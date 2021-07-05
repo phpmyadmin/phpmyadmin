@@ -1,7 +1,4 @@
 <?php
-/**
- * Base class for Selenium tests
- */
 
 declare(strict_types=1);
 
@@ -63,9 +60,7 @@ use const JSON_UNESCAPED_SLASHES;
 use const PHP_EOL;
 
 /**
- * Base class for Selenium tests.
- *
- * @group      selenium
+ * @group selenium
  */
 abstract class TestBase extends TestCase
 {
