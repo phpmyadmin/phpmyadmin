@@ -64,7 +64,7 @@ jobs:
 
       - name: Collect coverage report
         run: |
-          composer run phpunit -- --exclude-group selenium --stop-on-failure
+          composer run phpunit -- --testsuite unit --stop-on-failure
 
       - name: Infection
         if: ${{ github.base_ref != '' }}

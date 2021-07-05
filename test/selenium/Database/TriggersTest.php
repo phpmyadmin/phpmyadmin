@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class TriggersTest extends TestBase
