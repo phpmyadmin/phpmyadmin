@@ -153,7 +153,7 @@ class Routing
         ContainerInterface $container
     ): void {
         $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'],
+            $_SERVER['REQUEST_METHOD'] ?? 'GET',
             rawurldecode($route)
         );
 

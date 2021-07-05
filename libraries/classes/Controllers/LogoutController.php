@@ -12,7 +12,7 @@ class LogoutController
     {
         global $auth_plugin, $token_mismatch;
 
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || $token_mismatch) {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST' || $token_mismatch) {
             Core::sendHeaderLocation('./index.php?route=/');
 
             return;

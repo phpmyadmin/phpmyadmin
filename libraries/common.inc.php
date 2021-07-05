@@ -301,7 +301,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_mismatch) {
+    if ($response->isAjax() && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && $token_mismatch) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',
