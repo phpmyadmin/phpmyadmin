@@ -196,11 +196,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Cannot cast ''\\|int to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\<0, max\\>\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/StructureController.php

@@ -779,7 +779,7 @@ class StructureController extends AbstractController
 
         $partitionDetails['partition_by'] = '';
         $partitionDetails['partition_expr'] = '';
-        $partitionDetails['partition_count'] = '';
+        $partitionDetails['partition_count'] = 0;
 
         if (! empty($stmt->partitionBy)) {
             $openPos = strpos($stmt->partitionBy, '(');
@@ -799,7 +799,7 @@ class StructureController extends AbstractController
 
         $partitionDetails['subpartition_by'] = '';
         $partitionDetails['subpartition_expr'] = '';
-        $partitionDetails['subpartition_count'] = '';
+        $partitionDetails['subpartition_count'] = 0;
 
         if (! empty($stmt->subpartitionBy)) {
             $openPos = strpos($stmt->subpartitionBy, '(');
@@ -833,7 +833,7 @@ class StructureController extends AbstractController
 
         $partitionDetails['partitions'] = [];
 
-        for ($i = 0, $iMax = (int) $partitionDetails['partition_count']; $i < $iMax; $i++) {
+        for ($i = 0, $iMax = $partitionDetails['partition_count']; $i < $iMax; $i++) {
             if (! isset($stmt->partitions[$i])) {
                 $partitionDetails['partitions'][$i] = [
                     'name' => 'p' . $i,
@@ -882,7 +882,7 @@ class StructureController extends AbstractController
             $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
             $partition['subpartitions'] = [];
 
-            for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
+            for ($j = 0, $jMax = $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
                 if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
                     $partition['subpartitions'][$j] = [
                         'name' => $partition['name'] . '_s' . $j,
