@@ -34,6 +34,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -46,7 +47,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
-global $containerBuilder, $errorHandler, $config, $server, $dbi;
+global $containerBuilder, $errorHandler, $config, $server, $dbi, $request;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
 global $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
@@ -106,6 +107,8 @@ if (! defined('K_PATH_IMAGES')) {
     define('K_PATH_IMAGES', ROOT_PATH);
     // phpcs:enable
 }
+
+$request = ServerRequestFactory::createFromGlobals();
 
 $route = Routing::getCurrentRoute();
 

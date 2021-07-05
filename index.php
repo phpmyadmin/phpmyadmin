@@ -10,9 +10,9 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-global $route, $containerBuilder;
+global $route, $containerBuilder, $request;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $dispatcher = Routing::getDispatcher();
-Routing::callControllerForRoute($route, $dispatcher, $containerBuilder);
+Routing::callControllerForRoute($request, $route, $dispatcher, $containerBuilder);
