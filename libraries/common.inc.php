@@ -181,8 +181,8 @@ Core::setDatabaseAndTableFromRequest($containerBuilder);
  * @global string $sql_query
  */
 $sql_query = '';
-if (Core::isValid($_POST['sql_query'])) {
-    $sql_query = $_POST['sql_query'];
+if ($request->isPost()) {
+    $sql_query = $request->getParam('sql_query', '');
 }
 
 $containerBuilder->setParameter('sql_query', $sql_query);
@@ -286,9 +286,12 @@ if (! empty($cfg['Server'])) {
     }
 
     // Sets the default delimiter (if specified).
-    if (! empty($_REQUEST['sql_delimiter'])) {
-        Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+    $sqlDelimiter = $request->getParam('sql_delimiter', '');
+    if (strlen($sqlDelimiter) > 0) {
+        Lexer::$DEFAULT_DELIMITER = $sqlDelimiter;
     }
+
+    unset($sqlDelimiter);
 
     // TODO: Set SQL modes too.
 } else { // end server connecting
@@ -303,7 +306,7 @@ $response = ResponseRenderer::getInstance();
  * There is no point in even attempting to process
  * an ajax request if there is a token mismatch
  */
-if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_mismatch) {
+if ($response->isAjax() && $request->isPost() && $token_mismatch) {
     $response->setRequestStatus(false);
     $response->addJSON(
         'message',

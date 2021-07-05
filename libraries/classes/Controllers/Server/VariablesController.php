@@ -156,19 +156,12 @@ class VariablesController extends AbstractController
      */
     public function setValue(ServerRequest $request, array $vars): void
     {
-        /** @var array $parsedBody */
-        $parsedBody = $request->getParsedBody();
-        $params = [
-            'varName' => $vars['name'],
-            'varValue' => $parsedBody['varValue'] ?? null,
-        ];
-
         if (! $this->response->isAjax()) {
             return;
         }
 
-        $value = (string) $params['varValue'];
-        $variableName = (string) $params['varName'];
+        $value = (string) $request->getParam('varValue');
+        $variableName = (string) $vars['name'];
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
 
@@ -201,20 +194,20 @@ class VariablesController extends AbstractController
 
         $json = [];
         if (
-            ! preg_match('/[^a-zA-Z0-9_]+/', $params['varName'])
+            ! preg_match('/[^a-zA-Z0-9_]+/', $variableName)
             && $this->dbi->query(
-                'SET GLOBAL ' . $params['varName'] . ' = ' . $value
+                'SET GLOBAL ' . $variableName . ' = ' . $value
             )
         ) {
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($params['varName'])
+                . $this->dbi->escapeString($variableName)
                 . '";',
                 'NUM'
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
-                $params['varName'],
+                $variableName,
                 $varValue[1]
             );
 

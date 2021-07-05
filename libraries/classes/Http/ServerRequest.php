@@ -8,6 +8,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
+use function is_array;
+use function is_object;
+use function property_exists;
+
 class ServerRequest implements ServerRequestInterface
 {
     /** @var ServerRequestInterface */
@@ -284,5 +288,35 @@ class ServerRequest implements ServerRequestInterface
         $serverRequest = $this->serverRequest->withoutAttribute($name);
 
         return new static($serverRequest);
+    }
+
+    /**
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    public function getParam(string $param, $default = null)
+    {
+        $getParams = $this->getQueryParams();
+        $postParams = $this->getParsedBody();
+
+        if (is_array($postParams) && isset($postParams[$param])) {
+            return $postParams[$param];
+        }
+
+        if (is_object($postParams) && property_exists($postParams, $param)) {
+            return $postParams->$param;
+        }
+
+        if (isset($getParams[$param])) {
+            return $getParams[$param];
+        }
+
+        return $default;
+    }
+
+    public function isPost(): bool
+    {
+        return $this->getMethod() === 'POST';
     }
 }
