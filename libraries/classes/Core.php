@@ -1393,7 +1393,7 @@ class Core
         $token_mismatch = true;
         $token_provided = false;
 
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
             return;
         }
 
