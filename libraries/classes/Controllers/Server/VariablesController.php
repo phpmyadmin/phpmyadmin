@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -116,7 +117,7 @@ class VariablesController extends AbstractController
      *
      * @param array $params Request parameters
      */
-    public function getValue(array $params): void
+    public function getValue(ServerRequest $request, array $params): void
     {
         if (! $this->response->isAjax()) {
             return;
@@ -153,11 +154,13 @@ class VariablesController extends AbstractController
      *
      * @param array $vars Request parameters
      */
-    public function setValue(array $vars): void
+    public function setValue(ServerRequest $request, array $vars): void
     {
+        /** @var array $parsedBody */
+        $parsedBody = $request->getParsedBody();
         $params = [
             'varName' => $vars['name'],
-            'varValue' => $_POST['varValue'] ?? null,
+            'varValue' => $parsedBody['varValue'] ?? null,
         ];
 
         if (! $this->response->isAjax()) {

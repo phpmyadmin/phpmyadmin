@@ -9,6 +9,7 @@ use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
 
@@ -156,10 +157,8 @@ class Routing
         Dispatcher $dispatcher,
         ContainerInterface $container
     ): void {
-        $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'],
-            rawurldecode($route)
-        );
+        $request = ServerRequestFactory::createFromGlobals();
+        $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
             /** @var ResponseRenderer $response */
@@ -188,6 +187,6 @@ class Routing
 
         [$controllerName, $action] = $routeInfo[1];
         $controller = $container->get($controllerName);
-        $controller->$action($routeInfo[2]);
+        $controller->$action($request, $routeInfo[2]);
     }
 }

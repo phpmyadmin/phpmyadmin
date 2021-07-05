@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
@@ -49,7 +50,7 @@ class EnginesController extends AbstractController
      *
      * @param array $params Request params
      */
-    public function show(array $params): void
+    public function show(ServerRequest $request, array $params): void
     {
         global $errorUrl;
 

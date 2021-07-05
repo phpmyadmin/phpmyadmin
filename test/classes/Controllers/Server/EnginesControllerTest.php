@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -92,7 +93,9 @@ class EnginesControllerTest extends AbstractTestCase
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
-        $controller->show([
+        $request = $this->createMock(ServerRequest::class);
+
+        $controller->show($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);
