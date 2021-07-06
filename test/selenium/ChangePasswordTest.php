@@ -10,7 +10,6 @@ use function array_push;
 use function trim;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class ChangePasswordTest extends TestBase

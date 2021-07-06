@@ -10,7 +10,6 @@ use function sleep;
 use function trim;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class QueryByExampleTest extends TestBase

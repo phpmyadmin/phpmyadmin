@@ -15,7 +15,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="default">
+        <testsuite name="unit">
             <directory suffix="Test.php">test/classes</directory>
         </testsuite>
         <testsuite name="selenium">

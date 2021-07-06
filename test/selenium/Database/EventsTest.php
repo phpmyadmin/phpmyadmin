@@ -11,7 +11,6 @@ use function sleep;
 use function strtotime;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class EventsTest extends TestBase

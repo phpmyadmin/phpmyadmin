@@ -8,7 +8,6 @@ use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class BrowseTest extends TestBase

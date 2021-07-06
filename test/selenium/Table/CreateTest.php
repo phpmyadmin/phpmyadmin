@@ -9,7 +9,6 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 use function sleep;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class CreateTest extends TestBase

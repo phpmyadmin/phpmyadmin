@@ -17,13 +17,13 @@ jobs:
           fail-fast: false
           matrix:
             include:
-              - { php-version: '7', arch: 'amd64', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 'arm64v8', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 'arm32v7', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'arm32v6', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'i386', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'ppc64le', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 's390x', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
         steps:
             - uses: actions/checkout@v2
             - name: Write script
@@ -44,7 +44,7 @@ jobs:
                   apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
                   composer update && \
                   ./scripts/generate-mo && \
-                  php -d memory_limit=512M ./vendor/bin/phpunit --exclude-group=%s" \
+                  php -d memory_limit=512M ./vendor/bin/phpunit --testsuite unit --exclude-group=%s" \
                   "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
             - name: Setup multi arch support
               run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -67,7 +67,7 @@ jobs:
                 php-version: ["7.2", "7.3", "7.4", "8.0"]
                 experimental: [false]
                 os: [ubuntu-latest]
-                phpunit-options: ['--exclude-group selenium']
+                phpunit-options: ['--testsuite unit']
                 include:
                   - php-version: '8.1'
                     experimental: true
@@ -161,7 +161,7 @@ jobs:
             - name: Install dependencies
               run: composer install
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
+              run: composer run phpunit -- --testsuite unit
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:

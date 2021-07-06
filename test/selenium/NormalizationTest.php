@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class NormalizationTest extends TestBase

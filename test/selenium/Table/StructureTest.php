@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class StructureTest extends TestBase

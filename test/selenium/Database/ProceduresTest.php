@@ -10,7 +10,6 @@ use function sleep;
 use function str_replace;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class ProceduresTest extends TestBase

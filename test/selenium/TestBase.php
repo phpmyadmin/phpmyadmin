@@ -59,9 +59,6 @@ use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 use const PHP_EOL;
 
-/**
- * @group selenium
- */
 abstract class TestBase extends TestCase
 {
     /** @var RemoteWebDriver */

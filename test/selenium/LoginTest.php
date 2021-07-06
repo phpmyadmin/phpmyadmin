@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Selenium;
 use function sleep;
 
 /**
- * @group selenium
  * @coversNothing
  */
 class LoginTest extends TestBase
