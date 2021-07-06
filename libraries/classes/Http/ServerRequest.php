@@ -315,6 +315,26 @@ class ServerRequest implements ServerRequestInterface
         return $default;
     }
 
+    /**
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    public function getParsedBodyParam(string $param, $default = null)
+    {
+        $postParams = $this->getParsedBody();
+
+        if (is_array($postParams) && isset($postParams[$param])) {
+            return $postParams[$param];
+        }
+
+        if (is_object($postParams) && property_exists($postParams, $param)) {
+            return $postParams->$param;
+        }
+
+        return $default;
+    }
+
     public function isPost(): bool
     {
         return $this->getMethod() === 'POST';

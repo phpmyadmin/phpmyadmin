@@ -183,7 +183,7 @@ Core::setDatabaseAndTableFromRequest($containerBuilder);
  */
 $sql_query = '';
 if ($request->isPost()) {
-    $sql_query = $request->getParam('sql_query', '');
+    $sql_query = $request->getParsedBodyParam('sql_query', '');
 }
 
 $containerBuilder->setParameter('sql_query', $sql_query);

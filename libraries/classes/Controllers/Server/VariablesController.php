@@ -160,7 +160,7 @@ class VariablesController extends AbstractController
             return;
         }
 
-        $value = (string) $request->getParam('varValue');
+        $value = (string) $request->getParsedBodyParam('varValue');
         $variableName = (string) $vars['name'];
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
