@@ -22,6 +22,10 @@ if (! defined('ROOT_PATH')) {
 /** @psalm-suppress InvalidGlobal */
 global $cfg;
 
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
+
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
 if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {

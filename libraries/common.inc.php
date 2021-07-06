@@ -47,67 +47,14 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /** @psalm-suppress InvalidGlobal */
 global $containerBuilder, $errorHandler, $config, $server, $dbi, $request,
        $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme,
        $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
-
-/**
- * block attempts to directly run this script
- */
-if (getcwd() == __DIR__) {
-    die('Attack stopped');
-}
-
-/**
- * Minimum PHP version; can't call Core::fatalError() which uses a
- * PHP 5 function, so cannot easily localize this message.
- */
-if (PHP_VERSION_ID < 70205) {
-    die(
-        '<p>PHP 7.2.5+ is required.</p>'
-        . '<p>Currently installed version is: ' . PHP_VERSION . '</p>'
-    );
-}
-
-// phpcs:disable PSR1.Files.SideEffects
-/**
- * for verification in all procedural scripts under libraries
- */
-define('PHPMYADMIN', true);
-// phpcs:enable
-
-/**
- * Load vendor configuration.
- */
-require_once ROOT_PATH . 'libraries/vendor_config.php';
-
-/**
- * Activate autoloader
- */
-if (! @is_readable(AUTOLOAD_FILE)) {
-    die(
-        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
-        . '<p>Most likely you did not run Composer to '
-        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
-        . 'install library files</a>.</p>'
-    );
-}
-
-require_once AUTOLOAD_FILE;
-
-/**
- * (TCPDF workaround)
- * Avoid referring to nonexistent files (causes warnings when open_basedir is used)
- * This is defined to avoid the tcpdf code to search for a directory outside of open_basedir
- * See: https://github.com/phpmyadmin/phpmyadmin/issues/16709
- * This value if not used but is usefull, no header logic is used for PDF exports
- */
-if (! defined('K_PATH_IMAGES')) {
-    // phpcs:disable PSR1.Files.SideEffects
-    define('K_PATH_IMAGES', ROOT_PATH);
-    // phpcs:enable
-}
 
 $request = ServerRequestFactory::createFromGlobals();
 

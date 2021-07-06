@@ -8,6 +8,30 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 
+if (PHP_VERSION_ID < 70205) {
+    die('<p>PHP 7.2.5+ is required.</p><p>Currently installed version is: ' . PHP_VERSION . '</p>');
+}
+
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
+require_once ROOT_PATH . 'libraries/vendor_config.php';
+
+/**
+ * Activate autoloader
+ */
+if (! @is_readable(AUTOLOAD_FILE)) {
+    die(
+        '<p>File <samp>' . AUTOLOAD_FILE . '</samp> missing or not readable.</p>'
+        . '<p>Most likely you did not run Composer to '
+        . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">'
+        . 'install library files</a>.</p>'
+    );
+}
+
+require AUTOLOAD_FILE;
+
 chdir('..');
 
 if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
