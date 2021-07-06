@@ -362,87 +362,6 @@ class CoreTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for Core::cleanupPathInfo
-     *
-     * @param string $php_self  The PHP_SELF value
-     * @param string $request   The REQUEST_URI value
-     * @param string $path_info The PATH_INFO value
-     * @param string $expected  Expected result
-     *
-     * @dataProvider providerTestPathInfo
-     */
-    public function testPathInfo(string $php_self, string $request, string $path_info, string $expected): void
-    {
-        $_SERVER['PHP_SELF'] = $php_self;
-        $_SERVER['REQUEST_URI'] = $request;
-        $_SERVER['PATH_INFO'] = $path_info;
-        Core::cleanupPathInfo();
-        $this->assertEquals(
-            $expected,
-            $GLOBALS['PMA_PHP_SELF']
-        );
-    }
-
-    /**
-     * Data provider for Core::cleanupPathInfo tests
-     *
-     * @return array
-     */
-    public function providerTestPathInfo(): array
-    {
-        return [
-            [
-                '/phpmyadmin/index.php/; cookieinj=value/',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php/;%20cookieinj=value///',
-                '/; cookieinj=value/',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '//example.com/../../.././phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/page.php/malicouspathinfo?malicouspathinfo',
-                'malicouspathinfo',
-                '/page.php',
-            ],
-            [
-                '/phpmyadmin/./index.php',
-                '/phpmyadmin/./index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '/phpmyadmin/index.php',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-            [
-                '',
-                '/phpmyadmin/index.php',
-                '',
-                '/phpmyadmin/index.php',
-            ],
-        ];
-    }
-
-    /**
      * Test for Core::fatalError
      */
     public function testFatalErrorMessage(): void
@@ -1400,41 +1319,5 @@ class CoreTest extends AbstractNetworkTestCase
         $hmac = Core::signSqlQuery($sqlQuery);
         // Must work now, (good secret and blowfish_secret)
         $this->assertTrue(Core::checkSqlQuerySignature($sqlQuery, $hmac));
-    }
-
-    public function testCheckTokenRequestParam(): void
-    {
-        global $token_mismatch, $token_provided;
-
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['test'] = 'test';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertFalse($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'mismatch';
-        Core::checkTokenRequestParam();
-        $this->assertTrue($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayNotHasKey('test', $_POST);
-
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
-        $_SESSION[' PMA_token '] = 'token';
-        Core::checkTokenRequestParam();
-        $this->assertFalse($token_mismatch);
-        $this->assertTrue($token_provided);
-        $this->assertArrayHasKey('test', $_POST);
-        $this->assertEquals('test', $_POST['test']);
     }
 }

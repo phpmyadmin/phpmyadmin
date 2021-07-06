@@ -226,7 +226,6 @@ class Url
         }
 
         // Can be null when the user is missing an extension.
-        // See: Core::checkExtensions()
         if ($config !== null && empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
