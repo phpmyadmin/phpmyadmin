@@ -5,6 +5,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
@@ -45,6 +46,8 @@ global $containerBuilder, $dbi;
 $isMinimumCommon = true;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+Common::run();
 
 // Load database service because services.php is not available here
 $dbi = DatabaseInterface::load();

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Routing;
 
 if (! defined('ROOT_PATH')) {
@@ -37,6 +38,8 @@ require AUTOLOAD_FILE;
 global $route, $containerBuilder, $request;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+Common::run();
 
 $dispatcher = Routing::getDispatcher();
 Routing::callControllerForRoute($request, $route, $dispatcher, $containerBuilder);

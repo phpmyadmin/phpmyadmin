@@ -5,6 +5,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
 
@@ -41,6 +42,8 @@ if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
 $isMinimumCommon = true;
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+Common::run();
 
 // use default error handler
 restore_error_handler();

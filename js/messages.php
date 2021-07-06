@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\OutputBuffering;
 
@@ -54,6 +55,8 @@ define('PMA_NO_SESSION', true);
 // phpcs:enable
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
+
+Common::run();
 
 $buffer = OutputBuffering::getInstance();
 $buffer->start();
