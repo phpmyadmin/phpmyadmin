@@ -892,6 +892,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('message', Message::error($msg));
         } else {
             $active_page = $goto;
+            /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $goto;
         }
 

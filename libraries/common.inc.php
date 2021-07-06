@@ -47,9 +47,10 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
-global $containerBuilder, $errorHandler, $config, $server, $dbi, $request;
-global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
-global $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
+/** @psalm-suppress InvalidGlobal */
+global $containerBuilder, $errorHandler, $config, $server, $dbi, $request,
+       $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme,
+       $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
  * block attempts to directly run this script

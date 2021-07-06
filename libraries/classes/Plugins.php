@@ -691,6 +691,7 @@ class Plugins
     {
         global $cfg;
 
+        /** @psalm-var class-string $class */
         $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
 
         if (! class_exists($class)) {

@@ -172,11 +172,13 @@ class TwoFactor
      * @param string $name Backend name
      *
      * @return string
+     * @psalm-return class-string
      */
     public function getBackendClass($name)
     {
         $result = TwoFactorPlugin::class;
         if (in_array($name, $this->available)) {
+            /** @psalm-var class-string $result */
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         } elseif (! empty($name)) {
             $result = Invalid::class;

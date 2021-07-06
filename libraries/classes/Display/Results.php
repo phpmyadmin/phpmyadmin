@@ -2837,6 +2837,7 @@ class Results
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
+                /** @psalm-suppress UnresolvableInclude */
                 include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
                 $transformationPlugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
 

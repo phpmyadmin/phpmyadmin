@@ -469,6 +469,7 @@ class Config
 
         ob_start();
         $isConfigLoading = true;
+        /** @psalm-suppress UnresolvableInclude */
         $eval_result = include $this->getSource();
         $isConfigLoading = false;
         ob_end_clean();

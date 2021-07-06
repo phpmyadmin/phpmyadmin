@@ -76,11 +76,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Config/Forms/BaseFormList.php
-
-		-
 			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php

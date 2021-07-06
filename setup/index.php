@@ -19,6 +19,7 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
+/** @psalm-suppress InvalidGlobal */
 global $cfg;
 
 require ROOT_PATH . 'setup/lib/common.inc.php';

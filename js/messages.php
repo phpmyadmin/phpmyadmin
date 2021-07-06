@@ -5,6 +5,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PhpMyAdmin\OutputBuffering;
 
+/** @psalm-suppress InvalidGlobal */
 global $containerBuilder;
 
 if (! defined('ROOT_PATH')) {
