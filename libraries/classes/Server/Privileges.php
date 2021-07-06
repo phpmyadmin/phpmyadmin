@@ -2024,8 +2024,6 @@ class Privileges
         $data['type']       = $type;
 
         if ($type === 'database') {
-            // we already have the list of databases from libraries/common.inc.php
-            // via $pma = new PMA;
             $predDbArray = $GLOBALS['dblist']->databases;
             $databasesToSkip = [
                 'information_schema',

@@ -47,14 +47,11 @@ header('Content-Type: text/javascript; charset=UTF-8');
 // Cache output in client - the nocache query parameter makes sure that this file is reloaded when config changes.
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
-// Avoid loading the full common.inc.php because this would add many non-js-compatible stuff like DOCTYPE.
 $isMinimumCommon = true;
 // phpcs:disable PSR1.Files.SideEffects
 define('PMA_PATH_TO_BASEDIR', '../');
 define('PMA_NO_SESSION', true);
 // phpcs:enable
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Common::run();
 

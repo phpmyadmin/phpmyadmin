@@ -1,9 +1,4 @@
 <?php
-/**
- * Core functions used all over the scripts.
- * This script is distinct from libraries/common.inc.php because this
- * script is called from /test.
- */
 
 declare(strict_types=1);
 
@@ -75,7 +70,7 @@ use const E_USER_WARNING;
 use const FILTER_VALIDATE_IP;
 
 /**
- * Core class
+ * Core functions used all over the scripts.
  */
 class Core
 {

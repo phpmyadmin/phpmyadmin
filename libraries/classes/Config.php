@@ -597,7 +597,6 @@ class Config
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
             ) {
-                // new theme was set in common.inc.php
                 $this->setUserValue(
                     null,
                     'ThemeDefault',

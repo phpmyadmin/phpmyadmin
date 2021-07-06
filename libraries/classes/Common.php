@@ -8,23 +8,10 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\SqlParser\Lexer;
 
 use function __;
-use function class_exists;
 use function defined;
 use function register_shutdown_function;
 use function strlen;
 
-// phpcs:disable PSR1.Files.SideEffects
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
-if (class_exists('PhpMyAdmin\\Common')) {
-    return;
-}
-
-// phpcs:enable
-
-// phpcs:ignore Squiz.Classes.ClassFileName
 final class Common
 {
     /**
@@ -33,7 +20,7 @@ final class Common
      *
      * Among other things, it contains the advanced authentication work.
      *
-     * Order of sections for common.inc.php:
+     * Order of sections:
      *
      * the authentication libraries must be before the connection to db
      *

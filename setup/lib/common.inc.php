@@ -1,7 +1,4 @@
 <?php
-/**
- * Loads libraries/common.inc.php and preforms some additional actions
- */
 
 declare(strict_types=1);
 
@@ -35,13 +32,7 @@ require AUTOLOAD_FILE;
 
 chdir('..');
 
-if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
-    die('Bad invocation!');
-}
-
 $isMinimumCommon = true;
-
-require_once ROOT_PATH . 'libraries/common.inc.php';
 
 Common::run();
 
