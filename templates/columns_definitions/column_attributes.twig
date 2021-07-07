@@ -98,6 +98,11 @@
         {%- endif %}
       {% set ci = ci + 1 %}
     </td>
+
+  <td class="text-center">
+    <input name="field_adjust_views[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="NULL" class="allow_null"
+    {% set ci = ci + 1 %}
+  </td>
 {% endif %}
 {% if not is_backup %}
     {# column indexes, See my other comment about  this 'if'. #}

@@ -203,6 +203,16 @@ class OperationsController extends AbstractController
                         );
                     }
 
+                    // Alter view
+                    if (! empty($_POST['adjust_views'])) {
+                        $this->operations->adjustViews(
+                            $oldDb,
+                            $oldTable,
+                            $_POST['db'],
+                            $_POST['new_name']
+                        );
+                    }
+
                     // Reselect the original DB
                     $db = $oldDb;
                     $this->dbi->selectDb($oldDb);
