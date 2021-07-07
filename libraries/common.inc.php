@@ -144,6 +144,8 @@ Core::cleanupPathInfo();
 /** @var bool $isConfigLoading Indication for the error handler */
 $isConfigLoading = false;
 
+register_shutdown_function([Config::class, 'fatalErrorHandler']);
+
 /**
  * Force reading of config file, because we removed sensitive values
  * in the previous iteration.
@@ -151,8 +153,6 @@ $isConfigLoading = false;
  * @var Config $PMA_Config
  */
 $PMA_Config = $containerBuilder->get('config');
-
-register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
 /**
  * include session handling after the globals, to prevent overwriting

@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #16982 Show success messages on Designer for add and remove relation operations
 - issue        Fixed possible "Undefined index: clause_is_unique" on replace value in cell
 - issue #16991 Fixed case where $_SERVER['REQUEST_METHOD'] is undefined
+- issue        Fixed configuration error handler registration
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
