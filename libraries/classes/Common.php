@@ -94,6 +94,8 @@ final class Common
         /** @var bool $isConfigLoading Indication for the error handler */
         $isConfigLoading = false;
 
+        register_shutdown_function([Config::class, 'fatalErrorHandler']);
+
         /**
          * Force reading of config file, because we removed sensitive values
          * in the previous iteration.
@@ -101,8 +103,6 @@ final class Common
          * @var Config $config
          */
         $config = $containerBuilder->get('config');
-
-        register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
         /**
          * include session handling after the globals, to prevent overwriting
