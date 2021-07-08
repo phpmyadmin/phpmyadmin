@@ -261,11 +261,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Cannot cast ''\\|int to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
