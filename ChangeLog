@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #17001 Fix PHP error on query submit without a table name on multi table query box
 - issue #16999 Fixed multi table query results shows for 1 sec and then page refreshes
 - issue        Fixed a non translated button text on central columns add
+- issue        Fixed table width on Query by example page for large screens
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
