@@ -23,10 +23,4 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
-
-    <issueHandlers>
-        <PropertyNotSetInConstructor errorLevel="info"/>
-        <RedundantCondition errorLevel="info"/>
-        <DocblockTypeContradiction errorLevel="info"/>
-    </issueHandlers>
 </psalm>

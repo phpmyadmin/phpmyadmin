@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
+  <file src="libraries/classes/Advisor.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$rules</code>
+      <code>$runResult</code>
+      <code>$variables</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/Bookmark.php">
+    <PropertyNotSetInConstructor occurrences="5">
+      <code>$currentUser</code>
+      <code>$database</code>
+      <code>$id</code>
+      <code>$label</code>
+      <code>$query</code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
     </RedundantCastGivenDocblockType>
@@ -124,6 +138,9 @@
       <code>$oldErrorReporting</code>
       <code>$oldErrorReporting</code>
     </PossiblyNullArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$tmanager-&gt;theme !== null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <InvalidIterator occurrences="1">
@@ -147,9 +164,15 @@
       <code>$cfg</code>
       <code>$this-&gt;baseCfg</code>
     </PossiblyNullArgument>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$defaultCfg</code>
+    </PropertyNotSetInConstructor>
     <TypeDoesNotContainType occurrences="1">
       <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
+    <UninitializedProperty occurrences="1">
+      <code>$this-&gt;defaultCfg</code>
+    </UninitializedProperty>
   </file>
   <file src="libraries/classes/Config/Form.php">
     <MissingClosureParamType occurrences="6">
@@ -163,6 +186,12 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$index</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$default</code>
+      <code>$fields</code>
+      <code>$fieldsTypes</code>
+      <code>$name</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Config/FormDisplay.php">
     <PossiblyFalseArgument occurrences="4">
@@ -181,6 +210,14 @@
     <PossiblyInvalidIterator occurrences="1">
       <code>$values[$path]</code>
     </PossiblyInvalidIterator>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$userprefsDisallow</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Config/FormDisplayTemplate.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$group</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Config/PageSettings.php">
     <ArgumentTypeCoercion occurrences="2">
@@ -202,6 +239,14 @@
     <PossiblyNullArgument occurrences="1">
       <code>$port</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="1">
+      <code>is_array($v)</code>
+    </RedundantCondition>
+  </file>
+  <file src="libraries/classes/Console.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$isAjax</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Controllers/BrowseForeignersController.php">
     <PossiblyNullArgument occurrences="1">
@@ -219,6 +264,9 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
+    <RedundantCondition occurrences="1">
+      <code>$sub_part</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
@@ -232,11 +280,21 @@
     <PossiblyNullArgument occurrences="1">
       <code>$_POST['db_collation']</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="5">
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>$_error</code>
+      <code>$sub_part</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
+    <RedundantCondition occurrences="1">
+      <code>$sub_part</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
@@ -259,13 +317,27 @@
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$dbIsSystemSchema</code>
+      <code>$isShowStats</code>
+      <code>$numTables</code>
+      <code>$position</code>
+      <code>$tables</code>
+      <code>$totalNumTables</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
+    <RedundantCondition occurrences="1">
+      <code>$sub_part</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/ExportController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>empty($export_plugin)</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="1">
       <code>$asfile</code>
     </InvalidArgument>
@@ -289,6 +361,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/ImportController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$import_plugin == null</code>
+    </DocblockTypeContradiction>
     <PossiblyInvalidArgument occurrences="1">
       <code>$skip &lt; $read_limit ? $skip : $read_limit</code>
     </PossiblyInvalidArgument>
@@ -298,6 +373,9 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantCondition occurrences="1">
+      <code>$offset == 0</code>
+    </RedundantCondition>
     <TypeDoesNotContainType occurrences="3">
       <code>$bookmark_created</code>
       <code>$finished</code>
@@ -356,6 +434,15 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$hasStatistics</code>
+      <code>$position</code>
+      <code>$sortBy</code>
+      <code>$sortOrder</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCondition occurrences="1">
+      <code>(int) $database[$key]</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>0</code>
     </TypeDoesNotContainNull>
@@ -376,6 +463,9 @@
       <code>$username</code>
       <code>$username ?? null</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="1">
+      <code>$sub_part</code>
+    </RedundantCondition>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
@@ -417,6 +507,30 @@
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
   </file>
+  <file src="libraries/classes/Controllers/Table/ChartController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>empty($statement-&gt;limit)</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_array($result)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$visualization</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Controllers/Table/MaintenanceController.php">
+    <DocblockTypeContradiction occurrences="5">
+      <code>! is_array($selected)</code>
+      <code>! is_array($selected)</code>
+      <code>! is_array($selected)</code>
+      <code>! is_array($selected)</code>
+      <code>! is_array($selected)</code>
+    </DocblockTypeContradiction>
+  </file>
   <file src="libraries/classes/Controllers/Table/RelationController.php">
     <PossiblyNullArgument occurrences="2">
       <code>$multi_edit_columns_name</code>
@@ -446,6 +560,10 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>count($stmt-&gt;partitions)</code>
+      <code>count($stmt-&gt;partitions[0]-&gt;subpartitions)</code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$partitionDetails</code>
     </InvalidReturnStatement>
@@ -490,6 +608,10 @@
       <code>$tot_unit</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="1"/>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$stmt-&gt;partitionsNum</code>
+      <code>$stmt-&gt;subpartitionsNum</code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>! is_array($row)</code>
     </TypeDoesNotContainType>
@@ -503,6 +625,18 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $fields_meta[$i]-&gt;length</code>
     </RedundantCastGivenDocblockType>
+  </file>
+  <file src="libraries/classes/Controllers/ViewCreateController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$view['as']</code>
+    </DocblockTypeContradiction>
+    <RedundantCondition occurrences="2">
+      <code>empty($view['as']) &amp;&amp; is_string($createView)</code>
+      <code>is_string($createView)</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>isset($stmt-&gt;body)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -536,6 +670,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Database/DatabaseList.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;databases === null</code>
+    </DocblockTypeContradiction>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -553,6 +690,12 @@
       <code>$con['SCN']</code>
       <code>$con['STN']</code>
     </PossiblyUndefinedArrayOffset>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>is_array($default_page_no)</code>
+      <code>is_array($min_page_no)</code>
+      <code>is_array($pageNos)</code>
+      <code>is_array($page_name)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <PossiblyNullArgument occurrences="1">
@@ -560,6 +703,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Database/Qbe.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$this-&gt;currentSearch === null</code>
+      <code>$this-&gt;currentSearch-&gt;getCriterias() === null</code>
+    </DocblockTypeContradiction>
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
@@ -575,9 +722,20 @@
       <code>null</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$columnNames</code>
+      <code>$criteriaTables</code>
+      <code>$formAliases</code>
+      <code>$formSortOrders</code>
+      <code>$newColumnCount</code>
+      <code>$newRowCount</code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $master</code>
     </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$currentSearch != null</code>
+    </RedundantConditionGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="2">
       <code>isset($lastWhere, $this-&gt;formAndOrCols)</code>
       <code>isset($this-&gt;formAndOrRows)</code>
@@ -597,6 +755,10 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Database/Search.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$criteriaColumnName</code>
+      <code>$searchTypeDescription</code>
+    </PropertyNotSetInConstructor>
     <RedundantPropertyInitializationCheck occurrences="3">
       <code>$this-&gt;criteriaColumnName</code>
       <code>isset($this-&gt;criteriaColumnName)</code>
@@ -613,6 +775,12 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
+    <DocblockTypeContradiction occurrences="4">
+      <code>! is_array($fields)</code>
+      <code>! is_array($fields)</code>
+      <code>! is_array($indexes)</code>
+      <code>$this-&gt;extension === null</code>
+    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$result_target[]</code>
     </EmptyArrayAccess>
@@ -640,6 +808,13 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
+    <DocblockTypeContradiction occurrences="5">
+      <code>$result instanceof mysqli_result</code>
+      <code>$result instanceof mysqli_result</code>
+      <code>$result instanceof mysqli_result</code>
+      <code>$result instanceof mysqli_result</code>
+      <code>$result instanceof mysqli_result</code>
+    </DocblockTypeContradiction>
     <MoreSpecificImplementedParamType occurrences="23">
       <code>$link</code>
       <code>$link</code>
@@ -670,6 +845,14 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
+    <DocblockTypeContradiction occurrences="6">
+      <code>$defaultFunction !== $transformationPlugin</code>
+      <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
+      <code>'-1'</code>
+      <code>-1</code>
+      <code>[]</code>
+      <code>is_object($transformationPlugin)</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="4">
       <code>$added[$orgFullTableName]</code>
       <code>$transformationPlugin</code>
@@ -698,11 +881,32 @@
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="2">
+      <code>$bIsProcessList</code>
+      <code>$displayParts['text_btn'] == '1'</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="12">
+      <code>$defaultFunction !== $transformationPlugin</code>
+      <code>$firstStatement-&gt;order</code>
+      <code>$meta-&gt;decimals</code>
+      <code>$meta-&gt;decimals</code>
+      <code>$posNext !== null</code>
+      <code>$sortedColumnMessage !== null</code>
+      <code>($displayParts['nav_bar'] == '1') &amp;&amp; $posNext !== null</code>
+      <code>is_object($transformationPlugin)</code>
+      <code>isset($fieldsMeta-&gt;table)</code>
+      <code>isset($meta-&gt;internalMediaType)</code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($map)</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Encoding.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>self::$engine === null</code>
+      <code>self::$engine === null</code>
+      <code>self::$engine === null</code>
+    </DocblockTypeContradiction>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -721,10 +925,18 @@
       <code>$formatted_size</code>
     </ParamNameMismatch>
   </file>
+  <file src="libraries/classes/Error.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;hash === null</code>
+    </DocblockTypeContradiction>
+  </file>
   <file src="libraries/classes/ErrorHandler.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$errorNumber</code>
     </ArgumentTypeCoercion>
+    <DocblockTypeContradiction occurrences="1">
+      <code>! ($error instanceof Error)</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="1">
       <code>[$this, 'handleError']</code>
     </InvalidArgument>
@@ -732,7 +944,19 @@
       <code>$errorNumber</code>
     </PossiblyNullArgument>
   </file>
+  <file src="libraries/classes/ErrorReport.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$relParams['db'] === null</code>
+    </DocblockTypeContradiction>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>'enabled'</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="libraries/classes/Export.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>! is_object($exportPlugin)</code>
+      <code>$exportPlugin === null</code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$memoryLimit</code>
     </InvalidReturnStatement>
@@ -747,7 +971,15 @@
       <code>$line</code>
     </PossiblyNullArgument>
   </file>
+  <file src="libraries/classes/FieldMetadata.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$internalMediaType</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/File.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;compression === null</code>
+    </DocblockTypeContradiction>
     <FalsableReturnStatement occurrences="1">
       <code>$this-&gt;detectCompression()</code>
     </FalsableReturnStatement>
@@ -774,11 +1006,19 @@
       <code>null</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;content !== null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Font.php">
     <TypeDoesNotContainType occurrences="1">
       <code>empty($charLists)</code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Footer.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$isAjax</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
     <PossiblyFalseOperand occurrences="2">
@@ -787,6 +1027,9 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Gis/GisGeometryCollection.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$gis_obj</code>
+    </DocblockTypeContradiction>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -891,6 +1134,9 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;userSpecifiedSettings === null</code>
+    </DocblockTypeContradiction>
     <NullArgument occurrences="3">
       <code>null</code>
       <code>null</code>
@@ -910,6 +1156,13 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$modifiedSql</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>is_numeric($pos)</code>
+      <code>is_numeric($rows)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Git.php">
     <PossiblyNullArgument occurrences="1">
@@ -953,6 +1206,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Index.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;packed === null</code>
+    </DocblockTypeContradiction>
     <PossiblyNullPropertyAssignmentValue occurrences="3">
       <code>null</code>
       <code>null</code>
@@ -975,6 +1231,10 @@
     <PossiblyUndefinedVariable occurrences="1">
       <code>$protectedRow</code>
     </PossiblyUndefinedVariable>
+    <RedundantCondition occurrences="3">
+      <code>''</code>
+      <code>is_array($multiEditColumnsType)</code>
+    </RedundantCondition>
     <TypeDoesNotContainType occurrences="2">
       <code>$inputType === 'time'</code>
       <code>$inputType === 'time'</code>
@@ -1002,6 +1262,9 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/LanguageManager.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>self::$instance === null</code>
+    </DocblockTypeContradiction>
     <MissingConstructor occurrences="1">
       <code>$availableLocales</code>
     </MissingConstructor>
@@ -1023,6 +1286,9 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Message.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;hash === null</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="1">
       <code>$message</code>
     </InvalidArgument>
@@ -1032,8 +1298,17 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>is_array($params[1])</code>
+      <code>isset($params[1]) &amp;&amp; is_array($params[1])</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>$node-&gt;realName</code>
+      <code>''</code>
+      <code>isset($this-&gt;pos)</code>
+    </DocblockTypeContradiction>
     <PossiblyFalseOperand occurrences="1">
       <code>strrpos($class, '\\')</code>
     </PossiblyFalseOperand>
@@ -1055,8 +1330,17 @@
       <code>(string) $child-&gt;name</code>
       <code>(string) $child-&gt;name</code>
     </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$node-&gt;displayName</code>
+      <code>$node-&gt;title</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Nodes/Node.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$displayName</code>
+      <code>$parent</code>
+      <code>$title</code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="4">
       <code>(bool) $isGroup</code>
       <code>(int) $pos</code>
@@ -1064,7 +1348,25 @@
       <code>(string) $parent-&gt;name</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeColumn.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>NodeColumn</code>
+      <code>NodeColumn</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeColumnContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeColumnContainer</code>
+      <code>NodeColumnContainer</code>
+      <code>NodeColumnContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/Navigation/Nodes/NodeDatabase.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeDatabase</code>
+      <code>NodeDatabase</code>
+      <code>NodeDatabase</code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $pos</code>
     </RedundantCastGivenDocblockType>
@@ -1074,16 +1376,128 @@
       <code>$this-&gt;realParent()-&gt;realName</code>
     </PossiblyInvalidPropertyFetch>
   </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseChildContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeDatabaseChildContainer</code>
+      <code>NodeDatabaseChildContainer</code>
+      <code>NodeDatabaseChildContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeDatabaseContainer</code>
+      <code>NodeDatabaseContainer</code>
+      <code>NodeDatabaseContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeEvent.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeEvent</code>
+      <code>NodeEvent</code>
+      <code>NodeEvent</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeEventContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeEventContainer</code>
+      <code>NodeEventContainer</code>
+      <code>NodeEventContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeFunction.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeFunction</code>
+      <code>NodeFunction</code>
+      <code>NodeFunction</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeFunctionContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeFunctionContainer</code>
+      <code>NodeFunctionContainer</code>
+      <code>NodeFunctionContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeIndex.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeIndex</code>
+      <code>NodeIndex</code>
+      <code>NodeIndex</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeIndexContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeIndexContainer</code>
+      <code>NodeIndexContainer</code>
+      <code>NodeIndexContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeProcedure.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeProcedure</code>
+      <code>NodeProcedure</code>
+      <code>NodeProcedure</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeProcedureContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeProcedureContainer</code>
+      <code>NodeProcedureContainer</code>
+      <code>NodeProcedureContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
     </PossiblyInvalidPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>NodeTable</code>
+      <code>NodeTable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeTableContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeTableContainer</code>
+      <code>NodeTableContainer</code>
+      <code>NodeTableContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeTrigger.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeTrigger</code>
+      <code>NodeTrigger</code>
+      <code>NodeTrigger</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeTriggerContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeTriggerContainer</code>
+      <code>NodeTriggerContainer</code>
+      <code>NodeTriggerContainer</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeView.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeView</code>
+      <code>NodeView</code>
+      <code>NodeView</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Navigation/Nodes/NodeViewContainer.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NodeViewContainer</code>
+      <code>NodeViewContainer</code>
+      <code>NodeViewContainer</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Normalization.php">
     <RedundantCast occurrences="1">
       <code>(array) $partialDependencies</code>
     </RedundantCast>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$availableMimeTypes !== null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/OpenDocument.php">
     <InvalidReturnStatement occurrences="1">
@@ -1101,6 +1515,22 @@
       <code>(string) $pack_keys</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/OutputBuffering.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>empty(self::$instance)</code>
+    </DocblockTypeContradiction>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$content</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Partition.php">
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>Partition</code>
+      <code>Partition</code>
+      <code>Partition</code>
+      <code>Partition</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/Pdf.php">
     <ParamNameMismatch occurrences="1">
       <code>$error_message</code>
@@ -1111,8 +1541,16 @@
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
     </RedundantCast>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>$properties != null</code>
+      <code>$properties != null</code>
+      <code>$properties != null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$resp == null</code>
+    </DocblockTypeContradiction>
     <ImplementedReturnTypeMismatch occurrences="2">
       <code>bool|void</code>
       <code>void|bool</code>
@@ -1124,6 +1562,16 @@
       <code>(string) $conn_error</code>
     </RedundantCast>
   </file>
+  <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
+    <RedundantCondition occurrences="1">
+      <code>isset($this-&gt;user)</code>
+    </RedundantCondition>
+  </file>
+  <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
+    <RedundantCondition occurrences="1">
+      <code>$old_session !== null</code>
+    </RedundantCondition>
+  </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
     <PossiblyNullArgument occurrences="6">
       <code>$table_alias</code>
@@ -1133,6 +1581,10 @@
       <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$cgFormats</code>
+      <code>ExportCodegen</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
     <ParamNameMismatch occurrences="3">
@@ -1200,6 +1652,10 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$pdf</code>
+      <code>ExportPdf</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
     <PossiblyNullArgument occurrences="1">
@@ -1207,6 +1663,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>empty($field-&gt;options)</code>
+      <code>empty($field-&gt;references)</code>
+    </DocblockTypeContradiction>
     <PossiblyInvalidOperand occurrences="1"/>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
@@ -1261,6 +1721,10 @@
     <PossiblyNullArgument occurrences="1">
       <code>$table_alias</code>
     </PossiblyNullArgument>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$table</code>
+      <code>ExportXml</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
     <ParamNameMismatch occurrences="1">
@@ -1274,21 +1738,66 @@
       <code>$res_rel</code>
       <code>$res_rel</code>
     </PossiblyUndefinedVariable>
+    <PropertyNotSetInConstructor occurrences="18">
+      <code>$aliases</code>
+      <code>$cellFontSize</code>
+      <code>$colAlign</code>
+      <code>$colTitles</code>
+      <code>$currentDb</code>
+      <code>$currentTable</code>
+      <code>$dataY</code>
+      <code>$dbAlias</code>
+      <code>$displayColumn</code>
+      <code>$fields</code>
+      <code>$headerset</code>
+      <code>$numFields</code>
+      <code>$purpose</code>
+      <code>$sColWidth</code>
+      <code>$tableAlias</code>
+      <code>$tablewidths</code>
+      <code>$titleFontSize</code>
+      <code>$titleText</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Plugins/ExportPlugin.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$properties</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
     <ImplementedReturnTypeMismatch occurrences="1">
       <code>OptionsPropertyMainGroup|void</code>
     </ImplementedReturnTypeMismatch>
   </file>
+  <file src="libraries/classes/Plugins/Import/ImportCsv.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$nameArray === false</code>
+      <code>$nameArray === false</code>
+    </DocblockTypeContradiction>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$analyze</code>
+      <code>ImportCsv</code>
+    </PropertyNotSetInConstructor>
+  </file>
   <file src="libraries/classes/Plugins/Import/ImportMediawiki.php">
     <PossiblyUndefinedVariable occurrences="1">
       <code>$cur_temp_line</code>
     </PossiblyUndefinedVariable>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$analyze</code>
+      <code>ImportMediawiki</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCondition occurrences="1">
+      <code>$finished</code>
+    </RedundantCondition>
     <ReferenceConstraintViolation occurrences="1">
       <code>$analyses</code>
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportOds.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>empty($root)</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="2">
       <code>$cell_attrs</code>
       <code>$text</code>
@@ -1296,6 +1805,11 @@
     <UndefinedPropertyFetch occurrences="1">
       <code>$xml-&gt;children('office', true)-&gt;{'body'}</code>
     </UndefinedPropertyFetch>
+  </file>
+  <file src="libraries/classes/Plugins/Import/ImportShp.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>ImportShp</code>
+    </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportXml.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -1305,9 +1819,15 @@
       <code>attributes</code>
       <code>attributes</code>
     </PossiblyNullReference>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$xml</code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedPropertyFetch occurrences="1"/>
   </file>
   <file src="libraries/classes/Plugins/ImportPlugin.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$properties</code>
+    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $currentDb</code>
     </RedundantCastGivenDocblockType>
@@ -1689,6 +2209,9 @@
       <code>setWidths</code>
     </PossiblyUndefinedMethod>
     <RedundantCast occurrences="2"/>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>isset($this-&gt;orientation)</code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedPropertyAssignment occurrences="5">
       <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$this-&gt;diagram-&gt;customLinks</code>
@@ -1759,6 +2282,10 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>is_int($height)</code>
+      <code>is_int($width)</code>
+    </DocblockTypeContradiction>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $styles</code>
       <code>(string) $styles</code>
@@ -1884,9 +2411,17 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Profiling.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>is_array($result)</code>
+    </DocblockTypeContradiction>
     <NullableReturnStatement occurrences="1">
       <code>SessionCache::get('profiling_supported')</code>
     </NullableReturnStatement>
+  </file>
+  <file src="libraries/classes/Properties/Options/OptionsPropertyGroup.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;properties === null</code>
+    </DocblockTypeContradiction>
   </file>
   <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -1894,6 +2429,9 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Relation.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$cfgRelation['historywork']</code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$cfgRelation</code>
     </InvalidReturnStatement>
@@ -1914,6 +2452,9 @@
       <code>(string) $db</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>is_array($table)</code>
+    </RedundantCondition>
     <TypeDoesNotContainType occurrences="1">
       <code>$vtitle != ''</code>
     </TypeDoesNotContainType>
@@ -1933,6 +2474,14 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_array($serverReplication)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="libraries/classes/ResponseRenderer.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>empty(self::$instance)</code>
+    </DocblockTypeContradiction>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <RedundantCast occurrences="4">
@@ -1960,6 +2509,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Server/Privileges.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>''</code>
+    </DocblockTypeContradiction>
     <InvalidArgument occurrences="2">
       <code>$result</code>
       <code>$result</code>
@@ -2009,6 +2561,12 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $privs</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$table === '*'</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$userGroup</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
     <PossiblyNullReference occurrences="1">
@@ -2070,13 +2628,26 @@
       <code>$row[0]</code>
       <code>$row[0]</code>
     </PossiblyNullArrayAccess>
+    <RedundantCondition occurrences="1"/>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <PossiblyFalseArgument occurrences="1">
       <code>$query</code>
     </PossiblyFalseArgument>
   </file>
+  <file src="libraries/classes/StorageEngine.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>self::SUPPORT_NO</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="libraries/classes/Table.php">
+    <DocblockTypeContradiction occurrences="5">
+      <code>! $drop || ! empty($tmpErrorDrop)</code>
+      <code>! empty($tmpErrorDrop)</code>
+      <code>isset($this-&gt;uiprefs)</code>
+      <code>isset($this-&gt;uiprefs)</code>
+      <code>isset($this-&gt;uiprefs)</code>
+    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
@@ -2123,6 +2694,13 @@
       <code>(string) $table</code>
       <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="2">
+      <code>$length !== 0</code>
+      <code>$length !== 0</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$columnsMetaQueryResult !== false</code>
+    </RedundantConditionGivenDocblockType>
     <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
@@ -2138,13 +2716,28 @@
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>is_array($field_fulltext)</code>
+      <code>is_array($selected)</code>
+      <code>isset($field_fulltext) &amp;&amp; is_array($field_fulltext)</code>
+      <code>isset($selected) &amp;&amp; is_array($selected)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Table/Search.php">
     <PossiblyNullArrayOffset occurrences="1">
       <code>$geom_funcs</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="libraries/classes/Template.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>static::$twig !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="libraries/classes/ThemeManager.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>''</code>
+      <code>empty(self::$instance)</code>
+    </DocblockTypeContradiction>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$this-&gt;themes</code>
     </PossiblyNullArrayOffset>
@@ -2156,8 +2749,20 @@
       <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$configThemeExists</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;theme !== null</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Tracker.php">
+    <DocblockTypeContradiction occurrences="4">
+      <code>''</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="1">
       <code>(int) $version - 1</code>
     </InvalidScalarArgument>
@@ -2177,6 +2782,16 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $version</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$dbname</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="5">
+      <code>$statement-&gt;name !== null</code>
+      <code>$statement-&gt;name !== null</code>
+      <code>$table !== null</code>
+      <code>$version</code>
+      <code>isset($statement-&gt;options)</code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
@@ -2223,6 +2838,9 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Util.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>! isset($meta-&gt;orgname)</code>
+    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
@@ -2272,6 +2890,9 @@
       <code>(string) $aName</code>
       <code>(string) $aName</code>
     </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>isset($meta-&gt;orgtable)</code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>
@@ -2308,15 +2929,51 @@
       <code>$vals</code>
     </PossiblyNullArgument>
   </file>
+  <file src="test/classes/AdvisorTest.php">
+    <RedundantCondition occurrences="2">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
+  </file>
   <file src="test/classes/CacheTest.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>testCacheHas</code>
     </PossiblyInvalidArgument>
   </file>
+  <file src="test/classes/CheckUserPrivilegesTest.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>assertFalse</code>
+      <code>assertFalse</code>
+      <code>assertFalse</code>
+    </DocblockTypeContradiction>
+    <RedundantConditionGivenDocblockType occurrences="9">
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/classes/Command/SetVersionCommandTest.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetGeneratedClassInvalidVersion</code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/CommonTest.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>assertFalse</code>
+      <code>assertTrue</code>
+    </DocblockTypeContradiction>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>assertFalse</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+      <code>assertTrue</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Config/ConfigFileTest.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -2357,10 +3014,25 @@
       <code>testGetColumnCreationQuery</code>
     </PossiblyInvalidArgument>
   </file>
+  <file src="test/classes/Database/CentralColumnsTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantCondition>
+  </file>
+  <file src="test/classes/ErrorHandlerTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertIsString</code>
+    </RedundantCondition>
+  </file>
   <file src="test/classes/ErrorReportTest.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>testSanitizeUrl</code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/Export/OptionsTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Gis/GisFactoryTest.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -2438,9 +3110,23 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/ImportTest.php">
+    <DocblockTypeContradiction occurrences="6">
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
     <PossiblyInvalidArgument occurrences="1">
       <code>testSkipByteOrderMarksFromContents</code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/InternalRelationsTest.php">
+    <RedundantCondition occurrences="2">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
   </file>
   <file src="test/classes/IpAllowDenyTest.php">
     <PossiblyNullArrayOffset occurrences="1">
@@ -2461,6 +3147,16 @@
       <code>'test string'</code>
     </InvalidArgument>
   </file>
+  <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeColumnTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeDatabaseChildTest.php">
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;object</code>
@@ -2469,6 +3165,94 @@
       <code>expects</code>
       <code>getHtmlForControlButtons</code>
     </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeDatabaseTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeEventContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeEventTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeFunctionContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeFunctionTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeIndexContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeIndexTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeProcedureContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeProcedureTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeTableContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeTableTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeTriggerContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeTriggerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeViewContainerTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/Navigation/Nodes/NodeViewTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/classes/NormalizationTest.php">
+    <RedundantConditionGivenDocblockType occurrences="9">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Plugins/Auth/AuthenticationHttpTest.php">
     <InvalidArgument occurrences="3">
@@ -2491,6 +3275,18 @@
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="test/classes/Plugins/Import/ImportShpTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertFalse</code>
+    </RedundantCondition>
+  </file>
+  <file src="test/classes/PluginsTest.php">
+    <RedundantCondition occurrences="3">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
   </file>
   <file src="test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php">
     <InvalidArgument occurrences="1">
@@ -2559,6 +3355,19 @@
       <code>expects</code>
     </PossiblyUndefinedMethod>
   </file>
+  <file src="test/classes/RelationTest.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>assertFalse</code>
+      <code>assertFalse</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="test/classes/Server/PluginsTest.php">
+    <RedundantCondition occurrences="3">
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+      <code>assertIsArray</code>
+    </RedundantCondition>
+  </file>
   <file src="test/classes/StorageEngineTest.php">
     <NoInterfaceProperties occurrences="3">
       <code>$this-&gt;object-&gt;support</code>
@@ -2596,6 +3405,16 @@
       <code>$filoQueries</code>
     </MissingPropertyType>
   </file>
+  <file src="test/classes/TemplateTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertTrue</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="test/classes/ThemeManagerTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantCondition>
+  </file>
   <file src="test/classes/UserPreferencesTest.php">
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>
@@ -2613,6 +3432,10 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Utils/HttpRequestTest.php">
+    <RedundantCondition occurrences="2">
+      <code>$curl !== false</code>
+      <code>$curl !== false</code>
+    </RedundantCondition>
     <TypeDoesNotContainType occurrences="1">
       <code>'?'</code>
     </TypeDoesNotContainType>
@@ -2623,8 +3446,22 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/selenium/TestBase.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$this-&gt;webDriver === null</code>
+    </DocblockTypeContradiction>
     <InternalMethod occurrences="1">
       <code>getName</code>
     </InternalMethod>
+    <RedundantCondition occurrences="2">
+      <code>$ch !== false</code>
+      <code>$ch !== false</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="5">
+      <code>$text &amp;&amp; is_string($text)</code>
+      <code>$text &amp;&amp; is_string($text)</code>
+      <code>$this-&gt;webDriver !== null</code>
+      <code>is_string($text)</code>
+      <code>is_string($text)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
 </files>
