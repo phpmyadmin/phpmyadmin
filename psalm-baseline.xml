@@ -492,11 +492,6 @@
       <code>new $formClass($this-&gt;config)</code>
     </UndefinedClass>
   </file>
-  <file src="libraries/classes/Controllers/Setup/HomeController.php">
-    <TypeDoesNotContainType occurrences="1">
-      <code>PMA_IS_WINDOWS</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="libraries/classes/Controllers/Setup/ServersController.php">
     <PossiblyNullArgument occurrences="1">
       <code>$id</code>
@@ -2605,11 +2600,8 @@
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="17">
+    <PossiblyNullArgument occurrences="13">
       <code>$_POST['purge'] ?? null</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$extraData ?? null</code>
@@ -2622,13 +2614,19 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
       <code>$row[0]</code>
       <code>$row[0]</code>
     </PossiblyNullArrayAccess>
-    <RedundantCondition occurrences="1"/>
+    <RedundantCondition occurrences="3">
+      <code>$db</code>
+      <code>$db</code>
+    </RedundantCondition>
+    <TypeDoesNotContainNull occurrences="2">
+      <code>''</code>
+      <code>''</code>
+    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <PossiblyFalseArgument occurrences="1">

@@ -904,7 +904,7 @@ class Config
      * Maximum upload size as limited by PHP
      * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
-     * this section generates $max_upload_size in bytes
+     * this section generates max_upload_size in bytes
      */
     public function checkUploadSize(): void
     {
@@ -1021,15 +1021,11 @@ class Config
      */
     public function enableBc(): void
     {
-        $GLOBALS['cfg']             = $this->settings;
-        $GLOBALS['default_server']  = $this->defaultServer;
+        $GLOBALS['cfg'] = $this->settings;
+        $GLOBALS['default_server'] = $this->defaultServer;
         unset($this->defaultServer);
-        $GLOBALS['is_upload']       = $this->get('enable_upload');
-        $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
-        $GLOBALS['is_https']        = $this->get('is_https');
 
         $defines = [
-            'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',

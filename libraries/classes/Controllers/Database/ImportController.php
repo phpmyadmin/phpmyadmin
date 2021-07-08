@@ -41,7 +41,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $cfg;
+        global $db, $table, $tables, $num_tables, $total_num_tables, $cfg;
         global $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $errorUrl;
 
         $pageSettings = new PageSettings('Import');
@@ -115,10 +115,10 @@ final class ImportController extends AbstractController
             'hidden_inputs' => $hiddenInputs,
             'db' => $db,
             'table' => $table,
-            'max_upload_size' => $max_upload_size,
+            'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
             'import_list' => $importList,
             'local_import_file' => $localImportFile,
-            'is_upload' => $GLOBALS['is_upload'],
+            'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'upload_dir' => $cfg['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,

@@ -119,7 +119,7 @@ class SqlQueryForm
             'has_bookmark' => $cfgBookmark,
             'delimiter' => $delimiter,
             'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
-            'is_upload' => $GLOBALS['is_upload'],
+            'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,

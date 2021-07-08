@@ -34,7 +34,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $this->sqlQueryForm = new SqlQueryForm(new Template());
 
         //$GLOBALS
-        $GLOBALS['max_upload_size'] = 100;
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
@@ -104,7 +103,6 @@ class SqlQueryFormTest extends AbstractTestCase
      */
     public function testPMAGetHtmlForSqlQueryFormInsert(): void
     {
-        $GLOBALS['is_upload'] = true;
         //Call the test function
         $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
@@ -167,7 +165,6 @@ class SqlQueryFormTest extends AbstractTestCase
     public function testPMAGetHtmlForSqlQueryForm(): void
     {
         //Call the test function
-        $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);

@@ -140,7 +140,7 @@ class HomeController extends AbstractController
             'servers' => $servers,
             'pages' => $pages,
             'has_check_page_refresh' => $hasCheckPageRefresh,
-            'eol' => Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix')),
+            'eol' => Core::ifSetOr($_SESSION['eol'], ($GLOBALS['config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix')),
         ]);
     }
 }

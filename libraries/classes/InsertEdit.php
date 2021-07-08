@@ -792,7 +792,6 @@ class InsertEdit
          * @todo with functions this is not so easy, as you can basically
          * process any data with function like MD5
          */
-        global $max_upload_size;
         $maxFieldSizes = [
             'tinyblob'   =>        '256',
             'blob'       =>      '65536',
@@ -800,7 +799,7 @@ class InsertEdit
             'longblob'   => '4294967296',// yeah, really
         ];
 
-        $thisFieldMaxSize = $max_upload_size; // from PHP max
+        $thisFieldMaxSize = $GLOBALS['config']->get('max_upload_size'); // from PHP max
         if ($thisFieldMaxSize > $maxFieldSizes[$column['pma_type']]) {
             $thisFieldMaxSize = $maxFieldSizes[$column['pma_type']];
         }

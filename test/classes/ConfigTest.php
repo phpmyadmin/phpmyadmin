@@ -834,7 +834,6 @@ class ConfigTest extends AbstractTestCase
         $this->object->enableBc();
 
         $defines = [
-            'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',

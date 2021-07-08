@@ -7,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
 
-use function define;
-use function defined;
-
 /**
  * @covers \PhpMyAdmin\Menu
  */
@@ -23,10 +20,6 @@ class MenuTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
         parent::loadDefaultConfig();
-
-        if (! defined('PMA_IS_WINDOWS')) {
-            define('PMA_IS_WINDOWS', false);
-        }
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;

@@ -51,7 +51,7 @@ class ChangeController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $urlParams;
+        global $cfg, $db, $table, $text_dir, $disp_message, $urlParams;
         global $errorUrl, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
         global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex;
@@ -190,7 +190,8 @@ class ChangeController extends AbstractController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $html_output .= $this->insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+        $isUpload = $GLOBALS['config']->get('enable_upload');
+        $html_output .= $this->insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $isUpload);
 
         $html_output .= Url::getHiddenInputs($_form_params);
 
@@ -245,7 +246,7 @@ class ChangeController extends AbstractController
                 $o_rows,
                 $tabindex,
                 $columns_cnt,
-                $is_upload,
+                $isUpload,
                 $foreigners,
                 $tabindex_for_value,
                 $table,
