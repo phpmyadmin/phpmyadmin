@@ -23,6 +23,8 @@ phpMyAdmin - ChangeLog
 - issue #16991 Fixed case where $_SERVER['REQUEST_METHOD'] is undefined
 - issue        Fixed configuration error handler registration
 - issue #16997 Fixed server variables get/set value not working on multi server server > 1
+- issue #16998 Fixed Multi table query submit on server > 1 logged out user
+- issue #17000 Fixed Multi edit on central columns on server > 1 logged out user
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
