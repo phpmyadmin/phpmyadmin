@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #16845 Fixed some links not passing through url.php
 - issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
 - issue #16974 Replace zxcvbn by zxcvbn-ts
+- issue #15691 Disable the last column checkbox in the column list dropdown instead of not allowing un-check
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
