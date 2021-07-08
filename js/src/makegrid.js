@@ -520,6 +520,18 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // check visible first row headers count
             g.visibleHeadersCount = $(g.t).find('tr').first().find('th.draggable:visible').length;
             g.refreshRestoreButton();
+
+            // Display minimum of one column - disable checkbox for hiding last column
+            if (g.visibleHeadersCount <= 1) {
+                $(g.cList).find('.lDiv div').each(function () {
+                    $(this).find('input:checkbox:checked').prop('disabled', true);
+                });
+            } else {
+                // Remove disabled property if showing more than one column
+                $(g.cList).find('.lDiv div').each(function () {
+                    $(this).find('input:checkbox:disabled').prop('disabled', false);
+                });
+            }
         },
 
         /**
