@@ -187,7 +187,7 @@ class Sql
      *
      * @return bool whether the result set contains a unique key
      */
-    private function resultSetContainsUniqueKey($db, $table, array $fieldsMeta)
+    private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta)
     {
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
@@ -1092,7 +1092,7 @@ class Sql
      *
      * @param array          $analyzedSqlResults   analyzed sql results
      * @param string         $db                   current database
-     * @param string         $table                current table
+     * @param string|null    $table                current table
      * @param string|null    $messageToShow        message to show
      * @param int            $numRows              number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
@@ -1106,8 +1106,8 @@ class Sql
      */
     private function getQueryResponseForNoResultsReturned(
         array $analyzedSqlResults,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?string $messageToShow,
         $numRows,
         $displayResultsObject,
@@ -1419,12 +1419,12 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string $table        current table
-     * @param string $database     current database
-     * @param bool   $editable     whether the results table can be editable or not
-     * @param bool   $hasUniqueKey whether there is a unique key
+     * @param string|null $table        current table
+     * @param string      $database     current database
+     * @param bool        $editable     whether the results table can be editable or not
+     * @param bool        $hasUniqueKey whether there is a unique key
      */
-    private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
+    private function getMessageIfMissingColumnIndex(?string $table, string $database, $editable, $hasUniqueKey): string
     {
         $output = '';
         if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
@@ -1466,7 +1466,7 @@ class Sql
      * @param object|bool|null    $result               executed query results
      * @param array               $analyzedSqlResults   analysed sql results
      * @param string              $db                   current database
-     * @param string              $table                current table
+     * @param string|null         $table                current table
      * @param array|null          $sqlData              sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param int                 $unlimNumRows         unlimited number of rows
@@ -1482,8 +1482,8 @@ class Sql
     private function getQueryResponseForResultsReturned(
         $result,
         array $analyzedSqlResults,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?array $sqlData,
         $displayResultsObject,
         $unlimNumRows,
@@ -1532,7 +1532,7 @@ class Sql
         $statement = $analyzedSqlResults['statement'] ?? null;
         if ($statement instanceof SelectStatement) {
             if (! empty($statement->expr)) {
-                if ($statement->expr[0]->expr === '*') {
+                if ($statement->expr[0]->expr === '*' && ! empty($table)) {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
                 }
@@ -1547,7 +1547,7 @@ class Sql
             }
         }
 
-        $hasUnique = $this->resultSetContainsUniqueKey(
+        $hasUnique = empty($table) ? false : $this->resultSetContainsUniqueKey(
             $db,
             $table,
             $fieldsMeta
@@ -1689,8 +1689,8 @@ class Sql
     public function executeQueryAndSendQueryResponse(
         $analyzedSqlResults,
         $isGotoFile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $findRealEnd,
         $sqlQueryForBookmark,
         $extraData,
@@ -1738,7 +1738,7 @@ class Sql
      *
      * @param array               $analyzedSqlResults  analysed sql results
      * @param bool                $isGotoFile          whether goto file or not
-     * @param string|null         $db                  current database
+     * @param string              $db                  current database
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
@@ -1756,8 +1756,8 @@ class Sql
     public function executeQueryAndGetQueryResponse(
         array $analyzedSqlResults,
         $isGotoFile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $findRealEnd,
         ?string $sqlQueryForBookmark,
         $extraData,

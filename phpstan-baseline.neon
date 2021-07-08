@@ -1531,16 +1531,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:handleSortOrder\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:hasCurrentDbChanged\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -1556,12 +1546,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForNoResultsReturned\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:deleteTransformationInfo\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -1586,17 +1576,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForNoResultsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
