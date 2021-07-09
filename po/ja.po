@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-05-22 12:32+0000\n"
+"PO-Revision-Date: 2021-07-09 09:20+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10154,15 +10154,15 @@ msgstr "SQL 履歴"
 
 #: libraries/classes/Relation.php:246
 msgid "Persistent recently used tables"
-msgstr "永続的な『最近使用したテーブル』"
+msgstr "最近使用したテーブルの保存"
 
 #: libraries/classes/Relation.php:257
 msgid "Persistent favorite tables"
-msgstr "永続的な「お気に入りのテーブル」"
+msgstr "お気に入りのテーブルの保存"
 
 #: libraries/classes/Relation.php:268
 msgid "Persistent tables' UI preferences"
-msgstr "永続的な『テーブルに対する環境設定』"
+msgstr "テーブルに対する環境設定の保存"
 
 #: libraries/classes/Relation.php:290
 msgid "User preferences"
@@ -10178,7 +10178,7 @@ msgstr "ナビゲーション項目を表示/非表示"
 
 #: libraries/classes/Relation.php:329
 msgid "Saving Query-By-Example searches"
-msgstr "定型問い合わせ検索を保存しています"
+msgstr "定型問い合わせ検索の保存"
 
 #: libraries/classes/Relation.php:340
 msgid "Managing Central list of columns"
@@ -10190,7 +10190,7 @@ msgstr "デザイナーの設定を記憶"
 
 #: libraries/classes/Relation.php:362
 msgid "Saving export templates"
-msgstr "エクスポート テンプレートを保存しています"
+msgstr "エクスポートテンプレートの保存"
 
 #: libraries/classes/Relation.php:370
 msgid "Quick steps to set up advanced features:"
