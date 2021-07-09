@@ -44,9 +44,9 @@ use function microtime;
 use function openlog;
 use function reset;
 use function sprintf;
+use function str_starts_with;
 use function stripos;
 use function strlen;
-use function strncmp;
 use function strpos;
 use function strtolower;
 use function strtoupper;
@@ -1119,7 +1119,7 @@ class DatabaseInterface implements DbalInterface
     {
         $charset = $GLOBALS['charset_connection'];
         /* Automatically adjust collation if not supported by server */
-        if ($charset === 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+        if ($charset === 'utf8' && str_starts_with($collation, 'utf8mb4_')) {
             $collation = 'utf8_' . substr($collation, 8);
         }
 

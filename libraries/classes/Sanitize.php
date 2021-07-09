@@ -23,8 +23,8 @@ use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
 use function strtolower;
 use function strtr;
 use function substr;
@@ -149,9 +149,9 @@ class Sanitize
         } else {
             /* doc@anchor pattern */
             $anchor = $found[1];
-            if (strncmp('faq', $anchor, 3) == 0) {
+            if (str_starts_with($anchor, 'faq')) {
                 $page = 'faq';
-            } elseif (strncmp('cfg', $anchor, 3) == 0) {
+            } elseif (str_starts_with($anchor, 'cfg')) {
                 $page = 'config';
             } else {
                 /* Guess */

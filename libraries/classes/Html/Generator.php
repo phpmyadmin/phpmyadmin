@@ -47,8 +47,8 @@ use function preg_match;
 use function preg_replace;
 use function sprintf;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
 use function strpos;
 use function trim;
 use function urlencode;
@@ -1124,7 +1124,7 @@ class Generator
 
         if (! empty($target)) {
             $tagParams['target'] = $target;
-            if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
+            if ($target === '_blank' && str_starts_with($url, 'url.php?')) {
                 $tagParams['rel'] = 'noopener noreferrer';
             }
         }
