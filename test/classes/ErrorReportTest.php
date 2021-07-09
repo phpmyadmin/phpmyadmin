@@ -39,7 +39,6 @@ class ErrorReportTest extends AbstractTestCase
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
         $GLOBALS['config']->set('is_https', false);
-        $GLOBALS['config']->enableBc();
 
         $template = new Template();
         $this->errorReport = new ErrorReport(
@@ -71,9 +70,9 @@ class ErrorReportTest extends AbstractTestCase
 
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => PMA_USR_BROWSER_AGENT,
-            'browser_version' => PMA_USR_BROWSER_VER,
-            'user_os' => PMA_USR_OS,
+            'browser_name' => $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT'),
+            'browser_version' => $GLOBALS['config']->get('PMA_USR_BROWSER_VER'),
+            'user_os' => $GLOBALS['config']->get('PMA_USR_OS'),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],
@@ -175,9 +174,9 @@ class ErrorReportTest extends AbstractTestCase
 
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => PMA_USR_BROWSER_AGENT,
-            'browser_version' => PMA_USR_BROWSER_VER,
-            'user_os' => PMA_USR_OS,
+            'browser_name' => $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT'),
+            'browser_version' => $GLOBALS['config']->get('PMA_USR_BROWSER_VER'),
+            'user_os' => $GLOBALS['config']->get('PMA_USR_OS'),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],

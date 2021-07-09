@@ -26,7 +26,6 @@ class TransformationOverviewControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

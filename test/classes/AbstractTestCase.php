@@ -87,7 +87,6 @@ abstract class AbstractTestCase extends TestCase
         $_REQUEST = [];
         // Config before DBI
         $this->setGlobalConfig();
-        $GLOBALS['cfg']['environment'] = 'development';
         $GLOBALS['containerBuilder'] = Core::getContainerBuilder();
         $this->setGlobalDbi();
         Cache::purge();
@@ -183,9 +182,10 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalConfig(): void
     {
-        global $config;
+        global $config, $cfg;
         $config = new Config();
         $config->set('environment', 'development');
+        $cfg = $config->settings;
     }
 
     protected function setTheme(): void

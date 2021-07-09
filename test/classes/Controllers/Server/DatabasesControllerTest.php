@@ -27,7 +27,6 @@ class DatabasesControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';

@@ -60,7 +60,6 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For Image_*_Inline plugin
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['Server'] = 1;
 
         // For Date Format plugin

@@ -28,7 +28,6 @@ class NavigationTreeTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setTheme();
         $GLOBALS['server'] = 1;
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = '';

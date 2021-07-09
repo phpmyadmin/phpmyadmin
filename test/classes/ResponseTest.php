@@ -15,7 +15,6 @@ class ResponseTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['config']->enableBc();
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';

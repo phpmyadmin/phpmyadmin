@@ -25,7 +25,6 @@ class SvgRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['config']->enableBc();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['svg_show_color'] = true;
         $_REQUEST['svg_show_keys'] = true;

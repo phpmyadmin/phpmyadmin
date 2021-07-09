@@ -36,7 +36,6 @@ class ThemeTest extends AbstractTestCase
         $this->backup = $theme;
         $theme = $this->object;
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = '99';
     }

@@ -110,8 +110,8 @@ class Export
          * and gz compression was not asked via $cfg['OBGzip']
          * but transparent compression does not apply when saving to server
          */
-        $chromeAndGreaterThan43 = PMA_USR_BROWSER_AGENT == 'CHROME'
-            && PMA_USR_BROWSER_VER >= 43; // see bug #4942
+        $chromeAndGreaterThan43 = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') == 'CHROME'
+            && $GLOBALS['config']->get('PMA_USR_BROWSER_VER') >= 43; // see bug #4942
 
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')

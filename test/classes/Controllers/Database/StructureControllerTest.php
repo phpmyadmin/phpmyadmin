@@ -56,7 +56,6 @@ class StructureControllerTest extends AbstractTestCase
         parent::setUp();
         parent::loadDefaultConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

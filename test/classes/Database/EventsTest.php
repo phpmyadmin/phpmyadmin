@@ -28,7 +28,6 @@ class EventsTest extends AbstractTestCase
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';

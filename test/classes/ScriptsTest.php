@@ -27,7 +27,6 @@ class ScriptsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['config']->enableBc();
         $this->object = new Scripts();
     }
 

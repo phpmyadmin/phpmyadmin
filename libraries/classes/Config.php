@@ -13,7 +13,6 @@ use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
 use function count;
-use function define;
 use function defined;
 use function error_get_last;
 use function error_reporting;
@@ -1014,31 +1013,6 @@ class Config
         $parts[] = '';
 
         return implode('/', $parts);
-    }
-
-    /**
-     * enables backward compatibility
-     */
-    public function enableBc(): void
-    {
-        $GLOBALS['cfg'] = $this->settings;
-        $GLOBALS['default_server'] = $this->defaultServer;
-        unset($this->defaultServer);
-
-        $defines = [
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            if (defined($define)) {
-                continue;
-            }
-
-            define($define, $this->get($define));
-        }
     }
 
     /**

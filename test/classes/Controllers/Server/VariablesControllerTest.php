@@ -30,7 +30,6 @@ class VariablesControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;

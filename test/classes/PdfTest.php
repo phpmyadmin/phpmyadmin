@@ -18,7 +18,6 @@ class PdfTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
     }
 
     /**

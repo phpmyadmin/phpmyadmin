@@ -27,7 +27,6 @@ class TriggersTest extends AbstractTestCase
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['server'] = 0;
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';

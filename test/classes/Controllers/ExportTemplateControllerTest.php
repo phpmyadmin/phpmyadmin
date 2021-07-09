@@ -32,9 +32,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
 
-        global $dbi, $config;
-
-        $config->enableBc();
+        global $dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';

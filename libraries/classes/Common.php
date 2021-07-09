@@ -175,11 +175,7 @@ final class Common
         $containerBuilder->setParameter('server', $server);
         $containerBuilder->setParameter('url_params', $urlParams);
 
-        /**
-         * BC - enable backward compatibility
-         * exports all configuration settings into globals ($cfg global)
-         */
-        $config->enableBc();
+        $cfg = $config->settings;
 
         /* setup themes                                          LABEL_theme_setup    */
 

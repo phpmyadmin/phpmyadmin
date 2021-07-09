@@ -27,7 +27,6 @@ class OptionsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['server'] = 0;

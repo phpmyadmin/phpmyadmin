@@ -34,10 +34,6 @@ class TrackingTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
 
-        global $config;
-
-        $config->enableBc();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';

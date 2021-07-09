@@ -9,7 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 
 use function array_merge;
 use function array_replace_recursive;
-use function constant;
 use function define;
 use function defined;
 use function file_exists;
@@ -819,31 +818,6 @@ class ConfigTest extends AbstractTestCase
                 true,
             ],
         ];
-    }
-
-    /**
-     * Test for backward compatibility globals
-     *
-     * @depends testCheckSystem
-     * @depends testCheckWebServer
-     * @depends testLoadDefaults
-     * @group large
-     */
-    public function testEnableBc(): void
-    {
-        $this->object->enableBc();
-
-        $defines = [
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            $this->assertTrue(defined($define));
-            $this->assertEquals(constant($define), $this->object->get($define));
-        }
     }
 
     /**
