@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use Stringable;
 
 use function __;
 use function array_key_exists;
@@ -55,7 +56,7 @@ use const E_USER_WARNING;
  *
  * @todo make use of Message and Error
  */
-class Table
+class Table implements Stringable
 {
     /**
      * UI preferences properties
@@ -112,10 +113,8 @@ class Table
      * returns table name
      *
      * @see Table::getName()
-     *
-     * @return string  table name
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getName();
     }

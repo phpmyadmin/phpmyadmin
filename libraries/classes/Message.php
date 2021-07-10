@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use Stringable;
+
 use function __;
 use function _ngettext;
 use function array_unshift;
@@ -47,7 +49,7 @@ use const ENT_COMPAT;
  * $message->addMessage($hint);
  * </code>
  */
-class Message
+class Message implements Stringable
 {
     public const SUCCESS = 1; // 0001
     public const NOTICE  = 2; // 0010

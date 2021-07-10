@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Dbal;
 
 use InvalidArgumentException;
+use Stringable;
 use Webmozart\Assert\Assert;
 
 /** @psalm-immutable */
-final class DatabaseName
+final class DatabaseName implements Stringable
 {
     /**
      * @see https://dev.mysql.com/doc/refman/en/identifier-length.html
