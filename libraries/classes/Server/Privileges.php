@@ -3759,7 +3759,7 @@ class Privileges
             } elseif (Compatibility::isMariaDb()) {
                 $createUserStmt .= ' IDENTIFIED BY \'%s\'';
             } elseif (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
-                if (mb_strpos($createUserStmt, 'IDENTIFIED') === false) {
+                if (! str_contains($createUserStmt, 'IDENTIFIED')) {
                     // Maybe the authentication_plugin was not posted and then a part is missing
                     $createUserStmt .= ' IDENTIFIED BY \'%s\'';
                 } else {

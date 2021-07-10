@@ -110,7 +110,7 @@ class SqlController extends AbstractController
                 ! str_contains($errorUrl, '?') ? '?' : '&'
             );
             if (
-                (mb_strpos(' ' . $errorUrl, 'db_') !== 1 || mb_strpos($errorUrl, '?route=/database/') === false)
+                (mb_strpos(' ' . $errorUrl, 'db_') !== 1 || ! str_contains($errorUrl, '?route=/database/'))
                 && strlen($table) > 0
             ) {
                 $errorUrl .= '&amp;table=' . urlencode($table);

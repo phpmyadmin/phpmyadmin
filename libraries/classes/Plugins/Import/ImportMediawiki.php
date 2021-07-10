@@ -19,6 +19,7 @@ use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function preg_match;
+use function str_contains;
 use function str_replace;
 use function strcmp;
 use function strlen;
@@ -117,7 +118,7 @@ class ImportMediawiki extends ImportPlugin
                 unset($data);
                 // Don't parse string if we're not at the end
                 // and don't have a new line inside
-                if (mb_strpos($buffer, $mediawiki_new_line) === false) {
+                if (! str_contains($buffer, $mediawiki_new_line)) {
                     continue;
                 }
             }
@@ -579,7 +580,7 @@ class ImportMediawiki extends ImportPlugin
 
         // A '|' inside an invalid link should not
         // be mistaken as delimiting cell parameters
-        if (mb_strpos($cell_data[0], '[[') === false) {
+        if (! str_contains($cell_data[0], '[[')) {
             return $cell;
         }
 

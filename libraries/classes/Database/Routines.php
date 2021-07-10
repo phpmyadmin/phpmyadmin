@@ -28,11 +28,11 @@ use function in_array;
 use function is_array;
 use function is_string;
 use function max;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_match;
 use function sprintf;
+use function str_contains;
 use function stripos;
 use function substr;
 use function trim;
@@ -1037,7 +1037,7 @@ class Routines
 
         $query = 'CREATE ';
         if (! empty($itemDefiner)) {
-            if (mb_strpos($itemDefiner, '@') !== false) {
+            if (str_contains($itemDefiner, '@')) {
                 $arr = explode('@', $itemDefiner);
 
                 $do_backquote = true;

@@ -17,7 +17,7 @@ use function __;
 use function array_fill;
 use function count;
 use function is_array;
-use function mb_strpos;
+use function str_contains;
 use function strlen;
 
 /**
@@ -102,7 +102,7 @@ class ChangeController extends AbstractController
         $_url_params = $this->insertEdit->getUrlParameters($db, $table);
         $errorUrl = $GLOBALS['goto'] . Url::getCommon(
             $_url_params,
-            mb_strpos($GLOBALS['goto'], '?') === false ? '?' : '&'
+            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&'
         );
         unset($_url_params);
 

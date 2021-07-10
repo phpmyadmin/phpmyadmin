@@ -13,8 +13,8 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function basename;
-use function mb_strpos;
 use function mb_strtolower;
+use function str_contains;
 
 /**
  * This class provides data about the server status
@@ -323,7 +323,7 @@ class Data
         foreach ($server_status as $name => $value) {
             $section_found = false;
             foreach ($allocations as $filter => $section) {
-                if (mb_strpos($name, $filter) === false) {
+                if (! str_contains($name, $filter)) {
                     continue;
                 }
 

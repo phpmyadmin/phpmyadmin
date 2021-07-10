@@ -24,13 +24,13 @@ use function basename;
 use function count;
 use function is_array;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function preg_grep;
 use function preg_replace;
 use function preg_split;
 use function rtrim;
+use function str_contains;
 use function strlen;
 use function strtr;
 use function trim;
@@ -243,10 +243,10 @@ class ImportCsv extends AbstractImportCsv
                 // and don't have new line inside
                 if (
                     ($csv_new_line === 'auto'
-                    && mb_strpos($buffer, "\r") === false
-                    && mb_strpos($buffer, "\n") === false)
+                    && ! str_contains($buffer, "\r")
+                    && ! str_contains($buffer, "\n"))
                     || ($csv_new_line !== 'auto'
-                    && mb_strpos($buffer, $csv_new_line) === false)
+                    && ! str_contains($buffer, $csv_new_line))
                 ) {
                     continue;
                 }

@@ -20,8 +20,8 @@ use function imagefilledpolygon;
 use function imagestring;
 use function json_encode;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_substr;
+use function str_contains;
 use function trim;
 
 /**
@@ -81,7 +81,7 @@ class GisMultiPolygon extends GisGeometry
 
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner ring, use polygon itself
-            if (mb_strpos($polygon, '),(') === false) {
+            if (! str_contains($polygon, '),(')) {
                 $ring = $polygon;
             } else {
                 // Separate outer ring and use it to determine min-max
@@ -135,7 +135,7 @@ class GisMultiPolygon extends GisGeometry
         $points_arr = [];
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, '),(') === false) {
+            if (! str_contains($polygon, '),(')) {
                 $points_arr = $this->extractPoints($polygon, $scale_data, true);
             } else {
                 // Separate outer and inner polygons
@@ -218,7 +218,7 @@ class GisMultiPolygon extends GisGeometry
         $first_poly = true;
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, '),(') === false) {
+            if (! str_contains($polygon, '),(')) {
                 $points_arr = $this->extractPoints($polygon, $scale_data, true);
             } else {
                 // Separate outer and inner polygons
@@ -298,7 +298,7 @@ class GisMultiPolygon extends GisGeometry
             $row .= '<path d="';
 
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, '),(') === false) {
+            if (! str_contains($polygon, '),(')) {
                 $row .= $this->drawPath($polygon, $scale_data);
             } else {
                 // Separate outer and inner polygons
@@ -620,7 +620,7 @@ class GisMultiPolygon extends GisGeometry
         $k = 0;
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
-            if (mb_strpos($polygon, '),(') === false) {
+            if (! str_contains($polygon, '),(')) {
                 $param_row[$k]['no_of_lines'] = 1;
                 $points_arr = $this->extractPoints($polygon, null);
                 $no_of_points = count($points_arr);

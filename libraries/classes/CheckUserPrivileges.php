@@ -242,7 +242,7 @@ class CheckUserPrivileges
                 $GLOBALS['dbs_to_test'][] = $showGrantsDbName;
             }
 
-            if (mb_strpos($showGrantsString, 'RELOAD') !== false) {
+            if (str_contains($showGrantsString, 'RELOAD')) {
                 $GLOBALS['is_reload_priv'] = true;
             }
 

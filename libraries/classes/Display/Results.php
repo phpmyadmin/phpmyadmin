@@ -1786,7 +1786,7 @@ class Results
             $sortTableNew = $sortTable;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
-            if (mb_strpos($nameToUseInSort, '.') !== false) {
+            if (str_contains($nameToUseInSort, '.')) {
                 $matches = explode('.', $nameToUseInSort);
                 // Matches[0] has the table name
                 // Matches[1] has the column name
@@ -1804,7 +1804,7 @@ class Results
             // order by clause to the  column name
             $queryHead = $isFirstClause ? "\nORDER BY " : '';
             // Again a check to see if the given column is a aggregate column
-            if (mb_strpos($nameToUseInSort, '(') !== false) {
+            if (str_contains($nameToUseInSort, '(')) {
                 $sortOrder .=  $queryHead . $nameToUseInSort . ' ';
             } else {
                 if (strlen($sortTableNew) > 0) {
@@ -1822,7 +1822,7 @@ class Results
             $sortOrder = preg_replace('/\.\./', '.', $sortOrder);
             // Incase this is the current column save $single_sort_order
             if ($currentName == $nameToUseInSort) {
-                if (mb_strpos($currentName, '(') !== false) {
+                if (str_contains($currentName, '(')) {
                     $singleSortOrder = "\n" . 'ORDER BY ' . Util::backquote($currentName) . ' ';
                 } else {
                     $singleSortOrder = "\n" . 'ORDER BY ' . $sortTable
@@ -1899,7 +1899,7 @@ class Results
         $indexInExpression = 0;
 
         foreach ($sortExpressionNoDirection as $index => $clause) {
-            if (mb_strpos($clause, '.') !== false) {
+            if (str_contains($clause, '.')) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . '.' . str_replace('`', '', $fragments[1]);
             } else {
@@ -4261,7 +4261,7 @@ class Results
             return null;
         }
 
-        if (mb_strpos($sortExpressionNoDirection, '.') === false) {
+        if (! str_contains($sortExpressionNoDirection, '.')) {
             $sortTable = $this->properties['table'];
             $sortColumn = $sortExpressionNoDirection;
         } else {

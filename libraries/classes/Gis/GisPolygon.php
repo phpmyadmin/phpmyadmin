@@ -21,11 +21,11 @@ use function imagestring;
 use function json_encode;
 use function max;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_substr;
 use function min;
 use function pow;
 use function sqrt;
+use function str_contains;
 use function trim;
 
 /**
@@ -80,7 +80,7 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $ring = $polygon;
         } else {
             // Separate outer ring and use it to determine min-max
@@ -126,7 +126,7 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -194,7 +194,7 @@ class GisPolygon extends GisGeometry
         );
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -259,7 +259,7 @@ class GisPolygon extends GisGeometry
         $row = '<path d="';
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $row .= $this->drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons

@@ -12,7 +12,7 @@ use function htmlspecialchars;
 use function http_build_query;
 use function ini_get;
 use function is_array;
-use function mb_strpos;
+use function str_contains;
 use function strlen;
 
 /**
@@ -263,7 +263,7 @@ class Url
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
             $arg_separator = (string) ini_get('arg_separator.input');
-            if (mb_strpos($arg_separator, ';') !== false) {
+            if (str_contains($arg_separator, ';')) {
                 $separator = ';';
             } elseif (strlen($arg_separator) > 0) {
                 $separator = $arg_separator[0];

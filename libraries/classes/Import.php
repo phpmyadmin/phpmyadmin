@@ -33,6 +33,7 @@ use function pow;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
 use function str_starts_with;
 use function strcmp;
 use function strlen;
@@ -917,7 +918,7 @@ class Import
 
         if (
             $cell == (string) (float) $cell
-            && mb_strpos((string) $cell, '.') !== false
+            && str_contains((string) $cell, '.')
             && mb_substr_count((string) $cell, '.') === 1
         ) {
             return self::DECIMAL;

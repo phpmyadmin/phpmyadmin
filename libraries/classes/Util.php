@@ -1794,12 +1794,12 @@ class Util
         }
 
         /* Backward compatibility in 3.5.x */
-        if (mb_strpos($string, '@FIELDS@') !== false) {
+        if (str_contains($string, '@FIELDS@')) {
             $string = strtr($string, ['@FIELDS@' => '@COLUMNS@']);
         }
 
         /* Fetch columns list if required */
-        if (mb_strpos($string, '@COLUMNS@') !== false) {
+        if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $dbi->getColumns(
                 $GLOBALS['db'],
                 $GLOBALS['table']
@@ -2177,7 +2177,7 @@ class Util
             return $value;
         }
 
-        if (mb_strpos($value, '.') === false) {
+        if (! str_contains($value, '.')) {
             return $value . '.000000';
         }
 
