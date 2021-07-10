@@ -23,8 +23,8 @@ use function fwrite;
 use function is_file;
 use function json_encode;
 use function sprintf;
+use function str_contains;
 use function str_replace;
-use function strpos;
 
 use const CACHE_DIR;
 
@@ -147,7 +147,7 @@ final class CacheWarmupCommand extends Command
         $output->writeln('Warming templates', OutputInterface::VERBOSITY_VERY_VERBOSE);
         foreach ($templates as $file) {
             // Skip test files
-            if (strpos($file->getPathname(), '/test/') !== false) {
+            if (str_contains($file->getPathname(), '/test/')) {
                 continue;
             }
 

@@ -14,7 +14,7 @@ use function mb_strpos;
 use function mb_substr;
 use function preg_match;
 use function preg_replace;
-use function strpos;
+use function str_contains;
 
 /**
  * PhpMyAdmin\CheckUserPrivileges class
@@ -261,7 +261,7 @@ class CheckUserPrivileges
                 $showGrantsString !== 'ALL'
                 && $showGrantsString !== 'ALL PRIVILEGES'
                 && $showGrantsString !== 'CREATE'
-                && strpos($showGrantsString, 'CREATE,') === false
+                && ! str_contains($showGrantsString, 'CREATE,')
             ) {
                 continue;
             }

@@ -37,10 +37,10 @@ use function preg_match;
 use function preg_replace;
 use function rtrim;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -1876,9 +1876,9 @@ class Table
                 // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
                 if (
                     (
-                    strpos($column['Extra'], 'GENERATED') !== false
-                    || strpos($column['Extra'], 'VIRTUAL') !== false
-                    ) && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
+                    str_contains($column['Extra'], 'GENERATED')
+                    || str_contains($column['Extra'], 'VIRTUAL')
+                    ) && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
                 ) {
                     continue;
                 }

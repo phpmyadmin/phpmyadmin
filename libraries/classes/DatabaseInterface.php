@@ -44,10 +44,10 @@ use function microtime;
 use function openlog;
 use function reset;
 use function sprintf;
+use function str_contains;
 use function str_starts_with;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -1797,7 +1797,7 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (strpos($grant, 'WITH GRANT OPTION') !== false) {
+                if (str_contains($grant, 'WITH GRANT OPTION')) {
                     $hasGrantPrivilege = true;
                     break;
                 }
@@ -1841,8 +1841,8 @@ class DatabaseInterface implements DbalInterface
 
             foreach ($grants as $grant) {
                 if (
-                    strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
-                    || strpos($grant, 'CREATE USER') !== false
+                    str_contains($grant, 'ALL PRIVILEGES ON *.*')
+                    || str_contains($grant, 'CREATE USER')
                 ) {
                     $hasCreatePrivilege = true;
                     break;

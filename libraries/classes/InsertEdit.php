@@ -42,6 +42,7 @@ use function min;
 use function password_hash;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_replace;
 use function stripcslashes;
 use function stripslashes;
@@ -900,7 +901,7 @@ class InsertEdit
 
             if (
                 preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
-                && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
+                && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
             ) {
                 $htmlOutput .= '<input type="hidden" name="virtual'
                     . $columnNameAppendix . '" value="1">';

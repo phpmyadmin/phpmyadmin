@@ -53,6 +53,7 @@ use function is_string;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
 use function strpos;
@@ -1439,7 +1440,7 @@ class StructureController extends AbstractController
 
             $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
             $attributes[$rownum] = $extracted_columnspecs[$rownum]['attribute'];
-            if (strpos($field['Extra'], 'on update CURRENT_TIMESTAMP') !== false) {
+            if (str_contains($field['Extra'], 'on update CURRENT_TIMESTAMP')) {
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 

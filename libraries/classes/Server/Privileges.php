@@ -42,9 +42,9 @@ use function mb_substr;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function trim;
 use function uksort;
 
@@ -1337,11 +1337,11 @@ class Privileges
         ];
         if ($row['Type'] === 'r') {
             $privilege['routine'] = $row['Routine_name'];
-            $privilege['has_grant'] = strpos($row['Proc_priv'], 'Grant') !== false;
+            $privilege['has_grant'] = str_contains($row['Proc_priv'], 'Grant');
             $privilege['privileges'] = explode(',', $row['Proc_priv']);
         } elseif ($row['Type'] === 't') {
             $privilege['table'] = $row['Table_name'];
-            $privilege['has_grant'] = strpos($row['Table_priv'], 'Grant') !== false;
+            $privilege['has_grant'] = str_contains($row['Table_priv'], 'Grant');
             $tablePrivs = explode(',', $row['Table_priv']);
             $specificPrivileges = [];
             $grantsArr = $this->getTableGrantsArray();

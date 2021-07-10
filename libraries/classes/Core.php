@@ -42,6 +42,7 @@ use function preg_match;
 use function preg_replace;
 use function session_write_close;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
 use function strpos;
@@ -676,7 +677,7 @@ class Core
             || ($GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') === 'CHROME'
                 && $GLOBALS['config']->get('PMA_USR_BROWSER_VER') < 43);
 
-        if (strpos($mimetype, 'gzip') !== false && $notChromeOrLessThan43) {
+        if (str_contains($mimetype, 'gzip') && $notChromeOrLessThan43) {
             $headers['Content-Encoding'] = 'gzip';
         }
 

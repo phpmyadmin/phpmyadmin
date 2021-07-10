@@ -62,6 +62,7 @@ use function mt_rand;
 use function pack;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_replace;
 use function strcasecmp;
 use function strip_tags;
@@ -3678,7 +3679,7 @@ class Results
         $isAnalyse = $this->properties['is_analyse'];
 
         $bIsText = is_object($transformationPlugin)
-            && strpos($transformationPlugin->getMIMEType(), 'Text') === false;
+            && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
 
         // disable inline grid editing
         // if binary fields are protected
@@ -3712,7 +3713,7 @@ class Results
         $displayedColumn = $column;
         if (
             ! (is_object($transformationPlugin)
-            && strpos($transformationPlugin->getName(), 'Link') !== false)
+            && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
             [
@@ -5001,7 +5002,7 @@ class Results
                 }
 
                 $tagParams = ['title' => $title];
-                if (strpos($class, 'grid_edit') !== false) {
+                if (str_contains($class, 'grid_edit')) {
                     $tagParams['class'] = 'ajax';
                 }
 

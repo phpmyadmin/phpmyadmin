@@ -49,10 +49,10 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
@@ -498,7 +498,7 @@ class Config
         $cfg = array_filter(
             $cfg,
             static function (string $key): bool {
-                return strpos($key, '/') === false;
+                return ! str_contains($key, '/');
             },
             ARRAY_FILTER_USE_KEY
         );

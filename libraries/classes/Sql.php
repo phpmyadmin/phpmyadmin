@@ -32,9 +32,9 @@ use function microtime;
 use function session_start;
 use function session_write_close;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function ucwords;
 
 /**
@@ -207,7 +207,7 @@ class Sql
                     $numberFound++;
                 } elseif (! in_array($indexColumnName, $columns)) {
                     $numberFound++;
-                } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
+                } elseif (str_contains($columns[$indexColumnName]['Extra'], 'INVISIBLE')) {
                     $numberFound++;
                 }
             }

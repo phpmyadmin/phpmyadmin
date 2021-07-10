@@ -46,10 +46,10 @@ use function nl2br;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function str_starts_with;
 use function strlen;
-use function strpos;
 use function trim;
 use function urlencode;
 
@@ -148,7 +148,7 @@ class Generator
 
         return '<a href="'
             . $scriptName
-            . Url::getCommon(['db' => $database], strpos($scriptName, '?') === false ? '?' : '&')
+            . Url::getCommon(['db' => $database], ! str_contains($scriptName, '?') ? '?' : '&')
             . '" title="'
             . htmlspecialchars(
                 sprintf(
@@ -1136,7 +1136,7 @@ class Generator
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
                 foreach ($queryParts as $queryPair) {
-                    if (strpos($queryPair, '=') === false) {
+                    if (! str_contains($queryPair, '=')) {
                         continue;
                     }
 
@@ -1154,8 +1154,8 @@ class Generator
             ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $inSuhosinLimits
             // Has as sql_query without a signature
-            || (strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
-            || strpos($url, 'view[as]=') !== false
+            || (str_contains($url, 'sql_query=') && ! str_contains($url, 'sql_signature='))
+            || str_contains($url, 'view[as]=')
         ) {
             $parts = explode('?', $url, 2);
             /*
@@ -1166,7 +1166,7 @@ class Generator
             $url = $parts[0];
             if (
                 array_key_exists('class', $tagParams)
-                && strpos($tagParams['class'], 'create_view') !== false
+                && str_contains($tagParams['class'], 'create_view')
             ) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
             }

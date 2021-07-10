@@ -19,7 +19,7 @@ use function intval;
 use function is_array;
 use function json_decode;
 use function json_encode;
-use function strpos;
+use function str_contains;
 
 /**
  * Set of functions related to database designer
@@ -276,21 +276,21 @@ class Designer
                 } else {
                     $columns_type[$table_column_name] = 'designer/Field_small';
                     if (
-                        strpos($tab_column[$table_name]['TYPE'][$j], 'char') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'text') !== false
+                        str_contains($tab_column[$table_name]['TYPE'][$j], 'char')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'text')
                     ) {
                         $columns_type[$table_column_name] .= '_char';
                     } elseif (
-                        strpos($tab_column[$table_name]['TYPE'][$j], 'int') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'float') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'double') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'decimal') !== false
+                        str_contains($tab_column[$table_name]['TYPE'][$j], 'int')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'float')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'double')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'decimal')
                     ) {
                         $columns_type[$table_column_name] .= '_int';
                     } elseif (
-                        strpos($tab_column[$table_name]['TYPE'][$j], 'date') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'time') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'year') !== false
+                        str_contains($tab_column[$table_name]['TYPE'][$j], 'date')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'time')
+                        || str_contains($tab_column[$table_name]['TYPE'][$j], 'year')
                     ) {
                         $columns_type[$table_column_name] .= '_date';
                     }
@@ -363,21 +363,21 @@ class Designer
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
                     if (
-                        strpos($tabColumn[$tableName]['TYPE'][$j], 'char') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'text') !== false
+                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'char')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'text')
                     ) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (
-                        strpos($tabColumn[$tableName]['TYPE'][$j], 'int') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'float') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'double') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'decimal') !== false
+                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'int')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'float')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'double')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'decimal')
                     ) {
                         $columnsType[$tableColumnName] .= '_int';
                     } elseif (
-                        strpos($tabColumn[$tableName]['TYPE'][$j], 'date') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'time') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'year') !== false
+                        str_contains($tabColumn[$tableName]['TYPE'][$j], 'date')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'time')
+                        || str_contains($tabColumn[$tableName]['TYPE'][$j], 'year')
                     ) {
                         $columnsType[$tableColumnName] .= '_date';
                     }

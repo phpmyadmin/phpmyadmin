@@ -15,10 +15,10 @@ use function in_array;
 use function is_array;
 use function mb_strpos;
 use function preg_match;
+use function str_contains;
 use function str_replace;
 use function strlen;
 use function strncasecmp;
-use function strpos;
 use function trim;
 
 final class Search
@@ -289,7 +289,7 @@ final class Search
         $geom_funcs = Gis::getFunctions($types, true, false);
 
         // If the function takes multiple parameters
-        if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
+        if (str_contains($func_type, 'IS NULL') || str_contains($func_type, 'IS NOT NULL')) {
             return Util::backquote($names) . ' ' . $func_type;
         }
 

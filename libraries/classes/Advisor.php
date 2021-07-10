@@ -17,7 +17,7 @@ use function preg_match;
 use function preg_replace_callback;
 use function round;
 use function sprintf;
-use function strpos;
+use function str_contains;
 use function substr;
 use function vsprintf;
 
@@ -189,7 +189,7 @@ class Advisor
 
     private function setRules(): void
     {
-        $isMariaDB = strpos($this->variables['version'], 'MariaDB') !== false;
+        $isMariaDB = str_contains($this->variables['version'], 'MariaDB');
         $genericRules = include ROOT_PATH . self::GENERIC_RULES_FILE;
 
         if (! $isMariaDB && $this->globals['PMA_MYSQL_INT_VERSION'] >= 80003) {

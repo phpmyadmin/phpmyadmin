@@ -31,8 +31,8 @@ use function explode;
 use function in_array;
 use function mb_strlen;
 use function mb_strtolower;
+use function str_contains;
 use function strlen;
-use function strpos;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -260,7 +260,7 @@ class DatabasesController extends AbstractController
                 'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
                 'url' => $scriptName . Url::getCommon(
                     ['db' => $params['new_db']],
-                    strpos($scriptName, '?') === false ? '?' : '&'
+                    ! str_contains($scriptName, '?') ? '?' : '&'
                 ),
             ];
         }
@@ -438,7 +438,7 @@ class DatabasesController extends AbstractController
             $url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
-                strpos($url, '?') === false ? '?' : '&'
+                ! str_contains($url, '?') ? '?' : '&'
             );
             $databases[$database['SCHEMA_NAME']] = [
                 'name' => $database['SCHEMA_NAME'],

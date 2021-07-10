@@ -19,10 +19,10 @@ use function is_array;
 use function mb_strtolower;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_ireplace;
 use function str_replace;
 use function strncasecmp;
-use function strpos;
 
 /**
  * Handles find and replace tab.
@@ -310,7 +310,7 @@ class FindReplaceController extends AbstractController
             ];
             $found = false;
             for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-                if (strpos($find, $delimiters[$i]) === false) {
+                if (! str_contains($find, $delimiters[$i])) {
                     $found = true;
                     break;
                 }

@@ -22,8 +22,8 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function htmlentities;
 use function mb_strpos;
+use function str_contains;
 use function strlen;
-use function strpos;
 use function urlencode;
 
 use const ENT_COMPAT;
@@ -107,7 +107,7 @@ class SqlController extends AbstractController
             $errorUrl = ! empty($back) ? $back : $goto;
             $errorUrl .= Url::getCommon(
                 ['db' => $GLOBALS['db']],
-                strpos($errorUrl, '?') === false ? '?' : '&'
+                ! str_contains($errorUrl, '?') ? '?' : '&'
             );
             if (
                 (mb_strpos(' ' . $errorUrl, 'db_') !== 1 || mb_strpos($errorUrl, '?route=/database/') === false)

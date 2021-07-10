@@ -24,7 +24,7 @@ use function htmlspecialchars;
 use function in_array;
 use function is_string;
 use function sprintf;
-use function strpos;
+use function str_contains;
 use function substr;
 
 /**
@@ -114,7 +114,7 @@ class ViewCreateController extends AbstractController
             }
 
             if (! empty($_POST['view']['definer'])) {
-                if (strpos($_POST['view']['definer'], '@') === false) {
+                if (! str_contains($_POST['view']['definer'], '@')) {
                     $sql_query .= $sep . 'DEFINER='
                         . Util::backquote($_POST['view']['definer']);
                 } else {

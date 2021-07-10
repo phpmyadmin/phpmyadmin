@@ -33,10 +33,10 @@ use function preg_replace;
 use function readdir;
 use function rtrim;
 use function sort;
+use function str_contains;
 use function str_replace;
 use function stripslashes;
 use function strlen;
-use function strpos;
 use function trim;
 use function ucfirst;
 use function ucwords;
@@ -146,7 +146,7 @@ class Transformations
                 }
 
                 // Ignore old plugins (.class in filename)
-                if (strpos($file, '.class') !== false) {
+                if (str_contains($file, '.class')) {
                     continue;
                 }
 

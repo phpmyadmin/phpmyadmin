@@ -43,10 +43,10 @@ use function mb_substr;
 use function method_exists;
 use function sort;
 use function sprintf;
+use function str_contains;
 use function strcasecmp;
 use function strlen;
 use function strnatcasecmp;
-use function strpos;
 use function strrpos;
 use function strstr;
 use function substr;
@@ -1183,7 +1183,7 @@ class NavigationTree
                 }
 
                 $retval .= '<i' . $iClass . '></i>';
-                if (strpos($class, 'last') === false) {
+                if (! str_contains($class, 'last')) {
                     $retval .= '<b></b>';
                 }
 
