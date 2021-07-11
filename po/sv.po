@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-07-04 00:07+0000\n"
+"POT-Creation-Date: 2021-07-11 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1402,7 +1402,7 @@ msgstr "Sök:"
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: libraries/classes/Controllers/Server/PrivilegesController.php:339
-#: libraries/classes/InsertEdit.php:1059
+#: libraries/classes/InsertEdit.php:1058
 #: libraries/classes/Normalization.php:272
 #: libraries/classes/Normalization.php:1002 libraries/classes/Tracking.php:337
 #: libraries/classes/Tracking.php:491
@@ -1876,6 +1876,45 @@ msgstr "Slovenska"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamesiska"
+
+#: libraries/classes/Common.php:225
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "Du bör uppgradera till %s %s eller senare."
+
+#: libraries/classes/Common.php:256
+msgid "Error: Token mismatch"
+msgstr "Fel: Token matchningsfel"
+
+#: libraries/classes/Common.php:468
+msgid ""
+"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
+"access phpMyAdmin."
+msgstr ""
+
+#: libraries/classes/Common.php:515
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+"Du har aktiverat mbstring.func_overload i din PHP-konfiguration. Detta "
+"alternativ är inkompatibelt med phpMyAdmin och kan leda till att data kan "
+"skadas!"
+
+#: libraries/classes/Common.php:532
+msgid ""
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
+msgstr ""
+
+#: libraries/classes/Common.php:544
+msgid "GLOBALS overwrite attempt"
+msgstr "Överskrivningsförsök av GLOBALS"
+
+#: libraries/classes/Common.php:554
+msgid "possible exploit"
+msgstr "möjlig exploatering"
 
 #: libraries/classes/Config/Descriptions.php:60
 #: libraries/classes/Config/Descriptions.php:61
@@ -4435,7 +4474,7 @@ msgstr "Hoppa över låsta tabeller"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
-#: libraries/classes/Display/Results.php:3233
+#: libraries/classes/Display/Results.php:3235
 #: libraries/classes/Html/Generator.php:695
 #: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
@@ -4495,7 +4534,7 @@ msgid "Textarea rows"
 msgstr "Textarea rader"
 
 #: libraries/classes/Config/Descriptions.php:965
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:231
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:135
@@ -4757,7 +4796,7 @@ msgstr "Anpassad"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
-#: libraries/classes/Import.php:1401 libraries/classes/Menu.php:271
+#: libraries/classes/Import.php:1399 libraries/classes/Menu.php:271
 #: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
@@ -4870,26 +4909,26 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "Kan inte spara inställningar, sänt konfigurationsformulär innehåller fel!"
 
-#: libraries/classes/Config.php:763
+#: libraries/classes/Config.php:762
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Befintlig konfigurationsfil (%s) är inte läsbar."
 
-#: libraries/classes/Config.php:801
+#: libraries/classes/Config.php:800
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Fel behörigheter på konfigurationsfilen, bör inte vara \"world\" skrivbar!"
 
-#: libraries/classes/Config.php:816
+#: libraries/classes/Config.php:815
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:825
 msgid "Failed to read configuration file!"
 msgstr "Kunde inte läsa konfigurationsfilen!"
 
-#: libraries/classes/Config.php:829
+#: libraries/classes/Config.php:828
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4897,12 +4936,12 @@ msgstr ""
 "Detta betyder oftast att det finns ett syntaxfel i den, kontrollera "
 "eventuella fel som visas nedan."
 
-#: libraries/classes/Config.php:1401
+#: libraries/classes/Config.php:1371
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Ogiltigt serverindex: %s"
 
-#: libraries/classes/Config.php:1414
+#: libraries/classes/Config.php:1384
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -5284,7 +5323,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabellen %s har tömts."
 
 #: libraries/classes/Controllers/Database/StructureController.php:819
-#: libraries/classes/Display/Results.php:4418
+#: libraries/classes/Display/Results.php:4420
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5306,8 +5345,8 @@ msgstr "Lyckades!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #: libraries/classes/Controllers/Table/DeleteController.php:59
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
-#: libraries/classes/Controllers/Table/StructureController.php:468
-#: libraries/classes/Controllers/Table/StructureController.php:492
+#: libraries/classes/Controllers/Table/StructureController.php:469
+#: libraries/classes/Controllers/Table/StructureController.php:493
 #: libraries/classes/IndexColumn.php:139 libraries/classes/Index.php:547
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:688
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
@@ -5348,7 +5387,7 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
 #: libraries/classes/Controllers/Table/ReplaceController.php:399
-#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:909 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -6109,7 +6148,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Lägg till minst en variabel till serien!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Display/Results.php:1338
+#: libraries/classes/Display/Results.php:1339
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6323,7 +6362,7 @@ msgid "Explain output"
 msgstr "Förklara utdata"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:243
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
 #: libraries/classes/Menu.php:534 libraries/classes/Util.php:2108
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
@@ -6334,7 +6373,7 @@ msgid "Status"
 msgstr "Status"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:239
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:633
 #: libraries/classes/Plugins/Export/ExportTexytext.php:486
@@ -6715,7 +6754,7 @@ msgid "Show query box"
 msgstr "Visa frågerutan"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3304
+#: libraries/classes/Display/Results.php:3306
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6901,6 +6940,7 @@ msgstr "Inga beroenden valda!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
+#: templates/database/central_columns/main.twig:121
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
@@ -6985,13 +7025,13 @@ msgstr "Innehåll för datapunkt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
-#: libraries/classes/ErrorHandler.php:424 libraries/classes/InsertEdit.php:2216
+#: libraries/classes/ErrorHandler.php:424 libraries/classes/InsertEdit.php:2215
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ignorera"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Display/Results.php:3237
+#: libraries/classes/Display/Results.php:3239
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7602,7 +7642,7 @@ msgid "Hide"
 msgstr "Dölj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
-#: libraries/classes/Controllers/Table/ChangeController.php:200
+#: libraries/classes/Controllers/Table/ChangeController.php:201
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7669,7 +7709,7 @@ msgstr[0] "%1$d databas har framgångsrikt tagits bort."
 msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:490
-#: libraries/classes/Import.php:151
+#: libraries/classes/Import.php:152
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:231
@@ -7722,44 +7762,44 @@ msgstr ""
 msgid "User has been added."
 msgstr "En användare har skapats."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:114
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:115
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Tråden %s dödades med framgång."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:120
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:121
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:219
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:220
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:223
-#: libraries/classes/Server/Privileges.php:3008
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
+#: libraries/classes/Server/Privileges.php:3006
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Användare"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:227
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:228
 #: templates/server/replication/master_add_slave_user.twig:32
 #: templates/server/replication/master_add_slave_user.twig:43
 #: templates/server/replication/master_replication.twig:25
 msgid "Host"
 msgstr "Värd"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:235
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:236
 msgid "Command"
 msgstr "Kommando"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:247
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:248
 msgid "Progress"
 msgstr "Framsteg"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:251
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
 msgid "SQL query"
@@ -8479,7 +8519,7 @@ msgstr "Saknade parametrar:"
 msgid "User groups management is not enabled."
 msgstr "Frågecache är inte aktiverat."
 
-#: libraries/classes/Controllers/Server/VariablesController.php:225
+#: libraries/classes/Controllers/Server/VariablesController.php:221
 msgid "Setting variable failed"
 msgstr "Inställning av variabeln misslyckades"
 
@@ -8546,13 +8586,13 @@ msgstr "Bokmärke ej skapat!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:170
 #: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:943
-#: libraries/classes/Controllers/Table/StructureController.php:1173
+#: libraries/classes/Controllers/Table/StructureController.php:944
+#: libraries/classes/Controllers/Table/StructureController.php:1174
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabellen %1$s har ändrats."
 
-#: libraries/classes/Controllers/Table/ChangeController.php:305
+#: libraries/classes/Controllers/Table/ChangeController.php:306
 #: libraries/classes/Controllers/Table/DeleteController.php:123
 #: libraries/classes/Controllers/Table/ExportController.php:157
 msgid "No row selected."
@@ -8599,22 +8639,22 @@ msgstr "Tabell %s finns redan!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1324
-#: libraries/classes/Display/Results.php:4084 libraries/classes/Message.php:178
+#: libraries/classes/Display/Results.php:4086 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
-#: libraries/classes/Controllers/Table/StructureController.php:218
-#: libraries/classes/Controllers/Table/StructureController.php:238
-#: libraries/classes/Controllers/Table/StructureController.php:254
-#: libraries/classes/Controllers/Table/StructureController.php:284
-#: libraries/classes/Controllers/Table/StructureController.php:315
-#: libraries/classes/Controllers/Table/StructureController.php:351
-#: libraries/classes/Controllers/Table/StructureController.php:387
-#: libraries/classes/Controllers/Table/StructureController.php:423
-#: libraries/classes/Controllers/Table/StructureController.php:460
+#: libraries/classes/Controllers/Table/StructureController.php:219
+#: libraries/classes/Controllers/Table/StructureController.php:239
+#: libraries/classes/Controllers/Table/StructureController.php:255
+#: libraries/classes/Controllers/Table/StructureController.php:285
+#: libraries/classes/Controllers/Table/StructureController.php:316
+#: libraries/classes/Controllers/Table/StructureController.php:352
+#: libraries/classes/Controllers/Table/StructureController.php:388
+#: libraries/classes/Controllers/Table/StructureController.php:424
+#: libraries/classes/Controllers/Table/StructureController.php:461
 msgid "No column selected."
 msgstr "Ingen kolumn vald."
 
@@ -8641,13 +8681,13 @@ msgstr "Det finns för många JOINS som saknar index."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:87
 #: libraries/classes/Database/Routines.php:1346
-#: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:229
+#: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:229
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
 #: libraries/classes/Controllers/Table/IndexesController.php:224
-#: libraries/classes/Table.php:2283
+#: libraries/classes/Table.php:2282
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Primärnyckelns namn måste vara \"PRIMARY\"!"
 
@@ -8661,7 +8701,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:117
 #: libraries/classes/Controllers/Table/OperationsController.php:321
-#: libraries/classes/Controllers/Table/StructureController.php:133
+#: libraries/classes/Controllers/Table/StructureController.php:134
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8673,8 +8713,8 @@ msgstr "Vy"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:140
-#: libraries/classes/InsertEdit.php:762 libraries/classes/Message.php:198
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
+#: libraries/classes/InsertEdit.php:762 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "Fel"
@@ -8694,29 +8734,29 @@ msgstr "Intern relation har uppdaterats."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, kolumn: %2$s, fel: %3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:658
+#: libraries/classes/Controllers/Table/StructureController.php:659
 msgid "The columns have been moved successfully."
 msgstr "Kolumnerna har flyttats framgångsrikt."
 
-#: libraries/classes/Controllers/Table/StructureController.php:693
+#: libraries/classes/Controllers/Table/StructureController.php:694
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Det gick inte att få riktiga radantal."
 
-#: libraries/classes/Controllers/Table/StructureController.php:935
-#: libraries/classes/Controllers/Table/StructureController.php:1225
+#: libraries/classes/Controllers/Table/StructureController.php:936
+#: libraries/classes/Controllers/Table/StructureController.php:1226
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Sökningsfel"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1167
+#: libraries/classes/Controllers/Table/StructureController.php:1168
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1457
+#: libraries/classes/Controllers/Table/StructureController.php:1458
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8726,7 +8766,7 @@ msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
 msgid "Primary"
 msgstr "Primär"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1461
+#: libraries/classes/Controllers/Table/StructureController.php:1462
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8738,7 +8778,7 @@ msgstr "Primär"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1721
+#: libraries/classes/Controllers/Table/StructureController.php:1722
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8770,40 +8810,10 @@ msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:377 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Tillägget %s saknas. Vänligen kontrollera din PHP-konfiguration."
-
-#: libraries/classes/Core.php:1305
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-"Du har aktiverat mbstring.func_overload i din PHP-konfiguration. Detta "
-"alternativ är inkompatibelt med phpMyAdmin och kan leda till att data kan "
-"skadas!"
-
-#: libraries/classes/Core.php:1322
-msgid ""
-"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
-"requires these functions!"
-msgstr ""
-
-#: libraries/classes/Core.php:1334
-msgid "GLOBALS overwrite attempt"
-msgstr "Överskrivningsförsök av GLOBALS"
-
-#: libraries/classes/Core.php:1344
-msgid "possible exploit"
-msgstr "möjlig exploatering"
-
-#: libraries/classes/Core.php:1413
-msgid ""
-"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
-"access phpMyAdmin."
-msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:313
 #: libraries/classes/Database/CentralColumns.php:442
@@ -9322,14 +9332,14 @@ msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:927
+#: libraries/classes/Display/Results.php:928
 #: libraries/classes/Html/Generator.php:1243
 #: libraries/classes/Html/Generator.php:1247
 msgctxt "First page"
 msgid "Begin"
 msgstr "Starta"
 
-#: libraries/classes/Display/Results.php:934
+#: libraries/classes/Display/Results.php:935
 #: libraries/classes/Html/Generator.php:1244
 #: libraries/classes/Html/Generator.php:1248
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
@@ -9337,7 +9347,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Föregående"
 
-#: libraries/classes/Display/Results.php:962
+#: libraries/classes/Display/Results.php:963
 #: libraries/classes/Html/Generator.php:1277
 #: libraries/classes/Html/Generator.php:1286
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
@@ -9345,25 +9355,25 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Nästa"
 
-#: libraries/classes/Display/Results.php:993
+#: libraries/classes/Display/Results.php:994
 #: libraries/classes/Html/Generator.php:1278
 #: libraries/classes/Html/Generator.php:1287
 msgctxt "Last page"
 msgid "End"
 msgstr "Slut"
 
-#: libraries/classes/Display/Results.php:1570
+#: libraries/classes/Display/Results.php:1571
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Förkortade texter"
 
-#: libraries/classes/Display/Results.php:1574
+#: libraries/classes/Display/Results.php:1575
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Kompletta texter"
 
-#: libraries/classes/Display/Results.php:1978
-#: libraries/classes/Display/Results.php:2004 libraries/classes/Util.php:2761
+#: libraries/classes/Display/Results.php:1979
+#: libraries/classes/Display/Results.php:2005 libraries/classes/Util.php:2761
 #: libraries/classes/Util.php:2784 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9376,8 +9386,8 @@ msgstr "Kompletta texter"
 msgid "Descending"
 msgstr "Fallande"
 
-#: libraries/classes/Display/Results.php:1986
-#: libraries/classes/Display/Results.php:1996 libraries/classes/Util.php:2753
+#: libraries/classes/Display/Results.php:1987
+#: libraries/classes/Display/Results.php:1997 libraries/classes/Util.php:2753
 #: libraries/classes/Util.php:2776 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9390,41 +9400,41 @@ msgstr "Fallande"
 msgid "Ascending"
 msgstr "Stigande"
 
-#: libraries/classes/Display/Results.php:3280
-#: libraries/classes/Display/Results.php:3295
+#: libraries/classes/Display/Results.php:3282
+#: libraries/classes/Display/Results.php:3297
 msgid "The row has been deleted."
 msgstr "Raden har raderats."
 
-#: libraries/classes/Display/Results.php:3327
+#: libraries/classes/Display/Results.php:3329
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Döda"
 
-#: libraries/classes/Display/Results.php:4008
+#: libraries/classes/Display/Results.php:4010
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4430
+#: libraries/classes/Display/Results.php:4432
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Visar raderna %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4444
+#: libraries/classes/Display/Results.php:4446
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d totalt, %2$d i fråga"
 
-#: libraries/classes/Display/Results.php:4449
+#: libraries/classes/Display/Results.php:4451
 #, php-format
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/classes/Display/Results.php:4462 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
 
-#: libraries/classes/Display/Results.php:4851
+#: libraries/classes/Display/Results.php:4853
 msgid "Link not found!"
 msgstr "Länken hittades inte!"
 
@@ -9763,7 +9773,7 @@ msgstr ""
 #: libraries/classes/Engines/Pbxt.php:171
 #: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
-#: libraries/classes/Sanitize.php:208
+#: libraries/classes/Sanitize.php:207
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:231
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
@@ -9969,31 +9979,31 @@ msgstr "Statisk analys:"
 msgid "%d errors were found during analysis."
 msgstr "%d fel hittades under analys."
 
-#: libraries/classes/Import.php:332 libraries/classes/Sql.php:1076
+#: libraries/classes/Import.php:333 libraries/classes/Sql.php:1076
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
-#: libraries/classes/Import.php:1356
+#: libraries/classes/Import.php:1354
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Följande strukturer har antingen skapats eller ändrats. Du kan:"
 
-#: libraries/classes/Import.php:1359
+#: libraries/classes/Import.php:1357
 msgid "View a structure's contents by clicking on its name."
 msgstr "Visa en strukturs innehåll genom att klicka på namnet."
 
-#: libraries/classes/Import.php:1362
+#: libraries/classes/Import.php:1360
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Ändra någon av dess inställningar genom att klicka på motsvarande "
 "\"Alternativ\"-länk."
 
-#: libraries/classes/Import.php:1364
+#: libraries/classes/Import.php:1362
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Redigera strukturen genom att följa länken \"Struktur\"."
 
-#: libraries/classes/Import.php:1368 libraries/classes/Import.php:1402
+#: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
 #: libraries/classes/Plugins/Export/ExportCodegen.php:73
 #: libraries/classes/Plugins/Export/ExportCsv.php:49
 #: libraries/classes/Plugins/Export/ExportExcel.php:36
@@ -10010,7 +10020,7 @@ msgstr "Redigera strukturen genom att följa länken \"Struktur\"."
 #: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:62
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:57
 #: libraries/classes/Plugins/Import/ImportShp.php:71
 #: libraries/classes/Plugins/Import/ImportSql.php:50
@@ -10022,36 +10032,36 @@ msgstr "Redigera strukturen genom att följa länken \"Struktur\"."
 msgid "Options"
 msgstr "Alternativ"
 
-#: libraries/classes/Import.php:1371
+#: libraries/classes/Import.php:1369
 #, php-format
 msgid "Go to database: %s"
 msgstr "Gå till databas: %s"
 
-#: libraries/classes/Import.php:1377 libraries/classes/Import.php:1420
+#: libraries/classes/Import.php:1375 libraries/classes/Import.php:1418
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Redigera inställningar för %s"
 
-#: libraries/classes/Import.php:1405
+#: libraries/classes/Import.php:1403
 #, php-format
 msgid "Go to table: %s"
 msgstr "Gå till tabell: %s"
 
-#: libraries/classes/Import.php:1413
+#: libraries/classes/Import.php:1411
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktur för %s"
 
-#: libraries/classes/Import.php:1431
+#: libraries/classes/Import.php:1429
 #, php-format
 msgid "Go to view: %s"
 msgstr "Gå till vy: %s"
 
-#: libraries/classes/Import.php:1455
+#: libraries/classes/Import.php:1453
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Endast entabells-UPDATE och DELETE-körningar simuleras."
 
-#: libraries/classes/Import.php:1689
+#: libraries/classes/Import.php:1687
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10129,7 +10139,7 @@ msgstr "Eller"
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: libraries/classes/InsertEdit.php:1042
+#: libraries/classes/InsertEdit.php:1041
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:400
@@ -10161,7 +10171,7 @@ msgstr "Uppladdningskatalog på webbserver:"
 msgid "Column"
 msgstr "Kolumn"
 
-#: libraries/classes/InsertEdit.php:1052
+#: libraries/classes/InsertEdit.php:1051
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:305
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:406
 #: libraries/classes/Plugins/Export/ExportLatex.php:575
@@ -10186,7 +10196,7 @@ msgstr "Kolumn"
 msgid "Null"
 msgstr "nolläge"
 
-#: libraries/classes/InsertEdit.php:1053
+#: libraries/classes/InsertEdit.php:1052
 #: templates/database/designer/main.twig:484
 #: templates/database/designer/main.twig:649
 #: templates/database/designer/main.twig:855
@@ -10201,11 +10211,11 @@ msgstr "nolläge"
 msgid "Value"
 msgstr "Värde"
 
-#: libraries/classes/InsertEdit.php:1463 libraries/classes/Sql.php:1059
+#: libraries/classes/InsertEdit.php:1462 libraries/classes/Sql.php:1059
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: libraries/classes/InsertEdit.php:1493 libraries/classes/Sql.php:1036
+#: libraries/classes/InsertEdit.php:1492 libraries/classes/Sql.php:1036
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -10259,7 +10269,7 @@ msgid "Insert"
 msgstr "Lägg till"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2982 libraries/classes/Util.php:2128
+#: libraries/classes/Server/Privileges.php:2980 libraries/classes/Util.php:2128
 #: libraries/classes/Util.php:2144 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10364,21 +10374,21 @@ msgstr "Motorer"
 msgid "Plugins"
 msgstr "Insticksprogram"
 
-#: libraries/classes/Message.php:258
+#: libraries/classes/Message.php:260
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d rad påverkad."
 msgstr[1] "%1$d rader påverkade."
 
-#: libraries/classes/Message.php:279
+#: libraries/classes/Message.php:281
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d rad borttagen."
 msgstr[1] "%1$d rader borttagna."
 
-#: libraries/classes/Message.php:300
+#: libraries/classes/Message.php:302
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -10436,12 +10446,12 @@ msgid "Collapse all"
 msgstr "Dölj alla"
 
 #. l10n: The word "Node" must not be translated here
-#: libraries/classes/Navigation/NodeFactory.php:42
+#: libraries/classes/Navigation/NodeFactory.php:43
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Ogiltigt klassnamn \"%1$s\", använder standard \"Node\""
 
-#: libraries/classes/Navigation/NodeFactory.php:69
+#: libraries/classes/Navigation/NodeFactory.php:73
 #, fuzzy, php-format
 #| msgid "Could not add columns!"
 msgid "Could not load class \"%1$s\""
@@ -11725,11 +11735,11 @@ msgstr "Kolumnnamn: "
 msgid "This plugin does not support compressed imports!"
 msgstr "Detta insticksprogram stöder inte komprimerade importer!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
 msgid "MediaWiki Table"
 msgstr "MediaWiki-tabell"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:296
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:297
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Ogiltigt format på mediawiki-data på rad:<br>%s."
@@ -11792,7 +11802,7 @@ msgstr "XML"
 msgid "This format has no options"
 msgstr "Detta format har inga alternativ"
 
-#: libraries/classes/Plugins.php:698
+#: libraries/classes/Plugins.php:699
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
@@ -12029,7 +12039,7 @@ msgstr ""
 msgid "Image preview here"
 msgstr "Förhandsgranskning"
 
-#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:32
+#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:31
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -12456,19 +12466,19 @@ msgstr "Kan inte ändra master!"
 msgid "Master server changed successfully to %s."
 msgstr "Huvudservern har ändrats till %s."
 
-#: libraries/classes/Routing.php:105
+#: libraries/classes/Routing.php:106
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:169
+#: libraries/classes/Routing.php:168
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fel 404! Sidan %s hittades inte."
 
-#: libraries/classes/Routing.php:180
+#: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
 msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
 
@@ -12499,7 +12509,7 @@ msgstr "Fel då sökningen lästes in."
 
 #: libraries/classes/Server/Plugins.php:70
 #: libraries/classes/Server/Privileges.php:822
-#: libraries/classes/Server/Privileges.php:3992
+#: libraries/classes/Server/Privileges.php:3990
 msgid "Native MySQL authentication"
 msgstr "MySQL-autentisering"
 
@@ -12810,49 +12820,49 @@ msgstr "Rutiner"
 msgid "Routine-specific privileges"
 msgstr "Kolumnspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:2290
+#: libraries/classes/Server/Privileges.php:2288
 msgid "No users selected for deleting!"
 msgstr "Inga användare valda för borttagning!"
 
-#: libraries/classes/Server/Privileges.php:2293
+#: libraries/classes/Server/Privileges.php:2291
 msgid "Reloading the privileges"
 msgstr "Laddar om privilegierna"
 
-#: libraries/classes/Server/Privileges.php:2318
+#: libraries/classes/Server/Privileges.php:2316
 msgid "The selected users have been deleted successfully."
 msgstr "De valda användarna har tagits bort."
 
-#: libraries/classes/Server/Privileges.php:2398
+#: libraries/classes/Server/Privileges.php:2396
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Du har uppdaterat privilegierna för %s."
 
-#: libraries/classes/Server/Privileges.php:2487
+#: libraries/classes/Server/Privileges.php:2485
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Ingen användare hittades."
 
-#: libraries/classes/Server/Privileges.php:2574
+#: libraries/classes/Server/Privileges.php:2572
 #, php-format
 msgid "Deleting %s"
 msgstr "Tar bort %s"
 
-#: libraries/classes/Server/Privileges.php:2605
+#: libraries/classes/Server/Privileges.php:2603
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegierna har laddats om."
 
-#: libraries/classes/Server/Privileges.php:2709
+#: libraries/classes/Server/Privileges.php:2707
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Användaren %s finns redan!"
 
-#: libraries/classes/Server/Privileges.php:2999
+#: libraries/classes/Server/Privileges.php:2997
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
-#: libraries/classes/Server/Privileges.php:3138
+#: libraries/classes/Server/Privileges.php:3136
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12862,7 +12872,7 @@ msgstr ""
 "tillgängligt. Detta kommer att hindra andra användare från att ansluta om "
 "värddelen av deras konto tillåter anslutning från alla värddatorer (%)."
 
-#: libraries/classes/Server/Privileges.php:3182
+#: libraries/classes/Server/Privileges.php:3180
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12880,7 +12890,7 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: libraries/classes/Server/Privileges.php:3198
+#: libraries/classes/Server/Privileges.php:3196
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12901,7 +12911,7 @@ msgstr ""
 "fallet bör du ladda om behörigheterna innan du fortsätter, du har dock inte "
 "privilegierna för detta."
 
-#: libraries/classes/Server/Privileges.php:3543
+#: libraries/classes/Server/Privileges.php:3541
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
@@ -13094,43 +13104,43 @@ msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
 
-#: libraries/classes/Table.php:360
+#: libraries/classes/Table.php:359
 msgid "Unknown table status:"
 msgstr "Okänd tabellstatus:"
 
-#: libraries/classes/Table.php:1041
+#: libraries/classes/Table.php:1040
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Källdatabas `%s` hittades inte!"
 
-#: libraries/classes/Table.php:1050
+#: libraries/classes/Table.php:1049
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Måldatabas `%s` hittades inte!"
 
-#: libraries/classes/Table.php:1614
+#: libraries/classes/Table.php:1613
 msgid "Invalid database:"
 msgstr "Ogiltig databas:"
 
-#: libraries/classes/Table.php:1632
+#: libraries/classes/Table.php:1631
 msgid "Invalid table name:"
 msgstr "Ogiltigt tabellnamn:"
 
-#: libraries/classes/Table.php:1671
+#: libraries/classes/Table.php:1670
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Kunde inte byta namn på tabell %1$s till %2$s!"
 
-#: libraries/classes/Table.php:1693
+#: libraries/classes/Table.php:1692
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabell %1$s har döpts om till %2$s."
 
-#: libraries/classes/Table.php:1942
+#: libraries/classes/Table.php:1941
 msgid "Could not save table UI preferences!"
 msgstr "Kunde inte spara gränssnittsinställningarna för tabellen!"
 
-#: libraries/classes/Table.php:1973
+#: libraries/classes/Table.php:1972
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13139,7 +13149,7 @@ msgstr ""
 "Misslyckades med att rensa gränssnittsinställningar för tabell (se "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:2131
+#: libraries/classes/Table.php:2130
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13150,15 +13160,15 @@ msgstr ""
 "beständiga efter att du uppdaterar denna sida. Kontrollera om tabellens "
 "struktur har förändrats."
 
-#: libraries/classes/Table.php:2295
+#: libraries/classes/Table.php:2294
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan inte byta namn på index till \"PRIMARY\"!"
 
-#: libraries/classes/Table.php:2321
+#: libraries/classes/Table.php:2320
 msgid "No index parts defined!"
 msgstr "Inga delar av index är definierade!"
 
-#: libraries/classes/Table.php:2657
+#: libraries/classes/Table.php:2656
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
@@ -13774,15 +13784,6 @@ msgstr "Fel i ZIP-arkiv:"
 msgid "No files found inside ZIP archive!"
 msgstr "Inga filer hittades i ZIP-arkivet!"
 
-#: libraries/common.inc.php:277
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "Du bör uppgradera till %s %s eller senare."
-
-#: libraries/common.inc.php:307
-msgid "Error: Token mismatch"
-msgstr "Fel: Token matchningsfel"
-
 #: libraries/config.values.php:88 libraries/config.values.php:126
 #: libraries/config.values.php:138
 msgid "Icons"
@@ -13919,15 +13920,15 @@ msgstr "båda av ovanstående"
 msgid "neither of the above"
 msgstr "ingen av ovanstående"
 
-#: setup/index.php:27
+#: setup/index.php:32
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
-#: setup/validate.php:31
+#: setup/validate.php:32
 msgid "Wrong data"
 msgstr "Felaktigt data"
 
-#: setup/validate.php:38
+#: setup/validate.php:39
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
@@ -19305,7 +19306,7 @@ msgstr "VIEW-namn"
 msgid "Column names"
 msgstr "Kolumnnamn"
 
-#: url.php:51
+#: url.php:76
 msgid "Taking you to the target site."
 msgstr "Tar dig till målwebbplatsen."
 

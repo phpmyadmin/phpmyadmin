@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-07-04 00:07+0000\n"
+"POT-Creation-Date: 2021-07-11 00:08+0000\n"
 "PO-Revision-Date: 2021-07-09 09:20+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1358,7 +1358,7 @@ msgstr "検索："
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: libraries/classes/Controllers/Server/PrivilegesController.php:339
-#: libraries/classes/InsertEdit.php:1059
+#: libraries/classes/InsertEdit.php:1058
 #: libraries/classes/Normalization.php:272
 #: libraries/classes/Normalization.php:1002 libraries/classes/Tracking.php:337
 #: libraries/classes/Tracking.php:491
@@ -1735,6 +1735,48 @@ msgstr "スロベニア語"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ベトナム語"
+
+#: libraries/classes/Common.php:225
+#, php-format
+msgid "You should upgrade to %s %s or later."
+msgstr "%s を %s 以降にアップグレードしてください。"
+
+#: libraries/classes/Common.php:256
+msgid "Error: Token mismatch"
+msgstr "エラー: トークンが一致しません"
+
+#: libraries/classes/Common.php:468
+msgid ""
+"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
+"access phpMyAdmin."
+msgstr ""
+"セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの"
+"代わりにHTTPが使用されている可能性があります。"
+
+#: libraries/classes/Common.php:515
+msgid ""
+"You have enabled mbstring.func_overload in your PHP configuration. This "
+"option is incompatible with phpMyAdmin and might cause some data to be "
+"corrupted!"
+msgstr ""
+"PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
+"プションに対応していないため、データが破壊されることがあります!"
+
+#: libraries/classes/Common.php:532
+msgid ""
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
+msgstr ""
+"php.iniでini_getまたはini_set、あるいはその両方を無効にしました。 この機能は"
+"phpMyAdminとして必要です!"
+
+#: libraries/classes/Common.php:544
+msgid "GLOBALS overwrite attempt"
+msgstr "GLOBALS 変数が書き換えられている可能性があります"
+
+#: libraries/classes/Common.php:554
+msgid "possible exploit"
+msgstr "なんらかの攻撃をされている可能性があります"
 
 #: libraries/classes/Config/Descriptions.php:60
 #: libraries/classes/Config/Descriptions.php:61
@@ -4200,7 +4242,7 @@ msgstr "ロックされているテーブルをスキップする"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
-#: libraries/classes/Display/Results.php:3233
+#: libraries/classes/Display/Results.php:3235
 #: libraries/classes/Html/Generator.php:695
 #: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
@@ -4260,7 +4302,7 @@ msgid "Textarea rows"
 msgstr "textarea の行数"
 
 #: libraries/classes/Config/Descriptions.php:965
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:231
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:135
@@ -4504,7 +4546,7 @@ msgstr "詳細"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:732
-#: libraries/classes/Import.php:1401 libraries/classes/Menu.php:271
+#: libraries/classes/Import.php:1399 libraries/classes/Menu.php:271
 #: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
@@ -4615,27 +4657,27 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "設定を保存することはできません。送信された設定にエラーが含まれています!"
 
-#: libraries/classes/Config.php:763
+#: libraries/classes/Config.php:762
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "設定ファイル (%s) は存在しますが、読み込むことができません。"
 
-#: libraries/classes/Config.php:801
+#: libraries/classes/Config.php:800
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "設定ファイルのパーミッションが正しくありません。誰でも書き込み可能になってい"
 "ます！"
 
-#: libraries/classes/Config.php:816
+#: libraries/classes/Config.php:815
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
-#: libraries/classes/Config.php:826
+#: libraries/classes/Config.php:825
 msgid "Failed to read configuration file!"
 msgstr "設定ファイルの読み込みに失敗しました！"
 
-#: libraries/classes/Config.php:829
+#: libraries/classes/Config.php:828
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4643,12 +4685,12 @@ msgstr ""
 "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
 "てください。"
 
-#: libraries/classes/Config.php:1401
+#: libraries/classes/Config.php:1371
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
-#: libraries/classes/Config.php:1414
+#: libraries/classes/Config.php:1384
 #, php-format
 msgid "Server %d"
 msgstr "サーバ %d"
@@ -5008,7 +5050,7 @@ msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:819
-#: libraries/classes/Display/Results.php:4418
+#: libraries/classes/Display/Results.php:4420
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5030,8 +5072,8 @@ msgstr "成功！"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #: libraries/classes/Controllers/Table/DeleteController.php:59
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
-#: libraries/classes/Controllers/Table/StructureController.php:468
-#: libraries/classes/Controllers/Table/StructureController.php:492
+#: libraries/classes/Controllers/Table/StructureController.php:469
+#: libraries/classes/Controllers/Table/StructureController.php:493
 #: libraries/classes/IndexColumn.php:139 libraries/classes/Index.php:547
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:688
 #: libraries/classes/Plugins/Export/ExportLatex.php:663
@@ -5072,7 +5114,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:341
 #: libraries/classes/Controllers/Table/ReplaceController.php:399
-#: libraries/classes/Core.php:922 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:909 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
 
@@ -5831,7 +5873,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "少なくとも１つの系列を追加してください!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Display/Results.php:1338
+#: libraries/classes/Display/Results.php:1339
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6046,7 +6088,7 @@ msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:243
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
 #: libraries/classes/Menu.php:534 libraries/classes/Util.php:2108
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
@@ -6057,7 +6099,7 @@ msgid "Status"
 msgstr "状態"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:239
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:633
 #: libraries/classes/Plugins/Export/ExportTexytext.php:486
@@ -6437,7 +6479,7 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3304
+#: libraries/classes/Display/Results.php:3306
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6625,6 +6667,7 @@ msgstr "依存関係が選択されていません！"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
+#: templates/database/central_columns/main.twig:121
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
@@ -6708,13 +6751,13 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
-#: libraries/classes/ErrorHandler.php:424 libraries/classes/InsertEdit.php:2216
+#: libraries/classes/ErrorHandler.php:424 libraries/classes/InsertEdit.php:2215
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Display/Results.php:3237
+#: libraries/classes/Display/Results.php:3239
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7304,7 +7347,7 @@ msgid "Hide"
 msgstr "隠す"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
-#: libraries/classes/Controllers/Table/ChangeController.php:200
+#: libraries/classes/Controllers/Table/ChangeController.php:201
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7364,7 +7407,7 @@ msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d 個のデータベースが正常に削除されました。"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:490
-#: libraries/classes/Import.php:151
+#: libraries/classes/Import.php:152
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:231
@@ -7415,43 +7458,43 @@ msgstr ""
 msgid "User has been added."
 msgstr "ビュー %s を破棄しました。"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:114
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:115
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "スレッド %s は正常終了しました。"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:120
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:121
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "スレッド %s の終了に失敗しました。すでに閉じているようです。"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:219
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:220
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:223
-#: libraries/classes/Server/Privileges.php:3008
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
+#: libraries/classes/Server/Privileges.php:3006
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "ユーザ"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:227
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:228
 #: templates/server/replication/master_add_slave_user.twig:32
 #: templates/server/replication/master_add_slave_user.twig:43
 #: templates/server/replication/master_replication.twig:25
 msgid "Host"
 msgstr "ホスト"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:235
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:236
 msgid "Command"
 msgstr "コマンド"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:247
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:248
 msgid "Progress"
 msgstr "進捗"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:251
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
 msgid "SQL query"
@@ -8147,7 +8190,7 @@ msgstr "パラメータがありません："
 msgid "User groups management is not enabled."
 msgstr "ユーザグループ管理が有効になっていません。"
 
-#: libraries/classes/Controllers/Server/VariablesController.php:225
+#: libraries/classes/Controllers/Server/VariablesController.php:221
 msgid "Setting variable failed"
 msgstr "変数の設定に失敗しました"
 
@@ -8208,13 +8251,13 @@ msgstr "ブックマークが作成されていません!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:170
 #: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:943
-#: libraries/classes/Controllers/Table/StructureController.php:1173
+#: libraries/classes/Controllers/Table/StructureController.php:944
+#: libraries/classes/Controllers/Table/StructureController.php:1174
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "テーブル %1$s は正常に変更されました。"
 
-#: libraries/classes/Controllers/Table/ChangeController.php:305
+#: libraries/classes/Controllers/Table/ChangeController.php:306
 #: libraries/classes/Controllers/Table/DeleteController.php:123
 #: libraries/classes/Controllers/Table/ExportController.php:157
 msgid "No row selected."
@@ -8262,22 +8305,22 @@ msgstr "テーブル %s は既に存在します!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1324
-#: libraries/classes/Display/Results.php:4084 libraries/classes/Message.php:178
+#: libraries/classes/Display/Results.php:4086 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
 #: libraries/classes/Controllers/Table/DropColumnController.php:57
-#: libraries/classes/Controllers/Table/StructureController.php:218
-#: libraries/classes/Controllers/Table/StructureController.php:238
-#: libraries/classes/Controllers/Table/StructureController.php:254
-#: libraries/classes/Controllers/Table/StructureController.php:284
-#: libraries/classes/Controllers/Table/StructureController.php:315
-#: libraries/classes/Controllers/Table/StructureController.php:351
-#: libraries/classes/Controllers/Table/StructureController.php:387
-#: libraries/classes/Controllers/Table/StructureController.php:423
-#: libraries/classes/Controllers/Table/StructureController.php:460
+#: libraries/classes/Controllers/Table/StructureController.php:219
+#: libraries/classes/Controllers/Table/StructureController.php:239
+#: libraries/classes/Controllers/Table/StructureController.php:255
+#: libraries/classes/Controllers/Table/StructureController.php:285
+#: libraries/classes/Controllers/Table/StructureController.php:316
+#: libraries/classes/Controllers/Table/StructureController.php:352
+#: libraries/classes/Controllers/Table/StructureController.php:388
+#: libraries/classes/Controllers/Table/StructureController.php:424
+#: libraries/classes/Controllers/Table/StructureController.php:461
 msgid "No column selected."
 msgstr "カラムが選択されていません。"
 
@@ -8299,13 +8342,13 @@ msgstr "リクエストに問題があります。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:87
 #: libraries/classes/Database/Routines.php:1346
-#: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:229
+#: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:229
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
 #: libraries/classes/Controllers/Table/IndexesController.php:224
-#: libraries/classes/Table.php:2283
+#: libraries/classes/Table.php:2282
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主キーの名前は PRIMARY でなければなりません!"
 
@@ -8319,7 +8362,7 @@ msgstr "複数テーブルの管理の操作は無効です。"
 
 #: libraries/classes/Controllers/Table/OperationsController.php:117
 #: libraries/classes/Controllers/Table/OperationsController.php:321
-#: libraries/classes/Controllers/Table/StructureController.php:133
+#: libraries/classes/Controllers/Table/StructureController.php:134
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8331,8 +8374,8 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:140
-#: libraries/classes/InsertEdit.php:762 libraries/classes/Message.php:198
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
+#: libraries/classes/InsertEdit.php:762 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "エラー"
@@ -8350,28 +8393,28 @@ msgstr "内部リレーションは正常に更新されました。"
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:658
+#: libraries/classes/Controllers/Table/StructureController.php:659
 msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:693
+#: libraries/classes/Controllers/Table/StructureController.php:694
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "カラム「%s」の説明を取得に失敗しました!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:935
-#: libraries/classes/Controllers/Table/StructureController.php:1225
+#: libraries/classes/Controllers/Table/StructureController.php:936
+#: libraries/classes/Controllers/Table/StructureController.php:1226
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "クエリエラー"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1167
+#: libraries/classes/Controllers/Table/StructureController.php:1168
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "テーブル %1$s は正常に変更されました。権限が変更されました。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1457
+#: libraries/classes/Controllers/Table/StructureController.php:1458
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8381,7 +8424,7 @@ msgstr "テーブル %1$s は正常に変更されました。権限が変更さ
 msgid "Primary"
 msgstr "主"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1461
+#: libraries/classes/Controllers/Table/StructureController.php:1462
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8393,7 +8436,7 @@ msgstr "主"
 msgid "Index"
 msgstr "インデックス"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1721
+#: libraries/classes/Controllers/Table/StructureController.php:1722
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8424,43 +8467,10 @@ msgstr "権限不足でアクセスできません!"
 msgid "View name can not be empty!"
 msgstr "ビュー名を空にすることはできません!"
 
-#: libraries/classes/Core.php:377 libraries/classes/ZipExtension.php:62
+#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
-
-#: libraries/classes/Core.php:1305
-msgid ""
-"You have enabled mbstring.func_overload in your PHP configuration. This "
-"option is incompatible with phpMyAdmin and might cause some data to be "
-"corrupted!"
-msgstr ""
-"PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
-"プションに対応していないため、データが破壊されることがあります!"
-
-#: libraries/classes/Core.php:1322
-msgid ""
-"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
-"requires these functions!"
-msgstr ""
-"php.iniでini_getまたはini_set、あるいはその両方を無効にしました。 この機能は"
-"phpMyAdminとして必要です!"
-
-#: libraries/classes/Core.php:1334
-msgid "GLOBALS overwrite attempt"
-msgstr "GLOBALS 変数が書き換えられている可能性があります"
-
-#: libraries/classes/Core.php:1344
-msgid "possible exploit"
-msgstr "なんらかの攻撃をされている可能性があります"
-
-#: libraries/classes/Core.php:1413
-msgid ""
-"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
-"access phpMyAdmin."
-msgstr ""
-"セッションクッキーの設定に失敗しました。 phpMyAdminにアクセスするのにHTTPSの"
-"代わりにHTTPが使用されている可能性があります。"
 
 #: libraries/classes/Database/CentralColumns.php:313
 #: libraries/classes/Database/CentralColumns.php:442
@@ -8941,14 +8951,14 @@ msgstr ""
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
-#: libraries/classes/Display/Results.php:927
+#: libraries/classes/Display/Results.php:928
 #: libraries/classes/Html/Generator.php:1243
 #: libraries/classes/Html/Generator.php:1247
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
-#: libraries/classes/Display/Results.php:934
+#: libraries/classes/Display/Results.php:935
 #: libraries/classes/Html/Generator.php:1244
 #: libraries/classes/Html/Generator.php:1248
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
@@ -8956,7 +8966,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
-#: libraries/classes/Display/Results.php:962
+#: libraries/classes/Display/Results.php:963
 #: libraries/classes/Html/Generator.php:1277
 #: libraries/classes/Html/Generator.php:1286
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
@@ -8964,25 +8974,25 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
-#: libraries/classes/Display/Results.php:993
+#: libraries/classes/Display/Results.php:994
 #: libraries/classes/Html/Generator.php:1278
 #: libraries/classes/Html/Generator.php:1287
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
 
-#: libraries/classes/Display/Results.php:1570
+#: libraries/classes/Display/Results.php:1571
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "部分テキスト"
 
-#: libraries/classes/Display/Results.php:1574
+#: libraries/classes/Display/Results.php:1575
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "全文"
 
-#: libraries/classes/Display/Results.php:1978
-#: libraries/classes/Display/Results.php:2004 libraries/classes/Util.php:2761
+#: libraries/classes/Display/Results.php:1979
+#: libraries/classes/Display/Results.php:2005 libraries/classes/Util.php:2761
 #: libraries/classes/Util.php:2784 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -8995,8 +9005,8 @@ msgstr "全文"
 msgid "Descending"
 msgstr "降順"
 
-#: libraries/classes/Display/Results.php:1986
-#: libraries/classes/Display/Results.php:1996 libraries/classes/Util.php:2753
+#: libraries/classes/Display/Results.php:1987
+#: libraries/classes/Display/Results.php:1997 libraries/classes/Util.php:2753
 #: libraries/classes/Util.php:2776 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9009,41 +9019,41 @@ msgstr "降順"
 msgid "Ascending"
 msgstr "昇順"
 
-#: libraries/classes/Display/Results.php:3280
-#: libraries/classes/Display/Results.php:3295
+#: libraries/classes/Display/Results.php:3282
+#: libraries/classes/Display/Results.php:3297
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: libraries/classes/Display/Results.php:3327
+#: libraries/classes/Display/Results.php:3329
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/classes/Display/Results.php:4008
+#: libraries/classes/Display/Results.php:4010
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください。"
 
-#: libraries/classes/Display/Results.php:4430
+#: libraries/classes/Display/Results.php:4432
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: libraries/classes/Display/Results.php:4444
+#: libraries/classes/Display/Results.php:4446
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "合計 %1$d, クエリで %2$d"
 
-#: libraries/classes/Display/Results.php:4449
+#: libraries/classes/Display/Results.php:4451
 #, php-format
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:4462 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4851
+#: libraries/classes/Display/Results.php:4853
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -9381,7 +9391,7 @@ msgstr ""
 #: libraries/classes/Engines/Pbxt.php:171
 #: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
-#: libraries/classes/Sanitize.php:208
+#: libraries/classes/Sanitize.php:207
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:231
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
@@ -9588,31 +9598,31 @@ msgstr "静的解析:"
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
 
-#: libraries/classes/Import.php:332 libraries/classes/Sql.php:1076
+#: libraries/classes/Import.php:333 libraries/classes/Sql.php:1076
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
-#: libraries/classes/Import.php:1356
+#: libraries/classes/Import.php:1354
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "以下に示す構成が、作成もしくは変更されました。ここで次のことが行えます。"
 
-#: libraries/classes/Import.php:1359
+#: libraries/classes/Import.php:1357
 msgid "View a structure's contents by clicking on its name."
 msgstr "名前をクリックすることで構造内容を表示します。"
 
-#: libraries/classes/Import.php:1362
+#: libraries/classes/Import.php:1360
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "「オプション」のリンクをクリックすることで対応する設定の変更が行えます。"
 
-#: libraries/classes/Import.php:1364
+#: libraries/classes/Import.php:1362
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "名前の後ろにある「構造」のリンクより構造の編集が行えます。"
 
-#: libraries/classes/Import.php:1368 libraries/classes/Import.php:1402
+#: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
 #: libraries/classes/Plugins/Export/ExportCodegen.php:73
 #: libraries/classes/Plugins/Export/ExportCsv.php:49
 #: libraries/classes/Plugins/Export/ExportExcel.php:36
@@ -9629,7 +9639,7 @@ msgstr "名前の後ろにある「構造」のリンクより構造の編集が
 #: libraries/classes/Plugins/Export/ExportXml.php:81
 #: libraries/classes/Plugins/Export/ExportYaml.php:47
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:62
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:63
 #: libraries/classes/Plugins/Import/ImportOds.php:57
 #: libraries/classes/Plugins/Import/ImportShp.php:71
 #: libraries/classes/Plugins/Import/ImportSql.php:50
@@ -9641,36 +9651,36 @@ msgstr "名前の後ろにある「構造」のリンクより構造の編集が
 msgid "Options"
 msgstr "オプション"
 
-#: libraries/classes/Import.php:1371
+#: libraries/classes/Import.php:1369
 #, php-format
 msgid "Go to database: %s"
 msgstr "データベース %s に移動"
 
-#: libraries/classes/Import.php:1377 libraries/classes/Import.php:1420
+#: libraries/classes/Import.php:1375 libraries/classes/Import.php:1418
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s に対する設定の変更を行います"
 
-#: libraries/classes/Import.php:1405
+#: libraries/classes/Import.php:1403
 #, php-format
 msgid "Go to table: %s"
 msgstr "テーブル %s に移動"
 
-#: libraries/classes/Import.php:1413
+#: libraries/classes/Import.php:1411
 #, php-format
 msgid "Structure of %s"
 msgstr "%s の構造"
 
-#: libraries/classes/Import.php:1431
+#: libraries/classes/Import.php:1429
 #, php-format
 msgid "Go to view: %s"
 msgstr "ビュー %s に移動"
 
-#: libraries/classes/Import.php:1455
+#: libraries/classes/Import.php:1453
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "１つのテーブルのUPDATEとDELETEクエリをシミュレートすることができます。"
 
-#: libraries/classes/Import.php:1689
+#: libraries/classes/Import.php:1687
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9748,7 +9758,7 @@ msgstr "または"
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: libraries/classes/InsertEdit.php:1042
+#: libraries/classes/InsertEdit.php:1041
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:400
@@ -9780,7 +9790,7 @@ msgstr "ウェブサーバ上のアップロードディレクトリ:"
 msgid "Column"
 msgstr "カラム"
 
-#: libraries/classes/InsertEdit.php:1052
+#: libraries/classes/InsertEdit.php:1051
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:305
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:406
 #: libraries/classes/Plugins/Export/ExportLatex.php:575
@@ -9805,7 +9815,7 @@ msgstr "カラム"
 msgid "Null"
 msgstr "NULL"
 
-#: libraries/classes/InsertEdit.php:1053
+#: libraries/classes/InsertEdit.php:1052
 #: templates/database/designer/main.twig:484
 #: templates/database/designer/main.twig:649
 #: templates/database/designer/main.twig:855
@@ -9820,11 +9830,11 @@ msgstr "NULL"
 msgid "Value"
 msgstr "値"
 
-#: libraries/classes/InsertEdit.php:1463 libraries/classes/Sql.php:1059
+#: libraries/classes/InsertEdit.php:1462 libraries/classes/Sql.php:1059
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:1493 libraries/classes/Sql.php:1036
+#: libraries/classes/InsertEdit.php:1492 libraries/classes/Sql.php:1036
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -9880,7 +9890,7 @@ msgid "Insert"
 msgstr "挿入"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2982 libraries/classes/Util.php:2128
+#: libraries/classes/Server/Privileges.php:2980 libraries/classes/Util.php:2128
 #: libraries/classes/Util.php:2144 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9985,19 +9995,19 @@ msgstr "エンジン"
 msgid "Plugins"
 msgstr "プラグイン"
 
-#: libraries/classes/Message.php:258
+#: libraries/classes/Message.php:260
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d 行変更しました。"
 
-#: libraries/classes/Message.php:279
+#: libraries/classes/Message.php:281
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d 行削除しました。"
 
-#: libraries/classes/Message.php:300
+#: libraries/classes/Message.php:302
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -10052,12 +10062,12 @@ msgid "Collapse all"
 msgstr "すべて折りたたむ"
 
 #. l10n: The word "Node" must not be translated here
-#: libraries/classes/Navigation/NodeFactory.php:42
+#: libraries/classes/Navigation/NodeFactory.php:43
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "\"%1$s\" は、デフォルトの \"Node\" を含む無効なクラス名です"
 
-#: libraries/classes/Navigation/NodeFactory.php:69
+#: libraries/classes/Navigation/NodeFactory.php:73
 #, php-format
 msgid "Could not load class \"%1$s\""
 msgstr "「%1$s」のクラスをロード出来ませんでした"
@@ -11307,11 +11317,11 @@ msgstr "カラム名: "
 msgid "This plugin does not support compressed imports!"
 msgstr "このプラグインでは圧縮されたファイルのインポートはできません!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
 msgid "MediaWiki Table"
 msgstr "MediaWiki テーブル"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:296
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:297
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "mediawiki 入力の書式が不正です<br>行: %s。"
@@ -11373,7 +11383,7 @@ msgstr "XML"
 msgid "This format has no options"
 msgstr "この書式にはオプションはありません"
 
-#: libraries/classes/Plugins.php:698
+#: libraries/classes/Plugins.php:699
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
@@ -11600,7 +11610,7 @@ msgstr ""
 msgid "Image preview here"
 msgstr "イメージプレビューはこちら"
 
-#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:32
+#: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:31
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
@@ -12023,7 +12033,7 @@ msgstr "マスタを切り替えることができません!"
 msgid "Master server changed successfully to %s."
 msgstr "マスタサーバを %s へ切り替えるのに成功しました。"
 
-#: libraries/classes/Routing.php:105
+#: libraries/classes/Routing.php:106
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
@@ -12032,12 +12042,12 @@ msgstr ""
 "ルーティングキャッシュが書き込みできません。 \"%s\" フォルダ/ファイルのアクセ"
 "ス権を調整する必要があります"
 
-#: libraries/classes/Routing.php:169
+#: libraries/classes/Routing.php:168
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "エラー 404!　ページ 「%s」が見つかりませんでした。"
 
-#: libraries/classes/Routing.php:180
+#: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
 msgstr "エラー 405!　要求メソッドは許可されていません。"
 
@@ -12068,7 +12078,7 @@ msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Plugins.php:70
 #: libraries/classes/Server/Privileges.php:822
-#: libraries/classes/Server/Privileges.php:3992
+#: libraries/classes/Server/Privileges.php:3990
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
@@ -12366,49 +12376,49 @@ msgstr "ルーチン"
 msgid "Routine-specific privileges"
 msgstr "ルーチン固有の権限"
 
-#: libraries/classes/Server/Privileges.php:2290
+#: libraries/classes/Server/Privileges.php:2288
 msgid "No users selected for deleting!"
 msgstr "削除するユーザが選択されていません!"
 
-#: libraries/classes/Server/Privileges.php:2293
+#: libraries/classes/Server/Privileges.php:2291
 msgid "Reloading the privileges"
 msgstr "権限を再読み込みしています"
 
-#: libraries/classes/Server/Privileges.php:2318
+#: libraries/classes/Server/Privileges.php:2316
 msgid "The selected users have been deleted successfully."
 msgstr "選択されたユーザは正常に削除されました。"
 
-#: libraries/classes/Server/Privileges.php:2398
+#: libraries/classes/Server/Privileges.php:2396
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s の権限を更新しました。"
 
-#: libraries/classes/Server/Privileges.php:2487
+#: libraries/classes/Server/Privileges.php:2485
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "ユーザが存在しません。"
 
-#: libraries/classes/Server/Privileges.php:2574
+#: libraries/classes/Server/Privileges.php:2572
 #, php-format
 msgid "Deleting %s"
 msgstr "%s を削除中です"
 
-#: libraries/classes/Server/Privileges.php:2605
+#: libraries/classes/Server/Privileges.php:2603
 msgid "The privileges were reloaded successfully."
 msgstr "権限を正常に再読み込みしました。"
 
-#: libraries/classes/Server/Privileges.php:2709
+#: libraries/classes/Server/Privileges.php:2707
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ユーザ %s は既に存在します!"
 
-#: libraries/classes/Server/Privileges.php:2999
+#: libraries/classes/Server/Privileges.php:2997
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s に対する権限"
 
-#: libraries/classes/Server/Privileges.php:3138
+#: libraries/classes/Server/Privileges.php:3136
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12418,7 +12428,7 @@ msgstr ""
 "のアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他"
 "のユーザは接続できなくなります。"
 
-#: libraries/classes/Server/Privileges.php:3182
+#: libraries/classes/Server/Privileges.php:3180
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12431,7 +12441,7 @@ msgstr ""
 "限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込"
 "み%s をしてください。"
 
-#: libraries/classes/Server/Privileges.php:3198
+#: libraries/classes/Server/Privileges.php:3196
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12444,7 +12454,7 @@ msgstr ""
 "致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、"
 "あなたは RELOAD 権限を持っていません。"
 
-#: libraries/classes/Server/Privileges.php:3543
+#: libraries/classes/Server/Privileges.php:3541
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
@@ -12632,43 +12642,43 @@ msgstr "この MySQL サーバは %s ストレージエンジンをサポート�
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
 
-#: libraries/classes/Table.php:360
+#: libraries/classes/Table.php:359
 msgid "Unknown table status:"
 msgstr "不明なテーブルステータス:"
 
-#: libraries/classes/Table.php:1041
+#: libraries/classes/Table.php:1040
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "元にするデータベース `%s` が見つかりません！"
 
-#: libraries/classes/Table.php:1050
+#: libraries/classes/Table.php:1049
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: libraries/classes/Table.php:1614
+#: libraries/classes/Table.php:1613
 msgid "Invalid database:"
 msgstr "不正なデータベースです:"
 
-#: libraries/classes/Table.php:1632
+#: libraries/classes/Table.php:1631
 msgid "Invalid table name:"
 msgstr "不正なテーブル名:"
 
-#: libraries/classes/Table.php:1671
+#: libraries/classes/Table.php:1670
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "テーブル 「%1$s」 を 「%2$s」 に名前変更に失敗しました!"
 
-#: libraries/classes/Table.php:1693
+#: libraries/classes/Table.php:1692
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: libraries/classes/Table.php:1942
+#: libraries/classes/Table.php:1941
 msgid "Could not save table UI preferences!"
 msgstr "テーブルに対する環境設定が保存できません!"
 
-#: libraries/classes/Table.php:1973
+#: libraries/classes/Table.php:1972
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12677,7 +12687,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:2131
+#: libraries/classes/Table.php:2130
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12687,15 +12697,15 @@ msgstr ""
 "環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
 "とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
-#: libraries/classes/Table.php:2295
+#: libraries/classes/Table.php:2294
 msgid "Can't rename index to PRIMARY!"
 msgstr "インデックス名を PRIMARY に変更することはできません!"
 
-#: libraries/classes/Table.php:2321
+#: libraries/classes/Table.php:2320
 msgid "No index parts defined!"
 msgstr "インデックス部分が定義されていません!"
 
-#: libraries/classes/Table.php:2657
+#: libraries/classes/Table.php:2656
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13308,15 +13318,6 @@ msgstr "ZIP アーカイブにエラーがあります:"
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP アーカイブにファイルが含まれていません!"
 
-#: libraries/common.inc.php:277
-#, php-format
-msgid "You should upgrade to %s %s or later."
-msgstr "%s を %s 以降にアップグレードしてください。"
-
-#: libraries/common.inc.php:307
-msgid "Error: Token mismatch"
-msgstr "エラー: トークンが一致しません"
-
 #: libraries/config.values.php:88 libraries/config.values.php:126
 #: libraries/config.values.php:138
 msgid "Icons"
@@ -13453,15 +13454,15 @@ msgstr "上の両方を行う"
 msgid "neither of the above"
 msgstr "上のどちらでもない"
 
-#: setup/index.php:27
+#: setup/index.php:32
 msgid "Configuration already exists, setup is disabled!"
 msgstr "構成は、既に存際しています。セットアップは無効化された！"
 
-#: setup/validate.php:31
+#: setup/validate.php:32
 msgid "Wrong data"
 msgstr "データが正しくありません"
 
-#: setup/validate.php:38
+#: setup/validate.php:39
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "「%s」のデータが間違っているか、検証されていません"
@@ -18482,7 +18483,7 @@ msgstr "ビューの名前"
 msgid "Column names"
 msgstr "カラム名"
 
-#: url.php:51
+#: url.php:76
 msgid "Taking you to the target site."
 msgstr "ターゲットサイトにアクセスします。"
 
