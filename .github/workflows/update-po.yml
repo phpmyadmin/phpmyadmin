@@ -7,6 +7,7 @@ on:
 
 jobs:
   update-po:
+    name: Update po files
     runs-on: ubuntu-latest
     # Source: https://github.community/t/do-not-run-cron-workflows-in-forks/17636/2?u=williamdes
     if: (github.event_name == 'schedule' && github.repository == 'phpmyadmin/phpmyadmin') || (github.event_name != 'schedule')
