@@ -1411,6 +1411,11 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: libraries/classes/Relation.php
+
+		-
 			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -1631,7 +1636,7 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> string, 'request_fulluri' \\=\\> true\\)\\.$#"
+			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> non\\-empty\\-string, 'request_fulluri' \\=\\> true\\)\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
