@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
@@ -70,32 +69,25 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
 
-        //$_SESSION
-
-        //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchResult = [
-            'index1' => 'table1',
-            'index2' => 'table2',
-        ];
-        $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->will($this->returnValue($fetchResult));
-
-        $getColumns = [
+        parent::setGlobalDbi();
+        $this->dummyDbi->addResult(
+            'SHOW FULL COLUMNS FROM `PMA_db`.`PMA_table`',
             [
-                'Field' => 'field1',
-                'Comment' => 'Comment1',
+                [
+                    'field1',
+                    'Comment1',
+                ],
             ],
-        ];
-        $dbi->expects($this->any())
-            ->method('getColumns')
-            ->will($this->returnValue($getColumns));
+            [
+                'Field',
+                'Comment',
+            ]
+        );
 
-        $GLOBALS['dbi'] = $dbi;
+        $this->dummyDbi->addResult(
+            'SHOW INDEXES FROM `PMA_db`.`PMA_table`',
+            []
+        );
     }
 
     /**
