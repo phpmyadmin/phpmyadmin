@@ -417,7 +417,7 @@ class DatabaseInterface implements DbalInterface
                         $tables[$one_database_name][$one_table_name]['Index_length'],
                     ] = StorageEngine::getMroongaLengths(
                         $one_database_name,
-                        $one_table_name,
+                        $one_table_name
                     );
                 }
             }
@@ -528,7 +528,7 @@ class DatabaseInterface implements DbalInterface
                         $each_tables[$table_name]['Index_length'],
                     ] = StorageEngine::getMroongaLengths(
                         $each_database,
-                        $table_name,
+                        $table_name
                     );
                 }
 

@@ -189,12 +189,11 @@ class StorageEngine
                 unset($objectList[$mroongaName]);
             }
 
-            /**
-             * At this point, we can lost all mroonga_data because only need the mroongaName
-             */
+            // At this point, we can remove all the data because only need the mroongaName values
             Cache::set($cacheKey, array_keys($objectList));
         }
 
+        /** @var string[] */
         $objectList = Cache::get($cacheKey, []);
 
         $dataLength = 0;
