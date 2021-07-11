@@ -2,6 +2,7 @@
 <?php
 
 use PhpMyAdmin\Command\CacheWarmupCommand;
+use PhpMyAdmin\Command\FixPoTwigCommand;
 use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Command\TwigLintCommand;
@@ -37,5 +38,6 @@ $application->add(new CacheWarmupCommand());
 $application->add(new TwigLintCommand());
 $application->add(new SetVersionCommand());
 $application->add(new WriteGitRevisionCommand());
+$application->add(new FixPoTwigCommand());
 
 $application->run();
