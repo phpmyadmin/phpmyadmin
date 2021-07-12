@@ -38,7 +38,7 @@ xgettext \
     `cat ./twig-templates/filesList`
 
 # Fixup filenames for Twig templates
-php scripts/fix-po-twig
+php scripts/console fix-po-twig
 
 # Remote twig templates
 rm -rf twig-templates/
