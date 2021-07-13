@@ -17,9 +17,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
 
-use function fclose;
-use function fopen;
-use function fwrite;
+use function file_put_contents;
 use function is_file;
 use function json_encode;
 use function sprintf;
@@ -181,14 +179,11 @@ final class CacheWarmupCommand extends Command
         }
 
         $output->writeln('Writing replacements...', OutputInterface::VERBOSITY_VERY_VERBOSE);
+
         // Store replacements in JSON
-        $handle = fopen($tmpDir . '/replace.json', 'w');
-        if ($handle === false) {
+        if (file_put_contents($tmpDir . '/replace.json', (string) json_encode($replacements)) === false) {
             return Command::FAILURE;
         }
-
-        fwrite($handle, (string) json_encode($replacements));
-        fclose($handle);
 
         $output->writeln('Replacements written done.', OutputInterface::VERBOSITY_VERBOSE);
         $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);

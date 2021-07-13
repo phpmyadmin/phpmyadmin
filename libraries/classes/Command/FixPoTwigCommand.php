@@ -8,10 +8,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use function fclose;
 use function file_get_contents;
-use function fopen;
-use function fwrite;
+use function file_put_contents;
 use function intval;
 use function is_array;
 use function json_decode;
@@ -75,17 +73,7 @@ final class FixPoTwigCommand extends Command
             return Command::FAILURE;
         }
 
-        /* Write fixed file */
-        $handle = fopen(self::POT_FILE, 'w');
-        if ($handle === false) {
-            return Command::FAILURE;
-        }
-
-        if (fwrite($handle, $pot) === false) {
-            return Command::FAILURE;
-        }
-
-        if (! fclose($handle)) {
+        if (file_put_contents(self::POT_FILE, $pot) === false) {
             return Command::FAILURE;
         }
 

@@ -7,11 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Encoding;
 
 use function _setlocale;
-use function fclose;
 use function file_get_contents;
-use function fopen;
+use function file_put_contents;
 use function function_exists;
-use function fwrite;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function setlocale;
@@ -186,10 +184,7 @@ class EncodingTest extends AbstractTestCase
     {
         $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
-        $file = fopen($filename, 'w');
-        $this->assertNotFalse($file);
-        fwrite($file, $file_str);
-        fclose($file);
+        $this->assertNotFalse(file_put_contents($filename, $file_str));
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
         $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');

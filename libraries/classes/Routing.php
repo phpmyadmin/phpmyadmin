@@ -14,10 +14,8 @@ use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 use function __;
-use function fclose;
 use function file_exists;
-use function fopen;
-use function fwrite;
+use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
@@ -118,15 +116,7 @@ class Routing
 
     public static function writeCache(string $cacheContents): bool
     {
-        $handle = @fopen(self::ROUTES_CACHE_FILE, 'w');
-        if ($handle === false) {
-            return false;
-        }
-
-        $couldWrite = fwrite($handle, $cacheContents);
-        fclose($handle);
-
-        return $couldWrite !== false;
+        return @file_put_contents(self::ROUTES_CACHE_FILE, $cacheContents) !== false;
     }
 
     public static function getCurrentRoute(): string
