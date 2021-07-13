@@ -193,7 +193,7 @@ class StorageEngine
             Cache::set($cacheKey, array_keys($objectList));
         }
 
-        /** @var string[] */
+        /** @var string[] $objectList */
         $objectList = Cache::get($cacheKey, []);
 
         $dataLength = 0;
