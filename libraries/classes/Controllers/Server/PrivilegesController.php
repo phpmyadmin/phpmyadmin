@@ -229,7 +229,7 @@ class PrivilegesController extends AbstractController
                         ($username ?? ''),
                         ($hostname ?? ''),
                         ($tablename ?? ($routinename ?? '')),
-                        ($db_name ?? ''),
+                        (Util::unescapeMysqlWildcards($db_name) ?? ''),
                         $itemType
                     );
                 }
