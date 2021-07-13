@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
 - issue #16974 Replace zxcvbn by zxcvbn-ts
 - issue #15691 Disable the last column checkbox in the column list dropdown instead of not allowing un-check
+- issue #16138 Ignore the length of integer types and show a warning on MySQL >= 8.0.18
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
