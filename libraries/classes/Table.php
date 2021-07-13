@@ -515,8 +515,8 @@ class Table implements Stringable
      */
     public static function generateFieldSpec(
         $name,
-        $type,
-        $length = '',
+        string $type,
+        string $length = '',
         $attribute = '',
         $collation = '',
         $null = false,
@@ -562,7 +562,6 @@ class Table implements Stringable
                 $isTimestamp
                 && stripos($attribute, 'TIMESTAMP') !== false
                 && $strLength !== 0
-                && $length !== 0
             ) {
                 $query .= '(' . $length . ')';
             }
@@ -650,7 +649,6 @@ class Table implements Stringable
 
                         if (
                             $strLength !== 0
-                            && $length !== 0
                             && $isTimestamp
                             && $defaultType !== 'NULL' // Not to be added in case of NULL
                         ) {

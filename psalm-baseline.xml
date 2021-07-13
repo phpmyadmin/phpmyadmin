@@ -309,11 +309,13 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <PossiblyNullArrayAccess occurrences="6">
+    <PossiblyNullArrayAccess occurrences="8">
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
       <code>$formattedSize</code>
+      <code>$formattedSize</code>
       <code>$overheadUnit</code>
+      <code>$unit</code>
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
@@ -2692,10 +2694,6 @@
       <code>(string) $table</code>
       <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="2">
-      <code>$length !== 0</code>
-      <code>$length !== 0</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>$columnsMetaQueryResult !== false</code>
     </RedundantConditionGivenDocblockType>
