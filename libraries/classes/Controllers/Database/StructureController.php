@@ -22,6 +22,7 @@ use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
@@ -1054,6 +1055,17 @@ class StructureController extends AbstractController
             case 'SYSTEM VIEW':
                 // possibly a view, do nothing
                 break;
+            case 'Mroonga':
+                // The idea is to show the size only if Mroonga is available,
+                // in other case the old unknown message will appear
+                if (StorageEngine::hasMroongaEngine()) {
+                    [$currentTable, $formattedSize, $unit, $sumSize] = $this->getValuesForMroongaTable(
+                        $currentTable,
+                        $sumSize
+                    );
+                    break;
+                }
+                // no break, go to default case
             default:
                 // Unknown table type.
                 if ($this->isShowStats) {
@@ -1178,6 +1190,40 @@ class StructureController extends AbstractController
             /** @var int $tblsize */
             $tblsize = $currentTable['Data_length']
                 + $currentTable['Index_length'];
+            $sumSize += $tblsize;
+            [$formattedSize, $unit] = Util::formatByteDown(
+                $tblsize,
+                3,
+                ($tblsize > 0 ? 1 : 0)
+            );
+        }
+
+        return [
+            $currentTable,
+            $formattedSize,
+            $unit,
+            $sumSize,
+        ];
+    }
+
+    /**
+     * Get values for Mroonga table
+     *
+     * @param array $currentTable current table
+     * @param int   $sumSize      sum size
+     *
+     * @return array
+     */
+    protected function getValuesForMroongaTable(
+        array $currentTable,
+        int $sumSize
+    ): array {
+        $formattedSize = '';
+        $unit = '';
+
+        if ($this->isShowStats) {
+            /** @var int $tblsize */
+            $tblsize = $currentTable['Data_length'] + $currentTable['Index_length'];
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown(
                 $tblsize,

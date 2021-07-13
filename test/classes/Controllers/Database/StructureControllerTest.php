@@ -559,4 +559,97 @@ class StructureControllerTest extends AbstractTestCase
         $this->assertStringContainsString('id="overhead"', $result);
         $this->assertStringContainsString('9.8', $result);
     }
+
+    /**
+     * Tests for getValuesForMroongaTable()
+     */
+    public function testGetValuesForMroongaTable(): void
+    {
+        global $containerBuilder;
+        parent::loadContainerBuilder();
+        parent::loadDbiIntoContainerBuilder();
+        $GLOBALS['db'] = 'testdb';
+        $GLOBALS['table'] = 'mytable';
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+
+        /** @var StructureController $structureController */
+        $structureController = $containerBuilder->get(StructureController::class);
+
+        $this->assertSame(
+            [
+                [],
+                '',
+                '',
+                0,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [],
+                    0,
+                ]
+            )
+        );
+
+        // Enable stats
+        $GLOBALS['cfg']['ShowStats'] = true;
+        $this->callFunction(
+            $structureController,
+            StructureController::class,
+            'getDatabaseInfo',
+            ['']
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                105,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    0,
+                ]
+            )
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                180, //105 + 75
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    75,
+                ]
+            )
+        );
+    }
 }

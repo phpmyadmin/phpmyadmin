@@ -21,11 +21,16 @@ use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 use function array_key_exists;
+use function array_keys;
 use function explode;
 use function htmlspecialchars;
+use function in_array;
+use function json_decode;
 use function mb_stripos;
 use function mb_strtolower;
 use function sprintf;
+use function strlen;
+use function strncmp;
 
 /**
  * Library for extracting information about the available storage engines
@@ -126,6 +131,95 @@ class StorageEngine
         }
 
         return $storage_engines;
+    }
+
+    /**
+     * Returns if Mroonga is available to be used
+     *
+     * This is public to be used in the StructureComtroller, the first release
+     * of this function was looking Mroonga in the engines list but this second
+     *  method checks too that mroonga is installed successfully
+     *
+     * @return bool true when the mroonga_command is found
+     */
+    public static function hasMroongaEngine(): bool
+    {
+        global $dbi;
+        $cacheKey = 'storage-engine.mroonga.has.mroonga_command';
+
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey, false);
+        }
+
+        $supportsMroonga = $dbi->tryQuery('SELECT mroonga_command(\'object_list\');') !== false;
+        Cache::set($cacheKey, $supportsMroonga);
+
+        return $supportsMroonga;
+    }
+
+    /**
+     * Get the lengths of a table of database
+     *
+     * @param string $dbName    DB name
+     * @param string $tableName Table name
+     *
+     * @return int[]
+     */
+    public static function getMroongaLengths(string $dbName, string $tableName): array
+    {
+        global $dbi;
+        $cacheKey = 'storage-engine.mroonga.object_list.' . $dbName;
+
+        $dbi->selectDb($dbName);// Needed for mroonga_command calls
+
+        if (! Cache::has($cacheKey)) {
+            $result = $dbi->fetchSingleRow('SELECT mroonga_command(\'object_list\');', 'NUM');
+            $objectList = (array) json_decode($result[0] ?? '', true);
+            foreach ($objectList as $mroongaName => $mroongaData) {
+                /**
+                 * We only need the objects of table or column types, more info:
+                 * - https://groonga.org/docs/reference/commands/object_list.html#object-type
+                 * - https://groonga.org/docs/reference/commands/object_inspect.html#table-type-id
+                 * - https://groonga.org/docs/reference/commands/object_inspect.html#column-type-raw-id
+                 */
+                if (in_array($mroongaData['type']['id'], [48, 49, 50, 51, 64, 65, 72])) {
+                    continue;
+                }
+
+                unset($objectList[$mroongaName]);
+            }
+
+            // At this point, we can remove all the data because only need the mroongaName values
+            Cache::set($cacheKey, array_keys($objectList));
+        }
+
+        /** @var string[] */
+        $objectList = Cache::get($cacheKey, []);
+
+        $dataLength = 0;
+        $indexLength = 0;
+        foreach ($objectList as $mroongaName) {
+            if (strncmp($tableName, $mroongaName, strlen($tableName)) !== 0) {
+                continue;
+            }
+
+            $result = $dbi->fetchSingleRow('SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');', 'NUM');
+            $decodedData = json_decode($result[0] ?? '', true);
+            if ($decodedData === null) {
+                // Invalid for some strange reason, maybe query failed
+                continue;
+            }
+
+            $indexPrefix = $tableName . '#' . $tableName;
+            if (strncmp($indexPrefix, $mroongaName, strlen($indexPrefix)) === 0) {
+                $indexLength += $decodedData['disk_usage'];
+                continue;
+            }
+
+            $dataLength += $decodedData['disk_usage'];
+        }
+
+        return [$dataLength, $indexLength];
     }
 
     /**

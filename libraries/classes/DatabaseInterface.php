@@ -400,6 +400,28 @@ class DatabaseInterface implements DbalInterface
                 $link
             );
 
+            // here, we check for Mroonga engine and compute the good data_length and index_length
+            // in the StructureController only we need to sum the two values as the other engines
+            foreach ($tables as $one_database_name => $one_database_tables) {
+                foreach ($one_database_tables as $one_table_name => $one_table_data) {
+                    if ($one_table_data['Engine'] !== 'Mroonga') {
+                        continue;
+                    }
+
+                    if (! StorageEngine::hasMroongaEngine()) {
+                        continue;
+                    }
+
+                    [
+                        $tables[$one_database_name][$one_table_name]['Data_length'],
+                        $tables[$one_database_name][$one_table_name]['Index_length'],
+                    ] = StorageEngine::getMroongaLengths(
+                        $one_database_name,
+                        $one_table_name
+                    );
+                }
+            }
+
             if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $one_database_name => $one_database_tables) {
@@ -489,6 +511,26 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 $each_tables = $this->fetchResult($sql, 'Name', null, $link);
+
+                // here, we check for Mroonga engine and compute the good data_length and index_length
+                // in the StructureController only we need to sum the two values as the other engines
+                foreach ($each_tables as $table_name => $table_data) {
+                    if ($table_data['Engine'] !== 'Mroonga') {
+                        continue;
+                    }
+
+                    if (! StorageEngine::hasMroongaEngine()) {
+                        continue;
+                    }
+
+                    [
+                        $each_tables[$table_name]['Data_length'],
+                        $each_tables[$table_name]['Index_length'],
+                    ] = StorageEngine::getMroongaLengths(
+                        $each_database,
+                        $table_name
+                    );
+                }
 
                 // Sort naturally if the config allows it and we're sorting
                 // the Name column.
