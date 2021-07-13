@@ -2066,7 +2066,7 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -2136,7 +2136,7 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> string, 'request_fulluri' \\=\\> true\\)\\.$#"
+			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> non\\-empty\\-string, 'request_fulluri' \\=\\> true\\)\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 

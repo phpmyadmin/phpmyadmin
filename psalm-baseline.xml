@@ -2484,11 +2484,8 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$insert_id</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="22">
+    <PossiblyNullArgument occurrences="18">
       <code>$_POST['purge'] ?? null</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$disp_message ?? null</code>
@@ -2502,7 +2499,6 @@
       <code>$showtable</code>
       <code>$sql_data ?? null</code>
       <code>$sql_query_for_bookmark ?? null</code>
-      <code>$table</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
