@@ -46,6 +46,8 @@ phpMyAdmin - ChangeLog
 - issue #16999 Fixed multi table query results shows for 1 sec and then page refreshes
 - issue        Fixed a non translated button text on central columns add
 - issue        Fixed table width on Query by example page for large screens
+- issue #16975 Fixed NULL default had a value on insert with datatime fields
+- issue #16994 Fixed missing privilege escaping when assigning multiple databases with '_' to an user
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa

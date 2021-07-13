@@ -2333,7 +2333,7 @@ class InsertEdit
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $column['Field_md5'] . ']';
 
-        if ($column['Type'] === 'datetime' && ! isset($column['Default']) && $insertMode) {
+        if ($column['Type'] === 'datetime' && $column['Null'] !== 'YES' && ! isset($column['Default']) && $insertMode) {
             $column['Default'] = date('Y-m-d H:i:s', time());
         }
 
