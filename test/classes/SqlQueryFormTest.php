@@ -62,6 +62,7 @@ class SqlQueryFormTest extends AbstractTestCase
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
+            'trackingwork' => false,
             'bookmarkwork' => false,
         ];
         //$GLOBALS
