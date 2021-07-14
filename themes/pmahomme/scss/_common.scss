@@ -959,6 +959,7 @@ label.col-3.d-flex.align-items-center {
 }
 
 li.last.database {
+  // Avoid having the last item of the tree hidden behind the scroll bar
   margin-bottom: 15px !important;
 }
 
