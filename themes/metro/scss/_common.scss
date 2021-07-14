@@ -589,6 +589,11 @@ td.disabled {
   display: none;
 }
 
+li.last.database {
+  // Avoid having the last item of the tree hidden behind the scroll bar
+  margin-bottom: 15px !important;
+}
+
 /* zoom search */
 div#dataDisplay {
   input,
