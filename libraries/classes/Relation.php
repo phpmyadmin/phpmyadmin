@@ -20,7 +20,6 @@ use function array_shift;
 use function asort;
 use function bin2hex;
 use function count;
-use function defined;
 use function explode;
 use function file_get_contents;
 use function htmlspecialchars;
@@ -1143,10 +1142,7 @@ class Relation
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
-        if (
-            defined('TESTSUITE')
-            || mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
-        ) {
+        if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
         }
 
