@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
@@ -21,14 +20,12 @@ use function class_exists;
 use function count;
 use function current;
 use function date;
-use function defined;
 use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
 use function is_file;
-use function is_numeric;
 use function is_string;
 use function max;
 use function mb_stripos;
@@ -1272,38 +1269,6 @@ class InsertEdit
             $isInsert,
             $isInsertIgnore,
         ];
-    }
-
-    /**
-     * Check wether insert row mode and if so include tbl_changen script and set
-     * global variables.
-     *
-     * @return void
-     */
-    public function isInsertRow()
-    {
-        global $containerBuilder;
-
-        if (
-            ! isset($_POST['insert_rows'])
-            || ! is_numeric($_POST['insert_rows'])
-            || $_POST['insert_rows'] == $GLOBALS['cfg']['InsertRows']
-        ) {
-            return;
-        }
-
-        $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
-        $response = ResponseRenderer::getInstance();
-        $header = $response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/additional-methods.js');
-        $scripts->addFile('table/change.js');
-        if (! defined('TESTSUITE')) {
-            /** @var ChangeController $controller */
-            $controller = $containerBuilder->get(ChangeController::class);
-            $controller->index();
-            exit;
-        }
     }
 
     /**

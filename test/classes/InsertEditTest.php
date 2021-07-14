@@ -7,10 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
@@ -1725,52 +1723,6 @@ class InsertEditTest extends AbstractTestCase
             ],
             $result
         );
-    }
-
-    /**
-     * Test for isInsertRow
-     */
-    public function testIsInsertRow(): void
-    {
-        $_POST['insert_rows'] = 5;
-        $GLOBALS['cfg']['InsertRows'] = 2;
-
-        $scriptsMock = $this->getMockBuilder(Scripts::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['addFile'])
-            ->getMock();
-
-        $scriptsMock->expects($this->exactly(2))
-            ->method('addFile');
-
-        $headerMock = $this->getMockBuilder(Header::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getScripts'])
-            ->getMock();
-
-        $headerMock->expects($this->once())
-            ->method('getScripts')
-            ->will($this->returnValue($scriptsMock));
-
-        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getHeader'])
-            ->getMock();
-
-        $responseMock->expects($this->once())
-            ->method('getHeader')
-            ->will($this->returnValue($headerMock));
-
-        $restoreInstance = ResponseRenderer::getInstance();
-        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setAccessible(true);
-        $response->setValue($responseMock);
-
-        $this->insertEdit->isInsertRow();
-
-        $response->setValue($restoreInstance);
-
-        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
     }
 
     /**

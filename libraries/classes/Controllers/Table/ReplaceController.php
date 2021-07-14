@@ -28,6 +28,7 @@ use function count;
 use function implode;
 use function in_array;
 use function is_file;
+use function is_numeric;
 use function method_exists;
 use function parse_str;
 use function sprintf;
@@ -98,8 +99,20 @@ final class ReplaceController extends AbstractController
             'gis_data_editor.js',
         ]);
 
-        // check whether insert row mode, if so include /table/change
-        $this->insertEdit->isInsertRow();
+        $insertRows = $_POST['insert_rows'] ?? null;
+        if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {
+            // check whether insert row mode, if so include /table/change
+            $this->addScriptFiles([
+                'vendor/jquery/additional-methods.js',
+                'table/change.js',
+            ]);
+            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
+
+            return;
+        }
 
         $after_insert_actions = [
             'new_insert',

@@ -106,4 +106,45 @@ class ReplaceControllerTest extends AbstractTestCase
             $this->getResponseHtmlResult()
         );
     }
+
+    public function testIsInsertRow(): void
+    {
+        global $containerBuilder;
+        $GLOBALS['urlParams'] = [];
+        $GLOBALS['goto'] = 'index.php?route=/sql';
+        $_POST['insert_rows'] = 5;
+        $_POST['sql_query'] = 'SELECT 1';
+        $GLOBALS['cfg']['InsertRows'] = 2;
+        $GLOBALS['cfg']['Server']['host'] = 'host.tld';
+        $GLOBALS['cfg']['Server']['verbose'] = '';
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLES LIKE \'test_tbl\';',
+            [
+                ['test_tbl'],
+            ]
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT * FROM `my_db`.`test_tbl` LIMIT 1;',
+            []
+        );
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var ReplaceController $replaceController */
+        $replaceController = $containerBuilder->get(ReplaceController::class);
+        $replaceController->index();
+        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
+        $this->assertStringContainsString(
+            '<form id="continueForm" method="post" '
+            . 'action="index.php?route=/table/replace&lang=en" name="continueForm">',
+            $this->getResponseHtmlResult()
+        );
+        $this->assertStringContainsString(
+            'Continue insertion with         <input type="number" '
+            . 'name="insert_rows" id="insert_rows" value="5" min="1">',
+            $this->getResponseHtmlResult()
+        );
+    }
 }
