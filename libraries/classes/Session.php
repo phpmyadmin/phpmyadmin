@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function defined;
 use function function_exists;
 use function htmlspecialchars;
 use function implode;
@@ -70,7 +69,7 @@ class Session
     public static function secure()
     {
         // prevent session fixation and XSS
-        if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
+        if (session_status() === PHP_SESSION_ACTIVE) {
             session_regenerate_id(true);
         }
 
