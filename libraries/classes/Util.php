@@ -29,7 +29,6 @@ use function count;
 use function ctype_digit;
 use function date;
 use function decbin;
-use function defined;
 use function explode;
 use function extension_loaded;
 use function fclose;
@@ -2670,10 +2669,6 @@ class Util
      */
     public static function date($format)
     {
-        if (defined('TESTSUITE')) {
-            return '0000-00-00 00:00:00';
-        }
-
         return date($format);
     }
 
