@@ -31,6 +31,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed table width on Query by example page for large screens
 - issue #16975 Fixed NULL default had a value on insert with datatime fields
 - issue #16994 Fixed missing privilege escaping when assigning multiple databases with '_' to an user
+- issue #16864 Fixed the margin on the last database of the tree on all themes when scrollbars are displayed
+- issue #17011 Fixed the database tree line that was not continuous on database groups
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
