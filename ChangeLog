@@ -50,6 +50,9 @@ phpMyAdmin - ChangeLog
 - issue #16994 Fixed missing privilege escaping when assigning multiple databases with '_' to an user
 - issue #16864 Fixed the margin on the last database of the tree on all themes when scrollbars are displayed
 - issue #17011 Fixed the database tree line that was not continuous on database groups
+- issue        Build more syntax correct URLs on JS internal redirects
+- issue #16976 Fix wrong link when a table is moved from a database to another
+- issue #16985 Fix case-sensitive issue of innodb_file_format=barracuda vs innodb_file_format=Barracuda
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa

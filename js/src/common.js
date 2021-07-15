@@ -88,7 +88,7 @@ var CommonParams = (function () {
             var sep = (typeof separator !== 'undefined') ? separator : '?';
             var common = this.get('common_query');
             var argsep = CommonParams.get('arg_separator');
-            if (typeof common === 'string') {
+            if (typeof common === 'string' && common.length > 0) {
                 // If the last char is the separator, do not add it
                 // Else add it
                 common = common.substr(common.length - 1, common.length) === argsep ? common : common + argsep;
