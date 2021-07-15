@@ -677,7 +677,8 @@ class Generator
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             [],
-                            '_blank'
+                            '_blank',
+                            false
                         ) . '&nbsp;]';
                 }
             }
@@ -1108,7 +1109,8 @@ class Generator
         $url,
         $message,
         $tagParams = [],
-        $target = ''
+        $target = '',
+        bool $respectUrlLengthLimit = true
     ): string {
         $urlLength = strlen($url);
 
@@ -1151,13 +1153,16 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        if (
-            ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
-            || ! $inSuhosinLimits
-            // Has as sql_query without a signature
-            || (str_contains($url, 'sql_query=') && ! str_contains($url, 'sql_signature='))
-            || str_contains($url, 'view[as]=')
-        ) {
+        $isDataPostFormatSupported = ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
+                                || ! $inSuhosinLimits
+                                // Has as sql_query without a signature, to be accepted it needs
+                                // to be sent using POST
+                                || (
+                                    str_contains($url, 'sql_query=')
+                                    && ! str_contains($url, 'sql_signature=')
+                                )
+                                || str_contains($url, 'view[as]=');
+        if ($respectUrlLengthLimit && $isDataPostFormatSupported) {
             $parts = explode('?', $url, 2);
             /*
              * The data-post indicates that client should do POST

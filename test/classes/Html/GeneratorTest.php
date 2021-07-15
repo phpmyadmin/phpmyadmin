@@ -252,6 +252,30 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
+                    'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    'text',
+                    [],
+                    'target',
+                ],
+                10,
+                // This is not the behavior we want for the analyser feature, next test will disable the limit
+                '<a href="https://mariadb.org/explain_analyzer/analyze/"'
+                . ' data-post="client=phpMyAdmin&amp;raw_explain=%2B---%2B" target="target">text</a>',
+            ],
+            [
+                [
+                    'https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B',
+                    'text',
+                    [],
+                    'target',
+                    false,
+                ],
+                10,
+                '<a href="https://mariadb.org/explain_analyzer/analyze/?client=phpMyAdmin&amp;raw_explain=%2B---%2B"'
+                . ' target="target">text</a>',
+            ],
+            [
+                [
                     'url.php?url=http://phpmyadmin.net/',
                     'text',
                     [],
