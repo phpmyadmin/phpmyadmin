@@ -238,16 +238,6 @@ class Header
             'db' => $db ?? '',
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
-            'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
-            'pma_text_default_tab' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['DefaultTabTable']
-            ),
-            'pma_text_left_default_tab' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
-            ),
-            'pma_text_left_default_tab2' => Util::getTitleForTarget(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2']
-            ),
             'LimitChars' => $GLOBALS['cfg']['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $GLOBALS['cfg']['Confirm'],
