@@ -1571,33 +1571,15 @@ enables: drop-down list of possible values.
 --------------------------------------------------
 
 First the configuration variables "relation", "table\_coords" and
-"pdf\_pages" have to be filled in.  Then you need to think about your
-schema layout. Which tables will go on which pages?
+"pdf\_pages" have to be filled in.
 
 * Select your database in the navigation panel.
-* Choose "Operations" in the navigation bar at the top.
-* Choose "Edit :term:`PDF` Pages" near the
-  bottom of the page.
-* Enter a name for the first :term:`PDF` page
-  and click Go. If you like, you can use the "automatic layout," which
-  will put all your linked tables onto the new page.
-* Select the name of the new page (making sure the Edit radio button is
-  selected) and click Go.
-* Select a table from the list, enter its coordinates and click Save.
-  Coordinates are relative; your diagram will be automatically scaled to
-  fit the page. When initially placing tables on the page, just pick any
-  coordinates -- say, 50x50. After clicking Save, you can then use the
-  :ref:`wysiwyg` to position the element correctly.
-* When you'd like to look at your :term:`PDF`, first be sure to click the Save
-  button beneath the list of tables and coordinates, to save any changes you
-  made there. Then scroll all the way down, select the :term:`PDF` options you
-  want, and click Go.
-* Internet Explorer for Windows may suggest an incorrect filename when
-  you try to save a generated :term:`PDF`.
-  When saving a generated :term:`PDF`, be
-  sure that the filename ends in ".pdf", for example "schema.pdf".
-  Browsers on other operating systems, and other browsers on Windows, do
-  not have this problem.
+* Choose ":guilabel:`Designer`" in the navigation bar at the top.
+* Move the tables the way you want them.
+* Choose ":guilabel:`Export schema`" in the left menu.
+* The export modal will open.
+* Select the type of export to :term:`PDF`, you may adjust the other settings.
+* Submit the form and the file will start downloading.
 
 .. seealso::
 
@@ -1842,31 +1824,10 @@ name), but the following variables can be used:
 ``@PHPMYADMIN@``
     phpMyAdmin with version
 
-.. _wysiwyg:
+.. _faq6_28:
 
-6.28 How can I easily edit relational schema for export?
---------------------------------------------------------
-
-By clicking on the button 'toggle scratchboard' on the page where you
-edit x/y coordinates of those elements you can activate a scratchboard
-where all your elements are placed. By clicking on an element, you can
-move them around in the pre-defined area and the x/y coordinates will
-get updated dynamically. Likewise, when entering a new position
-directly into the input field, the new position in the scratchboard
-changes after your cursor leaves the input field.
-
-You have to click on the 'OK'-button below the tables to save the new
-positions. If you want to place a new element, first add it to the
-table of elements and then you can drag the new element around.
-
-By changing the paper size and the orientation you can change the size
-of the scratchboard as well. You can do so by just changing the
-dropdown field below, and the scratchboard will resize automatically,
-without interfering with the current placement of the elements.
-
-If ever an element gets out of range you can either enlarge the paper
-size or click on the 'reset' button to place all elements below each
-other.
+6.28 (withdrawn).
+-----------------
 
 .. _faq6_29:
 
