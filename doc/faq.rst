@@ -244,8 +244,8 @@ phpMyAdmin tried to load the extension but failed. Usually, the
 problem is solved by installing a software package called "PHP-MySQL"
 or something similar.
 
-There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
-and ``mysqli``. The ``mysqli`` is tried first, because it's the best one.
+There was two interfaces PHP provided as MySQL extensions - ``mysql``
+and ``mysqli``. The ``mysql`` interface was removed in PHP 7.0.
 
 This problem can be also caused by wrong paths in the :file:`php.ini` or using
 wrong :file:`php.ini`.
@@ -268,10 +268,9 @@ can tell it to use specific path for this file using ``PHPIniDir`` directive:
 
 .. code-block:: apache
 
-    LoadFile "C:/php/php5ts.dll"
-    LoadModule php5_module "C:/php/php5apache2_2.dll"
-    <IfModule php5_module>
-        PHPIniDir "C:/PHP"
+    LoadModule php7_module "C:/php7/php7apache2_4.dll"
+    <IfModule php7_module>
+        PHPIniDir "C:/php7"
         <Location>
            AddType text/html .php
            AddHandler application/x-httpd-php .php
