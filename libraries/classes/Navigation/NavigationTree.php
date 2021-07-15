@@ -1121,8 +1121,8 @@ class NavigationTree
                 $retval .= '<span class="hide paths_nav"';
                 $retval .= ' data-apath="' . $paths['aPath'] . '"';
                 $retval .= ' data-vpath="' . $paths['vPath'] . '"';
-                $retval .= ' data-pos="' . $this->pos . '"';
-                $retval .= '"></span>';
+                $retval .= ' data-pos="' . $this->pos . '">';
+                $retval .= '</span>';
                 $retval .= $this->getPaginationParamsHtml($node);
                 if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
                     || $parentName !== 'root'
