@@ -749,42 +749,6 @@ Export.checkTimeOut = function (timeLimit) {
 };
 
 /**
- * Handler for Database/table alias select
- *
- * @param event object the event object
- *
- * @return {void}
- */
-Export.aliasSelectHandler = function (event) {
-    var sel = event.data.sel;
-    var type = event.data.type;
-    var inputId = $(this).val();
-    var $label = $(this).next('label');
-    $('input#' + $label.attr('for')).addClass('hide');
-    $('input#' + inputId).removeClass('hide');
-    $label.attr('for', inputId);
-    $('#alias_modal ' + sel + '[id$=' + type + ']:visible').addClass('hide');
-    var $inputWrapper = $('#alias_modal ' + sel + '#' + inputId + type);
-    $inputWrapper.removeClass('hide');
-    if (type === '_cols' && $inputWrapper.length > 0) {
-        var outer = $inputWrapper[0].outerHTML;
-        // Replace opening tags
-        var regex = /<dummy_inp/gi;
-        if (outer.match(regex)) {
-            var newTag = outer.replace(regex, '<input');
-            // Replace closing tags
-            regex = /<\/dummy_inp/gi;
-            newTag = newTag.replace(regex, '</input');
-            // Assign replacement
-            $inputWrapper.replaceWith(newTag);
-        }
-    } else if (type === '_tables') {
-        $('.table_alias_select:visible').trigger('change');
-    }
-    $('#alias_modal').dialog('option', 'position', 'center');
-};
-
-/**
  * Handler for Alias dialog box
  *
  * @param event object the event object
