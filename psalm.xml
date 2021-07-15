@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <psalm
     autoloader="test/bootstrap-static.php"
-    totallyTyped="false"
+    totallyTyped="true"
     resolveFromConfigFile="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
