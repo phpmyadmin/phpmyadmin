@@ -156,6 +156,9 @@ class OperationsController extends AbstractController
             $this->response->addJSON('message', $message);
 
             if ($message->isSuccess()) {
+                if (isset($_POST['submit_move'], $_POST['target_db'])) {
+                    $db = $_POST['target_db'];// Used in Header::getJsParams()
+                }
                 $this->response->addJSON('db', $db);
 
                 return;
