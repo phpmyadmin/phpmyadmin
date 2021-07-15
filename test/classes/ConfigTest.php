@@ -336,8 +336,6 @@ class ConfigTest extends AbstractTestCase
      */
     public function testCheckGd2(): void
     {
-        $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
-
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
         $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));

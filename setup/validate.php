@@ -20,7 +20,6 @@ define('PHPMYADMIN', true);
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
-$validators = [];
 
 Core::headerJSON();
 

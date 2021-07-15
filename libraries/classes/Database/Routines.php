@@ -1525,7 +1525,6 @@ class Routines
                 $params[$i]['class'] = 'datefield';
             }
 
-            $input_type = '';
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
                 if ($routine['item_param_type'][$i] === 'ENUM') {
                     $params[$i]['input_type']  = 'radio';

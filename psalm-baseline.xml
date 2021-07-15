@@ -1675,18 +1675,14 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="23">
+    <UnusedVariable occurrences="19">
       <code>$currentSearchId</code>
-      <code>$deleteResult</code>
       <code>$errorUrl</code>
       <code>$goto</code>
-      <code>$loadResult</code>
       <code>$num_tables</code>
       <code>$num_tables</code>
       <code>$pos</code>
       <code>$pos</code>
-      <code>$saveResult</code>
-      <code>$saveResult</code>
       <code>$savedSearch</code>
       <code>$savedSearchList</code>
       <code>$sub_part</code>
@@ -7088,9 +7084,6 @@
       <code>$this-&gt;browseRow($row)</code>
       <code>$title</code>
     </PossiblyNullOperand>
-    <UnusedVariable occurrences="1">
-      <code>$input_type</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Database/Search.php">
     <MixedArgument occurrences="6">
@@ -19478,12 +19471,10 @@
     <UnusedForeachValue occurrences="1">
       <code>$dummy</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="5">
-      <code>$fieldsToSelect</code>
+    <UnusedVariable occurrences="3">
       <code>$idx</code>
       <code>$idx</code>
       <code>$maintainRelations</code>
-      <code>$updQuery</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
@@ -21034,9 +21025,6 @@
       <code>$ids</code>
       <code>$vals</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="1">
-      <code>$validators</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
     <MixedAssignment occurrences="1">
@@ -21446,9 +21434,6 @@
       <code>$GLOBALS['cfg']['ProxyUrl']</code>
       <code>$GLOBALS['cfg']['Server']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="1">
-      <code>$prevIsGb2Val</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="8">
       <code>array</code>
       <code>array</code>
@@ -21462,9 +21447,6 @@
     <UnresolvableInclude occurrences="1">
       <code>include $this-&gt;object-&gt;defaultSource</code>
     </UnresolvableInclude>
-    <UnusedVariable occurrences="1">
-      <code>$prevIsGb2Val</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/Database/MultiTableQueryControllerTest.php">
     <MixedMethodCall occurrences="2">
@@ -22516,10 +22498,6 @@
       <code>$_SESSION[self::STORAGE_KEY]['error']</code>
       <code>$_SESSION[self::STORAGE_KEY]['error']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="2">
-      <code>$flash</code>
-      <code>$flash</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/FooterTest.php">
     <MixedArrayAssignment occurrences="4">
@@ -23831,10 +23809,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="5">
-      <code>$nullCellNames</code>
-      <code>$nullCells</code>
-      <code>$nulls</code>
+    <UnusedVariable occurrences="2">
       <code>$sql_query_disabled</code>
       <code>$sql_query_disabled</code>
     </UnusedVariable>

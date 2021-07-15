@@ -185,9 +185,6 @@ class ImportOdsTest extends AbstractTestCase
 
         // The process could probably detect that all the values for columns V to BL are empty
         // That would make the empty columns not needed and would create a cleaner structure
-        $nulls = '';
-        $nullCells = '';
-        $nullCellNames = '';
 
         $nulls = ', NULL' . str_repeat(', NULL', 44);// 45 empty cells
 

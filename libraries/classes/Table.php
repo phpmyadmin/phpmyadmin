@@ -708,7 +708,6 @@ class Table implements Stringable
     public function checkIfMinRecordsExist($minRecords = 0)
     {
         $checkQuery = 'SELECT ';
-        $fieldsToSelect = '';
 
         $uniqueFields = $this->getUniqueColumns(true, false);
         if (count($uniqueFields) > 0) {
@@ -2374,7 +2373,6 @@ class Table implements Stringable
      */
     public function updateDisplayField($displayField, array $cfgRelation)
     {
-        $updQuery = false;
         if ($displayField == '') {
             $updQuery = 'DELETE FROM '
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
