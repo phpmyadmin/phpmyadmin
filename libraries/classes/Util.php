@@ -87,7 +87,6 @@ use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
 use const PHP_MAJOR_VERSION;
-use const PREG_OFFSET_CAPTURE;
 use const STR_PAD_LEFT;
 
 /**
@@ -2057,38 +2056,6 @@ class Util
         }
 
         return $values;
-    }
-
-    /**
-     * Get regular expression which occur first inside the given sql query.
-     *
-     * @param array  $regexArray Comparing regular expressions.
-     * @param string $query      SQL query to be checked.
-     *
-     * @return string Matching regular expression.
-     */
-    public static function getFirstOccurringRegularExpression(array $regexArray, $query): string
-    {
-        $minimumFirstOccurrenceIndex = null;
-        $regex = null;
-
-        foreach ($regexArray as $testRegex) {
-            if (! preg_match($testRegex, $query, $matches, PREG_OFFSET_CAPTURE)) {
-                continue;
-            }
-
-            if (
-                $minimumFirstOccurrenceIndex !== null
-                && ($matches[0][1] >= $minimumFirstOccurrenceIndex)
-            ) {
-                continue;
-            }
-
-            $regex = $testRegex;
-            $minimumFirstOccurrenceIndex = $matches[0][1];
-        }
-
-        return $regex;
     }
 
     /**
