@@ -17,9 +17,11 @@ if (! defined('ROOT_PATH')) {
 if (! defined('PHPMYADMIN')) {
     define('PHPMYADMIN', true);
 }
+
 if (! defined('TESTSUITE')) {
     define('TESTSUITE', true);
 }
+
 // phpcs:enable
 
 $cfg = [];
@@ -36,6 +38,7 @@ $GLOBALS['server'] = 0;
 if (! defined('PMA_PATH_TO_BASEDIR')) {
     define('PMA_PATH_TO_BASEDIR', '');
 }
+
 // phpcs:enable
 
 // for PhpMyAdmin\Plugins\Import\ImportLdi
