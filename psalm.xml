@@ -27,5 +27,7 @@
     <globals>
         <!-- <var name="cfg" type="array" /> -->
         <var name="dbi" type="PhpMyAdmin\DatabaseInterface" />
+        <var name="containerBuilder" type="Symfony\Component\DependencyInjection\ContainerBuilder" />
+        <var name="PMA_PHP_SELF" type="string" />
     </globals>
 </psalm>
