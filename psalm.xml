@@ -23,4 +23,9 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
+
+    <globals>
+        <!-- <var name="cfg" type="array" /> -->
+        <var name="dbi" type="PhpMyAdmin\DatabaseInterface" />
+    </globals>
 </psalm>
