@@ -4888,7 +4888,7 @@ class Results
         );
 
         if ($dispresult && $dbi->numRows($dispresult) > 0) {
-            [$dispval] = $dbi->fetchRow($dispresult, 0);
+            [$dispval] = $dbi->fetchRow($dispresult);
         } else {
             $dispval = __('Link not found!');
         }
