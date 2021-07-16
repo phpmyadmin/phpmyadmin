@@ -47,7 +47,7 @@ final class Gis
         $wktresult = $dbi->tryQuery(
             $wktsql
         );
-        $wktarr = $dbi->fetchRow($wktresult, 0);
+        $wktarr = $dbi->fetchRow($wktresult);
         $wktval = $wktarr[0] ?? '';
 
         if ($includeSRID) {
