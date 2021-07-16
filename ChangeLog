@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #16985 Fix case-sensitive issue of innodb_file_format=barracuda vs innodb_file_format=Barracuda
 - issue        Fixed duplicate quote in navigation nodes
 - issue #17006 Disable the URL limit for the MariaDB analyser feature
+- issue        Fix calls to fetchRow using two parameters but the function has only one parameter
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
