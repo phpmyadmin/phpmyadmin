@@ -8804,7 +8804,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$gis_obj</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="20">
       <code>$sub_part</code>
       <code>$sub_part</code>
       <code>$sub_part</code>
@@ -8848,7 +8848,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="3">
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
       <code>$wkt</code>
@@ -8911,7 +8911,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="3">
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
       <code>$wkt</code>
@@ -8985,7 +8985,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$point</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
@@ -9054,7 +9054,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="7">
       <code>$points_arr[2]</code>
       <code>$points_arr[3]</code>
       <code>$ring1['pointOnSurface']</code>
@@ -9183,7 +9183,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$points_arr[0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
@@ -9242,7 +9242,7 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="5">
       <code>$points_arr[2]</code>
       <code>$points_arr[3]</code>
       <code>$wkt</code>
@@ -14131,7 +14131,7 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportShp.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$buffer</code>
       <code>$dbf_file_name</code>
       <code>$dbf_file_path</code>

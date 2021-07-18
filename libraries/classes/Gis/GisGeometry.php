@@ -12,7 +12,6 @@ use TCPDF;
 use function explode;
 use function floatval;
 use function intval;
-use function mb_strlen;
 use function mb_strripos;
 use function mb_substr;
 use function mt_rand;
@@ -393,11 +392,7 @@ abstract class GisGeometry
             $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
-        $ol_array = mb_substr(
-            $ol_array,
-            0,
-            mb_strlen($ol_array) - 2
-        );
+        $ol_array = mb_substr($ol_array, 0, -2);
 
         return $ol_array . ')';
     }

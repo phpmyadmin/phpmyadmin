@@ -20,7 +20,6 @@ use function imagefilledpolygon;
 use function imagestring;
 use function json_encode;
 use function max;
-use function mb_strlen;
 use function mb_substr;
 use function min;
 use function pow;
@@ -73,11 +72,7 @@ class GisPolygon extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner ring, use polygon itself
         if (! str_contains($polygon, '),(')) {
@@ -119,11 +114,7 @@ class GisPolygon extends GisGeometry
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner polygon
         if (! str_contains($polygon, '),(')) {
@@ -187,11 +178,7 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner polygon
         if (! str_contains($polygon, '),(')) {
@@ -250,11 +237,7 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         $row = '<path d="';
 
@@ -324,11 +307,7 @@ class GisPolygon extends GisGeometry
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
@@ -399,19 +378,11 @@ class GisPolygon extends GisGeometry
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
 
-            $wkt = mb_substr(
-                $wkt,
-                0,
-                mb_strlen($wkt) - 1
-            );
+            $wkt = mb_substr($wkt, 0, -1);
             $wkt .= '),';
         }
 
-        $wkt = mb_substr(
-            $wkt,
-            0,
-            mb_strlen($wkt) - 1
-        );
+        $wkt = mb_substr($wkt, 0, -1);
 
         return $wkt . ')';
     }
@@ -623,11 +594,7 @@ class GisPolygon extends GisGeometry
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $wkt,
-            9,
-            mb_strlen($wkt) - 11
-        );
+        $polygon = mb_substr($wkt, 9, -2);
         // Separate each linestring
         $linerings = explode('),(', $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);

@@ -1860,11 +1860,7 @@ class Results
 
         // remove the comma from the last column name in the newly
         // constructed clause
-        $sortOrder = mb_substr(
-            $sortOrder,
-            0,
-            mb_strlen($sortOrder) - 2
-        );
+        $sortOrder = mb_substr($sortOrder, 0, -2);
         if (empty($orderImg)) {
             $orderImg = '';
         }
