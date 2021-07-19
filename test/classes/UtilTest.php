@@ -2267,7 +2267,7 @@ class UtilTest extends AbstractTestCase
                 ],
                 '\'POINT(1 1)\',0',
                 true,
-                80010,
+                80001,
             ],
             [
                 'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
@@ -2288,7 +2288,7 @@ class UtilTest extends AbstractTestCase
                 ],
                 'POINT(1 1)',
                 false,
-                80010,
+                80001,
             ],
             [
                 'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
