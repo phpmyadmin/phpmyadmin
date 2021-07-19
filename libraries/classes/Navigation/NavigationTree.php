@@ -974,18 +974,7 @@ class NavigationTree
         ]);
         $this->setVisibility();
 
-        $nodes = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], 'first');
-            } else {
-                if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i]);
-                } else {
-                    $nodes .= $this->renderNode($children[$i], 'last');
-                }
-            }
-        }
+        $nodes = $this->renderNodes($children);
 
         return $this->template->render('navigation/tree/state', [
             'quick_warp' => $quickWarp,
@@ -1015,13 +1004,7 @@ class NavigationTree
                 'sortNode',
             ]);
 
-            for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 != $nbChildren) {
-                    $listContent .= $this->renderNode($children[$i]);
-                } else {
-                    $listContent .= $this->renderNode($children[$i], 'last');
-                }
-            }
+            $listContent .= $this->renderNodes($children, false);
 
             if (! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
                 $parents = $node->parents(true);
@@ -1125,6 +1108,25 @@ class NavigationTree
         }
 
         return $match;
+    }
+
+    /**
+     * @param Node[] $children
+     */
+    private function renderNodes(array $children, bool $hasFirstClass = true): string
+    {
+        $nodes = '';
+        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+            if ($i === 0) {
+                $nodes .= $this->renderNode($children[0], $hasFirstClass ? 'first' : '');
+            } elseif ($i + 1 !== $nbChildren) {
+                $nodes .= $this->renderNode($children[$i]);
+            } else {
+                $nodes .= $this->renderNode($children[$i], 'last');
+            }
+        }
+
+        return $nodes;
     }
 
     /**
@@ -1334,18 +1336,7 @@ class NavigationTree
         ]);
         $this->setVisibility();
 
-        $nodes = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], 'first');
-            } else {
-                if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i]);
-                } else {
-                    $nodes .= $this->renderNode($children[$i], 'last');
-                }
-            }
-        }
+        $nodes = $this->renderNodes($children);
 
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
