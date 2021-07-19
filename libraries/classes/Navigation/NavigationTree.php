@@ -977,12 +977,12 @@ class NavigationTree
         $nodes = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], true, 'first');
+                $nodes .= $this->renderNode($children[0], 'first');
             } else {
                 if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i], true);
+                    $nodes .= $this->renderNode($children[$i]);
                 } else {
-                    $nodes .= $this->renderNode($children[$i], true, 'last');
+                    $nodes .= $this->renderNode($children[$i], 'last');
                 }
             }
         }
@@ -1017,9 +1017,9 @@ class NavigationTree
 
             for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
-                    $listContent .= $this->renderNode($children[$i], true);
+                    $listContent .= $this->renderNode($children[$i]);
                 } else {
-                    $listContent .= $this->renderNode($children[$i], true, 'last');
+                    $listContent .= $this->renderNode($children[$i], 'last');
                 }
             }
 
@@ -1130,13 +1130,12 @@ class NavigationTree
     /**
      * Renders a single node or a branch of the tree
      *
-     * @param Node   $node      The node to render
-     * @param bool   $recursive Whether to render a single node or a branch
-     * @param string $class     An additional class for the list item
+     * @param Node   $node  The node to render
+     * @param string $class An additional class for the list item
      *
      * @return string HTML code for the tree node or branch
      */
-    private function renderNode(Node $node, bool $recursive, string $class = ''): string
+    private function renderNode(Node $node, string $class = ''): string
     {
         $controlButtons = '';
         $paths = $node->getPaths();
@@ -1239,24 +1238,22 @@ class NavigationTree
             $paginationParams = $this->getPaginationParamsHtml($node);
         }
 
-        if ($recursive) {
-            $children = $node->children;
-            usort($children, [self::class, 'sortNode']);
-            $buffer = '';
-            $extraClass = '';
-            for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 == $nbChildren) {
-                    $extraClass = ' last';
-                }
-
-                $buffer .= $this->renderNode($children[$i], true, $children[$i]->classes . $extraClass);
+        $children = $node->children;
+        usort($children, [self::class, 'sortNode']);
+        $buffer = '';
+        $extraClass = '';
+        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+            if ($i + 1 == $nbChildren) {
+                $extraClass = ' last';
             }
 
-            if (! empty($buffer)) {
-                $recursiveHtml = $this->fastFilterHtml($node);
-                $recursiveHtml .= $this->getPageSelector($node);
-                $recursiveHtml .= $buffer;
-            }
+            $buffer .= $this->renderNode($children[$i], $children[$i]->classes . $extraClass);
+        }
+
+        if (! empty($buffer)) {
+            $recursiveHtml = $this->fastFilterHtml($node);
+            $recursiveHtml .= $this->getPageSelector($node);
+            $recursiveHtml .= $buffer;
         }
 
         return $this->template->render('navigation/tree/node', [
@@ -1340,12 +1337,12 @@ class NavigationTree
         $nodes = '';
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], true, 'first');
+                $nodes .= $this->renderNode($children[0], 'first');
             } else {
                 if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i], true);
+                    $nodes .= $this->renderNode($children[$i]);
                 } else {
-                    $nodes .= $this->renderNode($children[$i], true, 'last');
+                    $nodes .= $this->renderNode($children[$i], 'last');
                 }
             }
         }
