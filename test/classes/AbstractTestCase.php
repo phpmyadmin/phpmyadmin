@@ -130,6 +130,16 @@ abstract class AbstractTestCase extends TestCase
         $containerBuilder->setAlias('response', Response::class);
     }
 
+    protected function setResponseIsAjax(): void
+    {
+        global $containerBuilder;
+
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        $response->setAjax(true);
+    }
+
     protected function getResponseHtmlResult(): string
     {
         global $containerBuilder;
