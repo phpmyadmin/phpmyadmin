@@ -66,7 +66,7 @@ class Template
         ]);
 
         // It was reported that the config could not be loaded correctly
-        if (is_array($cfg) && $cfg['environment'] === 'development') {
+        if (is_array($cfg) && ($cfg['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
         }
