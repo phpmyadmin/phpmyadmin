@@ -103,7 +103,7 @@ abstract class AbstractTestCase extends TestCase
             return;
         }
 
-        $this->fail('Some queries where no used !');
+        $this->fail('Some queries where not used !');
     }
 
     protected function loadContainerBuilder(): void
