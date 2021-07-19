@@ -210,7 +210,7 @@ class NavigationTree
     {
         $retval = 0;
 
-        if (strlen($GLOBALS['db']) == 0) {
+        if (strlen($GLOBALS['db'] ?? '') === 0) {
             return $retval;
         }
 
