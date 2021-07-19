@@ -3099,7 +3099,7 @@ class InsertEdit
          */
         $url_params = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query'] ?? '',
         ];
 
         if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
