@@ -2722,26 +2722,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getUrlParameters
-     */
-    public function testGetUrlParameters(): void
-    {
-        global $goto;
-
-        $_POST['sql_query'] = 'SELECT';
-        $goto = 'tbl_sql.php';
-
-        $this->assertEquals(
-            [
-                'db' => 'foo',
-                'sql_query' => 'SELECT',
-                'table' => 'bar',
-            ],
-            $this->insertEdit->getUrlParameters('foo', 'bar')
-        );
-    }
-
-    /**
      * Test for getHtmlForIgnoreOption
      */
     public function testGetHtmlForIgnoreOption(): void

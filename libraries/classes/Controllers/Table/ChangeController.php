@@ -19,6 +19,7 @@ use function count;
 use function is_array;
 use function str_contains;
 use function strlen;
+use function strpos;
 
 /**
  * Displays form for editing and inserting new table rows.
@@ -99,12 +100,20 @@ class ChangeController extends AbstractController
             }
         }
 
-        $_url_params = $this->insertEdit->getUrlParameters($db, $table);
+        $urlParams = [
+            'db' => $db,
+            'sql_query' => $_POST['sql_query'],
+        ];
+
+        if (strpos($GLOBALS['goto'] ?? '', 'index.php?route=/table') === 0) {
+            $urlParams['table'] = $table;
+        }
+
         $errorUrl = $GLOBALS['goto'] . Url::getCommon(
-            $_url_params,
+            $urlParams,
             ! str_contains($GLOBALS['goto'], '?') ? '?' : '&'
         );
-        unset($_url_params);
+        unset($urlParams);
 
         $comments_map = $this->insertEdit->getCommentsMap($db, $table);
 

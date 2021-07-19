@@ -43,7 +43,6 @@ use function str_replace;
 use function stripcslashes;
 use function stripslashes;
 use function strlen;
-use function strpos;
 use function substr;
 use function time;
 use function trim;
@@ -2122,32 +2121,6 @@ class InsertEdit
         }
 
         return $commentsMap;
-    }
-
-    /**
-     * Function to get URL parameters
-     *
-     * @param string $db    current database
-     * @param string $table current table
-     *
-     * @return array url parameters
-     */
-    public function getUrlParameters($db, $table)
-    {
-        global $goto;
-        /**
-         * @todo check if we could replace by "db_|tbl_" - please clarify!?
-         */
-        $urlParams = [
-            'db' => $db,
-            'sql_query' => $_POST['sql_query'],
-        ];
-
-        if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
-            $urlParams['table'] = $table;
-        }
-
-        return $urlParams;
     }
 
     /**
