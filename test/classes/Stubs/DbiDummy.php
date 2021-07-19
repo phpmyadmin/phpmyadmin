@@ -508,6 +508,11 @@ class DbiDummy implements DbiExtension
         ];
     }
 
+    public function removeDefaultResults(): void
+    {
+        $this->dummyQueries = [];
+    }
+
     /**
      * @param mixed  $link  link
      * @param string $query query
