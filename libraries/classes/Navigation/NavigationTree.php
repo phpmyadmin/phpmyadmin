@@ -159,13 +159,13 @@ class NavigationTree
                     $this->aPath[$count] = $this->parsePath(
                         $_POST['n' . $count . '_aPath']
                     );
-                    $index = 'n' . $count . '_pos2_';
-                    $this->pos2Name[$count] = $_POST[$index . 'name'];
-                    $this->pos2Value[$count] = (int) $_POST[$index . 'value'];
-                    $index = 'n' . $count . '_pos3_';
-                    if (isset($_POST[$index])) {
-                        $this->pos3Name[$count] = $_POST[$index . 'name'];
-                        $this->pos3Value[$count] = (int) $_POST[$index . 'value'];
+                    if (isset($_POST['n' . $count . '_pos2_name'])) {
+                        $this->pos2Name[$count] = $_POST['n' . $count . '_pos2_name'];
+                        $this->pos2Value[$count] = (int) $_POST['n' . $count . '_pos2_value'];
+                    }
+                    if (isset($_POST['n' . $count . '_pos3_name'])) {
+                        $this->pos3Name[$count] = $_POST['n' . $count . '_pos3_name'];
+                        $this->pos3Value[$count] = (int) $_POST['n' . $count . '_pos3_value'];
                     }
                     $count++;
                 }
