@@ -109,7 +109,7 @@ class InsertEdit
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $errorUrl,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query'] ?? '',
         ];
         if (isset($whereClauses)) {
             foreach ($whereClauseArray as $keyId => $whereClause) {
