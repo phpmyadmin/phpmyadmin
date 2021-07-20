@@ -13609,9 +13609,6 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>1</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="87">
       <code>$col_as</code>
       <code>$column['Type']</code>
@@ -13890,14 +13887,6 @@
     <ParamNameMismatch occurrences="1">
       <code>$topMargin</code>
     </ParamNameMismatch>
-    <PossiblyInvalidOperand occurrences="6">
-      <code>$stringWidth</code>
-      <code>$totAlreadyFitted</code>
-      <code>$totalTitleWidth</code>
-      <code>$val</code>
-      <code>6</code>
-      <code>6</code>
-    </PossiblyInvalidOperand>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>
@@ -14468,9 +14457,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$this-&gt;showColor</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="5">
       <code>$one_field</code>
       <code>$one_key['ref_index_list'][$index]</code>
@@ -14499,27 +14485,16 @@
       <code>$one_key</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="6">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
-      <code>$this-&gt;tables[$foreignTable]</code>
-      <code>$this-&gt;tables[$masterTable]</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullReference occurrences="3">
+    <PossiblyNullReference occurrences="2">
       <code>endDiaDoc</code>
-      <code>showOutput</code>
       <code>startDiaDoc</code>
     </PossiblyNullReference>
-    <PossiblyUndefinedMethod occurrences="3">
-      <code>endDiaDoc</code>
-      <code>showOutput</code>
-      <code>startDiaDoc</code>
-    </PossiblyUndefinedMethod>
-    <TooFewArguments occurrences="1">
-      <code>tableDraw</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php">
     <InvalidOperand occurrences="6">
@@ -14550,19 +14525,6 @@
     <MixedOperand occurrences="1">
       <code>$field</code>
     </MixedOperand>
-    <PossiblyUndefinedMethod occurrences="11">
-      <code>endElement</code>
-      <code>endElement</code>
-      <code>startElement</code>
-      <code>startElement</code>
-      <code>writeAttribute</code>
-      <code>writeAttribute</code>
-      <code>writeAttribute</code>
-      <code>writeAttribute</code>
-      <code>writeRaw</code>
-      <code>writeRaw</code>
-      <code>writeRaw</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php">
     <InvalidArgument occurrences="2">
@@ -14573,9 +14535,8 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidCast>
-    <InvalidScalarArgument occurrences="2">
-      <code>$this-&gt;showColor</code>
-      <code>'10'</code>
+    <InvalidScalarArgument occurrences="1">
+      <code>10</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="11">
       <code>$one_field</code>
@@ -14611,15 +14572,13 @@
       <code>$one_key</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-    </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="13">
+    <PossiblyNullReference occurrences="12">
       <code>endEpsDoc</code>
       <code>getFont</code>
       <code>getFont</code>
@@ -14632,26 +14591,7 @@
       <code>setFont</code>
       <code>setOrientation</code>
       <code>setTitle</code>
-      <code>showOutput</code>
     </PossiblyNullReference>
-    <PossiblyUndefinedMethod occurrences="13">
-      <code>endEpsDoc</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>setAuthor</code>
-      <code>setDate</code>
-      <code>setFont</code>
-      <code>setOrientation</code>
-      <code>setTitle</code>
-      <code>showOutput</code>
-    </PossiblyUndefinedMethod>
-    <TooFewArguments occurrences="1">
-      <code>tableDraw</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php">
     <MixedMethodCall occurrences="7">
@@ -14685,10 +14625,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/TableStatsEps.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$diagram</code>
-    </ArgumentTypeCoercion>
-    <InvalidScalarArgument occurrences="10">
+    <InvalidScalarArgument occurrences="8">
       <code>$this-&gt;x</code>
       <code>$this-&gt;x</code>
       <code>$this-&gt;x + 5</code>
@@ -14697,8 +14634,6 @@
       <code>$this-&gt;y + 12 + $this-&gt;currentCell</code>
       <code>$this-&gt;y + 14</code>
       <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
-      <code>1</code>
-      <code>1</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="2">
       <code>$field</code>
@@ -14708,12 +14643,6 @@
       <code>$field</code>
       <code>$field</code>
     </MixedAssignment>
-    <PossiblyUndefinedMethod occurrences="4">
-      <code>rect</code>
-      <code>rect</code>
-      <code>showXY</code>
-      <code>showXY</code>
-    </PossiblyUndefinedMethod>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(int) $fontSize</code>
       <code>(int) $fontSize</code>
@@ -14744,9 +14673,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$fill</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="15">
       <code>$GLOBALS['cfgRelation']['db']</code>
       <code>$GLOBALS['cfgRelation']['pdf_pages']</code>
@@ -14808,22 +14734,14 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidCast>
-    <InvalidScalarArgument occurrences="13">
-      <code>''</code>
-      <code>''</code>
-      <code>''</code>
-      <code>'B'</code>
-      <code>'B'</code>
+    <InvalidScalarArgument occurrences="5">
+      <code>$this-&gt;diagram-&gt;PageNo()</code>
+      <code>$this-&gt;diagram-&gt;PageNo()</code>
       <code>'auto'</code>
       <code>'auto'</code>
       <code>'auto'</code>
-      <code>0</code>
-      <code>0</code>
-      <code>0</code>
-      <code>0</code>
-      <code>0</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="26">
+    <MixedArgument occurrences="25">
       <code>$_REQUEST['pdf_table_order']</code>
       <code>$field_name</code>
       <code>$field_name</code>
@@ -14843,7 +14761,6 @@
       <code>$table</code>
       <code>$table</code>
       <code>$this-&gt;diagram-&gt;PageNo()</code>
-      <code>$this-&gt;diagram-&gt;PageNo()</code>
       <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$table][$field_name]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]['-']</code>
@@ -14853,7 +14770,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$master_field</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="26">
+    <MixedArrayAccess occurrences="24">
       <code>$foreignTable[$foreigner['foreign_field']]</code>
       <code>$mime_map[$field_name]</code>
       <code>$one_key['index_list']</code>
@@ -14874,20 +14791,18 @@
       <code>$showtable['Comment']</code>
       <code>$showtable['Create_time']</code>
       <code>$showtable['Update_time']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$foreigner['foreign_table']]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="6">
       <code>$row['Default']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$table]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$table]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="12">
       <code>$comments[$field_name]</code>
@@ -14903,7 +14818,7 @@
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$table][$field_name]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$table][$field_name]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="20">
       <code>$attribute</code>
       <code>$field_name</code>
       <code>$field_name</code>
@@ -14923,11 +14838,6 @@
       <code>$showtable</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$type</code>
     </MixedAssignment>
     <MixedOperand occurrences="13">
@@ -14944,115 +14854,43 @@
       <code>$table</code>
       <code>$table</code>
     </MixedOperand>
-    <NullArgument occurrences="4">
-      <code>null</code>
+    <NullArgument occurrences="3">
       <code>null</code>
       <code>null</code>
       <code>null</code>
     </NullArgument>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="4">
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="3">
+    <PossiblyNullArrayAccess occurrences="1">
       <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullArrayAssignment occurrences="2">
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-    </PossiblyNullArrayAssignment>
-    <PossiblyNullPropertyAssignment occurrences="5">
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-    </PossiblyNullPropertyAssignment>
-    <PossiblyNullPropertyFetch occurrences="3">
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
+    <PossiblyNullPropertyFetch occurrences="1">
       <code>$this-&gt;diagram-&gt;customLinks</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="92">
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddPage</code>
-      <code>AddPage</code>
+    <PossiblyNullReference occurrences="32">
       <code>AddPage</code>
       <code>Bookmark</code>
-      <code>Bookmark</code>
-      <code>Bookmark</code>
       <code>Cell</code>
       <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Ln</code>
-      <code>Ln</code>
-      <code>Ln</code>
       <code>Open</code>
       <code>PageNo</code>
-      <code>PageNo</code>
-      <code>SetAutoPageBreak</code>
       <code>SetAutoPageBreak</code>
       <code>SetAutoPageBreak</code>
       <code>SetAutoPageBreak</code>
       <code>SetDrawColor</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
       <code>SetFontSize</code>
-      <code>SetLink</code>
-      <code>SetLink</code>
       <code>SetLink</code>
       <code>SetMargins</code>
       <code>SetTitle</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
       <code>SetXY</code>
       <code>SetXY</code>
-      <code>download</code>
       <code>getPageHeight</code>
       <code>getPageHeight</code>
       <code>getPageHeight</code>
@@ -15061,8 +14899,6 @@
       <code>getPageWidth</code>
       <code>line</code>
       <code>line</code>
-      <code>row</code>
-      <code>setAlias</code>
       <code>setAlias</code>
       <code>setCMargin</code>
       <code>setCMargin</code>
@@ -15071,119 +14907,11 @@
       <code>setLineWidthScale</code>
       <code>setOffline</code>
       <code>setScale</code>
-      <code>setWidths</code>
-      <code>setWidths</code>
     </PossiblyNullReference>
-    <PossiblyUndefinedMethod occurrences="92">
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddLink</code>
-      <code>AddPage</code>
-      <code>AddPage</code>
-      <code>AddPage</code>
-      <code>Bookmark</code>
-      <code>Bookmark</code>
-      <code>Bookmark</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Cell</code>
-      <code>Ln</code>
-      <code>Ln</code>
-      <code>Ln</code>
-      <code>Open</code>
-      <code>PageNo</code>
-      <code>PageNo</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetDrawColor</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFontSize</code>
-      <code>SetLink</code>
-      <code>SetLink</code>
-      <code>SetLink</code>
-      <code>SetMargins</code>
-      <code>SetTitle</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetX</code>
-      <code>SetXY</code>
-      <code>SetXY</code>
-      <code>download</code>
-      <code>getPageHeight</code>
-      <code>getPageHeight</code>
-      <code>getPageHeight</code>
-      <code>getPageWidth</code>
-      <code>getPageWidth</code>
-      <code>getPageWidth</code>
-      <code>line</code>
-      <code>line</code>
-      <code>row</code>
-      <code>setAlias</code>
-      <code>setAlias</code>
-      <code>setCMargin</code>
-      <code>setCMargin</code>
-      <code>setCMargin</code>
-      <code>setFontSizeScale</code>
-      <code>setLineWidthScale</code>
-      <code>setOffline</code>
-      <code>setScale</code>
-      <code>setWidths</code>
-      <code>setWidths</code>
-    </PossiblyUndefinedMethod>
     <RedundantCast occurrences="2"/>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($this-&gt;orientation)</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedPropertyAssignment occurrences="5">
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-    </UndefinedPropertyAssignment>
-    <UndefinedPropertyFetch occurrences="3">
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-    </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php">
     <MixedMethodCall occurrences="12">
@@ -15220,17 +14948,14 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$diagram</code>
-    </ArgumentTypeCoercion>
-    <InvalidScalarArgument occurrences="6">
-      <code>$setColor</code>
-      <code>$setColor</code>
-      <code>''</code>
+    <InvalidArgument occurrences="2">
       <code>''</code>
       <code>'B'</code>
-      <code>'B'</code>
-    </InvalidScalarArgument>
+    </InvalidArgument>
+    <InvalidPropertyAssignmentValue occurrences="2">
+      <code>$this-&gt;width += $this-&gt;diagram-&gt;GetStringWidth('      ')</code>
+      <code>$this-&gt;width += 5</code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument occurrences="5">
       <code>$field</code>
       <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName][$field]</code>
@@ -15238,28 +14963,24 @@
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName][$field]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]['-']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+    <MixedArrayAccess occurrences="4">
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
-      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="3">
       <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName][$field]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName][$field]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName][$field]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="5">
       <code>$field</code>
       <code>$field</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$this-&gt;width</code>
       <code>$this-&gt;width</code>
       <code>$this-&gt;width</code>
@@ -15268,37 +14989,14 @@
       <code>$field</code>
       <code>$this-&gt;width</code>
     </MixedOperand>
-    <PossiblyUndefinedMethod occurrences="21">
-      <code>GetStringWidth</code>
-      <code>GetStringWidth</code>
-      <code>GetStringWidth</code>
-      <code>SetFillColor</code>
-      <code>SetFillColor</code>
-      <code>SetFillColor</code>
-      <code>SetFillColor</code>
-      <code>SetFillColor</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetFont</code>
-      <code>SetLink</code>
-      <code>SetLink</code>
-      <code>SetTextColor</code>
-      <code>SetTextColor</code>
-      <code>cellScale</code>
-      <code>cellScale</code>
-      <code>setXScale</code>
-      <code>setXScale</code>
-      <code>setXyScale</code>
-    </PossiblyUndefinedMethod>
-    <UndefinedPropertyAssignment occurrences="2">
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-    </UndefinedPropertyAssignment>
-    <UndefinedPropertyFetch occurrences="2">
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-      <code>$this-&gt;diagram-&gt;customLinks</code>
-    </UndefinedPropertyFetch>
+    <PossiblyInvalidOperand occurrences="3">
+      <code>$this-&gt;diagram-&gt;GetStringWidth('      ')</code>
+      <code>$this-&gt;width</code>
+      <code>5</code>
+    </PossiblyInvalidOperand>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>max($this-&gt;width, $this-&gt;diagram-&gt;GetStringWidth($field))</code>
+    </PossiblyInvalidPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Plugins/Schema/RelationStats.php">
     <InvalidArgument occurrences="2">
@@ -15381,7 +15079,8 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php">
-    <InvalidArgument occurrences="2">
+    <InvalidArgument occurrences="3">
+      <code>$this-&gt;showColor</code>
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidArgument>
@@ -15389,8 +15088,7 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidCast>
-    <InvalidScalarArgument occurrences="5">
-      <code>$this-&gt;showColor</code>
+    <InvalidScalarArgument occurrences="4">
       <code>$this-&gt;xMax + $border</code>
       <code>$this-&gt;xMin - $border</code>
       <code>$this-&gt;yMax + $border</code>
@@ -15430,16 +15128,14 @@
       <code>$one_key</code>
       <code>$rel</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="5">
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;tables[$table]</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-      <code>$this-&gt;diagram</code>
-    </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="13">
+    <PossiblyNullReference occurrences="12">
       <code>SetAuthor</code>
       <code>endSvgDoc</code>
       <code>getFont</code>
@@ -15451,32 +15147,13 @@
       <code>setFont</code>
       <code>setFontSize</code>
       <code>setTitle</code>
-      <code>showOutput</code>
       <code>startSvgDoc</code>
     </PossiblyNullReference>
-    <PossiblyUndefinedMethod occurrences="13">
-      <code>SetAuthor</code>
-      <code>endSvgDoc</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFont</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>getFontSize</code>
-      <code>setFont</code>
-      <code>setFontSize</code>
-      <code>setTitle</code>
-      <code>showOutput</code>
-      <code>startSvgDoc</code>
-    </PossiblyUndefinedMethod>
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$diagram</code>
-    </ArgumentTypeCoercion>
     <InvalidScalarArgument occurrences="8">
       <code>$this-&gt;x</code>
       <code>$this-&gt;x</code>
@@ -15495,12 +15172,6 @@
       <code>$field</code>
       <code>$field</code>
     </MixedAssignment>
-    <PossiblyUndefinedMethod occurrences="4">
-      <code>printElement</code>
-      <code>printElement</code>
-      <code>printElement</code>
-      <code>printElement</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="libraries/classes/Plugins/Schema/TableStats.php">
     <MixedArgument occurrences="6">
@@ -22210,9 +21881,6 @@
     </UnusedVariable>
   </file>
   <file src="test/classes/PdfTest.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>'auto'</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="3">
       <code>$arr-&gt;getPDFData()</code>
       <code>$arr-&gt;getPDFData()</code>
