@@ -63,8 +63,8 @@ var confirmAndPost = function (linkObject, action) {
  */
 AJAX.registerOnload('table/operations.js', function () {
     /**
-     *Ajax action for submitting the "Copy table"
-     **/
+     * Ajax action for submitting the "Copy table"
+     */
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
         var $form = $(this);
@@ -96,7 +96,7 @@ AJAX.registerOnload('table/operations.js', function () {
     });// end of copyTable ajax submit
 
     /**
-     *Ajax action for submitting the "Move table"
+     * Ajax action for submitting the "Move table"
      */
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
@@ -115,7 +115,7 @@ AJAX.registerOnload('table/operations.js', function () {
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
-        }); // end $.post()
+        });
     });
 
     /**
@@ -165,13 +165,13 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         }
     });
 
     /**
-     *Ajax events for actions in the "Table maintenance"
-    **/
+     * Ajax events for actions in the "Table maintenance"
+     */
     $(document).on('click', '#tbl_maintenance li a.maintain_action.ajax', function (event) {
         event.preventDefault();
         var $link = $(this);
@@ -262,7 +262,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var {String} question String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
         question += Functions.sprintf(Messages.strDoYouReally, $link[0].getAttribute('data-query'));
@@ -288,7 +288,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         }, Functions.loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
@@ -296,7 +296,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         var $link = $(this);
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var {String} question String containing the question to be asked for confirmation
          */
         var question = Messages.strDropTableStrongWarning + ' ';
         question += Functions.sprintf(
@@ -322,17 +322,17 @@ AJAX.registerOnload('table/operations.js', function () {
                 } else {
                     Functions.ajaxShowMessage(data.error, false);
                 }
-            }); // end $.post()
+            });
         });
     }); // end of Drop View Ajax action
 
     $(document).on('click', '#truncate_tbl_anchor.ajax', function (event) {
         event.preventDefault();
         confirmAndPost($(this), 'TRUNCATE');
-    }); // end of Truncate Table Ajax action
+    });
 
     $(document).on('click', '#delete_tbl_anchor.ajax', function (event) {
         event.preventDefault();
         confirmAndPost($(this), 'DELETE');
-    }); // end of Delete Table Ajax action
+    });
 }); // end $(document).ready for 'Table operations'
