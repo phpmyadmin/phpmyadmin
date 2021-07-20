@@ -92,7 +92,7 @@
         "symfony/console": "^4.4",
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
-        "tecnickcom/tcpdf": "^6.4.1",
+        "tecnickcom/tcpdf": "^6.4.2",
         "vimeo/psalm": "^4.8.0"
     },
     "extra": {

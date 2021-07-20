@@ -1355,6 +1355,10 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Pdf.php">
+    <InvalidScalarArgument occurrences="2">
+      <code>$pdfa</code>
+      <code>[self::PMA_PDF_FONT, '', 14]</code>
+    </InvalidScalarArgument>
     <ParamNameMismatch occurrences="1">
       <code>$error_message</code>
     </ParamNameMismatch>
@@ -1563,9 +1567,20 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>1</code>
+    </InvalidScalarArgument>
     <ParamNameMismatch occurrences="1">
       <code>$topMargin</code>
     </ParamNameMismatch>
+    <PossiblyInvalidOperand occurrences="6">
+      <code>$stringWidth</code>
+      <code>$totAlreadyFitted</code>
+      <code>$totalTitleWidth</code>
+      <code>$val</code>
+      <code>6</code>
+      <code>6</code>
+    </PossiblyInvalidOperand>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>
@@ -1787,17 +1802,12 @@
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
-    <UndefinedDocblockClass occurrences="3">
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/TableStatsEps.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
-    <InvalidScalarArgument occurrences="8">
+    <InvalidScalarArgument occurrences="10">
       <code>$this-&gt;x</code>
       <code>$this-&gt;x</code>
       <code>$this-&gt;x + 5</code>
@@ -1806,6 +1816,8 @@
       <code>$this-&gt;y + 12 + $this-&gt;currentCell</code>
       <code>$this-&gt;y + 14</code>
       <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+      <code>1</code>
+      <code>1</code>
     </InvalidScalarArgument>
     <PossiblyUndefinedMethod occurrences="4">
       <code>rect</code>
@@ -1819,18 +1831,31 @@
       <code>(int) $fontSize</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$fill</code>
+    </InvalidScalarArgument>
+  </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <InvalidArgument occurrences="2">
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="6">
+    <InvalidScalarArgument occurrences="14">
       <code>$this-&gt;offline</code>
       <code>''</code>
       <code>''</code>
       <code>''</code>
       <code>'B'</code>
       <code>'B'</code>
+      <code>'auto'</code>
+      <code>'auto'</code>
+      <code>'auto'</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
     </InvalidScalarArgument>
     <NullArgument occurrences="4">
       <code>null</code>
@@ -1841,10 +1866,11 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="21">
+    <PossiblyNullArgument occurrences="22">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
       <code>$this-&gt;offline</code>
       <code>$this-&gt;orientation</code>
       <code>$this-&gt;pageNumber</code>
@@ -2225,11 +2251,6 @@
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
-    <UndefinedDocblockClass occurrences="3">
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
     <ArgumentTypeCoercion occurrences="1">
