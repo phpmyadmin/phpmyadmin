@@ -18,19 +18,12 @@ header(
     'Cache-Control: no-store, no-cache, must-revalidate,'
     . '  pre-check=0, post-check=0, max-age=0'
 );
-if (
-    isset($_SERVER['HTTP_USER_AGENT'])
-    && stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false
-) {
-    /* FIXME: Why is this special case for IE needed? */
-    header('Pragma: public');
-} else {
-    header('Pragma: no-cache'); // HTTP/1.0
-    // test case: exporting a database into a .gz file with Safari
-    // would produce files not having the current time
-    // (added this header for Safari but should not harm other browsers)
-    header('Last-Modified: ' . gmdate(DATE_RFC1123));
-}
+
+header('Pragma: no-cache'); // HTTP/1.0
+// test case: exporting a database into a .gz file with Safari
+// would produce files not having the current time
+// (added this header for Safari but should not harm other browsers)
+header('Last-Modified: ' . gmdate(DATE_RFC1123));
 
 header('Content-Type: text/html; charset=utf-8');
 
