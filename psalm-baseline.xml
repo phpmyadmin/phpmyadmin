@@ -20481,9 +20481,6 @@
       <code>$responseMessage</code>
       <code>$responseMessage</code>
     </MixedAssignment>
-    <UndefinedMethod occurrences="1">
-      <code>parent::defineVersionConstants()</code>
-    </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
     <MixedArgument occurrences="1">

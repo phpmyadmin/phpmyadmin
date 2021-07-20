@@ -1601,18 +1601,8 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^If condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -1674,11 +1664,6 @@ parameters:
 			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Call to an undefined static method PhpMyAdmin\\\\Tests\\\\AbstractTestCase\\:\\:defineVersionConstants\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/NavigationControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"

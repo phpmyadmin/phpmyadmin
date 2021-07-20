@@ -2391,18 +2391,12 @@ class Table implements Stringable
                 . '\'' . $this->dbi->escapeString($displayField) . '\')';
         }
 
-        if ($updQuery) {
-            $this->dbi->query(
-                $updQuery,
-                DatabaseInterface::CONNECT_CONTROL,
-                0,
-                false
-            );
-
-            return true;
-        }
-
-        return false;
+        return $this->dbi->query(
+            $updQuery,
+            DatabaseInterface::CONNECT_CONTROL,
+            0,
+            false
+        ) === true;
     }
 
     /**
