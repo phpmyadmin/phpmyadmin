@@ -101,7 +101,7 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, string given\\.$#"
+			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, non\\-empty\\-string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
 
@@ -251,6 +251,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/OperationsController.php
+
+		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
@@ -291,22 +296,22 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -1866,7 +1871,7 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Offset string does not exist on array\\|string\\.$#"
+			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -2066,6 +2071,11 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int\\<min, \\-1\\>\\|int\\<1, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
@@ -2078,6 +2088,11 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
 			path: libraries/classes/Table.php
 
 		-
