@@ -323,15 +323,9 @@ class Export
         // Grab basic dump extension and mime type
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extensionStartPos = mb_strlen($filename) - mb_strlen(
-            $exportPlugin->getProperties()->getExtension()
-        ) - 1;
-        $userExtension = mb_substr(
-            $filename,
-            $extensionStartPos,
-            mb_strlen($filename)
-        );
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
+        $extensionLength = mb_strlen($requiredExtension);
+        $userExtension = mb_substr($filename, -$extensionLength);
         if (mb_strtolower($userExtension) != $requiredExtension) {
             $filename  .= $requiredExtension;
         }

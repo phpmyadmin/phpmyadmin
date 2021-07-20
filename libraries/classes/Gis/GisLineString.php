@@ -15,7 +15,6 @@ use function imagecolorallocate;
 use function imageline;
 use function imagestring;
 use function json_encode;
-use function mb_strlen;
 use function mb_substr;
 use function trim;
 
@@ -64,11 +63,7 @@ class GisLineString extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linestring = mb_substr($spatial, 11, -1);
 
         return $this->setMinMax($linestring, []);
     }
@@ -101,11 +96,7 @@ class GisLineString extends GisGeometry
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -169,11 +160,7 @@ class GisLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -226,11 +213,7 @@ class GisLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         $row = '<polyline points="';
@@ -285,11 +268,7 @@ class GisLineString extends GisGeometry
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, null);
 
         return $result . 'var line = new ol.Feature({geometry: '
@@ -326,11 +305,7 @@ class GisLineString extends GisGeometry
                     ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 
-        $wkt = mb_substr(
-            $wkt,
-            0,
-            mb_strlen($wkt) - 1
-        );
+        $wkt = mb_substr($wkt, 0, -1);
 
         return $wkt . ')';
     }
@@ -359,11 +334,7 @@ class GisLineString extends GisGeometry
         }
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = mb_substr(
-            $wkt,
-            11,
-            mb_strlen($wkt) - 12
-        );
+        $linestring = mb_substr($wkt, 11, -1);
         $points_arr = $this->extractPoints($linestring, null);
 
         $no_of_points = count($points_arr);

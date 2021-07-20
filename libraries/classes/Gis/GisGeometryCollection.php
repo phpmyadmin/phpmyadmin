@@ -11,7 +11,6 @@ use TCPDF;
 
 use function array_merge;
 use function count;
-use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
 use function str_split;
@@ -63,11 +62,7 @@ class GisGeometryCollection extends GisGeometry
         $min_max = [];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $spatial,
-            19,
-            mb_strlen($spatial) - 20
-        );
+        $goem_col = mb_substr($spatial, 19, -1);
 
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
@@ -130,11 +125,7 @@ class GisGeometryCollection extends GisGeometry
     public function prepareRowAsPng($spatial, ?string $label, $color, array $scale_data, $image)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $spatial,
-            19,
-            mb_strlen($spatial) - 20
-        );
+        $goem_col = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
 
@@ -179,11 +170,7 @@ class GisGeometryCollection extends GisGeometry
     public function prepareRowAsPdf($spatial, ?string $label, $color, array $scale_data, $pdf)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $spatial,
-            19,
-            mb_strlen($spatial) - 20
-        );
+        $goem_col = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
 
@@ -229,11 +216,7 @@ class GisGeometryCollection extends GisGeometry
         $row = '';
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $spatial,
-            19,
-            mb_strlen($spatial) - 20
-        );
+        $goem_col = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
 
@@ -280,11 +263,7 @@ class GisGeometryCollection extends GisGeometry
         $row = '';
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $spatial,
-            19,
-            mb_strlen($spatial) - 20
-        );
+        $goem_col = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
 
@@ -379,11 +358,7 @@ class GisGeometryCollection extends GisGeometry
         }
 
         if (isset($gis_data[0]['gis_type'])) {
-            $wkt = mb_substr(
-                $wkt,
-                0,
-                mb_strlen($wkt) - 1
-            );
+            $wkt = mb_substr($wkt, 0, -1);
         }
 
         return $wkt . ')';
@@ -406,11 +381,7 @@ class GisGeometryCollection extends GisGeometry
         $wkt = $data['wkt'];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
-        $goem_col = mb_substr(
-            $wkt,
-            19,
-            mb_strlen($wkt) - 20
-        );
+        $goem_col = mb_substr($wkt, 19, -1);
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->explodeGeomCol($goem_col);
         $params['GEOMETRYCOLLECTION']['geom_count'] = count($sub_parts);

@@ -26,7 +26,6 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function file_put_contents;
-use function mb_strlen;
 use function mb_substr;
 use function method_exists;
 use function pathinfo;
@@ -161,12 +160,7 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $file_name = mb_substr(
-                    $import_file,
-                    0,
-                    mb_strlen($import_file) - 4
-                ) . '.*';
-                $shp->fileName = $file_name;
+                $shp->fileName = mb_substr($import_file, 0, -4) . '.*';
             }
         }
 
