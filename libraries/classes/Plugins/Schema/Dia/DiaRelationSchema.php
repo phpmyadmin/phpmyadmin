@@ -7,10 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
-use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
-use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
 
 use function in_array;
 
@@ -26,11 +23,11 @@ use function in_array;
  * inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @name    Dia_Relation_Schema
+ * @property Dia $diagram
  */
 class DiaRelationSchema extends ExportRelationSchema
 {
-    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
+    /** @var TableStatsDia[] */
     private $tables = [];
 
     /** @var RelationStatsDia[] Relations */

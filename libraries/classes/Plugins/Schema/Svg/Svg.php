@@ -96,8 +96,6 @@ class Svg extends XMLWriter
      * Set document font
      *
      * @param string $value sets the font e.g Arial, Sans-serif etc
-     *
-     * @return void
      */
     public function setFont(string $value): void
     {
@@ -118,8 +116,6 @@ class Svg extends XMLWriter
      * Set document font size
      *
      * @param int $value sets the font size in pixels
-     *
-     * @return void
      */
     public function setFontSize(int $value): void
     {

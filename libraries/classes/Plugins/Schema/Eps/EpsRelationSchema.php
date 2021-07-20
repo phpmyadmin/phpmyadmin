@@ -7,10 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
-use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
-use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
-use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
 use PhpMyAdmin\Version;
 
 use function __;
@@ -30,11 +27,10 @@ use function sprintf;
  * to this class
  *
  * @property Eps $diagram
- *
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
-    /** @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[] */
+    /** @var TableStatsEps[] */
     private $tables = [];
 
     /** @var RelationStatsEps[] Relations */
@@ -47,7 +43,7 @@ class EpsRelationSchema extends ExportRelationSchema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
-     * @see PMA_EPS
+     * @see Eps
      *
      * @param string $db database name
      */

@@ -22,9 +22,9 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
- * @see     PMA_SVG
+ * @see     Svg
  *
- * @name    TableStatsSvg
+ * @property Svg $diagram
  */
 class TableStatsSvg extends TableStats
 {
@@ -39,7 +39,7 @@ class TableStatsSvg extends TableStats
      * @see TableStatsSvg::setWidthTable
      * @see TableStatsSvg::setHeightTable
      *
-     * @param object $diagram         The current SVG image document
+     * @param Svg    $diagram         The current SVG image document
      * @param string $db              The database name
      * @param string $tableName       The table name
      * @param string $font            Font face

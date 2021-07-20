@@ -20,6 +20,8 @@ use function sprintf;
  *
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
+ *
+ * @property Dia $diagram
  */
 class TableStatsDia extends TableStats
 {

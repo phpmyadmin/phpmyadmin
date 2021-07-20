@@ -20,9 +20,7 @@ use function sqrt;
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
  *
- * @see     PMA_SVG::printElementLine
- *
- * @name    Relation_Stats_Svg
+ * @see     Svg::printElementLine
  */
 class RelationStatsSvg extends RelationStats
 {

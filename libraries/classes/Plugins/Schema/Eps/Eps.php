@@ -110,8 +110,6 @@ class Eps
      *
      * @param string $value sets the font name e.g Arial
      * @param int    $size  sets the size of the font e.g 10
-     *
-     * @return void
      */
     public function setFont(string $value, int $size): void
     {

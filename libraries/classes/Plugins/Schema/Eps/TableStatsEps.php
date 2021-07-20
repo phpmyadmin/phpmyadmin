@@ -23,7 +23,7 @@ use function sprintf;
  *
  * @see     Eps
  *
- * @name    TableStatsEps
+ * @property Eps $diagram
  */
 class TableStatsEps extends TableStats
 {
@@ -38,7 +38,7 @@ class TableStatsEps extends TableStats
      * @see TableStatsEps::setWidthTable
      * @see TableStatsEps::setHeightTable
      *
-     * @param object $diagram         The EPS diagram
+     * @param Eps    $diagram         The EPS diagram
      * @param string $db              The database name
      * @param string $tableName       The table name
      * @param string $font            The font  name
