@@ -167,7 +167,7 @@ class Pdf extends PdfLib
      * @param mixed     $border Whether to add borders or not
      * @param int       $ln     Where to put the cursor once the output is done
      * @param string    $align  Align mode
-     * @param int       $fill   Whether to fill the cell with a color or not
+     * @param bool      $fill   Whether to fill the cell with a color or not
      * @param string    $link   Link
      *
      * @return void
@@ -179,7 +179,7 @@ class Pdf extends PdfLib
         $border = 0,
         $ln = 0,
         $align = '',
-        $fill = 0,
+        bool $fill = false,
         $link = ''
     ) {
         $h /= $this->scale;

@@ -249,7 +249,7 @@ class Pdf extends PdfLib
                     1,
                     0,
                     'L',
-                    1
+                    true
                 );
                 $this->SetXY($l, $this->tMargin);
                 $this->MultiCell(
@@ -802,7 +802,9 @@ class Pdf extends PdfLib
                 $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $stringWidth = $this->GetStringWidth($col_as) + 6;
+            /** @var float $stringWidth */
+            $stringWidth = $this->GetStringWidth($col_as);
+            $stringWidth += 6;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
             $totalTitleWidth += $stringWidth;
@@ -857,7 +859,9 @@ class Pdf extends PdfLib
          */
         while ($row = $dbi->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
-                $stringWidth = $this->GetStringWidth($row[$key]) + 6;
+                /** @var float $stringWidth */
+                $stringWidth = $this->GetStringWidth($row[$key]);
+                $stringWidth += 6;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
                     // any column whose data's width is bigger than
                     // the start width is now discarded

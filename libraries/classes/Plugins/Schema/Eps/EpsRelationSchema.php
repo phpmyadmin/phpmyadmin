@@ -29,7 +29,8 @@ use function sprintf;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @name    EpsRelationSchema
+ * @property Eps $diagram
+ *
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
@@ -70,7 +71,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $this->diagram->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setDate(date('j F Y, g:i a'));
         $this->diagram->setOrientation($this->orientation);
-        $this->diagram->setFont('Verdana', '10');
+        $this->diagram->setFont('Verdana', 10);
 
         $alltables = $this->getTablesFromRequest();
 

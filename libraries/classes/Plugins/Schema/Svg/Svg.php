@@ -99,7 +99,7 @@ class Svg extends XMLWriter
      *
      * @return void
      */
-    public function setFont($value)
+    public function setFont(string $value): void
     {
         $this->font = $value;
     }
@@ -109,7 +109,7 @@ class Svg extends XMLWriter
      *
      * @return string returns the font name
      */
-    public function getFont()
+    public function getFont(): string
     {
         return $this->font;
     }
@@ -121,7 +121,7 @@ class Svg extends XMLWriter
      *
      * @return void
      */
-    public function setFontSize($value)
+    public function setFontSize(int $value): void
     {
         $this->fontSize = $value;
     }
@@ -131,7 +131,7 @@ class Svg extends XMLWriter
      *
      * @return int returns the font size
      */
-    public function getFontSize()
+    public function getFontSize(): int
     {
         return $this->fontSize;
     }

@@ -113,7 +113,7 @@ class Eps
      *
      * @return void
      */
-    public function setFont($value, $size)
+    public function setFont(string $value, int $size): void
     {
         $this->font = $value;
         $this->fontSize = $size;
@@ -136,9 +136,9 @@ class Eps
     /**
      * Get the font Size
      *
-     * @return string|int return the size of the font e.g 10
+     * @return int return the size of the font e.g 10
      */
-    public function getFontSize()
+    public function getFontSize(): int
     {
         return $this->fontSize;
     }
