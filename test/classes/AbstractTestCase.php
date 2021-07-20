@@ -101,13 +101,8 @@ abstract class AbstractTestCase extends TestCase
 
     protected function assertAllQueriesConsumed(): void
     {
-        if ($this->dummyDbi->hasUnUsedQueries() === false) {
-            $this->assertTrue(true);// increment the assertion count
-
-            return;
-        }
-
-        $this->fail('Some queries where not used !');
+        $unUsedQueries = $this->dummyDbi->getUnUsedQueries();
+        $this->assertSame([], $unUsedQueries, 'Some queries where not used !');
     }
 
     protected function loadContainerBuilder(): void
