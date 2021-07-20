@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #16138 Ignore the length of integer types and show a warning on MySQL >= 8.0.18
 - issue        Add suport for the Mroonga engine
 - issue        Double click column name to directly copy to clipboard
+- issue #16425 Add "DELETE FROM" table on table operations page
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
