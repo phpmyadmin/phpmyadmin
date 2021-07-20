@@ -786,6 +786,16 @@ parameters:
 			path: libraries/classes/OutputBuffering.php
 
 		-
+			message: "#^Parameter \\#1 \\$font of method TCPDF\\:\\:setFooterFont\\(\\) expects array\\<int, string\\>, array\\<int, int\\|string\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Parameter \\#7 \\$pdfa of method TCPDF\\:\\:__construct\\(\\) expects int, bool given\\.$#"
+			count: 1
+			path: libraries/classes/Pdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
