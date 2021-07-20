@@ -2099,7 +2099,7 @@ $(function () {
      *
      * @return {boolean}
      */
-    function copyToClipboard (text) {
+    Functions.copyToClipboard = function (text) {
         var $temp = $('<input>');
         $temp.css({ 'position': 'fixed', 'width': '2em', 'border': 0, 'top': 0, 'left': 0, 'padding': 0, 'background': 'transparent' });
         $('body').append($temp);
@@ -2112,11 +2112,11 @@ $(function () {
             $temp.remove();
             return false;
         }
-    }
+    };
 
     $(document).on('click', 'a.copyQueryBtn', function (event) {
         event.preventDefault();
-        var res = copyToClipboard($(this).attr('data-text'));
+        var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
             $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonSuccess + ')</span>');
         } else {
