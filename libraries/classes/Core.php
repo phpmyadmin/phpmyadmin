@@ -356,13 +356,13 @@ class Core
     ): void {
         global $errorHandler;
 
+        $message = 'The %s extension is missing. Please check your PHP configuration.';
+
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
             $message = __(
                 'The %s extension is missing. Please check your PHP configuration.'
             );
-        } else {
-            $message = 'The %s extension is missing. Please check your PHP configuration.';
         }
 
         $doclink = self::getPHPDocLink('book.' . $extension . '.php');
@@ -405,14 +405,15 @@ class Core
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
+
         if ($tables) {
-            $num_tables = $dbi->numRows($tables);
+            $numTables = $dbi->numRows($tables);
             $dbi->freeResult($tables);
-        } else {
-            $num_tables = 0;
+
+            return $numTables;
         }
 
-        return $num_tables;
+        return 0;
     }
 
     /**
@@ -929,8 +930,8 @@ class Core
      */
     public static function emptyRecursive($value): bool
     {
-        $empty = true;
         if (is_array($value)) {
+            $empty = true;
             array_walk_recursive(
                 $value,
                 /**
@@ -940,11 +941,11 @@ class Core
                     $empty = $empty && empty($item);
                 }
             );
-        } else {
-            $empty = empty($value);
+
+            return $empty;
         }
 
-        return $empty;
+        return empty($value);
     }
 
     /**
