@@ -1477,6 +1477,20 @@ Server connection settings
     after logout (doesn't affect config authentication method). Should be
     absolute including protocol.
 
+.. config:option:: $cfg['Servers'][$i]['hide_connection_errors']
+
+    :type: boolean
+    :default: false
+
+    .. versionadded:: 4.9.8
+
+    Whether to show or hide detailed MySQL/MariaDB connection errors on the login page.
+
+    .. note::
+
+        This error message can contain the target database server hostname or IP address,
+        which may reveal information about your network to an attacker.
+
 Generic settings
 ----------------
 
