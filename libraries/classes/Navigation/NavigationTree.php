@@ -80,7 +80,7 @@ class NavigationTree
      * @var int Position in the list of databases,
      *          used for pagination
      */
-    private $pos = 0;
+    private $pos;
     /**
      * @var string[] The names of the type of items that are being paginated on
      *               the second level of the navigation tree. These may be
