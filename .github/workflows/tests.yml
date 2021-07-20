@@ -13,17 +13,18 @@ jobs:
         name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         runs-on: ubuntu-latest
+        continue-on-error: ${{ matrix.experimental }}
         strategy:
           fail-fast: false
           matrix:
             include:
-              - { php-version: '7', arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
         steps:
             - uses: actions/checkout@v2
             - name: Write script
@@ -49,9 +50,9 @@ jobs:
             - name: Setup multi arch support
               run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
             - name: Print arch
-              run: docker run --rm ${{ matrix.arch }}/alpine:3.13 uname -a
+              run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
             - name: Run tests on php ${{ matrix.php-version }}
-              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.13 sh /app/do-tests.sh
+              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:

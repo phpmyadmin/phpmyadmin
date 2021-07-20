@@ -56,6 +56,12 @@ phpMyAdmin - ChangeLog
 - issue        Fixed duplicate quote in navigation nodes
 - issue #17006 Disable the URL limit for the MariaDB analyser feature
 - issue        Fix calls to fetchRow using two parameters but the function has only one parameter
+- issue #17020 Fixed "Notice Undefined index: sql_query" on Insert page
+- issue        Fix reported "Undefined index: FirstDayOfCalendar"
+- issue        Fix reported "Undefined index: environment"
+- issue        Fix "TypeError: strlen() expects parameter 1 to be string, null given" on databases listing
+- issue #16973 Fix "Undefined array key "n0_pos2_name"" on databases listing
+- issue        Use the correct min MySQL version for axis-order (8.0.1) instead of (8.0.11)
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa

@@ -213,8 +213,8 @@ class GisVisualization
             $spatialSrid = 'ST_SRID';
         }
 
-        // If MYSQL version >= 8.1 override default axis order
-        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80010 && ! $isMariaDb) {
+        // If MYSQL version >= 8.0.1 override default axis order
+        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80001 && ! $isMariaDb) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 

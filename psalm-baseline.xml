@@ -3847,12 +3847,12 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <MixedArgument occurrences="38">
+    <MixedArgument occurrences="36">
       <code>$GLOBALS['goto']</code>
+      <code>$GLOBALS['goto'] ?? ''</code>
       <code>$column</code>
       <code>$current_result</code>
       <code>$current_row</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -3877,18 +3877,16 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
       <code>$text_dir</code>
       <code>$unsaved_values</code>
       <code>$unsaved_values</code>
-      <code>$urlParams</code>
       <code>$where_clause</code>
       <code>$where_clause ?? null</code>
       <code>$where_clause_array</code>
       <code>$where_clauses</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
-      <code>$_url_params</code>
+      <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$cfg['ShowFieldTypesInDataEditView']</code>
@@ -3897,17 +3895,13 @@
       <code>$cfg['ShowFunctionFields']</code>
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$urlParams['db']</code>
-      <code>$urlParams['table']</code>
-    </MixedArrayAssignment>
     <MixedArrayOffset occurrences="4">
       <code>$result[$row_id]</code>
       <code>$result[$row_id]</code>
       <code>$unsaved_values[$row_id]</code>
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="11">
+    <MixedAssignment occurrences="12">
       <code>$column</code>
       <code>$current_result</code>
       <code>$current_row</code>
@@ -3918,6 +3912,7 @@
       <code>$row_id</code>
       <code>$urlParams['db']</code>
       <code>$urlParams['table']</code>
+      <code>$urlParams['table']</code>
       <code>$where_clause[]</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
@@ -3927,6 +3922,12 @@
       <code>$GLOBALS['goto']</code>
       <code>$jsvkey</code>
     </MixedOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$GLOBALS['goto']</code>
+    </PossiblyNullArgument>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$urlParams</code>
+    </PossiblyUndefinedVariable>
     <TypeDoesNotContainType occurrences="1">
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
@@ -10171,7 +10172,7 @@
     <InvalidArgument occurrences="1">
       <code>$currentResult</code>
     </InvalidArgument>
-    <MixedArgument occurrences="118">
+    <MixedArgument occurrences="116">
       <code>$GLOBALS['cfg']['ForeignKeyMaxLimit']</code>
       <code>$GLOBALS['cfg']['UploadDir']</code>
       <code>$GLOBALS['db']</code>
@@ -10248,8 +10249,6 @@
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
       <code>$foreigner['foreign_table']</code>
-      <code>$goto</code>
-      <code>$goto</code>
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
       <code>$multiEditColumnsName[$key]</code>
@@ -10953,12 +10952,11 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>$node-&gt;realName</code>
+    <DocblockTypeContradiction occurrences="2">
       <code>''</code>
       <code>isset($this-&gt;pos)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="52">
+    <MixedArgument occurrences="50">
       <code>$GLOBALS['cfg']['FirstLevelNavigationItems']</code>
       <code>$GLOBALS['cfg']['FirstLevelNavigationItems']</code>
       <code>$GLOBALS['cfg']['MaxNavigationItems']</code>
@@ -10968,7 +10966,7 @@
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
-      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['db'] ?? ''</code>
       <code>$_POST['n' . $count . '_aPath']</code>
       <code>$_POST['n' . $count . '_vPath']</code>
       <code>$_REQUEST['aPath']</code>
@@ -10993,8 +10991,6 @@
       <code>$item</code>
       <code>$node</code>
       <code>$node</code>
-      <code>$node-&gt;secondIcon['image']</code>
-      <code>$node-&gt;secondIcon['title']</code>
       <code>$node-&gt;separator</code>
       <code>$path</code>
       <code>$path[0]</code>
@@ -11058,7 +11054,7 @@
       <code>$hiddenCounts[$db]</code>
       <code>$prefixMap[$prefix]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="26">
+    <MixedAssignment occurrences="24">
       <code>$container</code>
       <code>$database</code>
       <code>$databases[]</code>
@@ -11073,8 +11069,6 @@
       <code>$path</code>
       <code>$path</code>
       <code>$prefix</code>
-      <code>$renderDetails['data_name']</code>
-      <code>$renderDetails['data_name']</code>
       <code>$retval</code>
       <code>$retval</code>
       <code>$selected</code>
@@ -11095,10 +11089,8 @@
       <code>getChild</code>
       <code>getChild</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$db</code>
-      <code>$paths['aPath']</code>
-      <code>$paths['vPath']</code>
     </MixedOperand>
     <MixedPropertyAssignment occurrences="3">
       <code>$node</code>
@@ -11141,8 +11133,7 @@
       <code>(string) $child-&gt;name</code>
       <code>(string) $child-&gt;name</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$node-&gt;displayName</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$node-&gt;title</code>
     </RedundantConditionGivenDocblockType>
     <UnusedForeachValue occurrences="1">
@@ -19448,7 +19439,7 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="29">
+    <MixedArgument occurrences="28">
       <code>$GLOBALS['PMA_PHP_SELF']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['db']</code>
@@ -19475,7 +19466,6 @@
       <code>$tableType</code>
       <code>$tableType</code>
       <code>$table['Name']</code>
-      <code>$testRegex</code>
       <code>$user</code>
       <code>$val</code>
     </MixedArgument>
@@ -19485,7 +19475,7 @@
       <code>uksort($tables, 'strnatcasecmp')</code>
       <code>uksort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="45">
+    <MixedArrayAccess occurrences="43">
       <code>$GLOBALS['cfg'][$value]</code>
       <code>$GLOBALS['cfg'][$value]</code>
       <code>$GLOBALS['cfg']['ExecTimeLimit']</code>
@@ -19508,8 +19498,6 @@
       <code>$cfg['SkipLockedTables']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
-      <code>$matches[0][1]</code>
-      <code>$matches[0][1]</code>
       <code>$parts[$i]</code>
       <code>$row['Cardinality']</code>
       <code>$row['Column_name']</code>
@@ -19555,7 +19543,7 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="60">
+    <MixedAssignment occurrences="57">
       <code>$array</code>
       <code>$column</code>
       <code>$columnNames[]</code>
@@ -19576,13 +19564,11 @@
       <code>$isShowStats</code>
       <code>$lastIndex</code>
       <code>$limitOffset</code>
-      <code>$minimumFirstOccurrenceIndex</code>
       <code>$names[]</code>
       <code>$p</code>
       <code>$p</code>
       <code>$parts</code>
       <code>$pos</code>
-      <code>$regex</code>
       <code>$replace[$key]</code>
       <code>$replace[$key]</code>
       <code>$replace[$key]</code>
@@ -19600,7 +19586,6 @@
       <code>$tablePrivileges</code>
       <code>$tableType</code>
       <code>$table['disp_name']</code>
-      <code>$testRegex</code>
       <code>$unit</code>
       <code>$urlParams['tbl_group']</code>
       <code>$urlParams['tbl_type']</code>
@@ -19617,9 +19602,8 @@
       <code>$vars['server_verbose_or_name']</code>
       <code>$vars['table']</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
+    <MixedInferredReturnType occurrences="1">
       <code>int</code>
-      <code>string</code>
     </MixedInferredReturnType>
     <MixedMethodCall occurrences="2">
       <code>$escapeMethod</code>
@@ -19642,8 +19626,7 @@
       <code>self::backquote('Tables_in_' . $db)</code>
       <code>self::backquote('Tables_in_' . $db)</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="2">
-      <code>$regex</code>
+    <MixedReturnStatement occurrences="1">
       <code>$rowCount</code>
     </MixedReturnStatement>
     <MixedStringOffsetAssignment occurrences="2">
@@ -20482,6 +20465,25 @@
     <MixedArrayAssignment occurrences="1">
       <code>$cfg['GridEditing']</code>
     </MixedArrayAssignment>
+  </file>
+  <file src="test/classes/Controllers/NavigationControllerTest.php">
+    <MixedArgument occurrences="2">
+      <code>$responseMessage</code>
+      <code>$responseMessage</code>
+    </MixedArgument>
+    <MixedArrayAssignment occurrences="4">
+      <code>$GLOBALS['cfg']['Server']</code>
+      <code>$GLOBALS['cfg']['Server']</code>
+      <code>$GLOBALS['cfg']['Server']</code>
+      <code>$GLOBALS['cfg']['Server']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="2">
+      <code>$responseMessage</code>
+      <code>$responseMessage</code>
+    </MixedAssignment>
+    <UndefinedMethod occurrences="1">
+      <code>parent::defineVersionConstants()</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
     <MixedArgument occurrences="1">
@@ -21759,9 +21761,6 @@
       <code>set</code>
       <code>set</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="1">
-      <code>$goto</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/InternalRelationsTest.php">
     <MixedAssignment occurrences="2">

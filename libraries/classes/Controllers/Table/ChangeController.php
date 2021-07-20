@@ -102,7 +102,7 @@ class ChangeController extends AbstractController
 
         $urlParams = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query'] ?? '',
         ];
 
         if (strpos($GLOBALS['goto'] ?? '', 'index.php?route=/table') === 0) {

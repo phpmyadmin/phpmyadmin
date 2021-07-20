@@ -107,7 +107,7 @@ abstract class AbstractTestCase extends TestCase
             return;
         }
 
-        $this->fail('Some queries where no used !');
+        $this->fail('Some queries where not used !');
     }
 
     protected function loadContainerBuilder(): void
@@ -132,6 +132,16 @@ abstract class AbstractTestCase extends TestCase
         $response = new ResponseRenderer();
         $containerBuilder->set(ResponseRenderer::class, $response);
         $containerBuilder->setAlias('response', ResponseRenderer::class);
+    }
+
+    protected function setResponseIsAjax(): void
+    {
+        global $containerBuilder;
+
+        /** @var ResponseRenderer $response */
+        $response = $containerBuilder->get(ResponseRenderer::class);
+
+        $response->setAjax(true);
     }
 
     protected function getResponseHtmlResult(): string
