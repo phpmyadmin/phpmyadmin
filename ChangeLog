@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #15691 Disable the last column checkbox in the column list dropdown instead of not allowing un-check
 - issue #16138 Ignore the length of integer types and show a warning on MySQL >= 8.0.18
 - issue        Add suport for the Mroonga engine
+- issue        Double click column name to directly copy to clipboard
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
