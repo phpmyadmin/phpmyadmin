@@ -13,23 +13,30 @@ AJAX.registerTeardown('table/operations.js', function () {
     $(document).off('click', '#delete_tbl_anchor.ajax');
 });
 
-var confirmAndPost = function (obj, action) {
-    var $link = $(obj);
-    var question = '';
+/**
+ * Confirm and send POST request
+ *
+ * @param {JQuery} linkObject
+ * @param {'TRUNCATE'|'DELETE'} action
+ *
+ * @return {void}
+ */
+var confirmAndPost = function (linkObject, action) {
     /**
-     * @var question    String containing the question to be asked for confirmation
+     * @var {String} question String containing the question to be asked for confirmation
      */
+    var question = '';
     if (action === 'TRUNCATE') {
         question += Messages.strTruncateTableStrongWarning + ' ';
     } else if (action === 'DELETE') {
         question += Messages.strDeleteTableStrongWarning + ' ';
     }
-    question += Functions.sprintf(Messages.strDoYouReally, $link[0].getAttribute('data-query'));
+    question += Functions.sprintf(Messages.strDoYouReally, linkObject.data('query'));
     question += Functions.getForeignKeyCheckboxLoader();
-    $(obj).confirm(question, $(obj).attr('href'), function (url) {
+    linkObject.confirm(question, linkObject.attr('href'), function (url) {
         Functions.ajaxShowMessage(Messages.strProcessingRequest);
 
-        var params = Functions.getJsConfirmCommonParam(this, $link.getPostData());
+        var params = Functions.getJsConfirmCommonParam(this, linkObject.getPostData());
 
         $.post(url, params, function (data) {
             if ($('.sqlqueryresults').length !== 0) {
@@ -40,13 +47,13 @@ var confirmAndPost = function (obj, action) {
             }
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxShowMessage(data.message);
-                $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
+                $('<div class="sqlqueryresults ajax"></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.sql_query);
                 Functions.highlightSql($('#page_content'));
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
-        }); // end $.post()
+        });
     }, Functions.loadForeignKeyCheckbox);
 };
 
@@ -321,11 +328,11 @@ AJAX.registerOnload('table/operations.js', function () {
 
     $(document).on('click', '#truncate_tbl_anchor.ajax', function (event) {
         event.preventDefault();
-        confirmAndPost(this, 'TRUNCATE');
+        confirmAndPost($(this), 'TRUNCATE');
     }); // end of Truncate Table Ajax action
 
     $(document).on('click', '#delete_tbl_anchor.ajax', function (event) {
         event.preventDefault();
-        confirmAndPost(this, 'DELETE');
+        confirmAndPost($(this), 'DELETE');
     }); // end of Delete Table Ajax action
 }); // end $(document).ready for 'Table operations'
