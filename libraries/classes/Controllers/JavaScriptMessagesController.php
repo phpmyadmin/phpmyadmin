@@ -44,6 +44,7 @@ final class JavaScriptMessagesController
             ),
             'strDropTableStrongWarning' => __('You are about to DESTROY a complete table!'),
             'strTruncateTableStrongWarning' => __('You are about to TRUNCATE a complete table!'),
+            'strDeleteTableStrongWarning' => __('You are about to DELETE all the rows of the table!'),
             'strDeleteTrackingData' => __('Delete tracking data for this table?'),
             'strDeleteTrackingDataMultiple' => __('Delete tracking data for these tables?'),
             'strDeleteTrackingVersion' => __('Delete tracking data for this version?'),
