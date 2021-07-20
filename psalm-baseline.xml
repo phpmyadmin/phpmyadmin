@@ -8826,7 +8826,6 @@
       <code>$sub_part</code>
       <code>$type</code>
       <code>$wkt</code>
-      <code>$wkt</code>
     </MixedArgument>
     <MixedAssignment occurrences="10">
       <code>$geom_count</code>
@@ -8849,10 +8848,15 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="9">
+      <code>$point[0]</code>
+      <code>$point[1]</code>
+      <code>$points_arr[1][0]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
-      <code>$wkt</code>
+      <code>$points_arr[1][1]</code>
+      <code>$temp_point[0]</code>
+      <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="17">
@@ -8912,10 +8916,15 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="9">
+      <code>$point[0]</code>
+      <code>$point[1]</code>
+      <code>$points_arr[1][0]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
-      <code>$wkt</code>
+      <code>$points_arr[1][1]</code>
+      <code>$temp_point[0]</code>
+      <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="22">
@@ -8986,11 +8995,14 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="8">
       <code>$point</code>
+      <code>$point[0]</code>
+      <code>$point[1]</code>
+      <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
-      <code>$wkt</code>
+      <code>$points_arr[0][1]</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="23">
@@ -9055,14 +9067,15 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="9">
+      <code>$label_point[0]</code>
+      <code>$label_point[1]</code>
       <code>$points_arr[2]</code>
       <code>$points_arr[3]</code>
       <code>$ring1['pointOnSurface']</code>
       <code>$ring2['points']</code>
       <code>$ring['points']</code>
       <code>$ring['points']</code>
-      <code>$wkt</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="36">
@@ -9184,11 +9197,14 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="8">
       <code>$points_arr[0]</code>
       <code>$points_arr[0][0]</code>
+      <code>$points_arr[0][0]</code>
+      <code>$points_arr[0][0]</code>
       <code>$points_arr[0][1]</code>
-      <code>$wkt</code>
+      <code>$points_arr[0][1]</code>
+      <code>$points_arr[0][1]</code>
       <code>$wkt</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="16">
@@ -9243,10 +9259,11 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="7">
+      <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
       <code>$points_arr[3]</code>
-      <code>$wkt</code>
+      <code>$points_arr[3]</code>
       <code>$wkt</code>
       <code>$x0 - $x1</code>
       <code>$y1 - $y0</code>
@@ -12051,8 +12068,13 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Pdf.php">
-    <MixedArgument occurrences="3">
+    <InvalidScalarArgument occurrences="2">
+      <code>$pdfa</code>
+      <code>[self::PMA_PDF_FONT, '', 14]</code>
+    </InvalidScalarArgument>
+    <MixedArgument occurrences="4">
       <code>$pdfData</code>
+      <code>$this-&gt;CurrentFont</code>
       <code>$this-&gt;pages</code>
       <code>$this-&gt;pages[$n]</code>
     </MixedArgument>
@@ -13587,15 +13609,96 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
-    <MixedArgument occurrences="8">
+    <InvalidScalarArgument occurrences="1">
+      <code>1</code>
+    </InvalidScalarArgument>
+    <MixedArgument occurrences="87">
+      <code>$col_as</code>
       <code>$column['Type']</code>
+      <code>$fullwidth + $l</code>
+      <code>$fullwidth + $l</code>
+      <code>$fullwidth + $l</code>
+      <code>$fullwidth + $l</code>
+      <code>$fullwidth + $l</code>
+      <code>$fullwidth + $l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$l</code>
+      <code>$lh</code>
+      <code>$lh</code>
+      <code>$lh</code>
+      <code>$lh</code>
+      <code>$lh</code>
+      <code>$lh</code>
+      <code>$maxY - $this-&gt;tMargin</code>
+      <code>$row[$key]</code>
+      <code>$t</code>
+      <code>$t</code>
+      <code>$t</code>
+      <code>$t</code>
+      <code>$t</code>
+      <code>$t</code>
+      <code>$this-&gt;CurOrientation</code>
       <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;FontSizePt</code>
+      <code>$this-&gt;cellFontSize</code>
+      <code>$this-&gt;colAlign[$col]</code>
+      <code>$this-&gt;colAlign[$col]</code>
+      <code>$this-&gt;colAlign[$col]</code>
+      <code>$this-&gt;lMargin</code>
       <code>$this-&gt;results</code>
       <code>$this-&gt;results</code>
       <code>$this-&gt;results</code>
       <code>$this-&gt;results</code>
       <code>$this-&gt;results</code>
       <code>$this-&gt;results</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin</code>
+      <code>$this-&gt;tMargin - ($this-&gt;FontSizePt / $this-&gt;k) * 2.5</code>
+      <code>$this-&gt;tMargin - ($this-&gt;FontSizePt / $this-&gt;k) * 5</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;tablewidths[$col]</code>
+      <code>$txt</code>
+      <code>$txt</code>
+      <code>$txt</code>
+      <code>$txt</code>
+      <code>$txt</code>
+      <code>$y</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="20">
       <code>$cfgRelation['mimework']</code>
@@ -13634,11 +13737,8 @@
       <code>$this-&gt;pagedim[$this-&gt;page]</code>
       <code>$this-&gt;pagedim[$this-&gt;page]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="100">
+    <MixedAssignment occurrences="89">
       <code>$availableWidth</code>
-      <code>$colFits[$i]</code>
-      <code>$colFits[$key]</code>
-      <code>$colFits[$key]</code>
       <code>$col_as</code>
       <code>$column</code>
       <code>$current_page</code>
@@ -13702,8 +13802,6 @@
       <code>$startpage</code>
       <code>$startpage</code>
       <code>$startpage</code>
-      <code>$stringWidth</code>
-      <code>$stringWidth</code>
       <code>$surplus</code>
       <code>$surplusToAdd</code>
       <code>$t</code>
@@ -13714,9 +13812,6 @@
       <code>$this-&gt;sColWidth</code>
       <code>$this_page_olm</code>
       <code>$this_page_orm</code>
-      <code>$titleWidth[$i]</code>
-      <code>$totAlreadyFitted</code>
-      <code>$totalTitleWidth</code>
       <code>$trigger</code>
       <code>$txt</code>
       <code>$txt</code>
@@ -13724,9 +13819,6 @@
       <code>$txt</code>
       <code>$txt</code>
       <code>$type</code>
-      <code>$val</code>
-      <code>$val</code>
-      <code>$val</code>
       <code>$width</code>
       <code>$width</code>
       <code>$width</code>
@@ -13736,7 +13828,7 @@
       <code>$x</code>
       <code>$y</code>
     </MixedAssignment>
-    <MixedOperand occurrences="61">
+    <MixedOperand occurrences="57">
       <code>$availableWidth</code>
       <code>$fullwidth</code>
       <code>$fullwidth</code>
@@ -13760,12 +13852,9 @@
       <code>$maxpage</code>
       <code>$res_rel[$field_name]['foreign_field']</code>
       <code>$res_rel[$field_name]['foreign_table']</code>
-      <code>$stringWidth</code>
       <code>$surplus</code>
       <code>$this-&gt;FontSizePt</code>
       <code>$this-&gt;FontSizePt</code>
-      <code>$this-&gt;GetStringWidth($col_as)</code>
-      <code>$this-&gt;GetStringWidth($row[$key])</code>
       <code>$this-&gt;h</code>
       <code>$this-&gt;h</code>
       <code>$this-&gt;h</code>
@@ -13790,7 +13879,6 @@
       <code>$this-&gt;tMargin</code>
       <code>$this-&gt;w</code>
       <code>$this_page_orm</code>
-      <code>$val</code>
       <code>$width</code>
       <code>$width</code>
       <code>$width</code>
@@ -13802,6 +13890,14 @@
     <ParamNameMismatch occurrences="1">
       <code>$topMargin</code>
     </ParamNameMismatch>
+    <PossiblyInvalidOperand occurrences="6">
+      <code>$stringWidth</code>
+      <code>$totAlreadyFitted</code>
+      <code>$totalTitleWidth</code>
+      <code>$val</code>
+      <code>6</code>
+      <code>6</code>
+    </PossiblyInvalidOperand>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>
@@ -13810,7 +13906,7 @@
       <code>$res_rel</code>
       <code>$res_rel</code>
     </PossiblyUndefinedVariable>
-    <PropertyNotSetInConstructor occurrences="18">
+    <PropertyNotSetInConstructor occurrences="20">
       <code>$aliases</code>
       <code>$cellFontSize</code>
       <code>$colAlign</code>
@@ -13829,6 +13925,8 @@
       <code>$tablewidths</code>
       <code>$titleFontSize</code>
       <code>$titleText</code>
+      <code>Pdf</code>
+      <code>Pdf</code>
     </PropertyNotSetInConstructor>
     <UnusedVariable occurrences="1">
       <code>$columns_cnt</code>
@@ -14128,7 +14226,6 @@
       <code>$dbf_file_path</code>
       <code>$dbf_file_path</code>
       <code>$importHandle</code>
-      <code>$import_file</code>
       <code>$import_file</code>
       <code>$import_file</code>
       <code>$result</code>
@@ -14555,11 +14652,6 @@
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
-    <UndefinedDocblockClass occurrences="3">
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php">
     <MixedMethodCall occurrences="7">
@@ -14596,7 +14688,7 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$diagram</code>
     </ArgumentTypeCoercion>
-    <InvalidScalarArgument occurrences="8">
+    <InvalidScalarArgument occurrences="10">
       <code>$this-&gt;x</code>
       <code>$this-&gt;x</code>
       <code>$this-&gt;x + 5</code>
@@ -14605,6 +14697,8 @@
       <code>$this-&gt;y + 12 + $this-&gt;currentCell</code>
       <code>$this-&gt;y + 14</code>
       <code>$this-&gt;y + 14 + $this-&gt;currentCell</code>
+      <code>1</code>
+      <code>1</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="2">
       <code>$field</code>
@@ -14650,12 +14744,25 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
-    <MixedArgument occurrences="5">
+    <InvalidScalarArgument occurrences="1">
+      <code>$fill</code>
+    </InvalidScalarArgument>
+    <MixedArgument occurrences="15">
       <code>$GLOBALS['cfgRelation']['db']</code>
       <code>$GLOBALS['cfgRelation']['pdf_pages']</code>
       <code>$data[$i]</code>
+      <code>$data[$i]</code>
+      <code>$h</code>
+      <code>$h</code>
+      <code>$h</code>
+      <code>$h</code>
+      <code>$il + 1</code>
       <code>$test_rs</code>
       <code>$this-&gt;widths[$i]</code>
+      <code>$w</code>
+      <code>$w</code>
+      <code>$w</code>
+      <code>$x + $w</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$GLOBALS['cfgRelation']['db']</code>
@@ -14684,6 +14791,10 @@
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])</code>
     </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>Pdf</code>
+      <code>Pdf</code>
+    </PropertyNotSetInConstructor>
     <UnusedVariable occurrences="1">
       <code>$cw</code>
     </UnusedVariable>
@@ -14697,15 +14808,24 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidCast>
-    <InvalidScalarArgument occurrences="5">
+    <InvalidScalarArgument occurrences="13">
       <code>''</code>
       <code>''</code>
       <code>''</code>
       <code>'B'</code>
       <code>'B'</code>
+      <code>'auto'</code>
+      <code>'auto'</code>
+      <code>'auto'</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
+      <code>0</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="26">
       <code>$_REQUEST['pdf_table_order']</code>
+      <code>$field_name</code>
       <code>$field_name</code>
       <code>$mime_map[$field_name]['mimetype']</code>
       <code>$one_field</code>
@@ -14721,8 +14841,12 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
+      <code>$table</code>
       <code>$this-&gt;diagram-&gt;PageNo()</code>
       <code>$this-&gt;diagram-&gt;PageNo()</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table][$field_name]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc'][$table]['-']</code>
       <code>$this-&gt;diagram-&gt;getPageHeight() - $bottomSpace</code>
       <code>$this-&gt;diagram-&gt;getPageWidth()</code>
     </MixedArgument>
@@ -14829,10 +14953,11 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;diagram</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="4">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']['-']</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="3">
       <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
@@ -15106,7 +15231,10 @@
       <code>'B'</code>
       <code>'B'</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="5">
+      <code>$field</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName][$field]</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT'][$this-&gt;tableName]['-']</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName][$field]</code>
       <code>$this-&gt;diagram-&gt;customLinks['doc'][$this-&gt;tableName]['-']</code>
     </MixedArgument>
@@ -15344,11 +15472,6 @@
     <TooFewArguments occurrences="1">
       <code>tableDraw</code>
     </TooFewArguments>
-    <UndefinedDocblockClass occurrences="3">
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-      <code>$this-&gt;diagram-&gt;getFontSize()</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -22087,6 +22210,9 @@
     </UnusedVariable>
   </file>
   <file src="test/classes/PdfTest.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>'auto'</code>
+    </InvalidScalarArgument>
     <MixedArgument occurrences="3">
       <code>$arr-&gt;getPDFData()</code>
       <code>$arr-&gt;getPDFData()</code>
@@ -23236,12 +23362,13 @@
       <code>$query_data['result'][$query_data['pos']]</code>
       <code>$ret[$query_data['columns'][$key]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="8">
       <code>$data[$query_data['columns'][$key]]</code>
       <code>$query</code>
       <code>$query_data['pos']</code>
       <code>$ret</code>
       <code>$ret[$query_data['columns'][$key]]</code>
+      <code>$unUsed[]</code>
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
@@ -23263,6 +23390,10 @@
       <code>$this-&gt;dummyQueries[$result - self::OFFSET_GLOBAL]</code>
       <code>$this-&gt;filoQueries[$result]</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$unUsed</code>
+      <code>array[]</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="test/classes/Stubs/ResponseRenderer.php">
     <MixedAssignment occurrences="1">
