@@ -384,7 +384,7 @@
         <li class="list-group-item">
           {{ link_or_button(
             url('/sql', url_params|merge({
-              'sql_query': 'TRUNCATE TABLE ' ~ backquote(table),
+              'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
               'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
@@ -401,7 +401,7 @@
       <li class="list-group-item">
         {{ link_or_button(
           url('/sql', url_params|merge({
-            'sql_query': 'DROP TABLE ' ~ backquote(table),
+            'sql_query': 'DROP TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
