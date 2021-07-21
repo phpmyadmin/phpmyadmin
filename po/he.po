@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2019-11-18 09:04+0000\n"
+"PO-Revision-Date: 2021-07-21 16:16+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-9/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8737,7 +8737,7 @@ msgstr "הכניסה לשרת ה־MySQL נכשלה"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr "הפעלת אימות דו־שלבי, נא לאשר את את הכניסה שלך למערכת."
+msgstr "הפעלת אימות דו־שלבי, נא לאשר כניסה למערכת."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -15211,13 +15211,10 @@ msgstr[0] "תוצאה אחת (%1$s) בטבלה <i>%2$s</i>"
 msgstr[1] "%1$s תוצאות בטבלה <i>%2$s</i>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>סה״כ:</b> פריט <i>אחד</i> (%s)"
-msgstr[1] "<b>סה״כ:</b> <i>%s</i> פריטים"
+msgstr[0] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
+msgstr[1] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
