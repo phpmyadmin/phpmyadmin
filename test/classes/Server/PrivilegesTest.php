@@ -202,7 +202,7 @@ class PrivilegesTest extends AbstractTestCase
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
-            'PMA_pred_dbname',
+            'PMA\_pred\_dbname',
             $dbname
         );
         $this->assertEquals(
@@ -378,8 +378,8 @@ class PrivilegesTest extends AbstractTestCase
         $sql = 'SELECT * FROM `mysql`.`db`'
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
-            . ' LIKE `Db`;';
+            . ' AND `Db` = \'' . $db . '\'';
+
         $this->assertEquals(
             $sql,
             $ret
@@ -1393,7 +1393,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        $dbname = 'pma\_dbname';
+        $dbname = 'pma_dbname';
         $url_html = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
@@ -1420,7 +1420,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        $dbname = 'pma\_dbname';
+        $dbname = 'pma_dbname';
         $url_html = Url::getCommon(
             [
                 'username' => $username,
