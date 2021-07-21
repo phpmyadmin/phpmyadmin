@@ -1460,6 +1460,91 @@ class PrivilegesTest extends AbstractTestCase
     }
 
     /**
+     * Test for getUserLink
+     */
+    public function testGetUserLinkWildcardsEscaped(): void
+    {
+        $username = 'pma\_username';
+        $hostname = 'pma\_hostname';
+        $dbname = 'pma\_dbname';
+        $tablename = 'pma\_tablename';
+
+        $html = $this->serverPrivileges->getUserLink(
+            'edit',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma\_dbname';
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => $dbname,
+            'tablename' => $tablename,
+            'routinename' => '',
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Edit privileges'),
+            $html
+        );
+
+        $dbname = 'pma\_dbname';
+        $html = $this->serverPrivileges->getUserLink(
+            'revoke',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma\_dbname';
+        $url_html = Url::getCommon(
+            [
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+                'routinename' => '',
+                'revokeall' => 1,
+            ],
+            ''
+        );
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Revoke'),
+            $html
+        );
+
+        $html = $this->serverPrivileges->getUserLink('export', $username, $hostname);
+
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'initial' => '',
+            'export' => 1,
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Export'),
+            $html
+        );
+    }
+
+    /**
      * Test for getExtraDataForAjaxBehavior
      */
     public function testGetExtraDataForAjaxBehavior(): void
