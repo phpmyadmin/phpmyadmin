@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-18 00:08+0000\n"
 "PO-Revision-Date: 2021-07-21 16:16+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
 "Language: he\n"
@@ -10062,7 +10062,7 @@ msgstr "הכניסה לשרת ה־MySQL נכשלה"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:373
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr "הפעלת אימות דו־שלבי, נא לאשר את את הכניסה שלך למערכת."
+msgstr "הפעלת אימות דו־שלבי, נא לאשר כניסה למערכת."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:89
 #: templates/export.twig:108 templates/import.twig:197
@@ -14386,13 +14386,10 @@ msgstr[0] "תוצאה אחת (%1$s) בטבלה <i>%2$s</i>"
 msgstr[1] "%1$s תוצאות בטבלה <i>%2$s</i>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>סה״כ:</b> פריט <i>אחד</i> (%s)"
-msgstr[1] "<b>סה״כ:</b> <i>%s</i> פריטים"
+msgstr[0] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
+msgstr[1] "<strong>סך־הכול:</strong> <em>%count%</em> תוצאות"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
