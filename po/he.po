@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-07-21 16:16+0000\n"
+"PO-Revision-Date: 2021-07-22 19:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-1/he/"
 ">\n"
@@ -17980,13 +17980,13 @@ msgid "at beginning of table"
 msgstr "בתחילת טבלה"
 
 #: templates/table/structure/display_structure.twig:507
-#, fuzzy, php-format
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "יצירת אינדקס בעמודות %s"
+msgstr "יצירת מפתח על עמודות %s"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
-msgstr "שימוש מקום"
+msgstr "ניצולת"
 
 #: templates/table/structure/display_table_stats.twig:37
 msgid "Effective"
