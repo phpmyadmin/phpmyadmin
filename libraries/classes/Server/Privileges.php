@@ -532,8 +532,7 @@ class Privileges
             return 'SELECT * FROM `mysql`.`db`'
                 . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
                 . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
-                . " AND '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-                . ' LIKE `Db`;';
+                . " AND `Db` = '" . $this->dbi->escapeString($db) . "'";
         }
 
         return 'SELECT `Table_priv`'
@@ -1558,12 +1557,12 @@ class Privileges
         ];
         switch ($linktype) {
             case 'edit':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 break;
             case 'revoke':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 $params['revokeall'] = 1;
@@ -2928,7 +2927,7 @@ class Privileges
             } else {
                 $unescapedDb = Util::unescapeMysqlWildcards($dbname);
                 $dbAndTable = Util::backquote($unescapedDb) . '.';
-                $returnDb = $unescapedDb;
+                $returnDb = $dbname;
             }
 
             if (isset($tablename)) {

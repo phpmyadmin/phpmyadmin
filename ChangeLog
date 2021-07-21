@@ -65,6 +65,10 @@ phpMyAdmin - ChangeLog
 - issue #16973 Fix "Undefined array key "n0_pos2_name"" on databases listing
 - issue        Use the correct min MySQL version for axis-order (8.0.1) instead of (8.0.11)
 - issue        Use the queries we asked the user confirmation for on DELETE and TRUNCATE table actions
+- issue #16994 Fixed editing specific privileges for a database covered by a wildcard privilege
+- issue #16994 Fixed escaping of the database name for databases containing '_' on users edit
+- issue #16994 Only escape once on grant/revoke privileges for databases containing '_' or '%'
+- issue #16994 Only show databases without a privilege on multi select for user grant databases
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
