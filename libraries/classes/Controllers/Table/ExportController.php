@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Export\Options;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
@@ -61,8 +60,6 @@ class ExportController extends AbstractController
         $url_params['goto'] = Url::getFromRoute('/table/export');
         $url_params['back'] = Url::getFromRoute('/table/export');
 
-        $message = '';
-
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
 
@@ -93,8 +90,6 @@ class ExportController extends AbstractController
                     $replaces
                 );
             }
-
-            $message = Generator::getMessage(Message::success());
         }
 
         if (! isset($sql_query)) {
@@ -139,7 +134,6 @@ class ExportController extends AbstractController
             'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
-            'message' => $message,
         ]));
     }
 
