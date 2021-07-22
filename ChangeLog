@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - issue #17026 Handle possible invalid boolean values injected in SaveDir or UploadDir causing "TypeError: mb_substr()"
 - issue #16981 Enable cookie parameter "SameSite" on "phpMyAdmin" cookie for PHP >= 7.3
 - issue #16966 Encode "#" to have the anchor part of the destination URL on SQL highlight terms URLs
+- issue #17004 Fix PHP errors due to removed variable "innodb_file_format" on MariaDB >= 10.6.0 and MySQL >= 8.0.0
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
