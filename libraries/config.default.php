@@ -786,7 +786,12 @@ $cfg['Confirm'] = true;
 /**
  * sets SameSite attribute of the Set-Cookie HTTP response header
  *
- * @global boolean $cfg['CookieSameSite']
+ * Valid values are:
+ *    - Lax
+ *    - Strict
+ *    - None
+ *
+ * @global string $cfg['CookieSameSite']
  */
  $cfg['CookieSameSite'] = 'Strict';
 
