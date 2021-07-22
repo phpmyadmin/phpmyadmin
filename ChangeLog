@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 - issue        Removed un-expected query success message from the Table export page
 - issue #17026 Handle possible invalid boolean values injected in SaveDir or UploadDir causing "TypeError: mb_substr()"
 - issue #16981 Enable cookie parameter "SameSite" on "phpMyAdmin" cookie for PHP >= 7.3
+- issue #16966 Encode "#" to have the anchor part of the destination URL on SQL highlight terms URLs
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
