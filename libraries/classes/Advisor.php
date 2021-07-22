@@ -163,6 +163,7 @@ class Advisor
         /* Some global variables for advisor */
         $this->globals = [
             'PMA_MYSQL_INT_VERSION' => $this->dbi->getVersion(),
+            'IS_MARIADB' => $this->dbi->isMariaDB(),
         ];
     }
 

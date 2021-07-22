@@ -815,7 +815,7 @@ class Privileges
             $host
         );
 
-        $isNew = (Compatibility::isMySql() && $serverVersion >= 50507)
+        $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
@@ -2498,7 +2498,7 @@ class Privileges
                 }
 
                 if (
-                    Compatibility::isMySql()
+                    Compatibility::isMySqlOrPerconaDb()
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
                     && ((isset($row['authentication_string'])
@@ -3891,7 +3891,7 @@ class Privileges
         // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
         // and pre-5.2.0 MariaDB
         if (
-            (Compatibility::isMySql()
+            (Compatibility::isMySqlOrPerconaDb()
             && $serverVersion >= 50706)
             || (Compatibility::isMariaDb()
             && $serverVersion >= 50200)
@@ -3981,9 +3981,9 @@ class Privileges
             $hostname
         );
 
-        $isNew = (Compatibility::isMySql() && $serverVersion >= 50507)
+        $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);
-        $hasMoreAuthPlugins = (Compatibility::isMySql() && $serverVersion >= 50706)
+        $hasMoreAuthPlugins = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706)
             || ($this->dbi->isSuperUser() && $editOthers);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
