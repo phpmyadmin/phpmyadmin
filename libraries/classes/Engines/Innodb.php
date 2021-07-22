@@ -339,17 +339,25 @@ class Innodb extends StorageEngine
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
-     * @return string the InnoDB file format
+     * @return string|null the InnoDB file format
      */
-    public function getInnodbFileFormat()
+    public function getInnodbFileFormat(): ?string
     {
         global $dbi;
 
-        return $dbi->fetchValue(
+        $value = $dbi->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';",
             0,
             1
         );
+
+        if ($value === false) {
+            // This variable does not exist anymore on MariaDB >= 10.6.0
+            // This variable does not exist anymore on MySQL >= 8.0.0
+            return null;
+        }
+
+        return (string) $value;
     }
 
     /**

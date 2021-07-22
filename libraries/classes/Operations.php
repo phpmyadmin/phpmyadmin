@@ -570,10 +570,9 @@ class Operations
         /** @var Innodb $innodbEnginePlugin */
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
         $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
+        $innodb_file_format = '';
         if (! empty($innodbPluginVersion)) {
-            $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
-        } else {
-            $innodb_file_format = '';
+            $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat() ?? '';
         }
         /**
          * Newer MySQL/MariaDB always return empty a.k.a '' on $innodb_file_format otherwise
