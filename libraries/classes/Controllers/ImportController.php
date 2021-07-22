@@ -503,7 +503,7 @@ final class ImportController extends AbstractController
             // sanitize $local_import_file as it comes from a POST
             $local_import_file = Core::securePath($local_import_file);
 
-            $import_file = Util::userDir($cfg['UploadDir'])
+            $import_file = Util::userDir((string) $cfg['UploadDir'])
                 . $local_import_file;
 
             /*
