@@ -87,7 +87,7 @@ class StatusControllerTest extends AbstractTestCase
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5">';
+        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">';
         $this->assertStringContainsString(
             $trafficHtml,
             $html
@@ -115,11 +115,11 @@ class StatusControllerTest extends AbstractTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<th scope="col">ø per hour</th>',
+            '<th class="text-end" scope="col">ø per hour</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover col-12 col-md-6">',
+            '<table class="table table-light table-striped table-hover col-12 col-md-6 w-auto">',
             $html
         );
         $this->assertStringContainsString(

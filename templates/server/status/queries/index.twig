@@ -26,7 +26,7 @@
 </div>
 
 <div class="row">
-  <table id="serverStatusQueriesDetails" class="table table-light table-striped table-hover sortable col-md-4 col-12">
+  <table id="serverStatusQueriesDetails" class="table table-light table-striped table-hover sortable col-md-4 col-12 w-auto">
     <colgroup>
       <col class="namecol">
       <col class="valuecol" span="3">
@@ -35,9 +35,9 @@
     <thead class="table-light">
       <tr>
         <th scope="col">{% trans 'Statements' %}</th>
-        <th scope="col">{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
-        <th scope="col">{% trans 'ø per hour' %}</th>
-        <th scope="col">%</th>
+        <th class="text-end" scope="col">{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
+        <th class="text-end" scope="col">{% trans 'ø per hour' %}</th>
+        <th class="text-end" scope="col">%</th>
       </tr>
     </thead>
 
