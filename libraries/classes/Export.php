@@ -430,7 +430,7 @@ class Export
             $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] !== 'saveitover';
         }
 
-        $saveFilename = Util::userDir($GLOBALS['cfg']['SaveDir'])
+        $saveFilename = Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? ''))
             . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (

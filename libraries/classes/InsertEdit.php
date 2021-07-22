@@ -751,7 +751,7 @@ class InsertEdit
     private function getSelectOptionForUpload($vkey, array $column)
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir($GLOBALS['cfg']['UploadDir'])
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
         );
 
         if ($files === false) {

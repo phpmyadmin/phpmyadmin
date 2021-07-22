@@ -1350,7 +1350,7 @@ class Util
      *
      * @return string per user directory
      */
-    public static function userDir($dir): string
+    public static function userDir(string $dir): string
     {
         // add trailing slash
         if (mb_substr($dir, -1) !== '/') {

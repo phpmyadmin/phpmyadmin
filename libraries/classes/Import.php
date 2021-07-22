@@ -1858,7 +1858,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
             $matcher,
             $active
         );
