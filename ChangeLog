@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #16966 Encode "#" to have the anchor part of the destination URL on SQL highlight terms URLs
 - issue #17004 Fix PHP errors due to removed variable "innodb_file_format" on MariaDB >= 10.6.0 and MySQL >= 8.0.0
 - issue #16842 Fixed missing password modes on PerconaDB
+- issue #16947 Fix "Change login information" form not working
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
