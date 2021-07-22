@@ -2509,7 +2509,7 @@ class Privileges
                 if (! isset($row['password']) && isset($row['Password'])) {
                     $row['password'] = $row['Password'];
                 }
-                if (Util::getServerType() === 'MySQL'
+                if ((Util::getServerType() === 'MySQL' || Util::getServerType() === 'Percona Server')
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
                     && ((isset($row['authentication_string'])
@@ -3871,7 +3871,7 @@ class Privileges
 
         // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
         // and pre-5.2.0 MariaDB
-        if (($serverType === 'MySQL'
+        if ((($serverType === 'MySQL' || $serverType === 'Percona Server')
             && $serverVersion >= 50706)
             || ($serverType === 'MariaDB'
             && $serverVersion >= 50200)
