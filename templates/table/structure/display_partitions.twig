@@ -5,7 +5,7 @@
     </div>
 
     <div class="card-body">
-        {% if partitions is empty %}
+        {% if partitions is not defined or partitions is empty %}
             {{ 'No partitioning defined!'|trans|notice }}
         {% else %}
             <p>
@@ -191,7 +191,7 @@
         <form action="{{ url('/table/structure/partitioning') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
 
-            {% if partitions is empty %}
+            {% if partitions is not defined or partitions is empty %}
                 <input class="btn btn-secondary" type="submit" value="{% trans 'Partition table' %}">
             {% else %}
                 {{ link_or_button(

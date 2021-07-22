@@ -128,7 +128,7 @@
             {% set selected = false %}
             {% for idx, key in keys %}
               {% if fields_meta[idx].isNumeric %}
-                {% if not selected and idx != xaxis and idx != series_column %}
+                {% if not selected and idx != xaxis and series_column is defined and idx != series_column %}
                   <option value="{{ idx }}" selected>{{ key }}</option>
                   {% set selected = true %}
                 {% else %}

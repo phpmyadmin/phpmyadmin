@@ -25,7 +25,7 @@
             <td>{{ routine['item_param_type'][loop.index0] }}</td>
             {% if show_function_fields %}
               <td>
-                {% if params[loop.index0]['generator'] is not null %}
+                {% if (params[loop.index0]['generator'] ?? null) is not null %}
                   <select name="funcs[{{ routine['item_param_name'][loop.index0] }}]">
                     {{ params[loop.index0]['generator']|raw }}</select>
                 {% else %}
@@ -42,7 +42,7 @@
                 {% endfor %}
               {% elseif routine['item_param_type'][loop.index0]|lower in params['no_support_types'] %}
               {% else %}
-                <input class="{{ params[loop.index0]['class'] }}" type="text" name="params[{{ routine['item_param_name'][loop.index0] }}]">
+                <input class="{{ params[loop.index0]['class'] ?? '' }}" type="text" name="params[{{ routine['item_param_name'][loop.index0] }}]">
               {% endif %}
             </td>
           </tr>
