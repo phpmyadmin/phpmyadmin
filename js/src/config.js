@@ -2,6 +2,8 @@
  * Functions used in configuration forms and on user preferences pages
  */
 
+/* exported PASSIVE_EVENT_LISTENERS */
+
 var configInlineParams;
 var configScriptLoaded;
 
@@ -877,3 +879,23 @@ function offerPrefsAutoimport () {
     });
     $cnt.show();
 }
+
+/**
+ * @type {boolean} Support for passive event listener option
+ */
+var PASSIVE_EVENT_LISTENERS = (function () {
+    var passive = false;
+    try {
+        var options = Object.defineProperty({}, 'passive', {
+            get: function () {
+                return (passive = true);
+            },
+        });
+
+        window.addEventListener('_', null, options);
+        window.removeEventListener('_', null, options);
+    } catch (error) {
+        // passive not supported
+    }
+    return passive;
+}());

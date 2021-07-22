@@ -6,7 +6,7 @@
  * @requires    vendor/jquery/jquery.mousewheel.js
  */
 
-/* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
+/* global drawOpenLayers PASSIVE_EVENT_LISTENERS */ // templates/table/gis_visualization/gis_visualization.twig
 
 // Constants
 var zoomFactor = 1.5;
@@ -179,6 +179,22 @@ function getRelativeCoords (e) {
     };
 }
 
+function onGisMouseWheel (event) {
+    if (event.deltaY === 0) {
+        return;
+    }
+    event.preventDefault();
+
+    var relCoords = getRelativeCoords(event);
+    var factor = event.deltaY > 0 ? zoomFactor : 1 / zoomFactor;
+    // zoom
+    scale *= factor;
+    // zooming keeping the position under mouse pointer unmoved.
+    x = relCoords.x - (relCoords.x - x) * factor;
+    y = relCoords.y - (relCoords.y - y) * factor;
+    zoomAndPan();
+}
+
 /**
  * Ajax handlers for GIS visualization page
  *
@@ -197,7 +213,6 @@ function getRelativeCoords (e) {
  */
 AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#choice');
-    $(document).off('mousewheel', '#placeholder');
     $(document).off('dragstart', 'svg');
     $(document).off('mouseup', 'svg');
     $(document).off('drag', 'svg');
@@ -210,6 +225,11 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
     $(document).off('click', '#up_arrow');
     $(document).off('click', '#down_arrow');
     $('.vector').off('mousemove').off('mouseout');
+    $('#placeholder').get(0).removeEventListener(
+        'wheel',
+        onGisMouseWheel,
+        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
+    );
 });
 
 AJAX.registerOnload('table/gis_visualization.js', function () {
@@ -237,25 +257,11 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
         }
     });
 
-    $(document).on('mousewheel', '#placeholder', function (event, delta) {
-        var relCoords = getRelativeCoords(event);
-        if (delta > 0) {
-            // zoom in
-            scale *= zoomFactor;
-            // zooming in keeping the position under mouse pointer unmoved.
-            x = relCoords.x - (relCoords.x - x) * zoomFactor;
-            y = relCoords.y - (relCoords.y - y) * zoomFactor;
-            zoomAndPan();
-        } else {
-            // zoom out
-            scale /= zoomFactor;
-            // zooming out keeping the position under mouse pointer unmoved.
-            x = relCoords.x - (relCoords.x - x) / zoomFactor;
-            y = relCoords.y - (relCoords.y - y) / zoomFactor;
-            zoomAndPan();
-        }
-        return true;
-    });
+    $('#placeholder').get(0).addEventListener(
+        'wheel',
+        onGisMouseWheel,
+        PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
+    );
 
     var dragX = 0;
     var dragY = 0;
