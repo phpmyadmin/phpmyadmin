@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-18 00:08+0000\n"
-"PO-Revision-Date: 2021-07-09 09:20+0000\n"
+"PO-Revision-Date: 2021-07-24 09:34+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -13588,7 +13588,7 @@ msgstr "オンライン トランザクション"
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
-msgstr ""
+msgstr "整数型のカラム幅は、 TINYINT(1) のカラムを定義していない限り、このバージョンの MySQL では無視されます"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
