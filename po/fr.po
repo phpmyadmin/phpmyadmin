@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-18 00:08+0000\n"
-"PO-Revision-Date: 2021-06-03 15:33+0000\n"
+"PO-Revision-Date: 2021-07-25 00:08+0000\n"
 "Last-Translator: Simon Picot <simonpicot06@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -13951,6 +13951,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"La largeur de colonne des types entiers est ignorée dans votre version de "
+"MySQL, sauf si vous définissez une colonne TINYINT(1)"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14616,10 +14618,8 @@ msgstr "Options actives"
 #: templates/database/designer/main.twig:1119 templates/export.twig:63
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Chargement en cours…"
+msgstr "Chargement en cours"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -15468,10 +15468,8 @@ msgstr "Trier par clé :"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Options de retour"
+msgstr "Options supplémentaires"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
