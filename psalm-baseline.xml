@@ -1449,10 +1449,9 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$cfg['DefaultTabDatabase']</code>
       <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['UploadDir'] ?? ''</code>
       <code>$db</code>
       <code>$sub_part ?? ''</code>
     </MixedArgument>
@@ -2555,7 +2554,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="51">
+    <MixedArgument occurrences="50">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
@@ -2575,7 +2574,6 @@
       <code>$cfg['Server']['user']</code>
       <code>$cfg['Server']['user']</code>
       <code>$cfg['Server']['user']</code>
-      <code>$cfg['UploadDir']</code>
       <code>$collation_connection</code>
       <code>$db</code>
       <code>$db</code>
@@ -3268,9 +3266,8 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['UploadDir'] ?? ''</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="6">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
@@ -4323,10 +4320,9 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$cfg['DefaultTabTable']</code>
       <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['UploadDir'] ?? ''</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
@@ -5705,7 +5701,7 @@
       <code>$matches[1]</code>
     </InvalidOperand>
     <InvalidReturnStatement occurrences="1">
-      <code>$num_tables</code>
+      <code>$numTables</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
@@ -8247,7 +8243,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Engines/Innodb.php">
-    <FalsableReturnStatement occurrences="2">
+    <FalsableReturnStatement occurrences="1">
       <code>$dbi-&gt;fetchValue('SELECT @@innodb_version;')</code>
     </FalsableReturnStatement>
     <LessSpecificImplementedReturnType occurrences="1">
@@ -8266,8 +8262,10 @@
       <code>$status['Innodb_buffer_pool_wait_free']</code>
       <code>$status['Innodb_buffer_pool_write_requests']</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="3">
@@ -8275,7 +8273,7 @@
       <code>$status['Innodb_buffer_pool_reads']</code>
       <code>$status['Innodb_buffer_pool_wait_free']</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="2">
+    <MixedReturnStatement occurrences="1">
       <code>$dbi-&gt;fetchValue('SELECT @@innodb_version;')</code>
     </MixedReturnStatement>
     <PossiblyNullArgument occurrences="1"/>
@@ -8434,8 +8432,7 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="23">
-      <code>$GLOBALS['cfg']['SaveDir']</code>
+    <MixedArgument occurrences="22">
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['charset']</code>
       <code>$GLOBALS['file_handle']</code>
@@ -8459,9 +8456,6 @@
       <code>$table</code>
       <code>$view</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$GLOBALS['cfg']['SaveDir']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
       <code>$aliases[$dbName]['alias']</code>
       <code>$aliases[$dbName]['tables']</code>
@@ -8535,12 +8529,11 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Export/Options.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="5">
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$_POST['db_select']</code>
       <code>$_POST['db_select']</code>
       <code>$_POST['filename_template'] ?? null</code>
-      <code>$cfg['SaveDir'] ?? ''</code>
       <code>$currentDb</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="15">
@@ -8636,8 +8629,7 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;handle</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="4">
-      <code>$GLOBALS['cfg']['UploadDir']</code>
+    <MixedArgument occurrences="3">
       <code>$file['tmp_name']</code>
       <code>$result['error']</code>
       <code>$tmp_subdir</code>
@@ -9826,8 +9818,7 @@
       <code>int</code>
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="74">
-      <code>$GLOBALS['cfg']['UploadDir'] ?? ''</code>
+    <MixedArgument occurrences="73">
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['import_text']</code>
       <code>$GLOBALS['import_text']</code>
@@ -10189,9 +10180,8 @@
     <InvalidArgument occurrences="1">
       <code>$currentResult</code>
     </InvalidArgument>
-    <MixedArgument occurrences="116">
+    <MixedArgument occurrences="115">
       <code>$GLOBALS['cfg']['ForeignKeyMaxLimit']</code>
-      <code>$GLOBALS['cfg']['UploadDir']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['goto']</code>
       <code>$GLOBALS['plugin_scripts']</code>
@@ -10314,7 +10304,7 @@
       <code>$urlParams</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="66">
+    <MixedArrayAccess occurrences="65">
       <code>$GLOBALS['cfg']['CharEditing']</code>
       <code>$GLOBALS['cfg']['CharEditing']</code>
       <code>$GLOBALS['cfg']['CharTextareaCols']</code>
@@ -10353,7 +10343,6 @@
       <code>$GLOBALS['cfg']['TextareaRows']</code>
       <code>$GLOBALS['cfg']['TextareaRows']</code>
       <code>$GLOBALS['cfg']['TextareaRows']</code>
-      <code>$GLOBALS['cfg']['UploadDir']</code>
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['where_clause'][0]</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
@@ -16834,7 +16823,7 @@
       <code>$specificPrivileges[$grant[0]]</code>
       <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="104">
+    <MixedAssignment occurrences="105">
       <code>$GLOBALS[$key]</code>
       <code>$account</code>
       <code>$authenticationPlugin</code>
@@ -16911,6 +16900,7 @@
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
+      <code>$returnDb</code>
       <code>$right</code>
       <code>$routine</code>
       <code>$routine</code>
@@ -17373,7 +17363,8 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Session.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="4">
+      <code>$config-&gt;get('CookieSameSite') ?? ''</code>
       <code>$config-&gt;getCookie('phpMyAdmin')</code>
       <code>$error-&gt;getMessage()</code>
       <code>$path</code>
