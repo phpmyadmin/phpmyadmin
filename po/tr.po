@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-25 00:08+0000\n"
-"PO-Revision-Date: 2021-07-19 22:36+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2021-07-25 08:20+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -5453,10 +5453,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Bütün bir tabloyu KESMEK üzeresiniz!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Bütün bir tabloyu YOK ETMEK üzeresiniz!"
+msgstr "Tablonun tüm satırlarını SİLMEK üzeresiniz!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -7294,11 +7292,11 @@ msgstr "Ayarlarınıza göre, bunlar şu anda gönderiliyor, lütfen sabırlı o
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Sütun adı panoya başarılı olarak kopyalandı!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Sütun adını panoya kopyalama başarısız oldu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Successfully copied!"
@@ -18298,10 +18296,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Tabloyu boşalt (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "Tabloyu boşalt (TRUNCATE)"
+msgstr "Tabloyu boşalt (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
