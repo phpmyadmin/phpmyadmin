@@ -21,6 +21,8 @@ var scale = defaultScale;
 
 /** @type {SVGElement|undefined} */
 var gisSvg;
+/** @type {ol.Map|undefined} */
+var map;
 
 /**
  * Zooms and pans the visualization.
@@ -129,16 +131,14 @@ function initGISVisualization () {
     zoomAndPan();
 }
 
-function drawOpenLayerMap (openLayerCreate) {
+function drawOpenLayerMap () {
     $('#placeholder').hide();
     $('#openlayersmap').show();
     // Function doesn't work properly if #openlayersmap is hidden
-    if (!openLayerCreate) {
+    if (typeof map !== 'object') {
         // Draws openStreetMap with openLayers
-        drawOpenLayers();
-        return 1;
+        map = drawOpenLayers();
     }
-    return 0;
 }
 
 function getRelativeCoords (e) {
@@ -200,18 +200,21 @@ AJAX.registerTeardown('table/gis_visualization.js', function () {
         onGisMouseWheel,
         PASSIVE_EVENT_LISTENERS ? { passive: false } : undefined
     );
+    if (map) {
+        // Removes ol.Map's resize listener from window
+        map.setTarget(null);
+        map = undefined;
+    }
 });
 
 AJAX.registerOnload('table/gis_visualization.js', function () {
-    var openLayerCreate = 0;
-
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();
     }
 
     if ($('#choice').prop('checked') === true) {
-        openLayerCreate = drawOpenLayerMap(openLayerCreate);
+        drawOpenLayerMap();
     }
 
     if (typeof ol === 'undefined') {
@@ -223,7 +226,7 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
             $('#placeholder').show();
             $('#openlayersmap').hide();
         } else {
-            openLayerCreate = drawOpenLayerMap(openLayerCreate);
+            drawOpenLayerMap();
         }
     });
 
