@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-25 00:08+0000\n"
-"PO-Revision-Date: 2021-06-05 20:33+0000\n"
+"PO-Revision-Date: 2021-07-25 20:58+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5508,10 +5508,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "U staat op het punt een volledige database LEEG te maken!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "U staat op het punt een volledige tabel te VERWIJDEREN!"
+msgstr "U staat op het punt alle rijen uit de tabel te VERWIJDEREN!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -7361,11 +7359,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Kolomnaam succesvol naar klembord gekopieerd!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Kopiëren van kolomnaam naar klembord mislukt!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Successfully copied!"
@@ -13900,6 +13898,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"De kolombreedte van het type integer wordt genegeerd in uw MYSQL versie "
+"tenzij een TINYINT(1) kolom wordt gedefinieerd"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -18455,10 +18455,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "De tabel leegmaken (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "De tabel leegmaken (TRUNCATE)"
+msgstr "De tabel leegmaken (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
