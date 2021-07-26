@@ -285,6 +285,9 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
     });
 
     $(document).on('dblclick', '#placeholder', function (event) {
+        if (event.target.classList.contains('button')) {
+            return;
+        }
         scale *= zoomFactor;
         // zooming in keeping the position under mouse pointer unmoved.
         var relCoords = getRelativeCoords(event);
