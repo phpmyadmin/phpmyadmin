@@ -1267,11 +1267,11 @@ class StructureController extends AbstractController
                 $this->dbi->query($revert_query);
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON(
-                    'message',
-                    Message::rawError(
-                        __('Query error') . ':<br>' . $orig_error
-                    )
+                $message = Message::rawError(
+                    __('Query error') . ':<br>' . $orig_error
+                );
+                $this->response->addHTML(
+                    Generator::getMessage($message, $sql_query, 'error')
                 );
                 $regenerate = true;
             }
