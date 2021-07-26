@@ -107,15 +107,16 @@ final class GisVisualizationController extends AbstractController
             $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
 
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         // Convert geometric columns from bytes to text.
-        $pos = $_GET['pos'] ?? $_SESSION['tmpval']['pos'];
-        if (isset($_GET['session_max_rows'])) {
-            $rows = $_GET['session_max_rows'];
+        $pos = (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);
+        if (isset($_POST['session_max_rows']) || isset($_GET['session_max_rows'])) {
+            $rows = (int) ($_POST['session_max_rows'] ?? $_GET['session_max_rows']);
         } else {
             if ($_SESSION['tmpval']['max_rows'] !== 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
+                $rows = (int) $_SESSION['tmpval']['max_rows'];
             } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
+                $rows = (int) $GLOBALS['cfg']['MaxRows'];
             }
         }
         $this->visualization = GisVisualization::get(
