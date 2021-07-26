@@ -642,7 +642,7 @@ return [
         // From MariaDB 10.5, there is 1 redo log.
         // For MariaDB 10.4 and before, the number of redo log files is configured
         // by the innodb_log_files_in_group system variable.
-        'formula' => '(innodb_log_file_size * 1)/ innodb_buffer_pool_size * 100',
+        'formula' => 'innodb_log_file_size / innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
         'issue' => __(
             'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
