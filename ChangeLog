@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #17037 Fix change structure does not surface errors
 - issue #17016 Fixed online Transaction, errors not reported on structure edit
 - issue #17042 Fix SQL escaping bug on DB name with special chars on submit query with rollback option
+- issue #17027 Better handle the display of sorted binary columns in results summary
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
