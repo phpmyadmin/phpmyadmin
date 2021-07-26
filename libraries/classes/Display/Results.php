@@ -4361,6 +4361,7 @@ class Results
 
         if (stripos($meta->type, self::BLOB_FIELD) !== false
             || ($meta->type === self::GEOMETRY_FIELD)
+            || ($meta->type === 'string' && $meta->charsetnr === 63)// Is a binary string
         ) {
             $column_for_first_row = $this->handleNonPrintableContents(
                 $meta->type,
@@ -4393,6 +4394,7 @@ class Results
         $meta = $fields_meta[$sorted_column_index];
         if (stripos($meta->type, self::BLOB_FIELD) !== false
             || ($meta->type === self::GEOMETRY_FIELD)
+            || ($meta->type === 'string' && $meta->charsetnr === 63)// Is a binary string
         ) {
             $column_for_last_row = $this->handleNonPrintableContents(
                 $meta->type,
