@@ -58,6 +58,8 @@ phpMyAdmin - ChangeLog
 - issue #16842 Fixed missing password modes on PerconaDB
 - issue #16947 Fix "Change login information" form not working
 - issue #17004 Fix Advisor for MariaDB >= 10.5 because of removed "innodb_log_files_in_group" variable
+- issue #17037 Fix change structure does not surface errors
+- issue #17016 Fixed online Transaction, errors not reported on structure edit
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
