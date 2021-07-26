@@ -1779,8 +1779,8 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "' . $table . '" '
-            . 'AND `table_schema` = "' . $db . '" '
+            . 'WHERE `table_name` = "' . $dbi->escapeString($table) . '" '
+            . 'AND `table_schema` = "' . $dbi->escapeString($db) . '" '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactional_engines)
             . '")';
