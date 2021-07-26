@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-07-18 00:08+0000\n"
-"PO-Revision-Date: 2021-07-26 21:34+0000\n"
-"Last-Translator: Erdin Koc <erdinkoc55@gmail.com>\n"
+"PO-Revision-Date: 2021-07-28 06:33+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,6 @@ msgstr ""
 "X-Generator: Weblate 4.7.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
-#, fuzzy
 msgid "Uptime below one day"
 msgstr "Le temps de disponibilité est inférieur à un jour"
 
