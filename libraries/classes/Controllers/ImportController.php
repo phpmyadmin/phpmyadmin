@@ -34,6 +34,7 @@ use function ini_set;
 use function intval;
 use function is_array;
 use function is_link;
+use function is_numeric;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
@@ -176,17 +177,22 @@ final class ImportController extends AbstractController
             ) {
                 $parameters = $_POST['parameters'];
                 foreach ($parameters as $parameter => $replacement) {
+                    $replacementValue = $this->dbi->escapeString($replacement);
+                    if (! is_numeric($replacementValue)) {
+                        $replacementValue = '\'' . $replacementValue . '\'';
+                    }
+
                     $quoted = preg_quote($parameter, '/');
                     // making sure that :param does not apply values to :param1
                     $sql_query = preg_replace(
                         '/' . $quoted . '([^a-zA-Z0-9_])/',
-                        $this->dbi->escapeString($replacement) . '${1}',
+                        $replacementValue . '${1}',
                         $sql_query
                     );
                     // for parameters the appear at the end of the string
                     $sql_query = preg_replace(
                         '/' . $quoted . '$/',
-                        $this->dbi->escapeString($replacement),
+                        $replacementValue,
                         $sql_query
                     );
                 }

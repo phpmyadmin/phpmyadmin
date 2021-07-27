@@ -4296,9 +4296,10 @@ class Results
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
 
-        $isBlobOrGeometry = $meta->isType(FieldMetadata::TYPE_BLOB) || $meta->isMappedTypeGeometry;
+        $isBlobOrGeometryOrBinary = $meta->isType(FieldMetadata::TYPE_BLOB)
+                                    || $meta->isMappedTypeGeometry || $meta->isBinary;
 
-        if ($isBlobOrGeometry) {
+        if ($isBlobOrGeometryOrBinary) {
             $columnForFirstRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
@@ -4328,7 +4329,7 @@ class Results
 
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
-        if ($isBlobOrGeometry) {
+        if ($isBlobOrGeometryOrBinary) {
             $columnForLastRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
