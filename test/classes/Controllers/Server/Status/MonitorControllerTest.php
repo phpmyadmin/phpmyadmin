@@ -98,7 +98,7 @@ class MonitorControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<div id="addChartDialog"',
+            '<div class="modal fade" id="addChartModal"',
             $html
         );
         $this->assertStringContainsString(
