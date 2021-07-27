@@ -63,6 +63,8 @@ phpMyAdmin - ChangeLog
 - issue #17042 Fix SQL escaping bug on DB name with special chars on submit query with rollback option
 - issue #17027 Better handle the display of sorted binary columns in results summary
 - issue #16398 Quote non numeric values on parameterized queries
+- issue        Fixed duplicate HTML escaping on foreign keys select value modal
+- issue #15370 Fixed edit routine UI incorrectly removes too many escape slashes
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
