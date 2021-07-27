@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -637,6 +638,13 @@ class Routines
          */
         $stmt = $parser->statements[0];
 
+        // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
+        $body = TokensList::build($stmt->body);
+        if (empty($body)) {
+            // Fallback just in case the parser fails
+            $body = $routine['ROUTINE_DEFINITION'];
+        }
+
         $params = Routine::getParameters($stmt);
         $retval['item_num_params']       = $params['num'];
         $retval['item_param_dir']        = $params['dir'];
@@ -676,7 +684,7 @@ class Routines
         }
 
         $retval['item_definer'] = $stmt->options->has('DEFINER');
-        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
+        $retval['item_definition'] = $body;
         $retval['item_isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] === 'YES') {
             $retval['item_isdeterministic'] = " checked='checked'";

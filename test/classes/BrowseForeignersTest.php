@@ -138,7 +138,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $this->assertEquals(
             [
-                'foobar&lt;baz',
+                'foobar<baz',
                 '',
             ],
             $this->callFunction(
@@ -155,7 +155,7 @@ class BrowseForeignersTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'fooba...',
-                'foobar&lt;baz',
+                'foobar<baz',
             ],
             $this->callFunction(
                 $browseForeigners,
