@@ -106,7 +106,7 @@
                         </label>
                       </div>
                       <div class="col-12">
-                        <select name="lang" class="form-select autosubmit" lang="en" dir="ltr" id="languageSelect">
+                        <select name="lang" class="form-select autosubmit w-auto" lang="en" dir="ltr" id="languageSelect">
                           {% for language in available_languages %}
                             <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
                               {{- language.getName()|raw -}}
