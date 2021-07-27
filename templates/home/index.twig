@@ -122,14 +122,19 @@
                   <li id="li_select_theme" class="list-group-item">
                     <form method="post" action="{{ url('/themes/set') }}" class="disableAjax">
                       {{ get_hidden_inputs() }}
-                      <a href="#" data-bs-toggle="modal" data-bs-target="#themesModal" role="button">
-                        {{- get_icon('s_theme', 'Theme:'|trans) -}}
-                      </a>
-                      <select name="set_theme" lang="en" dir="ltr" class="autosubmit" aria-label="{% trans 'Theme' %}">
-                        {% for theme in themes %}
-                          <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
-                        {% endfor %}
-                      </select>
+                      <div class="col-12">
+                        <label for="themeSelect" class="col-form-label text-nowrap">
+                          {{ get_image('s_theme') }}
+                          {% trans 'Theme' %}
+                        </label>
+                      </div>
+                      <div class="col-12">
+                        <select name="set_theme" class="form-select autosubmit w-auto" lang="en" dir="ltr" id="themeSelect">
+                          {% for theme in themes %}
+                            <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
                     </form>
                   </li>
                 {% endif %}
