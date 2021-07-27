@@ -10,7 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function sprintf;
 
 /**
- * @covers NavigationController
+ * @covers \PhpMyAdmin\Controllers\NavigationController
  */
 class NavigationControllerTest extends AbstractTestCase
 {

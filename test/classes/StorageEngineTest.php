@@ -323,9 +323,6 @@ class StorageEngineTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @covers hasMroongaEngine
-     */
     public function testHasMroongaEngine(): void
     {
         $this->dummyDbi->addResult('SELECT mroonga_command(\'object_list\');', [
@@ -344,9 +341,6 @@ class StorageEngineTest extends AbstractTestCase
         $this->assertAllQueriesConsumed();
     }
 
-    /**
-     * @covers getMroongaLengths
-     */
     public function testGetMroongaLengths(): void
     {
         $this->dummyDbi->addResult('SELECT mroonga_command(\'object_list\');', [

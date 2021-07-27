@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\ImportController;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Controllers\ImportController
+ */
 class ImportControllerTest extends AbstractTestCase
 {
     public function testIndexParametrized(): void
