@@ -336,20 +336,10 @@ li.fast_filter {
   list-style: none;
 
   input {
-    margin: 3px 0 0 0;
     font-size: 0.7em;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 1.7em;
-    width: 100%;
   }
 
-  span {
-    position: relative;
-    right: 1.5em;
-    padding: 0.2em;
-    cursor: pointer;
+  .searchClauseClear {
     font-weight: bold;
     color: #800;
     font-size: 0.7em;
@@ -358,7 +348,6 @@ li.fast_filter {
   &.db_fast_filter {
     border: 0;
     margin-left: 0;
-    margin-right: 10px;
   }
 }
 

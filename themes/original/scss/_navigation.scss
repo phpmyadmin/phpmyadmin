@@ -327,22 +327,20 @@ li.fast_filter {
   border-left: 1px solid #666;
 
   input {
-    padding-right: 1.7em;
-    width: 100%;
+    font-size: 0.7em;
   }
 
-  span {
-    position: relative;
-    right: 1.5em;
-    padding: 0.2em;
-    cursor: pointer;
+  .searchClauseClear {
+    border: 0;
     font-weight: bold;
     color: #800;
+    font-size: 0.7em;
   }
-}
 
-li.fast_filter.db_fast_filter {
-  border: 0;
+  &.db_fast_filter {
+    border: 0;
+    margin-left: 0;
+  }
 }
 
 /* Resize handler */
