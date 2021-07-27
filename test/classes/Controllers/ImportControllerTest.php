@@ -38,7 +38,7 @@ class ImportControllerTest extends AbstractTestCase
         $sql_query = $_POST['sql_query'];
 
         $this->dummyDbi->addResult(
-            'SELECT A.* FROM table1 A WHERE A.nomEtablissement = Saint-Louis - Châteaulin'
+            'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
             . ' AND foo = 4 AND `:a` IS NULL LIMIT 0, 25',
             []
         );
@@ -57,6 +57,17 @@ class ImportControllerTest extends AbstractTestCase
         $importController = $containerBuilder->get(ImportController::class);
         $importController->index();
         $this->assertResponseWasSuccessfull();
+
+        $this->assertStringContainsString(
+            'MySQL returned an empty result set (i.e. zero rows).',
+            $this->getResponseHtmlResult()
+        );
+
+        $this->assertStringContainsString(
+            'SELECT A.*' . "\n" . 'FROM table1 A' . "\n"
+                . 'WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\' AND foo = 4 AND `:a` IS NULL',
+            $this->getResponseHtmlResult()
+        );
 
         $this->assertAllQueriesConsumed();
     }

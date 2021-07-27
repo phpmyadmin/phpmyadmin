@@ -41,6 +41,7 @@ use function strlen;
 use function substr;
 use function time;
 use function trim;
+use function is_numeric;
 
 final class ImportController extends AbstractController
 {
@@ -170,17 +171,21 @@ final class ImportController extends AbstractController
             ) {
                 $parameters = $_POST['parameters'];
                 foreach ($parameters as $parameter => $replacement) {
+                    $replacementValue = $this->dbi->escapeString($replacement);
+                    if (! is_numeric($replacementValue)) {
+                        $replacementValue = '\'' . $replacementValue . '\'';
+                    }
                     $quoted = preg_quote($parameter, '/');
                     // making sure that :param does not apply values to :param1
                     $sql_query = preg_replace(
                         '/' . $quoted . '([^a-zA-Z0-9_])/',
-                        $this->dbi->escapeString($replacement) . '${1}',
+                        $replacementValue . '${1}',
                         $sql_query
                     );
                     // for parameters the appear at the end of the string
                     $sql_query = preg_replace(
                         '/' . $quoted . '$/',
-                        $this->dbi->escapeString($replacement),
+                        $replacementValue,
                         $sql_query
                     );
                 }
