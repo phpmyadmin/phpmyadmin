@@ -406,10 +406,11 @@
       <code>$info['valid']</code>
       <code>$info['valid']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="4">
       <code>$code</code>
       <code>$file</code>
       <code>$info</code>
+      <code>$showDeprecations</code>
     </MixedAssignment>
     <MixedFunctionCall occurrences="1">
       <code>$prevErrorHandler($level, $message, $file, $line)</code>
@@ -425,13 +426,20 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Common.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="13">
       <code>$_POST['token']</code>
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
       <code>$_SESSION[' PMA_token ']</code>
+      <code>$back</code>
       <code>$cfg['Server']['user']</code>
+      <code>$db</code>
+      <code>$goto</code>
       <code>$sqlDelimiter</code>
+      <code>$sql_query</code>
+      <code>$table</code>
+      <code>$urlParams</code>
+      <code>$urlParams</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$cfg['MysqlMinVersion']['human']</code>
@@ -5712,7 +5720,8 @@
       <code>$i</code>
       <code>$i</code>
     </LoopInvalidation>
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="8">
+      <code>$GLOBALS[$post_key]</code>
       <code>$GLOBALS['cfg']['TrustedProxies'][$direct_ip]</code>
       <code>$one_post_pattern</code>
       <code>$path[$depth + 1]</code>
@@ -9818,7 +9827,7 @@
       <code>int</code>
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="73">
+    <MixedArgument occurrences="74">
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['import_text']</code>
       <code>$GLOBALS['import_text']</code>
@@ -9844,6 +9853,7 @@
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
       <code>$charset_of_file</code>
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$fulls[$i]</code>
@@ -9987,7 +9997,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="36">
+    <MixedOperand occurrences="35">
       <code>$GLOBALS['offset']</code>
       <code>$GLOBALS['offset']</code>
       <code>$charset</code>
@@ -9995,7 +10005,6 @@
       <code>$collation</code>
       <code>$collation</code>
       <code>$complete_query</code>
-      <code>$db</code>
       <code>$display_query</code>
       <code>$executed_queries</code>
       <code>$importPlugin-&gt;getProperties()-&gt;getExtension()</code>
@@ -20246,6 +20255,16 @@
       <code>$cfg['Server']</code>
     </MixedArrayAssignment>
   </file>
+  <file src="test/classes/Controllers/ImportControllerTest.php">
+    <MixedArrayAssignment occurrences="1">
+      <code>$GLOBALS['cfg']['Server']</code>
+    </MixedArrayAssignment>
+    <UnusedVariable occurrences="3">
+      <code>$db</code>
+      <code>$sql_query</code>
+      <code>$table</code>
+    </UnusedVariable>
+  </file>
   <file src="test/classes/Controllers/JavaScriptMessagesControllerTest.php">
     <MixedArrayAssignment occurrences="1">
       <code>$cfg['GridEditing']</code>
@@ -20266,6 +20285,18 @@
       <code>$responseMessage</code>
       <code>$responseMessage</code>
     </MixedAssignment>
+  </file>
+  <file src="test/classes/Controllers/NormalizationControllerTest.php">
+    <MixedArgument occurrences="8">
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['table']</code>
+      <code>$GLOBALS['table']</code>
+      <code>$GLOBALS['table']</code>
+      <code>$GLOBALS['table']</code>
+    </MixedArgument>
   </file>
   <file src="test/classes/Controllers/Server/BinlogControllerTest.php">
     <MixedArgument occurrences="1">
@@ -20540,6 +20571,12 @@
     </MixedOperand>
   </file>
   <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
+    <MixedArgument occurrences="4">
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['db']</code>
+      <code>$GLOBALS['table']</code>
+      <code>$GLOBALS['table']</code>
+    </MixedArgument>
     <MixedArrayAssignment occurrences="6">
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['cfg']['Server']</code>
