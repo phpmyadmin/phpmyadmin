@@ -32,6 +32,33 @@ function checkAddUser (theForm) {
 }
 
 /**
+ * Export privileges modal handler
+ *
+ * @param {object} data
+ *
+ * @param {JQuery} msgbox
+ *
+ */
+function exportPrivilegesModalHandler (data, msgbox) {
+    if (typeof data !== 'undefined' && data.success === true) {
+        var modal = $('#exportPrivilegesModal');
+        // Remove any previous privilege modal data, if any
+        modal.find('.modal-body').first().html('');
+        $('#exportPrivilegesModalLabel').first().html('Loading');
+        modal.modal('show');
+        modal.on('shown.bs.modal', function () {
+            modal.find('.modal-body').first().html(data.message);
+            $('#exportPrivilegesModalLabel').first().html(data.title);
+            Functions.ajaxRemoveMessage(msgbox);
+            // Attach syntax highlighted editor to export dialog
+            Functions.getSqlEditor(modal.find('textarea'));
+        });
+        return;
+    }
+    Functions.ajaxShowMessage(data.error, false);
+}
+
+/**
  * @implements EventListener
  */
 const EditUserGroup = {
@@ -277,70 +304,24 @@ AJAX.registerOnload('server/privileges.js', function () {
             Functions.ajaxShowMessage(Messages.strNoAccountSelected, 2000, 'success');
             return;
         }
-        var $msgbox = Functions.ajaxShowMessage();
-        var buttonOptions = {};
-        buttonOptions[Messages.strClose] = function () {
-            $(this).dialog('close');
-        };
+        var msgbox = Functions.ajaxShowMessage();
         var argsep = CommonParams.get('arg_separator');
         var serverId = CommonParams.get('server');
         var selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
         var postStr = selectedUsers + '&submit_mult=export' + argsep + 'ajax_request=true&server=' + serverId;
-        $.post(
-            $(this.form).prop('action'),
-            postStr,
-            function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    var $ajaxDialog = $('<div></div>')
-                        .append(data.message)
-                        .dialog({
-                            title: data.title,
-                            width: 500,
-                            buttons: buttonOptions,
-                            close: function () {
-                                $(this).remove();
-                            }
-                        });
-                    Functions.ajaxRemoveMessage($msgbox);
-                    // Attach syntax highlighted editor to export dialog
-                    Functions.getSqlEditor($ajaxDialog.find('textarea'));
-                } else {
-                    Functions.ajaxShowMessage(data.error, false);
-                }
-            }
-        ); // end $.post
+
+        $.post($(this.form).prop('action'), postStr, function (data) {
+            exportPrivilegesModalHandler(data, msgbox);
+        }); // end $.post
     });
     // if exporting non-ajax, highlight anyways
     Functions.getSqlEditor($('textarea.export'));
 
     $(document).on('click', 'a.export_user_anchor.ajax', function (event) {
         event.preventDefault();
-        var $msgbox = Functions.ajaxShowMessage();
-        /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
-         */
-        var buttonOptions = {};
-        buttonOptions[Messages.strClose] = function () {
-            $(this).dialog('close');
-        };
+        var msgbox = Functions.ajaxShowMessage();
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
-            if (typeof data !== 'undefined' && data.success === true) {
-                var $ajaxDialog = $('<div></div>')
-                    .append(data.message)
-                    .dialog({
-                        title: data.title,
-                        width: 500,
-                        buttons: buttonOptions,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
-                Functions.ajaxRemoveMessage($msgbox);
-                // Attach syntax highlighted editor to export dialog
-                Functions.getSqlEditor($ajaxDialog.find('textarea'));
-            } else {
-                Functions.ajaxShowMessage(data.error, false);
-            }
+            exportPrivilegesModalHandler(data, msgbox);
         }); // end $.get
     }); // end export privileges
 

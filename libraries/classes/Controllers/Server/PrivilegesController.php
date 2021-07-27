@@ -416,6 +416,7 @@ class PrivilegesController extends AbstractController
                     'checkprivsdb' => $_GET['checkprivsdb'],
                     'checkprivstable' => $_GET['checkprivstable'],
                 ]));
+                $this->render('export_modal');
             } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
                 $message = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $message);
@@ -425,6 +426,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML($databaseController->index([
                     'checkprivsdb' => $_GET['checkprivsdb'],
                 ]));
+                $this->render('export_modal');
             }
         } else {
             if (isset($dbname) && ! is_array($dbname)) {

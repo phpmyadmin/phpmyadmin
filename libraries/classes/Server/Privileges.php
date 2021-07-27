@@ -3166,6 +3166,7 @@ class Privileges
                     $dbRights,
                     $textDir
                 );
+                $usersOverview .= $this->template->render('export_modal');
             }
 
             $response = ResponseRenderer::getInstance();
