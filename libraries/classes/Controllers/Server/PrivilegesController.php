@@ -452,7 +452,7 @@ class PrivilegesController extends AbstractController
                         $hostname ?? '',
                         $dbname,
                         $routinename,
-                        $url_dbname ?? ''
+                        Util::escapeMysqlWildcards($url_dbname ?? '')
                     )
                 );
             } else {
@@ -465,7 +465,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserProperties(
                         $dbname_is_wildcard,
-                        $url_dbname ?? '',
+                        Util::escapeMysqlWildcards($url_dbname ?? ''),
                         $username,
                         $hostname ?? '',
                         $dbname ?? '',
