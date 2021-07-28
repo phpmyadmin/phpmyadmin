@@ -68,6 +68,7 @@ phpMyAdmin - ChangeLog
 - issue #14631 Fix enum with comma produces incorrect search dropdown on search pages
 - issue        Fix gis visualization position and limit parameters have no effect
 - issue #16995 Fix edit binary foreign key adds a 1 to the value on the selected value
+- issue #13614 Fixed escaping the database names when granting privileges on tables
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
