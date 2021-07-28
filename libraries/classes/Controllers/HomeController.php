@@ -459,6 +459,7 @@ class HomeController extends AbstractController
             return;
         }
 
+        /** @psalm-suppress MissingFile */
         include ROOT_PATH . 'libraries/language_stats.inc.php';
         /*
          * This message is intentionally not translated, because we're

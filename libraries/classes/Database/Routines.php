@@ -642,7 +642,7 @@ class Routines
         $body = TokensList::build($stmt->body);
         if (empty($body)) {
             // Fallback just in case the parser fails
-            $body = $routine['ROUTINE_DEFINITION'];
+            $body = (string) $routine['ROUTINE_DEFINITION'];
         }
 
         $params = Routine::getParameters($stmt);

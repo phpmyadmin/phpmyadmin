@@ -2477,9 +2477,6 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
-    <MissingFile occurrences="1">
-      <code>include ROOT_PATH . 'libraries/language_stats.inc.php'</code>
-    </MissingFile>
     <MixedArgument occurrences="14">
       <code>$_POST['collation_connection']</code>
       <code>$cfg['Server']['DisableIS']</code>
@@ -4274,15 +4271,13 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="10">
       <code>$_GET['fileFormat']</code>
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
       <code>$cfg['DefaultTabDatabase']</code>
       <code>$cfg['DefaultTabDatabase']</code>
-      <code>$pos</code>
       <code>$result</code>
-      <code>$rows</code>
       <code>$sqlQuery</code>
       <code>$urlParams</code>
       <code>$visualizationSettings</code>
@@ -4308,12 +4303,8 @@
       <code>$visualizationSettings['mysqlVersion']</code>
       <code>$visualizationSettings['spatialColumn']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$pos</code>
+    <MixedAssignment occurrences="6">
       <code>$result</code>
-      <code>$rows</code>
-      <code>$rows</code>
-      <code>$rows</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$val</code>
@@ -6924,7 +6915,7 @@
       <code>$routine['item_param_type'][$i]</code>
       <code>$routine['item_param_type'][$routine['item_num_params'] - 1]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="51">
+    <MixedAssignment occurrences="50">
       <code>$i</code>
       <code>$itemDefiner</code>
       <code>$itemDefinition</code>
@@ -6949,7 +6940,6 @@
       <code>$retval[$index]</code>
       <code>$retval['item_comment']</code>
       <code>$retval['item_definer']</code>
-      <code>$retval['item_definition']</code>
       <code>$retval['item_name']</code>
       <code>$retval['item_num_params']</code>
       <code>$retval['item_param_dir']</code>
