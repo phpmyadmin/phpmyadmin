@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 - issue        Add suport for the Mroonga engine
 - issue        Double click column name to directly copy to clipboard
 - issue #16425 Add "DELETE FROM" table on table operations page
+- issue #16482 Add a select all link for table-specific privileges
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
