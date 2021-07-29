@@ -88,8 +88,11 @@ final class GisVisualizationController extends AbstractController
 
         // Get settings if any posted
         $visualizationSettings = [];
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         if (Core::isValid($_POST['visualizationSettings'], 'array')) {
             $visualizationSettings = $_POST['visualizationSettings'];
+        } elseif (Core::isValid($_GET['visualizationSettings'], 'array')) {
+            $visualizationSettings = $_GET['visualizationSettings'];
         }
 
         // Check mysql version
@@ -174,6 +177,8 @@ final class GisVisualizationController extends AbstractController
                 'saveToFile' => true,
                 'session_max_rows' => $rows,
                 'pos' => $pos,
+                'visualizationSettings[spatialColumn]' => $visualizationSettings['spatialColumn'],
+                'visualizationSettings[labelColumn]' => $visualizationSettings['labelColumn'],
             ]
         ));
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
