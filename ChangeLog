@@ -70,6 +70,7 @@ phpMyAdmin - ChangeLog
 - issue #16995 Fix edit binary foreign key adds a 1 to the value on the selected value
 - issue #13614 Fixed escaping the database names when granting privileges on tables
 - issue #11834 Fixed adding a new user on "privileges" tab of a table with a database name using a "_" character
+- issue #17033 Fixed scaling of line width and point size in GIS visualization
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
