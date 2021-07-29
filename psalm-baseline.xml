@@ -3306,8 +3306,10 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <MixedArgument occurrences="54">
+    <MixedArgument occurrences="56">
       <code>$GLOBALS['message']</code>
+      <code>$_GET['checkprivsdb']</code>
+      <code>$_GET['checkprivsdb']</code>
       <code>$_POST['userGroup']</code>
       <code>$db</code>
       <code>$db</code>
