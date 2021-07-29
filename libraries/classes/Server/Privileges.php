@@ -1966,7 +1966,7 @@ class Privileges
                 $onePrivilege['column_privs']  = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramTableName = $row['Table_name'];
             } else { // routine
                 $name = $row['Routine_name'];
@@ -1981,7 +1981,7 @@ class Privileges
                     $this->extractPrivInfo($privs, true)
                 );
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramRoutineName = $row['Routine_name'];
             }
 
@@ -3592,7 +3592,7 @@ class Privileges
             // Grant all privileges on the specified database to the new user
             $query = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
-                $this->dbi->escapeString($dbname)
+                $dbname
             ) . '.* TO \''
             . $this->dbi->escapeString($username)
             . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';

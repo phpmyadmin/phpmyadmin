@@ -1339,8 +1339,6 @@ class Relation
                 } else {
                     $selected = ($key == '0x' . $data);
                 }
-
-                $key .= $selected;
             }
 
             if (
