@@ -24,6 +24,7 @@ use function mb_strpos;
 use function mb_substr;
 use function min;
 use function pow;
+use function round;
 use function sqrt;
 use function trim;
 
@@ -150,8 +151,8 @@ class GisPolygon extends GisGeometry
             imagestring(
                 $image,
                 1,
-                $points_arr[2],
-                $points_arr[3],
+                (int) round($points_arr[2]),
+                (int) round($points_arr[3]),
                 trim($label),
                 $black
             );

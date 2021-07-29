@@ -21,6 +21,7 @@ use function json_encode;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
+use function round;
 use function trim;
 
 /**
@@ -168,8 +169,8 @@ class GisMultiPolygon extends GisGeometry
             imagestring(
                 $image,
                 1,
-                $points_arr[2],
-                $points_arr[3],
+                (int) round($label_point[0]),
+                (int) round($label_point[1]),
                 trim((string) $label),
                 $black
             );
