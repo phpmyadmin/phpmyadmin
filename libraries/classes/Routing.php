@@ -19,6 +19,7 @@ use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
+use function is_string;
 use function is_writable;
 use function mb_strlen;
 use function rawurldecode;
@@ -175,7 +176,17 @@ class Routing
             return;
         }
 
-        [$controllerName, $action] = $routeInfo[1];
+        /** @psalm-var class-string|callable-array $handler */
+        $handler = $routeInfo[1];
+        if (is_string($handler)) {
+            $controllerName = $handler;
+            $controller = $container->get($controllerName);
+            $controller($request, $routeInfo[2]);
+
+            return;
+        }
+
+        [$controllerName, $action] = $handler;
         $controller = $container->get($controllerName);
         $controller->$action($request, $routeInfo[2]);
     }

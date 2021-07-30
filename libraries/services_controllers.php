@@ -20,6 +20,13 @@ return [
                 '$template' => '@template',
             ],
         ],
+        PhpMyAdmin\Controllers\CheckConfigErrorsController::class => [
+            'class' => PhpMyAdmin\Controllers\CheckConfigErrorsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+            ],
+        ],
         PhpMyAdmin\Controllers\CheckRelationsController::class => [
             'class' => PhpMyAdmin\Controllers\CheckRelationsController::class,
             'arguments' => [

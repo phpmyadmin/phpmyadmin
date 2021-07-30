@@ -61,6 +61,15 @@
               </div>
             </div>
         {% endif %}
+
+      <div class="card mt-4">
+        <div class="card-header">
+          {% trans 'Check config errors' %}
+        </div>
+        <div class="card-body">
+          <a href="{{ url('/check-config-errors') }}">{% trans 'Check config errors' %}</a>
+        </div>
+      </div>
     </div>
     <div class="col-12 col-md-5">
         <div class="card mt-4">

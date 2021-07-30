@@ -5,6 +5,7 @@ declare(strict_types=1);
 use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
+use PhpMyAdmin\Controllers\CheckConfigErrorsController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\ConfigController;
@@ -114,6 +115,7 @@ return static function (RouteCollector $routes): void {
     });
     $routes->addRoute(['GET', 'POST'], '/browse-foreigners', [BrowseForeignersController::class, 'index']);
     $routes->get('/changelog', [ChangeLogController::class, 'index']);
+    $routes->get('/check-config-errors', CheckConfigErrorsController::class);
     $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
     $routes->post('/columns', [ColumnController::class, 'all']);
     $routes->addGroup('/config', static function (RouteCollector $routes): void {

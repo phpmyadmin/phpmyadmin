@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>{% trans 'Check config errors' %}</h2>
+
+  {% for error in errors %}
+    <div class="alert alert-danger" role="alert">
+      <code>$cfg['{{ error.keys[0] }}']{% if error.keys[1] is defined %}['{{ error.keys[1] }}']{% endif %}</code>
+      <ul class="mb-0">
+        <li>
+          Expected:
+          <span class="fst-italic">{{ error.expected.type }}</span>
+          <code>
+            {% if error.expected.type == 'bool' %}
+              {{ error.expected.value ? 'true' : 'false' }}
+            {% elseif error.expected.type == 'string' %}
+              '{{ error.expected.value }}'
+            {% else %}
+              {{ error.expected.value }}
+            {% endif %}
+          </code>
+        </li>
+        <li>
+          Actual:
+          <span class="fst-italic">{{ error.actual.type }}</span>
+          <code>
+            {% if error.actual.type == 'bool' %}
+              {{ error.actual.value ? 'true' : 'false' }}
+            {% elseif error.actual.type == 'string' %}
+              '{{ error.actual.value }}'
+            {% else %}
+              {{ error.actual.value }}
+            {% endif %}
+          </code>
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+</div>
