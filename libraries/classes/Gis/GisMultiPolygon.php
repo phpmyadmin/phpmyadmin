@@ -348,8 +348,8 @@ class GisMultiPolygon extends GisGeometry
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

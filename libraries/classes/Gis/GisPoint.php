@@ -283,9 +283,9 @@ class GisPoint extends GisGeometry
             . 'fill: fill,'
             . 'stroke: stroke';
 
-        if ($label) {
+        if (trim($label) !== '') {
             $text_style = [
-                'text' => $label,
+                'text' => trim($label),
                 'offsetY' => -9,
             ];
             $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';

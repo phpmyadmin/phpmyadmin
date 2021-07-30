@@ -267,8 +267,8 @@ class GisLineString extends GisGeometry
 
         $result =  'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $result .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
