@@ -30,7 +30,7 @@ use const ROOT_PATH;
  */
 class SettingsTest extends AbstractTestCase
 {
-    /** @var array<string, mixed> */
+    /** @var array<string, array|bool|int|string|null> */
     private $defaultValues = [
         'PmaAbsoluteUri' => '',
         'AuthLog' => 'auto',

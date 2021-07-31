@@ -10,6 +10,7 @@ use function in_array;
 
 /**
  * @psalm-immutable
+ * @psalm-type StructureOrDataType = 'structure'|'data'|'structure_and_data'
  */
 final class Export
 {
@@ -75,10 +76,16 @@ final class Export
     /** @var string */
     public $file_template_server = '@SERVER@';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $codegen_structure_or_data = 'data';
 
-    /** @var int */
+    /**
+     * @var int
+     * @psalm-var 0|1
+     */
     public $codegen_format = 0;
 
     /** @var bool */
@@ -87,7 +94,10 @@ final class Export
     /** @var string */
     public $ods_null = 'NULL';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $odt_structure_or_data = 'structure_and_data';
 
     /** @var bool */
@@ -105,7 +115,10 @@ final class Export
     /** @var string */
     public $odt_null = 'NULL';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $htmlword_structure_or_data = 'structure_and_data';
 
     /** @var bool */
@@ -114,7 +127,10 @@ final class Export
     /** @var string */
     public $htmlword_null = 'NULL';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $texytext_structure_or_data = 'structure_and_data';
 
     /** @var bool */
@@ -126,7 +142,10 @@ final class Export
     /** @var bool */
     public $csv_columns = false;
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $csv_structure_or_data = 'data';
 
     /** @var string */
@@ -154,19 +173,24 @@ final class Export
     public $excel_null = 'NULL';
 
     /**
-     * win/mac
-     *
      * @var string
+     * @psalm-var 'win'|'mac_excel2003'|'mac_excel2008'
      */
     public $excel_edition = 'win';
 
     /** @var bool */
     public $excel_removeCRLF = false;
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $excel_structure_or_data = 'data';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $latex_structure_or_data = 'structure_and_data';
 
     /** @var bool */
@@ -205,7 +229,10 @@ final class Export
     /** @var string */
     public $latex_structure_label = 'tab:@TABLE@-structure';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $mediawiki_structure_or_data = 'data';
 
     /** @var bool */
@@ -214,16 +241,28 @@ final class Export
     /** @var bool */
     public $mediawiki_headers = true;
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $ods_structure_or_data = 'data';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $pdf_structure_or_data = 'data';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $phparray_structure_or_data = 'data';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $json_structure_or_data = 'data';
 
     /** @var bool */
@@ -232,10 +271,16 @@ final class Export
     /** @var bool */
     public $json_unicode = true;
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $sql_structure_or_data = 'structure_and_data';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL'
+     */
     public $sql_compatibility = 'NONE';
 
     /**
@@ -324,13 +369,15 @@ final class Export
     public $sql_hex_for_binary = true;
 
     /**
-     * insert/update/replace
-     *
      * @var string
+     * @psalm-var 'INSERT'|'UPDATE'|'REPLACE'
      */
     public $sql_type = 'INSERT';
 
-    /** @var int */
+    /**
+     * @var int
+     * @psalm-var 0|positive-int
+     */
     public $sql_max_query_size = 50000;
 
     /** @var bool */
@@ -347,13 +394,17 @@ final class Export
      * Whether to use complete inserts, extended inserts, both, or neither
      *
      * @var string
+     * @psalm-var 'complete'|'extended'|'both'|'none'
      */
     public $sql_insert_syntax = 'both';
 
     /** @var string */
     public $pdf_report_title = '';
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $xml_structure_or_data = 'data';
 
     /**
@@ -412,7 +463,10 @@ final class Export
      */
     public $xml_export_contents = true;
 
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var StructureOrDataType
+     */
     public $yaml_structure_or_data = 'data';
 
     /**
@@ -431,20 +485,19 @@ final class Export
                 'ods',
                 'odt',
                 'pdf',
-                'sql',
                 'texytext',
                 'xml',
                 'yaml',
             ], true)
         ) {
-                $this->format = $export['format'];
+            $this->format = $export['format'];
         }
 
-        if (isset($export['method']) && in_array($export['method'], ['quick', 'custom', 'custom-no-form'], true)) {
+        if (isset($export['method']) && in_array($export['method'], ['custom', 'custom-no-form'], true)) {
             $this->method = $export['method'];
         }
 
-        if (isset($export['compression']) && in_array($export['compression'], ['none', 'zip', 'gzip'], true)) {
+        if (isset($export['compression']) && in_array($export['compression'], ['zip', 'gzip'], true)) {
             $this->compression = $export['compression'];
         }
 
@@ -496,12 +549,18 @@ final class Export
             $this->file_template_server = (string) $export['file_template_server'];
         }
 
-        if (isset($export['codegen_structure_or_data'])) {
-            $this->codegen_structure_or_data = (string) $export['codegen_structure_or_data'];
+        if (
+            isset($export['codegen_structure_or_data'])
+            && in_array($export['codegen_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->codegen_structure_or_data = $export['codegen_structure_or_data'];
         }
 
         if (isset($export['codegen_format'])) {
-            $this->codegen_format = (int) $export['codegen_format'];
+            $codegenFormat = (int) $export['codegen_format'];
+            if ($codegenFormat === 0 || $codegenFormat === 1) {
+                $this->codegen_format = $codegenFormat;
+            }
         }
 
         if (isset($export['ods_columns'])) {
@@ -512,8 +571,11 @@ final class Export
             $this->ods_null = (string) $export['ods_null'];
         }
 
-        if (isset($export['odt_structure_or_data'])) {
-            $this->odt_structure_or_data = (string) $export['odt_structure_or_data'];
+        if (
+            isset($export['odt_structure_or_data'])
+            && in_array($export['odt_structure_or_data'], ['structure', 'data'], true)
+        ) {
+            $this->odt_structure_or_data = $export['odt_structure_or_data'];
         }
 
         if (isset($export['odt_columns'])) {
@@ -536,8 +598,11 @@ final class Export
             $this->odt_null = (string) $export['odt_null'];
         }
 
-        if (isset($export['htmlword_structure_or_data'])) {
-            $this->htmlword_structure_or_data = (string) $export['htmlword_structure_or_data'];
+        if (
+            isset($export['htmlword_structure_or_data'])
+            && in_array($export['htmlword_structure_or_data'], ['structure', 'data'], true)
+        ) {
+            $this->htmlword_structure_or_data = $export['htmlword_structure_or_data'];
         }
 
         if (isset($export['htmlword_columns'])) {
@@ -548,8 +613,11 @@ final class Export
             $this->htmlword_null = (string) $export['htmlword_null'];
         }
 
-        if (isset($export['texytext_structure_or_data'])) {
-            $this->texytext_structure_or_data = (string) $export['texytext_structure_or_data'];
+        if (
+            isset($export['texytext_structure_or_data'])
+            && in_array($export['texytext_structure_or_data'], ['structure', 'data'], true)
+        ) {
+            $this->texytext_structure_or_data = $export['texytext_structure_or_data'];
         }
 
         if (isset($export['texytext_columns'])) {
@@ -564,8 +632,11 @@ final class Export
             $this->csv_columns = (bool) $export['csv_columns'];
         }
 
-        if (isset($export['csv_structure_or_data'])) {
-            $this->csv_structure_or_data = (string) $export['csv_structure_or_data'];
+        if (
+            isset($export['csv_structure_or_data'])
+            && in_array($export['csv_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->csv_structure_or_data = $export['csv_structure_or_data'];
         }
 
         if (isset($export['csv_null'])) {
@@ -600,20 +671,29 @@ final class Export
             $this->excel_null = (string) $export['excel_null'];
         }
 
-        if (isset($export['excel_edition'])) {
-            $this->excel_edition = (string) $export['excel_edition'];
+        if (
+            isset($export['excel_edition'])
+            && in_array($export['excel_edition'], ['mac_excel2003', 'mac_excel2008'], true)
+        ) {
+            $this->excel_edition = $export['excel_edition'];
         }
 
         if (isset($export['excel_removeCRLF'])) {
             $this->excel_removeCRLF = (bool) $export['excel_removeCRLF'];
         }
 
-        if (isset($export['excel_structure_or_data'])) {
-            $this->excel_structure_or_data = (string) $export['excel_structure_or_data'];
+        if (
+            isset($export['excel_structure_or_data'])
+            && in_array($export['excel_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->excel_structure_or_data = $export['excel_structure_or_data'];
         }
 
-        if (isset($export['latex_structure_or_data'])) {
-            $this->latex_structure_or_data = (string) $export['latex_structure_or_data'];
+        if (
+            isset($export['latex_structure_or_data'])
+            && in_array($export['latex_structure_or_data'], ['structure', 'data'], true)
+        ) {
+            $this->latex_structure_or_data = $export['latex_structure_or_data'];
         }
 
         if (isset($export['latex_columns'])) {
@@ -664,8 +744,11 @@ final class Export
             $this->latex_structure_label = (string) $export['latex_structure_label'];
         }
 
-        if (isset($export['mediawiki_structure_or_data'])) {
-            $this->mediawiki_structure_or_data = (string) $export['mediawiki_structure_or_data'];
+        if (
+            isset($export['mediawiki_structure_or_data'])
+            && in_array($export['mediawiki_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->mediawiki_structure_or_data = $export['mediawiki_structure_or_data'];
         }
 
         if (isset($export['mediawiki_caption'])) {
@@ -676,20 +759,32 @@ final class Export
             $this->mediawiki_headers = (bool) $export['mediawiki_headers'];
         }
 
-        if (isset($export['ods_structure_or_data'])) {
-            $this->ods_structure_or_data = (string) $export['ods_structure_or_data'];
+        if (
+            isset($export['ods_structure_or_data'])
+            && in_array($export['ods_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->ods_structure_or_data = $export['ods_structure_or_data'];
         }
 
-        if (isset($export['pdf_structure_or_data'])) {
-            $this->pdf_structure_or_data = (string) $export['pdf_structure_or_data'];
+        if (
+            isset($export['pdf_structure_or_data'])
+            && in_array($export['pdf_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->pdf_structure_or_data = $export['pdf_structure_or_data'];
         }
 
-        if (isset($export['phparray_structure_or_data'])) {
-            $this->phparray_structure_or_data = (string) $export['phparray_structure_or_data'];
+        if (
+            isset($export['phparray_structure_or_data'])
+            && in_array($export['phparray_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->phparray_structure_or_data = $export['phparray_structure_or_data'];
         }
 
-        if (isset($export['json_structure_or_data'])) {
-            $this->json_structure_or_data = (string) $export['json_structure_or_data'];
+        if (
+            isset($export['json_structure_or_data'])
+            && in_array($export['json_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->json_structure_or_data = $export['json_structure_or_data'];
         }
 
         if (isset($export['json_pretty_print'])) {
@@ -700,12 +795,26 @@ final class Export
             $this->json_unicode = (bool) $export['json_unicode'];
         }
 
-        if (isset($export['sql_structure_or_data'])) {
-            $this->sql_structure_or_data = (string) $export['sql_structure_or_data'];
+        if (
+            isset($export['sql_structure_or_data'])
+            && in_array($export['sql_structure_or_data'], ['structure', 'data'], true)
+        ) {
+            $this->sql_structure_or_data = $export['sql_structure_or_data'];
         }
 
-        if (isset($export['sql_compatibility'])) {
-            $this->sql_compatibility = (string) $export['sql_compatibility'];
+        if (
+            isset($export['sql_compatibility']) && in_array($export['sql_compatibility'], [
+                'ANSI',
+                'DB2',
+                'MAXDB',
+                'MYSQL323',
+                'MYSQL40',
+                'MSSQL',
+                'ORACLE',
+                'TRADITIONAL',
+            ], true)
+        ) {
+            $this->sql_compatibility = $export['sql_compatibility'];
         }
 
         if (isset($export['sql_include_comments'])) {
@@ -804,12 +913,15 @@ final class Export
             $this->sql_hex_for_binary = (bool) $export['sql_hex_for_binary'];
         }
 
-        if (isset($export['sql_type'])) {
-            $this->sql_type = (string) $export['sql_type'];
+        if (isset($export['sql_type']) && in_array($export['sql_type'], ['UPDATE', 'REPLACE'], true)) {
+            $this->sql_type = $export['sql_type'];
         }
 
         if (isset($export['sql_max_query_size'])) {
-            $this->sql_max_query_size = (int) $export['sql_max_query_size'];
+            $maxQuerySize = (int) $export['sql_max_query_size'];
+            if ($maxQuerySize >= 0) {
+                $this->sql_max_query_size = $maxQuerySize;
+            }
         }
 
         if (isset($export['sql_mime'])) {
@@ -820,16 +932,22 @@ final class Export
             $this->sql_header_comment = (string) $export['sql_header_comment'];
         }
 
-        if (isset($export['sql_insert_syntax'])) {
-            $this->sql_insert_syntax = (string) $export['sql_insert_syntax'];
+        if (
+            isset($export['sql_insert_syntax'])
+            && in_array($export['sql_insert_syntax'], ['complete', 'extended', 'none'], true)
+        ) {
+            $this->sql_insert_syntax = $export['sql_insert_syntax'];
         }
 
         if (isset($export['pdf_report_title'])) {
             $this->pdf_report_title = (string) $export['pdf_report_title'];
         }
 
-        if (isset($export['xml_structure_or_data'])) {
-            $this->xml_structure_or_data = (string) $export['xml_structure_or_data'];
+        if (
+            isset($export['xml_structure_or_data'])
+            && in_array($export['xml_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
+            $this->xml_structure_or_data = $export['xml_structure_or_data'];
         }
 
         if (isset($export['xml_export_struc'])) {
@@ -864,10 +982,13 @@ final class Export
             $this->xml_export_contents = (bool) $export['xml_export_contents'];
         }
 
-        if (! isset($export['yaml_structure_or_data'])) {
+        if (
+            ! isset($export['yaml_structure_or_data'])
+            || ! in_array($export['yaml_structure_or_data'], ['structure', 'structure_and_data'], true)
+        ) {
             return;
         }
 
-        $this->yaml_structure_or_data = (string) $export['yaml_structure_or_data'];
+        $this->yaml_structure_or_data = $export['yaml_structure_or_data'];
     }
 }
