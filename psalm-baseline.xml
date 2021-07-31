@@ -1033,6 +1033,44 @@
       <code>$loginCookieValidity</code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/Config/Settings.php">
+    <PropertyTypeCoercion occurrences="34">
+      <code>$charTextareaCols</code>
+      <code>$charTextareaRows</code>
+      <code>$execTimeLimit</code>
+      <code>$firstDayOfCalendar</code>
+      <code>$firstLevelNavigationItems</code>
+      <code>$foreignKeyMaxLimit</code>
+      <code>$insertRows</code>
+      <code>$limitChars</code>
+      <code>$linkLengthLimit</code>
+      <code>$loginCookieStore</code>
+      <code>$loginCookieValidity</code>
+      <code>$maxCharactersInDisplayedSQL</code>
+      <code>$maxDbList</code>
+      <code>$maxExactCount</code>
+      <code>$maxExactCountViews</code>
+      <code>$maxNavigationItems</code>
+      <code>$maxRowPlotLimit</code>
+      <code>$maxRows</code>
+      <code>$maxSizeForInputField</code>
+      <code>$maxTableList</code>
+      <code>$maxUploadSize</code>
+      <code>$minSizeForInputField</code>
+      <code>$navigationTreeDisplayDbFilterMinimum</code>
+      <code>$navigationTreeDisplayItemFilterMinimum</code>
+      <code>$navigationTreeTableLevel</code>
+      <code>$navigationWidth</code>
+      <code>$numFavoriteTables</code>
+      <code>$numRecentTables</code>
+      <code>$propertiesNumColumns</code>
+      <code>$queryHistoryMax</code>
+      <code>$repeatCells</code>
+      <code>$serverDefault</code>
+      <code>$textareaCols</code>
+      <code>$textareaRows</code>
+    </PropertyTypeCoercion>
+  </file>
   <file src="libraries/classes/Config/SpecialSchemaLinks.php">
     <MixedArgument occurrences="1">
       <code>$cfg['DefaultTabTable']</code>
