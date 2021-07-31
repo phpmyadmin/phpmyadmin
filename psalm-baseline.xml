@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
+<files psalm-version="4.9.1@7e137f5b95f7394607f5d0631172ff4c2da46781">
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
@@ -25,6 +25,9 @@
       <code>$rule['test']</code>
       <code>$this-&gt;variables['version']</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>(array) Util::formatByteDown($value, $limes, $comma)</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="7">
       <code>$rule['formula']</code>
       <code>$rule['id']</code>
@@ -297,6 +300,9 @@
       <code>$state['Collation'] ?? ''</code>
       <code>$state['Pad_attribute'] ?? ''</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$suffixes</code>
+    </MixedArgumentTypeCoercion>
     <PossiblyNullArgument occurrences="1">
       <code>$name</code>
     </PossiblyNullArgument>
@@ -356,10 +362,6 @@
       <code>getPathname</code>
       <code>isFile</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="2">
-      <code>$config</code>
-      <code>$dbi</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Command/FixPoTwigCommand.php">
     <MixedArrayAccess occurrences="3">
@@ -467,28 +469,6 @@
       <code>$urlParams['table']</code>
       <code>$userLink</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="20">
-      <code>$PMA_PHP_SELF</code>
-      <code>$auth_plugin</code>
-      <code>$back</code>
-      <code>$cfg</code>
-      <code>$config</code>
-      <code>$containerBuilder</code>
-      <code>$db</code>
-      <code>$dbi</code>
-      <code>$errorHandler</code>
-      <code>$goto</code>
-      <code>$isConfigLoading</code>
-      <code>$request</code>
-      <code>$route</code>
-      <code>$server</code>
-      <code>$sql_query</code>
-      <code>$table</code>
-      <code>$theme</code>
-      <code>$token_mismatch</code>
-      <code>$token_provided</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Config.php">
     <MixedArgument occurrences="22">
@@ -629,10 +609,6 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>ThemeManager</code>
     </UnnecessaryVarAnnotation>
-    <UnusedVariable occurrences="2">
-      <code>$isConfigLoading</code>
-      <code>$isConfigLoading</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <InvalidIterator occurrences="1">
@@ -920,9 +896,6 @@
       <code>$valueDefault</code>
       <code>$valueDefaultJs</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$values[$path]</code>
-    </PossiblyInvalidIterator>
     <PossiblyNullOperand occurrences="1"/>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$userprefsDisallow</code>
@@ -1265,11 +1238,6 @@
       <code>$columnDefault</code>
       <code>$message</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="3">
-      <code>$message</code>
-      <code>$num_cols</code>
-      <code>$pos</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
     <MixedArgument occurrences="5">
@@ -1308,7 +1276,8 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
-    <MixedArgument occurrences="39">
+    <MixedArgument occurrences="46">
+      <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_POST['DB1']</code>
@@ -1343,30 +1312,51 @@
       <code>$_POST['table']</code>
       <code>$_POST['value']</code>
       <code>$cfg['DefaultTabDatabase']</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$display_page</code>
       <code>$display_page</code>
       <code>$display_page</code>
       <code>$html</code>
       <code>$page</code>
+      <code>$position['dbName']</code>
+      <code>$position['tableName']</code>
+      <code>$sub_part ?? ''</code>
       <code>$success</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
+    <MixedArrayAccess occurrences="5">
       <code>$cfg['DefaultTabDatabase']</code>
+      <code>$position['dbName']</code>
+      <code>$position['dbName']</code>
+      <code>$position['tableName']</code>
+      <code>$position['tableName']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="4">
       <code>$display_page</code>
       <code>$page</code>
+      <code>$params['db']</code>
+      <code>$position</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="3">
+    <MixedOperand occurrences="2">
+      <code>$position['dbName']</code>
+      <code>$position['tableName']</code>
+    </MixedOperand>
+    <PossiblyNullArgument occurrences="5">
+      <code>$_GET['db']</code>
       <code>$display_page</code>
       <code>$display_page</code>
       <code>$page</code>
+      <code>$selected_page</code>
     </PossiblyNullArgument>
     <PossiblyNullIterator occurrences="1">
       <code>$tab_pos</code>
     </PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_GET['db']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
     <MixedArgument occurrences="5">
@@ -1382,23 +1372,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$cfg['DefaultTabDatabase']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="15">
-      <code>$errorUrl</code>
-      <code>$errors</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
     <MixedArgument occurrences="12">
@@ -1440,21 +1413,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="13">
-      <code>$errorUrl</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
     <MixedArgument occurrences="4">
@@ -1488,23 +1446,6 @@
       <code>get</code>
       <code>get</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="15">
-      <code>$SESSION_KEY</code>
-      <code>$errorUrl</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
     <MixedArgument occurrences="4">
@@ -1590,34 +1531,6 @@
     <UnusedForeachValue occurrences="1">
       <code>$data</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="26">
-      <code>$db_collation</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$export_sql_plugin</code>
-      <code>$is_information_schema</code>
-      <code>$local_query</code>
-      <code>$move</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$reload</code>
-      <code>$sqlConstratints</code>
-      <code>$sql_query</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tables_full</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-      <code>$views</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/PrivilegesController.php">
     <MixedArgument occurrences="2">
@@ -1663,27 +1576,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="19">
-      <code>$currentSearchId</code>
-      <code>$errorUrl</code>
-      <code>$goto</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$savedSearch</code>
-      <code>$savedSearchList</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
     <MixedArgument occurrences="10">
@@ -1710,24 +1602,6 @@
       <code>$item</code>
       <code>$type</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="16">
-      <code>$errorUrl</code>
-      <code>$errors</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
     <MixedArgument occurrences="4">
@@ -1746,22 +1620,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="14">
-      <code>$errorUrl</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlAutoCompleteController.php">
     <MixedArgument occurrences="2">
@@ -1775,9 +1633,6 @@
       <code>$db</code>
       <code>$tableName</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$sql_autocomplete</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlController.php">
     <MixedArgument occurrences="3">
@@ -1791,11 +1646,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$cfg['DefaultTabDatabase']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="3">
-      <code>$back</code>
-      <code>$errorUrl</code>
-      <code>$goto</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
     <MixedArgument occurrences="1">
@@ -2137,25 +1987,9 @@
       <code>$tables</code>
       <code>$totalNumTables</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="18">
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
+    <UnusedVariable occurrences="2">
       <code>$key</code>
       <code>$keyname</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
@@ -2209,23 +2043,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="15">
-      <code>$data</code>
-      <code>$errorUrl</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
     <MixedArgument occurrences="6">
@@ -2244,24 +2061,6 @@
       <code>$cfg['DefaultTabDatabase']</code>
       <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="16">
-      <code>$errorUrl</code>
-      <code>$errors</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/DatabaseController.php">
     <MixedPropertyFetch occurrences="1">
@@ -2383,38 +2182,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$file_handle</code>
     </PossiblyInvalidArgument>
-    <UnusedVariable occurrences="30">
-      <code>$active_page</code>
-      <code>$aliases</code>
-      <code>$asfile</code>
-      <code>$back_button</code>
-      <code>$buffer_needed</code>
-      <code>$compression</code>
-      <code>$compression_methods</code>
-      <code>$crlf</code>
-      <code>$do_comments</code>
-      <code>$do_dates</code>
-      <code>$do_mime</code>
-      <code>$do_relation</code>
-      <code>$errorUrl</code>
-      <code>$export_plugin</code>
-      <code>$file_handle</code>
-      <code>$filename</code>
-      <code>$mime_type</code>
-      <code>$num_tables</code>
-      <code>$onserver</code>
-      <code>$output_charset_conversion</code>
-      <code>$output_kanji_conversion</code>
-      <code>$quick_export</code>
-      <code>$refreshButton</code>
-      <code>$save_filename</code>
-      <code>$save_on_server</code>
-      <code>$separate_files</code>
-      <code>$tables</code>
-      <code>$time_start</code>
-      <code>$what</code>
-      <code>$whatStrucOrData</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/ExportTemplateController.php">
     <MixedArgument occurrences="2">
@@ -2459,22 +2226,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>
     </PossiblyFalseOperand>
-    <UnusedVariable occurrences="14">
-      <code>$data</code>
-      <code>$geom_count</code>
-      <code>$geom_type</code>
-      <code>$gis_data</code>
-      <code>$gis_obj</code>
-      <code>$gis_types</code>
-      <code>$open_layers</code>
-      <code>$result</code>
-      <code>$srid</code>
-      <code>$start</code>
-      <code>$visualization</code>
-      <code>$visualizationSettings</code>
-      <code>$wkt</code>
-      <code>$wkt_with_zero</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
     <MixedArgument occurrences="14">
@@ -2546,13 +2297,8 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="6">
-      <code>$collation_connection</code>
+    <UnusedVariable occurrences="1">
       <code>$collationsList</code>
-      <code>$db</code>
-      <code>$errorUrl</code>
-      <code>$show_query</code>
-      <code>$table</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/ImportController.php">
@@ -2713,47 +2459,9 @@
       <code>$finished</code>
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="40">
-      <code>$MAX_FILE_SIZE</code>
-      <code>$active_page</code>
-      <code>$ajax_reload</code>
-      <code>$bookmark_created</code>
-      <code>$charset_conversion</code>
-      <code>$charset_of_file</code>
-      <code>$display_query</code>
-      <code>$error</code>
-      <code>$errorUrl</code>
-      <code>$executed_queries</code>
-      <code>$finished</code>
-      <code>$format</code>
-      <code>$go_sql</code>
-      <code>$import_file_name</code>
-      <code>$import_text</code>
-      <code>$import_type</code>
-      <code>$is_js_confirmed</code>
+    <UnusedVariable occurrences="2">
       <code>$key</code>
-      <code>$local_import_file</code>
-      <code>$max_sql_len</code>
-      <code>$maximum_time</code>
-      <code>$memory_limit</code>
-      <code>$message_to_show</code>
-      <code>$msg</code>
-      <code>$noplugin</code>
-      <code>$offset</code>
-      <code>$read_limit</code>
-      <code>$read_multiply</code>
-      <code>$reload</code>
-      <code>$reset_charset</code>
-      <code>$result</code>
-      <code>$run_query</code>
-      <code>$show_as_php</code>
-      <code>$skip_queries</code>
       <code>$special_message</code>
-      <code>$sql_data</code>
-      <code>$sql_query_disabled</code>
-      <code>$timeout_passed</code>
-      <code>$timestamp</code>
-      <code>$urlParams</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/ImportStatusController.php">
@@ -2764,15 +2472,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="7">
-      <code>$SESSION_KEY</code>
-      <code>$SESSION_KEY</code>
-      <code>$plugins</code>
-      <code>$plugins</code>
-      <code>$timestamp</code>
-      <code>$upload_id</code>
-      <code>$upload_id</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/JavaScriptMessagesController.php">
     <MixedArrayAccess occurrences="2">
@@ -2891,12 +2590,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/FeaturesController.php">
     <MixedArgument occurrences="2">
@@ -2912,12 +2605,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ImportController.php">
     <MixedArgument occurrences="2">
@@ -2933,12 +2620,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/MainPanelController.php">
     <MixedArgument occurrences="2">
@@ -2954,12 +2635,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ManageController.php">
     <MixedArgument occurrences="8">
@@ -2999,18 +2674,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$json</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="10">
-      <code>$all_ok</code>
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$filename</code>
-      <code>$form_display</code>
-      <code>$json</code>
-      <code>$new_config</code>
-      <code>$params</code>
-      <code>$query</code>
-      <code>$return_url</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/NavigationController.php">
     <MixedArgument occurrences="2">
@@ -3026,12 +2689,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/SqlController.php">
     <MixedArgument occurrences="2">
@@ -3047,12 +2704,6 @@
     <PossiblyNullArgument occurrences="1">
       <code>$tabHash</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="4">
-      <code>$cf</code>
-      <code>$error</code>
-      <code>$hash</code>
-      <code>$tabHash</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Preferences/TwoFactorController.php">
     <MixedArgument occurrences="2">
@@ -3070,9 +2721,6 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['export_type']</code>
     </PossiblyUndefinedArrayOffset>
-    <UnusedVariable occurrences="1">
-      <code>$cfgRelation</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/BinlogController.php">
     <MixedArgument occurrences="4">
@@ -3099,9 +2747,6 @@
       <code>$cfg['MaxRows']</code>
       <code>$cfg['MaxRows']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/CollationsController.php">
     <MixedArgument occurrences="2">
@@ -3112,8 +2757,12 @@
       <code>$cfg['Server']</code>
       <code>$cfg['Server']</code>
     </MixedArrayAccess>
-    <PossiblyNullIterator occurrences="1">
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullIterator occurrences="2">
       <code>$this-&gt;charsets</code>
+      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
@@ -3228,12 +2877,7 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>0</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="7">
-      <code>$db</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$reload</code>
-      <code>$selected</code>
+    <UnusedVariable occurrences="2">
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
     </UnusedVariable>
@@ -3247,10 +2891,6 @@
     <MixedAssignment occurrences="1">
       <code>$page</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ExportController.php">
     <MixedArgument occurrences="6">
@@ -3265,10 +2905,6 @@
       <code>$GLOBALS['single_table']</code>
       <code>$select_item</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$select_item</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
     <MixedArgument occurrences="1">
@@ -3295,15 +2931,6 @@
       <code>get</code>
       <code>get</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="2">
-      <code>$SESSION_KEY</code>
-      <code>$errorUrl</code>
-    </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Controllers/Server/PluginsController.php">
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
     <MixedArgument occurrences="56">
@@ -3364,6 +2991,9 @@
       <code>$username ?? ''</code>
       <code>$username ?? null</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$queries</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['cfgRelation']['menuswork']</code>
     </MixedArrayAccess>
@@ -3402,41 +3032,8 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="34">
-      <code>$db_and_table</code>
-      <code>$db_and_table</code>
-      <code>$dbname</code>
-      <code>$dbname_is_wildcard</code>
-      <code>$errorUrl</code>
-      <code>$export</code>
-      <code>$hostname</code>
-      <code>$itemType</code>
+    <UnusedVariable occurrences="1">
       <code>$key</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$password</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$post_patterns</code>
-      <code>$queries</code>
-      <code>$queries_for_display</code>
-      <code>$ret_message</code>
-      <code>$ret_queries</code>
-      <code>$routinename</code>
-      <code>$sql_query</code>
-      <code>$sub_part</code>
-      <code>$sub_part</code>
-      <code>$tablename</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$title</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-      <code>$username</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
@@ -3444,14 +3041,6 @@
       <code>$_POST['master_connection'] ?? null</code>
       <code>$replicaInfo['status']</code>
     </MixedArgument>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Controllers/Server/SqlController.php">
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/MonitorController.php">
     <MixedArgument occurrences="5">
@@ -3461,14 +3050,6 @@
       <code>$params['varName']</code>
       <code>$params['varValue']</code>
     </MixedArgument>
-    <UnusedVariable occurrences="6">
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/ProcessesController.php">
     <MixedArgument occurrences="4">
@@ -3491,9 +3072,6 @@
       <code>$params['sort_order']</code>
       <code>Util::backquote($params['order_by_field'])</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -3515,9 +3093,6 @@
       <code>$value</code>
       <code>$value</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/StatusController.php">
     <MixedArgument occurrences="17">
@@ -3539,6 +3114,7 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>($this-&gt;data-&gt;status['Bytes_received'] + $this-&gt;data-&gt;status['Bytes_sent']) * $hourFactor</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="7"/>
     <MixedAssignment occurrences="2">
       <code>$hourFactor</code>
       <code>$hourFactor</code>
@@ -3559,9 +3135,6 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="7"/>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
     <MixedArgument occurrences="1">
@@ -3589,8 +3162,7 @@
       <code>$sectionLinks</code>
       <code>$sectionName</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
+    <UnusedVariable occurrences="1">
       <code>$linkName</code>
     </UnusedVariable>
   </file>
@@ -3640,12 +3212,14 @@
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="7">
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
+      <code>Util::formatByteDown($value, 3, 3)</code>
+      <code>Util::formatByteDown($varValue[1], 3, 3)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="1">
       <code>$serverVarsSession[$arr[0]]</code>
@@ -3666,9 +3240,6 @@
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </PossiblyNullArrayAccess>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Setup/AbstractController.php">
     <MixedArgument occurrences="1">
@@ -3805,11 +3376,6 @@
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$errorUrl</code>
     </MixedOperand>
-    <UnusedVariable occurrences="3">
-      <code>$is_gotofile</code>
-      <code>$table_from_sql</code>
-      <code>$unlim_num_rows</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/AddFieldController.php">
     <MixedArgument occurrences="12">
@@ -3840,15 +3406,6 @@
       <code>$_POST['field_where']</code>
       <code>$mimetype</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="7">
-      <code>$action</code>
-      <code>$active_page</code>
-      <code>$errorUrl</code>
-      <code>$message</code>
-      <code>$num_fields</code>
-      <code>$result</code>
-      <code>$sql_query</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
     <MixedArgument occurrences="36">
@@ -3926,40 +3483,14 @@
       <code>$GLOBALS['goto']</code>
       <code>$jsvkey</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="1">
-      <code>$GLOBALS['goto']</code>
-    </PossiblyNullArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$urlParams</code>
     </PossiblyUndefinedVariable>
     <TypeDoesNotContainType occurrences="1">
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="24">
-      <code>$active_page</code>
-      <code>$after_insert</code>
-      <code>$biggest_max_file_size</code>
-      <code>$chg_evt_handler</code>
-      <code>$columns_cnt</code>
-      <code>$comments_map</code>
-      <code>$current_result</code>
-      <code>$errorUrl</code>
-      <code>$found_unique_key</code>
-      <code>$has_blob_field</code>
+    <UnusedVariable occurrences="1">
       <code>$i</code>
-      <code>$insert_mode</code>
-      <code>$jsvkey</code>
-      <code>$o_rows</code>
-      <code>$result</code>
-      <code>$rows</code>
-      <code>$tabindex</code>
-      <code>$tabindex_for_value</code>
-      <code>$table_columns</code>
-      <code>$timestamp_seen</code>
-      <code>$vkey</code>
-      <code>$where_clause</code>
-      <code>$where_clause_array</code>
-      <code>$where_clauses</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChartController.php">
@@ -4016,11 +3547,8 @@
     <UnusedForeachValue occurrences="1">
       <code>$key</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="4">
+    <UnusedVariable occurrences="1">
       <code>$data_row_number</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/CreateController.php">
@@ -4045,12 +3573,6 @@
       <code>$mimetype</code>
       <code>$result</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="4">
-      <code>$action</code>
-      <code>$num_fields</code>
-      <code>$result</code>
-      <code>$sql_query</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteController.php">
     <MixedArgument occurrences="12">
@@ -4083,13 +3605,6 @@
       <code>$selected</code>
       <code>$sql_query</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="5">
-      <code>$active_page</code>
-      <code>$disp_message</code>
-      <code>$disp_query</code>
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnConfirmationController.php">
     <MixedArgument occurrences="1">
@@ -4101,10 +3616,6 @@
     <MixedAssignment occurrences="1">
       <code>$selected</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnController.php">
     <MixedArgument occurrences="4">
@@ -4138,8 +3649,9 @@
       <code>$table</code>
       <code>$unlim_num_rows</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$urlParams</code>
+      <code>$where_clause</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$cfg['DefaultTabTable']</code>
@@ -4153,13 +3665,8 @@
       <code>$i_where_clause</code>
       <code>$where_clause[]</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="6">
-      <code>$active_page</code>
-      <code>$errorUrl</code>
+    <UnusedVariable occurrences="1">
       <code>$i</code>
-      <code>$single_table</code>
-      <code>$urlParams</code>
-      <code>$where_clause</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
@@ -4246,10 +3753,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_array($result)</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/GetFieldController.php">
     <MixedArgument occurrences="8">
@@ -4316,9 +3819,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$visualization</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="1">
-      <code>$errorUrl</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
     <MixedArgument occurrences="2">
@@ -4350,11 +3850,6 @@
       <code>get</code>
       <code>get</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="3">
-      <code>$SESSION_KEY</code>
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
     <MixedArgument occurrences="10">
@@ -4392,12 +3887,8 @@
     <MixedOperand occurrences="1">
       <code>$_POST['added_fields']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="5">
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
+    <UnusedVariable occurrences="1">
       <code>$sql_query</code>
-      <code>$urlParams</code>
-      <code>$urlParams</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/MaintenanceController.php">
@@ -4453,6 +3944,9 @@
       <code>$table</code>
       <code>$warning_messages</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$table_alters</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$GLOBALS['cfg']['MaxDbList']</code>
       <code>$GLOBALS['cfg']['Server']</code>
@@ -4481,28 +3975,6 @@
     <MixedPropertyFetch occurrences="1">
       <code>$GLOBALS['dblist']-&gt;databases</code>
     </MixedPropertyFetch>
-    <UnusedVariable occurrences="20">
-      <code>$auto_increment</code>
-      <code>$columns</code>
-      <code>$comment</code>
-      <code>$create_options</code>
-      <code>$errorUrl</code>
-      <code>$hideOrderTable</code>
-      <code>$indexes</code>
-      <code>$lowerCaseNames</code>
-      <code>$new_tbl_storage_engine</code>
-      <code>$notNull</code>
-      <code>$reload</code>
-      <code>$reread_info</code>
-      <code>$row_format</code>
-      <code>$show_comment</code>
-      <code>$table_alters</code>
-      <code>$table_info_num_rows</code>
-      <code>$tbl_collation</code>
-      <code>$tbl_is_view</code>
-      <code>$tbl_storage_engine</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/PartitionController.php">
     <MixedArgument occurrences="17">
@@ -4785,36 +4257,6 @@
     <UnusedForeachValue occurrences="1">
       <code>$val</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="28">
-      <code>$active_page</code>
-      <code>$disp_message</code>
-      <code>$disp_query</code>
-      <code>$errorUrl</code>
-      <code>$error_messages</code>
-      <code>$func_no_param</code>
-      <code>$func_optional_param</code>
-      <code>$gis_from_text_functions</code>
-      <code>$gis_from_wkb_functions</code>
-      <code>$goto_include</code>
-      <code>$insert_errors</code>
-      <code>$is_insert</code>
-      <code>$is_insertignore</code>
-      <code>$last_messages</code>
-      <code>$loop_array</code>
-      <code>$message</code>
-      <code>$mime_map</code>
-      <code>$query</code>
-      <code>$query_fields</code>
-      <code>$query_values</code>
-      <code>$return_to_sql_query</code>
-      <code>$row_skipped</code>
-      <code>$total_affected_rows</code>
-      <code>$unsaved_values</code>
-      <code>$urlParams</code>
-      <code>$using_key</code>
-      <code>$value_sets</code>
-      <code>$warning_messages</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
     <MixedArgument occurrences="16">
@@ -4870,10 +4312,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $fields_meta[$i]-&gt;length</code>
     </RedundantCastGivenDocblockType>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
     <MixedArgument occurrences="5">
@@ -4889,11 +4327,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="3">
-      <code>$back</code>
-      <code>$errorUrl</code>
-      <code>$goto</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <DocblockTypeContradiction occurrences="2">
@@ -5015,7 +4448,8 @@
       <code>Util::getValueByKey($_POST, "field_virtuality.${i}", '')</code>
       <code>Util::getValueByKey($_POST, "field_virtuality_orig.${i}", '')</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$fields</code>
       <code>$urlParams</code>
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
@@ -5222,27 +4656,8 @@
     <TypeDoesNotContainType occurrences="1">
       <code>! is_array($row)</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="20">
-      <code>$action</code>
+    <UnusedVariable occurrences="1">
       <code>$db</code>
-      <code>$errorUrl</code>
-      <code>$errorUrl</code>
-      <code>$num_fields</code>
-      <code>$reload</code>
-      <code>$reread_info</code>
-      <code>$showtable</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$sql_query</code>
-      <code>$table_info_num_rows</code>
-      <code>$tbl_collation</code>
-      <code>$tbl_is_view</code>
-      <code>$tbl_storage_engine</code>
-      <code>$urlParams</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
@@ -5297,20 +4712,6 @@
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['table']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="12">
-      <code>$data</code>
-      <code>$entries</code>
-      <code>$errorUrl</code>
-      <code>$filter_ts_from</code>
-      <code>$filter_ts_to</code>
-      <code>$filter_users</code>
-      <code>$msg</code>
-      <code>$selection_both</code>
-      <code>$selection_data</code>
-      <code>$selection_schema</code>
-      <code>$sql_result</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
     <MixedArgument occurrences="6">
@@ -5329,24 +4730,6 @@
       <code>$cfg['DefaultTabDatabase']</code>
       <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="16">
-      <code>$errorUrl</code>
-      <code>$errors</code>
-      <code>$num_tables</code>
-      <code>$num_tables</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$sub_part</code>
-      <code>$tables</code>
-      <code>$tables</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_aliasname</code>
-      <code>$tooltip_truename</code>
-      <code>$tooltip_truename</code>
-      <code>$total_num_tables</code>
-      <code>$total_num_tables</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
     <MixedArgument occurrences="25">
@@ -5436,10 +4819,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $fields_meta[$i]-&gt;length</code>
     </RedundantCastGivenDocblockType>
-    <UnusedVariable occurrences="2">
-      <code>$errorUrl</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/TableController.php">
     <MixedArgument occurrences="1">
@@ -5532,21 +4911,8 @@
       <code>Util::backquote($table)</code>
       <code>Util::backquote($table)</code>
     </MixedOperand>
-    <UnusedVariable occurrences="14">
-      <code>$default_ct</code>
-      <code>$destHeight</code>
-      <code>$destImage</code>
-      <code>$destWidth</code>
+    <UnusedVariable occurrences="1">
       <code>$key</code>
-      <code>$mime_type</code>
-      <code>$ratioHeight</code>
-      <code>$ratioWidth</code>
-      <code>$request_params</code>
-      <code>$row</code>
-      <code>$size_params</code>
-      <code>$srcHeight</code>
-      <code>$srcImage</code>
-      <code>$srcWidth</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
@@ -5573,10 +4939,6 @@
     <MixedMethodCall occurrences="1">
       <code>getDisplay</code>
     </MixedMethodCall>
-    <UnusedVariable occurrences="2">
-      <code>$change_password_message</code>
-      <code>$password</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/VersionCheckController.php">
     <MixedArgument occurrences="1">
@@ -5660,24 +5022,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($stmt-&gt;body)</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable occurrences="16">
-      <code>$arr</code>
-      <code>$column_map</code>
-      <code>$errorUrl</code>
-      <code>$item</code>
-      <code>$message</code>
-      <code>$new_transformations_sql</code>
-      <code>$parts</code>
-      <code>$pma_transformation_data</code>
-      <code>$sep</code>
-      <code>$sql_query</code>
-      <code>$systemDb</code>
-      <code>$view</code>
-      <code>$view_algorithm_options</code>
-      <code>$view_columns</code>
-      <code>$view_security_options</code>
-      <code>$view_with_options</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/ViewOperationsController.php">
     <MixedArgument occurrences="6">
@@ -5691,11 +5035,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="3">
-      <code>$errorUrl</code>
-      <code>$reload</code>
-      <code>$urlParams</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -5837,6 +5176,10 @@
       <code>$partition</code>
       <code>$subpartition</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$definitions</code>
+      <code>$indexFields</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="13">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_default_type'][$i]</code>
@@ -5974,9 +5317,10 @@
       <code>$table</code>
       <code>$type</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$field</code>
       <code>$field</code>
+      <code>[$extra, $attribute]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="27">
       <code>$GLOBALS['cfg']['CharEditing']</code>
@@ -6537,9 +5881,12 @@
       <code>$whereClauseColumns</code>
       <code>$whereClauseTables</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="5">
+      <code>$selectClauses</code>
       <code>$table</code>
       <code>$table</code>
+      <code>array_map([Util::class, 'backquote'], $searchTables)</code>
+      <code>array_map([Util::class, 'backquote'], $unfinalized)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="21">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
@@ -6830,9 +6177,13 @@
       <code>Util::getSupportedDatatypes()</code>
       <code>Util::getSupportedDatatypes()</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="6">
       <code>$itemParamDir</code>
       <code>$itemParamName</code>
+      <code>$options</code>
+      <code>$options</code>
+      <code>$stmt-&gt;return-&gt;parameters</code>
+      <code>$value</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="39">
       <code>$GLOBALS['cfg']['Server']</code>
@@ -7787,11 +7138,12 @@
       <code>$wkbval</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="6">
       <code>$analyzedSqlResults</code>
       <code>$index</code>
       <code>$index</code>
       <code>$linkingUrlParams</code>
+      <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="115">
@@ -8185,10 +7537,9 @@
     <UnusedParam occurrences="1">
       <code>$columnIndex</code>
     </UnusedParam>
-    <UnusedVariable occurrences="3">
+    <UnusedVariable occurrences="2">
       <code>$key</code>
       <code>$relDb</code>
-      <code>$row</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Encoding.php">
@@ -8263,6 +7614,7 @@
       <code>$status['Innodb_buffer_pool_wait_free']</code>
       <code>$status['Innodb_buffer_pool_write_requests']</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
@@ -8457,6 +7809,11 @@
       <code>$table</code>
       <code>$view</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$dbSelect</code>
+      <code>$nonGeneratedCols</code>
+      <code>$nonGeneratedCols</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAssignment occurrences="3">
       <code>$aliases[$dbName]['alias']</code>
       <code>$aliases[$dbName]['tables']</code>
@@ -8518,16 +7875,10 @@
     <MixedPropertyFetch occurrences="1">
       <code>$GLOBALS['dblist']-&gt;databases</code>
     </MixedPropertyFetch>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$dbSelect</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="2">
       <code>$line</code>
       <code>$line</code>
     </PossiblyNullArgument>
-    <UnusedVariable occurrences="1">
-      <code>$active_page</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Export/Options.php">
     <MixedArgument occurrences="5">
@@ -9559,6 +8910,9 @@
       <code>$offset + ($position * 20)</code>
       <code>$offset + ($position * 4)</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$commit</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="10">
       <code>$commit</code>
       <code>$dataline</code>
@@ -9630,6 +8984,9 @@
       <code>$tempTitle</code>
       <code>$value</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$params</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="24">
       <code>$GLOBALS['cfg']['AllowThirdPartyFraming']</code>
       <code>$GLOBALS['cfg']['AllowThirdPartyFraming']</code>
@@ -9688,7 +9045,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Html/Generator.php">
-    <MixedArgument occurrences="33">
+    <MixedArgument occurrences="34">
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['MysqlSslWarningSafeHosts']</code>
       <code>$GLOBALS['db']</code>
@@ -9708,6 +9065,7 @@
       <code>$queryBase</code>
       <code>$queryBase</code>
       <code>$result</code>
+      <code>$result</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
@@ -9723,7 +9081,8 @@
       <code>$tmp</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="7">
+    <MixedArgumentTypeCoercion occurrences="8">
+      <code>$classes</code>
       <code>$key</code>
       <code>$urlParams</code>
       <code>$urlParams</code>
@@ -9756,12 +9115,13 @@
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="21">
+    <MixedAssignment occurrences="23">
       <code>$alt</code>
       <code>$database</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
+      <code>$meta</code>
       <code>$paramValue</code>
       <code>$queryBase</code>
       <code>$result</code>
@@ -9778,20 +9138,25 @@
       <code>$urlParams['table']</code>
       <code>$value</code>
       <code>$value</code>
+      <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
+    <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
     <MixedMethodCall occurrences="1">
       <code>getDisplay</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="6">
       <code>$GLOBALS['using_bookmark_message']-&gt;getDisplay()</code>
       <code>$attributes['class']</code>
+      <code>$meta-&gt;name</code>
       <code>$sqlQuery</code>
       <code>$value</code>
+      <code>$value</code>
     </MixedOperand>
+    <MixedPropertyFetch occurrences="1">
+      <code>$meta-&gt;name</code>
+    </MixedPropertyFetch>
     <MixedReturnStatement occurrences="1">
       <code>$defaultFunction</code>
     </MixedReturnStatement>
@@ -9895,6 +9260,11 @@
       <code>Util::backquote($table[self::TBL_NAME])</code>
       <code>Util::backquote($table[self::TBL_NAME])</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$columns</code>
+      <code>$tableReferences</code>
+      <code>$tableReferences</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="31">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
@@ -10067,15 +9437,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>! is_array($table)</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="7">
-      <code>$db</code>
-      <code>$error</code>
-      <code>$import_notice</code>
-      <code>$msg</code>
-      <code>$read_multiply</code>
-      <code>$reload</code>
-      <code>$result</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Import/Ajax.php">
     <MixedArrayAccess occurrences="1">
@@ -10298,12 +9659,15 @@
       <code>$whereClause</code>
       <code>min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="8">
       <code>$keyId</code>
+      <code>$query</code>
+      <code>$queryFields</code>
       <code>$thisUrlParams</code>
       <code>$thisUrlParams</code>
       <code>$urlParams</code>
       <code>$urlParams</code>
+      <code>$valueSets</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="65">
       <code>$GLOBALS['cfg']['CharEditing']</code>
@@ -11635,11 +10999,13 @@
       <code>Util::backquote(explode(', ', $key))</code>
       <code>Util::backquote(explode(',', $primaryColumns))</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="15">
+    <MixedArgumentTypeCoercion occurrences="17">
+      <code>$colList</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
+      <code>$dependents</code>
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
@@ -12190,11 +11556,8 @@
       <code>SelectPropertyItem</code>
       <code>TextPropertyItem</code>
     </UnnecessaryVarAnnotation>
-    <UnusedVariable occurrences="4">
+    <UnusedVariable occurrences="1">
       <code>$not_subgroup_header</code>
-      <code>$plugin_param</code>
-      <code>$plugin_param</code>
-      <code>$plugin_param</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationConfig.php">
@@ -12356,10 +11719,6 @@
     <UnusedForeachValue occurrences="1">
       <code>$val</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="2">
-      <code>$conn_error</code>
-      <code>$conn_error</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <MixedArgument occurrences="3">
@@ -12587,10 +11946,6 @@
       <code>$what</code>
       <code>$what</code>
     </MixedOperand>
-    <UnusedVariable occurrences="2">
-      <code>$csv_enclosed</code>
-      <code>$csv_escaped</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
     <MixedArgument occurrences="21">
@@ -13131,6 +12486,17 @@
       <code>$trigger['create']</code>
       <code>Util::backquote($db)</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="9">
+      <code>$autoIncrement</code>
+      <code>$constraints</code>
+      <code>$dropped</code>
+      <code>$fieldSet</code>
+      <code>$indexes</code>
+      <code>$indexesFulltext</code>
+      <code>$values</code>
+      <code>$values</code>
+      <code>$values</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="28">
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$cfgRelation['mimework']</code>
@@ -13376,13 +12742,8 @@
     <UnusedParam occurrences="1">
       <code>$crlf</code>
     </UnusedParam>
-    <UnusedVariable occurrences="6">
+    <UnusedVariable occurrences="1">
       <code>$autoIncrement</code>
-      <code>$crlf</code>
-      <code>$current_row</code>
-      <code>$sql_constraints_query</code>
-      <code>$sql_drop_foreign_keys</code>
-      <code>$sql_indexes_query</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
@@ -14046,13 +13407,8 @@
       <code>$analyze</code>
       <code>ImportCsv</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="6">
-      <code>$error</code>
-      <code>$error</code>
+    <UnusedVariable occurrences="1">
       <code>$key</code>
-      <code>$message</code>
-      <code>$message</code>
-      <code>$message</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportLdi.php">
@@ -14085,9 +13441,6 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$tmp[0]</code>
     </PossiblyNullArrayAccess>
-    <UnusedVariable occurrences="1">
-      <code>$finished</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportMediawiki.php">
     <MixedArgument occurrences="7">
@@ -14250,11 +13603,7 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>ImportShp</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="5">
-      <code>$eof</code>
-      <code>$error</code>
-      <code>$finished</code>
-      <code>$message</code>
+    <UnusedVariable occurrences="1">
       <code>$null_param</code>
     </UnusedVariable>
   </file>
@@ -14262,6 +13611,9 @@
     <MixedArgument occurrences="1">
       <code>$_POST['sql_delimiter']</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$sql_modes</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="1">
       <code>$values[$val]</code>
     </MixedArrayOffset>
@@ -14439,12 +13791,9 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/Dia.php">
-    <MixedArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$output</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$output</code>
-    </MixedAssignment>
+    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgument occurrences="5">
@@ -15056,12 +14405,9 @@
       <code>is_int($height)</code>
       <code>is_int($width)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$output</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$output</code>
-    </MixedAssignment>
+    </PossiblyInvalidArgument>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $styles</code>
       <code>(string) $styles</code>
@@ -15688,6 +15034,9 @@
       <code>Util::backquote($oldIndexName)</code>
       <code>Util::backquote($tableName)</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$escapedTableOrTables</code>
+    </MixedArgumentTypeCoercion>
     <MixedOperand occurrences="8">
       <code>Util::backquote($database)</code>
       <code>Util::backquote($database)</code>
@@ -15866,8 +15215,10 @@
       <code>$tableRes</code>
       <code>$tablesRows</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
+    <MixedArgumentTypeCoercion occurrences="6">
+      <code>$bottom</code>
       <code>$params</code>
+      <code>$top</code>
       <code>uksort($foreign, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
@@ -16731,7 +16082,22 @@
       <code>Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length')</code>
       <code>Core::ifSetOr($tablename, '*', 'length')</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="16">
+      <code>$queries</code>
+      <code>$this-&gt;extractPrivInfo($privs, true)</code>
+      <code>$this-&gt;extractPrivInfo($row)</code>
+      <code>$this-&gt;extractPrivInfo($row, true)</code>
+      <code>$this-&gt;extractPrivInfo($row, true)</code>
+      <code>$this-&gt;extractPrivInfo()</code>
+      <code>$this-&gt;extractPrivInfo()</code>
+      <code>$this-&gt;extractPrivInfo()</code>
+      <code>$this-&gt;extractPrivInfo(null, true)</code>
+      <code>$this-&gt;extractPrivInfo(null, true)</code>
+      <code>$tmpPrivs1</code>
+      <code>$tmpPrivs2['Insert']</code>
+      <code>$tmpPrivs2['References']</code>
+      <code>$tmpPrivs2['Select']</code>
+      <code>$tmpPrivs2['Update']</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="55">
@@ -17184,6 +16550,7 @@
       <code>$statusVars</code>
       <code>$temp</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2"/>
     <MixedArrayAccess occurrences="10">
       <code>$cpuload['busy']</code>
       <code>$cpuload['idle']</code>
@@ -17324,26 +16691,40 @@
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$tabNames</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="3">
       <code>$userGroups[$groupName]</code>
       <code>$userGroups[$groupName]</code>
       <code>$userGroups[$groupName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="19">
       <code>$groupName</code>
       <code>$key</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tabDetail['tab']</code>
+      <code>$tabDetail['tab_name']</code>
+      <code>$tabGroup</code>
+      <code>$tabGroupName</code>
+      <code>$tabName</code>
+      <code>$tabName</code>
+      <code>$tabName</code>
+      <code>$tabNames[]</code>
       <code>$userGroups[$groupName][$row['tab']]</code>
       <code>$user['user']</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedOperand occurrences="12">
+    <MixedOperand occurrences="16">
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tabGroupName</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
@@ -17362,6 +16743,9 @@
       <code>$tabs</code>
       <code>$tabs</code>
     </PossiblyNullIterator>
+    <UnusedForeachValue occurrences="1">
+      <code>$tabName</code>
+    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="4">
@@ -17993,7 +17377,18 @@
       <code>Util::backquote($this-&gt;name)</code>
       <code>Util::backquote('row_count')</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="13">
+      <code>$field</code>
+      <code>$foreignField</code>
+      <code>$indexFields</code>
+      <code>$indexedCols</code>
+      <code>$masterField</code>
+      <code>$newParts</code>
+      <code>$nonGeneratedCols</code>
+      <code>$nonGeneratedCols</code>
+      <code>$selectParts</code>
+      <code>$selectParts</code>
+      <code>$uniqueFields</code>
       <code>$where</code>
       <code>$where</code>
     </MixedArgumentTypeCoercion>
@@ -18552,6 +17947,9 @@
       <code>$value</code>
       <code>Util::backquote($_POST['columnsToDisplay'])</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$values</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
@@ -18833,9 +18231,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="1">
-      <code>$sql_backquotes</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Tracking.php">
     <MixedArgument occurrences="55">
@@ -19255,7 +18650,8 @@
       <code>$user</code>
       <code>$val</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
+    <MixedArgumentTypeCoercion occurrences="5">
+      <code>$columnNames</code>
       <code>$tableName</code>
       <code>$tableName</code>
       <code>uksort($tables, 'strnatcasecmp')</code>
@@ -19739,15 +19135,6 @@
       <code>$val</code>
       <code>$val</code>
     </UnusedForeachValue>
-    <UnusedVariable occurrences="7">
-      <code>$cfg</code>
-      <code>$cfg</code>
-      <code>$config</code>
-      <code>$containerBuilder</code>
-      <code>$dbi</code>
-      <code>$lang</code>
-      <code>$theme</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/AdvisorTest.php">
     <MixedArgument occurrences="1">
@@ -19910,9 +19297,6 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$config</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/CommonTest.php">
     <DocblockTypeContradiction occurrences="2">
@@ -20144,11 +19528,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$cfg['Server']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="3">
-      <code>$PMA_PHP_SELF</code>
-      <code>$db</code>
-      <code>$server</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
     <MixedArgument occurrences="24">
@@ -20228,9 +19607,6 @@
       <code>[$currentTable, , , , , , $sumSize]</code>
       <code>[$currentTable]</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$is_db</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/ExportTemplateControllerTest.php">
     <MixedArrayAccess occurrences="4">
@@ -20251,11 +19627,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['cfg']['Server']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="3">
-      <code>$db</code>
-      <code>$sql_query</code>
-      <code>$table</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/JavaScriptMessagesControllerTest.php">
     <MixedArrayAssignment occurrences="1">
@@ -20325,10 +19696,6 @@
       <code>$cfg['AllowUserDropDatabase']</code>
       <code>$cfg['ShowCreateDb']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="2">
-      <code>$dblist</code>
-      <code>$is_create_db_priv</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/Server/EnginesControllerTest.php">
     <MixedArrayAssignment occurrences="1">
@@ -20380,9 +19747,6 @@
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$cached_affected_rows</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/Server/Status/ProcessesControllerTest.php">
     <MixedArgument occurrences="2">
@@ -20510,12 +19874,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$cfg['Server']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="4">
-      <code>$PMA_PHP_SELF</code>
-      <code>$db</code>
-      <code>$server</code>
-      <code>$table</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
     <MixedArgument occurrences="16">
@@ -20840,9 +20198,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="1">
-      <code>$errors</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Database/QbeTest.php">
     <MixedArgument occurrences="9">
@@ -20883,9 +20238,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="1">
-      <code>$errors</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Database/SearchTest.php">
     <MixedArgument occurrences="1">
@@ -20913,9 +20265,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="1">
-      <code>$errors</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
     <MixedArgumentTypeCoercion occurrences="3">
@@ -21036,11 +20385,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="3">
-      <code>$db</code>
-      <code>$dbi</code>
-      <code>$table</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/EncodingTest.php">
     <MixedArrayAssignment occurrences="3">
@@ -21381,9 +20725,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="1">
-      <code>$cfg</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Html/MySQLDocumentationTest.php">
     <MixedArrayAssignment occurrences="1">
@@ -21413,11 +20754,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testSkipByteOrderMarksFromContents</code>
     </PossiblyInvalidArgument>
-    <UnusedVariable occurrences="3">
-      <code>$maximum_time</code>
-      <code>$timeout_passed</code>
-      <code>$timestamp</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/IndexTest.php">
     <MixedArgument occurrences="2">
@@ -21893,12 +21229,6 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/classes/OperationsTest.php">
-    <UnusedVariable occurrences="2">
-      <code>$db</code>
-      <code>$table</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/PdfTest.php">
     <MixedArgument occurrences="3">
@@ -22405,11 +21735,6 @@
       <code>$GLOBALS['import_file_name']</code>
       <code>$GLOBALS['import_file_name']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="3">
-      <code>$sql_query_disabled</code>
-      <code>$sql_query_disabled</code>
-      <code>$sql_query_disabled</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Plugins/Import/ImportLdiTest.php">
     <MixedArgument occurrences="5">
@@ -22437,18 +21762,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="10">
-      <code>$import_file</code>
-      <code>$ldi_enclosed</code>
-      <code>$ldi_ignore</code>
-      <code>$ldi_local_option</code>
-      <code>$ldi_new_line</code>
-      <code>$ldi_replace</code>
-      <code>$ldi_terminated</code>
-      <code>$skip_queries</code>
-      <code>$sql_query_disabled</code>
-      <code>$sql_query_disabled</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Plugins/Import/ImportMediawikiTest.php">
     <MixedArgument occurrences="2">
@@ -22471,10 +21784,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="2">
-      <code>$sql_query_disabled</code>
-      <code>$sql_query_disabled</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Plugins/Import/ImportShpTest.php">
     <MixedArgument occurrences="2">
@@ -22487,10 +21796,6 @@
     <RedundantCondition occurrences="1">
       <code>assertFalse</code>
     </RedundantCondition>
-    <UnusedVariable occurrences="2">
-      <code>$sql_query_disabled</code>
-      <code>$sql_query_disabled</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Plugins/Import/ImportSqlTest.php">
     <MixedArgument occurrences="2">
@@ -22500,9 +21805,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['cfg']['Server']</code>
     </MixedArrayAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$sql_query_disabled</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Plugins/Import/ImportXmlTest.php">
     <MixedArgument occurrences="2">
@@ -22538,10 +21840,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="2">
-      <code>$fields_meta</code>
-      <code>$row</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/PluginsTest.php">
     <RedundantCondition occurrences="3">
@@ -22549,11 +21847,6 @@
       <code>assertIsArray</code>
       <code>assertIsArray</code>
     </RedundantCondition>
-  </file>
-  <file src="test/classes/ProfilingTest.php">
-    <UnusedVariable occurrences="1">
-      <code>$server</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php">
     <InvalidArgument occurrences="1">
@@ -22749,6 +22042,9 @@
       <code>$sql_query</code>
       <code>$title</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
@@ -22827,9 +22123,8 @@
       <code>$GLOBALS['dbi']-&gt;escapeString($username)</code>
       <code>$GLOBALS['dbi']-&gt;escapeString($username)</code>
     </MixedOperand>
-    <UnusedVariable occurrences="5">
+    <UnusedVariable occurrences="4">
       <code>$password</code>
-      <code>$route</code>
       <code>$routinename</code>
       <code>$routinename</code>
       <code>$routinename</code>
@@ -23161,9 +22456,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <UnusedVariable occurrences="1">
-      <code>$theme</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/TrackerTest.php">
     <MixedArrayAssignment occurrences="19">
@@ -23499,12 +22791,6 @@
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>
     </MixedArrayAccess>
-    <UnusedVariable occurrences="4">
-      <code>$server</code>
-      <code>$server</code>
-      <code>$server</code>
-      <code>$server</code>
-    </UnusedVariable>
   </file>
   <file src="test/classes/VersionInformationTest.php">
     <MixedArrayAssignment occurrences="5">
