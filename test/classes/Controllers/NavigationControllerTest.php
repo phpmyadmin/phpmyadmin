@@ -113,6 +113,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         /** @var NavigationController $navigationController */
         $navigationController = $containerBuilder->get(NavigationController::class);
+        $_POST['full'] = '1';
         $this->setResponseIsAjax();
         $navigationController->index();
         $this->assertResponseWasSuccessfull();
@@ -272,6 +273,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         /** @var NavigationController $navigationController */
         $navigationController = $containerBuilder->get(NavigationController::class);
+        $_POST['full'] = '1';
         $this->setResponseIsAjax();
         $navigationController->index();
         $this->assertResponseWasSuccessfull();
