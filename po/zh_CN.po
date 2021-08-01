@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-07-25 00:08+0000\n"
+"POT-Creation-Date: 2021-08-01 00:09+0000\n"
 "PO-Revision-Date: 2021-05-06 22:36+0000\n"
 "Last-Translator: Ganlv <ganlvtech@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1211,7 +1211,7 @@ msgstr "搜索："
 
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: libraries/classes/Controllers/Server/PrivilegesController.php:339
+#: libraries/classes/Controllers/Server/PrivilegesController.php:340
 #: libraries/classes/InsertEdit.php:1054
 #: libraries/classes/Normalization.php:272
 #: libraries/classes/Normalization.php:1002 libraries/classes/Tracking.php:337
@@ -1238,7 +1238,7 @@ msgstr "搜索："
 #: templates/server/privileges/change_password.twig:70
 #: templates/server/privileges/edit_routine_privileges.twig:102
 #: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:834
+#: templates/server/privileges/privileges_table.twig:858
 #: templates/server/privileges/user_properties.twig:149
 #: templates/server/privileges/users_overview.twig:143
 #: templates/server/replication/change_master.twig:33
@@ -1280,7 +1280,7 @@ msgstr "键名"
 msgid "Description"
 msgstr "说明"
 
-#: libraries/classes/BrowseForeigners.php:332
+#: libraries/classes/BrowseForeigners.php:325
 #: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
@@ -1288,7 +1288,7 @@ msgstr "说明"
 msgid "Page number:"
 msgstr "页码："
 
-#: libraries/classes/BrowseForeigners.php:346
+#: libraries/classes/BrowseForeigners.php:339
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
@@ -4040,7 +4040,7 @@ msgstr "文本框行"
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
-#: templates/server/privileges/privileges_table.twig:233
+#: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
 #: templates/table/operations/index.twig:56
@@ -4073,7 +4073,7 @@ msgstr "服务器"
 #: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
-#: templates/server/privileges/privileges_table.twig:235
+#: templates/server/privileges/privileges_table.twig:259
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
 #: templates/table/maintenance/checksum.twig:12
@@ -4288,7 +4288,7 @@ msgstr "自定义"
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:24
 #: templates/database/structure/structure_table_row.twig:48
-#: templates/server/privileges/privileges_table.twig:328
+#: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "结构"
@@ -4299,7 +4299,7 @@ msgstr "结构"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:495
 #: templates/database/export/index.twig:25
-#: templates/server/privileges/privileges_table.twig:254
+#: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "数据"
@@ -4678,7 +4678,7 @@ msgid "No table selected."
 msgstr "没有已选择的表。"
 
 #: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:638
+#: libraries/classes/Controllers/ImportController.php:644
 #: libraries/classes/Controllers/Server/ImportController.php:63
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4747,7 +4747,7 @@ msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4416
+#: libraries/classes/Display/Results.php:4417
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4950,7 +4950,7 @@ msgstr ""
 "变量 $cfg['TempDir'] （%s）无法访问。phpMyAdmin无法缓存模板文件，所以会运行缓"
 "慢。"
 
-#: libraries/classes/Controllers/HomeController.php:492
+#: libraries/classes/Controllers/HomeController.php:493
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -4959,7 +4959,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展"
 "的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
 
-#: libraries/classes/Controllers/HomeController.php:510
+#: libraries/classes/Controllers/HomeController.php:511
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -4967,37 +4967,37 @@ msgstr ""
 "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功能如错误报告和版本检查"
 "已禁用。"
 
-#: libraries/classes/Controllers/ImportController.php:119
+#: libraries/classes/Controllers/ImportController.php:120
 msgid "Incomplete params"
 msgstr "不完整的参数"
 
-#: libraries/classes/Controllers/ImportController.php:144
+#: libraries/classes/Controllers/ImportController.php:145
 msgid "Succeeded"
 msgstr "成功"
 
-#: libraries/classes/Controllers/ImportController.php:148
+#: libraries/classes/Controllers/ImportController.php:149
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Failed"
 msgstr "失败"
 
-#: libraries/classes/Controllers/ImportController.php:255
+#: libraries/classes/Controllers/ImportController.php:261
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: libraries/classes/Controllers/ImportController.php:441
-#: libraries/classes/Controllers/ImportController.php:678
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:684
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: libraries/classes/Controllers/ImportController.php:467
-#: libraries/classes/Controllers/ImportController.php:674
+#: libraries/classes/Controllers/ImportController.php:473
+#: libraries/classes/Controllers/ImportController.php:680
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: libraries/classes/Controllers/ImportController.php:584
+#: libraries/classes/Controllers/ImportController.php:590
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5006,20 +5006,20 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: libraries/classes/Controllers/ImportController.php:681
+#: libraries/classes/Controllers/ImportController.php:687
 #: libraries/classes/Controllers/SqlController.php:397
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: libraries/classes/Controllers/ImportController.php:691
+#: libraries/classes/Controllers/ImportController.php:697
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "导入成功，执行了 %d 个查询。"
 
-#: libraries/classes/Controllers/ImportController.php:723
+#: libraries/classes/Controllers/ImportController.php:729
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5027,7 +5027,7 @@ msgid ""
 msgstr ""
 "脚本超时，如果您要完成导入，请%s重新提交相同的文件%s，导入将会继续进行。"
 
-#: libraries/classes/Controllers/ImportController.php:733
+#: libraries/classes/Controllers/ImportController.php:739
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5035,7 +5035,7 @@ msgstr ""
 "在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
 "将无法完成导入操作。"
 
-#: libraries/classes/Controllers/ImportController.php:810
+#: libraries/classes/Controllers/ImportController.php:816
 #: libraries/classes/Controllers/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
@@ -5329,13 +5329,16 @@ msgstr "正在删除选中的用户"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Tracking.php:240 libraries/classes/Tracking.php:651
-#: templates/error/report_modal.twig:14 templates/export.twig:64
+#: templates/error/report_modal.twig:14 templates/export_modal.twig:6
+#: templates/export_modal.twig:10 templates/export.twig:64
 #: templates/export.twig:74 templates/export.twig:176
-#: templates/home/index.twig:272 templates/home/index.twig:280
+#: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/server/privileges/users_overview.twig:153
 #: templates/server/privileges/users_overview.twig:161
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
+#: templates/server/status/monitor/index.twig:129
+#: templates/server/status/monitor/index.twig:218
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/table/zoom_search/result_form.twig:27
@@ -5489,14 +5492,14 @@ msgstr "字节"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:508
-#: templates/server/status/monitor/index.twig:179
+#: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: libraries/classes/Util.php:510
-#: templates/server/status/monitor/index.twig:180
+#: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MB"
 
@@ -5546,6 +5549,7 @@ msgid "Settings"
 msgstr "设置"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "添加图表"
 
@@ -5563,7 +5567,7 @@ msgstr "请至少添加一个数据！"
 #: templates/database/central_columns/main.twig:309
 #: templates/database/designer/main.twig:588 templates/export.twig:384
 #: templates/server/privileges/privileges_summary.twig:30
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -5945,7 +5949,7 @@ msgid "Apply"
 msgstr "应用"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#: templates/home/index.twig:276 templates/navigation/main.twig:58
+#: templates/home/index.twig:281 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:157
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -7087,22 +7091,22 @@ msgstr "总计"
 msgid "Overhead"
 msgstr "多余"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:151
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
 msgid "No Privileges"
 msgstr "无权限"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:160
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
 msgstr "您没有权限管理用户！"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:175
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr "用户名和主机名不会更改。如果您只想更改密码，则应使用“更改密码”选项卡。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:420
+#: libraries/classes/Controllers/Server/PrivilegesController.php:422
 msgid "User has been added."
 msgstr "用户已添加。"
 
@@ -7910,7 +7914,7 @@ msgstr "数据表 %s 已存在！"
 #: libraries/classes/Controllers/Table/PartitionController.php:248
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
-#: libraries/classes/Database/Routines.php:1324
+#: libraries/classes/Database/Routines.php:1332
 #: libraries/classes/Display/Results.php:4082 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -7949,7 +7953,7 @@ msgid "There is an issue with your request."
 msgstr "您的请求有问题。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:87
-#: libraries/classes/Database/Routines.php:1346
+#: libraries/classes/Database/Routines.php:1354
 #: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8011,7 +8015,7 @@ msgid "Failed to get description of column %s!"
 msgstr "读取表 %s 的时候出现错误！"
 
 #: libraries/classes/Controllers/Table/StructureController.php:936
-#: libraries/classes/Controllers/Table/StructureController.php:1226
+#: libraries/classes/Controllers/Table/StructureController.php:1224
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "查询错误"
@@ -8175,10 +8179,10 @@ msgstr "无法加载schema插件，请检查您的安装！"
 #: libraries/classes/Database/Events.php:113
 #: libraries/classes/Database/Events.php:122
 #: libraries/classes/Database/Events.php:146
-#: libraries/classes/Database/Routines.php:236
-#: libraries/classes/Database/Routines.php:261
-#: libraries/classes/Database/Routines.php:376
-#: libraries/classes/Database/Routines.php:1354
+#: libraries/classes/Database/Routines.php:237
+#: libraries/classes/Database/Routines.php:262
+#: libraries/classes/Database/Routines.php:377
+#: libraries/classes/Database/Routines.php:1362
 #: libraries/classes/Database/Triggers.php:124
 #: libraries/classes/Database/Triggers.php:133
 #: libraries/classes/Database/Triggers.php:158
@@ -8190,11 +8194,11 @@ msgstr "下列查询失败了: \"%s\""
 #: libraries/classes/Database/Events.php:126
 #: libraries/classes/Database/Events.php:150
 #: libraries/classes/Database/Events.php:528
-#: libraries/classes/Database/Routines.php:240
-#: libraries/classes/Database/Routines.php:265
-#: libraries/classes/Database/Routines.php:380
-#: libraries/classes/Database/Routines.php:1358
-#: libraries/classes/Database/Routines.php:1678
+#: libraries/classes/Database/Routines.php:241
+#: libraries/classes/Database/Routines.php:266
+#: libraries/classes/Database/Routines.php:381
+#: libraries/classes/Database/Routines.php:1366
+#: libraries/classes/Database/Routines.php:1686
 #: libraries/classes/Database/Triggers.php:128
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
@@ -8214,7 +8218,7 @@ msgid "Event %1$s has been created."
 msgstr "已创建事件 %1$s 。"
 
 #: libraries/classes/Database/Events.php:167
-#: libraries/classes/Database/Routines.php:281
+#: libraries/classes/Database/Routines.php:282
 #: libraries/classes/Database/Triggers.php:179
 msgid "One or more errors have occurred while processing your request:"
 msgstr "处理请求时发生了一个或多个错误:"
@@ -8228,7 +8232,7 @@ msgid "Edit event"
 msgstr "编辑事件"
 
 #: libraries/classes/Database/Events.php:413
-#: libraries/classes/Database/Routines.php:1063
+#: libraries/classes/Database/Routines.php:1071
 #: libraries/classes/Database/Triggers.php:394
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式！"
@@ -8258,15 +8262,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "抱歉，恢复已删除的事件失败。"
 
 #: libraries/classes/Database/Events.php:526
-#: libraries/classes/Database/Routines.php:1676
+#: libraries/classes/Database/Routines.php:1684
 #: libraries/classes/Database/Triggers.php:462
 msgid "The backed up query was:"
 msgstr "已备份的查询为:"
 
 #: libraries/classes/Database/Events.php:559
-#: libraries/classes/Database/Routines.php:159
-#: libraries/classes/Database/Routines.php:1241
-#: libraries/classes/Database/Routines.php:1422
+#: libraries/classes/Database/Routines.php:160
+#: libraries/classes/Database/Routines.php:1249
+#: libraries/classes/Database/Routines.php:1430
 #: libraries/classes/Database/Triggers.php:496
 msgid "Error in processing request:"
 msgstr "处理请求时遇到错误:"
@@ -8352,102 +8356,102 @@ msgstr "更新书签"
 msgid "Delete bookmark"
 msgstr "删除书签"
 
-#: libraries/classes/Database/Routines.php:120
+#: libraries/classes/Database/Routines.php:121
 msgid "Add routine"
 msgstr "添加程序"
 
-#: libraries/classes/Database/Routines.php:124
+#: libraries/classes/Database/Routines.php:125
 msgid "Edit routine"
 msgstr "编辑程序"
 
-#: libraries/classes/Database/Routines.php:162
+#: libraries/classes/Database/Routines.php:163
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr "在数据库%2$s中找不到名称为%1$s的例程。您可能缺少编辑此例程的必要权限。"
 
-#: libraries/classes/Database/Routines.php:217
-#: libraries/classes/Database/Routines.php:1074
+#: libraries/classes/Database/Routines.php:218
+#: libraries/classes/Database/Routines.php:1082
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "无效的程序类型: \"%s\""
 
-#: libraries/classes/Database/Routines.php:268
+#: libraries/classes/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "已创建程序 %1$s 。"
 
-#: libraries/classes/Database/Routines.php:443
+#: libraries/classes/Database/Routines.php:444
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "已修改程序 %1$s 。已调整权限。"
 
-#: libraries/classes/Database/Routines.php:448
+#: libraries/classes/Database/Routines.php:449
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "已修改程序 %1$s 。"
 
-#: libraries/classes/Database/Routines.php:878
+#: libraries/classes/Database/Routines.php:886
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "请输入每一个参数的名称并设置其类型。"
 
-#: libraries/classes/Database/Routines.php:897
+#: libraries/classes/Database/Routines.php:905
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "参数方向 \"%s\" 无效。"
 
-#: libraries/classes/Database/Routines.php:922
-#: libraries/classes/Database/Routines.php:1002
+#: libraries/classes/Database/Routines.php:930
+#: libraries/classes/Database/Routines.php:1010
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr "请设置 ENUM、SET、VARCHAR 和 VARBINARY 类型参数的长度/值。"
 
-#: libraries/classes/Database/Routines.php:981
+#: libraries/classes/Database/Routines.php:989
 msgid "You must provide a valid return type for the routine."
 msgstr "请设置一个有效的返回类型。"
 
-#: libraries/classes/Database/Routines.php:1082
+#: libraries/classes/Database/Routines.php:1090
 msgid "You must provide a routine name!"
 msgstr "需要程序名称!"
 
-#: libraries/classes/Database/Routines.php:1153
+#: libraries/classes/Database/Routines.php:1161
 msgid "You must provide a routine definition."
 msgstr "请输入程序定义。"
 
-#: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Database/Routines.php:1424
+#: libraries/classes/Database/Routines.php:1251
+#: libraries/classes/Database/Routines.php:1432
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序。"
 
-#: libraries/classes/Database/Routines.php:1282
+#: libraries/classes/Database/Routines.php:1290
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "程序 %s 的运行结果"
 
-#: libraries/classes/Database/Routines.php:1332
+#: libraries/classes/Database/Routines.php:1340
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "存储过程中最后一条语句影响了 %d 行。"
 
-#: libraries/classes/Database/Routines.php:1407
-#: libraries/classes/Database/Routines.php:1414
+#: libraries/classes/Database/Routines.php:1415
+#: libraries/classes/Database/Routines.php:1422
 msgid "Execute routine"
 msgstr "运行程序"
 
-#: libraries/classes/Database/Routines.php:1675
+#: libraries/classes/Database/Routines.php:1683
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "抱歉，恢复已删除的程序失败。"
 
-#: libraries/classes/Database/Routines.php:1705
+#: libraries/classes/Database/Routines.php:1713
 #, php-format
 msgid "Export of routine %s"
 msgstr "导出程序 %s"
 
-#: libraries/classes/Database/Routines.php:1727
+#: libraries/classes/Database/Routines.php:1735
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -8628,27 +8632,27 @@ msgstr "杀死"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "可能是近似值。参见[doc@faq3-11]常见问题 3.11[/doc]。"
 
-#: libraries/classes/Display/Results.php:4428
+#: libraries/classes/Display/Results.php:4429
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "正在显示第 %1s - %2s 行"
 
-#: libraries/classes/Display/Results.php:4442
+#: libraries/classes/Display/Results.php:4443
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "总数为 %1$d，查询包含 %2$d"
 
-#: libraries/classes/Display/Results.php:4447
+#: libraries/classes/Display/Results.php:4448
 #, php-format
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/classes/Display/Results.php:4460 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4461 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4849
+#: libraries/classes/Display/Results.php:4850
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -8964,7 +8968,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:829
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:207
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:231
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:236
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -9305,10 +9309,10 @@ msgstr "无法访问用于上传的文件夹。"
 
 #: libraries/classes/InsertEdit.php:764
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
-#: templates/server/privileges/privileges_table.twig:26
-#: templates/server/privileges/privileges_table.twig:47
-#: templates/server/privileges/privileges_table.twig:68
-#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:32
+#: templates/server/privileges/privileges_table.twig:59
+#: templates/server/privileges/privileges_table.twig:86
+#: templates/server/privileges/privileges_table.twig:113
 #: templates/table/search/index.twig:129
 msgid "Or"
 msgstr "或"
@@ -10453,7 +10457,7 @@ msgstr "生成日期："
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
 #: libraries/classes/Plugins/Export/ExportXml.php:251
-#: templates/home/index.twig:160
+#: templates/home/index.twig:165
 msgid "Server version:"
 msgstr "服务器版本："
 
@@ -11430,11 +11434,11 @@ msgstr "记住设计器设置"
 msgid "Saving export templates"
 msgstr "保存导出模板"
 
-#: libraries/classes/Relation.php:1866
+#: libraries/classes/Relation.php:1864
 msgid "no description"
 msgstr "无说明"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -11443,20 +11447,20 @@ msgstr ""
 "您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设"
 "置 phpMyAdmin的储存位置 。"
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr "%s创建%s一个名为'phpmyadmin'的数据库，并在那里设置phpMyAdmin配置存储。"
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2202
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "在当前数据库%s创建%sphpMyAdmin配置存储。"
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2210
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%s创建%s缺失的 phpMyAdmin 配置存储表。"
@@ -11567,7 +11571,7 @@ msgstr "加载搜索时出现错误。"
 
 #: libraries/classes/Server/Plugins.php:70
 #: libraries/classes/Server/Privileges.php:821
-#: libraries/classes/Server/Privileges.php:3989
+#: libraries/classes/Server/Privileges.php:3990
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
@@ -11599,150 +11603,150 @@ msgstr "除了授权 (GRANT) 以外的所有权限。"
 
 #: libraries/classes/Server/Privileges.php:294
 #: libraries/classes/Server/Privileges.php:361
-#: templates/server/privileges/privileges_table.twig:100
-#: templates/server/privileges/privileges_table.twig:103
-#: templates/server/privileges/privileges_table.twig:299
-#: templates/server/privileges/privileges_table.twig:302
+#: templates/server/privileges/privileges_table.twig:124
+#: templates/server/privileges/privileges_table.twig:127
+#: templates/server/privileges/privileges_table.twig:323
+#: templates/server/privileges/privileges_table.twig:326
 msgid "Allows deleting data."
 msgstr "允许删除数据。"
 
 #: libraries/classes/Server/Privileges.php:299
-#: templates/server/privileges/privileges_table.twig:112
-#: templates/server/privileges/privileges_table.twig:115
-#: templates/server/privileges/privileges_table.twig:337
-#: templates/server/privileges/privileges_table.twig:345
+#: templates/server/privileges/privileges_table.twig:136
+#: templates/server/privileges/privileges_table.twig:139
+#: templates/server/privileges/privileges_table.twig:361
+#: templates/server/privileges/privileges_table.twig:369
 msgid "Allows creating new tables."
 msgstr "允许创建新数据表。"
 
 #: libraries/classes/Server/Privileges.php:304
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:385
-#: templates/server/privileges/privileges_table.twig:393
+#: templates/server/privileges/privileges_table.twig:148
+#: templates/server/privileges/privileges_table.twig:151
+#: templates/server/privileges/privileges_table.twig:409
+#: templates/server/privileges/privileges_table.twig:417
 msgid "Allows dropping tables."
 msgstr "允许删除数据表。"
 
 #: libraries/classes/Server/Privileges.php:309
 #: libraries/classes/Server/Privileges.php:401
-#: templates/server/privileges/privileges_table.twig:149
-#: templates/server/privileges/privileges_table.twig:152
-#: templates/server/privileges/privileges_table.twig:369
-#: templates/server/privileges/privileges_table.twig:372
+#: templates/server/privileges/privileges_table.twig:173
+#: templates/server/privileges/privileges_table.twig:176
+#: templates/server/privileges/privileges_table.twig:393
+#: templates/server/privileges/privileges_table.twig:396
 msgid "Allows creating and dropping indexes."
 msgstr "允许创建和删除索引。"
 
 #: libraries/classes/Server/Privileges.php:314
 #: libraries/classes/Server/Privileges.php:406
-#: templates/server/privileges/privileges_table.twig:161
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:356
-#: templates/server/privileges/privileges_table.twig:359
+#: templates/server/privileges/privileges_table.twig:185
+#: templates/server/privileges/privileges_table.twig:188
+#: templates/server/privileges/privileges_table.twig:380
+#: templates/server/privileges/privileges_table.twig:383
 msgid "Allows altering the structure of existing tables."
 msgstr "允许修改现有数据表的结构。"
 
 #: libraries/classes/Server/Privileges.php:319
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:470
-#: templates/server/privileges/privileges_table.twig:473
-#: templates/server/privileges/privileges_table.twig:485
-#: templates/server/privileges/privileges_table.twig:488
+#: templates/server/privileges/privileges_table.twig:197
+#: templates/server/privileges/privileges_table.twig:200
+#: templates/server/privileges/privileges_table.twig:494
+#: templates/server/privileges/privileges_table.twig:497
+#: templates/server/privileges/privileges_table.twig:509
+#: templates/server/privileges/privileges_table.twig:512
 msgid "Allows creating new views."
 msgstr "允许创建视图。"
 
 #: libraries/classes/Server/Privileges.php:324
 #: libraries/classes/Server/Privileges.php:466
 #: libraries/classes/Server/Privileges.php:472
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:417
-#: templates/server/privileges/privileges_table.twig:420
+#: templates/server/privileges/privileges_table.twig:209
+#: templates/server/privileges/privileges_table.twig:212
+#: templates/server/privileges/privileges_table.twig:441
+#: templates/server/privileges/privileges_table.twig:444
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "允许执行 SHOW CREATE VIEW 查询。"
 
 #: libraries/classes/Server/Privileges.php:329
 #: libraries/classes/Server/Privileges.php:455
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:513
-#: templates/server/privileges/privileges_table.twig:516
+#: templates/server/privileges/privileges_table.twig:221
+#: templates/server/privileges/privileges_table.twig:224
+#: templates/server/privileges/privileges_table.twig:537
+#: templates/server/privileges/privileges_table.twig:540
 msgid "Allows creating and dropping triggers."
 msgstr "允许创建和删除触发器。"
 
 #: libraries/classes/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:260
-#: templates/server/privileges/privileges_table.twig:263
+#: templates/server/privileges/privileges_table.twig:284
+#: templates/server/privileges/privileges_table.twig:287
 msgid "Allows reading data."
 msgstr "允许读取数据。"
 
 #: libraries/classes/Server/Privileges.php:351
-#: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:273
-#: templates/server/privileges/privileges_table.twig:276
+#: templates/server/privileges/privileges_table.twig:42
+#: templates/server/privileges/privileges_table.twig:297
+#: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
 msgstr "允许插入和替换数据。"
 
 #: libraries/classes/Server/Privileges.php:356
-#: templates/server/privileges/privileges_table.twig:57
-#: templates/server/privileges/privileges_table.twig:286
-#: templates/server/privileges/privileges_table.twig:289
+#: templates/server/privileges/privileges_table.twig:69
+#: templates/server/privileges/privileges_table.twig:310
+#: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
 msgstr "允许修改数据。"
 
 #: libraries/classes/Server/Privileges.php:366
-#: templates/server/privileges/privileges_table.twig:335
-#: templates/server/privileges/privileges_table.twig:343
+#: templates/server/privileges/privileges_table.twig:359
+#: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "允许创建新数据库和数据表。"
 
 #: libraries/classes/Server/Privileges.php:371
-#: templates/server/privileges/privileges_table.twig:383
-#: templates/server/privileges/privileges_table.twig:391
+#: templates/server/privileges/privileges_table.twig:407
+#: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "允许删除数据库和数据表。"
 
 #: libraries/classes/Server/Privileges.php:376
-#: templates/server/privileges/privileges_table.twig:575
-#: templates/server/privileges/privileges_table.twig:578
+#: templates/server/privileges/privileges_table.twig:599
+#: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "允许重新载入服务器设置并刷新服务器的缓存。"
 
 #: libraries/classes/Server/Privileges.php:381
-#: templates/server/privileges/privileges_table.twig:588
-#: templates/server/privileges/privileges_table.twig:591
+#: templates/server/privileges/privileges_table.twig:612
+#: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "允许关闭服务器。"
 
 #: libraries/classes/Server/Privileges.php:386
-#: templates/server/privileges/privileges_table.twig:562
-#: templates/server/privileges/privileges_table.twig:565
+#: templates/server/privileges/privileges_table.twig:586
+#: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
 msgstr "允许查看所有用户的进程。"
 
 #: libraries/classes/Server/Privileges.php:391
-#: templates/server/privileges/privileges_table.twig:313
-#: templates/server/privileges/privileges_table.twig:316
+#: templates/server/privileges/privileges_table.twig:337
+#: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr "允许从文件中导入数据以及将数据导出至文件。"
 
 #: libraries/classes/Server/Privileges.php:396
-#: templates/server/privileges/privileges_table.twig:78
-#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:96
+#: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "在此版本的 MySQL 中无效。"
 
 #: libraries/classes/Server/Privileges.php:411
-#: templates/server/privileges/privileges_table.twig:601
-#: templates/server/privileges/privileges_table.twig:604
+#: templates/server/privileges/privileges_table.twig:625
+#: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "允许访问完整的数据库列表。"
 
 #: libraries/classes/Server/Privileges.php:417
-#: templates/server/privileges/privileges_table.twig:548
-#: templates/server/privileges/privileges_table.twig:552
+#: templates/server/privileges/privileges_table.twig:572
+#: templates/server/privileges/privileges_table.twig:576
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -11752,64 +11756,64 @@ msgstr ""
 "管理操作是必需的。"
 
 #: libraries/classes/Server/Privileges.php:425
-#: templates/server/privileges/privileges_table.twig:404
-#: templates/server/privileges/privileges_table.twig:407
+#: templates/server/privileges/privileges_table.twig:428
+#: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "允许创建临时表。"
 
 #: libraries/classes/Server/Privileges.php:430
-#: templates/server/privileges/privileges_table.twig:629
-#: templates/server/privileges/privileges_table.twig:632
+#: templates/server/privileges/privileges_table.twig:653
+#: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr "允许锁定当前线程的表。"
 
 #: libraries/classes/Server/Privileges.php:435
-#: templates/server/privileges/privileges_table.twig:670
-#: templates/server/privileges/privileges_table.twig:673
+#: templates/server/privileges/privileges_table.twig:694
+#: templates/server/privileges/privileges_table.twig:697
 msgid "Needed for the replication slaves."
 msgstr "回复附属者所需。"
 
 #: libraries/classes/Server/Privileges.php:440
-#: templates/server/privileges/privileges_table.twig:657
-#: templates/server/privileges/privileges_table.twig:660
+#: templates/server/privileges/privileges_table.twig:681
+#: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "用户有权询问附属者/控制者在哪里。"
 
 #: libraries/classes/Server/Privileges.php:450
-#: templates/server/privileges/privileges_table.twig:500
-#: templates/server/privileges/privileges_table.twig:503
+#: templates/server/privileges/privileges_table.twig:524
+#: templates/server/privileges/privileges_table.twig:527
 msgid "Allows to set up events for the event scheduler."
 msgstr "允许为事件触发器设置事件。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:479
 #: libraries/classes/Server/Privileges.php:488
-#: templates/server/privileges/privileges_table.twig:210
-#: templates/server/privileges/privileges_table.twig:214
+#: templates/server/privileges/privileges_table.twig:234
+#: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
 msgstr "允许删除历史行。"
 
 #: libraries/classes/Server/Privileges.php:493
-#: templates/server/privileges/privileges_table.twig:430
-#: templates/server/privileges/privileges_table.twig:433
+#: templates/server/privileges/privileges_table.twig:454
+#: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "允许创建存储过程。"
 
 #: libraries/classes/Server/Privileges.php:498
-#: templates/server/privileges/privileges_table.twig:443
-#: templates/server/privileges/privileges_table.twig:446
+#: templates/server/privileges/privileges_table.twig:467
+#: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "允许修改或删除储存过程。"
 
 #: libraries/classes/Server/Privileges.php:503
-#: templates/server/privileges/privileges_table.twig:683
-#: templates/server/privileges/privileges_table.twig:686
+#: templates/server/privileges/privileges_table.twig:707
+#: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "允许创建、删除和重命名用户账户。"
 
 #: libraries/classes/Server/Privileges.php:508
-#: templates/server/privileges/privileges_table.twig:456
-#: templates/server/privileges/privileges_table.twig:459
+#: templates/server/privileges/privileges_table.twig:480
+#: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "允许运行存储过程。"
 
@@ -11842,14 +11846,14 @@ msgid "Revoke"
 msgstr "撤销"
 
 #: libraries/classes/Server/Privileges.php:1920
-#: templates/server/privileges/privileges_table.twig:240
+#: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "按数据库指定权限"
 
 #: libraries/classes/Server/Privileges.php:1926
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
-#: templates/server/privileges/privileges_table.twig:242
+#: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "按表指定权限"
 
@@ -11917,7 +11921,7 @@ msgstr ""
 "存在允许来自localhost的任何用户连接的用户帐户。如果其帐户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
-#: libraries/classes/Server/Privileges.php:3179
+#: libraries/classes/Server/Privileges.php:3180
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -11929,7 +11933,7 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: libraries/classes/Server/Privileges.php:3195
+#: libraries/classes/Server/Privileges.php:3196
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11941,7 +11945,7 @@ msgstr ""
 "内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您"
 "没有RELOAD权限。"
 
-#: libraries/classes/Server/Privileges.php:3540
+#: libraries/classes/Server/Privileges.php:3541
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
@@ -13499,6 +13503,10 @@ msgstr "没有已定义的索引！"
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:29
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/server/privileges/privileges_table.twig:28
+#: templates/server/privileges/privileges_table.twig:55
+#: templates/server/privileges/privileges_table.twig:82
+#: templates/server/privileges/privileges_table.twig:109
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "全选"
@@ -13686,8 +13694,8 @@ msgid "Active options"
 msgstr "当前选项"
 
 #: templates/database/designer/main.twig:1104
-#: templates/database/designer/main.twig:1119 templates/export.twig:63
-#: templates/table/zoom_search/result_form.twig:26
+#: templates/database/designer/main.twig:1119 templates/export_modal.twig:5
+#: templates/export.twig:63 templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
 #, fuzzy
 #| msgid "Loading…"
@@ -13775,11 +13783,11 @@ msgstr "用户"
 #: templates/display/results/table.twig:224 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:244
-#: templates/server/privileges/privileges_table.twig:245
-#: templates/server/privileges/privileges_table.twig:253
-#: templates/server/privileges/privileges_table.twig:327
-#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/privileges_table.twig:268
+#: templates/server/privileges/privileges_table.twig:269
+#: templates/server/privileges/privileges_table.twig:277
+#: templates/server/privileges/privileges_table.twig:351
+#: templates/server/privileges/privileges_table.twig:551
 #: templates/server/privileges/users_overview.twig:105
 #: templates/server/privileges/users_overview.twig:106
 #: templates/server/user_groups/edit_user_groups.twig:11
@@ -14959,92 +14967,88 @@ msgstr "外观设置"
 msgid "Language"
 msgstr "语言"
 
-#: templates/home/index.twig:126
-msgid "Theme:"
-msgstr "主题："
-
 #: templates/home/index.twig:128
 msgid "Theme"
 msgstr "主题"
 
-#: templates/home/index.twig:144
+#: templates/home/index.twig:149
 msgid "Database server"
 msgstr "数据库服务器"
 
-#: templates/home/index.twig:148 templates/login/form.twig:65
+#: templates/home/index.twig:153 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "服务器："
 
-#: templates/home/index.twig:152
+#: templates/home/index.twig:157
 msgid "Server type:"
 msgstr "服务器类型："
 
-#: templates/home/index.twig:156
+#: templates/home/index.twig:161
 msgid "Server connection:"
 msgstr "服务器连接:"
 
-#: templates/home/index.twig:164
+#: templates/home/index.twig:169
 msgid "Protocol version:"
 msgstr "协议版本："
 
-#: templates/home/index.twig:168
+#: templates/home/index.twig:173
 msgid "User:"
 msgstr "用户："
 
-#: templates/home/index.twig:172
+#: templates/home/index.twig:177
 msgid "Server charset:"
 msgstr "服务器字符集："
 
-#: templates/home/index.twig:184
+#: templates/home/index.twig:189
 msgid "Web server"
 msgstr "网站服务器"
 
-#: templates/home/index.twig:194
+#: templates/home/index.twig:199
 msgid "Database client version:"
 msgstr "数据库客户端版本："
 
-#: templates/home/index.twig:198
+#: templates/home/index.twig:203
 msgid "PHP extension:"
 msgstr "PHP 扩展："
 
-#: templates/home/index.twig:205
+#: templates/home/index.twig:210
 msgid "PHP version:"
 msgstr "PHP 版本："
 
-#: templates/home/index.twig:212
+#: templates/home/index.twig:217
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: templates/home/index.twig:226
+#: templates/home/index.twig:231
 msgid "Version information:"
 msgstr "版本信息："
 
-#: templates/home/index.twig:236
+#: templates/home/index.twig:241
 msgid "Official Homepage"
 msgstr "官方主页"
 
-#: templates/home/index.twig:241
+#: templates/home/index.twig:246
 msgid "Contribute"
 msgstr "贡献"
 
-#: templates/home/index.twig:246
+#: templates/home/index.twig:251
 msgid "Get support"
 msgstr "获取支持"
 
-#: templates/home/index.twig:251
+#: templates/home/index.twig:256
 msgid "List of changes"
 msgstr "更新列表"
 
-#: templates/home/index.twig:256 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:261 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "授权"
 
-#: templates/home/index.twig:271
+#: templates/home/index.twig:276
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin 主题"
 
-#: templates/home/index.twig:282
+#: templates/home/index.twig:287
 msgid "Get more themes!"
 msgstr "获得更多主题！"
 
@@ -15543,11 +15547,12 @@ msgstr "载入导航显示时出现错误"
 msgid "SQL upload"
 msgstr "SQL 上传"
 
-#: templates/navigation/tree/fast_filter.twig:10
+#: templates/navigation/tree/fast_filter.twig:11
+#: templates/navigation/tree/fast_filter.twig:12
 msgid "Type to filter these, Enter to search all"
 msgstr "过滤器"
 
-#: templates/navigation/tree/fast_filter.twig:12
+#: templates/navigation/tree/fast_filter.twig:16
 msgid "Clear fast filter"
 msgstr "清除快速筛选数据"
 
@@ -15965,7 +15970,7 @@ msgstr "注意：您正在尝试修改您正在使用的账号的权限。"
 
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:248
+#: templates/server/privileges/privileges_table.twig:272
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "注意：MySQL 权限名称会以英文显示。"
 
@@ -16117,109 +16122,109 @@ msgstr "在下列数据表添加权限："
 msgid "Add privileges on the following routine:"
 msgstr "在下列例程添加权限:"
 
-#: templates/server/privileges/privileges_table.twig:29
-#: templates/server/privileges/privileges_table.twig:30
-#: templates/server/privileges/privileges_table.twig:50
-#: templates/server/privileges/privileges_table.twig:51
-#: templates/server/privileges/privileges_table.twig:71
-#: templates/server/privileges/privileges_table.twig:72
-#: templates/server/privileges/privileges_table.twig:92
-#: templates/server/privileges/privileges_table.twig:93
+#: templates/server/privileges/privileges_table.twig:35
+#: templates/server/privileges/privileges_table.twig:36
+#: templates/server/privileges/privileges_table.twig:62
+#: templates/server/privileges/privileges_table.twig:63
+#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:90
+#: templates/server/privileges/privileges_table.twig:116
+#: templates/server/privileges/privileges_table.twig:117
 msgctxt "None privileges"
 msgid "None"
 msgstr "无"
 
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:140
-#: templates/server/privileges/privileges_table.twig:614
-#: templates/server/privileges/privileges_table.twig:618
+#: templates/server/privileges/privileges_table.twig:160
+#: templates/server/privileges/privileges_table.twig:164
+#: templates/server/privileges/privileges_table.twig:638
+#: templates/server/privileges/privileges_table.twig:642
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr "允许用户向其他用户提供或从其他用户中删除用户拥有的权限。"
 
-#: templates/server/privileges/privileges_table.twig:231
+#: templates/server/privileges/privileges_table.twig:255
 msgid "Global"
 msgstr "全局"
 
-#: templates/server/privileges/privileges_table.twig:238
+#: templates/server/privileges/privileges_table.twig:262
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
 msgstr "全局权限"
 
-#: templates/server/privileges/privileges_table.twig:528
+#: templates/server/privileges/privileges_table.twig:552
 msgid "Administration"
 msgstr "管理"
 
-#: templates/server/privileges/privileges_table.twig:535
-#: templates/server/privileges/privileges_table.twig:538
+#: templates/server/privileges/privileges_table.twig:559
+#: templates/server/privileges/privileges_table.twig:562
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "允许添加用户和权限而不重新载入权限表。"
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 msgid "Allows creating foreign key relations."
 msgstr "允许创建外键关系。"
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
 msgstr "未在MariaDB上使用。"
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 msgid "Not used for this MySQL version."
 msgstr "在此版本的 MySQL 中未使用。"
 
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
 msgstr "资源限制"
 
-#: templates/server/privileges/privileges_table.twig:699
+#: templates/server/privileges/privileges_table.twig:723
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "注意：若将这些选项设为 0(零) 即不限制。"
 
-#: templates/server/privileges/privileges_table.twig:705
-#: templates/server/privileges/privileges_table.twig:712
+#: templates/server/privileges/privileges_table.twig:729
+#: templates/server/privileges/privileges_table.twig:736
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr "限制用户每小时可发送到服务器的查询数。"
 
-#: templates/server/privileges/privileges_table.twig:718
-#: templates/server/privileges/privileges_table.twig:725
+#: templates/server/privileges/privileges_table.twig:742
+#: templates/server/privileges/privileges_table.twig:749
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr "限制用户每小时可执行的修改任何数据表或数据库的命令数。"
 
-#: templates/server/privileges/privileges_table.twig:731
-#: templates/server/privileges/privileges_table.twig:738
+#: templates/server/privileges/privileges_table.twig:755
+#: templates/server/privileges/privileges_table.twig:762
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "限制用户每小时打开的新连接数。"
 
-#: templates/server/privileges/privileges_table.twig:744
-#: templates/server/privileges/privileges_table.twig:751
+#: templates/server/privileges/privileges_table.twig:768
+#: templates/server/privileges/privileges_table.twig:775
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "限制该用户的并发连接数。"
 
-#: templates/server/privileges/privileges_table.twig:760
+#: templates/server/privileges/privileges_table.twig:784
 msgid "Does not require SSL-encrypted connections."
 msgstr "不需要 SSL 加密连接。"
 
-#: templates/server/privileges/privileges_table.twig:769
+#: templates/server/privileges/privileges_table.twig:793
 msgid "Requires SSL-encrypted connections."
 msgstr "需要SSL加密连接。"
 
-#: templates/server/privileges/privileges_table.twig:778
+#: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
 msgstr "需要有效的X509证书。"
 
-#: templates/server/privileges/privileges_table.twig:799
+#: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr "需要使用特定的密码方法进行连接。"
 
-#: templates/server/privileges/privileges_table.twig:808
+#: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr "要求提供此CA颁发的有效X509证书。"
 
-#: templates/server/privileges/privileges_table.twig:817
+#: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "要求提供包含此主题的有效X509证书。"
 
@@ -16582,7 +16587,6 @@ msgid "Done dragging (rearranging) charts"
 msgstr "完成拖拽（排列）图表"
 
 #: templates/server/status/monitor/index.twig:27
-#: templates/server/status/monitor/index.twig:124
 msgid "Add chart"
 msgstr "添加图表"
 
@@ -16692,79 +16696,80 @@ msgstr ""
 "载的任务，建议选择一段小范围的时间并在用完监控后禁止 general_log 并清空它的"
 "表。"
 
-#: templates/server/status/monitor/index.twig:127
+#: templates/server/status/monitor/index.twig:128
+#: templates/server/status/monitor/index.twig:134
 msgid "Chart Title"
 msgstr "图表标题"
 
-#: templates/server/status/monitor/index.twig:131
+#: templates/server/status/monitor/index.twig:138
 msgid "Preset chart"
 msgstr "预置图表"
 
-#: templates/server/status/monitor/index.twig:137
+#: templates/server/status/monitor/index.twig:144
 msgid "Status variable(s)"
 msgstr "状态变量"
 
-#: templates/server/status/monitor/index.twig:142
+#: templates/server/status/monitor/index.twig:149
 msgid "Select series:"
 msgstr "选择数据："
 
-#: templates/server/status/monitor/index.twig:145
+#: templates/server/status/monitor/index.twig:152
 msgid "Commonly monitored"
 msgstr "常用监控"
 
-#: templates/server/status/monitor/index.twig:163
+#: templates/server/status/monitor/index.twig:170
 msgid "or type variable name:"
 msgstr "或输入变量名:"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:177
 msgid "Display as differential value"
 msgstr "独立显示"
 
-#: templates/server/status/monitor/index.twig:175
+#: templates/server/status/monitor/index.twig:182
 msgid "Apply a divisor"
 msgstr "应用除数"
 
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:193
 msgid "Append unit to data values"
 msgstr "在值后附加单位"
 
-#: templates/server/status/monitor/index.twig:194
+#: templates/server/status/monitor/index.twig:201
 msgid "Add this series"
 msgstr "添加该数据"
 
-#: templates/server/status/monitor/index.twig:197
+#: templates/server/status/monitor/index.twig:204
 msgid "Clear series"
 msgstr "清除所有数据"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:208
 msgid "Series in chart:"
 msgstr "图表中的数据系列："
 
-#: templates/server/status/monitor/index.twig:210
+#: templates/server/status/monitor/index.twig:224
 msgid "Log statistics"
 msgstr "日志统计"
 
-#: templates/server/status/monitor/index.twig:212
+#: templates/server/status/monitor/index.twig:226
 msgid "Selected time range:"
 msgstr "选择时间范围:"
 
-#: templates/server/status/monitor/index.twig:220
+#: templates/server/status/monitor/index.twig:234
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "仅统计 SELECT、INSERT、UPDATE 和 DELETE 语句"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:240
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "去除 INSERT 语句中的变量值以获得更好的分组"
 
-#: templates/server/status/monitor/index.twig:230
+#: templates/server/status/monitor/index.twig:244
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "请选择生成统计的来源日志。"
 
-#: templates/server/status/monitor/index.twig:233
+#: templates/server/status/monitor/index.twig:247
 msgid "Results are grouped by query text."
 msgstr "结果将根据查询语句分组。"
 
-#: templates/server/status/monitor/index.twig:237
+#: templates/server/status/monitor/index.twig:251
 msgid "Query analyzer"
 msgstr "查询分析器"
 
@@ -17854,6 +17859,9 @@ msgstr "字段名"
 #: url.php:76
 msgid "Taking you to the target site."
 msgstr "带你到目标网站。"
+
+#~ msgid "Theme:"
+#~ msgstr "主题："
 
 #~ msgid "Copy column name."
 #~ msgstr "复制字段名。"

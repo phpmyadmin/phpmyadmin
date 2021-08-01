@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-07-25 00:08+0000\n"
+"POT-Creation-Date: 2021-08-01 00:09+0000\n"
 "PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1458,7 +1458,7 @@ msgstr "Αναζήτηση:"
 
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: libraries/classes/Controllers/Server/PrivilegesController.php:339
+#: libraries/classes/Controllers/Server/PrivilegesController.php:340
 #: libraries/classes/InsertEdit.php:1054
 #: libraries/classes/Normalization.php:272
 #: libraries/classes/Normalization.php:1002 libraries/classes/Tracking.php:337
@@ -1485,7 +1485,7 @@ msgstr "Αναζήτηση:"
 #: templates/server/privileges/change_password.twig:70
 #: templates/server/privileges/edit_routine_privileges.twig:102
 #: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:834
+#: templates/server/privileges/privileges_table.twig:858
 #: templates/server/privileges/user_properties.twig:149
 #: templates/server/privileges/users_overview.twig:143
 #: templates/server/replication/change_master.twig:33
@@ -1527,7 +1527,7 @@ msgstr "Όνομα κλειδιού"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: libraries/classes/BrowseForeigners.php:332
+#: libraries/classes/BrowseForeigners.php:325
 #: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
@@ -1535,7 +1535,7 @@ msgstr "Περιγραφή"
 msgid "Page number:"
 msgstr "Σελίδα:"
 
-#: libraries/classes/BrowseForeigners.php:346
+#: libraries/classes/BrowseForeigners.php:339
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
@@ -4542,7 +4542,7 @@ msgstr "Γραμμές textarea"
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
-#: templates/server/privileges/privileges_table.twig:233
+#: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
 #: templates/server/privileges/user_properties.twig:71
 #: templates/table/operations/index.twig:56
@@ -4575,7 +4575,7 @@ msgstr "Διακομιστής"
 #: templates/database/triggers/editor_form.twig:27
 #: templates/database/triggers/list.twig:45
 #: templates/server/privileges/privileges_table.twig:6
-#: templates/server/privileges/privileges_table.twig:235
+#: templates/server/privileges/privileges_table.twig:259
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
 #: templates/table/maintenance/checksum.twig:12
@@ -4801,7 +4801,7 @@ msgstr "Προσαρμοσμένο"
 #: templates/database/central_columns/edit.twig:3
 #: templates/database/export/index.twig:24
 #: templates/database/structure/structure_table_row.twig:48
-#: templates/server/privileges/privileges_table.twig:328
+#: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
 msgstr "Δομή"
@@ -4812,7 +4812,7 @@ msgstr "Δομή"
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:495
 #: templates/database/export/index.twig:25
-#: templates/server/privileges/privileges_table.twig:254
+#: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
 msgstr "Δεδομένα"
@@ -5238,7 +5238,7 @@ msgid "No table selected."
 msgstr "Δεν επιλέχθηκαν πίνακες."
 
 #: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:638
+#: libraries/classes/Controllers/ImportController.php:644
 #: libraries/classes/Controllers/Server/ImportController.php:63
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -5312,7 +5312,7 @@ msgid "Table %s has been emptied."
 msgstr "Ο πίνακας %s άδειασε."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4416
+#: libraries/classes/Display/Results.php:4417
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5536,7 +5536,7 @@ msgstr ""
 "Το $cfg['TempDir'] (%s) δεν είναι προσβάσιμο. Το phpMyAdmin δεν μπορεί να "
 "βάλει στη λανθάνουσα μνήμη πρότυπα και θα είναι αργό εξαιτίας αυτού."
 
-#: libraries/classes/Controllers/HomeController.php:492
+#: libraries/classes/Controllers/HomeController.php:493
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5547,7 +5547,7 @@ msgstr ""
 "μπορεί να χωρίσει συμβολοσειρές σωστά και ίσως προκύψουν μη αναμενόμενα "
 "αποτελέσματα."
 
-#: libraries/classes/Controllers/HomeController.php:510
+#: libraries/classes/Controllers/HomeController.php:511
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5556,20 +5556,20 @@ msgstr ""
 "Εξαιτίας αυτού ορισμένα χαρακτηριστικά όπως αναφορές σφαλμάτων ή έλεγχοι "
 "εκδόσης είναι απενεργοποιημένα."
 
-#: libraries/classes/Controllers/ImportController.php:119
+#: libraries/classes/Controllers/ImportController.php:120
 msgid "Incomplete params"
 msgstr "Ελλιπείς παράμετροι"
 
-#: libraries/classes/Controllers/ImportController.php:144
+#: libraries/classes/Controllers/ImportController.php:145
 msgid "Succeeded"
 msgstr "Επιτεύχθηκε"
 
-#: libraries/classes/Controllers/ImportController.php:148
+#: libraries/classes/Controllers/ImportController.php:149
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 msgid "Failed"
 msgstr "Απέτυχε"
 
-#: libraries/classes/Controllers/ImportController.php:255
+#: libraries/classes/Controllers/ImportController.php:261
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5578,17 +5578,17 @@ msgstr ""
 "Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
 "%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
-#: libraries/classes/Controllers/ImportController.php:441
-#: libraries/classes/Controllers/ImportController.php:678
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:684
 msgid "Showing bookmark"
 msgstr "Εμφάνιση σελιδοδείκτη"
 
-#: libraries/classes/Controllers/ImportController.php:467
-#: libraries/classes/Controllers/ImportController.php:674
+#: libraries/classes/Controllers/ImportController.php:473
+#: libraries/classes/Controllers/ImportController.php:680
 msgid "The bookmark has been deleted."
 msgstr "Η ετικέτα διεγράφη."
 
-#: libraries/classes/Controllers/ImportController.php:584
+#: libraries/classes/Controllers/ImportController.php:590
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5598,21 +5598,21 @@ msgstr ""
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
 "της ΡΗΡ. Δείτε τις [doc@faq1-16]ΣΑΕ 1.16[/doc]."
 
-#: libraries/classes/Controllers/ImportController.php:681
+#: libraries/classes/Controllers/ImportController.php:687
 #: libraries/classes/Controllers/SqlController.php:397
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ο σελιδοδείκτης %s έχει δημιουργηθεί."
 
-#: libraries/classes/Controllers/ImportController.php:691
+#: libraries/classes/Controllers/ImportController.php:697
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερώτημα εκτελέστηκε."
 msgstr[1] "Η εισαγωγή ολοκληρώθηκε επιτυχώς, %d ερωτήματα εκτελέστηκαν."
 
-#: libraries/classes/Controllers/ImportController.php:723
+#: libraries/classes/Controllers/ImportController.php:729
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5621,7 +5621,7 @@ msgstr ""
 "Το χρονικό όριο του κώδικα εξαντλήθηκε, οπότε αν θέλετε να τελειώσετε την "
 "εισαγωγή, %sεπανυποβάλτε το ίδιο αρχείο%s και η εισαγωγή θα συνεχίσει."
 
-#: libraries/classes/Controllers/ImportController.php:733
+#: libraries/classes/Controllers/ImportController.php:739
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5630,7 +5630,7 @@ msgstr ""
 "σημαίνει ότι το phpMyAdmin δεν θα μπορέσει να τελειώσει την εισαγωγή εκτός "
 "και αν αυξήσετε τα χρονικά όρια της php."
 
-#: libraries/classes/Controllers/ImportController.php:810
+#: libraries/classes/Controllers/ImportController.php:816
 #: libraries/classes/Controllers/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
@@ -5940,13 +5940,16 @@ msgstr "Διαγραφή των επιλεγμένων χρηστών"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Tracking.php:240 libraries/classes/Tracking.php:651
-#: templates/error/report_modal.twig:14 templates/export.twig:64
+#: templates/error/report_modal.twig:14 templates/export_modal.twig:6
+#: templates/export_modal.twig:10 templates/export.twig:64
 #: templates/export.twig:74 templates/export.twig:176
-#: templates/home/index.twig:272 templates/home/index.twig:280
+#: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/server/privileges/users_overview.twig:153
 #: templates/server/privileges/users_overview.twig:161
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
+#: templates/server/status/monitor/index.twig:129
+#: templates/server/status/monitor/index.twig:218
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
 #: templates/table/zoom_search/result_form.twig:27
@@ -6102,14 +6105,14 @@ msgstr "B"
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:508
-#: templates/server/status/monitor/index.twig:179
+#: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #: libraries/classes/Util.php:510
-#: templates/server/status/monitor/index.twig:180
+#: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MB"
 
@@ -6159,6 +6162,7 @@ msgid "Settings"
 msgstr "Ρυθμίσεις"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
@@ -6176,7 +6180,7 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: templates/database/central_columns/main.twig:309
 #: templates/database/designer/main.twig:588 templates/export.twig:384
 #: templates/server/privileges/privileges_summary.twig:30
-#: templates/server/status/monitor/index.twig:204
+#: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
 #: templates/table/zoom_search/index.twig:62
 #: templates/table/zoom_search/index.twig:122
@@ -6584,7 +6588,7 @@ msgid "Apply"
 msgstr "Εφαρμογή"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#: templates/home/index.twig:276 templates/navigation/main.twig:58
+#: templates/home/index.twig:281 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:157
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -7777,18 +7781,18 @@ msgstr "Σύνολο"
 msgid "Overhead"
 msgstr "Περίσσεια"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:151
+#: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
 msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:160
+#: libraries/classes/Controllers/Server/PrivilegesController.php:161
 #, fuzzy
 #| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να χειριστείτε χρήστες!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:175
+#: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7797,7 +7801,7 @@ msgstr ""
 "μόνο τον κωδικό πρόσβασης, πρέπει να χρησιμοποιηθεί η καρτέλα «Αλλαγή "
 "κωδικού»."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:420
+#: libraries/classes/Controllers/Server/PrivilegesController.php:422
 msgid "User has been added."
 msgstr "Ο χρήστης προστέθηκε."
 
@@ -8717,7 +8721,7 @@ msgstr "Ο πίνακας %s υπάρχει ήδη!"
 #: libraries/classes/Controllers/Table/PartitionController.php:248
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
-#: libraries/classes/Database/Routines.php:1324
+#: libraries/classes/Database/Routines.php:1332
 #: libraries/classes/Display/Results.php:4082 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
@@ -8759,7 +8763,7 @@ msgid "There is an issue with your request."
 msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρια."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:87
-#: libraries/classes/Database/Routines.php:1346
+#: libraries/classes/Database/Routines.php:1354
 #: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8822,7 +8826,7 @@ msgid "Failed to get description of column %s!"
 msgstr "Αποτυχία λήψης περιγραφής της στήλης  %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:936
-#: libraries/classes/Controllers/Table/StructureController.php:1226
+#: libraries/classes/Controllers/Table/StructureController.php:1224
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Σφάλμα ερωτήματος"
@@ -8998,10 +9002,10 @@ msgstr ""
 #: libraries/classes/Database/Events.php:113
 #: libraries/classes/Database/Events.php:122
 #: libraries/classes/Database/Events.php:146
-#: libraries/classes/Database/Routines.php:236
-#: libraries/classes/Database/Routines.php:261
-#: libraries/classes/Database/Routines.php:376
-#: libraries/classes/Database/Routines.php:1354
+#: libraries/classes/Database/Routines.php:237
+#: libraries/classes/Database/Routines.php:262
+#: libraries/classes/Database/Routines.php:377
+#: libraries/classes/Database/Routines.php:1362
 #: libraries/classes/Database/Triggers.php:124
 #: libraries/classes/Database/Triggers.php:133
 #: libraries/classes/Database/Triggers.php:158
@@ -9013,11 +9017,11 @@ msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 #: libraries/classes/Database/Events.php:126
 #: libraries/classes/Database/Events.php:150
 #: libraries/classes/Database/Events.php:528
-#: libraries/classes/Database/Routines.php:240
-#: libraries/classes/Database/Routines.php:265
-#: libraries/classes/Database/Routines.php:380
-#: libraries/classes/Database/Routines.php:1358
-#: libraries/classes/Database/Routines.php:1678
+#: libraries/classes/Database/Routines.php:241
+#: libraries/classes/Database/Routines.php:266
+#: libraries/classes/Database/Routines.php:381
+#: libraries/classes/Database/Routines.php:1366
+#: libraries/classes/Database/Routines.php:1686
 #: libraries/classes/Database/Triggers.php:128
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
@@ -9037,7 +9041,7 @@ msgid "Event %1$s has been created."
 msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
 #: libraries/classes/Database/Events.php:167
-#: libraries/classes/Database/Routines.php:281
+#: libraries/classes/Database/Routines.php:282
 #: libraries/classes/Database/Triggers.php:179
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
@@ -9052,7 +9056,7 @@ msgid "Edit event"
 msgstr "Επεξεργασία συμβάντος"
 
 #: libraries/classes/Database/Events.php:413
-#: libraries/classes/Database/Routines.php:1063
+#: libraries/classes/Database/Routines.php:1071
 #: libraries/classes/Database/Triggers.php:394
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Ο οριστής πρέπει να είναι της μορφής «username@hostname»!"
@@ -9082,15 +9086,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε το συμβάν διαγραφής."
 
 #: libraries/classes/Database/Events.php:526
-#: libraries/classes/Database/Routines.php:1676
+#: libraries/classes/Database/Routines.php:1684
 #: libraries/classes/Database/Triggers.php:462
 msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
 
 #: libraries/classes/Database/Events.php:559
-#: libraries/classes/Database/Routines.php:159
-#: libraries/classes/Database/Routines.php:1241
-#: libraries/classes/Database/Routines.php:1422
+#: libraries/classes/Database/Routines.php:160
+#: libraries/classes/Database/Routines.php:1249
+#: libraries/classes/Database/Routines.php:1430
 #: libraries/classes/Database/Triggers.php:496
 msgid "Error in processing request:"
 msgstr "Σφάλμα στην προώθηση αιτημάτος:"
@@ -9179,15 +9183,15 @@ msgstr "Ενημέρωση σελιδοδείκτη"
 msgid "Delete bookmark"
 msgstr "Διαγραφή σελιδοδείκτη"
 
-#: libraries/classes/Database/Routines.php:120
+#: libraries/classes/Database/Routines.php:121
 msgid "Add routine"
 msgstr "Προσθήκη ρουτίνας"
 
-#: libraries/classes/Database/Routines.php:124
+#: libraries/classes/Database/Routines.php:125
 msgid "Edit routine"
 msgstr "Επεξεργασία ρουτίνας"
 
-#: libraries/classes/Database/Routines.php:162
+#: libraries/classes/Database/Routines.php:163
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -9196,39 +9200,39 @@ msgstr ""
 "Καμιά ρουτίνα με το όνομα %1$s δεν βρέθηκε στη βάση δεδομένων %2$s. Ίσως δεν "
 "έχετε τα απαραίτητα δικαιώματα για επεξεργασία της ρουτίνας."
 
-#: libraries/classes/Database/Routines.php:217
-#: libraries/classes/Database/Routines.php:1074
+#: libraries/classes/Database/Routines.php:218
+#: libraries/classes/Database/Routines.php:1082
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Μη έγκυρος τύπος ρουτίνας: «%s»"
 
-#: libraries/classes/Database/Routines.php:268
+#: libraries/classes/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Η ρουτίνα %1$s έχει δημιουργηθεί."
 
-#: libraries/classes/Database/Routines.php:443
+#: libraries/classes/Database/Routines.php:444
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Η ρουτίνα %1$s έχει αλλαχτεί. Τα προνόμια έχουν προσαρμοστει."
 
-#: libraries/classes/Database/Routines.php:448
+#: libraries/classes/Database/Routines.php:449
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
 
-#: libraries/classes/Database/Routines.php:878
+#: libraries/classes/Database/Routines.php:886
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 "Πρέπει να δώσετε ένα όνομα και ένα τύπο για κάθε παράμετρος της ρουτίνας."
 
-#: libraries/classes/Database/Routines.php:897
+#: libraries/classes/Database/Routines.php:905
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Εσφαλμένη κατεύθυνση «%s» δόθηκε για την παράμετρο."
 
-#: libraries/classes/Database/Routines.php:922
-#: libraries/classes/Database/Routines.php:1002
+#: libraries/classes/Database/Routines.php:930
+#: libraries/classes/Database/Routines.php:1010
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -9236,31 +9240,31 @@ msgstr ""
 "Πρέπει να δώσετε μήκος/τιμές για τις παραμέτρους της ρουτίνας του τύπου "
 "ENUM, SET, VARCHAR και VARBINARY."
 
-#: libraries/classes/Database/Routines.php:981
+#: libraries/classes/Database/Routines.php:989
 msgid "You must provide a valid return type for the routine."
 msgstr "Πρέπει να δώσετε ένα έγκυρο τύπο επιστροφής για τη ρουτίνα."
 
-#: libraries/classes/Database/Routines.php:1082
+#: libraries/classes/Database/Routines.php:1090
 msgid "You must provide a routine name!"
 msgstr "Πρέπει να δώσετε ένα όνομα στη ρουτίνα!"
 
-#: libraries/classes/Database/Routines.php:1153
+#: libraries/classes/Database/Routines.php:1161
 msgid "You must provide a routine definition."
 msgstr "Πρέπει να δώσετε ένα προσδιορισμό ρουτίνας."
 
-#: libraries/classes/Database/Routines.php:1243
-#: libraries/classes/Database/Routines.php:1424
+#: libraries/classes/Database/Routines.php:1251
+#: libraries/classes/Database/Routines.php:1432
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr ""
 "Καμιά ρουτίνα με την ονομασία %1$s δεν βρέθηκε στη βάση δεδομένων %2$s."
 
-#: libraries/classes/Database/Routines.php:1282
+#: libraries/classes/Database/Routines.php:1290
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Αποτελέσματα εκτέλεσης της ρουτίνας %s"
 
-#: libraries/classes/Database/Routines.php:1332
+#: libraries/classes/Database/Routines.php:1340
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -9269,21 +9273,21 @@ msgstr[0] ""
 msgstr[1] ""
 "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία."
 
-#: libraries/classes/Database/Routines.php:1407
-#: libraries/classes/Database/Routines.php:1414
+#: libraries/classes/Database/Routines.php:1415
+#: libraries/classes/Database/Routines.php:1422
 msgid "Execute routine"
 msgstr "Εκτέλεση ρουτίνας"
 
-#: libraries/classes/Database/Routines.php:1675
+#: libraries/classes/Database/Routines.php:1683
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
 
-#: libraries/classes/Database/Routines.php:1705
+#: libraries/classes/Database/Routines.php:1713
 #, php-format
 msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
-#: libraries/classes/Database/Routines.php:1727
+#: libraries/classes/Database/Routines.php:1735
 #, fuzzy, php-format
 #| msgid ""
 #| "No routine with name %1$s found in database %2$s. You might be lacking "
@@ -9470,27 +9474,27 @@ msgstr "Τερματισμός"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4428
+#: libraries/classes/Display/Results.php:4429
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Εμφάνιση εγγραφών %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4442
+#: libraries/classes/Display/Results.php:4443
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 
-#: libraries/classes/Display/Results.php:4447
+#: libraries/classes/Display/Results.php:4448
 #, php-format
 msgid "%d total"
 msgstr "%d συνολικά"
 
-#: libraries/classes/Display/Results.php:4460 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4461 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
 
-#: libraries/classes/Display/Results.php:4849
+#: libraries/classes/Display/Results.php:4850
 msgid "Link not found!"
 msgstr "Δεν βρέθηκε η σύνδεση!"
 
@@ -9839,7 +9843,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:829
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:207
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:231
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:236
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -10195,10 +10199,10 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:764
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
-#: templates/server/privileges/privileges_table.twig:26
-#: templates/server/privileges/privileges_table.twig:47
-#: templates/server/privileges/privileges_table.twig:68
-#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:32
+#: templates/server/privileges/privileges_table.twig:59
+#: templates/server/privileges/privileges_table.twig:86
+#: templates/server/privileges/privileges_table.twig:113
 #: templates/table/search/index.twig:129
 msgid "Or"
 msgstr "Ενωση"
@@ -11395,7 +11399,7 @@ msgstr "Χρόνος δημιουργίας:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:230
 #: libraries/classes/Plugins/Export/ExportSql.php:779
 #: libraries/classes/Plugins/Export/ExportXml.php:251
-#: templates/home/index.twig:160
+#: templates/home/index.twig:165
 msgid "Server version:"
 msgstr "Έκδοση διακομιστή:"
 
@@ -12453,11 +12457,11 @@ msgstr "Απομνημόνευση Ρυθμίσεων Σχεδιαστή"
 msgid "Saving export templates"
 msgstr "Αποθήκευση προτύπων εξαγωγής"
 
-#: libraries/classes/Relation.php:1866
+#: libraries/classes/Relation.php:1864
 msgid "no description"
 msgstr "χωρίς περιγραφή"
 
-#: libraries/classes/Relation.php:2074
+#: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -12468,7 +12472,7 @@ msgstr ""
 "οποιασδήποτε βάσης δεδομένων για να ορίσετε την αποθήκευση ρυθμίσεων του "
 "phpMyAdmin εκεί."
 
-#: libraries/classes/Relation.php:2196
+#: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -12477,7 +12481,7 @@ msgstr ""
 "%sΔημιουργία%s μιας βάσης δεδομένων με το όνομα «phpmyadmin» και εγκατάσταση "
 "της αποθήκευσης ρυθμίσεων του phpMyAdmin εκεί."
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2202
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -12485,7 +12489,7 @@ msgstr ""
 "%sΔημιουργία%s του τρέχοντος χώρου αποθήκευσης ρυθμίσεων του phpMyAdmin στην "
 "τρέχουσα βάση δεδομένων."
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2210
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -12601,7 +12605,7 @@ msgstr "Σφάλμα κατά τη φόρτωση της αναζήτησης."
 
 #: libraries/classes/Server/Plugins.php:70
 #: libraries/classes/Server/Privileges.php:821
-#: libraries/classes/Server/Privileges.php:3989
+#: libraries/classes/Server/Privileges.php:3990
 msgid "Native MySQL authentication"
 msgstr "Γηγενής πιστοποίηση MySQL"
 
@@ -12637,152 +12641,152 @@ msgstr "Περιλαμβάνει όλα τα δικαιώματα εκτός α�
 
 #: libraries/classes/Server/Privileges.php:294
 #: libraries/classes/Server/Privileges.php:361
-#: templates/server/privileges/privileges_table.twig:100
-#: templates/server/privileges/privileges_table.twig:103
-#: templates/server/privileges/privileges_table.twig:299
-#: templates/server/privileges/privileges_table.twig:302
+#: templates/server/privileges/privileges_table.twig:124
+#: templates/server/privileges/privileges_table.twig:127
+#: templates/server/privileges/privileges_table.twig:323
+#: templates/server/privileges/privileges_table.twig:326
 msgid "Allows deleting data."
 msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:299
-#: templates/server/privileges/privileges_table.twig:112
-#: templates/server/privileges/privileges_table.twig:115
-#: templates/server/privileges/privileges_table.twig:337
-#: templates/server/privileges/privileges_table.twig:345
+#: templates/server/privileges/privileges_table.twig:136
+#: templates/server/privileges/privileges_table.twig:139
+#: templates/server/privileges/privileges_table.twig:361
+#: templates/server/privileges/privileges_table.twig:369
 msgid "Allows creating new tables."
 msgstr "Επιτρέπει τη δημιουργία νέων πινάκων."
 
 #: libraries/classes/Server/Privileges.php:304
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:385
-#: templates/server/privileges/privileges_table.twig:393
+#: templates/server/privileges/privileges_table.twig:148
+#: templates/server/privileges/privileges_table.twig:151
+#: templates/server/privileges/privileges_table.twig:409
+#: templates/server/privileges/privileges_table.twig:417
 msgid "Allows dropping tables."
 msgstr "Επιτρέπει τη διαγραφή πινάκων."
 
 #: libraries/classes/Server/Privileges.php:309
 #: libraries/classes/Server/Privileges.php:401
-#: templates/server/privileges/privileges_table.twig:149
-#: templates/server/privileges/privileges_table.twig:152
-#: templates/server/privileges/privileges_table.twig:369
-#: templates/server/privileges/privileges_table.twig:372
+#: templates/server/privileges/privileges_table.twig:173
+#: templates/server/privileges/privileges_table.twig:176
+#: templates/server/privileges/privileges_table.twig:393
+#: templates/server/privileges/privileges_table.twig:396
 msgid "Allows creating and dropping indexes."
 msgstr "Επιτρέπει την δημιουργία και την διαγραφή ευρετηρίων."
 
 #: libraries/classes/Server/Privileges.php:314
 #: libraries/classes/Server/Privileges.php:406
-#: templates/server/privileges/privileges_table.twig:161
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:356
-#: templates/server/privileges/privileges_table.twig:359
+#: templates/server/privileges/privileges_table.twig:185
+#: templates/server/privileges/privileges_table.twig:188
+#: templates/server/privileges/privileges_table.twig:380
+#: templates/server/privileges/privileges_table.twig:383
 msgid "Allows altering the structure of existing tables."
 msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
 
 #: libraries/classes/Server/Privileges.php:319
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:461
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:470
-#: templates/server/privileges/privileges_table.twig:473
-#: templates/server/privileges/privileges_table.twig:485
-#: templates/server/privileges/privileges_table.twig:488
+#: templates/server/privileges/privileges_table.twig:197
+#: templates/server/privileges/privileges_table.twig:200
+#: templates/server/privileges/privileges_table.twig:494
+#: templates/server/privileges/privileges_table.twig:497
+#: templates/server/privileges/privileges_table.twig:509
+#: templates/server/privileges/privileges_table.twig:512
 msgid "Allows creating new views."
 msgstr "Επιτρέπει τη δημιουργία νέων προβολών."
 
 #: libraries/classes/Server/Privileges.php:324
 #: libraries/classes/Server/Privileges.php:466
 #: libraries/classes/Server/Privileges.php:472
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:417
-#: templates/server/privileges/privileges_table.twig:420
+#: templates/server/privileges/privileges_table.twig:209
+#: templates/server/privileges/privileges_table.twig:212
+#: templates/server/privileges/privileges_table.twig:441
+#: templates/server/privileges/privileges_table.twig:444
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Επιτρέπει την εκτέλεση ερωτημάτων της μορφής SHOW CREATE VIEW."
 
 #: libraries/classes/Server/Privileges.php:329
 #: libraries/classes/Server/Privileges.php:455
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:513
-#: templates/server/privileges/privileges_table.twig:516
+#: templates/server/privileges/privileges_table.twig:221
+#: templates/server/privileges/privileges_table.twig:224
+#: templates/server/privileges/privileges_table.twig:537
+#: templates/server/privileges/privileges_table.twig:540
 msgid "Allows creating and dropping triggers."
 msgstr "Επιτρέπει τη δημιουργία και διαγραφή υποδείξεων."
 
 #: libraries/classes/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:260
-#: templates/server/privileges/privileges_table.twig:263
+#: templates/server/privileges/privileges_table.twig:284
+#: templates/server/privileges/privileges_table.twig:287
 msgid "Allows reading data."
 msgstr "Επιτρέπει την ανάγνωση δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:351
-#: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:273
-#: templates/server/privileges/privileges_table.twig:276
+#: templates/server/privileges/privileges_table.twig:42
+#: templates/server/privileges/privileges_table.twig:297
+#: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
 msgstr "Επιτρέπει την εισαγωγή και την αντικατάσταση δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:356
-#: templates/server/privileges/privileges_table.twig:57
-#: templates/server/privileges/privileges_table.twig:286
-#: templates/server/privileges/privileges_table.twig:289
+#: templates/server/privileges/privileges_table.twig:69
+#: templates/server/privileges/privileges_table.twig:310
+#: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
 msgstr "Επιτρέπει την αλλαγή δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:366
-#: templates/server/privileges/privileges_table.twig:335
-#: templates/server/privileges/privileges_table.twig:343
+#: templates/server/privileges/privileges_table.twig:359
+#: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "Επιτρέπει τη δημιουργία νέων βάσεων και πινάκων."
 
 #: libraries/classes/Server/Privileges.php:371
-#: templates/server/privileges/privileges_table.twig:383
-#: templates/server/privileges/privileges_table.twig:391
+#: templates/server/privileges/privileges_table.twig:407
+#: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "Επιτρέπει τη διαγραφή βάσεων και πινάκων."
 
 #: libraries/classes/Server/Privileges.php:376
-#: templates/server/privileges/privileges_table.twig:575
-#: templates/server/privileges/privileges_table.twig:578
+#: templates/server/privileges/privileges_table.twig:599
+#: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Επιτρέπει την επανεκκίνηση του διακομιστή και τον καθαρισμό των προσωρινών "
 "αρχείων του."
 
 #: libraries/classes/Server/Privileges.php:381
-#: templates/server/privileges/privileges_table.twig:588
-#: templates/server/privileges/privileges_table.twig:591
+#: templates/server/privileges/privileges_table.twig:612
+#: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "Επιτρέπει την διακοπή λειτουργίας του διακομιστή."
 
 #: libraries/classes/Server/Privileges.php:386
-#: templates/server/privileges/privileges_table.twig:562
-#: templates/server/privileges/privileges_table.twig:565
+#: templates/server/privileges/privileges_table.twig:586
+#: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
 msgstr "Επιτρέπει την προβολή διεργασιών όλων των χρηστών."
 
 #: libraries/classes/Server/Privileges.php:391
-#: templates/server/privileges/privileges_table.twig:313
-#: templates/server/privileges/privileges_table.twig:316
+#: templates/server/privileges/privileges_table.twig:337
+#: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr "Επιτρέπει την εισαγωγή και εξαγωγή δεδομένων από και σε αρχεία."
 
 #: libraries/classes/Server/Privileges.php:396
-#: templates/server/privileges/privileges_table.twig:78
-#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:96
+#: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
 #: libraries/classes/Server/Privileges.php:411
-#: templates/server/privileges/privileges_table.twig:601
-#: templates/server/privileges/privileges_table.twig:604
+#: templates/server/privileges/privileges_table.twig:625
+#: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "Δίνει πρόσβαση στην πλήρη λίστα των βάσεων δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:417
-#: templates/server/privileges/privileges_table.twig:548
-#: templates/server/privileges/privileges_table.twig:552
+#: templates/server/privileges/privileges_table.twig:572
+#: templates/server/privileges/privileges_table.twig:576
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -12793,68 +12797,68 @@ msgstr ""
 "όπως ο ορισμός γενικών μεταβλητών ή τη διακοπή λειτουργιών άλλων χρηστών."
 
 #: libraries/classes/Server/Privileges.php:425
-#: templates/server/privileges/privileges_table.twig:404
-#: templates/server/privileges/privileges_table.twig:407
+#: templates/server/privileges/privileges_table.twig:428
+#: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "Επιτρέπει τη δημιουργία προσωρινών πινάκων."
 
 #: libraries/classes/Server/Privileges.php:430
-#: templates/server/privileges/privileges_table.twig:629
-#: templates/server/privileges/privileges_table.twig:632
+#: templates/server/privileges/privileges_table.twig:653
+#: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr "Επιτρέπει το κλείδωμα πινάκων για την τρέχουσα λειτουργία."
 
 #: libraries/classes/Server/Privileges.php:435
-#: templates/server/privileges/privileges_table.twig:670
-#: templates/server/privileges/privileges_table.twig:673
+#: templates/server/privileges/privileges_table.twig:694
+#: templates/server/privileges/privileges_table.twig:697
 msgid "Needed for the replication slaves."
 msgstr "Απαιτείται για τους δευτερευόντες διακομιστές αναπαραγωγής."
 
 #: libraries/classes/Server/Privileges.php:440
-#: templates/server/privileges/privileges_table.twig:657
-#: templates/server/privileges/privileges_table.twig:660
+#: templates/server/privileges/privileges_table.twig:681
+#: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 "Δίνει το δικαίωμα στον χρήστη να βρει που είναι οι κύριοι / δευτερεύοντες "
 "διακομιστές."
 
 #: libraries/classes/Server/Privileges.php:450
-#: templates/server/privileges/privileges_table.twig:500
-#: templates/server/privileges/privileges_table.twig:503
+#: templates/server/privileges/privileges_table.twig:524
+#: templates/server/privileges/privileges_table.twig:527
 msgid "Allows to set up events for the event scheduler."
 msgstr "Επιτρέπει τον ορισμό συμβάντων για τον προγραμματιστή συμβάντων."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:479
 #: libraries/classes/Server/Privileges.php:488
-#: templates/server/privileges/privileges_table.twig:210
-#: templates/server/privileges/privileges_table.twig:214
+#: templates/server/privileges/privileges_table.twig:234
+#: templates/server/privileges/privileges_table.twig:238
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
 msgstr "Επιτρέπει τη διαγραφή δεδομένων."
 
 #: libraries/classes/Server/Privileges.php:493
-#: templates/server/privileges/privileges_table.twig:430
-#: templates/server/privileges/privileges_table.twig:433
+#: templates/server/privileges/privileges_table.twig:454
+#: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
 
 #: libraries/classes/Server/Privileges.php:498
-#: templates/server/privileges/privileges_table.twig:443
-#: templates/server/privileges/privileges_table.twig:446
+#: templates/server/privileges/privileges_table.twig:467
+#: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "Επιτρέπει την αλλαγή και διαγραφή αποθηκευμένων εργασιών."
 
 #: libraries/classes/Server/Privileges.php:503
-#: templates/server/privileges/privileges_table.twig:683
-#: templates/server/privileges/privileges_table.twig:686
+#: templates/server/privileges/privileges_table.twig:707
+#: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Επιτρέπει τη δημιουργία, διαγραφή και μετονομασία λογαριασμών χρηστών."
 
 #: libraries/classes/Server/Privileges.php:508
-#: templates/server/privileges/privileges_table.twig:456
-#: templates/server/privileges/privileges_table.twig:459
+#: templates/server/privileges/privileges_table.twig:480
+#: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων εργασιών."
 
@@ -12887,14 +12891,14 @@ msgid "Revoke"
 msgstr "Ανάκληση"
 
 #: libraries/classes/Server/Privileges.php:1920
-#: templates/server/privileges/privileges_table.twig:240
+#: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "Δικαιώματα βάσης δεδομένων"
 
 #: libraries/classes/Server/Privileges.php:1926
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
-#: templates/server/privileges/privileges_table.twig:242
+#: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "Δικαιώματα πινάκων"
 
@@ -12964,7 +12968,7 @@ msgstr ""
 "φιλοξενίας του λογαριασμού τους επιτρέπει μια σύνδεση από οποιαδήποτε (%) "
 "φιλοξενία."
 
-#: libraries/classes/Server/Privileges.php:3179
+#: libraries/classes/Server/Privileges.php:3180
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12978,7 +12982,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: libraries/classes/Server/Privileges.php:3195
+#: libraries/classes/Server/Privileges.php:3196
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12992,7 +12996,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, τα δικαιώματα πρέπει να "
 "επαναφορτωθούν αλλά προς το παρόν, δεν έχετε το δικαίωμα RELOAD."
 
-#: libraries/classes/Server/Privileges.php:3540
+#: libraries/classes/Server/Privileges.php:3541
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
@@ -14624,6 +14628,10 @@ msgstr "Δεν ορίστηκε ευρετήριο!"
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:29
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/server/privileges/privileges_table.twig:28
+#: templates/server/privileges/privileges_table.twig:55
+#: templates/server/privileges/privileges_table.twig:82
+#: templates/server/privileges/privileges_table.twig:109
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
 msgstr "Επιλογή όλων"
@@ -14812,8 +14820,8 @@ msgid "Active options"
 msgstr "Ενεργές επιλογές"
 
 #: templates/database/designer/main.twig:1104
-#: templates/database/designer/main.twig:1119 templates/export.twig:63
-#: templates/table/zoom_search/result_form.twig:26
+#: templates/database/designer/main.twig:1119 templates/export_modal.twig:5
+#: templates/export.twig:63 templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
 #, fuzzy
 #| msgid "Loading…"
@@ -14901,11 +14909,11 @@ msgstr "Προσδιοριστής"
 #: templates/display/results/table.twig:224 templates/select_all.twig:4
 #: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
-#: templates/server/privileges/privileges_table.twig:244
-#: templates/server/privileges/privileges_table.twig:245
-#: templates/server/privileges/privileges_table.twig:253
-#: templates/server/privileges/privileges_table.twig:327
-#: templates/server/privileges/privileges_table.twig:527
+#: templates/server/privileges/privileges_table.twig:268
+#: templates/server/privileges/privileges_table.twig:269
+#: templates/server/privileges/privileges_table.twig:277
+#: templates/server/privileges/privileges_table.twig:351
+#: templates/server/privileges/privileges_table.twig:551
 #: templates/server/privileges/users_overview.twig:105
 #: templates/server/privileges/users_overview.twig:106
 #: templates/server/user_groups/edit_user_groups.twig:11
@@ -16157,94 +16165,90 @@ msgstr "Ρυθμίσεις εμφάνισης"
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: templates/home/index.twig:126
-msgid "Theme:"
-msgstr "Θέμα:"
-
 #: templates/home/index.twig:128
 msgid "Theme"
 msgstr "Θέμα"
 
-#: templates/home/index.twig:144
+#: templates/home/index.twig:149
 msgid "Database server"
 msgstr "Διακομιστής βάσης δεδομένων"
 
-#: templates/home/index.twig:148 templates/login/form.twig:65
+#: templates/home/index.twig:153 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "Διακομιστής:"
 
-#: templates/home/index.twig:152
+#: templates/home/index.twig:157
 msgid "Server type:"
 msgstr "Τύπος διακομιστή:"
 
-#: templates/home/index.twig:156
+#: templates/home/index.twig:161
 msgid "Server connection:"
 msgstr "Σύνδεση διακομιστή:"
 
-#: templates/home/index.twig:164
+#: templates/home/index.twig:169
 msgid "Protocol version:"
 msgstr "Έκδοση πρωτοκόλλου:"
 
-#: templates/home/index.twig:168
+#: templates/home/index.twig:173
 msgid "User:"
 msgstr "Χρήστης:"
 
-#: templates/home/index.twig:172
+#: templates/home/index.twig:177
 msgid "Server charset:"
 msgstr "Κωδικοποιήση διακομιστή:"
 
-#: templates/home/index.twig:184
+#: templates/home/index.twig:189
 msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
-#: templates/home/index.twig:194
+#: templates/home/index.twig:199
 msgid "Database client version:"
 msgstr "Έκδοση πελάτη βάσης δεδομένων:"
 
-#: templates/home/index.twig:198
+#: templates/home/index.twig:203
 msgid "PHP extension:"
 msgstr "Επέκταση PHP:"
 
-#: templates/home/index.twig:205
+#: templates/home/index.twig:210
 msgid "PHP version:"
 msgstr "Έκδοση PHP:"
 
-#: templates/home/index.twig:212
+#: templates/home/index.twig:217
 msgid "Show PHP information"
 msgstr "Εμφάνιση πληροφοριών της PHP"
 
-#: templates/home/index.twig:226
+#: templates/home/index.twig:231
 msgid "Version information:"
 msgstr "Πληροφορίες έκδοσης:"
 
-#: templates/home/index.twig:236
+#: templates/home/index.twig:241
 msgid "Official Homepage"
 msgstr "Επίσημη σελίδα του phpMyAdmin"
 
-#: templates/home/index.twig:241
+#: templates/home/index.twig:246
 msgid "Contribute"
 msgstr "Συνεισφορά"
 
-#: templates/home/index.twig:246
+#: templates/home/index.twig:251
 msgid "Get support"
 msgstr "Υποστήριξη"
 
-#: templates/home/index.twig:251
+#: templates/home/index.twig:256
 msgid "List of changes"
 msgstr "Λίστα αλλαγών"
 
-#: templates/home/index.twig:256 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:261 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Άδεια"
 
-#: templates/home/index.twig:271
+#: templates/home/index.twig:276
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "Ιστοσελίδα phpMyAdmin"
 
-#: templates/home/index.twig:282
+#: templates/home/index.twig:287
 msgid "Get more themes!"
 msgstr "Λήψη περισσότερων θεμάτων!"
 
@@ -16788,11 +16792,12 @@ msgstr "Ένα σφάλμα συμβαίνει κατά τη φόρτωση τη
 msgid "SQL upload"
 msgstr "Κάδος SQL"
 
-#: templates/navigation/tree/fast_filter.twig:10
+#: templates/navigation/tree/fast_filter.twig:11
+#: templates/navigation/tree/fast_filter.twig:12
 msgid "Type to filter these, Enter to search all"
 msgstr "Γράψτε για να φιλτράρετε, Enter για αναζήτηση όλων"
 
-#: templates/navigation/tree/fast_filter.twig:12
+#: templates/navigation/tree/fast_filter.twig:16
 msgid "Clear fast filter"
 msgstr "Εκκαθάριση γρήγορου φίλτρου"
 
@@ -17263,7 +17268,7 @@ msgstr ""
 
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
-#: templates/server/privileges/privileges_table.twig:248
+#: templates/server/privileges/privileges_table.twig:272
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Σημείωση: Τα ονόματα δικαιωμάτων της MySQL εκφράζονται στα Αγγλικά."
 
@@ -17441,22 +17446,22 @@ msgstr "Προσθήκη δεδομένων στον ακόλουθο πίνακ
 msgid "Add privileges on the following routine:"
 msgstr "Προσθήκη δικαιωμάτων στην ακόλουθη εργασία:"
 
-#: templates/server/privileges/privileges_table.twig:29
-#: templates/server/privileges/privileges_table.twig:30
-#: templates/server/privileges/privileges_table.twig:50
-#: templates/server/privileges/privileges_table.twig:51
-#: templates/server/privileges/privileges_table.twig:71
-#: templates/server/privileges/privileges_table.twig:72
-#: templates/server/privileges/privileges_table.twig:92
-#: templates/server/privileges/privileges_table.twig:93
+#: templates/server/privileges/privileges_table.twig:35
+#: templates/server/privileges/privileges_table.twig:36
+#: templates/server/privileges/privileges_table.twig:62
+#: templates/server/privileges/privileges_table.twig:63
+#: templates/server/privileges/privileges_table.twig:89
+#: templates/server/privileges/privileges_table.twig:90
+#: templates/server/privileges/privileges_table.twig:116
+#: templates/server/privileges/privileges_table.twig:117
 msgctxt "None privileges"
 msgid "None"
 msgstr "Κανένα"
 
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:140
-#: templates/server/privileges/privileges_table.twig:614
-#: templates/server/privileges/privileges_table.twig:618
+#: templates/server/privileges/privileges_table.twig:160
+#: templates/server/privileges/privileges_table.twig:164
+#: templates/server/privileges/privileges_table.twig:638
+#: templates/server/privileges/privileges_table.twig:642
 msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
@@ -17464,61 +17469,61 @@ msgstr ""
 "Επιτρέπει το χρήστη να δώσει σε άλλους χρήστες ή απομακρύνει από άλλους "
 "χρήστες τα δικαιώματα που ο χρήστης κατέχει από μόνος του."
 
-#: templates/server/privileges/privileges_table.twig:231
+#: templates/server/privileges/privileges_table.twig:255
 msgid "Global"
 msgstr "Γενικά"
 
-#: templates/server/privileges/privileges_table.twig:238
+#: templates/server/privileges/privileges_table.twig:262
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
-#: templates/server/privileges/privileges_table.twig:528
+#: templates/server/privileges/privileges_table.twig:552
 msgid "Administration"
 msgstr "Διαχείριση"
 
-#: templates/server/privileges/privileges_table.twig:535
-#: templates/server/privileges/privileges_table.twig:538
+#: templates/server/privileges/privileges_table.twig:559
+#: templates/server/privileges/privileges_table.twig:562
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 "Επιτρέπει την προσθήκη χρηστών και δικαιωμάτων χωρίς να επαναφορτώσετε τους "
 "πίνακες δικαιωμάτων."
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
 #| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
 msgstr "Επιτρέπει τη δημιουργία αποθηκευμένων εργασιών."
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
 msgstr ""
 
-#: templates/server/privileges/privileges_table.twig:646
+#: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
 msgstr "Δεν έχει χρήση σε αυτήν την έκδοση MySQL."
 
-#: templates/server/privileges/privileges_table.twig:697
+#: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
 msgstr "Όρια πόρων"
 
-#: templates/server/privileges/privileges_table.twig:699
+#: templates/server/privileges/privileges_table.twig:723
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Σημείωση: Αν ορίσετε αυτές τις επιλογές σε 0 (μηδέν) αφαιρείτε ο περιορισμός."
 
-#: templates/server/privileges/privileges_table.twig:705
-#: templates/server/privileges/privileges_table.twig:712
+#: templates/server/privileges/privileges_table.twig:729
+#: templates/server/privileges/privileges_table.twig:736
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των ερωτημάτων που ο χρήστης μπορεί να στείλει στον "
 "διακομιστή ανά ώρα."
 
-#: templates/server/privileges/privileges_table.twig:718
-#: templates/server/privileges/privileges_table.twig:725
+#: templates/server/privileges/privileges_table.twig:742
+#: templates/server/privileges/privileges_table.twig:749
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -17526,44 +17531,44 @@ msgstr ""
 "Περιορίζει τον αριθμό των αλλαγής πινάκων ή βάσεων που ο χρήστης μπορεί να "
 "εκετελέσει ανά ώρα."
 
-#: templates/server/privileges/privileges_table.twig:731
-#: templates/server/privileges/privileges_table.twig:738
+#: templates/server/privileges/privileges_table.twig:755
+#: templates/server/privileges/privileges_table.twig:762
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Περιορίζει τον αριθμό των νέων συνδέσεων που ο χρήστης μπορεί να ξεκινήσει "
 "ανά ώρα."
 
-#: templates/server/privileges/privileges_table.twig:744
-#: templates/server/privileges/privileges_table.twig:751
+#: templates/server/privileges/privileges_table.twig:768
+#: templates/server/privileges/privileges_table.twig:775
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 "Περιορίζει τον αριθμό των ταυτόχρονων συνδέσεων που μπορεί να έχει ο χρήστης."
 
-#: templates/server/privileges/privileges_table.twig:760
+#: templates/server/privileges/privileges_table.twig:784
 msgid "Does not require SSL-encrypted connections."
 msgstr "Δεν απαιτούνται κρυπτογραφημένες συνδέσεις SSL."
 
-#: templates/server/privileges/privileges_table.twig:769
+#: templates/server/privileges/privileges_table.twig:793
 msgid "Requires SSL-encrypted connections."
 msgstr "Απαιτούνται κρυπτογραφημένες συνδέσεις SSL."
 
-#: templates/server/privileges/privileges_table.twig:778
+#: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
 msgstr "Απαιτείται ένα έγκυρο πιστοποιητικό X509."
 
-#: templates/server/privileges/privileges_table.twig:799
+#: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 "Απαιτεί ότι συγκεκριμένη κρυπτογραφημένη μέθοδος θα χρησιμοποιείται για μια "
 "σύνδεση."
 
-#: templates/server/privileges/privileges_table.twig:808
+#: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 που εκδόθηκε από αυτό το CA "
 "παρουσιάζεται."
 
-#: templates/server/privileges/privileges_table.twig:817
+#: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Απαιτεί ότι ένα έγκυρο πιστοποιητικό X509 με αυτό το θέμα παρουσιάζεται."
@@ -17977,7 +17982,6 @@ msgid "Done dragging (rearranging) charts"
 msgstr "Ολοκληρώθηκε η μετακίνηση (επανατοποθέτηση) διαγραμμάτων"
 
 #: templates/server/status/monitor/index.twig:27
-#: templates/server/status/monitor/index.twig:124
 msgid "Add chart"
 msgstr "Προσθήκη διαγράμματος"
 
@@ -18105,81 +18109,82 @@ msgstr ""
 "απενεργοποίησετε το general_log και να αδειάσετε τον πίνακά του μόλις δεν "
 "είναι απαραίτητη η εποπτεία."
 
-#: templates/server/status/monitor/index.twig:127
+#: templates/server/status/monitor/index.twig:128
+#: templates/server/status/monitor/index.twig:134
 msgid "Chart Title"
 msgstr "Τίτλος Διαγράμματος"
 
-#: templates/server/status/monitor/index.twig:131
+#: templates/server/status/monitor/index.twig:138
 msgid "Preset chart"
 msgstr "Προκαθορισμός διαγράμματος"
 
-#: templates/server/status/monitor/index.twig:137
+#: templates/server/status/monitor/index.twig:144
 msgid "Status variable(s)"
 msgstr "Μεταβλητή(ές) κατάστασης"
 
-#: templates/server/status/monitor/index.twig:142
+#: templates/server/status/monitor/index.twig:149
 msgid "Select series:"
 msgstr "Επιλογή σειρών:"
 
-#: templates/server/status/monitor/index.twig:145
+#: templates/server/status/monitor/index.twig:152
 msgid "Commonly monitored"
 msgstr "Συχνά εποπτευόμενα"
 
-#: templates/server/status/monitor/index.twig:163
+#: templates/server/status/monitor/index.twig:170
 msgid "or type variable name:"
 msgstr "ή όνομα τύπου μεταβλητής:"
 
-#: templates/server/status/monitor/index.twig:170
+#: templates/server/status/monitor/index.twig:177
 msgid "Display as differential value"
 msgstr "Προβολή ως διαφορική τιμή"
 
-#: templates/server/status/monitor/index.twig:175
+#: templates/server/status/monitor/index.twig:182
 msgid "Apply a divisor"
 msgstr "Εφαρμογή διαιρέτη"
 
-#: templates/server/status/monitor/index.twig:186
+#: templates/server/status/monitor/index.twig:193
 msgid "Append unit to data values"
 msgstr "Προσάρτηση μονάδας στις τιμές δεδομένων"
 
-#: templates/server/status/monitor/index.twig:194
+#: templates/server/status/monitor/index.twig:201
 msgid "Add this series"
 msgstr "Προσθήκη αυτής της σειράς"
 
-#: templates/server/status/monitor/index.twig:197
+#: templates/server/status/monitor/index.twig:204
 msgid "Clear series"
 msgstr "Εκκαθάριση σειράς"
 
-#: templates/server/status/monitor/index.twig:201
+#: templates/server/status/monitor/index.twig:208
 msgid "Series in chart:"
 msgstr "Σειρά σε διάγραμμα:"
 
-#: templates/server/status/monitor/index.twig:210
+#: templates/server/status/monitor/index.twig:224
 msgid "Log statistics"
 msgstr "Στατιστικά καταγραφών"
 
-#: templates/server/status/monitor/index.twig:212
+#: templates/server/status/monitor/index.twig:226
 msgid "Selected time range:"
 msgstr "Επιλεγμένο εύρος χρόνου:"
 
-#: templates/server/status/monitor/index.twig:220
+#: templates/server/status/monitor/index.twig:234
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Λήψη μόνο των δηλώσεων SELECT,INSERT,UPDATE και DELETE"
 
-#: templates/server/status/monitor/index.twig:226
+#: templates/server/status/monitor/index.twig:240
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Απομάκρυνση δεδομένων μεταβλητών στις δηλώσεις INSERT για καλύτερη "
 "ομαδοποιήση"
 
-#: templates/server/status/monitor/index.twig:230
+#: templates/server/status/monitor/index.twig:244
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Επιλέξτε από ποια καταγραφή θέλετε να δημιουργούνται τα στατιστικά."
 
-#: templates/server/status/monitor/index.twig:233
+#: templates/server/status/monitor/index.twig:247
 msgid "Results are grouped by query text."
 msgstr "Τα αποτελέσματα ομαδοποιηούνται ανα κείμενο ερωτήματος."
 
-#: templates/server/status/monitor/index.twig:237
+#: templates/server/status/monitor/index.twig:251
 msgid "Query analyzer"
 msgstr "Αναλυτής ερωτήματος"
 
@@ -19343,6 +19348,9 @@ msgstr "Ονόματα στηλών"
 #: url.php:76
 msgid "Taking you to the target site."
 msgstr "Μεταφέροντάς σας στη σελίδα προορισμού."
+
+#~ msgid "Theme:"
+#~ msgstr "Θέμα:"
 
 #~ msgid "Copy column name."
 #~ msgstr "Αντιγραφή ονόματος στήλης."
