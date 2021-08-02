@@ -2311,7 +2311,7 @@ final class Settings
     private function setVersionCheck(array $settings): void
     {
         if (defined('VERSION_CHECK_DEFAULT')) {
-            $this->VersionCheck = (bool) VERSION_CHECK_DEFAULT;
+            $this->VersionCheck = VERSION_CHECK_DEFAULT;
         }
 
         if (! isset($settings['VersionCheck'])) {
@@ -2692,7 +2692,7 @@ final class Settings
         }
 
         $loginCookieStore = (int) $settings['LoginCookieStore'];
-        if ($loginCookieStore < 0) {
+        if ($loginCookieStore < 1) {
             return;
         }
 
@@ -2776,14 +2776,11 @@ final class Settings
      */
     private function setCaptchaMethod(array $settings): void
     {
-        if (
-            ! isset($settings['CaptchaMethod'])
-            || ! in_array($settings['CaptchaMethod'], ['invisible', 'checkbox'], true)
-        ) {
+        if (! isset($settings['CaptchaMethod']) || $settings['CaptchaMethod'] !== 'checkbox') {
             return;
         }
 
-        $this->CaptchaMethod = $settings['CaptchaMethod'];
+        $this->CaptchaMethod = 'checkbox';
     }
 
     /**
@@ -3070,14 +3067,11 @@ final class Settings
      */
     private function setNavigationLogoLinkWindow(array $settings): void
     {
-        if (
-            ! isset($settings['NavigationLogoLinkWindow'])
-            || ! in_array($settings['NavigationLogoLinkWindow'], ['main', 'new'], true)
-        ) {
+        if (! isset($settings['NavigationLogoLinkWindow']) || $settings['NavigationLogoLinkWindow'] !== 'new') {
             return;
         }
 
-        $this->NavigationLogoLinkWindow = $settings['NavigationLogoLinkWindow'];
+        $this->NavigationLogoLinkWindow = 'new';
     }
 
     /**
@@ -3196,10 +3190,6 @@ final class Settings
         }
 
         switch ($settings['NavigationTreeDefaultTabTable']) {
-            case 'structure':
-            case 'tbl_structure.php':
-                $this->NavigationTreeDefaultTabTable = 'structure';
-                break;
             case 'sql':
             case 'tbl_sql.php':
                 $this->NavigationTreeDefaultTabTable = 'sql';
@@ -3624,10 +3614,7 @@ final class Settings
      */
     private function setGridEditing(array $settings): void
     {
-        if (
-            ! isset($settings['GridEditing'])
-            || ! in_array($settings['GridEditing'], ['double-click', 'click', 'disabled'], true)
-        ) {
+        if (! isset($settings['GridEditing']) || ! in_array($settings['GridEditing'], ['click', 'disabled'], true)) {
             return;
         }
 
@@ -3641,11 +3628,11 @@ final class Settings
      */
     private function setRelationalDisplay(array $settings): void
     {
-        if (! isset($settings['RelationalDisplay']) || ! in_array($settings['RelationalDisplay'], ['K', 'D'], true)) {
+        if (! isset($settings['RelationalDisplay']) || $settings['RelationalDisplay'] !== 'D') {
             return;
         }
 
-        $this->RelationalDisplay = $settings['RelationalDisplay'];
+        $this->RelationalDisplay = 'D';
     }
 
     /**
@@ -3657,7 +3644,7 @@ final class Settings
     {
         if (
             ! isset($settings['ProtectBinary'])
-            || ! in_array($settings['ProtectBinary'], ['blob', 'noblob', 'all', false], true)
+            || ! in_array($settings['ProtectBinary'], ['noblob', 'all', false], true)
         ) {
             return;
         }
@@ -3700,11 +3687,11 @@ final class Settings
      */
     private function setCharEditing(array $settings): void
     {
-        if (! isset($settings['CharEditing']) || ! in_array($settings['CharEditing'], ['input', 'textarea'], true)) {
+        if (! isset($settings['CharEditing']) || $settings['CharEditing'] !== 'textarea') {
             return;
         }
 
-        $this->CharEditing = $settings['CharEditing'];
+        $this->CharEditing = 'textarea';
     }
 
     /**
@@ -3819,7 +3806,7 @@ final class Settings
     {
         if (
             ! isset($settings['DefaultForeignKeyChecks'])
-            || ! in_array($settings['DefaultForeignKeyChecks'], ['default', 'enable', 'disable'], true)
+            || ! in_array($settings['DefaultForeignKeyChecks'], ['enable', 'disable'], true)
         ) {
             return;
         }
@@ -3945,10 +3932,6 @@ final class Settings
         }
 
         switch ($settings['DefaultTabServer']) {
-            case 'welcome':
-            case 'index.php':
-                $this->DefaultTabServer = 'welcome';
-                break;
             case 'databases':
             case 'server_databases.php':
                 $this->DefaultTabServer = 'databases';
@@ -3980,10 +3963,6 @@ final class Settings
         }
 
         switch ($settings['DefaultTabDatabase']) {
-            case 'structure':
-            case 'db_structure.php':
-                $this->DefaultTabDatabase = 'structure';
-                break;
             case 'sql':
             case 'db_sql.php':
                 $this->DefaultTabDatabase = 'sql';
@@ -4026,10 +4005,6 @@ final class Settings
             case 'insert':
             case 'tbl_change.php':
                 $this->DefaultTabTable = 'insert';
-                break;
-            case 'browse':
-            case 'sql.php':
-                $this->DefaultTabTable = 'browse';
                 break;
         }
     }
@@ -4194,7 +4169,7 @@ final class Settings
     {
         if (
             ! isset($settings['RecodingEngine'])
-            || ! in_array($settings['RecodingEngine'], ['auto', 'iconv', 'recode', 'mb', 'none'], true)
+            || ! in_array($settings['RecodingEngine'], ['iconv', 'recode', 'mb', 'none'], true)
         ) {
             return;
         }
@@ -4408,7 +4383,7 @@ final class Settings
     {
         if (
             ! isset($settings['RowActionLinks'])
-            || ! in_array($settings['RowActionLinks'], ['left', 'right', 'both', 'none'], true)
+            || ! in_array($settings['RowActionLinks'], ['right', 'both', 'none'], true)
         ) {
             return;
         }
@@ -4439,7 +4414,7 @@ final class Settings
     {
         if (
             ! isset($settings['TablePrimaryKeyOrder'])
-            || ! in_array($settings['TablePrimaryKeyOrder'], ['NONE', 'ASC', 'DESC'], true)
+            || ! in_array($settings['TablePrimaryKeyOrder'], ['ASC', 'DESC'], true)
         ) {
             return;
         }
@@ -4586,7 +4561,7 @@ final class Settings
         }
 
         $maxExactCountViews = (int) $settings['MaxExactCountViews'];
-        if ($maxExactCountViews < 0) {
+        if ($maxExactCountViews < 1) {
             return;
         }
 
@@ -4879,7 +4854,7 @@ final class Settings
      */
     private function setGD2Available(array $settings): void
     {
-        if (! isset($settings['GD2Available']) || ! in_array($settings['GD2Available'], ['auto', 'yes', 'no'], true)) {
+        if (! isset($settings['GD2Available']) || ! in_array($settings['GD2Available'], ['yes', 'no'], true)) {
             return;
         }
 
@@ -4977,7 +4952,7 @@ final class Settings
     {
         if (
             ! isset($settings['SendErrorReports'])
-            || ! in_array($settings['SendErrorReports'], ['ask', 'always', 'never'], true)
+            || ! in_array($settings['SendErrorReports'], ['always', 'never'], true)
         ) {
             return;
         }
@@ -5050,14 +5025,11 @@ final class Settings
      */
     private function setEnvironment(array $settings): void
     {
-        if (
-            ! isset($settings['environment'])
-            || ! in_array($settings['environment'], ['production', 'development'], true)
-        ) {
+        if (! isset($settings['environment']) || $settings['environment'] !== 'development') {
             return;
         }
 
-        $this->environment = $settings['environment'];
+        $this->environment = 'development';
     }
 
     /**
@@ -5181,10 +5153,7 @@ final class Settings
             $this->Console['DarkTheme'] = (bool) $settings['Console']['DarkTheme'];
         }
 
-        if (
-            isset($settings['Console']['Mode'])
-            && in_array($settings['Console']['Mode'], ['info', 'show', 'collapse'], true)
-        ) {
+        if (isset($settings['Console']['Mode']) && in_array($settings['Console']['Mode'], ['show', 'collapse'], true)) {
             $this->Console['Mode'] = $settings['Console']['Mode'];
         }
 
@@ -5201,19 +5170,16 @@ final class Settings
 
         if (
             isset($settings['Console']['OrderBy'])
-            && in_array($settings['Console']['OrderBy'], ['exec', 'time', 'count'], true)
+            && in_array($settings['Console']['OrderBy'], ['time', 'count'], true)
         ) {
             $this->Console['OrderBy'] = $settings['Console']['OrderBy'];
         }
 
-        if (
-            ! isset($settings['Console']['Order'])
-            || ! in_array($settings['Console']['Order'], ['asc', 'desc'], true)
-        ) {
+        if (! isset($settings['Console']['Order']) || $settings['Console']['Order'] !== 'desc') {
             return;
         }
 
-        $this->Console['Order'] = $settings['Console']['Order'];
+        $this->Console['Order'] = 'desc';
     }
 
     /**
@@ -5242,7 +5208,7 @@ final class Settings
         }
 
         $firstDayOfCalendar = (int) $settings['FirstDayOfCalendar'];
-        if ($firstDayOfCalendar < 0 || $firstDayOfCalendar > 7) {
+        if ($firstDayOfCalendar < 1 || $firstDayOfCalendar > 7) {
             return;
         }
 

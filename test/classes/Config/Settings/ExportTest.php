@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Export;
-use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 
 use function array_keys;
 use function array_merge;
@@ -13,7 +13,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\Export
  */
-class ExportTest extends AbstractTestCase
+class ExportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
     private $defaultValues = [

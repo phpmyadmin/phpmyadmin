@@ -29,7 +29,10 @@ final class Import
     /** @var bool */
     public $allow_interrupt = true;
 
-    /** @var int */
+    /**
+     * @var int
+     * @psalm-var 0|positive-int
+     */
     public $skip_queries = 0;
 
     /**
@@ -127,7 +130,10 @@ final class Import
         }
 
         if (isset($import['skip_queries'])) {
-            $this->skip_queries = (int) $import['skip_queries'];
+            $skipQueries = (int) $import['skip_queries'];
+            if ($skipQueries >= 1) {
+                $this->skip_queries = $skipQueries;
+            }
         }
 
         if (

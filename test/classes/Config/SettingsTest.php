@@ -10,7 +10,7 @@ use PhpMyAdmin\Config\Settings\Import;
 use PhpMyAdmin\Config\Settings\Schema;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Config\Settings\Transformations;
-use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\TestCase;
 
 use function array_keys;
 use function array_merge;
@@ -28,7 +28,7 @@ use const ROOT_PATH;
  * @covers \PhpMyAdmin\Config\Settings\Server
  * @covers \PhpMyAdmin\Config\Settings\Transformations
  */
-class SettingsTest extends AbstractTestCase
+class SettingsTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
     private $defaultValues = [
@@ -307,6 +307,8 @@ class SettingsTest extends AbstractTestCase
         foreach (array_keys($expectedValues) as $key) {
             if ($key === 'Servers') {
                 $this->assertContainsOnlyInstancesOf(Server::class, $settings->Servers);
+                $this->assertIsArray($expected[$key]);
+                $this->assertSame(array_keys($expected[$key]), array_keys($settings->Servers));
                 continue;
             }
 
@@ -360,7 +362,7 @@ class SettingsTest extends AbstractTestCase
                     ['TranslationWarningThreshold', null, 80],
                     ['AllowThirdPartyFraming', null, false],
                     ['blowfish_secret', null, ''],
-                    ['Servers', null, []],
+                    ['Servers', null, [1 => null]],
                     ['Server', null, null],
                     ['ServerDefault', null, 1],
                     ['VersionCheck', null, true],
@@ -563,7 +565,7 @@ class SettingsTest extends AbstractTestCase
                     ['TranslationWarningThreshold', 100, 100],
                     ['AllowThirdPartyFraming', 'sameorigin', 'sameorigin'],
                     ['blowfish_secret', 'blowfish_secret', 'blowfish_secret'],
-                    ['Servers', [1 => []], null],
+                    ['Servers', [2 => []], [2 => null]],
                     ['Server', [], null],
                     ['ServerDefault', 0, 0],
                     ['VersionCheck', false, false],
@@ -789,6 +791,7 @@ class SettingsTest extends AbstractTestCase
                     ['DefaultFunctions', [], []],
                     ['MysqlMinVersion', [], ['internal' => 50500, 'human' => '5.5.0']],
                     ['Console', [], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
+                    ['FirstDayOfCalendar', 0, 0],
                     ['PMA_USR_BROWSER_VER', 78, 78],
                 ],
             ],
@@ -816,6 +819,7 @@ class SettingsTest extends AbstractTestCase
                     ['InitialSlidersState', 'disabled', 'disabled'],
                     ['GD2Available', 'no', 'no'],
                     ['SendErrorReports', 'always', 'always'],
+                    ['Console', ['Mode' => 'info', 'OrderBy' => 'exec', 'Order' => 'asc'], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
                 ],
             ],
             'valid values 4' => [
@@ -829,6 +833,7 @@ class SettingsTest extends AbstractTestCase
                     ['DefaultTabTable', 'search', 'search'],
                     ['RecodingEngine', 'recode', 'recode'],
                     ['RowActionLinks', 'both', 'both'],
+                    ['Console', ['Mode' => 'show', 'OrderBy' => 'time'], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'show', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'time', 'Order' => 'asc']],
                 ],
             ],
             'valid values 5' => [
@@ -1058,6 +1063,7 @@ class SettingsTest extends AbstractTestCase
             ],
             'invalid values' => [
                 [
+                    ['Servers', 'invalid', [1 => null]],
                     ['TranslationWarningThreshold', -1, 80],
                     ['ServerDefault', -1, 1],
                     ['MaxDbList', 0, 100],
@@ -1141,6 +1147,8 @@ class SettingsTest extends AbstractTestCase
                     ['FirstDayOfCalendar', -1, 0],
                 ],
             ],
+            'invalid values 3' => [[['ForeignKeyDropdownOrder', 'invalid', ['content-id', 'id-content']]]],
+            'invalid values 4' => [[['ForeignKeyDropdownOrder', [1 => 'content-id'], ['content-id', 'id-content']]]],
         ];
     }
 }

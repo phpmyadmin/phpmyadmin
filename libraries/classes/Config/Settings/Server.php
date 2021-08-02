@@ -175,7 +175,7 @@ final class Server
      *
      * @var array<string, int|string|bool>
      * @psalm-var array{
-     *   lifetime: int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'
+     *   lifetime: 0|positive-int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'
      * }
      */
     public $SignonCookieParams = [
@@ -421,6 +421,7 @@ final class Server
      * newest record in table_uiprefs and automatically delete older records.
      *
      * @var int
+     * @psalm-var positive-int
      */
     public $MaxTableUiprefs = 100;
 
@@ -453,7 +454,7 @@ final class Server
      * Host authentication rules, leave blank for defaults
      *
      * @var array<string, string|string[]>
-     * @psalm-var array{order: string, rules: string[]}
+     * @psalm-var array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]}
      */
     public $AllowDeny = ['order' => '', 'rules' => []];
 
@@ -598,7 +599,10 @@ final class Server
 
         if (isset($server['SignonCookieParams']) && is_array($server['SignonCookieParams'])) {
             if (isset($server['SignonCookieParams']['lifetime'])) {
-                $this->SignonCookieParams['lifetime'] = (int) $server['SignonCookieParams']['lifetime'];
+                $lifetime = (int) $server['SignonCookieParams']['lifetime'];
+                if ($lifetime >= 1) {
+                    $this->SignonCookieParams['lifetime'] = $lifetime;
+                }
             }
 
             if (isset($server['SignonCookieParams']['path'])) {
@@ -744,7 +748,10 @@ final class Server
         }
 
         if (isset($server['MaxTableUiprefs'])) {
-            $this->MaxTableUiprefs = (int) $server['MaxTableUiprefs'];
+            $maxTableUiprefs = (int) $server['MaxTableUiprefs'];
+            if ($maxTableUiprefs >= 1) {
+                $this->MaxTableUiprefs = $maxTableUiprefs;
+            }
         }
 
         if (isset($server['SessionTimeZone'])) {
@@ -760,8 +767,11 @@ final class Server
         }
 
         if (isset($server['AllowDeny']) && is_array($server['AllowDeny'])) {
-            if (isset($server['AllowDeny']['order'])) {
-                $this->AllowDeny['order'] = (string) $server['AllowDeny']['order'];
+            if (
+                isset($server['AllowDeny']['order'])
+                && in_array($server['AllowDeny']['order'], ['deny,allow', 'allow,deny', 'explicit'], true)
+            ) {
+                $this->AllowDeny['order'] = $server['AllowDeny']['order'];
             }
 
             if (isset($server['AllowDeny']['rules']) && is_array($server['AllowDeny']['rules'])) {

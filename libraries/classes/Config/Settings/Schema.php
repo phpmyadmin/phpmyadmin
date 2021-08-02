@@ -93,7 +93,7 @@ final class Schema
      */
     public function __construct(array $schema = [])
     {
-        if (isset($schema['format']) && in_array($schema['format'], ['pdf', 'eps', 'dia', 'svg'], true)) {
+        if (isset($schema['format']) && in_array($schema['format'], ['eps', 'dia', 'svg'], true)) {
             $this->format = $schema['format'];
         }
 
@@ -109,8 +109,8 @@ final class Schema
             $this->pdf_all_tables_same_width = (bool) $schema['pdf_all_tables_same_width'];
         }
 
-        if (isset($schema['pdf_orientation']) && in_array($schema['pdf_orientation'], ['L', 'P'], true)) {
-            $this->pdf_orientation = $schema['pdf_orientation'];
+        if (isset($schema['pdf_orientation']) && $schema['pdf_orientation'] === 'P') {
+            $this->pdf_orientation = 'P';
         }
 
         if (isset($schema['pdf_paper'])) {
@@ -126,8 +126,7 @@ final class Schema
         }
 
         if (
-            isset($schema['pdf_table_order'])
-            && in_array($schema['pdf_table_order'], ['', 'name_asc', 'name_desc'], true)
+            isset($schema['pdf_table_order']) && in_array($schema['pdf_table_order'], ['name_asc', 'name_desc'], true)
         ) {
             $this->pdf_table_order = $schema['pdf_table_order'];
         }
@@ -140,8 +139,8 @@ final class Schema
             $this->dia_show_keys = (bool) $schema['dia_show_keys'];
         }
 
-        if (isset($schema['dia_orientation']) && in_array($schema['dia_orientation'], ['L', 'P'], true)) {
-            $this->dia_orientation = $schema['dia_orientation'];
+        if (isset($schema['dia_orientation']) && $schema['dia_orientation'] === 'P') {
+            $this->dia_orientation = 'P';
         }
 
         if (isset($schema['dia_paper'])) {
@@ -160,8 +159,8 @@ final class Schema
             $this->eps_all_tables_same_width = (bool) $schema['eps_all_tables_same_width'];
         }
 
-        if (isset($schema['eps_orientation']) && in_array($schema['eps_orientation'], ['L', 'P'], true)) {
-            $this->eps_orientation = $schema['eps_orientation'];
+        if (isset($schema['eps_orientation']) && $schema['eps_orientation'] === 'P') {
+            $this->eps_orientation = 'P';
         }
 
         if (isset($schema['svg_show_color'])) {
