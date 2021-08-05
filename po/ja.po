@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-07-09 09:20+0000\n"
+"PO-Revision-Date: 2021-08-06 03:34+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -2565,8 +2565,7 @@ msgstr "エラーレポートの詳細を表示"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
-"PHPで設定された低い実行時間制限のため、エクスポートは完了しませんでした！"
+msgstr "PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しませんでした。"
 
 #: js/messages.php:693
 #, php-format
