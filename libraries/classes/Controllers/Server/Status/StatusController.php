@@ -58,14 +58,13 @@ class StatusController extends AbstractController
         if ($this->data->dataLoaded) {
             // In some case the data was reported not to exist, check it for all keys
             if (isset($this->data->status['Bytes_received'], $this->data->status['Bytes_sent'])) {
-                $networkTraffic = implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
-                        3,
-                        1
-                    )
+                /** @var string[] $bytes */
+                $bytes = Util::formatByteDown(
+                    $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
+                    3,
+                    1
                 );
+                $networkTraffic = implode(' ', $bytes);
             }
 
             if (isset($this->data->status['Uptime'])) {
@@ -114,63 +113,58 @@ class StatusController extends AbstractController
     {
         $hourFactor = 3600 / $this->data->status['Uptime'];
 
+        /** @var string[] $bytesReceived */
+        $bytesReceived = Util::formatByteDown(
+            $this->data->status['Bytes_received'],
+            3,
+            1
+        );
+        /** @var string[] $bytesReceivedPerHour */
+        $bytesReceivedPerHour = Util::formatByteDown(
+            $this->data->status['Bytes_received'] * $hourFactor,
+            3,
+            1
+        );
+        /** @var string[] $bytesSent */
+        $bytesSent = Util::formatByteDown(
+            $this->data->status['Bytes_sent'],
+            3,
+            1
+        );
+        /** @var string[] $bytesSentPerHour */
+        $bytesSentPerHour = Util::formatByteDown(
+            $this->data->status['Bytes_sent'] * $hourFactor,
+            3,
+            1
+        );
+        /** @var string[] $bytesTotal */
+        $bytesTotal = Util::formatByteDown(
+            $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
+            3,
+            1
+        );
+        /** @var string[] $bytesTotalPerHour */
+        $bytesTotalPerHour = Util::formatByteDown(
+            ($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor,
+            3,
+            1
+        );
+
         return [
             [
                 'name' => __('Received'),
-                'number' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_received'],
-                        3,
-                        1
-                    )
-                ),
-                'per_hour' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_received'] * $hourFactor,
-                        3,
-                        1
-                    )
-                ),
+                'number' => implode(' ', $bytesReceived),
+                'per_hour' => implode(' ', $bytesReceivedPerHour),
             ],
             [
                 'name' => __('Sent'),
-                'number' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_sent'],
-                        3,
-                        1
-                    )
-                ),
-                'per_hour' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_sent'] * $hourFactor,
-                        3,
-                        1
-                    )
-                ),
+                'number' => implode(' ', $bytesSent),
+                'per_hour' => implode(' ', $bytesSentPerHour),
             ],
             [
                 'name' => __('Total'),
-                'number' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
-                        3,
-                        1
-                    )
-                ),
-                'per_hour' => implode(
-                    ' ',
-                    Util::formatByteDown(
-                        ($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor,
-                        3,
-                        1
-                    )
-                ),
+                'number' => implode(' ', $bytesTotal),
+                'per_hour' => implode(' ', $bytesTotalPerHour),
             ],
         ];
     }

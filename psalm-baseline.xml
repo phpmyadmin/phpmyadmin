@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.1@7e137f5b95f7394607f5d0631172ff4c2da46781">
+<files psalm-version="4.9.2@00c062267d6e3229d91a1939992987e2d46f2393">
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
@@ -946,33 +946,21 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Config/Forms/BaseFormList.php">
-    <MixedArgument occurrences="2">
-      <code>$form</code>
-      <code>$form</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$form</code>
-      <code>$form</code>
+    <MixedAssignment occurrences="4">
       <code>$form</code>
       <code>$form</code>
       <code>$form</code>
       <code>$form</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="6">
-      <code>$class::getFields()</code>
+    <MixedMethodCall occurrences="4">
       <code>displayErrors</code>
       <code>fixErrors</code>
       <code>hasErrors</code>
-      <code>new $class($cf)</code>
       <code>process</code>
     </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$form-&gt;displayErrors()</code>
     </MixedOperand>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$names</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
   </file>
   <file src="libraries/classes/Config/Forms/Setup/FeaturesForm.php">
     <MixedArgument occurrences="1">
@@ -996,16 +984,9 @@
     </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Config/PageSettings.php">
-    <ArgumentTypeCoercion occurrences="2">
-      <code>$formDisplay</code>
-      <code>$formDisplay</code>
-    </ArgumentTypeCoercion>
     <MixedArgument occurrences="1">
       <code>$GLOBALS['config']-&gt;baseSettings</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>new $formClass($cf)</code>
-    </MixedMethodCall>
     <MixedPropertyFetch occurrences="1">
       <code>$GLOBALS['config']-&gt;baseSettings</code>
     </MixedPropertyFetch>
@@ -1161,9 +1142,6 @@
       <code>$uv[$i]</code>
       <code>$uv[$i]</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="1">
-      <code>$port</code>
-    </PossiblyNullArgument>
     <RedundantCondition occurrences="1">
       <code>is_array($v)</code>
     </RedundantCondition>
@@ -3152,7 +3130,6 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>($this-&gt;data-&gt;status['Bytes_received'] + $this-&gt;data-&gt;status['Bytes_sent']) * $hourFactor</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="7"/>
     <MixedAssignment occurrences="2">
       <code>$hourFactor</code>
       <code>$hourFactor</code>
@@ -3172,7 +3149,6 @@
       <code>$this-&gt;data-&gt;status['Uptime']</code>
       <code>$this-&gt;data-&gt;status['Uptime']</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="7"/>
   </file>
   <file src="libraries/classes/Controllers/Server/Status/VariablesController.php">
     <MixedArgument occurrences="1">
@@ -3250,14 +3226,12 @@
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="7">
+    <MixedArgumentTypeCoercion occurrences="5">
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
-      <code>Util::formatByteDown($value, 3, 3)</code>
-      <code>Util::formatByteDown($varValue[1], 3, 3)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="1">
       <code>$serverVarsSession[$arr[0]]</code>
@@ -3269,26 +3243,13 @@
       <code>$serverVarsSession[$arr[0]]</code>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="1">
       <code>$varValue[1]</code>
-      <code>Util::formatByteDown($value, 3, 3)</code>
-      <code>Util::formatByteDown($varValue[1], 3, 3)</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </PossiblyNullArrayAccess>
-  </file>
-  <file src="libraries/classes/Controllers/Setup/AbstractController.php">
-    <MixedArgument occurrences="1">
-      <code>$formset</code>
-    </MixedArgument>
-    <MixedArrayOffset occurrences="1">
-      <code>$pages[$formset]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="1">
-      <code>$formset</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
     <MixedArgument occurrences="1">
@@ -3297,9 +3258,6 @@
     <MixedAssignment occurrences="1">
       <code>$formset</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>new $formClass($this-&gt;config)</code>
-    </MixedMethodCall>
     <PossiblyNullArgument occurrences="1">
       <code>$formset</code>
     </PossiblyNullArgument>
@@ -4649,18 +4607,7 @@
       <code>Util::backquote($this-&gt;table)</code>
       <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
-    <PossiblyFalseArgument occurrences="4">
-      <code>$openPos</code>
-      <code>$openPos</code>
-    </PossiblyFalseArgument>
-    <PossiblyFalseOperand occurrences="6">
-      <code>$closePos</code>
-      <code>$closePos</code>
-      <code>$openPos</code>
-      <code>$openPos</code>
-      <code>$openPos</code>
-      <code>$openPos</code>
-    </PossiblyFalseOperand>
+    <PossiblyFalseArgument occurrences="2"/>
     <PossiblyInvalidArgument occurrences="1">
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
@@ -7088,7 +7035,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="89">
+    <MixedArgument occurrences="88">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -7119,7 +7066,6 @@
       <code>$displayedColumn</code>
       <code>$displayedColumn</code>
       <code>$displayedColumn</code>
-      <code>$displayedData</code>
       <code>$dispresult</code>
       <code>$dispresult</code>
       <code>$dispresult</code>
@@ -7374,7 +7320,7 @@
       <code>$row[$i]</code>
       <code>$row[$m]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="73">
+    <MixedAssignment occurrences="71">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -7393,8 +7339,6 @@
       <code>$columnForLastRow</code>
       <code>$columns[]</code>
       <code>$displayedColumn</code>
-      <code>$displayedData</code>
-      <code>$displayedData</code>
       <code>$dispresult</code>
       <code>$expr</code>
       <code>$expr</code>
@@ -7458,7 +7402,7 @@
       <code>getMIMEtype</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1](null)</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="39">
+    <MixedOperand occurrences="37">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -7647,12 +7591,12 @@
       <code>$status['Innodb_buffer_pool_pages_latched']</code>
       <code>$status['Innodb_buffer_pool_pages_misc']</code>
       <code>$status['Innodb_buffer_pool_pages_total']</code>
+      <code>$status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']</code>
       <code>$status['Innodb_buffer_pool_read_requests']</code>
       <code>$status['Innodb_buffer_pool_reads']</code>
       <code>$status['Innodb_buffer_pool_wait_free']</code>
       <code>$status['Innodb_buffer_pool_write_requests']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedAssignment occurrences="1">
       <code>$value</code>
     </MixedAssignment>
@@ -7667,7 +7611,6 @@
     <MixedReturnStatement occurrences="1">
       <code>$dbi-&gt;fetchValue('SELECT @@innodb_version;')</code>
     </MixedReturnStatement>
-    <PossiblyNullArgument occurrences="1"/>
   </file>
   <file src="libraries/classes/Engines/Pbxt.php">
     <LessSpecificImplementedReturnType occurrences="1">
@@ -7729,9 +7672,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$errorNumber</code>
-    </ArgumentTypeCoercion>
     <DocblockTypeContradiction occurrences="1">
       <code>! ($error instanceof Error)</code>
     </DocblockTypeContradiction>
@@ -7763,9 +7703,6 @@
     <MixedMethodCall occurrences="1">
       <code>getCurrentErrors</code>
     </MixedMethodCall>
-    <PossiblyNullArgument occurrences="1">
-      <code>$errorNumber</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/ErrorReport.php">
     <DocblockTypeContradiction occurrences="1">
@@ -8044,13 +7981,10 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$_FILES['fields_upload']</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="6">
+    <PossiblyNullArgument occurrences="3">
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
       <code>$this-&gt;getName()</code>
-      <code>$this-&gt;handle</code>
-      <code>$this-&gt;handle</code>
-      <code>$this-&gt;handle</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyAssignmentValue occurrences="4">
       <code>null</code>
@@ -15800,21 +15734,15 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Sanitize.php">
-    <MixedArgument occurrences="9">
-      <code>$anchor</code>
-      <code>$anchor</code>
+    <MixedArgument occurrences="6">
       <code>$found[1]</code>
       <code>$found[1]</code>
       <code>$found[1]</code>
       <code>$found[3]</code>
-      <code>$page</code>
       <code>$val</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
-      <code>$anchor</code>
-      <code>$anchor</code>
-      <code>$page</code>
+    <MixedAssignment occurrences="2">
       <code>$url</code>
       <code>$val</code>
     </MixedAssignment>
@@ -18527,13 +18455,6 @@
     </PropertyTypeCoercion>
   </file>
   <file src="libraries/classes/Types.php">
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$ret[_pgettext('string types', 'String')]</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset occurrences="2">
-      <code>'-'</code>
-      <code>'INET6'</code>
-    </PossiblyInvalidArrayOffset>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $type</code>
     </RedundantCastGivenDocblockType>
@@ -19423,55 +19344,10 @@
       <code>set</code>
     </MixedMethodCall>
   </file>
-  <file src="test/classes/Config/FormTest.php">
-    <DeprecatedMethod occurrences="2">
-      <code>assertRegExp</code>
-      <code>assertRegExp</code>
-    </DeprecatedMethod>
-    <MixedArgument occurrences="2">
-      <code>$result[1]</code>
-      <code>$result[1]</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$digit</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$digit</code>
-      <code>$digit</code>
-    </MixedOperand>
-  </file>
   <file src="test/classes/Config/Forms/FormListTest.php">
-    <InvalidStringClass occurrences="6">
-      <code>$class::get($form)</code>
-      <code>$class::get('Export')</code>
-      <code>$class::getAll()</code>
-      <code>$class::getFields()</code>
-      <code>$class::isValid('Export')</code>
-      <code>new $class($cf)</code>
-    </InvalidStringClass>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$GLOBALS['config']-&gt;baseSettings</code>
-      <code>$class::getFields()</code>
     </MixedArgument>
-    <MixedAssignment occurrences="2">
-      <code>$form</code>
-      <code>$form_class</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <MixedMethodCall occurrences="5">
-      <code>$form_class::getName()</code>
-      <code>displayErrors</code>
-      <code>fixErrors</code>
-      <code>hasErrors</code>
-      <code>process</code>
-    </MixedMethodCall>
     <MixedPropertyFetch occurrences="1">
       <code>$GLOBALS['config']-&gt;baseSettings</code>
     </MixedPropertyFetch>
@@ -20569,9 +20445,6 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>'TCPDF'</code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod occurrences="1">
-      <code>assertRegExp</code>
-    </DeprecatedMethod>
     <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
@@ -22914,10 +22787,6 @@
       <code>$proj-&gt;automation_session-&gt;public_url</code>
     </MixedPropertyFetch>
     <MixedReturnStatement occurrences="3"/>
-    <RedundantCondition occurrences="2">
-      <code>$ch !== false</code>
-      <code>$ch !== false</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="5">
       <code>$text &amp;&amp; is_string($text)</code>
       <code>$text &amp;&amp; is_string($text)</code>

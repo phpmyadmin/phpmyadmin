@@ -46,11 +46,6 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Form\\:\\:getOptionValueList\\(\\) should return array but returns array\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\Form\\:\\:\\$index \\(int\\) does not accept int\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
@@ -82,11 +77,6 @@ parameters:
 
 		-
 			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#5 \\$port of function mysqli_connect expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
 
@@ -161,18 +151,8 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 7
-			path: libraries/classes/Controllers/Server/Status/StatusController.php
-
-		-
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
@@ -194,11 +174,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
@@ -326,17 +301,7 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Parameter \\#2 \\$error_type of function trigger_error expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
 
@@ -347,16 +312,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -381,27 +336,12 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Parameter \\#1 \\$bz of function bzread expects resource, resource\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Parameter \\#1 \\$file of function bzopen expects resource\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$zp of function gzread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -797,11 +737,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:createIV\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
@@ -1296,11 +1231,6 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Types.php
-
-		-
 			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> non\\-empty\\-string, 'request_fulluri' \\=\\> true\\)\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -1319,11 +1249,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"

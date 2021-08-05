@@ -295,8 +295,9 @@ class ErrorHandler
      *
      * @param string $errorInfo   error message
      * @param int    $errorNumber error number
+     * @psalm-param 256|512|1024|16384 $errorNumber
      */
-    public function triggerError(string $errorInfo, ?int $errorNumber = null): void
+    public function triggerError(string $errorInfo, int $errorNumber = E_USER_NOTICE): void
     {
         // we could also extract file and line from backtrace
         // and call handleError() directly

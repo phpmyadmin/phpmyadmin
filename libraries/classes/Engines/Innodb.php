@@ -134,6 +134,9 @@ class Innodb extends StorageEngine
             . ' OR Variable_name = \'Innodb_page_size\';';
         $status = $dbi->fetchResult($sql, 0, 1);
 
+        /** @var string[] $bytes */
+        $bytes = Util::formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size']);
+
         $output = '<table class="table table-light table-striped table-hover w-auto float-start caption-top">' . "\n"
             . '    <caption>' . "\n"
             . '        ' . __('Buffer Pool Usage') . "\n"
@@ -148,13 +151,7 @@ class Innodb extends StorageEngine
             )
             . '&nbsp;' . __('pages')
             . ' / '
-            . implode(
-                '&nbsp;',
-                Util::formatByteDown(
-                    $status['Innodb_buffer_pool_pages_total']
-                    * $status['Innodb_page_size']
-                )
-            ) . "\n"
+            . implode('&nbsp;', $bytes) . "\n"
             . '            </th>' . "\n"
             . '        </tr>' . "\n"
             . '    </tfoot>' . "\n"

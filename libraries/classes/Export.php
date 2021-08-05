@@ -92,7 +92,10 @@ class Export
      */
     public function isGzHandlerEnabled(): bool
     {
-        return in_array('ob_gzhandler', ob_list_handlers());
+        /** @var string[] $handlers */
+        $handlers = ob_list_handlers();
+
+        return in_array('ob_gzhandler', $handlers);
     }
 
     /**
@@ -675,7 +678,7 @@ class Export
         array $aliases,
         string $separateFiles
     ): void {
-        if (! empty($dbSelect)) {
+        if (! empty($dbSelect) && is_array($dbSelect)) {
             $tmpSelect = implode('|', $dbSelect);
             $tmpSelect = '|' . $tmpSelect . '|';
         }

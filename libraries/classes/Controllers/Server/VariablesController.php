@@ -140,10 +140,9 @@ class VariablesController extends AbstractController
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
 
         if ($variableType === 'byte') {
-            $json['message'] = implode(
-                ' ',
-                Util::formatByteDown($varValue[1], 3, 3)
-            );
+            /** @var string[] $bytes */
+            $bytes = Util::formatByteDown($varValue[1], 3, 3);
+            $json['message'] = implode(' ', $bytes);
         }
 
         $this->response->addJSON($json);
@@ -242,12 +241,14 @@ class VariablesController extends AbstractController
 
             if ($variableType === 'byte') {
                 $isHtmlFormatted = true;
+                /** @var string[] $bytes */
+                $bytes = Util::formatByteDown($value, 3, 3);
                 $formattedValue = trim(
                     $this->template->render(
                         'server/variables/format_variable',
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
-                            'value' => implode(' ', Util::formatByteDown($value, 3, 3)),
+                            'value' => implode(' ', $bytes),
                         ]
                     )
                 );

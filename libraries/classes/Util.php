@@ -846,10 +846,8 @@ class Util
 
         $urlParts = parse_url($url);
 
-        if (is_array($urlParts) && isset($urlParts['query'])) {
-            $array = explode($separator, $urlParts['query']);
-
-            return is_array($array) ? $array : [];
+        if (is_array($urlParts) && isset($urlParts['query']) && strlen($separator) > 0) {
+            return explode($separator, $urlParts['query']);
         }
 
         return [];

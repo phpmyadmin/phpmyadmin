@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function file_put_contents;
+use function is_string;
 use function shell_exec;
 use function sprintf;
 use function str_replace;
@@ -114,7 +115,9 @@ PHP;
     protected function gitCli(string $command): ?string
     {
         /** @psalm-suppress ForbiddenCode */
-        return shell_exec('git ' . $command);
+        $output = shell_exec('git ' . $command);
+
+        return is_string($output) ? $output : null;
     }
 
     private function writeGeneratedFile(string $generatedClass): bool

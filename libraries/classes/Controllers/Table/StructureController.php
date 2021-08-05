@@ -786,16 +786,18 @@ class StructureController extends AbstractController
             $openPos = strpos($stmt->partitionBy, '(');
             $closePos = strrpos($stmt->partitionBy, ')');
 
-            $partitionDetails['partition_by'] = trim(substr($stmt->partitionBy, 0, $openPos));
-            $partitionDetails['partition_expr'] = trim(substr(
-                $stmt->partitionBy,
-                $openPos + 1,
-                $closePos - ($openPos + 1)
-            ));
+            if ($openPos !== false && $closePos !== false) {
+                $partitionDetails['partition_by'] = trim(substr($stmt->partitionBy, 0, $openPos));
+                $partitionDetails['partition_expr'] = trim(substr(
+                    $stmt->partitionBy,
+                    $openPos + 1,
+                    $closePos - ($openPos + 1)
+                ));
 
-            $count = $stmt->partitionsNum ?? count($stmt->partitions);
+                $count = $stmt->partitionsNum ?? count($stmt->partitions);
 
-            $partitionDetails['partition_count'] = $count;
+                $partitionDetails['partition_count'] = $count;
+            }
         }
 
         $partitionDetails['subpartition_by'] = '';
@@ -806,16 +808,18 @@ class StructureController extends AbstractController
             $openPos = strpos($stmt->subpartitionBy, '(');
             $closePos = strrpos($stmt->subpartitionBy, ')');
 
-            $partitionDetails['subpartition_by'] = trim(substr($stmt->subpartitionBy, 0, $openPos));
-            $partitionDetails['subpartition_expr'] = trim(substr(
-                $stmt->subpartitionBy,
-                $openPos + 1,
-                $closePos - ($openPos + 1)
-            ));
+            if ($openPos !== false && $closePos !== false) {
+                $partitionDetails['subpartition_by'] = trim(substr($stmt->subpartitionBy, 0, $openPos));
+                $partitionDetails['subpartition_expr'] = trim(substr(
+                    $stmt->subpartitionBy,
+                    $openPos + 1,
+                    $closePos - ($openPos + 1)
+                ));
 
-            $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
+                $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
 
-            $partitionDetails['subpartition_count'] = $count;
+                $partitionDetails['subpartition_count'] = $count;
+            }
         }
 
         // Only LIST and RANGE type parameters allow subpartitioning

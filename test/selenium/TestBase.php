@@ -1198,7 +1198,6 @@ abstract class TestBase extends TestCase
                 'reason' => $message,
             ]
         );
-        /** @var resource $ch */
         $ch = curl_init();
         curl_setopt(
             $ch,
@@ -1232,7 +1231,6 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        /** @var resource $ch */
         $ch = curl_init();
         curl_setopt(
             $ch,

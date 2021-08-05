@@ -3448,6 +3448,7 @@ class Results
      * @param TransformationsPlugin $transformationPlugin the name of transformation plugin
      * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared cell, html content
      */
@@ -3517,6 +3518,7 @@ class Results
      * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
      * @param array                 $analyzedSqlResults   the analyzed query
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared data cell, html content
      */
@@ -3652,6 +3654,7 @@ class Results
      * @param array                 $transformOptions     the transformation parameters
      * @param bool                  $isFieldTruncated     is data truncated due to LimitChars
      * @param array                 $analyzedSqlResults   the analyzed query
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared data cell, html content
      */
@@ -4877,6 +4880,7 @@ class Results
      * @param array                 $transformOptions     options for transformation
      * @param bool                  $isFieldTruncated     whether the field is truncated
      * @param string                $originalLength       of a truncated column, or ''
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string  formatted data
      *

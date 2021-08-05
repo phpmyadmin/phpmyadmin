@@ -911,9 +911,10 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         if ($this->useOpenSsl) {
-            return openssl_random_pseudo_bytes(
-                $this->getIVSize()
-            );
+            $bytes = openssl_random_pseudo_bytes($this->getIVSize());
+            if ($bytes !== false) {
+                return $bytes;
+            }
         }
 
         return Random::string(

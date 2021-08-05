@@ -105,7 +105,7 @@ class DbiMysqli implements DbiExtension
             if (! $server['ssl_verify']) {
                 $mysqli->options(
                     MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                    $server['ssl_verify']
+                    (int) $server['ssl_verify']
                 );
                 $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
@@ -156,11 +156,7 @@ class DbiMysqli implements DbiExtension
             return false;
         }
 
-        if (defined('PMA_ENABLE_LDI')) {
-            $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, true);
-        } else {
-            $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, false);
-        }
+        $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
 
         return $mysqli;
     }

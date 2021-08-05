@@ -282,6 +282,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
                 $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
             );
         } else {
+            /** @psalm-suppress DeprecatedMethod */
             $this->assertRegExp(
                 $output,
                 $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)

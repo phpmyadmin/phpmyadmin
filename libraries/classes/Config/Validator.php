@@ -237,12 +237,14 @@ class Validator
 
         error_clear_last();
 
+        /** @var string $socket */
         $socket = empty($socket) ? null : $socket;
+        /** @var int $port */
         $port = empty($port) ? null : (int) $port;
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
-        $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, (string) $socket);
+        $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, $socket);
         if (! $conn) {
             $error = __('Could not connect to the database server!');
         } else {

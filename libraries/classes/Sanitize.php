@@ -136,11 +136,9 @@ class Sanitize
     /**
      * Callback function for replacing [doc@anchor] links in bb code.
      *
-     * @param array $found Array of preg matches
-     *
-     * @return string Replaced string
+     * @param string[] $found Array of preg matches
      */
-    public static function replaceDocLink(array $found)
+    public static function replaceDocLink(array $found): string
     {
         if (count($found) >= 4) {
             /* doc@page@anchor pattern */
@@ -220,7 +218,8 @@ class Sanitize
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            static function (array $match) {
+            /** @param string[] $match */
+            static function (array $match): string {
                 return self::replaceDocLink($match);
             },
             $message

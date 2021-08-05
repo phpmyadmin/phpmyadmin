@@ -18,7 +18,7 @@ class BaseFormList
     /**
      * List of all forms
      *
-     * @var array
+     * @var string[]
      */
     protected static $all = [];
 
@@ -29,7 +29,7 @@ class BaseFormList
     private $forms;
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getAll()
     {
@@ -50,12 +50,12 @@ class BaseFormList
      * @param string $name Name
      *
      * @return string|null
-     * @psalm-return class-string|null
+     * @psalm-return class-string<BaseForm>|null
      */
     public static function get($name)
     {
         if (static::isValid($name)) {
-            /** @var class-string $class */
+            /** @var class-string<BaseForm> $class */
             $class = static::$ns . $name . 'Form';
 
             return $class;
@@ -67,7 +67,7 @@ class BaseFormList
     /**
      * @param ConfigFile $cf Config file instance
      */
-    public function __construct(ConfigFile $cf)
+    final public function __construct(ConfigFile $cf)
     {
         $this->forms = [];
         foreach (static::$all as $form) {
