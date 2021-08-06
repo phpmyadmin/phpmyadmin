@@ -7,14 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
 use function explode;
 use function hexdec;
-use function imagecolorallocate;
-use function imageline;
-use function imagestring;
 use function json_encode;
 use function mb_substr;
 use function trim;
@@ -84,25 +82,20 @@ class GisMultiLineString extends GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $line_color Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $line_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($line_color, 1, 2));
-        $green = hexdec(mb_substr($line_color, 3, 2));
-        $blue = hexdec(mb_substr($line_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($line_color, 1, 2));
+        $green = (int) hexdec(mb_substr($line_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($line_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
@@ -117,14 +110,7 @@ class GisMultiLineString extends GisGeometry
                     $temp_point = $point;
                 } else {
                     // draw line section
-                    imageline(
-                        $image,
-                        (int) $temp_point[0],
-                        (int) $temp_point[1],
-                        (int) $point[0],
-                        (int) $point[1],
-                        $color
-                    );
+                    $image->line((int) $temp_point[0], (int) $temp_point[1], (int) $point[0], (int) $point[1], $color);
                     $temp_point = $point;
                 }
             }
@@ -132,14 +118,7 @@ class GisMultiLineString extends GisGeometry
             unset($temp_point);
             // print label if applicable
             if (isset($label) && trim($label) != '' && $first_line) {
-                imagestring(
-                    $image,
-                    1,
-                    $points_arr[1][0],
-                    $points_arr[1][1],
-                    trim($label),
-                    $black
-                );
+                $image->string(1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
             }
 
             $first_line = false;

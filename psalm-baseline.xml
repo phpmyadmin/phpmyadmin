@@ -8223,6 +8223,10 @@
       <code>$line_color</code>
       <code>$line_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8302,6 +8306,10 @@
       <code>$line_color</code>
       <code>$line_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8374,6 +8382,10 @@
       <code>$point_color</code>
       <code>$point_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8497,6 +8509,10 @@
       <code>$fill_color</code>
       <code>$fill_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -8563,6 +8579,10 @@
       <code>$point_color</code>
       <code>$point_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -8708,6 +8728,10 @@
       <code>$fill_color</code>
       <code>$fill_color</code>
     </ParamNameMismatch>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$black</code>
+      <code>$color</code>
+    </PossiblyFalseArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>count($points_arr) / 2</code>
     </PossiblyInvalidArgument>
@@ -8737,7 +8761,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="24">
+    <MixedArgument occurrences="22">
       <code>$label</code>
       <code>$label</code>
       <code>$label</code>
@@ -8755,9 +8779,7 @@
       <code>$this-&gt;settings['colors'][$index]</code>
       <code>$this-&gt;settings['colors_hex'][$index]</code>
       <code>$this-&gt;settings['height']</code>
-      <code>$this-&gt;settings['height'] - 1</code>
       <code>$this-&gt;settings['width']</code>
-      <code>$this-&gt;settings['width'] - 1</code>
       <code>$this-&gt;userSpecifiedSettings['labelColumn']</code>
       <code>$this-&gt;userSpecifiedSettings['spatialColumn']</code>
       <code>$this-&gt;userSpecifiedSettings['spatialColumn']</code>
@@ -8791,8 +8813,7 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
-      <code>$image</code>
+    <MixedAssignment occurrences="18">
       <code>$label</code>
       <code>$modified_result</code>
       <code>$pdf</code>
@@ -8812,13 +8833,10 @@
       <code>$y</code>
       <code>$y_ratio</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>resource</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="1">
       <code>Output</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="23">
+    <MixedOperand occurrences="21">
       <code>$border / $scale</code>
       <code>$border / $scale</code>
       <code>$min_max['maxX'] + $min_max['minX'] - $plot_width / $scale</code>
@@ -8833,17 +8851,12 @@
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'ol', '')</code>
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'svg', '')</code>
       <code>$this-&gt;settings['height']</code>
-      <code>$this-&gt;settings['height']</code>
-      <code>$this-&gt;settings['width']</code>
       <code>$this-&gt;settings['width']</code>
       <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
       <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
       <code>Util::backquote('srid')</code>
       <code>Util::backquote('temp_gis')</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="1">
-      <code>$image</code>
-    </MixedReturnStatement>
     <NullArgument occurrences="3">
       <code>null</code>
       <code>null</code>

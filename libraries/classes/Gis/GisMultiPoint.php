@@ -7,13 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
 use function hexdec;
-use function imagearc;
-use function imagecolorallocate;
-use function imagestring;
 use function json_encode;
 use function mb_substr;
 use function trim;
@@ -75,25 +73,20 @@ class GisMultiPoint extends GisGeometry
      * @param string|null $label       Label for the GIS POLYGON object
      * @param string      $point_color Color for the GIS POLYGON object
      * @param array       $scale_data  Array containing data related to scaling
-     * @param resource    $image       Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $point_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($point_color, 1, 2));
-        $green = hexdec(mb_substr($point_color, 3, 2));
-        $blue = hexdec(mb_substr($point_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($point_color, 1, 2));
+        $green = (int) hexdec(mb_substr($point_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($point_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -105,7 +98,7 @@ class GisMultiPoint extends GisGeometry
                 continue;
             }
 
-            imagearc($image, (int) $point[0], (int) $point[1], 7, 7, 0, 360, $color);
+            $image->arc((int) $point[0], (int) $point[1], 7, 7, 0, 360, $color);
         }
 
         // print label for each point
@@ -113,14 +106,7 @@ class GisMultiPoint extends GisGeometry
             (isset($label) && trim($label) != '')
             && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
         ) {
-            imagestring(
-                $image,
-                1,
-                $points_arr[0][0],
-                $points_arr[0][1],
-                trim($label),
-                $black
-            );
+            $image->string(1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
         }
 
         return $image;

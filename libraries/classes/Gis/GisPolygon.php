@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_merge;
@@ -15,9 +16,6 @@ use function array_slice;
 use function count;
 use function explode;
 use function hexdec;
-use function imagecolorallocate;
-use function imagefilledpolygon;
-use function imagestring;
 use function json_encode;
 use function max;
 use function mb_substr;
@@ -93,25 +91,20 @@ class GisPolygon extends GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $fill_color Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $fill_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($fill_color, 1, 2));
-        $green = hexdec(mb_substr($fill_color, 3, 2));
-        $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($fill_color, 1, 2));
+        $green = (int) hexdec(mb_substr($fill_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -136,17 +129,10 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
+        $image->filledPolygon($points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            imagestring(
-                $image,
-                1,
-                $points_arr[2],
-                $points_arr[3],
-                trim($label),
-                $black
-            );
+            $image->string(1, $points_arr[2], $points_arr[3], trim($label), $black);
         }
 
         return $image;
