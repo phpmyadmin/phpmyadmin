@@ -48,7 +48,7 @@ class AuthenticationKeycloakTest extends AbstractNetworkTestCase
             $this->object->showLoginForm()
         );
     }
-    
+
     public function testReadCredentialsWithoutCookie(): void
     {
         $this->assertFalse(
@@ -59,7 +59,7 @@ class AuthenticationKeycloakTest extends AbstractNetworkTestCase
     public function testReadCredentialsWithEmptyCookie(): void
     {
         $_COOKIE['kc-access'] = "";
-        
+
         $this->assertFalse(
             $this->object->readCredentials()
         );

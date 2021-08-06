@@ -37,7 +37,7 @@ class AuthenticationKeycloak extends AuthenticationPlugin
 
         $this->user = $token->getClaim('preferred_username');
         $this->password = $token->getClaim('sub');
-        
+
         return true;
     }
 
