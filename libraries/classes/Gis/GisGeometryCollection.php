@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_merge;
@@ -116,14 +117,14 @@ class GisGeometryCollection extends GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
-    public function prepareRowAsPng($spatial, ?string $label, $color, array $scale_data, $image)
-    {
+    public function prepareRowAsPng(
+        $spatial,
+        ?string $label,
+        $color,
+        array $scale_data,
+        ImageWrapper $image
+    ): ImageWrapper {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = mb_substr($spatial, 19, -1);
         // Split the geometry collection object to get its constituents.

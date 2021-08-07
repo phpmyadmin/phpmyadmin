@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
+use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 
 use function function_exists;
-use function imagecreatetruecolor;
-use function imagesx;
-use function imagesy;
 use function method_exists;
 use function preg_match;
 
@@ -184,8 +182,8 @@ class GisGeometryCollectionTest extends AbstractTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
-        $image = imagecreatetruecolor(120, 150);
-        $this->assertNotFalse($image);
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
             . '(20 30,35 32,30 20,20 30)))',
@@ -194,8 +192,8 @@ class GisGeometryCollectionTest extends AbstractTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, imagesx($return));
-        $this->assertEquals(150, imagesy($return));
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**

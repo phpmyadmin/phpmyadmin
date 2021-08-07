@@ -11,8 +11,6 @@ use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-use function imagesx;
-
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
  */
@@ -63,15 +61,5 @@ abstract class GisGeomTestCase extends AbstractTestCase
             $min_max,
             $this->object->scaleRow($spatial)
         );
-    }
-
-    /**
-     * Tests whether content is a valid image.
-     *
-     * @param resource $object Image
-     */
-    public function assertImage($object): void
-    {
-        $this->assertGreaterThan(0, imagesx($object));
     }
 }

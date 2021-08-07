@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function function_exists;
-use function imagecreatetruecolor;
 use function preg_match;
 
 /**
@@ -259,8 +259,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
-        $image = imagecreatetruecolor(120, 150);
-        $this->assertNotFalse($image);
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
@@ -268,7 +268,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertImage($return);
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -16,14 +17,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function define;
 use function htmlspecialchars;
-use function imagecopyresampled;
-use function imagecreatefromstring;
-use function imagecreatetruecolor;
-use function imagedestroy;
-use function imagejpeg;
-use function imagepng;
-use function imagesx;
-use function imagesy;
 use function in_array;
 use function intval;
 use function round;
@@ -182,13 +175,13 @@ class TransformationWrapperController extends AbstractController
             // if image_*__inline.inc.php finds that we can resize,
             // it sets the resize parameter to jpeg or png
 
-            $srcImage = imagecreatefromstring($row[$transform_key]);
-            if ($srcImage === false) {
+            $srcImage = ImageWrapper::fromString($row[$transform_key]);
+            if ($srcImage === null) {
                 return;
             }
 
-            $srcWidth = imagesx($srcImage);
-            $srcHeight = imagesy($srcImage);
+            $srcWidth = $srcImage->width();
+            $srcHeight = $srcImage->height();
 
             // Check to see if the width > height or if width < height
             // if so adjust accordingly to make sure the image
@@ -206,9 +199,9 @@ class TransformationWrapperController extends AbstractController
             }
 
             if ($_REQUEST['resize']) {
-                $destImage = imagecreatetruecolor($destWidth, $destHeight);
-                if ($destImage === false) {
-                    imagedestroy($srcImage);
+                $destImage = ImageWrapper::create($destWidth, $destHeight);
+                if ($destImage === null) {
+                    $srcImage->destroy();
 
                     return;
                 }
@@ -216,8 +209,7 @@ class TransformationWrapperController extends AbstractController
                 // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
                 // $destWidth, $destHeight, $srcWidth, $srcHeight);
                 // better quality but slower:
-                imagecopyresampled(
-                    $destImage,
+                $destImage->copyResampled(
                     $srcImage,
                     0,
                     0,
@@ -229,17 +221,17 @@ class TransformationWrapperController extends AbstractController
                     $srcHeight
                 );
                 if ($_REQUEST['resize'] === 'jpeg') {
-                    imagejpeg($destImage, null, 75);
+                    $destImage->jpeg(null, 75);
                 }
 
                 if ($_REQUEST['resize'] === 'png') {
-                    imagepng($destImage);
+                    $destImage->png();
                 }
 
-                imagedestroy($destImage);
+                $destImage->destroy();
             }
 
-            imagedestroy($srcImage);
+            $srcImage->destroy();
         }
     }
 }
