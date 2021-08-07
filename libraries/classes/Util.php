@@ -3017,8 +3017,8 @@ class Util
             // Get random byte and strip highest bit
             // to get ASCII only range
             $byte = ord((string) $random_func(1)) & 0x7f;
-            // We want only ASCII chars
-            if ($byte <= 32) {
+            // We want only ASCII chars and no DEL character (127)
+            if ($byte <= 32 || $byte === 127) {
                 continue;
             }
 
