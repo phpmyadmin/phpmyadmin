@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-03-11 19:02+0000\n"
+"PO-Revision-Date: 2021-08-08 11:33+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6539,7 +6539,7 @@ msgstr "删除页面"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "此页面中保存的某些表可能已重命名或删除。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -6918,49 +6918,39 @@ msgstr "强"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等待安全密钥激活超时。"
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "导出类型无效"
+msgstr "发送到安全密钥的请求无效。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "未知错误"
+msgstr "未知的安全密钥错误。"
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "客户端不支持安全密钥。"
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "安全密钥激活失败（%s）。"
+msgstr "安全密钥激活失败。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "导出类型无效"
+msgstr "无效的安全密钥。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, php-format
@@ -15375,7 +15365,7 @@ msgstr "请输入一个有效的HEX值"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr "该字段不能包含32个字符的值"
+msgstr "这个字段无法容纳一个 32 字符长度的值"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
