@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-01 00:09+0000\n"
-"PO-Revision-Date: 2021-05-06 22:36+0000\n"
-"Last-Translator: Ganlv <ganlvtech@qq.com>\n"
+"PO-Revision-Date: 2021-08-08 00:09+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2436,8 +2436,7 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"显示 [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] 输出"
-"的链接。"
+"显示 [a@https://www.php.net/manual/zh/function.phpinfo.php]phpinfo()[/a] 输出的链接。"
 
 #: libraries/classes/Config/Descriptions.php:512
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5071,10 +5070,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "您将要完全清空一个表！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "您将要完全删除一个表！"
+msgstr "您即将删除表的所有行！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -6578,7 +6575,7 @@ msgstr "删除页面"
 #. l10n: When the user opens a page saved in the Designer
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
-msgstr ""
+msgstr "此页面中保存的某些表可能已重命名或删除。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -6844,11 +6841,11 @@ msgstr "正在提交您的设置，请耐心等待。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "字段名已成功复制到剪贴板！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "字段名复制到剪贴板失败！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Successfully copied!"
@@ -6945,8 +6942,6 @@ msgstr "强"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "等待安全密钥激活超时。"
@@ -6955,37 +6950,31 @@ msgstr "等待安全密钥激活超时。"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "发送到安全密钥的请求无效。"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "未知错误"
+msgstr "未知的安全密钥错误。"
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "客户端不支持安全密钥。"
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "安全密钥激活失败（%s）。"
+msgstr "安全密钥激活失败。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "导出类型无效"
+msgstr "无效的安全密钥。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:729
 #, php-format
@@ -7802,10 +7791,8 @@ msgid "Missing parameter:"
 msgstr "缺少参数："
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:131
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "查询缓存没有启用。"
+msgstr "未启用用户组管理。"
 
 #: libraries/classes/Controllers/Server/VariablesController.php:221
 msgid "Setting variable failed"
@@ -7935,12 +7922,10 @@ msgid "No column selected."
 msgstr "没有选中任何列。"
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:86
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "已成功删除 %1$d 个数据库。"
+msgstr[0] "已成功删除 %1$d 个字段。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:64
 msgid "Invalid table name"
@@ -9084,8 +9069,6 @@ msgstr ""
 "这种格式。"
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
 msgstr "会话不存在。"
 
@@ -9717,8 +9700,6 @@ msgid "New"
 msgstr "新建"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
 msgstr "触发器"
 
@@ -11580,14 +11561,12 @@ msgid "SHA256 password authentication"
 msgstr "SHA256密码验证"
 
 #: libraries/classes/Server/Plugins.php:80
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "服务器缓存的sha2密码认证"
+msgstr "缓存 sha2 身份验证"
 
 #: libraries/classes/Server/Plugins.php:85
 msgid "Unix Socket based authentication"
-msgstr "基于 Unix Socket 认证"
+msgstr "基于 Unix Socket 的认证"
 
 #: libraries/classes/Server/Plugins.php:90
 msgid "Old MySQL-4.0 authentication"
@@ -13038,7 +13017,7 @@ msgstr "在线事务"
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
-msgstr ""
+msgstr "除非定义为 TINYINT(1) 字段，否则您的 MySQL 版本将忽略整数类字段的显示宽度"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -13697,10 +13676,8 @@ msgstr "当前选项"
 #: templates/database/designer/main.twig:1119 templates/export_modal.twig:5
 #: templates/export.twig:63 templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "正在加载…"
+msgstr "正在加载"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -14537,10 +14514,8 @@ msgstr "按索引排序："
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "返回选项"
+msgstr "额外选项"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
@@ -15399,9 +15374,8 @@ msgstr "请输入一个有效的HEX值"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
-#, fuzzy
 msgid "This column can not contain a 32 chars value"
-msgstr "这个字段不足以容纳一个 32 字符长度的值"
+msgstr "这个字段无法容纳一个 32 字符长度的值"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16288,10 +16262,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "删除与用户同名的数据库。"
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "保存页面"
+msgstr "保存修改"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -17119,10 +17091,8 @@ msgid "Use this value"
 msgstr "使用该值"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "图表标题"
+msgstr "图表类型"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -17446,10 +17416,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "清空数据表 (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "清空数据表 (TRUNCATE)"
+msgstr "清空数据表 (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
