@@ -840,7 +840,7 @@ class Results
         // Move to the next page or to the last one
         $moveForwardButtons = '';
         if (
-            $this->properties['unlim_num_rows'] === -1 // view with unknown number of rows
+            $this->properties['unlim_num_rows'] === false // view with unknown number of rows
             || (! $isShowingAll
             && intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
                 < $this->properties['unlim_num_rows']
