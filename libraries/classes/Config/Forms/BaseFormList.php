@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Config\Forms;
 use PhpMyAdmin\Config\ConfigFile;
 
 use function array_merge;
+use function class_exists;
 use function in_array;
 
 class BaseFormList
@@ -17,7 +18,7 @@ class BaseFormList
     /**
      * List of all forms
      *
-     * @var array
+     * @var string[]
      */
     protected static $all = [];
 
@@ -28,7 +29,7 @@ class BaseFormList
     private $forms;
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getAll()
     {
@@ -49,11 +50,15 @@ class BaseFormList
      * @param string $name Name
      *
      * @return string|null
+     * @psalm-return class-string<BaseForm>|null
      */
     public static function get($name)
     {
         if (static::isValid($name)) {
-            return static::$ns . $name . 'Form';
+            /** @var class-string<BaseForm> $class */
+            $class = static::$ns . $name . 'Form';
+
+            return $class;
         }
 
         return null;
@@ -62,11 +67,15 @@ class BaseFormList
     /**
      * @param ConfigFile $cf Config file instance
      */
-    public function __construct(ConfigFile $cf)
+    final public function __construct(ConfigFile $cf)
     {
         $this->forms = [];
         foreach (static::$all as $form) {
-            $class = static::get($form);
+            $class = (string) static::get($form);
+            if (! class_exists($class)) {
+                continue;
+            }
+
             $this->forms[] = new $class($cf);
         }
     }
@@ -141,7 +150,11 @@ class BaseFormList
     {
         $names = [];
         foreach (static::$all as $form) {
-            $class = static::get($form);
+            $class = (string) static::get($form);
+            if (! class_exists($class)) {
+                continue;
+            }
+
             $names = array_merge($names, $class::getFields());
         }
 

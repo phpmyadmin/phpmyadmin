@@ -9,7 +9,7 @@
       </select>
     </span>
     <input type="text" name="username" id="pma_username" class="autofocus" maxlength="{{ username_length }}" title="{% trans 'User name' %}"
-      {%- if g_username is not empty %} value="{{ g_new_username is not null ? g_new_username : g_username }}"{% endif -%}
+      {%- if username is not empty %} value="{{ new_username is not null ? new_username : username }}"{% endif -%}
       {{- pred_username is null or pred_username == 'userdefined' ? ' required' }}>
 
     <div id="user_exists_warning" class="hide">
@@ -33,7 +33,7 @@
         <option value="userdefined"{{ pred_hostname == 'userdefined' ? ' selected' }}>{% trans 'Use text field' %}</option>
       </select>
     </span>
-    <input type="text" name="hostname" id="pma_hostname" maxlength="{{ hostname_length }}" value="{{ g_hostname|default('%') }}" title="
+    <input type="text" name="hostname" id="pma_hostname" maxlength="{{ hostname_length }}" value="{{ hostname|default('%') }}" title="
       {%- trans 'Host name' %}"{{ pred_hostname == 'userdefined' ? ' required' }}>
 
     {{ show_hint('When Host table is used, this field is ignored and values stored in Host table are used instead.'|trans) }}
@@ -46,11 +46,11 @@
         {% if is_change %}
           <option value="keep" selected>{% trans 'Do not change the password' %}</option>
         {% endif %}
-        <option value="none"{{ g_username is not null and not is_change ? ' selected' }}>{% trans 'No password' %}</option>
-        <option value="userdefined"{{ g_username is null ? ' selected' }}>{% trans 'Use text field' %}</option>
+        <option value="none"{{ username is not null and not is_change ? ' selected' }}>{% trans 'No password' %}</option>
+        <option value="userdefined"{{ username is null ? ' selected' }}>{% trans 'Use text field' %}</option>
       </select>
     </span>
-    <input type="password" id="text_pma_pw" name="pma_pw" title="{% trans 'Password' %}"{{ g_username is null ? ' required' }}>
+    <input type="password" id="text_pma_pw" name="pma_pw" title="{% trans 'Password' %}"{{ username is null ? ' required' }}>
     <span>{% trans %}Strength:{% context %}Password strength{% endtrans %}</span>
     <meter max="4" id="password_strength_meter" name="pw_meter"></meter>
     <span id="password_strength" name="pw_strength"></span>
@@ -59,7 +59,7 @@
   <div class="item" id="div_element_before_generate_password">
     <label for="text_pma_pw2">{% trans 'Re-type:' %}</label>
     <span class="options">&nbsp;</span>
-    <input type="password" name="pma_pw2" id="text_pma_pw2" title="{% trans 'Re-type' %}"{{ g_username is null ? ' required' }}>
+    <input type="password" name="pma_pw2" id="text_pma_pw2" title="{% trans 'Re-type' %}"{{ username is null ? ' required' }}>
   </div>
 
   <div class="item" id="authentication_plugin_div">

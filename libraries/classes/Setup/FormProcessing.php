@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -30,7 +30,7 @@ class FormProcessing
         if (isset($_GET['mode']) && $_GET['mode'] === 'revert') {
             // revert erroneous fields to their default values
             $form_display->fixErrors();
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
         }
@@ -44,7 +44,7 @@ class FormProcessing
 
         // check for form errors
         if (! $form_display->hasErrors()) {
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->disable();
             $response->generateHeader303('index.php' . Url::getCommonRaw());
 

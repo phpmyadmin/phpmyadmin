@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function json_decode;
@@ -17,7 +17,7 @@ final class ConfigController extends AbstractController
     private $config;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template, Config $config)
     {

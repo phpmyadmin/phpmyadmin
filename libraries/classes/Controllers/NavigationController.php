@@ -8,7 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -28,7 +28,7 @@ class NavigationController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct(
         $response,

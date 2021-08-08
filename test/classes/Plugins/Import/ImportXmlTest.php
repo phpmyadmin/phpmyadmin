@@ -81,10 +81,7 @@ class ImportXmlTest extends AbstractTestCase
             'text/xml',
             $properties->getMimeType()
         );
-        $this->assertEquals(
-            [],
-            $properties->getOptions()
-        );
+        $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()

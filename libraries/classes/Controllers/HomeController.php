@@ -16,7 +16,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
@@ -51,7 +51,7 @@ class HomeController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param Config            $config
      * @param DatabaseInterface $dbi
      */
@@ -459,6 +459,7 @@ class HomeController extends AbstractController
             return;
         }
 
+        /** @psalm-suppress MissingFile */
         include ROOT_PATH . 'libraries/language_stats.inc.php';
         /*
          * This message is intentionally not translated, because we're

@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -26,7 +27,7 @@ class ProcessesController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param Data              $data
      * @param DatabaseInterface $dbi
      */
@@ -100,7 +101,7 @@ class ProcessesController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function kill(array $params): void
+    public function kill(ServerRequest $request, array $params): void
     {
         if (! $this->response->isAjax()) {
             return;

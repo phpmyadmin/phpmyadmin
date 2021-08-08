@@ -295,8 +295,9 @@ class ErrorHandler
      *
      * @param string $errorInfo   error message
      * @param int    $errorNumber error number
+     * @psalm-param 256|512|1024|16384 $errorNumber
      */
-    public function triggerError(string $errorInfo, ?int $errorNumber = null): void
+    public function triggerError(string $errorInfo, int $errorNumber = E_USER_NOTICE): void
     {
         // we could also extract file and line from backtrace
         // and call handleError() directly
@@ -351,7 +352,7 @@ class ErrorHandler
      */
     protected function dispPageStart(?Error $error = null): void
     {
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         echo '<html><head><title>';
         if ($error) {
             echo $error->getTitle();
@@ -572,7 +573,7 @@ class ErrorHandler
 
         // Delete all the prev_errors in session & store new prev_errors in session
         $this->savePreviousErrors();
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $jsCode = '';
         if ($GLOBALS['cfg']['SendErrorReports'] === 'always') {
             if ($response->isAjax()) {

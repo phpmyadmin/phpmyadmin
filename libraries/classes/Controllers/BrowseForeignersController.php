@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 /**
@@ -21,7 +21,7 @@ class BrowseForeignersController extends AbstractController
     private $relation;
 
     /**
-     * @param Response         $response
+     * @param ResponseRenderer $response
      * @param BrowseForeigners $browseForeigners
      * @param Relation         $relation
      */

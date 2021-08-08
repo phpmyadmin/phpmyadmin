@@ -9,14 +9,13 @@ use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
+use PhpMyAdmin\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
 
 use function __;
-use function fclose;
 use function file_exists;
-use function fopen;
-use function fwrite;
+use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
@@ -74,7 +73,7 @@ class Routing
         // If skip cache is enabled, do not try to read the file
         // If no cache skipping then read it and use it
         if (! $skipCache && file_exists(self::ROUTES_CACHE_FILE)) {
-            /** @psalm-suppress MissingFile,UnresolvableInclude */
+            /** @psalm-suppress MissingFile, UnresolvableInclude */
             $dispatchData = require self::ROUTES_CACHE_FILE;
             if (! is_array($dispatchData)) {
                 throw new RuntimeException('Invalid cache file "' . self::ROUTES_CACHE_FILE . '"');
@@ -117,15 +116,7 @@ class Routing
 
     public static function writeCache(string $cacheContents): bool
     {
-        $handle = @fopen(self::ROUTES_CACHE_FILE, 'w');
-        if ($handle === false) {
-            return false;
-        }
-
-        $couldWrite = fwrite($handle, $cacheContents);
-        fclose($handle);
-
-        return $couldWrite !== false;
+        return @file_put_contents(self::ROUTES_CACHE_FILE, $cacheContents) !== false;
     }
 
     public static function getCurrentRoute(): string
@@ -152,18 +143,16 @@ class Routing
      * Call associated controller for a route using the dispatcher
      */
     public static function callControllerForRoute(
+        ServerRequest $request,
         string $route,
         Dispatcher $dispatcher,
         ContainerInterface $container
     ): void {
-        $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'],
-            rawurldecode($route)
-        );
+        $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
         if ($routeInfo[0] === Dispatcher::NOT_FOUND) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(404);
             echo Message::error(sprintf(
                 __('Error 404! The page %s was not found.'),
@@ -174,8 +163,8 @@ class Routing
         }
 
         if ($routeInfo[0] === Dispatcher::METHOD_NOT_ALLOWED) {
-            /** @var Response $response */
-            $response = $container->get(Response::class);
+            /** @var ResponseRenderer $response */
+            $response = $container->get(ResponseRenderer::class);
             $response->setHttpResponseCode(405);
             echo Message::error(__('Error 405! Request method not allowed.'))->getDisplay();
 
@@ -188,6 +177,6 @@ class Routing
 
         [$controllerName, $action] = $routeInfo[1];
         $controller = $container->get($controllerName);
-        $controller->$action($routeInfo[2]);
+        $controller->$action($request, $routeInfo[2]);
     }
 }

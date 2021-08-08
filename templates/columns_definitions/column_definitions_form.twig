@@ -160,4 +160,11 @@
             value="{% trans 'Save' %}">
     </fieldset>
     <div id="properties_message"></div>
+     {% if is_integers_length_restricted %}
+        <div class="alert alert-primary" id="length_not_allowed" role="alert">
+            {{ get_image('s_notice') }}
+            {% trans %}The column width of integer types is ignored in your MySQL version unless defining a TINYINT(1) column{% endtrans %}
+            {{ show_mysql_docu('', false, 'https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html') }}
+        </div>
+     {% endif %}
 </form>

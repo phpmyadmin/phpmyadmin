@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -15,14 +15,14 @@ use function strlen;
 
 abstract class AbstractController
 {
-    /** @var Response */
+    /** @var ResponseRenderer */
     protected $response;
 
     /** @var Template */
     protected $template;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template)
     {

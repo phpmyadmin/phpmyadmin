@@ -11,7 +11,6 @@ use function __;
 use function _pgettext;
 use function array_diff;
 use function array_merge;
-use function array_push;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -801,7 +800,7 @@ class Types
         ];
 
         // Text
-        $ret[_pgettext('string types', 'String')] = [
+        $stringTypes = [
             'CHAR',
             'VARCHAR',
             '-',
@@ -821,6 +820,12 @@ class Types
             'ENUM',
             'SET',
         ];
+        if ($isMariaDB && $serverVersion >= 100500) {
+            $stringTypes[] = '-';
+            $stringTypes[] = 'INET6';
+        }
+
+        $ret[_pgettext('string types', 'String')] = $stringTypes;
 
         $ret[_pgettext('spatial types', 'Spatial')] = [
             'GEOMETRY',
@@ -838,10 +843,6 @@ class Types
             || (! $isMariaDB && $serverVersion >= 50708)
         ) {
             $ret['JSON'] = ['JSON'];
-        }
-
-        if ($isMariaDB && $serverVersion >= 100500) {
-            array_push($ret[_pgettext('string types', 'String')], '-', 'INET6');
         }
 
         return $ret;
@@ -873,7 +874,7 @@ class Types
      */
     public function getIntegerRange($type, $signed = true)
     {
-        static $min_max_data = [
+        $min_max_data = [
             'unsigned' => [
                 'tinyint'   => [
                     '0',

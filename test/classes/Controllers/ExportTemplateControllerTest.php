@@ -10,7 +10,7 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Version;
 
 /**
@@ -21,7 +21,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
     /** @var ExportTemplateController */
     private $controller;
 
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /** @var Template */
@@ -32,9 +32,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
 
-        global $dbi, $config;
-
-        $config->enableBc();
+        global $dbi;
 
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
@@ -48,7 +46,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
             'export_templates' => 'table',
         ];
 
-        $this->response = new Response();
+        $this->response = new ResponseRenderer();
         $this->template = new Template();
 
         $this->controller = new ExportTemplateController(

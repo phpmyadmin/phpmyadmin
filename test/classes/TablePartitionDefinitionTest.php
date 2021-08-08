@@ -30,8 +30,8 @@ class TablePartitionDefinitionTest extends TestCase
             'partition_expr' => 'partition_expr',
             'subpartition_by' => 'subpartition_by',
             'subpartition_expr' => 'subpartition_expr',
-            'partition_count' => $partitionCount > 0 ? $partitionCount : '',
-            'subpartition_count' => $subPartitionCount > 0 ? $subPartitionCount : '',
+            'partition_count' => $partitionCount,
+            'subpartition_count' => $subPartitionCount,
             'can_have_subpartitions' => $canHaveSubpartitions,
             'value_enabled' => $valueEnabled,
             'partitions' => [
@@ -228,8 +228,8 @@ class TablePartitionDefinitionTest extends TestCase
             'partition_expr' => null,
             'subpartition_by' => null,
             'subpartition_expr' => null,
-            'partition_count' => '',
-            'subpartition_count' => '',
+            'partition_count' => 0,
+            'subpartition_count' => 0,
             'can_have_subpartitions' => false,
             'value_enabled' => false,
         ];

@@ -67,7 +67,11 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
         $normalizationController->index();
+
+        $this->assertResponseWasSuccessfull();
+
         $this->getResponseJsonResult();// Will echo the contents
+
         $data = (string) json_encode(
             [
                 'html' => '<p><b>In order to put the original table \'test_tbl\' into '
@@ -143,14 +147,17 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
         $normalizationController->index();
+
+        $this->assertResponseWasSuccessfull();
+
         $this->assertSame(
-            $this->getResponseJsonResult(),
             [
                 'legendText' => 'End of step',
                 'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
                 'queryError' => false,
                 'extra' => '',
-            ]
+            ],
+            $this->getResponseJsonResult()
         );
     }
 
@@ -178,14 +185,17 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
         $normalizationController->index();
+
+        $this->assertResponseWasSuccessfull();
+
         $this->assertSame(
-            $this->getResponseJsonResult(),
             [
                 'legendText' => 'End of step',
                 'headText' => '<h3>The third step of normalization is complete.</h3>',
                 'queryError' => false,
                 'extra' => '',
-            ]
+            ],
+            $this->getResponseJsonResult()
         );
     }
 }

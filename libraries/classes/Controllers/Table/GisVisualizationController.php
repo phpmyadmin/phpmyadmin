@@ -9,7 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -29,7 +29,7 @@ final class GisVisualizationController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param DatabaseInterface $dbi
@@ -67,7 +67,7 @@ final class GisVisualizationController extends AbstractController
         if ($sqlQuery == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))
+                Message::error(__('No SQL query was set to fetch data.'))->getDisplay()
             );
 
             return;
@@ -111,15 +111,16 @@ final class GisVisualizationController extends AbstractController
             $visualizationSettings['spatialColumn'] = $spatialCandidates[0];
         }
 
+        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
         // Convert geometric columns from bytes to text.
-        $pos = $_GET['pos'] ?? $_SESSION['tmpval']['pos'];
-        if (isset($_GET['session_max_rows'])) {
-            $rows = $_GET['session_max_rows'];
+        $pos = (int) ($_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']);
+        if (isset($_POST['session_max_rows']) || isset($_GET['session_max_rows'])) {
+            $rows = (int) ($_POST['session_max_rows'] ?? $_GET['session_max_rows']);
         } else {
             if ($_SESSION['tmpval']['max_rows'] !== 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
+                $rows = (int) $_SESSION['tmpval']['max_rows'];
             } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
+                $rows = (int) $GLOBALS['cfg']['MaxRows'];
             }
         }
 

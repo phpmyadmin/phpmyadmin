@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use XMLWriter;
 
 use function ob_end_clean;
@@ -190,7 +190,7 @@ class Dia extends XMLWriter
         }
 
         $output = $this->flush();
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         Core::downloadHeader(
             $fileName,
             'application/x-dia-diagram',

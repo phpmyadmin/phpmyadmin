@@ -242,6 +242,7 @@ class ZipExtension
 
             $data = $newData;
         } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
+            /** @var array $data */
             $data = array_combine($name, $data);
         } else {
             return false;

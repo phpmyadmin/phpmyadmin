@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Query;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
+use function in_array;
 use function is_string;
 use function strlen;
 use function strpos;
@@ -145,13 +146,6 @@ class Compatibility
         return $serverType === 'MariaDB';
     }
 
-    public static function isMySql(): bool
-    {
-        $serverType = Util::getServerType();
-
-        return $serverType === 'MySQL';
-    }
-
     public static function isCompatibleRenameIndex(int $serverVersion): bool
     {
         if (self::isMySqlOrPerconaDb()) {
@@ -164,6 +158,16 @@ class Compatibility
         }
 
         return false;
+    }
+
+    public static function isIntegersLengthRestricted(DatabaseInterface $dbi): bool
+    {
+        // MySQL made restrictions on the integer types' length from versions >= 8.0.18
+        // See: https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html
+        $serverType = Util::getServerType();
+        $serverVersion = $dbi->getVersion();
+
+        return $serverType === 'MySQL' && $serverVersion >= 80018;
     }
 
     public static function supportsReferencesPrivilege(DatabaseInterface $dbi): bool
@@ -180,6 +184,17 @@ class Compatibility
         // requires at least one of the SELECT, INSERT, UPDATE, DELETE,
         // or REFERENCES privileges for the parent table.
         return $dbi->getVersion() >= 50622;
+    }
+
+    public static function isIntegersSupportLength(string $type, string $length, DatabaseInterface $dbi): bool
+    {
+        // MySQL Removed the Integer types' length from versions >= 8.0.18
+        // except TINYINT(1).
+        // See: https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html
+        $integerTypes = ['SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT'];
+        $typeLengthNotAllowed = in_array($type, $integerTypes) || $type === 'TINYINT' && $length !== '1';
+
+        return ! (self::isIntegersLengthRestricted($dbi) && $typeLengthNotAllowed);
     }
 
     /**

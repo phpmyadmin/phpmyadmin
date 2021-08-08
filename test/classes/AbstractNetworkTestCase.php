@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
@@ -41,7 +41,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
      */
     public function mockResponse(...$param): MockObject
     {
-        $mockResponse = $this->getMockBuilder(Response::class)
+        $mockResponse = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'header',
@@ -86,7 +86,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
             }
         }
 
-        $attrInstance = new ReflectionProperty(Response::class, 'instance');
+        $attrInstance = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $attrInstance->setAccessible(true);
         $attrInstance->setValue($mockResponse);
 
@@ -99,7 +99,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue(null);
         $response->setAccessible(false);

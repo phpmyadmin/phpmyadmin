@@ -411,7 +411,7 @@ $(function () {
     /**
      * Bind all "fast filter" events
      */
-    $(document).on('click', '#pma_navigation_tree li.fast_filter span', Navigation.FastFilter.events.clear);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter button.searchClauseClear', Navigation.FastFilter.events.clear);
     $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.focus);
     $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.blur);
     $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.FastFilter.events.keyup);

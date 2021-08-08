@@ -85,3 +85,12 @@ define('CACHE_DIR', ROOT_PATH . 'libraries' . DIRECTORY_SEPARATOR . 'cache' . DI
  * Suffix to add to the phpMyAdmin version
  */
 define('VERSION_SUFFIX', '');
+
+/**
+ * TCPDF workaround. Avoid referring to nonexistent files (causes warnings when open_basedir is used).
+ * This is defined to avoid the TCPDF code to search for a directory outside of open_basedir.
+ * This value if not used but is useful, no header logic is used for PDF exports.
+ *
+ * @see https://github.com/phpmyadmin/phpmyadmin/issues/16709
+ */
+define('K_PATH_IMAGES', ROOT_PATH);

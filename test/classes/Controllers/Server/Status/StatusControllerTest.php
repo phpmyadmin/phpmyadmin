@@ -10,7 +10,7 @@ use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\StatusController
@@ -22,7 +22,6 @@ class StatusControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -49,7 +48,7 @@ class StatusControllerTest extends AbstractTestCase
         $data->status['Aborted_connects'] = $abortedConnections;
         $data->status['Connections'] = $connections;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $template = new Template();
 
         $controller = new StatusController(
@@ -88,7 +87,7 @@ class StatusControllerTest extends AbstractTestCase
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5">';
+        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">';
         $this->assertStringContainsString(
             $trafficHtml,
             $html
@@ -116,11 +115,11 @@ class StatusControllerTest extends AbstractTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<th scope="col">ø per hour</th>',
+            '<th class="text-end" scope="col">ø per hour</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover col-12 col-md-6">',
+            '<table class="table table-light table-striped table-hover col-12 col-md-6 w-auto">',
             $html
         );
         $this->assertStringContainsString(

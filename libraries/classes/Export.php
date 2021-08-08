@@ -92,7 +92,10 @@ class Export
      */
     public function isGzHandlerEnabled(): bool
     {
-        return in_array('ob_gzhandler', ob_list_handlers());
+        /** @var string[] $handlers */
+        $handlers = ob_list_handlers();
+
+        return in_array('ob_gzhandler', $handlers);
     }
 
     /**
@@ -110,8 +113,8 @@ class Export
          * and gz compression was not asked via $cfg['OBGzip']
          * but transparent compression does not apply when saving to server
          */
-        $chromeAndGreaterThan43 = PMA_USR_BROWSER_AGENT == 'CHROME'
-            && PMA_USR_BROWSER_VER >= 43; // see bug #4942
+        $chromeAndGreaterThan43 = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') == 'CHROME'
+            && $GLOBALS['config']->get('PMA_USR_BROWSER_VER') >= 43; // see bug #4942
 
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
@@ -323,15 +326,9 @@ class Export
         // Grab basic dump extension and mime type
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extensionStartPos = mb_strlen($filename) - mb_strlen(
-            $exportPlugin->getProperties()->getExtension()
-        ) - 1;
-        $userExtension = mb_substr(
-            $filename,
-            $extensionStartPos,
-            mb_strlen($filename)
-        );
         $requiredExtension = '.' . $exportPlugin->getProperties()->getExtension();
+        $extensionLength = mb_strlen($requiredExtension);
+        $userExtension = mb_substr($filename, -$extensionLength);
         if (mb_strtolower($userExtension) != $requiredExtension) {
             $filename  .= $requiredExtension;
         }
@@ -436,7 +433,7 @@ class Export
             $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] !== 'saveitover';
         }
 
-        $saveFilename = Util::userDir($GLOBALS['cfg']['SaveDir'])
+        $saveFilename = Util::userDir((string) ($GLOBALS['cfg']['SaveDir'] ?? ''))
             . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (
@@ -681,7 +678,7 @@ class Export
         array $aliases,
         string $separateFiles
     ): void {
-        if (! empty($dbSelect)) {
+        if (! empty($dbSelect) && is_array($dbSelect)) {
             $tmpSelect = implode('|', $dbSelect);
             $tmpSelect = '|' . $tmpSelect . '|';
         }
@@ -833,7 +830,7 @@ class Export
                               WHERE table_schema = "' . $this->dbi->escapeString($db) . '"
                               AND table_name = "' . $this->dbi->escapeString($table) . '"';
 
-                        $size = $this->dbi->fetchValue($query);
+                        $size = (int) $this->dbi->fetchValue($query);
                         //Converting the size to MB
                         $size /= 1024 / 1024;
                         if ($size > $tableSize) {
@@ -1403,11 +1400,7 @@ class Export
 
         // get the specific plugin
         /** @var SchemaPlugin $exportPlugin */
-        $exportPlugin = Plugins::getPlugin(
-            'schema',
-            $exportType,
-            'libraries/classes/Plugins/Schema/'
-        );
+        $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
         if ($exportPlugin === null || ! is_object($exportPlugin)) {

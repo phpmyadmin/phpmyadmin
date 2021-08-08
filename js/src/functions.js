@@ -6,7 +6,7 @@
 /* global Indexes */ // js/indexes.js
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
 /* global sprintf */ // js/vendor/sprintf.js
-/* global zxcvbn */ // js/vendor/zxcvbn.js
+/* global zxcvbnts */ // js/vendor/zxcvbn-ts.js
 
 /**
  * general function, usually for data manipulation pages
@@ -484,6 +484,7 @@ Functions.hideShowExpression = function ($virtuality) {
 Functions.verifyColumnsProperties = function () {
     $('select.column_type').each(function () {
         Functions.showNoticeForEnum($(this));
+        Functions.showWarningForIntTypes();
     });
     $('select.default_type').each(function () {
         Functions.hideShowDefaultValue($(this));
@@ -518,7 +519,9 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
     if (username !== null) {
         customDict.push(username);
     }
-    var zxcvbnObject = zxcvbn(value, customDict);
+
+    zxcvbnts.core.ZxcvbnOptions.setOptions({ dictionary: { userInputs: customDict } });
+    var zxcvbnObject = zxcvbnts.core.zxcvbn(value);
     var strength = zxcvbnObject.score;
     strength = parseInt(strength);
     meterObject.val(strength);
@@ -1333,360 +1336,6 @@ Functions.updateQueryParameters = function () {
 };
 
 /**
-  * Refresh/resize the WYSIWYG scratchboard
-  */
-Functions.refreshLayout = function () {
-    var $elm = $('#pdflayout');
-    var orientation = $('#orientation_opt').val();
-    var paper = 'A4';
-    var $paperOpt = $('#paper_opt');
-    if ($paperOpt.length === 1) {
-        paper = $paperOpt.val();
-    }
-    var posa = 'y';
-    var posb = 'x';
-    if (orientation === 'P') {
-        posa = 'x';
-        posb = 'y';
-    }
-    $elm.css('width', Functions.pdfPaperSize(paper, posa) + 'px');
-    $elm.css('height', Functions.pdfPaperSize(paper, posb) + 'px');
-};
-
-/**
- * Initializes positions of elements.
- */
-Functions.tableDragInit = function () {
-    $('.pdflayout_table').each(function () {
-        var $this = $(this);
-        var number = $this.data('number');
-        var x = $('#c_table_' + number + '_x').val();
-        var y = $('#c_table_' + number + '_y').val();
-        $this.css('left', x + 'px');
-        $this.css('top', y + 'px');
-        /* Make elements draggable */
-        $this.draggable({
-            containment: 'parent',
-            drag: function (evt, ui) {
-                var number = $this.data('number');
-                $('#c_table_' + number + '_x').val(parseInt(ui.position.left, 10));
-                $('#c_table_' + number + '_y').val(parseInt(ui.position.top, 10));
-            }
-        });
-    });
-};
-
-/**
- * Resets drag and drop positions.
- */
-Functions.resetDrag = function () {
-    $('.pdflayout_table').each(function () {
-        var $this = $(this);
-        var x = $this.data('x');
-        var y = $this.data('y');
-        $this.css('left', x + 'px');
-        $this.css('top', y + 'px');
-    });
-};
-
-/**
- * User schema handlers.
- */
-$(function () {
-    /* Move in scratchboard on manual change */
-    $(document).on('change', '.position-change', function () {
-        var $this = $(this);
-        var $elm = $('#table_' + $this.data('number'));
-        $elm.css($this.data('axis'), $this.val() + 'px');
-    });
-    /* Refresh on paper size/orientation change */
-    $(document).on('change', '.paper-change', function () {
-        var $elm = $('#pdflayout');
-        if ($elm.css('visibility') === 'visible') {
-            Functions.refreshLayout();
-            Functions.tableDragInit();
-        }
-    });
-    /* Show/hide the WYSIWYG scratchboard */
-    $(document).on('click', '#toggle-dragdrop', function () {
-        var $elm = $('#pdflayout');
-        if ($elm.css('visibility') === 'hidden') {
-            Functions.refreshLayout();
-            Functions.tableDragInit();
-            $elm.css('visibility', 'visible');
-            $elm.css('display', 'block');
-            $('#showwysiwyg').val('1');
-        } else {
-            $elm.css('visibility', 'hidden');
-            $elm.css('display', 'none');
-            $('#showwysiwyg').val('0');
-        }
-    });
-    /* Reset scratchboard */
-    $(document).on('click', '#reset-dragdrop', function () {
-        Functions.resetDrag();
-    });
-});
-
-/**
- * Returns paper sizes for a given format
- *
- * @param {string} format
- * @param {'x'|'y'} axis
- * @return {number}
- */
-Functions.pdfPaperSize = function (format, axis) {
-    switch (format.toUpperCase()) {
-    case '4A0':
-        if (axis === 'x') {
-            return 4767.87;
-        }
-        return 6740.79;
-    case '2A0':
-        if (axis === 'x') {
-            return 3370.39;
-        }
-        return 4767.87;
-    case 'A0':
-        if (axis === 'x') {
-            return 2383.94;
-        }
-        return 3370.39;
-    case 'A1':
-        if (axis === 'x') {
-            return 1683.78;
-        }
-        return 2383.94;
-    case 'A2':
-        if (axis === 'x') {
-            return 1190.55;
-        }
-        return 1683.78;
-    case 'A3':
-        if (axis === 'x') {
-            return 841.89;
-        }
-        return 1190.55;
-    case 'A4':
-        if (axis === 'x') {
-            return 595.28;
-        }
-        return 841.89;
-    case 'A5':
-        if (axis === 'x') {
-            return 419.53;
-        }
-        return 595.28;
-    case 'A6':
-        if (axis === 'x') {
-            return 297.64;
-        }
-        return 419.53;
-    case 'A7':
-        if (axis === 'x') {
-            return 209.76;
-        }
-        return 297.64;
-    case 'A8':
-        if (axis === 'x') {
-            return 147.40;
-        }
-        return 209.76;
-    case 'A9':
-        if (axis === 'x') {
-            return 104.88;
-        }
-        return 147.40;
-    case 'A10':
-        if (axis === 'x') {
-            return 73.70;
-        }
-        return 104.88;
-    case 'B0':
-        if (axis === 'x') {
-            return 2834.65;
-        }
-        return 4008.19;
-    case 'B1':
-        if (axis === 'x') {
-            return 2004.09;
-        }
-        return 2834.65;
-    case 'B2':
-        if (axis === 'x') {
-            return 1417.32;
-        }
-        return 2004.09;
-    case 'B3':
-        if (axis === 'x') {
-            return 1000.63;
-        }
-        return 1417.32;
-    case 'B4':
-        if (axis === 'x') {
-            return 708.66;
-        }
-        return 1000.63;
-    case 'B5':
-        if (axis === 'x') {
-            return 498.90;
-        }
-        return 708.66;
-    case 'B6':
-        if (axis === 'x') {
-            return 354.33;
-        }
-        return 498.90;
-    case 'B7':
-        if (axis === 'x') {
-            return 249.45;
-        }
-        return 354.33;
-    case 'B8':
-        if (axis === 'x') {
-            return 175.75;
-        }
-        return 249.45;
-    case 'B9':
-        if (axis === 'x') {
-            return 124.72;
-        }
-        return 175.75;
-    case 'B10':
-        if (axis === 'x') {
-            return 87.87;
-        }
-        return 124.72;
-    case 'C0':
-        if (axis === 'x') {
-            return 2599.37;
-        }
-        return 3676.54;
-    case 'C1':
-        if (axis === 'x') {
-            return 1836.85;
-        }
-        return 2599.37;
-    case 'C2':
-        if (axis === 'x') {
-            return 1298.27;
-        }
-        return 1836.85;
-    case 'C3':
-        if (axis === 'x') {
-            return 918.43;
-        }
-        return 1298.27;
-    case 'C4':
-        if (axis === 'x') {
-            return 649.13;
-        }
-        return 918.43;
-    case 'C5':
-        if (axis === 'x') {
-            return 459.21;
-        }
-        return 649.13;
-    case 'C6':
-        if (axis === 'x') {
-            return 323.15;
-        }
-        return 459.21;
-    case 'C7':
-        if (axis === 'x') {
-            return 229.61;
-        }
-        return 323.15;
-    case 'C8':
-        if (axis === 'x') {
-            return 161.57;
-        }
-        return 229.61;
-    case 'C9':
-        if (axis === 'x') {
-            return 113.39;
-        }
-        return 161.57;
-    case 'C10':
-        if (axis === 'x') {
-            return 79.37;
-        }
-        return 113.39;
-    case 'RA0':
-        if (axis === 'x') {
-            return 2437.80;
-        }
-        return 3458.27;
-    case 'RA1':
-        if (axis === 'x') {
-            return 1729.13;
-        }
-        return 2437.80;
-    case 'RA2':
-        if (axis === 'x') {
-            return 1218.90;
-        }
-        return 1729.13;
-    case 'RA3':
-        if (axis === 'x') {
-            return 864.57;
-        }
-        return 1218.90;
-    case 'RA4':
-        if (axis === 'x') {
-            return 609.45;
-        }
-        return 864.57;
-    case 'SRA0':
-        if (axis === 'x') {
-            return 2551.18;
-        }
-        return 3628.35;
-    case 'SRA1':
-        if (axis === 'x') {
-            return 1814.17;
-        }
-        return 2551.18;
-    case 'SRA2':
-        if (axis === 'x') {
-            return 1275.59;
-        }
-        return 1814.17;
-    case 'SRA3':
-        if (axis === 'x') {
-            return 907.09;
-        }
-        return 1275.59;
-    case 'SRA4':
-        if (axis === 'x') {
-            return 637.80;
-        }
-        return 907.09;
-    case 'LETTER':
-        if (axis === 'x') {
-            return 612.00;
-        }
-        return 792.00;
-    case 'LEGAL':
-        if (axis === 'x') {
-            return 612.00;
-        }
-        return 1008.00;
-    case 'EXECUTIVE':
-        if (axis === 'x') {
-            return 521.86;
-        }
-        return 756.00;
-    case 'FOLIO':
-        if (axis === 'x') {
-            return 612.00;
-        }
-        return 936.00;
-    }
-    return 0;
-};
-
-/**
  * Get checkbox for foreign key checks
  *
  * @return {string}
@@ -1993,7 +1642,8 @@ Functions.documentationAdd = function ($elm, params) {
         params[0]
     );
     if (params.length > 1) {
-        url += '#' + params[1];
+        // The # needs to be escaped to be part of the destination URL
+        url += encodeURIComponent('#') + params[1];
     }
     var content = $elm.text();
     $elm.text('');
@@ -2435,7 +2085,7 @@ $(function () {
      *
      * @return {boolean}
      */
-    function copyToClipboard (text) {
+    Functions.copyToClipboard = function (text) {
         var $temp = $('<input>');
         $temp.css({ 'position': 'fixed', 'width': '2em', 'border': 0, 'top': 0, 'left': 0, 'padding': 0, 'background': 'transparent' });
         $('body').append($temp);
@@ -2448,11 +2098,11 @@ $(function () {
             $temp.remove();
             return false;
         }
-    }
+    };
 
     $(document).on('click', 'a.copyQueryBtn', function (event) {
         event.preventDefault();
-        var res = copyToClipboard($(this).attr('data-text'));
+        var res = Functions.copyToClipboard($(this).attr('data-text'));
         if (res) {
             $(this).after('<span id=\'copyStatus\'> (' + Messages.strCopyQueryButtonSuccess + ')</span>');
         } else {
@@ -2477,6 +2127,25 @@ Functions.showNoticeForEnum = function (selectElement) {
         $('p#enum_notice_' + enumNoticeId).show();
     } else {
         $('p#enum_notice_' + enumNoticeId).hide();
+    }
+};
+
+/**
+ * Hides/shows a warning message when LENGTH is used with inappropriate integer type
+ */
+Functions.showWarningForIntTypes = function () {
+    if ($('div#length_not_allowed').length) {
+        var lengthRestrictions = $('select.column_type option').map(function () {
+            return $(this).filter(':selected').attr('data-length-restricted');
+        }).get();
+
+        var restricationFound = lengthRestrictions.some(restriction => Number(restriction) === 1);
+
+        if (restricationFound) {
+            $('div#length_not_allowed').show();
+        } else {
+            $('div#length_not_allowed').hide();
+        }
     }
 };
 
@@ -3248,6 +2917,7 @@ AJAX.registerOnload('functions.js', function () {
     // needs on() to work also in the Create Table dialog
     $(document).on('change', 'select.column_type', function () {
         Functions.showNoticeForEnum($(this));
+        Functions.showWarningForIntTypes();
     });
     $(document).on('change', 'select.default_type', function () {
         Functions.hideShowDefaultValue($(this));

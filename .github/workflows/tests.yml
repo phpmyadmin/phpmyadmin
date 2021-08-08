@@ -13,17 +13,18 @@ jobs:
         name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         runs-on: ubuntu-latest
+        continue-on-error: ${{ matrix.experimental }}
         strategy:
           fail-fast: false
           matrix:
             include:
-              - { php-version: '7', arch: 'amd64', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 'arm64v8', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 'arm32v7', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'arm32v6', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'i386', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
-              - { php-version: '7', arch: 'ppc64le', exclude-phpunit-groups: 'selenium,extension-iconv' }
-              - { php-version: '7', arch: 's390x', exclude-phpunit-groups: 'selenium,extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+              - { php-version: '7', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+              - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
         steps:
             - uses: actions/checkout@v2
             - name: Write script
@@ -44,14 +45,14 @@ jobs:
                   apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
                   composer update && \
                   ./scripts/generate-mo && \
-                  php -d memory_limit=512M ./vendor/bin/phpunit --exclude-group=%s" \
+                  php -d memory_limit=512M ./vendor/bin/phpunit --testsuite unit --exclude-group=%s" \
                   "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
             - name: Setup multi arch support
               run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
             - name: Print arch
-              run: docker run --rm ${{ matrix.arch }}/alpine:3.13 uname -a
+              run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
             - name: Run tests on php ${{ matrix.php-version }}
-              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.13 sh /app/do-tests.sh
+              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:
@@ -67,8 +68,13 @@ jobs:
                 php-version: ["7.2", "7.3", "7.4", "8.0"]
                 experimental: [false]
                 os: [ubuntu-latest]
+                phpunit-options: ['--testsuite unit']
                 include:
-                    - { php-version: '8.1', composer-options: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
+                  - php-version: '8.1'
+                    experimental: true
+                    os: ubuntu-latest
+                    phpunit-options: '--configuration test/phpunit-php-nightly.xml'
+                    composer-options: '--ignore-platform-req=php'
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
@@ -98,7 +104,7 @@ jobs:
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
+              run: composer run phpunit -- ${{ matrix.phpunit-options }}
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:
@@ -156,7 +162,7 @@ jobs:
             - name: Install dependencies
               run: composer install
             - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
+              run: composer run phpunit -- --testsuite unit
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:
@@ -175,46 +181,6 @@ jobs:
               with:
                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
                 coverage-reports: build/logs/clover.xml
-
-    test-php-random:
-        name: Test (random) on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        strategy:
-            matrix:
-                php-version: ["7.4"]
-                os: [ubuntu-latest]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Generate mo files
-              run: ./scripts/generate-mo --quiet
-            - name: Use php ${{ matrix.php-version }}
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
-
-            - name: Get Composer cache directory
-              id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-                restore-keys: |
-                  composer-${{ runner.os }}-${{ matrix.php-version }}-
-
-            - name: Install dependencies
-              run: composer install
-            - name: Run random php tests
-              # This one is allowed to fail, but we hope it will not
-              continue-on-error: true
-              run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
 
     test-js:
         name: Test javascript files

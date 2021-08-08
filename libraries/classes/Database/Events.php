@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -17,9 +17,9 @@ use function explode;
 use function htmlspecialchars;
 use function in_array;
 use function intval;
-use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function str_contains;
 use function strtoupper;
 use function trim;
 
@@ -62,13 +62,13 @@ class Events
     /** @var Template */
     private $template;
 
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface instance.
      * @param Template          $template Template instance.
-     * @param Response          $response Response instance.
+     * @param ResponseRenderer  $response Response instance.
      */
     public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
@@ -404,7 +404,7 @@ class Events
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
             if (
-                mb_strpos($_POST['item_definer'], '@') !== false
+                str_contains($_POST['item_definer'], '@')
             ) {
                 $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
@@ -495,7 +495,7 @@ class Events
 
     public function getEventSchedulerStatus(): bool
     {
-        $state = $this->dbi->fetchValue(
+        $state = (string) $this->dbi->fetchValue(
             'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
             0,
             1

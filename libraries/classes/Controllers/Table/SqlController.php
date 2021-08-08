@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -23,9 +23,9 @@ final class SqlController extends AbstractController
     private $sqlQueryForm;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name.
+     * @param string           $table    Table name.
      */
     public function __construct($response, Template $template, $db, $table, SqlQueryForm $sqlQueryForm)
     {

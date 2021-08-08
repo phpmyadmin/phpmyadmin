@@ -26,8 +26,8 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function file_put_contents;
-use function mb_strlen;
 use function mb_substr;
+use function method_exists;
 use function pathinfo;
 use function strcmp;
 use function strlen;
@@ -67,7 +67,6 @@ class ImportShp extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
-        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -161,12 +160,7 @@ class ImportShp extends ImportPlugin
                 // to load extra data.
                 // Replace the .shp with .*,
                 // so the bsShapeFiles library correctly locates .dbf file.
-                $file_name = mb_substr(
-                    $import_file,
-                    0,
-                    mb_strlen($import_file) - 4
-                ) . '.*';
-                $shp->fileName = $file_name;
+                $shp->fileName = mb_substr($import_file, 0, -4) . '.*';
             }
         }
 
@@ -238,7 +232,7 @@ class ImportShp extends ImportPlugin
         if ($num_rows != 0) {
             foreach ($shp->records as $record) {
                 $tempRow = [];
-                if ($gis_obj == null) {
+                if ($gis_obj == null || ! method_exists($gis_obj, 'getShape')) {
                     $tempRow[] = null;
                 } else {
                     $tempRow[] = "GeomFromText('"

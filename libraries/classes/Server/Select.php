@@ -14,7 +14,7 @@ use PhpMyAdmin\Util;
 use function count;
 use function implode;
 use function is_array;
-use function strpos;
+use function str_contains;
 
 /**
  * Displays the MySQL servers choice form
@@ -94,7 +94,7 @@ class Select
                     );
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
-                        strpos($scriptName, '?') === false ? '?' : '&'
+                        ! str_contains($scriptName, '?') ? '?' : '&'
                     );
                     $servers['list'][] = [
                         'href' => $href,

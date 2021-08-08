@@ -9,7 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -28,7 +28,7 @@ class QueryByExampleController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name
      * @param DatabaseInterface $dbi
      */
@@ -66,14 +66,14 @@ class QueryByExampleController extends AbstractController
             if (isset($_POST['action'])) {
                 $savedSearch->setSearchName($_POST['searchName']);
                 if ($_POST['action'] === 'create') {
-                    $saveResult = $savedSearch->setId(null)
+                    $savedSearch->setId(null)
                         ->setCriterias($_POST)
                         ->save();
                 } elseif ($_POST['action'] === 'update') {
-                    $saveResult = $savedSearch->setCriterias($_POST)
+                    $savedSearch->setCriterias($_POST)
                         ->save();
                 } elseif ($_POST['action'] === 'delete') {
-                    $deleteResult = $savedSearch->delete();
+                    $savedSearch->delete();
                     //After deletion, reset search.
                     $savedSearch = new SavedSearches($GLOBALS, $this->relation);
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -87,7 +87,7 @@ class QueryByExampleController extends AbstractController
                             ->setDbname($db);
                         $_POST = [];
                     } else {
-                        $loadResult = $savedSearch->load();
+                        $savedSearch->load();
                     }
                 }
                 //Else, it's an "update query"

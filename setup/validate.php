@@ -14,12 +14,12 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-/**
- * Core libraries.
- */
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
+
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
-$validators = [];
 
 Core::headerJSON();
 

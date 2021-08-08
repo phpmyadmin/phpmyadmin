@@ -164,11 +164,11 @@ class HttpRequest
             return null;
         }
 
-        $curlStatus = true;
+        $curlStatus = 1;
         if (strlen($this->proxyUrl) > 0) {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_PROXY, $this->proxyUrl);
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_PROXY, $this->proxyUrl);
             if (strlen($this->proxyUser) > 0) {
-                $curlStatus &= curl_setopt(
+                $curlStatus &= (int) curl_setopt(
                     $curlHandle,
                     CURLOPT_PROXYUSERPWD,
                     $this->proxyUser . ':' . $this->proxyPass
@@ -176,22 +176,22 @@ class HttpRequest
             }
         }
 
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_USERAGENT, 'phpMyAdmin');
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
         if ($method !== 'GET') {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
         }
 
         if ($header) {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
         }
 
         if ($method === 'POST') {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
         }
 
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, '2');
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, '1');
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, '2');
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, '1');
 
         /**
          * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
@@ -202,16 +202,16 @@ class HttpRequest
         $certsDir = ROOT_PATH . 'libraries/certs/';
         /* See code below for logic */
         if ($ssl == CURLOPT_CAPATH) {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CAPATH, $certsDir);
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAPATH, $certsDir);
         } elseif ($ssl == CURLOPT_CAINFO) {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CAINFO, $certsDir . 'cacert.pem');
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAINFO, $certsDir . 'cacert.pem');
         }
 
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, 0);
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_TIMEOUT, 10);
-        $curlStatus &= curl_setopt($curlHandle, CURLOPT_CONNECTTIMEOUT, 10);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, 0);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_TIMEOUT, 10);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CONNECTTIMEOUT, 10);
 
         if (! $curlStatus) {
             return null;

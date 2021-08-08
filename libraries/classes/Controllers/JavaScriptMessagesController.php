@@ -44,6 +44,7 @@ final class JavaScriptMessagesController
             ),
             'strDropTableStrongWarning' => __('You are about to DESTROY a complete table!'),
             'strTruncateTableStrongWarning' => __('You are about to TRUNCATE a complete table!'),
+            'strDeleteTableStrongWarning' => __('You are about to DELETE all the rows of the table!'),
             'strDeleteTrackingData' => __('Delete tracking data for this table?'),
             'strDeleteTrackingDataMultiple' => __('Delete tracking data for these tables?'),
             'strDeleteTrackingVersion' => __('Delete tracking data for this version?'),
@@ -606,8 +607,6 @@ final class JavaScriptMessagesController
                     : ''),
 
             'strGoToLink' => __('Go to link:'),
-            'strColNameCopyTitle' => __('Copy column name.'),
-            'strColNameCopyText' => __('Right-click the column name to copy it to your clipboard.'),
 
             /* password generation */
             'strGeneratePassword' => __('Generate password'),
@@ -676,6 +675,8 @@ final class JavaScriptMessagesController
                 . $ajaxClockSmallGifPath
                 . '" width="16" height="16" alt="ajax clock">'
                 . '</div>',
+            'strCopyColumnSuccess' => __('Column name successfully copied to clipboard!'),
+            'strCopyColumnFailure' => __('Column name copying to clipboard failed!'),
             'strCopyQueryButtonSuccess' => __('Successfully copied!'),
             'strCopyQueryButtonFailure' => __('Copying failed!'),
 

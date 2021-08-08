@@ -29,7 +29,6 @@ use function count;
 use function ctype_digit;
 use function date;
 use function decbin;
-use function defined;
 use function explode;
 use function extension_loaded;
 use function fclose;
@@ -70,12 +69,12 @@ use function rtrim;
 use function set_time_limit;
 use function sort;
 use function sprintf;
+use function str_contains;
 use function str_pad;
 use function str_replace;
 use function strcasecmp;
 use function strftime;
 use function strlen;
-use function strpos;
 use function strrev;
 use function strtolower;
 use function strtr;
@@ -88,7 +87,6 @@ use const ENT_COMPAT;
 use const ENT_QUOTES;
 use const PHP_INT_SIZE;
 use const PHP_MAJOR_VERSION;
-use const PREG_OFFSET_CAPTURE;
 use const STR_PAD_LEFT;
 
 /**
@@ -673,7 +671,7 @@ class Util
             $thousandsSep
         );
         // If we don't want any zeros, remove them now
-        if ($noTrailingZero && strpos($formattedValue, $decimalSep) !== false) {
+        if ($noTrailingZero && str_contains($formattedValue, $decimalSep)) {
             $formattedValue = preg_replace('/' . preg_quote($decimalSep, '/') . '?0+$/', '', $formattedValue);
         }
 
@@ -848,10 +846,8 @@ class Util
 
         $urlParts = parse_url($url);
 
-        if (is_array($urlParts) && isset($urlParts['query'])) {
-            $array = explode($separator, $urlParts['query']);
-
-            return is_array($array) ? $array : [];
+        if (is_array($urlParts) && isset($urlParts['query']) && strlen($separator) > 0) {
+            return explode($separator, $urlParts['query']);
         }
 
         return [];
@@ -1352,7 +1348,7 @@ class Util
      *
      * @return string per user directory
      */
-    public static function userDir($dir): string
+    public static function userDir(string $dir): string
     {
         // add trailing slash
         if (mb_substr($dir, -1) !== '/') {
@@ -1487,7 +1483,7 @@ class Util
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
             if (
-                strpos($printType, 'binary') !== false
+                str_contains($printType, 'binary')
                 && ! preg_match('@binary[\(]@', $printType)
             ) {
                 $printType = str_replace('binary', '', $printType);
@@ -1794,12 +1790,12 @@ class Util
         }
 
         /* Backward compatibility in 3.5.x */
-        if (mb_strpos($string, '@FIELDS@') !== false) {
+        if (str_contains($string, '@FIELDS@')) {
             $string = strtr($string, ['@FIELDS@' => '@COLUMNS@']);
         }
 
         /* Fetch columns list if required */
-        if (mb_strpos($string, '@COLUMNS@') !== false) {
+        if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $dbi->getColumns(
                 $GLOBALS['db'],
                 $GLOBALS['table']
@@ -2061,38 +2057,6 @@ class Util
     }
 
     /**
-     * Get regular expression which occur first inside the given sql query.
-     *
-     * @param array  $regexArray Comparing regular expressions.
-     * @param string $query      SQL query to be checked.
-     *
-     * @return string Matching regular expression.
-     */
-    public static function getFirstOccurringRegularExpression(array $regexArray, $query): string
-    {
-        $minimumFirstOccurrenceIndex = null;
-        $regex = null;
-
-        foreach ($regexArray as $testRegex) {
-            if (! preg_match($testRegex, $query, $matches, PREG_OFFSET_CAPTURE)) {
-                continue;
-            }
-
-            if (
-                $minimumFirstOccurrenceIndex !== null
-                && ($matches[0][1] >= $minimumFirstOccurrenceIndex)
-            ) {
-                continue;
-            }
-
-            $regex = $testRegex;
-            $minimumFirstOccurrenceIndex = $matches[0][1];
-        }
-
-        return $regex;
-    }
-
-    /**
      * Return the list of tabs for the menu with corresponding names
      *
      * @param string $level 'server', 'db' or 'table' level
@@ -2177,7 +2141,7 @@ class Util
             return $value;
         }
 
-        if (mb_strpos($value, '.') === false) {
+        if (! str_contains($value, '.')) {
             return $value . '.000000';
         }
 
@@ -2650,8 +2614,8 @@ class Util
             // Get random byte and strip highest bit
             // to get ASCII only range
             $byte = ord((string) $randomFunction(1)) & 0x7f;
-            // We want only ASCII chars
-            if ($byte <= 32) {
+            // We want only ASCII chars and no DEL character (127)
+            if ($byte <= 32 || $byte === 127) {
                 continue;
             }
 
@@ -2670,10 +2634,6 @@ class Util
      */
     public static function date($format)
     {
-        if (defined('TESTSUITE')) {
-            return '0000-00-00 00:00:00';
-        }
-
         return date($format);
     }
 
@@ -2833,7 +2793,7 @@ class Util
      */
     public static function getProtoFromForwardedHeader(string $headerContents): string
     {
-        if (strpos($headerContents, '=') !== false) {// does not contain any equal sign
+        if (str_contains($headerContents, '=')) {// does not contain any equal sign
             $hops = explode(',', $headerContents);
             $parts = explode(';', $hops[0]);
             foreach ($parts as $part) {

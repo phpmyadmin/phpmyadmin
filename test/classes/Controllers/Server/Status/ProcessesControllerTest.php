@@ -8,7 +8,7 @@ use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 
 use function __;
@@ -27,7 +27,6 @@ class ProcessesControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -42,7 +41,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new ProcessesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
@@ -153,7 +152,7 @@ class ProcessesControllerTest extends AbstractTestCase
         ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new ProcessesController($response, new Template(), $this->data, $GLOBALS['dbi']);

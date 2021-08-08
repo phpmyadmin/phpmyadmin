@@ -62,7 +62,7 @@ class ParseAnalyze
 
             // There is no point checking if a reload is required if we already decided
             // to reload. Also, no reload is required for AJAX requests.
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if (empty($analyzedSqlResults['reload']) && ! $response->isAjax()) {
                 // NOTE: Database names are case-insensitive.
                 $analyzedSqlResults['reload'] = strcasecmp($db, $previousDb) != 0;

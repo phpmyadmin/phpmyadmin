@@ -5,7 +5,7 @@
  *
  */
 
-/* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
+/* global addZoomPanControllers, storeGisSvgRef, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
 // eslint-disable-next-line no-unused-vars
@@ -72,12 +72,11 @@ function addDataPoint (pointNumber, prefix) {
  * Initialize the visualization in the GIS data editor.
  */
 function initGISEditorVisualization () {
+    storeGisSvgRef();
     // Loads either SVG or OSM visualization based on the choice
     selectVisualization();
     // Adds necessary styles to the div that contains the openStreetMap
     styleOSM();
-    // Loads the SVG element and make a reference to it
-    loadSVG();
     // Adds controllers for zooming and panning
     addZoomPanControllers();
     zoomAndPan();

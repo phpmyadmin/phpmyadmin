@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 
@@ -18,8 +18,8 @@ class AdvisorController extends AbstractController
     private $advisor;
 
     /**
-     * @param Response $response
-     * @param Data     $data
+     * @param ResponseRenderer $response
+     * @param Data             $data
      */
     public function __construct($response, Template $template, $data, Advisor $advisor)
     {

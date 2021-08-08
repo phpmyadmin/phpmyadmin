@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * InsertTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class InsertTest extends TestBase
 {

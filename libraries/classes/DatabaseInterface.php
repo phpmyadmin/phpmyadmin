@@ -44,10 +44,10 @@ use function microtime;
 use function openlog;
 use function reset;
 use function sprintf;
+use function str_contains;
+use function str_starts_with;
 use function stripos;
 use function strlen;
-use function strncmp;
-use function strpos;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -400,6 +400,28 @@ class DatabaseInterface implements DbalInterface
                 $link
             );
 
+            // here, we check for Mroonga engine and compute the good data_length and index_length
+            // in the StructureController only we need to sum the two values as the other engines
+            foreach ($tables as $one_database_name => $one_database_tables) {
+                foreach ($one_database_tables as $one_table_name => $one_table_data) {
+                    if ($one_table_data['Engine'] !== 'Mroonga') {
+                        continue;
+                    }
+
+                    if (! StorageEngine::hasMroongaEngine()) {
+                        continue;
+                    }
+
+                    [
+                        $tables[$one_database_name][$one_table_name]['Data_length'],
+                        $tables[$one_database_name][$one_table_name]['Index_length'],
+                    ] = StorageEngine::getMroongaLengths(
+                        $one_database_name,
+                        $one_table_name
+                    );
+                }
+            }
+
             if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
                 // here, the array's first key is by schema name
                 foreach ($tables as $one_database_name => $one_database_tables) {
@@ -489,6 +511,26 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 $each_tables = $this->fetchResult($sql, 'Name', null, $link);
+
+                // here, we check for Mroonga engine and compute the good data_length and index_length
+                // in the StructureController only we need to sum the two values as the other engines
+                foreach ($each_tables as $table_name => $table_data) {
+                    if ($table_data['Engine'] !== 'Mroonga') {
+                        continue;
+                    }
+
+                    if (! StorageEngine::hasMroongaEngine()) {
+                        continue;
+                    }
+
+                    [
+                        $each_tables[$table_name]['Data_length'],
+                        $each_tables[$table_name]['Index_length'],
+                    ] = StorageEngine::getMroongaLengths(
+                        $each_database,
+                        $table_name
+                    );
+                }
 
                 // Sort naturally if the config allows it and we're sorting
                 // the Name column.
@@ -1119,7 +1161,7 @@ class DatabaseInterface implements DbalInterface
     {
         $charset = $GLOBALS['charset_connection'];
         /* Automatically adjust collation if not supported by server */
-        if ($charset === 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+        if ($charset === 'utf8' && str_starts_with($collation, 'utf8mb4_')) {
             $collation = 'utf8_' . substr($collation, 8);
         }
 
@@ -1209,8 +1251,7 @@ class DatabaseInterface implements DbalInterface
      *                               starting at 0, with 0 being default
      * @param int        $link       link type
      *
-     * @return mixed value of first field in first row from result
-     *               or false if not found
+     * @return mixed|false value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
@@ -1798,7 +1839,7 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (strpos($grant, 'WITH GRANT OPTION') !== false) {
+                if (str_contains($grant, 'WITH GRANT OPTION')) {
                     $hasGrantPrivilege = true;
                     break;
                 }
@@ -1842,8 +1883,8 @@ class DatabaseInterface implements DbalInterface
 
             foreach ($grants as $grant) {
                 if (
-                    strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
-                    || strpos($grant, 'CREATE USER') !== false
+                    str_contains($grant, 'ALL PRIVILEGES ON *.*')
+                    || str_contains($grant, 'CREATE USER')
                 ) {
                     $hasCreatePrivilege = true;
                     break;
@@ -2169,6 +2210,7 @@ class DatabaseInterface implements DbalInterface
      * @param object|bool $result result set identifier
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
     public function numRows($result)
     {
@@ -2181,7 +2223,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return int|bool
+     * @return int|false
      */
     public function insertId($link = self::CONNECT_USER)
     {
@@ -2202,14 +2244,15 @@ class DatabaseInterface implements DbalInterface
      * @param int  $link           link type
      * @param bool $get_from_cache whether to retrieve from cache
      *
-     * @return int|bool
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows(
         $link = self::CONNECT_USER,
         bool $get_from_cache = true
     ) {
         if (! isset($this->links[$link])) {
-            return false;
+            return -1;
         }
 
         if ($get_from_cache) {
@@ -2314,11 +2357,11 @@ class DatabaseInterface implements DbalInterface
     public function isAmazonRds(): bool
     {
         if (SessionCache::has('is_amazon_rds')) {
-            return SessionCache::get('is_amazon_rds');
+            return (bool) SessionCache::get('is_amazon_rds');
         }
 
         $sql = 'SELECT @@basedir';
-        $result = $this->fetchValue($sql);
+        $result = (string) $this->fetchValue($sql);
         $rds = (substr($result, 0, 10) === '/rdsdbbin/');
         SessionCache::set('is_amazon_rds', $rds);
 
@@ -2379,11 +2422,11 @@ class DatabaseInterface implements DbalInterface
                 . ' WHERE SCHEMA_NAME = \'' . $this->escapeString($db)
                 . '\' LIMIT 1';
 
-            return $this->fetchValue($sql);
+            return (string) $this->fetchValue($sql);
         }
 
         $this->selectDb($db);
-        $return = $this->fetchValue('SELECT @@collation_database');
+        $return = (string) $this->fetchValue('SELECT @@collation_database');
         if ($db !== $GLOBALS['db']) {
             $this->selectDb($GLOBALS['db']);
         }
@@ -2396,7 +2439,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getServerCollation(): string
     {
-        return $this->fetchValue('SELECT @@collation_server');
+        return (string) $this->fetchValue('SELECT @@collation_server');
     }
 
     /**

@@ -34,10 +34,6 @@ class TrackingTest extends AbstractTestCase
         parent::setUp();
         parent::setTheme();
 
-        global $config;
-
-        $config->enableBc();
-
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
@@ -309,11 +305,11 @@ class TrackingTest extends AbstractTestCase
             'dmlog' => ['dmlog'],
         ];
         $url_params = [];
-        $selection_schema = [];
-        $selection_data = [];
-        $selection_both = [];
-        $filter_ts_to = [];
-        $filter_ts_from = [];
+        $selection_schema = false;
+        $selection_data = false;
+        $selection_both = false;
+        $filter_ts_to = 0;
+        $filter_ts_from = 0;
         $filter_users = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(

@@ -19,11 +19,10 @@ abstract class TransformationsPlugin implements TransformationsInterface
      * Does the actual work of each specific transformations plugin.
      *
      * @param array $options transformation options
-     *
-     * @return void
      */
-    public function applyTransformationNoWrap(array $options = [])
+    public function applyTransformationNoWrap(array $options = []): bool
     {
+        return false;
     }
 
     /**

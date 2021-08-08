@@ -16,7 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -34,6 +34,7 @@ use function ini_set;
 use function intval;
 use function is_array;
 use function is_link;
+use function is_numeric;
 use function is_uploaded_file;
 use function mb_strlen;
 use function mb_strtolower;
@@ -58,7 +59,7 @@ final class ImportController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param DatabaseInterface $dbi
      */
     public function __construct($response, Template $template, Import $import, Sql $sql, $dbi)
@@ -176,17 +177,22 @@ final class ImportController extends AbstractController
             ) {
                 $parameters = $_POST['parameters'];
                 foreach ($parameters as $parameter => $replacement) {
+                    $replacementValue = $this->dbi->escapeString($replacement);
+                    if (! is_numeric($replacementValue)) {
+                        $replacementValue = '\'' . $replacementValue . '\'';
+                    }
+
                     $quoted = preg_quote($parameter, '/');
                     // making sure that :param does not apply values to :param1
                     $sql_query = preg_replace(
                         '/' . $quoted . '([^a-zA-Z0-9_])/',
-                        $this->dbi->escapeString($replacement) . '${1}',
+                        $replacementValue . '${1}',
                         $sql_query
                     );
                     // for parameters the appear at the end of the string
                     $sql_query = preg_replace(
                         '/' . $quoted . '$/',
-                        $this->dbi->escapeString($replacement),
+                        $replacementValue,
                         $sql_query
                     );
                 }
@@ -524,7 +530,7 @@ final class ImportController extends AbstractController
             // sanitize $local_import_file as it comes from a POST
             $local_import_file = Core::securePath($local_import_file);
 
-            $import_file = Util::userDir($cfg['UploadDir'])
+            $import_file = Util::userDir((string) $cfg['UploadDir'])
                 . $local_import_file;
 
             /*
@@ -632,12 +638,7 @@ final class ImportController extends AbstractController
             /**
              * @var ImportPlugin $import_plugin
              */
-            $import_plugin = Plugins::getPlugin(
-                'import',
-                $format,
-                'libraries/classes/Plugins/Import/',
-                $import_type
-            );
+            $import_plugin = Plugins::getPlugin('import', $format, $import_type);
             if ($import_plugin == null) {
                 $message = Message::error(
                     __('Could not load import plugins, please check your installation!')
@@ -897,6 +898,7 @@ final class ImportController extends AbstractController
             $this->response->addJSON('message', Message::error($msg));
         } else {
             $active_page = $goto;
+            /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . $goto;
         }
 

@@ -274,6 +274,27 @@ DesignerMove.resizeOsnTab = function () {
 };
 
 /**
+ * Draw a colored line
+ *
+ * @param {number} x1
+ * @param {number} x2
+ * @param {number} y1
+ * @param {number} y2
+ * @param {HTMLElement} osnTab
+ * @param {string} colorTarget
+ * @return {void}
+ */
+DesignerMove.drawLine0 = function (x1, x2, y1, y2, osnTab, colorTarget) {
+    DesignerMove.line0(
+        x1 + directionEffect * osnTab.offsetLeft,
+        y1 - osnTab.offsetTop,
+        x2 + directionEffect * osnTab.offsetLeft,
+        y2 - osnTab.offsetTop,
+        DesignerMove.getColorByTarget(colorTarget)
+    );
+};
+
+/**
  * refreshes display, must be called after state changes
  */
 DesignerMove.reload = function () {
@@ -287,6 +308,7 @@ DesignerMove.reload = function () {
     var key2;
     var key3;
     DesignerMove.clear();
+    var osnTab = document.getElementById('osn_tab');
     for (K in contr) {
         for (key in contr[K]) {
             // contr name
@@ -372,14 +394,8 @@ DesignerMove.reload = function () {
                         rowOffsetTop +
                         heightField;
 
-                    var osnTab = document.getElementById('osn_tab');
-
-                    DesignerMove.line0(
-                        x1 + directionEffect * osnTab.offsetLeft,
-                        y1 - osnTab.offsetTop,
-                        x2 + directionEffect * osnTab.offsetLeft,
-                        y2 - osnTab.offsetTop,
-                        DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
+                    DesignerMove.drawLine0(
+                        x1, x2, y1, y2, osnTab, contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]
                     );
                 }
             }
@@ -1295,6 +1311,7 @@ DesignerMove.newRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            Functions.ajaxShowMessage(data.message);
             DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()
@@ -1421,6 +1438,7 @@ DesignerMove.canvasClick = function (id, event) {
     localX -= $('#osn_tab').offset().left;
     localY -= $('#osn_tab').offset().top;
     DesignerMove.clear();
+    var osnTab = document.getElementById('osn_tab');
     for (K in contr) {
         for (key in contr[K]) {
             for (key2 in contr[K][key]) {
@@ -1472,14 +1490,10 @@ DesignerMove.canvasClick = function (id, event) {
                     var y2 = document.getElementById(contr[K][key][key2][key3][0]).offsetTop +
                                      document.getElementById(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]).offsetTop + heightField;
 
-                    var osnTab = document.getElementById('osn_tab');
                     if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
-                        DesignerMove.line0(
-                            x1 + directionEffect * osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + directionEffect * osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
-                            'rgba(255,0,0,1)');
+                        DesignerMove.drawLine0(
+                            x1, x2, y1, y2, osnTab, 'rgba(255,0,0,1)'
+                        );
 
                         selected = 1;
                         Key0 = contr[K][key][key2][key3][0];
@@ -1488,12 +1502,9 @@ DesignerMove.canvasClick = function (id, event) {
                         Key3 = key3;
                         Key = K;
                     } else {
-                        DesignerMove.line0(
-                            x1 + directionEffect * osnTab.offsetLeft,
-                            y1 - osnTab.offsetTop,
-                            x2 + directionEffect * osnTab.offsetLeft,
-                            y2 - osnTab.offsetTop,
-                            DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
+                        DesignerMove.drawLine0(
+                            x1, x2, y1, y2, osnTab,
+                            contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1]
                         );
                     }
                 }
@@ -1524,6 +1535,7 @@ DesignerMove.updRelation = function () {
             Functions.ajaxShowMessage(data.error, false);
         } else {
             Functions.ajaxRemoveMessage($msgbox);
+            Functions.ajaxShowMessage(data.message);
             DesignerMove.loadPage(selectedPage);
         }
     }); // end $.post()

@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
-use function fclose;
-use function fopen;
-use function fwrite;
+use function file_put_contents;
 use function tempnam;
 use function unlink;
 
@@ -155,10 +153,7 @@ class ZipExtensionTest extends AbstractTestCase
 
         $tmp = tempnam('./', 'zip-test');
         $this->assertNotFalse($tmp);
-        $handle = fopen($tmp, 'w');
-        $this->assertNotFalse($handle);
-        fwrite($handle, $file);
-        fclose($handle);
+        $this->assertNotFalse(file_put_contents($tmp, $file));
 
         $zip = new ZipArchive();
         $this->assertTrue(
@@ -207,10 +202,7 @@ class ZipExtensionTest extends AbstractTestCase
 
         $tmp = tempnam('./', 'zip-test');
         $this->assertNotFalse($tmp);
-        $handle = fopen($tmp, 'w');
-        $this->assertNotFalse($handle);
-        fwrite($handle, $file);
-        fclose($handle);
+        $this->assertNotFalse(file_put_contents($tmp, $file));
 
         $zip = new ZipArchive();
         $this->assertTrue(

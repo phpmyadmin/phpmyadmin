@@ -20,7 +20,6 @@ use function array_shift;
 use function asort;
 use function bin2hex;
 use function count;
-use function defined;
 use function explode;
 use function file_get_contents;
 use function htmlspecialchars;
@@ -38,9 +37,9 @@ use function mb_substr;
 use function natcasesort;
 use function preg_match;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function trim;
 use function uksort;
 use function usort;
@@ -1143,10 +1142,7 @@ class Relation
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
-        if (
-            defined('TESTSUITE')
-            || mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
-        ) {
+        if (mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL) {
             return;
         }
 
@@ -1338,13 +1334,11 @@ class Relation
                 $key = htmlspecialchars($key);
             } else {
                 $key = '0x' . bin2hex($key);
-                if (strpos($data, '0x') !== false) {
+                if (str_contains($data, '0x')) {
                     $selected = ($key == trim($data));
                 } else {
                     $selected = ($key == '0x' . $data);
                 }
-
-                $key .= $selected;
             }
 
             if (
@@ -1862,7 +1856,7 @@ class Relation
      * @param array       $cfgRelation Relation configuration
      * @param string      $db          database name
      *
-     * @return int
+     * @return int|false
      */
     public function createPage(?string $newpage, array $cfgRelation, $db)
     {
@@ -2002,6 +1996,10 @@ class Relation
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];
+        }
+
+        if (! isset($foreigners['foreign_keys_data'])) {
+            return false;
         }
 
         $foreigner = [];

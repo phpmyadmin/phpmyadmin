@@ -15,9 +15,9 @@ use function htmlspecialchars;
 use function intval;
 use function md5;
 use function sprintf;
+use function str_contains;
 use function strcasecmp;
 use function strnatcasecmp;
-use function strpos;
 use function strtolower;
 
 /**
@@ -103,7 +103,7 @@ class Utilities
             $error .= $separator . '<a href="' . Url::getFromRoute('/logout') . '" class="disableAjax">';
             $error .= __('Logout and try as another user.') . '</a>';
         } elseif ($error_number == 1005) {
-            if (strpos($error_message, 'errno: 13') !== false) {
+            if (str_contains($error_message, 'errno: 13')) {
                 $error .= ' - ' . $error_message;
                 $error .= $separator
                     . __(

@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for table related tests
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,7 @@ use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * BrowseTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class BrowseTest extends TestBase
 {

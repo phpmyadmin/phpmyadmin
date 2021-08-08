@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function rtrim;
@@ -21,7 +21,7 @@ class MultiTableQueryController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param DatabaseInterface $dbi
      */

@@ -1,6 +1,8 @@
 <?php
 /**
  * Bootstrap file for psalm
+ *
+ * The checks for defined are because psalm --alter can use this file multiple times
  */
 
 declare(strict_types=1);
@@ -12,8 +14,14 @@ if (! defined('ROOT_PATH')) {
 }
 
 // phpcs:disable PSR1.Files.SideEffects
-define('PHPMYADMIN', true);
-define('TESTSUITE', true);
+if (! defined('PHPMYADMIN')) {
+    define('PHPMYADMIN', true);
+}
+
+if (! defined('TESTSUITE')) {
+    define('TESTSUITE', true);
+}
+
 // phpcs:enable
 
 $cfg = [];
@@ -27,11 +35,10 @@ $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;
 
 // phpcs:disable PSR1.Files.SideEffects
-define('PMA_PATH_TO_BASEDIR', '');
-define('PMA_USR_BROWSER_AGENT', 'CHROME');
-define('PMA_USR_BROWSER_VER', 1);
-define('PMA_USR_OS', 'os');
-define('PMA_IS_WINDOWS', false);
+if (! defined('PMA_PATH_TO_BASEDIR')) {
+    define('PMA_PATH_TO_BASEDIR', '');
+}
+
 // phpcs:enable
 
 // for PhpMyAdmin\Plugins\Import\ImportLdi

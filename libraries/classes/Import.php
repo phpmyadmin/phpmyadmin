@@ -33,9 +33,10 @@ use function pow;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
+use function str_starts_with;
 use function strcmp;
 use function strlen;
-use function strncmp;
 use function strpos;
 use function strtoupper;
 use function substr;
@@ -478,16 +479,13 @@ class Import
         // Do not use mb_ functions they are sensible to mb_internal_encoding()
 
         // UTF-8
-        if (strncmp($contents, "\xEF\xBB\xBF", 3) === 0) {
+        if (str_starts_with($contents, "\xEF\xBB\xBF")) {
             return substr($contents, 3);
 
             // UTF-16 BE, LE
         }
 
-        if (
-            strncmp($contents, "\xFE\xFF", 2) === 0
-            || strncmp($contents, "\xFF\xFE", 2) === 0
-        ) {
+        if (str_starts_with($contents, "\xFE\xFF") || str_starts_with($contents, "\xFF\xFE")) {
             return substr($contents, 2);
         }
 
@@ -920,7 +918,7 @@ class Import
 
         if (
             $cell == (string) (float) $cell
-            && mb_strpos((string) $cell, '.') !== false
+            && str_contains((string) $cell, '.')
             && mb_substr_count((string) $cell, '.') === 1
         ) {
             return self::DECIMAL;
@@ -1309,7 +1307,8 @@ class Import
          * A work in progress
          */
 
-        /* Add the viewable structures from $additional_sql
+        /**
+         * Add the viewable structures from $additional_sql
          * to $tables so they are also displayed
          */
         $viewPattern = '@VIEW `[^`]+`\.`([^`]+)@';
@@ -1449,7 +1448,7 @@ class Import
     {
         global $dbi;
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $error = false;
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         $sqlDelimiter = $_POST['sql_delimiter'];
@@ -1710,7 +1709,7 @@ class Import
 
         if ($error) {
             unset($_POST['rollback_query']);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $message = Message::rawError($error);
             $response->addJSON('message', $message);
             exit;
@@ -1801,8 +1800,8 @@ class Import
 
         // Query to check if table is 'Transactional'.
         $checkQuery = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "' . $table . '" '
-            . 'AND `table_schema` = "' . $db . '" '
+            . 'WHERE `table_name` = "' . $dbi->escapeString($table) . '" '
+            . 'AND `table_schema` = "' . $dbi->escapeString($db) . '" '
             . 'AND UPPER(`engine`) IN ("'
             . implode('", "', $transactionalEngines)
             . '")';
@@ -1859,7 +1858,7 @@ class Import
             : '';
 
         return $fileListing->getFileSelectOptions(
-            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? '')),
             $matcher,
             $active
         );

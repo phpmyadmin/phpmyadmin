@@ -14,7 +14,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
@@ -28,6 +28,7 @@ use function is_array;
 use function ob_get_clean;
 use function ob_start;
 use function str_replace;
+use function strtolower;
 use function urlencode;
 
 /**
@@ -42,7 +43,7 @@ class PrivilegesController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param DatabaseInterface $dbi
      */
     public function __construct($response, Template $template, Relation $relation, $dbi)
@@ -65,7 +66,7 @@ class PrivilegesController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $relationCleanup = new RelationCleanup($this->dbi, $this->relation);
         $serverPrivileges = new Privileges(
@@ -408,14 +409,15 @@ class PrivilegesController extends AbstractController
         if (isset($_GET['adduser']) || $_add_user_error === true) {
             // Add user
             $this->response->addHTML(
-                $serverPrivileges->getHtmlForAddUser(($dbname ?? ''))
+                $serverPrivileges->getHtmlForAddUser(Util::escapeMysqlWildcards($dbname ?? ''))
             );
         } elseif (isset($_GET['checkprivsdb'])) {
             if (isset($_GET['checkprivstable'])) {
                 $this->response->addHTML($tableController->index([
-                    'checkprivsdb' => $_GET['checkprivsdb'],
+                    'checkprivsdb' => strtolower($_GET['checkprivsdb']),
                     'checkprivstable' => $_GET['checkprivstable'],
                 ]));
+                $this->render('export_modal');
             } elseif ($this->response->isAjax() === true && empty($_REQUEST['ajax_page_request'])) {
                 $message = Message::success(__('User has been added.'));
                 $this->response->addJSON('message', $message);
@@ -423,8 +425,9 @@ class PrivilegesController extends AbstractController
                 return;
             } else {
                 $this->response->addHTML($databaseController->index([
-                    'checkprivsdb' => $_GET['checkprivsdb'],
+                    'checkprivsdb' => strtolower($_GET['checkprivsdb']),
                 ]));
+                $this->render('export_modal');
             }
         } else {
             if (isset($dbname) && ! is_array($dbname)) {
@@ -455,7 +458,7 @@ class PrivilegesController extends AbstractController
                         $hostname ?? '',
                         $dbname,
                         $routinename,
-                        $url_dbname ?? ''
+                        Util::escapeMysqlWildcards($url_dbname ?? '')
                     )
                 );
             } else {
@@ -468,7 +471,7 @@ class PrivilegesController extends AbstractController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForUserProperties(
                         $dbname_is_wildcard,
-                        $url_dbname ?? '',
+                        Util::escapeMysqlWildcards($url_dbname ?? ''),
                         $username,
                         $hostname ?? '',
                         $dbname ?? '',

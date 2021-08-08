@@ -19,10 +19,9 @@ use function sqrt;
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
- * @see     PMA_Schema_PDF::SetDrawColor PMA_Schema_PDF::setLineWidthScale
- *          Pdf::lineScale
- *
- * @name    Relation_Stats_Pdf
+ * @see Schema\Pdf::SetDrawColor
+ * @see Schema\Pdf::setLineWidthScale
+ * @see Pdf::lineScale
  */
 class RelationStatsPdf extends RelationStats
 {

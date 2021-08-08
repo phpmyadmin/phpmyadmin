@@ -9,7 +9,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -27,7 +27,7 @@ class DeleteController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param DatabaseInterface $dbi

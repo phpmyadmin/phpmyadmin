@@ -14,7 +14,7 @@ use function mb_strpos;
 use function mb_substr;
 use function preg_match;
 use function preg_replace;
-use function strpos;
+use function str_contains;
 
 /**
  * PhpMyAdmin\CheckUserPrivileges class
@@ -242,7 +242,7 @@ class CheckUserPrivileges
                 $GLOBALS['dbs_to_test'][] = $showGrantsDbName;
             }
 
-            if (mb_strpos($showGrantsString, 'RELOAD') !== false) {
+            if (str_contains($showGrantsString, 'RELOAD')) {
                 $GLOBALS['is_reload_priv'] = true;
             }
 
@@ -261,7 +261,7 @@ class CheckUserPrivileges
                 $showGrantsString !== 'ALL'
                 && $showGrantsString !== 'ALL PRIVILEGES'
                 && $showGrantsString !== 'CREATE'
-                && strpos($showGrantsString, 'CREATE,') === false
+                && ! str_contains($showGrantsString, 'CREATE,')
             ) {
                 continue;
             }

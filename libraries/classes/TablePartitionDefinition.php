@@ -70,8 +70,8 @@ final class TablePartitionDefinition
             array_intersect_key($_POST, $partitionParams)
         );
 
-        $details['partition_count'] = self::extractPartitionCount('partition_count') ?: '';
-        $details['subpartition_count'] = self::extractPartitionCount('subpartition_count') ?: '';
+        $details['partition_count'] = self::extractPartitionCount('partition_count') ?: 0;
+        $details['subpartition_count'] = self::extractPartitionCount('subpartition_count') ?: 0;
 
         return $details;
     }

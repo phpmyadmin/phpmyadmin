@@ -13,7 +13,6 @@ use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
 use function count;
-use function define;
 use function defined;
 use function error_get_last;
 use function error_reporting;
@@ -50,10 +49,10 @@ use function realpath;
 use function rtrim;
 use function setcookie;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
@@ -469,6 +468,7 @@ class Config
 
         ob_start();
         $isConfigLoading = true;
+        /** @psalm-suppress UnresolvableInclude */
         $eval_result = include $this->getSource();
         $isConfigLoading = false;
         ob_end_clean();
@@ -498,7 +498,7 @@ class Config
         $cfg = array_filter(
             $cfg,
             static function (string $key): bool {
-                return strpos($key, '/') === false;
+                return ! str_contains($key, '/');
             },
             ARRAY_FILTER_USE_KEY
         );
@@ -532,6 +532,8 @@ class Config
      */
     public function loadUserPreferences(): void
     {
+        global $isMinimumCommon;
+
         $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
@@ -539,7 +541,7 @@ class Config
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
+        if ($server > 0 && ! isset($isMinimumCommon)) {
             $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
             // cache user preferences, use database only when needed
             if (
@@ -575,7 +577,8 @@ class Config
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
-        if (defined('PMA_MINIMUM_COMMON')) {
+
+        if (isset($isMinimumCommon)) {
             return;
         }
 
@@ -593,7 +596,6 @@ class Config
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
             ) {
-                // new theme was set in common.inc.php
                 $this->setUserValue(
                     null,
                     'ThemeDefault',
@@ -901,7 +903,7 @@ class Config
      * Maximum upload size as limited by PHP
      * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
-     * this section generates $max_upload_size in bytes
+     * this section generates max_upload_size in bytes
      */
     public function checkUploadSize(): void
     {
@@ -967,6 +969,8 @@ class Config
 
     /**
      * Get phpMyAdmin root path
+     *
+     * @staticvar string|null $cookie_path
      */
     public function getRootPath(): string
     {
@@ -1009,35 +1013,6 @@ class Config
         $parts[] = '';
 
         return implode('/', $parts);
-    }
-
-    /**
-     * enables backward compatibility
-     */
-    public function enableBc(): void
-    {
-        $GLOBALS['cfg']             = $this->settings;
-        $GLOBALS['default_server']  = $this->defaultServer;
-        unset($this->defaultServer);
-        $GLOBALS['is_upload']       = $this->get('enable_upload');
-        $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
-        $GLOBALS['is_https']        = $this->get('is_https');
-
-        $defines = [
-            'PMA_IS_WINDOWS',
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            if (defined($define)) {
-                continue;
-            }
-
-            define($define, $this->get($define));
-        }
     }
 
     /**
@@ -1265,6 +1240,8 @@ class Config
      * Returns temporary dir path
      *
      * @param string $name Directory name
+     *
+     * @staticvar array<string,string|null> $temp_dir
      */
     public function getTempDir(string $name): ?string
     {

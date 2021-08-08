@@ -15,13 +15,11 @@ use PhpMyAdmin\Replication;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
 
-use function define;
-use function defined;
 use function json_encode;
 
 /**
@@ -64,10 +62,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-
-        if (! defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'Other');
-        }
 
         $table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
@@ -564,5 +558,98 @@ class StructureControllerTest extends AbstractTestCase
         $this->assertStringContainsString($_REQUEST['db'], $result);
         $this->assertStringContainsString('id="overhead"', $result);
         $this->assertStringContainsString('9.8', $result);
+    }
+
+    /**
+     * Tests for getValuesForMroongaTable()
+     */
+    public function testGetValuesForMroongaTable(): void
+    {
+        global $containerBuilder;
+        parent::loadContainerBuilder();
+        parent::loadDbiIntoContainerBuilder();
+        $GLOBALS['db'] = 'testdb';
+        $GLOBALS['table'] = 'mytable';
+
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+
+        /** @var StructureController $structureController */
+        $structureController = $containerBuilder->get(StructureController::class);
+
+        $this->assertSame(
+            [
+                [],
+                '',
+                '',
+                0,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [],
+                    0,
+                ]
+            )
+        );
+
+        // Enable stats
+        $GLOBALS['cfg']['ShowStats'] = true;
+        $this->callFunction(
+            $structureController,
+            StructureController::class,
+            'getDatabaseInfo',
+            ['']
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                105,
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    0,
+                ]
+            )
+        );
+
+        $this->assertSame(
+            [
+                [
+                    'Data_length' => 45,
+                    'Index_length' => 60,
+                ],
+                '105',
+                'B',
+                180, //105 + 75
+            ],
+            $this->callFunction(
+                $structureController,
+                StructureController::class,
+                'getValuesForMroongaTable',
+                [
+                    [
+                        'Data_length' => 45,
+                        'Index_length' => 60,
+                    ],
+                    75,
+                ]
+            )
+        );
     }
 }

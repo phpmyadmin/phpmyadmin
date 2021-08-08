@@ -83,7 +83,8 @@ class Tracker
             return false;
         }
 
-        /* We need to avoid attempt to track any queries
+        /**
+         * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
@@ -149,7 +150,8 @@ class Tracker
             return self::$trackingCache[$dbName][$tableName];
         }
 
-        /* We need to avoid attempt to track any queries
+        /**
+         * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
@@ -220,15 +222,10 @@ class Tracker
          *
          * @var ExportSql $exportSqlPlugin
          */
-        $exportSqlPlugin = Plugins::getPlugin(
-            'export',
-            'sql',
-            'libraries/classes/Plugins/Export/',
-            [
-                'export_type' => $export_type,
-                'single_table' => false,
-            ]
-        );
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
+            'export_type' => (string) $export_type,
+            'single_table' => false,
+        ]);
 
         $sql_backquotes = true;
 

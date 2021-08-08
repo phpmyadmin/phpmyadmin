@@ -8,7 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -28,7 +28,7 @@ final class DropColumnController extends AbstractController
     private $relationCleanup;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name
      * @param string            $table    Table name
      * @param DatabaseInterface $dbi

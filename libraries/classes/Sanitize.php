@@ -23,8 +23,8 @@ use function preg_match;
 use function preg_replace;
 use function preg_replace_callback;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
 use function strtolower;
 use function strtr;
 use function substr;
@@ -136,11 +136,9 @@ class Sanitize
     /**
      * Callback function for replacing [doc@anchor] links in bb code.
      *
-     * @param array $found Array of preg matches
-     *
-     * @return string Replaced string
+     * @param string[] $found Array of preg matches
      */
-    public static function replaceDocLink(array $found)
+    public static function replaceDocLink(array $found): string
     {
         if (count($found) >= 4) {
             /* doc@page@anchor pattern */
@@ -149,9 +147,9 @@ class Sanitize
         } else {
             /* doc@anchor pattern */
             $anchor = $found[1];
-            if (strncmp('faq', $anchor, 3) == 0) {
+            if (str_starts_with($anchor, 'faq')) {
                 $page = 'faq';
-            } elseif (strncmp('cfg', $anchor, 3) == 0) {
+            } elseif (str_starts_with($anchor, 'cfg')) {
                 $page = 'config';
             } else {
                 /* Guess */
@@ -201,7 +199,6 @@ class Sanitize
             '[/doc]'      => '</a>',
             '[sup]'     => '<sup>',
             '[/sup]'    => '</sup>',
-            // used in common.inc.php:
             '[conferr]' => '<iframe src="show_config_errors.php"><a href='
                 . '"show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
@@ -221,7 +218,8 @@ class Sanitize
         /* Replace documentation links */
         $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            static function (array $match) {
+            /** @param string[] $match */
+            static function (array $match): string {
                 return self::replaceDocLink($match);
             },
             $message

@@ -461,7 +461,8 @@ div#modalOverlay {
 }
 
 li.last.database {
-  margin-bottom: 20px !important;
+  // Avoid having the last item of the tree hidden behind the scroll bar
+  margin-bottom: 15px !important;
 }
 
 /* specific elements */
@@ -657,11 +658,6 @@ div {
     height: 400px;
     padding-bottom: 80px;
   }
-}
-
-#addChartDialog input[type="text"] {
-  margin: 0;
-  padding: 3px;
 }
 
 div#chartVariableSettings {
@@ -1721,8 +1717,8 @@ input#auto_increment_opt {
 
   height: $height;
   width: $width;
-  margin-top: $height / -2;
-  margin-left: $width / -2;
+  margin-top: $height * -0.5;
+  margin-left: $width * -0.5;
   position: absolute;
   background: url("../img/col_pointer.png");
 }

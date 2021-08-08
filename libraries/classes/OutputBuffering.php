@@ -20,6 +20,7 @@ use function ob_get_level;
 use function ob_get_status;
 use function ob_start;
 use function register_shutdown_function;
+use function sprintf;
 
 /**
  * Output buffering wrapper class
@@ -110,9 +111,7 @@ class OutputBuffering
         }
 
         ob_start();
-        if (! defined('TESTSUITE')) {
-            header('X-ob_mode: ' . $this->mode);
-        }
+        $this->sendHeader('X-ob_mode', (string) $this->mode);
 
         register_shutdown_function(
             [
@@ -121,6 +120,15 @@ class OutputBuffering
             ]
         );
         $this->on = true;
+    }
+
+    private function sendHeader(string $name, string $value): void
+    {
+        if (defined('TESTSUITE')) {
+            return;
+        }
+
+        header(sprintf('%s: %s', $name, $value));
     }
 
     /**

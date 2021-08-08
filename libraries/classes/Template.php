@@ -80,7 +80,7 @@ class Template
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader($containerBuilder));
 
-        if (is_array($cfg) && $cfg['environment'] === 'development') {
+        if (is_array($cfg) && ($cfg['environment'] ?? '') === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines

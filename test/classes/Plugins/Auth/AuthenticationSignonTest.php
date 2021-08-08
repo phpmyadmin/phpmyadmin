@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
 use function ob_get_clean;
@@ -33,7 +34,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -53,6 +53,8 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     public function testAuth(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
 
         ob_start();
         $this->object->showLoginForm();

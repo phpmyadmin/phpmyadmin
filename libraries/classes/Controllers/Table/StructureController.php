@@ -24,7 +24,7 @@ use PhpMyAdmin\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
@@ -53,6 +53,7 @@ use function is_string;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
 use function strpos;
@@ -88,7 +89,7 @@ class StructureController extends AbstractController
     private $flash;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name
      * @param string            $table    Table name
      * @param DatabaseInterface $dbi
@@ -693,7 +694,7 @@ class StructureController extends AbstractController
                     __('Failed to get description of column %s!')
                 );
                 $message->addParam($selected[$i]);
-                $this->response->addHTML($message);
+                $this->response->addHTML($message->getDisplay());
             } else {
                 $fields_meta[] = $value;
             }
@@ -779,42 +780,46 @@ class StructureController extends AbstractController
 
         $partitionDetails['partition_by'] = '';
         $partitionDetails['partition_expr'] = '';
-        $partitionDetails['partition_count'] = '';
+        $partitionDetails['partition_count'] = 0;
 
         if (! empty($stmt->partitionBy)) {
             $openPos = strpos($stmt->partitionBy, '(');
             $closePos = strrpos($stmt->partitionBy, ')');
 
-            $partitionDetails['partition_by'] = trim(substr($stmt->partitionBy, 0, $openPos));
-            $partitionDetails['partition_expr'] = trim(substr(
-                $stmt->partitionBy,
-                $openPos + 1,
-                $closePos - ($openPos + 1)
-            ));
+            if ($openPos !== false && $closePos !== false) {
+                $partitionDetails['partition_by'] = trim(substr($stmt->partitionBy, 0, $openPos));
+                $partitionDetails['partition_expr'] = trim(substr(
+                    $stmt->partitionBy,
+                    $openPos + 1,
+                    $closePos - ($openPos + 1)
+                ));
 
-            $count = $stmt->partitionsNum ?? count($stmt->partitions);
+                $count = $stmt->partitionsNum ?? count($stmt->partitions);
 
-            $partitionDetails['partition_count'] = $count;
+                $partitionDetails['partition_count'] = $count;
+            }
         }
 
         $partitionDetails['subpartition_by'] = '';
         $partitionDetails['subpartition_expr'] = '';
-        $partitionDetails['subpartition_count'] = '';
+        $partitionDetails['subpartition_count'] = 0;
 
         if (! empty($stmt->subpartitionBy)) {
             $openPos = strpos($stmt->subpartitionBy, '(');
             $closePos = strrpos($stmt->subpartitionBy, ')');
 
-            $partitionDetails['subpartition_by'] = trim(substr($stmt->subpartitionBy, 0, $openPos));
-            $partitionDetails['subpartition_expr'] = trim(substr(
-                $stmt->subpartitionBy,
-                $openPos + 1,
-                $closePos - ($openPos + 1)
-            ));
+            if ($openPos !== false && $closePos !== false) {
+                $partitionDetails['subpartition_by'] = trim(substr($stmt->subpartitionBy, 0, $openPos));
+                $partitionDetails['subpartition_expr'] = trim(substr(
+                    $stmt->subpartitionBy,
+                    $openPos + 1,
+                    $closePos - ($openPos + 1)
+                ));
 
-            $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
+                $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
 
-            $partitionDetails['subpartition_count'] = $count;
+                $partitionDetails['subpartition_count'] = $count;
+            }
         }
 
         // Only LIST and RANGE type parameters allow subpartitioning
@@ -833,7 +838,7 @@ class StructureController extends AbstractController
 
         $partitionDetails['partitions'] = [];
 
-        for ($i = 0, $iMax = (int) $partitionDetails['partition_count']; $i < $iMax; $i++) {
+        for ($i = 0, $iMax = $partitionDetails['partition_count']; $i < $iMax; $i++) {
             if (! isset($stmt->partitions[$i])) {
                 $partitionDetails['partitions'][$i] = [
                     'name' => 'p' . $i,
@@ -882,7 +887,7 @@ class StructureController extends AbstractController
             $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
             $partition['subpartitions'] = [];
 
-            for ($j = 0, $jMax = (int) $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
+            for ($j = 0, $jMax = $partitionDetails['subpartition_count']; $j < $jMax; $j++) {
                 if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
                     $partition['subpartitions'][$j] = [
                         'name' => $partition['name'] . '_s' . $j,
@@ -1219,11 +1224,11 @@ class StructureController extends AbstractController
                 $this->dbi->query($revert_query);
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON(
-                    'message',
-                    Message::rawError(
-                        __('Query error') . ':<br>' . $orig_error
-                    )
+                $message = Message::rawError(
+                    __('Query error') . ':<br>' . $orig_error
+                );
+                $this->response->addHTML(
+                    Generator::getMessage($message, $sql_query, 'error')
                 );
                 $regenerate = true;
             }
@@ -1439,7 +1444,7 @@ class StructureController extends AbstractController
 
             $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
             $attributes[$rownum] = $extracted_columnspecs[$rownum]['attribute'];
-            if (strpos($field['Extra'], 'on update CURRENT_TIMESTAMP') !== false) {
+            if (str_contains($field['Extra'], 'on update CURRENT_TIMESTAMP')) {
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 

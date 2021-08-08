@@ -5,10 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Forms\BaseForm;
+use PhpMyAdmin\Config\Forms\BaseFormList;
+use PhpMyAdmin\Config\Forms\Page;
+use PhpMyAdmin\Config\Forms\Setup;
+use PhpMyAdmin\Config\Forms\User;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * @coversNothing
+ * @covers \PhpMyAdmin\Config\Forms\BaseFormList
+ * @covers \PhpMyAdmin\Config\Forms\Page\PageFormList
+ * @covers \PhpMyAdmin\Config\Forms\Setup\SetupFormList
+ * @covers \PhpMyAdmin\Config\Forms\User\UserFormList
  */
 class FormListTest extends AbstractTestCase
 {
@@ -24,7 +32,9 @@ class FormListTest extends AbstractTestCase
      * Tests for preferences forms.
      *
      * @param string $class  Class to test
-     * @param string $prefix Reuturned class prefix
+     * @param string $prefix Returned class prefix
+     * @psalm-param class-string<BaseFormList> $class
+     * @psalm-param class-string<BaseForm> $prefix
      *
      * @dataProvider formObjects
      */
@@ -34,22 +44,18 @@ class FormListTest extends AbstractTestCase
 
         /* Static API */
         $this->assertTrue($class::isValid('Export'));
-        $this->assertEquals(
-            $prefix . 'ExportForm',
-            $class::get('Export')
-        );
+        $this->assertEquals($prefix, $class::get('Export'));
         foreach ($class::getAll() as $form) {
             $form_class = $class::get($form);
+            $this->assertNotNull($form_class);
             $this->assertNotNull($form_class::getName());
         }
 
-        $this->assertContains(
-            'Export/texytext_columns',
-            $class::getFields()
-        );
+        $this->assertContains('Export/texytext_columns', $class::getFields());
 
         /* Instance handling */
         $forms = new $class($cf);
+        $this->assertInstanceOf(BaseFormList::class, $forms);
         $this->assertFalse($forms->process());
         $forms->fixErrors();
         $this->assertFalse($forms->hasErrors());
@@ -57,23 +63,15 @@ class FormListTest extends AbstractTestCase
     }
 
     /**
-     * @return array
+     * @return string[][]
+     * @psalm-return array{array{class-string<BaseFormList>, class-string<BaseForm>}}
      */
     public function formObjects(): array
     {
         return [
-            [
-                '\\PhpMyAdmin\\Config\\Forms\\User\\UserFormList',
-                '\\PhpMyAdmin\\Config\\Forms\\User\\',
-            ],
-            [
-                '\\PhpMyAdmin\\Config\\Forms\\Page\\PageFormList',
-                '\\PhpMyAdmin\\Config\\Forms\\Page\\',
-            ],
-            [
-                '\\PhpMyAdmin\\Config\\Forms\\Setup\\SetupFormList',
-                '\\PhpMyAdmin\\Config\\Forms\\Setup\\',
-            ],
+            [User\UserFormList::class, User\ExportForm::class],
+            [Page\PageFormList::class, Page\ExportForm::class],
+            [Setup\SetupFormList::class, Setup\ExportForm::class],
         ];
     }
 }

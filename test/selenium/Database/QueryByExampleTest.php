@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for 'query by example' tests
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,7 @@ use function sleep;
 use function trim;
 
 /**
- * QueryByExampleTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class QueryByExampleTest extends TestBase
 {

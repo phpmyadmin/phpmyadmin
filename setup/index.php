@@ -19,7 +19,12 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
+/** @psalm-suppress InvalidGlobal */
 global $cfg;
+
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
 
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
@@ -56,7 +61,7 @@ if ($page === 'config') {
 
 if ($page === 'servers') {
     $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         $controller->destroy([
             'id' => $_GET['id'] ?? null,
         ]);

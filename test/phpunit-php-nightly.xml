@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+    bootstrap="bootstrap-dist.php"
+    convertDeprecationsToExceptions="false"
+    convertNoticesToExceptions="false"
+    convertWarningsToExceptions="false"
+    convertErrorsToExceptions="false"
+    forceCoversAnnotation="true"
+    executionOrder="random"
+    colors="true"
+    verbose="true">
+
+    <php>
+        <const name="PHPMYADMIN" value="1"/>
+        <const name="TESTSUITE" value="1"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="default">
+            <directory suffix="Test.php">classes</directory>
+        </testsuite>
+    </testsuites>
+
+    <groups>
+        <exclude>
+            <!-- Exclude tests that do not work with convert*ToExceptions="false" -->
+            <group>with-trigger-error</group>
+        </exclude>
+    </groups>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">.</directory>
+            <exclude>
+                <directory>../examples</directory>
+                <directory>../libraries/cache</directory>
+                <directory>../node_modules</directory>
+                <directory>../test</directory>
+                <directory>../tmp</directory>
+                <directory>../vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

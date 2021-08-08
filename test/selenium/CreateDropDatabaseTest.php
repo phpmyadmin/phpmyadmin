@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for creating and deleting databases
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * CreateDropDatabaseTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class CreateDropDatabaseTest extends TestBase
 {

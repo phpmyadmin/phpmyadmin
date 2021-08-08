@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function htmlspecialchars;
@@ -26,7 +26,7 @@ class Text_Plain_Xml extends TransformationsPlugin
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $scripts = $response->getHeader()
             ->getScripts();
         $scripts->addFile('vendor/codemirror/lib/codemirror.js');

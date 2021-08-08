@@ -11,7 +11,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Query\Compatibility;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -46,10 +47,10 @@ use function nl2br;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
-use function strpos;
 use function trim;
 use function urlencode;
 
@@ -148,7 +149,7 @@ class Generator
 
         return '<a href="'
             . $scriptName
-            . Url::getCommon(['db' => $database], strpos($scriptName, '?') === false ? '?' : '&')
+            . Url::getCommon(['db' => $database], ! str_contains($scriptName, '?') ? '?' : '&')
             . '" title="'
             . htmlspecialchars(
                 sprintf(
@@ -676,7 +677,8 @@ class Generator
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             [],
-                            '_blank'
+                            '_blank',
+                            false
                         ) . '&nbsp;]';
                 }
             }
@@ -1018,7 +1020,7 @@ class Generator
          * If this is an AJAX request, there is no "Back" link and
          * `Response()` is used to send the response.
          */
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $errorMessage);
@@ -1107,7 +1109,8 @@ class Generator
         $url,
         $message,
         $tagParams = [],
-        $target = ''
+        $target = '',
+        bool $respectUrlLengthLimit = true
     ): string {
         $urlLength = strlen($url);
 
@@ -1124,7 +1127,7 @@ class Generator
 
         if (! empty($target)) {
             $tagParams['target'] = $target;
-            if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
+            if ($target === '_blank' && str_starts_with($url, 'url.php?')) {
                 $tagParams['rel'] = 'noopener noreferrer';
             }
         }
@@ -1136,7 +1139,7 @@ class Generator
             if ($suhosinGetMaxValueLength) {
                 $queryParts = Util::splitURLQuery($url);
                 foreach ($queryParts as $queryPair) {
-                    if (strpos($queryPair, '=') === false) {
+                    if (! str_contains($queryPair, '=')) {
                         continue;
                     }
 
@@ -1150,13 +1153,16 @@ class Generator
         }
 
         $tagParamsStrings = [];
-        if (
-            ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
-            || ! $inSuhosinLimits
-            // Has as sql_query without a signature
-            || (strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
-            || strpos($url, 'view[as]=') !== false
-        ) {
+        $isDataPostFormatSupported = ($urlLength > $GLOBALS['cfg']['LinkLengthLimit'])
+                                || ! $inSuhosinLimits
+                                // Has as sql_query without a signature, to be accepted it needs
+                                // to be sent using POST
+                                || (
+                                    str_contains($url, 'sql_query=')
+                                    && ! str_contains($url, 'sql_signature=')
+                                )
+                                || str_contains($url, 'view[as]=');
+        if ($respectUrlLengthLimit && $isDataPostFormatSupported) {
             $parts = explode('?', $url, 2);
             /*
              * The data-post indicates that client should do POST
@@ -1166,7 +1172,7 @@ class Generator
             $url = $parts[0];
             if (
                 array_key_exists('class', $tagParams)
-                && strpos($tagParams['class'], 'create_view') !== false
+                && str_contains($tagParams['class'], 'create_view')
             ) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
             }
@@ -1357,39 +1363,35 @@ class Generator
             if (is_array($value)) {
                 $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
-                    if ($subvalue == $selected) {
-                        $retval .= sprintf(
-                            '<option selected="selected" title="%s">%s</option>',
-                            $dbi->types->getTypeDescription($subvalue),
-                            $subvalue
-                        );
-                    } elseif ($subvalue === '-') {
+                    if ($subvalue === '-') {
                         $retval .= '<option disabled="disabled">';
                         $retval .= $subvalue;
                         $retval .= '</option>';
-                    } else {
-                        $retval .= sprintf(
-                            '<option title="%s">%s</option>',
-                            $dbi->types->getTypeDescription($subvalue),
-                            $subvalue
-                        );
+                        continue;
                     }
+
+                    $isLengthRestricted = Compatibility::isIntegersSupportLength($subvalue, '2', $dbi);
+                    $retval .= sprintf(
+                        '<option data-length-restricted="%b" %s title="%s">%s</option>',
+                        $isLengthRestricted ? 0 : 1,
+                        $selected === $subvalue ? 'selected="selected"' : '',
+                        $dbi->types->getTypeDescription($subvalue),
+                        $subvalue
+                    );
                 }
 
                 $retval .= '</optgroup>';
-            } elseif ($selected == $value) {
-                $retval .= sprintf(
-                    '<option selected="selected" title="%s">%s</option>',
-                    $dbi->types->getTypeDescription($value),
-                    $value
-                );
-            } else {
-                $retval .= sprintf(
-                    '<option title="%s">%s</option>',
-                    $dbi->types->getTypeDescription($value),
-                    $value
-                );
+                continue;
             }
+
+            $isLengthRestricted = Compatibility::isIntegersSupportLength($value, '2', $dbi);
+            $retval .= sprintf(
+                '<option data-length-restricted="%b" %s title="%s">%s</option>',
+                $isLengthRestricted ? 0 : 1,
+                $selected === $value ? 'selected="selected"' : '',
+                $dbi->types->getTypeDescription($value),
+                $value
+            );
         }
 
         return $retval;

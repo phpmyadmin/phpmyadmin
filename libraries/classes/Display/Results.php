@@ -17,7 +17,7 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -62,6 +62,7 @@ use function mt_rand;
 use function pack;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_replace;
 use function strcasecmp;
 use function strip_tags;
@@ -118,90 +119,104 @@ class Results
     public const ACTION_LINK_CONTENT_ICONS = 'icons';
     public const ACTION_LINK_CONTENT_TEXT = 'text';
 
-    // Declare global fields
-
-    /** @var array<string, mixed> */
+    /**
+     * @psalm-var array{
+     *   server: int,
+     *   db: string,
+     *   table: string,
+     *   goto: string,
+     *   sql_query: string,
+     *   unlim_num_rows: int|numeric-string,
+     *   fields_meta: FieldMetadata[],
+     *   is_count: bool|null,
+     *   is_export: bool|null,
+     *   is_func: bool|null,
+     *   is_analyse: bool|null,
+     *   num_rows: int|numeric-string,
+     *   fields_cnt: int,
+     *   querytime: float|null,
+     *   text_dir: string|null,
+     *   is_maint: bool|null,
+     *   is_explain: bool|null,
+     *   is_show: bool|null,
+     *   is_browse_distinct: bool|null,
+     *   showtable: array<string, mixed>|null,
+     *   printview: string|null,
+     *   highlight_columns: array|null,
+     *   display_params: array|null,
+     *   mime_map: array|null,
+     *   editable: bool|null,
+     *   unique_id: int,
+     *   whereClauseMap: array,
+     * }
+     */
     public $properties = [
-        /* integer server id */
-        'server' => null,
+        /* server id */
+        'server' => 0,
 
-        /* string Database name */
-        'db' => null,
+        /* Database name */
+        'db' => '',
 
-        /* string Table name */
-        'table' => null,
+        /* Table name */
+        'table' => '',
 
-        /* string the URL to go back in case of errors */
-        'goto' => null,
+        /* the URL to go back in case of errors */
+        'goto' => '',
 
-        /* string the SQL query */
-        'sql_query' => null,
+        /* the SQL query */
+        'sql_query' => '',
 
-        /*
-         * integer the total number of rows returned by the SQL query without any
-         *         appended "LIMIT" clause programmatically
-         */
-        'unlim_num_rows' => null,
+        /* the total number of rows returned by the SQL query without any appended "LIMIT" clause programmatically */
+        'unlim_num_rows' => 0,
 
-        /* array meta information about fields */
-        'fields_meta' => null,
+        /* meta information about fields */
+        'fields_meta' => [],
 
-        /* boolean */
         'is_count' => null,
 
-        /* integer */
         'is_export' => null,
 
-        /* boolean */
         'is_func' => null,
 
-        /* integer */
         'is_analyse' => null,
 
-        /* integer the total number of rows returned by the SQL query */
-        'num_rows' => null,
+        /* the total number of rows returned by the SQL query */
+        'num_rows' => 0,
 
-        /* integer the total number of fields returned by the SQL query */
-        'fields_cnt' => null,
+        /* the total number of fields returned by the SQL query */
+        'fields_cnt' => 0,
 
-        /* double time taken for execute the SQL query */
+        /* time taken for execute the SQL query */
         'querytime' => null,
 
-        /* string */
         'text_dir' => null,
 
-        /* boolean */
         'is_maint' => null,
 
-        /* boolean */
         'is_explain' => null,
 
-        /* boolean */
         'is_show' => null,
 
-        /* boolean */
         'is_browse_distinct' => null,
 
-        /* array table definitions */
+        /* table definitions */
         'showtable' => null,
 
-        /* string */
         'printview' => null,
 
-        /* array column names to highlight */
+        /* column names to highlight */
         'highlight_columns' => null,
 
-        /* array holding various display information */
+        /* display information */
         'display_params' => null,
 
-        /* array mime types information of fields */
+        /* mime types information of fields */
         'mime_map' => null,
 
-        /* boolean */
         'editable' => null,
 
         /* random unique ID to distinguish result set */
-        'unique_id' => null,
+        'unique_id' => 0,
 
         /* where clauses for each row, each table in the row */
         'whereClauseMap' => [],
@@ -365,25 +380,26 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param int    $unlimNumRows     the total number of rows returned by
-     *                                   the SQL query without any appended
-     *                                   "LIMIT" clause programmatically
-     * @param array  $fieldsMeta       meta information about fields
-     * @param bool   $isCount          statement is SELECT COUNT
-     * @param int    $isExport         statement contains INTO OUTFILE
-     * @param bool   $isFunction       statement contains a function like SUM()
-     * @param int    $isAnalyse        statement contains PROCEDURE ANALYSE
-     * @param int    $numRows          total no. of rows returned by SQL query
-     * @param int    $fieldsCount      total no.of fields returned by SQL query
-     * @param double $queryTime        time taken for execute the SQL query
-     * @param string $textDirection    text direction
-     * @param bool   $isMaintenance    statement contains a maintenance command
-     * @param bool   $isExplain        statement contains EXPLAIN
-     * @param bool   $isShow           statement contains SHOW
-     * @param array  $showTable        table definitions
-     * @param string $printView        print view was requested
-     * @param bool   $editable         whether the results set is editable
-     * @param bool   $isBrowseDistinct whether browsing distinct values
+     * @param int|string                $unlimNumRows     the total number of rows returned by the SQL query without
+     *                                                    any appended "LIMIT" clause programmatically
+     * @param FieldMetadata[]           $fieldsMeta       meta information about fields
+     * @param bool                      $isCount          statement is SELECT COUNT
+     * @param bool                      $isExport         statement contains INTO OUTFILE
+     * @param bool                      $isFunction       statement contains a function like SUM()
+     * @param bool                      $isAnalyse        statement contains PROCEDURE ANALYSE
+     * @param int|string                $numRows          total no. of rows returned by SQL query
+     * @param int                       $fieldsCount      total no.of fields returned by SQL query
+     * @param double                    $queryTime        time taken for execute the SQL query
+     * @param string                    $textDirection    text direction
+     * @param bool                      $isMaintenance    statement contains a maintenance command
+     * @param bool                      $isExplain        statement contains EXPLAIN
+     * @param bool                      $isShow           statement contains SHOW
+     * @param array<string, mixed>|null $showTable        table definitions
+     * @param string|null               $printView        print view was requested
+     * @param bool                      $editable         whether the results set is editable
+     * @param bool                      $isBrowseDistinct whether browsing distinct values
+     * @psalm-param int|numeric-string $unlimNumRows
+     * @psalm-param int|numeric-string $numRows
      *
      * @return void
      */
@@ -401,7 +417,7 @@ class Results
         $isMaintenance,
         $isExplain,
         $isShow,
-        $showTable,
+        ?array $showTable,
         $printView,
         $editable,
         $isBrowseDistinct
@@ -439,11 +455,11 @@ class Results
         // set all elements to false!
         $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '0';
-        $displayParts['text_btn']  = (string) '0';
-        $displayParts['pview_lnk'] = (string) '0';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '0';
+        $displayParts['text_btn'] = '0';
+        $displayParts['pview_lnk'] = '0';
 
         return $displayParts;
     }
@@ -488,11 +504,11 @@ class Results
         }
 
         // Other settings
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '1';
-        $displayParts['text_btn']  = (string) '1';
-        $displayParts['pview_lnk'] = (string) '1';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '1';
+        $displayParts['text_btn'] = '1';
+        $displayParts['pview_lnk'] = '1';
 
         return $displayParts;
     }
@@ -513,17 +529,17 @@ class Results
         // contains a "PROC ANALYSE" part
         $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
         $displayParts['del_lnk']   = self::NO_EDIT_OR_DELETE; // no delete link
-        $displayParts['sort_lnk']  = (string) '0';
-        $displayParts['nav_bar']   = (string) '0';
-        $displayParts['bkm_form']  = (string) '1';
+        $displayParts['sort_lnk'] = '0';
+        $displayParts['nav_bar'] = '0';
+        $displayParts['bkm_form'] = '1';
 
         if ($this->properties['is_maint']) {
-            $displayParts['text_btn']  = (string) '1';
+            $displayParts['text_btn'] = '1';
         } else {
-            $displayParts['text_btn']  = (string) '0';
+            $displayParts['text_btn'] = '0';
         }
 
-        $displayParts['pview_lnk'] = (string) '1';
+        $displayParts['pview_lnk'] = '1';
 
         return $displayParts;
     }
@@ -546,7 +562,7 @@ class Results
         /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
-        $displayParts['text_btn']  = (string) '1';
+        $displayParts['text_btn'] = '1';
         $numberOfColumns = $this->properties['fields_cnt'];
 
         for ($i = 0; $i < $numberOfColumns; $i++) {
@@ -568,14 +584,13 @@ class Results
                  * @todo May be problematic with same field names
                  * in two joined table.
                  */
-                // $displayParts['sort_lnk'] = (string) '0';
                 if ($displayParts['text_btn'] == '1') {
                     break;
                 }
             }
 
             // Always display print view link
-            $displayParts['pview_lnk'] = (string) '1';
+            $displayParts['pview_lnk'] = '1';
             if ($fieldsMeta[$i]->table == '') {
                 continue;
             }
@@ -639,7 +654,7 @@ class Results
         }
 
         // 3. Gets the total number of rows if it is unknown
-        if (isset($unlimNumRows) && $unlimNumRows != '') {
+        if ($unlimNumRows > 0) {
             $theTotal = $unlimNumRows;
         } elseif (
             ($displayParts['nav_bar'] == '1')
@@ -651,9 +666,9 @@ class Results
 
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
-        if ($this->properties['is_count'] && isset($numRows) && $numRows > 1) {
-            $displayParts['nav_bar']   = (string) '1';
-            $displayParts['sort_lnk']  = (string) '1';
+        if ($this->properties['is_count'] && $numRows > 1) {
+            $displayParts['nav_bar'] = '1';
+            $displayParts['sort_lnk'] = '1';
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -665,12 +680,8 @@ class Results
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
             $tableObject = new Table($table, $db);
-            if (
-                isset($unlimNumRows)
-                && ($unlimNumRows < 2)
-                && ! $tableObject->isView()
-            ) {
-                $displayParts['sort_lnk'] = (string) '0';
+            if ($unlimNumRows < 2 && ! $tableObject->isView()) {
+                $displayParts['sort_lnk'] = '0';
             }
         }
 
@@ -823,10 +834,10 @@ class Results
      *
      * @see getTable()
      *
-     * @param int    $posNext       the offset for the "next" page
-     * @param int    $posPrevious   the offset for the "previous" page
-     * @param bool   $isInnodb      whether its InnoDB or not
-     * @param string $sortByKeyHtml the sort by key dialog
+     * @param int   $posNext       the offset for the "next" page
+     * @param int   $posPrevious   the offset for the "previous" page
+     * @param bool  $isInnodb      whether its InnoDB or not
+     * @param array $sortByKeyData the sort by key dialog
      *
      * @return array
      */
@@ -834,7 +845,7 @@ class Results
         $posNext,
         $posPrevious,
         $isInnodb,
-        $sortByKeyHtml
+        array $sortByKeyData
     ): array {
         $isShowingAll = $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS;
 
@@ -859,9 +870,10 @@ class Results
         // Move to the next page or to the last one
         $moveForwardButtons = '';
         if (
-            $this->properties['unlim_num_rows'] === false // view with unknown number of rows
+            $this->properties['unlim_num_rows'] === -1 // view with unknown number of rows
             || (! $isShowingAll
-            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->properties['unlim_num_rows']
+            && intval($_SESSION['tmpval']['pos']) + intval($_SESSION['tmpval']['max_rows'])
+                < $this->properties['unlim_num_rows']
             && $this->properties['num_rows'] >= $_SESSION['tmpval']['max_rows'])
         ) {
             $moveForwardButtons = $this->getMoveForwardButtonsForTableNavigation(
@@ -891,7 +903,7 @@ class Results
             'is_showing_all' => $isShowingAll,
             'max_rows' => $_SESSION['tmpval']['max_rows'],
             'pos' => $_SESSION['tmpval']['pos'],
-            'sort_by_key' => $sortByKeyHtml,
+            'sort_by_key' => $sortByKeyData,
         ];
     }
 
@@ -967,9 +979,9 @@ class Results
             $inputForRealEnd = $onclick = '';
         }
 
-        $maxRows = $_SESSION['tmpval']['max_rows'];
+        $maxRows = (int) $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmpval']['pos']
+            . (intval($_SESSION['tmpval']['pos'])
                 + $maxRows
                 < $this->properties['unlim_num_rows']
                 && $this->properties['num_rows'] >= $maxRows
@@ -1020,8 +1032,6 @@ class Results
         $isLimitedDisplay,
         $unsortedSqlQuery
     ) {
-        $html = '';
-
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
         $sqlMd5 = md5($this->properties['sql_query']);
@@ -1046,6 +1056,8 @@ class Results
         // optimize: avoid calling a method on each iteration
         $numberOfColumns = $this->properties['fields_cnt'];
 
+        $columns = [];
+
         for ($j = 0; $j < $numberOfColumns; $j++) {
             // PHP 7.4 fix for accessing array offset on bool
             $colVisibCurrent = is_array($colVisib) && isset($colVisib[$j]) ? $colVisib[$j] : null;
@@ -1061,10 +1073,10 @@ class Results
 
             // Prepare comment-HTML-wrappers for each row, if defined/enabled.
             $comments = $this->getCommentForRow($commentsMap, $fieldsMeta[$i]);
-            $displayParams = $this->properties['display_params'];
+            $displayParams = $this->properties['display_params'] ?? [];
 
             if (($displayParts['sort_lnk'] == '1') && ! $isLimitedDisplay) {
-                [$orderLink, $sortedHeaderHtml] = $this->getOrderLinkAndSortedHeaderHtml(
+                [$orderLink, $sortedHeaderData] = $this->getOrderLinkAndSortedHeaderHtml(
                     $fieldsMeta[$i],
                     $sortExpression,
                     $sortExpressionNoDirection,
@@ -1077,7 +1089,7 @@ class Results
                     $colVisibCurrent
                 );
 
-                $html .= $sortedHeaderHtml;
+                $columns[] = $sortedHeaderData;
 
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1086,7 +1098,7 @@ class Results
                     . '">' . "\n" . $orderLink . $comments . '    </th>' . "\n";
             } else {
                 // Results can't be sorted
-                $html .= $this->getDraggableClassForNonSortableColumns(
+                $columns[] = $this->getDraggableClassForNonSortableColumns(
                     $colVisib,
                     $colVisibCurrent,
                     $conditionField,
@@ -1106,7 +1118,10 @@ class Results
             $this->properties['display_params'] = $displayParams;
         }
 
-        return $html;
+        return $this->template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => $displayParts['sort_lnk'] == '1' && ! $isLimitedDisplay,
+            'columns' => $columns,
+        ]);
     }
 
     /**
@@ -1220,7 +1235,7 @@ class Results
         array $analyzedSqlResults,
         ?array $sortExpression
     ) {
-        $dropDownHtml = '';
+        $dropDownData = [];
 
         $unsortedSqlQuery = Query::replaceClause(
             $analyzedSqlResults['statement'],
@@ -1239,18 +1254,11 @@ class Results
 
             // do we have any index?
             if (! empty($indexes)) {
-                $dropDownHtml = $this->getSortByKeyDropDown(
-                    $indexes,
-                    $sortExpression,
-                    $unsortedSqlQuery
-                );
+                $dropDownData = $this->getSortByKeyDropDown($indexes, $sortExpression, $unsortedSqlQuery);
             }
         }
 
-        return [
-            $unsortedSqlQuery,
-            $dropDownHtml,
-        ];
+        return [$unsortedSqlQuery, $dropDownData];
     }
 
     /**
@@ -1262,15 +1270,13 @@ class Results
      * @param array|null $sortExpression   the sort expression
      * @param string     $unsortedSqlQuery the unsorted sql query
      *
-     * @return string html content
-     *
-     * @access private
+     * @return array
      */
     private function getSortByKeyDropDown(
         $indexes,
         ?array $sortExpression,
         $unsortedSqlQuery
-    ): string {
+    ): array {
         $hiddenFields = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -1334,10 +1340,7 @@ class Results
             'is_selected' => ! $isIndexUsed,
         ];
 
-        return $this->template->render('display/results/sort_by_key', [
-            'hidden_fields' => $hiddenFields,
-            'options' => $options,
-        ]);
+        return ['hidden_fields' => $hiddenFields, 'options' => $options];
     }
 
     /**
@@ -1635,8 +1638,6 @@ class Results
         $colVisib,
         $colVisibElement
     ) {
-        $sortedHeaderHtml = '';
-
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column
         // isn't aliased, or in queries like
@@ -1713,24 +1714,23 @@ class Results
             $nameToUseInSort
         );
 
-        $sortedHeaderHtml .= $this->getDraggableClassForSortableColumns(
-            $colVisib,
-            $colVisibElement,
-            $fieldsMeta,
-            $orderLink,
-            $comments
-        );
-
-        return [
-            $orderLink,
-            $sortedHeaderHtml,
+        $thClass = [];
+        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
+        $sortedHeaderData = [
+            'column_name' => $fieldsMeta->name,
+            'order_link' => $orderLink,
+            'comments' => $comments,
+            'is_browse_pointer_enabled' => $GLOBALS['cfg']['BrowsePointerEnable'] === true,
+            'is_browse_marker_enabled' => $GLOBALS['cfg']['BrowseMarkerEnable'] === true,
+            'is_column_hidden' => $colVisib && ! $colVisibElement,
+            'is_column_numeric' => ! empty($thClass),
         ];
+
+        return [$orderLink, $sortedHeaderData];
     }
 
     /**
      * Prepare parameters and html for sorted table header fields
-     *
-     * @see    getOrderLinkAndSortedHeaderHtml()
      *
      * @param array         $sortExpression            sort expression
      * @param array         $sortExpressionNoDirection sort expression without direction
@@ -1786,7 +1786,7 @@ class Results
             $sortTableNew = $sortTable;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
-            if (mb_strpos($nameToUseInSort, '.') !== false) {
+            if (str_contains($nameToUseInSort, '.')) {
                 $matches = explode('.', $nameToUseInSort);
                 // Matches[0] has the table name
                 // Matches[1] has the column name
@@ -1804,7 +1804,7 @@ class Results
             // order by clause to the  column name
             $queryHead = $isFirstClause ? "\nORDER BY " : '';
             // Again a check to see if the given column is a aggregate column
-            if (mb_strpos($nameToUseInSort, '(') !== false) {
+            if (str_contains($nameToUseInSort, '(')) {
                 $sortOrder .=  $queryHead . $nameToUseInSort . ' ';
             } else {
                 if (strlen($sortTableNew) > 0) {
@@ -1822,7 +1822,7 @@ class Results
             $sortOrder = preg_replace('/\.\./', '.', $sortOrder);
             // Incase this is the current column save $single_sort_order
             if ($currentName == $nameToUseInSort) {
-                if (mb_strpos($currentName, '(') !== false) {
+                if (str_contains($currentName, '(')) {
                     $singleSortOrder = "\n" . 'ORDER BY ' . Util::backquote($currentName) . ' ';
                 } else {
                     $singleSortOrder = "\n" . 'ORDER BY ' . $sortTable
@@ -1860,11 +1860,7 @@ class Results
 
         // remove the comma from the last column name in the newly
         // constructed clause
-        $sortOrder = mb_substr(
-            $sortOrder,
-            0,
-            mb_strlen($sortOrder) - 2
-        );
+        $sortOrder = mb_substr($sortOrder, 0, -2);
         if (empty($orderImg)) {
             $orderImg = '';
         }
@@ -1899,7 +1895,7 @@ class Results
         $indexInExpression = 0;
 
         foreach ($sortExpressionNoDirection as $index => $clause) {
-            if (mb_strpos($clause, '.') !== false) {
+            if (str_contains($clause, '.')) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . '.' . str_replace('`', '', $fragments[1]);
             } else {
@@ -2097,8 +2093,6 @@ class Results
      * Check if the column contains numeric data. If yes, then set the
      * column header's alignment right
      *
-     * @see  getDraggableClassForSortableColumns()
-     *
      * @param FieldMetadata $fieldsMeta set of field properties
      * @param array         $thClass    array containing classes
      *
@@ -2120,55 +2114,6 @@ class Results
     }
 
     /**
-     * Prepare columns to draggable effect for sortable columns
-     *
-     * @see getTableHeaders()
-     *
-     * @param bool          $colVisib        the column is visible (false)
-     *                                        array                the column is not visible (string array)
-     * @param string        $colVisibElement element of $col_visib array
-     * @param FieldMetadata $fieldsMeta      set of field properties
-     * @param string        $orderLink       the order link
-     * @param string        $comments        the comment for the column
-     *
-     * @return string  html content
-     *
-     * @access private
-     */
-    private function getDraggableClassForSortableColumns(
-        $colVisib,
-        $colVisibElement,
-        FieldMetadata $fieldsMeta,
-        $orderLink,
-        $comments
-    ) {
-        $draggableHtml = '<th';
-        $thClass = [];
-        $thClass[] = 'draggable';
-        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-        if ($colVisib && ! $colVisibElement) {
-            $thClass[] = 'hide';
-        }
-
-        $thClass[] = 'column_heading';
-        $thClass[] = 'sticky';
-        if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-            $thClass[] = 'pointer';
-        }
-
-        if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-            $thClass[] = 'marker';
-        }
-
-        $draggableHtml .= ' class="' . implode(' ', $thClass) . '"';
-
-        $draggableHtml .= ' data-column="' . htmlspecialchars((string) $fieldsMeta->name)
-            . '">' . $orderLink . $comments . '</th>';
-
-        return $draggableHtml;
-    }
-
-    /**
      * Prepare columns to draggable effect for non sortable columns
      *
      * @see getTableHeaders()
@@ -2180,9 +2125,7 @@ class Results
      * @param FieldMetadata $fieldsMeta      set of field properties
      * @param string        $comments        the comment for the column
      *
-     * @return string  html content
-     *
-     * @access private
+     * @return array
      */
     private function getDraggableClassForNonSortableColumns(
         $colVisib,
@@ -2191,29 +2134,16 @@ class Results
         FieldMetadata $fieldsMeta,
         $comments
     ) {
-        $draggableHtml = '<th';
         $thClass = [];
-        $thClass[] = 'draggable';
-        $thClass[] = 'sticky';
         $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-        if ($colVisib && ! $colVisibElement) {
-            $thClass[] = 'hide';
-        }
 
-        if ($conditionField) {
-            $thClass[] = 'condition';
-        }
-
-        $draggableHtml .= ' class="' . implode(' ', $thClass) . '"';
-
-        $draggableHtml .= ' data-column="'
-            . htmlspecialchars((string) $fieldsMeta->name) . '">';
-
-        $draggableHtml .= htmlspecialchars((string) $fieldsMeta->name);
-
-        $draggableHtml .= "\n" . $comments . '</th>';
-
-        return $draggableHtml;
+        return [
+            'column_name' => $fieldsMeta->name,
+            'comments' => $comments,
+            'is_column_hidden' => $colVisib && ! $colVisibElement,
+            'is_column_numeric' => ! empty($thClass),
+            'has_condition' => $conditionField,
+        ];
     }
 
     /**
@@ -2358,20 +2288,15 @@ class Results
      * @see buildNullDisplay(), getRowData()
      *
      * @param string                       $class                class of table cell
-     * @param bool                         $conditionField       whether to add CSS class
-     *                                                            condition
-     * @param FieldMetadata                $meta                 the meta-information about the
-     *                                                           field
+     * @param bool                         $conditionField       whether to add CSS class condition
+     * @param FieldMetadata                $meta                 the meta-information about the field
      * @param string                       $nowrap               avoid wrapping
      * @param bool                         $isFieldTruncated     is field truncated (display ...)
-     * @param TransformationsPlugin|string $transformationPlugin transformation plugin.
-     *                                                            Can also be the default function:
-     *                                                            Core::mimeDefaultFunction
-     * @param string                       $defaultFunction      default transformation function
+     * @param TransformationsPlugin|string $transformationPlugin Can also be the default function:
+     *                                                           Core::mimeDefaultFunction
+     * @param callable|null                $defaultFunction      default transformation function
      *
      * @return string the list of classes
-     *
-     * @access private
      */
     private function addClass(
         $class,
@@ -2380,7 +2305,7 @@ class Results
         $nowrap,
         $isFieldTruncated = false,
         $transformationPlugin = '',
-        $defaultFunction = ''
+        $defaultFunction = null
     ) {
         $classes = [
             $class,
@@ -2624,7 +2549,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
@@ -2637,7 +2562,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause,
                         'condition' => json_encode($conditionArray),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 }
@@ -2682,7 +2607,7 @@ class Results
                         'row_number' => $rowNumber,
                         'where_clause' => $whereClause ?? '',
                         'condition' => json_encode($conditionArray ?? []),
-                        'is_ajax' => Response::getInstance()->isAjax(),
+                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                         'js_conf' => $jsConf ?? '',
                     ]);
                 }
@@ -2875,7 +2800,7 @@ class Results
                     $file = $mediaTypeMap[$orgFullColName]['transformation'];
                     $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
 
-                    if (@file_exists($includeFile)) {
+                    if (@file_exists(ROOT_PATH . $includeFile)) {
                         $className = $this->transformations->getClassName($includeFile);
                         if (class_exists($className)) {
                             // todo add $plugin_manager
@@ -2909,7 +2834,8 @@ class Results
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                include_once $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
+                /** @psalm-suppress UnresolvableInclude */
+                include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
                 $transformationPlugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
 
                 $transformOptions = $this->transformations->getOptions(
@@ -2991,14 +2917,16 @@ class Results
             $transformOptions['wrapper_link'] = Url::getCommon($urlParams);
             $transformOptions['wrapper_params'] = $urlParams;
 
-            $displayParams = $this->properties['display_params'];
+            $displayParams = $this->properties['display_params'] ?? [];
 
             // in some situations (issue 11406), numeric returns 1
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
+            // Nullable text fields and text fields have the blob flag (issue 16896)
+            $isNumericAndNotBlob = $meta->isNumeric && ! $meta->isBlob;
             if (
-                ($meta->isNumeric && $meta->isNotType(FieldMetadata::TYPE_STRING))
+                ($isNumericAndNotBlob && $meta->isNotType(FieldMetadata::TYPE_STRING))
                 || $meta->isType(FieldMetadata::TYPE_REAL)
             ) {
                 // n u m e r i c
@@ -3023,7 +2951,7 @@ class Results
                 $class = str_replace('grid_edit', '', $class);
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForGeometryColumns(
-                    $row[$i],
+                    $row[$i] === null ? null : (string) $row[$i],
                     $class,
                     $meta,
                     $map,
@@ -3038,7 +2966,7 @@ class Results
                 // n o t   n u m e r i c
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNonNumericColumns(
-                    $row[$i],
+                    $row[$i] === null ? null : (string) $row[$i],
                     $class,
                     $meta,
                     $map,
@@ -3048,9 +2976,7 @@ class Results
                     $defaultFunction,
                     $transformOptions,
                     $isFieldTruncated,
-                    $analyzedSqlResults,
-                    $dtResult,
-                    $i
+                    $analyzedSqlResults
                 );
             }
 
@@ -3514,22 +3440,17 @@ class Results
      *
      * @param string|null           $column               the column's value
      * @param string                $class                the html class for column
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param FieldMetadata         $meta                 the meta-information about this
-     *                                               field
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param FieldMetadata         $meta                 the meta-information about this field
      * @param array                 $map                  the list of relations
-     * @param bool                  $isFieldTruncated     the condition for blob data
-     *                                                      replacements
+     * @param bool                  $isFieldTruncated     the condition for blob data replacements
      * @param array                 $analyzedSqlResults   the analyzed query
      * @param TransformationsPlugin $transformationPlugin the name of transformation plugin
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared cell, html content
-     *
-     * @access private
      */
     private function getDataCellForNumericColumns(
         ?string $column,
@@ -3589,22 +3510,17 @@ class Results
      *
      * @param string|null           $column               the relevant column in data row
      * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about
-     *                                               this field
+     * @param FieldMetadata         $meta                 the meta-information about this field
      * @param array                 $map                  the list of relations
      * @param array                 $urlParams            the parameters for generate url
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation
-     *                                                     function
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param TransformationsPlugin $transformationPlugin the name of transformation function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
      * @param array                 $analyzedSqlResults   the analyzed query
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared data cell, html content
-     *
-     * @access private
      */
     private function getDataCellForGeometryColumns(
         ?string $column,
@@ -3729,29 +3645,18 @@ class Results
      *
      * @param string|null           $column               the relevant column in data row
      * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about
-     *                                               the field
+     * @param FieldMetadata         $meta                 the meta-information about the field
      * @param array                 $map                  the list of relations
-     * @param array                 $urlParams            the parameters for generate
-     *                                                      url
-     * @param bool                  $conditionField       the column should highlighted
-     *                                                     or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation
-     *                                                     function
-     * @param string                $defaultFunction      the default transformation
-     *                                                     function
+     * @param array                 $urlParams            the parameters for generate url
+     * @param bool                  $conditionField       the column should highlighted or not
+     * @param TransformationsPlugin $transformationPlugin the name of transformation function
+     * @param callable              $defaultFunction      the default transformation function
      * @param array                 $transformOptions     the transformation parameters
-     * @param bool                  $isFieldTruncated     is data truncated due to
-     *                                                      LimitChars
+     * @param bool                  $isFieldTruncated     is data truncated due to LimitChars
      * @param array                 $analyzedSqlResults   the analyzed query
-     * @param int                   $dtResult             the link id associated to
-     *                                                     the query which results
-     *                                                     have to be displayed
-     * @param int                   $colIndex             the column index
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string the prepared data cell, html content
-     *
-     * @access private
      */
     private function getDataCellForNonNumericColumns(
         ?string $column,
@@ -3764,9 +3669,7 @@ class Results
         $defaultFunction,
         $transformOptions,
         $isFieldTruncated,
-        array $analyzedSqlResults,
-        &$dtResult,
-        $colIndex
+        array $analyzedSqlResults
     ) {
         global $dbi;
 
@@ -3775,7 +3678,7 @@ class Results
         $isAnalyse = $this->properties['is_analyse'];
 
         $bIsText = is_object($transformationPlugin)
-            && strpos($transformationPlugin->getMIMEType(), 'Text') === false;
+            && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
 
         // disable inline grid editing
         // if binary fields are protected
@@ -3809,7 +3712,7 @@ class Results
         $displayedColumn = $column;
         if (
             ! (is_object($transformationPlugin)
-            && strpos($transformationPlugin->getName(), 'Link') !== false)
+            && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
             [
@@ -3878,12 +3781,9 @@ class Results
         }
 
         // transform functions may enable no-wrapping:
-        $functionNoWrap = 'applyTransformationNoWrap';
-
-        $boolNoWrap = ($defaultFunction != $transformationPlugin)
-            && method_exists($transformationPlugin, $functionNoWrap)
-            ? $transformationPlugin->$functionNoWrap($transformOptions)
-            : false;
+        $boolNoWrap = ($defaultFunction !== $transformationPlugin)
+            && method_exists($transformationPlugin, 'applyTransformationNoWrap')
+            && $transformationPlugin->applyTransformationNoWrap($transformOptions);
 
         // do not wrap if date field type or if no-wrapping enabled by transform functions
         // otherwise, preserve whitespaces and wrap
@@ -3953,7 +3853,7 @@ class Results
         }
 
         if (Core::isValid($_REQUEST['pos'], 'numeric')) {
-            $query['pos'] = $_REQUEST['pos'];
+            $query['pos'] = (int) $_REQUEST['pos'];
             unset($_REQUEST['pos']);
         } elseif (empty($query['pos'])) {
             $query['pos'] = 0;
@@ -4201,14 +4101,15 @@ class Results
         }
 
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1' && $analyzedSqlResults['statement'] !== null) {
+        if ($displayParts['sort_lnk'] == '1' && isset($analyzedSqlResults['statement'])) {
             // At this point, $sort_expression is an array
-            [$unsortedSqlQuery, $sortByKeyHtml] = $this->getUnsortedSqlAndSortByKeyDropDown(
+            [$unsortedSqlQuery, $sortByKeyData] = $this->getUnsortedSqlAndSortByKeyDropDown(
                 $analyzedSqlResults,
                 $sortExpression
             );
         } else {
-            $sortByKeyHtml = $unsortedSqlQuery = '';
+            $unsortedSqlQuery = '';
+            $sortByKeyData = [];
         }
 
         $navigation = [];
@@ -4217,7 +4118,7 @@ class Results
                 $posNext,
                 $posPrev,
                 $isInnodb,
-                $sortByKeyHtml
+                $sortByKeyData
             );
         }
 
@@ -4359,7 +4260,7 @@ class Results
             return null;
         }
 
-        if (mb_strpos($sortExpressionNoDirection, '.') === false) {
+        if (! str_contains($sortExpressionNoDirection, '.')) {
             $sortTable = $this->properties['table'];
             $sortColumn = $sortExpressionNoDirection;
         } else {
@@ -4398,9 +4299,10 @@ class Results
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
 
-        $isBlobOrGeometry = $meta->isType(FieldMetadata::TYPE_BLOB) || $meta->isMappedTypeGeometry;
+        $isBlobOrGeometryOrBinary = $meta->isType(FieldMetadata::TYPE_BLOB)
+                                    || $meta->isMappedTypeGeometry || $meta->isBinary;
 
-        if ($isBlobOrGeometry) {
+        if ($isBlobOrGeometryOrBinary) {
             $columnForFirstRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
@@ -4430,7 +4332,7 @@ class Results
 
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
-        if ($isBlobOrGeometry) {
+        if ($isBlobOrGeometryOrBinary) {
             $columnForLastRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
@@ -4539,7 +4441,7 @@ class Results
         $message->addText('(');
 
         if ($messageViewWarning === false) {
-            if (isset($unlimNumRows) && ($unlimNumRows != $total)) {
+            if ($unlimNumRows != $total) {
                 $messageTotal = Message::notice(
                     $preCount . __('%1$d total, %2$d in query')
                 );
@@ -4707,7 +4609,21 @@ class Results
      * @param array $displayParts       the parts to display
      * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return array<string, bool|array<string, string>>
+     * @psalm-return array{
+     *   has_export_link: bool,
+     *   has_geometry: bool,
+     *   has_print_link: bool,
+     *   has_procedure: bool,
+     *   url_params: array{
+     *     db: string,
+     *     table: string,
+     *     printview: "1",
+     *     sql_query: string,
+     *     single_table?: "true",
+     *     raw_query?: "true",
+     *     unlim_num_rows?: int|numeric-string
+     *   }
+     * }
      */
     private function getResultsOperations(
         array $displayParts,
@@ -4755,12 +4671,8 @@ class Results
              * first table of this database, so that /table/export and
              * the script it calls do not fail
              */
-            if (empty($urlParams['table']) && ! empty($urlParams['db'])) {
-                $urlParams['table'] = $dbi->fetchValue('SHOW TABLES');
-                /* No result (probably no database selected) */
-                if ($urlParams['table'] === false) {
-                    unset($urlParams['table']);
-                }
+            if ($urlParams['table'] === '' && strlen($urlParams['db']) > 0) {
+                $urlParams['table'] = (string) $dbi->fetchValue('SHOW TABLES');
             }
 
             /** @var FieldMetadata[] $fieldsMeta */
@@ -4795,7 +4707,7 @@ class Results
      *                                             default function:
      *                                             Core::mimeDefaultFunction
      * @param array         $transformOptions     transformation parameters
-     * @param string        $defaultFunction      default transformation function
+     * @param callable      $defaultFunction      default transformation function
      * @param FieldMetadata $meta                 the meta-information about the field
      * @param array         $urlParams            parameters that should go to the
      *                                             download link
@@ -4821,7 +4733,9 @@ class Results
         if ($content !== null) {
             $size = strlen($content);
             $displaySize = Util::formatByteDown($size, 3, 1);
-            $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
+            if ($displaySize !== null) {
+                $result .= ' - ' . $displaySize[0] . ' ' . $displaySize[1];
+            }
         } else {
             $result .= ' - NULL';
             $size = 0;
@@ -4934,7 +4848,7 @@ class Results
         );
 
         if ($dispresult && $dbi->numRows($dispresult) > 0) {
-            [$dispval] = $dbi->fetchRow($dispresult, 0);
+            [$dispval] = $dbi->fetchRow($dispresult);
         } else {
             $dispval = __('Link not found!');
         }
@@ -4960,12 +4874,13 @@ class Results
      * @param string                $displayedData        data that will be displayed (maybe be chunked)
      * @param TransformationsPlugin $transformationPlugin transformation plugin. Can also be the default function:
      *                                                    Core::mimeDefaultFunction
-     * @param string                $defaultFunction      default function
+     * @param callable              $defaultFunction      default function
      * @param string                $nowrap               'nowrap' if the content should not be wrapped
      * @param string                $whereComparison      data for the where clause
      * @param array                 $transformOptions     options for transformation
      * @param bool                  $isFieldTruncated     whether the field is truncated
      * @param string                $originalLength       of a truncated column, or ''
+     * @psalm-param callable(string):string $defaultFunction
      *
      * @return string  formatted data
      *
@@ -5088,7 +5003,7 @@ class Results
                 }
 
                 $tagParams = ['title' => $title];
-                if (strpos($class, 'grid_edit') !== false) {
+                if (str_contains($class, 'grid_edit')) {
                     $tagParams['class'] = 'ajax';
                 }
 

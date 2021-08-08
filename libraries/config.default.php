@@ -34,6 +34,7 @@ declare(strict_types=1);
  * an error message if phpMyAdmin cannot auto-detect the correct value.
  *
  * @global string $cfg['PmaAbsoluteUri']
+ * @psalm-suppress PossiblyUndefinedGlobalVariable
  */
 $cfg['PmaAbsoluteUri'] = '';
 
@@ -785,7 +786,12 @@ $cfg['Confirm'] = true;
 /**
  * sets SameSite attribute of the Set-Cookie HTTP response header
  *
- * @global boolean $cfg['CookieSameSite']
+ * Valid values are:
+ *    - Lax
+ *    - Strict
+ *    - None
+ *
+ * @global string $cfg['CookieSameSite']
  */
  $cfg['CookieSameSite'] = 'Strict';
 
@@ -2516,7 +2522,7 @@ $cfg['CharTextareaCols'] = 40;
  *
  * @global integer $cfg['CharTextareaRows']
  */
-$cfg['CharTextareaRows'] = 2;
+$cfg['CharTextareaRows'] = 7;
 
 /**
  * Max field data length in browse mode for all non-numeric fields

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_merge;
@@ -15,17 +16,13 @@ use function array_slice;
 use function count;
 use function explode;
 use function hexdec;
-use function imagecolorallocate;
-use function imagefilledpolygon;
-use function imagestring;
 use function json_encode;
 use function max;
-use function mb_strlen;
-use function mb_strpos;
 use function mb_substr;
 use function min;
 use function pow;
 use function sqrt;
+use function str_contains;
 use function trim;
 
 /**
@@ -73,14 +70,10 @@ class GisPolygon extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner ring, use polygon itself
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $ring = $polygon;
         } else {
             // Separate outer ring and use it to determine min-max
@@ -98,35 +91,26 @@ class GisPolygon extends GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $fill_color Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $fill_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($fill_color, 1, 2));
-        $green = hexdec(mb_substr($fill_color, 3, 2));
-        $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($fill_color, 1, 2));
+        $green = (int) hexdec(mb_substr($fill_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -145,17 +129,10 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
+        $image->filledPolygon($points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            imagestring(
-                $image,
-                1,
-                $points_arr[2],
-                $points_arr[3],
-                trim($label),
-                $black
-            );
+            $image->string(1, $points_arr[2], $points_arr[3], trim($label), $black);
         }
 
         return $image;
@@ -187,14 +164,10 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $points_arr = $this->extractPoints($polygon, $scale_data, true);
         } else {
             // Separate outer and inner polygons
@@ -250,16 +223,12 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         $row = '<path d="';
 
         // If the polygon doesn't have an inner polygon
-        if (mb_strpos($polygon, '),(') === false) {
+        if (! str_contains($polygon, '),(')) {
             $row .= $this->drawPath($polygon, $scale_data);
         } else {
             // Separate outer and inner polygons
@@ -324,11 +293,7 @@ class GisPolygon extends GisGeometry
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $spatial,
-            9,
-            mb_strlen($spatial) - 11
-        );
+        $polygon = mb_substr($spatial, 9, -2);
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
@@ -367,9 +332,9 @@ class GisPolygon extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array  $gis_data GIS data
-     * @param int    $index    Index into the parameter object
-     * @param string $empty    Value for empty points
+     * @param array       $gis_data GIS data
+     * @param int         $index    Index into the parameter object
+     * @param string|null $empty    Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      *
@@ -399,19 +364,11 @@ class GisPolygon extends GisGeometry
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
 
-            $wkt = mb_substr(
-                $wkt,
-                0,
-                mb_strlen($wkt) - 1
-            );
+            $wkt = mb_substr($wkt, 0, -1);
             $wkt .= '),';
         }
 
-        $wkt = mb_substr(
-            $wkt,
-            0,
-            mb_strlen($wkt) - 1
-        );
+        $wkt = mb_substr($wkt, 0, -1);
 
         return $wkt . ')';
     }
@@ -539,9 +496,6 @@ class GisPolygon extends GisGeometry
      * @param array $ring array of points forming the ring
      *
      * @return array|false a point on the surface of the ring
-     *
-     * @access public
-     * @static
      */
     public static function getPointOnSurface(array $ring)
     {
@@ -626,11 +580,7 @@ class GisPolygon extends GisGeometry
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon = mb_substr(
-            $wkt,
-            9,
-            mb_strlen($wkt) - 11
-        );
+        $polygon = mb_substr($wkt, 9, -2);
         // Separate each linestring
         $linerings = explode('),(', $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);

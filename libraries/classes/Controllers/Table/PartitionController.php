@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
 use Throwable;
@@ -21,10 +21,10 @@ final class PartitionController extends AbstractController
     private $model;
 
     /**
-     * @param Response  $response
-     * @param string    $db
-     * @param string    $table
-     * @param Partition $partition
+     * @param ResponseRenderer $response
+     * @param string           $db
+     * @param string           $table
+     * @param Partition        $partition
      */
     public function __construct($response, Template $template, $db, $table, $partition)
     {

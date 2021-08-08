@@ -7,14 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function hexdec;
-use function imagearc;
-use function imagecolorallocate;
-use function imagestring;
 use function json_encode;
-use function mb_strlen;
 use function mb_substr;
 use function trim;
 
@@ -63,11 +60,7 @@ class GisPoint extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $spatial,
-            6,
-            mb_strlen($spatial) - 7
-        );
+        $point = mb_substr($spatial, 6, -1);
 
         return $this->setMinMax($point, []);
     }
@@ -79,56 +72,31 @@ class GisPoint extends GisGeometry
      * @param string|null $label       Label for the GIS POLYGON object
      * @param string      $point_color Color for the GIS POLYGON object
      * @param array       $scale_data  Array containing data related to scaling
-     * @param resource    $image       Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $point_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($point_color, 1, 2));
-        $green = hexdec(mb_substr($point_color, 3, 2));
-        $blue = hexdec(mb_substr($point_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($point_color, 1, 2));
+        $green = (int) hexdec(mb_substr($point_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($point_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $spatial,
-            6,
-            mb_strlen($spatial) - 7
-        );
+        $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            imagearc(
-                $image,
-                (int) $points_arr[0][0],
-                (int) $points_arr[0][1],
-                7,
-                7,
-                0,
-                360,
-                $color
-            );
+            $image->arc((int) $points_arr[0][0], (int) $points_arr[0][1], 7, 7, 0, 360, $color);
             // print label if applicable
             if (isset($label) && trim($label) != '') {
-                imagestring(
-                    $image,
-                    1,
-                    $points_arr[0][0],
-                    $points_arr[0][1],
-                    trim($label),
-                    $black
-                );
+                $image->string(1, $points_arr[0][0], $points_arr[0][1], trim($label), $black);
             }
         }
 
@@ -169,11 +137,7 @@ class GisPoint extends GisGeometry
         ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $spatial,
-            6,
-            mb_strlen($spatial) - 7
-        );
+        $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -222,11 +186,7 @@ class GisPoint extends GisGeometry
         ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $spatial,
-            6,
-            mb_strlen($spatial) - 7
-        );
+        $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, $scale_data);
 
         $row = '';
@@ -297,11 +257,7 @@ class GisPoint extends GisGeometry
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $spatial,
-            6,
-            mb_strlen($spatial) - 7
-        );
+        $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, null);
 
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
@@ -317,9 +273,9 @@ class GisPoint extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array  $gis_data GIS data
-     * @param int    $index    Index into the parameter object
-     * @param string $empty    Point does not adhere to this parameter
+     * @param array       $gis_data GIS data
+     * @param int         $index    Index into the parameter object
+     * @param string|null $empty    Point does not adhere to this parameter
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      *
@@ -376,11 +332,7 @@ class GisPoint extends GisGeometry
         }
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point = mb_substr(
-            $wkt,
-            6,
-            mb_strlen($wkt) - 7
-        );
+        $point = mb_substr($wkt, 6, -1);
         $points_arr = $this->extractPoints($point, null);
 
         $params[$index]['POINT']['x'] = $points_arr[0][0];

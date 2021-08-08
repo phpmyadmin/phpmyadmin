@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function function_exists;
-use function imagecreatetruecolor;
 use function preg_match;
 
 /**
@@ -179,8 +179,8 @@ class GisMultiPointTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
-        $image = imagecreatetruecolor(120, 150);
-        $this->assertNotFalse($image);
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
@@ -188,7 +188,8 @@ class GisMultiPointTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertImage($return);
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**

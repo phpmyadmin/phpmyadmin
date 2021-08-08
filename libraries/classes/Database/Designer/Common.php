@@ -483,11 +483,9 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['pdfwork']) {
-            return $this->relation->createPage(
-                $pageName,
-                $cfgRelation,
-                $db
-            );
+            $page = $this->relation->createPage($pageName, $cfgRelation, $db);
+
+            return $page !== false ? $page : null;
         }
 
         return null;
@@ -562,6 +560,7 @@ class Common
      * @param string $field display field name
      *
      * @return array<int,string|bool|null>
+     * @psalm-return array{0: bool, 1: string|null}
      */
     public function saveDisplayField($db, $table, $field): array
     {
@@ -600,6 +599,7 @@ class Common
      * @param string $DB2       database
      *
      * @return array<int,string|bool> array of success/failure and message
+     * @psalm-return array{0: bool, 1: string}
      */
     public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2): array
     {
@@ -789,10 +789,18 @@ class Common
             }
         }
 
+        // internal (pmadb) relation is not working, skip delete
+        if ($GLOBALS['cfgRelation']['relwork'] == false) {
+            return [
+                false,
+                __('Error: Relational features are disabled!'),
+            ];
+        }
+
         // internal relations
         $delete_query = 'DELETE FROM '
             . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . $GLOBALS['cfgRelation']['relation'] . ' WHERE '
+            . Util::backquote($GLOBALS['cfgRelation']['relation']) . ' WHERE '
             . "master_db = '" . $this->dbi->escapeString($DB2) . "'"
             . " AND master_table = '" . $this->dbi->escapeString($T2) . "'"
             . " AND master_field = '" . $this->dbi->escapeString($F2) . "'"

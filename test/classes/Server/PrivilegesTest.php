@@ -42,7 +42,6 @@ class PrivilegesTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -205,7 +204,7 @@ class PrivilegesTest extends AbstractTestCase
             $dbname_is_wildcard,
         ] = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
-            'PMA_pred_dbname',
+            'PMA\_pred\_dbname',
             $dbname
         );
         $this->assertEquals(
@@ -355,8 +354,8 @@ class PrivilegesTest extends AbstractTestCase
         $sql = 'SELECT * FROM `mysql`.`db`'
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
-            . ' LIKE `Db`;';
+            . ' AND `Db` = \'' . $db . '\'';
+
         $this->assertEquals(
             $sql,
             $ret
@@ -1325,7 +1324,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
-        $dbname = 'pma\_dbname';
+        $dbname = 'pma_dbname';
         $url_html = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
@@ -1343,6 +1342,91 @@ class PrivilegesTest extends AbstractTestCase
         );
 
         $dbname = 'pma_dbname';
+        $html = $this->serverPrivileges->getUserLink(
+            'revoke',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma_dbname';
+        $url_html = Url::getCommon(
+            [
+                'username' => $username,
+                'hostname' => $hostname,
+                'dbname' => $dbname,
+                'tablename' => $tablename,
+                'routinename' => '',
+                'revokeall' => 1,
+            ],
+            ''
+        );
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Revoke'),
+            $html
+        );
+
+        $html = $this->serverPrivileges->getUserLink('export', $username, $hostname);
+
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'initial' => '',
+            'export' => 1,
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Export'),
+            $html
+        );
+    }
+
+    /**
+     * Test for getUserLink
+     */
+    public function testGetUserLinkWildcardsEscaped(): void
+    {
+        $username = 'pma\_username';
+        $hostname = 'pma\_hostname';
+        $dbname = 'pma\_dbname';
+        $tablename = 'pma\_tablename';
+
+        $html = $this->serverPrivileges->getUserLink(
+            'edit',
+            $username,
+            $hostname,
+            $dbname,
+            $tablename,
+            ''
+        );
+
+        $dbname = 'pma\_dbname';
+        $url_html = Url::getCommon([
+            'username' => $username,
+            'hostname' => $hostname,
+            'dbname' => $dbname,
+            'tablename' => $tablename,
+            'routinename' => '',
+        ], '');
+        $this->assertStringContainsString(
+            $url_html,
+            $html
+        );
+        $this->assertStringContainsString(
+            __('Edit privileges'),
+            $html
+        );
+
+        $dbname = 'pma\_dbname';
         $html = $this->serverPrivileges->getUserLink(
             'revoke',
             $username,
@@ -1845,6 +1929,7 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetHtmlForUserOverview(): void
     {
+        $_REQUEST = ['ajax_page_request' => '1'];
         $actual = $this->serverPrivileges->getHtmlForUserOverview('ltr');
         $this->assertStringContainsString(
             'Note: MySQL privilege names are expressed in English.',

@@ -13,8 +13,85 @@ phpMyAdmin - ChangeLog
 - issue #16829 Add "NOT LIKE %...%" operator to Table search
 - issue #16845 Fixed some links not passing through url.php
 - issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
+- issue #16974 Replace zxcvbn by zxcvbn-ts
+- issue #15691 Disable the last column checkbox in the column list dropdown instead of not allowing un-check
+- issue #16138 Ignore the length of integer types and show a warning on MySQL >= 8.0.18
+- issue        Add suport for the Mroonga engine
+- issue        Double click column name to directly copy to clipboard
+- issue #16425 Add "DELETE FROM" table on table operations page
+- issue #16482 Add a select all link for table-specific privileges
 
 5.1.2 (not yet released)
+- issue        Replaced MySQL documentation redirected links
+- issue #16960 Fix JS error on Designer visual builder on some modal buttons
+- issue        Re-build openlayers JS dependency from the source files and provide a smaller JS bundle
+- issue        Fixed imports and theme detection depending on the current working dir
+- issue        Update JavaScript dependencies
+- issue #16935 Remove hardcoded row length for "$cfg['CharTextareaRows']" to allow back values < 7
+- issue #16977 Fix encoding of enum and set values on edit value
+- issue        Fix set value as selected when it has special chars on edit value enum
+- issue #16896 Fix distinct URLs broken on nullable text fields
+- issue        Fixed two possible PHP errors using INT data
+- issue        Fixed possible warning "Undefined index: output_format" on export
+- issue        Fixed warning "Undefined index: ods_recognize_percentages" on Import ODS
+- issue        Fixed warning "Undefined array key "ods_recognize_currency" on Import ODS
+- issue #16982 Fixed "Notice: Undefined index: foreign_keys_data" on Designer remove relation
+- issue        Backquote phpMyAdmin table name on internal relation delete query for Designer
+- issue #16982 Do not try to delete internal relations if they are not configured
+- issue #16982 Show success messages on Designer for add and remove relation operations
+- issue        Fixed possible "Undefined index: clause_is_unique" on replace value in cell
+- issue #16991 Fixed case where $_SERVER['REQUEST_METHOD'] is undefined
+- issue        Fixed configuration error handler registration
+- issue #16997 Fixed server variables get/set value not working on multi server server > 1
+- issue #16998 Fixed Multi table query submit on server > 1 logged out user
+- issue #17000 Fixed Multi edit on central columns on server > 1 logged out user
+- issue #17001 Fix PHP error on query submit without a table name on multi table query box
+- issue #16999 Fixed multi table query results shows for 1 sec and then page refreshes
+- issue        Fixed a non translated button text on central columns add
+- issue        Fixed table width on Query by example page for large screens
+- issue #16975 Fixed NULL default had a value on insert with datatime fields
+- issue #16994 Fixed missing privilege escaping when assigning multiple databases with '_' to an user
+- issue #16864 Fixed the margin on the last database of the tree on all themes when scrollbars are displayed
+- issue #17011 Fixed the database tree line that was not continuous on database groups
+- issue        Build more syntax correct URLs on JS internal redirects
+- issue #16976 Fix wrong link when a table is moved from a database to another
+- issue #16985 Fix case-sensitive issue of innodb_file_format=barracuda vs innodb_file_format=Barracuda
+- issue        Fixed duplicate quote in navigation nodes
+- issue #17006 Disable the URL limit for the MariaDB analyser feature
+- issue        Fix calls to fetchRow using two parameters but the function has only one parameter
+- issue #17020 Fixed "Notice Undefined index: sql_query" on Insert page
+- issue        Fix reported "Undefined index: FirstDayOfCalendar"
+- issue        Fix reported "Undefined index: environment"
+- issue        Fix "TypeError: strlen() expects parameter 1 to be string, null given" on databases listing
+- issue #16973 Fix "Undefined array key "n0_pos2_name"" on databases listing
+- issue        Use the correct min MySQL version for axis-order (8.0.1) instead of (8.0.11)
+- issue        Use the queries we asked the user confirmation for on DELETE and TRUNCATE table actions
+- issue #16994 Fixed editing specific privileges for a database covered by a wildcard privilege
+- issue #16994 Fixed escaping of the database name for databases containing '_' on users edit
+- issue #16994 Only escape once on grant/revoke privileges for databases containing '_' or '%'
+- issue #16994 Only show databases without a privilege on multi select for user grant databases
+- issue        Removed un-expected query success message from the Table export page
+- issue #17026 Handle possible invalid boolean values injected in SaveDir or UploadDir causing "TypeError: mb_substr()"
+- issue #16981 Enable cookie parameter "SameSite" on "phpMyAdmin" cookie for PHP >= 7.3
+- issue #16966 Encode "#" to have the anchor part of the destination URL on SQL highlight terms URLs
+- issue #17004 Fix PHP errors due to removed variable "innodb_file_format" on MariaDB >= 10.6.0 and MySQL >= 8.0.0
+- issue #16842 Fixed missing password modes on PerconaDB
+- issue #16947 Fix "Change login information" form not working
+- issue #17004 Fix Advisor for MariaDB >= 10.5 because of removed "innodb_log_files_in_group" variable
+- issue #17037 Fix change structure does not surface errors
+- issue #17016 Fixed online Transaction, errors not reported on structure edit
+- issue #17042 Fix SQL escaping bug on DB name with special chars on submit query with rollback option
+- issue #17027 Better handle the display of sorted binary columns in results summary
+- issue #16398 Quote non numeric values on parameterized queries
+- issue        Fixed duplicate HTML escaping on foreign keys select value modal
+- issue #15370 Fixed edit routine UI incorrectly removes too many escape slashes
+- issue #14631 Fix enum with comma produces incorrect search dropdown on search pages
+- issue        Fix gis visualization position and limit parameters have no effect
+- issue #16995 Fix edit binary foreign key adds a 1 to the value on the selected value
+- issue #13614 Fixed escaping the database names when granting privileges on tables
+- issue #11834 Fixed adding a new user on "privileges" tab of a table with a database name using a "_" character
+- issue #17033 Fixed scaling of line width and point size in GIS visualization
+- issue #17054 Removed "DEL" character from generated random strings for Blowfish secret auto-generated by setup
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa

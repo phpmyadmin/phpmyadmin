@@ -15,7 +15,7 @@ use function http_build_query;
 use function is_array;
 use function json_decode;
 use function json_encode;
-use function strpos;
+use function str_contains;
 use function time;
 use function urlencode;
 
@@ -266,7 +266,7 @@ class UserPreferences
         }
 
         Core::sendHeaderLocation('./' . $file_name
-            . Url::getCommonRaw($url_params, strpos($file_name, '?') === false ? '?' : '&') . $hash);
+            . Url::getCommonRaw($url_params, ! str_contains($file_name, '?') ? '?' : '&') . $hash);
     }
 
     /**

@@ -32,9 +32,9 @@ use function microtime;
 use function session_start;
 use function session_write_close;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function ucwords;
 
 /**
@@ -187,7 +187,7 @@ class Sql
      *
      * @return bool whether the result set contains a unique key
      */
-    private function resultSetContainsUniqueKey($db, $table, array $fieldsMeta)
+    private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta)
     {
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
@@ -207,7 +207,7 @@ class Sql
                     $numberFound++;
                 } elseif (! in_array($indexColumnName, $columns)) {
                     $numberFound++;
-                } elseif (strpos($columns[$indexColumnName]['Extra'], 'INVISIBLE') !== false) {
+                } elseif (str_contains($columns[$indexColumnName]['Extra'], 'INVISIBLE')) {
                     $numberFound++;
                 }
             }
@@ -336,9 +336,9 @@ class Sql
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array array containing the value list for the column
+     * @return array|null array containing the value list for the column, null on failure
      */
-    public function getValuesForColumn($db, $table, $column)
+    public function getValuesForColumn(string $db, string $table, string $column): ?array
     {
         $fieldInfoQuery = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
@@ -349,6 +349,10 @@ class Sql
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
+
+        if (! isset($fieldInfoResult[0])) {
+            return null;
+        }
 
         return Util::parseEnumSetValues($fieldInfoResult[0]['Type']);
     }
@@ -582,7 +586,7 @@ class Sql
     {
         if ($isGotoFile) {
             $message = Message::rawError($error);
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', $message);
         } else {
@@ -683,7 +687,8 @@ class Sql
      * @param bool  $isAffected whether the query affected a table
      * @param mixed $result     results of executing the query
      *
-     * @return int    number of rows affected or changed
+     * @return int|string number of rows affected or changed
+     * @psalm-return int|numeric-string
      */
     private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
     {
@@ -747,14 +752,15 @@ class Sql
      * Function to count the total number of rows for the same 'SELECT' query without
      * the 'LIMIT' clause that may have been programatically added
      *
-     * @param int    $numRows            number of rows affected/changed by the query
-     * @param bool   $justBrowsing       whether just browsing or not
-     * @param string $db                 the current database
-     * @param string $table              the current table
-     * @param array  $analyzedSqlResults the analyzed query and other variables set
-     *                                     after analyzing the query
+     * @param int|string $numRows            number of rows affected/changed by the query
+     * @param bool       $justBrowsing       whether just browsing or not
+     * @param string     $db                 the current database
+     * @param string     $table              the current table
+     * @param array      $analyzedSqlResults the analyzed query and other variables set after analyzing the query
+     * @psalm-param int|numeric-string $numRows
      *
-     * @return int unlimited number of rows
+     * @return int|string unlimited number of rows
+     * @psalm-return int|numeric-string
      */
     private function countQueryResults(
         $numRows,
@@ -853,7 +859,7 @@ class Sql
      * @param string      $sqlQueryForBookmark sql query to be stored as bookmark
      * @param array       $extraData           extra data
      *
-     * @return mixed
+     * @return array
      */
     private function executeTheQuery(
         array $analyzedSqlResults,
@@ -865,7 +871,7 @@ class Sql
         $sqlQueryForBookmark,
         $extraData
     ) {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->getHeader()->getMenu()->setTable($table);
 
         // Only if we ask to see the php code
@@ -1020,7 +1026,7 @@ class Sql
             }
 
             $insertId = $this->dbi->insertId();
-            if ($insertId != 0) {
+            if ($insertId !== false && $insertId != 0) {
                 // insert_id is id of FIRST record inserted in one insert,
                 // so if we inserted multiple rows, we had to increment this
                 $message->addText('[br]');
@@ -1086,7 +1092,7 @@ class Sql
      *
      * @param array          $analyzedSqlResults   analyzed sql results
      * @param string         $db                   current database
-     * @param string         $table                current table
+     * @param string|null    $table                current table
      * @param string|null    $messageToShow        message to show
      * @param int            $numRows              number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
@@ -1100,8 +1106,8 @@ class Sql
      */
     private function getQueryResponseForNoResultsReturned(
         array $analyzedSqlResults,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?string $messageToShow,
         $numRows,
         $displayResultsObject,
@@ -1148,7 +1154,7 @@ class Sql
             }
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->addJSON($extraData ?? []);
 
         if (empty($analyzedSqlResults['is_select']) || isset($extraData['error'])) {
@@ -1171,7 +1177,7 @@ class Sql
             false,
             0,
             $numRows,
-            true,
+            null,
             $result,
             $analyzedSqlResults,
             true
@@ -1235,7 +1241,7 @@ class Sql
             $row[0] = bin2hex($row[0]);
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $response->addJSON('value', $row[0]);
     }
 
@@ -1266,7 +1272,7 @@ class Sql
      *                                               editable or not
      * @param int              $unlimNumRows         unlimited number of rows
      * @param int              $numRows              number of rows
-     * @param bool             $showTable            whether to show table or not
+     * @param array|null       $showTable            table definitions
      * @param object|bool|null $result               result of the executed query
      * @param array            $analyzedSqlResults   analyzed sql results
      * @param bool             $isLimitedDisplay     Show only limited operations or not
@@ -1279,7 +1285,7 @@ class Sql
         $editable,
         $unlimNumRows,
         $numRows,
-        $showTable,
+        ?array $showTable,
         $result,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
@@ -1413,12 +1419,12 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string $table        current table
-     * @param string $database     current database
-     * @param bool   $editable     whether the results table can be editable or not
-     * @param bool   $hasUniqueKey whether there is a unique key
+     * @param string|null $table        current table
+     * @param string      $database     current database
+     * @param bool        $editable     whether the results table can be editable or not
+     * @param bool        $hasUniqueKey whether there is a unique key
      */
-    private function getMessageIfMissingColumnIndex($table, $database, $editable, $hasUniqueKey): string
+    private function getMessageIfMissingColumnIndex(?string $table, string $database, $editable, $hasUniqueKey): string
     {
         $output = '';
         if (! empty($table) && (Utilities::isSystemSchema($database) || ! $editable)) {
@@ -1460,7 +1466,7 @@ class Sql
      * @param object|bool|null    $result               executed query results
      * @param array               $analyzedSqlResults   analysed sql results
      * @param string              $db                   current database
-     * @param string              $table                current table
+     * @param string|null         $table                current table
      * @param array|null          $sqlData              sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param int                 $unlimNumRows         unlimited number of rows
@@ -1476,8 +1482,8 @@ class Sql
     private function getQueryResponseForResultsReturned(
         $result,
         array $analyzedSqlResults,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?array $sqlData,
         $displayResultsObject,
         $unlimNumRows,
@@ -1505,9 +1511,11 @@ class Sql
         }
 
         // Should be initialized these parameters before parsing
-        $showtable = $showtable ?? null;
+        if (! is_array($showtable)) {
+            $showtable = null;
+        }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
 
@@ -1524,7 +1532,7 @@ class Sql
         $statement = $analyzedSqlResults['statement'] ?? null;
         if ($statement instanceof SelectStatement) {
             if (! empty($statement->expr)) {
-                if ($statement->expr[0]->expr === '*') {
+                if ($statement->expr[0]->expr === '*' && ! empty($table)) {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
                 }
@@ -1539,7 +1547,7 @@ class Sql
             }
         }
 
-        $hasUnique = $this->resultSetContainsUniqueKey(
+        $hasUnique = empty($table) ? false : $this->resultSetContainsUniqueKey(
             $db,
             $table,
             $fieldsMeta
@@ -1681,8 +1689,8 @@ class Sql
     public function executeQueryAndSendQueryResponse(
         $analyzedSqlResults,
         $isGotoFile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $findRealEnd,
         $sqlQueryForBookmark,
         $extraData,
@@ -1730,7 +1738,7 @@ class Sql
      *
      * @param array               $analyzedSqlResults  analysed sql results
      * @param bool                $isGotoFile          whether goto file or not
-     * @param string|null         $db                  current database
+     * @param string              $db                  current database
      * @param string|null         $table               current table
      * @param bool|null           $findRealEnd         whether to find real end or not
      * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
@@ -1748,8 +1756,8 @@ class Sql
     public function executeQueryAndGetQueryResponse(
         array $analyzedSqlResults,
         $isGotoFile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         $findRealEnd,
         ?string $sqlQueryForBookmark,
         $extraData,

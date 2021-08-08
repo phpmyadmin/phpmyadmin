@@ -170,11 +170,14 @@ class FormTest extends AbstractTestCase
             $result[0]
         );
 
+        $this->assertIsString($result[1]);
+
         // needs regexp because the counter is static
 
         if (method_exists($this, 'assertMatchesRegularExpression')) {
             $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
         } else {
+            /** @psalm-suppress DeprecatedMethod */
             $this->assertRegExp('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
         }
     }
@@ -217,10 +220,12 @@ class FormTest extends AbstractTestCase
 
         $keys = array_keys($result);
         $key = $keys[0];
+        $this->assertIsString($key);
 
         if (method_exists($this, 'assertMatchesRegularExpression')) {
             $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
         } else {
+            /** @psalm-suppress DeprecatedMethod */
             $this->assertRegExp('/^\:group\:end\:(\d+)$/', $key);
         }
 

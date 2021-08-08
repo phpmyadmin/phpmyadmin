@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 
 use function strlen;
 
@@ -110,10 +110,8 @@ class Eps
      *
      * @param string $value sets the font name e.g Arial
      * @param int    $size  sets the size of the font e.g 10
-     *
-     * @return void
      */
-    public function setFont($value, $size)
+    public function setFont(string $value, int $size): void
     {
         $this->font = $value;
         $this->fontSize = $size;
@@ -136,9 +134,9 @@ class Eps
     /**
      * Get the font Size
      *
-     * @return string|int return the size of the font e.g 10
+     * @return int return the size of the font e.g 10
      */
-    public function getFontSize()
+    public function getFontSize(): int
     {
         return $this->fontSize;
     }
@@ -271,7 +269,7 @@ class Eps
         //ob_end_clean();
         //}
         $output = $this->stringCommands;
-        Response::getInstance()
+        ResponseRenderer::getInstance()
             ->disable();
         Core::downloadHeader(
             $fileName,

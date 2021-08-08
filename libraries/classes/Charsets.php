@@ -81,14 +81,14 @@ class Charsets
             return;
         }
 
+        $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
+            . ' `DESCRIPTION` AS `Description`,'
+            . ' `MAXLEN` AS `Maxlen`'
+            . ' FROM `information_schema`.`CHARACTER_SETS`';
+
         if ($disableIs) {
             $sql = 'SHOW CHARACTER SET';
-        } else {
-            $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
-                . ' `DEFAULT_COLLATE_NAME` AS `Default collation`,'
-                . ' `DESCRIPTION` AS `Description`,'
-                . ' `MAXLEN` AS `Maxlen`'
-                . ' FROM `information_schema`.`CHARACTER_SETS`';
         }
 
         $res = $dbi->query($sql);
@@ -116,16 +116,16 @@ class Charsets
             return;
         }
 
+        $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
+            . ' `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `ID` AS `Id`,'
+            . ' `IS_DEFAULT` AS `Default`,'
+            . ' `IS_COMPILED` AS `Compiled`,'
+            . ' `SORTLEN` AS `Sortlen`'
+            . ' FROM `information_schema`.`COLLATIONS`';
+
         if ($disableIs) {
             $sql = 'SHOW COLLATION';
-        } else {
-            $sql = 'SELECT `COLLATION_NAME` AS `Collation`,'
-                . ' `CHARACTER_SET_NAME` AS `Charset`,'
-                . ' `ID` AS `Id`,'
-                . ' `IS_DEFAULT` AS `Default`,'
-                . ' `IS_COMPILED` AS `Compiled`,'
-                . ' `SORTLEN` AS `Sortlen`'
-                . ' FROM `information_schema`.`COLLATIONS`';
         }
 
         $res = $dbi->query($sql);

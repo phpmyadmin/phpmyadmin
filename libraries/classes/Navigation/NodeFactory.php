@@ -31,6 +31,7 @@ class NodeFactory
      * @param string $class The class name to be sanitized
      *
      * @return string
+     * @psalm-return class-string
      */
     private static function sanitizeClass($class)
     {
@@ -57,12 +58,15 @@ class NodeFactory
      * @param string $class The class name to check
      *
      * @return string
+     * @psalm-return class-string
      */
     private static function checkClass($class)
     {
+        /** @var class-string $class */
         $class = sprintf(self::$namespace, $class);
 
         if (! class_exists($class)) {
+            /** @var class-string $class */
             $class = sprintf(self::$namespace, 'Node');
             trigger_error(
                 sprintf(
@@ -92,7 +96,10 @@ class NodeFactory
     ): Node {
         $class = self::sanitizeClass($class);
 
-        return new $class($name, $type, $isGroup);
+        /** @var Node $node */
+        $node = new $class($name, $type, $isGroup);
+
+        return $node;
     }
 
     /**

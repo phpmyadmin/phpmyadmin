@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
 
@@ -33,7 +33,7 @@ class ErrorReportController extends AbstractController
     private $errorHandler;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct(
         $response,

@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Url;
 
@@ -17,15 +17,16 @@ if (! defined('ROOT_PATH')) {
     // phpcs:enable
 }
 
-/**
- * Core libraries.
- */
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
+
 require ROOT_PATH . 'setup/lib/common.inc.php';
 
 $form_display = new ConfigForm($GLOBALS['ConfigFile']);
 $form_display->save('Config');
 
-$response = Response::getInstance();
+$response = ResponseRenderer::getInstance();
 $response->disable();
 
 if (isset($_POST['eol'])) {

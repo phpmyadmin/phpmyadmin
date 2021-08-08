@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Core;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -19,7 +20,7 @@ class CoreExtension extends AbstractExtension
         return [
             new TwigFilter(
                 'link',
-                'PhpMyAdmin\Core::linkURL'
+                [Core::class, 'linkURL']
             ),
         ];
     }

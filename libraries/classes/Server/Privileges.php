@@ -16,7 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -42,9 +42,9 @@ use function mb_substr;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function trim;
 use function uksort;
 
@@ -532,8 +532,7 @@ class Privileges
             return 'SELECT * FROM `mysql`.`db`'
                 . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
                 . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "'"
-                . " AND '" . $this->dbi->escapeString(Util::unescapeMysqlWildcards($db)) . "'"
-                . ' LIKE `Db`;';
+                . " AND `Db` = '" . $this->dbi->escapeString($db) . "'";
         }
 
         return 'SELECT `Table_priv`'
@@ -816,7 +815,7 @@ class Privileges
             $host
         );
 
-        $isNew = (Compatibility::isMySql() && $serverVersion >= 50507)
+        $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
@@ -1337,11 +1336,11 @@ class Privileges
         ];
         if ($row['Type'] === 'r') {
             $privilege['routine'] = $row['Routine_name'];
-            $privilege['has_grant'] = strpos($row['Proc_priv'], 'Grant') !== false;
+            $privilege['has_grant'] = str_contains($row['Proc_priv'], 'Grant');
             $privilege['privileges'] = explode(',', $row['Proc_priv']);
         } elseif ($row['Type'] === 't') {
             $privilege['table'] = $row['Table_name'];
-            $privilege['has_grant'] = strpos($row['Table_priv'], 'Grant') !== false;
+            $privilege['has_grant'] = str_contains($row['Table_priv'], 'Grant');
             $tablePrivs = explode(',', $row['Table_priv']);
             $specificPrivileges = [];
             $grantsArr = $this->getTableGrantsArray();
@@ -1558,12 +1557,12 @@ class Privileges
         ];
         switch ($linktype) {
             case 'edit':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 break;
             case 'revoke':
-                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
+                $params['dbname'] = $dbname;
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 $params['revokeall'] = 1;
@@ -1600,17 +1599,15 @@ class Privileges
 
     /**
      * Returns number of defined user groups
-     *
-     * @return int
      */
-    public function getUserGroupCount()
+    public function getUserGroupCount(): int
     {
         $cfgRelation = $this->relation->getRelationsParam();
         $userGroupTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
-        return $this->dbi->fetchValue(
+        return (int) $this->dbi->fetchValue(
             $sqlQuery,
             0,
             0,
@@ -1969,7 +1966,7 @@ class Privileges
                 $onePrivilege['column_privs']  = ! empty($row['Column_priv']);
                 $onePrivilege['privileges'] = implode(',', $this->extractPrivInfo($row, true));
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramTableName = $row['Table_name'];
             } else { // routine
                 $name = $row['Routine_name'];
@@ -1984,7 +1981,7 @@ class Privileges
                     $this->extractPrivInfo($privs, true)
                 );
 
-                $paramDbName = $dbname;
+                $paramDbName = Util::escapeMysqlWildcards($dbname);
                 $paramRoutineName = $row['Routine_name'];
             }
 
@@ -2026,8 +2023,6 @@ class Privileges
         $data['type']       = $type;
 
         if ($type === 'database') {
-            // we already have the list of databases from libraries/common.inc.php
-            // via $pma = new PMA;
             $predDbArray = $GLOBALS['dblist']->databases;
             $databasesToSkip = [
                 'information_schema',
@@ -2484,7 +2479,7 @@ class Privileges
                 'SELECT * FROM `mysql`.`user` ' . $userHostCondition
             );
             if (! $row) {
-                $response = Response::getInstance();
+                $response = ResponseRenderer::getInstance();
                 $response->addHTML(
                     Message::notice(__('No user found.'))->getDisplay()
                 );
@@ -2503,7 +2498,7 @@ class Privileges
                 }
 
                 if (
-                    Compatibility::isMySql()
+                    Compatibility::isMySqlOrPerconaDb()
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
                     && ((isset($row['authentication_string'])
@@ -2696,11 +2691,11 @@ class Privileges
                 break;
             case 'thishost':
                 $currentUserName = $this->dbi->fetchValue('SELECT USER()');
-                $hostname = mb_substr(
-                    $currentUserName,
-                    mb_strrpos($currentUserName, '@') + 1
-                );
-                unset($currentUserName);
+                if ($currentUserName !== false) {
+                    $hostname = mb_substr($currentUserName, mb_strrpos($currentUserName, '@') + 1);
+                    unset($currentUserName);
+                }
+
                 break;
         }
 
@@ -2932,7 +2927,7 @@ class Privileges
             } else {
                 $unescapedDb = Util::unescapeMysqlWildcards($dbname);
                 $dbAndTable = Util::backquote($unescapedDb) . '.';
-                $returnDb = $unescapedDb;
+                $returnDb = $dbname;
             }
 
             if (isset($tablename)) {
@@ -3171,9 +3166,10 @@ class Privileges
                     $dbRights,
                     $textDir
                 );
+                $usersOverview .= $this->template->render('export_modal');
             }
 
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             if (
                 ! $response->isAjax()
                 || ! empty($_REQUEST['ajax_page_request'])
@@ -3596,7 +3592,7 @@ class Privileges
             // Grant all privileges on the specified database to the new user
             $query = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
-                $this->dbi->escapeString($dbname)
+                $dbname
             ) . '.* TO \''
             . $this->dbi->escapeString($username)
             . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
@@ -3763,7 +3759,7 @@ class Privileges
             } elseif (Compatibility::isMariaDb()) {
                 $createUserStmt .= ' IDENTIFIED BY \'%s\'';
             } elseif (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 80011) {
-                if (mb_strpos($createUserStmt, 'IDENTIFIED') === false) {
+                if (! str_contains($createUserStmt, 'IDENTIFIED')) {
                     // Maybe the authentication_plugin was not posted and then a part is missing
                     $createUserStmt .= ' IDENTIFIED BY \'%s\'';
                 } else {
@@ -3896,7 +3892,7 @@ class Privileges
         // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
         // and pre-5.2.0 MariaDB
         if (
-            (Compatibility::isMySql()
+            (Compatibility::isMySqlOrPerconaDb()
             && $serverVersion >= 50706)
             || (Compatibility::isMariaDb()
             && $serverVersion >= 50200)
@@ -3986,9 +3982,9 @@ class Privileges
             $hostname
         );
 
-        $isNew = (Compatibility::isMySql() && $serverVersion >= 50507)
+        $isNew = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50507)
             || (Compatibility::isMariaDb() && $serverVersion >= 50200);
-        $hasMoreAuthPlugins = (Compatibility::isMySql() && $serverVersion >= 50706)
+        $hasMoreAuthPlugins = (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706)
             || ($this->dbi->isSuperUser() && $editOthers);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];

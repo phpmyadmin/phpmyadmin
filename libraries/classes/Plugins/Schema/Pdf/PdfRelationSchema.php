@@ -14,7 +14,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function ceil;
-use function class_exists;
 use function getcwd;
 use function in_array;
 use function intval;
@@ -27,15 +26,6 @@ use function str_replace;
 use function strtotime;
 
 // phpcs:disable PSR1.Files.SideEffects
-/**
- * Skip the plugin if TCPDF is not available.
- */
-if (! class_exists('TCPDF')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
 /**
  * block attempts to directly run this script
  */
@@ -53,6 +43,8 @@ if (getcwd() == __DIR__) {
  *
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
+ *
+ * @property Pdf $diagram
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
@@ -108,7 +100,7 @@ class PdfRelationSchema extends ExportRelationSchema
     private $transformations;
 
     /**
-     * @see PMA_Schema_PDF
+     * @see Schema\Pdf
      *
      * @param string $db database name
      */
@@ -546,7 +538,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 0,
                 0,
                 'R',
-                0,
+                false,
                 $this->diagram->customLinks['doc'][$table]['-']
             );
             $this->diagram->SetX(10);
@@ -557,7 +549,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 0,
                 1,
                 'L',
-                0,
+                false,
                 $this->diagram->customLinks['doc'][$table]['-']
             );
             // $this->diagram->Ln(1);
@@ -580,7 +572,7 @@ class PdfRelationSchema extends ExportRelationSchema
             0,
             0,
             'R',
-            0,
+            false,
             $this->diagram->customLinks['RT']['-']
         );
         $this->diagram->SetX(10);
@@ -591,7 +583,7 @@ class PdfRelationSchema extends ExportRelationSchema
             0,
             1,
             'L',
-            0,
+            false,
             $this->diagram->customLinks['RT']['-']
         );
         $z = 0;
@@ -617,7 +609,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 1,
                 1,
                 'C',
-                0,
+                false,
                 $this->diagram->customLinks['RT'][$table]['-']
             );
             $this->diagram->SetFont($this->ff, '', 8);

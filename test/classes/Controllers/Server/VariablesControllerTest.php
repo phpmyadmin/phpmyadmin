@@ -9,10 +9,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProvider;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use ReflectionProperty;
 
 use function __;
@@ -30,7 +30,6 @@ class VariablesControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -132,7 +131,7 @@ class VariablesControllerTest extends AbstractTestCase
      */
     public function testFormatVariable(): void
     {
-        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'byte_variable';
         $nameForValueNotByte = 'not_a_byte_variable';
@@ -217,7 +216,7 @@ class VariablesControllerTest extends AbstractTestCase
         $response->setAccessible(true);
         $response->setValue(null);
 
-        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'wsrep_replicated_bytes';
         $nameForValueNotByte = 'wsrep_thread_count';
@@ -285,7 +284,7 @@ class VariablesControllerTest extends AbstractTestCase
         $response->setAccessible(true);
         $response->setValue(new ServerVariablesVoidProvider());
 
-        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+        $controller = new VariablesController(ResponseRenderer::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'wsrep_replicated_bytes';
 

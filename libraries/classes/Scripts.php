@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use function defined;
 use function md5;
-use function strpos;
+use function str_contains;
 
 /**
  * Collects information about which JavaScript
@@ -96,11 +96,11 @@ class Scripts
     private function hasOnloadEvent($filename)
     {
         if (
-            strpos($filename, 'jquery') !== false
-            || strpos($filename, 'codemirror') !== false
-            || strpos($filename, 'messages.php') !== false
-            || strpos($filename, 'ajax.js') !== false
-            || strpos($filename, 'cross_framing_protection.js') !== false
+            str_contains($filename, 'jquery')
+            || str_contains($filename, 'codemirror')
+            || str_contains($filename, 'messages.php')
+            || str_contains($filename, 'ajax.js')
+            || str_contains($filename, 'cross_framing_protection.js')
         ) {
             return 0;
         }
@@ -131,7 +131,7 @@ class Scripts
         $retval = [];
         foreach ($this->files as $file) {
             //If filename contains a "?", continue.
-            if (strpos($file['filename'], '?') !== false) {
+            if (str_contains($file['filename'], '?')) {
                 continue;
             }
 

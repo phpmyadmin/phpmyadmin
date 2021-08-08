@@ -12,7 +12,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function base64_decode;
@@ -36,7 +36,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function showLoginForm()
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -70,7 +70,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         // remove non US-ASCII to respect RFC2616
         $realm_message = preg_replace('/[^\x20-\x7e]/i', '', $realm_message);
@@ -92,7 +92,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response->addHTML(
             Message::error(
                 __('Wrong username/password. Access denied.')
-            )
+            )->getDisplay()
         );
         $response->addHTML('</h3>');
 

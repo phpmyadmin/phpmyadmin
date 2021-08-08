@@ -19,11 +19,15 @@ class FlashMessagesTest extends AbstractTestCase
         $this->assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
         $flash = new FlashMessages();
         $this->assertIsArray($_SESSION[self::STORAGE_KEY]);
+        $this->assertSame([], $flash->getMessages());
+    }
 
+    public function testConstructorSessionNotFound(): void
+    {
         $_SESSION = null;
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Session not found.');
-        $flash = new FlashMessages();
+        new FlashMessages();
     }
 
     public function testAddMessage(): void

@@ -13,9 +13,9 @@ use function function_exists;
 use function in_array;
 use function preg_match;
 use function setlocale;
+use function str_contains;
 use function str_replace;
 use function strcmp;
-use function strpos;
 
 /**
  * Language object
@@ -51,7 +51,7 @@ class Language
         $this->code = $code;
         $this->name = $name;
         $this->native = $native;
-        if (strpos($regex, '[-_]') === false) {
+        if (! str_contains($regex, '[-_]')) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }
 

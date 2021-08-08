@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -35,7 +36,7 @@ class VariablesController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param DatabaseInterface $dbi
      */
     public function __construct($response, Template $template, $dbi)
@@ -116,7 +117,7 @@ class VariablesController extends AbstractController
      *
      * @param array $params Request parameters
      */
-    public function getValue(array $params): void
+    public function getValue(ServerRequest $request, array $params): void
     {
         if (! $this->response->isAjax()) {
             return;
@@ -139,10 +140,9 @@ class VariablesController extends AbstractController
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
 
         if ($variableType === 'byte') {
-            $json['message'] = implode(
-                ' ',
-                Util::formatByteDown($varValue[1], 3, 3)
-            );
+            /** @var string[] $bytes */
+            $bytes = Util::formatByteDown($varValue[1], 3, 3);
+            $json['message'] = implode(' ', $bytes);
         }
 
         $this->response->addJSON($json);
@@ -153,19 +153,14 @@ class VariablesController extends AbstractController
      *
      * @param array $vars Request parameters
      */
-    public function setValue(array $vars): void
+    public function setValue(ServerRequest $request, array $vars): void
     {
-        $params = [
-            'varName' => $vars['name'],
-            'varValue' => $_POST['varValue'] ?? null,
-        ];
-
         if (! $this->response->isAjax()) {
             return;
         }
 
-        $value = (string) $params['varValue'];
-        $variableName = (string) $params['varName'];
+        $value = (string) $request->getParsedBodyParam('varValue');
+        $variableName = (string) $vars['name'];
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
 
@@ -198,20 +193,20 @@ class VariablesController extends AbstractController
 
         $json = [];
         if (
-            ! preg_match('/[^a-zA-Z0-9_]+/', $params['varName'])
+            ! preg_match('/[^a-zA-Z0-9_]+/', $variableName)
             && $this->dbi->query(
-                'SET GLOBAL ' . $params['varName'] . ' = ' . $value
+                'SET GLOBAL ' . $variableName . ' = ' . $value
             )
         ) {
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($params['varName'])
+                . $this->dbi->escapeString($variableName)
                 . '";',
                 'NUM'
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
-                $params['varName'],
+                $variableName,
                 $varValue[1]
             );
 
@@ -246,12 +241,14 @@ class VariablesController extends AbstractController
 
             if ($variableType === 'byte') {
                 $isHtmlFormatted = true;
+                /** @var string[] $bytes */
+                $bytes = Util::formatByteDown($value, 3, 3);
                 $formattedValue = trim(
                     $this->template->render(
                         'server/variables/format_variable',
                         [
                             'valueTitle' => Util::formatNumber($value, 0),
-                            'value' => implode(' ', Util::formatByteDown($value, 3, 3)),
+                            'value' => implode(' ', $bytes),
                         ]
                     )
                 );

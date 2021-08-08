@@ -23,6 +23,12 @@
         {% endfor %}
       </select>
 
+      <div>
+        <button class="btn btn-link p-0" id="select_priv_all" type="button" data-select-target="#select_select_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
+
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Select_priv_none">
         <input type="checkbox" name="Select_priv_none" id="checkbox_Select_priv_none" title="
@@ -43,6 +49,12 @@
           </option>
         {% endfor %}
       </select>
+
+      <div>
+        <button class="btn btn-link p-0" id="insert_priv_all" type="button" data-select-target="#select_insert_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
 
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Insert_priv_none">
@@ -65,6 +77,12 @@
         {% endfor %}
       </select>
 
+      <div>
+        <button class="btn btn-link p-0" id="update_priv_all" type="button" data-select-target="#select_update_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
+
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_Update_priv_none">
         <input type="checkbox" name="Update_priv_none" id="checkbox_Update_priv_none" title="
@@ -85,6 +103,12 @@
           </option>
         {% endfor %}
       </select>
+
+      <div>
+        <button class="btn btn-link p-0" id="references_priv_all" type="button" data-select-target="#select_references_priv">
+          {% trans 'Select all' %}
+        </button>
+      </div>
 
       <em>{% trans 'Or' %}</em>
       <label for="checkbox_References_priv_none">

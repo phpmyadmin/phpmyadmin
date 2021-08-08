@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
@@ -21,19 +20,16 @@ use function class_exists;
 use function count;
 use function current;
 use function date;
-use function defined;
 use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
 use function is_file;
-use function is_numeric;
 use function is_string;
 use function max;
 use function mb_stripos;
 use function mb_strlen;
-use function mb_strpos;
 use function mb_strstr;
 use function mb_substr;
 use function md5;
@@ -42,11 +38,11 @@ use function min;
 use function password_hash;
 use function preg_match;
 use function preg_replace;
+use function str_contains;
 use function str_replace;
 use function stripcslashes;
 use function stripslashes;
 use function strlen;
-use function strpos;
 use function substr;
 use function time;
 use function trim;
@@ -113,7 +109,7 @@ class InsertEdit
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $errorUrl,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $_POST['sql_query'] ?? '',
         ];
         if (isset($whereClauses)) {
             foreach ($whereClauseArray as $keyId => $whereClause) {
@@ -224,7 +220,7 @@ class InsertEdit
         // No row returned
         if (! $rows[$keyId]) {
             unset($rows[$keyId], $whereClauseArray[$keyId]);
-            Response::getInstance()->addHTML(
+            ResponseRenderer::getInstance()->addHTML(
                 Generator::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
                     $localQuery
@@ -582,7 +578,7 @@ class InsertEdit
              *       why character columns have the "char" class instead
              */
             $theClass = 'char charField';
-            $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
+            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
             $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
             $extractedColumnspec = Util::extractColumnSpec(
                 $column['Type']
@@ -755,7 +751,7 @@ class InsertEdit
     private function getSelectOptionForUpload($vkey, array $column)
     {
         $files = $this->fileListing->getFileSelectOptions(
-            Util::userDir($GLOBALS['cfg']['UploadDir'])
+            Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
         );
 
         if ($files === false) {
@@ -792,7 +788,6 @@ class InsertEdit
          * @todo with functions this is not so easy, as you can basically
          * process any data with function like MD5
          */
-        global $max_upload_size;
         $maxFieldSizes = [
             'tinyblob'   =>        '256',
             'blob'       =>      '65536',
@@ -800,7 +795,7 @@ class InsertEdit
             'longblob'   => '4294967296',// yeah, really
         ];
 
-        $thisFieldMaxSize = $max_upload_size; // from PHP max
+        $thisFieldMaxSize = $GLOBALS['config']->get('max_upload_size'); // from PHP max
         if ($thisFieldMaxSize > $maxFieldSizes[$column['pma_type']]) {
             $thisFieldMaxSize = $maxFieldSizes[$column['pma_type']];
         }
@@ -868,7 +863,7 @@ class InsertEdit
         if (
             $column['is_char']
             && ($GLOBALS['cfg']['CharEditing'] === 'textarea'
-            || mb_strpos($data, "\n") !== false)
+            || str_contains($data, "\n"))
         ) {
             $htmlOutput .= "\n";
             $GLOBALS['cfg']['CharEditing'] = $defaultCharEditing;
@@ -901,7 +896,7 @@ class InsertEdit
 
             if (
                 preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra'])
-                && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
+                && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
             ) {
                 $htmlOutput .= '<input type="hidden" name="virtual'
                     . $columnNameAppendix . '" value="1">';
@@ -1036,7 +1031,7 @@ class InsertEdit
     private function getHeadAndFootOfInsertRowTable(array $urlParams)
     {
         $htmlOutput = '<div class="table-responsive-lg">'
-            . '<table class="table table-light table-striped align-middle my-3 insertRowTable">'
+            . '<table class="table table-light table-striped align-middle my-3 insertRowTable w-auto">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';
@@ -1108,7 +1103,7 @@ class InsertEdit
             (substr($column['True_Type'], 0, 9) === 'timestamp'
             || $column['True_Type'] === 'datetime'
             || $column['True_Type'] === 'time')
-            && (mb_strpos($currentRow[$column['Field']], '.') !== false)
+            && (str_contains($currentRow[$column['Field']], '.'))
         ) {
             $currentRow[$column['Field']] = $asIs
                 ? $currentRow[$column['Field']]
@@ -1155,7 +1150,7 @@ class InsertEdit
         ) {
             if (
                 $column['Key'] === 'PRI'
-                && mb_strpos($column['Extra'], 'auto_increment') !== false
+                && str_contains($column['Extra'], 'auto_increment')
             ) {
                 $data = $specialCharsEncoded = $specialChars = null;
             }
@@ -1273,38 +1268,6 @@ class InsertEdit
             $isInsert,
             $isInsertIgnore,
         ];
-    }
-
-    /**
-     * Check wether insert row mode and if so include tbl_changen script and set
-     * global variables.
-     *
-     * @return void
-     */
-    public function isInsertRow()
-    {
-        global $containerBuilder;
-
-        if (
-            ! isset($_POST['insert_rows'])
-            || ! is_numeric($_POST['insert_rows'])
-            || $_POST['insert_rows'] == $GLOBALS['cfg']['InsertRows']
-        ) {
-            return;
-        }
-
-        $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
-        $response = Response::getInstance();
-        $header = $response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/additional-methods.js');
-        $scripts->addFile('table/change.js');
-        if (! defined('TESTSUITE')) {
-            /** @var ChangeController $controller */
-            $controller = $containerBuilder->get(ChangeController::class);
-            $controller->index();
-            exit;
-        }
     }
 
     /**
@@ -1482,7 +1445,7 @@ class InsertEdit
                 unset($tmp);
 
                 $insertId = $this->dbi->insertId();
-                if ($insertId != 0) {
+                if ($insertId !== false && $insertId != 0) {
                     // insert_id is id of FIRST record inserted in one insert, so if we
                     // inserted multiple rows, we had to increment this
 
@@ -1670,7 +1633,7 @@ class InsertEdit
         $type
     ) {
         $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
-        if (is_file($includeFile)) {
+        if (is_file(ROOT_PATH . $includeFile)) {
             // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
             $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
             $urlParams = [
@@ -2071,9 +2034,9 @@ class InsertEdit
     /**
      * Function to determine Insert/Edit rows
      *
-     * @param string $whereClause where clause
-     * @param string $db          current database
-     * @param string $table       current table
+     * @param string|null $whereClause where clause
+     * @param string      $db          current database
+     * @param string      $table       current table
      *
      * @return array
      */
@@ -2158,32 +2121,6 @@ class InsertEdit
         }
 
         return $commentsMap;
-    }
-
-    /**
-     * Function to get URL parameters
-     *
-     * @param string $db    current database
-     * @param string $table current table
-     *
-     * @return array url parameters
-     */
-    public function getUrlParameters($db, $table)
-    {
-        global $goto;
-        /**
-         * @todo check if we could replace by "db_|tbl_" - please clarify!?
-         */
-        $urlParams = [
-            'db' => $db,
-            'sql_query' => $_POST['sql_query'],
-        ];
-
-        if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
-            $urlParams['table'] = $table;
-        }
-
-        return $urlParams;
     }
 
     /**
@@ -2334,7 +2271,10 @@ class InsertEdit
         // in the name attribute (see bug #1746964 )
         $columnNameAppendix = $vkey . '[' . $column['Field_md5'] . ']';
 
-        if ($column['Type'] === 'datetime' && ! isset($column['Default']) && $insertMode) {
+        if (
+            $column['Type'] === 'datetime' && $column['Null'] !== 'YES'
+            && ! isset($column['Default']) && $insertMode
+        ) {
             $column['Default'] = date('Y-m-d H:i:s', time());
         }
 
@@ -2416,7 +2356,7 @@ class InsertEdit
         if (! empty($columnMime['input_transformation'])) {
             $file = $columnMime['input_transformation'];
             $includeFile = 'libraries/classes/Plugins/Transformations/' . $file;
-            if (is_file($includeFile)) {
+            if (is_file(ROOT_PATH . $includeFile)) {
                 $className = $this->transformations->getClassName($includeFile);
                 if (class_exists($className)) {
                     $transformationPlugin = new $className();

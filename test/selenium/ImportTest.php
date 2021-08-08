@@ -1,7 +1,4 @@
 <?php
-/**
- * Selenium TestCase for import related tests
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 use function sleep;
 
 /**
- * ImportTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class ImportTest extends TestBase
 {

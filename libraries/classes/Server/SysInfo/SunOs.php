@@ -30,6 +30,7 @@ class SunOs extends Base
      */
     private function kstat($key)
     {
+        /** @psalm-suppress ForbiddenCode */
         $m = shell_exec('kstat -p d ' . $key);
 
         if ($m) {

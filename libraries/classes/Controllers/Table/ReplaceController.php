@@ -15,7 +15,7 @@ use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -28,6 +28,7 @@ use function count;
 use function implode;
 use function in_array;
 use function is_file;
+use function is_numeric;
 use function method_exists;
 use function parse_str;
 use function sprintf;
@@ -50,7 +51,7 @@ final class ReplaceController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param DatabaseInterface $dbi
@@ -98,8 +99,20 @@ final class ReplaceController extends AbstractController
             'gis_data_editor.js',
         ]);
 
-        // check whether insert row mode, if so include /table/change
-        $this->insertEdit->isInsertRow();
+        $insertRows = $_POST['insert_rows'] ?? null;
+        if (is_numeric($insertRows) && $insertRows != $GLOBALS['cfg']['InsertRows']) {
+            // check whether insert row mode, if so include /table/change
+            $this->addScriptFiles([
+                'vendor/jquery/additional-methods.js',
+                'table/change.js',
+            ]);
+            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
+            /** @var ChangeController $controller */
+            $controller = $containerBuilder->get(ChangeController::class);
+            $controller->index();
+
+            return;
+        }
 
         $after_insert_actions = [
             'new_insert',
@@ -256,7 +269,7 @@ final class ReplaceController extends AbstractController
                 ) {
                     $filename = 'libraries/classes/Plugins/Transformations/'
                         . $mime_map[$column_name]['input_transformation'];
-                    if (is_file($filename)) {
+                    if (is_file(ROOT_PATH . $filename)) {
                         $classname = $this->transformations->getClassName($filename);
                         if (class_exists($classname)) {
                             /** @var IOTransformationsPlugin $transformation_plugin */
@@ -363,10 +376,11 @@ final class ReplaceController extends AbstractController
                 $value_sets[] = implode(', ', $query_values);
             } else {
                 // build update query
+                $clauseIsUnique = $_POST['clause_is_unique'] ?? '';// Should contain 0 or 1
                 $query[] = 'UPDATE ' . Util::backquote($table)
                     . ' SET ' . implode(', ', $query_values)
                     . ' WHERE ' . $where_clause
-                    . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
+                    . ($clauseIsUnique ? '' : ' LIMIT 1');
             }
         }
 
@@ -435,6 +449,7 @@ final class ReplaceController extends AbstractController
                 return;
             }
 
+            /** @psalm-suppress UnresolvableInclude */
             include ROOT_PATH . Core::securePath((string) $goto_include);
 
             return;
@@ -655,6 +670,7 @@ final class ReplaceController extends AbstractController
         /**
          * Load target page.
          */
+        /** @psalm-suppress UnresolvableInclude */
         require ROOT_PATH . Core::securePath((string) $goto_include);
     }
 }

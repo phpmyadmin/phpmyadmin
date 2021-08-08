@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
@@ -27,9 +27,9 @@ final class TrackingController extends AbstractController
     private $tracking;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name.
+     * @param string           $table    Table name.
      */
     public function __construct(
         $response,

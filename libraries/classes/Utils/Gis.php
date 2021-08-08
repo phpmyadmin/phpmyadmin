@@ -35,7 +35,7 @@ final class Gis
             $spatialSrid = 'ST_SRID';
         }
 
-        if ($mysqlVersionInt >= 80010 && ! $dbi->isMariaDb()) {
+        if ($mysqlVersionInt >= 80001 && ! $dbi->isMariaDb()) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
@@ -47,7 +47,7 @@ final class Gis
         $wktresult = $dbi->tryQuery(
             $wktsql
         );
-        $wktarr = $dbi->fetchRow($wktresult, 0);
+        $wktarr = $dbi->fetchRow($wktresult);
         $wktval = $wktarr[0] ?? '';
 
         if ($includeSRID) {

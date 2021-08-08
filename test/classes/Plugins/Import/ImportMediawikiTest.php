@@ -77,10 +77,7 @@ class ImportMediawikiTest extends AbstractTestCase
             'text/plain',
             $properties->getMimeType()
         );
-        $this->assertEquals(
-            [],
-            $properties->getOptions()
-        );
+        $this->assertNull($properties->getOptions());
         $this->assertEquals(
             __('Options'),
             $properties->getOptionsText()

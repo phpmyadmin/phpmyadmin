@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
@@ -22,7 +22,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -74,7 +73,7 @@ class FindReplaceControllerTest extends AbstractTestCase
     public function testReplace(): void
     {
         $tableSearch = new FindReplaceController(
-            Response::getInstance(),
+            ResponseRenderer::getInstance(),
             new Template(),
             $GLOBALS['db'],
             $GLOBALS['table'],

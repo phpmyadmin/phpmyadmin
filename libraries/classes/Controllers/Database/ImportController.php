@@ -14,7 +14,7 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -29,7 +29,7 @@ final class ImportController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param DatabaseInterface $dbi
      */
@@ -41,7 +41,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $cfg;
+        global $db, $table, $tables, $num_tables, $total_num_tables, $cfg;
         global $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $errorUrl;
 
         $pageSettings = new PageSettings('Import');
@@ -115,10 +115,10 @@ final class ImportController extends AbstractController
             'hidden_inputs' => $hiddenInputs,
             'db' => $db,
             'table' => $table,
-            'max_upload_size' => $max_upload_size,
+            'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
             'import_list' => $importList,
             'local_import_file' => $localImportFile,
-            'is_upload' => $GLOBALS['is_upload'],
+            'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'upload_dir' => $cfg['UploadDir'] ?? null,
             'timeout_passed_global' => $GLOBALS['timeout_passed'] ?? null,
             'compressions' => $compressions,
@@ -130,7 +130,7 @@ final class ImportController extends AbstractController
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
+            'user_upload_dir' => Util::userDir((string) ($cfg['UploadDir'] ?? '')),
             'local_files' => Import::getLocalFiles($importList),
         ]);
     }

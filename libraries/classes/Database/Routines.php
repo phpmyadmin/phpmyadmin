@@ -9,9 +9,10 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -28,11 +29,11 @@ use function in_array;
 use function is_array;
 use function is_string;
 use function max;
-use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_match;
 use function sprintf;
+use function str_contains;
 use function stripos;
 use function substr;
 use function trim;
@@ -59,13 +60,13 @@ class Routines
     /** @var Template */
     private $template;
 
-    /** @var Response */
+    /** @var ResponseRenderer */
     private $response;
 
     /**
      * @param DatabaseInterface $dbi      DatabaseInterface instance.
      * @param Template          $template Template instance.
-     * @param Response          $response Response instance.
+     * @param ResponseRenderer  $response Response instance.
      */
     public function __construct(DatabaseInterface $dbi, Template $template, $response)
     {
@@ -483,7 +484,7 @@ class Routines
 
         $retval['item_type']         = 'PROCEDURE';
         $retval['item_type_toggle']  = 'FUNCTION';
-        if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] === 'FUNCTION') {
+        if (isset($_POST['item_type']) && $_POST['item_type'] === 'FUNCTION') {
             $retval['item_type']         = 'FUNCTION';
             $retval['item_type_toggle']  = 'PROCEDURE';
         }
@@ -637,6 +638,13 @@ class Routines
          */
         $stmt = $parser->statements[0];
 
+        // Do not use $routine['ROUTINE_DEFINITION'] because of a MySQL escaping issue: #15370
+        $body = TokensList::build($stmt->body);
+        if (empty($body)) {
+            // Fallback just in case the parser fails
+            $body = (string) $routine['ROUTINE_DEFINITION'];
+        }
+
         $params = Routine::getParameters($stmt);
         $retval['item_num_params']       = $params['num'];
         $retval['item_param_dir']        = $params['dir'];
@@ -676,7 +684,7 @@ class Routines
         }
 
         $retval['item_definer'] = $stmt->options->has('DEFINER');
-        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
+        $retval['item_definition'] = $body;
         $retval['item_isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] === 'YES') {
             $retval['item_isdeterministic'] = " checked='checked'";
@@ -1037,7 +1045,7 @@ class Routines
 
         $query = 'CREATE ';
         if (! empty($itemDefiner)) {
-            if (mb_strpos($itemDefiner, '@') !== false) {
+            if (str_contains($itemDefiner, '@')) {
                 $arr = explode('@', $itemDefiner);
 
                 $do_backquote = true;
@@ -1525,7 +1533,6 @@ class Routines
                 $params[$i]['class'] = 'datefield';
             }
 
-            $input_type = '';
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
                 if ($routine['item_param_type'][$i] === 'ENUM') {
                     $params[$i]['input_type']  = 'radio';

@@ -269,6 +269,11 @@ class RelationTest extends AbstractTestCase
         );
     }
 
+    public function testSearchColumnInForeignersError(): void
+    {
+        $this->assertFalse($this->relation->searchColumnInForeigners([], 'id'));
+    }
+
     /**
      * Test for searchColumnInForeigners
      */

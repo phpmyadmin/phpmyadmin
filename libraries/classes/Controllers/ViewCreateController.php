@@ -9,7 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -24,7 +24,7 @@ use function htmlspecialchars;
 use function in_array;
 use function is_string;
 use function sprintf;
-use function strpos;
+use function str_contains;
 use function substr;
 
 /**
@@ -36,7 +36,7 @@ class ViewCreateController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param DatabaseInterface $dbi
      */
     public function __construct($response, Template $template, $dbi)
@@ -114,7 +114,7 @@ class ViewCreateController extends AbstractController
             }
 
             if (! empty($_POST['view']['definer'])) {
-                if (strpos($_POST['view']['definer'], '@') === false) {
+                if (! str_contains($_POST['view']['definer'], '@')) {
                     $sql_query .= $sep . 'DEFINER='
                         . Util::backquote($_POST['view']['definer']);
                 } else {

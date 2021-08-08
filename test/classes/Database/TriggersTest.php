@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Triggers;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -27,7 +27,6 @@ class TriggersTest extends AbstractTestCase
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['server'] = 0;
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
@@ -36,7 +35,7 @@ class TriggersTest extends AbstractTestCase
         $this->triggers = new Triggers(
             $GLOBALS['dbi'],
             new Template(),
-            Response::getInstance()
+            ResponseRenderer::getInstance()
         );
     }
 
@@ -215,12 +214,12 @@ class TriggersTest extends AbstractTestCase
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
-        Response::getInstance()->setAjax(true);
+        ResponseRenderer::getInstance()->setAjax(true);
         $this->assertStringContainsString(
             $matcher,
             $this->triggers->getEditorForm('pma_test', 'table', 'edit', $data)
         );
-        Response::getInstance()->setAjax(false);
+        ResponseRenderer::getInstance()->setAjax(false);
     }
 
     /**

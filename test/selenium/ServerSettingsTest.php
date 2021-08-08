@@ -1,16 +1,11 @@
 <?php
-/**
- * Selenium TestCase for settings related tests
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * ServerSettingsTest class
- *
- * @group      selenium
+ * @coversNothing
  */
 class ServerSettingsTest extends TestBase
 {

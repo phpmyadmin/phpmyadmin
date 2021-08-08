@@ -670,6 +670,10 @@ class ExportSql extends ExportPlugin
             }
 
             $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+            if ($lines === false) {
+                return '--' . $GLOBALS['crlf'];
+            }
+
             $result = [];
             foreach ($lines as $line) {
                 $result[] = '-- ' . $line . $GLOBALS['crlf'];
@@ -1105,18 +1109,18 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        $r = true;
+        $r = 1;
         if (is_array($tables)) {
             // export metadata for each table
             foreach ($tables as $table) {
-                $r &= $this->exportConfigurationMetadata($db, $table, $metadataTypes);
+                $r &= (int) $this->exportConfigurationMetadata($db, $table, $metadataTypes);
             }
 
             // export metadata for the database
-            $r &= $this->exportConfigurationMetadata($db, null, $metadataTypes);
+            $r &= (int) $this->exportConfigurationMetadata($db, null, $metadataTypes);
         } else {
             // export metadata for single table
-            $r &= $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
+            $r &= (int) $this->exportConfigurationMetadata($db, $tables, $metadataTypes);
         }
 
         return (bool) $r;
@@ -1716,7 +1720,7 @@ class ExportSql extends ExportPlugin
 
             // Adding IF NOT EXISTS, if required.
             if (isset($GLOBALS['sql_if_not_exists'])) {
-                $createQuery = preg_replace(
+                $createQuery = (string) preg_replace(
                     '/^CREATE TABLE/',
                     'CREATE TABLE IF NOT EXISTS',
                     $createQuery

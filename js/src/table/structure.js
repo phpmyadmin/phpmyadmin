@@ -70,7 +70,7 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('submit', '.append_fields_form.ajax', function (event) {
         event.preventDefault();
         /**
-         * @var    the_form    object referring to the export form
+         * @var form object referring to the export form
          */
         var $form = $(this);
         var fieldCnt = $form.find('input[name=orig_num_fields]').val();
@@ -163,24 +163,24 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', 'a.drop_column_anchor.ajax', function (event) {
         event.preventDefault();
         /**
-         * @var curr_table_name String containing the name of the current table
+         * @var currTableName String containing the name of the current table
          */
         var currTableName = $(this).closest('form').find('input[name=table]').val();
         /**
-         * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
+         * @var currRow    Object reference to the currently selected row (i.e. field in the table)
          */
         var $currRow = $(this).parents('tr');
         /**
-         * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
+         * @var currColumnName    String containing name of the field referred to by {@link curr_row}
          */
         var currColumnName = $currRow.children('th').children('label').text().trim();
         currColumnName = Functions.escapeHtml(currColumnName);
         /**
-         * @var $after_field_item    Corresponding entry in the 'After' field.
+         * @var $afterFieldItem    Corresponding entry in the 'After' field.
          */
         var $afterFieldItem = $('select[name=\'after_field\'] option[value=\'' + currColumnName + '\']');
         /**
-         * @var question    String containing the question to be asked for confirmation
+         * @var question String containing the question to be asked for confirmation
          */
         var question = Functions.sprintf(Messages.strDoYouReally, 'ALTER TABLE `' + Functions.escapeHtml(currTableName) + '` DROP `' + Functions.escapeHtml(currColumnName) + '`;');
         var $thisAnchor = $(this);

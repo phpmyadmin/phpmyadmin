@@ -15,7 +15,7 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -46,7 +46,7 @@ class OperationsController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name
      * @param DatabaseInterface $dbi
      */
@@ -129,15 +129,10 @@ class OperationsController extends AbstractController
 
                     // remove all foreign key constraints, otherwise we can get errors
                     /** @var ExportSql $export_sql_plugin */
-                    $export_sql_plugin = Plugins::getPlugin(
-                        'export',
-                        'sql',
-                        'libraries/classes/Plugins/Export/',
-                        [
-                            'single_table' => isset($single_table),
-                            'export_type'  => 'database',
-                        ]
-                    );
+                    $export_sql_plugin = Plugins::getPlugin('export', 'sql', [
+                        'export_type' => 'database',
+                        'single_table' => isset($single_table),
+                    ]);
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
@@ -242,7 +237,7 @@ class OperationsController extends AbstractController
 
             /**
              * Database has been successfully renamed/moved.  If in an Ajax request,
-             * generate the output with {@link Response} and exit
+             * generate the output with {@link ResponseRenderer} and exit
              */
             if ($this->response->isAjax()) {
                 $this->response->setRequestStatus($message->isSuccess());

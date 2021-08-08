@@ -12,7 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
@@ -52,7 +52,7 @@ class ManageController extends AbstractController
     private $config;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct(
         $response,
@@ -69,7 +69,7 @@ class ManageController extends AbstractController
 
     public function index(): void
     {
-        global $cf, $error, $filename, $json, $lang, $max_upload_size;
+        global $cf, $error, $filename, $json, $lang;
         global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
         $cf = new ConfigFile($this->config->baseSettings);
@@ -271,7 +271,7 @@ class ManageController extends AbstractController
 
         echo $this->template->render('preferences/manage/main', [
             'error' => $error,
-            'max_upload_size' => $max_upload_size,
+            'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
                 && ! @file_exists(CONFIG_FILE),
         ]);

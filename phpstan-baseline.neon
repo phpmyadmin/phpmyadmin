@@ -46,11 +46,6 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Form\\:\\:getOptionValueList\\(\\) should return array but returns array\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config/Form.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\Form\\:\\:\\$index \\(int\\) does not accept int\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
@@ -76,11 +71,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Config/Forms/BaseFormList.php
-
-		-
 			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
@@ -91,27 +81,12 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#5 \\$port of function mysqli_connect expects int, int\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
 			message: "#^Parameter \\#5 \\$foreign_limit of method PhpMyAdmin\\\\Relation\\:\\:getForeignData\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/BrowseForeignersController.php
 
 		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/DesignerController.php
-
-		-
-			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
@@ -176,18 +151,8 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 7
-			path: libraries/classes/Controllers/Server/Status/StatusController.php
-
-		-
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 3
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 2
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
@@ -201,24 +166,14 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/OperationsController.php
+
+		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Cannot cast ''\\|int to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\<0, max\\>\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
@@ -231,22 +186,22 @@ parameters:
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -331,16 +286,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Offset 1 does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -351,52 +296,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#8 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#8 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#9 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Trying to invoke string but it might not be a callable\\.$#"
-			count: 5
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
-			count: 1
-			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Parameter \\#2 \\$error_type of function trigger_error expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
 
@@ -407,16 +312,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -441,27 +336,12 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Parameter \\#1 \\$bz of function bzread expects resource, resource\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Parameter \\#1 \\$file of function bzopen expects resource\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$zp of function gzread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -486,42 +366,22 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getLineForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:line\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imageline expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisLineString.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
 			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -531,32 +391,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:line\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imageline expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiLineString.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
 			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -566,32 +411,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPoint.php
-
-		-
-			message: "#^Parameter \\#8 \\$col of function imagearc expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
@@ -601,32 +431,17 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#3 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#4 \\$col of function imagefilledpolygon expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
 			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -636,22 +451,12 @@ parameters:
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPoint.php
-
-		-
-			message: "#^Parameter \\#8 \\$col of function imagearc expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -661,44 +466,19 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#2 \\$red of function imagecolorallocate expects int, float\\|int given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
 			message: "#^Parameter \\#2 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getPolygonForOpenLayers\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#3 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:filledPolygon\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
-			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Parameter \\#4 \\$col of function imagefilledpolygon expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagestring expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisPolygon.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagecolorallocate expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagefilledrectangle expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
 
 		-
 			message: "#^Parameter \\#1 \\$sql_query of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects string, null given\\.$#"
@@ -712,11 +492,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#4 \\$pos of class PhpMyAdmin\\\\Gis\\\\GisVisualization constructor expects int, null given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#6 \\$col of function imagefilledrectangle expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
@@ -846,17 +621,17 @@ parameters:
 			path: libraries/classes/OutputBuffering.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getHtmlForProperty\\(\\) should return string but returns string\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$font of method TCPDF\\:\\:setFooterFont\\(\\) expects array\\<int, string\\>, array\\<int, int\\|string\\> given\\.$#"
 			count: 1
-			path: libraries/classes/Plugins.php
+			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Parameter \\#7 \\$pdfa of method TCPDF\\:\\:__construct\\(\\) expects int, bool given\\.$#"
+			count: 1
+			path: libraries/classes/Pdf.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:createIV\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
@@ -876,16 +651,6 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Binary operation \"\\.\" between 'FOREIGN KEY ' and array\\|string results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -896,54 +661,14 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#1 \\$createQuery of method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$doc of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$token \\(string\\) does not accept array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
-			count: 7
-			path: libraries/classes/Plugins/Import/ImportCsv.php
-
-		-
-			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Import/ImportLdi.php
-
-		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
@@ -966,26 +691,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getShape\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
-			message: "#^Parameter \\#1 \\$doc of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyOneItem\\:\\:setDoc\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportSql.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
@@ -1001,57 +706,17 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
-			message: "#^Parameter \\#1 \\$options of method PhpMyAdmin\\\\Properties\\\\Plugins\\\\PluginPropertyItem\\:\\:setOptions\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyRootGroup, array given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
 			message: "#^Function uploadprogress_get_info not found\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Import\\\\Upload\\\\UploadSession\\:\\:getIdKey\\(\\) should return string but returns string\\|false\\.$#"
+			message: "#^Used function uploadprogress_get_info not found\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Import/Upload/UploadSession.php
-
-		-
-			message: "#^Cannot call method endDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Cannot call method startDiaDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
+			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
 
 		-
 			message: "#^Parameter \\#2 \\$masterField of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\DiaRelationSchema\\:\\:addRelation\\(\\) expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\RelationStatsDia constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php
 
@@ -1061,92 +726,12 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:endElement\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startElement\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeAttribute\\(\\)\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:writeRaw\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: "#^Cannot call method endEpsDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method setAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method setDate\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method setOrientation\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\EpsRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
-			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			message: "#^Parameter \\#4 \\$foreign_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\RelationStatsEps constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
@@ -1156,188 +741,33 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps constructor expects int, current\\|int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:line\\(\\)\\.$#"
 			count: 7
 			path: libraries/classes/Plugins/Schema/Eps/RelationStatsEps.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:rect\\(\\)\\.$#"
+			message: "#^Parameter \\#1 \\$x_from of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:showXY\\(\\)\\.$#"
+			message: "#^Parameter \\#2 \\$x of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$y_from of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:rect\\(\\) expects int, float\\|int given\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Cannot access property \\$customLinks on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 15
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method AddLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method AddPage\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method Bookmark\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method Cell\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 31
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method Ln\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method Open\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method PageNo\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\:\\:showXY\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+			path: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
-			message: "#^Cannot call method SetAutoPageBreak\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetDrawColor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetLink\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$auto of method TCPDF\\:\\:SetAutoPageBreak\\(\\) expects bool, string given\\.$#"
 			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetMargins\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetX\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method SetXY\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method download\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method getPageHeight\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method getPageWidth\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method line\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method row\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setAlias\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setCMargin\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setFontSizeScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setLineWidthScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setOffline\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setScale\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Cannot call method setWidths\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\:\\:tableDraw\\(\\) expects int, null given\\.$#"
-			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -1348,6 +778,11 @@ parameters:
 		-
 			message: "#^Parameter \\#2 \\$master_table of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\RelationStatsPdf constructor expects string, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Pdf\\:\\:setAlias\\(\\) expects string, int given\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
@@ -1376,52 +811,12 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$customLinks\\.$#"
-			count: 6
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:GetStringWidth\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFillColor\\(\\)\\.$#"
-			count: 5
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetFont\\(\\)\\.$#"
-			count: 4
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetLink\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:SetTextColor\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:cellScale\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXScale\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:setXyScale\\(\\)\\.$#"
+			message: "#^Binary operation \"\\+\\=\" between int and array\\<float\\>\\|float results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:\\$width \\(int\\) does not accept array\\<float\\>\\|float\\|int\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
@@ -1436,62 +831,17 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
-			message: "#^Cannot call method SetAuthor\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method endSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method getFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method getFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method setFont\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method setFontSize\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method setTitle\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method showOutput\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Cannot call method startSvgDoc\\(\\) on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\RelationStatsSvg constructor expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: "#^Parameter \\#1 \\$diagram of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects object, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#1 \\$width of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startSvgDoc\\(\\) expects int, float\\|int given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
+
+		-
+			message: "#^Parameter \\#2 \\$height of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startSvgDoc\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
@@ -1501,8 +851,8 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#3 \\$fontSize of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:addRelation\\(\\) expects int, current\\|int\\|string given\\.$#"
-			count: 2
+			message: "#^Parameter \\#3 \\$x of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startSvgDoc\\(\\) expects int, float\\|int given\\.$#"
+			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -1516,18 +866,18 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Parameter \\#5 \\$fontSize of class PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg constructor expects int, current\\|int\\|string given\\.$#"
+			message: "#^Parameter \\#4 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:startSvgDoc\\(\\) expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\)\\.$#"
+			message: "#^Parameter \\#2 \\$x of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\) expects int, float\\|int given\\.$#"
 			count: 4
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: "#^Parameter \\#1 \\$diagram of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats\\:\\:__construct\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg, object given\\.$#"
-			count: 1
+			message: "#^Parameter \\#3 \\$y of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:printElement\\(\\) expects int, float\\|int given\\.$#"
+			count: 4
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
@@ -1556,7 +906,7 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:createPage\\(\\) should return int but returns bool\\|int\\.$#"
+			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -1601,7 +951,7 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Offset string does not exist on array\\|string\\.$#"
+			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -1676,23 +1026,8 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getNumberOfRowsAffectedOrChanged\\(\\) should return int but returns bool\\|int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:handleSortOrder\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:hasCurrentDbChanged\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Sql.php
 
 		-
@@ -1711,27 +1046,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#15 \\$printView of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForNoResultsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Sql\\:\\:deleteTransformationInfo\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -1756,22 +1076,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#3 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForNoResultsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#4 \\$table of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#7 \\$numRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -1784,11 +1089,6 @@ parameters:
 			message: "#^Parameter \\#8 \\$extraData of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\StorageEngine\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/StorageEngine.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
@@ -1826,22 +1126,7 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Types.php
-
-		-
-			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> string, 'request_fulluri' \\=\\> true\\)\\.$#"
+			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> non\\-empty\\-string, 'request_fulluri' \\=\\> true\\)\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -1859,81 +1144,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 1
-			path: test/classes/BookmarkTest.php
-
-		-
-			message: "#^Empty array passed to foreach\\.$#"
-			count: 1
-			path: test/classes/Config/DescriptionTest.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeometryCollectionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$point of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\) expects array, array\\|false given\\.$#"
-			count: 1
-			path: test/classes/Gis/GisPolygonTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$cell of method PhpMyAdmin\\\\Import\\:\\:getDecimalSize\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\Import\\:\\:getColumnNumberFromName\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/ImportTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Parameter \\#11 \\$key of method PhpMyAdmin\\\\InsertEdit\\:\\:getQueryValuesForInsertAndUpdateInMultipleEdit\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Cannot call method activate\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 2
-			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Cannot call method getEnglishName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/classes/LanguageTest.php
-
-		-
-			message: "#^Cannot call method getNativeName\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/classes/LanguageTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
@@ -1954,89 +1164,4 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$transformationData of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"
-			count: 1
-			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
-			count: 2
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
-			count: 2
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Parameter \\#8 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
-			count: 7
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
-			count: 1
-			path: test/classes/ThemeTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:filter\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#3 \\$selection_schema of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#4 \\$selection_data of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#5 \\$selection_both of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#6 \\$filter_ts_to of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#7 \\$filter_ts_from of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects int, array given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/CreateRemoveUserTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 2
-			path: test/selenium/ServerSettingsTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 4
-			path: test/selenium/Table/BrowseTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/Table/CreateTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
-			count: 1
-			path: test/selenium/TrackingTest.php
 

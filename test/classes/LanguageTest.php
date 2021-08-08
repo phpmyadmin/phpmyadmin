@@ -38,7 +38,12 @@ class LanguageTest extends AbstractTestCase
     {
         parent::tearDown();
         // Ensure we have English locale after tests
-        $this->manager->getLanguage('en')->activate();
+        $lang = $this->manager->getLanguage('en');
+        if ($lang === false) {
+            return;
+        }
+
+        $lang->activate();
     }
 
     /**
@@ -128,7 +133,7 @@ class LanguageTest extends AbstractTestCase
     {
         $GLOBALS['config']->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
-        $this->assertNotEquals(false, $lang);
+        $this->assertNotFalse($lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
         $this->assertEquals('Čeština', $lang->getNativeName());
         $lang = $this->manager->getLanguage('nonexisting');
@@ -295,7 +300,9 @@ class LanguageTest extends AbstractTestCase
     {
         $GLOBALS['config']->set('FilterLanguages', '');
         /* We should be able to set the language */
-        $this->manager->getLanguage($locale)->activate();
+        $lang = $this->manager->getLanguage($locale);
+        $this->assertNotFalse($lang);
+        $lang->activate();
 
         /* Grab some texts */
         $this->assertStringContainsString('%s', _ngettext('%s table', '%s tables', 10));

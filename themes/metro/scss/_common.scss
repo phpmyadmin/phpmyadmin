@@ -589,6 +589,11 @@ td.disabled {
   display: none;
 }
 
+li.last.database {
+  // Avoid having the last item of the tree hidden behind the scroll bar
+  margin-bottom: 15px !important;
+}
+
 /* zoom search */
 div#dataDisplay {
   input,
@@ -791,11 +796,6 @@ div {
     height: 400px;
     padding-bottom: 80px;
   }
-}
-
-#addChartDialog input[type="text"] {
-  margin: 0;
-  padding: 3px;
 }
 
 div#chartVariableSettings {
@@ -1924,8 +1924,8 @@ form.append_fields_form .tblFooters {
 
   height: $height;
   width: $width;
-  margin-left: $height / -2;
-  margin-top: $width / -2;
+  margin-left: $height * -0.5;
+  margin-top: $width * -0.5;
   position: absolute;
   background: url("../img/col_pointer.png");
 }

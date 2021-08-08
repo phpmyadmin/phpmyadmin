@@ -12,7 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
@@ -359,7 +359,7 @@ abstract class AuthenticationPlugin
             return;
         }
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return;

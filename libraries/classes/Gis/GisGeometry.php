@@ -7,12 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function explode;
 use function floatval;
 use function intval;
-use function mb_strlen;
 use function mb_strripos;
 use function mb_substr;
 use function mt_rand;
@@ -47,19 +47,14 @@ abstract class GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $color      Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     abstract public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $color,
         array $scale_data,
-        $image
-    );
+        ImageWrapper $image
+    ): ImageWrapper;
 
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
@@ -118,9 +113,9 @@ abstract class GisGeometry
     /**
      * Generates the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array  $gis_data GIS data
-     * @param int    $index    index into the parameter object
-     * @param string $empty    value for empty points
+     * @param array       $gis_data GIS data
+     * @param int         $index    index into the parameter object
+     * @param string|null $empty    value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      *
@@ -393,11 +388,7 @@ abstract class GisGeometry
             $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
-        $ol_array = mb_substr(
-            $ol_array,
-            0,
-            mb_strlen($ol_array) - 2
-        );
+        $ol_array = mb_substr($ol_array, 0, -2);
 
         return $ol_array . ')';
     }

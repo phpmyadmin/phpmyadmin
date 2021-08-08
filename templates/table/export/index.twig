@@ -1,8 +1,5 @@
 {% extends 'export.twig' %}
 
-{% block message %}{{ message|raw }}{% endblock %}
-
-
 {% block title %}
   {% if export_type == 'raw' %}
     {% trans %}Exporting a raw query{% notes %}A query that the user has written freely{% endtrans %}

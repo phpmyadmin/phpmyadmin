@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use Stringable;
 
 use function __;
 use function array_key_exists;
@@ -37,10 +38,10 @@ use function preg_match;
 use function preg_replace;
 use function rtrim;
 use function sprintf;
+use function str_contains;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -55,7 +56,7 @@ use const E_USER_WARNING;
  *
  * @todo make use of Message and Error
  */
-class Table
+class Table implements Stringable
 {
     /**
      * UI preferences properties
@@ -112,10 +113,8 @@ class Table
      * returns table name
      *
      * @see Table::getName()
-     *
-     * @return string  table name
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getName();
     }
@@ -516,8 +515,8 @@ class Table
      */
     public static function generateFieldSpec(
         $name,
-        $type,
-        $length = '',
+        string $type,
+        string $length = '',
         $attribute = '',
         $collation = '',
         $null = false,
@@ -533,6 +532,7 @@ class Table
     ) {
         global $dbi;
 
+        $strLength = strlen($length);
         $isTimestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
@@ -544,7 +544,11 @@ class Table
         // see https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID|JSON)$@i';
-        if (strlen($length) !== 0 && ! preg_match($pattern, $type)) {
+        if (
+            $strLength !== 0
+            && ! preg_match($pattern, $type)
+            && Compatibility::isIntegersSupportLength($type, $length, $dbi)
+        ) {
             // Note: The variable $length here can contain several other things
             // besides length - ENUM/SET value or length of DECIMAL (eg. 12,3)
             // so we can't just convert it to integer
@@ -557,8 +561,7 @@ class Table
             if (
                 $isTimestamp
                 && stripos($attribute, 'TIMESTAMP') !== false
-                && strlen($length) !== 0
-                && $length !== 0
+                && $strLength !== 0
             ) {
                 $query .= '(' . $length . ')';
             }
@@ -645,8 +648,7 @@ class Table
                         $query .= ' DEFAULT ' . $defaultType;
 
                         if (
-                            strlen($length) !== 0
-                            && $length !== 0
+                            $strLength !== 0
                             && $isTimestamp
                             && $defaultType !== 'NULL' // Not to be added in case of NULL
                         ) {
@@ -706,7 +708,6 @@ class Table
     public function checkIfMinRecordsExist($minRecords = 0)
     {
         $checkQuery = 'SELECT ';
-        $fieldsToSelect = '';
 
         $uniqueFields = $this->getUniqueColumns(true, false);
         if (count($uniqueFields) > 0) {
@@ -1089,15 +1090,10 @@ class Table
              *
              * @var ExportSql $exportSqlPlugin
              */
-            $exportSqlPlugin = Plugins::getPlugin(
-                'export',
-                'sql',
-                'libraries/classes/Plugins/Export/',
-                [
-                    'export_type' => 'table',
-                    'single_table' => false,
-                ]
-            );
+            $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
+                'export_type' => 'table',
+                'single_table' => false,
+            ]);
 
             $noConstraintsComments = true;
             $GLOBALS['sql_constraints_query'] = '';
@@ -1139,9 +1135,7 @@ class Table
             // Find server's SQL mode so the builder can generate correct
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode(
-                $dbi->fetchValue('SELECT @@sql_mode')
-            );
+            Context::setMode((string) $dbi->fetchValue('SELECT @@sql_mode'));
 
             // -----------------------------------------------------------------
             // Phase 1: Dropping existent element of the same name (if exists
@@ -1883,9 +1877,9 @@ class Table
                 // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
                 if (
                     (
-                    strpos($column['Extra'], 'GENERATED') !== false
-                    || strpos($column['Extra'], 'VIRTUAL') !== false
-                    ) && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
+                    str_contains($column['Extra'], 'GENERATED')
+                    || str_contains($column['Extra'], 'VIRTUAL')
+                    ) && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
                 ) {
                     continue;
                 }
@@ -1961,8 +1955,8 @@ class Table
         // Remove some old rows in table_uiprefs if it exceeds the configured
         // maximum rows
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $table;
-        $rowsCount = $this->dbi->fetchValue($sqlQuery);
-        $maxRows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
+        $rowsCount = (int) $this->dbi->fetchValue($sqlQuery);
+        $maxRows = (int) $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
             $sqlQuery = ' DELETE FROM ' . $table .
@@ -2379,7 +2373,6 @@ class Table
      */
     public function updateDisplayField($displayField, array $cfgRelation)
     {
-        $updQuery = false;
         if ($displayField == '') {
             $updQuery = 'DELETE FROM '
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
@@ -2398,18 +2391,12 @@ class Table
                 . '\'' . $this->dbi->escapeString($displayField) . '\')';
         }
 
-        if ($updQuery) {
-            $this->dbi->query(
-                $updQuery,
-                DatabaseInterface::CONNECT_CONTROL,
-                0,
-                false
-            );
-
-            return true;
-        }
-
-        return false;
+        return $this->dbi->query(
+            $updQuery,
+            DatabaseInterface::CONNECT_CONTROL,
+            0,
+            false
+        ) === true;
     }
 
     /**

@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -17,7 +17,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function in_array;
 use function is_numeric;
-use function mb_strpos;
+use function str_contains;
 
 class VariablesController extends AbstractController
 {
@@ -25,7 +25,7 @@ class VariablesController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param Data              $data
      * @param DatabaseInterface $dbi
      */
@@ -111,7 +111,7 @@ class VariablesController extends AbstractController
 
                 // Fields containing % are calculated,
                 // they can not be described in MySQL documentation
-                if (mb_strpos($name, '%') === false) {
+                if (! str_contains($name, '%')) {
                     $variables[$name]['doc'] = Generator::linkToVarDocumentation(
                         $name,
                         $this->dbi->isMariaDB()

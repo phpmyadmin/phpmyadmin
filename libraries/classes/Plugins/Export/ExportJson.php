@@ -45,7 +45,7 @@ class ExportJson extends ExportPlugin
      *
      * @param mixed $data Data to encode
      *
-     * @return string
+     * @return string|false
      */
     public function encode($data)
     {
@@ -122,14 +122,17 @@ class ExportJson extends ExportPlugin
     {
         global $crlf;
 
-        $meta = [
+        $data = $this->encode([
             'type' => 'header',
             'version' => Version::VERSION,
             'comment' => 'Export to JSON plugin for PHPMyAdmin',
-        ];
+        ]);
+        if ($data === false) {
+            return false;
+        }
 
         return $this->export->outputHandler(
-            '[' . $crlf . $this->encode($meta) . ',' . $crlf
+            '[' . $crlf . $data . ',' . $crlf
         );
     }
 
@@ -161,14 +164,12 @@ class ExportJson extends ExportPlugin
             $dbAlias = $db;
         }
 
-        $meta = [
-            'type' => 'database',
-            'name' => $dbAlias,
-        ];
+        $data = $this->encode(['type' => 'database', 'name' => $dbAlias]);
+        if ($data === false) {
+            return false;
+        }
 
-        return $this->export->outputHandler(
-            $this->encode($meta) . ',' . $crlf
-        );
+        return $this->export->outputHandler($data . ',' . $crlf);
     }
 
     /**
@@ -231,14 +232,15 @@ class ExportJson extends ExportPlugin
             $this->first = false;
         }
 
-        $buffer = $this->encode(
-            [
-                'type' => 'table',
-                'name' => $table_alias,
-                'database' => $db_alias,
-                'data' => '@@DATA@@',
-            ]
-        );
+        $buffer = $this->encode([
+            'type' => 'table',
+            'name' => $table_alias,
+            'database' => $db_alias,
+            'data' => '@@DATA@@',
+        ]);
+        if ($buffer === false) {
+            return false;
+        }
 
         return $this->doExportForQuery(
             $dbi,
@@ -372,12 +374,13 @@ class ExportJson extends ExportPlugin
     {
         global $dbi;
 
-        $buffer = $this->encode(
-            [
-                'type' => 'raw',
-                'data' => '@@DATA@@',
-            ]
-        );
+        $buffer = $this->encode([
+            'type' => 'raw',
+            'data' => '@@DATA@@',
+        ]);
+        if ($buffer === false) {
+            return false;
+        }
 
         return $this->doExportForQuery(
             $dbi,

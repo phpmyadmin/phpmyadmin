@@ -9,7 +9,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
@@ -27,7 +27,6 @@ class MonitorControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -42,7 +41,7 @@ class MonitorControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new MonitorController(
             $response,
@@ -99,7 +98,7 @@ class MonitorControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<div id="addChartDialog"',
+            '<div class="modal fade" id="addChartModal"',
             $html
         );
         $this->assertStringContainsString(
@@ -140,7 +139,7 @@ class MonitorControllerTest extends AbstractTestCase
 
     public function testLogDataTypeSlow(): void
     {
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -200,7 +199,7 @@ class MonitorControllerTest extends AbstractTestCase
             'argument' => 'argument3 argument4',
         ];
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -251,7 +250,7 @@ class MonitorControllerTest extends AbstractTestCase
             'slow_query_log' => 'OFF',
         ];
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new MonitorController(
@@ -286,7 +285,7 @@ class MonitorControllerTest extends AbstractTestCase
             'argument' => 'argument argument2',
         ];
 
-        $response = new Response();
+        $response = new ResponseRenderer();
         $response->setAjax(true);
 
         $controller = new MonitorController(

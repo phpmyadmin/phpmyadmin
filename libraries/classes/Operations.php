@@ -582,10 +582,9 @@ class Operations
         /** @var Innodb $innodbEnginePlugin */
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
         $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
+        $innodb_file_format = '';
         if (! empty($innodbPluginVersion)) {
-            $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
-        } else {
-            $innodb_file_format = '';
+            $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat() ?? '';
         }
 
         /**
@@ -594,7 +593,7 @@ class Operations
          * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
          */
         if (
-            ($innodb_file_format === 'Barracuda') || ($innodb_file_format == '')
+            (strtolower($innodb_file_format)  === 'barracuda') || ($innodb_file_format == '')
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';

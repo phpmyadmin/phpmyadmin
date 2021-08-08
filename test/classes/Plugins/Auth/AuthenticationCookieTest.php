@@ -9,6 +9,7 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
@@ -41,7 +42,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
@@ -176,6 +176,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      */
     public function testAuthError(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';

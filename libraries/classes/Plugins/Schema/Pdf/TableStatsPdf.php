@@ -23,9 +23,9 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @see     PMA_Schema_PDF
+ * @see     Schema\Pdf
  *
- * @name    TableStatsPdf
+ * @property Pdf $diagram
  */
 class TableStatsPdf extends TableStats
 {
@@ -40,7 +40,7 @@ class TableStatsPdf extends TableStats
      * @see TableStatsPdf::setWidthTable
      * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
      *
-     * @param object $diagram        The PDF diagram
+     * @param Pdf    $diagram        The PDF diagram
      * @param string $db             The database name
      * @param string $tableName      The table name
      * @param int    $fontSize       The font size
@@ -162,17 +162,17 @@ class TableStatsPdf extends TableStats
     /**
      * Do draw the table
      *
-     * @see    PMA_Schema_PDF
+     * @see    Schema\Pdf
      *
-     * @param int      $fontSize The font size
+     * @param int|null $fontSize The font size or null to use the default value
      * @param bool     $withDoc  Whether to include links to documentation
-     * @param bool|int $setColor Whether to display color
+     * @param bool     $setColor Whether to display color
      *
      * @return void
      *
      * @access public
      */
-    public function tableDraw($fontSize, $withDoc, $setColor = 0)
+    public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false)
     {
         $this->diagram->setXyScale($this->x, $this->y);
         $this->diagram->SetFont($this->ff, 'B', $fontSize);

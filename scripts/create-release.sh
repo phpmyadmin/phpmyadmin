@@ -129,10 +129,13 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/sql-parser/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/tests/ \
-        vendor/phpmyadmin/shapefile/phpunit.xml \
+        vendor/phpmyadmin/shapefile/codecov.yml \
+        vendor/phpmyadmin/shapefile/phpunit.xml.dist \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/phpmyadmin/shapefile/phpstan-baseline.neon \
+        vendor/phpmyadmin/shapefile/phpstan.neon.dist \
         vendor/phpmyadmin/twig-i18n-extension/README.rst \
         vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
@@ -141,13 +144,15 @@ cleanup_composer_vendors() {
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
         vendor/phpseclib/phpseclib/appveyor.yml \
+        vendor/phpseclib/phpseclib/.github \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
+        vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
-        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
@@ -177,15 +182,24 @@ cleanup_composer_vendors() {
         vendor/twig/twig/.editorconfig \
         vendor/twig/twig/.php_cs.dist \
         vendor/twig/twig/drupal_test.sh \
+        vendor/webmozart/assert/.editorconfig \
+        vendor/webmozart/assert/.github/ \
+        vendor/webmozart/assert/.php_cs \
+        vendor/webmozart/assert/psalm.xml \
         vendor/paragonie/constant_time_encoding/tests/ \
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/paragonie/random_compat/build-phar.sh \
+        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey \
+        vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc \
+        vendor/paragonie/random_compat/psalm.xml \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/google/recaptcha/app.yaml \
         vendor/google/recaptcha/.travis.yml \
         vendor/google/recaptcha/phpunit.xml.dist \
         vendor/google/recaptcha/.github/ \
@@ -197,6 +211,7 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpmyadmin/shapefile/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
@@ -438,7 +453,7 @@ if [ $do_test -eq 1 ] ; then
     backup_vendor_folder
     # Generate an autoload for test class files (and include dev namespaces)
     composer dump-autoload --dev || php -r "echo 'Requires: composer >= v2.1.2' . PHP_EOL; exit(1);"
-    "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --exclude-group selenium
+    "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --testsuite unit
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..

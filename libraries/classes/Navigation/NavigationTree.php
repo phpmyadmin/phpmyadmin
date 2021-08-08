@@ -16,7 +16,7 @@ use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -46,7 +46,6 @@ use function sprintf;
 use function strcasecmp;
 use function strlen;
 use function strnatcasecmp;
-use function strpos;
 use function strrpos;
 use function strstr;
 use function substr;
@@ -167,13 +166,14 @@ class NavigationTree
                     $this->aPath[$count] = $this->parsePath(
                         $_POST['n' . $count . '_aPath']
                     );
-                    $index = 'n' . $count . '_pos2_';
-                    $this->pos2Name[$count] = $_POST[$index . 'name'];
-                    $this->pos2Value[$count] = (int) $_POST[$index . 'value'];
-                    $index = 'n' . $count . '_pos3_';
-                    if (isset($_POST[$index])) {
-                        $this->pos3Name[$count] = $_POST[$index . 'name'];
-                        $this->pos3Value[$count] = (int) $_POST[$index . 'value'];
+                    if (isset($_POST['n' . $count . '_pos2_name'])) {
+                        $this->pos2Name[$count] = $_POST['n' . $count . '_pos2_name'];
+                        $this->pos2Value[$count] = (int) $_POST['n' . $count . '_pos2_value'];
+                    }
+
+                    if (isset($_POST['n' . $count . '_pos3_name'])) {
+                        $this->pos3Name[$count] = $_POST['n' . $count . '_pos3_name'];
+                        $this->pos3Value[$count] = (int) $_POST['n' . $count . '_pos3_value'];
                     }
 
                     $count++;
@@ -224,7 +224,7 @@ class NavigationTree
     {
         $retval = 0;
 
-        if (strlen($GLOBALS['db']) == 0) {
+        if (strlen($GLOBALS['db'] ?? '') === 0) {
             return $retval;
         }
 
@@ -975,18 +975,7 @@ class NavigationTree
         ]);
         $this->setVisibility();
 
-        $nodes = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], true, 'first');
-            } else {
-                if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i], true);
-                } else {
-                    $nodes .= $this->renderNode($children[$i], true, 'last');
-                }
-            }
-        }
+        $nodes = $this->renderNodes($children);
 
         return $this->template->render('navigation/tree/state', [
             'quick_warp' => $quickWarp,
@@ -1016,13 +1005,7 @@ class NavigationTree
                 'sortNode',
             ]);
 
-            for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 != $nbChildren) {
-                    $listContent .= $this->renderNode($children[$i], true);
-                } else {
-                    $listContent .= $this->renderNode($children[$i], true, 'last');
-                }
-            }
+            $listContent .= $this->renderNodes($children, false);
 
             if (! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
                 $parents = $node->parents(true);
@@ -1056,7 +1039,7 @@ class NavigationTree
                 ),
                 $results
             );
-            Response::getInstance()
+            ResponseRenderer::getInstance()
                 ->addJSON(
                     'results',
                     $results
@@ -1080,24 +1063,26 @@ class NavigationTree
      * side to know which page(s) we will be requesting data from
      *
      * @param Node $node The node to create the pagination parameters for
+     *
+     * @return array<string, string>
      */
-    private function getPaginationParamsHtml(Node $node): string
+    private function getPaginationParamsHtml(Node $node): array
     {
-        $renderDetails = ['position' => 0];
+        $renderDetails = [];
         $paths = $node->getPaths();
         if (isset($paths['aPath_clean'][2])) {
             $renderDetails['position'] = 'pos2_nav';
-            $renderDetails['data_name'] = $paths['aPath_clean'][2];
+            $renderDetails['data_name'] = (string) $paths['aPath_clean'][2];
             $renderDetails['data_value'] = (string) $node->pos2;
         }
 
         if (isset($paths['aPath_clean'][4])) {
             $renderDetails['position'] = 'pos3_nav';
-            $renderDetails['data_name'] = $paths['aPath_clean'][4];
+            $renderDetails['data_name'] = (string) $paths['aPath_clean'][4];
             $renderDetails['data_value'] = (string) $node->pos3;
         }
 
-        return $this->template->render('navigation/tree/pagination_params', $renderDetails);
+        return $renderDetails;
     }
 
     /**
@@ -1127,43 +1112,48 @@ class NavigationTree
     }
 
     /**
+     * @param Node[] $children
+     */
+    private function renderNodes(array $children, bool $hasFirstClass = true): string
+    {
+        $nodes = '';
+        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+            if ($i === 0) {
+                $nodes .= $this->renderNode($children[0], $hasFirstClass ? 'first' : '');
+            } elseif ($i + 1 !== $nbChildren) {
+                $nodes .= $this->renderNode($children[$i]);
+            } else {
+                $nodes .= $this->renderNode($children[$i], 'last');
+            }
+        }
+
+        return $nodes;
+    }
+
+    /**
      * Renders a single node or a branch of the tree
      *
-     * @param Node   $node      The node to render
-     * @param bool   $recursive Whether to render a single node or a branch
-     * @param string $class     An additional class for the list item
+     * @param Node   $node  The node to render
+     * @param string $class An additional class for the list item
      *
      * @return string HTML code for the tree node or branch
      */
-    private function renderNode(Node $node, bool $recursive, string $class = ''): string
+    private function renderNode(Node $node, string $class = ''): string
     {
-        $retval = '';
+        $controlButtons = '';
         $paths = $node->getPaths();
         $nodeIsContainer = $node->type === Node::CONTAINER;
+        $hasSiblingsOrIsNotRoot = $node->hasSiblings() || $node->realParent() === false;
+        $liClasses = '';
 
-        if (
-            $node->hasSiblings()
-            || $node->realParent() === false
-        ) {
-            $response = Response::getInstance();
-            if (
-                $nodeIsContainer
-                && count($node->children) === 0
-                && ! $response->isAjax()
-            ) {
+        if ($hasSiblingsOrIsNotRoot) {
+            $response = ResponseRenderer::getInstance();
+            if ($nodeIsContainer && count($node->children) === 0 && ! $response->isAjax()) {
                 return '';
             }
 
-            $retval .= '<li class="' . trim($class . ' ' . $node->classes) . '">';
-            $sterile = [
-                'events',
-                'triggers',
-                'functions',
-                'procedures',
-                'views',
-                'columns',
-                'indexes',
-            ];
+            $liClasses = trim($class . ' ' . $node->classes);
+            $sterile = ['events', 'triggers', 'functions', 'procedures', 'views', 'columns', 'indexes'];
             $parentName = '';
             $parents = $node->parents(false, true);
             if (count($parents)) {
@@ -1171,58 +1161,19 @@ class NavigationTree
             }
 
             // if node name itself is in sterile, then allow
-            if (
-                $node->isGroup
+            $nodeIsGroup = $node->isGroup
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || (in_array($node->realName, $sterile) && ! empty($node->children))
-            ) {
-                $retval .= "<div class='block'>";
-                $iClass = '';
-                if ($class === 'first') {
-                    $iClass = " class='first'";
+                || (in_array($node->realName, $sterile) && ! empty($node->children));
+            if ($nodeIsGroup) {
+                $match = $this->findTreeMatch($this->vPath, $paths['vPath_clean']);
+                $linkClasses = $node->getCssClasses($match);
+                if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] || $parentName !== 'root') {
+                    $nodeIcon = $node->getIcon($match);
                 }
-
-                $retval .= '<i' . $iClass . '></i>';
-                if (strpos($class, 'last') === false) {
-                    $retval .= '<b></b>';
-                }
-
-                $match = $this->findTreeMatch(
-                    $this->vPath,
-                    $paths['vPath_clean']
-                );
-
-                $retval .= '<a class="' . $node->getCssClasses($match) . '"';
-                $retval .= " href='#'>";
-
-                $retval .= '<span class="hide paths_nav"';
-                $retval .= ' data-apath="' . $paths['aPath'] . '"';
-                $retval .= ' data-vpath="' . $paths['vPath'] . '"';
-                $retval .= ' data-pos="' . $this->pos . '"';
-                $retval .= '"></span>';
-                $retval .= $this->getPaginationParamsHtml($node);
-                if (
-                    $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
-                    || $parentName !== 'root'
-                ) {
-                    $retval .= $node->getIcon($match);
-                }
-
-                $retval .= '</a>';
-                $retval .= '</div>';
-            } else {
-                $retval .= "<div class='block'>";
-                $iClass = '';
-                if ($class === 'first') {
-                    $iClass = " class='first'";
-                }
-
-                $retval .= '<i' . $iClass . '></i>';
-                $retval .= $this->getPaginationParamsHtml($node);
-                $retval .= '</div>';
             }
 
-            $linkClass = '';
+            $paginationParams = $this->getPaginationParamsHtml($node);
+
             $haveAjax = [
                 'functions',
                 'procedures',
@@ -1232,26 +1183,8 @@ class NavigationTree
             ];
             $parent = $node->parents(false, true);
             $isNewView = $parent[0]->realName === 'views' && $node->isNew === true;
-            if (
-                $parent[0]->type == Node::CONTAINER
-                && (in_array($parent[0]->realName, $haveAjax) || $isNewView)
-            ) {
-                $linkClass = ' ajax';
-            }
-
-            if ($nodeIsContainer) {
-                $retval .= '<i>';
-            }
-
-            // The .second class is used in js/src/navigation.js
-            $divClass = 'second';
-
-            if (isset($node->secondIcon)) {
-                // Generates: .second double class for NavigationTreeDefaultTabTable2
-                $divClass .= ' double';
-            }
-
-            $retval .= '<div class="block ' . $divClass . '">';
+            $linkHasAjaxClass = $parent[0]->type == Node::CONTAINER
+                && (in_array($parent[0]->realName, $haveAjax) || $isNewView);
 
             if (! $node->isGroup) {
                 $args = [];
@@ -1264,123 +1197,86 @@ class NavigationTree
                     $args[$parent->urlParamName] = $parent->realName;
                 }
 
-                $params = array_merge(
-                    $node->links['icon']['params'],
-                    array_intersect_key($args, $node->links['icon']['params'])
-                );
-                $link = Url::getFromRoute($node->links['icon']['route'], $params);
-
-                $retval .= '<a';
-
-                if ($linkClass !== '') {
-                    $retval .= ' class="' . $linkClass . '"';
-                }
-
-                $retval .= ' href="' . $link . '">';
-                $retval .= Generator::getImage($node->icon['image'], $node->icon['title']) . '</a>';
+                $iconLinks = [];
+                $iconLinks[] = [
+                    'route' => $node->links['icon']['route'],
+                    'params' => array_merge(
+                        $node->links['icon']['params'],
+                        array_intersect_key($args, $node->links['icon']['params'])
+                    ),
+                    'is_ajax' => $linkHasAjaxClass,
+                    'image' => $node->icon['image'],
+                    'title' => $node->icon['title'],
+                ];
 
                 if (isset($node->links['second_icon'], $node->secondIcon)) {
-                    $params = array_merge(
-                        $node->links['second_icon']['params'],
-                        array_intersect_key($args, $node->links['second_icon']['params'])
-                    );
-                    $link = Url::getFromRoute($node->links['second_icon']['route'], $params);
-
-                    $retval .= '<a';
-
-                    if ($linkClass !== '') {
-                        $retval .= ' class="' . $linkClass . '"';
-                    }
-
-                    $retval .= ' href="' . $link . '">';
-                    $retval .= Generator::getImage($node->secondIcon['image'], $node->secondIcon['title']) . '</a>';
+                    $iconLinks[] = [
+                        'route' => $node->links['second_icon']['route'],
+                        'params' => array_merge(
+                            $node->links['second_icon']['params'],
+                            array_intersect_key($args, $node->links['second_icon']['params'])
+                        ),
+                        'is_ajax' => $linkHasAjaxClass,
+                        'image' => $node->secondIcon['image'],
+                        'title' => $node->secondIcon['title'],
+                    ];
                 }
 
-                $retval .= '</div>';
-
-                $params = array_merge(
-                    $node->links['text']['params'],
-                    array_intersect_key($args, $node->links['text']['params'])
-                );
-                $link = Url::getFromRoute($node->links['text']['route'], $params);
-
-                $title = $node->links['title'] ?? $node->title ?? '';
-                if ($nodeIsContainer) {
-                    $retval .= "&nbsp;<a class='hover_show_full' href='" . $link . "'>";
-                    $retval .= htmlspecialchars($node->name);
-                    $retval .= '</a>';
-                } else {
-                    $retval .= "<a class='hover_show_full" . $linkClass . "' href='" . $link . "'";
-                    $retval .= " title='" . $title . "'>";
-                    $retval .= htmlspecialchars($node->displayName ?? $node->realName);
-                    $retval .= '</a>';
-                }
-            } else {
-                $retval .= '<u>' . Generator::getImage($node->icon['image'], $node->icon['title']) . '</u>';
-                $retval .= '</div>';
-                $retval .= '&nbsp;' . $node->name . '';
+                $textLink = [
+                    'route' => $node->links['text']['route'],
+                    'params' => array_merge(
+                        $node->links['text']['params'],
+                        array_intersect_key($args, $node->links['text']['params'])
+                    ),
+                    'is_ajax' => $linkHasAjaxClass,
+                    'title' => $node->links['title'] ?? $node->title ?? '',
+                ];
             }
 
-            $retval .= $node->getHtmlForControlButtons();
-            if ($nodeIsContainer) {
-                $retval .= '</i>';
-            }
-
-            $retval .= '<div class="clearfloat"></div>';
+            $controlButtons .= $node->getHtmlForControlButtons();
             $wrap = true;
         } else {
             $node->visible = true;
             $wrap = false;
-            $retval .= $this->getPaginationParamsHtml($node);
+            $paginationParams = $this->getPaginationParamsHtml($node);
         }
 
-        if ($recursive) {
-            $hide = '';
-            if (! $node->visible) {
-                $hide = " style='display: none;'";
+        $children = $node->children;
+        usort($children, [self::class, 'sortNode']);
+        $buffer = '';
+        $extraClass = '';
+        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+            if ($i + 1 == $nbChildren) {
+                $extraClass = ' last';
             }
 
-            $children = $node->children;
-            usort(
-                $children,
-                [
-                    self::class,
-                    'sortNode',
-                ]
-            );
-            $buffer = '';
-            $extraClass = '';
-            for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 == $nbChildren) {
-                    $extraClass = ' last';
-                }
-
-                $buffer .= $this->renderNode(
-                    $children[$i],
-                    true,
-                    $children[$i]->classes . $extraClass
-                );
-            }
-
-            if (! empty($buffer)) {
-                if ($wrap) {
-                    $retval .= '<div' . $hide . " class='list_container'><ul>";
-                }
-
-                $retval .= $this->fastFilterHtml($node);
-                $retval .= $this->getPageSelector($node);
-                $retval .= $buffer;
-                if ($wrap) {
-                    $retval .= '</ul></div>';
-                }
-            }
+            $buffer .= $this->renderNode($children[$i], $children[$i]->classes . $extraClass);
         }
 
-        if ($node->hasSiblings()) {
-            $retval .= '</li>';
+        if (! empty($buffer)) {
+            $recursiveHtml = $this->fastFilterHtml($node);
+            $recursiveHtml .= $this->getPageSelector($node);
+            $recursiveHtml .= $buffer;
         }
 
-        return $retval;
+        return $this->template->render('navigation/tree/node', [
+            'node' => $node,
+            'class' => $class,
+            'has_siblings_or_is_not_root' => $hasSiblingsOrIsNotRoot,
+            'has_siblings' => $node->hasSiblings(),
+            'li_classes' => $liClasses,
+            'control_buttons' => $controlButtons,
+            'node_is_container' => $nodeIsContainer,
+            'has_second_icon' => isset($node->secondIcon),
+            'recursive' => ['html' => $recursiveHtml ?? '', 'has_wrapper' => $wrap, 'is_hidden' => ! $node->visible],
+            'icon_links' => $iconLinks ?? [],
+            'text_link' => $textLink ?? [],
+            'pagination_params' => $paginationParams,
+            'node_is_group' => $nodeIsGroup ?? false,
+            'link_classes' => $linkClasses ?? '',
+            'paths' => ['a_path' => $paths['aPath'] ?? '', 'v_path' => $paths['vPath'] ?? '', 'pos' => $this->pos],
+            'node_icon' => $nodeIcon ?? '',
+        ]);
     }
 
     /**
@@ -1441,18 +1337,7 @@ class NavigationTree
         ]);
         $this->setVisibility();
 
-        $nodes = '';
-        for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-            if ($i == 0) {
-                $nodes .= $this->renderNode($children[0], true, 'first');
-            } else {
-                if ($i + 1 != $nbChildren) {
-                    $nodes .= $this->renderNode($children[$i], true);
-                } else {
-                    $nodes .= $this->renderNode($children[$i], true, 'last');
-                }
-            }
-        }
+        $nodes = $this->renderNodes($children);
 
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,

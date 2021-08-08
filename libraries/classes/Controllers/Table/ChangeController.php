@@ -9,7 +9,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -17,8 +17,9 @@ use function __;
 use function array_fill;
 use function count;
 use function is_array;
-use function mb_strpos;
+use function str_contains;
 use function strlen;
+use function strpos;
 
 /**
  * Displays form for editing and inserting new table rows.
@@ -32,9 +33,9 @@ class ChangeController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
-     * @param string   $db       Database name.
-     * @param string   $table    Table name.
+     * @param ResponseRenderer $response
+     * @param string           $db       Database name.
+     * @param string           $table    Table name.
      */
     public function __construct(
         $response,
@@ -51,7 +52,7 @@ class ChangeController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $urlParams;
+        global $cfg, $db, $table, $text_dir, $disp_message, $urlParams;
         global $errorUrl, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
         global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex;
@@ -99,12 +100,20 @@ class ChangeController extends AbstractController
             }
         }
 
-        $_url_params = $this->insertEdit->getUrlParameters($db, $table);
+        $urlParams = [
+            'db' => $db,
+            'sql_query' => $_POST['sql_query'] ?? '',
+        ];
+
+        if (strpos($GLOBALS['goto'] ?? '', 'index.php?route=/table') === 0) {
+            $urlParams['table'] = $table;
+        }
+
         $errorUrl = $GLOBALS['goto'] . Url::getCommon(
-            $_url_params,
-            mb_strpos($GLOBALS['goto'], '?') === false ? '?' : '&'
+            $urlParams,
+            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&'
         );
-        unset($_url_params);
+        unset($urlParams);
 
         $comments_map = $this->insertEdit->getCommentsMap($db, $table);
 
@@ -190,7 +199,8 @@ class ChangeController extends AbstractController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $html_output .= $this->insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+        $isUpload = $GLOBALS['config']->get('enable_upload');
+        $html_output .= $this->insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $isUpload);
 
         $html_output .= Url::getHiddenInputs($_form_params);
 
@@ -245,7 +255,7 @@ class ChangeController extends AbstractController
                 $o_rows,
                 $tabindex,
                 $columns_cnt,
-                $is_upload,
+                $isUpload,
                 $foreigners,
                 $tabindex_for_value,
                 $table,

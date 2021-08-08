@@ -93,7 +93,8 @@ class MySQLDocumentation
             $url .= '#' . $anchor;
         }
 
-        /* Check if we have built local documentation, however
+        /**
+         * Check if we have built local documentation, however
          * provide consistent URL for testsuite
          */
         if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {

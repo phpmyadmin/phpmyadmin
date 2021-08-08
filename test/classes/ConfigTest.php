@@ -6,11 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
-use PHPUnit\Framework\Exception;
 
 use function array_merge;
 use function array_replace_recursive;
-use function constant;
 use function define;
 use function defined;
 use function file_exists;
@@ -338,8 +336,6 @@ class ConfigTest extends AbstractTestCase
      */
     public function testCheckGd2(): void
     {
-        $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
-
         $this->object->set('GD2Available', 'yes');
         $this->object->checkGd2();
         $this->assertEquals(1, $this->object->get('PMA_IS_GD2'));
@@ -823,32 +819,6 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * Test for backward compatibility globals
-     *
-     * @depends testCheckSystem
-     * @depends testCheckWebServer
-     * @depends testLoadDefaults
-     * @group large
-     */
-    public function testEnableBc(): void
-    {
-        $this->object->enableBc();
-
-        $defines = [
-            'PMA_IS_WINDOWS',
-            'PMA_IS_GD2',
-            'PMA_USR_OS',
-            'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT',
-        ];
-
-        foreach ($defines as $define) {
-            $this->assertTrue(defined($define));
-            $this->assertEquals(constant($define), $this->object->get($define));
-        }
-    }
-
-    /**
      * Test for getting root path
      *
      * @param string $request  The request URL used for phpMyAdmin
@@ -1123,23 +1093,14 @@ class ConfigTest extends AbstractTestCase
      *
      * @param array $settings settings array
      * @param array $expected expected result
-     * @param bool  $error    error
      *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers(array $settings, array $expected, bool $error = false): void
+    public function testCheckServers(array $settings, array $expected): void
     {
-        if ($error) {
-            $this->expectException(Exception::class);
-        }
-
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
-        if ($expected === null) {
-            $expected = $this->object->defaultServer;
-        } else {
-            $expected = array_merge($this->object->defaultServer, $expected);
-        }
+        $expected = array_merge($this->object->defaultServer, $expected);
 
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
@@ -1167,12 +1128,22 @@ class ConfigTest extends AbstractTestCase
                     'host' => '',
                 ],
             ],
-            'invalid' => [
-                ['invalid' => ['host' => '127.0.0.1']],
-                ['host' => '127.0.0.1'],
-                true,
-            ],
         ];
+    }
+
+    /**
+     * @group with-trigger-error
+     */
+    public function testCheckServersWithInvalidServer(): void
+    {
+        $this->expectError();
+        $this->expectErrorMessage('Invalid server index: invalid');
+
+        $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
+        $this->object->checkServers();
+        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
+
+        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 
     /**

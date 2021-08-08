@@ -23,7 +23,6 @@ class UserGroupsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 

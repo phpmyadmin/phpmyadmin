@@ -20,8 +20,6 @@ use function sqrt;
  * in EPS document.
  *
  * @see     Eps
- *
- * @name    RelationStatsEps
  */
 class RelationStatsEps extends RelationStats
 {

@@ -64,21 +64,21 @@ jobs:
 
       - name: Collect coverage report
         run: |
-          composer run phpunit -- --exclude-group selenium --stop-on-failure
+          composer run phpunit -- --testsuite unit --stop-on-failure
 
       - name: Infection
         if: ${{ github.base_ref != '' }}
         run: |
-          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --only-covered --coverage=build/logs \
+          CHANGED_FILES=$(git diff origin/$GITHUB_BASE_REF --diff-filter=AM --name-only | grep libraries/classes/ | paste -sd "," -);
+          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs \
             --ignore-msi-with-no-mutations \
-            --git-diff-filter=AM \
-            --git-diff-base=origin/${{ github.base_ref }}
+            --filter=$CHANGED_FILES
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
 
       - name: Infection
         if: ${{ github.base_ref == '' }}
         run: |
-          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --only-covered --coverage=build/logs
+          ./build/tools/infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}

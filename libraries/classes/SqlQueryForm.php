@@ -19,8 +19,8 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function htmlspecialchars;
 use function sprintf;
+use function str_contains;
 use function strlen;
-use function strpos;
 
 /**
  * PhpMyAdmin\SqlQueryForm class
@@ -119,7 +119,7 @@ class SqlQueryForm
             'has_bookmark' => $cfgBookmark,
             'delimiter' => $delimiter,
             'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
-            'is_upload' => $GLOBALS['is_upload'],
+            'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,
@@ -162,7 +162,7 @@ class SqlQueryForm
                 'database'
             );
             $tmp_db_link = '<a href="' . $scriptName
-                . Url::getCommon(['db' => $db], strpos($scriptName, '?') === false ? '?' : '&')
+                . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
             $tmp_db_link .= htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);

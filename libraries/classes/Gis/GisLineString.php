@@ -7,15 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function count;
 use function hexdec;
-use function imagecolorallocate;
-use function imageline;
-use function imagestring;
 use function json_encode;
-use function mb_strlen;
 use function mb_substr;
 use function trim;
 
@@ -64,11 +61,7 @@ class GisLineString extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linestring = mb_substr($spatial, 11, -1);
 
         return $this->setMinMax($linestring, []);
     }
@@ -80,61 +73,38 @@ class GisLineString extends GisGeometry
      * @param string|null $label      Label for the GIS POLYGON object
      * @param string      $line_color Color for the GIS POLYGON object
      * @param array       $scale_data Array containing data related to scaling
-     * @param resource    $image      Image object
-     *
-     * @return resource the modified image object
-     *
-     * @access public
      */
     public function prepareRowAsPng(
         $spatial,
         ?string $label,
         $line_color,
         array $scale_data,
-        $image
-    ) {
+        ImageWrapper $image
+    ): ImageWrapper {
         // allocate colors
-        $black = imagecolorallocate($image, 0, 0, 0);
-        $red = hexdec(mb_substr($line_color, 1, 2));
-        $green = hexdec(mb_substr($line_color, 3, 2));
-        $blue = hexdec(mb_substr($line_color, 4, 2));
-        $color = imagecolorallocate($image, $red, $green, $blue);
+        $black = $image->colorAllocate(0, 0, 0);
+        $red = (int) hexdec(mb_substr($line_color, 1, 2));
+        $green = (int) hexdec(mb_substr($line_color, 3, 2));
+        $blue = (int) hexdec(mb_substr($line_color, 4, 2));
+        $color = $image->colorAllocate($red, $green, $blue);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
-        $points_arr = $this->extractPoints($linesrting, $scale_data);
+        $lineString = mb_substr($spatial, 11, -1);
+        $points_arr = $this->extractPoints($lineString, $scale_data);
 
         foreach ($points_arr as $point) {
             if (! isset($temp_point)) {
                 $temp_point = $point;
             } else {
                 // draw line section
-                imageline(
-                    $image,
-                    (int) $temp_point[0],
-                    (int) $temp_point[1],
-                    (int) $point[0],
-                    (int) $point[1],
-                    $color
-                );
+                $image->line((int) $temp_point[0], (int) $temp_point[1], (int) $point[0], (int) $point[1], $color);
                 $temp_point = $point;
             }
         }
 
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            imagestring(
-                $image,
-                1,
-                $points_arr[1][0],
-                $points_arr[1][1],
-                trim($label),
-                $black
-            );
+            $image->string(1, $points_arr[1][0], $points_arr[1][1], trim($label), $black);
         }
 
         return $image;
@@ -169,11 +139,7 @@ class GisLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
@@ -226,11 +192,7 @@ class GisLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         $row = '<polyline points="';
@@ -285,11 +247,7 @@ class GisLineString extends GisGeometry
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr(
-            $spatial,
-            11,
-            mb_strlen($spatial) - 12
-        );
+        $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, null);
 
         return $result . 'var line = new ol.Feature({geometry: '
@@ -301,9 +259,9 @@ class GisLineString extends GisGeometry
     /**
      * Generate the WKT with the set of parameters passed by the GIS editor.
      *
-     * @param array  $gis_data GIS data
-     * @param int    $index    Index into the parameter object
-     * @param string $empty    Value for empty points
+     * @param array       $gis_data GIS data
+     * @param int         $index    Index into the parameter object
+     * @param string|null $empty    Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
      *
@@ -326,11 +284,7 @@ class GisLineString extends GisGeometry
                     ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 
-        $wkt = mb_substr(
-            $wkt,
-            0,
-            mb_strlen($wkt) - 1
-        );
+        $wkt = mb_substr($wkt, 0, -1);
 
         return $wkt . ')';
     }
@@ -359,11 +313,7 @@ class GisLineString extends GisGeometry
         }
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linestring = mb_substr(
-            $wkt,
-            11,
-            mb_strlen($wkt) - 12
-        );
+        $linestring = mb_substr($wkt, 11, -1);
         $points_arr = $this->extractPoints($linestring, null);
 
         $no_of_points = count($points_arr);

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function function_exists;
-use function imagecreatetruecolor;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPoint
@@ -194,8 +194,8 @@ class GisPointTest extends GisGeomTestCase
             $this->markTestSkipped('GD extension missing!');
         }
 
-        $image = imagecreatetruecolor(120, 150);
-        $this->assertNotFalse($image);
+        $image = ImageWrapper::create(120, 150);
+        $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'POINT(12 35)',
             'image',
@@ -203,7 +203,8 @@ class GisPointTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertImage($return);
+        $this->assertEquals(120, $return->width());
+        $this->assertEquals(150, $return->height());
     }
 
     /**

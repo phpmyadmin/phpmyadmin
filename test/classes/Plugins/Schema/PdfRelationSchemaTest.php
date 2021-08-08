@@ -24,7 +24,6 @@ class PdfRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['config']->enableBc();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;

@@ -406,7 +406,7 @@
         <li class="list-group-item">
           {{ link_or_button(
             url('/sql', url_params|merge({
-              'sql_query': 'TRUNCATE TABLE ' ~ backquote(table),
+              'sql_query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
               'goto': url('/table/structure'),
               'reload': true,
               'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
@@ -414,16 +414,34 @@
             'Empty the table (TRUNCATE)'|trans,
             {
               'id': 'truncate_tbl_anchor',
-              'class': 'text-danger ajax'
+              'class': 'text-danger ajax',
+              'data-query': 'TRUNCATE TABLE ' ~ backquote(db) ~ '.' ~ backquote(table)
             }
           ) }}
           {{ show_mysql_docu('TRUNCATE_TABLE') }}
+        </li>
+        <li class="list-group-item">
+          {{ link_or_button(
+            url('/sql', url_params|merge({
+              'sql_query': 'DELETE FROM ' ~ backquote(db) ~ '.' ~ backquote(table),
+              'goto': url('/table/structure'),
+              'reload': true,
+              'message_to_show': 'Table %s has been emptied.'|trans|format(table)|e
+            })),
+            'Empty the table (DELETE FROM)'|trans,
+            {
+              'id': 'delete_tbl_anchor',
+              'class': 'text-danger ajax',
+              'data-query': 'DELETE FROM ' ~ backquote(db) ~ '.' ~ backquote(table)
+            }
+          ) }}
+          {{ show_mysql_docu('DELETE') }}
         </li>
       {% endif %}
       <li class="list-group-item">
         {{ link_or_button(
           url('/sql', url_params|merge({
-            'sql_query': 'DROP TABLE ' ~ backquote(table),
+            'sql_query': 'DROP TABLE ' ~ backquote(db) ~ '.' ~ backquote(table),
             'goto': url('/database/operations'),
             'reload': true,
             'purge': true,
@@ -433,7 +451,8 @@
           'Delete the table (DROP)'|trans,
           {
             'id': 'drop_tbl_anchor',
-            'class': 'text-danger ajax'
+            'class': 'text-danger ajax',
+            'data-query': 'DROP TABLE ' ~ backquote(db) ~ '.' ~ backquote(table)
           }
         ) }}
         {{ show_mysql_docu('DROP_TABLE') }}

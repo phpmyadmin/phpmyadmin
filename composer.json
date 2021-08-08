@@ -53,11 +53,15 @@
         "phpmyadmin/sql-parser": "^5.0",
         "phpmyadmin/twig-i18n-extension": "^4.0",
         "phpseclib/phpseclib": "^3.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.0",
+        "slim/psr7": "^1.4",
         "symfony/config": "^5.2.3",
         "symfony/dependency-injection": "^5.2.3",
         "symfony/expression-language": "^5.2.3",
         "symfony/polyfill-ctype": "^1.17.0",
         "symfony/polyfill-mbstring": "^1.17.0",
+        "symfony/polyfill-php80": "^1.16",
         "twig/twig": "^3.0.1",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
@@ -87,18 +91,17 @@
         "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^0.12.79",
+        "phpstan/phpstan": "^0.12.93",
         "phpstan/phpstan-phpunit": "^0.12.17",
         "phpstan/phpstan-webmozart-assert": "^0.12.12",
         "phpunit/phpunit": "^8.5 || ^9.5",
         "pragmarx/google2fa-qrcode": "^2.1",
+        "psalm/plugin-phpunit": "^0.16.0",
         "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",
-        "symfony/finder": "^5.2.3",
-        "symfony/twig-bridge": "^5.2.3",
-        "tecnickcom/tcpdf": "^6.4.1",
-        "vimeo/psalm": "^4.7.3"
+        "tecnickcom/tcpdf": "^6.4.2",
+        "vimeo/psalm": "^4.9.2"
     },
     "extra": {
         "branch-alias": {
@@ -118,7 +121,7 @@
             "@phpunit"
         ],
         "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
-        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
+        "twig-lint": "php scripts/console lint:twig --ansi --show-deprecations"
     },
     "config":{
         "sort-packages": true,

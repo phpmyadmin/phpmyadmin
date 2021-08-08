@@ -52,7 +52,6 @@ class ImportXml extends ImportPlugin
         $importPluginProperties->setText(__('XML'));
         $importPluginProperties->setExtension('xml');
         $importPluginProperties->setMimeType('text/xml');
-        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -69,15 +68,13 @@ class ImportXml extends ImportPlugin
     {
         global $error, $timeout_passed, $finished, $db;
 
-        $i = 0;
-        $len = 0;
         $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
+        while (! $finished && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */

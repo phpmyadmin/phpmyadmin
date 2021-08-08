@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 class CheckRelationsController extends AbstractController
@@ -17,7 +17,7 @@ class CheckRelationsController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template, Relation $relation)
     {

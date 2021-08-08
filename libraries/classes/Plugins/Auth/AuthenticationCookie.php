@@ -12,7 +12,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Url;
@@ -100,7 +100,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $conn_error, $route;
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         /**
          * When sending login modal after session has expired, send the
@@ -546,7 +546,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // user logged in successfully after session expiration
         if (isset($_REQUEST['session_timedout'])) {
-            $response = Response::getInstance();
+            $response = ResponseRenderer::getInstance();
             $response->addJSON(
                 'logged_in',
                 1
@@ -576,7 +576,7 @@ class AuthenticationCookie extends AuthenticationPlugin
              */
             Util::clearUserCache();
 
-            Response::getInstance()
+            ResponseRenderer::getInstance()
                 ->disable();
 
             Core::sendHeaderLocation(
@@ -663,7 +663,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $conn_error = $this->getErrorMessage($failure);
 
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
 
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         $response->header('Cache-Control: no-store, no-cache, must-revalidate');
@@ -911,9 +911,10 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         if ($this->useOpenSsl) {
-            return openssl_random_pseudo_bytes(
-                $this->getIVSize()
-            );
+            $bytes = openssl_random_pseudo_bytes($this->getIVSize());
+            if ($bytes !== false) {
+                return $bytes;
+            }
         }
 
         return Random::string(

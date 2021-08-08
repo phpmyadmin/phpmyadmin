@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function __;
@@ -24,9 +24,9 @@ class CentralColumnsController extends AbstractController
     private $centralColumns;
 
     /**
-     * @param Response       $response
-     * @param string         $db             Database name
-     * @param CentralColumns $centralColumns
+     * @param ResponseRenderer $response
+     * @param string           $db             Database name
+     * @param CentralColumns   $centralColumns
      */
     public function __construct($response, Template $template, $db, $centralColumns)
     {

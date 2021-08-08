@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
 use function base64_encode;
@@ -30,7 +31,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
@@ -382,6 +382,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      */
     public function testAuthFails(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();

@@ -10,7 +10,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
@@ -98,7 +98,7 @@ class SearchController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db       Database name
      * @param string            $table    Table name
      * @param DatabaseInterface $dbi
@@ -358,9 +358,9 @@ class SearchController extends AbstractController
      *
      * @param string $column Column name
      *
-     * @return array
+     * @return array|null
      */
-    public function getColumnMinMax($column)
+    public function getColumnMinMax($column): ?array
     {
         $sql_query = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '

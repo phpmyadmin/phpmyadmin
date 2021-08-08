@@ -8,7 +8,7 @@ use PhpMyAdmin\Controllers\Server\Status\QueriesController;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -28,7 +28,6 @@ class QueriesControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -54,7 +53,7 @@ class QueriesControllerTest extends AbstractTestCase
     {
         global $dbi;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new QueriesController($response, new Template(), $this->data, $dbi);
 

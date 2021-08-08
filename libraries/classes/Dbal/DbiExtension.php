@@ -169,6 +169,7 @@ interface DbiExtension
      * @param object|bool $result result set identifier
      *
      * @return string|int
+     * @psalm-return int|numeric-string
      */
     public function numRows($result);
 
@@ -177,7 +178,8 @@ interface DbiExtension
      *
      * @param object $link the connection object
      *
-     * @return int
+     * @return int|string
+     * @psalm-return int|numeric-string
      */
     public function affectedRows($link);
 

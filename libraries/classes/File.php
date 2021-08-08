@@ -487,6 +487,10 @@ class File
             return false;
         }
 
+        if (! is_string($GLOBALS['cfg']['UploadDir'])) {
+            return false;
+        }
+
         $this->setName(
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
@@ -763,23 +767,26 @@ class File
      */
     public function read(int $size): string
     {
-        switch ($this->compression) {
-            case 'application/bzip2':
-                return (string) bzread($this->handle, $size);
+        if ($this->compression === 'application/zip') {
+            $result = mb_strcut($this->content, $this->offset, $size);
+            $this->offset += strlen($result);
 
-            case 'application/gzip':
-                return (string) gzread($this->handle, $size);
-
-            case 'application/zip':
-                $result = mb_strcut($this->content, $this->offset, $size);
-                $this->offset += strlen($result);
-
-                return $result;
-
-            case 'none':
-            default:
-                return (string) fread($this->handle, $size);
+            return $result;
         }
+
+        if ($this->handle === null) {
+            return '';
+        }
+
+        if ($this->compression === 'application/bzip2') {
+            return (string) bzread($this->handle, $size);
+        }
+
+        if ($this->compression === 'application/gzip') {
+            return (string) gzread($this->handle, $size);
+        }
+
+        return (string) fread($this->handle, $size);
     }
 
     /**

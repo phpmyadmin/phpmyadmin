@@ -34,9 +34,9 @@ abstract class PluginPropertyItem extends PropertyItem
     /**
      * Options
      *
-     * @var OptionsPropertyRootGroup
+     * @var OptionsPropertyRootGroup|null
      */
-    private $options;
+    private $options = null;
     /**
      * Options text
      *
@@ -98,7 +98,7 @@ abstract class PluginPropertyItem extends PropertyItem
     /**
      * Gets the options
      *
-     * @return OptionsPropertyRootGroup
+     * @return OptionsPropertyRootGroup|null
      */
     public function getOptions()
     {

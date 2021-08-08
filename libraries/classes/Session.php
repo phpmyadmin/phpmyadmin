@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function defined;
 use function function_exists;
 use function htmlspecialchars;
 use function implode;
@@ -31,6 +30,7 @@ use function session_write_close;
 use function setcookie;
 
 use const PHP_SESSION_ACTIVE;
+use const PHP_VERSION_ID;
 
 /**
  * Session class
@@ -70,7 +70,7 @@ class Session
     public static function secure()
     {
         // prevent session fixation and XSS
-        if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
+        if (session_status() === PHP_SESSION_ACTIVE) {
             session_regenerate_id(true);
         }
 
@@ -181,6 +181,11 @@ class Session
         ini_set('session.use_strict_mode', '1');
         // make the session cookie HttpOnly
         ini_set('session.cookie_httponly', '1');
+        if (PHP_VERSION_ID >= 70300) {
+            // add SameSite to the session cookie
+            ini_set('session.cookie_samesite', $config->get('CookieSameSite') ?? '');
+        }
+
         // do not force transparent session ids
         ini_set('session.use_trans_sid', '0');
 

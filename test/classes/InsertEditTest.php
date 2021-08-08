@@ -7,10 +7,8 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
-use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Scripts;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
@@ -80,7 +78,7 @@ class InsertEditTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue(null);
         $response->setAccessible(false);
@@ -270,13 +268,13 @@ class InsertEditTest extends AbstractTestCase
         // case 2
         $GLOBALS['cfg']['ShowSQL'] = false;
 
-        $responseMock = $this->getMockBuilder(Response::class)
+        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['addHtml'])
             ->getMock();
 
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $restoreInstance = ResponseRenderer::getInstance();
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -1088,7 +1086,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetMaxUploadSize(): void
     {
-        $GLOBALS['max_upload_size'] = 257;
+        $GLOBALS['config']->set('max_upload_size', 257);
         $column = [];
         $column['pma_type'] = 'tinyblob';
         $result = $this->callFunction(
@@ -1110,7 +1108,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // case 2
-        $GLOBALS['max_upload_size'] = 250;
+        $GLOBALS['config']->set('max_upload_size', 250);
         $column['pma_type'] = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1728,52 +1726,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for isInsertRow
-     */
-    public function testIsInsertRow(): void
-    {
-        $_POST['insert_rows'] = 5;
-        $GLOBALS['cfg']['InsertRows'] = 2;
-
-        $scriptsMock = $this->getMockBuilder(Scripts::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['addFile'])
-            ->getMock();
-
-        $scriptsMock->expects($this->exactly(2))
-            ->method('addFile');
-
-        $headerMock = $this->getMockBuilder(Header::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getScripts'])
-            ->getMock();
-
-        $headerMock->expects($this->once())
-            ->method('getScripts')
-            ->will($this->returnValue($scriptsMock));
-
-        $responseMock = $this->getMockBuilder(Response::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['getHeader'])
-            ->getMock();
-
-        $responseMock->expects($this->once())
-            ->method('getHeader')
-            ->will($this->returnValue($headerMock));
-
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
-        $response->setAccessible(true);
-        $response->setValue($responseMock);
-
-        $this->insertEdit->isInsertRow();
-
-        $response->setValue($restoreInstance);
-
-        $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
-    }
-
-    /**
      * Test for setSessionForEditNext
      */
     public function testSetSessionForEditNext(): void
@@ -2201,7 +2153,7 @@ class InsertEditTest extends AbstractTestCase
             [2],
             'foo',
             [],
-            0,
+            '0',
             []
         );
 
@@ -2665,13 +2617,13 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowSQL'] = false;
         $_POST['default_action'] = 'insert';
 
-        $responseMock = $this->getMockBuilder(Response::class)
+        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['addHtml'])
             ->getMock();
 
-        $restoreInstance = Response::getInstance();
-        $response = new ReflectionProperty(Response::class, 'instance');
+        $restoreInstance = ResponseRenderer::getInstance();
+        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -2766,26 +2718,6 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             ['d' => 'b'],
             $this->insertEdit->getCommentsMap('db', 'table')
-        );
-    }
-
-    /**
-     * Test for getUrlParameters
-     */
-    public function testGetUrlParameters(): void
-    {
-        global $goto;
-
-        $_POST['sql_query'] = 'SELECT';
-        $goto = 'tbl_sql.php';
-
-        $this->assertEquals(
-            [
-                'db' => 'foo',
-                'sql_query' => 'SELECT',
-                'table' => 'bar',
-            ],
-            $this->insertEdit->getUrlParameters('foo', 'bar')
         );
     }
 

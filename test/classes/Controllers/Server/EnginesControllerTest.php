@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 use function __;
 use function htmlspecialchars;
@@ -28,7 +29,6 @@ class EnginesControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -41,7 +41,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         global $dbi;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
@@ -88,11 +88,13 @@ class EnginesControllerTest extends AbstractTestCase
     {
         global $dbi;
 
-        $response = new Response();
+        $response = new ResponseRenderer();
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
-        $controller->show([
+        $request = $this->createMock(ServerRequest::class);
+
+        $controller->show($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);

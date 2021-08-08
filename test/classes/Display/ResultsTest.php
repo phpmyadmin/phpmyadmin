@@ -8,10 +8,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Version;
@@ -25,9 +29,11 @@ use function urldecode;
 
 use const MYSQLI_NOT_NULL_FLAG;
 use const MYSQLI_NUM_FLAG;
+use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_DATETIME;
+use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIMESTAMP;
@@ -56,7 +62,6 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $this->object = new DisplayResults('as', '', 0, '', '');
-        $GLOBALS['config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
@@ -168,23 +173,6 @@ class ResultsTest extends AbstractTestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-            ],
-        ];
-    }
-
-    /**
-     * Provider for testing table navigation
-     *
-     * @return array data for testGetTableNavigation
-     */
-    public function providerForTestGetTableNavigation(): array
-    {
-        return [
-            [
-                21,
-                41,
-                false,
-                '310',
             ],
         ];
     }
@@ -485,11 +473,11 @@ class ResultsTest extends AbstractTestCase
     /**
      * Test getRowInfoForSpecialLinks
      *
-     * @param array $fields_meta  meta information about fields
-     * @param int   $fields_count number of fields
-     * @param array $row          current row data
-     * @param array $col_order    the column order
-     * @param array $output       output of getRowInfoForSpecialLinks
+     * @param FieldMetadata[] $fields_meta  meta information about fields
+     * @param int             $fields_count number of fields
+     * @param array           $row          current row data
+     * @param array           $col_order    the column order
+     * @param array           $output       output of getRowInfoForSpecialLinks
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
@@ -1089,12 +1077,14 @@ class ResultsTest extends AbstractTestCase
         $meta->orgtable = 'table';
         $meta->name = '1';
         $meta->orgname = '1';
+        $meta->blob = false;
         $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
         $meta2->orgtable = 'table';
         $meta2->name = '2';
         $meta2->orgname = '2';
+        $meta2->blob = false;
         $fields_meta = [
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
             new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
@@ -1325,5 +1315,514 @@ class ResultsTest extends AbstractTestCase
             '<td class="text-start my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
             $output
         );
+    }
+
+    /**
+     * @dataProvider providerSetConfigParamsForDisplayTable
+     */
+    public function testSetConfigParamsForDisplayTable(
+        array $session,
+        array $get,
+        array $post,
+        array $request,
+        array $expected
+    ): void {
+        $_SESSION = $session;
+        $_GET = $get;
+        $_POST = $post;
+        $_REQUEST = $request;
+
+        $db = 'test_db';
+        $table = 'test_table';
+        $query = 'SELECT * FROM `test_db`.`test_table`;';
+
+        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object->setConfigParamsForDisplayTable();
+
+        $this->assertArrayHasKey('tmpval', $_SESSION);
+        $this->assertIsArray($_SESSION['tmpval']);
+        $this->assertSame($expected, $_SESSION['tmpval']);
+    }
+
+    public function providerSetConfigParamsForDisplayTable(): array
+    {
+        $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];
+
+        return [
+            'default values' => [
+                [],
+                [],
+                [],
+                [],
+                [
+                    'query' => [
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => $cfg['MaxRows'],
+                            'pos' => 0,
+                            'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                            'relational_display' => $cfg['RelationalDisplay'],
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                            'display_binary' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => $cfg['RelationalDisplay'],
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                    'display_binary' => true,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 0,
+                    'max_rows' => $cfg['MaxRows'],
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+            'cached values' => [
+                [
+                    'tmpval' => [
+                        'query' => [
+                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                                'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                                'repeat_cells' => 90,
+                                'max_rows' => 26,
+                                'pos' => 1,
+                                'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                                'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                                'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                                'display_binary' => false,
+                            ],
+                            'a' => [],
+                            'b' => [],
+                            'c' => [],
+                            'd' => [],
+                            'e' => [],
+                            'f' => [],
+                            'g' => [],
+                            'h' => [],
+                            'i' => [],
+                            'j' => [],
+                        ],
+                    ],
+                ],
+                [],
+                [],
+                [],
+                [
+                    'query' => [
+                        'b' => [],
+                        'c' => [],
+                        'd' => [],
+                        'e' => [],
+                        'f' => [],
+                        'g' => [],
+                        'h' => [],
+                        'i' => [],
+                        'j' => [],
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => 90,
+                            'max_rows' => 26,
+                            'pos' => 1,
+                            'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                            'display_binary' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_binary' => true,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 1,
+                    'max_rows' => 26,
+                    'repeat_cells' => 90,
+                ],
+            ],
+            'default and request values' => [
+                [],
+                ['session_max_rows' => '27'],
+                ['session_max_rows' => '28'],
+                [
+                    'pos' => '2',
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                    'display_binary' => '0',
+                    'display_blob' => '0',
+                    'hide_transformation' => '0',
+                ],
+                [
+                    'query' => [
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => 27,
+                            'pos' => 2,
+                            'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                            'display_binary' => true,
+                            'display_blob' => true,
+                            'hide_transformation' => true,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKT,
+                    'display_binary' => true,
+                    'display_blob' => true,
+                    'hide_transformation' => true,
+                    'pos' => 2,
+                    'max_rows' => 27,
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+            'cached and request values' => [
+                [
+                    'tmpval' => [
+                        'query' => [
+                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                                'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                                'repeat_cells' => $cfg['RepeatCells'],
+                                'max_rows' => $cfg['MaxRows'],
+                                'pos' => 0,
+                                'pftext' => DisplayResults::DISPLAY_FULL_TEXT,
+                                'relational_display' => DisplayResults::RELATIONAL_DISPLAY_COLUMN,
+                                'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+                                'display_binary' => true,
+                            ],
+                            'a' => [],
+                            'b' => [],
+                            'c' => [],
+                            'd' => [],
+                            'e' => [],
+                            'f' => [],
+                            'g' => [],
+                            'h' => [],
+                            'i' => [],
+                        ],
+                    ],
+                ],
+                [],
+                ['session_max_rows' => DisplayResults::ALL_ROWS],
+                [
+                    'pos' => 'NaN',
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_KEY,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_options_form' => '0',
+                ],
+                [
+                    'query' => [
+                        'a' => [],
+                        'b' => [],
+                        'c' => [],
+                        'd' => [],
+                        'e' => [],
+                        'f' => [],
+                        'g' => [],
+                        'h' => [],
+                        'i' => [],
+                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            'sql' => 'SELECT * FROM `test_db`.`test_table`;',
+                            'repeat_cells' => $cfg['RepeatCells'],
+                            'max_rows' => DisplayResults::ALL_ROWS,
+                            'pos' => 0,
+                            'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                            'relational_display' => DisplayResults::RELATIONAL_KEY,
+                            'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                        ],
+                    ],
+                    'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+                    'relational_display' => DisplayResults::RELATIONAL_KEY,
+                    'geoOption' => DisplayResults::GEOMETRY_DISP_WKB,
+                    'display_binary' => false,
+                    'display_blob' => false,
+                    'hide_transformation' => false,
+                    'pos' => 0,
+                    'max_rows' => DisplayResults::ALL_ROWS,
+                    'repeat_cells' => $cfg['RepeatCells'],
+                ],
+            ],
+        ];
+    }
+
+    public function testGetTable(): void
+    {
+        global $db, $table, $dbi;
+
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $dbi = $this->dbi;
+
+        $db = 'test_db';
+        $table = 'test_table';
+        $query = 'SELECT * FROM `test_db`.`test_table`;';
+
+        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object->properties['unique_id'] = 1234567890;
+
+        [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
+        $fieldsMeta = [
+            new FieldMetadata(
+                MYSQLI_TYPE_DECIMAL,
+                MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG,
+                (object) ['name' => 'id']
+            ),
+            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'name']),
+            new FieldMetadata(MYSQLI_TYPE_DATETIME, MYSQLI_NOT_NULL_FLAG, (object) ['name' => 'datetimefield']),
+        ];
+
+        $object->setProperties(
+            3,
+            $fieldsMeta,
+            $analyzedSqlResults['is_count'],
+            $analyzedSqlResults['is_export'],
+            $analyzedSqlResults['is_func'],
+            $analyzedSqlResults['is_analyse'],
+            3,
+            count($fieldsMeta),
+            1.234,
+            'ltr',
+            $analyzedSqlResults['is_maint'],
+            $analyzedSqlResults['is_explain'],
+            $analyzedSqlResults['is_show'],
+            null,
+            null,
+            true,
+            false
+        );
+
+        $_SESSION = ['tmpval' => [], ' PMA_token ' => 'token'];
+        $_SESSION['tmpval']['geoOption'] = '';
+        $_SESSION['tmpval']['hide_transformation'] = '';
+        $_SESSION['tmpval']['display_blob'] = '';
+        $_SESSION['tmpval']['display_binary'] = '';
+        $_SESSION['tmpval']['relational_display'] = '';
+        $_SESSION['tmpval']['possible_as_geometry'] = '';
+        $_SESSION['tmpval']['pftext'] = '';
+        $_SESSION['tmpval']['max_rows'] = 25;
+        $_SESSION['tmpval']['pos'] = 0;
+        $_SESSION['tmpval']['repeat_cells'] = 0;
+        $_SESSION['tmpval']['query']['0040c297a1a5a4cb1291b086b3ca965b']['max_rows'] = 25;
+
+        $dtResult = $this->dbi->tryQuery($query);
+        $displayParts = [
+            'edit_lnk' => DisplayResults::UPDATE_ROW,
+            'del_lnk' => DisplayResults::DELETE_ROW,
+            'sort_lnk' => '1',
+            'nav_bar'  => '1',
+            'bkm_form' => '1',
+            'text_btn' => '0',
+            'pview_lnk' => '1',
+        ];
+        $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
+
+        $template = new Template();
+
+        $tableHeadersForColumns = $template->render('display/results/table_headers_for_columns', [
+            'is_sortable' => true,
+            'columns' => [
+                [
+                    'column_name' => 'id',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => true,
+                ],
+                [
+                    'column_name' => 'name',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+                [
+                    'column_name' => 'datetimefield',
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
+                        . '<input type="hidden" value="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
+                        . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
+                        . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
+                        . '&sql_signature=61b0c8c5657483469636496ed02311acefd66dda3892b0d5b23d23c621486dd7'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en'
+                        . '&discard_remembered_sort=1">' . "\n"
+                        . '<input type="hidden" name="url-add-order" value="'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC'
+                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
+                    'comments' => '',
+                    'is_browse_pointer_enabled' => true,
+                    'is_browse_marker_enabled' => true,
+                    'is_column_hidden' => false,
+                    'is_column_numeric' => false,
+                ],
+            ],
+        ]);
+
+        $tableTemplate = $template->render('display/results/table', [
+            'sql_query_message' => Generator::getMessage(
+                Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
+                $query,
+                'success'
+            ),
+            'navigation' => [
+                'move_backward_buttons' => '',
+                'page_selector' => '',
+                'move_forward_buttons' => '',
+                'number_total_page' => 1,
+                'has_show_all' => true,
+                'hidden_fields' => [
+                    'db' => $db,
+                    'table' => $table,
+                    'server' => 1,
+                    'sql_query' => $query,
+                    'is_browse_distinct' => false,
+                    'goto' => '',
+                ],
+                'session_max_rows' => 'all',
+                'is_showing_all' => false,
+                'max_rows' => 25,
+                'pos' => 0,
+                'sort_by_key' => [
+                    'hidden_fields' => [
+                        'db' => $db,
+                        'table' => $table,
+                        'server' => 1,
+                        'sort_by_key' => '1',
+                        'session_max_rows' => 25,
+                    ],
+                    'options' => [
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` ASC',
+                            'content' => 'PRIMARY (ASC)',
+                            'is_selected' => false,
+                        ],
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` DESC',
+                            'content' => 'PRIMARY (DESC)',
+                            'is_selected' => false,
+                        ],
+                        [
+                            'value' => 'SELECT * FROM `test_db`.`test_table`  ',
+                            'content' => 'None',
+                            'is_selected' => true,
+                        ],
+                    ],
+                ],
+            ],
+            'headers' => [
+                'column_order' => [
+                    'order' => false,
+                    'visibility' => false,
+                    'is_view' => false,
+                    'table_create_time' => '',
+                ],
+                'options' => '$optionsBlock',
+                'has_bulk_actions_form' => false,
+                'button' => '<thead class="table-light"><tr>' . "\n",
+                'table_headers_for_columns' => $tableHeadersForColumns,
+                'column_at_right_side' => "\n" . '<td class="print_ignore" ></td>',
+            ],
+            'body' => '<tr   ><td data-decimals="0" data-type="real" class="'
+                . 'text-end data  not_null     text-nowrap">1</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
+                . 'data  not_null   text pre_wrap">abcd</td>' . "\n"
+                . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
+                . 'data  not_null   datetimefield text-nowrap">2011-01-20 02:00:02</td>' . "\n"
+                . '</tr>' . "\n"
+                . '<tr   ><td data-decimals="0" data-type="real" class="'
+                . 'text-end data  not_null     text-nowrap">2</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
+                . 'data  not_null   text pre_wrap">foo</td>' . "\n"
+                . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
+                . 'data  not_null   datetimefield text-nowrap">2010-01-20 02:00:02</td>' . "\n"
+                . '</tr>' . "\n"
+                . '<tr   ><td data-decimals="0" data-type="real" class="'
+                . 'text-end data  not_null     text-nowrap">3</td>' . "\n"
+                . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
+                . 'data  not_null   text pre_wrap">Abcd</td>' . "\n"
+                . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
+                . 'data  not_null   datetimefield text-nowrap">2012-01-20 02:00:02</td>' . "\n"
+                . '</tr>' . "\n",
+            'bulk_links' => [],
+            'operations' => [
+                'has_procedure' => false,
+                'has_geometry' => false,
+                'has_print_link' => true,
+                'has_export_link' => true,
+                'url_params' => [
+                    'db' => $db,
+                    'table' => $table,
+                    'printview' => '1',
+                    'sql_query' => $query,
+                    'single_table' => 'true',
+                    'unlim_num_rows' => 3,
+                ],
+            ],
+            'db' => $db,
+            'table' => $table,
+            'unique_id' => 1234567890,
+            'sql_query' => $query,
+            'goto' => '',
+            'unlim_num_rows' => 3,
+            'displaywork' => false,
+            'relwork' => false,
+            'save_cells_at_once' => false,
+            'default_sliders_state' => 'closed',
+            'text_dir' => 'ltr',
+        ]);
+
+        $this->assertEquals($tableTemplate, $actual);
     }
 }

@@ -26,7 +26,7 @@ class UploadSession implements UploadInterface
      */
     public static function getIdKey()
     {
-        return ini_get('session.upload_progress.name');
+        return (string) ini_get('session.upload_progress.name');
     }
 
     /**

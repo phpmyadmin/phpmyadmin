@@ -142,10 +142,19 @@ class NormalizationTest extends AbstractTestCase
         $GLOBALS['cfg']['BrowseMIME'] = true;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['col_priv'] = false;
-        $db = 'PMA_db';
-        $table = 'PMA_table';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['dbi'] = $this->dbi;
+        $db = 'testdb';
+        $table = 'mytable';
         $numFields = 1;
-        $result = $this->normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
+        $template = new Template();
+        $normalization = new Normalization(
+            $this->dbi,
+            new Relation($this->dbi, $template),
+            new Transformations(),
+            $template
+        );
+        $result = $normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
         $this->assertStringContainsString(
             '<table id="table_columns"',
             $result

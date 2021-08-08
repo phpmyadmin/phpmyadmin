@@ -11,7 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -29,7 +29,7 @@ class ReplicationController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param DatabaseInterface $dbi
      */
     public function __construct($response, Template $template, ReplicationGui $replicationGui, $dbi)
@@ -61,7 +61,7 @@ class ReplicationController extends AbstractController
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
 
-        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn-ts.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
             $urlParams = $params['url_params'];

@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\U2FException;
 use Samyoul\U2F\U2FServer\U2FServer;
@@ -110,7 +110,7 @@ class Key extends TwoFactorPlugin
      */
     public function loadScripts()
     {
-        $response = Response::getInstance();
+        $response = ResponseRenderer::getInstance();
         $scripts = $response->getHeader()->getScripts();
         $scripts->addFile('vendor/u2f-api-polyfill.js');
         $scripts->addFile('u2f.js');

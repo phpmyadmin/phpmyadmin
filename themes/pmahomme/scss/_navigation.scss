@@ -301,6 +301,11 @@
     border-left: 1px solid #666;
     margin-left: 0.75em;
     padding-left: 0.75em;
+
+    li.last.database {
+      // Revert the effect of the rule that is applied on all the tree
+      margin-bottom: 0 !important;
+    }
   }
 
   .last > .list_container {
@@ -317,29 +322,24 @@ li.fast_filter {
   list-style: none;
 
   input {
-    margin: 3px 0 0 0;
     font-size: 0.7em;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 1.7em;
-    width: 100%;
   }
 
-  span {
-    position: relative;
-    right: 2.5em;
-    padding: 0.2em;
-    cursor: pointer;
+  .searchClauseClear {
+    border: 0;
     font-weight: bold;
     color: #800;
     font-size: 0.7em;
   }
 
+  .searchClauseClear:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
   &.db_fast_filter {
     border: 0;
     margin-left: 0;
-    margin-right: 10px;
   }
 }
 

@@ -52,15 +52,29 @@
         {# l10n: Button to show the SQL query on the export page #}
         <input class="btn btn-secondary" type="submit" id="showsqlquery" value="{% trans 'Show SQL query' %}">
       </div>
-      <div class="d-none">
-        <div id="export_sql_modal_content">
-          <code class="sql">
-            <pre id="sql_preview_query">{{ sql_query }}</pre>
-          </code>
+      <div class="d-none"></div>
+    </div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="modal fade" id="showSqlQueryModal" tabindex="-1" aria-labelledby="showSqlQueryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="showSqlQueryModalLabel">{% trans 'Loading' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        </div>
+        <div class="modal-body">
+          <div id="export_sql_modal_content">
+            <code class="sql">
+              <pre id="sql_preview_query">{{ sql_query }}</pre>
+            </code>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
         </div>
       </div>
     </div>
-    <div class="clearfloat"></div>
   </div>
 {% endif %}
 
@@ -154,125 +168,140 @@
     </div>
   {% endif %}
 
-  <div id="alias_modal" class="hide" title="{% trans 'Rename exported databases/tables/columns' %}">
-    <table class="table align-middle mb-3" id="alias_data">
-      <thead>
-      <tr>
-        <th colspan="4">
-          {% trans 'Defined aliases' %}
-        </th>
-      </tr>
-      </thead>
-
-      <tbody>
-      {% for db, db_data in aliases %}
-        {% if db_data.alias is defined and db_data.alias is not null %}
-          <tr>
-            <th>{% trans %}Database{% context %}Alias{% endtrans %}</th>
-            <td>{{ db }}</td>
-            <td>
-              <input name="aliases[{{ db }}][alias]" value="{{ db_data.alias }}" type="text">
-            </td>
-            <td>
-              <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
-            </td>
-          </tr>
-        {% endif %}
-
-        {% for table, table_data in db_data.tables ?? [] %}
-          {% if table_data.alias is defined and table_data.alias is not null %}
+  <div class="modal fade" id="renameExportModal" tabindex="-1" aria-labelledby="renameExportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="renameExportModalLabel">{% trans 'Rename exported databases/tables/columns' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        </div>
+        <div class="modal-body" style="overflow: auto;">
+          <table class="table align-middle mb-3" id="alias_data">
+            <thead>
             <tr>
-              <th>{% trans %}Table{% context %}Alias{% endtrans %}</th>
-              <td>{{ db }}.{{ table }}</td>
+              <th colspan="4">
+                {% trans 'Defined aliases' %}
+              </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for db, db_data in aliases %}
+              {% if db_data.alias is defined and db_data.alias is not null %}
+                <tr>
+                  <th>{% trans %}Database{% context %}Alias{% endtrans %}</th>
+                  <td>{{ db }}</td>
+                  <td>
+                    <input name="aliases[{{ db }}][alias]" value="{{ db_data.alias }}" type="text">
+                  </td>
+                  <td>
+                    <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                  </td>
+                </tr>
+              {% endif %}
+
+              {% for table, table_data in db_data.tables ?? [] %}
+                {% if table_data.alias is defined and table_data.alias is not null %}
+                  <tr>
+                    <th>{% trans %}Table{% context %}Alias{% endtrans %}</th>
+                    <td>{{ db }}.{{ table }}</td>
+                    <td>
+                      <input name="aliases[{{ db }}][tables][{{ table }}][alias]" value="{{ table_data.alias }}" type="text">
+                    </td>
+                    <td>
+                      <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                    </td>
+                  </tr>
+                {% endif %}
+
+                {% for column, column_name in table_data.columns ?? [] %}
+                  <tr>
+                    <th>{% trans %}Column{% context %}Alias{% endtrans %}</th>
+                    <td>{{ db }}.{{ table }}.{{ column }}</td>
+                    <td>
+                      <input name="aliases[{{ db }}][tables][{{ table }}][colums][{{ column }}]" value="{{ column_name }}" type="text">
+                    </td>
+                    <td>
+                      <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% endfor %}
+            {% endfor %}
+            </tbody>
+
+            {# Empty row for javascript manipulations. #}
+            <tfoot class="hide">
+            <tr>
+              <th></th>
+              <td></td>
               <td>
-                <input name="aliases[{{ db }}][tables][{{ table }}][alias]" value="{{ table_data.alias }}" type="text">
+                <input name="aliases_new" value="" type="text">
               </td>
               <td>
                 <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
               </td>
             </tr>
-          {% endif %}
+            </tfoot>
+          </table>
 
-          {% for column, column_name in table_data.columns ?? [] %}
+          <table class="table align-middle">
+            <thead>
             <tr>
-              <th>{% trans %}Column{% context %}Alias{% endtrans %}</th>
-              <td>{{ db }}.{{ table }}.{{ column }}</td>
+              <th colspan="4">{% trans 'Define new aliases' %}</th>
+            </tr>
+            </thead>
+            <tr>
               <td>
-                <input name="aliases[{{ db }}][tables][{{ table }}][colums][{{ column }}]" value="{{ column_name }}" type="text">
+                <label>{% trans 'Select database:' %}</label>
               </td>
               <td>
-                <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
+                <select id="db_alias_select"><option value=""></option></select>
+              </td>
+              <td>
+                <input id="db_alias_name" placeholder="{% trans 'New database name' %}" disabled="1">
+              </td>
+              <td>
+                <button id="db_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
               </td>
             </tr>
-          {% endfor %}
-        {% endfor %}
-      {% endfor %}
-      </tbody>
-
-      {# Empty row for javascript manipulations. #}
-      <tfoot class="hide">
-      <tr>
-        <th></th>
-        <td></td>
-        <td>
-          <input name="aliases_new" value="" type="text">
-        </td>
-        <td>
-          <button class="alias_remove btn btn-secondary">{% trans 'Remove' %}</button>
-        </td>
-      </tr>
-      </tfoot>
-    </table>
-
-    <table class="table align-middle">
-      <thead>
-      <tr>
-        <th colspan="4">{% trans 'Define new aliases' %}</th>
-      </tr>
-      </thead>
-      <tr>
-        <td>
-          <label>{% trans 'Select database:' %}</label>
-        </td>
-        <td>
-          <select id="db_alias_select"><option value=""></option></select>
-        </td>
-        <td>
-          <input id="db_alias_name" placeholder="{% trans 'New database name' %}" disabled="1">
-        </td>
-        <td>
-          <button id="db_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>{% trans 'Select table:' %}</label>
-        </td>
-        <td>
-          <select id="table_alias_select"><option value=""></option></select>
-        </td>
-        <td>
-          <input id="table_alias_name" placeholder="{% trans 'New table name' %}" disabled="1">
-        </td>
-        <td>
-          <button id="table_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label>{% trans 'Select column:' %}</label>
-        </td>
-        <td>
-          <select id="column_alias_select"><option value=""></option></select>
-        </td>
-        <td>
-          <input id="column_alias_name" placeholder="{% trans 'New column name' %}" disabled="1">
-        </td>
-        <td>
-          <button id="column_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
-        </td>
-      </tr>
-    </table>
+            <tr>
+              <td>
+                <label>{% trans 'Select table:' %}</label>
+              </td>
+              <td>
+                <select id="table_alias_select"><option value=""></option></select>
+              </td>
+              <td>
+                <input id="table_alias_name" placeholder="{% trans 'New table name' %}" disabled="1">
+              </td>
+              <td>
+                <button id="table_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>{% trans 'Select column:' %}</label>
+              </td>
+              <td>
+                <select id="column_alias_select"><option value=""></option></select>
+              </td>
+              <td>
+                <input id="column_alias_name" placeholder="{% trans 'New column name' %}" disabled="1">
+              </td>
+              <td>
+                <button id="column_alias_button" class="btn btn-secondary" disabled="1">{% trans 'Add' %}</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="saveAndCloseBtn" data-bs-dismiss="modal">
+            {% trans 'Save & close' %}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="exportoptions" id="output">

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <psalm
     autoloader="test/bootstrap-static.php"
-    totallyTyped="false"
+    totallyTyped="true"
+    sealAllMethods="true"
     resolveFromConfigFile="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
@@ -9,50 +10,25 @@
     errorBaseline="psalm-baseline.xml"
 >
     <projectFiles>
-        <directory name="libraries" />
+        <directory name="libraries"/>
+        <directory name="setup"/>
+        <directory name="test/classes"/>
+        <directory name="test/selenium"/>
+        <file name="js/messages.php"/>
         <ignoreFiles>
-            <directory name="vendor" />
-            <directory name="libraries/cache" />
+            <directory name="vendor"/>
+            <directory name="libraries/cache"/>
         </ignoreFiles>
     </projectFiles>
 
-    <issueHandlers>
-        <PropertyNotSetInConstructor errorLevel="info" />
-        <RedundantCondition errorLevel="info" />
-        <DocblockTypeContradiction errorLevel="info" />
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
 
-        <UnresolvableInclude>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Config.php" />
-                <file name="libraries/classes/Controllers/ImportController.php" />
-                <file name="libraries/classes/Controllers/Table/ReplaceController.php" />
-                <file name="libraries/classes/Display/Results.php" />
-                <file name="libraries/classes/Plugins.php" />
-            </errorLevel>
-        </UnresolvableInclude>
-
-        <PossiblyUndefinedGlobalVariable>
-            <errorLevel type="suppress">
-                <file name="libraries/config.default.php" />
-            </errorLevel>
-        </PossiblyUndefinedGlobalVariable>
-
-        <InvalidGlobal>
-            <errorLevel type="suppress">
-                <file name="libraries/common.inc.php" />
-            </errorLevel>
-        </InvalidGlobal>
-
-        <InvalidStringClass>
-            <errorLevel type="suppress">
-                <file name="libraries/classes/Config/Forms/BaseFormList.php" />
-                <file name="libraries/classes/Config/PageSettings.php" />
-                <file name="libraries/classes/Controllers/Setup/FormController.php" />
-                <file name="libraries/classes/Navigation/NodeFactory.php" />
-                <file name="libraries/classes/Plugins.php" />
-                <file name="libraries/classes/TwoFactor.php" />
-                <file name="libraries/common.inc.php" />
-            </errorLevel>
-        </InvalidStringClass>
-    </issueHandlers>
+    <globals>
+        <!-- <var name="cfg" type="array" /> -->
+        <var name="dbi" type="PhpMyAdmin\DatabaseInterface" />
+        <var name="containerBuilder" type="Symfony\Component\DependencyInjection\ContainerBuilder" />
+        <var name="PMA_PHP_SELF" type="string" />
+    </globals>
 </psalm>

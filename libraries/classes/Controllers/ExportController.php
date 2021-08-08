@@ -13,7 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -46,7 +46,7 @@ final class ExportController extends AbstractController
     private $relation;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template, Export $export, Relation $relation)
     {
@@ -213,15 +213,10 @@ final class ExportController extends AbstractController
 
         // export class instance, not array of properties, as before
         /** @var ExportPlugin $export_plugin */
-        $export_plugin = Plugins::getPlugin(
-            'export',
-            $what,
-            'libraries/classes/Plugins/Export/',
-            [
-                'export_type' => $export_type,
-                'single_table' => isset($single_table),
-            ]
-        );
+        $export_plugin = Plugins::getPlugin('export', $what, [
+            'export_type' => (string) $export_type,
+            'single_table' => isset($single_table),
+        ]);
 
         // Check export type
         if (empty($export_plugin)) {
@@ -265,7 +260,7 @@ final class ExportController extends AbstractController
             $quick_export = false;
         }
 
-        if ($_POST['output_format'] === 'astext') {
+        if (isset($_POST['output_format']) && $_POST['output_format'] === 'astext') {
             $asfile = false;
         } else {
             $asfile = true;

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Normalization;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
@@ -26,7 +26,7 @@ class NormalizationController extends AbstractController
     private $normalization;
 
     /**
-     * @param Response $response
+     * @param ResponseRenderer $response
      */
     public function __construct($response, Template $template, Normalization $normalization)
     {

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
@@ -15,11 +16,6 @@ use TCPDF;
 use function array_merge;
 use function base64_encode;
 use function count;
-use function imagecolorallocate;
-use function imagecreatetruecolor;
-use function imagedestroy;
-use function imagefilledrectangle;
-use function imagepng;
 use function intval;
 use function is_numeric;
 use function is_string;
@@ -213,8 +209,8 @@ class GisVisualization
             $spatialSrid = 'ST_SRID';
         }
 
-        // If MYSQL version >= 8.1 override default axis order
-        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80010 && ! $isMariaDb) {
+        // If MYSQL version >= 8.0.1 override default axis order
+        if ($this->userSpecifiedSettings['mysqlVersion'] >= 80001 && ! $isMariaDb) {
             $axisOrder = ', \'axis-order=long-lat\'';
         }
 
@@ -315,13 +311,9 @@ class GisVisualization
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
-        $extension_start_pos = mb_strlen($file_name) - mb_strlen($ext) - 1;
-        $user_extension = mb_substr(
-            $file_name,
-            $extension_start_pos,
-            mb_strlen($file_name)
-        );
         $required_extension = '.' . $ext;
+        $extension_length = mb_strlen($required_extension);
+        $user_extension = mb_substr($file_name, -$extension_length);
         if (mb_strtolower($user_extension) != $required_extension) {
             $file_name .= $required_extension;
         }
@@ -404,32 +396,25 @@ class GisVisualization
     /**
      * Generate the visualization in PNG format.
      *
-     * @return resource the generated image resource
+     * @return ImageWrapper|null the generated image resource
      *
      * @access private
      */
-    private function png()
+    private function png(): ?ImageWrapper
     {
         $this->init();
 
-        // create image
-        $image = imagecreatetruecolor(
+        $image = ImageWrapper::create(
             $this->settings['width'],
-            $this->settings['height']
+            $this->settings['height'],
+            ['red' => 229, 'green' => 229, 'blue' => 229]
         );
-
-        // fill the background
-        $bg = imagecolorallocate($image, 229, 229, 229);
-        imagefilledrectangle(
-            $image,
-            0,
-            0,
-            $this->settings['width'] - 1,
-            $this->settings['height'] - 1,
-            $bg
-        );
+        if ($image === null) {
+            return null;
+        }
 
         $scale_data = $this->scaleDataSet($this->data);
+        /** @var ImageWrapper $image */
         $image = $this->prepareDataSet($this->data, $scale_data, 'png', $image);
 
         return $image;
@@ -444,12 +429,15 @@ class GisVisualization
      */
     public function asPng()
     {
-        $img = $this->png();
+        $image = $this->png();
+        if ($image === null) {
+            return '';
+        }
 
         // render and save it to variable
         ob_start();
-        imagepng($img, null, 9, PNG_ALL_FILTERS);
-        imagedestroy($img);
+        $image->png(null, 9, PNG_ALL_FILTERS);
+        $image->destroy();
         $output = ob_get_clean();
 
         // base64 encode
@@ -462,17 +450,17 @@ class GisVisualization
      * Saves as a PNG image to a file.
      *
      * @param string $file_name File name
-     *
-     * @return void
-     *
-     * @access public
      */
-    public function toFileAsPng($file_name)
+    public function toFileAsPng($file_name): void
     {
-        $img = $this->png();
+        $image = $this->png();
+        if ($image === null) {
+            return;
+        }
+
         $this->writeToFile($file_name, 'image/png', 'png');
-        imagepng($img, null, 9, PNG_ALL_FILTERS);
-        imagedestroy($img);
+        $image->png(null, 9, PNG_ALL_FILTERS);
+        $image->destroy();
     }
 
     /**
@@ -704,11 +692,11 @@ class GisVisualization
     /**
      * Prepares and return the dataset as needed by the visualization.
      *
-     * @param array                       $data       Raw data
-     * @param array                       $scale_data Data related to scaling
-     * @param string                      $format     Format of the visualization
-     * @param resource|TCPDF|string|false $results    Image object in the case of png
-     *                                                TCPDF object in the case of pdf
+     * @param array                           $data       Raw data
+     * @param array                           $scale_data Data related to scaling
+     * @param string                          $format     Format of the visualization
+     * @param ImageWrapper|TCPDF|string|false $results    Image object in the case of png
+     *                                                    TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
      *

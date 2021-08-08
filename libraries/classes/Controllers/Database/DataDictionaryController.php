@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -27,7 +27,7 @@ class DataDictionaryController extends AbstractController
     private $dbi;
 
     /**
-     * @param Response          $response
+     * @param ResponseRenderer  $response
      * @param string            $db              Database name
      * @param Relation          $relation
      * @param Transformations   $transformations
