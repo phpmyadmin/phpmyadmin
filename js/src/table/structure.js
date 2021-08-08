@@ -322,8 +322,7 @@ AJAX.registerOnload('table/structure.js', function () {
         var $form = $('#move_columns_dialog').find('form');
         $form.data('serialized-unmoved', $form.serialize());
 
-        var modal = $('#moveColumnsModal');
-        modal.modal('show');
+        $('#moveColumnsModal').modal('show');
         $('#designerModalGoButton').on('click', function () {
             // Off event necessary, else the function fires multiple times
             $('#designerModalGoButton').off('click');
@@ -333,7 +332,7 @@ AJAX.registerOnload('table/structure.js', function () {
             var $form = $this.find('form');
             var serialized = $form.serialize();
             // check if any columns were moved at all
-            modal.modal('hide');
+            $('#moveColumnsModal').modal('hide');
             if (serialized === $form.data('serialized-unmoved')) {
                 Functions.ajaxRemoveMessage($msgbox);
                 return;
@@ -375,13 +374,13 @@ AJAX.registerOnload('table/structure.js', function () {
 
         $('#designerModalPreviewButton').on('click', function () {
             // Function for Previewing SQL
-            modal.modal('hide');
+            $('#moveColumnsModal').modal('hide');
             var $form = $('#move_column_form');
             Functions.previewSql($form);
         });
 
         $('#previewSQLCloseButton').on('click', function () {
-            modal.modal('show');
+            $('#moveColumnsModal').modal('show');
         });
 
         $('#designerModalCloseButton').on('click', function () {

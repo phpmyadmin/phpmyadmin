@@ -1947,8 +1947,6 @@ Functions.previewSql = function ($form) {
         sep + 'preview_sql=1' +
         sep + 'ajax_request=1';
     var $messageBox = Functions.ajaxShowMessage();
-    var modal = $('#previewSqlModal');
-    modal.modal('show');
     $.ajax({
         type: 'POST',
         url: formUrl,
@@ -1956,9 +1954,12 @@ Functions.previewSql = function ($form) {
         success: function (response) {
             Functions.ajaxRemoveMessage($messageBox);
             if (response.success) {
-                modal.find('.modal-body').first().html(response.sql_data);
+                $('#previewSqlModal').modal('show');
+                $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
                 $('#previewSqlModalLabel').first().html(Messages.strPreviewSQL);
-                Functions.highlightSql(modal);
+                $('#previewSqlModal').on('shown.bs.modal', function () {
+                    Functions.highlightSql($('#previewSqlModal'));
+                });
             } else {
                 Functions.ajaxShowMessage(response.message);
             }
