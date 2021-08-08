@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
+<files psalm-version="4.9.2@00c062267d6e3229d91a1939992987e2d46f2393">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -181,9 +181,6 @@
       <code>$valueDefault</code>
       <code>$valueDefaultJs</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator occurrences="1">
-      <code>$values[$path]</code>
-    </PossiblyInvalidIterator>
   </file>
   <file src="libraries/classes/Config/FormDisplayTemplate.php">
     <PossiblyNullArrayAccess occurrences="2">
@@ -244,14 +241,19 @@
       <code>$success</code>
       <code>$success</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="5">
+      <code>$_GET['db']</code>
       <code>$display_page</code>
       <code>$display_page</code>
       <code>$page</code>
+      <code>$selected_page</code>
     </PossiblyNullArgument>
     <PossiblyNullIterator occurrences="1">
       <code>$tab_pos</code>
     </PossiblyNullIterator>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_GET['db']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
     <TypeDoesNotContainNull occurrences="1">
@@ -388,8 +390,12 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Server/CollationsController.php">
-    <PossiblyNullIterator occurrences="1">
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullIterator occurrences="2">
       <code>$this-&gt;charsets</code>
+      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
@@ -444,6 +450,9 @@
     <PossiblyNullIterator occurrences="1">
       <code>$this-&gt;config-&gt;getServers()</code>
     </PossiblyNullIterator>
+    <TypeDoesNotContainType occurrences="1">
+      <code>PMA_IS_WINDOWS</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Setup/ServersController.php">
     <PossiblyNullArgument occurrences="1">
@@ -939,9 +948,6 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$db_select</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="2">
       <code>$line</code>
       <code>$line</code>
@@ -1670,6 +1676,11 @@
       <code>(string) $currentDb</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/Plugins/Schema/Dia/Dia.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$output</code>
+    </PossiblyInvalidArgument>
+  </file>
   <file src="libraries/classes/Plugins/Schema/Dia/DiaRelationSchema.php">
     <InvalidScalarArgument occurrences="1">
       <code>$this-&gt;showColor</code>
@@ -2176,6 +2187,9 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$output</code>
+    </PossiblyInvalidArgument>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $styles</code>
       <code>(string) $styles</code>
