@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-01 00:09+0000\n"
+"POT-Creation-Date: 2021-08-08 00:09+0000\n"
 "PO-Revision-Date: 2021-02-06 17:50+0000\n"
 "Last-Translator: Markus Staab <maggus.staab@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3600,7 +3600,7 @@ msgstr "Erster Tag des Kalenders"
 
 #: libraries/classes/Config/Descriptions.php:759
 #: libraries/classes/Config/Descriptions.php:770 libraries/classes/Menu.php:524
-#: libraries/classes/Util.php:2072 libraries/config.values.php:155
+#: libraries/classes/Util.php:2070 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:3
 #: templates/server/privileges/user_properties.twig:20
@@ -3716,8 +3716,8 @@ msgstr "Änderungen verfolgen"
 #: libraries/classes/Config/Descriptions.php:786 libraries/classes/Menu.php:279
 #: libraries/classes/Menu.php:400 libraries/classes/Menu.php:529
 #: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2073
-#: libraries/classes/Util.php:2088 libraries/classes/Util.php:2105
+#: libraries/classes/Util.php:1598 libraries/classes/Util.php:2071
+#: libraries/classes/Util.php:2086 libraries/classes/Util.php:2103
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4399,7 +4399,7 @@ msgid "Explain SQL"
 msgstr "SQL erklären"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:742
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:742
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4624,7 +4624,7 @@ msgid "Missing data for %s"
 msgstr "Fehlende Daten für %s"
 
 #: libraries/classes/Config/FormDisplay.php:677
-#: libraries/classes/Config/Validator.php:609
+#: libraries/classes/Config/Validator.php:611
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Ungültiger Wert!"
@@ -4686,8 +4686,8 @@ msgstr "Benutzerdefiniert"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2087
-#: libraries/classes/Util.php:2104 libraries/config.values.php:60
+#: libraries/classes/Util.php:1597 libraries/classes/Util.php:2085
+#: libraries/classes/Util.php:2102 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4731,8 +4731,8 @@ msgstr "OpenDocument Text"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #: libraries/classes/Menu.php:301 libraries/classes/Menu.php:420
 #: libraries/classes/Menu.php:557 libraries/classes/Server/Privileges.php:1593
-#: libraries/classes/Util.php:2076 libraries/classes/Util.php:2091
-#: libraries/classes/Util.php:2108 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:2074 libraries/classes/Util.php:2089
+#: libraries/classes/Util.php:2106 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4775,8 +4775,8 @@ msgstr "CSV mit LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #: libraries/classes/Menu.php:310 libraries/classes/Menu.php:430
-#: libraries/classes/Menu.php:562 libraries/classes/Util.php:2077
-#: libraries/classes/Util.php:2092 libraries/classes/Util.php:2109
+#: libraries/classes/Menu.php:562 libraries/classes/Util.php:2075
+#: libraries/classes/Util.php:2090 libraries/classes/Util.php:2107
 #: templates/import.twig:32 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4984,21 +4984,21 @@ msgstr ""
 "%1$sGZip-Komprimierung und Dekomprimierung%2$s benötigt Funktionen (%3$s), "
 "die auf diesem System nicht verfügbar sind."
 
-#: libraries/classes/Config/Validator.php:247
+#: libraries/classes/Config/Validator.php:249
 msgid "Could not connect to the database server!"
 msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden!"
 
-#: libraries/classes/Config/Validator.php:283
+#: libraries/classes/Config/Validator.php:285
 msgid "Invalid authentication type!"
 msgstr "Falscher Authentifikationstyp!"
 
-#: libraries/classes/Config/Validator.php:292
+#: libraries/classes/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Leerer Benutzername, obwohl die [kbd]config[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:302
+#: libraries/classes/Config/Validator.php:304
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5006,20 +5006,20 @@ msgstr ""
 "Leerer Sessionname, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:313
+#: libraries/classes/Config/Validator.php:315
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Leere signon-URL, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
 "wird!"
 
-#: libraries/classes/Config/Validator.php:368
+#: libraries/classes/Config/Validator.php:370
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Kein phpMyAdmin Control-user angegeben, obwohl der Konfigurationsspeicher "
 "von phpMyAdmin verwendet wird!"
 
-#: libraries/classes/Config/Validator.php:376
+#: libraries/classes/Config/Validator.php:378
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5027,31 +5027,31 @@ msgstr ""
 "Passwort des phpMyAdmin Control-users ist leer, obwohl der "
 "Konfigurationsspeicher von phpMyAdmin verwendet wird!"
 
-#: libraries/classes/Config/Validator.php:468
+#: libraries/classes/Config/Validator.php:470
 msgid "Incorrect value:"
 msgstr "Ungültiger Wert:"
 
-#: libraries/classes/Config/Validator.php:479
+#: libraries/classes/Config/Validator.php:481
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Ungültige IP-Adresse: %s"
 
-#: libraries/classes/Config/Validator.php:542
+#: libraries/classes/Config/Validator.php:544
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Keine gültige Portnummer!"
 
-#: libraries/classes/Config/Validator.php:564
+#: libraries/classes/Config/Validator.php:566
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Keine positive Zahl!"
 
-#: libraries/classes/Config/Validator.php:586
+#: libraries/classes/Config/Validator.php:588
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Keine nicht-negative Zahl!"
 
-#: libraries/classes/Config/Validator.php:627
+#: libraries/classes/Config/Validator.php:629
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -5208,7 +5208,7 @@ msgid "Table %s has been emptied."
 msgstr "Die Tabelle %s wurde geleert."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4417
+#: libraries/classes/Display/Results.php:4420
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5330,7 +5330,7 @@ msgid "You may want to refresh the page."
 msgstr "Bitte aktualisieren Sie die Seite."
 
 #: libraries/classes/Controllers/ExportController.php:223
-#: libraries/classes/Export.php:1404
+#: libraries/classes/Export.php:1407
 msgid "Bad type!"
 msgstr "Ungültiger Typ!"
 
@@ -6062,7 +6062,7 @@ msgid "Traffic"
 msgstr "Netzwerkverkehr"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
-#: libraries/classes/Menu.php:567 libraries/classes/Util.php:2078
+#: libraries/classes/Menu.php:567 libraries/classes/Util.php:2076
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Einstellungen"
@@ -6296,7 +6296,7 @@ msgstr "Ausgabe erklären"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:2074
+#: libraries/classes/Menu.php:534 libraries/classes/Util.php:2072
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
@@ -6374,7 +6374,7 @@ msgid "Sum of grouped rows:"
 msgstr "Anzahl der gruppierten Datensätze:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:295
-#: libraries/classes/Engines/Innodb.php:144
+#: libraries/classes/Engines/Innodb.php:147
 #: templates/server/databases/index.twig:253
 msgid "Total:"
 msgstr "Insgesamt:"
@@ -6823,7 +6823,7 @@ msgstr "Es wurden keine teilweisen Abhängigkeiten ausgewählt!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:616 libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1040
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6973,7 +6973,7 @@ msgstr "Datenpunkt-Inhalt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:659
-#: libraries/classes/ErrorHandler.php:424 libraries/classes/InsertEdit.php:2153
+#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2153
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ignorieren"
@@ -7275,7 +7275,7 @@ msgid "cancel"
 msgstr "abbrechen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Controllers/Server/Status/StatusController.php:230
+#: libraries/classes/Controllers/Server/Status/StatusController.php:224
 msgid "Aborted"
 msgstr "Abgebrochen"
 
@@ -7427,7 +7427,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Bitte schauen Sie am unteren Ende dieses Fensters."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:662
-#: libraries/classes/ErrorHandler.php:429
+#: libraries/classes/ErrorHandler.php:430
 msgid "Ignore All"
 msgstr "Alles ignorieren"
 
@@ -7624,8 +7624,7 @@ msgid "No such column"
 msgstr "Keine solche Spalte"
 
 #: libraries/classes/Controllers/NormalizationController.php:48
-#: libraries/classes/Normalization.php:267 libraries/classes/Types.php:804
-#: libraries/classes/Types.php:844
+#: libraries/classes/Normalization.php:267 libraries/classes/Types.php:828
 msgctxt "string types"
 msgid "String"
 msgstr "Zeichenkette"
@@ -7681,8 +7680,8 @@ msgid "Indexes"
 msgstr "Indizes"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:505
-#: libraries/classes/Controllers/Server/Status/StatusController.php:157
-#: libraries/classes/Controllers/Server/Status/StatusController.php:246
+#: libraries/classes/Controllers/Server/Status/StatusController.php:165
+#: libraries/classes/Controllers/Server/Status/StatusController.php:240
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Insgesamt"
@@ -7758,19 +7757,19 @@ msgstr "Fortschritt"
 msgid "SQL query"
 msgstr "SQL-Befehl"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:119
+#: libraries/classes/Controllers/Server/Status/StatusController.php:155
 msgid "Received"
 msgstr "Empfangen"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:138
+#: libraries/classes/Controllers/Server/Status/StatusController.php:160
 msgid "Sent"
 msgstr "Gesendet"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:205
+#: libraries/classes/Controllers/Server/Status/StatusController.php:199
 msgid "Max. concurrent connections"
 msgstr "Max. gleichzeitige Verbindungen"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:214
+#: libraries/classes/Controllers/Server/Status/StatusController.php:208
 msgid "Failed attempts"
 msgstr "Fehlversuche"
 
@@ -8501,7 +8500,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Anzahl der Prozesse, die nicht schlafen."
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:116
-#: libraries/classes/Util.php:919
+#: libraries/classes/Util.php:917
 msgid "Missing parameter:"
 msgstr "Fehlende(r) Parameter:"
 
@@ -8511,7 +8510,7 @@ msgstr "Fehlende(r) Parameter:"
 msgid "User groups management is not enabled."
 msgstr "Der Abfragen-Zwischenspeicher ist nicht aktiviert."
 
-#: libraries/classes/Controllers/Server/VariablesController.php:221
+#: libraries/classes/Controllers/Server/VariablesController.php:220
 msgid "Setting variable failed"
 msgstr "Setzen der Variable fehlgeschlagen"
 
@@ -8573,8 +8572,8 @@ msgstr "Bookmark nicht erstellt!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:170
 #: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:944
-#: libraries/classes/Controllers/Table/StructureController.php:1174
+#: libraries/classes/Controllers/Table/StructureController.php:948
+#: libraries/classes/Controllers/Table/StructureController.php:1178
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Die Tabelle %1$s wurde erfolgreich geändert."
@@ -8627,7 +8626,7 @@ msgstr "Die Tabelle %s existiert bereits!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4082 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4085 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
@@ -8661,7 +8660,7 @@ msgstr "Ungültiger Tabellenname"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:73
-#: libraries/classes/Controllers/TransformationWrapperController.php:113
+#: libraries/classes/Controllers/TransformationWrapperController.php:106
 msgid "There is an issue with your request."
 msgstr "Es gibt ein Problem mit Ihrer Anfrage."
 
@@ -8727,13 +8726,13 @@ msgstr "Die Spalten wurden erfolgreich verschoben."
 msgid "Failed to get description of column %s!"
 msgstr "Das Abrufen der Beschreibung der Zeile %s ist fehlgeschlagen!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:936
-#: libraries/classes/Controllers/Table/StructureController.php:1224
+#: libraries/classes/Controllers/Table/StructureController.php:940
+#: libraries/classes/Controllers/Table/StructureController.php:1228
 #: libraries/classes/Tracking.php:790
 msgid "Query error"
 msgstr "Abfrage-Fehler"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1168
+#: libraries/classes/Controllers/Table/StructureController.php:1172
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8741,7 +8740,7 @@ msgstr ""
 "Die Tabelle %1$s wurde erfolgreich geändert. Die Privilegien wurden "
 "angepasst."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1458
+#: libraries/classes/Controllers/Table/StructureController.php:1462
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8751,7 +8750,7 @@ msgstr ""
 msgid "Primary"
 msgstr "Primärschlüssel"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1462
+#: libraries/classes/Controllers/Table/StructureController.php:1466
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8763,7 +8762,7 @@ msgstr "Primärschlüssel"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1722
+#: libraries/classes/Controllers/Table/StructureController.php:1726
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -9341,8 +9340,8 @@ msgid "Full texts"
 msgstr "Vollständige Texte"
 
 #: libraries/classes/Display/Results.php:1975
-#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2723
-#: libraries/classes/Util.php:2746 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2721
+#: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9355,8 +9354,8 @@ msgid "Descending"
 msgstr "Absteigend"
 
 #: libraries/classes/Display/Results.php:1983
-#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2715
-#: libraries/classes/Util.php:2738 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2713
+#: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9378,35 +9377,35 @@ msgstr "Der Datensatz wurde gelöscht."
 msgid "Kill"
 msgstr "Beenden"
 
-#: libraries/classes/Display/Results.php:4006
+#: libraries/classes/Display/Results.php:4009
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Es kann sich hierbei um Näherungswerte handeln. Bitte lesen Sie auch "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4429
+#: libraries/classes/Display/Results.php:4432
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zeige Datensätze %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4443
+#: libraries/classes/Display/Results.php:4446
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d insgesamt, %2$d in Abfragen"
 
-#: libraries/classes/Display/Results.php:4448
+#: libraries/classes/Display/Results.php:4451
 #, php-format
 msgid "%d total"
 msgstr "%d insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
-#: libraries/classes/Display/Results.php:4461 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Die Abfrage dauerte %01.4f Sekunden."
 
-#: libraries/classes/Display/Results.php:4850
+#: libraries/classes/Display/Results.php:4853
 msgid "Link not found!"
 msgstr "Der Verweis wurde nicht gefunden!"
 
@@ -9459,63 +9458,63 @@ msgstr "Puffer-Pool"
 msgid "InnoDB Status"
 msgstr "InnoDB-Status"
 
-#: libraries/classes/Engines/Innodb.php:139
+#: libraries/classes/Engines/Innodb.php:142
 msgid "Buffer Pool Usage"
 msgstr "Auslastung des Puffer-Pools"
 
-#: libraries/classes/Engines/Innodb.php:149
+#: libraries/classes/Engines/Innodb.php:152
 msgid "pages"
 msgstr "Seiten"
 
-#: libraries/classes/Engines/Innodb.php:163
+#: libraries/classes/Engines/Innodb.php:160
 msgid "Free pages"
 msgstr "Unbenutzte Seiten"
 
-#: libraries/classes/Engines/Innodb.php:172
+#: libraries/classes/Engines/Innodb.php:169
 msgid "Dirty pages"
 msgstr "Inkonsistente Seiten"
 
-#: libraries/classes/Engines/Innodb.php:181
+#: libraries/classes/Engines/Innodb.php:178
 msgid "Pages containing data"
 msgstr "Daten enthaltende Seiten"
 
-#: libraries/classes/Engines/Innodb.php:190
+#: libraries/classes/Engines/Innodb.php:187
 msgid "Pages to be flushed"
 msgstr "Zurückzuschreibende Seiten"
 
-#: libraries/classes/Engines/Innodb.php:199
+#: libraries/classes/Engines/Innodb.php:196
 msgid "Busy pages"
 msgstr "Ausgelastete Seiten"
 
-#: libraries/classes/Engines/Innodb.php:211
+#: libraries/classes/Engines/Innodb.php:208
 msgid "Latched pages"
 msgstr "Belegte Seiten"
 
-#: libraries/classes/Engines/Innodb.php:225
+#: libraries/classes/Engines/Innodb.php:222
 msgid "Buffer Pool Activity"
 msgstr "Aktivität des Puffer-Pools"
 
-#: libraries/classes/Engines/Innodb.php:229
+#: libraries/classes/Engines/Innodb.php:226
 msgid "Read requests"
 msgstr "Leseanfragen"
 
-#: libraries/classes/Engines/Innodb.php:238
+#: libraries/classes/Engines/Innodb.php:235
 msgid "Write requests"
 msgstr "Schreibanfragen"
 
-#: libraries/classes/Engines/Innodb.php:247
+#: libraries/classes/Engines/Innodb.php:244
 msgid "Read misses"
 msgstr "Fehlgeschlagene Leseanfragen"
 
-#: libraries/classes/Engines/Innodb.php:256
+#: libraries/classes/Engines/Innodb.php:253
 msgid "Write waits"
 msgstr "Schreibverzögerungen"
 
-#: libraries/classes/Engines/Innodb.php:265
+#: libraries/classes/Engines/Innodb.php:262
 msgid "Read misses in %"
 msgstr "Fehlgeschlagene Leseanfragen in %"
 
-#: libraries/classes/Engines/Innodb.php:280
+#: libraries/classes/Engines/Innodb.php:277
 msgid "Write waits in %"
 msgstr "Schreibverzögerungen in %"
 
@@ -9747,7 +9746,7 @@ msgstr ""
 #: libraries/classes/Engines/Pbxt.php:171
 #: libraries/classes/Html/Generator.php:829
 #: libraries/classes/Html/MySQLDocumentation.php:52
-#: libraries/classes/Sanitize.php:207
+#: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
@@ -9767,21 +9766,21 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Zu viele Fehlermeldungen, einige werden nicht angezeigt."
 
-#: libraries/classes/ErrorHandler.php:413
+#: libraries/classes/ErrorHandler.php:414
 msgid "Report"
 msgstr "Bericht"
 
-#: libraries/classes/ErrorHandler.php:418 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:419 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Bericht nächstes Mal automatisch senden"
 
-#: libraries/classes/Export.php:174 libraries/classes/Export.php:217
-#: libraries/classes/Export.php:501
+#: libraries/classes/Export.php:177 libraries/classes/Export.php:220
+#: libraries/classes/Export.php:504
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Zu wenig Speicherplatz um die Datei %s zu speichern."
 
-#: libraries/classes/Export.php:444
+#: libraries/classes/Export.php:447
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -9789,20 +9788,20 @@ msgstr ""
 "Die Datei %s besteht bereits auf dem Server. Bitte ändern Sie den Dateinamen "
 "oder wählen Sie die Überschreibungs-Option."
 
-#: libraries/classes/Export.php:452 libraries/classes/Export.php:463
+#: libraries/classes/Export.php:455 libraries/classes/Export.php:466
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Der Webserver hat keine Schreibrechte um die Datei %s zu speichern."
 
 # Schema is not the right word for it, because a dump contains also data, and
 # NOT just the scheme.
-#: libraries/classes/Export.php:507
+#: libraries/classes/Export.php:510
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Auflistung wurde in Datei %s gespeichert."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: libraries/classes/Export.php:1031
+#: libraries/classes/Export.php:1034
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "Das Exportieren einer unformatierten Abfrage wird für diese Exportmethode "
@@ -10223,7 +10222,7 @@ msgstr "%1$s (bei <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:264
 #: libraries/classes/Navigation/Nodes/NodeTable.php:321
-#: libraries/classes/Util.php:1603 libraries/classes/Util.php:2103
+#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2101
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10233,8 +10232,8 @@ msgstr "Anzeigen"
 
 #: libraries/classes/Menu.php:283 libraries/classes/Menu.php:404
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2089
-#: libraries/classes/Util.php:2106 libraries/config.values.php:64
+#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2087
+#: libraries/classes/Util.php:2104 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10246,7 +10245,7 @@ msgstr "Suche"
 
 #: libraries/classes/Menu.php:294
 #: libraries/classes/Navigation/Nodes/NodeTable.php:315
-#: libraries/classes/Util.php:1602 libraries/classes/Util.php:2107
+#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2105
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10256,8 +10255,8 @@ msgid "Insert"
 msgstr "Einfügen"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2094
-#: libraries/classes/Util.php:2110 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2092
+#: libraries/classes/Util.php:2108 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10266,15 +10265,15 @@ msgid "Privileges"
 msgstr "Rechte"
 
 #: libraries/classes/Menu.php:334 libraries/classes/Menu.php:344
-#: libraries/classes/Menu.php:435 libraries/classes/Util.php:1604
-#: libraries/classes/Util.php:2093 libraries/classes/Util.php:2111
+#: libraries/classes/Menu.php:435 libraries/classes/Util.php:1602
+#: libraries/classes/Util.php:2091 libraries/classes/Util.php:2109
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Operationen"
 
 #: libraries/classes/Menu.php:350 libraries/classes/Menu.php:470
-#: libraries/classes/Relation.php:321 libraries/classes/Util.php:2098
-#: libraries/classes/Util.php:2112
+#: libraries/classes/Relation.php:321 libraries/classes/Util.php:2096
+#: libraries/classes/Util.php:2110
 msgid "Tracking"
 msgstr "Nachverfolgung"
 
@@ -10287,7 +10286,7 @@ msgstr "Nachverfolgung"
 #: libraries/classes/Plugins/Export/ExportSql.php:2239
 #: libraries/classes/Plugins/Export/ExportTexytext.php:574
 #: libraries/classes/Plugins/Export/ExportXml.php:127
-#: libraries/classes/Util.php:2097 libraries/classes/Util.php:2113
+#: libraries/classes/Util.php:2095 libraries/classes/Util.php:2111
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Trigger"
@@ -10297,11 +10296,11 @@ msgstr "Trigger"
 msgid "Database seems to be empty!"
 msgstr "Die Datenbank scheint leer zu sein!"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:2090
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:2088
 msgid "Query"
 msgstr "Abfrage"
 
-#: libraries/classes/Menu.php:450 libraries/classes/Util.php:2095
+#: libraries/classes/Menu.php:450 libraries/classes/Util.php:2093
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Routinen"
@@ -10311,15 +10310,15 @@ msgstr "Routinen"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1051
 #: libraries/classes/Plugins/Export/ExportXml.php:107
-#: libraries/classes/Util.php:2096 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:2094 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Ereignisse"
 
-#: libraries/classes/Menu.php:477 libraries/classes/Util.php:2099
+#: libraries/classes/Menu.php:477 libraries/classes/Util.php:2097
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/classes/Menu.php:487 libraries/classes/Util.php:2100
+#: libraries/classes/Menu.php:487 libraries/classes/Util.php:2098
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Zentrale Spalten"
@@ -10329,12 +10328,12 @@ msgid "User accounts"
 msgstr "Benutzerkonten"
 
 #: libraries/classes/Menu.php:582 libraries/classes/Server/Status/Data.php:154
-#: libraries/classes/Util.php:2079 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2077 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Binäres Protokoll"
 
 #: libraries/classes/Menu.php:589 libraries/classes/Server/Status/Data.php:159
-#: libraries/classes/Util.php:2080
+#: libraries/classes/Util.php:2078
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10342,21 +10341,21 @@ msgid "Replication"
 msgstr "Replikation"
 
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:231
-#: libraries/classes/Util.php:2081 libraries/config.values.php:159
+#: libraries/classes/Util.php:2079 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:192
 msgid "Variables"
 msgstr "Variablen"
 
-#: libraries/classes/Menu.php:600 libraries/classes/Util.php:2082
+#: libraries/classes/Menu.php:600 libraries/classes/Util.php:2080
 msgid "Charsets"
 msgstr "Zeichensätze"
 
-#: libraries/classes/Menu.php:605 libraries/classes/Util.php:2084
+#: libraries/classes/Menu.php:605 libraries/classes/Util.php:2082
 msgid "Engines"
 msgstr "Formate"
 
-#: libraries/classes/Menu.php:610 libraries/classes/Util.php:2083
+#: libraries/classes/Menu.php:610 libraries/classes/Util.php:2081
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Erweiterungen"
@@ -13323,14 +13322,14 @@ msgstr "Version %1$s von %2$s wurde gelöscht."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Version %1$s wurde erstellt, Tracking von %2$s ist aktiviert."
 
-#: libraries/classes/Types.php:211
+#: libraries/classes/Types.php:210
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Ein 1-Byte-Integer, Bereich mit Vorzeichen ist -128 bis 127, ohne Vorzeichen "
 "0 bis 255"
 
-#: libraries/classes/Types.php:217
+#: libraries/classes/Types.php:216
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -13338,7 +13337,7 @@ msgstr ""
 "Ein 2-Byte-Integer, Bereich mit Vorzeichen ist -32.768 bis 32.767, ohne "
 "Vorzeichen 0 bis 65.535"
 
-#: libraries/classes/Types.php:223
+#: libraries/classes/Types.php:222
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -13346,7 +13345,7 @@ msgstr ""
 "Ein 3-Byte-Integer, Bereich mit Vorzeichen ist -8.388.608 bis 8.388.607, "
 "ohne Vorzeichen 0 bis 16.277.215"
 
-#: libraries/classes/Types.php:229
+#: libraries/classes/Types.php:228
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -13354,7 +13353,7 @@ msgstr ""
 "Ein 4-Byte-Integer, Bereich mit Vorzeichen ist -2.147.483.648 bis "
 "2.147.483.647, ohne Vorzeichen 0 bis 4.294.967.295"
 
-#: libraries/classes/Types.php:236
+#: libraries/classes/Types.php:235
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -13363,7 +13362,7 @@ msgstr ""
 "bis 9.223.372.036.854.775.807, ohne Vorzeichen 0 bis "
 "18.446.744.073.709.551.615"
 
-#: libraries/classes/Types.php:243
+#: libraries/classes/Types.php:242
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -13371,7 +13370,7 @@ msgstr ""
 "Eine Fixkommazahl (M, D) - die maximale Anzahl Ziffern (M) ist 65 (Standard "
 "10), die maximale Anzahl Dezimale (D) ist 30 (Standard 0)"
 
-#: libraries/classes/Types.php:250
+#: libraries/classes/Types.php:249
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -13379,7 +13378,7 @@ msgstr ""
 "Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis "
 "-1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
 
-#: libraries/classes/Types.php:257
+#: libraries/classes/Types.php:256
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -13389,7 +13388,7 @@ msgstr ""
 "-1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
 "2,2250738585072014E-308 bis 1.7976931348623157E+308"
 
-#: libraries/classes/Types.php:264
+#: libraries/classes/Types.php:263
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -13397,7 +13396,7 @@ msgstr ""
 "Synonym für DOUBLE (Ausnahme: im SQL-Modus REAL_AS_FLOAT ein Synonym für "
 "FLOAT)"
 
-#: libraries/classes/Types.php:270
+#: libraries/classes/Types.php:269
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -13405,7 +13404,7 @@ msgstr ""
 "Ein Bitfeld-Typ (M), der M Bits pro Wert speichert (Standard ist 1, Maximum "
 "ist 64)"
 
-#: libraries/classes/Types.php:276
+#: libraries/classes/Types.php:275
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -13413,23 +13412,23 @@ msgstr ""
 "Ein Synonym für TINYINT(1), ein Null-Wert wird als falsch angesehen, Nicht-"
 "Null-Werte werden als wahr angesehen"
 
-#: libraries/classes/Types.php:281
+#: libraries/classes/Types.php:280
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Ein Alias für BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: libraries/classes/Types.php:285
+#: libraries/classes/Types.php:284
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Ein Datum, unterstützter Bereich ist %1$s bis %2$s"
 
-#: libraries/classes/Types.php:292
+#: libraries/classes/Types.php:291
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 "Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis "
 "%2$s"
 
-#: libraries/classes/Types.php:299
+#: libraries/classes/Types.php:298
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -13438,12 +13437,12 @@ msgstr ""
 "UTC, gespeichert als Anzahl Sekunden seit Beginn der UNIX-Epoche (1970-01-01 "
 "00:00:00 UTC)"
 
-#: libraries/classes/Types.php:306
+#: libraries/classes/Types.php:305
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Eine Uhrzeit, Bereich ist %1$s bis %2$s"
 
-#: libraries/classes/Types.php:313
+#: libraries/classes/Types.php:312
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -13451,7 +13450,7 @@ msgstr ""
 "Ein Jahr im vier- (4, Standard) oder zweistelligen (2) Format, die erlaubten "
 "Werte sind 70 (1970) bis 69 (2069) oder 1901 bis 2155 und 0000"
 
-#: libraries/classes/Types.php:320
+#: libraries/classes/Types.php:319
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -13459,7 +13458,7 @@ msgstr ""
 "Eine Zeichenkette mit fester Länge (0-255, Standard 1), die rechts beim "
 "Speichern immer mit Leerzeichen auf die angegebene Länge aufgefüllt wird"
 
-#: libraries/classes/Types.php:327
+#: libraries/classes/Types.php:326
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -13468,7 +13467,7 @@ msgstr ""
 "Eine Zeichenkette mit variabler Länge (%s), die tatsächliche maximale Länge "
 "hängt von der maximalen Anzahl Zeilen ab"
 
-#: libraries/classes/Types.php:335
+#: libraries/classes/Types.php:334
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -13477,7 +13476,7 @@ msgstr ""
 "gespeichert mit einem Ein-Byte-Präfix, der die Länge des Wertes in Bytes "
 "angibt"
 
-#: libraries/classes/Types.php:342
+#: libraries/classes/Types.php:341
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -13486,7 +13485,7 @@ msgstr ""
 "gespeichert mit einem Zwei-Byte-Präfix, der die Länge des Wertes in Bytes "
 "angibt"
 
-#: libraries/classes/Types.php:349
+#: libraries/classes/Types.php:348
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -13495,7 +13494,7 @@ msgstr ""
 "Zeichen, gespeichert mit einem Drei-Byte-Präfix, der die Länge des Wertes in "
 "Bytes angibt"
 
-#: libraries/classes/Types.php:356
+#: libraries/classes/Types.php:355
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -13505,7 +13504,7 @@ msgstr ""
 "- 1) Zeichen, gespeichert mit einem Vier-Byte-Präfix, der die Länge des "
 "Wertes in Bytes angibt"
 
-#: libraries/classes/Types.php:363
+#: libraries/classes/Types.php:362
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -13513,7 +13512,7 @@ msgstr ""
 "Ähnlich wie der CHAR-Typ, speichert aber binäre Byte-Zeichenketten anstelle "
 "von nicht-binären Buchstaben-Zeichenketten"
 
-#: libraries/classes/Types.php:369
+#: libraries/classes/Types.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -13521,7 +13520,7 @@ msgstr ""
 "Ähnlich wie der VARCHAR-Typ, speichert aber binäre Byte-Zeichenketten "
 "anstelle von nicht-binären Buchstaben-Zeichenketten"
 
-#: libraries/classes/Types.php:375
+#: libraries/classes/Types.php:374
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -13529,7 +13528,7 @@ msgstr ""
 "Eine BLOB-Spalte mit einer maximalen Länge von 255 (2^8 - 1) Bytes, "
 "gespeichert mit einem Ein-Byte-Präfix, der die Länge des Wertes angibt"
 
-#: libraries/classes/Types.php:381
+#: libraries/classes/Types.php:380
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -13537,7 +13536,7 @@ msgstr ""
 "Eine BLOB-Spalte mit einer maximalen Länge von 16.777.215 (2^24 - 1) Bytes, "
 "gespeichert mit einem Drei-Byte-Präfix, der die Länge des Wertes angibt"
 
-#: libraries/classes/Types.php:388
+#: libraries/classes/Types.php:387
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -13545,7 +13544,7 @@ msgstr ""
 "Eine BLOB-Spalte mit einer maximalen Länge von 65.535 (2^16 - 1) Bytes, "
 "gespeichert mit einem Zwei-Byte-Präfix, der die Länge des Wertes angibt"
 
-#: libraries/classes/Types.php:394
+#: libraries/classes/Types.php:393
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -13554,7 +13553,7 @@ msgstr ""
 "- 1) Bytes, gespeichert mit einem Vier-Byte-Präfix, der die Länge des Wertes "
 "angibt"
 
-#: libraries/classes/Types.php:401
+#: libraries/classes/Types.php:400
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -13562,43 +13561,43 @@ msgstr ""
 "Eine Aufzählung, gewählt aus der Liste von bis zu 65.535 Werten oder dem "
 "besonderen '' Fehler-Wert"
 
-#: libraries/classes/Types.php:406
+#: libraries/classes/Types.php:405
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Ein einzelner Wert gewählt aus einem Satz von bis zu 64 Einträgen"
 
-#: libraries/classes/Types.php:409
+#: libraries/classes/Types.php:408
 msgid "A type that can store a geometry of any type"
 msgstr "Ein Typ, der die Geometrie irgendeines Typs speichern kann"
 
-#: libraries/classes/Types.php:412
+#: libraries/classes/Types.php:411
 msgid "A point in 2-dimensional space"
 msgstr "Ein Punkt im 2-dimensionalen Raum"
 
-#: libraries/classes/Types.php:415
+#: libraries/classes/Types.php:414
 msgid "A curve with linear interpolation between points"
 msgstr "Eine Kurve mit linearer Interpolation zwischen Punkten"
 
-#: libraries/classes/Types.php:418
+#: libraries/classes/Types.php:417
 msgid "A polygon"
 msgstr "Ein Vieleck (Polygon)"
 
-#: libraries/classes/Types.php:421
+#: libraries/classes/Types.php:420
 msgid "A collection of points"
 msgstr "Eine Punkte-Sammlung"
 
-#: libraries/classes/Types.php:425
+#: libraries/classes/Types.php:424
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Eine Kurven-Sammlung mit linearer Interpolation zwischen Punkten"
 
-#: libraries/classes/Types.php:429
+#: libraries/classes/Types.php:428
 msgid "A collection of polygons"
 msgstr "Eine Polygon-Sammlung"
 
-#: libraries/classes/Types.php:432
+#: libraries/classes/Types.php:431
 msgid "A collection of geometry objects of any type"
 msgstr "Eine Sammlung von Geometrie-Objekten irgendeines Typs"
 
-#: libraries/classes/Types.php:436
+#: libraries/classes/Types.php:435
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -13606,23 +13605,23 @@ msgstr ""
 "Speichert und erlaubt effizienten Zugriff auf Daten in JSON (JavaScript "
 "Object Notation)-Dokumenten"
 
-#: libraries/classes/Types.php:441
+#: libraries/classes/Types.php:440
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: libraries/classes/Types.php:777
+#: libraries/classes/Types.php:776
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerisch"
 
-#: libraries/classes/Types.php:795
+#: libraries/classes/Types.php:794
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum und Uhrzeit"
 
-#: libraries/classes/Types.php:825
+#: libraries/classes/Types.php:830
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Räumlich"
@@ -13762,16 +13761,16 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: libraries/classes/Util.php:883
+#: libraries/classes/Util.php:881
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s Tage, %s Stunden, %s Minuten und %s Sekunden"
 
-#: libraries/classes/Util.php:2075
+#: libraries/classes/Util.php:2073
 msgid "Users"
 msgstr "Benutzer"
 
-#: libraries/classes/Util.php:2707
+#: libraries/classes/Util.php:2705
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Sortierung"
