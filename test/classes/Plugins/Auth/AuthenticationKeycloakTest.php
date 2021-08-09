@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use \Mockery;
 use Lcobucci\JWT\Token;
 use PhpMyAdmin\Plugins\Auth\AuthenticationKeycloak;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 
+/**
+ * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationKeycloak
+ */
 class AuthenticationKeycloakTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationKeycloak */
@@ -58,7 +62,7 @@ class AuthenticationKeycloakTest extends AbstractNetworkTestCase
 
     public function testReadCredentialsWithEmptyCookie(): void
     {
-        $_COOKIE['kc-access'] = "";
+        $_COOKIE['kc-access'] = '';
 
         $this->assertFalse(
             $this->object->readCredentials()
@@ -69,14 +73,14 @@ class AuthenticationKeycloakTest extends AbstractNetworkTestCase
 
     public function testReadCredentialsWithoutAllFields()
     {
-        $_COOKIE['kc-access'] = "unit-test";
-        $token = \Mockery::mock(Token::class);
+        $_COOKIE['kc-access'] = 'unit-test';
+        $token = Mockery::mock(Token::class);
 
-        $authenticationMok = \Mockery::mock(AuthenticationKeycloak::class)
+        $authenticationMok = Mockery::mock(AuthenticationKeycloak::class)
             ->shouldAllowMockingProtectedMethods()
             ->makePartial();
 
-        $authenticationMok->shouldReceive('getToken')->with("unit-test")->andReturn($token);
+        $authenticationMok->shouldReceive('getToken')->with('unit-test')->andReturn($token);
         $token->shouldReceive('getClaim')->with('preferred_username')->once()->andReturn('username');
         $token->shouldReceive('getClaim')->with('sub')->once()->andReturnNull();
 
@@ -86,14 +90,14 @@ class AuthenticationKeycloakTest extends AbstractNetworkTestCase
 
     public function testReadCredentials(): void
     {
-        $_COOKIE['kc-access'] = "unit-test";
-        $token = \Mockery::mock(Token::class);
+        $_COOKIE['kc-access'] = 'unit-test';
+        $token = Mockery::mock(Token::class);
 
-        $authenticationMok = \Mockery::mock(AuthenticationKeycloak::class)
+        $authenticationMok = Mockery::mock(AuthenticationKeycloak::class)
             ->shouldAllowMockingProtectedMethods()
             ->makePartial();
 
-        $authenticationMok->shouldReceive('getToken')->with("unit-test")->andReturn($token);
+        $authenticationMok->shouldReceive('getToken')->with('unit-test')->andReturn($token);
         $token->shouldReceive('getClaim')->with('preferred_username')->twice()->andReturn('username');
         $token->shouldReceive('getClaim')->with('sub')->twice()->andReturn('sub');
 

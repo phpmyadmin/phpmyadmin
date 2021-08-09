@@ -9,8 +9,7 @@ use Lcobucci\JWT\Token;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 
 /**
- * Class AuthenticationKeycloak
- * @package PhpMyAdmin\Plugins\Auth
+ * Handles the Keycloak authentication methods
  */
 class AuthenticationKeycloak extends AuthenticationPlugin
 {
@@ -21,17 +20,17 @@ class AuthenticationKeycloak extends AuthenticationPlugin
 
     public function readCredentials(): bool
     {
-        if (!isset($_COOKIE["kc-access"])) {
+        if (! isset($_COOKIE['kc-access'])) {
             return false;
         }
 
-        $keycloakToken = $_COOKIE["kc-access"];
-        if (!$keycloakToken) {
+        $keycloakToken = $_COOKIE['kc-access'];
+        if (! $keycloakToken) {
             return false;
         }
 
         $token = $this->getToken($keycloakToken);
-        if (!$token->getClaim('preferred_username') || !$token->getClaim('sub')) {
+        if (! $token->getClaim('preferred_username') || ! $token->getClaim('sub')) {
             return false;
         }
 
@@ -41,13 +40,10 @@ class AuthenticationKeycloak extends AuthenticationPlugin
         return true;
     }
 
-    /**
-     * @param string $keycloakToken
-     * @return Token
-     */
     protected function getToken(string $keycloakToken): Token
     {
         $parser = new Parser();
+
         return $parser->parse($keycloakToken);
     }
 }
