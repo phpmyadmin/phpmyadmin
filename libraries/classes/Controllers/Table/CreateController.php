@@ -165,8 +165,8 @@ class CreateController extends AbstractController
             return;
         }
 
-        // This global variable needs to be reset for the header class to function properly
-        $table = '';
+        // Do not display the table in the header since it hasn't been created yet
+        $this->response->getHeader()->getMenu()->setTable('');
 
         $this->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js', 'indexes.js']);
 
