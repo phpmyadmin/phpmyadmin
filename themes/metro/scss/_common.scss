@@ -2522,6 +2522,7 @@ form.append_fields_form .tblFooters {
   input {
     &[type="submit"] {
       background: $navi-background;
+      color: $navi-color;
       border: none;
       filter: none;
       margin: 5px;
