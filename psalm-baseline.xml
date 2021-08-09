@@ -7007,15 +7007,13 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <DocblockTypeContradiction occurrences="6">
-      <code>$defaultFunction !== $transformationPlugin</code>
+    <DocblockTypeContradiction occurrences="4">
       <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
       <code>'-1'</code>
       <code>-1</code>
       <code>[]</code>
-      <code>is_object($transformationPlugin)</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="12">
+    <InvalidArgument occurrences="9">
       <code>$added[$orgFullTableName]</code>
       <code>$dtResult</code>
       <code>$dtResult</code>
@@ -7025,9 +7023,6 @@
       <code>$dtResult</code>
       <code>$dtResult</code>
       <code>$dtResult</code>
-      <code>$transformationPlugin</code>
-      <code>$transformationPlugin</code>
-      <code>$transformationPlugin</code>
     </InvalidArgument>
     <InvalidOperand occurrences="1">
       <code>$index</code>
@@ -7035,7 +7030,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="88">
+    <MixedArgument occurrences="85">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -7110,10 +7105,7 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
-      <code>$this-&gt;transformationInfo[$dbLower][$orgTable][$orgName][2]</code>
       <code>$total</code>
-      <code>$transformationPlugin-&gt;getMIMESubtype()</code>
-      <code>$transformationPlugin-&gt;getMIMEtype()</code>
       <code>$unsortedSqlQuery</code>
       <code>$urlParams['where_clause']</code>
       <code>$whereClause</code>
@@ -7130,7 +7122,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="115">
+    <MixedArrayAccess occurrences="112">
       <code>$GLOBALS['cfg']['BrowseMIME']</code>
       <code>$GLOBALS['cfg']['BrowseMIME']</code>
       <code>$GLOBALS['cfg']['BrowseMarkerEnable']</code>
@@ -7242,9 +7234,6 @@
       <code>$rel['foreign_field']</code>
       <code>$rel['foreign_table']</code>
       <code>$rel['foreign_table']</code>
-      <code>$this-&gt;transformationInfo[$dbLower][$orgTable]</code>
-      <code>$this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][0]</code>
-      <code>$this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="36">
@@ -7320,7 +7309,7 @@
       <code>$row[$i]</code>
       <code>$row[$m]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="71">
+    <MixedAssignment occurrences="69">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -7376,8 +7365,6 @@
       <code>$query['repeat_cells']</code>
       <code>$rel</code>
       <code>$relationalDisplay</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$rowCount</code>
       <code>$rowInfo[mb_strtolower($fieldsMeta[$m]-&gt;orgname)]</code>
       <code>$sessionMaxRows</code>
@@ -7396,13 +7383,11 @@
     <MixedInferredReturnType occurrences="1">
       <code>string|null</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="5">
-      <code>applyTransformation</code>
-      <code>getMIMESubtype</code>
-      <code>getMIMEtype</code>
-      <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1](null)</code>
+    <MixedMethodCall occurrences="2">
+      <code>new $className()</code>
+      <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="37">
+    <MixedOperand occurrences="36">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -7426,7 +7411,6 @@
       <code>$singleSortOrder</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortOrder</code>
-      <code>$this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][0]</code>
       <code>$val</code>
       <code>Util::backquote($currentName)</code>
       <code>Util::backquote($map[$meta-&gt;name][0])</code>
@@ -7491,15 +7475,13 @@
     <RedundantCondition occurrences="1">
       <code>$bIsProcessList</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="12">
-      <code>$defaultFunction !== $transformationPlugin</code>
+    <RedundantConditionGivenDocblockType occurrences="8">
       <code>$firstStatement-&gt;order</code>
       <code>$meta-&gt;decimals</code>
       <code>$meta-&gt;decimals</code>
       <code>$posNext !== null</code>
       <code>$sortedColumnMessage !== null</code>
       <code>($displayParts['nav_bar'] == '1') &amp;&amp; $posNext !== null</code>
-      <code>is_object($transformationPlugin)</code>
       <code>isset($fieldsMeta-&gt;table)</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
@@ -7519,9 +7501,8 @@
     <UnusedParam occurrences="1">
       <code>$columnIndex</code>
     </UnusedParam>
-    <UnusedVariable occurrences="2">
+    <UnusedVariable occurrences="1">
       <code>$key</code>
-      <code>$relDb</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Encoding.php">
@@ -20300,9 +20281,7 @@
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="10">
-      <code>array</code>
-      <code>array</code>
+    <MixedInferredReturnType occurrences="8">
       <code>array</code>
       <code>array</code>
       <code>array</code>

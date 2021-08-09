@@ -48,7 +48,6 @@ use function htmlspecialchars;
 use function implode;
 use function intval;
 use function is_array;
-use function is_object;
 use function json_encode;
 use function mb_check_encoding;
 use function mb_strlen;
@@ -57,7 +56,6 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function md5;
-use function method_exists;
 use function mt_rand;
 use function pack;
 use function preg_match;
@@ -228,7 +226,8 @@ class Results
      * One element of this array represent all relevant columns in all tables in
      * one specific database
      *
-     * @var array
+     * @var array<string, array<string, array<string, string[]>>>
+     * @psalm-var array<string, array<string, array<string, array{string, class-string, string}>>> $transformationInfo
      */
     public $transformationInfo;
 
@@ -329,8 +328,7 @@ class Results
             return;
         }
 
-        $this->transformationInfo[$cfgRelation['db']] = [];
-        $relDb = &$this->transformationInfo[$cfgRelation['db']];
+        $relDb = [];
         if (! empty($cfgRelation['history'])) {
             $relDb[$cfgRelation['history']] = ['sqlquery' => $sqlHighlightingData];
         }
@@ -370,11 +368,11 @@ class Results
             $relDb[$cfgRelation['userconfig']] = ['config_data' => $jsonHighlightingData];
         }
 
-        if (empty($cfgRelation['export_templates'])) {
-            return;
+        if (! empty($cfgRelation['export_templates'])) {
+            $relDb[$cfgRelation['export_templates']] = ['template_data' => $jsonHighlightingData];
         }
 
-        $relDb[$cfgRelation['export_templates']] = ['template_data' => $jsonHighlightingData];
+        $this->transformationInfo[$cfgRelation['db']] = $relDb;
     }
 
     /**
@@ -2287,14 +2285,11 @@ class Results
      *
      * @see buildNullDisplay(), getRowData()
      *
-     * @param string                       $class                class of table cell
-     * @param bool                         $conditionField       whether to add CSS class condition
-     * @param FieldMetadata                $meta                 the meta-information about the field
-     * @param string                       $nowrap               avoid wrapping
-     * @param bool                         $isFieldTruncated     is field truncated (display ...)
-     * @param TransformationsPlugin|string $transformationPlugin Can also be the default function:
-     *                                                           Core::mimeDefaultFunction
-     * @param callable|null                $defaultFunction      default transformation function
+     * @param string        $class            class of table cell
+     * @param bool          $conditionField   whether to add CSS class condition
+     * @param FieldMetadata $meta             the meta-information about the field
+     * @param string        $nowrap           avoid wrapping
+     * @param bool          $isFieldTruncated is field truncated (display ...)
      *
      * @return string the list of classes
      */
@@ -2304,8 +2299,7 @@ class Results
         FieldMetadata $meta,
         $nowrap,
         $isFieldTruncated = false,
-        $transformationPlugin = '',
-        $defaultFunction = null
+        bool $hasTransformationPlugin = false
     ) {
         $classes = [
             $class,
@@ -2327,10 +2321,7 @@ class Results
         $mediaTypeMap = $this->properties['mime_map'];
         $orgFullColName = $this->properties['db'] . '.' . $meta->orgtable
             . '.' . $meta->orgname;
-        if (
-            $transformationPlugin != $defaultFunction
-            || ! empty($mediaTypeMap[$orgFullColName]['input_transformation'])
-        ) {
+        if ($hasTransformationPlugin || ! empty($mediaTypeMap[$orgFullColName]['input_transformation'])) {
             $classes[] = 'transformed';
         }
 
@@ -2782,11 +2773,7 @@ class Results
                 || isset($highlightColumns[Util::backquote($meta->name)]));
 
             // Wrap MIME-transformations. [MIME]
-            $defaultFunction = [
-                Core::class,
-                'mimeDefaultFunction',
-            ]; // default_function
-            $transformationPlugin = $defaultFunction;
+            $transformationPlugin = null;
             $transformOptions = [];
 
             if (
@@ -2803,21 +2790,19 @@ class Results
                     if (@file_exists(ROOT_PATH . $includeFile)) {
                         $className = $this->transformations->getClassName($includeFile);
                         if (class_exists($className)) {
-                            // todo add $plugin_manager
-                            $pluginManager = null;
-                            $transformationPlugin = new $className(
-                                $pluginManager
-                            );
+                            $plugin = new $className();
+                            if ($plugin instanceof TransformationsPlugin) {
+                                $transformationPlugin = $plugin;
+                                $transformOptions = $this->transformations->getOptions(
+                                    $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
+                                );
 
-                            $transformOptions = $this->transformations->getOptions(
-                                $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
-                            );
-
-                            $meta->internalMediaType = str_replace(
-                                '_',
-                                '/',
-                                $mediaTypeMap[$orgFullColName]['mimetype']
-                            );
+                                $meta->internalMediaType = str_replace(
+                                    '_',
+                                    '/',
+                                    $mediaTypeMap[$orgFullColName]['mimetype']
+                                );
+                            }
                         }
                     }
                 }
@@ -2836,20 +2821,22 @@ class Results
             ) {
                 /** @psalm-suppress UnresolvableInclude */
                 include_once ROOT_PATH . $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
-                $transformationPlugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
+                $plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1]();
+                if ($plugin instanceof TransformationsPlugin) {
+                    $transformationPlugin = $plugin;
+                    $transformOptions = $this->transformations->getOptions(
+                        $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
+                    );
 
-                $transformOptions = $this->transformations->getOptions(
-                    $mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''
-                );
+                    $orgTable = mb_strtolower($meta->orgtable);
+                    $orgName = mb_strtolower($meta->orgname);
 
-                $orgTable = mb_strtolower($meta->orgtable);
-                $orgName = mb_strtolower($meta->orgname);
-
-                $meta->internalMediaType = str_replace(
-                    '_',
-                    '/',
-                    $this->transformationInfo[$dbLower][$orgTable][$orgName][2]
-                );
+                    $meta->internalMediaType = str_replace(
+                        '_',
+                        '/',
+                        $this->transformationInfo[$dbLower][$orgTable][$orgName][2]
+                    );
+                }
             }
 
             // Check for the predefined fields need to show as link in schemas
@@ -2940,7 +2927,6 @@ class Results
                     $isFieldTruncated,
                     $analyzedSqlResults,
                     $transformationPlugin,
-                    $defaultFunction,
                     $transformOptions
                 );
             } elseif ($meta->isMappedTypeGeometry) {
@@ -2958,7 +2944,6 @@ class Results
                     $urlParams,
                     $conditionField,
                     $transformationPlugin,
-                    $defaultFunction,
                     $transformOptions,
                     $analyzedSqlResults
                 );
@@ -2973,7 +2958,6 @@ class Results
                     $urlParams,
                     $conditionField,
                     $transformationPlugin,
-                    $defaultFunction,
                     $transformOptions,
                     $isFieldTruncated,
                     $analyzedSqlResults
@@ -3438,17 +3422,14 @@ class Results
      *
      * @see    getTableBody()
      *
-     * @param string|null           $column               the column's value
-     * @param string                $class                the html class for column
-     * @param bool                  $conditionField       the column should highlighted or not
-     * @param FieldMetadata         $meta                 the meta-information about this field
-     * @param array                 $map                  the list of relations
-     * @param bool                  $isFieldTruncated     the condition for blob data replacements
-     * @param array                 $analyzedSqlResults   the analyzed query
-     * @param TransformationsPlugin $transformationPlugin the name of transformation plugin
-     * @param callable              $defaultFunction      the default transformation function
-     * @param array                 $transformOptions     the transformation parameters
-     * @psalm-param callable(string):string $defaultFunction
+     * @param string|null   $column             the column's value
+     * @param string        $class              the html class for column
+     * @param bool          $conditionField     the column should highlighted or not
+     * @param FieldMetadata $meta               the meta-information about this field
+     * @param array         $map                the list of relations
+     * @param bool          $isFieldTruncated   the condition for blob data replacements
+     * @param array         $analyzedSqlResults the analyzed query
+     * @param array         $transformOptions   the transformation parameters
      *
      * @return string the prepared cell, html content
      */
@@ -3460,8 +3441,7 @@ class Results
         array $map,
         $isFieldTruncated,
         array $analyzedSqlResults,
-        $transformationPlugin,
-        $defaultFunction,
+        ?TransformationsPlugin $transformationPlugin,
         array $transformOptions
     ) {
         if (! isset($column)) {
@@ -3484,7 +3464,6 @@ class Results
                 $column,
                 $column,
                 $transformationPlugin,
-                $defaultFunction,
                 $nowrap,
                 $whereComparison,
                 $transformOptions,
@@ -3508,17 +3487,14 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string|null           $column               the relevant column in data row
-     * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about this field
-     * @param array                 $map                  the list of relations
-     * @param array                 $urlParams            the parameters for generate url
-     * @param bool                  $conditionField       the column should highlighted or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation function
-     * @param callable              $defaultFunction      the default transformation function
-     * @param array                 $transformOptions     the transformation parameters
-     * @param array                 $analyzedSqlResults   the analyzed query
-     * @psalm-param callable(string):string $defaultFunction
+     * @param string|null   $column             the relevant column in data row
+     * @param string        $class              the html class for column
+     * @param FieldMetadata $meta               the meta-information about this field
+     * @param array         $map                the list of relations
+     * @param array         $urlParams          the parameters for generate url
+     * @param bool          $conditionField     the column should highlighted or not
+     * @param array         $transformOptions   the transformation parameters
+     * @param array         $analyzedSqlResults the analyzed query
      *
      * @return string the prepared data cell, html content
      */
@@ -3529,8 +3505,7 @@ class Results
         array $map,
         array $urlParams,
         $conditionField,
-        $transformationPlugin,
-        $defaultFunction,
+        ?TransformationsPlugin $transformationPlugin,
         $transformOptions,
         array $analyzedSqlResults
     ) {
@@ -3549,7 +3524,6 @@ class Results
                 $column,
                 $transformationPlugin,
                 $transformOptions,
-                $defaultFunction,
                 $meta,
                 $urlParams
             );
@@ -3582,7 +3556,6 @@ class Results
                 $wktval,
                 $displayedColumn,
                 $transformationPlugin,
-                $defaultFunction,
                 '',
                 $whereComparison,
                 $transformOptions,
@@ -3612,7 +3585,6 @@ class Results
                 $wkbval,
                 $displayedColumn,
                 $transformationPlugin,
-                $defaultFunction,
                 '',
                 $whereComparison,
                 $transformOptions,
@@ -3626,7 +3598,6 @@ class Results
             $column,
             $transformationPlugin,
             $transformOptions,
-            $defaultFunction,
             $meta,
             $urlParams
         );
@@ -3643,18 +3614,15 @@ class Results
      *
      * @see    getTableBody()
      *
-     * @param string|null           $column               the relevant column in data row
-     * @param string                $class                the html class for column
-     * @param FieldMetadata         $meta                 the meta-information about the field
-     * @param array                 $map                  the list of relations
-     * @param array                 $urlParams            the parameters for generate url
-     * @param bool                  $conditionField       the column should highlighted or not
-     * @param TransformationsPlugin $transformationPlugin the name of transformation function
-     * @param callable              $defaultFunction      the default transformation function
-     * @param array                 $transformOptions     the transformation parameters
-     * @param bool                  $isFieldTruncated     is data truncated due to LimitChars
-     * @param array                 $analyzedSqlResults   the analyzed query
-     * @psalm-param callable(string):string $defaultFunction
+     * @param string|null   $column             the relevant column in data row
+     * @param string        $class              the html class for column
+     * @param FieldMetadata $meta               the meta-information about the field
+     * @param array         $map                the list of relations
+     * @param array         $urlParams          the parameters for generate url
+     * @param bool          $conditionField     the column should highlighted or not
+     * @param array         $transformOptions   the transformation parameters
+     * @param bool          $isFieldTruncated   is data truncated due to LimitChars
+     * @param array         $analyzedSqlResults the analyzed query
      *
      * @return string the prepared data cell, html content
      */
@@ -3665,8 +3633,7 @@ class Results
         array $map,
         array $urlParams,
         $conditionField,
-        $transformationPlugin,
-        $defaultFunction,
+        ?TransformationsPlugin $transformationPlugin,
         $transformOptions,
         $isFieldTruncated,
         array $analyzedSqlResults
@@ -3677,8 +3644,7 @@ class Results
 
         $isAnalyse = $this->properties['is_analyse'];
 
-        $bIsText = is_object($transformationPlugin)
-            && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
+        $bIsText = isset($transformationPlugin) && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
 
         // disable inline grid editing
         // if binary fields are protected
@@ -3711,7 +3677,7 @@ class Results
         $originalDataForWhereClause = $column;
         $displayedColumn = $column;
         if (
-            ! (is_object($transformationPlugin)
+            ! (isset($transformationPlugin)
             && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
@@ -3748,7 +3714,6 @@ class Results
                 $displayedColumn,
                 $transformationPlugin,
                 $transformOptions,
-                $defaultFunction,
                 $meta,
                 $urlParams,
                 $isFieldTruncated
@@ -3759,8 +3724,7 @@ class Results
                 $meta,
                 '',
                 $isFieldTruncated,
-                $transformationPlugin,
-                $defaultFunction
+                isset($transformationPlugin)
             );
             $result = strip_tags($column);
             // disable inline grid editing
@@ -3781,8 +3745,7 @@ class Results
         }
 
         // transform functions may enable no-wrapping:
-        $boolNoWrap = ($defaultFunction !== $transformationPlugin)
-            && method_exists($transformationPlugin, 'applyTransformationNoWrap')
+        $boolNoWrap = isset($transformationPlugin)
             && $transformationPlugin->applyTransformationNoWrap($transformOptions);
 
         // do not wrap if date field type or if no-wrapping enabled by transform functions
@@ -3802,7 +3765,6 @@ class Results
             $column,
             $displayedColumn,
             $transformationPlugin,
-            $defaultFunction,
             $nowrap,
             $whereComparison,
             $transformOptions,
@@ -4288,14 +4250,6 @@ class Results
         // fetch first row of the result set
         $row = $dbi->fetchRow($dtResult);
 
-        // initializing default arguments
-        $defaultFunction = [
-            Core::class,
-            'mimeDefaultFunction',
-        ];
-        $transformationPlugin = $defaultFunction;
-        $transformOptions = [];
-
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
 
@@ -4306,9 +4260,8 @@ class Results
             $columnForFirstRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
-                $transformationPlugin,
-                $transformOptions,
-                $defaultFunction,
+                null,
+                [],
                 $meta
             );
         } else {
@@ -4336,9 +4289,8 @@ class Results
             $columnForLastRow = $this->handleNonPrintableContents(
                 $meta->getMappedType(),
                 $row[$sortedColumnIndex],
-                $transformationPlugin,
-                $transformOptions,
-                $defaultFunction,
+                null,
+                [],
                 $meta
             );
         } else {
@@ -4700,18 +4652,12 @@ class Results
      *
      * @see getDataCellForGeometryColumns(), getDataCellForNonNumericColumns(), getSortedColumnMessage()
      *
-     * @param string        $category             BLOB|BINARY|GEOMETRY
-     * @param string|null   $content              the binary content
-     * @param mixed         $transformationPlugin transformation plugin.
-     *                                             Can also be the
-     *                                             default function:
-     *                                             Core::mimeDefaultFunction
-     * @param array         $transformOptions     transformation parameters
-     * @param callable      $defaultFunction      default transformation function
-     * @param FieldMetadata $meta                 the meta-information about the field
-     * @param array         $urlParams            parameters that should go to the
-     *                                             download link
-     * @param bool          $isTruncated          the result is truncated or not
+     * @param string        $category         BLOB|BINARY|GEOMETRY
+     * @param string|null   $content          the binary content
+     * @param array         $transformOptions transformation parameters
+     * @param FieldMetadata $meta             the meta-information about the field
+     * @param array         $urlParams        parameters that should go to the download link
+     * @param bool          $isTruncated      the result is truncated or not
      *
      * @return mixed  string or float
      *
@@ -4720,9 +4666,8 @@ class Results
     private function handleNonPrintableContents(
         $category,
         ?string $content,
-        $transformationPlugin,
+        ?TransformationsPlugin $transformationPlugin,
         $transformOptions,
-        $defaultFunction,
         FieldMetadata $meta,
         array $urlParams = [],
         &$isTruncated = null
@@ -4745,7 +4690,7 @@ class Results
         $result .= ']';
 
         // if we want to use a text transformation on a BLOB column
-        if (is_object($transformationPlugin)) {
+        if (isset($transformationPlugin)) {
             $posMimeOctetstream = strpos(
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
@@ -4765,17 +4710,15 @@ class Results
             return $result;
         }
 
-        if ($defaultFunction != $transformationPlugin) {
-            $result = $transformationPlugin->applyTransformation(
+        if (isset($transformationPlugin)) {
+            return $transformationPlugin->applyTransformation(
                 $result,
                 $transformOptions,
                 $meta
             );
-
-            return $result;
         }
 
-        $result = $defaultFunction($result, [], $meta);
+        $result = Core::mimeDefaultFunction($result);
         if (
             ($_SESSION['tmpval']['display_binary']
             && $meta->isType(FieldMetadata::TYPE_STRING))
@@ -4865,22 +4808,18 @@ class Results
      * @see     getDataCellForNumericColumns(), getDataCellForGeometryColumns(),
      *          getDataCellForNonNumericColumns(),
      *
-     * @param string                $class                css classes for the td element
-     * @param bool                  $conditionField       whether the column is a part of the where clause
-     * @param array                 $analyzedSqlResults   the analyzed query
-     * @param FieldMetadata         $meta                 the meta-information about the field
-     * @param array                 $map                  the list of relations
-     * @param string                $data                 data
-     * @param string                $displayedData        data that will be displayed (maybe be chunked)
-     * @param TransformationsPlugin $transformationPlugin transformation plugin. Can also be the default function:
-     *                                                    Core::mimeDefaultFunction
-     * @param callable              $defaultFunction      default function
-     * @param string                $nowrap               'nowrap' if the content should not be wrapped
-     * @param string                $whereComparison      data for the where clause
-     * @param array                 $transformOptions     options for transformation
-     * @param bool                  $isFieldTruncated     whether the field is truncated
-     * @param string                $originalLength       of a truncated column, or ''
-     * @psalm-param callable(string):string $defaultFunction
+     * @param string        $class              css classes for the td element
+     * @param bool          $conditionField     whether the column is a part of the where clause
+     * @param array         $analyzedSqlResults the analyzed query
+     * @param FieldMetadata $meta               the meta-information about the field
+     * @param array         $map                the list of relations
+     * @param string        $data               data
+     * @param string        $displayedData      data that will be displayed (maybe be chunked)
+     * @param string        $nowrap             'nowrap' if the content should not be wrapped
+     * @param string        $whereComparison    data for the where clause
+     * @param array         $transformOptions   options for transformation
+     * @param bool          $isFieldTruncated   whether the field is truncated
+     * @param string        $originalLength     of a truncated column, or ''
      *
      * @return string  formatted data
      *
@@ -4894,8 +4833,7 @@ class Results
         array $map,
         $data,
         $displayedData,
-        $transformationPlugin,
-        $defaultFunction,
+        ?TransformationsPlugin $transformationPlugin,
         $nowrap,
         $whereComparison,
         array $transformOptions,
@@ -4911,8 +4849,7 @@ class Results
             $meta,
             $nowrap,
             $isFieldTruncated,
-            $transformationPlugin,
-            $defaultFunction
+            isset($transformationPlugin)
         );
 
         if (! empty($analyzedSqlResults['statement']->expr)) {
@@ -4945,15 +4882,17 @@ class Results
             }
 
             if (isset($printView) && ($printView == '1')) {
-                $value .= ($transformationPlugin != $defaultFunction
-                    ? $transformationPlugin->applyTransformation(
+                if (isset($transformationPlugin)) {
+                    $value .= $transformationPlugin->applyTransformation(
                         $data,
                         $transformOptions,
                         $meta
-                    )
-                    : $defaultFunction($data)
-                )
-                . ' <code>[-&gt;' . $dispval . ']</code>';
+                    );
+                } else {
+                    $value .= Core::mimeDefaultFunction($data);
+                }
+
+                $value .= ' <code>[-&gt;' . $dispval . ']</code>';
             } else {
                 if ($relationalDisplay === self::RELATIONAL_KEY) {
                     // user chose "relational key" in the display options, so
@@ -4980,7 +4919,7 @@ class Results
                     'sql_query' => $sqlQuery,
                 ];
 
-                if ($transformationPlugin != $defaultFunction) {
+                if (isset($transformationPlugin)) {
                     // always apply a transformation on the real data,
                     // not on the display field
                     $displayedData = $transformationPlugin->applyTransformation(
@@ -4995,10 +4934,10 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $displayedData = $dispval === null ? '<em>NULL</em>' : $defaultFunction($dispval);
+                        $displayedData = $dispval === null ? '<em>NULL</em>' : Core::mimeDefaultFunction($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $displayedData = $defaultFunction($displayedData);
+                        $displayedData = Core::mimeDefaultFunction($displayedData);
                     }
                 }
 
@@ -5013,15 +4952,10 @@ class Results
                     $tagParams
                 );
             }
+        } elseif (isset($transformationPlugin)) {
+            $value .= $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
         } else {
-            $value .= ($transformationPlugin != $defaultFunction
-                ? $transformationPlugin->applyTransformation(
-                    $data,
-                    $transformOptions,
-                    $meta
-                )
-                : $defaultFunction($data)
-            );
+            $value .= Core::mimeDefaultFunction($data);
         }
 
         return $this->template->render('display/results/row_data', [

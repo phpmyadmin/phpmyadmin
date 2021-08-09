@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
@@ -13,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
@@ -628,9 +628,19 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for testHandleNonPrintableContents
-     *
-     * @return array parameters and output
+     * @return mixed[][]
+     * @psalm-return array{array{
+     *   bool,
+     *   bool,
+     *   string,
+     *   string|null,
+     *   TransformationsPlugin|null,
+     *   array|object,
+     *   object,
+     *   array,
+     *   bool|null,
+     *   string
+     * }}
      */
     public function dataProviderForTestHandleNonPrintableContents(): array
     {
@@ -648,15 +658,8 @@ class ResultsTest extends AbstractTestCase
                 true,
                 'BLOB',
                 '1001',
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 [],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 $meta,
                 $url_params,
                 null,
@@ -667,15 +670,8 @@ class ResultsTest extends AbstractTestCase
                 true,
                 'BLOB',
                 hex2bin('123456'),
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 [],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 $meta,
                 $url_params,
                 null,
@@ -686,15 +682,8 @@ class ResultsTest extends AbstractTestCase
                 false,
                 'BLOB',
                 '1001',
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 [],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 $meta,
                 $url_params,
                 null,
@@ -707,10 +696,6 @@ class ResultsTest extends AbstractTestCase
                 '1001',
                 $transformation_plugin,
                 [],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 $meta,
                 $url_params,
                 null,
@@ -721,12 +706,8 @@ class ResultsTest extends AbstractTestCase
                 true,
                 'GEOMETRY',
                 null,
-                '',
+                null,
                 [],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 $meta,
                 $url_params,
                 null,
@@ -736,22 +717,15 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test handleNonPrintableContents
-     *
-     * @param bool         $display_binary        show binary contents?
-     * @param bool         $display_blob          show blob contents?
-     * @param string       $category              BLOB|BINARY|GEOMETRY
-     * @param string       $content               the binary content
-     * @param array|object $transformation_plugin transformation plugin.
-     *                                            Can also be the default function:
-     *                                             PhpMyAdmin\Core::mimeDefaultFunction
-     * @param array|object $transform_options     transformation parameters
-     * @param array        $default_function      default transformation function
-     * @param object       $meta                  the meta-information about the field
-     * @param array        $url_params            parameters that should go to the
-     *                                            download link
-     * @param bool|null    $is_truncated          the result is truncated or not
-     * @param string       $output                the output of this function
+     * @param bool         $display_binary    show binary contents?
+     * @param bool         $display_blob      show blob contents?
+     * @param string       $category          BLOB|BINARY|GEOMETRY
+     * @param string|null  $content           the binary content
+     * @param array|object $transform_options transformation parameters
+     * @param object       $meta              the meta-information about the field
+     * @param array        $url_params        parameters that should go to the download link
+     * @param bool|null    $is_truncated      the result is truncated or not
+     * @param string       $output            the output of this function
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
@@ -760,10 +734,9 @@ class ResultsTest extends AbstractTestCase
         bool $display_blob,
         string $category,
         ?string $content,
-        $transformation_plugin,
+        ?TransformationsPlugin $transformation_plugin,
         $transform_options,
-        array $default_function,
-        $meta,
+        object $meta,
         array $url_params,
         ?bool $is_truncated,
         string $output
@@ -782,7 +755,6 @@ class ResultsTest extends AbstractTestCase
                     $content,
                     $transformation_plugin,
                     $transform_options,
-                    $default_function,
                     $meta,
                     $url_params,
                     &$is_truncated,
@@ -792,9 +764,23 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for testGetDataCellForNonNumericColumns
-     *
-     * @return array parameters and output
+     * @return mixed[][]
+     * @psalm-return array{array{
+     *   string,
+     *   string|null,
+     *   string,
+     *   object,
+     *   array,
+     *   array,
+     *   bool,
+     *   TransformationsPlugin|null,
+     *   array,
+     *   bool,
+     *   array,
+     *   int,
+     *   int|string,
+     *   string
+     * }}
      */
     public function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
@@ -841,14 +827,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $url_params,
                 false,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 ['https://www.example.com/'],
                 false,
                 [],
@@ -866,10 +845,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 [],
                 false,
                 [],
@@ -888,10 +863,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 [],
                 false,
                 [],
@@ -912,14 +883,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $url_params,
                 false,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 [],
                 false,
                 [],
@@ -938,10 +902,6 @@ class ResultsTest extends AbstractTestCase
                 $url_params,
                 false,
                 $transformation_plugin_external,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
                 [],
                 false,
                 [],
@@ -959,14 +919,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 $url_params,
                 false,
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
-                [
-                    Core::class,
-                    'mimeDefaultFunction',
-                ],
+                null,
                 [],
                 false,
                 [],
@@ -980,25 +933,19 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test getDataCellForNonNumericColumns
-     *
-     * @param string       $protectBinary         all|blob|noblob|no
-     * @param string|null  $column                the relevant column in data row
-     * @param string       $class                 the html class for column
-     * @param object       $meta                  the meta-information about the field
-     * @param array        $map                   the list of relations
-     * @param array        $_url_params           the parameters for generate url
-     * @param bool         $condition_field       the column should highlighted
-     *                                            or not
-     * @param array|object $transformation_plugin the name of transformation function
-     * @param array|object $default_function      the default transformation function
-     * @param array        $transform_options     the transformation parameters
-     * @param bool         $is_field_truncated    is data truncated due to LimitChars
-     * @param array        $analyzed_sql_results  the analyzed query
-     * @param int          $dt_result             the link id associated to the query
-     *                                            which results have to be displayed
-     * @param int|string   $col_index             the column index
-     * @param string       $output                the output of this function
+     * @param string      $protectBinary        all|blob|noblob|no
+     * @param string|null $column               the relevant column in data row
+     * @param string      $class                the html class for column
+     * @param object      $meta                 the meta-information about the field
+     * @param array       $map                  the list of relations
+     * @param array       $_url_params          the parameters for generate url
+     * @param bool        $condition_field      the column should highlighted or not
+     * @param array       $transform_options    the transformation parameters
+     * @param bool        $is_field_truncated   is data truncated due to LimitChars
+     * @param array       $analyzed_sql_results the analyzed query
+     * @param int         $dt_result            the link id associated to the query which results have to be displayed
+     * @param int|string  $col_index            the column index
+     * @param string      $output               the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
@@ -1006,12 +953,11 @@ class ResultsTest extends AbstractTestCase
         string $protectBinary,
         ?string $column,
         string $class,
-        $meta,
+        object $meta,
         array $map,
         array $_url_params,
         bool $condition_field,
-        $transformation_plugin,
-        $default_function,
+        ?TransformationsPlugin $transformation_plugin,
         array $transform_options,
         bool $is_field_truncated,
         array $analyzed_sql_results,
@@ -1038,7 +984,6 @@ class ResultsTest extends AbstractTestCase
                     $_url_params,
                     $condition_field,
                     $transformation_plugin,
-                    $default_function,
                     $transform_options,
                     $is_field_truncated,
                     $analyzed_sql_results,

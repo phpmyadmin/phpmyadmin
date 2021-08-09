@@ -271,16 +271,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:getMIMESubtype\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getMIMEtype\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
