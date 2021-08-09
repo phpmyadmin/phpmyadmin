@@ -37,7 +37,7 @@
         <td><label for="partition_count">{% trans 'Partitions:' %}</label></td>
         <td colspan="2">
             <input name="partition_count" type="number" min="2"
-                value="{{ partition_details['partition_count'] }}">
+                value="{{ partition_details['partition_count'] ?: '' }}">
         </td>
     </tr>
     {% if partition_details['can_have_subpartitions'] %}
@@ -65,7 +65,7 @@
             <td><label for="subpartition_count">{% trans 'Subpartitions:' %}</label></td>
             <td colspan="2">
                 <input name="subpartition_count" type="number" min="2"
-                       value="{{ partition_details['subpartition_count'] }}">
+                    value="{{ partition_details['subpartition_count'] ?: '' }}">
             </td>
         </tr>
     {% endif %}
