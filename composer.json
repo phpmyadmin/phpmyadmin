@@ -89,7 +89,6 @@
     },
     "require-dev": {
         "bacon/bacon-qr-code": "^2.0",
-        "mockery/mockery": "^1.3",
         "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
