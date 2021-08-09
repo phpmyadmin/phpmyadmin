@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 - issue #17019 Fixed "Browse" button visible when creating a table from the database structure view
 - issue #16804 Fixed numbers where left-aligned rather than right-aligned
 - issue        Fixed Metro theme text color for buttons in the browse table navigation bar
+- issue #14796 Fix export Database page, UI prevents from exporting procedures only
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
