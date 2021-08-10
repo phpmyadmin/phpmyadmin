@@ -18,6 +18,7 @@ use function explode;
 use function hexdec;
 use function json_encode;
 use function mb_substr;
+use function round;
 use function str_contains;
 use function trim;
 
@@ -152,7 +153,13 @@ class GisMultiPolygon extends GisGeometry
 
         // print label if applicable
         if (isset($label_point)) {
-            $image->string(1, $points_arr[2], $points_arr[3], trim((string) $label), $black);
+            $image->string(
+                1,
+                (int) round($label_point[0]),
+                (int) round($label_point[1]),
+                trim((string) $label),
+                $black
+            );
         }
 
         return $image;
@@ -321,8 +328,8 @@ class GisMultiPolygon extends GisGeometry
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

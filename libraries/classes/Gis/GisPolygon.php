@@ -21,6 +21,7 @@ use function max;
 use function mb_substr;
 use function min;
 use function pow;
+use function round;
 use function sqrt;
 use function str_contains;
 use function trim;
@@ -132,7 +133,13 @@ class GisPolygon extends GisGeometry
         $image->filledPolygon($points_arr, count($points_arr) / 2, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
-            $image->string(1, $points_arr[2], $points_arr[3], trim($label), $black);
+            $image->string(
+                1,
+                (int) round($points_arr[2]),
+                (int) round($points_arr[3]),
+                trim($label),
+                $black
+            );
         }
 
         return $image;
@@ -279,8 +286,8 @@ class GisPolygon extends GisGeometry
         $row =  'var style = new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
