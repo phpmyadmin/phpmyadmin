@@ -138,11 +138,7 @@
       <code>$indexByDescription</code>
       <code>$pos / $this-&gt;maxRows</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$cfg['LimitChars']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['RepeatCells']</code>
-      <code>$cfg['ShowAll']</code>
+    <MixedArrayAccess occurrences="2">
       <code>$relrow[$foreignData['foreign_display']]</code>
       <code>$relrow[$foreignData['foreign_field']]</code>
     </MixedArrayAccess>
@@ -166,6 +162,12 @@
       <code>$pos</code>
       <code>$pos</code>
     </MixedOperand>
+    <RedundantCast occurrences="4">
+      <code>(bool) $cfg['ShowAll']</code>
+      <code>(int) $cfg['LimitChars']</code>
+      <code>(int) $cfg['MaxRows']</code>
+      <code>(int) $cfg['RepeatCells']</code>
+    </RedundantCast>
     <UnusedForeachValue occurrences="1">
       <code>$value</code>
     </UnusedForeachValue>
@@ -350,9 +352,6 @@
       <code>$file-&gt;getPathname()</code>
       <code>$file-&gt;getPathname()</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['environment']</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$file</code>
     </MixedAssignment>
@@ -443,10 +442,9 @@
       <code>$urlParams</code>
       <code>$urlParams</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="3">
       <code>$cfg['MysqlMinVersion']['human']</code>
       <code>$cfg['MysqlMinVersion']['internal']</code>
-      <code>$cfg['Server']</code>
       <code>$cfg['Server']['user']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="3">
@@ -471,7 +469,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Config.php">
-    <MixedArgument occurrences="22">
+    <MixedArgument occurrences="21">
       <code>$GLOBALS['PMA_PHP_SELF']</code>
       <code>$GLOBALS['cfg']</code>
       <code>$GLOBALS['cfg']</code>
@@ -483,7 +481,6 @@
       <code>$default_value</code>
       <code>$each_server</code>
       <code>$gd_nfo['GD Version']</code>
-      <code>$key</code>
       <code>$path</code>
       <code>$prefs['config_data']</code>
       <code>$request</code>
@@ -495,51 +492,31 @@
       <code>$url</code>
       <code>$url</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="25">
+    <MixedArrayAccess occurrences="11">
       <code>$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
-      <code>$cfg['CookieSameSite']</code>
-      <code>$cfg['CookieSameSite']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
       <code>$cfg['Servers'][1]</code>
       <code>$config_data['lang']</code>
       <code>$server['host']</code>
-      <code>$server['port']</code>
       <code>$server['verbose']</code>
       <code>$server['verbose']</code>
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$server]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="11">
+    <MixedArrayAssignment occurrences="5">
       <code>$_SESSION['cache'][$cache_key]</code>
       <code>$_SESSION['cache'][$cache_key]</code>
       <code>$_SESSION['cache'][$cache_key]</code>
       <code>$_SESSION['cache'][$cache_key]</code>
-      <code>$cfg['LoginCookieValidity']</code>
-      <code>$server['compress']</code>
-      <code>$server['host']</code>
-      <code>$server['port']</code>
-      <code>$server['socket']</code>
-      <code>$server['ssl']</code>
       <code>$temp_dir[$name]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="2">
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="37">
+    <MixedAssignment occurrences="30">
       <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
       <code>$cfg['LoginCookieValidity']</code>
@@ -551,9 +528,6 @@
       <code>$eval_result</code>
       <code>$eval_result</code>
       <code>$i</code>
-      <code>$key</code>
-      <code>$password</code>
-      <code>$password</code>
       <code>$password</code>
       <code>$path</code>
       <code>$prefs_type</code>
@@ -563,17 +537,13 @@
       <code>$server</code>
       <code>$server</code>
       <code>$server</code>
-      <code>$server</code>
       <code>$server[$item]</code>
-      <code>$server['host']</code>
       <code>$server['host']</code>
       <code>$server['port']</code>
       <code>$server[substr($key, 8)]</code>
       <code>$this-&gt;defaultServer</code>
       <code>$url</code>
       <code>$url</code>
-      <code>$user</code>
-      <code>$user</code>
       <code>$user</code>
       <code>$val</code>
       <code>$value</code>
@@ -583,8 +553,7 @@
       <code>bool</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="2">
-      <code>$cfg['CookieSameSite']</code>
+    <MixedOperand occurrences="1">
       <code>$server</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="3">
@@ -697,8 +666,7 @@
       <code>$verbose</code>
       <code>empty($host) ? 'localhost' : $host</code>
     </MixedReturnStatement>
-    <PossiblyNullArgument occurrences="2">
-      <code>$cfg</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;baseCfg</code>
     </PossiblyNullArgument>
     <PropertyNotSetInConstructor occurrences="1">
@@ -1052,14 +1020,6 @@
       <code>$textareaRows</code>
     </PropertyTypeCoercion>
   </file>
-  <file src="libraries/classes/Config/SpecialSchemaLinks.php">
-    <MixedArgument occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
-  </file>
   <file src="libraries/classes/Config/Validator.php">
     <MixedArgument occurrences="18">
       <code>$GLOBALS['config']-&gt;baseSettings</code>
@@ -1246,14 +1206,14 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$variables</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['MaxRows']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="3">
       <code>$columnDefault</code>
       <code>$columnDefault</code>
       <code>$message</code>
     </MixedAssignment>
+    <RedundantCast occurrences="1">
+      <code>(int) $cfg['MaxRows']</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
     <MixedArgument occurrences="5">
@@ -1292,7 +1252,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/DesignerController.php">
-    <MixedArgument occurrences="46">
+    <MixedArgument occurrences="45">
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
@@ -1327,7 +1287,6 @@
       <code>$_POST['table']</code>
       <code>$_POST['table']</code>
       <code>$_POST['value']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$display_page</code>
@@ -1343,8 +1302,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArrayAccess occurrences="4">
       <code>$position['dbName']</code>
       <code>$position['dbName']</code>
       <code>$position['tableName']</code>
@@ -1375,8 +1333,7 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedArgument occurrences="5">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArgument occurrences="4">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1385,13 +1342,9 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabDatabase']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
-    <MixedArgument occurrences="12">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArgument occurrences="11">
       <code>$db</code>
       <code>$db</code>
       <code>$each_table['Name']</code>
@@ -1407,8 +1360,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="6">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArrayAccess occurrences="5">
       <code>$each_table['Name']</code>
       <code>$each_table['Name']</code>
       <code>$each_table['Name']</code>
@@ -1431,23 +1383,16 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
-    <MixedArgument occurrences="4">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['Server']['DisableIS']</code>
+    <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$sub_part ?? ''</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['Import']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['UploadDir']</code>
-      <code>$cfg['UploadDir']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$_SESSION[$SESSION_KEY]</code>
@@ -1478,7 +1423,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="19">
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$_POST['comment']</code>
@@ -1489,8 +1434,6 @@
       <code>$_POST['newname']</code>
       <code>$_POST['newname']</code>
       <code>$_POST['newname']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1505,13 +1448,9 @@
       <code>['db' =&gt; $db]</code>
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="6">
+    <MixedArrayAccess occurrences="2">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['PmaNoRelation_DisableWarning']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
@@ -1549,23 +1488,18 @@
     </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Database/PrivilegesController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArgument occurrences="1">
       <code>$params['checkprivsdb']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabDatabase']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Database/QueryByExampleController.php">
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="13">
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$_POST['db']</code>
       <code>$_POST['searchId']</code>
       <code>$_POST['searchName']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1577,11 +1511,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="3">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
@@ -1594,9 +1527,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
-    <MixedArgument occurrences="10">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArgument occurrences="8">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1610,18 +1541,13 @@
       <code>$urlParams</code>
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="2">
       <code>$item</code>
       <code>$type</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SearchController.php">
-    <MixedArgument occurrences="4">
-      <code>$cfg['DefaultTabDatabase']</code>
+    <MixedArgument occurrences="3">
       <code>$db</code>
       <code>$db</code>
       <code>$sub_part ?? ''</code>
@@ -1629,10 +1555,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['UseDbSearch']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
@@ -1642,26 +1564,19 @@
       <code>$db</code>
       <code>$tableName</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['EnableAutocompleteForTablesAndColumns']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="2">
       <code>$db</code>
       <code>$tableName</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlController.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$_POST['delimiter']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$db</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabDatabase']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
     <MixedArgument occurrences="1">
@@ -1679,18 +1594,13 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="97">
+    <MixedArgument occurrences="92">
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$_POST['db']</code>
       <code>$_POST['master_connection'] ?? null</code>
       <code>$_POST['what']</code>
       <code>$_REQUEST['pos']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['MaxTableList']</code>
-      <code>$cfg['Server']['user']</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -1782,7 +1692,7 @@
       <code>['db' =&gt; $db]</code>
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="78">
+    <MixedArrayAccess occurrences="71">
       <code>$GLOBALS['cfg']['DisableMultiTableMaintenance']</code>
       <code>$GLOBALS['cfg']['LimitChars']</code>
       <code>$GLOBALS['cfg']['MaxExactCount']</code>
@@ -1826,13 +1736,6 @@
       <code>$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]</code>
       <code>$_SESSION['tmpval']['table_limit_offset']</code>
       <code>$_SESSION['tmpval']['table_limit_offset_db']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['MaxTableList']</code>
-      <code>$cfg['MaxTableList']</code>
-      <code>$cfg['NumFavoriteTables']</code>
-      <code>$cfg['Server']</code>
       <code>$currentTable['Check_time']</code>
       <code>$currentTable['Collation']</code>
       <code>$currentTable['Create_time']</code>
@@ -1959,10 +1862,9 @@
       <code>getList</code>
       <code>offsetUnset</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="22">
+    <MixedOperand occurrences="21">
       <code>$GLOBALS['cfg']['PropertiesNumColumns']</code>
       <code>$_POST['add_prefix']</code>
-      <code>$cfg['MaxTableList']</code>
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
@@ -2009,11 +1911,10 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="14">
       <code>$_POST['selected']</code>
       <code>$_POST['table']</code>
       <code>$_POST['version']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
       <code>$db</code>
@@ -2029,9 +1930,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['Server']</code>
+    <MixedArrayAccess occurrences="6">
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
@@ -2061,9 +1960,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
-    <MixedArgument occurrences="6">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArgument occurrences="4">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -2073,10 +1970,6 @@
       <code>$urlParams</code>
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/DatabaseController.php">
     <MixedPropertyFetch occurrences="1">
@@ -2087,9 +1980,7 @@
     <MixedArgument occurrences="1">
       <code>$_POST['exception_type']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$cfg['SendErrorReports']</code>
-      <code>$cfg['SendErrorReports']</code>
+    <MixedArrayAccess occurrences="1">
       <code>$decoded_response['success']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="3">
@@ -2173,11 +2064,10 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="3">
       <code>$GLOBALS['cfg']['CompressOnFly']</code>
       <code>$GLOBALS['cfg']['GZipDump']</code>
       <code>$GLOBALS['cfg']['ZipDump']</code>
-      <code>$cfg['MemoryLimit']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
@@ -2198,18 +2088,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$file_handle</code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="libraries/classes/Controllers/ExportTemplateController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <MixedArgument occurrences="9">
@@ -2244,15 +2122,8 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="7">
       <code>$_POST['collation_connection']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['blowfish_secret']</code>
       <code>$commit['author']['date']</code>
       <code>$commit['committer']['date']</code>
       <code>$message</code>
@@ -2263,35 +2134,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$commit</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="30">
-      <code>$cfg['DBG']</code>
-      <code>$cfg['LoginCookieStore']</code>
-      <code>$cfg['LoginCookieValidity']</code>
-      <code>$cfg['LoginCookieValidity']</code>
-      <code>$cfg['LoginCookieValidityDisableWarning']</code>
-      <code>$cfg['NavigationDisplayServers']</code>
-      <code>$cfg['PmaNoRelation_DisableWarning']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']['controlpass']</code>
-      <code>$cfg['Server']['controluser']</code>
-      <code>$cfg['ServerDefault']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['ShowChgPassword']</code>
-      <code>$cfg['ShowPhpInfo']</code>
-      <code>$cfg['ShowServerInfo']</code>
-      <code>$cfg['ShowServerInfo']</code>
-      <code>$cfg['ShowServerInfo']</code>
-      <code>$cfg['SuhosinDisableWarning']</code>
-      <code>$cfg['ThemeManager']</code>
-      <code>$cfg['TranslationWarningThreshold']</code>
-      <code>$cfg['VersionCheck']</code>
-      <code>$cfg['ZeroConf']</code>
+    <MixedArrayAccess occurrences="2">
       <code>$commit['author']['date']</code>
       <code>$commit['committer']['date']</code>
     </MixedArrayAccess>
@@ -2307,9 +2150,6 @@
       <code>$db</code>
       <code>$webServer['software']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$cfg['Server']['verbose']</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
@@ -2321,7 +2161,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="50">
+    <MixedArgument occurrences="42">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
@@ -2332,15 +2172,7 @@
       <code>$analyzed_sql_results</code>
       <code>$cfgBookmark['user']</code>
       <code>$cfgBookmark['user']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
       <code>$cfg['MemoryLimit']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
-      <code>$cfg['Server']['user']</code>
       <code>$collation_connection</code>
       <code>$db</code>
       <code>$db</code>
@@ -2377,7 +2209,7 @@
       <code>$parameter</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="10">
       <code>$_FILES['import_file']['name']</code>
       <code>$_FILES['import_file']['name']</code>
       <code>$_FILES['import_file']['tmp_name']</code>
@@ -2386,17 +2218,6 @@
       <code>$analyzed_sql_results['offset']</code>
       <code>$analyzed_sql_results['reload']</code>
       <code>$analyzed_sql_results['reload']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['MaxCharactersInDisplayedSQL']</code>
-      <code>$cfg['MemoryLimit']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['UploadDir']</code>
       <code>$die['error']</code>
       <code>$die['sql']</code>
     </MixedArrayAccess>
@@ -2488,12 +2309,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/JavaScriptMessagesController.php">
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['GridEditing']</code>
-      <code>$cfg['GridEditing']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/LintController.php">
     <MixedAssignment occurrences="1">
@@ -2587,19 +2402,10 @@
       <code>$table</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/PhpInfoController.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['ShowPhpInfo']</code>
-    </MixedArrayAccess>
-  </file>
   <file src="libraries/classes/Controllers/Preferences/ExportController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2608,13 +2414,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/FeaturesController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2623,13 +2425,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/ImportController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2638,13 +2436,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/MainPanelController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2692,13 +2486,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/NavigationController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2707,13 +2497,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/SqlController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedArgument occurrences="1">
       <code>$tabHash</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$tabHash</code>
     </MixedAssignment>
@@ -2722,13 +2508,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Preferences/TwoFactorController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$_POST['2fa_configure']</code>
-      <code>$cfg['Server']['user']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/SchemaExportController.php">
     <MixedArgument occurrences="1">
@@ -2745,34 +2527,15 @@
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="4">
-      <code>$nextParams['pos']</code>
-      <code>$previousParams['pos']</code>
+    <MixedAssignment occurrences="2">
       <code>$result</code>
       <code>$urlParams['log']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['MaxRows']</code>
-    </MixedOperand>
+    <RedundantCast occurrences="1">
+      <code>(int) $cfg['MaxRows']</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Server/CollationsController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$this-&gt;collations[$charset-&gt;getName()]</code>
     </PossiblyNullArrayAccess>
@@ -2782,15 +2545,8 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
-    <MixedArgument occurrences="30">
+    <MixedArgument occurrences="23">
       <code>$_POST['master_connection'] ?? null</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
       <code>$collations[$databaseCharset]</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
@@ -2818,20 +2574,7 @@
       <code>['db' =&gt; $database['SCHEMA_NAME']]</code>
       <code>['db' =&gt; $params['new_db']]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="29">
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['MaxDbList']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['ShowCreateDb']</code>
-      <code>$cfg['ShowCreateDb']</code>
+    <MixedArrayAccess occurrences="16">
       <code>$database[$key]</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
@@ -2923,16 +2666,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
-    <MixedArgument occurrences="1">
-      <code>$cfg['Server']['DisableIS']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="6">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
-      <code>$cfg['Import']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['UploadDir']</code>
-      <code>$cfg['UploadDir']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$_SESSION[$SESSION_KEY]</code>
@@ -3290,15 +3026,11 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/SqlController.php">
-    <MixedArgument occurrences="45">
+    <MixedArgument occurrences="41">
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
       <code>$_POST['bkm_fields']</code>
       <code>$analyzed_sql_results</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['Server']['user']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -3340,15 +3072,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $GLOBALS['db']]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="4">
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$ajax_reload['reload']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="16">
       <code>$column</code>
@@ -3445,11 +3173,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$cfg['ShowFieldTypesInDataEditView']</code>
-      <code>$cfg['ShowFieldTypesInDataEditView']</code>
-      <code>$cfg['ShowFunctionFields']</code>
-      <code>$cfg['ShowFunctionFields']</code>
+    <MixedArrayAccess occurrences="1">
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="4">
@@ -3493,15 +3217,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>empty($statement-&gt;limit)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="21">
+    <MixedArgument occurrences="15">
       <code>$_REQUEST['pos']</code>
       <code>$_REQUEST['session_max_rows']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabServer']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$data_value</code>
       <code>$db</code>
       <code>$db</code>
@@ -3520,14 +3238,6 @@
       <code>$data_column</code>
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="6">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabServer']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="6">
       <code>$data_value</code>
       <code>$result</code>
@@ -3571,9 +3281,8 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteController.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="11">
       <code>$_REQUEST['pos']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -3588,9 +3297,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_url_params['goto']</code>
     </MixedArrayAssignment>
@@ -3603,12 +3309,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/DropColumnConfirmationController.php">
-    <MixedArgument occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$selected</code>
     </MixedAssignment>
@@ -3635,8 +3335,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/ExportController.php">
-    <MixedArgument occurrences="8">
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArgument occurrences="7">
       <code>$db</code>
       <code>$num_tables</code>
       <code>$replaces</code>
@@ -3649,9 +3348,6 @@
       <code>$urlParams</code>
       <code>$where_clause</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
       <code>$replaces[]</code>
       <code>$replaces[]</code>
@@ -3666,7 +3362,7 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
-    <MixedArgument occurrences="28">
+    <MixedArgument occurrences="27">
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
       <code>$_POST['columnIndex']</code>
       <code>$_POST['columnIndex']</code>
@@ -3675,7 +3371,6 @@
       <code>$_POST['replaceWith']</code>
       <code>$_POST['replaceWith']</code>
       <code>$_POST['useRegex']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -3699,9 +3394,8 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
+    <MixedArrayAccess occurrences="6">
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$row['Field']</code>
       <code>$row['Type']</code>
       <code>$row[0]</code>
@@ -3772,12 +3466,10 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="8">
       <code>$_GET['fileFormat']</code>
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$result</code>
       <code>$sqlQuery</code>
       <code>$urlParams</code>
@@ -3787,12 +3479,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="3">
       <code>$GLOBALS['cfg']['MaxRows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="8">
       <code>$urlParams['back']</code>
@@ -3818,21 +3508,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
-    <MixedArgument occurrences="2">
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['Server']['DisableIS']</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['Import']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['UploadDir']</code>
-      <code>$cfg['UploadDir']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$_SESSION[$SESSION_KEY]</code>
@@ -3849,15 +3530,13 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="8">
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
       <code>$_POST['columns']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']['columns']['names']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$fields</code>
       <code>$oldIndexName</code>
     </MixedArgument>
@@ -3865,11 +3544,9 @@
       <code>$urlParams</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="2">
       <code>$GLOBALS['cfg']['InitialSlidersState']</code>
       <code>$_POST['index']['Index_choice']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="8">
       <code>$add_fields</code>
@@ -3903,16 +3580,9 @@
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="5">
-      <code>$cfg['DisableMultiTableMaintenance']</code>
-      <code>$cfg['DisableMultiTableMaintenance']</code>
-      <code>$cfg['DisableMultiTableMaintenance']</code>
-      <code>$cfg['DisableMultiTableMaintenance']</code>
-      <code>$cfg['DisableMultiTableMaintenance']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/OperationsController.php">
-    <MixedArgument occurrences="27">
+    <MixedArgument occurrences="26">
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['dblist']-&gt;databases</code>
@@ -3929,7 +3599,6 @@
       <code>$_POST['tbl_collation']</code>
       <code>$_message</code>
       <code>$_message</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$create_options['pack_keys']</code>
       <code>$create_options['page_checksum'] ?? ''</code>
       <code>$db</code>
@@ -3944,12 +3613,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$table_alters</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
+    <MixedArrayAccess occurrences="4">
       <code>$GLOBALS['cfg']['MaxDbList']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['showtable']['Row_format']</code>
-      <code>$cfg['DefaultTabTable']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="10">
       <code>$GLOBALS['showtable']</code>
@@ -4004,14 +3672,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/PrivilegesController.php">
-    <MixedArgument occurrences="3">
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArgument occurrences="2">
       <code>$params['checkprivsdb']</code>
       <code>$params['checkprivstable']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/RecentFavoriteController.php">
     <MixedArgument occurrences="4">
@@ -4256,15 +3920,13 @@
     </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="14">
       <code>$GLOBALS['goto']</code>
       <code>$_POST['column']</code>
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
       <code>$_POST['where_clause_sign']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$result</code>
       <code>$result</code>
       <code>$selected_operator</code>
@@ -4277,12 +3939,8 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="4">
       <code>$GLOBALS['cfg']['ForeignKeyMaxLimit']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['InitialSlidersState']</code>
-      <code>$cfg['MaxRows']</code>
       <code>$row['Field']</code>
       <code>$row['Null']</code>
       <code>$row['Type']</code>
@@ -4311,19 +3969,15 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/SqlController.php">
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="4">
       <code>$_GET['sql_query'] ?? true</code>
       <code>$_POST['delimiter']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$db</code>
       <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <DocblockTypeContradiction occurrences="2">
@@ -4336,7 +3990,7 @@
     <InvalidReturnType occurrences="1">
       <code>array[]|null</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="112">
+    <MixedArgument occurrences="110">
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['goto']</code>
@@ -4364,8 +4018,6 @@
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_type_orig'][$i]</code>
       <code>$analyzed_sql_results ?? ''</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -4450,7 +4102,7 @@
       <code>$urlParams</code>
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="66">
+    <MixedArrayAccess occurrences="64">
       <code>$GLOBALS['cfg']['BrowseMIME']</code>
       <code>$GLOBALS['cfg']['BrowseMIME']</code>
       <code>$GLOBALS['cfg']['BrowseMIME']</code>
@@ -4496,8 +4148,6 @@
       <code>$_POST['field_transformation_options'][$fieldindex]</code>
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_type_orig'][$i]</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$data['Collation']</code>
       <code>$data['Default']</code>
       <code>$data['Default']</code>
@@ -4647,7 +4297,7 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
-    <MixedArgument occurrences="31">
+    <MixedArgument occurrences="30">
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['table']</code>
@@ -4657,7 +4307,6 @@
       <code>$_POST['users']</code>
       <code>$_POST['version']</code>
       <code>$_POST['version']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$data</code>
       <code>$data</code>
       <code>$data</code>
@@ -4683,8 +4332,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="3">
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArrayAccess occurrences="2">
       <code>$data['date_from']</code>
       <code>$data['date_to']</code>
     </MixedArrayAccess>
@@ -4700,9 +4348,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/TriggersController.php">
-    <MixedArgument occurrences="6">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
+    <MixedArgument occurrences="4">
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -4712,20 +4358,15 @@
       <code>$urlParams</code>
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
-    <MixedArgument occurrences="25">
+    <MixedArgument occurrences="24">
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
       <code>$_POST['where_clause_sign']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$columnName</code>
       <code>$dataLabel</code>
       <code>$dataLabel</code>
@@ -4749,7 +4390,7 @@
       <code>$key</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="15">
+    <MixedArrayAccess occurrences="14">
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
       <code>$GLOBALS['cfg']['DefaultTabTable']</code>
       <code>$GLOBALS['cfg']['ForeignKeyMaxLimit']</code>
@@ -4761,7 +4402,6 @@
       <code>$_POST['criteriaColumnNames'][1]</code>
       <code>$_POST['criteriaColumnNames'][1]</code>
       <code>$_POST['criteriaColumnNames'][1]</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$row['Field']</code>
       <code>$row['Null']</code>
       <code>$row['Type']</code>
@@ -4816,9 +4456,6 @@
       <code>$_POST['set_theme']</code>
       <code>$preferences['config_data']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['ThemeManager']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$preferences['config_data']['ThemeDefault']</code>
     </MixedArrayAssignment>
@@ -4910,14 +4547,6 @@
       <code>$password</code>
       <code>$username</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$cfg['Server']</code>
-      <code>$cfg['ShowChgPassword']</code>
-      <code>$cfg['ShowChgPassword']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['ShowChgPassword']</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$msg</code>
       <code>$password</code>
@@ -4939,7 +4568,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$view['as']</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="15">
       <code>$_GET['db']</code>
       <code>$_GET['db']</code>
       <code>$_GET['table']</code>
@@ -4952,7 +4581,6 @@
       <code>$_POST['view']['definer']</code>
       <code>$_POST['view']['name']</code>
       <code>$_POST['view']['name']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
       <code>$createView</code>
       <code>$db</code>
       <code>$db</code>
@@ -4960,7 +4588,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="11">
+    <MixedArrayAccess occurrences="10">
       <code>$_POST['view']['algorithm']</code>
       <code>$_POST['view']['algorithm']</code>
       <code>$_POST['view']['as']</code>
@@ -4971,7 +4599,6 @@
       <code>$_POST['view']['name']</code>
       <code>$_POST['view']['with']</code>
       <code>$_POST['view']['with']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="4">
       <code>$urlParams['back']</code>
@@ -5010,17 +4637,13 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/ViewOperationsController.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="5">
       <code>$_POST['new_name']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$db</code>
       <code>$sql_query</code>
       <code>$table</code>
       <code>$warning_messages</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DefaultTabTable']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -5052,10 +4675,8 @@
       <code>$post_key</code>
       <code>$post_key</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="6">
+    <MixedArrayAccess occurrences="4">
       <code>$a[$key]</code>
-      <code>$cfg['blowfish_secret']</code>
-      <code>$cfg['blowfish_secret']</code>
       <code>$path[$depth - 1][$key]</code>
       <code>$path[$depth][$keys[$depth]]</code>
       <code>$path[$depth][$keys_last]</code>
@@ -6171,14 +5792,12 @@
       <code>$stmt-&gt;return-&gt;parameters</code>
       <code>$value</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="39">
+    <MixedArrayAccess occurrences="37">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['params'][$routine['item_param_name'][$i]]</code>
-      <code>$cfg['ShowFunctionFields']</code>
-      <code>$cfg['ShowFunctionFields']</code>
       <code>$opt['value']</code>
       <code>$params['dir'][$i]</code>
       <code>$priv[0]</code>
@@ -6639,7 +6258,7 @@
       <code>uksort($each_tables, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="59">
+    <MixedArrayAccess occurrences="57">
       <code>$GLOBALS['cfg']['DBG']</code>
       <code>$GLOBALS['cfg']['DBG']['sql']</code>
       <code>$GLOBALS['cfg']['MaxDbList']</code>
@@ -6660,8 +6279,6 @@
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['ZeroConf']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
       <code>$event['Name']</code>
       <code>$event['Status']</code>
       <code>$event['Type']</code>
@@ -7845,22 +7462,9 @@
       <code>$_POST['filename_template'] ?? null</code>
       <code>$currentDb</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="15">
+    <MixedArrayAccess occurrences="2">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$_SESSION['tmpval']['aliases']</code>
-      <code>$cfg['ExecTimeLimit']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']['as_separate_files']</code>
-      <code>$cfg['GZipDump']</code>
-      <code>$cfg['SaveDir']</code>
-      <code>$cfg['ZipDump']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="3">
       <code>$aliases</code>
@@ -7977,13 +7581,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;content !== null</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="libraries/classes/FileListing.php">
-    <MixedArrayAccess occurrences="3">
-      <code>$cfg['BZipDump']</code>
-      <code>$cfg['GZipDump']</code>
-      <code>$cfg['ZipDump']</code>
-    </MixedArrayAccess>
   </file>
   <file src="libraries/classes/FlashMessages.php">
     <MixedArrayAssignment occurrences="2">
@@ -8938,20 +8535,11 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Header.php">
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="11">
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['Server']['host']</code>
       <code>$GLOBALS['db']</code>
       <code>$GLOBALS['table']</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
-      <code>$cspAllow</code>
       <code>$db</code>
       <code>$db ?? ''</code>
       <code>$message</code>
@@ -8963,7 +8551,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="24">
+    <MixedArrayAccess occurrences="22">
       <code>$GLOBALS['cfg']['AllowThirdPartyFraming']</code>
       <code>$GLOBALS['cfg']['AllowThirdPartyFraming']</code>
       <code>$GLOBALS['cfg']['AllowThirdPartyFraming']</code>
@@ -8986,13 +8574,10 @@
       <code>$GLOBALS['cfg']['TitleServer']</code>
       <code>$GLOBALS['cfg']['TitleTable']</code>
       <code>$GLOBALS['cfg']['enable_drag_drop_import']</code>
-      <code>$cfg['CSPAllow']</code>
-      <code>$cfg['FirstDayOfCalendar']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="13">
+    <MixedAssignment occurrences="12">
       <code>$GLOBALS['buffer_message']</code>
       <code>$bufferMessage</code>
-      <code>$cspAllow</code>
       <code>$message</code>
       <code>$message</code>
       <code>$params['auth_type']</code>
@@ -9010,9 +8595,6 @@
       <code>getRootPath</code>
       <code>isHttps</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$cfg['CaptchaCsp']</code>
-    </MixedOperand>
     <RedundantCondition occurrences="1">
       <code>isset($dbi)</code>
     </RedundantCondition>
@@ -9021,7 +8603,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Html/Generator.php">
-    <MixedArgument occurrences="34">
+    <MixedArgument occurrences="33">
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['MysqlSslWarningSafeHosts']</code>
       <code>$GLOBALS['db']</code>
@@ -9031,7 +8613,6 @@
       <code>$GLOBALS['table']</code>
       <code>$GLOBALS['table']</code>
       <code>$alt</code>
-      <code>$cfg['MaxCharactersInDisplayedSQL']</code>
       <code>$cfg['MaxCharactersInDisplayedSQL']</code>
       <code>$database</code>
       <code>$database</code>
@@ -9067,7 +8648,7 @@
       <code>$urlParams</code>
       <code>['db' =&gt; $database]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="16">
+    <MixedArrayAccess occurrences="13">
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['LinkLengthLimit']</code>
       <code>$GLOBALS['cfg']['LinkLengthLimit']</code>
@@ -9078,9 +8659,6 @@
       <code>$cfg['DefaultFunctions']['FUNC_' . $currentClass]</code>
       <code>$cfg['DefaultFunctions']['FUNC_UUID']</code>
       <code>$cfg['DefaultFunctions']['first_timestamp']</code>
-      <code>$cfg['MaxCharactersInDisplayedSQL']</code>
-      <code>$cfg['MaxCharactersInDisplayedSQL']</code>
-      <code>$cfg['ShowSQL']</code>
       <code>$server['host']</code>
       <code>$server['ssl']</code>
       <code>$server['ssl_verify']</code>
@@ -9241,16 +8819,12 @@
       <code>$tableReferences</code>
       <code>$tableReferences</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="31">
+    <MixedArrayAccess occurrences="27">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
       <code>$analyses[$i][self::TYPES]</code>
       <code>$analyses[$i][self::TYPES]</code>
       <code>$analyses[$i][self::TYPES]</code>
-      <code>$cfg['BZipDump']</code>
-      <code>$cfg['GZipDump']</code>
-      <code>$cfg['IgnoreMultiSubmitErrors']</code>
-      <code>$cfg['ZipDump']</code>
       <code>$fulls[$i]</code>
       <code>$import_run_buffer['full']</code>
       <code>$import_run_buffer['full']</code>
@@ -9645,7 +9219,7 @@
       <code>$urlParams</code>
       <code>$valueSets</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="65">
+    <MixedArrayAccess occurrences="61">
       <code>$GLOBALS['cfg']['CharEditing']</code>
       <code>$GLOBALS['cfg']['CharEditing']</code>
       <code>$GLOBALS['cfg']['CharTextareaCols']</code>
@@ -9687,10 +9261,6 @@
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['where_clause'][0]</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
-      <code>$cfg['ProtectBinary']</code>
-      <code>$cfg['ProtectBinary']</code>
-      <code>$cfg['ProtectBinary']</code>
-      <code>$cfg['ShowFunctionFields']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$column['Field_md5']</code>
@@ -9944,22 +9514,12 @@
     <InvalidScalarArgument occurrences="1">
       <code>$remote_ip</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="2">
-      <code>$rule</code>
-      <code>$username</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
-      <code>$rule</code>
-      <code>$rules</code>
-      <code>$username</code>
-    </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
       <code>$newval</code>
     </PossiblyInvalidArgument>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_array($rules)</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Language.php">
     <InvalidReturnStatement occurrences="2">
@@ -10131,40 +9691,24 @@
     </UnusedFunctionCall>
   </file>
   <file src="libraries/classes/Menu.php">
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="4">
       <code>$GLOBALS['cfg']['Server']['user']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabServer']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$result</code>
       <code>$row['tab']</code>
       <code>$row['tab']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="8">
+    <MixedArrayAccess occurrences="1">
       <code>$GLOBALS['cfg']['Server']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabServer']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$binaryLogs</code>
       <code>$result</code>
-      <code>$server['name']</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="6">
-      <code>$cfg['Server']['port']</code>
-      <code>$server['name']</code>
+    <MixedOperand occurrences="4">
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['usergroups'])</code>
@@ -10239,7 +9783,7 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="11">
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
@@ -10249,11 +9793,10 @@
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
-      <code>$cfg['Servers']</code>
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="24">
+    <MixedArrayAccess occurrences="9">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
@@ -10263,21 +9806,6 @@
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
       <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
-      <code>$cfg['NavigationDisplayLogo']</code>
-      <code>$cfg['NavigationDisplayServers']</code>
-      <code>$cfg['NavigationDisplayServers']</code>
-      <code>$cfg['NavigationLinkWithMainPanel']</code>
-      <code>$cfg['NavigationLogoLink']</code>
-      <code>$cfg['NavigationLogoLink']</code>
-      <code>$cfg['NavigationLogoLinkWindow']</code>
-      <code>$cfg['NavigationTreeAutoexpandSingleDb']</code>
-      <code>$cfg['NavigationTreePointerEnable']</code>
-      <code>$cfg['NavigationWidth']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['Servers']</code>
-      <code>$cfg['ShowDatabasesNavigationAsTree']</code>
-      <code>$cfg['enable_drag_drop_import']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="3">
       <code>$hidden[$type]</code>
@@ -10297,6 +9825,10 @@
       <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
     </MixedOperand>
+    <RedundantCast occurrences="2">
+      <code>(string) $cfg['NavigationLogoLink']</code>
+      <code>(string) $cfg['NavigationLogoLink']</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Navigation/NavigationTree.php">
     <DocblockTypeContradiction occurrences="2">
@@ -10499,7 +10031,7 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="34">
+    <MixedArgument occurrences="28">
       <code>$GLOBALS['cfg']['Server']['hide_db']</code>
       <code>$GLOBALS['cfg']['Server']['user']</code>
       <code>$arr[0]</code>
@@ -10516,10 +10048,6 @@
       <code>$db</code>
       <code>$dbSeparator</code>
       <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
       <code>$dbi-&gt;tryQuery($query)</code>
       <code>$dbi-&gt;tryQuery($query)</code>
       <code>$eachOnlyDb</code>
@@ -10531,11 +10059,9 @@
       <code>$handle</code>
       <code>$handle</code>
       <code>$handle</code>
-      <code>$maxItems</code>
-      <code>$maxItems</code>
       <code>$paths['aPath_clean']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="22">
+    <MixedArrayAccess occurrences="10">
       <code>$GLOBALS['cfg']['NavigationTreeDbSeparator']</code>
       <code>$GLOBALS['cfg']['NavigationTreeEnableExpansion']</code>
       <code>$GLOBALS['cfg']['NavigationTreeEnableExpansion']</code>
@@ -10546,18 +10072,6 @@
       <code>$GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>$GLOBALS['cfg']['Server']['only_db']</code>
       <code>$GLOBALS['cfg']['ShowDatabasesNavigationAsTree']</code>
-      <code>$cfg['FirstLevelNavigationItems']</code>
-      <code>$cfg['FirstLevelNavigationItems']</code>
-      <code>$cfg['FirstLevelNavigationItems']</code>
-      <code>$cfg['NavigationTreeDbSeparator']</code>
-      <code>$cfg['NavigationTreeDbSeparator']</code>
-      <code>$cfg['NavigationTreeDbSeparator']</code>
-      <code>$cfg['NavigationTreeEnableGrouping']</code>
-      <code>$cfg['NavigationTreeEnableGrouping']</code>
-      <code>$cfg['NavigationTreeEnableGrouping']</code>
-      <code>$cfg['ShowDatabasesNavigationAsTree']</code>
-      <code>$cfg['ShowDatabasesNavigationAsTree']</code>
-      <code>$cfg['ShowDatabasesNavigationAsTree']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['cfg']['Server']['only_db']</code>
@@ -10568,7 +10082,7 @@
       <code>$prefixMap[$prefix]</code>
       <code>$prefixMap[$prefix]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="33">
+    <MixedAssignment occurrences="25">
       <code>$databases</code>
       <code>$databases</code>
       <code>$db</code>
@@ -10576,9 +10090,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
-      <code>$dbSeparator</code>
       <code>$dbSeparator</code>
       <code>$eachOnlyDb</code>
       <code>$handle</code>
@@ -10588,9 +10099,6 @@
       <code>$handle</code>
       <code>$handle</code>
       <code>$handle</code>
-      <code>$maxItems</code>
-      <code>$maxItems</code>
-      <code>$maxItems</code>
       <code>$prefix</code>
       <code>$prefix</code>
       <code>$prefix</code>
@@ -10600,17 +10108,13 @@
       <code>$retval[]</code>
       <code>$retval[]</code>
       <code>$retval[]</code>
-      <code>$total</code>
-      <code>$total</code>
     </MixedAssignment>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="11">
       <code>$GLOBALS['cfg']['Server']['hide_db']</code>
       <code>$arr[0]</code>
       <code>$db</code>
       <code>$db</code>
       <code>$dbSeparator</code>
-      <code>$maxItems</code>
-      <code>$maxItems</code>
       <code>$prefix</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($columnName)</code>
@@ -11428,11 +10932,10 @@
     </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$GLOBALS[$match]</code>
       <code>$_GET[$opt]</code>
       <code>$_REQUEST[$opt]</code>
-      <code>$cfg['Server']['auth_type']</code>
       <code>$doc</code>
       <code>$doc</code>
       <code>$doc[0]</code>
@@ -11447,9 +10950,7 @@
       <code>$val</code>
       <code>$val</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
+    <MixedArrayAccess occurrences="4">
       <code>$doc[0]</code>
       <code>$doc[1]</code>
       <code>$doc[1]</code>
@@ -11476,9 +10977,6 @@
       <code>new $class()</code>
       <code>new $class()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$cfg['Server']['auth_type']</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$GLOBALS[$name] ?? $name ?? ''</code>
     </MixedReturnStatement>
@@ -11518,9 +11016,10 @@
       <code>$propertyItem-&gt;getName()</code>
       <code>$subgroup_header-&gt;getName()</code>
     </PossiblyNullOperand>
-    <RedundantCast occurrences="2">
+    <RedundantCast occurrences="3">
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
+      <code>strtolower</code>
     </RedundantCast>
     <RedundantConditionGivenDocblockType occurrences="3">
       <code>$properties != null</code>
@@ -11596,7 +11095,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="19">
       <code>$GLOBALS['cfg']['AllowArbitraryServer']</code>
       <code>$GLOBALS['cfg']['AllowArbitraryServer']</code>
       <code>$GLOBALS['cfg']['AllowArbitraryServer']</code>
@@ -11616,13 +11115,7 @@
       <code>$GLOBALS['cfg']['Servers']</code>
       <code>$GLOBALS['cfg']['Servers']</code>
       <code>$_SESSION['browser_access_time'][$key]</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-    </MixedArrayAssignment>
     <MixedArrayOffset occurrences="3">
       <code>$_POST[$GLOBALS['cfg']['CaptchaResponseParam']]</code>
       <code>$_POST[$GLOBALS['cfg']['CaptchaResponseParam']]</code>
@@ -11807,25 +11300,15 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['server' =&gt; $server]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="13">
+    <MixedArrayAccess occurrences="5">
       <code>$GLOBALS['cfg']['LoginCookieDeleteAll']</code>
       <code>$GLOBALS['cfg']['LoginCookieValidity']</code>
       <code>$GLOBALS['cfg']['LoginCookieValidity']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Servers']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
+    <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['browser_access_time'][$guid]</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="6">
       <code>$_SESSION['browser_access_time'][$guid]</code>
@@ -12051,13 +11534,11 @@
       <code>$result</code>
       <code>$row['Type']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="15">
       <code>$cfgRelation['commwork']</code>
       <code>$cfgRelation['mimework']</code>
       <code>$cfgRelation['mimework']</code>
       <code>$cfgRelation['mimework']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
       <code>$key['Column_name']</code>
       <code>$key['Non_unique']</code>
       <code>$mime_map[$field_name]['mimetype']</code>
@@ -12089,9 +11570,7 @@
       <code>$type</code>
       <code>$unique_keys[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="19">
-      <code>$cfg['Server']['host']</code>
-      <code>$cfg['Server']['port']</code>
+    <MixedOperand occurrences="17">
       <code>$col_as</code>
       <code>$column_value</code>
       <code>$column_value</code>
@@ -12473,11 +11952,9 @@
       <code>$values</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="28">
+    <MixedArrayAccess occurrences="26">
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$cfgRelation['mimework']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
       <code>$columnAliases[$column['name']]</code>
       <code>$column['Collation']</code>
       <code>$column['Comment']</code>
@@ -12575,15 +12052,13 @@
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="106">
+    <MixedOperand occurrences="104">
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['crlf']</code>
       <code>$GLOBALS['old_tz']</code>
-      <code>$cfg['Server']['host']</code>
-      <code>$cfg['Server']['port']</code>
       <code>$column['Collation']</code>
       <code>$column['Type']</code>
       <code>$crlf</code>
@@ -12815,8 +12290,7 @@
     </PossiblyUndefinedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportXml.php">
-    <MixedArgument occurrences="16">
-      <code>$cfg['Server']['host']</code>
+    <MixedArgument occurrences="15">
       <code>$code</code>
       <code>$col_as</code>
       <code>$db</code>
@@ -12833,9 +12307,7 @@
       <code>$table</code>
       <code>$trigger['name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="7">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
+    <MixedArrayAccess occurrences="5">
       <code>$result[$table][1]</code>
       <code>$result[0]['DEFAULT_CHARACTER_SET_NAME']</code>
       <code>$result[0]['DEFAULT_COLLATION_NAME']</code>
@@ -12859,8 +12331,7 @@
       <code>$table</code>
       <code>$trigger</code>
     </MixedAssignment>
-    <MixedOperand occurrences="39">
-      <code>$cfg['Server']['port']</code>
+    <MixedOperand occurrences="38">
       <code>$charset</code>
       <code>$crlf</code>
       <code>$crlf</code>
@@ -15031,9 +14502,6 @@
       <code>$b[$sortBy]</code>
       <code>$b[$sortBy]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['NaturalOrder']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['debug']['queries']</code>
     </MixedArrayAssignment>
@@ -15724,9 +15192,8 @@
       <code>$_GET['table']</code>
       <code>$controllerName</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
+    <MixedArrayAccess occurrences="2">
       <code>$action</code>
-      <code>$cfg['environment']</code>
       <code>$controllerName</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="2">
@@ -15893,9 +15360,6 @@
       <code>$result</code>
       <code>$row['PLUGIN_DESCRIPTION']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$plugins[$row['PLUGIN_NAME']]</code>
     </MixedArrayOffset>
@@ -15912,7 +15376,7 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <MixedArgument occurrences="138">
+    <MixedArgument occurrences="134">
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$GLOBALS['dbname']</code>
@@ -15945,10 +15409,6 @@
       <code>$arr['ssl_cipher']</code>
       <code>$arr['x509_issuer']</code>
       <code>$arr['x509_subject']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$createUserReal</code>
       <code>$currentDb</code>
       <code>$currentUser</code>
@@ -16070,13 +15530,9 @@
       <code>$tmpPrivs2['Update']</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="55">
+    <MixedArrayAccess occurrences="51">
       <code>$GLOBALS['cfgRelation']['menuswork']</code>
       <code>$account['Host']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabDatabase']</code>
-      <code>$cfg['DefaultTabTable']</code>
-      <code>$cfg['DefaultTabTable']</code>
       <code>$columns[$row1[0]]</code>
       <code>$currentGrant[0]</code>
       <code>$currentGrant[0]</code>
@@ -17690,10 +17146,8 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <MixedArgument occurrences="30">
+    <MixedArgument occurrences="28">
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$cfg['Server']['DisableIS']</code>
-      <code>$cfg['Server']['DisableIS']</code>
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
@@ -17722,15 +17176,8 @@
       <code>Util::getValueByKey($_POST, "field_key.${columnNumber}", '')</code>
       <code>Util::getValueByKey($extracted_columnspec, 'attribute', '')</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="10">
       <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$cfg['BrowseMIME']</code>
-      <code>$cfg['BrowseMIME']</code>
-      <code>$cfg['CharEditing']</code>
-      <code>$cfg['MaxRows']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Extra']</code>
       <code>$columnMeta['Field']</code>
@@ -18016,9 +17463,9 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Template.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['environment']</code>
-    </MixedArrayAccess>
+    <RedundantCondition occurrences="1">
+      <code>is_array($cfg)</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>static::$twig !== null</code>
     </RedundantConditionGivenDocblockType>
@@ -18261,9 +17708,7 @@
       <code>Util::backquote($cfgRelation['tracking'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1"/>
-    <MixedArrayAccess occurrences="24">
-      <code>$cfg['NavigationTreeTableSeparator']</code>
-      <code>$cfg['Server']</code>
+    <MixedArrayAccess occurrences="22">
       <code>$data[$which_log][$delete_id]</code>
       <code>$data['ddlog']</code>
       <code>$data['ddlog']</code>
@@ -18295,7 +17740,7 @@
     <MixedArrayOffset occurrences="1">
       <code>$data[$which_log][$delete_id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="24">
       <code>$allTablesResult</code>
       <code>$columns</code>
       <code>$data</code>
@@ -18312,7 +17757,6 @@
       <code>$row</code>
       <code>$selectableTablesSqlResult</code>
       <code>$selected_table</code>
-      <code>$sep</code>
       <code>$sql_result</code>
       <code>$statements[$key]</code>
       <code>$tableResult</code>
@@ -18327,13 +17771,11 @@
       <code>object|false</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="14">
+    <MixedOperand occurrences="12">
       <code>$drop_create_statements</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
-      <code>$sep</code>
-      <code>$sep</code>
       <code>$temp</code>
       <code>$versionNumber</code>
       <code>Util::backquote($cfgRelation['db'])</code>
@@ -18348,6 +17790,14 @@
       <code>$sql_result</code>
       <code>$this-&gt;dbi-&gt;query($query, DatabaseInterface::CONNECT_CONTROL, 0, false)</code>
     </MixedReturnStatement>
+    <PossiblyFalseOperand occurrences="2">
+      <code>$sep</code>
+      <code>$sep</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidOperand occurrences="2">
+      <code>$sep</code>
+      <code>$sep</code>
+    </PossiblyInvalidOperand>
     <UnusedVariable occurrences="1">
       <code>$key</code>
     </UnusedVariable>
@@ -18620,7 +18070,7 @@
       <code>uksort($tables, 'strnatcasecmp')</code>
       <code>uksort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="43">
+    <MixedArrayAccess occurrences="41">
       <code>$GLOBALS['cfg'][$value]</code>
       <code>$GLOBALS['cfg'][$value]</code>
       <code>$GLOBALS['cfg']['ExecTimeLimit']</code>
@@ -18639,8 +18089,6 @@
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$_SESSION['tmpval']['table_limit_offset']</code>
-      <code>$cfg['ShowStats']</code>
-      <code>$cfg['SkipLockedTables']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$parts[$i]</code>
@@ -18688,7 +18136,7 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="57">
+    <MixedAssignment occurrences="56">
       <code>$array</code>
       <code>$column</code>
       <code>$columnNames[]</code>
@@ -18706,7 +18154,6 @@
       <code>$indexesInfo[$row['Key_name']]['Non_unique']</code>
       <code>$indexesInfo[$row['Key_name']]['Sequences'][]</code>
       <code>$indexes[]</code>
-      <code>$isShowStats</code>
       <code>$lastIndex</code>
       <code>$limitOffset</code>
       <code>$names[]</code>
@@ -18898,22 +18345,9 @@
       <code>$httpStatus</code>
       <code>$http_response_header[0]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$cfg['ProxyPass']</code>
-      <code>$cfg['ProxyUrl']</code>
-      <code>$cfg['ProxyUser']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$cfg['ProxyPass']</code>
-      <code>$cfg['ProxyUrl']</code>
-      <code>$cfg['ProxyUser']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="2">
       <code>$context['http']['content']</code>
       <code>$httpStatus</code>
-      <code>$this-&gt;proxyPass</code>
-      <code>$this-&gt;proxyUrl</code>
-      <code>$this-&gt;proxyUser</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>string|bool|null</code>
@@ -18927,15 +18361,16 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>isset($http_response_header)</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="1">
+    <UnusedVariable occurrences="3">
       <code>$proxyPass</code>
+      <code>$proxyUrl</code>
+      <code>$proxyUser</code>
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Utils/SessionCache.php">
-    <MixedArrayAccess occurrences="3">
+    <MixedArrayAccess occurrences="2">
       <code>$_SESSION['cache'][self::key()]</code>
       <code>$_SESSION['cache'][self::key()]</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['cache'][self::key()]</code>
@@ -18944,8 +18379,7 @@
       <code>$_SESSION['cache'][self::key()][$name]</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$cfg['Server']['user']</code>
+    <MixedOperand occurrences="1">
       <code>$server</code>
     </MixedOperand>
   </file>
@@ -19017,11 +18451,6 @@
       <code>$timearray['year']</code>
     </MixedOperand>
   </file>
-  <file src="libraries/config.default.php">
-    <UnusedVariable occurrences="1">
-      <code>$cfg</code>
-    </UnusedVariable>
-  </file>
   <file src="libraries/config.values.php">
     <MixedArgument occurrences="2">
       <code>$GLOBALS['cfg']['AvailableCharsets']</code>
@@ -19054,11 +18483,6 @@
       <code>$service</code>
       <code>$serviceName</code>
     </MixedAssignment>
-  </file>
-  <file src="setup/index.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['DBG']</code>
-    </MixedArrayAccess>
   </file>
   <file src="setup/lib/common.inc.php">
     <MixedMethodCall occurrences="2">
@@ -19249,9 +18673,6 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['environment']</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="6">
       <code>$context</code>
       <code>$context</code>
@@ -19439,14 +18860,6 @@
       <code>include $this-&gt;object-&gt;defaultSource</code>
     </UnresolvableInclude>
   </file>
-  <file src="test/classes/Controllers/Database/PrivilegesControllerTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
     <MixedArgument occurrences="24">
       <code>$GLOBALS['db']</code>
@@ -19527,28 +18940,13 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/ExportTemplateControllerTest.php">
-    <MixedArrayAccess occurrences="4">
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
+    <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAssignment>
   </file>
   <file src="test/classes/Controllers/ImportControllerTest.php">
     <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['cfg']['Server']</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="test/classes/Controllers/JavaScriptMessagesControllerTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['GridEditing']</code>
     </MixedArrayAssignment>
   </file>
   <file src="test/classes/Controllers/NavigationControllerTest.php">
@@ -19609,10 +19007,8 @@
       <code>$actual['message']</code>
       <code>$actual['message']</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="3">
+    <MixedArrayAssignment occurrences="1">
       <code>$GLOBALS['cfg']['Server']</code>
-      <code>$cfg['AllowUserDropDatabase']</code>
-      <code>$cfg['ShowCreateDb']</code>
     </MixedArrayAssignment>
   </file>
   <file src="test/classes/Controllers/Server/EnginesControllerTest.php">
@@ -19784,14 +19180,6 @@
       <code>will</code>
       <code>will</code>
     </MixedMethodCall>
-  </file>
-  <file src="test/classes/Controllers/Table/PrivilegesControllerTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$cfg['Server']</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
     <MixedArgument occurrences="16">
@@ -20131,11 +19519,10 @@
     <MixedArgument occurrences="1">
       <code>$GLOBALS['dbi']</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="4">
+    <MixedArrayAssignment occurrences="3">
       <code>$GLOBALS['cfg']['ActionLinksMode']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
-      <code>$cfg['ShowFunctionFields']</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="5">
       <code>$GLOBALS['dbi']</code>
@@ -20360,28 +19747,10 @@
       <code>$GLOBALS['dbi']</code>
       <code>$GLOBALS['dbi']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="12">
-      <code>$cfg['ExecTimeLimit']</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['Export']['as_separate_files']</code>
-      <code>$cfg['Export']['asfile']</code>
-      <code>$cfg['Export']['asfile']</code>
-      <code>$cfg['Export']['charset']</code>
-      <code>$cfg['Export']['lock_tables']</code>
-      <code>$cfg['Export']['onserver']</code>
-      <code>$cfg['Export']['onserver_overwrite']</code>
-      <code>$cfg['Export']['quick_export_onserver']</code>
-      <code>$cfg['Export']['quick_export_onserver_overwrite']</code>
-      <code>$cfg['Export']['remember_file_template']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="7">
+    <MixedArrayAssignment occurrences="3">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$cfg['Export']</code>
-      <code>$cfg['GZipDump']</code>
-      <code>$cfg['SaveDir']</code>
-      <code>$cfg['ZipDump']</code>
     </MixedArrayAssignment>
     <MixedMethodCall occurrences="2">
       <code>cacheTableContent</code>
@@ -20583,18 +19952,13 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="test/classes/HeaderTest.php">
-    <MixedArrayAssignment occurrences="11">
+    <MixedArrayAssignment occurrences="6">
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Server']</code>
       <code>$GLOBALS['cfg']['Servers']</code>
-      <code>$cfg['AllowThirdPartyFraming']</code>
-      <code>$cfg['CSPAllow']</code>
-      <code>$cfg['CaptchaCsp']</code>
-      <code>$cfg['CaptchaLoginPrivateKey']</code>
-      <code>$cfg['CaptchaLoginPublicKey']</code>
     </MixedArrayAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -20611,7 +19975,7 @@
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
       <code>$GLOBALS['cfg']['DefaultTabDatabase']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="17">
+    <MixedArrayAssignment occurrences="8">
       <code>$GLOBALS['cfg']['ActionLinksMode']</code>
       <code>$GLOBALS['cfg']['ActionLinksMode']</code>
       <code>$GLOBALS['cfg']['ActionLinksMode']</code>
@@ -20620,15 +19984,6 @@
       <code>$GLOBALS['cfg']['LinkLengthLimit']</code>
       <code>$GLOBALS['cfg']['MaxCharactersInDisplayedSQL']</code>
       <code>$GLOBALS['cfg']['ServerDefault']</code>
-      <code>$cfg['MysqlSslWarningSafeHosts']</code>
-      <code>$cfg['MysqlSslWarningSafeHosts']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
-      <code>$cfg['Server']</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="3">
       <code>$GLOBALS['cfg']['LinkLengthLimit']</code>
@@ -22341,10 +21696,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertTrue</code>
     </DocblockTypeContradiction>
-    <MixedArrayAssignment occurrences="2">
-      <code>$cfg['environment']</code>
-      <code>$cfg['environment']</code>
-    </MixedArrayAssignment>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
