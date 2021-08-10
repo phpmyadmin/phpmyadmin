@@ -17,6 +17,7 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
+use function round;
 use function trim;
 
 /**
@@ -123,20 +124,18 @@ class GisMultiLineString extends GisGeometry
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
-                if (! isset($temp_point)) {
-                    $temp_point = $point;
-                } else {
+                if (isset($temp_point)) {
                     // draw line section
                     imageline(
                         $image,
-                        (int) $temp_point[0],
-                        (int) $temp_point[1],
-                        (int) $point[0],
-                        (int) $point[1],
+                        (int) round($temp_point[0]),
+                        (int) round($temp_point[1]),
+                        (int) round($point[0]),
+                        (int) round($point[1]),
                         $color
                     );
-                    $temp_point = $point;
                 }
+                $temp_point = $point;
             }
             unset($temp_point);
             // print label if applicable
@@ -144,8 +143,8 @@ class GisMultiLineString extends GisGeometry
                 imagestring(
                     $image,
                     1,
-                    $points_arr[1][0],
-                    $points_arr[1][1],
+                    (int) round($points_arr[1][0]),
+                    (int) round($points_arr[1][1]),
                     trim($label),
                     $black
                 );
@@ -198,9 +197,7 @@ class GisMultiLineString extends GisGeometry
         foreach ($linestirngs as $linestring) {
             $points_arr = $this->extractPoints($linestring, $scale_data);
             foreach ($points_arr as $point) {
-                if (! isset($temp_point)) {
-                    $temp_point = $point;
-                } else {
+                if (isset($temp_point)) {
                     // draw line section
                     $pdf->Line(
                         $temp_point[0],
@@ -209,8 +206,8 @@ class GisMultiLineString extends GisGeometry
                         $point[1],
                         $line
                     );
-                    $temp_point = $point;
                 }
+                $temp_point = $point;
             }
             unset($temp_point);
             // print label
@@ -299,8 +296,8 @@ class GisMultiLineString extends GisGeometry
 
         $row =  'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if ($label) {
-            $text_style = ['text' => $label];
+        if (trim($label) !== '') {
+            $text_style = ['text' => trim($label)];
             $row .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

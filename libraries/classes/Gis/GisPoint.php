@@ -15,6 +15,7 @@ use function imagestring;
 use function json_encode;
 use function mb_strlen;
 use function mb_substr;
+use function round;
 use function trim;
 
 /**
@@ -112,8 +113,8 @@ class GisPoint extends GisGeometry
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
             imagearc(
                 $image,
-                (int) $points_arr[0][0],
-                (int) $points_arr[0][1],
+                (int) round($points_arr[0][0]),
+                (int) round($points_arr[0][1]),
                 7,
                 7,
                 0,
@@ -125,8 +126,8 @@ class GisPoint extends GisGeometry
                 imagestring(
                     $image,
                     1,
-                    $points_arr[0][0],
-                    $points_arr[0][1],
+                    (int) round($points_arr[0][0]),
+                    (int) round($points_arr[0][1]),
                     trim($label),
                     $black
                 );
@@ -282,9 +283,9 @@ class GisPoint extends GisGeometry
             . 'fill: fill,'
             . 'stroke: stroke';
 
-        if ($label) {
+        if (trim($label) !== '') {
             $text_style = [
-                'text' => $label,
+                'text' => trim($label),
                 'offsetY' => -9,
             ];
             $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
