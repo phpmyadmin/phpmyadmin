@@ -30,7 +30,7 @@ class AuthenticationKeycloak extends AuthenticationPlugin
         }
 
         $token = $this->getToken($keycloakToken);
-        if (! $token->getClaim('preferred_username') || ! $token->getClaim('sub')) {
+        if (! $token->hasClaim('preferred_username') || ! $token->hasClaim('sub')) {
             return false;
         }
 
