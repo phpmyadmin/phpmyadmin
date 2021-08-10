@@ -77,6 +77,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed Metro theme text color for buttons in the browse table navigation bar
 - issue #14796 Fix export Database page, UI prevents from exporting procedures only
 - issue #15225 Fix Command+click on macOS opens links in same tab
+- issue #17014 Fix column names in first row when importing from CSV where the first line contains column names
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
