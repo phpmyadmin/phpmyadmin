@@ -1174,16 +1174,12 @@ class DatabaseInterface implements DbalInterface
                 $this->relation->fixPmaTables($GLOBALS['db'], false);
             }
         }
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! empty($cfgRelation['db']) || ! isset($GLOBALS['dblist'])) {
-            return;
-        }
 
-        if (! $GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            return;
-        }
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
+        $storageDbName = empty($storageDbName) ? 'phpmyadmin' : $storageDbName;
 
-        $this->relation->fixPmaTables('phpmyadmin', false);
+        $this->relation->fixPmaTables($storageDbName, false);
     }
 
     /**
