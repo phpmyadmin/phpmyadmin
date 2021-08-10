@@ -3804,11 +3804,12 @@
       <code>$visualizationSettings['mysqlVersion']</code>
       <code>$visualizationSettings['spatialColumn']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="7">
       <code>$result</code>
       <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$val</code>
+      <code>$visualizationSettings</code>
       <code>$visualizationSettings</code>
       <code>$visualizationSettings[$setting]</code>
     </MixedAssignment>
@@ -8145,14 +8146,18 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="13">
       <code>$point[0]</code>
+      <code>$point[0]</code>
+      <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
       <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
+      <code>$temp_point[0]</code>
+      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
@@ -8180,7 +8185,7 @@
       <code>$params[$index]['LINESTRING']</code>
       <code>$params[$index]['LINESTRING']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="10">
       <code>$no_of_points</code>
       <code>$params[$index]['LINESTRING'][$i]['x']</code>
       <code>$params[$index]['LINESTRING'][$i]['y']</code>
@@ -8188,8 +8193,6 @@
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
       <code>$temp_point</code>
       <code>$temp_point</code>
       <code>$wkt</code>
@@ -8217,14 +8220,18 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="13">
       <code>$point[0]</code>
+      <code>$point[0]</code>
+      <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][0]</code>
       <code>$points_arr[1][1]</code>
       <code>$points_arr[1][1]</code>
       <code>$temp_point[0]</code>
+      <code>$temp_point[0]</code>
+      <code>$temp_point[1]</code>
       <code>$temp_point[1]</code>
       <code>$wkt</code>
     </MixedArgument>
@@ -8258,7 +8265,7 @@
       <code>$params[$index]['MULTILINESTRING']</code>
       <code>$params[$index]['MULTILINESTRING']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="13">
       <code>$data_row</code>
       <code>$no_of_lines</code>
       <code>$no_of_points</code>
@@ -8269,8 +8276,6 @@
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
-      <code>$temp_point</code>
-      <code>$temp_point</code>
       <code>$temp_point</code>
       <code>$temp_point</code>
       <code>$wkt</code>
@@ -8300,9 +8305,11 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="10">
       <code>$point</code>
       <code>$point[0]</code>
+      <code>$point[0]</code>
+      <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
@@ -8378,16 +8385,16 @@
     </InvalidScalarArgument>
     <MixedArgument occurrences="9">
       <code>$label_point[0]</code>
+      <code>$label_point[0]</code>
       <code>$label_point[1]</code>
-      <code>$points_arr[2]</code>
-      <code>$points_arr[3]</code>
+      <code>$label_point[1]</code>
       <code>$ring1['pointOnSurface']</code>
       <code>$ring2['points']</code>
       <code>$ring['points']</code>
       <code>$ring['points']</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="36">
+    <MixedArrayAccess occurrences="38">
       <code>$data_row[$k]</code>
       <code>$data_row[$k]</code>
       <code>$data_row['no_of_polygons']</code>
@@ -8395,6 +8402,8 @@
       <code>$innerPoint['x']</code>
       <code>$innerPoint['y']</code>
       <code>$label_point[0]</code>
+      <code>$label_point[0]</code>
+      <code>$label_point[1]</code>
       <code>$label_point[1]</code>
       <code>$param_row[$k]</code>
       <code>$param_row[$k]</code>
@@ -8500,8 +8509,7 @@
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
-    <UnusedVariable occurrences="2">
-      <code>$label_point</code>
+    <UnusedVariable occurrences="1">
       <code>$points_arr</code>
     </UnusedVariable>
   </file>
@@ -8510,11 +8518,13 @@
       <code>$srid</code>
       <code>$srid</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="10">
       <code>$points_arr[0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
+      <code>$points_arr[0][0]</code>
+      <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
