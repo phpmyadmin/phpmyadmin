@@ -76,6 +76,7 @@ phpMyAdmin - ChangeLog
 - issue #16804 Fixed numbers where left-aligned rather than right-aligned
 - issue        Fixed Metro theme text color for buttons in the browse table navigation bar
 - issue #14796 Fix export Database page, UI prevents from exporting procedures only
+- issue #15225 Fix Command+click on macOS opens links in same tab
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
