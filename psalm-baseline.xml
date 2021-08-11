@@ -6165,9 +6165,6 @@
       <code>string</code>
       <code>string|bool</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="1">
-      <code>exists</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="26">
       <code>$a['Data_length']</code>
       <code>$b['Data_length']</code>
@@ -17784,6 +17781,14 @@
       <code>$value</code>
       <code>$value</code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="6">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAccess>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
@@ -19128,7 +19133,8 @@
       <code>$object-&gt;config['settings']['secret']</code>
       <code>$object-&gt;config['settings']['secret']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="3">
+      <code>$object-&gt;config['settings']['secret']</code>
       <code>$object-&gt;config['settings']['secret']</code>
       <code>$object-&gt;config['settings']['secret']</code>
     </MixedArrayAccess>
