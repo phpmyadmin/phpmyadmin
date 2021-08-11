@@ -1301,7 +1301,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 [
                     'query' => [
-                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                        '27b1330f2076ef45d236f20839a92831' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => $cfg['MaxRows'],
@@ -1327,7 +1327,7 @@ class ResultsTest extends AbstractTestCase
                 [
                     'tmpval' => [
                         'query' => [
-                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            '27b1330f2076ef45d236f20839a92831' => [
                                 'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                                 'repeat_cells' => 90,
                                 'max_rows' => 26,
@@ -1364,7 +1364,7 @@ class ResultsTest extends AbstractTestCase
                         'h' => [],
                         'i' => [],
                         'j' => [],
-                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                        '27b1330f2076ef45d236f20839a92831' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => 90,
                             'max_rows' => 26,
@@ -1401,7 +1401,7 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'query' => [
-                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                        '27b1330f2076ef45d236f20839a92831' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => 27,
@@ -1429,7 +1429,7 @@ class ResultsTest extends AbstractTestCase
                 [
                     'tmpval' => [
                         'query' => [
-                            '0040c297a1a5a4cb1291b086b3ca965b' => [
+                            '27b1330f2076ef45d236f20839a92831' => [
                                 'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                                 'repeat_cells' => $cfg['RepeatCells'],
                                 'max_rows' => $cfg['MaxRows'],
@@ -1471,7 +1471,7 @@ class ResultsTest extends AbstractTestCase
                         'g' => [],
                         'h' => [],
                         'i' => [],
-                        '0040c297a1a5a4cb1291b086b3ca965b' => [
+                        '27b1330f2076ef45d236f20839a92831' => [
                             'sql' => 'SELECT * FROM `test_db`.`test_table`;',
                             'repeat_cells' => $cfg['RepeatCells'],
                             'max_rows' => DisplayResults::ALL_ROWS,
@@ -1552,7 +1552,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['max_rows'] = 25;
         $_SESSION['tmpval']['pos'] = 0;
         $_SESSION['tmpval']['repeat_cells'] = 0;
-        $_SESSION['tmpval']['query']['0040c297a1a5a4cb1291b086b3ca965b']['max_rows'] = 25;
+        $_SESSION['tmpval']['query']['27b1330f2076ef45d236f20839a92831']['max_rows'] = 25;
 
         $dtResult = $this->dbi->tryQuery($query);
         $displayParts = [
