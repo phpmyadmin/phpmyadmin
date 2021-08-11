@@ -1014,7 +1014,10 @@ class Results
 
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
-        $sql_md5 = md5($this->properties['sql_query']);
+        $sql_md5 = md5($this->properties['server']
+            . $this->properties['db']
+            . $this->properties['sql_query']
+        );
         $session_max_rows = $is_limited_display
             ? 0
             : $_SESSION['tmpval']['query'][$sql_md5]['max_rows'];
@@ -3874,7 +3877,10 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-        $sql_md5 = md5($this->properties['sql_query']);
+        $sql_md5 = md5($this->properties['server']
+            . $this->properties['db']
+            . $this->properties['sql_query']
+        );
         $query = [];
         if (isset($_SESSION['tmpval']['query'][$sql_md5])) {
             $query = $_SESSION['tmpval']['query'][$sql_md5];
