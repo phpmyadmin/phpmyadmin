@@ -182,6 +182,11 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPostConnectControl(): void
     {
+        parent::setGlobalDbi();
+        $this->dummyDbi->addResult(
+            'SHOW TABLES FROM `phpmyadmin`;',
+            []
+        );
         $GLOBALS['db'] = '';
         $GLOBALS['cfg']['Server']['only_db'] = [];
         $this->dbi->postConnectControl();
