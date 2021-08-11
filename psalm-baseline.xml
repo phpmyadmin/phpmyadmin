@@ -1991,14 +1991,10 @@
       <code>$gis_data['gis_type']</code>
       <code>$gis_data['gis_type']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$geom_type</code>
       <code>$gis_data</code>
-      <code>$srid</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$srid</code>
-    </MixedOperand>
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>
     </PossiblyFalseOperand>
@@ -7354,10 +7350,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="13">
       <code>$point[0]</code>
       <code>$point[0]</code>
@@ -7428,10 +7420,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="13">
       <code>$point[0]</code>
       <code>$point[0]</code>
@@ -7513,10 +7501,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="10">
       <code>$point</code>
       <code>$point[0]</code>
@@ -7591,10 +7575,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="9">
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -7726,10 +7706,6 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="10">
       <code>$points_arr[0]</code>
       <code>$points_arr[0][0]</code>
@@ -7794,10 +7770,6 @@
     <InvalidNullableReturnType occurrences="1">
       <code>array|false</code>
     </InvalidNullableReturnType>
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="7">
       <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
@@ -7964,7 +7936,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="22">
+    <MixedArgument occurrences="21">
       <code>$label</code>
       <code>$label</code>
       <code>$label</code>
@@ -7975,7 +7947,6 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
-      <code>$row['srid']</code>
       <code>$this-&gt;settings['colors']</code>
       <code>$this-&gt;settings['colors'][$index]</code>
       <code>$this-&gt;settings['colors'][$index]</code>

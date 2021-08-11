@@ -235,7 +235,7 @@ class GisLineString extends GisGeometry
      *
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, $line_color, array $scale_data)
     {
         $stroke_style = [
             'color' => $line_color,
@@ -251,7 +251,7 @@ class GisLineString extends GisGeometry
 
         $result .= '});';
 
-        if ($srid == 0) {
+        if ($srid === 0) {
             $srid = 4326;
         }
 

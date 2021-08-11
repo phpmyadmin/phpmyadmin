@@ -259,7 +259,7 @@ class GisGeometryCollection extends GisGeometry
      *
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, $color, array $scale_data)
     {
         $row = '';
 

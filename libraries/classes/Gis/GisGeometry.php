@@ -12,7 +12,6 @@ use TCPDF;
 
 use function explode;
 use function floatval;
-use function intval;
 use function mb_strripos;
 use function mb_substr;
 use function mt_rand;
@@ -93,7 +92,7 @@ abstract class GisGeometry
      */
     abstract public function prepareRowAsOl(
         $spatial,
-        $srid,
+        int $srid,
         $label,
         $color,
         array $scale_data
@@ -126,15 +125,15 @@ abstract class GisGeometry
     /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
      *
-     * @param string $srid       spatial reference ID
-     * @param array  $scale_data data related to scaling
+     * @param int   $srid       spatial reference ID
+     * @param array $scale_data data related to scaling
      *
      * @return string OpenLayers.Bounds object that
      *                correspond to the bounds of GIS data
      *
      * @access protected
      */
-    protected function getBoundsForOl($srid, array $scale_data)
+    protected function getBoundsForOl(int $srid, array $scale_data)
     {
         return sprintf(
             'var minLoc = [%s, %s];'
@@ -146,7 +145,7 @@ abstract class GisGeometry
             $scale_data['minY'],
             $scale_data['maxX'],
             $scale_data['maxY'],
-            intval($srid)
+            $srid
         );
     }
 
@@ -213,7 +212,7 @@ abstract class GisGeometry
 
         if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $value)) {
             $last_comma = mb_strripos($value, ',');
-            $srid = trim(mb_substr($value, $last_comma + 1));
+            $srid = (int) trim(mb_substr($value, $last_comma + 1));
             $wkt = trim(mb_substr($value, 1, $last_comma - 2));
         } elseif (preg_match('/^' . $geom_types . '\(.*\)$/i', $value)) {
             $wkt = $value;
@@ -279,14 +278,14 @@ abstract class GisGeometry
     /**
      * Generates JavaScript for adding an array of polygons to OpenLayers.
      *
-     * @param array  $polygons x and y coordinates for each polygon
-     * @param string $srid     spatial reference id
+     * @param array $polygons x and y coordinates for each polygon
+     * @param int   $srid     spatial reference id
      *
      * @return string JavaScript for adding an array of polygons to OpenLayers
      *
      * @access protected
      */
-    protected function getPolygonArrayForOpenLayers(array $polygons, $srid)
+    protected function getPolygonArrayForOpenLayers(array $polygons, int $srid)
     {
         $ol_array = 'var polygonArray = [];';
         foreach ($polygons as $polygon) {
@@ -301,14 +300,14 @@ abstract class GisGeometry
     /**
      * Generates JavaScript for adding points for OpenLayers polygon.
      *
-     * @param array  $polygon x and y coordinates for each line
-     * @param string $srid    spatial reference id
+     * @param array $polygon x and y coordinates for each line
+     * @param int   $srid    spatial reference id
      *
      * @return string JavaScript for adding points for OpenLayers polygon
      *
      * @access protected
      */
-    protected function getPolygonForOpenLayers(array $polygon, $srid)
+    protected function getPolygonForOpenLayers(array $polygon, int $srid)
     {
         return $this->getLineArrayForOpenLayers($polygon, $srid, false)
         . 'var polygon = new ol.geom.Polygon(arr);';
@@ -318,9 +317,9 @@ abstract class GisGeometry
      * Generates JavaScript for adding an array of LineString
      * or LineRing to OpenLayers.
      *
-     * @param array  $lines          x and y coordinates for each line
-     * @param string $srid           spatial reference id
-     * @param bool   $is_line_string whether it's an array of LineString
+     * @param array $lines          x and y coordinates for each line
+     * @param int   $srid           spatial reference id
+     * @param bool  $is_line_string whether it's an array of LineString
      *
      * @return string JavaScript for adding an array of LineString
      *                or LineRing to OpenLayers
@@ -329,7 +328,7 @@ abstract class GisGeometry
      */
     protected function getLineArrayForOpenLayers(
         array $lines,
-        $srid,
+        int $srid,
         $is_line_string = true
     ) {
         $ol_array = 'var arr = [];';
@@ -352,9 +351,9 @@ abstract class GisGeometry
     /**
      * Generates JavaScript for adding a LineString or LineRing to OpenLayers.
      *
-     * @param array  $points_arr     x and y coordinates for each point
-     * @param string $srid           spatial reference id
-     * @param bool   $is_line_string whether it's a LineString
+     * @param array $points_arr     x and y coordinates for each point
+     * @param int   $srid           spatial reference id
+     * @param bool  $is_line_string whether it's a LineString
      *
      * @return string JavaScript for adding a LineString or LineRing to OpenLayers
      *
@@ -362,7 +361,7 @@ abstract class GisGeometry
      */
     protected function getLineForOpenLayers(
         array $points_arr,
-        $srid,
+        int $srid,
         $is_line_string = true
     ) {
         return 'new ol.geom.'
@@ -374,14 +373,14 @@ abstract class GisGeometry
     /**
      * Generates JavaScript for adding an array of points to OpenLayers.
      *
-     * @param array  $points_arr x and y coordinates for each point
-     * @param string $srid       spatial reference id
+     * @param array $points_arr x and y coordinates for each point
+     * @param int   $srid       spatial reference id
      *
      * @return string JavaScript for adding an array of points to OpenLayers
      *
      * @access protected
      */
-    protected function getPointsArrayForOpenLayers(array $points_arr, $srid)
+    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid)
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
@@ -396,17 +395,17 @@ abstract class GisGeometry
     /**
      * Generates JavaScript for adding a point to OpenLayers.
      *
-     * @param array  $point array containing the x and y coordinates of the point
-     * @param string $srid  spatial reference id
+     * @param array $point array containing the x and y coordinates of the point
+     * @param int   $srid  spatial reference id
      *
      * @return string JavaScript for adding points to OpenLayers
      *
      * @access protected
      */
-    protected function getPointForOpenLayers(array $point, $srid)
+    protected function getPointForOpenLayers(array $point, int $srid)
     {
         return '(new ol.geom.Point([' . $point[0] . ',' . $point[1] . '])'
-        . '.transform(ol.proj.get("EPSG:' . ((int) $srid) . '")'
+        . '.transform(ol.proj.get("EPSG:' . $srid . '")'
         . ', ol.proj.get(\'EPSG:3857\')))';
     }
 

@@ -274,7 +274,7 @@ class GisPolygon extends GisGeometry
      *
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
     {
         $fill_opacity = 0.8;
         array_push($fill_color, $fill_opacity);
@@ -293,7 +293,7 @@ class GisPolygon extends GisGeometry
 
         $row .= '});';
 
-        if ($srid == 0) {
+        if ($srid === 0) {
             $srid = 4326;
         }
 

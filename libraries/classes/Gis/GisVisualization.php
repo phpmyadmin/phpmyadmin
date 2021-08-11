@@ -759,7 +759,7 @@ class GisVisualization
             } elseif ($format === 'ol') {
                 $results .= $gis_obj->prepareRowAsOl(
                     $row[$this->settings['spatialColumn']],
-                    $row['srid'],
+                    (int) $row['srid'],
                     $label,
                     $this->settings['colors_hex'][$index],
                     $scale_data

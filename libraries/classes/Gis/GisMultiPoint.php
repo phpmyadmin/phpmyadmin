@@ -247,7 +247,7 @@ class GisMultiPoint extends GisGeometry
      */
     public function prepareRowAsOl(
         $spatial,
-        $srid,
+        int $srid,
         $label,
         $point_color,
         array $scale_data
@@ -278,7 +278,7 @@ class GisMultiPoint extends GisGeometry
 
         $result .= '});';
 
-        if ($srid == 0) {
+        if ($srid === 0) {
             $srid = 4326;
         }
 
@@ -391,14 +391,14 @@ class GisMultiPoint extends GisGeometry
      * Overridden to make sure that only the points having valid values
      * for x and y coordinates are added.
      *
-     * @param array  $points_arr x and y coordinates for each point
-     * @param string $srid       spatial reference id
+     * @param array $points_arr x and y coordinates for each point
+     * @param int   $srid       spatial reference id
      *
      * @return string JavaScript for adding an array of points to OpenLayers
      *
      * @access protected
      */
-    protected function getPointsArrayForOpenLayers(array $points_arr, $srid)
+    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid)
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
