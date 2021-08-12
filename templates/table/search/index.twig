@@ -173,4 +173,31 @@
     </div>
   </div>
 </form>
+
+<div class="modal fade" id="rangeSearchModal" tabindex="-1" aria-labelledby="rangeSearchModalLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rangeSearchModalLabel">{% trans 'Range search' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+        <fieldset class="pma-fieldset">
+          <legend id="rangeSearchLegend"></legend>
+          <label for="min_value">{% trans 'Minimum value:' %}</label>
+          <input type="text" id="min_value"><br>
+          <span class="small_font" id="rangeSearchMin"></span><br>
+          <label for="max_value">{% trans 'Maximum value:' %}</label>
+          <input type="text" id="max_value"><br>
+          <span class="small_font" id="rangeSearchMax"></span>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="rangeSearchModalGo">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="sqlqueryresultsouter"></div>
