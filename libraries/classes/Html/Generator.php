@@ -49,6 +49,8 @@ use function str_replace;
 use function strlen;
 use function strncmp;
 use function strpos;
+use function strtoupper;
+use function substr;
 use function trim;
 use function urlencode;
 
@@ -284,6 +286,15 @@ class Generator
         $current_class = $dbi->types->getTypeClass($field['True_Type']);
         if (! empty($current_class) && isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
             $default_function = $cfg['DefaultFunctions']['FUNC_' . $current_class];
+            // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
+            // It needs to match the function listed in the select html element.
+            if (
+                $current_class === 'SPATIAL' &&
+                $dbi->getVersion() >= 50600 &&
+                strtoupper(substr($default_function, 0, 3)) !== 'ST_'
+            ) {
+                $default_function = 'ST_' . $default_function;
+            }
         }
 
         // what function defined as default?
@@ -340,9 +351,7 @@ class Generator
         $functions = $dbi->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
-                && $default_function === $function
-            ) {
+            if ($function === $default_function && ! isset($foreignData['foreign_field'])) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
