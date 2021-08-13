@@ -320,12 +320,12 @@ AJAX.registerOnload('table/select.js', function () {
                                 ' ' + response.column_data.max + ')'
                             : '';
                         $('#rangeSearchModal').modal('show');
-                        $('#rangeSearchLegend')[0].innerHTML = operator;
-                        $('#rangeSearchMin')[0].innerHTML = min;
-                        $('#rangeSearchMax')[0].innerHTML = max;
+                        $('#rangeSearchLegend').first().html(operator);
+                        $('#rangeSearchMin').first().text(min);
+                        $('#rangeSearchMax').first().text(max);
                         // Reset input values on reuse
-                        $('#min_value')[0].value = '';
-                        $('#max_value')[0].value = '';
+                        $('#min_value').first().val('');
+                        $('#max_value').first().val('');
                         // Add datepicker wherever required.
                         Functions.addDatepicker($('#min_value'), dataType);
                         Functions.addDatepicker($('#max_value'), dataType);
