@@ -1825,13 +1825,53 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetHtmlForUserProperties(): void
     {
-        $actual = $this->serverPrivileges->getHtmlForUserProperties(
+        $this->dummyDbi->addResult(
+            'SELECT \'1\' FROM `mysql`.`user` WHERE `User` = \'user\' AND `Host` = \'host\';',
+            [['1']],
+            ['1']
+        );
+        $this->dummyDbi->addResult(
+            'SELECT `Table_priv` FROM `mysql`.`tables_priv` WHERE `User` = \'user\' AND `Host` = \'host\''
+                . ' AND `Db` = \'sakila\' AND `Table_name` = \'actor\';',
+            [],
+            ['Table_priv']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW COLUMNS FROM `sakila`.`actor`;',
+            [
+                ['actor_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
+                ['first_name', 'varchar(45)', 'NO', '', null, ''],
+                ['last_name', 'varchar(45)', 'NO', 'MUL', null, ''],
+                ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
+            ],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra']
+        );
+        $this->dummyDbi->addResult(
+            'SELECT `Column_name`, `Column_priv` FROM `mysql`.`columns_priv` WHERE `User` = \'user\''
+                . ' AND `Host` = \'host\' AND `Db` = \'sakila\' AND `Table_name` = \'actor\';',
+            [],
+            ['Column_name', 'Column_priv']
+        );
+
+        $relation = new Relation($this->dbi);
+        $serverPrivileges = new Privileges(
+            new Template(),
+            $this->dbi,
+            $relation,
+            new RelationCleanup($this->dbi, $relation),
+            new Plugins($this->dbi)
+        );
+
+        $GLOBALS['username'] = 'user';
+        $GLOBALS['hostname'] = 'host';
+
+        $actual = $serverPrivileges->getHtmlForUserProperties(
             false,
-            'db',
+            'sakila',
             'user',
             'host',
-            'db',
-            'table'
+            'sakila',
+            'actor'
         );
         $this->assertStringContainsString('addUsersForm', $actual);
         $this->assertStringContainsString('SELECT', $actual);
@@ -1878,7 +1918,7 @@ class PrivilegesTest extends AbstractTestCase
             $actual
         );
         $item = Url::getCommon([
-            'db' => 'db',
+            'db' => 'sakila',
             'reload' => 1,
         ], '');
         $this->assertStringContainsString(
@@ -1886,7 +1926,7 @@ class PrivilegesTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            'db',
+            'sakila',
             $actual
         );
 
@@ -1903,8 +1943,8 @@ class PrivilegesTest extends AbstractTestCase
             $actual
         );
         $item = Url::getCommon([
-            'db' => 'db',
-            'table' => 'table',
+            'db' => 'sakila',
+            'table' => 'actor',
             'reload' => 1,
         ], '');
         $this->assertStringContainsString(
