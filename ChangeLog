@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed GIS saving image as png with a label
 - issue        Fixed if label is just the number zero, it was treated as no label in the OpenLayers map
 - issue #17039 Fix unable to have 2FA working with a "pmadb" config value != phpmyadmin
+- issue #17079 Fixed missing spatial functions in Insert/Edit page
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
