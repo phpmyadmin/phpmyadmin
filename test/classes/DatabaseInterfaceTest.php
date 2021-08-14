@@ -548,7 +548,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'db' => null,
         ], $_SESSION['relation'][$GLOBALS['server']]);
 
-        $this->assertSame([
+        $this->assertEquals([
             'userconfig' => 'pma__userconfig',
             'pmadb' => false,// This is the expected value for server = 0
         ], $GLOBALS['cfg']['Server']);
