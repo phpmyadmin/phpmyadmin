@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-08 00:09+0000\n"
-"PO-Revision-Date: 2021-05-10 16:34+0000\n"
+"PO-Revision-Date: 2021-08-14 16:53+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5512,10 +5512,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Está prestes a TRUNCAR a tabela completa!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Está prestes a DESTRUIR a tabela completa!"
+msgstr "Está prestes a APAGAR todas as filas da tabela!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -7075,6 +7073,7 @@ msgstr "Eliminar página"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Algumas tabelas gravadas nesta página podem ter sido renomeadas ou apagadas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7358,11 +7357,11 @@ msgstr "As suas definições estão agora a ser submetidas, por favor aguarde."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Nome da coluna copiado com sucesso para a área de transferência!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "A cópia do nome da coluna para a área de transferência falhou!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Successfully copied!"
@@ -7460,31 +7459,27 @@ msgstr "Forte"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:714
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr "Acabou o tempo de espera para a chave segura de activação."
+msgstr "Acabou o tempo de espera para a chave segura de ativação."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Solicitação inválida enviada à chave de segurança."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Erro desconhecido"
+msgstr "Erro de chave de segurança desconhecido."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "O cliente não suporta chaves de segurança."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
