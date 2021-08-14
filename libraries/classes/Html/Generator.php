@@ -342,7 +342,6 @@ class Generator
         global $dbi;
 
         $defaultFunction = self::getDefaultFunctionForField($field, $insertMode);
-        $dropdownBuilt = [];
 
         // Create the output
         $retval = '<option></option>' . "\n";
@@ -359,7 +358,6 @@ class Generator
             }
 
             $retval .= '>' . $function . '</option>' . "\n";
-            $dropdownBuilt[$function] = true;
         }
 
         $retval .= '<option value="PHP_PASSWORD_HASH" title="';

@@ -8278,9 +8278,6 @@
       <code>Parser</code>
       <code>array</code>
     </UnnecessaryVarAnnotation>
-    <UnusedVariable occurrences="1">
-      <code>$dropdownBuilt</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Import.php">
     <InvalidReturnStatement occurrences="2">
