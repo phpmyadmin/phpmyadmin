@@ -2628,7 +2628,7 @@ class Table
                         );
                     }
                     $html_output .= MySQLDocumentation::show(
-                        'InnoDB_foreign_key_constraints'
+                        'create-table-foreign-keys'
                     ) . "\n";
                 }
             } else {
