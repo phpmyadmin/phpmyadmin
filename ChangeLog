@@ -85,6 +85,7 @@ phpMyAdmin - ChangeLog
 - issue #17039 Fix unable to have 2FA working with a "pmadb" config value != phpmyadmin
 - issue #17079 Fixed missing spatial functions in Insert/Edit page
 - issue        Fixed broken docs link after a FK data type mismatch error
+- issue        Fix don't add multiple OpenLayers maps, remove listeners on dispose on GIS visualization
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
