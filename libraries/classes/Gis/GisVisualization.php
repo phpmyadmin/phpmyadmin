@@ -475,7 +475,8 @@ class GisVisualization
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
-        $output = 'if (typeof ol !== "undefined") {'
+        $output = 'function drawOpenLayers() {'
+            . 'if (typeof ol !== "undefined") {'
             . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
             . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
             . 'var vectorLayer = new ol.source.Vector({});'
@@ -500,6 +501,9 @@ class GisVisualization
             . 'new ol.control.Attribution]'
             . '});';
         $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
+            . 'return map;'
+            . '}'
+            . 'return undefined;'
             . '}';
 
         return $output;

@@ -2665,7 +2665,7 @@ class Table implements Stringable
                     }
 
                     $htmlOutput .= MySQLDocumentation::show(
-                        'InnoDB_foreign_key_constraints'
+                        'create-table-foreign-keys'
                     ) . "\n";
                 }
             } else {
