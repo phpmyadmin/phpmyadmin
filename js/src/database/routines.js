@@ -166,9 +166,12 @@ const DatabaseRoutines = {
             if (data.success === true) {
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
+                $('#routineEditorModal').modal('show');
+                $('#routineEditorModalLabel').first().html($this.attr('title') || $this.text() || $(data.title).text());
+                $('#routineEditorModal').find('.modal-body').first().html(data.message);
                 // Now define the function that is called when
                 // the user presses the "Go" button
-                that.buttonOptions[Messages.strGo] = function () {
+                $('#routineEditorConfirmGoButton').on('click', function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
                     if (typeof CodeMirror !== 'undefined') {
@@ -189,7 +192,7 @@ const DatabaseRoutines = {
                                 // Item created successfully
                                 Functions.ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
-                                that.$ajaxDialog.dialog('close');
+                                $('#routineEditorModal').modal('hide');
 
                                 var tableId = '#' + data.tableType + 'Table';
                                 // If we are in 'edit' mode, we must
@@ -284,39 +287,8 @@ const DatabaseRoutines = {
                             }
                         }); // end $.post()
                     } // end "if (that.validate())"
-                }; // end of function that handles the submission of the Editor
-                that.buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                /**
-                 * Display the dialog to the user
-                 */
-                that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
-                    width: 700,
-                    minWidth: 500,
-                    buttons: that.buttonOptions,
-                    // Issue #15810 - use button titles for modals (eg: new procedure)
-                    // Respect the order: title on href tag, href content, title sent in response
-                    title: $this.attr('title') || $this.text() || $(data.title).text(),
-                    modal: true,
-                    open: function () {
-                        $('#rteDialog').dialog('option', 'max-height', $(window).height());
-                        if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
-                            $('#rteDialog').dialog('option', 'height', $(window).height());
-                        }
-                        $(this).find('input[name=item_name]').trigger('focus');
-                        $(this).find('input.datefield').each(function () {
-                            Functions.addDatepicker($(this).css('width', '95%'), 'date');
-                        });
-                        $(this).find('input.datetimefield').each(function () {
-                            Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
-                        });
-                        $.datepicker.initialized = false;
-                    },
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
+                }); // end of function that handles the submission of the Editor
+                that.$ajaxDialog = $('#routineEditorModal');
                 /**
                  * @var mode Used to remember whether the editor is in
                  *           "Edit" or "Add" mode
@@ -895,12 +867,13 @@ AJAX.registerOnload('database/routines.js', function () {
     });
 
     $(document).on('click', 'input[name=routine_addparameter]', function (event) {
+        console.log('test123');
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference
          *                           to the routine parameters table
          */
-        const $routineParamsTable = $(this).closest('div.ui-dialog').find('.routine_params_table');
+        const $routineParamsTable = $(this).closest('table').find('.routine_params_table');
         /**
          * @var new_param_row A string containing the HTML code for the
          *                    new row for the routine parameters table
@@ -909,7 +882,7 @@ AJAX.registerOnload('database/routines.js', function () {
         // Append the new row to the parameters table
         $routineParamsTable.append(newParamRow);
         // Make sure that the row is correctly shown according to the type of routine
-        if ($(this).closest('div.ui-dialog').find('table.rte_table select[name=item_type]').val() === 'FUNCTION') {
+        if ($(this).closest('table').find('table.rte_table select[name=item_type]').val() === 'FUNCTION') {
             $('tr.routine_return_row').show();
             $('td.routine_direction_cell').hide();
         }
@@ -917,7 +890,7 @@ AJAX.registerOnload('database/routines.js', function () {
          * @var newrow jQuery object containing the reference to the newly
          *             inserted row in the routine parameters table
          */
-        const $newrow = $(this).closest('div.ui-dialog').find('table.routine_params_table').find('tr').has('td').last();
+        const $newrow = $(this).closest('table').find('table.routine_params_table').find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
         DatabaseRoutines.setOptionsForParameter(
             $newrow.find('select[name^=item_param_type]'),
