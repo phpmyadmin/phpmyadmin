@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-08 00:09+0000\n"
+"POT-Creation-Date: 2021-08-15 00:09+0000\n"
 "PO-Revision-Date: 2021-01-22 02:41+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1311,7 +1311,7 @@ msgstr "Paieška"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:148 templates/sql/query.twig:199
+#: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
@@ -1345,7 +1345,7 @@ msgid "Description"
 msgstr "Paaiškinimas"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -3494,7 +3494,7 @@ msgid "Character set of the file"
 msgstr "Failo simbolių koduotė"
 
 #: libraries/classes/Config/Descriptions.php:669
-#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:41
+#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Formatas"
@@ -3522,7 +3522,7 @@ msgstr "Stulpelių pavadinimus įrašyti pirmoje eilutėje"
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:723
 #, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
@@ -3531,7 +3531,7 @@ msgstr "Laukų reikšmės apskliaustos su:"
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:727
+#: libraries/classes/Plugins/Import/ImportCsv.php:734
 #, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
@@ -3557,7 +3557,7 @@ msgstr "Pašalinti CRLF simbolius laukeliuose"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:701
+#: libraries/classes/Plugins/Import/ImportCsv.php:708
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
@@ -3565,7 +3565,7 @@ msgstr "Laukai baigiasi"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:737
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
 #, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
@@ -4012,7 +4012,7 @@ msgstr "Dalinis importas: leisti pertrauktis"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:137
+#: libraries/classes/Plugins/Import/ImportCsv.php:138
 #: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "Nenutraukti įvykus INSERT klaidai"
@@ -4643,7 +4643,7 @@ msgstr "Rodyti išsamią MySQL serverio informaciją"
 msgid "Show SQL queries"
 msgstr "Rodyti SQL užklausas"
 
-#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:128
+#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:127
 #, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
@@ -4659,9 +4659,9 @@ msgstr "Praleisti užrakintas lenteles"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3231
-#: libraries/classes/Html/Generator.php:697
-#: libraries/classes/Html/Generator.php:964
+#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Html/Generator.php:695
+#: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4685,12 +4685,12 @@ msgid "Edit"
 msgstr "Redaguoti"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:656
 msgid "Explain SQL"
 msgstr "Paaiškinti SQL"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:742
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4698,7 +4698,7 @@ msgid "Refresh"
 msgstr "Atnaujinti"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:726
+#: libraries/classes/Html/Generator.php:724
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -5547,7 +5547,7 @@ msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4420
+#: libraries/classes/Display/Results.php:4372
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6140,7 +6140,7 @@ msgid "Matched rows:"
 msgstr "Paveiktos eilutės:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:936 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -6432,7 +6432,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:206
-#: libraries/classes/Display/Results.php:1339
+#: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6978,7 +6978,7 @@ msgstr "Ne"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
-#: templates/sql/query.twig:143 templates/table/delete/confirm.twig:25
+#: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -7065,7 +7065,7 @@ msgid "Show query box"
 msgstr "Rodyti užklausos laukelį"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#: libraries/classes/Display/Results.php:3302
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -7077,7 +7077,7 @@ msgstr "Rodyti užklausos laukelį"
 #: templates/display/results/table.twig:236 templates/export.twig:38
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:187
+#: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "Trinti"
 
@@ -7197,7 +7197,7 @@ msgstr "Nepažymėjote duomenų bazės."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7362,7 +7362,7 @@ msgid "Ignore"
 msgstr "Ignoruoti"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3235
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7590,7 +7590,7 @@ msgid "Column name"
 msgstr "Stulpelių vardai"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:554
-#: templates/sql/query.twig:179
+#: templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Siųsti"
 
@@ -8166,7 +8166,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL užklausa"
 
@@ -8897,7 +8897,7 @@ msgstr "Lentelė %s jau yra!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4085 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4047 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -8972,7 +8972,7 @@ msgstr "Rodinys"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:912 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -9232,7 +9232,7 @@ msgstr "Sekančios užklausos nepavyko: „%s“"
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:984
+#: libraries/classes/Html/Generator.php:982
 msgid "MySQL said: "
 msgstr "MySQL atsakymas: "
 
@@ -9343,17 +9343,17 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Nepavyko perskaityti konfigūracijos failo"
 
-#: libraries/classes/DatabaseInterface.php:1980
+#: libraries/classes/DatabaseInterface.php:1975
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Trūkstamas parametras:"
 
-#: libraries/classes/DatabaseInterface.php:2009
+#: libraries/classes/DatabaseInterface.php:2004
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2495
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9627,18 +9627,18 @@ msgstr "Nėra įvykio su vardu %1$s duomenų bazėje %2$s"
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:928
-#: libraries/classes/Html/Generator.php:1249
-#: libraries/classes/Html/Generator.php:1253
+#: libraries/classes/Display/Results.php:926
+#: libraries/classes/Html/Generator.php:1247
+#: libraries/classes/Html/Generator.php:1251
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Pradžia"
 
-#: libraries/classes/Display/Results.php:935
-#: libraries/classes/Html/Generator.php:1250
-#: libraries/classes/Html/Generator.php:1254
+#: libraries/classes/Display/Results.php:933
+#: libraries/classes/Html/Generator.php:1248
+#: libraries/classes/Html/Generator.php:1252
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 #, fuzzy
 #| msgid "Previous"
@@ -9646,9 +9646,9 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Ankstesnis"
 
-#: libraries/classes/Display/Results.php:963
-#: libraries/classes/Html/Generator.php:1283
-#: libraries/classes/Html/Generator.php:1292
+#: libraries/classes/Display/Results.php:961
+#: libraries/classes/Html/Generator.php:1281
+#: libraries/classes/Html/Generator.php:1290
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 #, fuzzy
 #| msgid "Next"
@@ -9656,27 +9656,27 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Kitas"
 
-#: libraries/classes/Display/Results.php:994
-#: libraries/classes/Html/Generator.php:1284
-#: libraries/classes/Html/Generator.php:1293
+#: libraries/classes/Display/Results.php:992
+#: libraries/classes/Html/Generator.php:1282
+#: libraries/classes/Html/Generator.php:1291
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Pabaiga"
 
-#: libraries/classes/Display/Results.php:1571
+#: libraries/classes/Display/Results.php:1569
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
 
-#: libraries/classes/Display/Results.php:1575
+#: libraries/classes/Display/Results.php:1573
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Tekstus rodyti pilnai"
 
-#: libraries/classes/Display/Results.php:1975
-#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2721
+#: libraries/classes/Display/Results.php:1973
+#: libraries/classes/Display/Results.php:1999 libraries/classes/Util.php:2721
 #: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9689,8 +9689,8 @@ msgstr "Tekstus rodyti pilnai"
 msgid "Descending"
 msgstr "Mažėjimo tvarka"
 
-#: libraries/classes/Display/Results.php:1983
-#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2713
+#: libraries/classes/Display/Results.php:1981
+#: libraries/classes/Display/Results.php:1991 libraries/classes/Util.php:2713
 #: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9703,48 +9703,48 @@ msgstr "Mažėjimo tvarka"
 msgid "Ascending"
 msgstr "Didėjimo tvarka"
 
-#: libraries/classes/Display/Results.php:3278
-#: libraries/classes/Display/Results.php:3293
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
-#: libraries/classes/Display/Results.php:3325
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Stabdyti procesą"
 
-#: libraries/classes/Display/Results.php:4009
+#: libraries/classes/Display/Results.php:3971
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3-11]DUK 3.11[/doc]"
 
-#: libraries/classes/Display/Results.php:4432
+#: libraries/classes/Display/Results.php:4384
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Rodomi įrašai"
 
-#: libraries/classes/Display/Results.php:4446
+#: libraries/classes/Display/Results.php:4398
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4451
+#: libraries/classes/Display/Results.php:4403
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "iš viso"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4416 libraries/classes/Sql.php:1068
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Užklausa užtruko %01.4f sek."
 
-#: libraries/classes/Display/Results.php:4853
+#: libraries/classes/Display/Results.php:4796
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -10054,7 +10054,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:829
+#: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -10223,54 +10223,54 @@ msgstr ""
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:366
+#: libraries/classes/Html/Generator.php:364
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:367
+#: libraries/classes/Html/Generator.php:365
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:670
+#: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
 msgstr "Praleisti SQL užklausos aiškinimą"
 
-#: libraries/classes/Html/Generator.php:678
+#: libraries/classes/Html/Generator.php:676
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:710
+#: libraries/classes/Html/Generator.php:708
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "be PHP kodo"
 
-#: libraries/classes/Html/Generator.php:717
+#: libraries/classes/Html/Generator.php:715
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Vykdyti užklausą"
 
-#: libraries/classes/Html/Generator.php:763 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profiliavimas"
 
-#: libraries/classes/Html/Generator.php:779
+#: libraries/classes/Html/Generator.php:777
 #, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Redagavimo režimas"
 
-#: libraries/classes/Html/Generator.php:919
+#: libraries/classes/Html/Generator.php:917
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "Statiniai duomenys"
 
-#: libraries/classes/Html/Generator.php:922
+#: libraries/classes/Html/Generator.php:920
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -10568,7 +10568,7 @@ msgstr "Paieška"
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
 #: templates/database/structure/structure_table_row.twig:59
-#: templates/sql/query.twig:76
+#: templates/sql/query.twig:75
 msgid "Insert"
 msgstr "Įterpti"
 
@@ -10665,7 +10665,7 @@ msgstr "Replikavimas"
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:231
 #: libraries/classes/Util.php:2079 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:192
+#: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Kintamieji"
 
@@ -10784,7 +10784,7 @@ msgstr "Nepavyko išsaugoti konfigūracijos"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
-#: templates/sql/query.twig:63
+#: templates/sql/query.twig:62
 msgid "Columns"
 msgstr "Stulpeliai"
 
@@ -12037,20 +12037,20 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:79
+#: libraries/classes/Plugins/Import/ImportCsv.php:80
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:89
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
-#: libraries/classes/Plugins/Import/ImportCsv.php:115
+#: libraries/classes/Plugins/Import/ImportCsv.php:98
+#: libraries/classes/Plugins/Import/ImportCsv.php:116
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:105
+#: libraries/classes/Plugins/Import/ImportCsv.php:106
 #: libraries/classes/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -12059,39 +12059,39 @@ msgstr ""
 "Pirmoji failo eilutė saugo lentelės stulpelių vardus <i>(jeigu nepažymėta "
 "pirma eilutė tampa duomenų dalis)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:122
+#: libraries/classes/Plugins/Import/ImportCsv.php:123
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:130
+#: libraries/classes/Plugins/Import/ImportCsv.php:131
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "Stulpelių vardai: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:274
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:275
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:537
+#: libraries/classes/Plugins/Import/ImportCsv.php:538
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neteisingas stulpelių skaičius CSV įvedimo eilutėje %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:699
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:725
-#: libraries/classes/Plugins/Import/ImportCsv.php:735
+#: libraries/classes/Plugins/Import/ImportCsv.php:706
+#: libraries/classes/Plugins/Import/ImportCsv.php:721
+#: libraries/classes/Plugins/Import/ImportCsv.php:732
+#: libraries/classes/Plugins/Import/ImportCsv.php:742
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Negalimas parametras CSV importavimui: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:872
+#: libraries/classes/Plugins/Import/ImportCsv.php:879
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12639,7 +12639,7 @@ msgstr ""
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/Query/Utilities.php:121
+#: libraries/classes/Query/Utilities.php:120
 msgid "Details…"
 msgstr "Detalės…"
 
@@ -12746,7 +12746,7 @@ msgstr ""
 "Informaciją, kaip atnaujinti column_comments lentelę, galite rasti "
 "dokumentacijoje."
 
-#: libraries/classes/Relation.php:266 templates/sql/query.twig:157
+#: libraries/classes/Relation.php:266 templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
 msgstr "Sukurti nuoroda SQL-užklausai"
 
@@ -14800,7 +14800,7 @@ msgid "Requery"
 msgstr "SQL užklausa"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:166
-#: templates/sql/query.twig:39
+#: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "Išvalyti"
 
@@ -19177,7 +19177,7 @@ msgstr "Šios SQL užklausą pasižymėti kaip"
 msgid "Label:"
 msgstr "Nuorodos Antraštė"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:94
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "Leisti kitiems vartotojams naudotis šia žyme"
 
@@ -19221,50 +19221,50 @@ msgstr "Uždaryti"
 msgid "ø Time"
 msgstr "Laikas"
 
-#: templates/sql/query.twig:45
+#: templates/sql/query.twig:44
 msgid "Get auto-saved query"
 msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:52
+#: templates/sql/query.twig:51
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "Blogi parametrai!"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:84
 #, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
 msgstr "Šios SQL užklausą pasižymėti kaip"
 
-#: templates/sql/query.twig:101
+#: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
 msgstr "Pakeisti jau egzistuojančią žymę tuo pačiu vardu"
 
-#: templates/sql/query.twig:111 templates/sql/query.twig:112
+#: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
 msgstr "Skyriklis"
 
-#: templates/sql/query.twig:120
+#: templates/sql/query.twig:119
 msgid "Show this query here again"
 msgstr "Rodyti šią užklausą vėl"
 
-#: templates/sql/query.twig:135
+#: templates/sql/query.twig:134
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:161
+#: templates/sql/query.twig:160
 #, fuzzy
 #| msgid "Bookmark table"
 msgid "Bookmark:"
 msgstr "Pažymėti lentelę"
 
-#: templates/sql/query.twig:170
+#: templates/sql/query.twig:169
 msgid "shared"
 msgstr "padalintas"
 
-#: templates/sql/query.twig:183
+#: templates/sql/query.twig:182
 msgid "View only"
 msgstr "Peržiūra"
 

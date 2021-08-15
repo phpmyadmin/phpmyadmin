@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-08 00:09+0000\n"
+"POT-Creation-Date: 2021-08-15 00:09+0000\n"
 "PO-Revision-Date: 2021-06-17 22:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1521,7 +1521,7 @@ msgstr "Cari:"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:148 templates/sql/query.twig:199
+#: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
@@ -1555,7 +1555,7 @@ msgid "Description"
 msgstr "Deskripsi"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -3480,7 +3480,7 @@ msgid "Character set of the file"
 msgstr "Set karakter berkas"
 
 #: libraries/classes/Config/Descriptions.php:669
-#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:41
+#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Format"
@@ -3508,14 +3508,14 @@ msgstr "Masukkan nama kolom pada baris pertama"
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:723
 msgid "Columns enclosed with"
 msgstr "Kolom diapit oleh"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:727
+#: libraries/classes/Plugins/Import/ImportCsv.php:734
 msgid "Columns escaped with"
 msgstr "Kolom diloloskan oleh"
 
@@ -3537,13 +3537,13 @@ msgstr "Hapus karakter CRLF dalam kolom"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:701
+#: libraries/classes/Plugins/Import/ImportCsv.php:708
 msgid "Columns terminated with"
 msgstr "Kolom diakhiri oleh"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:737
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
 msgid "Lines terminated with"
 msgstr "Baris diakhir dengan"
 
@@ -3969,7 +3969,7 @@ msgstr "Impor parsial: izinkan interupsi"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:137
+#: libraries/classes/Plugins/Import/ImportCsv.php:138
 #: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "Jangan gugurkan sewaktu galat INSERT"
@@ -4533,7 +4533,7 @@ msgstr "Tampilkan informasi detail server MySQL"
 msgid "Show SQL queries"
 msgstr "Tampilkan kueri SQL"
 
-#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:128
+#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr "Menahan kotak kueri"
 
@@ -4547,9 +4547,9 @@ msgstr "Lewati tabel terkunci"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3231
-#: libraries/classes/Html/Generator.php:697
-#: libraries/classes/Html/Generator.php:964
+#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Html/Generator.php:695
+#: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4573,12 +4573,12 @@ msgid "Edit"
 msgstr "Ubah"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:656
 msgid "Explain SQL"
 msgstr "Jelaskan SQL"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:742
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4586,7 +4586,7 @@ msgid "Refresh"
 msgstr "Segarkan"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:726
+#: libraries/classes/Html/Generator.php:724
 msgid "Create PHP code"
 msgstr "Buat kode PHP"
 
@@ -5412,7 +5412,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabel %s telah dikosongkan."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4420
+#: libraries/classes/Display/Results.php:4372
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5999,7 +5999,7 @@ msgid "Matched rows:"
 msgstr "Baris yang cocok:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:936 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
 msgid "SQL query:"
 msgstr "Query SQL:"
 
@@ -6271,7 +6271,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:206
-#: libraries/classes/Display/Results.php:1339
+#: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6798,7 +6798,7 @@ msgstr "Tidak"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
-#: templates/sql/query.twig:143 templates/table/delete/confirm.twig:25
+#: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Perbolehkan cek forign key"
 
@@ -6880,7 +6880,7 @@ msgid "Show query box"
 msgstr "Tampilkan kotak kueri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#: libraries/classes/Display/Results.php:3302
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6892,7 +6892,7 @@ msgstr "Tampilkan kotak kueri"
 #: templates/display/results/table.twig:236 templates/export.twig:38
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:187
+#: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "Hapus"
 
@@ -7010,7 +7010,7 @@ msgstr "Tidak ada dependensi parsial yang dipilih!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7161,7 +7161,7 @@ msgid "Ignore"
 msgstr "Abaikan"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3235
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7375,7 +7375,7 @@ msgid "Column name"
 msgstr "Nama kolom"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:554
-#: templates/sql/query.twig:179
+#: templates/sql/query.twig:178
 msgid "Submit"
 msgstr "Kirim"
 
@@ -7941,7 +7941,7 @@ msgstr "Proses"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "Queri SQL"
 
@@ -8854,7 +8854,7 @@ msgstr "Tabel %s sudah ada!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4085 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4047 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri SQL Anda berhasil dieksekusi."
@@ -8927,7 +8927,7 @@ msgstr "Gambarkan"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:912 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -9175,7 +9175,7 @@ msgstr "Query berikut telah gagal: \"%s\""
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:984
+#: libraries/classes/Html/Generator.php:982
 msgid "MySQL said: "
 msgstr "MySQL menyatakan: "
 
@@ -9293,16 +9293,16 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
-#: libraries/classes/DatabaseInterface.php:1980
+#: libraries/classes/DatabaseInterface.php:1975
 msgid "Missing connection parameters!"
 msgstr "Parameter koneksi hilang!"
 
-#: libraries/classes/DatabaseInterface.php:2009
+#: libraries/classes/DatabaseInterface.php:2004
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2495
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Lihat %sdokumentasi kami%s untuk informasi lebih lanjut."
@@ -9563,48 +9563,48 @@ msgstr "Trigger dengan nama %1$s tidak ditemukan dalam basis data %2$s"
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Koneksi SSL ditegakkan oleh server, secara otomatis memungkinkannya."
 
-#: libraries/classes/Display/Results.php:928
-#: libraries/classes/Html/Generator.php:1249
-#: libraries/classes/Html/Generator.php:1253
+#: libraries/classes/Display/Results.php:926
+#: libraries/classes/Html/Generator.php:1247
+#: libraries/classes/Html/Generator.php:1251
 msgctxt "First page"
 msgid "Begin"
 msgstr "Awal"
 
-#: libraries/classes/Display/Results.php:935
-#: libraries/classes/Html/Generator.php:1250
-#: libraries/classes/Html/Generator.php:1254
+#: libraries/classes/Display/Results.php:933
+#: libraries/classes/Html/Generator.php:1248
+#: libraries/classes/Html/Generator.php:1252
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Sebelumnya"
 
-#: libraries/classes/Display/Results.php:963
-#: libraries/classes/Html/Generator.php:1283
-#: libraries/classes/Html/Generator.php:1292
+#: libraries/classes/Display/Results.php:961
+#: libraries/classes/Html/Generator.php:1281
+#: libraries/classes/Html/Generator.php:1290
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Berikutnya"
 
-#: libraries/classes/Display/Results.php:994
-#: libraries/classes/Html/Generator.php:1284
-#: libraries/classes/Html/Generator.php:1293
+#: libraries/classes/Display/Results.php:992
+#: libraries/classes/Html/Generator.php:1282
+#: libraries/classes/Html/Generator.php:1291
 msgctxt "Last page"
 msgid "End"
 msgstr "Akhir"
 
-#: libraries/classes/Display/Results.php:1571
+#: libraries/classes/Display/Results.php:1569
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "Teks parsial"
 
-#: libraries/classes/Display/Results.php:1575
+#: libraries/classes/Display/Results.php:1573
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "Teks penuh"
 
-#: libraries/classes/Display/Results.php:1975
-#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2721
+#: libraries/classes/Display/Results.php:1973
+#: libraries/classes/Display/Results.php:1999 libraries/classes/Util.php:2721
 #: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9617,8 +9617,8 @@ msgstr "Teks penuh"
 msgid "Descending"
 msgstr "Menurun"
 
-#: libraries/classes/Display/Results.php:1983
-#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2713
+#: libraries/classes/Display/Results.php:1981
+#: libraries/classes/Display/Results.php:1991 libraries/classes/Util.php:2713
 #: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9631,41 +9631,41 @@ msgstr "Menurun"
 msgid "Ascending"
 msgstr "Menaik"
 
-#: libraries/classes/Display/Results.php:3278
-#: libraries/classes/Display/Results.php:3293
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 msgid "The row has been deleted."
 msgstr "Baris telah dihapus."
 
-#: libraries/classes/Display/Results.php:3325
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Tutup"
 
-#: libraries/classes/Display/Results.php:4009
+#: libraries/classes/Display/Results.php:3971
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4432
+#: libraries/classes/Display/Results.php:4384
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Menampilkan baris %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4446
+#: libraries/classes/Display/Results.php:4398
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "total %1$d, %2$d dalam kueri"
 
-#: libraries/classes/Display/Results.php:4451
+#: libraries/classes/Display/Results.php:4403
 #, php-format
 msgid "%d total"
 msgstr "total %d"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4416 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
 
-#: libraries/classes/Display/Results.php:4853
+#: libraries/classes/Display/Results.php:4796
 msgid "Link not found!"
 msgstr "Tautan tidak ditemukan!"
 
@@ -10008,7 +10008,7 @@ msgstr ""
 "berikutnya."
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:829
+#: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -10170,48 +10170,48 @@ msgstr "SSL sedang digunakan tanpa ijin sertifikat"
 msgid "SSL is used"
 msgstr "SSL sedang digunakan"
 
-#: libraries/classes/Html/Generator.php:366
+#: libraries/classes/Html/Generator.php:364
 msgid "The PHP function password_hash() with default options."
 msgstr "Fungsi PHP password_hash () dengan opsi default."
 
-#: libraries/classes/Html/Generator.php:367
+#: libraries/classes/Html/Generator.php:365
 msgid "password_hash() PHP function"
 msgstr "Fungsi PHP password_hash()"
 
-#: libraries/classes/Html/Generator.php:670
+#: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
 msgstr "Lewati Penjelasan SQL"
 
-#: libraries/classes/Html/Generator.php:678
+#: libraries/classes/Html/Generator.php:676
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "Menganalisis penjelasan di %s"
 
-#: libraries/classes/Html/Generator.php:710
+#: libraries/classes/Html/Generator.php:708
 msgid "Without PHP code"
 msgstr "Tanpa kode PHP"
 
-#: libraries/classes/Html/Generator.php:717
+#: libraries/classes/Html/Generator.php:715
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Kirim Kueri"
 
-#: libraries/classes/Html/Generator.php:763 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profil"
 
-#: libraries/classes/Html/Generator.php:779
+#: libraries/classes/Html/Generator.php:777
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Edit dikotak"
 
-#: libraries/classes/Html/Generator.php:919
+#: libraries/classes/Html/Generator.php:917
 msgid "Static analysis:"
 msgstr "Data statis:"
 
-#: libraries/classes/Html/Generator.php:922
+#: libraries/classes/Html/Generator.php:920
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d kesalahan ditemukan dalam analisis."
@@ -10507,7 +10507,7 @@ msgstr "Cari"
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
 #: templates/database/structure/structure_table_row.twig:59
-#: templates/sql/query.twig:76
+#: templates/sql/query.twig:75
 msgid "Insert"
 msgstr "Tambahkan"
 
@@ -10600,7 +10600,7 @@ msgstr "Replikasi"
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:231
 #: libraries/classes/Util.php:2079 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:192
+#: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Variabel"
 
@@ -10703,7 +10703,7 @@ msgstr "Tidak dapat memuat kelas %1$s"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
-#: templates/sql/query.twig:63
+#: templates/sql/query.twig:62
 msgid "Columns"
 msgstr "Kolom"
 
@@ -11966,20 +11966,20 @@ msgstr ""
 "Memperbarui data ketika duplikat kunci ditemukan saat impor (add ON "
 "DUPLICATE KEY UPDATE)"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:79
+#: libraries/classes/Plugins/Import/ImportCsv.php:80
 msgid "Name of the new table (optional):"
 msgstr "Nama dari tabel baru (tidak wajib):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:89
 msgid "Name of the new database (optional):"
 msgstr "Nama dari database baru (pilihan):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
-#: libraries/classes/Plugins/Import/ImportCsv.php:115
+#: libraries/classes/Plugins/Import/ImportCsv.php:98
+#: libraries/classes/Plugins/Import/ImportCsv.php:116
 msgid "Import these many number of rows (optional):"
 msgstr "Impor seberapa banyak baris ini (opsional):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:105
+#: libraries/classes/Plugins/Import/ImportCsv.php:106
 #: libraries/classes/Plugins/Import/ImportOds.php:72
 #, fuzzy
 msgid ""
@@ -11989,7 +11989,7 @@ msgstr ""
 "Baris pertama dari file berisi nama kolom tabel <i>(jika ini tidak "
 "dicentang, baris pertama akan menjadi bagian dari data)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:122
+#: libraries/classes/Plugins/Import/ImportCsv.php:123
 #, fuzzy
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
@@ -12000,30 +12000,30 @@ msgstr ""
 "dalam database, daftar nama kolom yang sesuai di sini. Nama kolom harus "
 "dipisahkan oleh koma dan tidak tertutup dalam kutipan."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:130
+#: libraries/classes/Plugins/Import/ImportCsv.php:131
 msgid "Column names:"
 msgstr "Nama kolom:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:274
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:275
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Format masukan CSV tidak valid pada baris %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:537
+#: libraries/classes/Plugins/Import/ImportCsv.php:538
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Perhitungan CSV tidak valid pada baris %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:699
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:725
-#: libraries/classes/Plugins/Import/ImportCsv.php:735
+#: libraries/classes/Plugins/Import/ImportCsv.php:706
+#: libraries/classes/Plugins/Import/ImportCsv.php:721
+#: libraries/classes/Plugins/Import/ImportCsv.php:732
+#: libraries/classes/Plugins/Import/ImportCsv.php:742
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Parameter yang tidak valid untuk impor CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:872
+#: libraries/classes/Plugins/Import/ImportCsv.php:879
 #, fuzzy, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -12563,7 +12563,7 @@ msgstr "Keluar dan coba sebagai pengguna lain."
 msgid "Please check privileges of directory containing database."
 msgstr "Harap periksa hak akses direktori basis data."
 
-#: libraries/classes/Query/Utilities.php:121
+#: libraries/classes/Query/Utilities.php:120
 msgid "Details…"
 msgstr "Rincian…"
 
@@ -12650,7 +12650,7 @@ msgstr ""
 "Silakan lihat dokumentasi mengenai bagaimana memperbarui tabel column_info "
 "anda."
 
-#: libraries/classes/Relation.php:266 templates/sql/query.twig:157
+#: libraries/classes/Relation.php:266 templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
 msgstr "Kueri SQL yang dimarkahi"
 
@@ -14725,7 +14725,7 @@ msgid "Requery"
 msgstr "Kueri ulang"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:166
-#: templates/sql/query.twig:39
+#: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "Bersihkan"
 
@@ -18996,7 +18996,7 @@ msgstr "Markahi kueri SQL ini"
 msgid "Label:"
 msgstr "Judul:"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:94
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 
@@ -19030,50 +19030,50 @@ msgstr "Panggil"
 msgid "ø Time"
 msgstr "ø Waktu"
 
-#: templates/sql/query.twig:45
+#: templates/sql/query.twig:44
 #, fuzzy
 msgid "Get auto-saved query"
 msgstr "Dapatkan auto-saved"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:52
+#: templates/sql/query.twig:51
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "Pembatasan yang buruk!"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:84
 msgid "Bookmark this SQL query:"
 msgstr "Markahi kueri SQL ini:"
 
-#: templates/sql/query.twig:101
+#: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
 msgstr "Ganti markah bernama sama yang ada"
 
-#: templates/sql/query.twig:111 templates/sql/query.twig:112
+#: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
 msgstr "Pembatas"
 
-#: templates/sql/query.twig:120
+#: templates/sql/query.twig:119
 msgid "Show this query here again"
 msgstr "Tampilkan ulang perintah SQL"
 
-#: templates/sql/query.twig:135
+#: templates/sql/query.twig:134
 #, fuzzy
 msgid "Rollback when finished"
 msgstr "Kembalikan ketika selesai"
 
-#: templates/sql/query.twig:161
+#: templates/sql/query.twig:160
 #, fuzzy
 #| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "Bookmarks"
 
-#: templates/sql/query.twig:170
+#: templates/sql/query.twig:169
 msgid "shared"
 msgstr "dibagi"
 
-#: templates/sql/query.twig:183
+#: templates/sql/query.twig:182
 msgid "View only"
 msgstr "Hanya melihat"
 

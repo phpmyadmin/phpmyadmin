@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-08 00:09+0000\n"
+"POT-Creation-Date: 2021-08-15 00:09+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1376,7 +1376,7 @@ msgstr "검색:"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:148 templates/sql/query.twig:199
+#: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
@@ -1410,7 +1410,7 @@ msgid "Description"
 msgstr "설명"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -3220,7 +3220,7 @@ msgid "Character set of the file"
 msgstr "파일 문자셋"
 
 #: libraries/classes/Config/Descriptions.php:669
-#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:41
+#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "형식"
@@ -3248,14 +3248,14 @@ msgstr "첫 줄에 열 이름을 넣기"
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:723
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:727
+#: libraries/classes/Plugins/Import/ImportCsv.php:734
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
 
@@ -3277,13 +3277,13 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:701
+#: libraries/classes/Plugins/Import/ImportCsv.php:708
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:737
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
 
@@ -3707,7 +3707,7 @@ msgstr "일부분만 가져오기: 인터럽트 허용"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:137
+#: libraries/classes/Plugins/Import/ImportCsv.php:138
 #: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
@@ -4272,7 +4272,7 @@ msgstr "MYSQL 서버 정보 자세하게 표시"
 msgid "Show SQL queries"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:128
+#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr "쿼리 박스 유지"
 
@@ -4286,9 +4286,9 @@ msgstr "잠긴 테이블 건너뛰기"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3231
-#: libraries/classes/Html/Generator.php:697
-#: libraries/classes/Html/Generator.php:964
+#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Html/Generator.php:695
+#: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4312,12 +4312,12 @@ msgid "Edit"
 msgstr "수정"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:656
 msgid "Explain SQL"
 msgstr "SQL 해석"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:742
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4325,7 +4325,7 @@ msgid "Refresh"
 msgstr "다시 보기"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:726
+#: libraries/classes/Html/Generator.php:724
 msgid "Create PHP code"
 msgstr "PHP 코드 보기"
 
@@ -5132,7 +5132,7 @@ msgid "Table %s has been emptied."
 msgstr "테이블 %s 을 비웠습니다."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4420
+#: libraries/classes/Display/Results.php:4372
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5695,7 +5695,7 @@ msgid "Matched rows:"
 msgstr "일치하는 행:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:936 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -5966,7 +5966,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:206
-#: libraries/classes/Display/Results.php:1339
+#: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6489,7 +6489,7 @@ msgstr "아니오"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
-#: templates/sql/query.twig:143 templates/table/delete/confirm.twig:25
+#: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "외래 키(foreign key) 점검 사용"
 
@@ -6567,7 +6567,7 @@ msgid "Show query box"
 msgstr "질의 상자 보이기"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#: libraries/classes/Display/Results.php:3302
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6579,7 +6579,7 @@ msgstr "질의 상자 보이기"
 #: templates/display/results/table.twig:236 templates/export.twig:38
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:187
+#: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "삭제"
 
@@ -6698,7 +6698,7 @@ msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6847,7 +6847,7 @@ msgid "Ignore"
 msgstr "무시"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3235
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7059,7 +7059,7 @@ msgid "Column name"
 msgstr "열(칼럼) 이름"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:554
-#: templates/sql/query.twig:179
+#: templates/sql/query.twig:178
 msgid "Submit"
 msgstr "확인"
 
@@ -7613,7 +7613,7 @@ msgstr "진행"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL 질의"
 
@@ -8350,7 +8350,7 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4085 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4047 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 성공적으로 실행되었습니다."
@@ -8423,7 +8423,7 @@ msgstr "뷰"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:912 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8667,7 +8667,7 @@ msgstr "쿼리 실행 실패: \"%s\""
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:984
+#: libraries/classes/Html/Generator.php:982
 msgid "MySQL said: "
 msgstr "MySQL 메시지: "
 
@@ -8777,15 +8777,15 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "정렬 방식 연결을 구성하는데 실패했습니다!"
 
-#: libraries/classes/DatabaseInterface.php:1980
+#: libraries/classes/DatabaseInterface.php:1975
 msgid "Missing connection parameters!"
 msgstr "연결의 파라미터가 없습니다!"
 
-#: libraries/classes/DatabaseInterface.php:2009
+#: libraries/classes/DatabaseInterface.php:2004
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2495
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9026,48 +9026,48 @@ msgstr "데이터베이스 %2$s에 %1$s라는 트리거가 없음"
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:928
-#: libraries/classes/Html/Generator.php:1249
-#: libraries/classes/Html/Generator.php:1253
+#: libraries/classes/Display/Results.php:926
+#: libraries/classes/Html/Generator.php:1247
+#: libraries/classes/Html/Generator.php:1251
 msgctxt "First page"
 msgid "Begin"
 msgstr "처음"
 
-#: libraries/classes/Display/Results.php:935
-#: libraries/classes/Html/Generator.php:1250
-#: libraries/classes/Html/Generator.php:1254
+#: libraries/classes/Display/Results.php:933
+#: libraries/classes/Html/Generator.php:1248
+#: libraries/classes/Html/Generator.php:1252
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
-#: libraries/classes/Display/Results.php:963
-#: libraries/classes/Html/Generator.php:1283
-#: libraries/classes/Html/Generator.php:1292
+#: libraries/classes/Display/Results.php:961
+#: libraries/classes/Html/Generator.php:1281
+#: libraries/classes/Html/Generator.php:1290
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
 
-#: libraries/classes/Display/Results.php:994
-#: libraries/classes/Html/Generator.php:1284
-#: libraries/classes/Html/Generator.php:1293
+#: libraries/classes/Display/Results.php:992
+#: libraries/classes/Html/Generator.php:1282
+#: libraries/classes/Html/Generator.php:1291
 msgctxt "Last page"
 msgid "End"
 msgstr "마지막"
 
-#: libraries/classes/Display/Results.php:1571
+#: libraries/classes/Display/Results.php:1569
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "텍스트의 일부분"
 
-#: libraries/classes/Display/Results.php:1575
+#: libraries/classes/Display/Results.php:1573
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "전체 텍스트"
 
-#: libraries/classes/Display/Results.php:1975
-#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2721
+#: libraries/classes/Display/Results.php:1973
+#: libraries/classes/Display/Results.php:1999 libraries/classes/Util.php:2721
 #: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9080,8 +9080,8 @@ msgstr "전체 텍스트"
 msgid "Descending"
 msgstr "내림차순"
 
-#: libraries/classes/Display/Results.php:1983
-#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2713
+#: libraries/classes/Display/Results.php:1981
+#: libraries/classes/Display/Results.php:1991 libraries/classes/Util.php:2713
 #: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9094,41 +9094,41 @@ msgstr "내림차순"
 msgid "Ascending"
 msgstr "오름차순"
 
-#: libraries/classes/Display/Results.php:3278
-#: libraries/classes/Display/Results.php:3293
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 msgid "The row has been deleted."
 msgstr "행을 삭제 하였습니다."
 
-#: libraries/classes/Display/Results.php:3325
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "강제로 끝냄"
 
-#: libraries/classes/Display/Results.php:4009
+#: libraries/classes/Display/Results.php:3971
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "근사값입니다. [doc@faq3-11]FAQ 3.11[/doc]를 참조하세요."
 
-#: libraries/classes/Display/Results.php:4432
+#: libraries/classes/Display/Results.php:4384
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s행 표시 중"
 
-#: libraries/classes/Display/Results.php:4446
+#: libraries/classes/Display/Results.php:4398
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
 
-#: libraries/classes/Display/Results.php:4451
+#: libraries/classes/Display/Results.php:4403
 #, php-format
 msgid "%d total"
 msgstr "합계 %d"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4416 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "질의 실행시간 %01.4f 초."
 
-#: libraries/classes/Display/Results.php:4853
+#: libraries/classes/Display/Results.php:4796
 msgid "Link not found!"
 msgstr "링크를 찾을 수 없습니다!"
 
@@ -9451,7 +9451,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:829
+#: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -9611,48 +9611,48 @@ msgstr ""
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:366
+#: libraries/classes/Html/Generator.php:364
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:367
+#: libraries/classes/Html/Generator.php:365
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:670
+#: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
 msgstr "SQL 해석 생략"
 
-#: libraries/classes/Html/Generator.php:678
+#: libraries/classes/Html/Generator.php:676
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "%s의 분석 설명"
 
-#: libraries/classes/Html/Generator.php:710
+#: libraries/classes/Html/Generator.php:708
 msgid "Without PHP code"
 msgstr "PHP 코드 없이 보기"
 
-#: libraries/classes/Html/Generator.php:717
+#: libraries/classes/Html/Generator.php:715
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "쿼리 실행"
 
-#: libraries/classes/Html/Generator.php:763 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "프로파일링"
 
-#: libraries/classes/Html/Generator.php:779
+#: libraries/classes/Html/Generator.php:777
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "인라인 편집"
 
-#: libraries/classes/Html/Generator.php:919
+#: libraries/classes/Html/Generator.php:917
 msgid "Static analysis:"
 msgstr "정적 분석 :"
 
-#: libraries/classes/Html/Generator.php:922
+#: libraries/classes/Html/Generator.php:920
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "분석 중에 %d개의 오류가 발생했습니다."
@@ -9937,7 +9937,7 @@ msgstr "검색"
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
 #: templates/database/structure/structure_table_row.twig:59
-#: templates/sql/query.twig:76
+#: templates/sql/query.twig:75
 msgid "Insert"
 msgstr "삽입"
 
@@ -10030,7 +10030,7 @@ msgstr "복제"
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:231
 #: libraries/classes/Util.php:2079 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:192
+#: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "환경설정값"
 
@@ -10125,7 +10125,7 @@ msgstr "클래스 \"%1$s\"를 불러올 수 없음"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
-#: templates/sql/query.twig:63
+#: templates/sql/query.twig:62
 msgid "Columns"
 msgstr "열(컬럼)"
 
@@ -11274,59 +11274,59 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:79
+#: libraries/classes/Plugins/Import/ImportCsv.php:80
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:89
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
-#: libraries/classes/Plugins/Import/ImportCsv.php:115
+#: libraries/classes/Plugins/Import/ImportCsv.php:98
+#: libraries/classes/Plugins/Import/ImportCsv.php:116
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:105
+#: libraries/classes/Plugins/Import/ImportCsv.php:106
 #: libraries/classes/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:122
+#: libraries/classes/Plugins/Import/ImportCsv.php:123
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:130
+#: libraries/classes/Plugins/Import/ImportCsv.php:131
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:274
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:275
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d 행에 잘못된 형식."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:537
+#: libraries/classes/Plugins/Import/ImportCsv.php:538
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:699
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:725
-#: libraries/classes/Plugins/Import/ImportCsv.php:735
+#: libraries/classes/Plugins/Import/ImportCsv.php:706
+#: libraries/classes/Plugins/Import/ImportCsv.php:721
+#: libraries/classes/Plugins/Import/ImportCsv.php:732
+#: libraries/classes/Plugins/Import/ImportCsv.php:742
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:872
+#: libraries/classes/Plugins/Import/ImportCsv.php:879
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11790,7 +11790,7 @@ msgstr ""
 msgid "Please check privileges of directory containing database."
 msgstr "디렉토리를 포함하는 데이터베이스의 권한을 확인하십시오."
 
-#: libraries/classes/Query/Utilities.php:121
+#: libraries/classes/Query/Utilities.php:120
 msgid "Details…"
 msgstr "자세히…"
 
@@ -11881,7 +11881,7 @@ msgstr "브라우저 변형"
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요."
 
-#: libraries/classes/Relation.php:266 templates/sql/query.twig:157
+#: libraries/classes/Relation.php:266 templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
 msgstr "북마크된 SQL 질의"
 
@@ -13902,7 +13902,7 @@ msgid "Requery"
 msgstr "다시 쿼리하기"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:166
-#: templates/sql/query.twig:39
+#: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "제거"
 
@@ -18005,7 +18005,7 @@ msgstr "이 SQL 질의를 북마크함"
 msgid "Label:"
 msgstr ""
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:94
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -18043,48 +18043,48 @@ msgstr "닫기"
 msgid "ø Time"
 msgstr "시간"
 
-#: templates/sql/query.twig:45
+#: templates/sql/query.twig:44
 msgid "Get auto-saved query"
 msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:52
+#: templates/sql/query.twig:51
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "잘못된 인자!"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:84
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: templates/sql/query.twig:101
+#: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: templates/sql/query.twig:111 templates/sql/query.twig:112
+#: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
 msgstr "구분자"
 
-#: templates/sql/query.twig:120
+#: templates/sql/query.twig:119
 msgid "Show this query here again"
 msgstr "이 질의를 다시 보여줌"
 
-#: templates/sql/query.twig:135
+#: templates/sql/query.twig:134
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:161
+#: templates/sql/query.twig:160
 #, fuzzy
 #| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "북마크"
 
-#: templates/sql/query.twig:170
+#: templates/sql/query.twig:169
 msgid "shared"
 msgstr "공유"
 
-#: templates/sql/query.twig:183
+#: templates/sql/query.twig:182
 msgid "View only"
 msgstr "보기만"
 

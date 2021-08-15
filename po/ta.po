@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-08 00:09+0000\n"
+"POT-Creation-Date: 2021-08-15 00:09+0000\n"
 "PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1163,7 +1163,7 @@ msgstr "தேடுக:"
 #: templates/server/replication/slave_configuration.twig:16
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:148 templates/sql/query.twig:199
+#: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/insert/actions_panel.twig:37
 #: templates/table/operations/index.twig:38
@@ -1197,7 +1197,7 @@ msgid "Description"
 msgstr "சிறுகுறிப்பு"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1236 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -2822,7 +2822,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:669
-#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:41
+#: libraries/classes/Config/Descriptions.php:685 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr ""
@@ -2850,14 +2850,14 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:723
 msgid "Columns enclosed with"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:727
+#: libraries/classes/Plugins/Import/ImportCsv.php:734
 msgid "Columns escaped with"
 msgstr ""
 
@@ -2879,13 +2879,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:701
+#: libraries/classes/Plugins/Import/ImportCsv.php:708
 msgid "Columns terminated with"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:737
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
 msgid "Lines terminated with"
 msgstr ""
 
@@ -3316,7 +3316,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:137
+#: libraries/classes/Plugins/Import/ImportCsv.php:138
 #: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr ""
@@ -3909,7 +3909,7 @@ msgstr ""
 msgid "Show SQL queries"
 msgstr "SQL வினவல்களை காட்டுக"
 
-#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:128
+#: libraries/classes/Config/Descriptions.php:954 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr "வினவல் பெட்டியை வைத்திருக்க"
 
@@ -3923,9 +3923,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
-#: libraries/classes/Display/Results.php:3231
-#: libraries/classes/Html/Generator.php:697
-#: libraries/classes/Html/Generator.php:964
+#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Html/Generator.php:695
+#: libraries/classes/Html/Generator.php:962
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -3949,12 +3949,12 @@ msgid "Edit"
 msgstr "தொகு"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:658
+#: libraries/classes/Html/Generator.php:656
 msgid "Explain SQL"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:742
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -3962,7 +3962,7 @@ msgid "Refresh"
 msgstr "புதுப்பி"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:726
+#: libraries/classes/Html/Generator.php:724
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -4708,7 +4708,7 @@ msgid "Table %s has been emptied."
 msgstr "%s அட்டவணை வெறுமையாக்கப்பட்டது."
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4420
+#: libraries/classes/Display/Results.php:4372
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5289,7 +5289,7 @@ msgid "Matched rows:"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:936 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL வினவல்:"
 
@@ -5571,7 +5571,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "தயவுசெய்து குறைந்தது ஒரு மாறியை\\ தொடரில் சேர்க்க!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:206
-#: libraries/classes/Display/Results.php:1339
+#: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 #: libraries/config.values.php:111
@@ -6129,7 +6129,7 @@ msgstr "இல்லை"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
-#: templates/sql/query.twig:143 templates/table/delete/confirm.twig:25
+#: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 #, fuzzy
 #| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
@@ -6210,7 +6210,7 @@ msgid "Show query box"
 msgstr "வினவல் பெட்டியை காண்பி"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#: libraries/classes/Display/Results.php:3302
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6222,7 +6222,7 @@ msgstr "வினவல் பெட்டியை காண்பி"
 #: templates/display/results/table.twig:236 templates/export.twig:38
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68 templates/sql/query.twig:187
+#: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr "அழி"
 
@@ -6339,7 +6339,7 @@ msgstr "எந்த பகுதியளவு சார்புகளும�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6487,7 +6487,7 @@ msgid "Ignore"
 msgstr "புறக்கணி"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3235
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:76
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -6703,7 +6703,7 @@ msgid "Column name"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:554
-#: templates/sql/query.twig:179
+#: templates/sql/query.twig:178
 msgid "Submit"
 msgstr ""
 
@@ -7258,7 +7258,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
 #: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL வினவல்"
 
@@ -7968,7 +7968,7 @@ msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ள
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4085 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4047 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
@@ -8040,7 +8040,7 @@ msgstr "நோக்கு"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:912 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8289,7 +8289,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:984
+#: libraries/classes/Html/Generator.php:982
 msgid "MySQL said: "
 msgstr "MySQL சொன்னது: "
 
@@ -8391,17 +8391,17 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1980
+#: libraries/classes/DatabaseInterface.php:1975
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
-#: libraries/classes/DatabaseInterface.php:2009
+#: libraries/classes/DatabaseInterface.php:2004
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு தோல்வியடைந்தது."
 
-#: libraries/classes/DatabaseInterface.php:2500
+#: libraries/classes/DatabaseInterface.php:2495
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8646,48 +8646,48 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:928
-#: libraries/classes/Html/Generator.php:1249
-#: libraries/classes/Html/Generator.php:1253
+#: libraries/classes/Display/Results.php:926
+#: libraries/classes/Html/Generator.php:1247
+#: libraries/classes/Html/Generator.php:1251
 msgctxt "First page"
 msgid "Begin"
 msgstr "ஆரம்பம்"
 
-#: libraries/classes/Display/Results.php:935
-#: libraries/classes/Html/Generator.php:1250
-#: libraries/classes/Html/Generator.php:1254
+#: libraries/classes/Display/Results.php:933
+#: libraries/classes/Html/Generator.php:1248
+#: libraries/classes/Html/Generator.php:1252
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "முந்தைய"
 
-#: libraries/classes/Display/Results.php:963
-#: libraries/classes/Html/Generator.php:1283
-#: libraries/classes/Html/Generator.php:1292
+#: libraries/classes/Display/Results.php:961
+#: libraries/classes/Html/Generator.php:1281
+#: libraries/classes/Html/Generator.php:1290
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "அடுத்து"
 
-#: libraries/classes/Display/Results.php:994
-#: libraries/classes/Html/Generator.php:1284
-#: libraries/classes/Html/Generator.php:1293
+#: libraries/classes/Display/Results.php:992
+#: libraries/classes/Html/Generator.php:1282
+#: libraries/classes/Html/Generator.php:1291
 msgctxt "Last page"
 msgid "End"
 msgstr "முடிவு"
 
-#: libraries/classes/Display/Results.php:1571
+#: libraries/classes/Display/Results.php:1569
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "பகுதியளவு உரை"
 
-#: libraries/classes/Display/Results.php:1575
+#: libraries/classes/Display/Results.php:1573
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "முழுவுரைகள்"
 
-#: libraries/classes/Display/Results.php:1975
-#: libraries/classes/Display/Results.php:2001 libraries/classes/Util.php:2721
+#: libraries/classes/Display/Results.php:1973
+#: libraries/classes/Display/Results.php:1999 libraries/classes/Util.php:2721
 #: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -8700,8 +8700,8 @@ msgstr "முழுவுரைகள்"
 msgid "Descending"
 msgstr "இறங்குவரிசை"
 
-#: libraries/classes/Display/Results.php:1983
-#: libraries/classes/Display/Results.php:1993 libraries/classes/Util.php:2713
+#: libraries/classes/Display/Results.php:1981
+#: libraries/classes/Display/Results.php:1991 libraries/classes/Util.php:2713
 #: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8714,41 +8714,41 @@ msgstr "இறங்குவரிசை"
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
 
-#: libraries/classes/Display/Results.php:3278
-#: libraries/classes/Display/Results.php:3293
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 msgid "The row has been deleted."
 msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
-#: libraries/classes/Display/Results.php:3325
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "கொல்க"
 
-#: libraries/classes/Display/Results.php:4009
+#: libraries/classes/Display/Results.php:3971
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "அண்ணளவாக இருக்கலாம்.[doc@faq3-11]FAQ 3.11[/doc]ஐ காண்க."
 
-#: libraries/classes/Display/Results.php:4432
+#: libraries/classes/Display/Results.php:4384
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்படுகின்றன"
 
-#: libraries/classes/Display/Results.php:4446
+#: libraries/classes/Display/Results.php:4398
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "இவ்வினவலில் %1$d மொத்தம், - %2$d"
 
-#: libraries/classes/Display/Results.php:4451
+#: libraries/classes/Display/Results.php:4403
 #, php-format
 msgid "%d total"
 msgstr "%d மொத்தம்"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4416 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
 
-#: libraries/classes/Display/Results.php:4853
+#: libraries/classes/Display/Results.php:4796
 msgid "Link not found!"
 msgstr "இணைப்பை காணவில்லை!"
 
@@ -9042,7 +9042,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:829
+#: libraries/classes/Html/Generator.php:827
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -9199,30 +9199,30 @@ msgstr ""
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:366
+#: libraries/classes/Html/Generator.php:364
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:367
+#: libraries/classes/Html/Generator.php:365
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:670
+#: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:678
+#: libraries/classes/Html/Generator.php:676
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:710
+#: libraries/classes/Html/Generator.php:708
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
-#: libraries/classes/Html/Generator.php:717
+#: libraries/classes/Html/Generator.php:715
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 #, fuzzy
@@ -9230,25 +9230,25 @@ msgstr "PHP நிரல் இல்லாமல்"
 msgid "Submit query"
 msgstr "வினவலை சமர்ப்பி"
 
-#: libraries/classes/Html/Generator.php:763 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "பகுமுறையிடல்"
 
-#: libraries/classes/Html/Generator.php:779
+#: libraries/classes/Html/Generator.php:777
 #, fuzzy
 #| msgid "Edit view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "தொகுப்பு பார்வை"
 
-#: libraries/classes/Html/Generator.php:919
+#: libraries/classes/Html/Generator.php:917
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "நிலையான தரவு"
 
-#: libraries/classes/Html/Generator.php:922
+#: libraries/classes/Html/Generator.php:920
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -9532,7 +9532,7 @@ msgstr "தேடு"
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
 #: templates/database/structure/structure_table_row.twig:59
-#: templates/sql/query.twig:76
+#: templates/sql/query.twig:75
 msgid "Insert"
 msgstr "செருகு"
 
@@ -9627,7 +9627,7 @@ msgstr "படியெடுத்தல்"
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:231
 #: libraries/classes/Util.php:2079 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
-#: templates/sql/query.twig:192
+#: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "மாறிகள்"
 
@@ -9729,7 +9729,7 @@ msgstr "நிரல்வரிசைகளை சேர்க்க முட�
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
-#: templates/sql/query.twig:63
+#: templates/sql/query.twig:62
 msgid "Columns"
 msgstr ""
 
@@ -10867,59 +10867,59 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:79
+#: libraries/classes/Plugins/Import/ImportCsv.php:80
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:89
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
-#: libraries/classes/Plugins/Import/ImportCsv.php:115
+#: libraries/classes/Plugins/Import/ImportCsv.php:98
+#: libraries/classes/Plugins/Import/ImportCsv.php:116
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:105
+#: libraries/classes/Plugins/Import/ImportCsv.php:106
 #: libraries/classes/Plugins/Import/ImportOds.php:72
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:122
+#: libraries/classes/Plugins/Import/ImportCsv.php:123
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:130
+#: libraries/classes/Plugins/Import/ImportCsv.php:131
 #, fuzzy
 #| msgid "Copy column name."
 msgid "Column names:"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:274
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:275
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:537
+#: libraries/classes/Plugins/Import/ImportCsv.php:538
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:699
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:725
-#: libraries/classes/Plugins/Import/ImportCsv.php:735
+#: libraries/classes/Plugins/Import/ImportCsv.php:706
+#: libraries/classes/Plugins/Import/ImportCsv.php:721
+#: libraries/classes/Plugins/Import/ImportCsv.php:732
+#: libraries/classes/Plugins/Import/ImportCsv.php:742
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:872
+#: libraries/classes/Plugins/Import/ImportCsv.php:879
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11374,7 +11374,7 @@ msgstr ""
 msgid "Please check privileges of directory containing database."
 msgstr "தரவுத்தளத்தை கொண்டுள்ள அடைவின் உரிமைகளை சரிபார்க்க."
 
-#: libraries/classes/Query/Utilities.php:121
+#: libraries/classes/Query/Utilities.php:120
 msgid "Details…"
 msgstr "தகவல்கள்…"
 
@@ -11458,7 +11458,7 @@ msgstr ""
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 
-#: libraries/classes/Relation.php:266 templates/sql/query.twig:157
+#: libraries/classes/Relation.php:266 templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
 msgstr ""
 
@@ -13365,7 +13365,7 @@ msgid "Requery"
 msgstr "மீள்வினவல்"
 
 #: templates/console/display.twig:7 templates/setup/home/index.twig:166
-#: templates/sql/query.twig:39
+#: templates/sql/query.twig:38
 msgid "Clear"
 msgstr "அகற்று"
 
@@ -17431,7 +17431,7 @@ msgstr ""
 msgid "Label:"
 msgstr "சிட்டை:"
 
-#: templates/sql/bookmark.twig:22 templates/sql/query.twig:94
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -17463,48 +17463,48 @@ msgstr "அழைப்புக்கள்"
 msgid "ø Time"
 msgstr ""
 
-#: templates/sql/query.twig:45
+#: templates/sql/query.twig:44
 msgid "Get auto-saved query"
 msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
-#: templates/sql/query.twig:52
+#: templates/sql/query.twig:51
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
-#: templates/sql/query.twig:85
+#: templates/sql/query.twig:84
 msgid "Bookmark this SQL query:"
 msgstr ""
 
-#: templates/sql/query.twig:101
+#: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: templates/sql/query.twig:111 templates/sql/query.twig:112
+#: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
 msgstr ""
 
-#: templates/sql/query.twig:120
+#: templates/sql/query.twig:119
 msgid "Show this query here again"
 msgstr ""
 
-#: templates/sql/query.twig:135
+#: templates/sql/query.twig:134
 msgid "Rollback when finished"
 msgstr ""
 
-#: templates/sql/query.twig:161
+#: templates/sql/query.twig:160
 #, fuzzy
 #| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "புத்தகக்குறி"
 
-#: templates/sql/query.twig:170
+#: templates/sql/query.twig:169
 msgid "shared"
 msgstr "பகிரப்பட்டது"
 
-#: templates/sql/query.twig:183
+#: templates/sql/query.twig:182
 msgid "View only"
 msgstr ""
 
