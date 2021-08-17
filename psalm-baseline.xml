@@ -14591,7 +14591,7 @@
       <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="49">
+    <MixedOperand occurrences="47">
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['old_hostname']</code>
@@ -14609,8 +14609,6 @@
       <code>$currentGrant[2]</code>
       <code>$dbAndTable[$key]</code>
       <code>$dbAndTable[$key]</code>
-      <code>$host['Host']</code>
-      <code>$host['User']</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
       <code>$privilege['Host']</code>

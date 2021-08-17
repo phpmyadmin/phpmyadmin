@@ -163,6 +163,10 @@ return [
                 '@server_plugins',
             ],
         ],
+        'server_privileges_account_locking' => [
+            'class' => PhpMyAdmin\Server\Privileges\AccountLocking::class,
+            'arguments' => ['@dbi'],
+        ],
         'sql' => [
             'class' => PhpMyAdmin\Sql::class,
             'arguments' => [

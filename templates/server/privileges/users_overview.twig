@@ -16,7 +16,10 @@
             <th scope="col">{% trans 'User group' %}</th>
           {% endif %}
           <th scope="col">{% trans 'Grant' %}</th>
-          <th scope="col" colspan="{{ user_group_count > 0 ? '3' : '2' }}">{% trans 'Action' %}</th>
+          {%- set action_colspan = 2 %}
+          {%- if user_group_count > 0 %}{% set action_colspan = action_colspan + 1 %}{% endif %}
+          {%- if has_account_locking %}{% set action_colspan = action_colspan + 1 %}{% endif %}
+          <th scope="col" colspan="{{ action_colspan }}">{% trans 'Action' %}</th>
         </tr>
       </thead>
 
@@ -92,6 +95,19 @@
                 {{ get_icon('b_tblexport', 'Export'|trans) }}
               </a>
             </td>
+            {% if has_account_locking %}
+              <td>
+                <button type="button" class="btn btn-link p-0 jsAccountLocking" title="{{ host.is_account_locked ? 'Unlock this account.'|trans : 'Lock this account.'|trans }}" data-is-locked="{{ host.is_account_locked ? 'true' : 'false' }}" data-user-name="{{ host.user }}" data-host-name="{{ host.host }}">
+                  {% if host.is_account_locked %}
+                    {% set unlock_text %}{% trans %}Unlock{% context %}Unlock the account.{% endtrans %}{% endset %}
+                    {{ get_icon('s_unlock', unlock_text|e) }}
+                  {% else %}
+                    {% set lock_text %}{% trans %}Lock{% context %}Lock the account.{% endtrans %}{% endset %}
+                    {{ get_icon('s_lock', lock_text|e) }}
+                  {% endif %}
+                </button>
+              </td>
+            {% endif %}
           </tr>
         {% endfor %}
       </tbody>

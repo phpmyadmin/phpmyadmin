@@ -117,6 +117,46 @@ const EditUserGroup = {
 };
 
 /**
+ * @implements EventListener
+ */
+const AccountLocking = {
+    handleEvent: function () {
+        const button = this;
+        const isLocked = button.dataset.isLocked === 'true';
+        const url = isLocked
+            ? 'index.php?route=/server/privileges/account-unlock'
+            : 'index.php?route=/server/privileges/account-lock';
+        const params = {
+            'username': button.dataset.userName,
+            'hostname': button.dataset.hostName,
+            'ajax_request': true,
+            'server': CommonParams.get('server'),
+        };
+
+        $.post(url, params, data => {
+            if (data.success === false) {
+                Functions.ajaxShowMessage(data.error);
+                return;
+            }
+
+            if (isLocked) {
+                const lockIcon = Functions.getImage('s_lock', Messages.strLock, {}).toString();
+                button.innerHTML = '<span class="text-nowrap">' + lockIcon + ' ' + Messages.strLock + '</span>';
+                button.title = Messages.strLockAccount;
+                button.dataset.isLocked = 'false';
+            } else {
+                const unlockIcon = Functions.getImage('s_unlock', Messages.strUnlock, {}).toString();
+                button.innerHTML = '<span class="text-nowrap">' + unlockIcon + ' ' + Messages.strUnlock + '</span>';
+                button.title = Messages.strUnlockAccount;
+                button.dataset.isLocked = 'true';
+            }
+
+            Functions.ajaxShowMessage(data.message);
+        });
+    }
+};
+
+/**
  * AJAX scripts for /server/privileges page.
  *
  * Actions ajaxified here:
@@ -146,6 +186,7 @@ AJAX.registerTeardown('server/privileges.js', function () {
 
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
+    $('button.jsAccountLocking').off('click');
     $('#dropUsersDbCheckbox').off('click');
     $(document).off('click', '.checkall_box');
     $(document).off('change', '#checkbox_SSL_priv');
@@ -324,6 +365,8 @@ AJAX.registerOnload('server/privileges.js', function () {
             exportPrivilegesModalHandler(data, msgbox);
         }); // end $.get
     }); // end export privileges
+
+    $('button.jsAccountLocking').on('click', AccountLocking.handleEvent);
 
     $(document).on('change', 'input[name="ssl_type"]', function () {
         var $div = $('#specified_div');

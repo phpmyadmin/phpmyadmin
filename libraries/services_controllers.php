@@ -477,6 +477,22 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        PhpMyAdmin\Controllers\Server\Privileges\AccountLockController::class => [
+            'class' => PhpMyAdmin\Controllers\Server\Privileges\AccountLockController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$accountLocking' => '@server_privileges_account_locking',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController::class => [
+            'class' => PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$accountLocking' => '@server_privileges_account_locking',
+            ],
+        ],
         PhpMyAdmin\Controllers\Server\PrivilegesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\PrivilegesController::class,
             'arguments' => [

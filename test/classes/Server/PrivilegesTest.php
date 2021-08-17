@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use mysqli_stmt;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -18,6 +19,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
+use ReflectionMethod;
 use stdClass;
 
 use function __;
@@ -2209,5 +2211,45 @@ class PrivilegesTest extends AbstractTestCase
             __('Password:'),
             $html
         );
+    }
+
+    public function testGetUserPrivileges(): void
+    {
+        $mysqliStmtStub = $this->createMock(mysqli_stmt::class);
+        $mysqliStmtStub->expects($this->exactly(2))->method('bind_param')->willReturn(true);
+        $mysqliStmtStub->expects($this->exactly(2))->method('execute')->willReturn(true);
+        $mysqliStmtStub->expects($this->exactly(2))->method('get_result')->willReturn(true);
+
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
+        $dbi->expects($this->exactly(2))
+            ->method('prepare')
+            ->withConsecutive(
+                [$this->equalTo('SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;')],
+                [$this->equalTo('SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;')]
+            )
+            ->willReturn($mysqliStmtStub);
+        $dbi->expects($this->exactly(2))
+            ->method('fetchAssoc')
+            ->willReturnOnConsecutiveCalls(
+                ['Host' => 'test.host', 'User' => 'test.user'],
+                ['Host' => 'test.host', 'User' => 'test.user', 'Priv' => '{"account_locked":true}']
+            );
+
+        $relation = new Relation($this->dbi);
+        $serverPrivileges = new Privileges(
+            new Template(),
+            $dbi,
+            $relation,
+            new RelationCleanup($this->dbi, $relation),
+            new Plugins($this->dbi)
+        );
+        $method = new ReflectionMethod(Privileges::class, 'getUserPrivileges');
+        $method->setAccessible(true);
+
+        /** @var array|null $actual */
+        $actual = $method->invokeArgs($serverPrivileges, ['test.user', 'test.host', true]);
+
+        $this->assertEquals(['Host' => 'test.host', 'User' => 'test.user', 'account_locked' => 'Y'], $actual);
     }
 }

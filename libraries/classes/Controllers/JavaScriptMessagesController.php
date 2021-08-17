@@ -137,6 +137,10 @@ final class JavaScriptMessagesController
             'strPasswordNotSame' => __('The passwords aren\'t the same!'),
             'strRemovingSelectedUsers' => __('Removing Selected Users'),
             'strClose' => __('Close'),
+            'strLock' => _pgettext('Lock the account.', 'Lock'),
+            'strUnlock' => _pgettext('Unlock the account.', 'Unlock'),
+            'strLockAccount' => __('Lock this account.'),
+            'strUnlockAccount' => __('Unlock this account.'),
 
             /* For export.js */
             'strTemplateCreated' => __('Template was created.'),

@@ -55,6 +55,8 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
 use PhpMyAdmin\Controllers\Server\ImportController as ServerImportController;
 use PhpMyAdmin\Controllers\Server\PluginsController;
+use PhpMyAdmin\Controllers\Server\Privileges\AccountLockController;
+use PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController;
 use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\Controllers\Server\ReplicationController;
 use PhpMyAdmin\Controllers\Server\SqlController as ServerSqlController;
@@ -227,7 +229,11 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/export', [ServerExportController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/import', [ServerImportController::class, 'index']);
         $routes->get('/plugins', [PluginsController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/privileges', [PrivilegesController::class, 'index']);
+        $routes->addGroup('/privileges', static function (RouteCollector $routes): void {
+            $routes->addRoute(['GET', 'POST'], '', [PrivilegesController::class, 'index']);
+            $routes->post('/account-lock', [AccountLockController::class, '__invoke']);
+            $routes->post('/account-unlock', [AccountUnlockController::class, '__invoke']);
+        });
         $routes->addRoute(['GET', 'POST'], '/replication', [ReplicationController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/sql', [ServerSqlController::class, 'index']);
         $routes->addGroup('/status', static function (RouteCollector $routes): void {
