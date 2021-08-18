@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-06-04 11:50-0300\n"
-"PO-Revision-Date: 2021-08-18 14:33+0000\n"
+"PO-Revision-Date: 2021-08-19 16:33+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Réunion Creole <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/rcf/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:9
 #, fuzzy
 msgid "Uptime below one day"
-msgstr "Test"
+msgstr "Le temps de disponibilité lé inférieur à un jour"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
