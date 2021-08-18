@@ -858,7 +858,7 @@ class InsertEdit
         }
 
         if (in_array($column['pma_type'], $gis_data_types)) {
-            $html_output .= $this->getHtmlForGisDataTypes();
+            $html_output .= $this->getHtmlForGisDataTypes((int) $rownumber);
         }
 
         return $html_output;
@@ -1781,11 +1781,11 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    private function getHtmlForGisDataTypes()
+    private function getHtmlForGisDataTypes(int $rowId): string
     {
         $edit_str = Generator::getIcon('b_edit', __('Edit/Insert'));
 
-        return '<span class="open_gis_editor">'
+        return '<span class="open_gis_editor" data-row-id="' . $rowId . '">'
             . Generator::linkOrButton(
                 '#',
                 $edit_str,

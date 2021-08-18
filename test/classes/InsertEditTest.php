@@ -2303,16 +2303,21 @@ class InsertEditTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['LinkLengthLimit'] = 2;
+        $htmlContent = $this->callFunction(
+            $this->insertEdit,
+            InsertEdit::class,
+            'getHtmlForGisDataTypes',
+            [4]
+        );
+        $this->assertStringContainsString(
+            '<span class="open_gis_editor" data-row-id="4">',
+            $htmlContent
+        );
         $this->assertStringContainsString(
             '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
             . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit">'
             . '</span></a>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getHtmlForGisDataTypes',
-                []
-            )
+            $htmlContent
         );
     }
 
