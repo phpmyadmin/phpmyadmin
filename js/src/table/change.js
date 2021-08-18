@@ -525,8 +525,13 @@ AJAX.registerOnload('table/change.js', function () {
      */
     $(document).on('click', 'input[name=\'gis_data[save]\']', function () {
         var inputName = $('form#gis_data_editor_form').find('input[name=\'input_name\']').val();
-        var $nullCheckbox = $('input[name=\'' + inputName + '\']').parents('tr').find('.checkbox_null');
+        var currentRow = $('input[name=\'' + inputName + '\']').parents('tr');
+        var $nullCheckbox = currentRow.find('.checkbox_null');
         $nullCheckbox.prop('checked', false);
+        var rowId = currentRow.find('.open_gis_editor').data('row-id');
+
+        // Unchecks the Ignore checkbox for the current row
+        $('input[name=\'insert_ignore_' + rowId + '\']').prop('checked', false);
     });
 
     /**
