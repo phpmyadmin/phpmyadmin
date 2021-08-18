@@ -2686,9 +2686,9 @@ class InsertEdit
             return "'" . $uuid . "'";
         }
 
-        if ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-            && substr($current_value, 0, 3) == "'''")
-            || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
+        if (
+            in_array($multi_edit_funcs[$key], $gis_from_text_functions) ||
+            in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
         ) {
             // Remove enclosing apostrophes
             $current_value = mb_substr($current_value, 1, -1);

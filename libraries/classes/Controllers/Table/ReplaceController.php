@@ -173,10 +173,18 @@ final class ReplaceController extends AbstractController
             'PolyFromText',
             'MPolyFromText',
         ];
-
-        $gis_from_wkb_functions = [];
+        $gis_from_wkb_functions = [
+            'GeomFromWKB',
+            'GeomCollFromWKB',
+            'LineFromWKB',
+            'MLineFromWKB',
+            'PointFromWKB',
+            'MPointFromWKB',
+            'PolyFromWKB',
+            'MPolyFromWKB',
+        ];
         if ($this->dbi->getVersion() >= 50600) {
-            $gis_from_wkb_functions = [
+            $gis_from_text_functions = [
                 'ST_GeomFromText',
                 'ST_GeomCollFromText',
                 'ST_LineFromText',
@@ -185,6 +193,16 @@ final class ReplaceController extends AbstractController
                 'ST_MPointFromText',
                 'ST_PolyFromText',
                 'ST_MPolyFromText',
+            ];
+            $gis_from_wkb_functions = [
+                'ST_GeomFromWKB',
+                'ST_GeomCollFromWKB',
+                'ST_LineFromWKB',
+                'ST_MLineFromWKB',
+                'ST_PointFromWKB',
+                'ST_MPointFromWKB',
+                'ST_PolyFromWKB',
+                'ST_MPolyFromWKB',
             ];
         }
 
