@@ -187,24 +187,30 @@ class ErrorHandlerTest extends AbstractTestCase
             'error.txt',
             15
         );
+        $this->object->addError(
+            'Compile Error',
+            E_WARNING,
+            'error.txt',
+            15
+        );
         $this->assertEquals(
-            1,
+            2,
             $this->object->countErrors()
         );
         $this->assertEquals(
             [],
-            $this->object->sliceErrors(1)
+            $this->object->sliceErrors(2)
         );
         $this->assertEquals(
-            1,
+            2,
             $this->object->countErrors()
         );
         $this->assertCount(
             1,
-            $this->object->sliceErrors(0)
+            $this->object->sliceErrors(1)
         );
         $this->assertEquals(
-            0,
+            1,
             $this->object->countErrors()
         );
     }

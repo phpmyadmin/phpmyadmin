@@ -160,7 +160,7 @@ class ErrorHandler
         $errors = $this->getErrors(false);
         $this->errors = array_splice($errors, 0, $count);
 
-        return array_splice($errors, $count);
+        return $errors;
     }
 
     /**
