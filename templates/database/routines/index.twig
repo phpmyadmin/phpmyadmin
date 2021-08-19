@@ -75,3 +75,18 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="routineExecuteModal" tabindex="-1" aria-labelledby="routineExecuteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="routineExecuteModalDialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="routineExecuteModalLabel">{% trans 'Loading' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body" id="rteDialog"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="routineExecuteConfirmGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -167,7 +167,7 @@ const DatabaseRoutines = {
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
                 $('#routineEditorModal').modal('show');
-                $('#routineEditorModalLabel').first().html($this.attr('title') || $this.text() || $(data.title).text());
+                $('#routineEditorModalLabel').first().text($this.attr('title') || $this.text() || $(data.title).text());
                 $('#routineEditorModal').find('.modal-body').first().html(data.message);
                 // Now define the function that is called when
                 // the user presses the "Go" button
@@ -730,7 +730,8 @@ const DatabaseRoutines = {
                 if (data.dialog) {
                     // Define the function that is called when
                     // the user presses the "Go" button
-                    that.buttonOptions[Messages.strGo] = function () {
+                    // that.buttonOptions[Messages.strGo] = function () {
+                    $('#routineExecuteConfirmGoButton').on('click', function () {
                         /**
                          * @var data Form data to be sent in the AJAX request
                          */
@@ -748,22 +749,14 @@ const DatabaseRoutines = {
                                 Functions.ajaxShowMessage(data.error, false);
                             }
                         });
-                    };
-                    that.buttonOptions[Messages.strClose] = function () {
-                        $(this).dialog('close');
-                    };
+                    });
                     /**
                      * Display the dialog to the user
                      */
-                    var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                        width: 650,
-                        buttons: that.buttonOptions,
-                        title: data.title,
-                        modal: true,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
+                    $('#routineExecuteModal').modal('show');
+                    $('#routineExecuteModalLabel').first().text(data.title);
+                    $('#routineExecuteModal').find('.modal-body').first().html(data.message);
+                    var $ajaxDialog = $('#routineExecuteModal');
                     $ajaxDialog.find('input[name^=params]').first().trigger('focus');
                     /**
                      * Attach the datepickers to the relevant form fields
@@ -867,7 +860,6 @@ AJAX.registerOnload('database/routines.js', function () {
     });
 
     $(document).on('click', 'input[name=routine_addparameter]', function (event) {
-        console.log('test123');
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference

@@ -151,3 +151,18 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="eventEditorModal" tabindex="-1" aria-labelledby="eventEditorModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="eventEditorModalDialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventEditorModalLabel">{% trans 'Loading' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body" id="rteDialog"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="eventEditorConfirmGoButton">{% trans 'Go' %}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

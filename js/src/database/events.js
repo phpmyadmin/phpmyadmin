@@ -274,6 +274,7 @@ const DatabaseEvents = {
                 /**
                  * Display the dialog to the user
                  */
+                $('#eventEditorModal').modal('show');
                 that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
                     width: 700,
                     minWidth: 500,
