@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.2@00c062267d6e3229d91a1939992987e2d46f2393">
+<files psalm-version="4.9.3@4c262932602b9bbab5020863d1eb22d49de0dbf4">
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
@@ -464,6 +464,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Config.php">
+    <InvalidArgument occurrences="1">
+      <code>$optionalParams</code>
+    </InvalidArgument>
     <MixedArgument occurrences="17">
       <code>$collation_connection</code>
       <code>$config_data</code>
@@ -4524,6 +4527,9 @@
       <code>$direct_ip</code>
       <code>$empty</code>
     </MixedReturnStatement>
+    <RedundantCast occurrences="1">
+      <code>(string) gmdate(DATE_RFC1123)</code>
+    </RedundantCast>
     <RedundantCondition occurrences="4">
       <code>$GLOBALS['config'] !== null</code>
       <code>$dbi !== null</code>
@@ -5639,7 +5645,7 @@
       <code>$routine['item_param_type'][$i]</code>
       <code>$routine['item_param_type'][$routine['item_num_params'] - 1]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="50">
+    <MixedAssignment occurrences="49">
       <code>$i</code>
       <code>$itemDefiner</code>
       <code>$itemDefinition</code>
@@ -5675,7 +5681,6 @@
       <code>$retval['item_param_opts_text']</code>
       <code>$retval['item_param_type']</code>
       <code>$retval['item_returntype']</code>
-      <code>$retval['item_sqldataaccess']</code>
       <code>$retval['item_sqldataaccess']</code>
       <code>$retval['item_type']</code>
       <code>$routine</code>
@@ -8179,11 +8184,12 @@
       <code>$server['ssl']</code>
       <code>$server['ssl_verify']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="24">
+    <MixedArgument occurrences="25">
       <code>$GLOBALS['special_message']</code>
       <code>$GLOBALS['special_message']</code>
       <code>$alt</code>
       <code>$cfg['MaxCharactersInDisplayedSQL']</code>
+      <code>$defaultFunction</code>
       <code>$field['True_Type']</code>
       <code>$paramValue</code>
       <code>$queryBase</code>
@@ -9389,9 +9395,11 @@
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']</code>
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="2">
+    <RedundantCastGivenDocblockType occurrences="4">
       <code>(string) $child-&gt;name</code>
       <code>(string) $child-&gt;name</code>
+      <code>(string) $key</code>
+      <code>(string) $key</code>
     </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$node-&gt;title</code>
@@ -13068,10 +13076,11 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$timestamp</code>
     </PossiblyInvalidOperand>
-    <RedundantCastGivenDocblockType occurrences="3">
+    <RedundantCastGivenDocblockType occurrences="4">
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
       <code>(string) $source</code>
+      <code>(string) $text</code>
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
@@ -15955,10 +15964,6 @@
       <code>$transform</code>
       <code>$type</code>
     </MixedAssignment>
-    <PossiblyFalseArgument occurrences="2">
-      <code>$form_params['db']</code>
-      <code>$form_params['table']</code>
-    </PossiblyFalseArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>
@@ -17166,8 +17171,13 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/CacheTest.php">
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="6">
+      <code>testCacheGet</code>
+      <code>testCacheGetDefaultValue</code>
       <code>testCacheHas</code>
+      <code>testCachePurge</code>
+      <code>testCacheRemove</code>
+      <code>testCacheSet</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Charsets/CollationTest.php">
@@ -17214,8 +17224,9 @@
     </UnusedVariable>
   </file>
   <file src="test/classes/Command/SetVersionCommandTest.php">
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="2">
       <code>testGetGeneratedClassInvalidVersion</code>
+      <code>testGetGeneratedClassValidVersion</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Command/TwigLintCommandTest.php">
@@ -18068,6 +18079,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <RedundantCast occurrences="1">
+      <code>(string) gmdate(DATE_RFC1123)</code>
+    </RedundantCast>
   </file>
   <file src="test/classes/Html/GeneratorTest.php">
     <MixedAssignment occurrences="1">
@@ -19225,8 +19239,10 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="3">
+      <code>testHandleDisableCheckCleanup</code>
       <code>testHandleDisableCheckInit</code>
+      <code>testHandleDisableCheckInitVarFalse</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="test/classes/Utils/FormatConverterTest.php">
