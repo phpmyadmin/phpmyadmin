@@ -1717,8 +1717,7 @@ class InsertEdit
         }
 
         if (
-            (in_array($multiEditFuncs[$key], $gisFromTextFunctions)
-            && substr($currentValue, 0, 3) == "'''")
+            in_array($multiEditFuncs[$key], $gisFromTextFunctions)
             || in_array($multiEditFuncs[$key], $gisFromWkbFunctions)
         ) {
             // Remove enclosing apostrophes

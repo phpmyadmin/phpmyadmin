@@ -3415,12 +3415,25 @@ MySQL settings
 .. config:option:: $cfg['DefaultFunctions']
 
     :type: array
-    :default: array(...)
+    :default: ``array('FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW')``
 
     Functions selected by default when inserting/changing row, Functions
-    are defined for meta types as (FUNC\_NUMBER, FUNC\_DATE, FUNC\_CHAR,
-    FUNC\_SPATIAL, FUNC\_UUID) and for ``first_timestamp``, which is used
+    are defined for meta types as (``FUNC_NUMBER``, ``FUNC_DATE``, ``FUNC_CHAR``,
+    ``FUNC_SPATIAL``, ``FUNC_UUID``) and for ``first_timestamp``, which is used
     for first timestamp column in table.
+
+    Example configuration
+
+    .. code-block:: php
+
+        $cfg['DefaultFunctions'] = [
+            'FUNC_CHAR' => '',
+            'FUNC_DATE' => '',
+            'FUNC_NUMBER' => '',
+            'FUNC_SPATIAL' => 'ST_GeomFromText',
+            'FUNC_UUID' => 'UUID',
+            'first_timestamp' => 'UTC_TIMESTAMP',
+        ];
 
 Default options for Transformations
 -----------------------------------
