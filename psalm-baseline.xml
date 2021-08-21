@@ -2779,7 +2779,7 @@
       <code>$max_unit</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="1">
-      <code>(string) strftime($string)</code>
+      <code>(string) @strftime($string)</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="8">
       <code>(int) $timestamp</code>

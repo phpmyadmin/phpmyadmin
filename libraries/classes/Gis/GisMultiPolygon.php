@@ -154,7 +154,7 @@ class GisMultiPolygon extends GisGeometry
                 }
             }
             // draw polygon
-            imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
+            @imagefilledpolygon($image, $points_arr, count($points_arr) / 2, $color);
             // mark label point if applicable
             if (isset($label) && trim($label) != '' && $first_poly) {
                 $label_point = [

@@ -266,6 +266,11 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:extractPartitionDetails\\(\\) should return array\\<array\\>\\|null but returns array\\<string, array\\<int, array\\<string, mixed\\>\\>\\|bool\\|int\\|string\\>\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
