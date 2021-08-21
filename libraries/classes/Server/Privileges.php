@@ -31,6 +31,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function json_decode;
 use function ksort;
 use function max;
 use function mb_chr;
@@ -2131,13 +2132,11 @@ class Privileges
         }
 
         $hosts = [];
+        $hasAccountLocking = Compatibility::hasAccountLocking($this->dbi->isMariaDB(), $this->dbi->getVersion());
         foreach ($dbRights as $user) {
             ksort($user);
             foreach ($user as $host) {
-                $checkPluginQuery = 'SELECT * FROM `mysql`.`user` WHERE '
-                    . "`User` = '" . $host['User'] . "' AND `Host` = '"
-                    . $host['Host'] . "'";
-                $res = $this->dbi->fetchSingleRow($checkPluginQuery);
+                $res = $this->getUserPrivileges((string) $host['User'], (string) $host['Host'], $hasAccountLocking);
 
                 $hasPassword = false;
                 if (
@@ -2157,6 +2156,7 @@ class Privileges
                     'privileges' => $host['privs'],
                     'group' => $groupAssignment[$host['User']] ?? '',
                     'has_grant' => $host['Grant_priv'] === 'Y',
+                    'is_account_locked' => isset($res['account_locked']) && $res['account_locked'] === 'Y',
                 ];
             }
         }
@@ -2169,6 +2169,7 @@ class Privileges
             'hosts' => $hosts,
             'is_grantuser' => $this->dbi->isGrantUser(),
             'is_createuser' => $this->dbi->isCreateUser(),
+            'has_account_locking' => $hasAccountLocking,
         ]);
     }
 
@@ -4005,5 +4006,79 @@ class Privileges
             'active_auth_plugins' => $activeAuthPlugins,
             'orig_auth_plugin' => $origAuthPlugin,
         ]);
+    }
+
+    /**
+     * @see https://dev.mysql.com/doc/refman/en/account-locking.html
+     * @see https://mariadb.com/kb/en/account-locking/
+     *
+     * @return array<string, string|null>|null
+     */
+    private function getUserPrivileges(string $user, string $host, bool $hasAccountLocking): ?array
+    {
+        $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        /** @var mysqli_stmt|false $statement */
+        $statement = $this->dbi->prepare($query);
+        if (
+            $statement === false
+            || ! $statement->bind_param('ss', $user, $host)
+            || ! $statement->execute()
+        ) {
+            return null;
+        }
+
+        $result = $statement->get_result();
+        $statement->close();
+        if ($result === false) {
+            return null;
+        }
+
+        /** @var array<string, string|null>|null $userPrivileges */
+        $userPrivileges = $this->dbi->fetchAssoc($result);
+        $this->dbi->freeResult($result);
+        if ($userPrivileges === null) {
+            return null;
+        }
+
+        if (! $hasAccountLocking || ! $this->dbi->isMariaDB()) {
+            return $userPrivileges;
+        }
+
+        $userPrivileges['account_locked'] = 'N';
+
+        $query = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
+        /** @var mysqli_stmt|false $statement */
+        $statement = $this->dbi->prepare($query);
+        if (
+            $statement === false
+            || ! $statement->bind_param('ss', $user, $host)
+            || ! $statement->execute()
+        ) {
+            return $userPrivileges;
+        }
+
+        $result = $statement->get_result();
+        $statement->close();
+        if ($result === false) {
+            return $userPrivileges;
+        }
+
+        /** @var array<string, string|null>|null $globalPrivileges */
+        $globalPrivileges = $this->dbi->fetchAssoc($result);
+        $this->dbi->freeResult($result);
+        if ($globalPrivileges === null) {
+            return $userPrivileges;
+        }
+
+        $privileges = json_decode($globalPrivileges['Priv'] ?? '[]', true);
+        if (! is_array($privileges)) {
+            return $userPrivileges;
+        }
+
+        if (isset($privileges['account_locked']) && $privileges['account_locked']) {
+            $userPrivileges['account_locked'] = 'Y';
+        }
+
+        return $userPrivileges;
     }
 }

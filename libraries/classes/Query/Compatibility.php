@@ -226,4 +226,15 @@ class Compatibility
 
         return false;
     }
+
+    /**
+     * @see https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-6.html#mysqld-5-7-6-account-management
+     * @see https://mariadb.com/kb/en/mariadb-1042-release-notes/#notable-changes
+     *
+     * @psalm-pure
+     */
+    public static function hasAccountLocking(bool $isMariaDb, int $version): bool
+    {
+        return $isMariaDb && $version >= 100402 || ! $isMariaDb && $version >= 50706;
+    }
 }

@@ -36,6 +36,9 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      */
     protected $json;
 
+    /** @var int */
+    private $responseCode = 200;
+
     /**
      * Creates a new class instance
      */
@@ -160,5 +163,15 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function isAjax(): bool
     {
         return $this->isAjax;
+    }
+
+    public function setHttpResponseCode(int $responseCode): void
+    {
+        $this->responseCode = $responseCode;
+    }
+
+    public function getHttpResponseCode(): int
+    {
+        return $this->responseCode;
     }
 }
