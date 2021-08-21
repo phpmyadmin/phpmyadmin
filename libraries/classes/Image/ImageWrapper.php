@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Image;
 
+use function count;
 use function extension_loaded;
+use function function_exists;
 use function imagearc;
 use function imagecolorallocate;
 use function imagecopyresampled;
@@ -19,6 +21,8 @@ use function imagepng;
 use function imagestring;
 use function imagesx;
 use function imagesy;
+
+use const PHP_VERSION_ID;
 
 final class ImageWrapper
 {
@@ -137,12 +141,20 @@ final class ImageWrapper
 
     public function destroy(): bool
     {
+        if (PHP_VERSION_ID >= 80000) {
+            return true;
+        }
+
         return imagedestroy($this->image);
     }
 
-    public function filledPolygon(array $points, int $numPoints, int $color): bool
+    public function filledPolygon(array $points, int $color): bool
     {
-        return imagefilledpolygon($this->image, $points, $numPoints, $color);
+        if (PHP_VERSION_ID < 80000) {
+            return imagefilledpolygon($this->image, $points, (int) (count($points) / 2), $color);
+        }
+
+        return imagefilledpolygon($this->image, $points, $color);
     }
 
     public function height(): int
@@ -155,6 +167,10 @@ final class ImageWrapper
      */
     public function jpeg($file = null, int $quality = -1): bool
     {
+        if (! function_exists('imagejpeg')) {
+            return false;
+        }
+
         return imagejpeg($this->image, $file, $quality);
     }
 
@@ -168,6 +184,10 @@ final class ImageWrapper
      */
     public function png($file = null, int $quality = -1, int $filters = -1): bool
     {
+        if (! function_exists('imagepng')) {
+            return false;
+        }
+
         return imagepng($this->image, $file, $quality, $filters);
     }
 

@@ -139,7 +139,7 @@ class GisMultiPolygon extends GisGeometry
             }
 
             // draw polygon
-            $image->filledPolygon($points_arr, count($points_arr) / 2, $color);
+            $image->filledPolygon($points_arr, $color);
             // mark label point if applicable
             if (isset($label) && trim($label) != '' && $first_poly) {
                 $label_point = [

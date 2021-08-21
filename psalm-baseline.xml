@@ -7714,9 +7714,6 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>count($points_arr) / 2</code>
-    </PossiblyInvalidArgument>
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
@@ -7934,9 +7931,6 @@
       <code>$black</code>
       <code>$color</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>count($points_arr) / 2</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullOperand occurrences="16">
       <code>$x1</code>
       <code>$x1</code>
@@ -8278,6 +8272,11 @@
       <code>Parser</code>
       <code>array</code>
     </UnnecessaryVarAnnotation>
+  </file>
+  <file src="libraries/classes/Image/ImageWrapper.php">
+    <TooFewArguments occurrences="1">
+      <code>imagefilledpolygon($this-&gt;image, $points, $color)</code>
+    </TooFewArguments>
   </file>
   <file src="libraries/classes/Import.php">
     <InvalidReturnStatement occurrences="2">

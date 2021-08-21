@@ -88,10 +88,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
 
     /**
      * Gets the number of properties
-     *
-     * @return int
      */
-    public function getNrOfProperties()
+    public function getNrOfProperties(): int
     {
         if ($this->properties === null) {
             return 0;
@@ -102,10 +100,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
 
     /**
      * Countable interface implementation.
-     *
-     * @return int
      */
-    public function count()
+    public function count(): int
     {
         return $this->getNrOfProperties();
     }

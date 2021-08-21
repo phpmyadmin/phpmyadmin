@@ -130,7 +130,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        $image->filledPolygon($points_arr, count($points_arr) / 2, $color);
+        $image->filledPolygon($points_arr, $color);
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             $image->string(
