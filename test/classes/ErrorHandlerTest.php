@@ -12,6 +12,8 @@ use const E_RECOVERABLE_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
+use function count;
+use function array_keys;
 
 class ErrorHandlerTest extends AbstractTestCase
 {
@@ -187,26 +189,79 @@ class ErrorHandlerTest extends AbstractTestCase
             'error.txt',
             15
         );
+        $this->object->addError(
+            'Compile Error',
+            E_WARNING,
+            'error.txt',
+            16
+        );
         $this->assertEquals(
-            1,
+            2,
             $this->object->countErrors()
         );
         $this->assertEquals(
             [],
+            $this->object->sliceErrors(2)
+        );
+        $this->assertEquals(
+            2,
+            $this->object->countErrors()
+        );
+        $this->assertCount(
+            1,
             $this->object->sliceErrors(1)
         );
         $this->assertEquals(
             1,
             $this->object->countErrors()
         );
-        $this->assertCount(
-            1,
-            $this->object->sliceErrors(0)
-        );
+    }
+
+    /**
+     * Test for sliceErrors with 10 elements as an example
+     *
+     * @group medium
+     */
+    public function testSliceErrorsOtherExample(): void
+    {
+        for ($i = 0; $i < 10; $i++) {
+            $this->object->addError(
+                'Compile Error',
+                E_WARNING,
+                'error.txt',
+                $i
+            );
+        }
+
+        // 10 initial items
+        $this->assertEquals(10, $this->object->countErrors());
+        $this->assertEquals(10, count($this->object->getCurrentErrors()));
+
+        // slice 9 elements, returns one 10 - 9
+        $elements = $this->object->sliceErrors(9);
+        $firstKey = array_keys($elements)[0];
+
+        // Gives the last element
         $this->assertEquals(
-            0,
-            $this->object->countErrors()
+            [
+                $firstKey => $elements[$firstKey],
+            ],
+            $elements
         );
+        $this->assertEquals(9, count($this->object->getCurrentErrors()));
+        $this->assertEquals(9, $this->object->countErrors());
+
+        // Slice as much as there is (9), does nothing
+        $elements = $this->object->sliceErrors(9);
+        $this->assertEquals([], $elements);
+        $this->assertEquals(9, count($this->object->getCurrentErrors()));
+        $this->assertEquals(9, $this->object->countErrors());
+
+        // Slice 0, removes everything
+        $elements = $this->object->sliceErrors(0);
+        $this->assertEquals(9, count($elements));
+        $this->assertEquals(0, count($this->object->getCurrentErrors()));
+        $this->assertEquals(0, $this->object->countErrors());
     }
 
     /**
