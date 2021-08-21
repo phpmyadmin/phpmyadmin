@@ -5,7 +5,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Partitioning;
 
 use function array_values;
 

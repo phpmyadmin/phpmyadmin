@@ -20,7 +20,8 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
-use PhpMyAdmin\Partition;
+use PhpMyAdmin\Partitioning\Partition;
+use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -32,7 +33,6 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Table\ColumnsDefinition;
-use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
@@ -761,7 +761,7 @@ class StructureController extends AbstractController
     /**
      * Extracts partition details from CREATE TABLE statement
      *
-     * @return array[]|null array of partition details
+     * @return array<string, array<int, array<string, mixed>>|bool|int|string>|null array of partition details
      */
     private function extractPartitionDetails(): ?array
     {

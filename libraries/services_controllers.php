@@ -758,7 +758,7 @@ return [
                 '$template' => '@template',
                 '$db' => '%db%',
                 '$table' => '%table%',
-                '$partition' => '@table_partition',
+                '$maintenance' => '@partitioning_maintenance',
             ],
         ],
         PhpMyAdmin\Controllers\Table\OperationsController::class => [

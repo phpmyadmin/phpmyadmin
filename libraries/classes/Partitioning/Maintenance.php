@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Table;
+namespace PhpMyAdmin\Partitioning;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -10,7 +10,7 @@ use PhpMyAdmin\Util;
 
 use function sprintf;
 
-final class Partition
+final class Maintenance
 {
     /** @var DatabaseInterface */
     private $dbi;

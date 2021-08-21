@@ -121,6 +121,10 @@ return [
                 '$relation' => '@relation',
             ],
         ],
+        'partitioning_maintenance' => [
+            'class' => PhpMyAdmin\Partitioning\Maintenance::class,
+            'arguments' => ['$dbi' => '@dbi'],
+        ],
         'relation' => [
             'class' => PhpMyAdmin\Relation::class,
             'arguments' => [
@@ -191,10 +195,6 @@ return [
         ],
         'table_maintenance' => [
             'class' => PhpMyAdmin\Table\Maintenance::class,
-            'arguments' => ['$dbi' => '@dbi'],
-        ],
-        'table_partition' => [
-            'class' => PhpMyAdmin\Table\Partition::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
         'table_search' => [

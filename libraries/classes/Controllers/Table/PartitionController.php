@@ -7,8 +7,8 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
 use Throwable;
 
@@ -17,19 +17,19 @@ use function strlen;
 
 final class PartitionController extends AbstractController
 {
-    /** @var Partition */
+    /** @var Maintenance */
     private $model;
 
     /**
      * @param ResponseRenderer $response
      * @param string           $db
      * @param string           $table
-     * @param Partition        $partition
+     * @param Maintenance      $maintenance
      */
-    public function __construct($response, Template $template, $db, $table, $partition)
+    public function __construct($response, Template $template, $db, $table, $maintenance)
     {
         parent::__construct($response, $template, $db, $table);
-        $this->model = $partition;
+        $this->model = $maintenance;
     }
 
     public function analyze(): void

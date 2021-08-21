@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Partitioning;
 
-use PhpMyAdmin\Partition;
+use PhpMyAdmin\Partitioning\Partition;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * @covers \PhpMyAdmin\Partition
+ * @covers \PhpMyAdmin\Partitioning\Partition
  */
 class PartitionTest extends AbstractTestCase
 {

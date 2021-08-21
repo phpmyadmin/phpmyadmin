@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Partitioning;
 
-use PhpMyAdmin\SubPartition;
+use PhpMyAdmin\Partitioning\SubPartition;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpMyAdmin\SubPartition
+ * @covers \PhpMyAdmin\Partitioning\SubPartition
  */
 class SubPartitionTest extends TestCase
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Partitioning;
 
-use PhpMyAdmin\TablePartitionDefinition;
+use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PHPUnit\Framework\TestCase;
 
 use function count;
 
 /**
- * @covers \PhpMyAdmin\TablePartitionDefinition
+ * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
  */
 class TablePartitionDefinitionTest extends TestCase
 {

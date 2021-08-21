@@ -3825,12 +3825,6 @@
       <code>count($stmt-&gt;partitions)</code>
       <code>count($stmt-&gt;partitions[0]-&gt;subpartitions)</code>
     </DocblockTypeContradiction>
-    <InvalidReturnStatement occurrences="1">
-      <code>$partitionDetails</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>array[]|null</code>
-    </InvalidReturnType>
     <MixedArgument occurrences="107">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_attribute_orig'][$i]</code>
@@ -10163,7 +10157,50 @@
       <code>$table</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Partition.php">
+  <file src="libraries/classes/Partitioning/Maintenance.php">
+    <MixedArgument occurrences="14">
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($partition)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table)</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="4">
+      <code>$row['Table']</code>
+      <code>$row['Table']</code>
+      <code>$row['Table']</code>
+      <code>$row['Table']</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="4">
+      <code>$rows[$row['Table']]</code>
+      <code>$rows[$row['Table']]</code>
+      <code>$rows[$row['Table']]</code>
+      <code>$rows[$row['Table']]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="11">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$rows[$row['Table']][]</code>
+      <code>$rows[$row['Table']][]</code>
+      <code>$rows[$row['Table']][]</code>
+      <code>$rows[$row['Table']][]</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Partitioning/Partition.php">
     <MixedArrayAccess occurrences="1">
       <code>$value['Name']</code>
     </MixedArrayAccess>
@@ -10194,6 +10231,66 @@
       <code>Partition</code>
       <code>Partition</code>
     </PropertyNotSetInConstructor>
+  </file>
+  <file src="libraries/classes/Partitioning/SubPartition.php">
+    <MixedAssignment occurrences="10">
+      <code>$this-&gt;comment</code>
+      <code>$this-&gt;dataLength</code>
+      <code>$this-&gt;db</code>
+      <code>$this-&gt;expression</code>
+      <code>$this-&gt;indexLength</code>
+      <code>$this-&gt;method</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;ordinal</code>
+      <code>$this-&gt;rows</code>
+      <code>$this-&gt;table</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Partitioning/TablePartitionDefinition.php">
+    <MixedArgument occurrences="4">
+      <code>$partitionCount</code>
+      <code>$partitions</code>
+      <code>$subpartitionCount</code>
+      <code>$subpartitions</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="6">
+      <code>$partition['name']</code>
+      <code>$partition['subpartition_count']</code>
+      <code>$partition['subpartitions']</code>
+      <code>$partition['subpartitions']</code>
+      <code>$partitions[$i]</code>
+      <code>$subpartitions[$j]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="16">
+      <code>$partition['comment']</code>
+      <code>$partition['data_directory']</code>
+      <code>$partition['engine']</code>
+      <code>$partition['index_directory']</code>
+      <code>$partition['max_rows']</code>
+      <code>$partition['min_rows']</code>
+      <code>$partition['node_group']</code>
+      <code>$partition['prefix']</code>
+      <code>$partition['subpartition_count']</code>
+      <code>$partition['subpartitions']</code>
+      <code>$partition['tablespace']</code>
+      <code>$partition['value']</code>
+      <code>$partition['value_type']</code>
+      <code>$partitions[$i]</code>
+      <code>$subpartitions[$j]</code>
+      <code>$subpartitions[$j]</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="7">
+      <code>$partition</code>
+      <code>$partitionCount</code>
+      <code>$partitionDetails['partitions']</code>
+      <code>$partition['subpartition_count']</code>
+      <code>$partitions</code>
+      <code>$subpartitionCount</code>
+      <code>$subpartitions</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$partition['name']</code>
+    </MixedOperand>
   </file>
   <file src="libraries/classes/Pdf.php">
     <InvalidScalarArgument occurrences="2">
@@ -15415,20 +15512,6 @@
       <code>self::SUPPORT_NO</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="libraries/classes/SubPartition.php">
-    <MixedAssignment occurrences="10">
-      <code>$this-&gt;comment</code>
-      <code>$this-&gt;dataLength</code>
-      <code>$this-&gt;db</code>
-      <code>$this-&gt;expression</code>
-      <code>$this-&gt;indexLength</code>
-      <code>$this-&gt;method</code>
-      <code>$this-&gt;name</code>
-      <code>$this-&gt;ordinal</code>
-      <code>$this-&gt;rows</code>
-      <code>$this-&gt;table</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/SystemDatabase.php">
     <MixedArgument occurrences="9">
       <code>$column['real_column'] ?? $column['refering_column']</code>
@@ -16014,49 +16097,6 @@
       <code>$rows[$row['Table']][]</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Table/Partition.php">
-    <MixedArgument occurrences="14">
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-    </MixedArrayAccess>
-    <MixedArrayOffset occurrences="4">
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="11">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Table/Search.php">
     <MixedArgument occurrences="20">
       <code>$_POST['columnsToDisplay']</code>
@@ -16131,52 +16171,6 @@
       <code>$geom_func</code>
       <code>$geom_func</code>
     </PossiblyNullOperand>
-  </file>
-  <file src="libraries/classes/TablePartitionDefinition.php">
-    <MixedArgument occurrences="4">
-      <code>$partitionCount</code>
-      <code>$partitions</code>
-      <code>$subpartitionCount</code>
-      <code>$subpartitions</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$partition['name']</code>
-      <code>$partition['subpartition_count']</code>
-      <code>$partition['subpartitions']</code>
-      <code>$partition['subpartitions']</code>
-      <code>$partitions[$i]</code>
-      <code>$subpartitions[$j]</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="16">
-      <code>$partition['comment']</code>
-      <code>$partition['data_directory']</code>
-      <code>$partition['engine']</code>
-      <code>$partition['index_directory']</code>
-      <code>$partition['max_rows']</code>
-      <code>$partition['min_rows']</code>
-      <code>$partition['node_group']</code>
-      <code>$partition['prefix']</code>
-      <code>$partition['subpartition_count']</code>
-      <code>$partition['subpartitions']</code>
-      <code>$partition['tablespace']</code>
-      <code>$partition['value']</code>
-      <code>$partition['value_type']</code>
-      <code>$partitions[$i]</code>
-      <code>$subpartitions[$j]</code>
-      <code>$subpartitions[$j]</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="7">
-      <code>$partition</code>
-      <code>$partitionCount</code>
-      <code>$partitionDetails['partitions']</code>
-      <code>$partition['subpartition_count']</code>
-      <code>$partitions</code>
-      <code>$subpartitionCount</code>
-      <code>$subpartitions</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$partition['name']</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Template.php">
     <RedundantCondition occurrences="1">
