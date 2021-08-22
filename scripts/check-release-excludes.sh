@@ -281,6 +281,12 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */vendor/*/test/*)
         foundFile;;
+        */twig/twig/lib/Twig/Node/Expression/Test/*)
+        ;;
+        */twig/twig/lib/Twig/Test/*)
+        ;;
+        *twig/twig/src/Node/Expression/Test/*)
+        ;;
         */vendor/*/Test/*)
         foundFile;;
         */.dependabot/*)
