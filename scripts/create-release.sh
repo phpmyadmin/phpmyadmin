@@ -145,6 +145,7 @@ cleanup_composer_vendors() {
         vendor/phpseclib/phpseclib/phpseclib/System/ \
         vendor/phpseclib/phpseclib/appveyor.yml \
         vendor/symfony/cache/Tests/ \
+        vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
         vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
@@ -181,6 +182,8 @@ cleanup_composer_vendors() {
         vendor/twig/twig/.editorconfig \
         vendor/twig/twig/.php_cs.dist \
         vendor/twig/twig/drupal_test.sh \
+        vendor/twig/twig/src/Test/ \
+        vendor/psr/log/Psr/Log/Test/ \
         vendor/paragonie/constant_time_encoding/tests/ \
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
