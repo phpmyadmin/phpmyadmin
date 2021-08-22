@@ -281,6 +281,8 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */vendor/*/test/*)
         foundFile;;
+        */vendor/*/Test/*)
+        foundFile;;
         */.dependabot/*)
         foundFile;;
         */.github/*)
