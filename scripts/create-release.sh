@@ -408,10 +408,7 @@ if [ -f ./scripts/console ]; then
     ./scripts/console cache:warmup --routing
 fi
 
-case "$branch" in
-    QA_4*) PHP_REQ=$(sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json) ;;
-    *) PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json) ;;
-esac
+PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json)
 
 if [ -z "$PHP_REQ" ] ; then
     echo "Failed to figure out required PHP version from composer.json"
@@ -428,10 +425,7 @@ composer update --no-interaction --no-dev --optimize-autoloader
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-case "$branch" in
-    QA_4*) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server" ;;
-    *) PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server" ;;
-esac
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server'
 
 for PACKAGES in $PACKAGE_LIST
 do
