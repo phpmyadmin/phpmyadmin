@@ -91,6 +91,7 @@ phpMyAdmin - ChangeLog
 - issue #17018 Fixed cannot save data from GIS editor for spatial column on Insert page
 - issue #17084 Fixed ErrorHandler not showing errors when phpMyAdmin session does not work at all
 - issue #17062 Fixed pagination issues when working with identically named tables in separate databases
+- issue #17046 Fix "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, null given"
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
