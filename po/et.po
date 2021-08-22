@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-22 00:08+0000\n"
-"PO-Revision-Date: 2021-07-28 06:33+0000\n"
+"PO-Revision-Date: 2021-08-24 16:33+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5676,27 +5676,23 @@ msgstr "Sulge"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Lukusta"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Ava"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Logifailide hulk"
+msgstr "Lukusta see konto."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Kasutaja konto"
+msgstr "Vabasta see konto."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
@@ -7484,16 +7480,14 @@ msgid "Overhead"
 msgstr "Ballast"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Veerud on edukalt liigutatud."
+msgstr "Konto %s@%s on edukalt lukustatud."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Veerud on edukalt liigutatud."
+msgstr "Konto %s@%s on edukalt avatud."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
@@ -12198,7 +12192,7 @@ msgstr "Vana MySQL-4.0 autentimine"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Konto lukustamist ei toetata."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
