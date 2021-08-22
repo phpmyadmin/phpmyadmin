@@ -2012,7 +2012,7 @@ class Results
     ) {
         $order_link_params = ['class' => 'sortlink'];
 
-        $order_link_content = htmlspecialchars($fields_meta->name);
+        $order_link_content = htmlspecialchars($fields_meta->name ?? '');
         $inner_link_content = $order_link_content . $order_img
             . '<input type="hidden" value="' . $multi_order_url . '">';
 
