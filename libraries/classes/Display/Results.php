@@ -1032,7 +1032,11 @@ class Results
     ) {
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
-        $sqlMd5 = md5($this->properties['sql_query']);
+        $sqlMd5 = md5(
+            $this->properties['server']
+            . $this->properties['db']
+            . $this->properties['sql_query']
+        );
         $sessionMaxRows = $isLimitedDisplay
             ? 0
             : $_SESSION['tmpval']['query'][$sqlMd5]['max_rows'];
@@ -2032,7 +2036,7 @@ class Results
     ) {
         $orderLinkParams = ['class' => 'sortlink'];
 
-        $orderLinkContent = htmlspecialchars($fieldsMeta->name);
+        $orderLinkContent = htmlspecialchars($fieldsMeta->name ?? '');
         $innerLinkContent = $orderLinkContent . $orderImg
             . '<input type="hidden" value="' . $multiOrderUrl . '">';
 
@@ -3787,7 +3791,11 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-        $sqlMd5 = md5($this->properties['sql_query']);
+        $sqlMd5 = md5(
+            $this->properties['server']
+            . $this->properties['db']
+            . $this->properties['sql_query']
+        );
         $query = [];
         if (isset($_SESSION['tmpval']['query'][$sqlMd5])) {
             $query = $_SESSION['tmpval']['query'][$sqlMd5];
