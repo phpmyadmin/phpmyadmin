@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-22 00:08+0000\n"
-"PO-Revision-Date: 2021-07-28 06:33+0000\n"
+"PO-Revision-Date: 2021-08-24 16:34+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5832,27 +5832,23 @@ msgstr "Fermer"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Vérrouiller"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Déverrouiller"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Nombre de fichiers journal"
+msgstr "Verrouiller ce compte."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Compte d'utilisateur"
+msgstr "Déverrouiller ce compte."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
@@ -7668,16 +7664,14 @@ msgid "Overhead"
 msgstr "Perte"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Les colonnes ont été déplacées avec succès."
+msgstr "Le compte %s@%s a été verrouillé avec succès."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Les colonnes ont été déplacées avec succès."
+msgstr "Le compte %s@%s a été déverrouillé avec succès."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
@@ -12484,7 +12478,7 @@ msgstr "Ancienne authentification MySQL-4.0"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Le verrouillage des comptes n'est pas pris en charge."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
