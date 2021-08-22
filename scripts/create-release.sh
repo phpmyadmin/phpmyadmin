@@ -19,6 +19,8 @@ set -e
 
 KITS="all-languages english source"
 COMPRESSIONS="zip-7z txz tgz"
+# The version series this script is allowed to handle
+VERSION_SERIES="5.1"
 
 # Process parameters
 
@@ -259,6 +261,19 @@ VERSION_FILE=libraries/classes/Version.php
 fetchReleaseFromFile() {
     php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
 }
+
+fetchVersionSeriesFromFile() {
+    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::SERIES;"
+}
+
+VERSION_SERIES_FROM_FILE="$(fetchVersionSeriesFromFile)"
+
+if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
+    echo "This script can not handle ${VERSION_SERIES_FROM_FILE} version series."
+    echo "Only ${VERSION_SERIES} version series are allowed, please use your target branch directly or another branch."
+    echo "By changing branches you will have a release script that was designed for your version series."
+    exit 1;
+fi
 
 echo "The actual configured release is: $(fetchReleaseFromFile)"
 
