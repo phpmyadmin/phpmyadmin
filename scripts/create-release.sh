@@ -252,6 +252,21 @@ delete_phpunit_sandbox() {
     rm -rf "${TEMP_PHPUNIT_FOLDER}"
 }
 
+security_checkup() {
+    if [ ! -f vendor/tecnickcom/tcpdf/tcpdf.php ]; then
+        echo 'TCPDF should be installed, detection failed !'
+        exit 1;
+    fi
+    if [ ! -f vendor/samyoul/u2f-php-server/src/U2FServer.php ]; then
+        echo 'U2F-server should be installed, detection failed !'
+        exit 1;
+    fi
+    if [ ! -f vendor/pragmarx/google2fa-qrcode/src/Google2FA.php ]; then
+        echo 'Google 2FA should be installed, detection failed !'
+        exit 1;
+    fi
+}
+
 # Ensure we have tracking branch
 ensure_local_branch $branch
 
@@ -428,8 +443,12 @@ echo "Installing composer packages '$PACKAGES_VERSIONS'"
 
 composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
+security_checkup
+
 mv composer.json.backup composer.json
 cleanup_composer_vendors
+
+security_checkup
 if [ $do_tag -eq 1 ] ; then
     echo "* Commiting composer.lock"
     git add --force composer.lock
@@ -479,6 +498,8 @@ if [ $do_test -eq 1 ] ; then
     delete_phpunit_sandbox
     restore_vendor_folder
 fi
+
+security_checkup
 
 cd ..
 
