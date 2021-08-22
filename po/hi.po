@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-15 00:09+0000\n"
+"POT-Creation-Date: 2021-08-22 00:08+0000\n"
 "PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1272,7 +1272,7 @@ msgid "Search:"
 msgstr "खोज करे:"
 
 #: libraries/classes/BrowseForeigners.php:205
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: libraries/classes/Controllers/Server/PrivilegesController.php:340
 #: libraries/classes/InsertEdit.php:1054
 #: libraries/classes/Normalization.php:272
@@ -1302,7 +1302,7 @@ msgstr "खोज करे:"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:858
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:143
+#: templates/server/privileges/users_overview.twig:159
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
@@ -1343,7 +1343,7 @@ msgid "Description"
 msgstr "वर्णन"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1242 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -1351,7 +1351,7 @@ msgid "Page number:"
 msgstr "पृष्ठ संख्या:"
 
 #: libraries/classes/BrowseForeigners.php:339
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -4079,7 +4079,7 @@ msgid "Navigation panel width"
 msgstr "नेविगेशन फ्रेम"
 
 #: libraries/classes/Config/Descriptions.php:842
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/Navigation/NavigationTree.php:1436
 #, fuzzy
 #| msgid "Customize main frame"
@@ -4604,10 +4604,10 @@ msgid "Skip locked tables"
 msgstr "बंद टेबलओं को छोड़"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Display/Results.php:3215
-#: libraries/classes/Html/Generator.php:695
-#: libraries/classes/Html/Generator.php:962
+#: libraries/classes/Html/Generator.php:703
+#: libraries/classes/Html/Generator.php:970
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4631,12 +4631,12 @@ msgid "Edit"
 msgstr "सम्पादन"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:656
+#: libraries/classes/Html/Generator.php:664
 msgid "Explain SQL"
 msgstr "SQL की व्याख्या"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:748
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4644,7 +4644,7 @@ msgid "Refresh"
 msgstr "ताज़ा करना"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:732
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -4673,8 +4673,8 @@ msgstr "क्षेत्र रोयाँ"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:135
-#: libraries/classes/Server/Privileges.php:1919
-#: libraries/classes/Server/Privileges.php:1921
+#: libraries/classes/Server/Privileges.php:1920
+#: libraries/classes/Server/Privileges.php:1922
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4702,8 +4702,8 @@ msgstr "सर्वर"
 
 #: libraries/classes/Config/Descriptions.php:968
 #: libraries/classes/Plugins/Export/ExportXml.php:519
-#: libraries/classes/Server/Privileges.php:1925
-#: libraries/classes/Server/Privileges.php:1927
+#: libraries/classes/Server/Privileges.php:1926
+#: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4936,7 +4936,7 @@ msgstr "कस्टम"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Import.php:1399 libraries/classes/Menu.php:271
 #: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4988,9 +4988,9 @@ msgid "OpenDocument Text"
 msgstr "दस्तावेज़ खोलें"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 #: libraries/classes/Menu.php:301 libraries/classes/Menu.php:420
-#: libraries/classes/Menu.php:557 libraries/classes/Server/Privileges.php:1593
+#: libraries/classes/Menu.php:557 libraries/classes/Server/Privileges.php:1594
 #: libraries/classes/Util.php:2074 libraries/classes/Util.php:2089
 #: libraries/classes/Util.php:2106 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5013,9 +5013,9 @@ msgstr "दस्तावेज़ खोलें"
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
-#: templates/server/privileges/users_overview.twig:92
-#: templates/server/privileges/users_overview.twig:109
-#: templates/server/privileges/users_overview.twig:110
+#: templates/server/privileges/users_overview.twig:95
+#: templates/server/privileges/users_overview.twig:125
+#: templates/server/privileges/users_overview.twig:126
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
@@ -5033,7 +5033,7 @@ msgid "CSV using LOAD DATA"
 msgstr ""
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
 #: libraries/classes/Menu.php:310 libraries/classes/Menu.php:430
 #: libraries/classes/Menu.php:562 libraries/classes/Util.php:2075
 #: libraries/classes/Util.php:2090 libraries/classes/Util.php:2107
@@ -5304,7 +5304,7 @@ msgid "SQL Query Console"
 msgstr "SQL क्वरी बॉक्स"
 
 #: libraries/classes/Controllers/AbstractController.php:76
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #: libraries/classes/Controllers/Server/DatabasesController.php:299
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
@@ -5348,7 +5348,7 @@ msgstr "निर्यात plugins लोड नहीं कर सका, �
 #: libraries/classes/Controllers/Database/StructureController.php:1415
 #: libraries/classes/Controllers/Database/StructureController.php:1445
 #: libraries/classes/Controllers/Database/StructureController.php:1498
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: libraries/classes/Controllers/Table/MaintenanceController.php:46
 #: libraries/classes/Controllers/Table/MaintenanceController.php:81
 #: libraries/classes/Controllers/Table/MaintenanceController.php:119
@@ -5450,7 +5450,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:1529
 #: libraries/classes/Controllers/Database/StructureController.php:1612
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 #: libraries/classes/Controllers/Table/DeleteController.php:59
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
 #: libraries/classes/Controllers/Table/StructureController.php:469
@@ -5476,8 +5476,8 @@ msgstr ""
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/server/privileges/users_overview.twig:50
-#: templates/server/privileges/users_overview.twig:62
+#: templates/server/privileges/users_overview.twig:53
+#: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
@@ -5494,7 +5494,7 @@ msgstr "हाँ"
 #: libraries/classes/Controllers/Database/StructureController.php:1613
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:412
+#: libraries/classes/Controllers/Table/ReplaceController.php:430
 #: libraries/classes/Core.php:910 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "कोइ बदलाव नहीं"
@@ -5669,7 +5669,7 @@ msgid "Succeeded"
 msgstr "सफल रहा"
 
 #: libraries/classes/Controllers/ImportController.php:149
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "असफल रहा"
 
@@ -6033,7 +6033,7 @@ msgid "Matched rows:"
 msgstr "प्रभावित पंक्तियाँ:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:942 templates/export.twig:49
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -6061,13 +6061,13 @@ msgid "The user name is empty!"
 msgstr "प्रयोगकर्ता का नाम खाली है!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Server/Privileges.php:978
+#: libraries/classes/Server/Privileges.php:979
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "कूटशब्द (password) खाली है!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:137
-#: libraries/classes/Server/Privileges.php:976
+#: libraries/classes/Server/Privileges.php:977
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "कूटशब्द (password) समान नहीं हैं!"
@@ -6082,8 +6082,8 @@ msgstr "चयनित प्रयोक्ताओं को हटाये
 #: templates/export_modal.twig:10 templates/export.twig:64
 #: templates/export.twig:74 templates/export.twig:176
 #: templates/home/index.twig:277 templates/home/index.twig:285
-#: templates/server/privileges/users_overview.twig:153
-#: templates/server/privileges/users_overview.twig:161
+#: templates/server/privileges/users_overview.twig:169
+#: templates/server/privileges/users_overview.twig:177
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/status/monitor/index.twig:129
@@ -6096,58 +6096,84 @@ msgstr "चयनित प्रयोक्ताओं को हटाये
 msgid "Close"
 msgstr "बंद"
 
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: templates/server/privileges/users_overview.twig:105
+msgctxt "Lock the account."
+msgid "Lock"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: templates/server/privileges/users_overview.twig:102
+msgctxt "Unlock the account."
+msgid "Unlock"
+msgstr ""
+
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
+#: templates/server/privileges/users_overview.twig:100
+#, fuzzy
+#| msgid "Remove column(s)"
+msgid "Lock this account."
+msgstr "काँलम हटाना"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: templates/server/privileges/users_overview.twig:100
+#, fuzzy
+#| msgid "User"
+msgid "Unlock this account."
+msgstr "यूसर"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 #, fuzzy
 #| msgid "Page has been created."
 msgid "Template was created."
 msgstr "पेज बना दिया गया है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 msgid "Template was loaded."
 msgstr "टेंप्लेट लोड हो गई है."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
 msgstr "प्रोफाइल अपडेट कर दिया ।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "रौ को डिलीट कर दिया"
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:100
 #: libraries/classes/Server/Status/Data.php:165
 msgid "Other"
 msgstr "अन्य"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 #: libraries/classes/Util.php:600 libraries/classes/Util.php:632
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 #: libraries/classes/Util.php:598 libraries/classes/Util.php:630
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 msgid "Connections / Processes"
 msgstr "कनेक्शन / प्रक्रियाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:157
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
 #, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
 msgstr "स्थानीय जाँच व्यवस्था असंगत"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6158,176 +6184,176 @@ msgstr ""
 "तारतम्यता नहीं बैठ पा रही है। हो सकता है कि इस सम्बन्ध में आपका वर्तमान प्रारूप अब काम न "
 "कर पाए। कृपया, <i>सेटिंग्स</i> मेन्यू में जाकर इसे पुनः डिफ़ॉल्ट पर रिसेट करें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 msgid "Query cache efficiency"
 msgstr "क्वॅरी कैश की कार्यक्षमता"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
 msgid "Query cache usage"
 msgstr "क्वॅरी कैश प्रयोग"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "Query cache used"
 msgstr "काम में ली गई क्वॅरी कैश"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 #, fuzzy
 #| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "मशीन सीपीयू उपयोग"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid "System memory"
 msgstr "सिस्टम मेमोरी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "System swap"
 msgstr "सिस्टम स्वॅप"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "Average load"
 msgstr "औसत दबाव"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Total memory"
 msgstr "कुल मॅमरी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Cached memory"
 msgstr "गुप्त एकत्र (cached) मॅमरी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Buffered memory"
 msgstr "बफ़र स्मृति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Free memory"
 msgstr "मुक्त स्मृति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Used memory"
 msgstr "प्रयुक्त स्मृति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 #, fuzzy
 #| msgid "Total Swap"
 msgid "Total swap"
 msgstr "कुल स्वॅप"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 #, fuzzy
 #| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "एकत्र (cached) स्वॅप"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 #, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
 msgstr "प्रयुक्त स्वॅप"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 #, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
 msgstr "मुक्त स्वॅप"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "Bytes sent"
 msgstr "बाइट भेजे गए"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 msgid "Bytes received"
 msgstr "बाइट प्राप्त हुए"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "कनेक्शन"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "प्रक्रियाएँ"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:506
 msgid "B"
 msgstr "बिट्स"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:508
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "किलोबाइट"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:510
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "मेगाबाइट"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:512
 msgid "GiB"
 msgstr "गीगाबाइट"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Util.php:514
 msgid "TiB"
 msgstr "टॅराबाइट"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 #: libraries/classes/Util.php:516
 msgid "PiB"
 msgstr "पॅटाबाइट"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #: libraries/classes/Util.php:518
 msgid "EiB"
 msgstr "अॅग्जाबाइट"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #, php-format
 msgid "%d table(s)"
 msgstr "%d टेबल"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 msgid "Questions"
 msgstr "प्रश्न"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "व्यस्तता"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Menu.php:567 libraries/classes/Util.php:2076
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "चार्ट को जाली (grid) पर लगाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 #, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
 msgstr "कृपया, श्रृंखला में कम से कम एक चर (variable) ज़रूर जोड़ें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
@@ -6345,58 +6371,58 @@ msgid "None"
 msgstr "कुछ नहीं"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL क्वरी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 msgid "Resume monitor"
 msgstr "देखभाल व्यवस्था को पुनः शुरू करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 msgid "Pause monitor"
 msgstr "देखभाल व्यवस्था को एक बार यथास्थिति (pause) रोकें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "ऑटो रिफ्रेष शुरु करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Stop auto refresh"
 msgstr "ऑटो रिफ्रॆष को रोकें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 "सामान्य पञ्जिका (general_log) तथा धीमी क्वॅरी पञ्जिका (slow_query_log) समर्थ किये "
 "गए।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
 msgid "general_log is enabled."
 msgstr "सामान्य पञ्जिका (general_log) को समर्थ किया गया।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "slow_query_log is enabled."
 msgstr "धीमी क्वॅरी पञ्जिका (slow_query_log) को समर्थ किया गया है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 "धीमी क्वॅरी पञ्जिका (slow_query_log) तथा सामान्य पञ्जिका (general_log) को निष्क्रिय "
 "किया गया।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 msgid "log_output is not set to TABLE."
 msgstr "टेबल पर पंजिका परिणाम (log_output) सेट नहीं है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 msgid "log_output is set to TABLE."
 msgstr "टेबल पंजिका परिणाम (log_output) के साथ सेट है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6407,12 +6433,12 @@ msgstr ""
 "में सूचीबद्ध करता है जो %d सेकण्ड्स से ज्यादा समय लेती हैं। अतः आपको सलाह दी जाती है कि "
 "सिस्टम के अनुरूप अधिक_क्वॅरी_समय (long_query_time) को 0-2 सेकण्ड्स पर सेट कर लें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "अधिक_क्वॅरी_समय (long_query_time) को %d सेकण्ड्स पर सेट किया गया।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6421,31 +6447,31 @@ msgstr ""
 "डिफ़ॉल्ट पर सेट हो जाएँगी:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
 #, php-format
 msgid "Set log_output to %s"
 msgstr "पंजिका परिणाम (log_output) को %s पर सेट करें"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 #, php-format
 msgid "Enable %s"
 msgstr "%s समर्थ करें"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
 #, php-format
 msgid "Disable %s"
 msgstr "%s निष्क्रिय करें"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
 #, fuzzy, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
 msgstr "अधिक_समय_क्वॅरी (long_query_time) को %ds पर सेट करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6453,59 +6479,59 @@ msgstr ""
 "आप इन चरों (variables) को बदलने की स्थिति में नहीं है। कृपया मूल (root) प्रयोक्ता के "
 "बतौर लोग इन करें या अपने डॅटाबेस प्रबंधक से संपर्क करें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "Change settings"
 msgstr "सेटिंग्स बदलें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 msgid "Current settings"
 msgstr "वर्तमान सेटिंग्स"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 #, fuzzy
 #| msgid "Default title"
 msgid "Chart title"
 msgstr "डिफ़ॉल्ट शीर्षक"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Differential"
 msgstr "अवकलित"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 #, php-format
 msgid "Divided by %s"
 msgstr "%s से विभाजित"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Unit"
 msgstr "इकाई"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "From slow log"
 msgstr "धीमी पंजिका (slow log) से"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "From general log"
 msgstr "सामान्य पंजिका (general_log) से"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid "The database name is not known for this query in the server's logs."
 msgstr "इस क्वेरी के डेटाबेस का नाम सर्वर की रिपोर्ट मे नही पाया गया."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Analysing logs"
 msgstr "पंजिका (log) छान-बीन ज़ारी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
 msgid "Analysing & loading logs. This may take a while."
 msgstr "पंजिका की छान-बीन और लोडिंग हो रही है। इसमें थोड़ा वक्त लग सकता है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Cancel request"
 msgstr "अनुरोध रद्द करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6515,7 +6541,7 @@ msgstr ""
 "का मापदण्ड इनका SQL पाठ्य ही है अतः क्वॅरीज के अन्य गुणधर्म जैसे शुरुआत का समय आदि भिन्न "
 "मान लिए हो सकते हैं।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6525,35 +6551,35 @@ msgstr ""
 "गयी INSERT क्वॅरीज को भी एकत्रित (group) किया गया है। टेबल में डाले (insert) गए डॅटा "
 "से इसका कोई सम्बन्ध नहीं है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "पंजिका जानकारी लोड हो चुकी है। क्वॅरीज क्रियान्वन में लगा समय:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Jump to Log table"
 msgstr "सीधे पंजिका टेबल (log table) पर जाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgid "No data found"
 msgstr "कोई डॅटा नहीं पाया गया"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 "पंजिका (log) की छान-बीन की गयी, परन्तु इस समय अन्तराल विशेष में कोई डॅटा नहीं पाया "
 "गया।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
 msgstr "विश्लेषण"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 msgid "Explain output"
 msgstr "परिणाम को समझाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
 #: libraries/classes/Menu.php:534 libraries/classes/Util.php:2072
 #: libraries/config.values.php:157
@@ -6564,7 +6590,7 @@ msgstr "परिणाम को समझाएँ"
 msgid "Status"
 msgstr "स्थिति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:633
@@ -6575,24 +6601,24 @@ msgstr "स्थिति"
 msgid "Time"
 msgstr "समय"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 msgid "Total time:"
 msgstr "कुल समय:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Profiling results"
 msgstr "परिणाम का रूपरेखा बन रही है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
 msgctxt "Display format"
 msgid "Table"
 msgstr "टेबल"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Chart"
 msgstr "चार्ट"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: templates/export.twig:192
 #, fuzzy
 #| msgid "Database"
@@ -6600,7 +6626,7 @@ msgctxt "Alias"
 msgid "Database"
 msgstr "डाटाबेस"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 #: templates/export.twig:206
 #, fuzzy
 #| msgid "Table"
@@ -6608,7 +6634,7 @@ msgctxt "Alias"
 msgid "Table"
 msgstr "टेबल"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 #: templates/export.twig:219
 #, fuzzy
 #| msgid "Column"
@@ -6617,29 +6643,29 @@ msgid "Column"
 msgstr "स्तम्भ"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Log table filter options"
 msgstr "पंजिका (log) टेबल फ़िल्टर विकल्प"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Filter"
 msgstr "फ़िल्टर"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 msgid "Filter queries by word/regexp:"
 msgstr "क्वॅरीज को शब्द / रेग्युलर एक्सप्रेशन के जरिये फ़िल्टर करें:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "WHERE कथन में चर (variable) डॅटा को बिना शामिल किये, क्वॅरीज को एकत्र (group) करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
 msgid "Sum of grouped rows:"
 msgstr "एकत्र (group) पंक्तियों का योग:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 #: libraries/classes/Engines/Innodb.php:147
 #: templates/server/databases/index.twig:253
 #, fuzzy
@@ -6647,15 +6673,15 @@ msgstr "एकत्र (group) पंक्तियों का योग:"
 msgid "Total:"
 msgstr "कुल"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
 msgid "Loading logs"
 msgstr "पंजिका (log) को लोड किया जा रह है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid "Monitor refresh failed"
 msgstr "देख-रेख तंत्र असफल रहा"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6665,68 +6691,68 @@ msgstr ""
 "समाप्त हो गयी हो। समाधान के लिए पेज रीलोड करें और अपने परिचय सम्बन्धी जानकारी फिर से "
 "डालकर देखें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Reload page"
 msgstr "पृष्ठ पुनः लोड करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Affected rows:"
 msgstr "प्रभावित पंक्तियाँ:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "कॉन्फिग फ़ाईल की को पढ़ पाने असमर्थ। ऐसा प्रतीत होता है कि इसमें मानक JSON कोड नहीं है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Import monitor configuration"
 msgstr "देख-रेख (import) विन्यास (configuration) आयात करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
 #, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
 msgstr "जिस फाईल को आयात करना चाहते हैं, उसे चुनें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid table name."
 msgstr "वैध पोर्ट नहीं एक"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid database name."
 msgstr "वैध पोर्ट नहीं एक"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 msgid "No files available on server for import!"
 msgstr "सर्वर पे कोई फाइल उपलब्ध नही है!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 #, fuzzy
 #| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "क्वॅरी का विश्लेष्ण करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #, fuzzy
 msgid "Formatting SQL…"
 msgstr "SQL का स्वरूपण चल रहा है…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "गलत पैरामीटर्स!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 #: templates/database/central_columns/main.twig:271
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -6750,42 +6776,42 @@ msgstr "गलत पैरामीटर्स!"
 msgid "Cancel"
 msgstr "रद्द"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: templates/header.twig:48
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "सेटिंग्स बदलें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #: templates/config/form_display/display.twig:46
 msgid "Apply"
 msgstr "लागू करे"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: templates/home/index.twig:281 templates/navigation/main.twig:58
-#: templates/server/privileges/users_overview.twig:157
+#: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 msgid "Request aborted!!"
 msgstr "निवेदन को रोका गया है!!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "अनुरोध क्रियान्वित हो रहा है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 #, fuzzy
 #| msgid "Query cache"
 msgid "Request failed!!"
 msgstr "क्वेरी कैश"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 #: libraries/classes/Controllers/SqlController.php:274
 #: libraries/classes/Controllers/SqlController.php:308
 #, fuzzy
@@ -6793,41 +6819,41 @@ msgstr "क्वेरी कैश"
 msgid "Error in processing request"
 msgstr "याचिका प्रसंस्करणमें त्रुटि"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #, php-format
 msgid "Error code: %s"
 msgstr "त्रुटि संख्या : %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 #, php-format
 msgid "Error text: %s"
 msgstr "त्रुटि संदेश: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No accounts selected."
 msgstr "कोई पंक्ति चयनित नहीं"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "कॉलम को हटाया जाना"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -6837,29 +6863,29 @@ msgstr "प्राथमिक कुंजी जोड़ें"
 msgid "OK"
 msgstr "ठीक है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 msgid "Click to dismiss this notification"
 msgstr "इस सूचना को खारिज़ करने के लिए क्लिक करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "डॅटाबेसों का पुनर्नामकारण"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "डॅटाबेस प्रतिलिपिकरण"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "वर्ण समूह बदलाव"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #: libraries/classes/IndexColumn.php:136 libraries/classes/Index.php:520
 #: libraries/classes/Index.php:548
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:687
@@ -6882,8 +6908,8 @@ msgstr "वर्ण समूह बदलाव"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/server/privileges/users_overview.twig:52
-#: templates/server/privileges/users_overview.twig:62
+#: templates/server/privileges/users_overview.twig:55
+#: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
@@ -6896,7 +6922,7 @@ msgstr "वर्ण समूह बदलाव"
 msgid "No"
 msgstr "ना"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
@@ -6905,85 +6931,85 @@ msgstr "ना"
 msgid "Enable foreign key checks"
 msgstr "निष्क्रिय विदेशी कुंजी चेक"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "हेडर को लाने में विफल"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 msgid "Searching"
 msgstr "ख़ोज"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 msgid "Hide search results"
 msgstr "खोज परिणाम छिपाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 msgid "Show search results"
 msgstr "खोज परिणाम दिखाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 msgid "Browsing"
 msgstr "ब्राउज़िंग"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 #, fuzzy
 msgid "Deleting"
 msgstr "मिट रहा है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "इस %s टेबल से मैच हटाएँ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "एक संगृहीत फंक्शन की परिभाषा (definition) में RETURN कथन होना आवश्यक है!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 #: templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 #, php-format
 msgid "Values for column %s"
 msgstr "%s स्तंभ के लिए मूल्य"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "Values for a new column"
 msgstr "नए स्तंभ के लिए मूल्य"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
 msgstr "हर एक मान अलग क्षेत्र में दर्ज करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d मान जोड़ें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "सूचना: यदि फ़ाईल में एक से अधिक टेबलें हैं तो वे एक में ही संगठित की जाएँगी।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
 msgid "Hide query box"
 msgstr "क्वॅरी बॉक्स छिपाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 msgid "Show query box"
 msgstr "क्वॅरी बॉक्स दिखाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -7000,87 +7026,87 @@ msgstr "क्वॅरी बॉक्स दिखाएँ"
 msgid "Delete"
 msgstr "मिटाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d एक वैध पंक्ति संख्या नहीं है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "विदेशी मूल्य ब्राउस करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "स्थिति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 #: libraries/classes/Normalization.php:1077
 msgid "Pick"
 msgstr "चुनिये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "कोई पंक्ति चयनित नहीं"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "डाटाबेस में खोजें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "मुक्त स्मृति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 msgid "Add primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "%s  पर एक प्राईमरी की जड़ी गयी है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #: libraries/classes/Normalization.php:299
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ट्रैकिंग रिपोर्ट"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 #: libraries/classes/Normalization.php:569
 #: libraries/classes/Normalization.php:621
 #: libraries/classes/Normalization.php:718
@@ -7090,99 +7116,99 @@ msgstr ""
 msgid "End of step"
 msgstr "लाइन के अंत"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Normalization.php:396
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "हो गया"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "कोइ डाटाबेस नहीं चुना गया है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1046
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "वापस"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Step"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "निम्नलिखित क्वरीों क्रियान्वित किया गया है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "इन टेबल के लिये विशेषाधिकार जोडें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "कोइ डाटाबेस नहीं चुना गया है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:121
@@ -7196,108 +7222,108 @@ msgstr "कोइ डाटाबेस नहीं चुना गया ह�
 msgid "Save"
 msgstr "सुरक्षित करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
 msgid "Hide search criteria"
 msgstr "ख़ोज मापदंड छिपाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Show search criteria"
 msgstr "खोज मापदंड दिखाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 #, fuzzy
 #| msgid "Search"
 msgid "Range search"
 msgstr "ढूंढें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 #, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
 msgstr "कोलम नाम"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 #, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
 msgstr "कोलम नाम"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
 msgstr "अधिकतम सारणी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
 msgstr "अधिकतम सारणी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "ख़ोज मापदंड छिपाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "खोज मापदंड दिखाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Each point represents a data row."
 msgstr "प्रत्येक बिन्दु एक डॅटा पंक्ति को बताता है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Hovering over a point will show its label."
 msgstr "लेबल देखने के लिए कर्सर बिन्दु के ऊपर लेकर जाएँ।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "और बारीकी से देखने के लिए पुरे क्षेत्र का कोई भाग माउस से सेलेक्ट करें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "पंक्ति को देखने और संभावित सम्पादन के लिए डॅटा बिन्दु पर क्लिक करें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "दायीं तरफ नीचे के कोने के साथ पॉइंटर घसीटने पर क्षेत्र के अकार को बदला जा सकता है।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Select two columns"
 msgstr "दो कॉलम चुने"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Select two different columns"
 msgstr "दो भिन्न कॉलम चुनें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 msgid "Data point content"
 msgstr "डॅटा बिन्दु सामग्री"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
-#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2152
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "उपेक्षा करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: libraries/classes/Display/Results.php:3219
-#: libraries/classes/Html/Generator.php:76
+#: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
 msgstr "प्रतिलिपि करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -7305,7 +7331,7 @@ msgstr "प्रतिलिपि करें"
 msgid "X"
 msgstr "क्ष"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -7313,110 +7339,110 @@ msgstr "क्ष"
 msgid "Y"
 msgstr "य"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Point"
 msgstr "बिन्दु"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #, php-format
 msgid "Point %d"
 msgstr "बिंदु %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "लाईन समाप्त होता है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid "Polygon"
 msgstr "बहुभुज"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #: templates/display/results/table.twig:174
 msgid "Geometry"
 msgstr "ज्यामिति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "आंतरिक वृत्त"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "बाहरी वृत्त:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "एक बिंदु जोड़ें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "नया आंतरिक वृत्त जोडें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
 #, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
 msgstr "क्या आप शेष सेटिंग्स आयात करना चाहते हैं?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid "Encryption key"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:508
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:513
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Select referenced key"
 msgstr "संदर्भ कुंजी का चयन करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Select Foreign Key"
 msgstr "परदेशी कुंजी का चयन करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "कृपया प्राथमिक कुंजी या एक अद्वितीय कुंजी का चयन करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "प्रदर्शित करने के लिए काँलम चुनें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7424,11 +7450,11 @@ msgstr ""
 "आपने प्रदर्शन में बदलावों को सुरक्षित नहीं किया है। ये बदलाव खो जायेंगे यदि आपने सुरक्षित नहीं "
 "किया। क्या आप ज़ारी रखना चाहेंगे?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
@@ -7436,13 +7462,13 @@ msgstr ""
 msgid "Add tables from other databases"
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "पृष्ठ नाम:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 #, fuzzy
@@ -7450,7 +7476,7 @@ msgstr "पृष्ठ नाम:"
 msgid "Save page"
 msgstr "पेज चुनिये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 #, fuzzy
@@ -7458,7 +7484,7 @@ msgstr "पेज चुनिये"
 msgid "Save page as"
 msgstr "पेज चुनिये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 #, fuzzy
@@ -7466,77 +7492,77 @@ msgstr "पेज चुनिये"
 msgid "Open page"
 msgstr "मुक्त पृष्ठों"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
 msgstr "पेज चुनिये"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #: templates/database/designer/main.twig:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "इकाई"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "एडिट करने के लिये पेज़ चुने"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "संबंधपरक स्कीमा को संपादित या निर्यात करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Modifications have been saved"
 msgstr "संशोधनों को बचाया गया है"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "कोलम के नाम"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 #: templates/sql/query.twig:178
 msgid "Submit"
 msgstr "सबमिट"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "सम्पादन को रद्द करने के लिए एस्केप दबाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7544,40 +7570,40 @@ msgstr ""
 "आपने कुछ डॅटा को सम्पादित किया है पर सुरक्षित नहीं किया है। क्या आप उन्हें बिना सुरक्षित "
 "किये आगे बढ़ना चाहेंगे?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "पुनः व्यवस्थित करने के लिए घसीटें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "चिन्हित / अचिन्हित करने के लिए क्लिक करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "कोलम के नाम"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "कॉलम को दिखने / छुपाने के लिए <br> ड्रॉप-डाउन तीर पर क्लिक करें."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7585,55 +7611,55 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "मूल स्थिति"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "रद्द"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: libraries/classes/Controllers/Server/Status/StatusController.php:224
 msgid "Aborted"
 msgstr "रद्द"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "आयात"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "टेबल चुनिये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:20
 #: templates/display/results/table.twig:258
@@ -7641,67 +7667,67 @@ msgstr "टेबल चुनिये"
 msgid "Print"
 msgstr "छापें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "लिंक पर जाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Generate password"
 msgstr "नया पासवर्ड उत्पन्न करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "उत्पन्न करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "पासव्रड बदलिये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "अधिक"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "सभी दिखाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 #, fuzzy
 #| msgid "Add index"
 msgid "Hide panel"
 msgstr "अनुक्रमणिका जोड़"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
 msgstr "बाईं फ्रेम में लोगो देखियें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 #: libraries/classes/Navigation/NavigationTree.php:1439
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
 msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 #: libraries/classes/Setup/Index.php:186
 #, php-format
 msgid ""
@@ -7711,134 +7737,134 @@ msgstr ""
 "phpMyAdmin का नवीन संस्करण उपलब्ध है। नया संस्करण %s है जो कि %s को प्रकाशित हुआ है।"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 msgid ", latest stable version:"
 msgstr "नवीनतम स्थिर संस्करण:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid "up to date"
 msgstr "अद्यतन"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:297
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "दृश्य बनाइये"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "सेटिंग्स बदलें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "खुला टेबल शो"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 #: libraries/classes/ErrorHandler.php:430
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "उपेक्षा करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Successfully copied!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "डॅटाबेस प्रतिलिपिकरण"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "यह query वापस यहीं दिखायें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "क्या आप सचमुच \"%s\" निष्पादित चाहते है?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "टेबल की टिप्पणी"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "खोज परिणाम छिपाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgid "Time taken:"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7847,63 +7873,63 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "डेटाबेस को ______ में कॉपी करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "Add index"
 msgid "Add table prefix"
 msgstr "अनुक्रमणिका जोड़"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "टेबल के उपसर्ग को पुनर्स्थापना करें"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "टेबल को इस उपसर्ग के साथ प्रतिलिपि बनाएँ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7911,26 +7937,26 @@ msgid "Unknown security key error."
 msgstr "अज्ञात त्रुटि"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "अमान्य निर्यात प्रकार"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7938,13 +7964,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "टेबल %s पहले से मौजूद है!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/InsertEdit.php:338
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "छिपाना"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Controllers/Table/ChangeController.php:210
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -8048,6 +8074,18 @@ msgstr "कुल"
 msgid "Overhead"
 msgstr "जरूरत से ज्यादा"
 
+#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
+#, fuzzy, php-format
+#| msgid "Table %1$s has been altered successfully."
+msgid "The account %s@%s has been successfully locked."
+msgstr "%1$s टेबल को सफलतापूर्वक बदल दिया गया है"
+
+#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
+#, fuzzy, php-format
+#| msgid "Table %1$s has been altered successfully."
+msgid "The account %s@%s has been successfully unlocked."
+msgstr "%1$s टेबल को सफलतापूर्वक बदल दिया गया है"
+
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
 msgid "No Privileges"
@@ -8087,7 +8125,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
-#: libraries/classes/Server/Privileges.php:3005
+#: libraries/classes/Server/Privileges.php:3006
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "यूजर"
@@ -8910,7 +8948,7 @@ msgstr "दृश्य"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:918 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8928,7 +8966,7 @@ msgstr "Thread %s को सफलता से मारा गया।"
 msgid "Internal relationships were successfully updated."
 msgstr "आंतरिक संबंध जोड़ा."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:293
+#: libraries/classes/Controllers/Table/ReplaceController.php:311
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -9172,7 +9210,7 @@ msgstr "निम्नलिखित क्वरीों क्रिया�
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:982
+#: libraries/classes/Html/Generator.php:990
 msgid "MySQL said: "
 msgstr "MySQL ने कहा: "
 
@@ -9568,8 +9606,8 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:926
-#: libraries/classes/Html/Generator.php:1247
-#: libraries/classes/Html/Generator.php:1251
+#: libraries/classes/Html/Generator.php:1255
+#: libraries/classes/Html/Generator.php:1259
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
@@ -9577,8 +9615,8 @@ msgid "Begin"
 msgstr "प्रारंभ"
 
 #: libraries/classes/Display/Results.php:933
-#: libraries/classes/Html/Generator.php:1248
-#: libraries/classes/Html/Generator.php:1252
+#: libraries/classes/Html/Generator.php:1256
+#: libraries/classes/Html/Generator.php:1260
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 #, fuzzy
 #| msgid "Previous"
@@ -9587,8 +9625,8 @@ msgid "Previous"
 msgstr "पिछला"
 
 #: libraries/classes/Display/Results.php:961
-#: libraries/classes/Html/Generator.php:1281
-#: libraries/classes/Html/Generator.php:1290
+#: libraries/classes/Html/Generator.php:1289
+#: libraries/classes/Html/Generator.php:1298
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 #, fuzzy
 #| msgid "Next"
@@ -9597,8 +9635,8 @@ msgid "Next"
 msgstr "अगला"
 
 #: libraries/classes/Display/Results.php:992
-#: libraries/classes/Html/Generator.php:1282
-#: libraries/classes/Html/Generator.php:1291
+#: libraries/classes/Html/Generator.php:1290
+#: libraries/classes/Html/Generator.php:1299
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -9980,7 +10018,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:827
+#: libraries/classes/Html/Generator.php:835
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -10117,57 +10155,57 @@ msgstr "SOAP विस्तार नहीं मिला"
 msgid "Print view"
 msgstr "छपाई द्रश्य"
 
-#: libraries/classes/Html/Generator.php:156
+#: libraries/classes/Html/Generator.php:158
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "\"%s\" डेटाबेस पर जायें;."
 
-#: libraries/classes/Html/Generator.php:184
+#: libraries/classes/Html/Generator.php:186
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s कार्यक्षमताएक एक बग के द्वारा जनि जाती है| %s पर ध्यान दे"
 
-#: libraries/classes/Html/Generator.php:255
+#: libraries/classes/Html/Generator.php:257
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:260
+#: libraries/classes/Html/Generator.php:262
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:262
+#: libraries/classes/Html/Generator.php:264
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:265
+#: libraries/classes/Html/Generator.php:267
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:372
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:365
+#: libraries/classes/Html/Generator.php:373
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:668
+#: libraries/classes/Html/Generator.php:676
 msgid "Skip Explain SQL"
 msgstr "SQL की व्याख्या को छोड़ जाना"
 
-#: libraries/classes/Html/Generator.php:676
+#: libraries/classes/Html/Generator.php:684
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:708
+#: libraries/classes/Html/Generator.php:716
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "php कोड के बिना"
 
-#: libraries/classes/Html/Generator.php:715
+#: libraries/classes/Html/Generator.php:723
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 #, fuzzy
@@ -10175,25 +10213,25 @@ msgstr "php कोड के बिना"
 msgid "Submit query"
 msgstr "क्वरी भेजें"
 
-#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:769 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "रूपरेखा"
 
-#: libraries/classes/Html/Generator.php:777
+#: libraries/classes/Html/Generator.php:785
 #, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "संपादन मोड"
 
-#: libraries/classes/Html/Generator.php:917
+#: libraries/classes/Html/Generator.php:925
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "स्थिर (static) डॅटा"
 
-#: libraries/classes/Html/Generator.php:920
+#: libraries/classes/Html/Generator.php:928
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -10496,7 +10534,7 @@ msgid "Insert"
 msgstr "इनसर्ट"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2092
+#: libraries/classes/Server/Privileges.php:2980 libraries/classes/Util.php:2092
 #: libraries/classes/Util.php:2108 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11092,37 +11130,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:614
+#: libraries/classes/Operations.php:615
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "विश्लेषण"
 
-#: libraries/classes/Operations.php:615
+#: libraries/classes/Operations.php:616
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "चेक"
 
-#: libraries/classes/Operations.php:616
+#: libraries/classes/Operations.php:617
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "सुधारना"
 
-#: libraries/classes/Operations.php:617
+#: libraries/classes/Operations.php:618
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "फिर से बनाना"
 
-#: libraries/classes/Operations.php:618
+#: libraries/classes/Operations.php:619
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "मरम्मत"
 
-#: libraries/classes/Operations.php:619
+#: libraries/classes/Operations.php:620
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:631 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:632 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:95
 #: templates/database/events/index.twig:101
@@ -11148,44 +11186,44 @@ msgstr ""
 msgid "Drop"
 msgstr "रद्द"
 
-#: libraries/classes/Operations.php:633
+#: libraries/classes/Operations.php:634
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "बंद"
 
-#: libraries/classes/Operations.php:1025
+#: libraries/classes/Operations.php:1026
 msgid "Can't move table to same one!"
 msgstr "एक ही टेबल में स्थानांतरित नहीं कर सकते!"
 
-#: libraries/classes/Operations.php:1027
+#: libraries/classes/Operations.php:1028
 #, fuzzy
 msgid "Can't copy table to same one!"
 msgstr "एक ही टेबल में प्रतिलिपि नहीं कर सकते!"
 
-#: libraries/classes/Operations.php:1063
+#: libraries/classes/Operations.php:1064
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "%s टेबल को %s में मूव कर दिया."
 
-#: libraries/classes/Operations.php:1070
+#: libraries/classes/Operations.php:1071
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s टेबल को %s में कापी कर दिया."
 
-#: libraries/classes/Operations.php:1078
+#: libraries/classes/Operations.php:1079
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "%s टेबल को %s में मूव कर दिया."
 
-#: libraries/classes/Operations.php:1082
+#: libraries/classes/Operations.php:1083
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s टेबल को %s में कापी कर दिया."
 
-#: libraries/classes/Operations.php:1106
+#: libraries/classes/Operations.php:1107
 msgid "The table name is empty!"
 msgstr "टेबल का नाम खाली है!"
 
@@ -12773,8 +12811,8 @@ msgid "Error while loading the search."
 msgstr "फ़ाइल अपलोड करने में अज्ञात त्रुटि."
 
 #: libraries/classes/Server/Plugins.php:70
-#: libraries/classes/Server/Privileges.php:821
-#: libraries/classes/Server/Privileges.php:3990
+#: libraries/classes/Server/Privileges.php:822
+#: libraries/classes/Server/Privileges.php:3991
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -12804,16 +12842,21 @@ msgstr "कुकी प्रमाणीकरण"
 msgid "Old MySQL-4.0 authentication"
 msgstr "कुकी प्रमाणीकरण"
 
-#: libraries/classes/Server/Privileges.php:261
+#: libraries/classes/Server/Privileges/AccountLocking.php:30
+#: libraries/classes/Server/Privileges/AccountLocking.php:51
+msgid "Account locking is not supported."
+msgstr ""
+
+#: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
 msgstr "कोई प्रिविलेज नहीं।"
 
-#: libraries/classes/Server/Privileges.php:272
+#: libraries/classes/Server/Privileges.php:273
 msgid "Includes all privileges except GRANT."
 msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इंजन शामिल।"
 
-#: libraries/classes/Server/Privileges.php:294
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:295
+#: libraries/classes/Server/Privileges.php:362
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:323
@@ -12821,7 +12864,7 @@ msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इ
 msgid "Allows deleting data."
 msgstr "डेटा को हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:299
+#: libraries/classes/Server/Privileges.php:300
 #: templates/server/privileges/privileges_table.twig:136
 #: templates/server/privileges/privileges_table.twig:139
 #: templates/server/privileges/privileges_table.twig:361
@@ -12829,7 +12872,7 @@ msgstr "डेटा को हटाने की अनुमति देत�
 msgid "Allows creating new tables."
 msgstr "नया टेबल बनाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:304
+#: libraries/classes/Server/Privileges.php:305
 #: templates/server/privileges/privileges_table.twig:148
 #: templates/server/privileges/privileges_table.twig:151
 #: templates/server/privileges/privileges_table.twig:409
@@ -12837,8 +12880,8 @@ msgstr "नया टेबल बनाने की अनुमति दे�
 msgid "Allows dropping tables."
 msgstr "टेबल को हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:310
+#: libraries/classes/Server/Privileges.php:402
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:393
@@ -12846,8 +12889,8 @@ msgstr "टेबल को हटाने की अनुमति देत�
 msgid "Allows creating and dropping indexes."
 msgstr "सूचक बनाने और हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:315
+#: libraries/classes/Server/Privileges.php:407
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:380
@@ -12855,9 +12898,9 @@ msgstr "सूचक बनाने और हटाने की अनुम�
 msgid "Allows altering the structure of existing tables."
 msgstr "मौजूदा टेबल की संरचना में फेरबदल की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:320
+#: libraries/classes/Server/Privileges.php:446
+#: libraries/classes/Server/Privileges.php:462
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:494
@@ -12867,9 +12910,9 @@ msgstr "मौजूदा टेबल की संरचना में फ�
 msgid "Allows creating new views."
 msgstr "नए दृश्य बनाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:466
-#: libraries/classes/Server/Privileges.php:472
+#: libraries/classes/Server/Privileges.php:325
+#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:473
 #: templates/server/privileges/privileges_table.twig:209
 #: templates/server/privileges/privileges_table.twig:212
 #: templates/server/privileges/privileges_table.twig:441
@@ -12877,8 +12920,8 @@ msgstr "नए दृश्य बनाने की अनुमति दे�
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:330
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:221
 #: templates/server/privileges/privileges_table.twig:224
 #: templates/server/privileges/privileges_table.twig:537
@@ -12888,52 +12931,52 @@ msgstr ""
 msgid "Allows creating and dropping triggers."
 msgstr "सूचक बनाने और हटाने की अनुमति देता है"
 
-#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:347
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:284
 #: templates/server/privileges/privileges_table.twig:287
 msgid "Allows reading data."
 msgstr "डाटा पढने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:352
 #: templates/server/privileges/privileges_table.twig:42
 #: templates/server/privileges/privileges_table.twig:297
 #: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
 msgstr "डेटा डालने और हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:357
 #: templates/server/privileges/privileges_table.twig:69
 #: templates/server/privileges/privileges_table.twig:310
 #: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
 msgstr "डेटा को बदलने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:367
 #: templates/server/privileges/privileges_table.twig:359
 #: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "नया डेटाबेस और टेबल बनाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:372
 #: templates/server/privileges/privileges_table.twig:407
 #: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "डेटाबेस और टेबल को हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:377
 #: templates/server/privileges/privileges_table.twig:599
 #: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:382
 #: templates/server/privileges/privileges_table.twig:612
 #: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "सर्वर बन्द करने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:387
 #: templates/server/privileges/privileges_table.twig:586
 #: templates/server/privileges/privileges_table.twig:589
 #, fuzzy
@@ -12941,25 +12984,25 @@ msgstr "सर्वर बन्द करने की अनुमति द�
 msgid "Allows viewing processes of all users."
 msgstr "सभी यूसरओं प्रक्रियाओं को देखने की अनुमति"
 
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:392
 #: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr "डेटा फ़ाइलों में आयात और निर्यात करने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:397
 #: templates/server/privileges/privileges_table.twig:96
 #: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "इस MySQL संस्करण में कोई प्रभाव नहीं है।"
 
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:625
 #: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "डेटाबेस की पूरी सूची तक पहुंचा देता है।"
 
-#: libraries/classes/Server/Privileges.php:417
+#: libraries/classes/Server/Privileges.php:418
 #: templates/server/privileges/privileges_table.twig:572
 #: templates/server/privileges/privileges_table.twig:576
 msgid ""
@@ -12968,31 +13011,31 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:425
+#: libraries/classes/Server/Privileges.php:426
 #: templates/server/privileges/privileges_table.twig:428
 #: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "नया अस्थायी टेबल बनाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:431
 #: templates/server/privileges/privileges_table.twig:653
 #: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:435
+#: libraries/classes/Server/Privileges.php:436
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Needed for the replication slaves."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:441
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "सर्वर सेटिंग्स को पुन: लोड और सर्वर के कैश निस्तब्धता की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:451
 #: templates/server/privileges/privileges_table.twig:524
 #: templates/server/privileges/privileges_table.twig:527
 #, fuzzy
@@ -13001,8 +13044,8 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "घटना अनुसूचक के लिए घटना को स्थापित करने की अनुमति देता है"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:479
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:480
+#: libraries/classes/Server/Privileges.php:489
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 #, fuzzy
@@ -13010,74 +13053,74 @@ msgstr "घटना अनुसूचक के लिए घटना को 
 msgid "Allows deleting historical rows."
 msgstr "डेटा को हटाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:493
+#: libraries/classes/Server/Privileges.php:494
 #: templates/server/privileges/privileges_table.twig:454
 #: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "नया नियमित कार्यक्रम बनाने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:498
+#: libraries/classes/Server/Privileges.php:499
 #: templates/server/privileges/privileges_table.twig:467
 #: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "संग्रहित routines की फेरबदल और छोड़ने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:503
+#: libraries/classes/Server/Privileges.php:504
 #: templates/server/privileges/privileges_table.twig:707
 #: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "यूसर खातों बनाने, गिराना और नाम बदलने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:508
+#: libraries/classes/Server/Privileges.php:509
 #: templates/server/privileges/privileges_table.twig:480
 #: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "संग्रहीत दिनचर्या को क्रियान्वित करने की अनुमति देता है।"
 
-#: libraries/classes/Server/Privileges.php:1120
+#: libraries/classes/Server/Privileges.php:1121
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s का पासवर्ड सफलतापूर्वक बदल गया।"
 
-#: libraries/classes/Server/Privileges.php:1170
+#: libraries/classes/Server/Privileges.php:1171
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "आपने %s के privileges वापस ले लिया."
 
-#: libraries/classes/Server/Privileges.php:1518
+#: libraries/classes/Server/Privileges.php:1519
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1587
+#: libraries/classes/Server/Privileges.php:1588
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
-#: templates/server/privileges/users_overview.twig:72
+#: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "प्रिविलेज एडिट करें"
 
-#: libraries/classes/Server/Privileges.php:1590
+#: libraries/classes/Server/Privileges.php:1591
 msgid "Revoke"
 msgstr "वापस लो"
 
-#: libraries/classes/Server/Privileges.php:1920
+#: libraries/classes/Server/Privileges.php:1921
 #: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "केवल डाटाबेस के प्रिविलेज"
 
-#: libraries/classes/Server/Privileges.php:1926
+#: libraries/classes/Server/Privileges.php:1927
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "केवल टेबल के प्रिविलेज"
 
-#: libraries/classes/Server/Privileges.php:1931
-#: libraries/classes/Server/Privileges.php:1933
+#: libraries/classes/Server/Privileges.php:1932
+#: libraries/classes/Server/Privileges.php:1934
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -13086,31 +13129,31 @@ msgstr "केवल टेबल के प्रिविलेज"
 msgid "Routine"
 msgstr "नियमित कार्य"
 
-#: libraries/classes/Server/Privileges.php:1932
+#: libraries/classes/Server/Privileges.php:1933
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "केवल कोलम के प्रिविलेज"
 
-#: libraries/classes/Server/Privileges.php:2287
+#: libraries/classes/Server/Privileges.php:2288
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2290
+#: libraries/classes/Server/Privileges.php:2291
 msgid "Reloading the privileges"
 msgstr "विशेषाधिकार पुनः लोड"
 
-#: libraries/classes/Server/Privileges.php:2315
+#: libraries/classes/Server/Privileges.php:2316
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2395
+#: libraries/classes/Server/Privileges.php:2396
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "आपने %s के प्रिविलेज अपडेट कर दिया ।"
 
-#: libraries/classes/Server/Privileges.php:2484
+#: libraries/classes/Server/Privileges.php:2485
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13118,34 +13161,34 @@ msgstr "आपने %s के प्रिविलेज अपडेट क�
 msgid "No user found."
 msgstr "कोई यूसर नहीं।"
 
-#: libraries/classes/Server/Privileges.php:2571
+#: libraries/classes/Server/Privileges.php:2572
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2602
+#: libraries/classes/Server/Privileges.php:2603
 msgid "The privileges were reloaded successfully."
 msgstr "चयनित यूसर को सफलतापूर्वक हटा दिया गया है।"
 
-#: libraries/classes/Server/Privileges.php:2706
+#: libraries/classes/Server/Privileges.php:2707
 #, php-format
 msgid "The user %s already exists!"
 msgstr "उपयोगकर्ता %s पहले से मौजूद है!"
 
-#: libraries/classes/Server/Privileges.php:2996
+#: libraries/classes/Server/Privileges.php:2997
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "प्रिविलेज"
 
-#: libraries/classes/Server/Privileges.php:3135
+#: libraries/classes/Server/Privileges.php:3136
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3181
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -13154,7 +13197,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3196
+#: libraries/classes/Server/Privileges.php:3197
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13163,7 +13206,7 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3541
+#: libraries/classes/Server/Privileges.php:3542
 msgid "You have added a new user."
 msgstr "आपने नया यूसर बना लिया।"
 
@@ -14842,7 +14885,7 @@ msgstr "क्रमानुसार करने के लिए क्ल�
 #: templates/database/tracking/tables.twig:154 templates/indexes.twig:14
 #: templates/server/databases/index.twig:163
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
+#: templates/server/privileges/users_overview.twig:22
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
 #: templates/table/privileges/index.twig:24
@@ -15243,8 +15286,8 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:277
 #: templates/server/privileges/privileges_table.twig:351
 #: templates/server/privileges/privileges_table.twig:551
-#: templates/server/privileges/users_overview.twig:105
-#: templates/server/privileges/users_overview.twig:106
+#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
@@ -15508,7 +15551,7 @@ msgstr "अनुदान"
 
 #: templates/database/privileges/index.twig:36
 #: templates/server/privileges/new_user_ajax.twig:9
-#: templates/server/privileges/users_overview.twig:33
+#: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
 msgid "Any"
 msgstr "कोई"
@@ -15542,8 +15585,8 @@ msgstr "नियमित कार्य"
 #: templates/display/results/table.twig:222
 #: templates/display/results/table.twig:225 templates/select_all.twig:2
 #: templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:104
-#: templates/server/privileges/users_overview.twig:107
+#: templates/server/privileges/users_overview.twig:120
+#: templates/server/privileges/users_overview.twig:123
 #: templates/table/privileges/index.twig:116
 #: templates/table/privileges/index.twig:119
 msgid "With selected:"
@@ -15552,7 +15595,7 @@ msgstr "चुने हुओं को:"
 #: templates/database/privileges/index.twig:131
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:137
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
@@ -15562,7 +15605,7 @@ msgstr ""
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:24
-#: templates/server/privileges/users_overview.twig:124
+#: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
 #, fuzzy
 #| msgid "Add user"
@@ -17920,8 +17963,8 @@ msgid ""
 msgstr ""
 
 #: templates/server/privileges/new_user_ajax.twig:52
-#: templates/server/privileges/users_overview.twig:80
-#: templates/server/privileges/users_overview.twig:152
+#: templates/server/privileges/users_overview.twig:83
+#: templates/server/privileges/users_overview.twig:168
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
@@ -18087,7 +18130,7 @@ msgid "User groups"
 msgstr "यूसर"
 
 #: templates/server/privileges/user_properties.twig:57
-#: templates/server/privileges/users_overview.twig:54
+#: templates/server/privileges/users_overview.twig:57
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
@@ -18122,21 +18165,21 @@ msgstr ""
 msgid "User group"
 msgstr ""
 
-#: templates/server/privileges/users_overview.twig:131
+#: templates/server/privileges/users_overview.twig:147
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected user accounts"
 msgstr "चयनित यूसर हटायें"
 
-#: templates/server/privileges/users_overview.twig:133
+#: templates/server/privileges/users_overview.twig:149
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "यूसर से सभी सक्रिय विशेषाधिकार रद्द करने और उन्हें बाद में हटा।"
 
-#: templates/server/privileges/users_overview.twig:137
+#: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
-#: templates/server/privileges/users_overview.twig:162
+#: templates/server/privileges/users_overview.twig:178
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save changes"

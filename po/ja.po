@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-15 00:09+0000\n"
+"POT-Creation-Date: 2021-08-22 00:08+0000\n"
 "PO-Revision-Date: 2021-08-06 03:34+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1360,7 +1360,7 @@ msgid "Search:"
 msgstr "検索："
 
 #: libraries/classes/BrowseForeigners.php:205
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 #: libraries/classes/Controllers/Server/PrivilegesController.php:340
 #: libraries/classes/InsertEdit.php:1054
 #: libraries/classes/Normalization.php:272
@@ -1390,7 +1390,7 @@ msgstr "検索："
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:858
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:143
+#: templates/server/privileges/users_overview.twig:159
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
@@ -1431,7 +1431,7 @@ msgid "Description"
 msgstr "説明"
 
 #: libraries/classes/BrowseForeigners.php:325
-#: libraries/classes/Html/Generator.php:1234 libraries/classes/Language.php:214
+#: libraries/classes/Html/Generator.php:1242 libraries/classes/Language.php:214
 #: libraries/classes/Pdf.php:94
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:537
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:571
@@ -1439,7 +1439,7 @@ msgid "Page number:"
 msgstr "ページ番号:"
 
 #: libraries/classes/BrowseForeigners.php:339
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:17
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -3790,7 +3790,7 @@ msgid "Navigation panel width"
 msgstr "ナビゲーションパネル幅"
 
 #: libraries/classes/Config/Descriptions.php:842
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:627
 #: libraries/classes/Navigation/NavigationTree.php:1436
 msgid "Link with main panel"
 msgstr "メインパネルへのリンク"
@@ -4245,10 +4245,10 @@ msgid "Skip locked tables"
 msgstr "ロックされているテーブルをスキップする"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Display/Results.php:3215
-#: libraries/classes/Html/Generator.php:695
-#: libraries/classes/Html/Generator.php:962
+#: libraries/classes/Html/Generator.php:703
+#: libraries/classes/Html/Generator.php:970
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4272,12 +4272,12 @@ msgid "Edit"
 msgstr "編集"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:656
+#: libraries/classes/Html/Generator.php:664
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:740
+#: libraries/classes/Export.php:624 libraries/classes/Html/Generator.php:748
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:19
 #: templates/server/status/variables/index.twig:42
@@ -4285,7 +4285,7 @@ msgid "Refresh"
 msgstr "更新"
 
 #: libraries/classes/Config/Descriptions.php:960
-#: libraries/classes/Html/Generator.php:724
+#: libraries/classes/Html/Generator.php:732
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -4310,8 +4310,8 @@ msgstr "textarea の行数"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:135
-#: libraries/classes/Server/Privileges.php:1919
-#: libraries/classes/Server/Privileges.php:1921
+#: libraries/classes/Server/Privileges.php:1920
+#: libraries/classes/Server/Privileges.php:1922
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4339,8 +4339,8 @@ msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:968
 #: libraries/classes/Plugins/Export/ExportXml.php:519
-#: libraries/classes/Server/Privileges.php:1925
-#: libraries/classes/Server/Privileges.php:1927
+#: libraries/classes/Server/Privileges.php:1926
+#: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4549,7 +4549,7 @@ msgstr "詳細"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:737
 #: libraries/classes/Import.php:1399 libraries/classes/Menu.php:271
 #: libraries/classes/Menu.php:395
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4597,9 +4597,9 @@ msgid "OpenDocument Text"
 msgstr "OpenDocument テキスト"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 #: libraries/classes/Menu.php:301 libraries/classes/Menu.php:420
-#: libraries/classes/Menu.php:557 libraries/classes/Server/Privileges.php:1593
+#: libraries/classes/Menu.php:557 libraries/classes/Server/Privileges.php:1594
 #: libraries/classes/Util.php:2074 libraries/classes/Util.php:2089
 #: libraries/classes/Util.php:2106 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4622,9 +4622,9 @@ msgstr "OpenDocument テキスト"
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
-#: templates/server/privileges/users_overview.twig:92
-#: templates/server/privileges/users_overview.twig:109
-#: templates/server/privileges/users_overview.twig:110
+#: templates/server/privileges/users_overview.twig:95
+#: templates/server/privileges/users_overview.twig:125
+#: templates/server/privileges/users_overview.twig:126
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
@@ -4642,7 +4642,7 @@ msgid "CSV using LOAD DATA"
 msgstr "LOAD DATA 文を使用した CSV の読み込み"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
 #: libraries/classes/Menu.php:310 libraries/classes/Menu.php:430
 #: libraries/classes/Menu.php:562 libraries/classes/Util.php:2075
 #: libraries/classes/Util.php:2090 libraries/classes/Util.php:2107
@@ -4922,7 +4922,7 @@ msgid "SQL Query Console"
 msgstr "SQL クエリコンソール"
 
 #: libraries/classes/Controllers/AbstractController.php:76
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #: libraries/classes/Controllers/Server/DatabasesController.php:299
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
@@ -4970,7 +4970,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/StructureController.php:1415
 #: libraries/classes/Controllers/Database/StructureController.php:1445
 #: libraries/classes/Controllers/Database/StructureController.php:1498
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: libraries/classes/Controllers/Table/MaintenanceController.php:46
 #: libraries/classes/Controllers/Table/MaintenanceController.php:81
 #: libraries/classes/Controllers/Table/MaintenanceController.php:119
@@ -5074,7 +5074,7 @@ msgstr "成功！"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1529
 #: libraries/classes/Controllers/Database/StructureController.php:1612
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:503
 #: libraries/classes/Controllers/Table/DeleteController.php:59
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
 #: libraries/classes/Controllers/Table/StructureController.php:469
@@ -5100,8 +5100,8 @@ msgstr "成功！"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/server/privileges/users_overview.twig:50
-#: templates/server/privileges/users_overview.twig:62
+#: templates/server/privileges/users_overview.twig:53
+#: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
@@ -5118,7 +5118,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Database/StructureController.php:1613
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:412
+#: libraries/classes/Controllers/Table/ReplaceController.php:430
 #: libraries/classes/Core.php:910 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
@@ -5300,7 +5300,7 @@ msgid "Succeeded"
 msgstr "成功しました"
 
 #: libraries/classes/Controllers/ImportController.php:149
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "失敗しました"
 
@@ -5622,7 +5622,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:124
-#: libraries/classes/Html/Generator.php:934 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:942 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -5644,13 +5644,13 @@ msgid "The user name is empty!"
 msgstr "ユーザ名が空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
-#: libraries/classes/Server/Privileges.php:978
+#: libraries/classes/Server/Privileges.php:979
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "パスワードが空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:137
-#: libraries/classes/Server/Privileges.php:976
+#: libraries/classes/Server/Privileges.php:977
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "パスワードが異なっています!"
@@ -5665,8 +5665,8 @@ msgstr "選択したユーザを削除する"
 #: templates/export_modal.twig:10 templates/export.twig:64
 #: templates/export.twig:74 templates/export.twig:176
 #: templates/home/index.twig:277 templates/home/index.twig:285
-#: templates/server/privileges/users_overview.twig:153
-#: templates/server/privileges/users_overview.twig:161
+#: templates/server/privileges/users_overview.twig:169
+#: templates/server/privileges/users_overview.twig:177
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/status/monitor/index.twig:129
@@ -5679,50 +5679,76 @@ msgstr "選択したユーザを削除する"
 msgid "Close"
 msgstr "閉じる"
 
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
+#: templates/server/privileges/users_overview.twig:105
+msgctxt "Lock the account."
+msgid "Lock"
+msgstr ""
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: templates/server/privileges/users_overview.twig:102
+msgctxt "Unlock the account."
+msgid "Unlock"
+msgstr ""
+
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
+#: templates/server/privileges/users_overview.twig:100
+#, fuzzy
+#| msgid "Log file count"
+msgid "Lock this account."
+msgstr "ログファイル数"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: templates/server/privileges/users_overview.twig:100
+#, fuzzy
+#| msgid "User account"
+msgid "Unlock this account."
+msgstr "ユーザアカウント"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
 msgstr "テンプレートが作成されました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 msgid "Template was loaded."
 msgstr "テンプレートが読み込まれました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:144
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
 msgid "Template was updated."
 msgstr "テンプレートを更新しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 msgid "Template was deleted."
 msgstr "テンプレートを削除しました。"
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:100
 #: libraries/classes/Server/Status/Data.php:165
 msgid "Other"
 msgstr "その他"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 #: libraries/classes/Util.php:600 libraries/classes/Util.php:632
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
 #: libraries/classes/Util.php:598 libraries/classes/Util.php:630
 msgid "."
 msgstr "."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 msgid "Connections / Processes"
 msgstr "接続／プロセス"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:157
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
 msgid "Local monitor configuration incompatible!"
 msgstr "ローカルモニタの環境設定に互換性がありません!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -5733,164 +5759,164 @@ msgstr ""
 "せん。この環境設定ではおそらく機能させることはできないでしょう。<i>設定</i>項"
 "目よりモニタ環境設定をデフォルトに戻してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 msgid "Query cache efficiency"
 msgstr "クエリキャッシュ効率"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
 msgid "Query cache usage"
 msgstr "クエリキャッシュの使用状況"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "Query cache used"
 msgstr "使用されているクエリキャッシュ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 msgid "System CPU usage"
 msgstr "システム CPU の使用状況"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid "System memory"
 msgstr "システムメモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "System swap"
 msgstr "システムスワップ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "Average load"
 msgstr "平均負荷"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Total memory"
 msgstr "総メモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Cached memory"
 msgstr "キャッシュ割り当てメモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Buffered memory"
 msgstr "バッファ割り当てメモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Free memory"
 msgstr "空きメモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 msgid "Used memory"
 msgstr "使用中メモリ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 msgid "Total swap"
 msgstr "総スワップ領域"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 msgid "Cached swap"
 msgstr "キャッシュ割り当てスワップ領域"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 msgid "Used swap"
 msgstr "使用中スワップ領域"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 msgid "Free swap"
 msgstr "空きスワップ領域"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 msgid "Bytes sent"
 msgstr "送信"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 msgid "Bytes received"
 msgstr "受信"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "接続"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "プロセス"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:506
 msgid "B"
 msgstr "バイト"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:508
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:510
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:512
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Util.php:514
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 #: libraries/classes/Util.php:516
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #: libraries/classes/Util.php:518
 msgid "EiB"
 msgstr "EiB"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 #, php-format
 msgid "%d table(s)"
 msgstr "%d テーブル"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 msgid "Questions"
 msgstr "問い合わせ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 #: libraries/classes/Menu.php:567 libraries/classes/Util.php:2076
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 #: templates/server/status/monitor/index.twig:217
 msgid "Add chart to grid"
 msgstr "モニタリンググラフを追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 msgid "Please add at least one variable to the series!"
 msgstr "少なくとも１つの系列を追加してください!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Display/Results.php:1337
 #: libraries/classes/Plugins/Export/ExportSql.php:2399
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
@@ -5908,52 +5934,52 @@ msgid "None"
 msgstr "なし"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 msgid "SQL Query"
 msgstr "実行した SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 msgid "Resume monitor"
 msgstr "モニタ再開"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 msgid "Pause monitor"
 msgstr "モニタ一時中断"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
 #: templates/server/status/processes/index.twig:57
 msgid "Start auto refresh"
 msgstr "自動更新を開始"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 msgid "Stop auto refresh"
 msgstr "自動更新を停止"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log および slow_query_log は有効です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:215
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
 msgid "general_log is enabled."
 msgstr "general_log は有効です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log は有効です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:217
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log および general_log は無効です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 msgid "log_output is not set to TABLE."
 msgstr "log_output はテーブルに設定されていません。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:219
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:223
 msgid "log_output is set to TABLE."
 msgstr "log_output はテーブルに設定されています。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:221
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -5964,12 +5990,12 @@ msgstr ""
 "をログに記録します。お使いのシステムによっては、long_query_time を 0～2 秒に"
 "設定したほうがいいでしょう。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:225
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:229
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time は %d 秒に設定されています。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:227
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -5978,30 +6004,30 @@ msgstr ""
 "されます。"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:231
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
 #, php-format
 msgid "Set log_output to %s"
 msgstr "log_output に %s を設定する"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 #, php-format
 msgid "Enable %s"
 msgstr "%s を有効にする"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
 #, php-format
 msgid "Disable %s"
 msgstr "%s を無効にする"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time を %d 秒に設定する。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6009,59 +6035,59 @@ msgstr ""
 "これらの変数を変更することはできません。root でログインするか、データベース管"
 "理者に連絡してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "Change settings"
 msgstr "設定の変更"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 msgid "Current settings"
 msgstr "現在の設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "Chart title"
 msgstr "グラフの題名"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Differential"
 msgstr "差分値"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 #, php-format
 msgid "Divided by %s"
 msgstr "除数 %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Unit"
 msgstr "単位"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid "From slow log"
 msgstr "スロークエリログより"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
 msgid "From general log"
 msgstr "一般クエリログより"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:254
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "サーバログ内にあるこのクエリに記述されたデータベース名が認識できません。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid "Analysing logs"
 msgstr "ログの解析中"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:257
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:261
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 "ログの解析および読み込みを行っています。少し時間がかかることがあります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Cancel request"
 msgstr "キャンセル"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6071,7 +6097,7 @@ msgstr ""
 "クエリをグループの基準として使用しています。そのため、開始時刻いったような属"
 "性は、他クエリでは異なる場合があります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6081,31 +6107,31 @@ msgstr ""
 "INSERT クエリは挿入されたデータ部は同一のようにみなされて、グループ化が行われ"
 "ます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "ログデータを読み込みました。この期間に行われたクエリは以下の通りです。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Jump to Log table"
 msgstr "ログの表に移動する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgid "No data found"
 msgstr "データが存在しません"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Log analysed, but no data found in this time span."
 msgstr "ログの解析を行いましたが、この期間のデータは見つかりませんでした。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 msgid "Analyzing…"
 msgstr "解析しています…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
 #: libraries/classes/Menu.php:534 libraries/classes/Util.php:2072
 #: libraries/config.values.php:157
@@ -6116,7 +6142,7 @@ msgstr "EXPLAIN の結果"
 msgid "Status"
 msgstr "状態"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:633
@@ -6127,79 +6153,79 @@ msgstr "状態"
 msgid "Time"
 msgstr "時間"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
 msgid "Total time:"
 msgstr "合計時間:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Profiling results"
 msgstr "プロファイリングの結果"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
 msgctxt "Display format"
 msgid "Table"
 msgstr "表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Chart"
 msgstr "グラフ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: templates/export.twig:192
 msgctxt "Alias"
 msgid "Database"
 msgstr "データベース"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 #: templates/export.twig:206
 msgctxt "Alias"
 msgid "Table"
 msgstr "テーブル"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 #: templates/export.twig:219
 msgctxt "Alias"
 msgid "Column"
 msgstr "カラム"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Log table filter options"
 msgstr "ログの表のフィルタオプション"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Filter"
 msgstr "フィルター"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 msgid "Filter queries by word/regexp:"
 msgstr "単語／正規表現でクエリを絞る:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 "WHERE 節内のデータ部（文字列や数値など）は同一として扱いクエリをまとめる"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:294
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
 msgid "Sum of grouped rows:"
 msgstr "グループ後の行数:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 #: libraries/classes/Engines/Innodb.php:147
 #: templates/server/databases/index.twig:253
 msgid "Total:"
 msgstr "合計:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
 msgid "Loading logs"
 msgstr "ログの読み込み"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:298
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid "Monitor refresh failed"
 msgstr "モニタの更新に失敗しました"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6209,58 +6235,58 @@ msgstr ""
 "期限切れであるなら、これは正常な動作です。ページを再読み込みしてください。認"
 "証はやり直す必要があるかもしれません。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Reload page"
 msgstr "ページの再読み込み"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Affected rows:"
 msgstr "変更された行:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "設定ファイルの構文解析に失敗しました。有効な JSON コードではないようです。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Import monitor configuration"
 msgstr "モニタ環境設定のインポート"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
 msgid "Please select the file you want to import."
 msgstr "インポートするファイルを選択してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
 msgid "Please enter a valid table name."
 msgstr "有効なテーブル名を入力してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
 msgid "Please enter a valid database name."
 msgstr "有効なデータベース名を入力してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 msgid "No files available on server for import!"
 msgstr "インポートに利用可能なファイルがサーバ上に存在しません!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 msgid "Analyse query"
 msgstr "クエリを解析する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 msgid "Formatting SQL…"
 msgstr "SQLをフォーマットしています…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 msgid "No parameters found!"
 msgstr "パラメータが見つかりませんでした！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 #: templates/database/central_columns/main.twig:271
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
@@ -6284,52 +6310,52 @@ msgstr "パラメータが見つかりませんでした！"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #: templates/header.twig:48
 msgid "Page-related settings"
 msgstr "ページ関連の設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #: templates/config/form_display/display.twig:46
 msgid "Apply"
 msgstr "適用"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
 #: templates/home/index.twig:281 templates/navigation/main.twig:58
-#: templates/server/privileges/users_overview.twig:157
+#: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "読み込み中…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 msgid "Request aborted!!"
 msgstr "リクエストを中止しました!!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 msgid "Processing request"
 msgstr "要求を処理しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 msgid "Request failed!!"
 msgstr "リクエストは失敗しました!!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 #: libraries/classes/Controllers/SqlController.php:274
 #: libraries/classes/Controllers/SqlController.php:308
 msgid "Error in processing request"
 msgstr "要求処理中でのエラー"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #, php-format
 msgid "Error code: %s"
 msgstr "エラーコード：%s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 #, php-format
 msgid "Error text: %s"
 msgstr "エラーテキスト：%s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -6337,19 +6363,19 @@ msgstr ""
 "ネットワーク接続が失われているようです。接続状況とサーバの状態を確認してくだ"
 "さい。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid "No accounts selected."
 msgstr "アカウントが選択されていません。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 msgid "Dropping column"
 msgstr "カラムを削除しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
 msgid "Adding primary key"
 msgstr "主キーを追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
@@ -6359,23 +6385,23 @@ msgstr "主キーを追加する"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 msgid "Click to dismiss this notification"
 msgstr "クリックすると、この通知を破棄します"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Renaming databases"
 msgstr "データベースの名称を変更しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 msgid "Copying database"
 msgstr "データベースをコピーしています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "Changing charset"
 msgstr "文字セットを変更しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #: libraries/classes/IndexColumn.php:136 libraries/classes/Index.php:520
 #: libraries/classes/Index.php:548
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:687
@@ -6398,8 +6424,8 @@ msgstr "文字セットを変更しています"
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
-#: templates/server/privileges/users_overview.twig:52
-#: templates/server/privileges/users_overview.twig:62
+#: templates/server/privileges/users_overview.twig:55
+#: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
@@ -6412,91 +6438,91 @@ msgstr "文字セットを変更しています"
 msgid "No"
 msgstr "いいえ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:192
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "外部キーのチェックを有効にする"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 msgid "Failed to get real row count."
 msgstr "実際の行数の取得に失敗しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 msgid "Searching"
 msgstr "検索しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 msgid "Hide search results"
 msgstr "検索結果を隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 msgid "Show search results"
 msgstr "検索結果を表示する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 msgid "Browsing"
 msgstr "表示中"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 msgid "Deleting"
 msgstr "削除しています"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "テーブル %s に対して条件に一致したものを削除しますか?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:380
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "ストアドファンクションの定義には、RETURN 文を含めなければなりません！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "エクスポートできるルーチンがありません。この操作を実行する権限が無い可能性が"
 "あります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 #: templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET エディタ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:382
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 #, php-format
 msgid "Values for column %s"
 msgstr "カラム %s に対しての値"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "Values for a new column"
 msgstr "新しいカラムに対しての値"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 msgid "Enter each value in a separate field."
 msgstr "個々の入力欄にそれぞれ値を入力してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid "Add %d value(s)"
 msgstr "値 %d を追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "注意：ファイルに複数のテーブルが含まれている場合、それらは１つに統合されま"
 "す。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
 msgid "Hide query box"
 msgstr "クエリボックスを隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:394
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 msgid "Show query box"
 msgstr "クエリボックスを表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -6513,23 +6539,23 @@ msgstr "クエリボックスを表示"
 msgid "Delete"
 msgstr "削除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d は不正な行番号です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/insert/column_row.twig:48
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "参照されている値を表示する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr "以前に自動保存クエリはありません。デフォルトクエリを読み込みします。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -6537,25 +6563,25 @@ msgstr ""
 "以前に保存したクエリがあります。そのクエリをロードするには、[自動保存クエリを"
 "取得]をクリックします。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 #, php-format
 msgid "Variable %d:"
 msgstr "変数 %d:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 #: libraries/classes/Normalization.php:1077
 msgid "Pick"
 msgstr "選択"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 msgid "Column selector"
 msgstr "カラムの選択"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
 msgid "Search this list"
 msgstr "このリストの検索"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6564,29 +6590,29 @@ msgstr ""
 "リストに主要カラムがありません。データベース「%s」の主要カラムリストに現在の"
 "テーブルに存在しないカラムがあることを確認してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "See more"
 msgstr "もっと見る"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 msgid "Add primary key"
 msgstr "主キーを追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "Primary key added."
 msgstr "主キーを追加しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #: libraries/classes/Normalization.php:299
 msgid "Taking you to next step…"
 msgstr "次のステップに進みます…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "テーブル「%s」の第１正規形は完了しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 #: libraries/classes/Normalization.php:569
 #: libraries/classes/Normalization.php:621
 #: libraries/classes/Normalization.php:718
@@ -6594,26 +6620,26 @@ msgstr "テーブル「%s」の第１正規形は完了しました。"
 msgid "End of step"
 msgstr "最後のステップ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
 msgid "Second step of normalization (2NF)"
 msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Normalization.php:396
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "決定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "Confirm partial dependencies"
 msgstr "部分依存関係の確認"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 msgid "Selected partial dependencies are as follows:"
 msgstr "選択された部分的な依存は以下の通りです："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -6621,27 +6647,27 @@ msgstr ""
 "備考：a, b -> d, f は、列「a」と列「b」の値を合わせれば、列「d」と列「f」の値"
 "を決定することが出来ます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
 msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
-#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1038
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Export.php:619 libraries/classes/Html/Generator.php:1046
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:314
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "戻る"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "Hide partial dependencies list"
 msgstr "部分従属の一覧を隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -6649,40 +6675,40 @@ msgstr ""
 "テーブルのデータサイズと列数に応じて数秒かかる場合があります。しばらくお待ち"
 "ください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Step"
 msgstr "手順"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "The following actions will be performed:"
 msgstr "次のクエリを実行されます："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "カラム '%s' をテーブル '%s' から削除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid "Create the following table"
 msgstr "以下のテーブルを作成します"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 msgid "Third step of normalization (3NF)"
 msgstr "第３正規化(3NF)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
 msgid "Confirm transitive dependencies"
 msgstr "過渡的依存性の確認"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 msgid "Selected dependencies are as follows:"
 msgstr "選択された依存関係はこちらです："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "No dependencies selected!"
 msgstr "依存関係が選択されていません！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
 #: templates/database/central_columns/main.twig:121
@@ -6696,94 +6722,94 @@ msgstr "依存関係が選択されていません！"
 msgid "Save"
 msgstr "保存する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
 msgid "Hide search criteria"
 msgstr "検索条件を隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Show search criteria"
 msgstr "検索条件を表示する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "Range search"
 msgstr "範囲検索"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "Column maximum:"
 msgstr "最大カラム:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 msgid "Column minimum:"
 msgstr "最小カラム:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Minimum value:"
 msgstr "最小値:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 msgid "Maximum value:"
 msgstr "最大値:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:465
 msgid "Hide find and replace criteria"
 msgstr "検索と置換の条件を隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
 msgid "Show find and replace criteria"
 msgstr "検索と置換の条件を表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Each point represents a data row."
 msgstr "プロット点は、それぞれの行のデータを表します。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Hovering over a point will show its label."
 msgstr "プロット点にマウスカーソルを重ねると、そのラベルが表示されます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "拡大するには、マウスでグラフ内を範囲選択してください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "Click reset zoom button to come back to original state."
 msgstr "「Reset zoom」ボタンをクリックすることで元の状態に戻せます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:478
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "プロット点をクリックすることで、行のデータの閲覧と編集が可能です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:480
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "グラフの右下をドラッグすることで、大きさの調整が行えます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Select two columns"
 msgstr "カラムを 2 つ選択してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Select two different columns"
 msgstr "異なるカラムを 2 つ選択してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 msgid "Data point content"
 msgstr "プロット点におけるデータ内容"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
-#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2153
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2152
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "無視"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #: libraries/classes/Display/Results.php:3219
-#: libraries/classes/Html/Generator.php:76
+#: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
 msgid "Copy"
 msgstr "コピー"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -6791,7 +6817,7 @@ msgstr "コピー"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -6799,76 +6825,76 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Point"
 msgstr "座標"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #, php-format
 msgid "Point %d"
 msgstr "座標 %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 msgid "Linestring"
 msgstr "線分"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 msgid "Polygon"
 msgstr "ポリゴン"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #: templates/display/results/table.twig:174
 msgid "Geometry"
 msgstr "幾何データ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 msgid "Inner ring"
 msgstr "インナーリング"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 msgid "Outer ring"
 msgstr "アウターリング"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "座標を追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "内輪を追加する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
 msgid "Do you want to copy encryption key?"
 msgstr "暗号化キーをコピーしますか？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid "Encryption key"
 msgstr "暗号化キー"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:508
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr "HEX 関数は、16 進数の値を計算する間は、整数を文字列として扱います"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:513
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr "スライダーで選択できない値はMySQLで入力することができます"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr "MySQLは日付ピッカー以外の値も求めらます。必要に応じて入力してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -6876,25 +6902,25 @@ msgstr ""
 "あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示される"
 "でしょう"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "Select referenced key"
 msgstr "参照されているキーを選択"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Select Foreign Key"
 msgstr "外部キーを選択してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "Please select the primary key or a unique key!"
 msgstr "主キーまたはユニークキーを選択してください！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "表示するカラムの選択"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -6902,95 +6928,95 @@ msgstr ""
 "レイアウトの変更を保存していません。保存しないと失われてしまいます。このまま"
 "続行しますか?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "value/subQuery is empty"
 msgstr "値・サブクエリは空です"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "他のデータベースからテーブルを追加"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "Page name"
 msgstr "ページ名"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "ページの保存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "名前を付けてページを保存"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "ページを開く"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Delete page"
 msgstr "ページの削除"
 
 #. l10n: When the user opens a page saved in the Designer
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr "このページに保存されたページの一部に名前変更や削除が行われました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "無題"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 msgid "Please select a page to continue"
 msgstr "ページを選択してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid "Please enter a valid page name"
 msgstr "有効なページ名を入力してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 msgid "Do you want to save the changes to the current page?"
 msgstr "現在のページに対する変更を保存しますか？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Successfully deleted the page"
 msgstr "ページの削除に成功しました"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 msgid "Export relational schema"
 msgstr "リレーショナルスキーマをエクスポートする"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Modifications have been saved"
 msgstr "修正を保存しました"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d 個のオブジェクトを作成しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid "Column name"
 msgstr "カラム名"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:554
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 #: templates/sql/query.twig:178
 msgid "Submit"
 msgstr "実行する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "ESC キーで編集をキャンセルします。<br>- Shift+Enter で改行します。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:562
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -6998,15 +7024,15 @@ msgstr ""
 "データの一部を変更しましたが保存していません。データを保存せずにこのページか"
 "ら移動してもよろしいですか?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Drag to reorder."
 msgstr "ドラッグで並び替えができます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Click to sort results by this column."
 msgstr "クリックすると、結果をこのカラムを使ってソートします。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7016,19 +7042,19 @@ msgstr ""
 "す<br /> Ctrl+クリック（またはAlt+クリック、（Macの場合はShift+Option+クリッ"
 "ク）すると、この列をORDER BY句から削除します"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Click to mark/unmark."
 msgstr "クリックでカラムを反転/解除。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Double-click to copy column name."
 msgstr "ダブルクリックでカラム名をコピーします。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "カラムの表示／非表示<br />状態を変更する場合、「▼」をクリック。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7037,11 +7063,11 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "有効な 16 進数の文字列を入力してください。有効な文字は 0-9、A-F です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7049,37 +7075,37 @@ msgstr ""
 "本当にすべての行を表示しますか？ 大きなテーブルはブラウザをクラッシュさせるこ"
 "とがあります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Original length"
 msgstr "元の長さ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 msgid "cancel"
 msgstr "キャンセル"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: libraries/classes/Controllers/Server/Status/StatusController.php:224
 msgid "Aborted"
 msgstr "中断"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr "成功"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Import status"
 msgstr "インポートの状態"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 #: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "ここにファイルをドロップします"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Select database first"
 msgstr "最初にデータベースを選択してください"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:20
 #: templates/display/results/table.twig:258
@@ -7087,57 +7113,57 @@ msgstr "最初にデータベースを選択してください"
 msgid "Print"
 msgstr "印刷"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "ほとんどの値は、直接ダブルクリック<br />することでも、編集できます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "ほとんどの値は、直接クリック<br />することでも、編集できます。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "Go to link:"
 msgstr "リンク先へ移動する:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Generate password"
 msgstr "パスワードを生成する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "生成する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "パスワードを変更する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "その他"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 msgid "Show panel"
 msgstr "パネルを表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:625
 msgid "Hide panel"
 msgstr "パネルを隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
 msgid "Show hidden navigation tree items."
 msgstr "隠されたナビゲーションツリー項目を表示します。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 #: libraries/classes/Navigation/NavigationTree.php:1439
 msgid "Unlink from main panel"
 msgstr "メインパネルのリンクを解除"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 #: libraries/classes/Setup/Index.php:186
 #, php-format
 msgid ""
@@ -7148,36 +7174,36 @@ msgstr ""
 "します。最新バージョンは %s で、%s にリリースされています。"
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 msgid ", latest stable version:"
 msgstr ", 最終安定バージョン:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid "up to date"
 msgstr "最新版"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:297
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "ビューを作成する"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "JavaScript の致命的なエラーが発生しました。エラー報告を送信しますか?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid "Change report settings"
 msgstr "レポート設定の変更"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid "Show report details"
 msgstr "エラーレポートの詳細を表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7185,7 +7211,7 @@ msgstr ""
 "PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しません"
 "でした。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7195,76 +7221,76 @@ msgstr ""
 "ると、PHPのmax_input_vars設定の制限により、いくつかのフィールドは無視されるこ"
 "とがあります。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Some errors have been detected on the server!"
 msgstr "サーバ上でいくつかのエラーが検出されました！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Please look at the bottom of this window."
 msgstr "このウィンドウの一番下を見てください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 #: libraries/classes/ErrorHandler.php:430
 msgid "Ignore All"
 msgstr "全て無視"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "設定に従って現在これらを送信しています。気長にお待ちください。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Column name successfully copied to clipboard!"
 msgstr "カラム名をクリップボードにコピーしました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Column name copying to clipboard failed!"
 msgstr "カラム名をクリップボードへコピーできませんでした。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Successfully copied!"
 msgstr "ページのコピーに成功しました！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgid "Copying failed!"
 msgstr "データベースのコピーに失敗しました！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgid "Execute this query again?"
 msgstr "このクエリをもう一度実行しますか？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgid "Do you really want to delete this bookmark?"
 msgstr "このブックマークを本当に削除しますか？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL デバッグ情報を取得中にいくつかのエラーが発生しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s クエリは、%s 回を%s 秒で実行しました。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:692
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s個の引数が渡されました"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgid "Show arguments"
 msgstr "引数の表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:694
 msgid "Hide arguments"
 msgstr "引数を非表示"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgid "Time taken:"
 msgstr "所要時間:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7280,93 +7306,93 @@ msgstr ""
 "合は一般的に「プライベートモード」の利用がこの問題を引き起こすことがありま"
 "す。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "Copy tables to"
 msgstr "テーブルのコピー先"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 msgid "Add table prefix"
 msgstr "テーブル接頭辞の追加"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "Replace table with prefix"
 msgstr "テーブル名の接頭辞を付け替える"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "接頭辞を付け替えてテーブルをコピーする"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Extremely weak"
 msgstr "きわめて脆弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Very weak"
 msgstr "とても脆弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 msgid "Weak"
 msgstr "脆弱"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgid "Good"
 msgstr "良好"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 msgid "Strong"
 msgstr "強固"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "セキュリティキーを有効化している最中にタイムアウトしました。"
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:716
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "セキュリティキーに無効なリクエストが送られました。"
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "セキュリティキーの不明なエラーです。"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "クライアントがセキュリティキーに対応していません。"
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "セキュリティキーの有効化に失敗しました。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:724
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:728
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "セキュリティキーが無効です。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:729
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "テーブル %s は既に存在します!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:731
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #: libraries/classes/InsertEdit.php:338
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隠す"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:732
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:736
 #: libraries/classes/Controllers/Table/ChangeController.php:210
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7456,6 +7482,18 @@ msgstr "合計"
 msgid "Overhead"
 msgstr "オーバーヘッド"
 
+#: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
+#, fuzzy, php-format
+#| msgid "The columns have been moved successfully."
+msgid "The account %s@%s has been successfully locked."
+msgstr "カラムは正常に移動されました。"
+
+#: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
+#, fuzzy, php-format
+#| msgid "The columns have been moved successfully."
+msgid "The account %s@%s has been successfully unlocked."
+msgstr "カラムは正常に移動されました。"
+
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
 msgid "No Privileges"
@@ -7493,7 +7531,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
-#: libraries/classes/Server/Privileges.php:3005
+#: libraries/classes/Server/Privileges.php:3006
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "ユーザ"
@@ -8393,7 +8431,7 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/PartitionController.php:187
 #: libraries/classes/Controllers/Table/PartitionController.php:254
 #: libraries/classes/Controllers/ViewOperationsController.php:89
-#: libraries/classes/Html/Generator.php:910 libraries/classes/Import.php:141
+#: libraries/classes/Html/Generator.php:918 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8407,7 +8445,7 @@ msgstr "表示カラムは正常に更新されました。"
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:293
+#: libraries/classes/Controllers/Table/ReplaceController.php:311
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
@@ -8612,7 +8650,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:137
 #: libraries/classes/Database/Triggers.php:162
 #: libraries/classes/Database/Triggers.php:464
-#: libraries/classes/Html/Generator.php:982
+#: libraries/classes/Html/Generator.php:990
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -8971,31 +9009,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
 #: libraries/classes/Display/Results.php:926
-#: libraries/classes/Html/Generator.php:1247
-#: libraries/classes/Html/Generator.php:1251
+#: libraries/classes/Html/Generator.php:1255
+#: libraries/classes/Html/Generator.php:1259
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
 #: libraries/classes/Display/Results.php:933
-#: libraries/classes/Html/Generator.php:1248
-#: libraries/classes/Html/Generator.php:1252
+#: libraries/classes/Html/Generator.php:1256
+#: libraries/classes/Html/Generator.php:1260
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
 #: libraries/classes/Display/Results.php:961
-#: libraries/classes/Html/Generator.php:1281
-#: libraries/classes/Html/Generator.php:1290
+#: libraries/classes/Html/Generator.php:1289
+#: libraries/classes/Html/Generator.php:1298
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
 #: libraries/classes/Display/Results.php:992
-#: libraries/classes/Html/Generator.php:1282
-#: libraries/classes/Html/Generator.php:1291
+#: libraries/classes/Html/Generator.php:1290
+#: libraries/classes/Html/Generator.php:1299
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
@@ -9408,7 +9446,7 @@ msgstr ""
 "ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/classes/Engines/Pbxt.php:171
-#: libraries/classes/Html/Generator.php:827
+#: libraries/classes/Html/Generator.php:835
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:205
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:236
@@ -9545,74 +9583,74 @@ msgstr "セッションが見つかりません。"
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: libraries/classes/Html/Generator.php:156
+#: libraries/classes/Html/Generator.php:158
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/classes/Html/Generator.php:184
+#: libraries/classes/Html/Generator.php:186
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/classes/Html/Generator.php:255
+#: libraries/classes/Html/Generator.php:257
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: libraries/classes/Html/Generator.php:260
+#: libraries/classes/Html/Generator.php:262
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: libraries/classes/Html/Generator.php:262
+#: libraries/classes/Html/Generator.php:264
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: libraries/classes/Html/Generator.php:265
+#: libraries/classes/Html/Generator.php:267
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:372
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
-#: libraries/classes/Html/Generator.php:365
+#: libraries/classes/Html/Generator.php:373
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP 関数"
 
-#: libraries/classes/Html/Generator.php:668
+#: libraries/classes/Html/Generator.php:676
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/classes/Html/Generator.php:676
+#: libraries/classes/Html/Generator.php:684
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "「%s」のEXPLAINを分析"
 
-#: libraries/classes/Html/Generator.php:708
+#: libraries/classes/Html/Generator.php:716
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: libraries/classes/Html/Generator.php:715
+#: libraries/classes/Html/Generator.php:723
 #: templates/database/multi_table_query/form.twig:175
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:761 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:769 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:777
+#: libraries/classes/Html/Generator.php:785
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:917
+#: libraries/classes/Html/Generator.php:925
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:920
+#: libraries/classes/Html/Generator.php:928
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -9909,7 +9947,7 @@ msgid "Insert"
 msgstr "挿入"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:444
-#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2092
+#: libraries/classes/Server/Privileges.php:2980 libraries/classes/Util.php:2092
 #: libraries/classes/Util.php:2108 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10485,37 +10523,37 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "部分的な依存が見つかりませんでした!"
 
-#: libraries/classes/Operations.php:614
+#: libraries/classes/Operations.php:615
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/classes/Operations.php:615
+#: libraries/classes/Operations.php:616
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "確認"
 
-#: libraries/classes/Operations.php:616
+#: libraries/classes/Operations.php:617
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "最適化"
 
-#: libraries/classes/Operations.php:617
+#: libraries/classes/Operations.php:618
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "再構築"
 
-#: libraries/classes/Operations.php:618
+#: libraries/classes/Operations.php:619
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "修復"
 
-#: libraries/classes/Operations.php:619
+#: libraries/classes/Operations.php:620
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr "切り捨て"
 
-#: libraries/classes/Operations.php:631 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:632 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:95
 #: templates/database/events/index.twig:101
@@ -10541,39 +10579,39 @@ msgstr "切り捨て"
 msgid "Drop"
 msgstr "削除"
 
-#: libraries/classes/Operations.php:633
+#: libraries/classes/Operations.php:634
 msgid "Coalesce"
 msgstr "合体"
 
-#: libraries/classes/Operations.php:1025
+#: libraries/classes/Operations.php:1026
 msgid "Can't move table to same one!"
 msgstr "同じテーブルには移動できません!"
 
-#: libraries/classes/Operations.php:1027
+#: libraries/classes/Operations.php:1028
 msgid "Can't copy table to same one!"
 msgstr "同じテーブルにはコピーできません!"
 
-#: libraries/classes/Operations.php:1063
+#: libraries/classes/Operations.php:1064
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "テーブル %s が %s に移動されました。 権限が変更されました。"
 
-#: libraries/classes/Operations.php:1070
+#: libraries/classes/Operations.php:1071
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "テーブル %s を %s にコピーしました。権限が変更されました。"
 
-#: libraries/classes/Operations.php:1078
+#: libraries/classes/Operations.php:1079
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "テーブル %s を %s に移動しました。"
 
-#: libraries/classes/Operations.php:1082
+#: libraries/classes/Operations.php:1083
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "テーブル %s を %s にコピーしました。"
 
-#: libraries/classes/Operations.php:1106
+#: libraries/classes/Operations.php:1107
 msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
@@ -12096,8 +12134,8 @@ msgid "Error while loading the search."
 msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Plugins.php:70
-#: libraries/classes/Server/Privileges.php:821
-#: libraries/classes/Server/Privileges.php:3990
+#: libraries/classes/Server/Privileges.php:822
+#: libraries/classes/Server/Privileges.php:3991
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
@@ -12117,16 +12155,21 @@ msgstr "Unix ソケットベースの認証"
 msgid "Old MySQL-4.0 authentication"
 msgstr "旧 MySQL 4.0 認証"
 
-#: libraries/classes/Server/Privileges.php:261
+#: libraries/classes/Server/Privileges/AccountLocking.php:30
+#: libraries/classes/Server/Privileges/AccountLocking.php:51
+msgid "Account locking is not supported."
+msgstr ""
+
+#: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
 msgstr "権限がありません。"
 
-#: libraries/classes/Server/Privileges.php:272
+#: libraries/classes/Server/Privileges.php:273
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT 以外のすべての権限を付与する。"
 
-#: libraries/classes/Server/Privileges.php:294
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:295
+#: libraries/classes/Server/Privileges.php:362
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:323
@@ -12134,7 +12177,7 @@ msgstr "GRANT 以外のすべての権限を付与する。"
 msgid "Allows deleting data."
 msgstr "データの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:299
+#: libraries/classes/Server/Privileges.php:300
 #: templates/server/privileges/privileges_table.twig:136
 #: templates/server/privileges/privileges_table.twig:139
 #: templates/server/privileges/privileges_table.twig:361
@@ -12142,7 +12185,7 @@ msgstr "データの削除を許可する。"
 msgid "Allows creating new tables."
 msgstr "新しいテーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:304
+#: libraries/classes/Server/Privileges.php:305
 #: templates/server/privileges/privileges_table.twig:148
 #: templates/server/privileges/privileges_table.twig:151
 #: templates/server/privileges/privileges_table.twig:409
@@ -12150,8 +12193,8 @@ msgstr "新しいテーブルの作成を許可する。"
 msgid "Allows dropping tables."
 msgstr "テーブルの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:310
+#: libraries/classes/Server/Privileges.php:402
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:393
@@ -12159,8 +12202,8 @@ msgstr "テーブルの削除を許可する。"
 msgid "Allows creating and dropping indexes."
 msgstr "インデックスの作成、削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:315
+#: libraries/classes/Server/Privileges.php:407
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:380
@@ -12168,9 +12211,9 @@ msgstr "インデックスの作成、削除を許可する。"
 msgid "Allows altering the structure of existing tables."
 msgstr "既存のテーブル構造の変更を許可する。"
 
-#: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:445
-#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:320
+#: libraries/classes/Server/Privileges.php:446
+#: libraries/classes/Server/Privileges.php:462
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:494
@@ -12180,9 +12223,9 @@ msgstr "既存のテーブル構造の変更を許可する。"
 msgid "Allows creating new views."
 msgstr "新しいビューの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:324
-#: libraries/classes/Server/Privileges.php:466
-#: libraries/classes/Server/Privileges.php:472
+#: libraries/classes/Server/Privileges.php:325
+#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:473
 #: templates/server/privileges/privileges_table.twig:209
 #: templates/server/privileges/privileges_table.twig:212
 #: templates/server/privileges/privileges_table.twig:441
@@ -12190,8 +12233,8 @@ msgstr "新しいビューの作成を許可する。"
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 
-#: libraries/classes/Server/Privileges.php:329
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:330
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:221
 #: templates/server/privileges/privileges_table.twig:224
 #: templates/server/privileges/privileges_table.twig:537
@@ -12199,76 +12242,76 @@ msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 msgid "Allows creating and dropping triggers."
 msgstr "トリガの作成・削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:347
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:284
 #: templates/server/privileges/privileges_table.twig:287
 msgid "Allows reading data."
 msgstr "データの読み込みを許可する。"
 
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:352
 #: templates/server/privileges/privileges_table.twig:42
 #: templates/server/privileges/privileges_table.twig:297
 #: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
 msgstr "データの挿入、置換を許可する。"
 
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:357
 #: templates/server/privileges/privileges_table.twig:69
 #: templates/server/privileges/privileges_table.twig:310
 #: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
 msgstr "データの修正を許可する。"
 
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:367
 #: templates/server/privileges/privileges_table.twig:359
 #: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
 msgstr "新しいデータベースやテーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:372
 #: templates/server/privileges/privileges_table.twig:407
 #: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
 msgstr "データベースとテーブルの削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:377
 #: templates/server/privileges/privileges_table.twig:599
 #: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する。"
 
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:382
 #: templates/server/privileges/privileges_table.twig:612
 #: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
 msgstr "サーバのシャットダウンを許可する。"
 
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:387
 #: templates/server/privileges/privileges_table.twig:586
 #: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
 msgstr "全ユーザのプロセスを閲覧できるようにする。"
 
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:392
 #: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr "データのインポート、エクスポートを許可する。"
 
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:397
 #: templates/server/privileges/privileges_table.twig:96
 #: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
 msgstr "このバージョンの MySQL では無効です。"
 
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:625
 #: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
 msgstr "データベース総一覧へのアクセスを許可する。"
 
-#: libraries/classes/Server/Privileges.php:417
+#: libraries/classes/Server/Privileges.php:418
 #: templates/server/privileges/privileges_table.twig:572
 #: templates/server/privileges/privileges_table.twig:576
 msgid ""
@@ -12280,164 +12323,164 @@ msgstr ""
 "ザのスレッドを停止するといった管理操作をする場合はたいていこの設定が必要にな"
 "ります。"
 
-#: libraries/classes/Server/Privileges.php:425
+#: libraries/classes/Server/Privileges.php:426
 #: templates/server/privileges/privileges_table.twig:428
 #: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
 msgstr "一時テーブルの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:431
 #: templates/server/privileges/privileges_table.twig:653
 #: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
 msgstr "現在のスレッドのテーブルロックを許可する。"
 
-#: libraries/classes/Server/Privileges.php:435
+#: libraries/classes/Server/Privileges.php:436
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Needed for the replication slaves."
 msgstr "レプリケーションスレーブでは有効にする必要があります。"
 
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:441
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "スレーブ/マスタの照会を許可する。"
 
-#: libraries/classes/Server/Privileges.php:450
+#: libraries/classes/Server/Privileges.php:451
 #: templates/server/privileges/privileges_table.twig:524
 #: templates/server/privileges/privileges_table.twig:527
 msgid "Allows to set up events for the event scheduler."
 msgstr "イベントスケジューラにイベントを設定できるようにする。"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:479
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:480
+#: libraries/classes/Server/Privileges.php:489
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
 msgstr "実績行の削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:493
+#: libraries/classes/Server/Privileges.php:494
 #: templates/server/privileges/privileges_table.twig:454
 #: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
 msgstr "ストアドルーチンの作成を許可する。"
 
-#: libraries/classes/Server/Privileges.php:498
+#: libraries/classes/Server/Privileges.php:499
 #: templates/server/privileges/privileges_table.twig:467
 #: templates/server/privileges/privileges_table.twig:470
 msgid "Allows altering and dropping stored routines."
 msgstr "ストアドルーチンの修正と削除を許可する。"
 
-#: libraries/classes/Server/Privileges.php:503
+#: libraries/classes/Server/Privileges.php:504
 #: templates/server/privileges/privileges_table.twig:707
 #: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "ユーザアカウントの作成・削除・名前の変更を許可する。"
 
-#: libraries/classes/Server/Privileges.php:508
+#: libraries/classes/Server/Privileges.php:509
 #: templates/server/privileges/privileges_table.twig:480
 #: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
 msgstr "ストアドルーチンの実行を許可する。"
 
-#: libraries/classes/Server/Privileges.php:1120
+#: libraries/classes/Server/Privileges.php:1121
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s のパスワードは正しく変更されました。"
 
-#: libraries/classes/Server/Privileges.php:1170
+#: libraries/classes/Server/Privileges.php:1171
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s の権限を取り消しました。"
 
-#: libraries/classes/Server/Privileges.php:1518
+#: libraries/classes/Server/Privileges.php:1519
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "ユーザを表示するために十分な権限がありません。"
 
-#: libraries/classes/Server/Privileges.php:1587
+#: libraries/classes/Server/Privileges.php:1588
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
-#: templates/server/privileges/users_overview.twig:72
+#: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
 msgstr "権限を編集"
 
-#: libraries/classes/Server/Privileges.php:1590
+#: libraries/classes/Server/Privileges.php:1591
 msgid "Revoke"
 msgstr "取り消し"
 
-#: libraries/classes/Server/Privileges.php:1920
+#: libraries/classes/Server/Privileges.php:1921
 #: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "データベース固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1926
+#: libraries/classes/Server/Privileges.php:1927
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "テーブル固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1931
-#: libraries/classes/Server/Privileges.php:1933
+#: libraries/classes/Server/Privileges.php:1932
+#: libraries/classes/Server/Privileges.php:1934
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "ルーチン"
 
-#: libraries/classes/Server/Privileges.php:1932
+#: libraries/classes/Server/Privileges.php:1933
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "ルーチン固有の権限"
 
-#: libraries/classes/Server/Privileges.php:2287
+#: libraries/classes/Server/Privileges.php:2288
 msgid "No users selected for deleting!"
 msgstr "削除するユーザが選択されていません!"
 
-#: libraries/classes/Server/Privileges.php:2290
+#: libraries/classes/Server/Privileges.php:2291
 msgid "Reloading the privileges"
 msgstr "権限を再読み込みしています"
 
-#: libraries/classes/Server/Privileges.php:2315
+#: libraries/classes/Server/Privileges.php:2316
 msgid "The selected users have been deleted successfully."
 msgstr "選択されたユーザは正常に削除されました。"
 
-#: libraries/classes/Server/Privileges.php:2395
+#: libraries/classes/Server/Privileges.php:2396
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s の権限を更新しました。"
 
-#: libraries/classes/Server/Privileges.php:2484
+#: libraries/classes/Server/Privileges.php:2485
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "ユーザが存在しません。"
 
-#: libraries/classes/Server/Privileges.php:2571
+#: libraries/classes/Server/Privileges.php:2572
 #, php-format
 msgid "Deleting %s"
 msgstr "%s を削除中です"
 
-#: libraries/classes/Server/Privileges.php:2602
+#: libraries/classes/Server/Privileges.php:2603
 msgid "The privileges were reloaded successfully."
 msgstr "権限を正常に再読み込みしました。"
 
-#: libraries/classes/Server/Privileges.php:2706
+#: libraries/classes/Server/Privileges.php:2707
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ユーザ %s は既に存在します!"
 
-#: libraries/classes/Server/Privileges.php:2996
+#: libraries/classes/Server/Privileges.php:2997
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s に対する権限"
 
-#: libraries/classes/Server/Privileges.php:3135
+#: libraries/classes/Server/Privileges.php:3136
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12447,7 +12490,7 @@ msgstr ""
 "のアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他"
 "のユーザは接続できなくなります。"
 
-#: libraries/classes/Server/Privileges.php:3180
+#: libraries/classes/Server/Privileges.php:3181
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12460,7 +12503,7 @@ msgstr ""
 "限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込"
 "み%s をしてください。"
 
-#: libraries/classes/Server/Privileges.php:3196
+#: libraries/classes/Server/Privileges.php:3197
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12473,7 +12516,7 @@ msgstr ""
 "致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、"
 "あなたは RELOAD 権限を持っていません。"
 
-#: libraries/classes/Server/Privileges.php:3541
+#: libraries/classes/Server/Privileges.php:3542
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
@@ -14025,7 +14068,7 @@ msgstr "クリックでソート。"
 #: templates/database/tracking/tables.twig:154 templates/indexes.twig:14
 #: templates/server/databases/index.twig:163
 #: templates/server/privileges/privileges_summary.twig:22
-#: templates/server/privileges/users_overview.twig:19
+#: templates/server/privileges/users_overview.twig:22
 #: templates/server/user_groups/user_groups.twig:21
 #: templates/server/variables/index.twig:30
 #: templates/table/privileges/index.twig:24
@@ -14357,8 +14400,8 @@ msgstr "定義者"
 #: templates/server/privileges/privileges_table.twig:277
 #: templates/server/privileges/privileges_table.twig:351
 #: templates/server/privileges/privileges_table.twig:551
-#: templates/server/privileges/users_overview.twig:105
-#: templates/server/privileges/users_overview.twig:106
+#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:122
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
@@ -14576,7 +14619,7 @@ msgstr "権限委譲"
 
 #: templates/database/privileges/index.twig:36
 #: templates/server/privileges/new_user_ajax.twig:9
-#: templates/server/privileges/users_overview.twig:33
+#: templates/server/privileges/users_overview.twig:36
 #: templates/table/privileges/index.twig:38
 msgid "Any"
 msgstr "すべて"
@@ -14608,8 +14651,8 @@ msgstr "ルーチン"
 #: templates/display/results/table.twig:222
 #: templates/display/results/table.twig:225 templates/select_all.twig:2
 #: templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:104
-#: templates/server/privileges/users_overview.twig:107
+#: templates/server/privileges/users_overview.twig:120
+#: templates/server/privileges/users_overview.twig:123
 #: templates/table/privileges/index.twig:116
 #: templates/table/privileges/index.twig:119
 msgid "With selected:"
@@ -14618,7 +14661,7 @@ msgstr "チェックしたものを:"
 #: templates/database/privileges/index.twig:131
 #: templates/server/privileges/add_user_fieldset.twig:4
 #: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:121
+#: templates/server/privileges/users_overview.twig:137
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
@@ -14628,7 +14671,7 @@ msgstr "新規作成"
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
 #: templates/server/privileges/user_overview.twig:24
-#: templates/server/privileges/users_overview.twig:124
+#: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
 msgid "Add user account"
 msgstr "ユーザアカウントを追加する"
@@ -16715,8 +16758,8 @@ msgstr ""
 "ワードを利用する</em>必要があります。"
 
 #: templates/server/privileges/new_user_ajax.twig:52
-#: templates/server/privileges/users_overview.twig:80
-#: templates/server/privileges/users_overview.twig:152
+#: templates/server/privileges/users_overview.twig:83
+#: templates/server/privileges/users_overview.twig:168
 msgid "Edit user group"
 msgstr "ユーザグループを編集"
 
@@ -16863,7 +16906,7 @@ msgid "User groups"
 msgstr "ユーザグループ"
 
 #: templates/server/privileges/user_properties.twig:57
-#: templates/server/privileges/users_overview.twig:54
+#: templates/server/privileges/users_overview.twig:57
 msgid "The selected user was not found in the privilege table."
 msgstr "選択したユーザが権限テーブルで見つかりません。"
 
@@ -16898,19 +16941,19 @@ msgstr "ユーザテーブルから元のユーザを削除し、権限の再読
 msgid "User group"
 msgstr "ユーザグループ"
 
-#: templates/server/privileges/users_overview.twig:131
+#: templates/server/privileges/users_overview.twig:147
 msgid "Remove selected user accounts"
 msgstr "選択したユーザアカウントを削除する"
 
-#: templates/server/privileges/users_overview.twig:133
+#: templates/server/privileges/users_overview.twig:149
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "権限をすべて取り消してユーザを削除する。"
 
-#: templates/server/privileges/users_overview.twig:137
+#: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
 msgstr "ユーザと同名のデータベースを削除する。"
 
-#: templates/server/privileges/users_overview.twig:162
+#: templates/server/privileges/users_overview.twig:178
 msgid "Save changes"
 msgstr "変更の保存"
 
