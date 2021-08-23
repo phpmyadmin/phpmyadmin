@@ -262,6 +262,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
 
+        /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
+        if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
+            // Switch this before the DB connection is done
+            // phpcs:disable PSR1.Files.SideEffects
+            define('PMA_ENABLE_LDI', 1);
+            // phpcs:enable
+        }
+
         Core::connectToDatabaseServer($dbi, $auth_plugin);
 
         $auth_plugin->rememberCredentials();
