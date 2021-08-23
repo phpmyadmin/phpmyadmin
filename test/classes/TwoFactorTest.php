@@ -38,6 +38,11 @@ class TwoFactorTest extends AbstractTestCase
         $this->initStorageConfigAndData();
     }
 
+    protected function tearDown(): void
+    {
+        $this->assertAllSelectsConsumed();
+    }
+
     private function initStorageConfigAndData(): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'groot';
@@ -106,6 +111,7 @@ class TwoFactorTest extends AbstractTestCase
             $config['settings'] = [];
         }
 
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->loadResultForConfig($config);
 
         return new TwoFactor($user);

@@ -51,7 +51,9 @@ class MonitorControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -153,7 +155,9 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['time_start'] = '0';
         $_POST['time_end'] = '10';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->logDataTypeSlow();
+        $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -214,7 +218,9 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['time_end'] = '10';
         $_POST['limitTypes'] = '1';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->logDataTypeGeneral();
+        $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $resultRows = [
@@ -263,7 +269,9 @@ class MonitorControllerTest extends AbstractTestCase
 
         $_POST['varName'] = 'varName';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->loggingVars();
+        $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $this->assertEquals(
@@ -299,7 +307,10 @@ class MonitorControllerTest extends AbstractTestCase
         $_POST['database'] = 'database';
         $_POST['query'] = 'query';
 
+        $this->dummyDbi->addSelectDb('mysql');
+        $this->dummyDbi->addSelectDb('database');
         $controller->queryAnalyzer();
+        $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
         $this->assertEquals(

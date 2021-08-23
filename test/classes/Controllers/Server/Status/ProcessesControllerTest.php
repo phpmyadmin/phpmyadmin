@@ -45,7 +45,9 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $controller = new ProcessesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -105,7 +107,9 @@ class ProcessesControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'db';
         $_POST['sort_order'] = 'ASC';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -125,7 +129,9 @@ class ProcessesControllerTest extends AbstractTestCase
         $_POST['order_by_field'] = 'Host';
         $_POST['sort_order'] = 'DESC';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

@@ -514,7 +514,11 @@ class ImportTest extends AbstractTestCase
             'statement' => $parser->statements[0],
         ];
 
+        $this->dummyDbi->addSelectDb('PMA');
+
         $simulated_data = $this->import->getMatchedRows($analyzed_sql_results);
+
+        $this->assertAllSelectsConsumed();
 
         // URL to matched rows.
         $_url_params = [

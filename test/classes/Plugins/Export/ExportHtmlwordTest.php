@@ -697,6 +697,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportStructure(): void
     {
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -707,6 +708,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
@@ -747,6 +749,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -757,6 +760,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(

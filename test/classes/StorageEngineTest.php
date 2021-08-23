@@ -704,7 +704,9 @@ class StorageEngineTest extends AbstractTestCase
             ],
         ]);
 
+        $this->dummyDbi->addSelectDb('my_db');
         $lengths = StorageEngine::getMroongaLengths('my_db', 'idx_correo');
+        $this->assertAllSelectsConsumed();
         $this->assertSame([4521984, 578126], $lengths);
 
         $this->assertAllQueriesConsumed();

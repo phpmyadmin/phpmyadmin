@@ -594,10 +594,12 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDefStandIn(): void
     {
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertSame(
             $this->object->getTableDefStandIn('test_db', 'test_table', "\n"),
             ''
         );
+        $this->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<table:table table:name="test_table_data">'
@@ -869,6 +871,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportStructure(): void
     {
         // case 1
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -879,6 +882,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -941,6 +945,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 3
         $GLOBALS['odt_buffer'] = '';
 
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -951,6 +956,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -980,6 +986,7 @@ class ExportOdtTest extends AbstractTestCase
         );
 
         // case 4
+        $this->dummyDbi->addSelectDb('test_db');
         $GLOBALS['odt_buffer'] = '';
         $this->assertTrue(
             $this->object->exportStructure(
@@ -991,6 +998,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'

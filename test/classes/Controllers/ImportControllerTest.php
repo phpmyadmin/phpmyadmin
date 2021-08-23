@@ -57,7 +57,10 @@ class ImportControllerTest extends AbstractTestCase
 
         /** @var ImportController $importController */
         $importController = $containerBuilder->get(ImportController::class);
+        $this->dummyDbi->addSelectDb('pma_test');
+        $this->dummyDbi->addSelectDb('pma_test');
         $importController->index();
+        $this->assertAllSelectsConsumed();
         $this->assertResponseWasSuccessfull();
 
         $this->assertStringContainsString(

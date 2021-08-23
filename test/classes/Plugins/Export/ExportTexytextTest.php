@@ -245,7 +245,9 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testGetTableDefStandIn(): void
     {
+        $this->dummyDbi->addSelectDb('test_db');
         $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
+        $this->assertAllSelectsConsumed();
 
         $this->assertEquals(
             '|------' . "\n"
@@ -396,6 +398,7 @@ class ExportTexytextTest extends AbstractTestCase
     {
         // case 1
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -406,6 +409,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertIsString($result);
@@ -445,6 +449,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 3
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -455,6 +460,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(
@@ -470,6 +476,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 4
         ob_start();
+        $this->dummyDbi->addSelectDb('test_db');
         $this->assertTrue(
             $this->object->exportStructure(
                 'test_db',
@@ -480,6 +487,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test'
             )
         );
+        $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
         $this->assertEquals(

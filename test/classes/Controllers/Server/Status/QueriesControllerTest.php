@@ -57,7 +57,9 @@ class QueriesControllerTest extends AbstractTestCase
 
         $controller = new QueriesController($response, new Template(), $this->data, $dbi);
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $hourFactor = 3600 / $this->data->status['Uptime'];

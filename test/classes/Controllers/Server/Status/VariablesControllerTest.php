@@ -41,7 +41,9 @@ class VariablesControllerTest extends AbstractTestCase
 
         $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString('<div class="card mb-3" id="tableFilter">', $html);

@@ -608,7 +608,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ['NULL']
         );
 
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->dbi->initRelationParamsCache();
+        $this->assertAllSelectsConsumed();
 
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
@@ -716,7 +718,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             false
         );
 
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->dbi->initRelationParamsCache();
+        $this->assertAllSelectsConsumed();
 
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
@@ -832,7 +836,9 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ['NULL']
         );
 
+        $this->dummyDbi->addSelectDb('PMA-storage');
         $this->dbi->initRelationParamsCache();
+        $this->assertAllSelectsConsumed();
 
         $this->assertArrayNotHasKey(
             'relation',
@@ -841,7 +847,10 @@ class DatabaseInterfaceTest extends AbstractTestCase
             . ' with a default name where found (pma__userconfig vs pma__userconfig_custom)'
         );
 
+        $this->dummyDbi->addSelectDb('PMA-storage');
         $relationData = (new Relation($this->dbi))->checkRelationsParam();
+        $this->assertAllSelectsConsumed();
+
         $this->assertSame([
             'version' => $relationData['version'],
             'relwork' => false,

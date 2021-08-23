@@ -35,10 +35,11 @@ class BookmarkTest extends AbstractTestCase
     public function testGetParams(): void
     {
         $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
-
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse(
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
+        $this->assertAllSelectsConsumed();
     }
 
     /**
@@ -47,9 +48,11 @@ class BookmarkTest extends AbstractTestCase
     public function testGetParamsFromCache(): void
     {
         $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse(
             Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
+        $this->assertAllSelectsConsumed();
         $this->assertTrue(Cache::set('Bookmark.params', ['cacheworks' => true]), 'The cache should to be filled');
         $this->assertSame(
             ['cacheworks' => true],
@@ -62,6 +65,7 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testGetList(): void
     {
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertEquals(
             [],
             Bookmark::getList(
@@ -70,6 +74,7 @@ class BookmarkTest extends AbstractTestCase
                 'phpmyadmin'
             )
         );
+        $this->assertAllSelectsConsumed();
     }
 
     /**
@@ -77,6 +82,7 @@ class BookmarkTest extends AbstractTestCase
      */
     public function testGet(): void
     {
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertNull(
             Bookmark::get(
                 $GLOBALS['dbi'],
@@ -85,6 +91,7 @@ class BookmarkTest extends AbstractTestCase
                 '1'
             )
         );
+        $this->assertAllSelectsConsumed();
     }
 
     /**
@@ -105,6 +112,8 @@ class BookmarkTest extends AbstractTestCase
             $bookmarkData
         );
         $this->assertNotFalse($bookmark);
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());
+        $this->assertAllSelectsConsumed();
     }
 }

@@ -96,7 +96,10 @@ class ReplaceControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
         $replaceController = $containerBuilder->get(ReplaceController::class);
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
         $replaceController->index();
+        $this->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
             $this->getResponseHtmlResult()
@@ -134,7 +137,11 @@ class ReplaceControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var ReplaceController $replaceController */
         $replaceController = $containerBuilder->get(ReplaceController::class);
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
+        $this->dummyDbi->addSelectDb('my_db');
         $replaceController->index();
+        $this->assertAllSelectsConsumed();
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
         $this->assertStringContainsString(
             '<form id="continueForm" method="post" '

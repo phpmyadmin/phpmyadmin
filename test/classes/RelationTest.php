@@ -78,7 +78,11 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAGetRelationsParam(): void
     {
+        $this->dummyDbi->addSelectDb('phpmyadmin');
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $relationsPara = $this->relation->getRelationsParam();
+        $this->assertAllSelectsConsumed();
+
         $this->assertFalse(
             $relationsPara['relwork']
         );
@@ -165,12 +169,15 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAGetDisplayField(): void
     {
+        $this->dummyDbi->addSelectDb('phpmyadmin');
+        $this->dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
             'DESCRIPTION',
             $this->relation->getDisplayField($db, $table)
         );
+        $this->assertAllSelectsConsumed();
 
         $db = 'information_schema';
         $table = 'TABLES';

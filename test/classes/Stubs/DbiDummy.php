@@ -17,17 +17,25 @@ use PhpMyAdmin\FieldMetadata;
 
 use function addslashes;
 use function count;
+use function debug_backtrace;
+use function fwrite;
 use function is_array;
 use function is_bool;
 use function is_int;
+use function json_encode;
 use function preg_replace;
 use function str_replace;
 use function trim;
 
+use const DEBUG_BACKTRACE_IGNORE_ARGS;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
+use const PHP_EOL;
+use const STDERR;
 
 /**
  * Fake database driver for testing purposes
@@ -54,6 +62,15 @@ class DbiDummy implements DbiExtension
      * }[]
      */
     private $filoQueries = [];
+
+    /**
+     * First in, last out queries
+     *
+     * The results will be distributed in the fifo way
+     *
+     * @var string[]
+     */
+    private $fifoDatabasesToSelect = [];
 
     /**
      * @var array
@@ -101,9 +118,35 @@ class DbiDummy implements DbiExtension
      */
     public function selectDb($databaseName, $link)
     {
-        $GLOBALS['dummy_db'] = (string) $databaseName;
+        $databaseName = $databaseName instanceof DatabaseName
+                        ? $databaseName->getName() : $databaseName;
 
-        return true;
+        foreach ($this->fifoDatabasesToSelect as $key => $databaseNameItem) {
+            if ($databaseNameItem !== $databaseName) {
+                continue;
+            }
+
+            // It was used
+            unset($this->fifoDatabasesToSelect[$key]);
+
+            return true;
+        }
+
+        fwrite(STDERR, 'Non expected select of database: ' . $databaseName . PHP_EOL);
+        fwrite(STDERR, 'Trace: ' . json_encode(
+            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5),
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+        ) . PHP_EOL);
+
+        return false;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getUnUsedDatabaseSelects(): array
+    {
+        return $this->fifoDatabasesToSelect;
     }
 
     /**
@@ -496,6 +539,11 @@ class DbiDummy implements DbiExtension
     public function escapeString($link, $string)
     {
         return addslashes($string);
+    }
+
+    public function addSelectDb(string $databaseName): void
+    {
+        $this->fifoDatabasesToSelect[] = $databaseName;
     }
 
     /**
@@ -2955,10 +3003,6 @@ class DbiDummy implements DbiExtension
                 ],
             ],
         ];
-        /**
-         * Current database.
-         */
-        $GLOBALS['dummy_db'] = '';
 
         /* Some basic setup for dummy driver */
         $GLOBALS['cfg']['DBG']['sql'] = false;

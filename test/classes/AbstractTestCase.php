@@ -105,6 +105,16 @@ abstract class AbstractTestCase extends TestCase
         $this->assertSame([], $unUsedQueries, 'Some queries where not used !');
     }
 
+    protected function assertAllSelectsConsumed(): void
+    {
+        $unUsedSelects = $this->dummyDbi->getUnUsedDatabaseSelects();
+        $this->assertSame(
+            [],
+            $unUsedSelects,
+            'Some database selects where not used !'
+        );
+    }
+
     protected function loadContainerBuilder(): void
     {
         global $containerBuilder;

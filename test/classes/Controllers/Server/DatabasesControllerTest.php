@@ -63,7 +63,9 @@ class DatabasesControllerTest extends AbstractTestCase
             $GLOBALS['dbi']
         );
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
@@ -98,7 +100,9 @@ class DatabasesControllerTest extends AbstractTestCase
         $_REQUEST['sort_by'] = 'SCHEMA_TABLES';
         $_REQUEST['sort_order'] = 'desc';
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $this->assertStringNotContainsString(__('Enable statistics'), $actual);

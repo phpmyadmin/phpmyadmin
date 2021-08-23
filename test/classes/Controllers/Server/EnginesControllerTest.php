@@ -45,7 +45,10 @@ class EnginesControllerTest extends AbstractTestCase
 
         $controller = new EnginesController($response, new Template(), $dbi);
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
+
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
@@ -94,10 +97,12 @@ class EnginesControllerTest extends AbstractTestCase
 
         $request = $this->createMock(ServerRequest::class);
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->show($request, [
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);
+        $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');

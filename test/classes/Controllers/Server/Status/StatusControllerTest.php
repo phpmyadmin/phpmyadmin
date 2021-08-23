@@ -63,7 +63,9 @@ class StatusControllerTest extends AbstractTestCase
         $replicationInfo->primaryVariables = [];
         $replicationInfo->replicaVariables = [];
 
+        $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
+        $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
         $traffic = $bytesReceived + $bytesSent;
