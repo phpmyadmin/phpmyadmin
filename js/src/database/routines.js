@@ -167,10 +167,19 @@ const DatabaseRoutines = {
                 // We have successfully fetched the editor form
                 Functions.ajaxRemoveMessage($msg);
                 $('#routineEditorModal').modal('show');
+                // Respect the order: title on href tag, href content, title sent in response
                 $('#routineEditorModalLabel').first().text($this.attr('title') || $this.text() || $(data.title).text());
                 $('#routineEditorModal').find('.modal-body').first().html(data.message);
+                $('#rteDialog').find('input.datefield').each(function () {
+                    Functions.addDatepicker($(this).css('width', '95%'), 'date');
+                });
+                $('#rteDialog').find('input.datetimefield').each(function () {
+                    Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
+                });
+                $.datepicker.initialized = false;
                 // Now define the function that is called when
                 // the user presses the "Go" button
+                // Issue #15810 - use button titles for modals (eg: new procedure)
                 $('#routineEditorConfirmGoButton').on('click', function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
