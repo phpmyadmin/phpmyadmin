@@ -6339,8 +6339,9 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <DocblockTypeContradiction occurrences="4">
+    <DocblockTypeContradiction occurrences="5">
       <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
+      <code>''</code>
       <code>'-1'</code>
       <code>-1</code>
       <code>[]</code>
@@ -6773,7 +6774,8 @@
     <RedundantCondition occurrences="1">
       <code>$bIsProcessList</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="8">
+    <RedundantConditionGivenDocblockType occurrences="9">
+      <code>$fieldsMeta-&gt;name</code>
       <code>$firstStatement-&gt;order</code>
       <code>$meta-&gt;decimals</code>
       <code>$meta-&gt;decimals</code>
@@ -16251,7 +16253,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="10">
       <code>$GLOBALS['db']</code>
       <code>$data</code>
       <code>$data['schema_snapshot']</code>
@@ -16260,6 +16262,8 @@
       <code>$result</code>
       <code>$result</code>
       <code>$result['tablename']</code>
+      <code>$trackingEnabled</code>
+      <code>$trackingEnabled</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="6">
       <code>bool</code>
