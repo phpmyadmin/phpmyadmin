@@ -836,9 +836,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ['NULL']
         );
 
-        $this->dummyDbi->addSelectDb('PMA-storage');
         $this->dbi->initRelationParamsCache();
-        $this->assertAllSelectsConsumed();
 
         $this->assertArrayNotHasKey(
             'relation',

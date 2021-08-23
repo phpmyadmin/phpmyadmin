@@ -79,7 +79,6 @@ class RelationTest extends AbstractTestCase
     public function testPMAGetRelationsParam(): void
     {
         $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->dummyDbi->addSelectDb('phpmyadmin');
         $relationsPara = $this->relation->getRelationsParam();
         $this->assertAllSelectsConsumed();
 
@@ -169,7 +168,6 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAGetDisplayField(): void
     {
-        $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
