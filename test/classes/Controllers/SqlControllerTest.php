@@ -102,7 +102,7 @@ class SqlControllerTest extends AbstractTestCase
 
         $this->assertSame(
             [
-                'select' => '<select size="5" multiple>' . "\n"
+                'select' => '<select class="resize-vertical" size="5" multiple>' . "\n"
                 . '      <option value="&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;">'
                 . '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;</option>' . "\n"
                 . '      <option value="a&amp;b">a&amp;b</option>' . "\n"
