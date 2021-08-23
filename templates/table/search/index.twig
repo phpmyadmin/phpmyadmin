@@ -105,7 +105,7 @@
       <legend>
         {% trans 'Select columns (at least one):' %}
       </legend>
-      <select name="columnsToDisplay[]" size="{{ min(column_names|length, 10) }}" multiple>
+      <select class="resize-vertical" name="columnsToDisplay[]" size="{{ min(column_names|length, 10) }}" multiple>
         {% for each_field in column_names %}
           <option value="{{ each_field }}" selected>
             {{ each_field }}

@@ -61,7 +61,7 @@
               <div class="col-xl-2 col-lg-3">
                 <div class="form-group">
                   <label class="sr-only" for="fieldsSelect">{% trans 'Columns' %}</label>
-                  <select class="form-control" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" ondblclick="Functions.insertValueQuery()" multiple>
+                  <select class="form-control resize-vertical" id="fieldsSelect" name="dummy" size="{{ textarea_rows }}" ondblclick="Functions.insertValueQuery()" multiple>
                     {% for field in columns_list %}
                       <option value="{{ backquote(field['Field']) }}"
                         {{- field['Field'] is not null and field['Comment'] is not null and field['Field']|length > 0 ? ' title="' ~ field['Comment'] ~ '"' }}>

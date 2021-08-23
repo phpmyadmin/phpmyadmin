@@ -3373,3 +3373,7 @@ body {
     text-align: #{$left};
   }
 }
+
+.resize-vertical {
+  resize: vertical;
+}

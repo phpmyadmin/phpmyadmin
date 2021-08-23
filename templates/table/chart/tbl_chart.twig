@@ -67,7 +67,7 @@
                 <label for="select_chartSeries">
                     {% trans 'Series:' %}
                 </label>
-                <select name="chartSeries" id="select_chartSeries" multiple="multiple">
+                <select class="resize-vertical" name="chartSeries" id="select_chartSeries" multiple="multiple">
                     {% for idx, key in keys %}
                         {% if fields_meta[idx].type in numeric_types %}
                             {% if idx == xaxis and numeric_column_count > 1 %}
