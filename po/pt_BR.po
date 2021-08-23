@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-22 00:08+0000\n"
-"PO-Revision-Date: 2021-05-22 18:16+0000\n"
+"PO-Revision-Date: 2021-08-24 16:33+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5792,27 +5792,23 @@ msgstr "Fechar"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Contagem de arquivos de log"
+msgstr "Bloqueie esta conta."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Conta de usuário"
+msgstr "Desbloqueie esta conta."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
@@ -7632,16 +7628,14 @@ msgid "Overhead"
 msgstr "Sobrecarga"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "As colunas foram movidas com sucesso."
+msgstr "A conta %s@%s foi bloqueada com sucesso."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "As colunas foram movidas com sucesso."
+msgstr "A conta %s@%s foi desbloqueada com sucesso."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
@@ -12418,7 +12412,7 @@ msgstr "Autenticação do antigo MySQL 4.0"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "O bloqueio de conta não é suportado."
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
@@ -14586,10 +14580,8 @@ msgstr "Opções ativas"
 #: templates/database/designer/main.twig:1119 templates/export_modal.twig:5
 #: templates/export.twig:63 templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Carregando…"
+msgstr "Carregando"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -15437,10 +15429,8 @@ msgstr "Ordenar pela chave:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Opções de retorno"
+msgstr "Opções extras"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
