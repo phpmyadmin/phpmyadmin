@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Cache;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
-use ReflectionProperty;
 
 /**
  * @covers \PhpMyAdmin\Tracker
@@ -53,12 +53,12 @@ class TrackerTest extends AbstractTestCase
      */
     public function testEnabled(): void
     {
-        $reflection = new ReflectionProperty(Tracker::class, 'enabled');
-        $reflection->setAccessible(true);
-
+        $this->assertFalse(
+            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
+        );
         Tracker::enable();
         $this->assertTrue(
-            $reflection->getValue()
+            Cache::get(Tracker::TRACKER_ENABLED_CACHE_KEY)
         );
     }
 
@@ -67,9 +67,9 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsActive(): void
     {
-        $attr = new ReflectionProperty(Tracker::class, 'enabled');
-        $attr->setAccessible(true);
-        $attr->setValue(false);
+        $this->assertFalse(
+            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
+        );
 
         $this->assertFalse(
             Tracker::isActive()
@@ -142,9 +142,9 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsTracked(): void
     {
-        $attr = new ReflectionProperty(Tracker::class, 'enabled');
-        $attr->setAccessible(true);
-        $attr->setValue(false);
+        $this->assertFalse(
+            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
+        );
 
         $this->assertFalse(
             Tracker::isTracked('', '')

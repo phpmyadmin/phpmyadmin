@@ -41,12 +41,7 @@ use function trim;
  */
 class Tracker
 {
-    /**
-     * Whether tracking is ready.
-     *
-     * @var bool
-     */
-    protected static $enabled = false;
+    public const TRACKER_ENABLED_CACHE_KEY = 'phpmyadmin.tracker.enabled';
 
     /**
      * Cache to avoid quering tracking status multiple times.
@@ -58,14 +53,10 @@ class Tracker
     /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
-     *
-     * @return void
-     *
-     * @static
      */
-    public static function enable()
+    public static function enable(): void
     {
-        self::$enabled = true;
+        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
     }
 
     /**
@@ -79,7 +70,8 @@ class Tracker
     {
         global $dbi;
 
-        if (! self::$enabled) {
+        $trackingEnabled = Cache::get(self::TRACKER_ENABLED_CACHE_KEY, false);
+        if (! $trackingEnabled) {
             return false;
         }
 
@@ -87,11 +79,11 @@ class Tracker
          * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
-        self::$enabled = false;
+        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
-        self::$enabled = true;
+        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
         if (! $cfgRelation['trackingwork']) {
             return false;
         }
@@ -142,7 +134,8 @@ class Tracker
     {
         global $dbi;
 
-        if (! self::$enabled) {
+        $trackingEnabled = Cache::get(self::TRACKER_ENABLED_CACHE_KEY, false);
+        if (! $trackingEnabled) {
             return false;
         }
 
@@ -154,11 +147,11 @@ class Tracker
          * We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
-        self::$enabled = false;
+        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
-        self::$enabled = true;
+        Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
         if (! $cfgRelation['trackingwork']) {
             return false;
         }
