@@ -1014,7 +1014,8 @@ class Results
 
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
-        $sql_md5 = md5($this->properties['server']
+        $sql_md5 = md5(
+            $this->properties['server']
             . $this->properties['db']
             . $this->properties['sql_query']
         );
@@ -3877,7 +3878,8 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-        $sql_md5 = md5($this->properties['server']
+        $sql_md5 = md5(
+            $this->properties['server']
             . $this->properties['db']
             . $this->properties['sql_query']
         );
