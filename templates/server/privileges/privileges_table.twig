@@ -15,7 +15,7 @@
         <code><dfn title="{% trans 'Allows reading data.' %}">SELECT</dfn></code>
       </label>
 
-      <select id="select_select_priv" name="Select_priv[]" size="8" multiple>
+      <select class="resize-vertical" id="select_select_priv" name="Select_priv[]" size="8" multiple>
         {% for curr_col, curr_col_privs in columns %}
           <option value="{{ curr_col }}"{{ row['Select_priv'] == 'Y' or curr_col_privs['Select'] ? ' selected' }}>
             {{ curr_col }}
@@ -36,7 +36,7 @@
         <code><dfn title="{% trans 'Allows inserting and replacing data.' %}">INSERT</dfn></code>
       </label>
 
-      <select id="select_insert_priv" name="Insert_priv[]" size="8" multiple>
+      <select class="resize-vertical" id="select_insert_priv" name="Insert_priv[]" size="8" multiple>
         {% for curr_col, curr_col_privs in columns %}
           <option value="{{ curr_col }}"{{ row['Insert_priv'] == 'Y' or curr_col_privs['Insert'] ? ' selected' }}>
             {{ curr_col }}
@@ -57,7 +57,7 @@
         <code><dfn title="{% trans 'Allows changing data.' %}">UPDATE</dfn></code>
       </label>
 
-      <select id="select_update_priv" name="Update_priv[]" size="8" multiple>
+      <select class="resize-vertical" id="select_update_priv" name="Update_priv[]" size="8" multiple>
         {% for curr_col, curr_col_privs in columns %}
           <option value="{{ curr_col }}"{{ row['Update_priv'] == 'Y' or curr_col_privs['Update'] ? ' selected' }}>
             {{ curr_col }}
@@ -78,7 +78,7 @@
         <code><dfn title="{% trans 'Has no effect in this MySQL version.' %}">REFERENCES</dfn></code>
       </label>
 
-      <select id="select_references_priv" name="References_priv[]" size="8" multiple>
+      <select class="resize-vertical" id="select_references_priv" name="References_priv[]" size="8" multiple>
         {% for curr_col, curr_col_privs in columns %}
           <option value="{{ curr_col }}"{{ row['References_priv'] == 'Y' or curr_col_privs['References'] ? ' selected' }}>
             {{ curr_col }}
