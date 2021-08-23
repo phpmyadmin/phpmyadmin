@@ -57,7 +57,7 @@ class ImportLdi extends AbstractImportCsv
             );
             if ($result != false && $dbi->numRows($result) > 0) {
                 $tmp = $dbi->fetchRow($result);
-                if ($tmp[0] === 'ON') {
+                if ($tmp[0] === 'ON' || $tmp[0] === '1') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
