@@ -475,7 +475,7 @@
       <div class="card-body">
         <div class="mb-3">
           <label for="partition_name">{% trans 'Partition' %}</label>
-          <select class="form-control" id="partition_name" name="partition_name[]" multiple required>
+          <select class="form-control resize-vertical" id="partition_name" name="partition_name[]" multiple required>
             {% for partition in partitions %}
               <option value="{{ partition }}"{{ loop.first ? ' selected' }}>{{ partition }}</option>
             {% endfor %}

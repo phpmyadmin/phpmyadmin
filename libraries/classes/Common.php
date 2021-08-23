@@ -14,6 +14,7 @@ use function array_pop;
 use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
+use function define;
 use function defined;
 use function explode;
 use function extension_loaded;
@@ -210,6 +211,14 @@ final class Common
 
             $auth_plugin = Plugins::getAuthPlugin();
             $auth_plugin->authenticate();
+
+            /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
+            if ($route === '/import' && ($_POST['format'] ?? '') === 'ldi') {
+                // Switch this before the DB connection is done
+                // phpcs:disable PSR1.Files.SideEffects
+                define('PMA_ENABLE_LDI', 1);
+                // phpcs:enable
+            }
 
             self::connectToDatabaseServer($dbi, $auth_plugin);
 

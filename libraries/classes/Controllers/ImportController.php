@@ -26,7 +26,6 @@ use Throwable;
 
 use function __;
 use function _ngettext;
-use function define;
 use function htmlspecialchars;
 use function in_array;
 use function ini_get;
@@ -91,11 +90,6 @@ final class ImportController extends AbstractController
         $skip_queries = $_POST['skip_queries'] ?? null;
         $local_import_file = $_POST['local_import_file'] ?? null;
         $show_as_php = $_POST['show_as_php'] ?? null;
-
-        /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
-        if ($format === 'ldi') {
-            define('PMA_ENABLE_LDI', 1);
-        }
 
         // If there is a request to 'Simulate DML'.
         if (isset($_POST['simulate_dml'])) {

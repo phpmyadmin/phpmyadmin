@@ -109,7 +109,7 @@
         <fieldset>
           <div class="mb-3">
             <label class="form-label" for="columnsToDisplaySelect">{% trans 'Select columns (at least one):' %}</label>
-            <select class="form-select" id="columnsToDisplaySelect" name="columnsToDisplay[]" size="{{ min(column_names|length, 10) }}" multiple>
+            <select class="form-select resize-vertical" id="columnsToDisplaySelect" name="columnsToDisplay[]" size="{{ min(column_names|length, 10) }}" multiple>
               {% for each_field in column_names %}
                 <option value="{{ each_field }}" selected>
                   {{ each_field }}

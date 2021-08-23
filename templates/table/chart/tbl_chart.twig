@@ -71,7 +71,7 @@
 
         <div class="mb-3">
           <label class="form-label" for="chartSeriesSelect">{% trans 'Series:' %}</label>
-          <select class="form-select" name="chartSeriesSelect" id="chartSeriesSelect" multiple>
+          <select class="form-select resize-vertical" name="chartSeriesSelect" id="chartSeriesSelect" multiple>
             {% for idx, key in keys %}
               {% if fields_meta[idx].isNumericType() %}
                 {% if idx == xaxis and table_has_a_numeric_column %}
