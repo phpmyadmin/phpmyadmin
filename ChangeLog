@@ -94,6 +94,7 @@ phpMyAdmin - ChangeLog
 - issue #17046 Fix "Uncaught TypeError: htmlspecialchars() expects parameter 1 to be string, null given"
 - issue #16942 Fix table Import with CSV using LOAD DATA LOCAL causes error "LOAD DATA LOCAL INFILE is forbidden"
 - issue #16942 Fix auto-detection for "LOAD DATA LOCAL INFILE" LOCAL option
+- issue #16067 Make select elements with multiple items resizable
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
