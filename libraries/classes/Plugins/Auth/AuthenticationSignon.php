@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -39,7 +39,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      */
     public function showLoginForm()
     {
-        Response::getInstance()->disable();
+        ResponseRenderer::getInstance()->disable();
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
             Core::fatalError('You must set SignonURL!');
