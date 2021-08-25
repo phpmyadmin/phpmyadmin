@@ -91,6 +91,11 @@ final class ImportController extends AbstractController
             'import_type' => 'server',
         ];
 
+        $choice = Plugins::getChoice('Import', 'format', $importList);
+        $options = Plugins::getOptions('Import', $importList);
+        $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
+        $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
+
         $this->render('server/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
@@ -100,7 +105,10 @@ final class ImportController extends AbstractController
             'db' => $db,
             'table' => $table,
             'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
-            'import_list' => $importList,
+            'choice' => $choice,
+            'options' => $options,
+            'skip_queries_default' => $skipQueriesDefault,
+            'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
             'is_upload' => $GLOBALS['config']->get('enable_upload'),
             'upload_dir' => $cfg['UploadDir'] ?? null,

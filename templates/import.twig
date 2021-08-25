@@ -158,8 +158,7 @@
             {% endif %}
 
             <div class="formelementrow">
-                <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
-                    {{ checkbox_check('Import', 'allow_interrupt') }}>
+                <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"{{ is_allow_interrupt_checked|raw }}>
                 <label for="checkbox_allow_interrupt">
                     {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
                 </label>
@@ -171,7 +170,7 @@
                         {% trans 'Skip this number of queries (for SQL) starting from the first one:' %}
                     </label>
                     <input type="number" name="skip_queries" value="
-                        {{- get_default_plugin('Import', 'skip_queries') -}}
+                        {{- skip_queries_default|raw -}}
                         " id="text_skip_queries" min="0">
                 </div>
             {% else %}
@@ -179,7 +178,7 @@
                    do not show the Skip dialog to avoid the risk of someone
                    entering a value here that would interfere with "skip" #}
                 <input type="hidden" name="skip_queries" value="
-                    {{- get_default_plugin('Import', 'skip_queries') -}}
+                    {{- skip_queries_default|raw -}}
                     " id="text_skip_queries">
             {% endif %}
         </div>
@@ -195,7 +194,7 @@
 
         <div class="importoptions">
             <h3>{% trans 'Format:' %}</h3>
-            {{ get_choice('Import', 'format', import_list) }}
+            {{ choice|raw }}
             <div id="import_notification"></div>
         </div>
 
@@ -204,7 +203,7 @@
             <p class="no_js_msg" id="scroll_to_options_msg">
                 {% trans 'Scroll down to fill in the options for the selected format and ignore the options for other formats.' %}
             </p>
-            {{ get_options('Import', import_list) }}
+            {{ options|raw }}
         </div>
         <div class="clearfloat"></div>
 

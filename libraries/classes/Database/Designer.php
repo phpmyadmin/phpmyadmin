@@ -137,10 +137,14 @@ class Designer
             )->getDisplay();
         }
 
+        $choice = Plugins::getChoice('Schema', 'export_type', $export_list, 'format');
+        $options = Plugins::getOptions('Schema', $export_list);
+
         return $this->template->render('database/designer/schema_export', [
             'db' => $db,
             'page' => $page,
-            'export_list' => $export_list,
+            'choice' => $choice,
+            'options' => $options,
         ]);
     }
 

@@ -96,6 +96,11 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\Plugins\\:\\:getOptions\\(\\) expects array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\>, array\\<PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/ImportController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -151,6 +156,11 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\Plugins\\:\\:getOptions\\(\\) expects array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\>, array\\<PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/ImportController.php
+
+		-
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 3
 			path: libraries/classes/Controllers/Server/VariablesController.php
@@ -164,6 +174,11 @@ parameters:
 			message: "#^Comparison operation \"\\>\" between 0 and 0 is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChangeController.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\Plugins\\:\\:getOptions\\(\\) expects array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\>, array\\<PhpMyAdmin\\\\Plugins\\\\ImportPlugin\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ImportController.php
 
 		-
 			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
@@ -184,6 +199,11 @@ parameters:
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\Plugins\\:\\:getOptions\\(\\) expects array\\<PhpMyAdmin\\\\Plugins\\\\ExportPlugin\\>, array\\<PhpMyAdmin\\\\Plugins\\\\SchemaPlugin\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Designer.php
 
 		-
 			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"

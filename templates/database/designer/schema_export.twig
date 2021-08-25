@@ -2,8 +2,8 @@
     <fieldset class="pma-fieldset">
         {{ get_hidden_inputs(db) }}
         <label>{% trans 'Select Export Relational Type' %}</label>
-        {{ get_choice('Schema', 'export_type', export_list, 'format') }}
+        {{ choice|raw }}
         <input type="hidden" name="page_number" value="{{ page }}">
-        {{ get_options('Schema', export_list) }}
+        {{ options|raw }}
     </fieldset>
 </form>

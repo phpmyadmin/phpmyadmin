@@ -1332,6 +1332,9 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
+    <InvalidArgument occurrences="1">
+      <code>$importList</code>
+    </InvalidArgument>
     <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$sub_part ?? ''</code>
@@ -2548,6 +2551,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
+    <InvalidArgument occurrences="1">
+      <code>$importList</code>
+    </InvalidArgument>
     <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
@@ -3375,6 +3381,9 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
+    <InvalidArgument occurrences="1">
+      <code>$importList</code>
+    </InvalidArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -4874,6 +4883,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Designer.php">
+    <InvalidArgument occurrences="1">
+      <code>$export_list</code>
+    </InvalidArgument>
     <MixedArgument occurrences="21">
       <code>$page_rs</code>
       <code>$tabColumn[$tableName]['COLUMN_ID']</code>
