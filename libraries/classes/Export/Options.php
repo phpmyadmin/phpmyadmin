@@ -187,7 +187,7 @@ final class Options
             'sql_query' => $sqlQuery,
             'hidden_inputs' => $hiddenInputs,
             'export_method' => $_POST['quick_or_custom'] ?? $cfg['Export']['method'] ?? '',
-            'dropdown' => $dropdown,
+            'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $cfg['ExecTimeLimit'],

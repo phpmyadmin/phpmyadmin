@@ -115,7 +115,7 @@ final class ImportController extends AbstractController
             'db' => $db,
             'table' => $table,
             'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
-            'choice' => $choice,
+            'plugins_choice' => $choice,
             'options' => $options,
             'skip_queries_default' => $skipQueriesDefault,
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,

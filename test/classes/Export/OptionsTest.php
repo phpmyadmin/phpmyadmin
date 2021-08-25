@@ -117,7 +117,7 @@ class OptionsTest extends AbstractTestCase
                 'template_id' => '',
             ],
             'export_method' => $cfg['Export']['method'],
-            'dropdown' => $dropdown,
+            'plugins_choice' => $dropdown,
             'options' => Plugins::getOptions('Export', $exportList),
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'exec_time_limit' => $cfg['ExecTimeLimit'],

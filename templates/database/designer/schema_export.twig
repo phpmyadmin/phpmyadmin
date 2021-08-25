@@ -1,8 +1,17 @@
 <form method="post" action="{{ url('/schema-export') }}" class="disableAjax" id="id_export_pages">
     <fieldset class="pma-fieldset">
         {{ get_hidden_inputs(db) }}
-        <label>{% trans 'Select Export Relational Type' %}</label>
-        {{ choice|raw }}
+        <label for="plugins">{% trans 'Select Export Relational Type' %}</label>
+        <select id="plugins" name="{{ plugins_choice.name }}">
+          {% for option in plugins_choice.options %}
+            <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }}>{{ option.text }}</option>
+          {% endfor %}
+        </select>
+
+        {% for option in plugins_choice.options %}
+          <input type="hidden" id="force_file_{{ option.name }}" value="{{ option.force_file ? 'true' : 'false' }}">
+        {% endfor %}
+
         <input type="hidden" name="page_number" value="{{ page }}">
         {{ options|raw }}
     </fieldset>

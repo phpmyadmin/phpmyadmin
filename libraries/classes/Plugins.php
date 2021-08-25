@@ -255,37 +255,30 @@ class Plugins
      * @param array  $list    array with plugin instances
      * @param string $cfgname name of config value, if none same as $name
      *
-     * @return string  html select tag
+     * @return array<string, array<string, bool|string>|string>
+     * @psalm-return array{
+     *   name: string,
+     *   options: list<array{name: string, text: string, is_selected: bool, force_file: bool}>
+     * }
      */
-    public static function getChoice($section, $name, array $list, $cfgname = null)
+    public static function getChoice($section, $name, array $list, $cfgname = null): array
     {
         if (! isset($cfgname)) {
             $cfgname = $name;
         }
 
-        $ret = '<select id="plugins" name="' . $name . '">';
+        $return = ['name' => $name, 'options' => []];
         $default = self::getDefault($section, $cfgname);
-        $hidden = null;
+
         foreach ($list as $plugin) {
             $elem = explode('\\', get_class($plugin));
             $plugin_name = (string) array_pop($elem);
             unset($elem);
-            $plugin_name = mb_strtolower(
-                mb_substr(
-                    $plugin_name,
-                    mb_strlen($section)
-                )
-            );
-            $ret .= '<option';
-             // If the form is being repopulated using $_GET data, that is priority
-            if (
-                isset($_GET[$name])
-                && $plugin_name == $_GET[$name]
-                || ! isset($_GET[$name])
-                && $plugin_name == $default
-            ) {
-                $ret .= ' selected="selected"';
-            }
+            $plugin_name = mb_strtolower(mb_substr($plugin_name, mb_strlen($section)));
+
+            // If the form is being repopulated using $_GET data, that is priority
+            $isSelected = isset($_GET[$name]) && $plugin_name === $_GET[$name]
+                || ! isset($_GET[$name]) && $plugin_name === $default;
 
             /** @var PluginPropertyItem $properties */
             $properties = $plugin->getProperties();
@@ -294,30 +287,21 @@ class Plugins
                 $text = $properties->getText();
             }
 
-            $ret .= ' value="' . $plugin_name . '">'
-               . self::getString($text)
-               . '</option>' . "\n";
-
-            // Whether each plugin has to be saved as a file
-            $hidden .= '<input type="hidden" id="force_file_' . $plugin_name
-                . '" value="';
             /** @var ExportPluginProperties|SchemaPluginProperties $properties */
             $properties = $plugin->getProperties();
-            if (
-                ! strcmp($section, 'Import')
-                || ($properties != null && $properties->getForceFile() != null)
-            ) {
-                $hidden .= 'true';
-            } else {
-                $hidden .= 'false';
-            }
 
-            $hidden .= '">' . "\n";
+            // Whether each plugin has to be saved as a file
+            $forceFile = ! strcmp($section, 'Import') || $properties != null && $properties->getForceFile() != null;
+
+            $return['options'][] = [
+                'name' => $plugin_name,
+                'text' => self::getString($text),
+                'is_selected' => $isSelected,
+                'force_file' => $forceFile,
+            ];
         }
 
-        $ret .= '</select>' . "\n" . $hidden;
-
-        return $ret;
+        return $return;
     }
 
     /**

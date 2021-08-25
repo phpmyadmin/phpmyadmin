@@ -143,7 +143,7 @@ class Designer
         return $this->template->render('database/designer/schema_export', [
             'db' => $db,
             'page' => $page,
-            'choice' => $choice,
+            'plugins_choice' => $choice,
             'options' => $options,
         ]);
     }
