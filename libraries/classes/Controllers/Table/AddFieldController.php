@@ -159,6 +159,16 @@ class AddFieldController extends AbstractController
                 Generator::getMessage($message, $sql_query, 'success')
             );
 
+            // Give an URL to call and use to appends the structure after the success message
+            $this->response->addJSON(
+                'structure_refresh_route',
+                Url::getFromRoute('/table/structure', [
+                    'db' => $db,
+                    'table' => $table,
+                    'ajax_request' => '1',
+                ])
+            );
+
             return;
         }
 
