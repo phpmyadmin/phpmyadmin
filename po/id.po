@@ -12751,18 +12751,18 @@ msgstr "tidak ada deskripsi"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "Anda tidak memiliki hak istimewa yang diperlukan untuk membuat sebuah "
-"database bernama 'phpmyadmin'. Anda bisa ke tab 'Operasi' database untuk "
+"database bernama '%s'. Anda bisa ke tab 'Operasi' database untuk "
 "mengatur penyimpanan konfigurasi phpMyAdmin disana."
 
 #: libraries/classes/Relation.php:2194
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 

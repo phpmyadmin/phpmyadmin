@@ -12263,20 +12263,20 @@ msgstr "sipattamasy joq"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"«phpmyadmin» dep atalatyn derekqordy jasaý úshin qajetti artyqshylyqtaryńyz "
+"«%s» dep atalatyn derekqordy jasaý úshin qajetti artyqshylyqtaryńyz "
 "joq. Munda phpMyAdmin konfıgýrasıa saqtaýyshyn ornatý úshin kezkelgen "
 "derekqordyń «Áreketter» qoıyndysyna ótýińizge bolady."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"«phpmyadmin» dep atalǵan derekqordy %sjasaý%s jáne onda phpMyAdmin "
+"«%s» dep atalǵan derekqordy %sjasaý%s jáne onda phpMyAdmin "
 "konfıgýrasıasynyń saqtaýyshyn teńsheý."
 
 #: libraries/classes/Relation.php:2202

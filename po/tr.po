@@ -12147,20 +12147,20 @@ msgstr "Açıklama yok"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"'Phpmyadmin' adlı bir veritabanı oluşturmak için gerekli yetkilere sahip "
+"'%s' adlı bir veritabanı oluşturmak için gerekli yetkilere sahip "
 "değilsiniz. phpMyAdmin yapılandırma depolamasını ayarlamak için herhangi bir "
 "veritabanının 'İşlemler' sekmesine gidebilirsiniz."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"Önce 'phpmyadmin' adında bir veritabanı %soluşturun%s ve orada phpMyAdmin "
+"Önce '%s' adında bir veritabanı %soluşturun%s ve orada phpMyAdmin "
 "yapılandırma depolama tablolarını ayarlayın."
 
 #: libraries/classes/Relation.php:2202

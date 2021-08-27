@@ -12501,21 +12501,21 @@ msgstr "χωρίς περιγραφή"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια βάση δεδομένων "
-"με το όνομα «phpmyadmin». Μπορείτε να πάτε στην καρτέλα «Λειτουργίες» "
+"με το όνομα «%s». Μπορείτε να πάτε στην καρτέλα «Λειτουργίες» "
 "οποιασδήποτε βάσης δεδομένων για να ορίσετε την αποθήκευση ρυθμίσεων του "
 "phpMyAdmin εκεί."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sΔημιουργία%s μιας βάσης δεδομένων με το όνομα «phpmyadmin» και εγκατάσταση "
+"%sΔημιουργία%s μιας βάσης δεδομένων με το όνομα «%s» και εγκατάσταση "
 "της αποθήκευσης ρυθμίσεων του phpMyAdmin εκεί."
 
 #: libraries/classes/Relation.php:2202

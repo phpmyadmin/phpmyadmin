@@ -12059,20 +12059,20 @@ msgstr "žádný popisek"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"Nemáte potřebná oprávnění k vytvoření databáze s názvem 'phpmyadmin'. "
+"Nemáte potřebná oprávnění k vytvoření databáze s názvem '%s'. "
 "Úložiště nastavení phpMyAdmina můžete nastavit v libovolné databázi na kartě "
 "'Operace'."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sVytvořit%s databázi s názvem 'phpmyadmin' a nastavit ji jako úložiště "
+"%sVytvořit%s databázi s názvem '%s' a nastavit ji jako úložiště "
 "nastavení phpMyAdmina."
 
 #: libraries/classes/Relation.php:2202

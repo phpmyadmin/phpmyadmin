@@ -11668,19 +11668,19 @@ msgstr "無說明"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"沒有權限建立名稱為「phpmyadmin」的資料庫。您可能需至「操作」分頁設定 "
+"沒有權限建立名稱為「%s」的資料庫。您可能需至「操作」分頁設定 "
 "phpMyAdmin 設定儲存空間。"
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%s建立%s名稱為「phpmyadmin」的資料庫，並於該資料庫設置 phpMyAdmin 設定儲存空"
+"%s建立%s名稱為「%s」的資料庫，並於該資料庫設置 phpMyAdmin 設定儲存空"
 "間。"
 
 #: libraries/classes/Relation.php:2202

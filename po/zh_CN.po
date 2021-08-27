@@ -11460,7 +11460,7 @@ msgstr "无说明"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设"
@@ -11469,9 +11469,9 @@ msgstr ""
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "%s创建%s一个名为'phpmyadmin'的数据库，并在那里设置phpMyAdmin配置存储。"
+msgstr "%s创建%s一个名为'%s'的数据库，并在那里设置phpMyAdmin配置存储。"
 
 #: libraries/classes/Relation.php:2202
 #, php-format

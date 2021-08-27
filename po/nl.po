@@ -12264,20 +12264,20 @@ msgstr "Geen beschrijving aanwezig"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"Je hebt niet de benodigde rechten om een database met de naam 'phpmyadmin' "
+"Je hebt niet de benodigde rechten om een database met de naam '%s' "
 "aan te maken. Je kunt naar de 'Operations' tab gaan van enige database om "
 "phpMyAdmin configuratie opslag in te stellen."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCreate%s een database met de naam 'phpmyadmin' en stel daar de phpMyAdmin "
+"%sCreate%s een database met de naam '%s' en stel daar de phpMyAdmin "
 "configuratie opslag in."
 
 #: libraries/classes/Relation.php:2202

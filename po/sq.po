@@ -12428,20 +12428,20 @@ msgstr "nuk ka përshkrim"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "Ju nuk keni privilegjet e nevojshme për të krijuar një databazë me emrin "
-"'phpmyadmin'. Ju mund të shkoni në tabelorin 'Veprimet'  të çdo databaze, "
+"'%s'. Ju mund të shkoni në tabelorin 'Veprimet'  të çdo databaze, "
 "për të rregulluar ruajtjen e konfigurimit phpMyAdmin atje."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sKrijo%s një databazë me emrin 'phpmyadmin' dhe rregullo ruajtjen e "
+"%sKrijo%s një databazë me emrin '%s' dhe rregullo ruajtjen e "
 "konfigurimit të phpMyAdmin atje."
 
 #: libraries/classes/Relation.php:2202

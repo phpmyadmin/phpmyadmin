@@ -12318,20 +12318,20 @@ msgstr "brak opisu"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "Nie masz niezbędnych uprawnień do utworzenia bazy danych o nazwie "
-"\"phpmyadmin\". Możesz przejść do zakładki \"Operacje\" dowolnej bazy "
+"\"%s\". Możesz przejść do zakładki \"Operacje\" dowolnej bazy "
 "danych, aby skonfigurować tam pamięć konfiguracyjną phpMyAdmin."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%s Utwórz %s bazę danych o nazwie \"phpmyadmin\" i skonfiguruj tam magazyn "
+"%s Utwórz %s bazę danych o nazwie \"%s\" i skonfiguruj tam magazyn "
 "konfiguracyjny phpMyAdmin."
 
 #: libraries/classes/Relation.php:2202

@@ -12032,20 +12032,20 @@ msgstr "kirjeldus puudub"
 #: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"Sul puuduvad õigused andmebaasi 'phpmyadmin' loomiseks. Sa võid minna "
+"Sul puuduvad õigused andmebaasi '%s' loomiseks. Sa võid minna "
 "suvalise andmebaasi kaardile 'Operatsioonid' ja määrata phpMyAdmini "
 "häälestuse salvestamine sinna."
 
 #: libraries/classes/Relation.php:2194
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sLoo%s andmebaas 'phpmyadmin' ja häälesta phpMyAdmini seadistuse "
+"%sLoo%s andmebaas '%s' ja häälesta phpMyAdmini seadistuse "
 "salvestamine sinna."
 
 #: libraries/classes/Relation.php:2202
