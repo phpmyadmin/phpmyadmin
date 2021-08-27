@@ -811,7 +811,7 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayNotHasKey('errno', $GLOBALS);
 
         $this->assertTrue(
-            $this->relation->createPmaDatabase()
+            $this->relation->createPmaDatabase('phpmyadmin')
         );
 
         $this->assertArrayNotHasKey('message', $GLOBALS);
@@ -836,7 +836,7 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
 
         $this->assertFalse(
-            $this->relation->createPmaDatabase()
+            $this->relation->createPmaDatabase('phpmyadmin')
         );
 
         $this->assertArrayHasKey('message', $GLOBALS);
@@ -860,14 +860,14 @@ class RelationTest extends AbstractTestCase
         $this->dummyDbi->removeDefaultResults();
         $this->dummyDbi->addErrorCode('Too many connections');
         $this->dummyDbi->addResult(
-            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
+            'CREATE DATABASE IF NOT EXISTS `pma_1040`',
             false
         );
 
         $GLOBALS['errno'] = 1040;
 
         $this->assertFalse(
-            $this->relation->createPmaDatabase()
+            $this->relation->createPmaDatabase('pma_1040')
         );
 
         $this->assertArrayHasKey('message', $GLOBALS);

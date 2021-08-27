@@ -2018,13 +2018,13 @@ class Relation
     }
 
     /**
-     * Create a table named phpmyadmin to be used as configuration storage
-     *
-     * @return bool
+     * Create a database to be used as configuration storage
      */
-    public function createPmaDatabase()
+    public function createPmaDatabase(string $configurationStorageDbName): bool
     {
-        $this->dbi->tryQuery('CREATE DATABASE IF NOT EXISTS `phpmyadmin`');
+        $this->dbi->tryQuery(
+            'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName)
+        );
 
         $error = $this->dbi->getError();
         if (! $error) {
@@ -2034,10 +2034,13 @@ class Relation
         $GLOBALS['message'] = $error;
 
         if ($GLOBALS['errno'] === 1044) {
-            $GLOBALS['message'] = __(
-                'You do not have necessary privileges to create a database named'
-                . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
-                . ' database to set up the phpMyAdmin configuration storage there.'
+            $GLOBALS['message'] = sprintf(
+                __(
+                    'You do not have necessary privileges to create a database named'
+                    . ' \'%s\'. You may go to \'Operations\' tab of any'
+                    . ' database to set up the phpMyAdmin configuration storage there.'
+                ),
+                $configurationStorageDbName
             );
         }
 
@@ -2157,7 +2160,7 @@ class Relation
                 $params['create_pmadb'] = 1;
                 $message = Message::notice(
                     __(
-                        '%sCreate%s a database named \'phpmyadmin\' and setup '
+                        '%sCreate%s a database named \'%s\' and setup '
                         . 'the phpMyAdmin configuration storage there.'
                     )
                 );
@@ -2180,6 +2183,12 @@ class Relation
             '<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . Url::getCommon($params, '') . '">'
         );
         $message->addParamHtml('</a>');
+
+        if ($allTables && $createDb) {
+            $message->addParam(
+                $this->getConfigurationStorageDbName()
+            );
+        }
 
         return $retval . $message->getDisplay();
     }
@@ -2272,5 +2281,14 @@ class Relation
         }
 
         return $tables;
+    }
+
+    public function getConfigurationStorageDbName(): string
+    {
+        global $cfg;
+
+        $cfgStorageDbName = $cfg['Server']['pmadb'] ?? '';
+        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
+        return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
     }
 }
