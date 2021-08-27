@@ -58,6 +58,9 @@ class DbiDummy implements DbiExtension
      */
     private $dummyQueries = [];
 
+    /** @var array<int,string|false> */
+    private $fifoErrorCodes = [];
+
     public const OFFSET_GLOBAL = 1000;
 
     public function __construct()
@@ -95,6 +98,11 @@ class DbiDummy implements DbiExtension
         $GLOBALS['dummy_db'] = $dbname;
 
         return true;
+    }
+
+    public function hasUnUsedErrors(): bool
+    {
+        return $this->fifoErrorCodes !== [];
     }
 
     public function hasUnUsedQueries(): bool
@@ -364,6 +372,12 @@ class DbiDummy implements DbiExtension
      */
     public function getError($link)
     {
+        foreach ($this->fifoErrorCodes as $i => $code) {
+            unset($this->fifoErrorCodes[$i]);
+
+            return $code;
+        }
+
         return false;
     }
 
@@ -506,6 +520,16 @@ class DbiDummy implements DbiExtension
             'columns' => $columns,
             'metadata' => $metadata,
         ];
+    }
+
+    /**
+     * Adds an error or false as no error to the stack
+     *
+     * @param string|false $code
+     */
+    public function addErrorCode($code): void
+    {
+        $this->fifoErrorCodes[] = $code;
     }
 
     public function removeDefaultResults(): void
