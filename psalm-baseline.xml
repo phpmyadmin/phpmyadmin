@@ -1332,9 +1332,6 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
-    <InvalidArgument occurrences="1">
-      <code>$importList</code>
-    </InvalidArgument>
     <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$sub_part ?? ''</code>
@@ -2551,9 +2548,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/ImportController.php">
-    <InvalidArgument occurrences="1">
-      <code>$importList</code>
-    </InvalidArgument>
     <MixedArrayAccess occurrences="2">
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
       <code>$_SESSION[$SESSION_KEY]['handler']</code>
@@ -3381,9 +3375,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Table/ImportController.php">
-    <InvalidArgument occurrences="1">
-      <code>$importList</code>
-    </InvalidArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -4883,9 +4874,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Designer.php">
-    <InvalidArgument occurrences="1">
-      <code>$export_list</code>
-    </InvalidArgument>
     <MixedArgument occurrences="21">
       <code>$page_rs</code>
       <code>$tabColumn[$tableName]['COLUMN_ID']</code>
@@ -10340,7 +10328,7 @@
     <InvalidReturnType occurrences="1">
       <code>string</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="15">
+    <MixedArgument occurrences="14">
       <code>$_GET[$opt]</code>
       <code>$_REQUEST[$opt]</code>
       <code>$doc</code>
@@ -10349,7 +10337,6 @@
       <code>$doc[1]</code>
       <code>$doc[1]</code>
       <code>$doc[2]</code>
-      <code>$plugin</code>
       <code>$propertyItem</code>
       <code>$propertyMainGroup</code>
       <code>$val</code>
@@ -10366,9 +10353,8 @@
       <code>$doc[1]</code>
       <code>$doc[2]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$doc</code>
-      <code>$plugin</code>
       <code>$properties</code>
       <code>$propertyItem</code>
       <code>$propertyMainGroup</code>
@@ -10376,9 +10362,7 @@
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="6">
-      <code>getProperties</code>
-      <code>getProperties</code>
+    <MixedMethodCall occurrences="4">
       <code>getProperties</code>
       <code>new $class()</code>
       <code>new $class()</code>
@@ -10400,9 +10384,7 @@
       <code>$GLOBALS['cfg'][$section][$opt]</code>
       <code>$GLOBALS['cfg'][$section][$opt]</code>
     </PossiblyInvalidCast>
-    <PossiblyNullOperand occurrences="26">
-      <code>$hidden</code>
-      <code>$hidden</code>
+    <PossiblyNullOperand occurrences="24">
       <code>$pitem-&gt;getName()</code>
       <code>$pitem-&gt;getName()</code>
       <code>$pitem-&gt;getName()</code>
@@ -10428,14 +10410,10 @@
       <code>$propertyItem-&gt;getName()</code>
       <code>$subgroup_header-&gt;getName()</code>
     </PossiblyNullOperand>
-    <RedundantCast occurrences="3">
-      <code>(string) array_pop($elem)</code>
-      <code>(string) array_pop($elem)</code>
+    <RedundantCast occurrences="1">
       <code>strtolower</code>
     </RedundantCast>
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>$properties != null</code>
-      <code>$properties != null</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$properties != null</code>
     </RedundantConditionGivenDocblockType>
     <UnnecessaryVarAnnotation occurrences="3">

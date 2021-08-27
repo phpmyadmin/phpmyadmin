@@ -49,6 +49,7 @@ class PluginsTest extends AbstractTestCase
 
     /**
      * @param string|int|null $actualConfig
+     * @psalm-param 'Export'|'Import'|'Schema' $section
      *
      * @dataProvider providerForTestGetDefault
      */
@@ -81,7 +82,7 @@ class PluginsTest extends AbstractTestCase
 
     /**
      * @return array[]
-     * @psalm-return array{array{string, string|int|null, string|null, string, string, bool|null}}
+     * @psalm-return array{array{string, string|int|null, string|null, 'Export'|'Import'|'Schema', string, bool|null}}
      */
     public function providerForTestGetDefault(): array
     {
