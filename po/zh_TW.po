@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-22 00:08+0000\n"
+"POT-Creation-Date: 2021-08-28 00:50+0200\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1305,9 +1305,9 @@ msgstr "搜尋："
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:451
+#: templates/display/results/table.twig:190 templates/export.twig:459
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:220 templates/preferences/manage/main.twig:46
+#: templates/import.twig:228 templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -1666,22 +1666,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: libraries/classes/Common.php:225
+#: libraries/classes/Common.php:234
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "應升級到 %s %s 或更新版本。"
 
-#: libraries/classes/Common.php:256
+#: libraries/classes/Common.php:265
 msgid "Error: Token mismatch"
 msgstr "錯誤：連線資訊失效，請重新連線"
 
-#: libraries/classes/Common.php:468
+#: libraries/classes/Common.php:477
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr "未能設定連線階段 cookie。可能正在以 HTTP 而非 HTTPS 存取 phpMyAdmin。"
 
-#: libraries/classes/Common.php:515
+#: libraries/classes/Common.php:524
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1690,17 +1690,17 @@ msgstr ""
 "已啟用 PHP 設定的 mbstring.func_overload。此選項與 phpMyAdmin 不相容，可能會"
 "導致一些資料損壞！"
 
-#: libraries/classes/Common.php:532
+#: libraries/classes/Common.php:541
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:544
+#: libraries/classes/Common.php:553
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/classes/Common.php:554
+#: libraries/classes/Common.php:563
 msgid "possible exploit"
 msgstr "可能被駭"
 
@@ -1869,7 +1869,7 @@ msgstr "設定 Script 允許執行的時間限制 (以秒計算，[kbd]0[/kbd] �
 
 #: libraries/classes/Config/Descriptions.php:174
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:355
+#: libraries/classes/Plugins/Export/ExportSql.php:363
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -2949,8 +2949,8 @@ msgid "Debug SQL"
 msgstr "SQL 偵錯"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
+#: libraries/classes/Plugins/Schema/SchemaDia.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:85
 msgid "Paper size"
 msgstr "紙張大小"
 
@@ -3026,7 +3026,7 @@ msgstr "關閉多張資料表的護養操作"
 msgid "Maximum execution time"
 msgstr "執行時間限制"
 
-#: libraries/classes/Config/Descriptions.php:664 templates/export.twig:322
+#: libraries/classes/Config/Descriptions.php:664 templates/export.twig:330
 #, php-format
 msgid "Use %s statement"
 msgstr "使用 %s 指令"
@@ -3057,26 +3057,26 @@ msgstr "壓縮"
 #: libraries/classes/Config/Descriptions.php:703
 #: libraries/classes/Config/Descriptions.php:705
 #: libraries/classes/Config/Descriptions.php:752
-#: libraries/classes/Plugins/Export/ExportCsv.php:93
-#: libraries/classes/Plugins/Export/ExportExcel.php:60
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:90
-#: libraries/classes/Plugins/Export/ExportOds.php:73
-#: libraries/classes/Plugins/Export/ExportOdt.php:132
-#: libraries/classes/Plugins/Export/ExportTexytext.php:84
+#: libraries/classes/Plugins/Export/ExportCsv.php:101
+#: libraries/classes/Plugins/Export/ExportExcel.php:68
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:98
+#: libraries/classes/Plugins/Export/ExportOds.php:81
+#: libraries/classes/Plugins/Export/ExportOdt.php:140
+#: libraries/classes/Plugins/Export/ExportTexytext.php:92
 msgid "Put columns names in the first row"
 msgstr "將欄位名稱儲存至第一行"
 
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:723
+#: libraries/classes/Plugins/Import/ImportCsv.php:731
 msgid "Columns enclosed with"
 msgstr "內容分隔符號："
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:734
+#: libraries/classes/Plugins/Import/ImportCsv.php:742
 msgid "Columns escaped with"
 msgstr "內容跳脫符號："
 
@@ -3098,13 +3098,13 @@ msgstr "將欄位之間的換行符號(CRLF)移除"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:708
+#: libraries/classes/Plugins/Import/ImportCsv.php:716
 msgid "Columns terminated with"
 msgstr "欄位內容換行字元為"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:744
+#: libraries/classes/Plugins/Import/ImportCsv.php:752
 msgid "Lines terminated with"
 msgstr "換行符號："
 
@@ -3129,29 +3129,29 @@ msgstr "資料表名稱模板"
 #: libraries/classes/Config/Descriptions.php:710
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:754
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:61
-#: libraries/classes/Plugins/Export/ExportLatex.php:100
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:60
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:66
-#: libraries/classes/Plugins/Export/ExportOdt.php:75
-#: libraries/classes/Plugins/Export/ExportPdf.php:97
-#: libraries/classes/Plugins/Export/ExportSql.php:242
-#: libraries/classes/Plugins/Export/ExportTexytext.php:60
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:69
+#: libraries/classes/Plugins/Export/ExportLatex.php:108
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:74
+#: libraries/classes/Plugins/Export/ExportOdt.php:83
+#: libraries/classes/Plugins/Export/ExportPdf.php:105
+#: libraries/classes/Plugins/Export/ExportSql.php:250
+#: libraries/classes/Plugins/Export/ExportTexytext.php:68
 msgid "Dump table"
 msgstr "匯出資料表"
 
 #: libraries/classes/Config/Descriptions.php:689
-#: libraries/classes/Plugins/Export/ExportLatex.php:91
+#: libraries/classes/Plugins/Export/ExportLatex.php:99
 msgid "Include table caption"
 msgstr "包含資料表標題"
 
 #: libraries/classes/Config/Descriptions.php:691
 #: libraries/classes/Config/Descriptions.php:706
 #: libraries/classes/Config/Descriptions.php:742
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:419
-#: libraries/classes/Plugins/Export/ExportLatex.php:582
-#: libraries/classes/Plugins/Export/ExportOdt.php:521
-#: libraries/classes/Plugins/Export/ExportTexytext.php:415
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:427
+#: libraries/classes/Plugins/Export/ExportLatex.php:590
+#: libraries/classes/Plugins/Export/ExportOdt.php:529
+#: libraries/classes/Plugins/Export/ExportTexytext.php:423
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:729
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
@@ -3179,9 +3179,9 @@ msgstr "標籤鍵值"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:426
-#: libraries/classes/Plugins/Export/ExportOdt.php:528
-#: libraries/classes/Plugins/Export/ExportTexytext.php:420
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:434
+#: libraries/classes/Plugins/Export/ExportOdt.php:536
+#: libraries/classes/Plugins/Export/ExportTexytext.php:428
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:609
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
@@ -3204,8 +3204,8 @@ msgid "Save on server"
 msgstr "儲存在伺服器"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Config/Descriptions.php:715 templates/export.twig:164
-#: templates/export.twig:345
+#: libraries/classes/Config/Descriptions.php:715 templates/export.twig:172
+#: templates/export.twig:353
 msgid "Overwrite existing file(s)"
 msgstr "覆蓋既有檔案"
 
@@ -3244,12 +3244,12 @@ msgid "Use delayed inserts"
 msgstr "使用延遲新增"
 
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Plugins/Export/ExportSql.php:187
+#: libraries/classes/Plugins/Export/ExportSql.php:195
 msgid "Disable foreign key checks"
 msgstr "關閉外鍵檢查"
 
 #: libraries/classes/Config/Descriptions.php:723
-#: libraries/classes/Plugins/Export/ExportSql.php:201
+#: libraries/classes/Plugins/Export/ExportSql.php:209
 msgid "Export views as tables"
 msgstr "將檢視表匯出成資料表"
 
@@ -3281,7 +3281,7 @@ msgid ""
 msgstr "加入 IF NOT EXISTS (效率較差，因索引會在建立資料表時產生)"
 
 #: libraries/classes/Config/Descriptions.php:740
-#: libraries/classes/Plugins/Export/ExportSql.php:361
+#: libraries/classes/Plugins/Export/ExportSql.php:369
 #, php-format
 msgid "%s view"
 msgstr "%s 檢視"
@@ -3295,7 +3295,7 @@ msgid "Syntax to use when inserting data"
 msgstr "新增資料時使用的語法"
 
 #: libraries/classes/Config/Descriptions.php:744
-#: libraries/classes/Plugins/Export/ExportSql.php:498
+#: libraries/classes/Plugins/Export/ExportSql.php:506
 msgid "Maximal length of created query"
 msgstr "建立查詢指令的最大長度"
 
@@ -3304,7 +3304,7 @@ msgid "Export type"
 msgstr "匯出類型"
 
 #: libraries/classes/Config/Descriptions.php:750
-#: libraries/classes/Plugins/Export/ExportSql.php:173
+#: libraries/classes/Plugins/Export/ExportSql.php:181
 msgid "Enclose export in a transaction"
 msgstr "匯出資料時，將之包含在交易之內"
 
@@ -3394,7 +3394,7 @@ msgstr "伺服器"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:122
+#: libraries/classes/Plugins/Export/ExportXml.php:130
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3472,7 +3472,7 @@ msgid "Database structure"
 msgstr "資料庫結構"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:284
+#: libraries/classes/Plugins/Export/ExportPdf.php:292
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "資料表結構"
@@ -3524,8 +3524,8 @@ msgstr "部分匯入：允許中斷"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:138
-#: libraries/classes/Plugins/Import/ImportLdi.php:78
+#: libraries/classes/Plugins/Import/ImportCsv.php:146
+#: libraries/classes/Plugins/Import/ImportLdi.php:86
 msgid "Do not abort on INSERT error"
 msgstr "插入(INSERT)動作出錯時，不中斷匯入"
 
@@ -3539,7 +3539,7 @@ msgid "Format of imported file"
 msgstr "匯入檔案的格式"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:84
+#: libraries/classes/Plugins/Import/ImportLdi.php:92
 msgid "Use LOCAL keyword"
 msgstr "使用本地(LOCAL)關鍵字"
 
@@ -3548,7 +3548,7 @@ msgid "Column names in first row"
 msgstr "第一行資料為欄位名稱"
 
 #: libraries/classes/Config/Descriptions.php:818
-#: libraries/classes/Plugins/Import/ImportOds.php:80
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Do not import empty rows"
 msgstr "不匯入空資料列"
 
@@ -4097,7 +4097,7 @@ msgstr "忽略鎖定的資料表"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
-#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:703
 #: libraries/classes/Html/Generator.php:970
 #: libraries/classes/Server/UserGroups.php:129
@@ -4158,9 +4158,9 @@ msgstr "文字框列數"
 
 #: libraries/classes/Config/Descriptions.php:965
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:151
-#: libraries/classes/Plugins/Export/ExportOdt.php:197
-#: libraries/classes/Plugins/Export/ExportTexytext.php:135
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:159
+#: libraries/classes/Plugins/Export/ExportOdt.php:205
+#: libraries/classes/Plugins/Export/ExportTexytext.php:143
 #: libraries/classes/Server/Privileges.php:1920
 #: libraries/classes/Server/Privileges.php:1922
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
@@ -4189,7 +4189,7 @@ msgid "Server"
 msgstr "伺服器"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:519
+#: libraries/classes/Plugins/Export/ExportXml.php:527
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -4816,7 +4816,7 @@ msgid "No table selected."
 msgstr "尚未選擇資料表。"
 
 #: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:644
+#: libraries/classes/Controllers/ImportController.php:638
 #: libraries/classes/Controllers/Server/ImportController.php:63
 #: libraries/classes/Controllers/Table/ImportController.php:71
 msgid "Could not load import plugins, please check your installation!"
@@ -4885,7 +4885,7 @@ msgid "Table %s has been emptied."
 msgstr "已清空資料表 %s。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:820
-#: libraries/classes/Display/Results.php:4372
+#: libraries/classes/Display/Results.php:4380
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4909,11 +4909,11 @@ msgstr "成功！"
 #: libraries/classes/Controllers/Table/DropColumnController.php:63
 #: libraries/classes/Controllers/Table/StructureController.php:469
 #: libraries/classes/Controllers/Table/StructureController.php:493
-#: libraries/classes/IndexColumn.php:139 libraries/classes/Index.php:547
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:688
-#: libraries/classes/Plugins/Export/ExportLatex.php:663
-#: libraries/classes/Plugins/Export/ExportOdt.php:821
-#: libraries/classes/Plugins/Export/ExportTexytext.php:652
+#: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:696
+#: libraries/classes/Plugins/Export/ExportLatex.php:671
+#: libraries/classes/Plugins/Export/ExportOdt.php:829
+#: libraries/classes/Plugins/Export/ExportTexytext.php:660
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:801
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -5105,37 +5105,37 @@ msgstr ""
 "找不到 curl 擴充套件，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與"
 "版本檢查等，會無法使用。"
 
-#: libraries/classes/Controllers/ImportController.php:120
+#: libraries/classes/Controllers/ImportController.php:114
 msgid "Incomplete params"
 msgstr "參數不完整"
 
-#: libraries/classes/Controllers/ImportController.php:145
+#: libraries/classes/Controllers/ImportController.php:139
 msgid "Succeeded"
 msgstr "成功"
 
-#: libraries/classes/Controllers/ImportController.php:149
+#: libraries/classes/Controllers/ImportController.php:143
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "失敗"
 
-#: libraries/classes/Controllers/ImportController.php:261
+#: libraries/classes/Controllers/ImportController.php:255
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此問題。"
 
-#: libraries/classes/Controllers/ImportController.php:447
-#: libraries/classes/Controllers/ImportController.php:684
+#: libraries/classes/Controllers/ImportController.php:441
+#: libraries/classes/Controllers/ImportController.php:678
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: libraries/classes/Controllers/ImportController.php:473
-#: libraries/classes/Controllers/ImportController.php:680
+#: libraries/classes/Controllers/ImportController.php:467
+#: libraries/classes/Controllers/ImportController.php:674
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: libraries/classes/Controllers/ImportController.php:590
+#: libraries/classes/Controllers/ImportController.php:584
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5144,20 +5144,20 @@ msgstr ""
 "沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
 "制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: libraries/classes/Controllers/ImportController.php:687
+#: libraries/classes/Controllers/ImportController.php:681
 #: libraries/classes/Controllers/SqlController.php:397
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: libraries/classes/Controllers/ImportController.php:697
+#: libraries/classes/Controllers/ImportController.php:691
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
-#: libraries/classes/Controllers/ImportController.php:729
+#: libraries/classes/Controllers/ImportController.php:723
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5165,7 +5165,7 @@ msgid ""
 msgstr ""
 "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
-#: libraries/classes/Controllers/ImportController.php:739
+#: libraries/classes/Controllers/ImportController.php:733
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5173,7 +5173,7 @@ msgstr ""
 "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完"
 "成匯入。可試試增加 PHP 執行時間上限。"
 
-#: libraries/classes/Controllers/ImportController.php:816
+#: libraries/classes/Controllers/ImportController.php:810
 #: libraries/classes/Controllers/SqlController.php:176
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
@@ -5341,7 +5341,7 @@ msgid ""
 msgstr "確定要更改所有欄位編碼與排序並轉換資料？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
-#: templates/export.twig:300
+#: templates/export.twig:308
 msgid "Save & close"
 msgstr "儲存並關閉"
 
@@ -5469,7 +5469,7 @@ msgstr "正在刪除已選擇的使用者"
 #: libraries/classes/Tracking.php:240 libraries/classes/Tracking.php:651
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:176
+#: templates/export.twig:74 templates/export.twig:184
 #: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/server/privileges/users_overview.twig:169
 #: templates/server/privileges/users_overview.twig:177
@@ -5722,14 +5722,14 @@ msgid "Please add at least one variable to the series!"
 msgstr "請至少增加一個變數到資料序列！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
-#: libraries/classes/Display/Results.php:1337
-#: libraries/classes/Plugins/Export/ExportSql.php:2399
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:100
+#: libraries/classes/Display/Results.php:1341
+#: libraries/classes/Plugins/Export/ExportSql.php:2407
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:108
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:384
+#: templates/database/designer/main.twig:588 templates/export.twig:392
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -5942,9 +5942,9 @@ msgstr "狀態"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
-#: libraries/classes/Plugins/Export/ExportOdt.php:633
-#: libraries/classes/Plugins/Export/ExportTexytext.php:486
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:519
+#: libraries/classes/Plugins/Export/ExportOdt.php:641
+#: libraries/classes/Plugins/Export/ExportTexytext.php:494
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
@@ -5969,19 +5969,19 @@ msgid "Chart"
 msgstr "圖表"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:288
-#: templates/export.twig:192
+#: templates/export.twig:200
 msgctxt "Alias"
 msgid "Database"
 msgstr "資料庫"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:289
-#: templates/export.twig:206
+#: templates/export.twig:214
 msgctxt "Alias"
 msgid "Table"
 msgstr "資料表"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:290
-#: templates/export.twig:219
+#: templates/export.twig:227
 msgctxt "Alias"
 msgid "Column"
 msgstr "欄位"
@@ -6194,12 +6194,12 @@ msgid "Changing charset"
 msgstr "更改字元編碼"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
-#: libraries/classes/IndexColumn.php:136 libraries/classes/Index.php:520
-#: libraries/classes/Index.php:548
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:687
-#: libraries/classes/Plugins/Export/ExportLatex.php:663
-#: libraries/classes/Plugins/Export/ExportOdt.php:820
-#: libraries/classes/Plugins/Export/ExportTexytext.php:652
+#: libraries/classes/IndexColumn.php:163 libraries/classes/Index.php:523
+#: libraries/classes/Index.php:551
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:695
+#: libraries/classes/Plugins/Export/ExportLatex.php:671
+#: libraries/classes/Plugins/Export/ExportOdt.php:828
+#: libraries/classes/Plugins/Export/ExportTexytext.php:660
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:800
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -6232,7 +6232,7 @@ msgstr "否"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:192
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "啟用外鍵檢查"
@@ -6311,7 +6311,7 @@ msgid "Show query box"
 msgstr "顯示查詢框"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
-#: libraries/classes/Display/Results.php:3286
+#: libraries/classes/Display/Results.php:3290
 #: libraries/classes/Tracking.php:263 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6579,13 +6579,13 @@ msgstr "資料點內容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:663
-#: libraries/classes/ErrorHandler.php:425 libraries/classes/InsertEdit.php:2152
+#: libraries/classes/ErrorHandler.php:431 libraries/classes/InsertEdit.php:2152
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "略過"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:491
-#: libraries/classes/Display/Results.php:3219
+#: libraries/classes/Display/Results.php:3223
 #: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7003,7 +7003,7 @@ msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:666
-#: libraries/classes/ErrorHandler.php:430
+#: libraries/classes/ErrorHandler.php:436
 msgid "Ignore All"
 msgstr "全部略過"
 
@@ -8105,7 +8105,7 @@ msgstr "已有 %s 資料表！"
 #: libraries/classes/Controllers/Table/RelationController.php:285
 #: libraries/classes/Controllers/ViewOperationsController.php:86
 #: libraries/classes/Database/Routines.php:1332
-#: libraries/classes/Display/Results.php:4047 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:4055 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
@@ -8788,18 +8788,18 @@ msgctxt "Last page"
 msgid "End"
 msgstr "最末頁"
 
-#: libraries/classes/Display/Results.php:1569
+#: libraries/classes/Display/Results.php:1573
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "部分內容"
 
-#: libraries/classes/Display/Results.php:1573
+#: libraries/classes/Display/Results.php:1577
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "完整內容"
 
-#: libraries/classes/Display/Results.php:1973
-#: libraries/classes/Display/Results.php:1999 libraries/classes/Util.php:2721
+#: libraries/classes/Display/Results.php:1977
+#: libraries/classes/Display/Results.php:2003 libraries/classes/Util.php:2721
 #: libraries/classes/Util.php:2744 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -8812,8 +8812,8 @@ msgstr "完整內容"
 msgid "Descending"
 msgstr "遞減"
 
-#: libraries/classes/Display/Results.php:1981
-#: libraries/classes/Display/Results.php:1991 libraries/classes/Util.php:2713
+#: libraries/classes/Display/Results.php:1985
+#: libraries/classes/Display/Results.php:1995 libraries/classes/Util.php:2713
 #: libraries/classes/Util.php:2736 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8826,41 +8826,41 @@ msgstr "遞減"
 msgid "Ascending"
 msgstr "遞增"
 
-#: libraries/classes/Display/Results.php:3262
-#: libraries/classes/Display/Results.php:3277
+#: libraries/classes/Display/Results.php:3266
+#: libraries/classes/Display/Results.php:3281
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: libraries/classes/Display/Results.php:3309
+#: libraries/classes/Display/Results.php:3313
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "中止"
 
-#: libraries/classes/Display/Results.php:3971
+#: libraries/classes/Display/Results.php:3979
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "可能為近似值，請參閱[doc@faq3-11]常見問題(FAQ) 3.11[/doc]。"
 
-#: libraries/classes/Display/Results.php:4384
+#: libraries/classes/Display/Results.php:4392
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "顯示第 %1s - %2s 列"
 
-#: libraries/classes/Display/Results.php:4398
+#: libraries/classes/Display/Results.php:4406
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 
-#: libraries/classes/Display/Results.php:4403
+#: libraries/classes/Display/Results.php:4411
 #, php-format
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/classes/Display/Results.php:4416 libraries/classes/Sql.php:1068
+#: libraries/classes/Display/Results.php:4424 libraries/classes/Sql.php:1068
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4796
+#: libraries/classes/Display/Results.php:4804
 msgid "Link not found!"
 msgstr "無此連結！"
 
@@ -9196,11 +9196,11 @@ msgstr "有關 PBXT 的說明文件及更多資訊，請參訪 %sPrimeBase XT �
 msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，還有一些未有顯示出來。"
 
-#: libraries/classes/ErrorHandler.php:414
+#: libraries/classes/ErrorHandler.php:420
 msgid "Report"
 msgstr "報告"
 
-#: libraries/classes/ErrorHandler.php:419 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:425 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "下次自動傳送錯誤報告"
 
@@ -9399,27 +9399,27 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr "點選「結構」連結以編輯。"
 
 #: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
-#: libraries/classes/Plugins/Export/ExportCodegen.php:73
-#: libraries/classes/Plugins/Export/ExportCsv.php:49
-#: libraries/classes/Plugins/Export/ExportExcel.php:36
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:49
-#: libraries/classes/Plugins/Export/ExportJson.php:81
-#: libraries/classes/Plugins/Export/ExportLatex.php:77
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:48
-#: libraries/classes/Plugins/Export/ExportOds.php:54
-#: libraries/classes/Plugins/Export/ExportOdt.php:63
-#: libraries/classes/Plugins/Export/ExportPdf.php:74
-#: libraries/classes/Plugins/Export/ExportPhparray.php:48
-#: libraries/classes/Plugins/Export/ExportSql.php:116
-#: libraries/classes/Plugins/Export/ExportTexytext.php:48
-#: libraries/classes/Plugins/Export/ExportXml.php:81
-#: libraries/classes/Plugins/Export/ExportYaml.php:47
+#: libraries/classes/Plugins/Export/ExportCodegen.php:81
+#: libraries/classes/Plugins/Export/ExportCsv.php:57
+#: libraries/classes/Plugins/Export/ExportExcel.php:44
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:57
+#: libraries/classes/Plugins/Export/ExportJson.php:89
+#: libraries/classes/Plugins/Export/ExportLatex.php:85
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:56
+#: libraries/classes/Plugins/Export/ExportOds.php:62
+#: libraries/classes/Plugins/Export/ExportOdt.php:71
+#: libraries/classes/Plugins/Export/ExportPdf.php:82
+#: libraries/classes/Plugins/Export/ExportPhparray.php:56
+#: libraries/classes/Plugins/Export/ExportSql.php:124
+#: libraries/classes/Plugins/Export/ExportTexytext.php:56
+#: libraries/classes/Plugins/Export/ExportXml.php:89
+#: libraries/classes/Plugins/Export/ExportYaml.php:55
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:63
-#: libraries/classes/Plugins/Import/ImportOds.php:57
-#: libraries/classes/Plugins/Import/ImportShp.php:70
-#: libraries/classes/Plugins/Import/ImportSql.php:50
-#: libraries/classes/Plugins/Import/ImportXml.php:55
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:71
+#: libraries/classes/Plugins/Import/ImportOds.php:65
+#: libraries/classes/Plugins/Import/ImportShp.php:78
+#: libraries/classes/Plugins/Import/ImportSql.php:58
+#: libraries/classes/Plugins/Import/ImportXml.php:63
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
@@ -9464,7 +9464,7 @@ msgstr ""
 "只有支援交易引擎資料表中的插入(INSERT)、更新(UPDATE)、刪除(DELETE)與取代"
 "(REPLACE)查詢能還原(roll back)。"
 
-#: libraries/classes/Index.php:648
+#: libraries/classes/Index.php:651
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -9480,13 +9480,13 @@ msgid "Function"
 msgstr "函式"
 
 #: libraries/classes/InsertEdit.php:357
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:302
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:403
-#: libraries/classes/Plugins/Export/ExportLatex.php:574
-#: libraries/classes/Plugins/Export/ExportOdt.php:399
-#: libraries/classes/Plugins/Export/ExportOdt.php:505
-#: libraries/classes/Plugins/Export/ExportTexytext.php:313
-#: libraries/classes/Plugins/Export/ExportTexytext.php:407
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:310
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:411
+#: libraries/classes/Plugins/Export/ExportLatex.php:582
+#: libraries/classes/Plugins/Export/ExportOdt.php:407
+#: libraries/classes/Plugins/Export/ExportOdt.php:513
+#: libraries/classes/Plugins/Export/ExportTexytext.php:321
+#: libraries/classes/Plugins/Export/ExportTexytext.php:415
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
@@ -9534,13 +9534,13 @@ msgstr "網頁伺服器上傳資料夾："
 
 #: libraries/classes/InsertEdit.php:1037
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:299
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:400
-#: libraries/classes/Plugins/Export/ExportLatex.php:573
-#: libraries/classes/Plugins/Export/ExportOdt.php:396
-#: libraries/classes/Plugins/Export/ExportOdt.php:502
-#: libraries/classes/Plugins/Export/ExportTexytext.php:312
-#: libraries/classes/Plugins/Export/ExportTexytext.php:406
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:307
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:408
+#: libraries/classes/Plugins/Export/ExportLatex.php:581
+#: libraries/classes/Plugins/Export/ExportOdt.php:404
+#: libraries/classes/Plugins/Export/ExportOdt.php:510
+#: libraries/classes/Plugins/Export/ExportTexytext.php:320
+#: libraries/classes/Plugins/Export/ExportTexytext.php:414
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
@@ -9565,13 +9565,13 @@ msgid "Column"
 msgstr "欄位"
 
 #: libraries/classes/InsertEdit.php:1047
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:305
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:406
-#: libraries/classes/Plugins/Export/ExportLatex.php:575
-#: libraries/classes/Plugins/Export/ExportOdt.php:402
-#: libraries/classes/Plugins/Export/ExportOdt.php:508
-#: libraries/classes/Plugins/Export/ExportTexytext.php:314
-#: libraries/classes/Plugins/Export/ExportTexytext.php:408
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:313
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:414
+#: libraries/classes/Plugins/Export/ExportLatex.php:583
+#: libraries/classes/Plugins/Export/ExportOdt.php:410
+#: libraries/classes/Plugins/Export/ExportOdt.php:516
+#: libraries/classes/Plugins/Export/ExportTexytext.php:322
+#: libraries/classes/Plugins/Export/ExportTexytext.php:416
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
@@ -9687,12 +9687,12 @@ msgstr "追蹤"
 #: libraries/classes/Menu.php:365 libraries/classes/Menu.php:463
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:605
-#: libraries/classes/Plugins/Export/ExportOdt.php:741
-#: libraries/classes/Plugins/Export/ExportPdf.php:287
-#: libraries/classes/Plugins/Export/ExportSql.php:2239
-#: libraries/classes/Plugins/Export/ExportTexytext.php:574
-#: libraries/classes/Plugins/Export/ExportXml.php:127
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:613
+#: libraries/classes/Plugins/Export/ExportOdt.php:749
+#: libraries/classes/Plugins/Export/ExportPdf.php:295
+#: libraries/classes/Plugins/Export/ExportSql.php:2247
+#: libraries/classes/Plugins/Export/ExportTexytext.php:582
+#: libraries/classes/Plugins/Export/ExportXml.php:135
 #: libraries/classes/Util.php:2095 libraries/classes/Util.php:2111
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -9715,8 +9715,8 @@ msgstr "預存程序"
 #: libraries/classes/Menu.php:456
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1051
-#: libraries/classes/Plugins/Export/ExportXml.php:107
+#: libraries/classes/Plugins/Export/ExportSql.php:1059
+#: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Util.php:2094 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "事件"
@@ -9873,9 +9873,9 @@ msgid "New"
 msgstr "新增"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:512
-#: libraries/classes/Plugins/Export/ExportOdt.php:636
-#: libraries/classes/Plugins/Export/ExportTexytext.php:487
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:520
+#: libraries/classes/Plugins/Export/ExportOdt.php:644
+#: libraries/classes/Plugins/Export/ExportTexytext.php:495
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:413
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -9884,8 +9884,8 @@ msgstr "事件"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:638
-#: libraries/classes/Plugins/Export/ExportXml.php:112
+#: libraries/classes/Plugins/Export/ExportSql.php:646
+#: libraries/classes/Plugins/Export/ExportXml.php:120
 msgid "Functions"
 msgstr "函式"
 
@@ -9905,8 +9905,8 @@ msgstr "展開／摺疊"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:627
-#: libraries/classes/Plugins/Export/ExportXml.php:117
+#: libraries/classes/Plugins/Export/ExportSql.php:635
+#: libraries/classes/Plugins/Export/ExportXml.php:125
 msgid "Procedures"
 msgstr "程序"
 
@@ -9937,7 +9937,7 @@ msgstr "觸發器"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:132
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "檢視表"
@@ -10378,7 +10378,7 @@ msgstr "無權登入此 MySQL 伺服器！"
 msgid "Wrong username/password. Access denied."
 msgstr "帳號／密碼錯誤，存取遭拒。"
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:155
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:157
 msgid "Can not find signon authentication script:"
 msgstr "找不到 signon 認證指令："
 
@@ -10403,111 +10403,111 @@ msgstr "無法登入 MySQL 伺服器"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "已啟用雙因素認證，請確認登入。"
 
-#: libraries/classes/Plugins/Export/ExportCodegen.php:89
-#: templates/export.twig:108 templates/import.twig:197
+#: libraries/classes/Plugins/Export/ExportCodegen.php:97
+#: templates/export.twig:108 templates/import.twig:196
 msgid "Format:"
 msgstr "格式："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:63
+#: libraries/classes/Plugins/Export/ExportCsv.php:71
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
 msgid "Columns separated with:"
 msgstr "欄位分隔符號："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:68
+#: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:62
 msgid "Columns enclosed with:"
 msgstr "欄位包覆符號："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:73
+#: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:69
 msgid "Columns escaped with:"
 msgstr "欄位跳脫符號："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:78
+#: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:76
 msgid "Lines terminated with:"
 msgstr "換行符號："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:83
-#: libraries/classes/Plugins/Export/ExportExcel.php:50
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:85
-#: libraries/classes/Plugins/Export/ExportLatex.php:198
-#: libraries/classes/Plugins/Export/ExportOds.php:68
-#: libraries/classes/Plugins/Export/ExportOdt.php:137
-#: libraries/classes/Plugins/Export/ExportTexytext.php:89
+#: libraries/classes/Plugins/Export/ExportCsv.php:91
+#: libraries/classes/Plugins/Export/ExportExcel.php:58
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:93
+#: libraries/classes/Plugins/Export/ExportLatex.php:206
+#: libraries/classes/Plugins/Export/ExportOds.php:76
+#: libraries/classes/Plugins/Export/ExportOdt.php:145
+#: libraries/classes/Plugins/Export/ExportTexytext.php:97
 msgid "Replace NULL with:"
 msgstr "將 NULL 取代為："
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:88
-#: libraries/classes/Plugins/Export/ExportExcel.php:55
+#: libraries/classes/Plugins/Export/ExportCsv.php:96
+#: libraries/classes/Plugins/Export/ExportExcel.php:63
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "移除欄位中的換行符號(CR/LF)"
 
-#: libraries/classes/Plugins/Export/ExportExcel.php:65
+#: libraries/classes/Plugins/Export/ExportExcel.php:73
 msgid "Excel edition:"
 msgstr "Excel 版本："
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:67
-#: libraries/classes/Plugins/Export/ExportLatex.php:106
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:71
-#: libraries/classes/Plugins/Export/ExportOdt.php:81
-#: libraries/classes/Plugins/Export/ExportPdf.php:102
-#: libraries/classes/Plugins/Export/ExportSql.php:247
-#: libraries/classes/Plugins/Export/ExportTexytext.php:66
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:75
+#: libraries/classes/Plugins/Export/ExportLatex.php:114
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:79
+#: libraries/classes/Plugins/Export/ExportOdt.php:89
+#: libraries/classes/Plugins/Export/ExportPdf.php:110
+#: libraries/classes/Plugins/Export/ExportSql.php:255
+#: libraries/classes/Plugins/Export/ExportTexytext.php:74
 #: libraries/config.values.php:254 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure"
 msgstr "結構"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:68
-#: libraries/classes/Plugins/Export/ExportLatex.php:107
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:72
-#: libraries/classes/Plugins/Export/ExportOdt.php:82
-#: libraries/classes/Plugins/Export/ExportPdf.php:103
-#: libraries/classes/Plugins/Export/ExportSql.php:248
-#: libraries/classes/Plugins/Export/ExportTexytext.php:67
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:76
+#: libraries/classes/Plugins/Export/ExportLatex.php:115
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:80
+#: libraries/classes/Plugins/Export/ExportOdt.php:90
+#: libraries/classes/Plugins/Export/ExportPdf.php:111
+#: libraries/classes/Plugins/Export/ExportSql.php:256
+#: libraries/classes/Plugins/Export/ExportTexytext.php:75
 #: libraries/config.values.php:255 libraries/config.values.php:321
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
 msgstr "資料"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:69
-#: libraries/classes/Plugins/Export/ExportLatex.php:108
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:73
-#: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:104
-#: libraries/classes/Plugins/Export/ExportSql.php:249
-#: libraries/classes/Plugins/Export/ExportTexytext.php:68
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:77
+#: libraries/classes/Plugins/Export/ExportLatex.php:116
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:81
+#: libraries/classes/Plugins/Export/ExportOdt.php:91
+#: libraries/classes/Plugins/Export/ExportPdf.php:112
+#: libraries/classes/Plugins/Export/ExportSql.php:257
+#: libraries/classes/Plugins/Export/ExportTexytext.php:76
 #: libraries/config.values.php:256 libraries/config.values.php:322
 #: libraries/config.values.php:338 libraries/config.values.php:346
 #: libraries/config.values.php:351
 msgid "structure and data"
 msgstr "結構和資料"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:79
-#: libraries/classes/Plugins/Export/ExportLatex.php:169
-#: libraries/classes/Plugins/Export/ExportOdt.php:126
-#: libraries/classes/Plugins/Export/ExportTexytext.php:78
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:87
+#: libraries/classes/Plugins/Export/ExportLatex.php:177
+#: libraries/classes/Plugins/Export/ExportOdt.php:134
+#: libraries/classes/Plugins/Export/ExportTexytext.php:86
+#: libraries/classes/Plugins/Export/ExportXml.php:148
 msgid "Data dump options"
 msgstr "資料傾印選項"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:210
-#: libraries/classes/Plugins/Export/ExportOdt.php:267
-#: libraries/classes/Plugins/Export/ExportSql.php:2559
-#: libraries/classes/Plugins/Export/ExportTexytext.php:194
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:218
+#: libraries/classes/Plugins/Export/ExportOdt.php:275
+#: libraries/classes/Plugins/Export/ExportSql.php:2567
+#: libraries/classes/Plugins/Export/ExportTexytext.php:202
 msgid "Dumping data for table"
 msgstr "傾印資料表的資料"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:308
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:409
-#: libraries/classes/Plugins/Export/ExportLatex.php:576
-#: libraries/classes/Plugins/Export/ExportOdt.php:405
-#: libraries/classes/Plugins/Export/ExportOdt.php:511
-#: libraries/classes/Plugins/Export/ExportTexytext.php:315
-#: libraries/classes/Plugins/Export/ExportTexytext.php:409
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:316
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:417
+#: libraries/classes/Plugins/Export/ExportLatex.php:584
+#: libraries/classes/Plugins/Export/ExportOdt.php:413
+#: libraries/classes/Plugins/Export/ExportOdt.php:519
+#: libraries/classes/Plugins/Export/ExportTexytext.php:323
+#: libraries/classes/Plugins/Export/ExportTexytext.php:417
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
@@ -10523,10 +10523,10 @@ msgstr "傾印資料表的資料"
 msgid "Default"
 msgstr "預設值"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:413
-#: libraries/classes/Plugins/Export/ExportLatex.php:578
-#: libraries/classes/Plugins/Export/ExportOdt.php:515
-#: libraries/classes/Plugins/Export/ExportTexytext.php:411
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:421
+#: libraries/classes/Plugins/Export/ExportLatex.php:586
+#: libraries/classes/Plugins/Export/ExportOdt.php:523
+#: libraries/classes/Plugins/Export/ExportTexytext.php:419
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
@@ -10534,9 +10534,9 @@ msgstr "預設值"
 msgid "Links to"
 msgstr "連結到"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:510
-#: libraries/classes/Plugins/Export/ExportOdt.php:630
-#: libraries/classes/Plugins/Export/ExportTexytext.php:485
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:518
+#: libraries/classes/Plugins/Export/ExportOdt.php:638
+#: libraries/classes/Plugins/Export/ExportTexytext.php:493
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:409
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -10553,9 +10553,9 @@ msgstr "連結到"
 msgid "Name"
 msgstr "名稱"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:513
-#: libraries/classes/Plugins/Export/ExportOdt.php:639
-#: libraries/classes/Plugins/Export/ExportTexytext.php:488
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:521
+#: libraries/classes/Plugins/Export/ExportOdt.php:647
+#: libraries/classes/Plugins/Export/ExportTexytext.php:496
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:415
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -10563,226 +10563,226 @@ msgstr "名稱"
 msgid "Definition"
 msgstr "定義"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:587
-#: libraries/classes/Plugins/Export/ExportOdt.php:719
-#: libraries/classes/Plugins/Export/ExportSql.php:2208
-#: libraries/classes/Plugins/Export/ExportTexytext.php:554
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:595
+#: libraries/classes/Plugins/Export/ExportOdt.php:727
+#: libraries/classes/Plugins/Export/ExportSql.php:2216
+#: libraries/classes/Plugins/Export/ExportTexytext.php:562
 msgid "Table structure for table"
 msgstr "資料表結構"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportOdt.php:751
-#: libraries/classes/Plugins/Export/ExportSql.php:2282
-#: libraries/classes/Plugins/Export/ExportTexytext.php:580
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:621
+#: libraries/classes/Plugins/Export/ExportOdt.php:759
+#: libraries/classes/Plugins/Export/ExportSql.php:2290
+#: libraries/classes/Plugins/Export/ExportTexytext.php:588
 msgid "Structure for view"
 msgstr "檢視表結構"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:627
-#: libraries/classes/Plugins/Export/ExportOdt.php:771
-#: libraries/classes/Plugins/Export/ExportSql.php:2330
-#: libraries/classes/Plugins/Export/ExportTexytext.php:596
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:635
+#: libraries/classes/Plugins/Export/ExportOdt.php:779
+#: libraries/classes/Plugins/Export/ExportSql.php:2338
+#: libraries/classes/Plugins/Export/ExportTexytext.php:604
 msgid "Stand-in structure for view"
 msgstr "替換檢視表以便查看"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:98
+#: libraries/classes/Plugins/Export/ExportJson.php:106
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "輸出格式化的 JSON (使用人可讀的格式)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:104
+#: libraries/classes/Plugins/Export/ExportJson.php:112
 msgid "Output unicode characters unescaped"
 msgstr "輸出未帶逸出字元的 Unicode"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:52
+#: libraries/classes/Plugins/Export/ExportLatex.php:60
 msgid "Content of table @TABLE@"
 msgstr "@TABLE@ 表的內容"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:53
+#: libraries/classes/Plugins/Export/ExportLatex.php:61
 msgid "(continued)"
 msgstr "(續)"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:54
+#: libraries/classes/Plugins/Export/ExportLatex.php:62
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ 資料表結構"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:119
-#: libraries/classes/Plugins/Export/ExportOdt.php:94
-#: libraries/classes/Plugins/Export/ExportSql.php:262
+#: libraries/classes/Plugins/Export/ExportLatex.php:127
+#: libraries/classes/Plugins/Export/ExportOdt.php:102
+#: libraries/classes/Plugins/Export/ExportSql.php:270
 msgid "Object creation options"
 msgstr "物件建立選項"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:125
-#: libraries/classes/Plugins/Export/ExportLatex.php:180
+#: libraries/classes/Plugins/Export/ExportLatex.php:133
+#: libraries/classes/Plugins/Export/ExportLatex.php:188
 msgid "Table caption:"
 msgstr "表格標題："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:131
-#: libraries/classes/Plugins/Export/ExportLatex.php:186
+#: libraries/classes/Plugins/Export/ExportLatex.php:139
+#: libraries/classes/Plugins/Export/ExportLatex.php:194
 msgid "Table caption (continued):"
 msgstr "表格標題(續)："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:137
-#: libraries/classes/Plugins/Export/ExportLatex.php:192
+#: libraries/classes/Plugins/Export/ExportLatex.php:145
+#: libraries/classes/Plugins/Export/ExportLatex.php:200
 msgid "Label key:"
 msgstr "標籤名稱："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:144
-#: libraries/classes/Plugins/Export/ExportOdt.php:101
-#: libraries/classes/Plugins/Export/ExportSql.php:155
+#: libraries/classes/Plugins/Export/ExportLatex.php:152
+#: libraries/classes/Plugins/Export/ExportOdt.php:109
+#: libraries/classes/Plugins/Export/ExportSql.php:163
 msgid "Display foreign key relationships"
 msgstr "顯示外鍵的關聯"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:151
-#: libraries/classes/Plugins/Export/ExportOdt.php:108
+#: libraries/classes/Plugins/Export/ExportLatex.php:159
+#: libraries/classes/Plugins/Export/ExportOdt.php:116
 msgid "Display comments"
 msgstr "顯示備註"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:157
-#: libraries/classes/Plugins/Export/ExportOdt.php:114
-#: libraries/classes/Plugins/Export/ExportSql.php:163
+#: libraries/classes/Plugins/Export/ExportLatex.php:165
+#: libraries/classes/Plugins/Export/ExportOdt.php:122
+#: libraries/classes/Plugins/Export/ExportSql.php:171
 msgid "Display media types"
 msgstr "顯示媒體類型"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:175
+#: libraries/classes/Plugins/Export/ExportLatex.php:183
 msgid "Put columns names in the first row:"
 msgstr "首行儲存欄位名稱："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:222
-#: libraries/classes/Plugins/Export/ExportSql.php:768
-#: libraries/classes/Plugins/Export/ExportXml.php:243
+#: libraries/classes/Plugins/Export/ExportLatex.php:230
+#: libraries/classes/Plugins/Export/ExportSql.php:776
+#: libraries/classes/Plugins/Export/ExportXml.php:251
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
 msgstr "主機："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:228
-#: libraries/classes/Plugins/Export/ExportSql.php:775
-#: libraries/classes/Plugins/Export/ExportXml.php:249
+#: libraries/classes/Plugins/Export/ExportLatex.php:236
+#: libraries/classes/Plugins/Export/ExportSql.php:783
+#: libraries/classes/Plugins/Export/ExportXml.php:257
 msgid "Generation Time:"
 msgstr "產生時間："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:230
-#: libraries/classes/Plugins/Export/ExportSql.php:779
-#: libraries/classes/Plugins/Export/ExportXml.php:251
+#: libraries/classes/Plugins/Export/ExportLatex.php:238
+#: libraries/classes/Plugins/Export/ExportSql.php:787
+#: libraries/classes/Plugins/Export/ExportXml.php:259
 #: templates/home/index.twig:165
 msgid "Server version:"
 msgstr "伺服器版本："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:231
-#: libraries/classes/Plugins/Export/ExportSql.php:781
-#: libraries/classes/Plugins/Export/ExportXml.php:252
+#: libraries/classes/Plugins/Export/ExportLatex.php:239
+#: libraries/classes/Plugins/Export/ExportSql.php:789
+#: libraries/classes/Plugins/Export/ExportXml.php:260
 msgid "PHP Version:"
 msgstr "PHP 版本："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:262
-#: libraries/classes/Plugins/Export/ExportSql.php:980
-#: libraries/classes/Plugins/Export/ExportXml.php:425
+#: libraries/classes/Plugins/Export/ExportLatex.php:270
+#: libraries/classes/Plugins/Export/ExportSql.php:988
+#: libraries/classes/Plugins/Export/ExportXml.php:433
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "資料庫："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:338
-#: libraries/classes/Plugins/Export/ExportSql.php:2399
+#: libraries/classes/Plugins/Export/ExportLatex.php:346
+#: libraries/classes/Plugins/Export/ExportSql.php:2407
 msgid "Data:"
 msgstr "資料："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:551
+#: libraries/classes/Plugins/Export/ExportLatex.php:559
 msgid "Structure:"
 msgstr "結構："
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:82
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:90
 msgid "Export table names"
 msgstr "匯出資料表的名稱"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:89
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:97
 msgid "Export table headers"
 msgstr "匯出資料表的標題"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:268
-#: libraries/classes/Plugins/Export/ExportTexytext.php:195
+#: libraries/classes/Plugins/Export/ExportOdt.php:276
+#: libraries/classes/Plugins/Export/ExportTexytext.php:203
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "傾印資料表的資料"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportPdf.php:96
 msgid "Report title:"
 msgstr "報告標題："
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:214
+#: libraries/classes/Plugins/Export/ExportPdf.php:222
 msgid "Dumping data"
 msgstr "傾印資料"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:234
+#: libraries/classes/Plugins/Export/ExportPdf.php:242
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "查詢結果"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:290
+#: libraries/classes/Plugins/Export/ExportPdf.php:298
 msgid "View structure"
 msgstr "檢視結構"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:293
+#: libraries/classes/Plugins/Export/ExportPdf.php:301
 msgid "Stand in"
 msgstr "加入"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:133
+#: libraries/classes/Plugins/Export/ExportSql.php:141
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr "顯示備註 <i>(包括匯出時間、PHP 版本和伺服器版本等資訊)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:141
+#: libraries/classes/Plugins/Export/ExportSql.php:149
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "在檔頭新增自訂備註 (\\n 為換行)："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:147
+#: libraries/classes/Plugins/Export/ExportSql.php:155
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr "包含資料庫建立、最後更新和最後檢查的時間"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:208
+#: libraries/classes/Plugins/Export/ExportSql.php:216
 msgid "Export metadata"
 msgstr "匯出 Metadata"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:223
+#: libraries/classes/Plugins/Export/ExportSql.php:231
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "相容其他資料庫系統或舊版本的 MySQL 伺服器："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:270
+#: libraries/classes/Plugins/Export/ExportSql.php:278
 msgid "Add statements:"
 msgstr "加入指令(statement)："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:278
-#: libraries/classes/Plugins/Export/ExportSql.php:287
-#: libraries/classes/Plugins/Export/ExportSql.php:308
-#: libraries/classes/Plugins/Export/ExportSql.php:317
-#: libraries/classes/Plugins/Export/ExportSql.php:342
-#: libraries/classes/Plugins/Export/ExportSql.php:370
-#: libraries/classes/Plugins/Export/ExportSql.php:379
+#: libraries/classes/Plugins/Export/ExportSql.php:286
+#: libraries/classes/Plugins/Export/ExportSql.php:295
+#: libraries/classes/Plugins/Export/ExportSql.php:316
+#: libraries/classes/Plugins/Export/ExportSql.php:325
+#: libraries/classes/Plugins/Export/ExportSql.php:350
+#: libraries/classes/Plugins/Export/ExportSql.php:378
+#: libraries/classes/Plugins/Export/ExportSql.php:387
 #, php-format
 msgid "Add %s statement"
 msgstr "加入 %s 指令"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:324
+#: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(較無效率，因索引會在資料表建立時產生)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:332
+#: libraries/classes/Plugins/Export/ExportSql.php:340
 #, php-format
 msgid "%s value"
 msgstr "%s 值"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:349
+#: libraries/classes/Plugins/Export/ExportSql.php:357
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:388
+#: libraries/classes/Plugins/Export/ExportSql.php:396
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -10790,37 +10790,37 @@ msgstr ""
 "給資料表名稱和欄位名稱加上反引號 <i>(保護名稱中含有特殊字元或保留字的欄位和"
 "表)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:403
+#: libraries/classes/Plugins/Export/ExportSql.php:411
 msgid "Data creation options"
 msgstr "資料建立選項"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:408
-#: libraries/classes/Plugins/Export/ExportSql.php:2505
+#: libraries/classes/Plugins/Export/ExportSql.php:416
+#: libraries/classes/Plugins/Export/ExportSql.php:2513
 msgid "Truncate table before insert"
 msgstr "資料表新增資料前，先清除舊資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:415
+#: libraries/classes/Plugins/Export/ExportSql.php:423
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "使用以下方式代替新增指令 <code>INSERT</code>："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:421
+#: libraries/classes/Plugins/Export/ExportSql.php:429
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "使用延遲新增 <code>INSERT DELAYED</code> 指令"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:433
-#: libraries/classes/Plugins/Export/ExportSql.php:467
+#: libraries/classes/Plugins/Export/ExportSql.php:441
+#: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "使用忽略錯誤的新增 <code>INSERT IGNORE</code> 指令"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:447
+#: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Function to use when dumping data:"
 msgstr "傾印資料時使用的函式："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:462
+#: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid "Syntax to use when inserting data:"
 msgstr "新增資料時使用的語法："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:472
+#: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -10829,7 +10829,7 @@ msgstr ""
 "每個新增指令 <code>INSERT</code> 均加上欄位名稱 <br> &nbsp; &nbsp; &nbsp; "
 "如: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:477
+#: libraries/classes/Plugins/Export/ExportSql.php:485
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -10838,7 +10838,7 @@ msgstr ""
 "每個新增指令 <code>INSERT</code> 均新增多筆資料<br> &nbsp; &nbsp; &nbsp; 如: "
 "<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:482
+#: libraries/classes/Plugins/Export/ExportSql.php:490
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -10846,7 +10846,7 @@ msgstr ""
 "以上皆是<br> &nbsp; &nbsp; &nbsp; 如: <code>INSERT INTO tbl_name (col_A,"
 "col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:487
+#: libraries/classes/Plugins/Export/ExportSql.php:495
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -10854,7 +10854,7 @@ msgstr ""
 "以上皆非<br> &nbsp; &nbsp; &nbsp; 如: <code>INSERT INTO tbl_name VALUES "
 "(1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:506
+#: libraries/classes/Plugins/Export/ExportSql.php:514
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -10862,7 +10862,7 @@ msgstr ""
 "傾印二進位欄位時，使用 16 進位(HEX)表示法 <i>(例如 abc 會以 0x616263 表示)</"
 "i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:516
+#: libraries/classes/Plugins/Export/ExportSql.php:524
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -10870,109 +10870,109 @@ msgstr ""
 "傾印 TIMESTAMP 欄位時，使用 UTC 時間 <i>(令 TIMESTAMP 欄位匯出的資料，可以重"
 "新載入到不同時區的伺服器)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:584
+#: libraries/classes/Plugins/Export/ExportSql.php:592
 msgid "It appears your database uses routines;"
 msgstr "資料庫使用了預存程序；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:587
-#: libraries/classes/Plugins/Export/ExportSql.php:1716
-#: libraries/classes/Plugins/Export/ExportSql.php:2270
+#: libraries/classes/Plugins/Export/ExportSql.php:595
+#: libraries/classes/Plugins/Export/ExportSql.php:1724
+#: libraries/classes/Plugins/Export/ExportSql.php:2278
 msgid "alias export may not work reliably in all cases."
 msgstr "別名匯出可能無法在所有情況正常運作。"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1097
+#: libraries/classes/Plugins/Export/ExportSql.php:1105
 msgid "Metadata"
 msgstr "元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1171
+#: libraries/classes/Plugins/Export/ExportSql.php:1179
 #, php-format
 msgid "Metadata for table %s"
 msgstr "資料表 %s 的元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1178
+#: libraries/classes/Plugins/Export/ExportSql.php:1186
 #, php-format
 msgid "Metadata for database %s"
 msgstr "資料庫 %s 的元資料"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1534
+#: libraries/classes/Plugins/Export/ExportSql.php:1542
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:675
 msgid "Creation:"
 msgstr "建立時間："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1548
+#: libraries/classes/Plugins/Export/ExportSql.php:1556
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:686
 msgid "Last update:"
 msgstr "最後更新："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1562
+#: libraries/classes/Plugins/Export/ExportSql.php:1570
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:697
 msgid "Last check:"
 msgstr "最後檢查："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1621
+#: libraries/classes/Plugins/Export/ExportSql.php:1629
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "讀取資料表 %s 的結構時出現錯誤："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1713
+#: libraries/classes/Plugins/Export/ExportSql.php:1721
 msgid "It appears your database uses views;"
 msgstr "資料庫使用了檢視表；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1897
+#: libraries/classes/Plugins/Export/ExportSql.php:1905
 msgid "Constraints for dumped tables"
 msgstr "已傾印資料表的限制式"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1898
+#: libraries/classes/Plugins/Export/ExportSql.php:1906
 msgid "Constraints for table"
 msgstr "資料表的限制式"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1928
+#: libraries/classes/Plugins/Export/ExportSql.php:1936
 msgid "Indexes for dumped tables"
 msgstr "已傾印資料表的索引"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1929
+#: libraries/classes/Plugins/Export/ExportSql.php:1937
 msgid "Indexes for table"
 msgstr "資料表索引"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1965
+#: libraries/classes/Plugins/Export/ExportSql.php:1973
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "在傾印的資料表使用自動遞增(AUTO_INCREMENT)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1966
+#: libraries/classes/Plugins/Export/ExportSql.php:1974
 msgid "AUTO_INCREMENT for table"
 msgstr "使用資料表自動遞增(AUTO_INCREMENT)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2043
+#: libraries/classes/Plugins/Export/ExportSql.php:2051
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "資料表媒體類型表"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2067
+#: libraries/classes/Plugins/Export/ExportSql.php:2075
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "資料表的關聯"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2267
+#: libraries/classes/Plugins/Export/ExportSql.php:2275
 msgid "It appears your table uses triggers;"
 msgstr "資料表使用了觸發器；"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2307
+#: libraries/classes/Plugins/Export/ExportSql.php:2315
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "將檢視表 %s 結構匯出成資料表"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2333
+#: libraries/classes/Plugins/Export/ExportSql.php:2341
 msgid "(See below for the actual view)"
 msgstr "(請參考以下實際畫面)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2414
+#: libraries/classes/Plugins/Export/ExportSql.php:2422
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "讀取資料表 %s 的資料時出現錯誤："
 
-#: libraries/classes/Plugins/Export/ExportXml.php:101
+#: libraries/classes/Plugins/Export/ExportXml.php:109
 msgid "Object creation options (all are recommended)"
 msgstr "物件建立選項 (建議全選)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:145
+#: libraries/classes/Plugins/Export/ExportXml.php:153
 msgid "Export contents"
 msgstr "匯出內容"
 
@@ -10990,27 +10990,27 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr "匯入重複鍵值時，更新資料 (加入 ON DUPLICATE KEY UPDATE)"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:80
+#: libraries/classes/Plugins/Import/ImportCsv.php:88
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:89
+#: libraries/classes/Plugins/Import/ImportCsv.php:97
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:98
-#: libraries/classes/Plugins/Import/ImportCsv.php:116
+#: libraries/classes/Plugins/Import/ImportCsv.php:106
+#: libraries/classes/Plugins/Import/ImportCsv.php:124
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:106
-#: libraries/classes/Plugins/Import/ImportOds.php:72
+#: libraries/classes/Plugins/Import/ImportCsv.php:114
+#: libraries/classes/Plugins/Import/ImportOds.php:80
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr "檔案第一行包含資料表的欄位名稱 <i>(若未選此項，會視首行為資料)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:123
+#: libraries/classes/Plugins/Import/ImportCsv.php:131
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11019,30 +11019,30 @@ msgstr ""
 "若檔案每行的資料和資料庫的排序不一致，請在此列出對應的欄位名稱。欄位名稱用半"
 "形逗號分隔，且毋須用引號括起。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:131
+#: libraries/classes/Plugins/Import/ImportCsv.php:139
 msgid "Column names:"
 msgstr "欄位名稱："
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:275
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:283
+#: libraries/classes/Plugins/Import/ImportCsv.php:696
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 輸入的第 %d 行格式有錯。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:538
+#: libraries/classes/Plugins/Import/ImportCsv.php:546
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 輸入的第 %d 行欄位數有錯。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:706
-#: libraries/classes/Plugins/Import/ImportCsv.php:721
-#: libraries/classes/Plugins/Import/ImportCsv.php:732
-#: libraries/classes/Plugins/Import/ImportCsv.php:742
+#: libraries/classes/Plugins/Import/ImportCsv.php:714
+#: libraries/classes/Plugins/Import/ImportCsv.php:729
+#: libraries/classes/Plugins/Import/ImportCsv.php:740
+#: libraries/classes/Plugins/Import/ImportCsv.php:750
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "匯入 CSV 檔案 %s 時，有參數無效"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:879
+#: libraries/classes/Plugins/Import/ImportCsv.php:887
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11050,79 +11050,79 @@ msgid ""
 msgstr ""
 "欄位(%s)無效！請確保欄位名稱拼寫正確，使用半形逗號分隔，並且不要用引號括起。"
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:72
+#: libraries/classes/Plugins/Import/ImportLdi.php:80
 msgid "Column names: "
 msgstr "欄位名稱： "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:114
+#: libraries/classes/Plugins/Import/ImportLdi.php:122
 msgid "This plugin does not support compressed imports!"
 msgstr "該外掛程式不支援匯入壓縮檔案！"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:68
 msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:297
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:305
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "mediawiki 輸入在此行格式錯誤：<br>%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:86
+#: libraries/classes/Plugins/Import/ImportOds.php:94
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "匯入百分數為小數 <i>(例如 12.00% 會匯入為 .12)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:92
+#: libraries/classes/Plugins/Import/ImportOds.php:100
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "匯入貨幣 <i>(例如 $5.00 會匯入為 5.00)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:160
-#: libraries/classes/Plugins/Import/ImportXml.php:118
-#: libraries/classes/Plugins/Import/ImportXml.php:182
+#: libraries/classes/Plugins/Import/ImportOds.php:168
+#: libraries/classes/Plugins/Import/ImportXml.php:126
+#: libraries/classes/Plugins/Import/ImportXml.php:190
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr "該 XML 檔案格式有錯誤或者不完整。請修復錯誤後重試。"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:171
+#: libraries/classes/Plugins/Import/ImportOds.php:179
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "無法解析 OpenDocument/OpenOffice 試算表！"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:68
+#: libraries/classes/Plugins/Import/ImportShp.php:76
 msgid "ESRI Shape File"
 msgstr "ESRI Shape 檔案"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:106
-#: libraries/classes/Plugins/Import/ImportShp.php:182
+#: libraries/classes/Plugins/Import/ImportShp.php:114
+#: libraries/classes/Plugins/Import/ImportShp.php:190
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "匯入 ESRI Shape 檔案時發生錯誤：「%s」。"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:212
+#: libraries/classes/Plugins/Import/ImportShp.php:220
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 擴充套件不支援「%s」ESRI 類型。"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:261
+#: libraries/classes/Plugins/Import/ImportShp.php:269
 msgid "The imported file does not contain any data!"
 msgstr "匯入的檔案沒有資料！"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:71
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "SQL compatibility mode:"
 msgstr "SQL 相容模式："
 
-#: libraries/classes/Plugins/Import/ImportSql.php:83
+#: libraries/classes/Plugins/Import/ImportSql.php:91
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "不在零值使用自動遞增 (<code>AUTO_INCREMENT</code>)"
 
-#: libraries/classes/Plugins/Import/ImportXml.php:52
+#: libraries/classes/Plugins/Import/ImportXml.php:60
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:681
+#: libraries/classes/Plugins.php:620
 msgid "This format has no options"
 msgstr "該格式沒有選項"
 
-#: libraries/classes/Plugins.php:699
+#: libraries/classes/Plugins.php:638
 msgid "Invalid authentication method set in configuration:"
 msgstr "在設定檔中設定的認證方式無效："
 
@@ -11192,48 +11192,48 @@ msgstr "顯示顏色"
 msgid "Only show keys"
 msgstr "僅顯示鍵值"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:55
-#: libraries/classes/Plugins/Schema/SchemaEps.php:63
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:65
+#: libraries/classes/Plugins/Schema/SchemaDia.php:63
+#: libraries/classes/Plugins/Schema/SchemaEps.php:71
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
 msgid "Orientation"
 msgstr "方向"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:59
-#: libraries/classes/Plugins/Schema/SchemaEps.php:67
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:69
+#: libraries/classes/Plugins/Schema/SchemaDia.php:67
+#: libraries/classes/Plugins/Schema/SchemaEps.php:75
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
 msgid "Landscape"
 msgstr "橫向"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:60
-#: libraries/classes/Plugins/Schema/SchemaEps.php:68
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
+#: libraries/classes/Plugins/Schema/SchemaDia.php:68
+#: libraries/classes/Plugins/Schema/SchemaEps.php:76
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:78
 msgid "Portrait"
 msgstr "縱向"
 
-#: libraries/classes/Plugins/Schema/SchemaEps.php:57
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:59
-#: libraries/classes/Plugins/Schema/SchemaSvg.php:56
+#: libraries/classes/Plugins/Schema/SchemaEps.php:65
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
+#: libraries/classes/Plugins/Schema/SchemaSvg.php:64
 msgid "Same width for all tables"
 msgstr "所有資料表使用相同的寬度"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:84
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:92
 msgid "Show grid"
 msgstr "顯示網格"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:90
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
 #: templates/database/structure/index.twig:23
 msgid "Data dictionary"
 msgstr "資料字典"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:96
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:104
 msgid "Order of the tables"
 msgstr "資料表排序"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:109
 msgid "Name (Ascending)"
 msgstr "名稱 (遞增)"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:110
 msgid "Name (Descending)"
 msgstr "名稱 (遞減)"
 
@@ -11665,31 +11665,31 @@ msgstr "儲存匯出樣板"
 msgid "no description"
 msgstr "無說明"
 
-#: libraries/classes/Relation.php:2072
-msgid ""
-"You do not have necessary privileges to create a database named "
-"'%s'. You may go to 'Operations' tab of any database to set up the "
-"phpMyAdmin configuration storage there."
-msgstr ""
-"沒有權限建立名稱為「%s」的資料庫。您可能需至「操作」分頁設定 "
-"phpMyAdmin 設定儲存空間。"
-
-#: libraries/classes/Relation.php:2194
+#: libraries/classes/Relation.php:2073
 #, php-format
 msgid ""
-"%sCreate%s a database named '%s' and setup the phpMyAdmin "
+"You do not have necessary privileges to create a database named '%s'. You "
+"may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%s建立%s名稱為「%s」的資料庫，並於該資料庫設置 phpMyAdmin 設定儲存空"
-"間。"
+"沒有權限建立名稱為「%s」的資料庫。您可能需至「操作」分頁設定 phpMyAdmin 設定"
+"儲存空間。"
 
-#: libraries/classes/Relation.php:2202
+#: libraries/classes/Relation.php:2197
+#, php-format
+msgid ""
+"%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
+"storage there."
+msgstr ""
+"%s建立%s名稱為「%s」的資料庫，並於該資料庫設置 phpMyAdmin 設定儲存空間。"
+
+#: libraries/classes/Relation.php:2205
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "於當前資料庫%s建立%s phpMyAdmin 設定儲存空間。"
 
-#: libraries/classes/Relation.php:2210
+#: libraries/classes/Relation.php:2213
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%s建立%s缺少的 phpMyAdmin 設定儲存空間資料表。"
@@ -12435,7 +12435,7 @@ msgstr "沒有定義的索引部分！"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "於 %1$s 建立外鍵時發生錯誤 (請檢查資料類型)"
 
-#: libraries/classes/Template.php:137
+#: libraries/classes/Template.php:135
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "運用模版快取時發生錯誤：%s"
@@ -13243,8 +13243,8 @@ msgstr "資料表名稱"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:265
-#: templates/export.twig:279 templates/export.twig:293
+#: templates/database/central_columns/main.twig:198 templates/export.twig:273
+#: templates/export.twig:287 templates/export.twig:301
 msgid "Add"
 msgstr "新增"
 
@@ -14188,7 +14188,7 @@ msgstr "資料庫備註"
 msgid "Rename database to"
 msgstr "將資料庫改名為"
 
-#: templates/database/operations/index.twig:64 templates/export.twig:262
+#: templates/database/operations/index.twig:64 templates/export.twig:270
 msgid "New database name"
 msgstr "新資料庫名稱"
 
@@ -14814,7 +14814,7 @@ msgstr "儲存修改過的資料"
 msgid "Restore column order"
 msgstr "還原欄位的排序"
 
-#: templates/display/results/table.twig:49 templates/export.twig:124
+#: templates/display/results/table.twig:49 templates/export.twig:132
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "資料列數："
@@ -14966,77 +14966,77 @@ msgstr "快速 - 僅顯示必要的選項"
 msgid "Custom - display all possible options"
 msgstr "自訂 - 顯示所有可用的選項"
 
-#: templates/export.twig:116
+#: templates/export.twig:124
 msgid "Rows:"
 msgstr "資料列數："
 
-#: templates/export.twig:121
+#: templates/export.twig:129
 msgid "Dump some row(s)"
 msgstr "傾印部份資料列"
 
-#: templates/export.twig:135
+#: templates/export.twig:143
 msgid "Row to begin at:"
 msgstr "起始列數："
 
-#: templates/export.twig:144
+#: templates/export.twig:152
 msgid "Dump all rows"
 msgstr "傾印所有資料列"
 
-#: templates/export.twig:152 templates/export.twig:308
+#: templates/export.twig:160 templates/export.twig:316
 msgid "Output:"
 msgstr "輸出："
 
-#: templates/export.twig:157 templates/export.twig:338
+#: templates/export.twig:165 templates/export.twig:346
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "儲存到伺服器的 <strong>%s</strong> 資料夾"
 
-#: templates/export.twig:175 templates/export.twig:313
+#: templates/export.twig:183 templates/export.twig:321
 msgid "Rename exported databases/tables/columns"
 msgstr "重新命名已匯出的資料庫/資料表/欄位"
 
-#: templates/export.twig:183
+#: templates/export.twig:191
 msgid "Defined aliases"
 msgstr "已定義別名"
 
-#: templates/export.twig:198 templates/export.twig:212
-#: templates/export.twig:225 templates/export.twig:242
+#: templates/export.twig:206 templates/export.twig:220
+#: templates/export.twig:233 templates/export.twig:250
 msgid "Remove"
 msgstr "移除"
 
-#: templates/export.twig:251
+#: templates/export.twig:259
 msgid "Define new aliases"
 msgstr "定義新別名"
 
-#: templates/export.twig:256
+#: templates/export.twig:264
 msgid "Select database:"
 msgstr "選擇資料庫："
 
-#: templates/export.twig:270
+#: templates/export.twig:278
 msgid "Select table:"
 msgstr "選擇資料表："
 
-#: templates/export.twig:276
+#: templates/export.twig:284
 msgid "New table name"
 msgstr "新資料表名稱"
 
-#: templates/export.twig:284
+#: templates/export.twig:292
 msgid "Select column:"
 msgstr "選擇欄位："
 
-#: templates/export.twig:290
+#: templates/export.twig:298
 msgid "New column name"
 msgstr "新欄位名稱"
 
-#: templates/export.twig:331
+#: templates/export.twig:339
 msgid "Save output to a file"
 msgstr "將輸出儲存為檔案"
 
-#: templates/export.twig:352
+#: templates/export.twig:360
 msgid "File name template:"
 msgstr "檔案名稱模版："
 
-#: templates/export.twig:353
+#: templates/export.twig:361
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -15052,54 +15052,54 @@ msgstr ""
 "資料格式也會轉換：%3$s。其他的文字則會保持原樣。請參閱%4$s常見問題 (FAQ)%5$s"
 "了解詳情。"
 
-#: templates/export.twig:358
+#: templates/export.twig:366
 msgid "use this for future exports"
 msgstr "以後匯出時，也使用此設定"
 
-#: templates/export.twig:365 templates/import.twig:123
+#: templates/export.twig:373 templates/import.twig:123
 msgid "Character set of the file:"
 msgstr "檔案字元編碼："
 
-#: templates/export.twig:381
+#: templates/export.twig:389
 msgid "Compression:"
 msgstr "壓縮："
 
-#: templates/export.twig:388
+#: templates/export.twig:396
 msgid "zipped"
 msgstr "zip 壓縮"
 
-#: templates/export.twig:394
+#: templates/export.twig:402
 msgid "gzipped"
 msgstr "gzip 壓縮"
 
-#: templates/export.twig:409
+#: templates/export.twig:417
 msgid "Export databases as separate files"
 msgstr "將每個資料庫匯出為不同的檔案"
 
-#: templates/export.twig:411
+#: templates/export.twig:419
 msgid "Export tables as separate files"
 msgstr "將每個資料表匯出為不同的檔案"
 
-#: templates/export.twig:423
+#: templates/export.twig:431
 msgid "View output as text"
 msgstr "以文字顯示輸出結果"
 
-#: templates/export.twig:429
+#: templates/export.twig:437
 #, php-format
 msgid "Skip tables larger than %s MiB"
 msgstr "略過超過 %s MiB 的資料表"
 
-#: templates/export.twig:435 templates/import.twig:203
+#: templates/export.twig:443 templates/import.twig:211
 msgid "Format-specific options:"
 msgstr "格式選項："
 
-#: templates/export.twig:437 templates/import.twig:205
+#: templates/export.twig:445 templates/import.twig:213
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr "請下拉至所選格式並設定選項，其他格式的選項不用理會。"
 
-#: templates/export.twig:445 templates/import.twig:214
+#: templates/export.twig:453 templates/import.twig:222
 msgid "Encoding Conversion:"
 msgstr "轉換編碼："
 
@@ -15468,7 +15468,7 @@ msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
 
-#: templates/import.twig:164
+#: templates/import.twig:163
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
@@ -15477,11 +15477,11 @@ msgstr ""
 "當偵測到執行時間已接近 PHP 執行時間的限制，允許中斷匯入的動作。<em>(若要匯入"
 "大型檔案，這是很好的方法，不過使用這種方法會破壞指令中的交易動作)</em>"
 
-#: templates/import.twig:171
+#: templates/import.twig:170
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "由第一行開始跳過此數量的查詢 (SQL)："
 
-#: templates/import.twig:188
+#: templates/import.twig:187
 msgid "Other options:"
 msgstr "其他選項："
 
