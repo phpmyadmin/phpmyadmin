@@ -12282,20 +12282,20 @@ msgstr "brez opisa"
 #: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"Nimate zadostnih dovoljenj za ustvarjanje zbirke podatkov 'phpmyadmin'. "
+"Nimate zadostnih dovoljenj za ustvarjanje zbirke podatkov '%s'. "
 "Greste lahko na zavihek 'Dejanja' v vsaki od zbirk podatkov in nastavite "
 "hrambo konfiguracije phpMyAdmin."
 
 #: libraries/classes/Relation.php:2157
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sUstvari%s zbirko podatkov 'phpmyadmin' in vanjo namesti hrambo "
+"%sUstvari%s zbirko podatkov '%s' in vanjo namesti hrambo "
 "konfiguracije phpMyAdmin."
 
 #: libraries/classes/Relation.php:2165

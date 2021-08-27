@@ -12607,20 +12607,20 @@ msgstr "Sin descripción"
 #: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 "No tiene los privilegios necesarios para crear una base de datos denominada "
-"'phpmyadmin'. Puede ir a la pestaña de 'Operaciones' de cualquier base de "
+"'%s'. Puede ir a la pestaña de 'Operaciones' de cualquier base de "
 "datos para configurar el almacenamiento de configuración en phpMyAdmin."
 
 #: libraries/classes/Relation.php:2157
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCree%s una base de datos llamada 'phpmyadmin' y configure el "
+"%sCree%s una base de datos llamada '%s' y configure el "
 "almacenamiento de configuración en phpMyAdmin."
 
 #: libraries/classes/Relation.php:2165

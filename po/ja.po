@@ -12162,19 +12162,19 @@ msgstr "説明がありません"
 #: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
-"'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
+"'%s'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
-"「phpMyAdmin」という名前のデータベースを作成するのに必要な権限はありません。"
+"「%s」という名前のデータベースを作成するのに必要な権限はありません。"
 "任意のデータベースの「操作」タブで、phpMyAdmin環境保管領域を設定が出来ます。"
 
 #: libraries/classes/Relation.php:2157
 #, php-format
 msgid ""
-"%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+"%sCreate%s a database named '%s' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"「phpmyadmin」データベースを%s作成%s し、phpMyAdmin 環境保管領域をセットアッ"
+"「%s」データベースを%s作成%s し、phpMyAdmin 環境保管領域をセットアッ"
 "プ。"
 
 #: libraries/classes/Relation.php:2165
