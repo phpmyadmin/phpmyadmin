@@ -2088,7 +2088,10 @@ class Relation
                 if ($create) {
                     if ($createQueries == null) { // first create
                         $createQueries = $this->getDefaultPmaTableNames();
-                        $this->dbi->selectDb($db);
+                        if (! $this->dbi->selectDb($db)) {
+                            $GLOBALS['message'] = $this->dbi->getError();
+                            return;
+                        }
                     }
                     $this->dbi->tryQuery($createQueries[$table]);
 
