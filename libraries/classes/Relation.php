@@ -2033,6 +2033,7 @@ class Relation
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
             $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+
             return true;
         }
 
@@ -2095,6 +2096,7 @@ class Relation
                         $createQueries = $this->getDefaultPmaTableNames();
                         if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
                             $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+
                             return;
                         }
                     }
@@ -2302,6 +2304,7 @@ class Relation
         global $cfg;
 
         $cfgStorageDbName = $cfg['Server']['pmadb'] ?? '';
+
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
     }
