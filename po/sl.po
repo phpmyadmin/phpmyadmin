@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-06-04 11:50-0300\n"
+"POT-Creation-Date: 2021-08-27 17:07+0200\n"
 "PO-Revision-Date: 2021-05-30 21:32+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -943,10 +943,12 @@ msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastavljeno na 'value'"
 
 #: libraries/advisory_rules_generic.php:614
+#: libraries/advisory_rules_generic.php:640
 msgid "InnoDB log size"
 msgstr "Velikost dnevnika InnoDB"
 
 #: libraries/advisory_rules_generic.php:619
+#: libraries/advisory_rules_generic.php:648
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -955,6 +957,7 @@ msgstr ""
 "primerne velikosti."
 
 #: libraries/advisory_rules_generic.php:622
+#: libraries/advisory_rules_generic.php:651
 #, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -979,6 +982,7 @@ msgstr ""
 "a>"
 
 #: libraries/advisory_rules_generic.php:633
+#: libraries/advisory_rules_generic.php:662
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -987,15 +991,15 @@ msgstr ""
 "Velikost vašega dnevnika InnoDB je v primerjavi z velikostjo zaloge "
 "medpomnilnika InnoDB %s-%%; ne bi smela biti pod 20 %%"
 
-#: libraries/advisory_rules_generic.php:640
+#: libraries/advisory_rules_generic.php:669
 msgid "Max InnoDB log size"
 msgstr "Največja velikost dnevnika InnoDB"
 
-#: libraries/advisory_rules_generic.php:644
+#: libraries/advisory_rules_generic.php:673
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost datoteke dnevnika InnoDB je nezadostne velikosti."
 
-#: libraries/advisory_rules_generic.php:646
+#: libraries/advisory_rules_generic.php:675
 #, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
@@ -1019,20 +1023,20 @@ msgstr ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
 "a>"
 
-#: libraries/advisory_rules_generic.php:656
+#: libraries/advisory_rules_generic.php:685
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Absolutna velikost vašega dnevnika InnoDB je %s MiB"
 
-#: libraries/advisory_rules_generic.php:661
+#: libraries/advisory_rules_generic.php:690
 msgid "InnoDB buffer pool size"
 msgstr "Velikost zaloge medpomnilnika InnoDB"
 
-#: libraries/advisory_rules_generic.php:665
+#: libraries/advisory_rules_generic.php:694
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Zaloga vašega medpomnilnika InnoDB je precej majhna."
 
-#: libraries/advisory_rules_generic.php:667
+#: libraries/advisory_rules_generic.php:696
 #, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -1057,7 +1061,7 @@ msgstr ""
 "si tudi <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">ta članek</a>"
 
-#: libraries/advisory_rules_generic.php:677
+#: libraries/advisory_rules_generic.php:706
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -1070,15 +1074,15 @@ msgstr ""
 "popolnoma primerno za vaš sistem, če nimate veliko tabel InnoDB ali na isti "
 "napravi tečejo druge storitve."
 
-#: libraries/advisory_rules_generic.php:687
+#: libraries/advisory_rules_generic.php:716
 msgid "MyISAM concurrent inserts"
 msgstr "Sočasna vstavljanja MyISAM"
 
-#: libraries/advisory_rules_generic.php:690
+#: libraries/advisory_rules_generic.php:719
 msgid "Enable {concurrent_insert} by setting it to 1"
 msgstr "Omogočite {concurrent_insert} z nastavitvijo na 1"
 
-#: libraries/advisory_rules_generic.php:692
+#: libraries/advisory_rules_generic.php:721
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
@@ -1088,7 +1092,7 @@ msgstr ""
 "zapisovalci za dano tabelo. Oglejte si tudi <a href=\"https://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">dokumentacijo MySQL</a>"
 
-#: libraries/advisory_rules_generic.php:696
+#: libraries/advisory_rules_generic.php:725
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
 
@@ -1294,44 +1298,44 @@ msgstr ""
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit je nastavljen na 1 MiB"
 
-#: libraries/classes/Advisor.php:232
+#: libraries/classes/Advisor.php:233
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Napaka med vrednotenjem: %s"
 
-#: libraries/classes/Advisor.php:259
+#: libraries/classes/Advisor.php:260
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Ovrednotenje predpogojev za pravilo '%s' je spodletelo."
 
-#: libraries/classes/Advisor.php:279
+#: libraries/classes/Advisor.php:280
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Izračun vrednosti za pravilo '%s' je spodletel."
 
-#: libraries/classes/Advisor.php:298
+#: libraries/classes/Advisor.php:299
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Zagon preizkusa za pravilo '%s' je spodletel."
 
-#: libraries/classes/Advisor.php:326
+#: libraries/classes/Advisor.php:327
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Oblikovanje niza za pravilo '%s' je spodletelo."
 
-#: libraries/classes/Advisor.php:411
+#: libraries/classes/Advisor.php:412
 msgid "per second"
 msgstr "na sekundo"
 
-#: libraries/classes/Advisor.php:414
+#: libraries/classes/Advisor.php:415
 msgid "per minute"
 msgstr "na minuto"
 
-#: libraries/classes/Advisor.php:417
+#: libraries/classes/Advisor.php:418
 msgid "per hour"
 msgstr "na uro"
 
-#: libraries/classes/Advisor.php:420
+#: libraries/classes/Advisor.php:421
 msgid "per day"
 msgstr "na dan"
 
@@ -1341,9 +1345,9 @@ msgstr "Iskanje:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
-#: libraries/classes/Controllers/Server/PrivilegesController.php:324
-#: libraries/classes/Database/Routines.php:1027
-#: libraries/classes/Database/Routines.php:1743
+#: libraries/classes/Controllers/Server/PrivilegesController.php:325
+#: libraries/classes/Database/Routines.php:1035
+#: libraries/classes/Database/Routines.php:1751
 #: libraries/classes/Database/Triggers.php:463
 #: libraries/classes/InsertEdit.php:1981 libraries/classes/InsertEdit.php:2015
 #: libraries/classes/Normalization.php:261
@@ -1411,15 +1415,15 @@ msgstr "Ime ključa"
 msgid "Description"
 msgstr "Opis"
 
-#: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1210 libraries/classes/Language.php:209
+#: libraries/classes/BrowseForeigners.php:324
+#: libraries/classes/Html/Generator.php:1225 libraries/classes/Language.php:209
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
 msgid "Page number:"
 msgstr "Številka strani:"
 
-#: libraries/classes/BrowseForeigners.php:345
+#: libraries/classes/BrowseForeigners.php:338
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
@@ -3192,14 +3196,14 @@ msgstr "Postavi imena stolpcev v prvo vrstico"
 #: libraries/classes/Config/Descriptions.php:670
 #: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Config/Descriptions.php:809
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Columns enclosed with"
 msgstr "Stolpci so obdani z"
 
 #: libraries/classes/Config/Descriptions.php:671
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Config/Descriptions.php:810
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:689
 msgid "Columns escaped with"
 msgstr "Stolpci so izognjeni z"
 
@@ -3221,13 +3225,13 @@ msgstr "Odstrani znake CRLF znotraj stolpcev"
 #: libraries/classes/Config/Descriptions.php:674
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:663
 msgid "Columns terminated with"
 msgstr "Stolpci so zaključeni z"
 
 #: libraries/classes/Config/Descriptions.php:675
 #: libraries/classes/Config/Descriptions.php:802
-#: libraries/classes/Plugins/Import/ImportCsv.php:690
+#: libraries/classes/Plugins/Import/ImportCsv.php:698
 msgid "Lines terminated with"
 msgstr "Vrstice so zaključene z"
 
@@ -3647,7 +3651,7 @@ msgstr "Delni uvoz: dovoli prekinitev"
 
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:133
+#: libraries/classes/Plugins/Import/ImportCsv.php:135
 #: libraries/classes/Plugins/Import/ImportLdi.php:80
 msgid "Do not abort on INSERT error"
 msgstr "Ne prekini ob napaki INSERT"
@@ -4222,9 +4226,9 @@ msgstr "Preskoči zaklenjene tabele"
 
 #: libraries/classes/Config/Descriptions.php:955
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3259
-#: libraries/classes/Html/Generator.php:684
-#: libraries/classes/Html/Generator.php:946
+#: libraries/classes/Display/Results.php:3265
+#: libraries/classes/Html/Generator.php:694
+#: libraries/classes/Html/Generator.php:956
 #: libraries/classes/Server/UserGroups.php:125
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4248,12 +4252,12 @@ msgid "Edit"
 msgstr "Uredi"
 
 #: libraries/classes/Config/Descriptions.php:956
-#: libraries/classes/Html/Generator.php:648
+#: libraries/classes/Html/Generator.php:657
 msgid "Explain SQL"
 msgstr "Razloži stavek SQL"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:728
+#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:738
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4261,7 +4265,7 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Html/Generator.php:713
+#: libraries/classes/Html/Generator.php:723
 msgid "Create PHP code"
 msgstr "Ustvari kodo PHP"
 
@@ -4286,8 +4290,8 @@ msgstr "Vrstic besedilnega polja"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1948
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1949
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4316,8 +4320,8 @@ msgstr "Strežnik"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1954
-#: libraries/classes/Server/Privileges.php:1956
+#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1955
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4525,7 +4529,7 @@ msgstr "največ %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:178
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:812
+#: libraries/classes/Html/Generator.php:822
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:200 templates/home/index.twig:200
 #: templates/server/variables/index.twig:17
@@ -4551,7 +4555,7 @@ msgstr "Onemogočeno"
 #: libraries/classes/Controllers/Table/StructureController.php:463
 #: libraries/classes/Controllers/Table/StructureController.php:487
 #: libraries/classes/Controllers/Table/StructureController.php:531
-#: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:524
+#: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:528
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:666
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
 #: libraries/classes/Plugins/Export/ExportOdt.php:815
@@ -4586,8 +4590,8 @@ msgstr "Da"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
-#: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:497
-#: libraries/classes/Index.php:525
+#: libraries/classes/IndexColumn.php:158 libraries/classes/Index.php:501
+#: libraries/classes/Index.php:529
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:665
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
 #: libraries/classes/Plugins/Export/ExportOdt.php:814
@@ -4706,7 +4710,7 @@ msgstr "Besedilo OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1624
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1623
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5047,7 +5051,7 @@ msgstr "V zbirki podatkov ni mogoče najti tabel."
 
 #: libraries/classes/Controllers/Database/ExportController.php:149
 #: libraries/classes/Controllers/Server/ExportController.php:73
-#: libraries/classes/Controllers/Table/ExportController.php:116
+#: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
@@ -5071,7 +5075,7 @@ msgid "No table selected."
 msgstr "Izbrana ni nobena tabela."
 
 #: libraries/classes/Controllers/Database/ImportController.php:75
-#: libraries/classes/Controllers/ImportController.php:620
+#: libraries/classes/Controllers/ImportController.php:619
 #: libraries/classes/Controllers/Server/ImportController.php:60
 #: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
@@ -5106,7 +5110,7 @@ msgid ""
 msgstr "Hrambo konfiguracije phpMyAdmin smo onemogočili. %sUgotovite, zakaj%s."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:363
-#: libraries/classes/Controllers/Table/OperationsController.php:269
+#: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
 msgstr "Pravilo za razvrščanje znakov ni podano."
 
@@ -5142,7 +5146,7 @@ msgid "Table %s has been emptied."
 msgstr "Izpraznili smo tabelo %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:796
-#: libraries/classes/Display/Results.php:4477
+#: libraries/classes/Display/Results.php:4489
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5161,8 +5165,8 @@ msgstr "Uspešno!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1454
 #: libraries/classes/Controllers/Database/StructureController.php:1537
-#: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:397
+#: libraries/classes/Controllers/Table/OperationsController.php:321
+#: libraries/classes/Controllers/Table/ReplaceController.php:416
 #: libraries/classes/Core.php:859 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Brez sprememb"
@@ -5340,20 +5344,20 @@ msgstr ""
 "$cfg['TempDir'] (%s) ni dostopen. phpMyAdmin ne more predpomniti predlog in "
 "bo zaradi tega počasen."
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:109
 msgid "Incomplete params"
 msgstr "Nepopolni parametri"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:134
 msgid "Succeeded"
 msgstr "Uspelo"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:138
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
 msgstr "Spodletelo"
 
-#: libraries/classes/Controllers/ImportController.php:245
+#: libraries/classes/Controllers/ImportController.php:244
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5362,17 +5366,17 @@ msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
 "%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
-#: libraries/classes/Controllers/ImportController.php:424
-#: libraries/classes/Controllers/ImportController.php:660
+#: libraries/classes/Controllers/ImportController.php:423
+#: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
 msgstr "Prikazovanje zaznamka"
 
-#: libraries/classes/Controllers/ImportController.php:448
-#: libraries/classes/Controllers/ImportController.php:656
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:655
 msgid "The bookmark has been deleted."
 msgstr "Zaznamek je odstranjen."
 
-#: libraries/classes/Controllers/ImportController.php:562
+#: libraries/classes/Controllers/ImportController.php:561
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5382,14 +5386,14 @@ msgstr ""
 "je velikost datoteke presegala največjo velikost, dovoljeno v konfiguraciji "
 "PHP. Glej [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/ImportController.php:663
-#: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1236
+#: libraries/classes/Controllers/ImportController.php:662
+#: libraries/classes/Controllers/SqlController.php:389
+#: libraries/classes/Sql.php:1240
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvarili smo zaznamek %s."
 
-#: libraries/classes/Controllers/ImportController.php:673
+#: libraries/classes/Controllers/ImportController.php:672
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -5398,7 +5402,7 @@ msgstr[1] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedbi."
 msgstr[2] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedbe."
 msgstr[3] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedb."
 
-#: libraries/classes/Controllers/ImportController.php:704
+#: libraries/classes/Controllers/ImportController.php:703
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5407,7 +5411,7 @@ msgstr ""
 "Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, "
 "%sponovno pošljite isto datoteko%s in uvoz se bo nadaljeval."
 
-#: libraries/classes/Controllers/ImportController.php:714
+#: libraries/classes/Controllers/ImportController.php:713
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5416,7 +5420,7 @@ msgstr ""
 "navadi pomeni, da phpMyAdmin ne bo mogel dokončati tega uvoza, razen če "
 "povečate vaše časovne omejitve PHP."
 
-#: libraries/classes/Controllers/ImportController.php:788
+#: libraries/classes/Controllers/ImportController.php:787
 #: libraries/classes/Controllers/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
@@ -5676,7 +5680,7 @@ msgid "Matched rows:"
 msgstr "Ujemajoče vrstice:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:119
-#: libraries/classes/Html/Generator.php:918 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:928 templates/export.twig:49
 msgid "SQL query:"
 msgstr "Poizvedba SQL:"
 
@@ -5698,13 +5702,13 @@ msgid "The user name is empty!"
 msgstr "Uporabniško ime je prazno!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: libraries/classes/Server/Privileges.php:1026
+#: libraries/classes/Server/Privileges.php:1025
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Geslo je prazno!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
-#: libraries/classes/Server/Privileges.php:1024
+#: libraries/classes/Server/Privileges.php:1023
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Gesli se ne ujemata!"
@@ -5932,7 +5936,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Prosimo, da v serijo dodate vsaj eno spremenljivko!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:201
-#: libraries/classes/Display/Results.php:1321
+#: libraries/classes/Display/Results.php:1325
 #: libraries/classes/Plugins/Export/ExportSql.php:2317
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
@@ -6343,6 +6347,8 @@ msgid "Request failed!!"
 msgstr "Zahteva je spodletela!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/SqlController.php:266
+#: libraries/classes/Controllers/SqlController.php:300
 msgid "Error in processing request"
 msgstr "Napaka v obdelovanju zahteve"
 
@@ -6484,7 +6490,7 @@ msgid "Show query box"
 msgstr "Prikaži polje poizvedbe"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
-#: libraries/classes/Display/Results.php:3330
+#: libraries/classes/Display/Results.php:3336
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -6631,7 +6637,7 @@ msgstr "Ni izbranih delnih odvisnosti!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:597
-#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1022
+#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1032
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6690,6 +6696,7 @@ msgstr "Ni izbranih odvisnosti!"
 #: libraries/classes/InsertEdit.php:1890
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/main.twig:121
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
@@ -6773,14 +6780,14 @@ msgstr "Vsebina kazalca podatkov"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:663
-#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3139
+#: libraries/classes/ErrorHandler.php:408 libraries/classes/InsertEdit.php:3139
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Prezri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3263
-#: libraries/classes/Html/Generator.php:72
+#: libraries/classes/Display/Results.php:3269
+#: libraries/classes/Html/Generator.php:74
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -7238,7 +7245,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Prosimo, poglejte na dno okna."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:666
-#: libraries/classes/ErrorHandler.php:406
+#: libraries/classes/ErrorHandler.php:412
 msgid "Ignore All"
 msgstr "Prezri vse"
 
@@ -7487,16 +7494,16 @@ msgstr "Skupaj"
 msgid "Overhead"
 msgstr "Presežek"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:141
+#: libraries/classes/Controllers/Server/PrivilegesController.php:142
 #: libraries/classes/Controllers/Server/UserGroupsController.php:51
 msgid "No Privileges"
 msgstr "Brez privilegijev"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:149
+#: libraries/classes/Controllers/Server/PrivilegesController.php:150
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nimate pravic za upravljanje z uporabniki!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:163
+#: libraries/classes/Controllers/Server/PrivilegesController.php:164
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7504,7 +7511,7 @@ msgstr ""
 "Uporabniškega imena in gostitelja niste spremenili. Če želite spremeniti "
 "samo geslo, uporabite zavihek »Spremeni geslo«."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:417
+#: libraries/classes/Controllers/Server/PrivilegesController.php:418
 msgid "User has been added."
 msgstr "Uporabnik je dodan."
 
@@ -7524,7 +7531,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3003
+#: libraries/classes/Server/Privileges.php:3002
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Uporabnik"
@@ -8329,7 +8336,7 @@ msgstr "Privzeti strežnik"
 msgid "End of line"
 msgstr "Konec vrstice"
 
-#: libraries/classes/Controllers/SqlController.php:378
+#: libraries/classes/Controllers/SqlController.php:396
 msgid "Bookmark not created!"
 msgstr "Zaznamka nismo ustvarili!"
 
@@ -8343,7 +8350,7 @@ msgstr "Tabelo %1$s smo uspešno spremenili."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
-#: libraries/classes/Controllers/Table/ExportController.php:152
+#: libraries/classes/Controllers/Table/ExportController.php:146
 msgid "No row selected."
 msgstr "Ni izbranih vrstic."
 
@@ -8388,8 +8395,8 @@ msgstr "Tabela %s že obstaja!"
 #: libraries/classes/Controllers/Table/PartitionController.php:194
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
-#: libraries/classes/Database/Routines.php:1482
-#: libraries/classes/Display/Results.php:4140 libraries/classes/Message.php:175
+#: libraries/classes/Database/Routines.php:1490
+#: libraries/classes/Display/Results.php:4150 libraries/classes/Message.php:175
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
@@ -8405,9 +8412,9 @@ msgid "There is an issue with your request."
 msgstr "Prišlo je do težave z vašo zahtevo."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
-#: libraries/classes/Database/Routines.php:1503
+#: libraries/classes/Database/Routines.php:1511
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1041
+#: libraries/classes/Sql.php:1045
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
@@ -8425,7 +8432,7 @@ msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Vzdrževalni posegi na več tabelah so onemogočeni."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
-#: libraries/classes/Controllers/Table/OperationsController.php:300
+#: libraries/classes/Controllers/Table/OperationsController.php:303
 #: libraries/classes/Controllers/Table/StructureController.php:123
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
@@ -8438,7 +8445,7 @@ msgstr "Pogled"
 #: libraries/classes/Controllers/Table/PartitionController.php:147
 #: libraries/classes/Controllers/Table/PartitionController.php:200
 #: libraries/classes/Controllers/ViewOperationsController.php:87
-#: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
+#: libraries/classes/Html/Generator.php:904 libraries/classes/Import.php:137
 #: libraries/classes/InsertEdit.php:1576 libraries/classes/Message.php:195
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8452,7 +8459,7 @@ msgstr "Prikazni stolpec smo uspešno posodobili."
 msgid "Internal relationships were successfully updated."
 msgstr "Notranja razmerja smo uspešno posodobili."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:283
+#: libraries/classes/Controllers/Table/ReplaceController.php:301
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
@@ -8481,7 +8488,7 @@ msgid "Failed to get description of column %s!"
 msgstr "Pridobivanje opisa stolpca %s je spodletelo!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
-#: libraries/classes/Controllers/Table/StructureController.php:1273
+#: libraries/classes/Controllers/Table/StructureController.php:1271
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "Napaka poizvedbe"
@@ -8656,6 +8663,7 @@ msgid "Error: Missing index on column(s)."
 msgstr "Napaka: Na stolpcih manjka indeks."
 
 #: libraries/classes/Database/Designer/Common.php:689
+#: libraries/classes/Database/Designer/Common.php:780
 msgid "Error: Relational features are disabled!"
 msgstr "Napaka: Funkcionalnosti razmerij so onemogočene!"
 
@@ -8675,11 +8683,11 @@ msgstr "Odstranili smo razmerje FOREIGN KEY."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Napaka: Razmerja FOREIGN KEY nismo mogli odstraniti!"
 
-#: libraries/classes/Database/Designer/Common.php:798
+#: libraries/classes/Database/Designer/Common.php:806
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Napaka: Notranjega razmerja nismo mogli odstraniti!"
 
-#: libraries/classes/Database/Designer/Common.php:804
+#: libraries/classes/Database/Designer/Common.php:812
 msgid "Internal relationship has been removed."
 msgstr "Odstranili smo notranje razmerje."
 
@@ -8690,10 +8698,10 @@ msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev
 #: libraries/classes/Database/Events.php:110
 #: libraries/classes/Database/Events.php:119
 #: libraries/classes/Database/Events.php:143
-#: libraries/classes/Database/Routines.php:227
-#: libraries/classes/Database/Routines.php:251
-#: libraries/classes/Database/Routines.php:364
-#: libraries/classes/Database/Routines.php:1511
+#: libraries/classes/Database/Routines.php:228
+#: libraries/classes/Database/Routines.php:252
+#: libraries/classes/Database/Routines.php:365
+#: libraries/classes/Database/Routines.php:1519
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:139
 #: libraries/classes/Database/Triggers.php:164
@@ -8705,16 +8713,16 @@ msgstr "Naslednja poizvedba je spodletela: \"%s\""
 #: libraries/classes/Database/Events.php:123
 #: libraries/classes/Database/Events.php:147
 #: libraries/classes/Database/Events.php:502
-#: libraries/classes/Database/Routines.php:231
-#: libraries/classes/Database/Routines.php:255
-#: libraries/classes/Database/Routines.php:368
-#: libraries/classes/Database/Routines.php:1515
-#: libraries/classes/Database/Routines.php:1871
+#: libraries/classes/Database/Routines.php:232
+#: libraries/classes/Database/Routines.php:256
+#: libraries/classes/Database/Routines.php:369
+#: libraries/classes/Database/Routines.php:1523
+#: libraries/classes/Database/Routines.php:1879
 #: libraries/classes/Database/Triggers.php:134
 #: libraries/classes/Database/Triggers.php:143
 #: libraries/classes/Database/Triggers.php:168
 #: libraries/classes/Database/Triggers.php:551
-#: libraries/classes/Html/Generator.php:966
+#: libraries/classes/Html/Generator.php:976
 msgid "MySQL said: "
 msgstr "MySQL je vrnil: "
 
@@ -8729,7 +8737,7 @@ msgid "Event %1$s has been created."
 msgstr "Dogodek %1$s je ustvarjen."
 
 #: libraries/classes/Database/Events.php:164
-#: libraries/classes/Database/Routines.php:271
+#: libraries/classes/Database/Routines.php:272
 #: libraries/classes/Database/Triggers.php:185
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:"
@@ -8745,7 +8753,7 @@ msgid "Edit event"
 msgstr "Uredi dogodek"
 
 #: libraries/classes/Database/Events.php:395
-#: libraries/classes/Database/Routines.php:1236
+#: libraries/classes/Database/Routines.php:1244
 #: libraries/classes/Database/Triggers.php:489
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Opredeljevalec mora biti oblike \"uporabniškoime@imegostitelja\"!"
@@ -8775,15 +8783,15 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Oprostite, zavrženega dogodka nam ni uspelo obnoviti."
 
 #: libraries/classes/Database/Events.php:500
-#: libraries/classes/Database/Routines.php:1869
+#: libraries/classes/Database/Routines.php:1877
 #: libraries/classes/Database/Triggers.php:549
 msgid "The backed up query was:"
 msgstr "Varnostno kopirana poizvedba je bila:"
 
 #: libraries/classes/Database/Events.php:532
-#: libraries/classes/Database/Routines.php:151
-#: libraries/classes/Database/Routines.php:1399
-#: libraries/classes/Database/Routines.php:1577
+#: libraries/classes/Database/Routines.php:152
+#: libraries/classes/Database/Routines.php:1407
+#: libraries/classes/Database/Routines.php:1585
 #: libraries/classes/Database/Triggers.php:580
 msgid "Error in processing request:"
 msgstr "Napaka v obdelovanju zahteve:"
@@ -8822,17 +8830,17 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "Ne morem nastaviti povezave konfiguriranega razvrščanja znakov!"
 
-#: libraries/classes/DatabaseInterface.php:1942
+#: libraries/classes/DatabaseInterface.php:1938
 msgid "Missing connection parameters!"
 msgstr "Manjkajo parametri povezave!"
 
-#: libraries/classes/DatabaseInterface.php:1971
+#: libraries/classes/DatabaseInterface.php:1967
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Povezava za controluserja, kot je določena v vaši konfiguraciji, je "
 "spodletela."
 
-#: libraries/classes/DatabaseInterface.php:2471
+#: libraries/classes/DatabaseInterface.php:2467
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Za več informacij si oglejte %snašo dokumentacijo%s."
@@ -8875,17 +8883,17 @@ msgstr "Posodobi zaznamek"
 msgid "Delete bookmark"
 msgstr "Izbriši zaznamek"
 
-#: libraries/classes/Database/Routines.php:116
+#: libraries/classes/Database/Routines.php:117
 #: templates/database/routines/index.twig:67
 #: templates/database/routines/index.twig:71
 msgid "Add routine"
 msgstr "Dodaj rutino"
 
-#: libraries/classes/Database/Routines.php:120
+#: libraries/classes/Database/Routines.php:121
 msgid "Edit routine"
 msgstr "Uredi rutino"
 
-#: libraries/classes/Database/Routines.php:154
+#: libraries/classes/Database/Routines.php:155
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -8894,40 +8902,40 @@ msgstr ""
 "V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
 "zahtevanih privilegijev za urejanje rutine."
 
-#: libraries/classes/Database/Routines.php:208
-#: libraries/classes/Database/Routines.php:1245
+#: libraries/classes/Database/Routines.php:209
+#: libraries/classes/Database/Routines.php:1253
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Neveljavna vrsta rutine: \"%s\""
 
-#: libraries/classes/Database/Routines.php:258
+#: libraries/classes/Database/Routines.php:259
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutino %1$s smo ustvarili."
 
-#: libraries/classes/Database/Routines.php:430
+#: libraries/classes/Database/Routines.php:431
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutino %1$s smo spremenili. Privilegije smo prilagodili."
 
-#: libraries/classes/Database/Routines.php:435
+#: libraries/classes/Database/Routines.php:436
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutino %1$s smo spremenili."
 
-#: libraries/classes/Database/Routines.php:842
+#: libraries/classes/Database/Routines.php:850
 #: libraries/classes/Database/Triggers.php:390
 #: templates/database/events/editor_form.twig:9 templates/view_create.twig:8
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: libraries/classes/Database/Routines.php:845
+#: libraries/classes/Database/Routines.php:853
 msgid "Routine name"
 msgstr "Ime rutine"
 
-#: libraries/classes/Database/Routines.php:850
-#: libraries/classes/Database/Routines.php:880
-#: libraries/classes/Database/Routines.php:1656
+#: libraries/classes/Database/Routines.php:858
+#: libraries/classes/Database/Routines.php:888
+#: libraries/classes/Database/Routines.php:1664
 #: libraries/classes/InsertEdit.php:357
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
@@ -8959,22 +8967,22 @@ msgstr "Ime rutine"
 msgid "Type"
 msgstr "Vrsta"
 
-#: libraries/classes/Database/Routines.php:864
+#: libraries/classes/Database/Routines.php:872
 #: templates/database/events/editor_form.twig:41
 #, php-format
 msgid "Change to %s"
 msgstr "Spremeni v %s"
 
-#: libraries/classes/Database/Routines.php:870
+#: libraries/classes/Database/Routines.php:878
 msgid "Parameters"
 msgstr "Parametri"
 
-#: libraries/classes/Database/Routines.php:878
+#: libraries/classes/Database/Routines.php:886
 msgid "Direction"
 msgstr "Smer"
 
-#: libraries/classes/Database/Routines.php:879
-#: libraries/classes/Database/Routines.php:1655
+#: libraries/classes/Database/Routines.php:887
+#: libraries/classes/Database/Routines.php:1663
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:492
 #: libraries/classes/Plugins/Export/ExportOdt.php:622
 #: libraries/classes/Plugins/Export/ExportTexytext.php:470
@@ -8992,13 +9000,13 @@ msgstr "Smer"
 msgid "Name"
 msgstr "Ime"
 
-#: libraries/classes/Database/Routines.php:881
+#: libraries/classes/Database/Routines.php:889
 #: templates/columns_definitions/table_fields_definitions.twig:16
 #: templates/database/central_columns/edit.twig:8
 msgid "Length/Values"
 msgstr "Dolžina/Vrednosti"
 
-#: libraries/classes/Database/Routines.php:882
+#: libraries/classes/Database/Routines.php:890
 #: libraries/classes/Import.php:1350 libraries/classes/Import.php:1384
 #: libraries/classes/Plugins/Export/ExportCodegen.php:71
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
@@ -9029,33 +9037,33 @@ msgstr "Dolžina/Vrednosti"
 msgid "Options"
 msgstr "Možnosti"
 
-#: libraries/classes/Database/Routines.php:899
+#: libraries/classes/Database/Routines.php:907
 msgid "Add parameter"
 msgstr "Dodaj parameter"
 
-#: libraries/classes/Database/Routines.php:903
+#: libraries/classes/Database/Routines.php:911
 msgid "Remove last parameter"
 msgstr "Odstrani zadnji parameter"
 
-#: libraries/classes/Database/Routines.php:908
+#: libraries/classes/Database/Routines.php:916
 msgid "Return type"
 msgstr "Vrnjena vrsta"
 
-#: libraries/classes/Database/Routines.php:914
+#: libraries/classes/Database/Routines.php:922
 msgid "Return length/values"
 msgstr "Vrnjena dolžina/vrednosti"
 
-#: libraries/classes/Database/Routines.php:920
+#: libraries/classes/Database/Routines.php:928
 msgid "Return options"
 msgstr "Vrnjene možnosti"
 
-#: libraries/classes/Database/Routines.php:923
+#: libraries/classes/Database/Routines.php:931
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "Nabor znakov"
 
-#: libraries/classes/Database/Routines.php:953
+#: libraries/classes/Database/Routines.php:961
 #: libraries/classes/Database/Triggers.php:444
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:495
 #: libraries/classes/Plugins/Export/ExportOdt.php:631
@@ -9065,11 +9073,11 @@ msgstr "Nabor znakov"
 msgid "Definition"
 msgstr "Opredelitev"
 
-#: libraries/classes/Database/Routines.php:959
+#: libraries/classes/Database/Routines.php:967
 msgid "Is deterministic"
 msgstr "Je deterministično"
 
-#: libraries/classes/Database/Routines.php:967
+#: libraries/classes/Database/Routines.php:975
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
@@ -9080,7 +9088,7 @@ msgstr "Je deterministično"
 msgid "Adjust privileges"
 msgstr "Prilagodi privilegije"
 
-#: libraries/classes/Database/Routines.php:978
+#: libraries/classes/Database/Routines.php:986
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
@@ -9088,21 +9096,21 @@ msgstr ""
 "Nimate zadostnih pravic za izvedbo posega; prosimo, oglejte si dokumentacijo "
 "za več podrobnosti"
 
-#: libraries/classes/Database/Routines.php:988
+#: libraries/classes/Database/Routines.php:996
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
 msgstr "Opredeljevalec"
 
-#: libraries/classes/Database/Routines.php:993
+#: libraries/classes/Database/Routines.php:1001
 msgid "Security type"
 msgstr "Vrsta varnosti"
 
-#: libraries/classes/Database/Routines.php:1002
+#: libraries/classes/Database/Routines.php:1010
 msgid "SQL data access"
 msgstr "Dostop do podatkov SQL"
 
-#: libraries/classes/Database/Routines.php:1014
+#: libraries/classes/Database/Routines.php:1022
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/data_dictionary/index.twig:73
 #: templates/database/events/editor_form.twig:95
@@ -9114,17 +9122,17 @@ msgstr "Dostop do podatkov SQL"
 msgid "Comment"
 msgstr "Pripomba"
 
-#: libraries/classes/Database/Routines.php:1068
+#: libraries/classes/Database/Routines.php:1076
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Navesti morate ime in vrsto vsakega parametra rutine."
 
-#: libraries/classes/Database/Routines.php:1086
+#: libraries/classes/Database/Routines.php:1094
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Neveljavna smer \"%s\" podana za parameter."
 
-#: libraries/classes/Database/Routines.php:1108
-#: libraries/classes/Database/Routines.php:1181
+#: libraries/classes/Database/Routines.php:1116
+#: libraries/classes/Database/Routines.php:1189
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -9132,30 +9140,30 @@ msgstr ""
 "Navesti morate dolžine/vrednosti za parametre rutine vrste ENUM, SET, "
 "VARCHAR in VARBINARY."
 
-#: libraries/classes/Database/Routines.php:1163
+#: libraries/classes/Database/Routines.php:1171
 msgid "You must provide a valid return type for the routine."
 msgstr "Navesti morate veljavno vrsto vrnjene vrednosti dogodka."
 
-#: libraries/classes/Database/Routines.php:1252
+#: libraries/classes/Database/Routines.php:1260
 msgid "You must provide a routine name!"
 msgstr "Navesti morate ime rutine!"
 
-#: libraries/classes/Database/Routines.php:1317
+#: libraries/classes/Database/Routines.php:1325
 msgid "You must provide a routine definition."
 msgstr "Navesti morate opredelitev rutine."
 
-#: libraries/classes/Database/Routines.php:1401
-#: libraries/classes/Database/Routines.php:1579
+#: libraries/classes/Database/Routines.php:1409
+#: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s."
 
-#: libraries/classes/Database/Routines.php:1440
+#: libraries/classes/Database/Routines.php:1448
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultati izvedbe rutine %s"
 
-#: libraries/classes/Database/Routines.php:1490
+#: libraries/classes/Database/Routines.php:1498
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -9164,17 +9172,17 @@ msgstr[1] "Zadnja izjava znotraj procedure je spremenila %d vrstici."
 msgstr[2] "Zadnja izjava znotraj procedure je spremenila %d vrstice."
 msgstr[3] "Zadnja izjava znotraj procedure je spremenila %d vrstic."
 
-#: libraries/classes/Database/Routines.php:1563
-#: libraries/classes/Database/Routines.php:1570
+#: libraries/classes/Database/Routines.php:1571
+#: libraries/classes/Database/Routines.php:1578
 msgid "Execute routine"
 msgstr "Izvedi rutino"
 
-#: libraries/classes/Database/Routines.php:1648
-#: libraries/classes/Database/Routines.php:1651
+#: libraries/classes/Database/Routines.php:1656
+#: libraries/classes/Database/Routines.php:1659
 msgid "Routine parameters"
 msgstr "Parametri rutine"
 
-#: libraries/classes/Database/Routines.php:1658
+#: libraries/classes/Database/Routines.php:1666
 #: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/table/search/index.twig:36
@@ -9182,7 +9190,7 @@ msgstr "Parametri rutine"
 msgid "Function"
 msgstr "Funkcija"
 
-#: libraries/classes/Database/Routines.php:1660
+#: libraries/classes/Database/Routines.php:1668
 #: libraries/classes/InsertEdit.php:2009
 #: templates/database/designer/main.twig:485
 #: templates/database/designer/main.twig:650
@@ -9197,16 +9205,16 @@ msgstr "Funkcija"
 msgid "Value"
 msgstr "Vrednost"
 
-#: libraries/classes/Database/Routines.php:1868
+#: libraries/classes/Database/Routines.php:1876
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
 
-#: libraries/classes/Database/Routines.php:1898
+#: libraries/classes/Database/Routines.php:1906
 #, php-format
 msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
-#: libraries/classes/Database/Routines.php:1917
+#: libraries/classes/Database/Routines.php:1925
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9327,47 +9335,47 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Povezavo SSL je vsilil strežnik; samodejno sem jo omogočil."
 
 #: libraries/classes/Display/Results.php:907
-#: libraries/classes/Html/Generator.php:1222
-#: libraries/classes/Html/Generator.php:1225
+#: libraries/classes/Html/Generator.php:1237
+#: libraries/classes/Html/Generator.php:1240
 msgctxt "First page"
 msgid "Begin"
 msgstr "Začetek"
 
 #: libraries/classes/Display/Results.php:914
-#: libraries/classes/Html/Generator.php:1223
-#: libraries/classes/Html/Generator.php:1226
+#: libraries/classes/Html/Generator.php:1238
+#: libraries/classes/Html/Generator.php:1241
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Prejšnja"
 
 #: libraries/classes/Display/Results.php:942
-#: libraries/classes/Html/Generator.php:1255
-#: libraries/classes/Html/Generator.php:1262
+#: libraries/classes/Html/Generator.php:1270
+#: libraries/classes/Html/Generator.php:1277
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Naslednja"
 
 #: libraries/classes/Display/Results.php:972
-#: libraries/classes/Html/Generator.php:1256
-#: libraries/classes/Html/Generator.php:1263
+#: libraries/classes/Html/Generator.php:1271
+#: libraries/classes/Html/Generator.php:1278
 msgctxt "Last page"
 msgid "End"
 msgstr "Konec"
 
-#: libraries/classes/Display/Results.php:1548
+#: libraries/classes/Display/Results.php:1552
 #: templates/display/results/table.twig:114
 msgid "Partial texts"
 msgstr "Delna besedila"
 
-#: libraries/classes/Display/Results.php:1552
+#: libraries/classes/Display/Results.php:1556
 #: templates/display/results/table.twig:118
 msgid "Full texts"
 msgstr "Polna besedila"
 
-#: libraries/classes/Display/Results.php:1950
-#: libraries/classes/Display/Results.php:1976 libraries/classes/Util.php:3125
+#: libraries/classes/Display/Results.php:1954
+#: libraries/classes/Display/Results.php:1980 libraries/classes/Util.php:3125
 #: libraries/classes/Util.php:3148 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9380,8 +9388,8 @@ msgstr "Polna besedila"
 msgid "Descending"
 msgstr "Padajoče"
 
-#: libraries/classes/Display/Results.php:1958
-#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3117
+#: libraries/classes/Display/Results.php:1962
+#: libraries/classes/Display/Results.php:1972 libraries/classes/Util.php:3117
 #: libraries/classes/Util.php:3140 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9394,41 +9402,41 @@ msgstr "Padajoče"
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: libraries/classes/Display/Results.php:3306
-#: libraries/classes/Display/Results.php:3321
+#: libraries/classes/Display/Results.php:3312
+#: libraries/classes/Display/Results.php:3327
 msgid "The row has been deleted."
 msgstr "Vrstica je izbrisana."
 
-#: libraries/classes/Display/Results.php:3353
+#: libraries/classes/Display/Results.php:3359
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Prekini proces"
 
-#: libraries/classes/Display/Results.php:4064
+#: libraries/classes/Display/Results.php:4074
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Morda je približno. Glej [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4489
+#: libraries/classes/Display/Results.php:4501
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
-#: libraries/classes/Display/Results.php:4503
+#: libraries/classes/Display/Results.php:4515
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "skupno %1$d, %2$d v poizvedbi"
 
-#: libraries/classes/Display/Results.php:4508
+#: libraries/classes/Display/Results.php:4520
 #, php-format
 msgid "%d total"
 msgstr "skupaj %d"
 
-#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1047
+#: libraries/classes/Display/Results.php:4532 libraries/classes/Sql.php:1051
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
 
-#: libraries/classes/Display/Results.php:4891
+#: libraries/classes/Display/Results.php:4903
 msgid "Link not found!"
 msgstr "Povezave ni mogoče najti!"
 
@@ -9780,11 +9788,11 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Preveč sporočil o napakah; nekatera zato niso prikazana."
 
-#: libraries/classes/ErrorHandler.php:391
+#: libraries/classes/ErrorHandler.php:397
 msgid "Report"
 msgstr "Poročaj"
 
-#: libraries/classes/ErrorHandler.php:396 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:402 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Naslednjič poročilo pošlji samodejno"
 
@@ -9853,28 +9861,28 @@ msgstr "Nalaganje datoteke je ustavila razširitev."
 msgid "Unknown error in file upload."
 msgstr "Neznana napaka pri nalaganju datoteke."
 
-#: libraries/classes/File.php:499
+#: libraries/classes/File.php:503
 msgid "File is a symbolic link"
 msgstr "Datoteka je simbolna povezava"
 
-#: libraries/classes/File.php:505 libraries/classes/File.php:604
+#: libraries/classes/File.php:509 libraries/classes/File.php:608
 msgid "File could not be read!"
 msgstr "Ne morem prebrati datoteke!"
 
-#: libraries/classes/File.php:548
+#: libraries/classes/File.php:552
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Napaka pri premikanju naložene datoteke, glej [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/classes/File.php:568
+#: libraries/classes/File.php:572
 msgid "Error while moving uploaded file."
 msgstr "Napaka pri premikanju naložene datoteke."
 
-#: libraries/classes/File.php:577
+#: libraries/classes/File.php:581
 msgid "Cannot read uploaded file."
 msgstr "Ne morem prebrati naložene datoteke."
 
-#: libraries/classes/File.php:655
+#: libraries/classes/File.php:659
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -9906,79 +9914,79 @@ msgstr "Odpri novo okno phpMyAdmin"
 msgid "Print view"
 msgstr "Pogled za tiskanje"
 
-#: libraries/classes/Html/Generator.php:151
+#: libraries/classes/Html/Generator.php:153
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Preskoči na zbirko podatkov \"%s\"."
 
-#: libraries/classes/Html/Generator.php:179
+#: libraries/classes/Html/Generator.php:181
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Na funkcionalnost %s vpliva znan hrošč, glej %s"
 
-#: libraries/classes/Html/Generator.php:244
+#: libraries/classes/Html/Generator.php:246
 msgid "SSL is not being used"
 msgstr "SSL ni v uporabi"
 
-#: libraries/classes/Html/Generator.php:249
+#: libraries/classes/Html/Generator.php:251
 msgid "SSL is used with disabled verification"
 msgstr "SSL je v uporabi z onemogočenim preverjanjem"
 
-#: libraries/classes/Html/Generator.php:251
+#: libraries/classes/Html/Generator.php:253
 msgid "SSL is used without certification authority"
 msgstr "SSL je v uporabi brez overitelja potrdil"
 
-#: libraries/classes/Html/Generator.php:254
+#: libraries/classes/Html/Generator.php:256
 msgid "SSL is used"
 msgstr "SSL je v uporabi"
 
-#: libraries/classes/Html/Generator.php:353
+#: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
 msgstr "Funkcija PHP password_hash() s privzetimi možnostmi."
 
-#: libraries/classes/Html/Generator.php:354
+#: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
 msgstr "Funkcija PHP password_hash()"
 
-#: libraries/classes/Html/Generator.php:659
+#: libraries/classes/Html/Generator.php:668
 msgid "Skip Explain SQL"
 msgstr "Preskoči razlago stavka SQL"
 
-#: libraries/classes/Html/Generator.php:667
+#: libraries/classes/Html/Generator.php:676
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "Analiziraj explain pri %s"
 
-#: libraries/classes/Html/Generator.php:697
+#: libraries/classes/Html/Generator.php:707
 msgid "Without PHP code"
 msgstr "Brez kode PHP"
 
-#: libraries/classes/Html/Generator.php:704
+#: libraries/classes/Html/Generator.php:714
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Izvedi poizvedbo"
 
-#: libraries/classes/Html/Generator.php:749 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:759 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profiliranje"
 
-#: libraries/classes/Html/Generator.php:763
+#: libraries/classes/Html/Generator.php:773
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Uredi v vrstici"
 
-#: libraries/classes/Html/Generator.php:901
+#: libraries/classes/Html/Generator.php:911
 msgid "Static analysis:"
 msgstr "Statična analiza:"
 
-#: libraries/classes/Html/Generator.php:904
+#: libraries/classes/Html/Generator.php:914
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Med analizo smo našli %d napak."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1055
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1059
 msgid "[ROLLBACK occurred.]"
 msgstr "[Zgodil se je ROLLBACK.]"
 
@@ -10040,7 +10048,7 @@ msgstr ""
 "Razveljavite lahko samo SQL-poizvedbe INSERT, UPDATE, DELETE in REPLACE, ki "
 "vsebujejo tabele transakcijskega pogona."
 
-#: libraries/classes/Index.php:624
+#: libraries/classes/Index.php:628
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -10181,11 +10189,11 @@ msgstr "Stolpec"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1038
+#: libraries/classes/InsertEdit.php:2404 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1016
+#: libraries/classes/InsertEdit.php:2430 libraries/classes/Sql.php:1020
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -10242,7 +10250,7 @@ msgid "Insert"
 msgstr "Vstavi"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2977 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2976 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10834,37 +10842,37 @@ msgstr "Seznam temelji na podmnožici podatkov iz tabele in ni nujno točen. "
 msgid "No partial dependencies found!"
 msgstr "Našli nismo nobene delne odvisnosti!"
 
-#: libraries/classes/Operations.php:601
+#: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "Analiziraj"
 
-#: libraries/classes/Operations.php:602
+#: libraries/classes/Operations.php:601
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "Označi"
 
-#: libraries/classes/Operations.php:603
+#: libraries/classes/Operations.php:602
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "Optimiraj"
 
-#: libraries/classes/Operations.php:604
+#: libraries/classes/Operations.php:603
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "Ponovno sestavi"
 
-#: libraries/classes/Operations.php:605
+#: libraries/classes/Operations.php:604
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "Popravi"
 
-#: libraries/classes/Operations.php:606
+#: libraries/classes/Operations.php:605
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr "Izprazni"
 
-#: libraries/classes/Operations.php:617 templates/database/events/index.twig:67
+#: libraries/classes/Operations.php:616 templates/database/events/index.twig:67
 #: templates/database/events/index.twig:73
 #: templates/database/events/index.twig:94
 #: templates/database/events/index.twig:95
@@ -10889,39 +10897,39 @@ msgstr "Izprazni"
 msgid "Drop"
 msgstr "Zavrzi"
 
-#: libraries/classes/Operations.php:619
+#: libraries/classes/Operations.php:618
 msgid "Coalesce"
 msgstr "Združi (coalesce)"
 
-#: libraries/classes/Operations.php:1054
+#: libraries/classes/Operations.php:1053
 msgid "Can't move table to same one!"
 msgstr "Tabele ne morete premakniti same vase!"
 
-#: libraries/classes/Operations.php:1056
+#: libraries/classes/Operations.php:1055
 msgid "Can't copy table to same one!"
 msgstr "Tabele ne morete kopirati same vase!"
 
-#: libraries/classes/Operations.php:1091
+#: libraries/classes/Operations.php:1090
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo premaknili na %s. Privilegije smo prilagodili."
 
-#: libraries/classes/Operations.php:1098
+#: libraries/classes/Operations.php:1097
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo skopirali na %s. Privilegije smo prilagodili."
 
-#: libraries/classes/Operations.php:1106
+#: libraries/classes/Operations.php:1105
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabelo %s smo premaknili na %s."
 
-#: libraries/classes/Operations.php:1110
+#: libraries/classes/Operations.php:1109
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabelo %s smo skopirali na %s."
 
-#: libraries/classes/Operations.php:1134
+#: libraries/classes/Operations.php:1133
 msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
@@ -10996,7 +11004,7 @@ msgstr "Nimate dovoljenja za prijavo na ta strežnik MySQL!"
 msgid "Wrong username/password. Access denied."
 msgstr "Napačno uporabniško ime/geslo. Dostop zavrnjen."
 
-#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:147
+#: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
 msgid "Can not find signon authentication script:"
 msgstr "Ne morem najti overitvenega skripta signon:"
 
@@ -11591,20 +11599,20 @@ msgstr ""
 "Ko pri uvozu obstajajo podvojeni ključi, posodobi podatke (dodaj ON "
 "DUPLICATE KEY UPDATE)"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:75
+#: libraries/classes/Plugins/Import/ImportCsv.php:77
 msgid "Name of the new table (optional):"
 msgstr "Ime nove tabele (izbirno):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:86
 msgid "Name of the new database (optional):"
 msgstr "Ime nove zbirke podatkov (izbirno):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
-#: libraries/classes/Plugins/Import/ImportCsv.php:111
+#: libraries/classes/Plugins/Import/ImportCsv.php:95
+#: libraries/classes/Plugins/Import/ImportCsv.php:113
 msgid "Import these many number of rows (optional):"
 msgstr "Uvozi toliko vrstic (izbirno):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:103
 #: libraries/classes/Plugins/Import/ImportOds.php:69
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -11613,7 +11621,7 @@ msgstr ""
 "Prva vrstica v datoteki vsebuje imena stolpcev tabele <i>(če to ni označeno, "
 "bo prva vrstica postala del podatkov)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:118
+#: libraries/classes/Plugins/Import/ImportCsv.php:120
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11623,30 +11631,30 @@ msgstr ""
 "podatkov, tukaj navedite ustrezna imena stolpcev. Imena stolpcev morajo biti "
 "ločena z vejicami in ne smejo biti obdana z narekovaji."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:126
+#: libraries/classes/Plugins/Import/ImportCsv.php:128
 msgid "Column names:"
 msgstr "Imena stolpcev:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:265
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:267
+#: libraries/classes/Plugins/Import/ImportCsv.php:643
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:498
+#: libraries/classes/Plugins/Import/ImportCsv.php:500
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neveljavno število stolpcev v vnosu CSV v vrstici %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:661
+#: libraries/classes/Plugins/Import/ImportCsv.php:676
+#: libraries/classes/Plugins/Import/ImportCsv.php:687
+#: libraries/classes/Plugins/Import/ImportCsv.php:696
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neveljavni parameter za uvoz CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:810
+#: libraries/classes/Plugins/Import/ImportCsv.php:818
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11726,11 +11734,11 @@ msgstr "Ne uporabi <code>AUTO_INCREMENT</code> za ničelne vrednosti"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:705
+#: libraries/classes/Plugins.php:710
 msgid "This format has no options"
 msgstr "Oblika nima nobenih možnosti"
 
-#: libraries/classes/Plugins.php:721
+#: libraries/classes/Plugins.php:726
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
 
@@ -12149,7 +12157,7 @@ msgstr "Odjavite se in poskusite kot drug uporabnik."
 msgid "Please check privileges of directory containing database."
 msgstr "Prosimo, preverite pravice mape, v kateri se nahaja zbirka podatkov."
 
-#: libraries/classes/Query/Utilities.php:119
+#: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
 msgstr "Podrobnosti …"
 
@@ -12275,30 +12283,31 @@ msgstr "Pomnjenje nastavitev Designerja"
 msgid "Saving export templates"
 msgstr "Shranjevanje predlog izvoza"
 
-#: libraries/classes/Relation.php:1835
+#: libraries/classes/Relation.php:1834
 msgid "no description"
 msgstr "brez opisa"
 
-#: libraries/classes/Relation.php:2035
-msgid ""
-"You do not have necessary privileges to create a database named "
-"'%s'. You may go to 'Operations' tab of any database to set up the "
-"phpMyAdmin configuration storage there."
-msgstr ""
-"Nimate zadostnih dovoljenj za ustvarjanje zbirke podatkov '%s'. "
-"Greste lahko na zavihek 'Dejanja' v vsaki od zbirk podatkov in nastavite "
-"hrambo konfiguracije phpMyAdmin."
-
-#: libraries/classes/Relation.php:2157
+#: libraries/classes/Relation.php:2039
 #, php-format
 msgid ""
-"%sCreate%s a database named '%s' and setup the phpMyAdmin "
+"You do not have necessary privileges to create a database named '%s'. You "
+"may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sUstvari%s zbirko podatkov '%s' in vanjo namesti hrambo "
+"Nimate zadostnih dovoljenj za ustvarjanje zbirke podatkov '%s'. Greste lahko "
+"na zavihek 'Dejanja' v vsaki od zbirk podatkov in nastavite hrambo "
 "konfiguracije phpMyAdmin."
 
-#: libraries/classes/Relation.php:2165
+#: libraries/classes/Relation.php:2163
+#, php-format
+msgid ""
+"%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
+"storage there."
+msgstr ""
+"%sUstvari%s zbirko podatkov '%s' in vanjo namesti hrambo konfiguracije "
+"phpMyAdmin."
+
+#: libraries/classes/Relation.php:2171
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
@@ -12306,7 +12315,7 @@ msgstr ""
 "%sCreate%s tabele hrambe konfiguracije phpMyAdmin in trenutni zbirki "
 "podatkov."
 
-#: libraries/classes/Relation.php:2173
+#: libraries/classes/Relation.php:2179
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sUstvari%s manjkajoče tabele hrambe konfiguracije phpMyAdmin."
@@ -12648,33 +12657,33 @@ msgstr "Omogoča ustvarjanje, brisanje in preimenovanje uporabniških računov."
 msgid "Allows executing stored routines."
 msgstr "Omogoča izvajanje shranjenih rutin."
 
-#: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:869
-#: libraries/classes/Server/Privileges.php:3970
+#: libraries/classes/Server/Privileges.php:794
+#: libraries/classes/Server/Privileges.php:868
+#: libraries/classes/Server/Privileges.php:3971
 msgid "Native MySQL authentication"
 msgstr "Domorodna overitev MySQL"
 
-#: libraries/classes/Server/Privileges.php:797
+#: libraries/classes/Server/Privileges.php:796
 msgid "SHA256 password authentication"
 msgstr "Overitev z geslom SHA256"
 
-#: libraries/classes/Server/Privileges.php:1166
+#: libraries/classes/Server/Privileges.php:1165
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Geslo za %s je uspešno spremenjeno."
 
-#: libraries/classes/Server/Privileges.php:1215
+#: libraries/classes/Server/Privileges.php:1214
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Odvzeli ste privilegije za %s."
 
-#: libraries/classes/Server/Privileges.php:1551
+#: libraries/classes/Server/Privileges.php:1550
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nimate zadostnih privilegijev za ogled uporabnikov."
 
-#: libraries/classes/Server/Privileges.php:1618
+#: libraries/classes/Server/Privileges.php:1617
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12682,78 +12691,78 @@ msgstr "Nimate zadostnih privilegijev za ogled uporabnikov."
 msgid "Edit privileges"
 msgstr "Uredi privilegije"
 
-#: libraries/classes/Server/Privileges.php:1621
+#: libraries/classes/Server/Privileges.php:1620
 msgid "Revoke"
 msgstr "Odvzemi"
 
-#: libraries/classes/Server/Privileges.php:1949
+#: libraries/classes/Server/Privileges.php:1948
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Privilegiji, tipični za zbirko podatkov"
 
-#: libraries/classes/Server/Privileges.php:1955
+#: libraries/classes/Server/Privileges.php:1954
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Privilegiji tipični za tabelo"
 
-#: libraries/classes/Server/Privileges.php:1960
-#: libraries/classes/Server/Privileges.php:1962
+#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1961
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rutina"
 
-#: libraries/classes/Server/Privileges.php:1961
+#: libraries/classes/Server/Privileges.php:1960
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilegiji, vezani na rutino"
 
-#: libraries/classes/Server/Privileges.php:2309
+#: libraries/classes/Server/Privileges.php:2308
 msgid "No users selected for deleting!"
 msgstr "Ni izbranih uporabnikov za brisanje!"
 
-#: libraries/classes/Server/Privileges.php:2312
+#: libraries/classes/Server/Privileges.php:2311
 msgid "Reloading the privileges"
 msgstr "Osvežujem privilegije"
 
-#: libraries/classes/Server/Privileges.php:2335
+#: libraries/classes/Server/Privileges.php:2334
 msgid "The selected users have been deleted successfully."
 msgstr "Uspešno smo izbrisali izbrane uporabnike."
 
-#: libraries/classes/Server/Privileges.php:2412
+#: libraries/classes/Server/Privileges.php:2411
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Posodobili ste privilegije za %s."
 
-#: libraries/classes/Server/Privileges.php:2499
+#: libraries/classes/Server/Privileges.php:2498
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Najden ni bil noben uporabnik."
 
-#: libraries/classes/Server/Privileges.php:2580
+#: libraries/classes/Server/Privileges.php:2579
 #, php-format
 msgid "Deleting %s"
 msgstr "Brišemo %s"
 
-#: libraries/classes/Server/Privileges.php:2611
+#: libraries/classes/Server/Privileges.php:2610
 msgid "The privileges were reloaded successfully."
 msgstr "Uspešno smo osvežili privilegije."
 
-#: libraries/classes/Server/Privileges.php:2711
+#: libraries/classes/Server/Privileges.php:2710
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Uporabnik %s že obstaja!"
 
-#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:2993
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegiji %s"
 
-#: libraries/classes/Server/Privileges.php:3133
+#: libraries/classes/Server/Privileges.php:3132
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12764,7 +12773,7 @@ msgstr ""
 "gostiteljski del njihovega računa dovoljuje povezavo s katerega koli (%) "
 "gostitelja."
 
-#: libraries/classes/Server/Privileges.php:3176
+#: libraries/classes/Server/Privileges.php:3175
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12777,7 +12786,7 @@ msgstr ""
 "jih uporablja strežnik, če so bile tabele ročno spremenjene. V tem primeru "
 "morate pred nadaljevanjem %sosvežiti privilegije%s."
 
-#: libraries/classes/Server/Privileges.php:3192
+#: libraries/classes/Server/Privileges.php:3191
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12791,7 +12800,7 @@ msgstr ""
 "morate pred nadaljevanjem osvežiti privilegije, vendar trenuno nimate "
 "privilegija RELOAD."
 
-#: libraries/classes/Server/Privileges.php:3528
+#: libraries/classes/Server/Privileges.php:3527
 msgid "You have added a new user."
 msgstr "Dodali ste novega uporabnika."
 
@@ -12911,16 +12920,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Na voljo ni novejše stabilne različice"
 
-#: libraries/classes/Sql.php:524
+#: libraries/classes/Sql.php:528
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: libraries/classes/Sql.php:1035
+#: libraries/classes/Sql.php:1039
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: libraries/classes/Sql.php:1418
+#: libraries/classes/Sql.php:1422
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12929,7 +12938,7 @@ msgstr ""
 "Trenutna izbira ne vsebuje unikatnega stolpca. Možnosti urejanja mreže, "
 "potrditvena polja, Uredi, Kopiraj in Izbriši niso na voljo. %s"
 
-#: libraries/classes/Sql.php:1432
+#: libraries/classes/Sql.php:1436
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13060,26 +13069,26 @@ msgstr ""
 msgid "Error while working with template cache: %s"
 msgstr "Napaka med delom s predpomnilnikom predlog: %s"
 
-#: libraries/classes/ThemeManager.php:88
+#: libraries/classes/ThemeManager.php:92
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Privzete teme %s nismo našli!"
 
-#: libraries/classes/ThemeManager.php:173
+#: libraries/classes/ThemeManager.php:157
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s ni bila najdena!"
 
-#: libraries/classes/ThemeManager.php:261
+#: libraries/classes/ThemeManager.php:245
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Pot teme ni bila najdena za temo %s!"
 
-#: libraries/classes/ThemeManager.php:350
+#: libraries/classes/ThemeManager.php:334
 msgid "Theme:"
 msgstr "Motiv:"
 
-#: libraries/classes/Theme.php:215
+#: libraries/classes/Theme.php:227
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Za temo %s ni bila najdena veljavna pot slik!"
@@ -13678,12 +13687,12 @@ msgstr "Napaka v arhivu ZIP:"
 msgid "No files found inside ZIP archive!"
 msgstr "V arhivu ZIP ni bilo najdenih datotek!"
 
-#: libraries/common.inc.php:276
+#: libraries/common.inc.php:284
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
-#: libraries/common.inc.php:308
+#: libraries/common.inc.php:316
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
@@ -14685,7 +14694,7 @@ msgstr ""
 "podatkov."
 
 #. l10n: A query that the user has written freely
-#: templates/database/export/index.twig:5 templates/table/export/index.twig:8
+#: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
 msgstr "Izvažanje surove poizvedbe"
 
@@ -17964,7 +17973,7 @@ msgstr "Stolpec z vrednostjo:"
 msgid "Save chart as image"
 msgstr "Shrani grafikon kot sliko"
 
-#: templates/table/export/index.twig:15
+#: templates/table/export/index.twig:12
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
@@ -17972,7 +17981,7 @@ msgstr ""
 "@SERVER@ bo postalo ime strežnika, @DATABASE@ bo postalo ime zbirke podatkov "
 "in @TABLE@ bo postalo ime tabele."
 
-#: templates/table/export/index.twig:10
+#: templates/table/export/index.twig:7
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "Izvažanje vrstic iz tabele \"%s\""
