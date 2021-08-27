@@ -2029,6 +2029,10 @@ class Relation
 
         $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         if (! $error) {
+            // Re-build the cache to show the list of tables created or not
+            // This is the case when the DB could be created but no tables just after
+            // So just purge the cache and show the new configuration storage state
+            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
             return true;
         }
 
