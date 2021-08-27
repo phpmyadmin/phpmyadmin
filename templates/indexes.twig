@@ -68,7 +68,7 @@
                   <tr class="noclick">
                 {% endif %}
                 <td>
-                  {{ column.getName() }}
+                  {% if column.hasExpression() %}{{ column.getExpression() }}{% else %}{{ column.getName() }}{% endif %}
                   {% if column.getSubPart() is not empty %}
                     ({{ column.getSubPart() }})
                   {% endif %}

@@ -35,9 +35,11 @@ class CheckRelationsController extends AbstractController
             'fix_pmadb' => $_POST['fix_pmadb'] ?? null,
         ];
 
+        $cfgStorageDbName = $this->relation->getConfigurationStorageDbName();
+
         // If request for creating the pmadb
-        if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase()) {
-            $this->relation->fixPmaTables('phpmyadmin');
+        if (isset($params['create_pmadb']) && $this->relation->createPmaDatabase($cfgStorageDbName)) {
+            $this->relation->fixPmaTables($cfgStorageDbName);
         }
 
         // If request for creating all PMA tables.

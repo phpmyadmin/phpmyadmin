@@ -863,6 +863,24 @@ Server connection settings
 
     .. seealso:: :ref:`faqpdf`.
 
+.. _designer_coords:
+.. config:option:: $cfg['Servers'][$i]['designer_coords']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 2.10.0
+
+        Since release 2.10.0 a Designer interface is available; it permits to
+        visually manage the relations.
+
+    .. deprecated:: 4.3.0
+
+        This setting was removed and the Designer table positioning data is now stored into :config:option:`$cfg['Servers'][$i]['table\_coords']`.
+
+    .. note::
+        You can now delete the table `pma__designer_coords` from your phpMyAdmin configuration storage database and remove :config:option:`$cfg['Servers'][$i]['designer\_coords']` from your configuration file.
+
 .. _col_com:
 .. config:option:: $cfg['Servers'][$i]['column_info']
 

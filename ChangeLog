@@ -116,6 +116,9 @@ phpMyAdmin - ChangeLog
 - issue #16942 Fix table Import with CSV using LOAD DATA LOCAL causes error "LOAD DATA LOCAL INFILE is forbidden"
 - issue #16942 Fix auto-detection for "LOAD DATA LOCAL INFILE" LOCAL option
 - issue #16067 Make select elements with multiple items resizable
+- issue        Fix the display of Indexes that use Expressions and not column names
+- issue        Allow to create the phpMyAdmin storage database using a different name than "phpmyadmin" using the interface
+- issue #17092 Document that "$cfg['Servers'][$i]['designer_coords']" was removed in version 4.3.0
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa

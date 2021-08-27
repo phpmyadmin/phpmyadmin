@@ -115,6 +115,17 @@ abstract class AbstractTestCase extends TestCase
         );
     }
 
+    protected function assertAllErrorCodesConsumed(): void
+    {
+        if ($this->dummyDbi->hasUnUsedErrors() === false) {
+            $this->assertTrue(true);// increment the assertion count
+
+            return;
+        }
+
+        $this->fail('Some error codes where not used !');
+    }
+
     protected function loadContainerBuilder(): void
     {
         global $containerBuilder;

@@ -2965,6 +2965,11 @@ class ExportSql extends ExportPlugin
                 // Key's columns.
                 if (! empty($field->key)) {
                     foreach ($field->key->columns as $key => $column) {
+                        if (! isset($column['name'])) {
+                            // In case the column has no name field
+                            continue;
+                        }
+
                         if (empty($aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']])) {
                             continue;
                         }
