@@ -1762,7 +1762,7 @@ class Relation
                     'table_name'
                 );
             } else {
-                // if the table is moved out of the database we can no loger keep the
+                // if the table is moved out of the database we can no longer keep the
                 // record for table coordinate
                 $remove_query = 'DELETE FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
