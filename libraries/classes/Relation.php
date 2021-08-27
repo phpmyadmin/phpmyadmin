@@ -2023,10 +2023,11 @@ class Relation
     public function createPmaDatabase(string $configurationStorageDbName): bool
     {
         $this->dbi->tryQuery(
-            'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName)
+            'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName),
+            DatabaseInterface::CONNECT_CONTROL
         );
 
-        $error = $this->dbi->getError();
+        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         if (! $error) {
             return true;
         }
@@ -2088,14 +2089,14 @@ class Relation
                 if ($create) {
                     if ($createQueries == null) { // first create
                         $createQueries = $this->getDefaultPmaTableNames();
-                        if (! $this->dbi->selectDb($db)) {
-                            $GLOBALS['message'] = $this->dbi->getError();
+                        if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
+                            $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
                             return;
                         }
                     }
-                    $this->dbi->tryQuery($createQueries[$table]);
+                    $this->dbi->tryQuery($createQueries[$table], DatabaseInterface::CONNECT_CONTROL);
 
-                    $error = $this->dbi->getError();
+                    $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
                     if ($error) {
                         $GLOBALS['message'] = $error;
 
