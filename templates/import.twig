@@ -194,14 +194,14 @@
 
         <div class="importoptions">
             <h3>{% trans 'Format:' %}</h3>
-            <select id="plugins" name="{{ plugins_choice.name }}">
-              {% for option in plugins_choice.options %}
+            <select id="plugins" name="format">
+              {% for option in plugins_choice %}
                 <option value="{{ option.name }}"{{ option.is_selected ? ' selected' }}>{{ option.text }}</option>
               {% endfor %}
             </select>
 
-            {% for option in plugins_choice.options %}
-              <input type="hidden" id="force_file_{{ option.name }}" value="{{ option.force_file ? 'true' : 'false' }}">
+            {% for option in plugins_choice %}
+              <input type="hidden" id="force_file_{{ option.name }}" value="true">
             {% endfor %}
 
             <div id="import_notification"></div>

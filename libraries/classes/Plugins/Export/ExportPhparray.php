@@ -35,6 +35,14 @@ class ExportPhparray extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'phparray';
+    }
+
+    /**
      * Sets the export PHP Array properties
      *
      * @return void

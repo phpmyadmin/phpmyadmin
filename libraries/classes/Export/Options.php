@@ -134,7 +134,8 @@ final class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
+        $dropdown = Plugins::getChoice($exportList, $default);
         $tableObject = new Table($table, $db);
         $rows = [];
 

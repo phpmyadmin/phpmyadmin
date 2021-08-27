@@ -44,6 +44,14 @@ class ImportMediawiki extends ImportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'mediawiki';
+    }
+
+    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *

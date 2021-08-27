@@ -23,6 +23,14 @@ use function __;
 class ExportExcel extends ExportCsv
 {
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'excel';
+    }
+
+    /**
      * Sets the export CSV for Excel properties
      *
      * @return void

@@ -28,6 +28,14 @@ class SchemaEps extends SchemaPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'eps';
+    }
+
+    /**
      * Sets the schema export EPS properties
      *
      * @return void

@@ -51,6 +51,14 @@ class ExportXml extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'xml';
+    }
+
+    /**
      * Initialize the local variables that are used for export XML
      *
      * @return void

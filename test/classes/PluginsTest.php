@@ -106,10 +106,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        global $plugin_param, $cfg;
+        global $plugin_param;
 
-        $_GET = [];
-        $cfg['Export']['format'] = 'xml';
         $plugin_param = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
             new Plugins\Export\ExportJson(),
@@ -117,15 +115,12 @@ class PluginsTest extends AbstractTestCase
             new Plugins\Export\ExportSql(),
             new Plugins\Export\ExportXml(),
         ];
-        $actual = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        $actual = Plugins::getChoice($exportList, 'xml');
         $expected = [
-            'name' => 'what',
-            'options' => [
-                ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'force_file' => false],
-                ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'force_file' => true],
-                ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'force_file' => false],
-                ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'force_file' => false],
-            ],
+            ['name' => 'json', 'text' => 'JSON', 'is_selected' => false, 'force_file' => false],
+            ['name' => 'ods', 'text' => 'OpenDocument Spreadsheet', 'is_selected' => false, 'force_file' => true],
+            ['name' => 'sql', 'text' => 'SQL', 'is_selected' => false, 'force_file' => false],
+            ['name' => 'xml', 'text' => 'XML', 'is_selected' => true, 'force_file' => false],
         ];
         $this->assertEquals($expected, $actual);
     }

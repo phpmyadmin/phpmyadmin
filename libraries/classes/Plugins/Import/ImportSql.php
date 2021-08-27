@@ -35,6 +35,14 @@ class ImportSql extends ImportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'sql';
+    }
+
+    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *

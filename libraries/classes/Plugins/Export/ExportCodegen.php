@@ -47,6 +47,14 @@ class ExportCodegen extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'codegen';
+    }
+
+    /**
      * Initialize the local variables that are used for export CodeGen
      *
      * @return void

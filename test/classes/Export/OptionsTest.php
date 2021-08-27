@@ -86,7 +86,7 @@ class OptionsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $exportList = Plugins::getExport($export_type, true);
-        $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        $dropdown = Plugins::getChoice($exportList, 'sql');
 
         //Call the test function
         $actual = $this->export->getOptions(

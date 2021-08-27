@@ -57,6 +57,14 @@ class ImportShp extends ImportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'shp';
+    }
+
+    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *

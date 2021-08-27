@@ -42,6 +42,14 @@ class ExportLatex extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'latex';
+    }
+
+    /**
      * Initialize the local variables that are used for export Latex
      *
      * @return void

@@ -21,9 +21,6 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
-use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 use SplFileInfo;
 use Throwable;
 
@@ -246,58 +243,22 @@ class Plugins
     }
 
     /**
-     * Returns html select form element for plugin choice
-     * and hidden fields denoting whether each plugin must be exported as a file
+     * @param ExportPlugin[]|ImportPlugin[]|SchemaPlugin[] $list
      *
-     * @param string $section name of config section in
-     *                        $GLOBALS['cfg'][$section] for plugin
-     * @param string $name    name of select element
-     * @param array  $list    array with plugin instances
-     * @param string $cfgname name of config value, if none same as $name
-     *
-     * @return array<string, array<string, bool|string>|string>
-     * @psalm-return array{
-     *   name: string,
-     *   options: list<array{name: string, text: string, is_selected: bool, force_file: bool}>
-     * }
+     * @return array<int, array<string, bool|string>>
+     * @psalm-return list<array{name: non-empty-lowercase-string, text: string, is_selected: bool, force_file: bool}>
      */
-    public static function getChoice($section, $name, array $list, $cfgname = null): array
+    public static function getChoice(array $list, string $default): array
     {
-        if (! isset($cfgname)) {
-            $cfgname = $name;
-        }
-
-        $return = ['name' => $name, 'options' => []];
-        $default = self::getDefault($section, $cfgname);
-
+        $return = [];
         foreach ($list as $plugin) {
-            $elem = explode('\\', get_class($plugin));
-            $plugin_name = (string) array_pop($elem);
-            unset($elem);
-            $plugin_name = mb_strtolower(mb_substr($plugin_name, mb_strlen($section)));
-
-            // If the form is being repopulated using $_GET data, that is priority
-            $isSelected = isset($_GET[$name]) && $plugin_name === $_GET[$name]
-                || ! isset($_GET[$name]) && $plugin_name === $default;
-
-            /** @var PluginPropertyItem $properties */
+            $pluginName = $plugin->getName();
             $properties = $plugin->getProperties();
-            $text = null;
-            if ($properties != null) {
-                $text = $properties->getText();
-            }
-
-            /** @var ExportPluginProperties|SchemaPluginProperties $properties */
-            $properties = $plugin->getProperties();
-
-            // Whether each plugin has to be saved as a file
-            $forceFile = ! strcmp($section, 'Import') || $properties != null && $properties->getForceFile() != null;
-
-            $return['options'][] = [
-                'name' => $plugin_name,
-                'text' => self::getString($text),
-                'is_selected' => $isSelected,
-                'force_file' => $forceFile,
+            $return[] = [
+                'name' => $pluginName,
+                'text' => self::getString($properties->getText()),
+                'is_selected' => $pluginName === $default,
+                'force_file' => $properties->getForceFile(),
             ];
         }
 

@@ -101,7 +101,8 @@ final class ImportController extends AbstractController
             'table' => $table,
         ];
 
-        $choice = Plugins::getChoice('Import', 'format', $importList);
+        $default = isset($_GET['format']) ? (string) $_GET['format'] : Plugins::getDefault('Import', 'format');
+        $choice = Plugins::getChoice($importList, $default);
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');

@@ -27,6 +27,14 @@ class SchemaDia extends SchemaPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'dia';
+    }
+
+    /**
      * Sets the schema export Dia properties
      *
      * @return void

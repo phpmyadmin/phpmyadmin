@@ -41,6 +41,14 @@ class ExportJson extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'json';
+    }
+
+    /**
      * Encodes the data into JSON
      *
      * @param mixed $data Data to encode

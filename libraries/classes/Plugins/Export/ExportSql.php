@@ -80,6 +80,14 @@ class ExportSql extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'sql';
+    }
+
+    /**
      * Sets the export SQL properties
      *
      * @return void

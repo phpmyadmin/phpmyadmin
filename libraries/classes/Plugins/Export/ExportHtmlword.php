@@ -35,6 +35,14 @@ class ExportHtmlword extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'htmlword';
+    }
+
+    /**
      * Sets the export HTML-Word properties
      *
      * @return void

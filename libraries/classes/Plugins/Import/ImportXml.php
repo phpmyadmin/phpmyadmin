@@ -41,6 +41,14 @@ class ImportXml extends ImportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'xml';
+    }
+
+    /**
      * Sets the import plugin properties.
      * Called in the constructor.
      *

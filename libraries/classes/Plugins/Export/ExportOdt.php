@@ -38,6 +38,14 @@ class ExportOdt extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'odt';
+    }
+
+    /**
      * Sets the export ODT properties
      *
      * @return void

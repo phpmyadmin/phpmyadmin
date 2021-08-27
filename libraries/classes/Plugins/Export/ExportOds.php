@@ -38,6 +38,14 @@ class ExportOds extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'ods';
+    }
+
+    /**
      * Sets the export ODS properties
      *
      * @return void

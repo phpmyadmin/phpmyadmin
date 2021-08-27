@@ -30,6 +30,14 @@ class SchemaPdf extends SchemaPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'pdf';
+    }
+
+    /**
      * Sets the schema export PDF properties
      *
      * @return void

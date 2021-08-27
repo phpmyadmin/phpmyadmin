@@ -137,7 +137,10 @@ class Designer
             )->getDisplay();
         }
 
-        $choice = Plugins::getChoice('Schema', 'export_type', $export_list, 'format');
+        $default = isset($_GET['export_type'])
+            ? (string) $_GET['export_type']
+            : Plugins::getDefault('Schema', 'format');
+        $choice = Plugins::getChoice($export_list, $default);
         $options = Plugins::getOptions('Schema', $export_list);
 
         return $this->template->render('database/designer/schema_export', [

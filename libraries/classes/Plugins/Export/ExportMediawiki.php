@@ -35,6 +35,14 @@ class ExportMediawiki extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'mediawiki';
+    }
+
+    /**
      * Sets the export MediaWiki properties
      *
      * @return void

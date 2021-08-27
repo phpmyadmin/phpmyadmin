@@ -33,6 +33,14 @@ class ExportYaml extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'yaml';
+    }
+
+    /**
      * Sets the export YAML properties
      *
      * @return void

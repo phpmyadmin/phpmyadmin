@@ -35,6 +35,14 @@ class ExportTexytext extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'texytext';
+    }
+
+    /**
      * Sets the export Texy! text properties
      *
      * @return void

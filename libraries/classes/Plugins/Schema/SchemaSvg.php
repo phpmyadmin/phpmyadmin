@@ -27,6 +27,14 @@ class SchemaSvg extends SchemaPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'svg';
+    }
+
+    /**
      * Sets the schema export SVG properties
      *
      * @return void

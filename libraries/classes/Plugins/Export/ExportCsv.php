@@ -36,6 +36,14 @@ class ExportCsv extends ExportPlugin
     }
 
     /**
+     * @psalm-return non-empty-lowercase-string
+     */
+    public function getName(): string
+    {
+        return 'csv';
+    }
+
+    /**
      * Sets the export CSV properties
      *
      * @return void

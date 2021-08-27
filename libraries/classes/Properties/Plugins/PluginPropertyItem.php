@@ -49,7 +49,6 @@ abstract class PluginPropertyItem extends PropertyItem
      * @var string
      */
     private $mimeType;
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * Gets the text
@@ -169,5 +168,13 @@ abstract class PluginPropertyItem extends PropertyItem
     public function getPropertyType()
     {
         return 'plugin';
+    }
+
+    /**
+     * Whether each plugin has to be saved as a file
+     */
+    public function getForceFile(): bool
+    {
+        return false;
     }
 }
