@@ -391,8 +391,39 @@ class RelationTest extends AbstractTestCase
             [['NULL']]
         );
 
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertSame([], $_SESSION['relation']);
+
         $this->relation->fixPmaTables('db_pma', false);
-        //TODO: assert state
+
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+
+        $this->assertSame([
+            'PMA_VERSION' => $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'],
+            'relwork' => false,
+            'displaywork' => false,
+            'bookmarkwork' => false,
+            'pdfwork' => false,
+            'commwork' => false,
+            'mimework' => false,
+            'historywork' => false,
+            'recentwork' => false,
+            'favoritework' => false,
+            'uiprefswork' => false,
+            'trackingwork' => false,
+            'userconfigwork' => true,// The only one than has a table and passes check
+            'menuswork' => false,
+            'navwork' => false,
+            'savedsearcheswork' => false,
+            'centralcolumnswork' => false,
+            'designersettingswork' => false,
+            'exporttemplateswork' => false,
+            'allworks' => false,
+            'user' => '',
+            'db' => 'db_pma',
+            'userconfig' => 'pma__userconfig',
+        ], $_SESSION['relation'][$GLOBALS['server']]);
+
         $this->assertAllQueriesConsumed();
     }
 
@@ -655,9 +686,40 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertSame([], $_SESSION['relation']);
+
         $this->relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
+
+        $this->assertSame([
+            'PMA_VERSION' => $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'],
+            'relwork' => false,
+            'displaywork' => false,
+            'bookmarkwork' => false,
+            'pdfwork' => false,
+            'commwork' => false,
+            'mimework' => false,
+            'historywork' => false,
+            'recentwork' => false,
+            'favoritework' => false,
+            'uiprefswork' => false,
+            'trackingwork' => false,
+            'userconfigwork' => true,// The only one than has a table and passes check
+            'menuswork' => false,
+            'navwork' => false,
+            'savedsearcheswork' => false,
+            'centralcolumnswork' => false,
+            'designersettingswork' => false,
+            'exporttemplateswork' => false,
+            'allworks' => false,
+            'user' => '',
+            'db' => 'db_pma',
+            'userconfig' => 'pma__userconfig',
+        ], $_SESSION['relation'][$GLOBALS['server']]);
+
         $this->assertAllQueriesConsumed();
     }
 
@@ -717,10 +779,19 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertSame([], $_SESSION['relation']);
+
         $this->relation->fixPmaTables('db_pma', true);
+
         $this->assertArrayHasKey('message', $GLOBALS);
+        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('MYSQL_ERROR', $GLOBALS['message']);
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
+
+        $this->assertSame([], $_SESSION['relation']);
+
         $this->assertAllQueriesConsumed();
+        $this->assertAllErrorCodesConsumed();
     }
 }
