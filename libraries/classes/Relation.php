@@ -2108,11 +2108,17 @@ class Relation
                     }
 
                     $foundOne = true;
-                    $GLOBALS['cfg']['Server'][$feature] = $table;
+                    if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                        // Do not override a user defined value, only fill if empty
+                        $GLOBALS['cfg']['Server'][$feature] = $table;
+                    }
                 }
             } else {
                 $foundOne = true;
-                $GLOBALS['cfg']['Server'][$feature] = $table;
+                if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                    // Do not override a user defined value, only fill if empty
+                    $GLOBALS['cfg']['Server'][$feature] = $table;
+                }
             }
         }
 
