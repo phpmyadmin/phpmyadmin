@@ -794,4 +794,89 @@ class RelationTest extends AbstractTestCase
         $this->assertAllQueriesConsumed();
         $this->assertAllErrorCodesConsumed();
     }
+
+    public function testCreatePmaDatabase(): void
+    {
+        parent::setGlobalDbi();
+        parent::loadDefaultConfig();
+        $this->relation = new Relation($this->dbi);
+
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addErrorCode(false);
+        $this->dummyDbi->addResult(
+            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
+            []
+        );
+
+        $this->assertArrayNotHasKey('errno', $GLOBALS);
+
+        $this->assertTrue(
+            $this->relation->createPmaDatabase()
+        );
+
+        $this->assertArrayNotHasKey('message', $GLOBALS);
+
+        $this->assertAllQueriesConsumed();
+        $this->assertAllErrorCodesConsumed();
+    }
+
+    public function testCreatePmaDatabaseFailsError1044(): void
+    {
+        parent::setGlobalDbi();
+        parent::loadDefaultConfig();
+        $this->relation = new Relation($this->dbi);
+
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addErrorCode('MYSQL_ERROR');
+        $this->dummyDbi->addResult(
+            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
+            false
+        );
+
+        $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
+
+        $this->assertFalse(
+            $this->relation->createPmaDatabase()
+        );
+
+        $this->assertArrayHasKey('message', $GLOBALS);
+        $this->assertSame(
+            'You do not have necessary privileges to create a database named'
+            . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
+            . ' database to set up the phpMyAdmin configuration storage there.',
+            $GLOBALS['message']
+        );
+
+        $this->assertAllQueriesConsumed();
+        $this->assertAllErrorCodesConsumed();
+    }
+
+    public function testCreatePmaDatabaseFailsError1040(): void
+    {
+        parent::setGlobalDbi();
+        parent::loadDefaultConfig();
+        $this->relation = new Relation($this->dbi);
+
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addErrorCode('Too many connections');
+        $this->dummyDbi->addResult(
+            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
+            false
+        );
+
+        $GLOBALS['errno'] = 1040;
+
+        $this->assertFalse(
+            $this->relation->createPmaDatabase()
+        );
+
+        $this->assertArrayHasKey('message', $GLOBALS);
+        $this->assertSame(
+            'Too many connections',
+            $GLOBALS['message']
+        );
+
+        $this->assertAllQueriesConsumed();
+        $this->assertAllErrorCodesConsumed();
+    }
 }
