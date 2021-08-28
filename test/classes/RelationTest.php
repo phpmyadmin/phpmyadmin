@@ -388,7 +388,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             [['NULL']]
         );
 
@@ -477,7 +477,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             [['NULL']]
         );
 
@@ -779,7 +779,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             [['NULL']]
         );
 
