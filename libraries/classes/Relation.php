@@ -1990,9 +1990,9 @@ class Relation
     /**
      * Returns default PMA table names and their create queries.
      *
-     * @return array table name, create query
+     * @return array<string,string> table name, create query
      */
-    public function getDefaultPmaTableNames()
+    public function getDefaultPmaTableNames(array $tableNameReplacements): array
     {
         $pma_tables = [];
         $create_tables_file = (string) file_get_contents(
@@ -2011,7 +2011,14 @@ class Relation
                 continue;
             }
 
-            $pma_tables[$table[1]] = $query . ';';
+            $tableName = (string) $table[1];
+
+            // Replace the table name with another one
+            if (isset($tableNameReplacements[$tableName])) {
+                $query = str_replace($tableName, $tableNameReplacements[$tableName], $query);
+            }
+
+            $pma_tables[$tableName] = $query . ';';
         }
 
         return $pma_tables;
@@ -2087,13 +2094,33 @@ class Relation
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
+        /** @var array<string,string> $tableNameReplacements */
+        $tableNameReplacements = [];
+
+        // Build a map of replacements between default table names and name built by the user
+        foreach ($tablesToFeatures as $table => $feature) {
+            // Empty, we can not do anything about it
+            if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                continue;
+            }
+            // Default table name, nothing to do
+            if ($GLOBALS['cfg']['Server'][$feature] === $table) {
+                continue;
+            }
+            // Set the replacement to transform the default table name into a custom name
+            $tableNameReplacements[$table] = $GLOBALS['cfg']['Server'][$feature];
+        }
+
         $createQueries = null;
         $foundOne = false;
         foreach ($tablesToFeatures as $table => $feature) {
-            if (! in_array($table, $existingTables)) {
+            // Check if the table already exists
+            // use the possible replaced name first and fallback on the table name
+            // if no replacement exists
+            if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
                 if ($create) {
                     if ($createQueries == null) { // first create
-                        $createQueries = $this->getDefaultPmaTableNames();
+                        $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
                         if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
                             $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
 
