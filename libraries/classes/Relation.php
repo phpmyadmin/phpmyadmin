@@ -729,7 +729,7 @@ class Relation
     public function canAccessStorageTable(string $tableDbName): bool
     {
         $result = $this->queryAsControlUser(
-            'SELECT NULL FROM ' . $tableDbName . ' LIMIT 0',
+            'SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0',
             false,
             DatabaseInterface::QUERY_STORE
         );
