@@ -4327,7 +4327,8 @@
       if (style) { gElt.style.cssText = style; }
       if (className == "CodeMirror-linenumbers") {
         display.lineGutter = gElt;
-        gElt.style.width = (display.lineNumWidth || 1) + "px";
+        console.log(display);
+        gElt.style.width = (display.lineNumWidth || 29) + "px";
       }
     }
     gutters.style.display = specs.length ? "" : "none";
