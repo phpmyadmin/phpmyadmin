@@ -109,29 +109,22 @@ const DatabaseTriggers = {
             if (data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
                 /**
-                 * @var button_options Object containing options
-                 *                     for jQueryUI dialog buttons
-                 */
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close').remove();
-                };
-                /**
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
-                var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                    width: 500,
-                    buttons: buttonOptions,
-                    title: data.title
-                });
+                $('#triggerExportModal').modal('show');
+                $('#triggerExportModalLabel').first().text($this.attr('title') || $this.text() || $(data.title).text());
+                $('#triggerExportModal').find('.modal-body').first().html(data.message);
+                var $ajaxDialog = $('#triggerExportModal');
                 // Attach syntax highlighted editor to export dialog
                 /**
                  * @var $elm jQuery object containing the reference
                  *           to the Export textarea.
                  */
-                var $elm = $ajaxDialog.find('textarea');
-                Functions.getSqlEditor($elm);
+                setTimeout(function () {
+                    var $elm = $ajaxDialog.find('textarea');
+                    Functions.getSqlEditor($elm);
+                }, 50);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }

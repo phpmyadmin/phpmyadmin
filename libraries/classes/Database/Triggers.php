@@ -529,7 +529,7 @@ class Triggers
         }
 
         if ($exportData !== false) {
-            $title = sprintf(__('Export of trigger %s'), htmlspecialchars(Util::backquote($itemName)));
+            $title = sprintf(__('Export of trigger11 %s'), htmlspecialchars(Util::backquote($itemName)));
 
             if ($this->response->isAjax()) {
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
