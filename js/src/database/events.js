@@ -296,10 +296,12 @@ const DatabaseEvents = {
                  * @var elm jQuery object containing the reference to
                  *                 the Definition textarea.
                  */
-                var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {};
-                linterOptions.eventEditor = true;
-                that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
+                setTimeout(function () {
+                    var $elm = $('textarea[name=item_definition]').last();
+                    var linterOptions = {};
+                    linterOptions.triggerEditor = true;
+                    that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
+                }, 50);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
