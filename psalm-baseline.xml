@@ -8545,7 +8545,7 @@
       <code>$_each_index</code>
       <code>$_each_index</code>
       <code>$column</code>
-      <code>$params['Column_name']</code>
+      <code>$key</code>
       <code>$params['columns']</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="2">
@@ -8557,17 +8557,17 @@
       <code>self::$registry[$schema][$table]</code>
       <code>self::$registry[$schema][$table]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="5">
+    <MixedArrayOffset occurrences="4">
       <code>$columns['sub_parts'][$key]</code>
-      <code>$this-&gt;columns[$params['Column_name']]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
       <code>self::$registry[$schema][$table][$keyName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="20">
       <code>$column</code>
       <code>$column</code>
       <code>$data['columns'][]</code>
+      <code>$key</code>
       <code>$key</code>
       <code>$key</code>
       <code>$keyName</code>
@@ -8594,6 +8594,9 @@
       <code>addColumn</code>
       <code>getCompareData</code>
     </MixedMethodCall>
+    <MixedOperand occurrences="1">
+      <code>$key</code>
+    </MixedOperand>
     <MixedReturnStatement occurrences="3">
       <code>self::$registry[$schema][$table]</code>
       <code>self::$registry[$schema][$table][$index_name]</code>
@@ -8613,9 +8616,10 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/IndexColumn.php">
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="7">
       <code>$this-&gt;cardinality</code>
       <code>$this-&gt;collation</code>
+      <code>$this-&gt;expression</code>
       <code>$this-&gt;name</code>
       <code>$this-&gt;null</code>
       <code>$this-&gt;seqInIndex</code>
@@ -10596,9 +10600,8 @@
       <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$cgFormats</code>
-      <code>ExportCodegen</code>
     </PropertyNotSetInConstructor>
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['codegen_format']</code>
@@ -11028,9 +11031,8 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$pdf</code>
-      <code>ExportPdf</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
@@ -11555,9 +11557,8 @@
       <code>$sql</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$table</code>
-      <code>ExportXml</code>
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportYaml.php">
@@ -11934,14 +11935,6 @@
       <code>$db['alias']</code>
       <code>$table['alias']</code>
     </MixedReturnStatement>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$properties</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="libraries/classes/Plugins/Import/AbstractImportCsv.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>OptionsPropertyMainGroup|void</code>
-    </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
     <DocblockTypeContradiction occurrences="3">
@@ -12023,9 +12016,8 @@
     <PossiblyNullOperand occurrences="1">
       <code>$ch</code>
     </PossiblyNullOperand>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$analyze</code>
-      <code>ImportCsv</code>
     </PropertyNotSetInConstructor>
     <UnusedVariable occurrences="1">
       <code>$key</code>
@@ -12080,9 +12072,8 @@
     <PossiblyUndefinedVariable occurrences="1">
       <code>$cur_temp_line</code>
     </PossiblyUndefinedVariable>
-    <PropertyNotSetInConstructor occurrences="2">
+    <PropertyNotSetInConstructor occurrences="1">
       <code>$analyze</code>
-      <code>ImportMediawiki</code>
     </PropertyNotSetInConstructor>
     <RedundantCondition occurrences="1">
       <code>$finished</code>
@@ -12205,9 +12196,6 @@
       <code>$record-&gt;dbfData</code>
       <code>$record-&gt;shpData</code>
     </MixedPropertyFetch>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>ImportShp</code>
-    </PropertyNotSetInConstructor>
     <UnusedVariable occurrences="1">
       <code>$null_param</code>
     </UnusedVariable>
@@ -12382,9 +12370,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Plugins/ImportPlugin.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$properties</code>
-    </PropertyNotSetInConstructor>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $currentDb</code>
     </RedundantCastGivenDocblockType>
@@ -13829,7 +13814,7 @@
       <code>string[]</code>
       <code>string|false</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="52">
+    <MixedOperand occurrences="53">
       <code>$max_time</code>
       <code>$messages['disabled']</code>
       <code>$messages['enabled']</code>
@@ -13870,6 +13855,7 @@
       <code>Util::backquote($cfgRelation['table_info'])</code>
       <code>Util::backquote($columns['table_name'])</code>
       <code>Util::backquote($columns['table_schema'])</code>
+      <code>Util::backquote($configurationStorageDbName)</code>
       <code>Util::backquote($foreignDb)</code>
       <code>Util::backquote($foreign_db)</code>
       <code>Util::backquote($foreign_display)</code>
@@ -18542,7 +18528,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][0]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="22">
+    <MixedAssignment occurrences="21">
       <code>$leaf</code>
       <code>$leaf</code>
       <code>$leaf</code>
@@ -18552,7 +18538,6 @@
       <code>$leaf</code>
       <code>$leaf</code>
       <code>$leaf</code>
-      <code>$properties</code>
       <code>$property</code>
       <code>$property</code>
       <code>$property</code>
@@ -18769,13 +18754,30 @@
     </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/RelationTest.php">
-    <DocblockTypeContradiction occurrences="2">
+    <DocblockTypeContradiction occurrences="3">
       <code>assertFalse</code>
       <code>assertFalse</code>
+      <code>assertSame</code>
     </DocblockTypeContradiction>
+    <MixedArrayAccess occurrences="2">
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
+    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
     </MixedArrayAssignment>
+    <RedundantCondition occurrences="2">
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertSame</code>
+    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType occurrences="3">
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType occurrences="4">

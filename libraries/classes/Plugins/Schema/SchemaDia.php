@@ -21,11 +21,6 @@ use function __;
  */
 class SchemaDia extends SchemaPlugin
 {
-    public function __construct()
-    {
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -36,10 +31,8 @@ class SchemaDia extends SchemaPlugin
 
     /**
      * Sets the schema export Dia properties
-     *
-     * @return void
      */
-    protected function setProperties()
+    protected function setProperties(): SchemaPluginProperties
     {
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('Dia');
@@ -82,7 +75,8 @@ class SchemaDia extends SchemaPlugin
 
         // set the options for the schema export plugin property item
         $schemaPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $schemaPluginProperties;
+
+        return $schemaPluginProperties;
     }
 
     /**

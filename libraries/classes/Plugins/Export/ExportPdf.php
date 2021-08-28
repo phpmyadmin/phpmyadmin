@@ -35,16 +35,6 @@ class ExportPdf extends ExportPlugin
      */
     private $pdfReportTitle = '';
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        // initialize the specific export PDF variables
-        $this->initSpecificVariables();
-
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -54,11 +44,9 @@ class ExportPdf extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used for export PDF
-     *
-     * @return void
+     * Initialize the local variables that are used for export PDF.
      */
-    protected function initSpecificVariables()
+    protected function init(): void
     {
         if (! empty($_POST['pdf_report_title'])) {
             $this->pdfReportTitle = $_POST['pdf_report_title'];
@@ -67,12 +55,7 @@ class ExportPdf extends ExportPlugin
         $this->setPdf(new Pdf('L', 'pt', 'A3'));
     }
 
-    /**
-     * Sets the export PDF properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('PDF');
@@ -118,7 +101,8 @@ class ExportPdf extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

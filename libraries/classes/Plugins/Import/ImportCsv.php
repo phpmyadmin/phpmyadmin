@@ -12,10 +12,11 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -48,12 +49,6 @@ class ImportCsv extends AbstractImportCsv
      */
     private $analyze;
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -62,13 +57,7 @@ class ImportCsv extends AbstractImportCsv
         return 'csv';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $this->setAnalyze(false);
 
@@ -76,10 +65,17 @@ class ImportCsv extends AbstractImportCsv
             $this->setAnalyze(true);
         }
 
-        /** @var OptionsPropertyMainGroup $generalOptions */
-        $generalOptions = parent::setProperties();
-        $this->properties->setText('CSV');
-        $this->properties->setExtension('csv');
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('CSV');
+        $importPluginProperties->setExtension('csv');
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
+
+        $generalOptions = $this->getGeneralOptions();
 
         if ($GLOBALS['plugin_param'] !== 'table') {
             $leaf = new TextPropertyItem(
@@ -146,6 +142,14 @@ class ImportCsv extends AbstractImportCsv
             __('Do not abort on INSERT error')
         );
         $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+
+        return $importPluginProperties;
     }
 
     /**

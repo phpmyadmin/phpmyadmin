@@ -34,12 +34,6 @@ class ExportJson extends ExportPlugin
     /** @var bool */
     private $first = true;
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -75,12 +69,7 @@ class ExportJson extends ExportPlugin
         return json_encode($data, $options);
     }
 
-    /**
-     * Sets the export JSON properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('JSON');
@@ -118,7 +107,8 @@ class ExportJson extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

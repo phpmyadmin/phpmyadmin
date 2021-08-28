@@ -37,12 +37,6 @@ class ImportMediawiki extends ImportPlugin
      */
     private $analyze;
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -51,13 +45,7 @@ class ImportMediawiki extends ImportPlugin
         return 'mediawiki';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $this->setAnalyze(false);
         if ($GLOBALS['plugin_param'] !== 'table') {
@@ -70,7 +58,7 @@ class ImportMediawiki extends ImportPlugin
         $importPluginProperties->setMimeType('text/plain');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**

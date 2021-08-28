@@ -21,11 +21,6 @@ use function __;
  */
 class SchemaSvg extends SchemaPlugin
 {
-    public function __construct()
-    {
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -36,10 +31,8 @@ class SchemaSvg extends SchemaPlugin
 
     /**
      * Sets the schema export SVG properties
-     *
-     * @return void
      */
-    protected function setProperties()
+    protected function setProperties(): SchemaPluginProperties
     {
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('SVG');
@@ -70,7 +63,8 @@ class SchemaSvg extends SchemaPlugin
 
         // set the options for the schema export plugin property item
         $schemaPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $schemaPluginProperties;
+
+        return $schemaPluginProperties;
     }
 
     /**

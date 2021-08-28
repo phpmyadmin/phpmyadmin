@@ -42,13 +42,11 @@ use const LOCK_EX;
  */
 class ImportShp extends ImportPlugin
 {
-    /** @var ZipExtension */
-    private $zipExtension;
+    /** @var ZipExtension|null */
+    private $zipExtension = null;
 
-    public function __construct()
+    protected function init(): void
     {
-        parent::__construct();
-        $this->setProperties();
         if (! extension_loaded('zip')) {
             return;
         }
@@ -64,20 +62,14 @@ class ImportShp extends ImportPlugin
         return 'shp';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**
@@ -93,7 +85,7 @@ class ImportShp extends ImportPlugin
 
         $GLOBALS['finished'] = false;
 
-        if ($importHandle === null) {
+        if ($importHandle === null || $this->zipExtension === null) {
             return;
         }
 

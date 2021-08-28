@@ -26,12 +26,6 @@ use function stripslashes;
  */
 class ExportYaml extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -40,12 +34,7 @@ class ExportYaml extends ExportPlugin
         return 'yaml';
     }
 
-    /**
-     * Sets the export YAML properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('YAML');
@@ -71,7 +60,8 @@ class ExportYaml extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

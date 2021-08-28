@@ -44,12 +44,6 @@ class ExportXml extends ExportPlugin
      */
     private $tables = [];
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -60,10 +54,8 @@ class ExportXml extends ExportPlugin
 
     /**
      * Initialize the local variables that are used for export XML
-     *
-     * @return void
      */
-    protected function initSpecificVariables()
+    private function initSpecificVariables(): void
     {
         global $table, $tables;
         $this->setTable($table);
@@ -74,12 +66,7 @@ class ExportXml extends ExportPlugin
         $this->setTables($tables);
     }
 
-    /**
-     * Sets the export XML properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         // create the export plugin property item
         $exportPluginProperties = new ExportPluginProperties();
@@ -157,7 +144,8 @@ class ExportXml extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

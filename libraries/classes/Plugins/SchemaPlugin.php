@@ -23,12 +23,24 @@ use function __;
 abstract class SchemaPlugin implements Plugin
 {
     /**
-     * PhpMyAdmin\Properties\Plugins\SchemaPluginProperties object containing
-     * the specific schema export plugin type properties
+     * Object containing the specific schema export plugin type properties.
      *
      * @var SchemaPluginProperties
      */
     protected $properties;
+
+    final public function __construct()
+    {
+        $this->init();
+        $this->properties = $this->setProperties();
+    }
+
+    /**
+     * Plugin specific initializations.
+     */
+    protected function init(): void
+    {
+    }
 
     /**
      * Gets the export specific format plugin properties
@@ -41,12 +53,9 @@ abstract class SchemaPlugin implements Plugin
     }
 
     /**
-     * Sets the export plugins properties and is implemented by
-     * each schema export plugin
-     *
-     * @return void
+     * Sets the export plugins properties and is implemented by each schema export plugin.
      */
-    abstract protected function setProperties();
+    abstract protected function setProperties(): SchemaPluginProperties;
 
     /**
      * Exports the schema into the specified format.

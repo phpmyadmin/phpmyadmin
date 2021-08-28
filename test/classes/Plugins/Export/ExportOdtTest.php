@@ -17,7 +17,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
-use ReflectionProperty;
 use stdClass;
 
 use function __;
@@ -77,11 +76,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
         $method->setAccessible(true);
-        $method->invoke($this->object, null);
-
-        $attrProperties = new ReflectionProperty(ExportOdt::class, 'properties');
-        $attrProperties->setAccessible(true);
-        $properties = $attrProperties->getValue($this->object);
+        $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(
             ExportPluginProperties::class,

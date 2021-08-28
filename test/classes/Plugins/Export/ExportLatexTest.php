@@ -16,7 +16,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
-use ReflectionProperty;
 
 use function __;
 use function array_shift;
@@ -71,11 +70,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
         $method->setAccessible(true);
-        $method->invoke($this->object, null);
-
-        $attrProperties = new ReflectionProperty(ExportLatex::class, 'properties');
-        $attrProperties->setAccessible(true);
-        $properties = $attrProperties->getValue($this->object);
+        $properties = $method->invoke($this->object, null);
 
         $this->assertInstanceOf(
             ExportPluginProperties::class,

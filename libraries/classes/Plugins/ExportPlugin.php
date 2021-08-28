@@ -24,8 +24,7 @@ use function stripos;
 abstract class ExportPlugin implements Plugin
 {
     /**
-     * PhpMyAdmin\Properties\Plugins\ExportPluginProperties object containing
-     * the specific export plugin type properties
+     * Object containing the specific export plugin type properties.
      *
      * @var ExportPluginProperties
      */
@@ -40,13 +39,15 @@ abstract class ExportPlugin implements Plugin
     /** @var Transformations */
     protected $transformations;
 
-    public function __construct()
+    final public function __construct()
     {
         global $dbi;
 
         $this->relation = new Relation($dbi);
         $this->export = new Export($dbi);
         $this->transformations = new Transformations();
+        $this->init();
+        $this->properties = $this->setProperties();
     }
 
     /**
@@ -245,15 +246,11 @@ abstract class ExportPlugin implements Plugin
     }
 
     /**
-     * Initialize the specific variables for each export plugin
-     *
-     * @return void
+     * Plugin specific initializations.
      */
-    protected function initSpecificVariables()
+    protected function init(): void
     {
     }
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * Gets the export specific format plugin properties
@@ -266,12 +263,9 @@ abstract class ExportPlugin implements Plugin
     }
 
     /**
-     * Sets the export plugins properties and is implemented by each export
-     * plugin
-     *
-     * @return void
+     * Sets the export plugins properties and is implemented by each export plugin.
      */
-    abstract protected function setProperties();
+    abstract protected function setProperties(): ExportPluginProperties;
 
     /**
      * The following methods are implemented here so that they

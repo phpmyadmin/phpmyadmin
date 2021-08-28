@@ -28,12 +28,6 @@ use function stripslashes;
  */
 class ExportHtmlword extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -42,12 +36,7 @@ class ExportHtmlword extends ExportPlugin
         return 'htmlword';
     }
 
-    /**
-     * Sets the export HTML-Word properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Microsoft Word 2000');
@@ -103,7 +92,8 @@ class ExportHtmlword extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

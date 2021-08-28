@@ -21,7 +21,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
-use ReflectionProperty;
 use stdClass;
 
 use function array_shift;
@@ -82,7 +81,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
-    public function testSetProperties(): void
+    public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -91,16 +90,18 @@ class ExportSqlTest extends AbstractTestCase
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $method->setAccessible(true);
-        $method->invoke($this->object, null);
+        $properties = $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty(ExportSql::class, 'properties');
-        $attrProperties->setAccessible(true);
-        $properties = $attrProperties->getValue($this->object);
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        $this->assertEquals('SQL', $properties->getText());
+        $this->assertNull($properties->getOptions());
+    }
 
-        $this->assertNull(
-            $properties
-        );
-
+    /**
+     * @group medium
+     */
+    public function testSetProperties(): void
+    {
         // test with hide structure and hide sql as false
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -119,18 +120,12 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['cfgRelation']['mimework'] = true;
         $GLOBALS['cfgRelation']['relation'] = true;
 
-        $method->invoke($this->object, null);
-        $properties = $attrProperties->getValue($this->object);
+        $method = new ReflectionMethod(ExportSql::class, 'setProperties');
+        $method->setAccessible(true);
+        $properties = $method->invoke($this->object, null);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
-
-        $this->assertEquals(
-            'SQL',
-            $properties->getText()
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        $this->assertEquals('SQL', $properties->getText());
 
         $options = $properties->getOptions();
 

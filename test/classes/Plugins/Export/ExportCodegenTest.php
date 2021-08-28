@@ -48,7 +48,7 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testInitSpecificVariables(): void
     {
-        $method = new ReflectionMethod(ExportCodegen::class, 'initSpecificVariables');
+        $method = new ReflectionMethod(ExportCodegen::class, 'init');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 

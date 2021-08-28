@@ -22,11 +22,6 @@ use function __;
  */
 class SchemaEps extends SchemaPlugin
 {
-    public function __construct()
-    {
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -37,10 +32,8 @@ class SchemaEps extends SchemaPlugin
 
     /**
      * Sets the schema export EPS properties
-     *
-     * @return void
      */
-    protected function setProperties()
+    protected function setProperties(): SchemaPluginProperties
     {
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('EPS');
@@ -83,7 +76,8 @@ class SchemaEps extends SchemaPlugin
 
         // set the options for the schema export plugin property item
         $schemaPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $schemaPluginProperties;
+
+        return $schemaPluginProperties;
     }
 
     /**

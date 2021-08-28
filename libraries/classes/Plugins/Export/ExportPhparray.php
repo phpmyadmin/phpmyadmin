@@ -28,12 +28,6 @@ use function var_export;
  */
 class ExportPhparray extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -42,12 +36,7 @@ class ExportPhparray extends ExportPlugin
         return 'phparray';
     }
 
-    /**
-     * Sets the export PHP Array properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('PHP array');
@@ -72,7 +61,8 @@ class ExportPhparray extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

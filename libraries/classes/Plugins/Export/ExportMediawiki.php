@@ -28,12 +28,6 @@ use function str_repeat;
  */
 class ExportMediawiki extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -42,12 +36,7 @@ class ExportMediawiki extends ExportPlugin
         return 'mediawiki';
     }
 
-    /**
-     * Sets the export MediaWiki properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('MediaWiki Table');
@@ -102,7 +91,8 @@ class ExportMediawiki extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

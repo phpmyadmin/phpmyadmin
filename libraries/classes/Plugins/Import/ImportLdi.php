@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -25,16 +26,6 @@ use const PHP_EOL;
  */
 class ImportLdi extends AbstractImportCsv
 {
-    public function __construct()
-    {
-        parent::__construct();
-        if (! $this->isAvailable()) {
-            return;
-        }
-
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -43,37 +34,28 @@ class ImportLdi extends AbstractImportCsv
         return 'ldi';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
-        global $dbi;
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('CSV using LOAD DATA');
+        $importPluginProperties->setExtension('ldi');
 
-        if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
-            $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
-
-            $result = $dbi->tryQuery(
-                'SELECT @@local_infile;'
-            );
-            if ($result != false && $dbi->numRows($result) > 0) {
-                $tmp = $dbi->fetchRow($result);
-                if ($tmp[0] === 'ON' || $tmp[0] === '1') {
-                    $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
-                }
-            }
-
-            $dbi->freeResult($result);
-            unset($result);
+        if (! $this->isAvailable()) {
+            return $importPluginProperties;
         }
 
-        /** @var OptionsPropertyMainGroup $generalOptions */
-        $generalOptions = parent::setProperties();
-        $this->properties->setText('CSV using LOAD DATA');
-        $this->properties->setExtension('ldi');
+        if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
+            $this->setLdiLocalOptionConfig();
+        }
+
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
+
+        $generalOptions = $this->getGeneralOptions();
 
         $leaf = new TextPropertyItem(
             'columns',
@@ -92,6 +74,14 @@ class ImportLdi extends AbstractImportCsv
             __('Use LOCAL keyword')
         );
         $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+
+        return $importPluginProperties;
     }
 
     /**
@@ -204,5 +194,22 @@ class ImportLdi extends AbstractImportCsv
 
         // We need relations enabled and we work only on database.
         return isset($plugin_param) && $plugin_param === 'table';
+    }
+
+    private function setLdiLocalOptionConfig(): void
+    {
+        global $dbi;
+
+        $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
+        $result = $dbi->tryQuery('SELECT @@local_infile;');
+
+        if ($result != false && $dbi->numRows($result) > 0) {
+            $tmp = $dbi->fetchRow($result);
+            if ($tmp[0] === 'ON' || $tmp[0] === '1') {
+                $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
+            }
+        }
+
+        $dbi->freeResult($result);
     }
 }

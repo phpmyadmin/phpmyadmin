@@ -28,12 +28,6 @@ use function stripslashes;
  */
 class ExportTexytext extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -42,12 +36,7 @@ class ExportTexytext extends ExportPlugin
         return 'texytext';
     }
 
-    /**
-     * Sets the export Texy! text properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Texy! text');
@@ -102,7 +91,8 @@ class ExportTexytext extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

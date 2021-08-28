@@ -34,12 +34,6 @@ use const PHP_VERSION_ID;
  */
 class ImportXml extends ImportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -48,13 +42,7 @@ class ImportXml extends ImportPlugin
         return 'xml';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('XML'));
@@ -62,7 +50,7 @@ class ImportXml extends ImportPlugin
         $importPluginProperties->setMimeType('text/xml');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**

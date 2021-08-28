@@ -30,11 +30,9 @@ use function stripslashes;
  */
 class ExportOdt extends ExportPlugin
 {
-    public function __construct()
+    protected function init(): void
     {
-        parent::__construct();
         $GLOBALS['odt_buffer'] = '';
-        $this->setProperties();
     }
 
     /**
@@ -45,12 +43,7 @@ class ExportOdt extends ExportPlugin
         return 'odt';
     }
 
-    /**
-     * Sets the export ODT properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         global $plugin_param;
         $hide_structure = false;
@@ -150,7 +143,8 @@ class ExportOdt extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

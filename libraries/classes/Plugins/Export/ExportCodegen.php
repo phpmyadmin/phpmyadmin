@@ -38,14 +38,6 @@ class ExportCodegen extends ExportPlugin
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // initialize the specific export CodeGen variables
-        $this->initSpecificVariables();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -55,11 +47,9 @@ class ExportCodegen extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used for export CodeGen
-     *
-     * @return void
+     * Initialize the local variables that are used for export CodeGen.
      */
-    protected function initSpecificVariables()
+    protected function init(): void
     {
         $this->setCgFormats([
             self::HANDLER_NHIBERNATE_CS => 'NHibernate C# DO',
@@ -67,12 +57,7 @@ class ExportCodegen extends ExportPlugin
         ]);
     }
 
-    /**
-     * Sets the export CodeGen properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CodeGen');
@@ -103,7 +88,8 @@ class ExportCodegen extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

@@ -37,12 +37,6 @@ use const PHP_VERSION_ID;
  */
 class ImportOds extends ImportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -51,13 +45,7 @@ class ImportOds extends ImportPlugin
         return 'ods';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('OpenDocument Spreadsheet');
@@ -106,7 +94,8 @@ class ImportOds extends ImportPlugin
 
         // set the options for the import plugin property item
         $importPluginProperties->setOptions($importSpecificOptions);
-        $this->properties = $importPluginProperties;
+
+        return $importPluginProperties;
     }
 
     /**

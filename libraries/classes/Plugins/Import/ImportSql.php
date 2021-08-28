@@ -28,12 +28,6 @@ use function preg_replace;
  */
 class ImportSql extends ImportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -42,13 +36,7 @@ class ImportSql extends ImportPlugin
         return 'sql';
     }
 
-    /**
-     * Sets the import plugin properties.
-     * Called in the constructor.
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ImportPluginProperties
     {
         global $dbi;
 
@@ -105,7 +93,7 @@ class ImportSql extends ImportPlugin
             $importPluginProperties->setOptions($importSpecificOptions);
         }
 
-        $this->properties = $importPluginProperties;
+        return $importPluginProperties;
     }
 
     /**

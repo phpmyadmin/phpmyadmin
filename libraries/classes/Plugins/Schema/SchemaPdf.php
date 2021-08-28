@@ -24,11 +24,6 @@ use function class_exists;
  */
 class SchemaPdf extends SchemaPlugin
 {
-    public function __construct()
-    {
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -39,10 +34,8 @@ class SchemaPdf extends SchemaPlugin
 
     /**
      * Sets the schema export PDF properties
-     *
-     * @return void
      */
-    protected function setProperties()
+    protected function setProperties(): SchemaPluginProperties
     {
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('PDF');
@@ -117,7 +110,8 @@ class SchemaPdf extends SchemaPlugin
 
         // set the options for the schema export plugin property item
         $schemaPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $schemaPluginProperties;
+
+        return $schemaPluginProperties;
     }
 
     /**

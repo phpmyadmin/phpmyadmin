@@ -33,14 +33,6 @@ use const PHP_VERSION;
  */
 class ExportLatex extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        // initialize the specific export sql variables
-        $this->initSpecificVariables();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -50,11 +42,9 @@ class ExportLatex extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used for export Latex
-     *
-     * @return void
+     * Initialize the local variables that are used for export Latex.
      */
-    protected function initSpecificVariables()
+    protected function init(): void
     {
         /* Messages used in default captions */
         $GLOBALS['strLatexContent'] = __('Content of table @TABLE@');
@@ -62,12 +52,7 @@ class ExportLatex extends ExportPlugin
         $GLOBALS['strLatexStructure'] = __('Structure of table @TABLE@');
     }
 
-    /**
-     * Sets the export Latex properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         global $plugin_param;
         $hide_structure = false;
@@ -211,7 +196,8 @@ class ExportLatex extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

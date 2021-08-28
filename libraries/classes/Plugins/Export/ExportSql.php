@@ -66,11 +66,8 @@ class ExportSql extends ExportPlugin
      */
     private $sentCharset = false;
 
-    public function __construct()
+    protected function init(): void
     {
-        parent::__construct();
-        $this->setProperties();
-
         // Avoids undefined variables, use NULL so isset() returns false
         if (isset($GLOBALS['sql_backquotes'])) {
             return;
@@ -87,12 +84,7 @@ class ExportSql extends ExportPlugin
         return 'sql';
     }
 
-    /**
-     * Sets the export SQL properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         global $plugin_param, $dbi;
 
@@ -113,14 +105,15 @@ class ExportSql extends ExportPlugin
             $hideSql = false;
         }
 
-        if ($hideSql) {
-            return;
-        }
-
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('SQL');
         $exportPluginProperties->setExtension('sql');
         $exportPluginProperties->setMimeType('text/x-sql');
+
+        if ($hideSql) {
+            return $exportPluginProperties;
+        }
+
         $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
@@ -533,7 +526,8 @@ class ExportSql extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

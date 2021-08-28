@@ -29,12 +29,6 @@ use function trim;
  */
 class ExportCsv extends ExportPlugin
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setProperties();
-    }
-
     /**
      * @psalm-return non-empty-lowercase-string
      */
@@ -43,12 +37,7 @@ class ExportCsv extends ExportPlugin
         return 'csv';
     }
 
-    /**
-     * Sets the export CSV properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CSV');
@@ -110,7 +99,8 @@ class ExportCsv extends ExportPlugin
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 
     /**

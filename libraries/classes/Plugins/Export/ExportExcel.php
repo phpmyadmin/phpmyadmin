@@ -30,12 +30,7 @@ class ExportExcel extends ExportCsv
         return 'excel';
     }
 
-    /**
-     * Sets the export CSV for Excel properties
-     *
-     * @return void
-     */
-    protected function setProperties()
+    protected function setProperties(): ExportPluginProperties
     {
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CSV for MS Excel');
@@ -89,6 +84,7 @@ class ExportExcel extends ExportCsv
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
+
+        return $exportPluginProperties;
     }
 }

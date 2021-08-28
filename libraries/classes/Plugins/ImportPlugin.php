@@ -21,7 +21,7 @@ use function strlen;
 abstract class ImportPlugin implements Plugin
 {
     /**
-     * ImportPluginProperties object containing the import plugin properties
+     * Object containing the import plugin properties.
      *
      * @var ImportPluginProperties
      */
@@ -30,9 +30,18 @@ abstract class ImportPlugin implements Plugin
     /** @var Import */
     protected $import;
 
-    public function __construct()
+    final public function __construct()
     {
         $this->import = new Import();
+        $this->init();
+        $this->properties = $this->setProperties();
+    }
+
+    /**
+     * Plugin specific initializations.
+     */
+    protected function init(): void
+    {
     }
 
     /**
@@ -43,8 +52,6 @@ abstract class ImportPlugin implements Plugin
      * @return void
      */
     abstract public function doImport(?File $importHandle = null, array &$sql_data = []);
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * Gets the import specific format plugin properties
@@ -57,12 +64,9 @@ abstract class ImportPlugin implements Plugin
     }
 
     /**
-     * Sets the export plugins properties and is implemented by each import
-     * plugin
-     *
-     * @return void
+     * Sets the export plugins properties and is implemented by each import plugin.
      */
-    abstract protected function setProperties();
+    abstract protected function setProperties(): ImportPluginProperties;
 
     /**
      * Define DB name and options
