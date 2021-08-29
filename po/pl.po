@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-28 00:50+0200\n"
+"POT-Creation-Date: 2021-08-29 00:09+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2022,7 +2022,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:174
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:363
+#: libraries/classes/Plugins/Export/ExportSql.php:356
 msgid "Exclude definition of current user"
 msgstr "Wyklucz definicję bieżącego użytkownika"
 
@@ -3232,8 +3232,8 @@ msgid "Debug SQL"
 msgstr "Debug SQL"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Plugins/Schema/SchemaDia.php:75
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:85
+#: libraries/classes/Plugins/Schema/SchemaDia.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:78
 msgid "Paper size"
 msgstr "Rozmiar papieru"
 
@@ -3340,26 +3340,26 @@ msgstr "Typ kompresji"
 #: libraries/classes/Config/Descriptions.php:703
 #: libraries/classes/Config/Descriptions.php:705
 #: libraries/classes/Config/Descriptions.php:752
-#: libraries/classes/Plugins/Export/ExportCsv.php:101
-#: libraries/classes/Plugins/Export/ExportExcel.php:68
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:98
-#: libraries/classes/Plugins/Export/ExportOds.php:81
-#: libraries/classes/Plugins/Export/ExportOdt.php:140
-#: libraries/classes/Plugins/Export/ExportTexytext.php:92
+#: libraries/classes/Plugins/Export/ExportCsv.php:90
+#: libraries/classes/Plugins/Export/ExportExcel.php:63
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:87
+#: libraries/classes/Plugins/Export/ExportOds.php:74
+#: libraries/classes/Plugins/Export/ExportOdt.php:133
+#: libraries/classes/Plugins/Export/ExportTexytext.php:81
 msgid "Put columns names in the first row"
 msgstr "Umieść nazwy kolumn w pierwszym wierszu"
 
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:731
+#: libraries/classes/Plugins/Import/ImportCsv.php:735
 msgid "Columns enclosed with"
 msgstr "Kolumn ujęte w"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:742
+#: libraries/classes/Plugins/Import/ImportCsv.php:746
 msgid "Columns escaped with"
 msgstr "Kolumny uciekają z"
 
@@ -3381,13 +3381,13 @@ msgstr "Usuń znaki nowej lini z kolumn"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:720
 msgid "Columns terminated with"
 msgstr "Kolumny zakończone"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:752
+#: libraries/classes/Plugins/Import/ImportCsv.php:756
 msgid "Lines terminated with"
 msgstr "Linie zakończone z"
 
@@ -3412,29 +3412,29 @@ msgstr "Nazwa szablonu tabeli"
 #: libraries/classes/Config/Descriptions.php:710
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:754
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:69
-#: libraries/classes/Plugins/Export/ExportLatex.php:108
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:74
-#: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:105
-#: libraries/classes/Plugins/Export/ExportSql.php:250
-#: libraries/classes/Plugins/Export/ExportTexytext.php:68
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:58
+#: libraries/classes/Plugins/Export/ExportLatex.php:93
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:57
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:63
+#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportTexytext.php:57
 msgid "Dump table"
 msgstr "Zrzut tabeli"
 
 #: libraries/classes/Config/Descriptions.php:689
-#: libraries/classes/Plugins/Export/ExportLatex.php:99
+#: libraries/classes/Plugins/Export/ExportLatex.php:84
 msgid "Include table caption"
 msgstr "Dołącz podpis tabeli"
 
 #: libraries/classes/Config/Descriptions.php:691
 #: libraries/classes/Config/Descriptions.php:706
 #: libraries/classes/Config/Descriptions.php:742
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:427
-#: libraries/classes/Plugins/Export/ExportLatex.php:590
-#: libraries/classes/Plugins/Export/ExportOdt.php:529
-#: libraries/classes/Plugins/Export/ExportTexytext.php:423
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:417
+#: libraries/classes/Plugins/Export/ExportLatex.php:576
+#: libraries/classes/Plugins/Export/ExportOdt.php:523
+#: libraries/classes/Plugins/Export/ExportTexytext.php:413
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:729
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
@@ -3462,9 +3462,9 @@ msgstr "Etykieta klucza"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:434
-#: libraries/classes/Plugins/Export/ExportOdt.php:536
-#: libraries/classes/Plugins/Export/ExportTexytext.php:428
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:424
+#: libraries/classes/Plugins/Export/ExportOdt.php:530
+#: libraries/classes/Plugins/Export/ExportTexytext.php:418
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:609
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
@@ -3529,12 +3529,12 @@ msgid "Use delayed inserts"
 msgstr "Użyj opóźnionych dodań"
 
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Plugins/Export/ExportSql.php:195
+#: libraries/classes/Plugins/Export/ExportSql.php:188
 msgid "Disable foreign key checks"
 msgstr "Wyłącz sprawdzanie kluczy zewnętrznych"
 
 #: libraries/classes/Config/Descriptions.php:723
-#: libraries/classes/Plugins/Export/ExportSql.php:209
+#: libraries/classes/Plugins/Export/ExportSql.php:202
 msgid "Export views as tables"
 msgstr "Eksportuj widoki jako tabele"
 
@@ -3568,7 +3568,7 @@ msgstr ""
 "tworzenia tabeli)"
 
 #: libraries/classes/Config/Descriptions.php:740
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:362
 #, php-format
 msgid "%s view"
 msgstr "%s widok"
@@ -3582,7 +3582,7 @@ msgid "Syntax to use when inserting data"
 msgstr "Składnia do użycia podczas wstawiania danych"
 
 #: libraries/classes/Config/Descriptions.php:744
-#: libraries/classes/Plugins/Export/ExportSql.php:506
+#: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid "Maximal length of created query"
 msgstr "Maksymalna długość utworzonego zapytania"
 
@@ -3591,7 +3591,7 @@ msgid "Export type"
 msgstr "Rodzaj eksportu"
 
 #: libraries/classes/Config/Descriptions.php:750
-#: libraries/classes/Plugins/Export/ExportSql.php:181
+#: libraries/classes/Plugins/Export/ExportSql.php:174
 msgid "Enclose export in a transaction"
 msgstr "Obejmij eksport transakcją"
 
@@ -3681,7 +3681,7 @@ msgstr "Serwery"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3759,7 +3759,7 @@ msgid "Database structure"
 msgstr "Struktura bazy danych"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:292
+#: libraries/classes/Plugins/Export/ExportPdf.php:276
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Struktura tabeli"
@@ -3811,8 +3811,8 @@ msgstr "Import częściowy: pozwalaj przerwać"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:146
-#: libraries/classes/Plugins/Import/ImportLdi.php:86
+#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "Nie przerywaj w przypadku błędów WSTAWIANIA wierszy"
 
@@ -3826,7 +3826,7 @@ msgid "Format of imported file"
 msgstr "Format importowanych plików"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:92
+#: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "Użyj słowa kluczowego LOCAL"
 
@@ -3835,7 +3835,7 @@ msgid "Column names in first row"
 msgstr "W pierwszym wierszu znajdują się nazwy kolumn"
 
 #: libraries/classes/Config/Descriptions.php:818
-#: libraries/classes/Plugins/Import/ImportOds.php:88
+#: libraries/classes/Plugins/Import/ImportOds.php:76
 msgid "Do not import empty rows"
 msgstr "Nie importuj pustych wierszy"
 
@@ -4446,9 +4446,9 @@ msgstr "Wierszy w polu textarea"
 
 #: libraries/classes/Config/Descriptions.php:965
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:159
-#: libraries/classes/Plugins/Export/ExportOdt.php:205
-#: libraries/classes/Plugins/Export/ExportTexytext.php:143
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:149
+#: libraries/classes/Plugins/Export/ExportOdt.php:199
+#: libraries/classes/Plugins/Export/ExportTexytext.php:133
 #: libraries/classes/Server/Privileges.php:1920
 #: libraries/classes/Server/Privileges.php:1922
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
@@ -4477,7 +4477,7 @@ msgid "Server"
 msgstr "Serwer"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:527
+#: libraries/classes/Plugins/Export/ExportXml.php:515
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -5246,10 +5246,10 @@ msgstr "Sukces!"
 #: libraries/classes/Controllers/Table/StructureController.php:469
 #: libraries/classes/Controllers/Table/StructureController.php:493
 #: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:696
-#: libraries/classes/Plugins/Export/ExportLatex.php:671
-#: libraries/classes/Plugins/Export/ExportOdt.php:829
-#: libraries/classes/Plugins/Export/ExportTexytext.php:660
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:686
+#: libraries/classes/Plugins/Export/ExportLatex.php:657
+#: libraries/classes/Plugins/Export/ExportOdt.php:823
+#: libraries/classes/Plugins/Export/ExportTexytext.php:650
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:801
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -6106,8 +6106,8 @@ msgstr "Dodaj co najmniej jedną zmienną do serii!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Display/Results.php:1341
-#: libraries/classes/Plugins/Export/ExportSql.php:2407
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:108
+#: libraries/classes/Plugins/Export/ExportSql.php:2401
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6334,9 +6334,9 @@ msgstr "Status"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:519
-#: libraries/classes/Plugins/Export/ExportOdt.php:641
-#: libraries/classes/Plugins/Export/ExportTexytext.php:494
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:509
+#: libraries/classes/Plugins/Export/ExportOdt.php:635
+#: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
@@ -6597,10 +6597,10 @@ msgstr "Zmiana kodowania"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #: libraries/classes/IndexColumn.php:163 libraries/classes/Index.php:523
 #: libraries/classes/Index.php:551
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:695
-#: libraries/classes/Plugins/Export/ExportLatex.php:671
-#: libraries/classes/Plugins/Export/ExportOdt.php:828
-#: libraries/classes/Plugins/Export/ExportTexytext.php:660
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:685
+#: libraries/classes/Plugins/Export/ExportLatex.php:657
+#: libraries/classes/Plugins/Export/ExportOdt.php:822
+#: libraries/classes/Plugins/Export/ExportTexytext.php:650
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:800
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -9958,27 +9958,28 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr "Edytuj strukturę, klikając link \"Struktura\"."
 
 #: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
-#: libraries/classes/Plugins/Export/ExportCodegen.php:81
-#: libraries/classes/Plugins/Export/ExportCsv.php:57
-#: libraries/classes/Plugins/Export/ExportExcel.php:44
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:57
-#: libraries/classes/Plugins/Export/ExportJson.php:89
-#: libraries/classes/Plugins/Export/ExportLatex.php:85
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:56
-#: libraries/classes/Plugins/Export/ExportOds.php:62
-#: libraries/classes/Plugins/Export/ExportOdt.php:71
-#: libraries/classes/Plugins/Export/ExportPdf.php:82
-#: libraries/classes/Plugins/Export/ExportPhparray.php:56
-#: libraries/classes/Plugins/Export/ExportSql.php:124
-#: libraries/classes/Plugins/Export/ExportTexytext.php:56
-#: libraries/classes/Plugins/Export/ExportXml.php:89
-#: libraries/classes/Plugins/Export/ExportYaml.php:55
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:71
-#: libraries/classes/Plugins/Import/ImportOds.php:65
-#: libraries/classes/Plugins/Import/ImportShp.php:78
-#: libraries/classes/Plugins/Import/ImportSql.php:58
-#: libraries/classes/Plugins/Import/ImportXml.php:63
+#: libraries/classes/Plugins/Export/ExportCodegen.php:66
+#: libraries/classes/Plugins/Export/ExportCsv.php:46
+#: libraries/classes/Plugins/Export/ExportExcel.php:39
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
+#: libraries/classes/Plugins/Export/ExportJson.php:78
+#: libraries/classes/Plugins/Export/ExportLatex.php:70
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
+#: libraries/classes/Plugins/Export/ExportOds.php:55
+#: libraries/classes/Plugins/Export/ExportOdt.php:64
+#: libraries/classes/Plugins/Export/ExportPdf.php:65
+#: libraries/classes/Plugins/Export/ExportPhparray.php:45
+#: libraries/classes/Plugins/Export/ExportSql.php:117
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:76
+#: libraries/classes/Plugins/Export/ExportYaml.php:44
+#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportLdi.php:51
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportShp.php:70
+#: libraries/classes/Plugins/Import/ImportSql.php:46
+#: libraries/classes/Plugins/Import/ImportXml.php:51
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
@@ -10042,13 +10043,13 @@ msgid "Function"
 msgstr "Funkcja"
 
 #: libraries/classes/InsertEdit.php:357
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:310
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:411
-#: libraries/classes/Plugins/Export/ExportLatex.php:582
-#: libraries/classes/Plugins/Export/ExportOdt.php:407
-#: libraries/classes/Plugins/Export/ExportOdt.php:513
-#: libraries/classes/Plugins/Export/ExportTexytext.php:321
-#: libraries/classes/Plugins/Export/ExportTexytext.php:415
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:300
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:401
+#: libraries/classes/Plugins/Export/ExportLatex.php:568
+#: libraries/classes/Plugins/Export/ExportOdt.php:401
+#: libraries/classes/Plugins/Export/ExportOdt.php:507
+#: libraries/classes/Plugins/Export/ExportTexytext.php:311
+#: libraries/classes/Plugins/Export/ExportTexytext.php:405
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
@@ -10096,13 +10097,13 @@ msgstr "katalog przesyłania serwera web:"
 
 #: libraries/classes/InsertEdit.php:1037
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:307
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:408
-#: libraries/classes/Plugins/Export/ExportLatex.php:581
-#: libraries/classes/Plugins/Export/ExportOdt.php:404
-#: libraries/classes/Plugins/Export/ExportOdt.php:510
-#: libraries/classes/Plugins/Export/ExportTexytext.php:320
-#: libraries/classes/Plugins/Export/ExportTexytext.php:414
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:297
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:398
+#: libraries/classes/Plugins/Export/ExportLatex.php:567
+#: libraries/classes/Plugins/Export/ExportOdt.php:398
+#: libraries/classes/Plugins/Export/ExportOdt.php:504
+#: libraries/classes/Plugins/Export/ExportTexytext.php:310
+#: libraries/classes/Plugins/Export/ExportTexytext.php:404
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
@@ -10127,13 +10128,13 @@ msgid "Column"
 msgstr "Kolumna"
 
 #: libraries/classes/InsertEdit.php:1047
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:313
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:414
-#: libraries/classes/Plugins/Export/ExportLatex.php:583
-#: libraries/classes/Plugins/Export/ExportOdt.php:410
-#: libraries/classes/Plugins/Export/ExportOdt.php:516
-#: libraries/classes/Plugins/Export/ExportTexytext.php:322
-#: libraries/classes/Plugins/Export/ExportTexytext.php:416
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:303
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:404
+#: libraries/classes/Plugins/Export/ExportLatex.php:569
+#: libraries/classes/Plugins/Export/ExportOdt.php:404
+#: libraries/classes/Plugins/Export/ExportOdt.php:510
+#: libraries/classes/Plugins/Export/ExportTexytext.php:312
+#: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
@@ -10251,12 +10252,12 @@ msgstr "Śledzenie"
 #: libraries/classes/Menu.php:365 libraries/classes/Menu.php:463
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportOdt.php:749
-#: libraries/classes/Plugins/Export/ExportPdf.php:295
-#: libraries/classes/Plugins/Export/ExportSql.php:2247
-#: libraries/classes/Plugins/Export/ExportTexytext.php:582
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:603
+#: libraries/classes/Plugins/Export/ExportOdt.php:743
+#: libraries/classes/Plugins/Export/ExportPdf.php:279
+#: libraries/classes/Plugins/Export/ExportSql.php:2241
+#: libraries/classes/Plugins/Export/ExportTexytext.php:572
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Util.php:2095 libraries/classes/Util.php:2111
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10279,8 +10280,8 @@ msgstr "Procedury i funkcje"
 #: libraries/classes/Menu.php:456
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1059
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:1053
+#: libraries/classes/Plugins/Export/ExportXml.php:102
 #: libraries/classes/Util.php:2094 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Zdarzenia"
@@ -10445,9 +10446,9 @@ msgid "New"
 msgstr "Nowy"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:520
-#: libraries/classes/Plugins/Export/ExportOdt.php:644
-#: libraries/classes/Plugins/Export/ExportTexytext.php:495
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:510
+#: libraries/classes/Plugins/Export/ExportOdt.php:638
+#: libraries/classes/Plugins/Export/ExportTexytext.php:485
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:413
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -10456,8 +10457,8 @@ msgstr "Zdarzenie"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:646
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportSql.php:640
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 msgid "Functions"
 msgstr "Funkcje"
 
@@ -10477,8 +10478,8 @@ msgstr "Rozwiń/Zwiń"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:635
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportSql.php:629
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Procedures"
 msgstr "Procedury"
 
@@ -10509,7 +10510,7 @@ msgstr "Wyzwalacze"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "Widoki"
@@ -11012,111 +11013,111 @@ msgstr "Nie udało się zalogować na serwer MySQL"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "Włączyłeś uwierzytelnianie dwuskładnikowe, potwierdź swój login."
 
-#: libraries/classes/Plugins/Export/ExportCodegen.php:97
+#: libraries/classes/Plugins/Export/ExportCodegen.php:82
 #: templates/export.twig:108 templates/import.twig:196
 msgid "Format:"
 msgstr "Format:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:71
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
+#: libraries/classes/Plugins/Export/ExportCsv.php:60
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:37
 msgid "Columns separated with:"
 msgstr "Kolumny oddzielone:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:76
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:62
+#: libraries/classes/Plugins/Export/ExportCsv.php:65
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:43
 msgid "Columns enclosed with:"
 msgstr "Kolumny dołączyć:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:81
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:69
+#: libraries/classes/Plugins/Export/ExportCsv.php:70
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:50
 msgid "Columns escaped with:"
 msgstr "Kolumny uciekły z:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:86
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:76
+#: libraries/classes/Plugins/Export/ExportCsv.php:75
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:57
 msgid "Lines terminated with:"
 msgstr "Linie zakończone z:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:91
-#: libraries/classes/Plugins/Export/ExportExcel.php:58
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:93
-#: libraries/classes/Plugins/Export/ExportLatex.php:206
-#: libraries/classes/Plugins/Export/ExportOds.php:76
-#: libraries/classes/Plugins/Export/ExportOdt.php:145
-#: libraries/classes/Plugins/Export/ExportTexytext.php:97
+#: libraries/classes/Plugins/Export/ExportCsv.php:80
+#: libraries/classes/Plugins/Export/ExportExcel.php:53
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:82
+#: libraries/classes/Plugins/Export/ExportLatex.php:191
+#: libraries/classes/Plugins/Export/ExportOds.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:138
+#: libraries/classes/Plugins/Export/ExportTexytext.php:86
 msgid "Replace NULL with:"
 msgstr "Zamiana NULL na:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:96
-#: libraries/classes/Plugins/Export/ExportExcel.php:63
+#: libraries/classes/Plugins/Export/ExportCsv.php:85
+#: libraries/classes/Plugins/Export/ExportExcel.php:58
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Usuń znaki nowej lini z kolumn"
 
-#: libraries/classes/Plugins/Export/ExportExcel.php:73
+#: libraries/classes/Plugins/Export/ExportExcel.php:68
 msgid "Excel edition:"
 msgstr "Wydanie Excela:"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:75
-#: libraries/classes/Plugins/Export/ExportLatex.php:114
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:79
-#: libraries/classes/Plugins/Export/ExportOdt.php:89
-#: libraries/classes/Plugins/Export/ExportPdf.php:110
-#: libraries/classes/Plugins/Export/ExportSql.php:255
-#: libraries/classes/Plugins/Export/ExportTexytext.php:74
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
+#: libraries/classes/Plugins/Export/ExportLatex.php:99
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
+#: libraries/classes/Plugins/Export/ExportOdt.php:82
+#: libraries/classes/Plugins/Export/ExportPdf.php:93
+#: libraries/classes/Plugins/Export/ExportSql.php:248
+#: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:254 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure"
 msgstr "struktura"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:76
-#: libraries/classes/Plugins/Export/ExportLatex.php:115
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:80
-#: libraries/classes/Plugins/Export/ExportOdt.php:90
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
-#: libraries/classes/Plugins/Export/ExportSql.php:256
-#: libraries/classes/Plugins/Export/ExportTexytext.php:75
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:65
+#: libraries/classes/Plugins/Export/ExportLatex.php:100
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:83
+#: libraries/classes/Plugins/Export/ExportPdf.php:94
+#: libraries/classes/Plugins/Export/ExportSql.php:249
+#: libraries/classes/Plugins/Export/ExportTexytext.php:64
 #: libraries/config.values.php:255 libraries/config.values.php:321
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
 msgstr "dane"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:77
-#: libraries/classes/Plugins/Export/ExportLatex.php:116
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:81
-#: libraries/classes/Plugins/Export/ExportOdt.php:91
-#: libraries/classes/Plugins/Export/ExportPdf.php:112
-#: libraries/classes/Plugins/Export/ExportSql.php:257
-#: libraries/classes/Plugins/Export/ExportTexytext.php:76
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:66
+#: libraries/classes/Plugins/Export/ExportLatex.php:101
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:70
+#: libraries/classes/Plugins/Export/ExportOdt.php:84
+#: libraries/classes/Plugins/Export/ExportPdf.php:95
+#: libraries/classes/Plugins/Export/ExportSql.php:250
+#: libraries/classes/Plugins/Export/ExportTexytext.php:65
 #: libraries/config.values.php:256 libraries/config.values.php:322
 #: libraries/config.values.php:338 libraries/config.values.php:346
 #: libraries/config.values.php:351
 msgid "structure and data"
 msgstr "struktura i dane"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:87
-#: libraries/classes/Plugins/Export/ExportLatex.php:177
-#: libraries/classes/Plugins/Export/ExportOdt.php:134
-#: libraries/classes/Plugins/Export/ExportTexytext.php:86
-#: libraries/classes/Plugins/Export/ExportXml.php:148
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:76
+#: libraries/classes/Plugins/Export/ExportLatex.php:162
+#: libraries/classes/Plugins/Export/ExportOdt.php:127
+#: libraries/classes/Plugins/Export/ExportTexytext.php:75
+#: libraries/classes/Plugins/Export/ExportXml.php:135
 msgid "Data dump options"
 msgstr "Opcje eksportu danych"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:218
-#: libraries/classes/Plugins/Export/ExportOdt.php:275
-#: libraries/classes/Plugins/Export/ExportSql.php:2567
-#: libraries/classes/Plugins/Export/ExportTexytext.php:202
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:208
+#: libraries/classes/Plugins/Export/ExportOdt.php:269
+#: libraries/classes/Plugins/Export/ExportSql.php:2561
+#: libraries/classes/Plugins/Export/ExportTexytext.php:192
 msgid "Dumping data for table"
 msgstr "Zrzut danych tabeli"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:316
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:417
-#: libraries/classes/Plugins/Export/ExportLatex.php:584
-#: libraries/classes/Plugins/Export/ExportOdt.php:413
-#: libraries/classes/Plugins/Export/ExportOdt.php:519
-#: libraries/classes/Plugins/Export/ExportTexytext.php:323
-#: libraries/classes/Plugins/Export/ExportTexytext.php:417
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:306
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:407
+#: libraries/classes/Plugins/Export/ExportLatex.php:570
+#: libraries/classes/Plugins/Export/ExportOdt.php:407
+#: libraries/classes/Plugins/Export/ExportOdt.php:513
+#: libraries/classes/Plugins/Export/ExportTexytext.php:313
+#: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
@@ -11132,10 +11133,10 @@ msgstr "Zrzut danych tabeli"
 msgid "Default"
 msgstr "Ustawienia domyślne"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:421
-#: libraries/classes/Plugins/Export/ExportLatex.php:586
-#: libraries/classes/Plugins/Export/ExportOdt.php:523
-#: libraries/classes/Plugins/Export/ExportTexytext.php:419
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:411
+#: libraries/classes/Plugins/Export/ExportLatex.php:572
+#: libraries/classes/Plugins/Export/ExportOdt.php:517
+#: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
@@ -11143,9 +11144,9 @@ msgstr "Ustawienia domyślne"
 msgid "Links to"
 msgstr "Odsyłacze do"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:518
-#: libraries/classes/Plugins/Export/ExportOdt.php:638
-#: libraries/classes/Plugins/Export/ExportTexytext.php:493
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:508
+#: libraries/classes/Plugins/Export/ExportOdt.php:632
+#: libraries/classes/Plugins/Export/ExportTexytext.php:483
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:409
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -11162,9 +11163,9 @@ msgstr "Odsyłacze do"
 msgid "Name"
 msgstr "Nazwa"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:521
-#: libraries/classes/Plugins/Export/ExportOdt.php:647
-#: libraries/classes/Plugins/Export/ExportTexytext.php:496
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
+#: libraries/classes/Plugins/Export/ExportOdt.php:641
+#: libraries/classes/Plugins/Export/ExportTexytext.php:486
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:415
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -11172,175 +11173,175 @@ msgstr "Nazwa"
 msgid "Definition"
 msgstr "Określenie"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:595
-#: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2216
-#: libraries/classes/Plugins/Export/ExportTexytext.php:562
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:585
+#: libraries/classes/Plugins/Export/ExportOdt.php:721
+#: libraries/classes/Plugins/Export/ExportSql.php:2210
+#: libraries/classes/Plugins/Export/ExportTexytext.php:552
 msgid "Table structure for table"
 msgstr "Struktura tabeli dla tabeli"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:621
-#: libraries/classes/Plugins/Export/ExportOdt.php:759
-#: libraries/classes/Plugins/Export/ExportSql.php:2290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:588
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:611
+#: libraries/classes/Plugins/Export/ExportOdt.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:2284
+#: libraries/classes/Plugins/Export/ExportTexytext.php:578
 msgid "Structure for view"
 msgstr "Struktura widoku"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:635
-#: libraries/classes/Plugins/Export/ExportOdt.php:779
-#: libraries/classes/Plugins/Export/ExportSql.php:2338
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:625
+#: libraries/classes/Plugins/Export/ExportOdt.php:773
+#: libraries/classes/Plugins/Export/ExportSql.php:2332
+#: libraries/classes/Plugins/Export/ExportTexytext.php:594
 msgid "Stand-in structure for view"
 msgstr "Zastąpiona struktura widoku"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:106
+#: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 "Wyjście ładnie wydrukowane JSON (użyj formatowania czytelnego dla człowieka)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:112
+#: libraries/classes/Plugins/Export/ExportJson.php:101
 msgid "Output unicode characters unescaped"
 msgstr "Wyjście znaków Unicode bez zmiany znaczenia"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:60
+#: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Content of table @TABLE@"
 msgstr "Zawartość tabeli @TABLE@"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:61
+#: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "(continued)"
 msgstr "(kontynuacja)"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:62
+#: libraries/classes/Plugins/Export/ExportLatex.php:52
 msgid "Structure of table @TABLE@"
 msgstr "Struktura tabeli @TABLE@"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:127
-#: libraries/classes/Plugins/Export/ExportOdt.php:102
-#: libraries/classes/Plugins/Export/ExportSql.php:270
+#: libraries/classes/Plugins/Export/ExportLatex.php:112
+#: libraries/classes/Plugins/Export/ExportOdt.php:95
+#: libraries/classes/Plugins/Export/ExportSql.php:263
 msgid "Object creation options"
 msgstr "Opcje tworzenia obiektu"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:133
-#: libraries/classes/Plugins/Export/ExportLatex.php:188
+#: libraries/classes/Plugins/Export/ExportLatex.php:118
+#: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Table caption:"
 msgstr "Nagłówek tabeli:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:139
-#: libraries/classes/Plugins/Export/ExportLatex.php:194
+#: libraries/classes/Plugins/Export/ExportLatex.php:124
+#: libraries/classes/Plugins/Export/ExportLatex.php:179
 msgid "Table caption (continued):"
 msgstr "Tytuł tabeli (ciąg dalszy):"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:145
-#: libraries/classes/Plugins/Export/ExportLatex.php:200
+#: libraries/classes/Plugins/Export/ExportLatex.php:130
+#: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
 msgstr "Etykieta klucza:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:152
-#: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:163
+#: libraries/classes/Plugins/Export/ExportLatex.php:137
+#: libraries/classes/Plugins/Export/ExportOdt.php:102
+#: libraries/classes/Plugins/Export/ExportSql.php:156
 msgid "Display foreign key relationships"
 msgstr "Wyświetlanie związki z kluczem zewnętrznym"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:159
-#: libraries/classes/Plugins/Export/ExportOdt.php:116
+#: libraries/classes/Plugins/Export/ExportLatex.php:144
+#: libraries/classes/Plugins/Export/ExportOdt.php:109
 msgid "Display comments"
 msgstr "Wyświetl komentarze"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:165
-#: libraries/classes/Plugins/Export/ExportOdt.php:122
-#: libraries/classes/Plugins/Export/ExportSql.php:171
+#: libraries/classes/Plugins/Export/ExportLatex.php:150
+#: libraries/classes/Plugins/Export/ExportOdt.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:164
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "Wyświetl typy MIME"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:183
+#: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
 msgstr "Umieść nazwy kolumn w pierwszym wierszu:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:230
-#: libraries/classes/Plugins/Export/ExportSql.php:776
-#: libraries/classes/Plugins/Export/ExportXml.php:251
+#: libraries/classes/Plugins/Export/ExportLatex.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:770
+#: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
 msgstr "Host:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:236
-#: libraries/classes/Plugins/Export/ExportSql.php:783
-#: libraries/classes/Plugins/Export/ExportXml.php:257
+#: libraries/classes/Plugins/Export/ExportLatex.php:222
+#: libraries/classes/Plugins/Export/ExportSql.php:777
+#: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Generation Time:"
 msgstr "Czas generowania:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:238
-#: libraries/classes/Plugins/Export/ExportSql.php:787
-#: libraries/classes/Plugins/Export/ExportXml.php:259
+#: libraries/classes/Plugins/Export/ExportLatex.php:224
+#: libraries/classes/Plugins/Export/ExportSql.php:781
+#: libraries/classes/Plugins/Export/ExportXml.php:247
 #: templates/home/index.twig:165
 msgid "Server version:"
 msgstr "Wersja serwera:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:239
-#: libraries/classes/Plugins/Export/ExportSql.php:789
-#: libraries/classes/Plugins/Export/ExportXml.php:260
+#: libraries/classes/Plugins/Export/ExportLatex.php:225
+#: libraries/classes/Plugins/Export/ExportSql.php:783
+#: libraries/classes/Plugins/Export/ExportXml.php:248
 msgid "PHP Version:"
 msgstr "Wersja PHP:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:270
-#: libraries/classes/Plugins/Export/ExportSql.php:988
-#: libraries/classes/Plugins/Export/ExportXml.php:433
+#: libraries/classes/Plugins/Export/ExportLatex.php:256
+#: libraries/classes/Plugins/Export/ExportSql.php:982
+#: libraries/classes/Plugins/Export/ExportXml.php:421
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "Baza danych:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:346
-#: libraries/classes/Plugins/Export/ExportSql.php:2407
+#: libraries/classes/Plugins/Export/ExportLatex.php:332
+#: libraries/classes/Plugins/Export/ExportSql.php:2401
 msgid "Data:"
 msgstr "Dane:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:559
+#: libraries/classes/Plugins/Export/ExportLatex.php:545
 msgid "Structure:"
 msgstr "Struktura:"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:90
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:79
 msgid "Export table names"
 msgstr "Eksport nazw tabel"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:97
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table headers"
 msgstr "Eksport nagłówków tabeli"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:276
-#: libraries/classes/Plugins/Export/ExportTexytext.php:203
+#: libraries/classes/Plugins/Export/ExportOdt.php:270
+#: libraries/classes/Plugins/Export/ExportTexytext.php:193
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "Zrzut danych tabeli"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:96
+#: libraries/classes/Plugins/Export/ExportPdf.php:79
 msgid "Report title:"
 msgstr "Tytuł raportu:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:222
+#: libraries/classes/Plugins/Export/ExportPdf.php:206
 msgid "Dumping data"
 msgstr "Przesyłanie danych"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:242
+#: libraries/classes/Plugins/Export/ExportPdf.php:226
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Wyniki zapytania"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:282
 msgid "View structure"
 msgstr "Zobacz strukturę"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:285
 msgid "Stand in"
 msgstr "Przyłączać się"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:141
+#: libraries/classes/Plugins/Export/ExportSql.php:134
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -11348,11 +11349,11 @@ msgstr ""
 "Wyświetl komentarze <i>(zawiera informacje takie jak znacznik czasowy "
 "eksportu, wersję PHP, wersję serwera)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:149
+#: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dodatkowe komentarz niestandardowych nagłówków (\\ndzieli wiersze):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:155
+#: libraries/classes/Plugins/Export/ExportSql.php:148
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -11360,48 +11361,48 @@ msgstr ""
 "Dołącz znacznik czasu, gdy bazy danych zostały stworzone, ostatnio "
 "aktualizowane i ostatnio sprawdzane"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:209
 msgid "Export metadata"
 msgstr "Eksportuj metadane"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:231
+#: libraries/classes/Plugins/Export/ExportSql.php:224
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "System bazy danych lub starszego serwera MySQL w celu maksymalizacji "
 "zgodności produkcji z:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:278
+#: libraries/classes/Plugins/Export/ExportSql.php:271
 msgid "Add statements:"
 msgstr "Cecha:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:286
-#: libraries/classes/Plugins/Export/ExportSql.php:295
-#: libraries/classes/Plugins/Export/ExportSql.php:316
-#: libraries/classes/Plugins/Export/ExportSql.php:325
-#: libraries/classes/Plugins/Export/ExportSql.php:350
-#: libraries/classes/Plugins/Export/ExportSql.php:378
-#: libraries/classes/Plugins/Export/ExportSql.php:387
+#: libraries/classes/Plugins/Export/ExportSql.php:279
+#: libraries/classes/Plugins/Export/ExportSql.php:288
+#: libraries/classes/Plugins/Export/ExportSql.php:309
+#: libraries/classes/Plugins/Export/ExportSql.php:318
+#: libraries/classes/Plugins/Export/ExportSql.php:343
+#: libraries/classes/Plugins/Export/ExportSql.php:371
+#: libraries/classes/Plugins/Export/ExportSql.php:380
 #, php-format
 msgid "Add %s statement"
 msgstr "Dodaj oświadczenie %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:332
+#: libraries/classes/Plugins/Export/ExportSql.php:325
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(mniej wydajne, ponieważ indeksy będą generowane podczas tworzenia tabeli)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:340
+#: libraries/classes/Plugins/Export/ExportSql.php:333
 #, php-format
 msgid "%s value"
 msgstr "Wartość %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:357
+#: libraries/classes/Plugins/Export/ExportSql.php:350
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:396
+#: libraries/classes/Plugins/Export/ExportSql.php:389
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11409,37 +11410,37 @@ msgstr ""
 "Załącz tabelę i nazwę kolumny z odwrotnym cudzysłowem <i> (Chroni kolumn i "
 "nazwy tabeli utworzonych ze znakami specjalnymi lub słowami kluczowymi)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:404
 msgid "Data creation options"
 msgstr "Opcje tworzenia danych"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:416
-#: libraries/classes/Plugins/Export/ExportSql.php:2513
+#: libraries/classes/Plugins/Export/ExportSql.php:409
+#: libraries/classes/Plugins/Export/ExportSql.php:2507
 msgid "Truncate table before insert"
 msgstr "Tabela Truncate przed wstawieniem"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
+#: libraries/classes/Plugins/Export/ExportSql.php:416
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Zamiast zapytań <code>INSERT</code> użyj:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:429
+#: libraries/classes/Plugins/Export/ExportSql.php:422
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Zapytania <code>INSERT DELAYED</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:441
-#: libraries/classes/Plugins/Export/ExportSql.php:475
+#: libraries/classes/Plugins/Export/ExportSql.php:434
+#: libraries/classes/Plugins/Export/ExportSql.php:468
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Zapytania <code>INSERT IGNORE</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:455
+#: libraries/classes/Plugins/Export/ExportSql.php:448
 msgid "Function to use when dumping data:"
 msgstr "Funkcja eksportu danych:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:470
+#: libraries/classes/Plugins/Export/ExportSql.php:463
 msgid "Syntax to use when inserting data:"
 msgstr "Składnia do użycia podczas wstawiania danych:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:480
+#: libraries/classes/Plugins/Export/ExportSql.php:473
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11449,7 +11450,7 @@ msgstr ""
 "&nbsp; &nbsp; Np: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:485
+#: libraries/classes/Plugins/Export/ExportSql.php:478
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11459,7 +11460,7 @@ msgstr ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:490
+#: libraries/classes/Plugins/Export/ExportSql.php:483
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11467,7 +11468,7 @@ msgstr ""
 "obu powyższych<br> Przykład:<code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:495
+#: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11475,7 +11476,7 @@ msgstr ""
 "żadne z powyższych<br>Przykład: <code>INSERT INTO tbl_name VALUES (1,2,3)</"
 "code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:514
+#: libraries/classes/Plugins/Export/ExportSql.php:507
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -11483,7 +11484,7 @@ msgstr ""
 "Zrzuć binarne kolumny w postaci szesnastkowej <i>(np. \"abc\" zmienia się na "
 "0x616263)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:524
+#: libraries/classes/Plugins/Export/ExportSql.php:517
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -11491,112 +11492,112 @@ msgstr ""
 "Zrzuć znacznik czasu kolumn w UTC <i>(włączenie znacznik czasu kolumn bedzie "
 "zrzucone i przełądowane między serwerami w różnych strefach czasowych)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:592
+#: libraries/classes/Plugins/Export/ExportSql.php:586
 msgid "It appears your database uses routines;"
 msgstr "Wygląda na to, że twoja baza danych używa procedur;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:595
-#: libraries/classes/Plugins/Export/ExportSql.php:1724
-#: libraries/classes/Plugins/Export/ExportSql.php:2278
+#: libraries/classes/Plugins/Export/ExportSql.php:589
+#: libraries/classes/Plugins/Export/ExportSql.php:1718
+#: libraries/classes/Plugins/Export/ExportSql.php:2272
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "eksport aliasów może nie działać niezawodnie we wszystkich przypadkach."
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1105
+#: libraries/classes/Plugins/Export/ExportSql.php:1099
 msgid "Metadata"
 msgstr "Metadane"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1179
+#: libraries/classes/Plugins/Export/ExportSql.php:1173
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadane dla tabeli %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1186
+#: libraries/classes/Plugins/Export/ExportSql.php:1180
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadane dla Bazy danych %s"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1542
+#: libraries/classes/Plugins/Export/ExportSql.php:1536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:675
 msgid "Creation:"
 msgstr "Utworzenie:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1556
+#: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:686
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1570
+#: libraries/classes/Plugins/Export/ExportSql.php:1564
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:697
 msgid "Last check:"
 msgstr "Ostatnie sprawdzanie:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1629
+#: libraries/classes/Plugins/Export/ExportSql.php:1623
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Błąd odczytu struktury tabeli %s:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1721
+#: libraries/classes/Plugins/Export/ExportSql.php:1715
 msgid "It appears your database uses views;"
 msgstr "Wygląda na to, że twoja baza danych używa widoków;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1905
+#: libraries/classes/Plugins/Export/ExportSql.php:1899
 msgid "Constraints for dumped tables"
 msgstr "Ograniczenia dla zrzutów tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1906
+#: libraries/classes/Plugins/Export/ExportSql.php:1900
 msgid "Constraints for table"
 msgstr "Ograniczenia dla tabeli"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1936
+#: libraries/classes/Plugins/Export/ExportSql.php:1930
 msgid "Indexes for dumped tables"
 msgstr "Indeksy dla zrzutów tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1937
+#: libraries/classes/Plugins/Export/ExportSql.php:1931
 msgid "Indexes for table"
 msgstr "Indeksy dla tabeli"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1973
+#: libraries/classes/Plugins/Export/ExportSql.php:1967
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT dla zrzuconych tabel"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1974
+#: libraries/classes/Plugins/Export/ExportSql.php:1968
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT dla tabeli"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2051
+#: libraries/classes/Plugins/Export/ExportSql.php:2045
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TYPY MIME TABELI"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2075
+#: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACJE DLA TABELI"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2275
+#: libraries/classes/Plugins/Export/ExportSql.php:2269
 msgid "It appears your table uses triggers;"
 msgstr "Wygląda na to, że twoja tabela używa wyzwalaczy;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2315
+#: libraries/classes/Plugins/Export/ExportSql.php:2309
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura widoku %s eksportowana jako tabela"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2341
+#: libraries/classes/Plugins/Export/ExportSql.php:2335
 msgid "(See below for the actual view)"
 msgstr "(Zobacz poniżej rzeczywisty widok)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2422
+#: libraries/classes/Plugins/Export/ExportSql.php:2416
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Błąd odczytu danych dla tabeli %s:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:109
+#: libraries/classes/Plugins/Export/ExportXml.php:96
 msgid "Object creation options (all are recommended)"
 msgstr "Opcje tworzenia obiektów (wszystkie są polecane)"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Export contents"
 msgstr "Eksportuj zawartość"
 
@@ -11609,28 +11610,28 @@ msgstr "Tabela:"
 msgid "Purpose:"
 msgstr "Zamiar:"
 
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 "Aktualizuj dane, gdy wykryte zostaną duplikaty kluczy podczas importowania "
 "(dodaj ON DUPLICATE KEY UPDATE)"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:84
 msgid "Name of the new table (optional):"
 msgstr "Nazwa nowej tabeli (opcjonalnie):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
+#: libraries/classes/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new database (optional):"
 msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:106
-#: libraries/classes/Plugins/Import/ImportCsv.php:124
+#: libraries/classes/Plugins/Import/ImportCsv.php:102
+#: libraries/classes/Plugins/Import/ImportCsv.php:120
 msgid "Import these many number of rows (optional):"
 msgstr "Zaimportuj tyle wierszy (opcjonalnie):"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:114
-#: libraries/classes/Plugins/Import/ImportOds.php:80
+#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportOds.php:68
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -11638,7 +11639,7 @@ msgstr ""
 "Pierwsza linia pliku zawiera nazwy kolumn <i>(jeśli wyłączone, pierwsza "
 "linia będzie częścią danych)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:131
+#: libraries/classes/Plugins/Import/ImportCsv.php:127
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11648,30 +11649,30 @@ msgstr ""
 "bazie danych, lista odpowiednich nazw kolumn tutaj. Nazwy kolumn muszą być "
 "oddzielone przecinkami, a nie zamknięte cudzysłowami."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:139
+#: libraries/classes/Plugins/Import/ImportCsv.php:135
 msgid "Column names:"
 msgstr "Nazwy kolumn:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:283
-#: libraries/classes/Plugins/Import/ImportCsv.php:696
+#: libraries/classes/Plugins/Import/ImportCsv.php:287
+#: libraries/classes/Plugins/Import/ImportCsv.php:700
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Niewłaściwy format w linii %d danych wejściowych CSV."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:546
+#: libraries/classes/Plugins/Import/ImportCsv.php:550
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Niewłaściwa suma kolumn w CSV w linii %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:729
-#: libraries/classes/Plugins/Import/ImportCsv.php:740
-#: libraries/classes/Plugins/Import/ImportCsv.php:750
+#: libraries/classes/Plugins/Import/ImportCsv.php:718
+#: libraries/classes/Plugins/Import/ImportCsv.php:733
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
+#: libraries/classes/Plugins/Import/ImportCsv.php:754
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Niewłaściwy parametr importu CSV: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:887
+#: libraries/classes/Plugins/Import/ImportCsv.php:891
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11680,35 +11681,35 @@ msgstr ""
 "Nieprawidłowa kolumna (%s) określona! Upewnij się, że nazwy kolumn są "
 "napisane poprawnie, oddzielone przecinkami, a nie w cudzysłowie."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:80
+#: libraries/classes/Plugins/Import/ImportLdi.php:62
 msgid "Column names: "
 msgstr "Nazwy kolumn: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:122
+#: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
 msgstr "Ten moduł nie obsługuje skompresowanych importów!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:68
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:305
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:293
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Nieprawidłowy format danych wejściowych mediawiki w linii: <br>%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:94
+#: libraries/classes/Plugins/Import/ImportOds.php:82
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Importuj procenty jako dane \"po przecinku\" <i>np: 12.00% jako 0.12</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:100
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importuj waluty <i>(np. $5.00 do 5.00)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:168
-#: libraries/classes/Plugins/Import/ImportXml.php:126
-#: libraries/classes/Plugins/Import/ImportXml.php:190
+#: libraries/classes/Plugins/Import/ImportOds.php:157
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:178
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -11716,38 +11717,38 @@ msgstr ""
 "Plik XML ma nieprawidłową strukturę lub jest niekompletny. Proszę skorygować "
 "problem i spróbować ponownie."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:179
+#: libraries/classes/Plugins/Import/ImportOds.php:168
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nie można przeanalizować arkusza kalkulacyjnego OpenDocument!"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:76
+#: libraries/classes/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
 msgstr "Plik kształtu ESRI"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:114
-#: libraries/classes/Plugins/Import/ImportShp.php:190
+#: libraries/classes/Plugins/Import/ImportShp.php:106
+#: libraries/classes/Plugins/Import/ImportShp.php:182
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:220
+#: libraries/classes/Plugins/Import/ImportShp.php:212
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension nie obsługuje typu ESRI \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:269
+#: libraries/classes/Plugins/Import/ImportShp.php:261
 msgid "The imported file does not contain any data!"
 msgstr "Importowany plik nie zawiera żadnych danych!"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:79
+#: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
 msgstr "Tryb zgodności SQL:"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:91
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nie używaj <code>AUTO_INCREMENT</code> dla wartości zerowych"
 
-#: libraries/classes/Plugins/Import/ImportXml.php:60
+#: libraries/classes/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
@@ -11817,56 +11818,56 @@ msgstr "Atrybuty"
 msgid "Extra"
 msgstr "Dodatkowo"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:69
+#: libraries/classes/Plugins/SchemaPlugin.php:78
 msgid "Show color"
 msgstr "Pokaż kolor"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:71
+#: libraries/classes/Plugins/SchemaPlugin.php:80
 msgid "Only show keys"
 msgstr "Pokaż tylko klucze"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:63
-#: libraries/classes/Plugins/Schema/SchemaEps.php:71
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
+#: libraries/classes/Plugins/Schema/SchemaDia.php:56
+#: libraries/classes/Plugins/Schema/SchemaEps.php:64
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:66
 msgid "Orientation"
 msgstr "Orientacja"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaEps.php:75
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
+#: libraries/classes/Plugins/Schema/SchemaDia.php:60
+#: libraries/classes/Plugins/Schema/SchemaEps.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Landscape"
 msgstr "Orientacja pozioma"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:68
-#: libraries/classes/Plugins/Schema/SchemaEps.php:76
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:78
+#: libraries/classes/Plugins/Schema/SchemaDia.php:61
+#: libraries/classes/Plugins/Schema/SchemaEps.php:69
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:71
 msgid "Portrait"
 msgstr "Orientacja pionowa"
 
-#: libraries/classes/Plugins/Schema/SchemaEps.php:65
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
-#: libraries/classes/Plugins/Schema/SchemaSvg.php:64
+#: libraries/classes/Plugins/Schema/SchemaEps.php:58
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:60
+#: libraries/classes/Plugins/Schema/SchemaSvg.php:57
 msgid "Same width for all tables"
 msgstr "Taka sama szerokość dla wszystkich tabel"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:92
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:85
 msgid "Show grid"
 msgstr "Pokaż siatkę"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:91
 #: templates/database/structure/index.twig:23
 msgid "Data dictionary"
 msgstr "Słownik danych"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:104
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:97
 msgid "Order of the tables"
 msgstr "Kolejność tabel"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:109
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 msgid "Name (Ascending)"
 msgstr "Nazwa (rosnąco)"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:110
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 msgid "Name (Descending)"
 msgstr "Nazwa (malejąco)"
 

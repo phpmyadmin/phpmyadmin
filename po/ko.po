@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-08-28 00:50+0200\n"
+"POT-Creation-Date: 2021-08-29 00:09+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1935,7 +1935,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:174
 #: libraries/classes/Config/Descriptions.php:739
-#: libraries/classes/Plugins/Export/ExportSql.php:363
+#: libraries/classes/Plugins/Export/ExportSql.php:356
 msgid "Exclude definition of current user"
 msgstr "현재 사용자의 정의 제외"
 
@@ -3110,8 +3110,8 @@ msgid "Debug SQL"
 msgstr "SQL 디버그"
 
 #: libraries/classes/Config/Descriptions.php:644
-#: libraries/classes/Plugins/Schema/SchemaDia.php:75
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:85
+#: libraries/classes/Plugins/Schema/SchemaDia.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:78
 msgid "Paper size"
 msgstr "용지 크기"
 
@@ -3236,26 +3236,26 @@ msgstr "압축"
 #: libraries/classes/Config/Descriptions.php:703
 #: libraries/classes/Config/Descriptions.php:705
 #: libraries/classes/Config/Descriptions.php:752
-#: libraries/classes/Plugins/Export/ExportCsv.php:101
-#: libraries/classes/Plugins/Export/ExportExcel.php:68
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:98
-#: libraries/classes/Plugins/Export/ExportOds.php:81
-#: libraries/classes/Plugins/Export/ExportOdt.php:140
-#: libraries/classes/Plugins/Export/ExportTexytext.php:92
+#: libraries/classes/Plugins/Export/ExportCsv.php:90
+#: libraries/classes/Plugins/Export/ExportExcel.php:63
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:87
+#: libraries/classes/Plugins/Export/ExportOds.php:74
+#: libraries/classes/Plugins/Export/ExportOdt.php:133
+#: libraries/classes/Plugins/Export/ExportTexytext.php:81
 msgid "Put columns names in the first row"
 msgstr "첫 줄에 열 이름을 넣기"
 
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:805
 #: libraries/classes/Config/Descriptions.php:811
-#: libraries/classes/Plugins/Import/ImportCsv.php:731
+#: libraries/classes/Plugins/Import/ImportCsv.php:735
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:806
 #: libraries/classes/Config/Descriptions.php:812
-#: libraries/classes/Plugins/Import/ImportCsv.php:742
+#: libraries/classes/Plugins/Import/ImportCsv.php:746
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
 
@@ -3277,13 +3277,13 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/classes/Config/Descriptions.php:676
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Config/Descriptions.php:816
-#: libraries/classes/Plugins/Import/ImportCsv.php:716
+#: libraries/classes/Plugins/Import/ImportCsv.php:720
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:677
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Plugins/Import/ImportCsv.php:752
+#: libraries/classes/Plugins/Import/ImportCsv.php:756
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
 
@@ -3308,29 +3308,29 @@ msgstr "파일명 템플릿"
 #: libraries/classes/Config/Descriptions.php:710
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:754
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:69
-#: libraries/classes/Plugins/Export/ExportLatex.php:108
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:74
-#: libraries/classes/Plugins/Export/ExportOdt.php:83
-#: libraries/classes/Plugins/Export/ExportPdf.php:105
-#: libraries/classes/Plugins/Export/ExportSql.php:250
-#: libraries/classes/Plugins/Export/ExportTexytext.php:68
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:58
+#: libraries/classes/Plugins/Export/ExportLatex.php:93
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:57
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:63
+#: libraries/classes/Plugins/Export/ExportOdt.php:76
+#: libraries/classes/Plugins/Export/ExportPdf.php:88
+#: libraries/classes/Plugins/Export/ExportSql.php:243
+#: libraries/classes/Plugins/Export/ExportTexytext.php:57
 msgid "Dump table"
 msgstr "덤프 테이블"
 
 #: libraries/classes/Config/Descriptions.php:689
-#: libraries/classes/Plugins/Export/ExportLatex.php:99
+#: libraries/classes/Plugins/Export/ExportLatex.php:84
 msgid "Include table caption"
 msgstr "테이블 설명 포함하기"
 
 #: libraries/classes/Config/Descriptions.php:691
 #: libraries/classes/Config/Descriptions.php:706
 #: libraries/classes/Config/Descriptions.php:742
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:427
-#: libraries/classes/Plugins/Export/ExportLatex.php:590
-#: libraries/classes/Plugins/Export/ExportOdt.php:529
-#: libraries/classes/Plugins/Export/ExportTexytext.php:423
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:417
+#: libraries/classes/Plugins/Export/ExportLatex.php:576
+#: libraries/classes/Plugins/Export/ExportOdt.php:523
+#: libraries/classes/Plugins/Export/ExportTexytext.php:413
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:601
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:729
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:752
@@ -3358,9 +3358,9 @@ msgstr "레이블 키"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:434
-#: libraries/classes/Plugins/Export/ExportOdt.php:536
-#: libraries/classes/Plugins/Export/ExportTexytext.php:428
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:424
+#: libraries/classes/Plugins/Export/ExportOdt.php:530
+#: libraries/classes/Plugins/Export/ExportTexytext.php:418
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:609
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
@@ -3425,12 +3425,12 @@ msgid "Use delayed inserts"
 msgstr "지연 삽입 사용"
 
 #: libraries/classes/Config/Descriptions.php:722
-#: libraries/classes/Plugins/Export/ExportSql.php:195
+#: libraries/classes/Plugins/Export/ExportSql.php:188
 msgid "Disable foreign key checks"
 msgstr "외래 키(foreign key) 체크 사용 안함"
 
 #: libraries/classes/Config/Descriptions.php:723
-#: libraries/classes/Plugins/Export/ExportSql.php:209
+#: libraries/classes/Plugins/Export/ExportSql.php:202
 msgid "Export views as tables"
 msgstr "뷰를 테이블로 내보내기"
 
@@ -3463,7 +3463,7 @@ msgstr ""
 "존재하지 않는 경우 추가(테이블 생성 중에 인덱스가 생성되므로 효율성이 낮음)"
 
 #: libraries/classes/Config/Descriptions.php:740
-#: libraries/classes/Plugins/Export/ExportSql.php:369
+#: libraries/classes/Plugins/Export/ExportSql.php:362
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
@@ -3478,7 +3478,7 @@ msgid "Syntax to use when inserting data"
 msgstr "자료 삽입시 사용 구문"
 
 #: libraries/classes/Config/Descriptions.php:744
-#: libraries/classes/Plugins/Export/ExportSql.php:506
+#: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid "Maximal length of created query"
 msgstr "CREATE 질의 최대 길이"
 
@@ -3487,7 +3487,7 @@ msgid "Export type"
 msgstr "내보내기 형식"
 
 #: libraries/classes/Config/Descriptions.php:750
-#: libraries/classes/Plugins/Export/ExportSql.php:181
+#: libraries/classes/Plugins/Export/ExportSql.php:174
 msgid "Enclose export in a transaction"
 msgstr "내보내기에 트랜잭션 포함"
 
@@ -3577,7 +3577,7 @@ msgstr "서버"
 #: libraries/classes/Controllers/Server/DatabasesController.php:485
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
@@ -3655,7 +3655,7 @@ msgid "Database structure"
 msgstr "데이터베이스 구조"
 
 #: libraries/classes/Config/Descriptions.php:791
-#: libraries/classes/Plugins/Export/ExportPdf.php:292
+#: libraries/classes/Plugins/Export/ExportPdf.php:276
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "테이블 구조"
@@ -3707,8 +3707,8 @@ msgstr "일부분만 가져오기: 인터럽트 허용"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Config/Descriptions.php:813
-#: libraries/classes/Plugins/Import/ImportCsv.php:146
-#: libraries/classes/Plugins/Import/ImportLdi.php:86
+#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
 
@@ -3722,7 +3722,7 @@ msgid "Format of imported file"
 msgstr "가져올 파일의 형식"
 
 #: libraries/classes/Config/Descriptions.php:814
-#: libraries/classes/Plugins/Import/ImportLdi.php:92
+#: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
 msgstr "LOCAL 키워드 사용"
 
@@ -3731,7 +3731,7 @@ msgid "Column names in first row"
 msgstr "첫행에 컬럼명 출력"
 
 #: libraries/classes/Config/Descriptions.php:818
-#: libraries/classes/Plugins/Import/ImportOds.php:88
+#: libraries/classes/Plugins/Import/ImportOds.php:76
 msgid "Do not import empty rows"
 msgstr "가져오기시 비어있는 행 제외"
 
@@ -4347,9 +4347,9 @@ msgstr "텍스트 편집 필드 줄 수"
 
 #: libraries/classes/Config/Descriptions.php:965
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:159
-#: libraries/classes/Plugins/Export/ExportOdt.php:205
-#: libraries/classes/Plugins/Export/ExportTexytext.php:143
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:149
+#: libraries/classes/Plugins/Export/ExportOdt.php:199
+#: libraries/classes/Plugins/Export/ExportTexytext.php:133
 #: libraries/classes/Server/Privileges.php:1920
 #: libraries/classes/Server/Privileges.php:1922
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
@@ -4378,7 +4378,7 @@ msgid "Server"
 msgstr "서버"
 
 #: libraries/classes/Config/Descriptions.php:968
-#: libraries/classes/Plugins/Export/ExportXml.php:527
+#: libraries/classes/Plugins/Export/ExportXml.php:515
 #: libraries/classes/Server/Privileges.php:1926
 #: libraries/classes/Server/Privileges.php:1928
 #: templates/database/structure/show_create.twig:10
@@ -5158,10 +5158,10 @@ msgstr "성공!"
 #: libraries/classes/Controllers/Table/StructureController.php:469
 #: libraries/classes/Controllers/Table/StructureController.php:493
 #: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:696
-#: libraries/classes/Plugins/Export/ExportLatex.php:671
-#: libraries/classes/Plugins/Export/ExportOdt.php:829
-#: libraries/classes/Plugins/Export/ExportTexytext.php:660
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:686
+#: libraries/classes/Plugins/Export/ExportLatex.php:657
+#: libraries/classes/Plugins/Export/ExportOdt.php:823
+#: libraries/classes/Plugins/Export/ExportTexytext.php:650
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:801
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -5993,8 +5993,8 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #: libraries/classes/Display/Results.php:1341
-#: libraries/classes/Plugins/Export/ExportSql.php:2407
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:108
+#: libraries/classes/Plugins/Export/ExportSql.php:2401
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
@@ -6218,9 +6218,9 @@ msgstr "상태"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:519
-#: libraries/classes/Plugins/Export/ExportOdt.php:641
-#: libraries/classes/Plugins/Export/ExportTexytext.php:494
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:509
+#: libraries/classes/Plugins/Export/ExportOdt.php:635
+#: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
@@ -6478,10 +6478,10 @@ msgstr "문자셋 변경 중"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #: libraries/classes/IndexColumn.php:163 libraries/classes/Index.php:523
 #: libraries/classes/Index.php:551
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:695
-#: libraries/classes/Plugins/Export/ExportLatex.php:671
-#: libraries/classes/Plugins/Export/ExportOdt.php:828
-#: libraries/classes/Plugins/Export/ExportTexytext.php:660
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:685
+#: libraries/classes/Plugins/Export/ExportLatex.php:657
+#: libraries/classes/Plugins/Export/ExportOdt.php:822
+#: libraries/classes/Plugins/Export/ExportTexytext.php:650
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:800
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -9718,27 +9718,28 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/classes/Import.php:1366 libraries/classes/Import.php:1400
-#: libraries/classes/Plugins/Export/ExportCodegen.php:81
-#: libraries/classes/Plugins/Export/ExportCsv.php:57
-#: libraries/classes/Plugins/Export/ExportExcel.php:44
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:57
-#: libraries/classes/Plugins/Export/ExportJson.php:89
-#: libraries/classes/Plugins/Export/ExportLatex.php:85
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:56
-#: libraries/classes/Plugins/Export/ExportOds.php:62
-#: libraries/classes/Plugins/Export/ExportOdt.php:71
-#: libraries/classes/Plugins/Export/ExportPdf.php:82
-#: libraries/classes/Plugins/Export/ExportPhparray.php:56
-#: libraries/classes/Plugins/Export/ExportSql.php:124
-#: libraries/classes/Plugins/Export/ExportTexytext.php:56
-#: libraries/classes/Plugins/Export/ExportXml.php:89
-#: libraries/classes/Plugins/Export/ExportYaml.php:55
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:33
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:71
-#: libraries/classes/Plugins/Import/ImportOds.php:65
-#: libraries/classes/Plugins/Import/ImportShp.php:78
-#: libraries/classes/Plugins/Import/ImportSql.php:58
-#: libraries/classes/Plugins/Import/ImportXml.php:63
+#: libraries/classes/Plugins/Export/ExportCodegen.php:66
+#: libraries/classes/Plugins/Export/ExportCsv.php:46
+#: libraries/classes/Plugins/Export/ExportExcel.php:39
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:46
+#: libraries/classes/Plugins/Export/ExportJson.php:78
+#: libraries/classes/Plugins/Export/ExportLatex.php:70
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:45
+#: libraries/classes/Plugins/Export/ExportOds.php:55
+#: libraries/classes/Plugins/Export/ExportOdt.php:64
+#: libraries/classes/Plugins/Export/ExportPdf.php:65
+#: libraries/classes/Plugins/Export/ExportPhparray.php:45
+#: libraries/classes/Plugins/Export/ExportSql.php:117
+#: libraries/classes/Plugins/Export/ExportTexytext.php:45
+#: libraries/classes/Plugins/Export/ExportXml.php:76
+#: libraries/classes/Plugins/Export/ExportYaml.php:44
+#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportLdi.php:51
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:59
+#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportShp.php:70
+#: libraries/classes/Plugins/Import/ImportSql.php:46
+#: libraries/classes/Plugins/Import/ImportXml.php:51
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
@@ -9798,13 +9799,13 @@ msgid "Function"
 msgstr "함수"
 
 #: libraries/classes/InsertEdit.php:357
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:310
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:411
-#: libraries/classes/Plugins/Export/ExportLatex.php:582
-#: libraries/classes/Plugins/Export/ExportOdt.php:407
-#: libraries/classes/Plugins/Export/ExportOdt.php:513
-#: libraries/classes/Plugins/Export/ExportTexytext.php:321
-#: libraries/classes/Plugins/Export/ExportTexytext.php:415
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:300
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:401
+#: libraries/classes/Plugins/Export/ExportLatex.php:568
+#: libraries/classes/Plugins/Export/ExportOdt.php:401
+#: libraries/classes/Plugins/Export/ExportOdt.php:507
+#: libraries/classes/Plugins/Export/ExportTexytext.php:311
+#: libraries/classes/Plugins/Export/ExportTexytext.php:405
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:580
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
@@ -9852,13 +9853,13 @@ msgstr "웹 서버 업로드 디렉터리:"
 
 #: libraries/classes/InsertEdit.php:1037
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:307
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:408
-#: libraries/classes/Plugins/Export/ExportLatex.php:581
-#: libraries/classes/Plugins/Export/ExportOdt.php:404
-#: libraries/classes/Plugins/Export/ExportOdt.php:510
-#: libraries/classes/Plugins/Export/ExportTexytext.php:320
-#: libraries/classes/Plugins/Export/ExportTexytext.php:414
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:297
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:398
+#: libraries/classes/Plugins/Export/ExportLatex.php:567
+#: libraries/classes/Plugins/Export/ExportOdt.php:398
+#: libraries/classes/Plugins/Export/ExportOdt.php:504
+#: libraries/classes/Plugins/Export/ExportTexytext.php:310
+#: libraries/classes/Plugins/Export/ExportTexytext.php:404
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:578
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
@@ -9883,13 +9884,13 @@ msgid "Column"
 msgstr "컬럼명"
 
 #: libraries/classes/InsertEdit.php:1047
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:313
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:414
-#: libraries/classes/Plugins/Export/ExportLatex.php:583
-#: libraries/classes/Plugins/Export/ExportOdt.php:410
-#: libraries/classes/Plugins/Export/ExportOdt.php:516
-#: libraries/classes/Plugins/Export/ExportTexytext.php:322
-#: libraries/classes/Plugins/Export/ExportTexytext.php:416
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:303
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:404
+#: libraries/classes/Plugins/Export/ExportLatex.php:569
+#: libraries/classes/Plugins/Export/ExportOdt.php:404
+#: libraries/classes/Plugins/Export/ExportOdt.php:510
+#: libraries/classes/Plugins/Export/ExportTexytext.php:312
+#: libraries/classes/Plugins/Export/ExportTexytext.php:406
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:582
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
@@ -10005,12 +10006,12 @@ msgstr "SQL 명령어 트래킹"
 #: libraries/classes/Menu.php:365 libraries/classes/Menu.php:463
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:613
-#: libraries/classes/Plugins/Export/ExportOdt.php:749
-#: libraries/classes/Plugins/Export/ExportPdf.php:295
-#: libraries/classes/Plugins/Export/ExportSql.php:2247
-#: libraries/classes/Plugins/Export/ExportTexytext.php:582
-#: libraries/classes/Plugins/Export/ExportXml.php:135
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:603
+#: libraries/classes/Plugins/Export/ExportOdt.php:743
+#: libraries/classes/Plugins/Export/ExportPdf.php:279
+#: libraries/classes/Plugins/Export/ExportSql.php:2241
+#: libraries/classes/Plugins/Export/ExportTexytext.php:572
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Util.php:2095 libraries/classes/Util.php:2111
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
@@ -10033,8 +10034,8 @@ msgstr "루틴"
 #: libraries/classes/Menu.php:456
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1059
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:1053
+#: libraries/classes/Plugins/Export/ExportXml.php:102
 #: libraries/classes/Util.php:2094 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "이벤트"
@@ -10191,9 +10192,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:520
-#: libraries/classes/Plugins/Export/ExportOdt.php:644
-#: libraries/classes/Plugins/Export/ExportTexytext.php:495
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:510
+#: libraries/classes/Plugins/Export/ExportOdt.php:638
+#: libraries/classes/Plugins/Export/ExportTexytext.php:485
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:413
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -10202,8 +10203,8 @@ msgstr "이벤트"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:646
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportSql.php:640
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 msgid "Functions"
 msgstr "함수"
 
@@ -10223,8 +10224,8 @@ msgstr "펼치기/접기"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:635
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportSql.php:629
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Procedures"
 msgstr "프로시저"
 
@@ -10255,7 +10256,7 @@ msgstr "트리거"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:140
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "뷰"
@@ -10718,111 +10719,111 @@ msgstr "MySQL 서버에 로그인할 수 없습니다"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportCodegen.php:97
+#: libraries/classes/Plugins/Export/ExportCodegen.php:82
 #: templates/export.twig:108 templates/import.twig:196
 msgid "Format:"
 msgstr "형식:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:71
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
+#: libraries/classes/Plugins/Export/ExportCsv.php:60
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:37
 msgid "Columns separated with:"
 msgstr "열(컬럼) 구분자:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:76
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:62
+#: libraries/classes/Plugins/Export/ExportCsv.php:65
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:43
 msgid "Columns enclosed with:"
 msgstr "열(컬럼) 감싸기:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:81
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:69
+#: libraries/classes/Plugins/Export/ExportCsv.php:70
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:50
 msgid "Columns escaped with:"
 msgstr "열(컬럼) 특수문자 처리(escape) 방법:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:86
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:76
+#: libraries/classes/Plugins/Export/ExportCsv.php:75
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:57
 msgid "Lines terminated with:"
 msgstr "줄 끝부분 기호:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:91
-#: libraries/classes/Plugins/Export/ExportExcel.php:58
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:93
-#: libraries/classes/Plugins/Export/ExportLatex.php:206
-#: libraries/classes/Plugins/Export/ExportOds.php:76
-#: libraries/classes/Plugins/Export/ExportOdt.php:145
-#: libraries/classes/Plugins/Export/ExportTexytext.php:97
+#: libraries/classes/Plugins/Export/ExportCsv.php:80
+#: libraries/classes/Plugins/Export/ExportExcel.php:53
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:82
+#: libraries/classes/Plugins/Export/ExportLatex.php:191
+#: libraries/classes/Plugins/Export/ExportOds.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:138
+#: libraries/classes/Plugins/Export/ExportTexytext.php:86
 msgid "Replace NULL with:"
 msgstr "NULL을 대체할 문자열:"
 
-#: libraries/classes/Plugins/Export/ExportCsv.php:96
-#: libraries/classes/Plugins/Export/ExportExcel.php:63
+#: libraries/classes/Plugins/Export/ExportCsv.php:85
+#: libraries/classes/Plugins/Export/ExportExcel.php:58
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "컬럼 내의 줄바꿈 문자들 제거"
 
-#: libraries/classes/Plugins/Export/ExportExcel.php:73
+#: libraries/classes/Plugins/Export/ExportExcel.php:68
 msgid "Excel edition:"
 msgstr "엑셀 형식:"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:75
-#: libraries/classes/Plugins/Export/ExportLatex.php:114
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:79
-#: libraries/classes/Plugins/Export/ExportOdt.php:89
-#: libraries/classes/Plugins/Export/ExportPdf.php:110
-#: libraries/classes/Plugins/Export/ExportSql.php:255
-#: libraries/classes/Plugins/Export/ExportTexytext.php:74
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:64
+#: libraries/classes/Plugins/Export/ExportLatex.php:99
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:68
+#: libraries/classes/Plugins/Export/ExportOdt.php:82
+#: libraries/classes/Plugins/Export/ExportPdf.php:93
+#: libraries/classes/Plugins/Export/ExportSql.php:248
+#: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:254 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure"
 msgstr "구조"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:76
-#: libraries/classes/Plugins/Export/ExportLatex.php:115
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:80
-#: libraries/classes/Plugins/Export/ExportOdt.php:90
-#: libraries/classes/Plugins/Export/ExportPdf.php:111
-#: libraries/classes/Plugins/Export/ExportSql.php:256
-#: libraries/classes/Plugins/Export/ExportTexytext.php:75
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:65
+#: libraries/classes/Plugins/Export/ExportLatex.php:100
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:69
+#: libraries/classes/Plugins/Export/ExportOdt.php:83
+#: libraries/classes/Plugins/Export/ExportPdf.php:94
+#: libraries/classes/Plugins/Export/ExportSql.php:249
+#: libraries/classes/Plugins/Export/ExportTexytext.php:64
 #: libraries/config.values.php:255 libraries/config.values.php:321
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
 msgstr "데이터"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:77
-#: libraries/classes/Plugins/Export/ExportLatex.php:116
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:81
-#: libraries/classes/Plugins/Export/ExportOdt.php:91
-#: libraries/classes/Plugins/Export/ExportPdf.php:112
-#: libraries/classes/Plugins/Export/ExportSql.php:257
-#: libraries/classes/Plugins/Export/ExportTexytext.php:76
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:66
+#: libraries/classes/Plugins/Export/ExportLatex.php:101
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:70
+#: libraries/classes/Plugins/Export/ExportOdt.php:84
+#: libraries/classes/Plugins/Export/ExportPdf.php:95
+#: libraries/classes/Plugins/Export/ExportSql.php:250
+#: libraries/classes/Plugins/Export/ExportTexytext.php:65
 #: libraries/config.values.php:256 libraries/config.values.php:322
 #: libraries/config.values.php:338 libraries/config.values.php:346
 #: libraries/config.values.php:351
 msgid "structure and data"
 msgstr "구조와 데이터 모두"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:87
-#: libraries/classes/Plugins/Export/ExportLatex.php:177
-#: libraries/classes/Plugins/Export/ExportOdt.php:134
-#: libraries/classes/Plugins/Export/ExportTexytext.php:86
-#: libraries/classes/Plugins/Export/ExportXml.php:148
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:76
+#: libraries/classes/Plugins/Export/ExportLatex.php:162
+#: libraries/classes/Plugins/Export/ExportOdt.php:127
+#: libraries/classes/Plugins/Export/ExportTexytext.php:75
+#: libraries/classes/Plugins/Export/ExportXml.php:135
 msgid "Data dump options"
 msgstr "데이터 덤프 옵션"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:218
-#: libraries/classes/Plugins/Export/ExportOdt.php:275
-#: libraries/classes/Plugins/Export/ExportSql.php:2567
-#: libraries/classes/Plugins/Export/ExportTexytext.php:202
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:208
+#: libraries/classes/Plugins/Export/ExportOdt.php:269
+#: libraries/classes/Plugins/Export/ExportSql.php:2561
+#: libraries/classes/Plugins/Export/ExportTexytext.php:192
 msgid "Dumping data for table"
 msgstr "테이블의 덤프 데이터"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:316
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:417
-#: libraries/classes/Plugins/Export/ExportLatex.php:584
-#: libraries/classes/Plugins/Export/ExportOdt.php:413
-#: libraries/classes/Plugins/Export/ExportOdt.php:519
-#: libraries/classes/Plugins/Export/ExportTexytext.php:323
-#: libraries/classes/Plugins/Export/ExportTexytext.php:417
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:306
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:407
+#: libraries/classes/Plugins/Export/ExportLatex.php:570
+#: libraries/classes/Plugins/Export/ExportOdt.php:407
+#: libraries/classes/Plugins/Export/ExportOdt.php:513
+#: libraries/classes/Plugins/Export/ExportTexytext.php:313
+#: libraries/classes/Plugins/Export/ExportTexytext.php:407
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:584
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:749
@@ -10838,10 +10839,10 @@ msgstr "테이블의 덤프 데이터"
 msgid "Default"
 msgstr "기본값"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:421
-#: libraries/classes/Plugins/Export/ExportLatex.php:586
-#: libraries/classes/Plugins/Export/ExportOdt.php:523
-#: libraries/classes/Plugins/Export/ExportTexytext.php:419
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:411
+#: libraries/classes/Plugins/Export/ExportLatex.php:572
+#: libraries/classes/Plugins/Export/ExportOdt.php:517
+#: libraries/classes/Plugins/Export/ExportTexytext.php:409
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:593
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:717
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:751
@@ -10849,9 +10850,9 @@ msgstr "기본값"
 msgid "Links to"
 msgstr "링크 대상"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:518
-#: libraries/classes/Plugins/Export/ExportOdt.php:638
-#: libraries/classes/Plugins/Export/ExportTexytext.php:493
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:508
+#: libraries/classes/Plugins/Export/ExportOdt.php:632
+#: libraries/classes/Plugins/Export/ExportTexytext.php:483
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:409
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -10868,9 +10869,9 @@ msgstr "링크 대상"
 msgid "Name"
 msgstr "이름"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:521
-#: libraries/classes/Plugins/Export/ExportOdt.php:647
-#: libraries/classes/Plugins/Export/ExportTexytext.php:496
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:511
+#: libraries/classes/Plugins/Export/ExportOdt.php:641
+#: libraries/classes/Plugins/Export/ExportTexytext.php:486
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:415
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -10878,232 +10879,232 @@ msgstr "이름"
 msgid "Definition"
 msgstr "정의"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:595
-#: libraries/classes/Plugins/Export/ExportOdt.php:727
-#: libraries/classes/Plugins/Export/ExportSql.php:2216
-#: libraries/classes/Plugins/Export/ExportTexytext.php:562
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:585
+#: libraries/classes/Plugins/Export/ExportOdt.php:721
+#: libraries/classes/Plugins/Export/ExportSql.php:2210
+#: libraries/classes/Plugins/Export/ExportTexytext.php:552
 msgid "Table structure for table"
 msgstr "테이블 구조"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:621
-#: libraries/classes/Plugins/Export/ExportOdt.php:759
-#: libraries/classes/Plugins/Export/ExportSql.php:2290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:588
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:611
+#: libraries/classes/Plugins/Export/ExportOdt.php:753
+#: libraries/classes/Plugins/Export/ExportSql.php:2284
+#: libraries/classes/Plugins/Export/ExportTexytext.php:578
 msgid "Structure for view"
 msgstr "뷰 구조"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:635
-#: libraries/classes/Plugins/Export/ExportOdt.php:779
-#: libraries/classes/Plugins/Export/ExportSql.php:2338
-#: libraries/classes/Plugins/Export/ExportTexytext.php:604
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:625
+#: libraries/classes/Plugins/Export/ExportOdt.php:773
+#: libraries/classes/Plugins/Export/ExportSql.php:2332
+#: libraries/classes/Plugins/Export/ExportTexytext.php:594
 msgid "Stand-in structure for view"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportJson.php:106
+#: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportJson.php:112
+#: libraries/classes/Plugins/Export/ExportJson.php:101
 msgid "Output unicode characters unescaped"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:60
+#: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Content of table @TABLE@"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:61
+#: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "(continued)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:62
+#: libraries/classes/Plugins/Export/ExportLatex.php:52
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ 테이블 구조"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:127
-#: libraries/classes/Plugins/Export/ExportOdt.php:102
-#: libraries/classes/Plugins/Export/ExportSql.php:270
+#: libraries/classes/Plugins/Export/ExportLatex.php:112
+#: libraries/classes/Plugins/Export/ExportOdt.php:95
+#: libraries/classes/Plugins/Export/ExportSql.php:263
 msgid "Object creation options"
 msgstr "객체 생성 옵션"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:133
-#: libraries/classes/Plugins/Export/ExportLatex.php:188
+#: libraries/classes/Plugins/Export/ExportLatex.php:118
+#: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Table caption:"
 msgstr "테이블 주석:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:139
-#: libraries/classes/Plugins/Export/ExportLatex.php:194
+#: libraries/classes/Plugins/Export/ExportLatex.php:124
+#: libraries/classes/Plugins/Export/ExportLatex.php:179
 msgid "Table caption (continued):"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:145
-#: libraries/classes/Plugins/Export/ExportLatex.php:200
+#: libraries/classes/Plugins/Export/ExportLatex.php:130
+#: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:152
-#: libraries/classes/Plugins/Export/ExportOdt.php:109
-#: libraries/classes/Plugins/Export/ExportSql.php:163
+#: libraries/classes/Plugins/Export/ExportLatex.php:137
+#: libraries/classes/Plugins/Export/ExportOdt.php:102
+#: libraries/classes/Plugins/Export/ExportSql.php:156
 msgid "Display foreign key relationships"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:159
-#: libraries/classes/Plugins/Export/ExportOdt.php:116
+#: libraries/classes/Plugins/Export/ExportLatex.php:144
+#: libraries/classes/Plugins/Export/ExportOdt.php:109
 msgid "Display comments"
 msgstr "댓글 보기"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:165
-#: libraries/classes/Plugins/Export/ExportOdt.php:122
-#: libraries/classes/Plugins/Export/ExportSql.php:171
+#: libraries/classes/Plugins/Export/ExportLatex.php:150
+#: libraries/classes/Plugins/Export/ExportOdt.php:115
+#: libraries/classes/Plugins/Export/ExportSql.php:164
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "MIME 타입 출력"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:183
+#: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:230
-#: libraries/classes/Plugins/Export/ExportSql.php:776
-#: libraries/classes/Plugins/Export/ExportXml.php:251
+#: libraries/classes/Plugins/Export/ExportLatex.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:770
+#: libraries/classes/Plugins/Export/ExportXml.php:239
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:236
-#: libraries/classes/Plugins/Export/ExportSql.php:783
-#: libraries/classes/Plugins/Export/ExportXml.php:257
+#: libraries/classes/Plugins/Export/ExportLatex.php:222
+#: libraries/classes/Plugins/Export/ExportSql.php:777
+#: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Generation Time:"
 msgstr "생성 시간:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:238
-#: libraries/classes/Plugins/Export/ExportSql.php:787
-#: libraries/classes/Plugins/Export/ExportXml.php:259
+#: libraries/classes/Plugins/Export/ExportLatex.php:224
+#: libraries/classes/Plugins/Export/ExportSql.php:781
+#: libraries/classes/Plugins/Export/ExportXml.php:247
 #: templates/home/index.twig:165
 msgid "Server version:"
 msgstr "서버 버전:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:239
-#: libraries/classes/Plugins/Export/ExportSql.php:789
-#: libraries/classes/Plugins/Export/ExportXml.php:260
+#: libraries/classes/Plugins/Export/ExportLatex.php:225
+#: libraries/classes/Plugins/Export/ExportSql.php:783
+#: libraries/classes/Plugins/Export/ExportXml.php:248
 msgid "PHP Version:"
 msgstr "PHP 버전:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:270
-#: libraries/classes/Plugins/Export/ExportSql.php:988
-#: libraries/classes/Plugins/Export/ExportXml.php:433
+#: libraries/classes/Plugins/Export/ExportLatex.php:256
+#: libraries/classes/Plugins/Export/ExportSql.php:982
+#: libraries/classes/Plugins/Export/ExportXml.php:421
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:221
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
 msgstr "데이터베이스:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:346
-#: libraries/classes/Plugins/Export/ExportSql.php:2407
+#: libraries/classes/Plugins/Export/ExportLatex.php:332
+#: libraries/classes/Plugins/Export/ExportSql.php:2401
 msgid "Data:"
 msgstr "데이터:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:559
+#: libraries/classes/Plugins/Export/ExportLatex.php:545
 msgid "Structure:"
 msgstr "구조:"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:90
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:79
 msgid "Export table names"
 msgstr "테이블 이름 내보내기"
 
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:97
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table headers"
 msgstr "테이블 제목(header) 내보내기"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:276
-#: libraries/classes/Plugins/Export/ExportTexytext.php:203
+#: libraries/classes/Plugins/Export/ExportOdt.php:270
+#: libraries/classes/Plugins/Export/ExportTexytext.php:193
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "테이블의 덤프 데이터"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:96
+#: libraries/classes/Plugins/Export/ExportPdf.php:79
 msgid "Report title:"
 msgstr "보고서 제목:"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:222
+#: libraries/classes/Plugins/Export/ExportPdf.php:206
 msgid "Dumping data"
 msgstr "덤프 데이터"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:242
+#: libraries/classes/Plugins/Export/ExportPdf.php:226
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "쿼리 결과"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:298
+#: libraries/classes/Plugins/Export/ExportPdf.php:282
 msgid "View structure"
 msgstr "구조 보기"
 
-#: libraries/classes/Plugins/Export/ExportPdf.php:301
+#: libraries/classes/Plugins/Export/ExportPdf.php:285
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
 msgstr "이어서"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:141
+#: libraries/classes/Plugins/Export/ExportSql.php:134
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:149
+#: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "추가적인 커스텀 헤더 코멘트(\\n으로 줄바꿈):"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:155
+#: libraries/classes/Plugins/Export/ExportSql.php:148
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 "데이터베이스의 생성일, 마지막 업데이트, 마지막 체크에 대한 타임스탬프 포함"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:209
 msgid "Export metadata"
 msgstr "메타데이터 내보내기"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:231
+#: libraries/classes/Plugins/Export/ExportSql.php:224
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "호환성을 최대화 할 수 있는 데이터베이스 시스템 또는 예전 버전의 MySQL 서버:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:278
+#: libraries/classes/Plugins/Export/ExportSql.php:271
 msgid "Add statements:"
 msgstr "구문 추가:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:286
-#: libraries/classes/Plugins/Export/ExportSql.php:295
-#: libraries/classes/Plugins/Export/ExportSql.php:316
-#: libraries/classes/Plugins/Export/ExportSql.php:325
-#: libraries/classes/Plugins/Export/ExportSql.php:350
-#: libraries/classes/Plugins/Export/ExportSql.php:378
-#: libraries/classes/Plugins/Export/ExportSql.php:387
+#: libraries/classes/Plugins/Export/ExportSql.php:279
+#: libraries/classes/Plugins/Export/ExportSql.php:288
+#: libraries/classes/Plugins/Export/ExportSql.php:309
+#: libraries/classes/Plugins/Export/ExportSql.php:318
+#: libraries/classes/Plugins/Export/ExportSql.php:343
+#: libraries/classes/Plugins/Export/ExportSql.php:371
+#: libraries/classes/Plugins/Export/ExportSql.php:380
 #, php-format
 msgid "Add %s statement"
 msgstr "%s 구문 추가"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:332
+#: libraries/classes/Plugins/Export/ExportSql.php:325
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:340
+#: libraries/classes/Plugins/Export/ExportSql.php:333
 #, php-format
 msgid "%s value"
 msgstr "%s 값"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:357
+#: libraries/classes/Plugins/Export/ExportSql.php:350
 msgid "Use simple view export"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:396
+#: libraries/classes/Plugins/Export/ExportSql.php:389
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11111,37 +11112,37 @@ msgstr ""
 "테이블과 컬럼의 이름을 역따옴표로 감싸기 <i>(특수문자나 키워드가 포함된 컬럼"
 "이나 테이블의 이름을 보호함)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:411
+#: libraries/classes/Plugins/Export/ExportSql.php:404
 msgid "Data creation options"
 msgstr "데이터 생성 옵션"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:416
-#: libraries/classes/Plugins/Export/ExportSql.php:2513
+#: libraries/classes/Plugins/Export/ExportSql.php:409
+#: libraries/classes/Plugins/Export/ExportSql.php:2507
 msgid "Truncate table before insert"
 msgstr "삽입 전에 테이블 비우기"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:423
+#: libraries/classes/Plugins/Export/ExportSql.php:416
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> 구문 대신 사용할 구문:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:429
+#: libraries/classes/Plugins/Export/ExportSql.php:422
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> 문"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:441
-#: libraries/classes/Plugins/Export/ExportSql.php:475
+#: libraries/classes/Plugins/Export/ExportSql.php:434
+#: libraries/classes/Plugins/Export/ExportSql.php:468
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:455
+#: libraries/classes/Plugins/Export/ExportSql.php:448
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:470
+#: libraries/classes/Plugins/Export/ExportSql.php:463
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:480
+#: libraries/classes/Plugins/Export/ExportSql.php:473
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11150,7 +11151,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br>&nbsp; &nbsp; &nbsp;예: "
 "<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:485
+#: libraries/classes/Plugins/Export/ExportSql.php:478
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11159,7 +11160,7 @@ msgstr ""
 "모든 <code>INSERT</code> 구문에 여러개의 행을 삽입<br>&nbsp; &nbsp; &nbsp; "
 "예:<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:490
+#: libraries/classes/Plugins/Export/ExportSql.php:483
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11167,7 +11168,7 @@ msgstr ""
 "위의 것 둘 다<br> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name (col_A,"
 "col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:495
+#: libraries/classes/Plugins/Export/ExportSql.php:488
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11175,126 +11176,126 @@ msgstr ""
 "위의 것 둘 다 안 함<br> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name "
 "VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:514
+#: libraries/classes/Plugins/Export/ExportSql.php:507
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:524
+#: libraries/classes/Plugins/Export/ExportSql.php:517
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:592
+#: libraries/classes/Plugins/Export/ExportSql.php:586
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:595
-#: libraries/classes/Plugins/Export/ExportSql.php:1724
-#: libraries/classes/Plugins/Export/ExportSql.php:2278
+#: libraries/classes/Plugins/Export/ExportSql.php:589
+#: libraries/classes/Plugins/Export/ExportSql.php:1718
+#: libraries/classes/Plugins/Export/ExportSql.php:2272
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1105
+#: libraries/classes/Plugins/Export/ExportSql.php:1099
 msgid "Metadata"
 msgstr "메타데이터"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1179
+#: libraries/classes/Plugins/Export/ExportSql.php:1173
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "%s 데이터 누락"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1186
+#: libraries/classes/Plugins/Export/ExportSql.php:1180
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "%s 데이터 누락"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1542
+#: libraries/classes/Plugins/Export/ExportSql.php:1536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:675
 msgid "Creation:"
 msgstr "생성:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1556
+#: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:686
 msgid "Last update:"
 msgstr "마지막 업데이트:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1570
+#: libraries/classes/Plugins/Export/ExportSql.php:1564
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:697
 msgid "Last check:"
 msgstr "마지막 검사:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1629
+#: libraries/classes/Plugins/Export/ExportSql.php:1623
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "테이블 구조"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1721
+#: libraries/classes/Plugins/Export/ExportSql.php:1715
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1905
+#: libraries/classes/Plugins/Export/ExportSql.php:1899
 msgid "Constraints for dumped tables"
 msgstr "덤프된 테이블의 제약사항"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1906
+#: libraries/classes/Plugins/Export/ExportSql.php:1900
 msgid "Constraints for table"
 msgstr "테이블의 제약사항"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1936
+#: libraries/classes/Plugins/Export/ExportSql.php:1930
 msgid "Indexes for dumped tables"
 msgstr "덤프된 테이블의 인덱스"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1937
+#: libraries/classes/Plugins/Export/ExportSql.php:1931
 msgid "Indexes for table"
 msgstr "테이블의 인덱스"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1973
+#: libraries/classes/Plugins/Export/ExportSql.php:1967
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "덤프된 테이블의 AUTO_INCREMENT"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1974
+#: libraries/classes/Plugins/Export/ExportSql.php:1968
 msgid "AUTO_INCREMENT for table"
 msgstr "테이블의 AUTO_INCREMENT"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2051
+#: libraries/classes/Plugins/Export/ExportSql.php:2045
 msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2075
+#: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2275
+#: libraries/classes/Plugins/Export/ExportSql.php:2269
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2315
+#: libraries/classes/Plugins/Export/ExportSql.php:2309
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "뷰 구조"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2341
+#: libraries/classes/Plugins/Export/ExportSql.php:2335
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2422
+#: libraries/classes/Plugins/Export/ExportSql.php:2416
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "데이터 읽기 오류:"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:109
+#: libraries/classes/Plugins/Export/ExportXml.php:96
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:153
+#: libraries/classes/Plugins/Export/ExportXml.php:140
 msgid "Export contents"
 msgstr "내용 내보내기"
 
@@ -11307,64 +11308,64 @@ msgstr "테이블:"
 msgid "Purpose:"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:88
+#: libraries/classes/Plugins/Import/ImportCsv.php:84
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:97
+#: libraries/classes/Plugins/Import/ImportCsv.php:93
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:106
-#: libraries/classes/Plugins/Import/ImportCsv.php:124
+#: libraries/classes/Plugins/Import/ImportCsv.php:102
+#: libraries/classes/Plugins/Import/ImportCsv.php:120
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:114
-#: libraries/classes/Plugins/Import/ImportOds.php:80
+#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportOds.php:68
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:131
+#: libraries/classes/Plugins/Import/ImportCsv.php:127
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:139
+#: libraries/classes/Plugins/Import/ImportCsv.php:135
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:283
-#: libraries/classes/Plugins/Import/ImportCsv.php:696
+#: libraries/classes/Plugins/Import/ImportCsv.php:287
+#: libraries/classes/Plugins/Import/ImportCsv.php:700
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d 행에 잘못된 형식."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:546
+#: libraries/classes/Plugins/Import/ImportCsv.php:550
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:714
-#: libraries/classes/Plugins/Import/ImportCsv.php:729
-#: libraries/classes/Plugins/Import/ImportCsv.php:740
-#: libraries/classes/Plugins/Import/ImportCsv.php:750
+#: libraries/classes/Plugins/Import/ImportCsv.php:718
+#: libraries/classes/Plugins/Import/ImportCsv.php:733
+#: libraries/classes/Plugins/Import/ImportCsv.php:744
+#: libraries/classes/Plugins/Import/ImportCsv.php:754
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:887
+#: libraries/classes/Plugins/Import/ImportCsv.php:891
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11373,34 +11374,34 @@ msgstr ""
 "지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마"
 "로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 묶지 않도록 하세요."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:80
+#: libraries/classes/Plugins/Import/ImportLdi.php:62
 msgid "Column names: "
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:122
+#: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
 msgstr "이 플러그인은 압축파일의 가져오기를 지원하지 않습니다!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:68
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
 msgstr "MediaWiki 테이블"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:305
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:293
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "잘못된 mediawiki 입력 행:<br>%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:94
+#: libraries/classes/Plugins/Import/ImportOds.php:82
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:100
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "통화 단위 제거 <i>(예: $5.00 를 5.00 로)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:168
-#: libraries/classes/Plugins/Import/ImportXml.php:126
-#: libraries/classes/Plugins/Import/ImportXml.php:190
+#: libraries/classes/Plugins/Import/ImportOds.php:157
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:178
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -11408,38 +11409,38 @@ msgstr ""
 "해당 XML 파일의 포멧이 잘못되었거나 미완성 상태입니다. 문제점을 수정한 후 재"
 "시도 하세요."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:179
+#: libraries/classes/Plugins/Import/ImportOds.php:168
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Open Document 스프레드시트 형식을 해석할 수 없습니다!"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:76
+#: libraries/classes/Plugins/Import/ImportShp.php:68
 msgid "ESRI Shape File"
 msgstr "ESRI Shapefile"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:114
-#: libraries/classes/Plugins/Import/ImportShp.php:190
+#: libraries/classes/Plugins/Import/ImportShp.php:106
+#: libraries/classes/Plugins/Import/ImportShp.php:182
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI 형태의 파일을 가져오는 도중 에러가 발생했습니다: \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:220
+#: libraries/classes/Plugins/Import/ImportShp.php:212
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportShp.php:269
+#: libraries/classes/Plugins/Import/ImportShp.php:261
 msgid "The imported file does not contain any data!"
 msgstr "가져온 파일에 아무런 데이터도 없습니다!"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:79
+#: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportSql.php:91
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportXml.php:60
+#: libraries/classes/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
@@ -11509,56 +11510,56 @@ msgstr "보기"
 msgid "Extra"
 msgstr "추가"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:69
+#: libraries/classes/Plugins/SchemaPlugin.php:78
 msgid "Show color"
 msgstr "색깔 보기"
 
-#: libraries/classes/Plugins/SchemaPlugin.php:71
+#: libraries/classes/Plugins/SchemaPlugin.php:80
 msgid "Only show keys"
 msgstr "키만 보기"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:63
-#: libraries/classes/Plugins/Schema/SchemaEps.php:71
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
+#: libraries/classes/Plugins/Schema/SchemaDia.php:56
+#: libraries/classes/Plugins/Schema/SchemaEps.php:64
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:66
 msgid "Orientation"
 msgstr "화면 방향"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:67
-#: libraries/classes/Plugins/Schema/SchemaEps.php:75
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:77
+#: libraries/classes/Plugins/Schema/SchemaDia.php:60
+#: libraries/classes/Plugins/Schema/SchemaEps.php:68
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:70
 msgid "Landscape"
 msgstr "가로"
 
-#: libraries/classes/Plugins/Schema/SchemaDia.php:68
-#: libraries/classes/Plugins/Schema/SchemaEps.php:76
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:78
+#: libraries/classes/Plugins/Schema/SchemaDia.php:61
+#: libraries/classes/Plugins/Schema/SchemaEps.php:69
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:71
 msgid "Portrait"
 msgstr "세로"
 
-#: libraries/classes/Plugins/Schema/SchemaEps.php:65
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:67
-#: libraries/classes/Plugins/Schema/SchemaSvg.php:64
+#: libraries/classes/Plugins/Schema/SchemaEps.php:58
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:60
+#: libraries/classes/Plugins/Schema/SchemaSvg.php:57
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:92
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:85
 msgid "Show grid"
 msgstr "그리드 표시"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:98
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:91
 #: templates/database/structure/index.twig:23
 msgid "Data dictionary"
 msgstr "데이터 사전"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:104
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:97
 msgid "Order of the tables"
 msgstr "테이블 정렬 순서"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:109
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:102
 msgid "Name (Ascending)"
 msgstr "이름 (오름차순)"
 
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:110
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 msgid "Name (Descending)"
 msgstr "이름 (내림차순)"
 
