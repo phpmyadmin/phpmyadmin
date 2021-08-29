@@ -13,6 +13,8 @@ use Twig\Source;
 use function class_exists;
 use function sort;
 
+use const DIRECTORY_SEPARATOR;
+use const ROOT_PATH;
 use const SORT_NATURAL;
 use const SORT_REGULAR;
 
@@ -50,26 +52,24 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testFindFiles(): void
     {
-        $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [
-            ROOT_PATH . 'test/classes/_data/file_listing',
-        ]);
+        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
         sort($filesFound, SORT_NATURAL);
 
         $this->assertEquals([
-            ROOT_PATH . 'test/classes/_data/file_listing/one.txt',
-            ROOT_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
-            ROOT_PATH . 'test/classes/_data/file_listing/subfolder/zero.txt',
-            ROOT_PATH . 'test/classes/_data/file_listing/two.md',
+            $path . DIRECTORY_SEPARATOR . 'one.txt',
+            $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
+            $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
+            $path . DIRECTORY_SEPARATOR . 'two.md',
         ], $filesFound);
     }
 
     public function testGetFilesInfo(): void
     {
-        $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [
-            ROOT_PATH . 'test/classes/_data/file_listing',
-        ]);
+        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
         sort($filesInfos, SORT_REGULAR);
@@ -77,22 +77,22 @@ class TwigLintCommandTest extends AbstractTestCase
         $this->assertEquals([
             [
                 'template' => '',
-                'file' => ROOT_PATH . 'test/classes/_data/file_listing/one.txt',
+                'file' => $path . DIRECTORY_SEPARATOR . 'one.txt',
                 'valid' => true,
             ],
             [
                 'template' => '',
-                'file' => ROOT_PATH . 'test/classes/_data/file_listing/two.md',
+                'file' => $path . DIRECTORY_SEPARATOR . 'two.md',
                 'valid' => true,
             ],
             [
                 'template' => '0000' . "\n",
-                'file' => ROOT_PATH . 'test/classes/_data/file_listing/subfolder/zero.txt',
+                'file' => $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
                 'valid' => true,
             ],
             [
                 'template' => 'key=value' . "\n",
-                'file' => ROOT_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
+                'file' => $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
                 'valid' => true,
             ],
         ], $filesInfos);

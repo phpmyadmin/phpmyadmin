@@ -112,7 +112,7 @@
         "phpcbf": "phpcbf",
         "phpcs": "phpcs",
         "phpstan": "phpstan analyse",
-        "psalm": "psalm",
+        "psalm": "psalm --no-diff",
         "phpunit": "phpunit --color=always",
         "test": [
             "@phpcs",
