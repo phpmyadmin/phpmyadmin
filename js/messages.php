@@ -64,4 +64,4 @@ register_shutdown_function(static function () {
 
 /** @var JavaScriptMessagesController $controller */
 $controller = $containerBuilder->get(JavaScriptMessagesController::class);
-$controller->index();
+$controller();

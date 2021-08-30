@@ -27,7 +27,7 @@ class AdvisorController extends AbstractController
         $this->advisor = $advisor;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         $data = [];
         if ($this->data->dataLoaded) {

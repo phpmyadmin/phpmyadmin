@@ -14,7 +14,7 @@ use function json_encode;
  */
 class VersionCheckController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $_GET['ajax_request'] = 'true';
 

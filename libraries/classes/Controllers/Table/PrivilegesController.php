@@ -40,7 +40,7 @@ class PrivilegesController extends AbstractController
     /**
      * @param array $params Request parameters
      */
-    public function index(array $params): string
+    public function __invoke(array $params): string
     {
         global $cfg, $text_dir;
 

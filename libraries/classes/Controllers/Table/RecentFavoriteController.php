@@ -12,7 +12,7 @@ use PhpMyAdmin\RecentFavoriteTable;
  */
 class RecentFavoriteController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         global $containerBuilder;
 

@@ -114,10 +114,10 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/recent-table', [HomeController::class, 'reloadRecentTablesList']);
         $routes->addRoute(['GET', 'POST'], '/git-revision', [HomeController::class, 'gitRevision']);
     });
-    $routes->addRoute(['GET', 'POST'], '/browse-foreigners', [BrowseForeignersController::class, 'index']);
-    $routes->get('/changelog', [ChangeLogController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
-    $routes->post('/columns', [ColumnController::class, 'all']);
+    $routes->addRoute(['GET', 'POST'], '/browse-foreigners', BrowseForeignersController::class);
+    $routes->get('/changelog', ChangeLogController::class);
+    $routes->addRoute(['GET', 'POST'], '/check-relations', CheckRelationsController::class);
+    $routes->post('/columns', ColumnController::class);
     $routes->addGroup('/config', static function (RouteCollector $routes): void {
         $routes->post('/get', [ConfigController::class, 'get']);
         $routes->post('/set', [ConfigController::class, 'set']);
@@ -127,11 +127,11 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [CentralColumnsController::class, 'index']);
             $routes->post('/populate', [CentralColumnsController::class, 'populateColumns']);
         });
-        $routes->get('/data-dictionary', [DataDictionaryController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/designer', [DesignerController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/events', [EventsController::class, 'index']);
+        $routes->get('/data-dictionary', DataDictionaryController::class);
+        $routes->addRoute(['GET', 'POST'], '/designer', DesignerController::class);
+        $routes->addRoute(['GET', 'POST'], '/events', EventsController::class);
         $routes->addRoute(['GET', 'POST'], '/export', [DatabaseExportController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/import', [DatabaseImportController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/import', DatabaseImportController::class);
         $routes->addGroup('/multi-table-query', static function (RouteCollector $routes): void {
             $routes->get('', [MultiTableQueryController::class, 'index']);
             $routes->get('/tables', [MultiTableQueryController::class, 'table']);
@@ -141,13 +141,13 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [OperationsController::class, 'index']);
             $routes->post('/collation', [OperationsController::class, 'collation']);
         });
-        $routes->addRoute(['GET', 'POST'], '/qbe', [QueryByExampleController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/routines', [RoutinesController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/search', [SearchController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/qbe', QueryByExampleController::class);
+        $routes->addRoute(['GET', 'POST'], '/routines', RoutinesController::class);
+        $routes->addRoute(['GET', 'POST'], '/search', SearchController::class);
         $routes->addGroup('/sql', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [DatabaseSqlController::class, 'index']);
-            $routes->post('/autocomplete', [SqlAutoCompleteController::class, 'index']);
-            $routes->post('/format', [SqlFormatController::class, 'index']);
+            $routes->addRoute(['GET', 'POST'], '', DatabaseSqlController::class);
+            $routes->post('/autocomplete', SqlAutoCompleteController::class);
+            $routes->post('/format', SqlFormatController::class);
         });
         $routes->addGroup('/structure', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
@@ -178,11 +178,11 @@ return static function (RouteCollector $routes): void {
             $routes->post('/replace-prefix', [StructureController::class, 'replacePrefix']);
             $routes->post('/show-create', [StructureController::class, 'showCreate']);
         });
-        $routes->addRoute(['GET', 'POST'], '/tracking', [TrackingController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/triggers', [TriggersController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/tracking', TrackingController::class);
+        $routes->addRoute(['GET', 'POST'], '/triggers', TriggersController::class);
     });
-    $routes->post('/databases', [DatabaseController::class, 'all']);
-    $routes->addRoute(['GET', 'POST'], '/error-report', [ErrorReportController::class, 'index']);
+    $routes->post('/databases', DatabaseController::class);
+    $routes->addRoute(['GET', 'POST'], '/error-report', ErrorReportController::class);
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
         $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
@@ -194,29 +194,29 @@ return static function (RouteCollector $routes): void {
             $routes->post('/update', [ExportTemplateController::class, 'update']);
         });
     });
-    $routes->addRoute(['GET', 'POST'], '/gis-data-editor', [GisDataEditorController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/import', [ImportController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/import-status', [ImportStatusController::class, 'index']);
-    $routes->get('/license', [LicenseController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/lint', [LintController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/logout', [LogoutController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/navigation', [NavigationController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/normalization', [NormalizationController::class, 'index']);
-    $routes->get('/phpinfo', [PhpInfoController::class, 'index']);
+    $routes->addRoute(['GET', 'POST'], '/gis-data-editor', GisDataEditorController::class);
+    $routes->addRoute(['GET', 'POST'], '/import', ImportController::class);
+    $routes->addRoute(['GET', 'POST'], '/import-status', ImportStatusController::class);
+    $routes->get('/license', LicenseController::class);
+    $routes->addRoute(['GET', 'POST'], '/lint', LintController::class);
+    $routes->addRoute(['GET', 'POST'], '/logout', LogoutController::class);
+    $routes->addRoute(['GET', 'POST'], '/navigation', NavigationController::class);
+    $routes->addRoute(['GET', 'POST'], '/normalization', NormalizationController::class);
+    $routes->get('/phpinfo', PhpInfoController::class);
     $routes->addGroup('/preferences', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/export', [PreferencesExportController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/features', [FeaturesController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/import', [PreferencesImportController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/main-panel', [MainPanelController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/manage', [ManageController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/navigation', [PreferencesNavigationController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/sql', [PreferencesSqlController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/two-factor', [TwoFactorController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/export', PreferencesExportController::class);
+        $routes->addRoute(['GET', 'POST'], '/features', FeaturesController::class);
+        $routes->addRoute(['GET', 'POST'], '/import', PreferencesImportController::class);
+        $routes->addRoute(['GET', 'POST'], '/main-panel', MainPanelController::class);
+        $routes->addRoute(['GET', 'POST'], '/manage', ManageController::class);
+        $routes->addRoute(['GET', 'POST'], '/navigation', PreferencesNavigationController::class);
+        $routes->addRoute(['GET', 'POST'], '/sql', PreferencesSqlController::class);
+        $routes->addRoute(['GET', 'POST'], '/two-factor', TwoFactorController::class);
     });
-    $routes->addRoute(['GET', 'POST'], '/schema-export', [SchemaExportController::class, 'index']);
+    $routes->addRoute(['GET', 'POST'], '/schema-export', SchemaExportController::class);
     $routes->addGroup('/server', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/binlog', [BinlogController::class, 'index']);
-        $routes->get('/collations', [CollationsController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/binlog', BinlogController::class);
+        $routes->get('/collations', CollationsController::class);
         $routes->addGroup('/databases', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [DatabasesController::class, 'index']);
             $routes->post('/create', [DatabasesController::class, 'create']);
@@ -226,19 +226,19 @@ return static function (RouteCollector $routes): void {
             $routes->get('', [EnginesController::class, 'index']);
             $routes->get('/{engine}[/{page}]', [EnginesController::class, 'show']);
         });
-        $routes->addRoute(['GET', 'POST'], '/export', [ServerExportController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/import', [ServerImportController::class, 'index']);
-        $routes->get('/plugins', [PluginsController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/export', ServerExportController::class);
+        $routes->addRoute(['GET', 'POST'], '/import', ServerImportController::class);
+        $routes->get('/plugins', PluginsController::class);
         $routes->addGroup('/privileges', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [PrivilegesController::class, 'index']);
-            $routes->post('/account-lock', [AccountLockController::class, '__invoke']);
-            $routes->post('/account-unlock', [AccountUnlockController::class, '__invoke']);
+            $routes->addRoute(['GET', 'POST'], '', PrivilegesController::class);
+            $routes->post('/account-lock', AccountLockController::class);
+            $routes->post('/account-unlock', AccountUnlockController::class);
         });
-        $routes->addRoute(['GET', 'POST'], '/replication', [ReplicationController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/sql', [ServerSqlController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/replication', ReplicationController::class);
+        $routes->addRoute(['GET', 'POST'], '/sql', ServerSqlController::class);
         $routes->addGroup('/status', static function (RouteCollector $routes): void {
-            $routes->get('', [StatusController::class, 'index']);
-            $routes->get('/advisor', [AdvisorController::class, 'index']);
+            $routes->get('', StatusController::class);
+            $routes->get('/advisor', AdvisorController::class);
             $routes->addGroup('/monitor', static function (RouteCollector $routes): void {
                 $routes->get('', [MonitorController::class, 'index']);
                 $routes->post('/chart', [MonitorController::class, 'chartingData']);
@@ -252,8 +252,8 @@ return static function (RouteCollector $routes): void {
                 $routes->post('/refresh', [ProcessesController::class, 'refresh']);
                 $routes->post('/kill/{id:\d+}', [ProcessesController::class, 'kill']);
             });
-            $routes->get('/queries', [QueriesController::class, 'index']);
-            $routes->addRoute(['GET', 'POST'], '/variables', [StatusVariables::class, 'index']);
+            $routes->get('/queries', QueriesController::class);
+            $routes->addRoute(['GET', 'POST'], '/variables', StatusVariables::class);
         });
         $routes->addGroup('/user-groups', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [UserGroupsController::class, 'index']);
@@ -274,13 +274,13 @@ return static function (RouteCollector $routes): void {
         $routes->post('/set-column-preferences', [SqlController::class, 'setColumnOrderOrVisibility']);
     });
     $routes->addGroup('/table', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/add-field', [AddFieldController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/add-field', AddFieldController::class);
         $routes->addGroup('/change', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [ChangeController::class, 'index']);
             $routes->post('/rows', [ChangeController::class, 'rows']);
         });
-        $routes->addRoute(['GET', 'POST'], '/chart', [ChartController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/create', [CreateController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/chart', ChartController::class);
+        $routes->addRoute(['GET', 'POST'], '/create', CreateController::class);
         $routes->addGroup('/delete', static function (RouteCollector $routes): void {
             $routes->post('/confirm', [DeleteController::class, 'confirm']);
             $routes->post('/rows', [DeleteController::class, 'rows']);
@@ -289,10 +289,10 @@ return static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [TableExportController::class, 'index']);
             $routes->post('/rows', [TableExportController::class, 'rows']);
         });
-        $routes->addRoute(['GET', 'POST'], '/find-replace', [FindReplaceController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/get-field', [GetFieldController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/gis-visualization', [GisVisualizationController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/import', [TableImportController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/find-replace', FindReplaceController::class);
+        $routes->addRoute(['GET', 'POST'], '/get-field', GetFieldController::class);
+        $routes->addRoute(['GET', 'POST'], '/gis-visualization', GisVisualizationController::class);
+        $routes->addRoute(['GET', 'POST'], '/import', TableImportController::class);
         $routes->addRoute(['GET', 'POST'], '/indexes', [IndexesController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/indexes/rename', [IndexesController::class, 'indexRename']);
         $routes->addGroup('/maintenance', static function (RouteCollector $routes): void {
@@ -311,12 +311,12 @@ return static function (RouteCollector $routes): void {
             $routes->post('/repair', [PartitionController::class, 'repair']);
             $routes->post('/truncate', [PartitionController::class, 'truncate']);
         });
-        $routes->addRoute(['GET', 'POST'], '/operations', [TableOperationsController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/relation', [RelationController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/replace', [ReplaceController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/search', [TableSearchController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/sql', [TableSqlController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/operations', TableOperationsController::class);
+        $routes->addRoute(['GET', 'POST'], '/recent-favorite', RecentFavoriteController::class);
+        $routes->addRoute(['GET', 'POST'], '/relation', RelationController::class);
+        $routes->addRoute(['GET', 'POST'], '/replace', ReplaceController::class);
+        $routes->addRoute(['GET', 'POST'], '/search', TableSearchController::class);
+        $routes->addRoute(['GET', 'POST'], '/sql', TableSqlController::class);
         $routes->addGroup('/structure', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [TableStructureController::class, 'index']);
             $routes->post('/add-key', [TableStructureController::class, 'addKey']);
@@ -324,8 +324,8 @@ return static function (RouteCollector $routes): void {
             $routes->post('/central-columns-add', [TableStructureController::class, 'addToCentralColumns']);
             $routes->post('/central-columns-remove', [TableStructureController::class, 'removeFromCentralColumns']);
             $routes->addRoute(['GET', 'POST'], '/change', [TableStructureController::class, 'change']);
-            $routes->post('/drop', [DropColumnController::class, 'process']);
-            $routes->post('/drop-confirm', [DropColumnConfirmationController::class, 'process']);
+            $routes->post('/drop', DropColumnController::class);
+            $routes->post('/drop-confirm', DropColumnConfirmationController::class);
             $routes->post('/fulltext', [TableStructureController::class, 'fulltext']);
             $routes->post('/index', [TableStructureController::class, 'addIndex']);
             $routes->post('/move-columns', [TableStructureController::class, 'moveColumns']);
@@ -336,23 +336,23 @@ return static function (RouteCollector $routes): void {
             $routes->post('/spatial', [TableStructureController::class, 'spatial']);
             $routes->post('/unique', [TableStructureController::class, 'unique']);
         });
-        $routes->addRoute(['GET', 'POST'], '/tracking', [TableTrackingController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/triggers', [TableTriggersController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/zoom-search', [ZoomSearchController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/tracking', TableTrackingController::class);
+        $routes->addRoute(['GET', 'POST'], '/triggers', TableTriggersController::class);
+        $routes->addRoute(['GET', 'POST'], '/zoom-search', ZoomSearchController::class);
     });
-    $routes->post('/tables', [TableController::class, 'all']);
+    $routes->post('/tables', TableController::class);
     $routes->addGroup('/themes', static function (RouteCollector $routes): void {
         $routes->get('', [ThemesController::class, 'index']);
         $routes->post('/set', [ThemesController::class, 'setTheme']);
     });
     $routes->addGroup('/transformation', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/overview', [TransformationOverviewController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/wrapper', [TransformationWrapperController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/overview', TransformationOverviewController::class);
+        $routes->addRoute(['GET', 'POST'], '/wrapper', TransformationWrapperController::class);
     });
-    $routes->addRoute(['GET', 'POST'], '/user-password', [UserPasswordController::class, 'index']);
-    $routes->addRoute(['GET', 'POST'], '/version-check', [VersionCheckController::class, 'index']);
+    $routes->addRoute(['GET', 'POST'], '/user-password', UserPasswordController::class);
+    $routes->addRoute(['GET', 'POST'], '/version-check', VersionCheckController::class);
     $routes->addGroup('/view', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/create', [ViewCreateController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/operations', [ViewOperationsController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/create', ViewCreateController::class);
+        $routes->addRoute(['GET', 'POST'], '/operations', ViewOperationsController::class);
     });
 };

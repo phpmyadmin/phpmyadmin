@@ -29,7 +29,7 @@ class SchemaExportController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfgRelation;
 

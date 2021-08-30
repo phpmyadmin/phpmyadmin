@@ -24,7 +24,7 @@ final class ColumnController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function all(): void
+    public function __invoke(): void
     {
         if (! isset($_POST['db'], $_POST['table'])) {
             $this->response->setRequestStatus(false);

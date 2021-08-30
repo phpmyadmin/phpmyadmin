@@ -13,7 +13,7 @@ use function strlen;
  */
 class SqlFormatController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $params = ['sql' => $_POST['sql'] ?? null];
         $query = strlen((string) $params['sql']) > 0 ? $params['sql'] : '';

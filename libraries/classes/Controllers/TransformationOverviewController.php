@@ -28,7 +28,7 @@ class TransformationOverviewController extends AbstractController
         $this->transformations = $transformations;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();

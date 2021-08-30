@@ -49,7 +49,7 @@ class CollationsController extends AbstractController
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl;
 

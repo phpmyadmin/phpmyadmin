@@ -32,7 +32,7 @@ class BrowseForeignersController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         $params = [
             'db' => $_POST['db'] ?? null,

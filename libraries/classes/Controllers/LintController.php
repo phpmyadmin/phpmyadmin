@@ -17,7 +17,7 @@ use function json_encode;
  */
 class LintController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $params = [
             'sql_query' => $_POST['sql_query'] ?? null,

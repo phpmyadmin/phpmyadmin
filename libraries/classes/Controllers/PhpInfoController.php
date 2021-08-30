@@ -18,7 +18,7 @@ use const INFO_MODULES;
  */
 class PhpInfoController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg;
 

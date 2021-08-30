@@ -43,7 +43,7 @@ class TrackingController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $text_dir, $urlParams, $tables, $num_tables;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;

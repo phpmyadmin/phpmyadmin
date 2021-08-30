@@ -58,7 +58,7 @@ class QueriesControllerTest extends AbstractTestCase
         $controller = new QueriesController($response, new Template(), $this->data, $dbi);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 

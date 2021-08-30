@@ -125,7 +125,7 @@ final class DbTableExists
 
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $controller();
 
         exit;
     }

@@ -67,7 +67,7 @@ class ManageController extends AbstractController
         $this->config = $config;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cf, $error, $filename, $json, $lang;
         global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;

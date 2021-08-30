@@ -45,7 +45,7 @@ class ViewCreateController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $text_dir, $urlParams, $view_algorithm_options, $view_with_options, $view_security_options;
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;

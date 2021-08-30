@@ -46,7 +46,7 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg;
 

@@ -98,7 +98,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController = $containerBuilder->get(ReplaceController::class);
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
-        $replaceController->index();
+        $replaceController();
         $this->assertAllSelectsConsumed();
         $this->assertStringContainsString(
             'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
@@ -140,7 +140,7 @@ class ReplaceControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
         $this->dummyDbi->addSelectDb('my_db');
-        $replaceController->index();
+        $replaceController();
         $this->assertAllSelectsConsumed();
         $this->assertEquals(5, $GLOBALS['cfg']['InsertRows']);
         $this->assertStringContainsString(

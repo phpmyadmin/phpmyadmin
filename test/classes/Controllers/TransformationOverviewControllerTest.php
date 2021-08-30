@@ -39,7 +39,7 @@ class TransformationOverviewControllerTest extends AbstractTestCase
 
         $controller = new TransformationOverviewController($response, new Template(), new Transformations());
 
-        $controller->index();
+        $controller();
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(

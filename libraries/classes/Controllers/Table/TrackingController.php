@@ -42,7 +42,7 @@ final class TrackingController extends AbstractController
         $this->tracking = $tracking;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $text_dir, $urlParams, $msg, $errorUrl;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;

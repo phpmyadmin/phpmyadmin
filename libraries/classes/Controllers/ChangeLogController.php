@@ -21,7 +21,7 @@ use function substr;
 
 class ChangeLogController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $this->response->disable();
         $this->response->getHeader()->sendHttpHeaders();

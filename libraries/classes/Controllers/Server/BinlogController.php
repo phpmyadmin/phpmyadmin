@@ -48,7 +48,7 @@ class BinlogController extends AbstractController
         );
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $errorUrl;
 

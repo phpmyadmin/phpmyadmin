@@ -28,7 +28,7 @@ class TwoFactorController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $route;
 

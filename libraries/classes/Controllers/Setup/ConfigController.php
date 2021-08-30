@@ -14,7 +14,7 @@ class ConfigController extends AbstractController
      *
      * @return string HTML
      */
-    public function index(array $params): string
+    public function __invoke(array $params): string
     {
         $pages = $this->getPages();
 

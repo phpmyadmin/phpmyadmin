@@ -39,7 +39,7 @@ final class ImportController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $cfg;
         global $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $errorUrl;

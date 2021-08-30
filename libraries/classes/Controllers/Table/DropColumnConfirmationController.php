@@ -12,7 +12,7 @@ use function __;
 
 final class DropColumnConfirmationController extends AbstractController
 {
-    public function process(): void
+    public function __invoke(): void
     {
         global $urlParams, $errorUrl, $cfg;
 

@@ -38,7 +38,7 @@ class StatusController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl;
 

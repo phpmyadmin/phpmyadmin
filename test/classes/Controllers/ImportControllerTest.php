@@ -59,7 +59,7 @@ class ImportControllerTest extends AbstractTestCase
         $importController = $containerBuilder->get(ImportController::class);
         $this->dummyDbi->addSelectDb('pma_test');
         $this->dummyDbi->addSelectDb('pma_test');
-        $importController->index();
+        $importController();
         $this->assertAllSelectsConsumed();
         $this->assertResponseWasSuccessfull();
 

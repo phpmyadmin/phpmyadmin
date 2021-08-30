@@ -41,7 +41,7 @@ final class ImportController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $urlParams, $SESSION_KEY, $cfg, $errorUrl;
 

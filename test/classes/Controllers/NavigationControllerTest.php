@@ -115,7 +115,7 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $containerBuilder->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController->index();
+        $navigationController();
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];
@@ -275,7 +275,7 @@ class NavigationControllerTest extends AbstractTestCase
         $navigationController = $containerBuilder->get(NavigationController::class);
         $_POST['full'] = '1';
         $this->setResponseIsAjax();
-        $navigationController->index();
+        $navigationController();
         $this->assertResponseWasSuccessfull();
 
         $responseMessage = $this->getResponseJsonResult()['message'];

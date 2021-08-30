@@ -40,7 +40,7 @@ final class GisVisualizationController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $urlParams, $db, $errorUrl;
 

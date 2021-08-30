@@ -68,7 +68,7 @@ class PluginsControllerTest extends AbstractTestCase
 
         $controller = new PluginsController($response, new Template(), new Plugins($dbi), $GLOBALS['dbi']);
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
