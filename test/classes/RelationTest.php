@@ -1001,13 +1001,15 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame([], $_SESSION['relation']);
 
+        $this->dummyDbi->addSelectDb('db_pma');
+        $this->dummyDbi->addSelectDb('db_pma');
         $this->relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $this->assertSame([
-            'PMA_VERSION' => $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'],
+            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
             'relwork' => false,
             'displaywork' => false,
             'bookmarkwork' => false,
@@ -1033,6 +1035,7 @@ class RelationTest extends AbstractTestCase
         ], $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertAllQueriesConsumed();
+        $this->assertAllSelectsConsumed();
     }
 
     public function testFixPmaTablesNormalFixTablesFails(): void
@@ -1126,6 +1129,7 @@ class RelationTest extends AbstractTestCase
             'SHOW TABLES FROM `phpmyadmin`',
             []
         );
+        $this->dummyDbi->addSelectDb('phpmyadmin');
 
         $this->assertArrayNotHasKey('errno', $GLOBALS);
 
@@ -1137,6 +1141,7 @@ class RelationTest extends AbstractTestCase
 
         $this->assertAllQueriesConsumed();
         $this->assertAllErrorCodesConsumed();
+        $this->assertAllSelectsConsumed();
     }
 
     public function testCreatePmaDatabaseFailsError1044(): void

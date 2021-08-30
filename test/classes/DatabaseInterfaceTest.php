@@ -836,6 +836,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ['NULL']
         );
 
+        $this->dummyDbi->addSelectDb('PMA-storage');
+
         $this->dbi->initRelationParamsCache();
 
         $this->assertArrayHasKey(
@@ -846,6 +848,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
 
         $this->assertAllQueriesConsumed();
+        $this->assertAllSelectsConsumed();
 
         $this->dummyDbi->addResult(
             'SHOW TABLES FROM `PMA-storage`',

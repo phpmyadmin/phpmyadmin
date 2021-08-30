@@ -11125,7 +11125,7 @@
       <code>$values</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="26">
+    <MixedArrayAccess occurrences="25">
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$cfgRelation['mimework']</code>
       <code>$columnAliases[$column['name']]</code>
@@ -11137,7 +11137,6 @@
       <code>$column['Null']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
-      <code>$column['name']</code>
       <code>$definition['Type']</code>
       <code>$mime['mimetype']</code>
       <code>$oneKey['index_list']</code>
@@ -11153,26 +11152,20 @@
       <code>$trigger['create']</code>
       <code>$trigger['drop']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$field-&gt;key-&gt;columns[$key]['name']</code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="8">
+    <MixedArrayOffset occurrences="6">
       <code>$aliases[$db]['tables'][$table]['columns'][$field]</code>
       <code>$aliases[$db]['tables'][$table]['columns'][$relField]</code>
       <code>$aliases[$db]['tables'][$view]['columns'][$colAlias]</code>
-      <code>$aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']]</code>
       <code>$aliases[$oldDatabase]['tables'][$refTable]['columns'][$column]</code>
-      <code>$columnAliases[$column['name']]</code>
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="44">
+    <MixedAssignment occurrences="43">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAs</code>
-      <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$columnAliases</code>
@@ -13648,7 +13641,6 @@
       <code>$com_rs</code>
       <code>$com_rs</code>
       <code>$com_rs</code>
-      <code>$createQueries[$table]</code>
       <code>$disp</code>
       <code>$disp</code>
       <code>$disp</code>
@@ -13665,6 +13657,7 @@
       <code>$result</code>
       <code>$row[1]</code>
       <code>$show_create_table</code>
+      <code>$tableNameReplacements[$tableName]</code>
       <code>$tableRes</code>
       <code>$tableRes</code>
       <code>$tablesRows</code>
@@ -13695,7 +13688,8 @@
       <code>$relrow[$foreign_display]</code>
       <code>$relrow[$foreign_field]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="5">
+    <MixedArrayAssignment occurrences="6">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['sql_history'][]</code>
@@ -13785,7 +13779,7 @@
       <code>string[]</code>
       <code>string|false</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="53">
+    <MixedOperand occurrences="54">
       <code>$max_time</code>
       <code>$messages['disabled']</code>
       <code>$messages['enabled']</code>
@@ -13836,6 +13830,7 @@
       <code>Util::backquote($foreign_field)</code>
       <code>Util::backquote($foreign_table)</code>
       <code>Util::backquote($foreign_table)</code>
+      <code>Util::backquote($tableDbName)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="6">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
@@ -13871,8 +13866,9 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast occurrences="1">
+    <RedundantCast occurrences="2">
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
+      <code>(string) $table[1]</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $data</code>
@@ -18718,18 +18714,21 @@
       <code>assertFalse</code>
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <MixedArrayAccess occurrences="2">
+    <MixedArrayAccess occurrences="3">
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
     </MixedArrayAssignment>
-    <RedundantCondition occurrences="2">
+    <RedundantCondition occurrences="3">
+      <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertSame</code>
       <code>assertSame</code>
     </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="3">
