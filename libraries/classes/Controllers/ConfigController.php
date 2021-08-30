@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -25,28 +26,36 @@ final class ConfigController extends AbstractController
         $this->config = $config;
     }
 
-    public function get(): void
+    public function get(ServerRequest $request): void
     {
-        if (! isset($_POST['key'])) {
+        /** @var string|null $key */
+        $key = $request->getParsedBodyParam('key');
+
+        if (! isset($key)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $this->response->addJSON(['value' => $this->config->get($_POST['key'])]);
+        $this->response->addJSON(['value' => $this->config->get($key)]);
     }
 
-    public function set(): void
+    public function set(ServerRequest $request): void
     {
-        if (! isset($_POST['key'], $_POST['value'])) {
+        /** @var string|null $key */
+        $key = $request->getParsedBodyParam('key');
+        /** @var string|null $value */
+        $value = $request->getParsedBodyParam('value');
+
+        if (! isset($key, $value)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
             return;
         }
 
-        $result = $this->config->setUserValue(null, $_POST['key'], json_decode($_POST['value']));
+        $result = $this->config->setUserValue(null, $key, json_decode($value));
 
         if ($result === true) {
             return;

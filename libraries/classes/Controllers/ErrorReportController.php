@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -46,23 +47,27 @@ class ErrorReportController extends AbstractController
         $this->errorHandler = $errorHandler;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
         global $cfg;
 
-        if (
-            ! isset($_POST['exception_type'])
-            || ! in_array($_POST['exception_type'], ['js', 'php'])
-        ) {
+        /** @var string $exceptionType */
+        $exceptionType = $request->getParsedBodyParam('exception_type', '');
+        /** @var string|null $sendErrorReport */
+        $sendErrorReport = $request->getParsedBodyParam('send_error_report');
+        /** @var string|null $automatic */
+        $automatic = $request->getParsedBodyParam('automatic');
+        /** @var string|null $alwaysSend */
+        $alwaysSend = $request->getParsedBodyParam('always_send');
+        /** @var string|null $getSettings */
+        $getSettings = $request->getParsedBodyParam('get_settings');
+
+        if (! in_array($exceptionType, ['js', 'php'])) {
             return;
         }
 
-        if (
-            isset($_POST['send_error_report'])
-            && ($_POST['send_error_report'] == true
-                || $_POST['send_error_report'] == '1')
-        ) {
-            if ($_POST['exception_type'] === 'php') {
+        if ($sendErrorReport) {
+            if ($exceptionType === 'php') {
                 /**
                  * Prevent infinite error submission.
                  * Happens in case error submissions fails.
@@ -85,7 +90,7 @@ class ErrorReportController extends AbstractController
                 }
             }
 
-            $reportData = $this->errorReport->getData($_POST['exception_type']);
+            $reportData = $this->errorReport->getData($exceptionType);
             // report if and only if there were 'actual' errors.
             if (count($reportData) > 0) {
                 $server_response = $this->errorReport->send($reportData);
@@ -99,11 +104,7 @@ class ErrorReportController extends AbstractController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if (
-                        (isset($_POST['automatic'])
-                            && $_POST['automatic'] === 'true')
-                        || $cfg['SendErrorReports'] === 'always'
-                    ) {
+                    if ($automatic === 'true' || $cfg['SendErrorReports'] === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
                             . 'automatically submitted based on your settings.'
@@ -134,35 +135,32 @@ class ErrorReportController extends AbstractController
 
                 /* Add message to response */
                 if ($this->response->isAjax()) {
-                    if ($_POST['exception_type'] === 'js') {
+                    if ($exceptionType === 'js') {
                         $this->response->addJSON('message', $msg);
                     } else {
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
-                } elseif ($_POST['exception_type'] === 'php') {
+                } elseif ($exceptionType === 'php') {
                     $jsCode = 'Functions.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
                         . $msg
                         . '</div>\', false);';
                     $this->response->getFooter()->getScripts()->addCode($jsCode);
                 }
 
-                if ($_POST['exception_type'] === 'php') {
+                if ($exceptionType === 'php') {
                     // clear previous errors & save new ones.
                     $this->errorHandler->savePreviousErrors();
                 }
 
                 /* Persist always send settings */
-                if (
-                    isset($_POST['always_send'])
-                    && $_POST['always_send'] === 'true'
-                ) {
+                if ($alwaysSend === 'true') {
                     $userPreferences = new UserPreferences();
                     $userPreferences->persistOption('SendErrorReports', 'always', 'ask');
                 }
             }
-        } elseif (! empty($_POST['get_settings'])) {
+        } elseif ($getSettings) {
             $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
-        } elseif ($_POST['exception_type'] === 'js') {
+        } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());
         } else {

@@ -1083,23 +1083,6 @@
       <code>$params['message']</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/BrowseForeignersController.php">
-    <MixedArgument occurrences="10">
-      <code>$params['data'] ?? ''</code>
-      <code>$params['db']</code>
-      <code>$params['db']</code>
-      <code>$params['field']</code>
-      <code>$params['field']</code>
-      <code>$params['fieldkey'] ?? ''</code>
-      <code>$params['foreign_filter'] ?? ''</code>
-      <code>$params['foreign_showAll']</code>
-      <code>$params['table']</code>
-      <code>$params['table']</code>
-    </MixedArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$foreignLimit ?? null</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="libraries/classes/Controllers/ChangeLogController.php">
     <UnusedFunctionCall occurrences="1">
       <code>readgzfile</code>
@@ -1110,18 +1093,9 @@
       <code>$db</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/ColumnController.php">
-    <MixedArgument occurrences="2">
-      <code>$_POST['db']</code>
-      <code>$_POST['table']</code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Controllers/ConfigController.php">
-    <MixedArgument occurrences="4">
-      <code>$_POST['key']</code>
-      <code>$_POST['key']</code>
-      <code>$_POST['value']</code>
-      <code>json_decode($_POST['value'])</code>
+    <MixedArgument occurrences="1">
+      <code>json_decode($value)</code>
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
@@ -1861,9 +1835,6 @@
     </MixedPropertyFetch>
   </file>
   <file src="libraries/classes/Controllers/ErrorReportController.php">
-    <MixedArgument occurrences="1">
-      <code>$_POST['exception_type']</code>
-    </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$decoded_response['success']</code>
     </MixedArrayAccess>
@@ -14130,22 +14101,10 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/Routing.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="2">
       <code>$_GET['db']</code>
       <code>$_GET['table']</code>
-      <code>$controllerName</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="2">
-      <code>$action</code>
-      <code>$controllerName</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$controller</code>
-      <code>[$controllerName, $action]</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>$action</code>
-    </MixedMethodCall>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <MixedArgument occurrences="6">
