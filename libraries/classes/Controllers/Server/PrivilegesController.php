@@ -53,7 +53,7 @@ class PrivilegesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $errorUrl, $message, $text_dir, $post_patterns;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
@@ -413,7 +413,7 @@ class PrivilegesController extends AbstractController
             );
         } elseif (isset($_GET['checkprivsdb'])) {
             if (isset($_GET['checkprivstable'])) {
-                $this->response->addHTML($tableController->index([
+                $this->response->addHTML($tableController([
                     'checkprivsdb' => strtolower($_GET['checkprivsdb']),
                     'checkprivstable' => $_GET['checkprivstable'],
                 ]));
@@ -424,9 +424,7 @@ class PrivilegesController extends AbstractController
 
                 return;
             } else {
-                $this->response->addHTML($databaseController->index([
-                    'checkprivsdb' => strtolower($_GET['checkprivsdb']),
-                ]));
+                $this->response->addHTML($databaseController(['checkprivsdb' => strtolower($_GET['checkprivsdb'])]));
                 $this->render('export_modal');
             }
         } else {

@@ -91,7 +91,7 @@ class ZoomSearchController extends AbstractController
         $this->loadTableInfo();
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $goto, $db, $table, $urlParams, $cfg, $errorUrl;
 

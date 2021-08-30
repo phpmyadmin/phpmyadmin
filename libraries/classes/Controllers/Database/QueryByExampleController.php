@@ -39,7 +39,7 @@ class QueryByExampleController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $savedSearchList, $savedSearch, $currentSearchId;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;

@@ -34,7 +34,7 @@ class NormalizationController extends AbstractController
         $this->normalization = $normalization;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table;
 

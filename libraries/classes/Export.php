@@ -1232,7 +1232,7 @@ class Export
             $active_page = Url::getFromRoute('/server/export');
             /** @var ServerExportController $controller */
             $controller = $containerBuilder->get(ServerExportController::class);
-            $controller->index();
+            $controller();
 
             return;
         }

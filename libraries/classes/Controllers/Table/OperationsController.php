@@ -69,7 +69,7 @@ class OperationsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $urlParams, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;

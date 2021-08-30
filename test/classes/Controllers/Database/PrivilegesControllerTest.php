@@ -45,14 +45,13 @@ class PrivilegesControllerTest extends AbstractTestCase
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 
-        $controller = new PrivilegesController(
+        $actual = (new PrivilegesController(
             ResponseRenderer::getInstance(),
             new Template(),
             $db,
             $serverPrivileges,
             $dbi
-        );
-        $actual = $controller->index(['checkprivsdb' => $db]);
+        ))(['checkprivsdb' => $db]);
 
         $this->assertStringContainsString(
             Url::getCommon(['db' => $db], ''),

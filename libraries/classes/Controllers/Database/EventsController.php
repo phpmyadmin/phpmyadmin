@@ -33,7 +33,7 @@ final class EventsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir;
         global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $errorUrl;

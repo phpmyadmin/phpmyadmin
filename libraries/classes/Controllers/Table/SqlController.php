@@ -33,7 +33,7 @@ final class SqlController extends AbstractController
         $this->sqlQueryForm = $sqlQueryForm;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl, $goto, $back, $db, $table, $cfg;
 

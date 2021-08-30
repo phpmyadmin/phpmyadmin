@@ -66,7 +66,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $normalizationController();
 
         $this->assertResponseWasSuccessfull();
 
@@ -118,7 +118,7 @@ class NormalizationControllerTest extends AbstractTestCase
         $containerBuilder->setParameter('table', $GLOBALS['table']);
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
-        $normalizationController->index();
+        $normalizationController();
         $this->expectOutputString(
             '<p><b>In order to put the original table \'test_tbl\' into Second normal'
             . ' form we need to create the following tables:</b></p><p><input type="text" '
@@ -147,7 +147,7 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController->index();
+        $normalizationController();
         $this->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();
@@ -187,7 +187,7 @@ class NormalizationControllerTest extends AbstractTestCase
         /** @var NormalizationController $normalizationController */
         $normalizationController = $containerBuilder->get(NormalizationController::class);
         $this->dummyDbi->addSelectDb('my_db');
-        $normalizationController->index();
+        $normalizationController();
         $this->assertAllSelectsConsumed();
 
         $this->assertResponseWasSuccessfull();

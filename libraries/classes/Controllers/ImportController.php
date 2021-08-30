@@ -69,7 +69,7 @@ final class ImportController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $collation_connection, $db, $import_type, $table, $goto, $display_query;
         global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $errorUrl, $urlParams;

@@ -25,7 +25,7 @@ class CheckRelationsController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db;
 

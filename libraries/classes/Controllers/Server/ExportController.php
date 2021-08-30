@@ -36,7 +36,7 @@ final class ExportController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
         global $tmp_select, $select_item, $errorUrl;

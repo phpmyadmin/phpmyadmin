@@ -24,7 +24,7 @@ final class TableController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function all(): void
+    public function __invoke(): void
     {
         if (! isset($_POST['db'])) {
             $this->response->setRequestStatus(false);

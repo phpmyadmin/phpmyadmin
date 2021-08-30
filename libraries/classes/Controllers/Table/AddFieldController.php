@@ -65,7 +65,7 @@ class AddFieldController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl, $message, $action, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;

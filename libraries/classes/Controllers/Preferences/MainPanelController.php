@@ -45,7 +45,7 @@ class MainPanelController extends AbstractController
         $this->config = $config;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
 

@@ -64,7 +64,7 @@ class CreateController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $num_fields, $action, $sql_query, $result, $db, $table;
 

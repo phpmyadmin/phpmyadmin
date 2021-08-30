@@ -47,7 +47,7 @@ class BinlogControllerTest extends AbstractTestCase
         $_POST['log'] = 'index1';
         $_POST['pos'] = '3';
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 

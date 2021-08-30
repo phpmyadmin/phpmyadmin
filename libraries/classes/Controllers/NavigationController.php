@@ -41,7 +41,7 @@ class NavigationController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         if (! $this->response->isAjax()) {
             $this->response->addHTML(

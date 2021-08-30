@@ -17,7 +17,7 @@ use function readfile;
  */
 class LicenseController extends AbstractController
 {
-    public function index(): void
+    public function __invoke(): void
     {
         $this->response->disable();
         $this->response->header('Content-type: text/plain; charset=utf-8');

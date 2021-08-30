@@ -23,7 +23,7 @@ final class JavaScriptMessagesController
         $this->setMessages();
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         echo 'var Messages = ' . json_encode($this->messages) . ';';
     }

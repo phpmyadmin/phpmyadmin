@@ -42,7 +42,7 @@ class VariablesControllerTest extends AbstractTestCase
         $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 

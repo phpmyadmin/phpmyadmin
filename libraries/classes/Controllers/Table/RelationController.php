@@ -61,7 +61,7 @@ final class RelationController extends AbstractController
     /**
      * Index
      */
-    public function index(): void
+    public function __invoke(): void
     {
         global $route;
 

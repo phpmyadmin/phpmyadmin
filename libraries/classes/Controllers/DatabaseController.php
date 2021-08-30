@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 final class DatabaseController extends AbstractController
 {
-    public function all(): void
+    public function __invoke(): void
     {
         global $dblist;
 

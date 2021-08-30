@@ -38,7 +38,7 @@ class ViewOperationsController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $sql_query, $urlParams, $reload, $result, $warning_messages;
         global $db, $table, $cfg, $errorUrl;

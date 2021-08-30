@@ -54,7 +54,7 @@ class AdvisorControllerTest extends AbstractTestCase
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
         );
 
-        $controller->index();
+        $controller();
 
         $expected = $this->template->render('server/status/advisor/index', [
             'data' => [],
@@ -103,7 +103,7 @@ class AdvisorControllerTest extends AbstractTestCase
             $advisor
         );
 
-        $controller->index();
+        $controller();
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 

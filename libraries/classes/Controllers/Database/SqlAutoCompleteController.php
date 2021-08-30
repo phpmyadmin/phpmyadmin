@@ -29,7 +29,7 @@ class SqlAutoCompleteController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $db, $sql_autocomplete;
 

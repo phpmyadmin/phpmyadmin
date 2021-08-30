@@ -41,8 +41,7 @@ if ($page === '') {
 Core::noCacheHeader();
 
 if ($page === 'form') {
-    $controller = new FormController($GLOBALS['ConfigFile'], new Template());
-    echo $controller->index([
+    echo (new FormController($GLOBALS['ConfigFile'], new Template()))([
         'formset' => $_GET['formset'] ?? null,
     ]);
 
@@ -50,8 +49,7 @@ if ($page === 'form') {
 }
 
 if ($page === 'config') {
-    $controller = new ConfigController($GLOBALS['ConfigFile'], new Template());
-    echo $controller->index([
+    echo (new ConfigController($GLOBALS['ConfigFile'], new Template()))([
         'formset' => $_GET['formset'] ?? null,
         'eol' => $_GET['eol'] ?? null,
     ]);
@@ -79,8 +77,7 @@ if ($page === 'servers') {
     return;
 }
 
-$controller = new HomeController($GLOBALS['ConfigFile'], new Template());
-echo $controller->index([
+echo (new HomeController($GLOBALS['ConfigFile'], new Template()))([
     'formset' => $_GET['formset'] ?? null,
     'action_done' => $_GET['action_done'] ?? null,
     'version_check' => $_GET['version_check'] ?? null,

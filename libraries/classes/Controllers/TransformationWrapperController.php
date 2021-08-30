@@ -55,7 +55,7 @@ class TransformationWrapperController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cn, $db, $table, $transform_key, $request_params, $size_params, $where_clause, $row;
         global $default_ct, $mime_map, $mime_options, $ct, $mime_type, $srcImage, $srcWidth, $srcHeight;

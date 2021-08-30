@@ -73,7 +73,7 @@ final class ReplaceController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $containerBuilder, $db, $table, $urlParams, $message;
         global $errorUrl, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
@@ -446,7 +446,7 @@ final class ReplaceController extends AbstractController
             if ($goto_include === '/database/sql') {
                 /** @var DatabaseSqlController $controller */
                 $controller = $containerBuilder->get(DatabaseSqlController::class);
-                $controller->index();
+                $controller();
 
                 return;
             }
@@ -462,7 +462,7 @@ final class ReplaceController extends AbstractController
             if ($goto_include === '/table/sql') {
                 /** @var TableSqlController $controller */
                 $controller = $containerBuilder->get(TableSqlController::class);
-                $controller->index();
+                $controller();
 
                 return;
             }
@@ -664,7 +664,7 @@ final class ReplaceController extends AbstractController
         if ($goto_include === '/database/sql') {
             /** @var DatabaseSqlController $controller */
             $controller = $containerBuilder->get(DatabaseSqlController::class);
-            $controller->index();
+            $controller();
 
             return;
         }
@@ -680,7 +680,7 @@ final class ReplaceController extends AbstractController
         if ($goto_include === '/table/sql') {
             /** @var TableSqlController $controller */
             $controller = $containerBuilder->get(TableSqlController::class);
-            $controller->index();
+            $controller();
 
             return;
         }

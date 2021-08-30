@@ -48,7 +48,7 @@ final class DropColumnController extends AbstractController
         $this->relationCleanup = $relationCleanup;
     }
 
-    public function process(): void
+    public function __invoke(): void
     {
         $selected = $_POST['selected'] ?? [];
 

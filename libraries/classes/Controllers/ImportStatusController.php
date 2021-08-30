@@ -33,7 +33,7 @@ class ImportStatusController
         $this->template = $template;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $SESSION_KEY, $upload_id, $plugins, $timestamp;
 
