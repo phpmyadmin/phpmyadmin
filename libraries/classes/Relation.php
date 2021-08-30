@@ -745,7 +745,7 @@ class Relation
     public function canAccessStorageTable(string $tableDbName): bool
     {
         $result = $this->queryAsControlUser(
-            'SELECT NULL FROM ' . $tableDbName . ' LIMIT 0',
+            'SELECT NULL FROM ' . Util::backquote($tableDbName) . ' LIMIT 0',
             false,
             DatabaseInterface::QUERY_STORE
         );
@@ -1792,7 +1792,7 @@ class Relation
                     'table_name'
                 );
             } else {
-                // if the table is moved out of the database we can no loger keep the
+                // if the table is moved out of the database we can no longer keep the
                 // record for table coordinate
                 $remove_query = 'DELETE FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
@@ -2023,9 +2023,9 @@ class Relation
     /**
      * Returns default PMA table names and their create queries.
      *
-     * @return array table name, create query
+     * @return array<string,string> table name, create query
      */
-    public function getDefaultPmaTableNames()
+    public function getDefaultPmaTableNames(array $tableNameReplacements): array
     {
         $pma_tables = [];
         $create_tables_file = (string) file_get_contents(
@@ -2045,7 +2045,14 @@ class Relation
                 continue;
             }
 
-            $pma_tables[$table[1]] = $query . ';';
+            $tableName = (string) $table[1];
+
+            // Replace the table name with another one
+            if (isset($tableNameReplacements[$tableName])) {
+                $query = str_replace($tableName, $tableNameReplacements[$tableName], $query);
+            }
+
+            $pma_tables[$tableName] = $query . ';';
         }
 
         return $pma_tables;
@@ -2057,11 +2064,17 @@ class Relation
     public function createPmaDatabase(string $configurationStorageDbName): bool
     {
         $this->dbi->tryQuery(
-            'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName)
+            'CREATE DATABASE IF NOT EXISTS ' . Util::backquote($configurationStorageDbName),
+            DatabaseInterface::CONNECT_CONTROL
         );
 
-        $error = $this->dbi->getError();
+        $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         if (! $error) {
+            // Re-build the cache to show the list of tables created or not
+            // This is the case when the DB could be created but no tables just after
+            // So just purge the cache and show the new configuration storage state
+            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+
             return true;
         }
 
@@ -2115,19 +2128,45 @@ class Relation
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
+        /** @var array<string,string> $tableNameReplacements */
+        $tableNameReplacements = [];
+
+        // Build a map of replacements between default table names and name built by the user
+        foreach ($tablesToFeatures as $table => $feature) {
+            // Empty, we can not do anything about it
+            if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                continue;
+            }
+
+            // Default table name, nothing to do
+            if ($GLOBALS['cfg']['Server'][$feature] === $table) {
+                continue;
+            }
+
+            // Set the replacement to transform the default table name into a custom name
+            $tableNameReplacements[$table] = $GLOBALS['cfg']['Server'][$feature];
+        }
+
         $createQueries = null;
         $foundOne = false;
         foreach ($tablesToFeatures as $table => $feature) {
-            if (! in_array($table, $existingTables)) {
+            // Check if the table already exists
+            // use the possible replaced name first and fallback on the table name
+            // if no replacement exists
+            if (! in_array($tableNameReplacements[$table] ?? $table, $existingTables)) {
                 if ($create) {
                     if ($createQueries == null) { // first create
-                        $createQueries = $this->getDefaultPmaTableNames();
-                        $this->dbi->selectDb($db);
+                        $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
+                        if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
+                            $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
+
+                            return;
+                        }
                     }
 
-                    $this->dbi->tryQuery($createQueries[$table]);
+                    $this->dbi->tryQuery($createQueries[$table], DatabaseInterface::CONNECT_CONTROL);
 
-                    $error = $this->dbi->getError();
+                    $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
                     if ($error) {
                         $GLOBALS['message'] = $error;
 
@@ -2135,11 +2174,17 @@ class Relation
                     }
 
                     $foundOne = true;
-                    $GLOBALS['cfg']['Server'][$feature] = $table;
+                    if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                        // Do not override a user defined value, only fill if empty
+                        $GLOBALS['cfg']['Server'][$feature] = $table;
+                    }
                 }
             } else {
                 $foundOne = true;
-                $GLOBALS['cfg']['Server'][$feature] = $table;
+                if (empty($GLOBALS['cfg']['Server'][$feature])) {
+                    // Do not override a user defined value, only fill if empty
+                    $GLOBALS['cfg']['Server'][$feature] = $table;
+                }
             }
         }
 

@@ -49,12 +49,14 @@ class CheckRelationsController extends AbstractController
             $this->relation->fixPmaTables($db);
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
         // If request for creating missing PMA tables.
         if (isset($fixPmaDb)) {
+            $cfgRelation = $this->relation->getRelationsParam();
             $this->relation->fixPmaTables($cfgRelation['db']);
         }
 
+        // Do not use any previous $cfgRelation value as it could have changed after a successfull fixPmaTables()
+        $cfgRelation = $this->relation->getRelationsParam();
         $this->response->addHTML($this->relation->getRelationsParamDiagnostic($cfgRelation));
     }
 }

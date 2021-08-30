@@ -601,7 +601,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             [
                 ['NULL'],
             ],
@@ -714,7 +714,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
             false
         );
 
@@ -829,7 +829,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addResult(
-            'SELECT NULL FROM pma__userconfig_custom LIMIT 0',
+            'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
             [
                 ['NULL'],
             ],
@@ -838,11 +838,32 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $this->dbi->initRelationParamsCache();
 
-        $this->assertArrayNotHasKey(
+        $this->assertArrayHasKey(
             'relation',
             $_SESSION,
-            'The cache is NOT expected to be filled because no default phpMyAdmin storage tables'
-            . ' with a default name where found (pma__userconfig vs pma__userconfig_custom)'
+            'The cache is expected to be filled because the custom override'
+            . 'was undertood (pma__userconfig vs pma__userconfig_custom)'
+        );
+
+        $this->assertAllQueriesConsumed();
+
+        $this->dummyDbi->addResult(
+            'SHOW TABLES FROM `PMA-storage`',
+            [
+                [
+                    'pma__userconfig_custom',
+                    'pma__usergroups',
+                ],
+            ],
+            ['Tables_in_PMA-storage']
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT NULL FROM `pma__userconfig_custom` LIMIT 0',
+            [
+                ['NULL'],
+            ],
+            ['NULL']
         );
 
         $this->dummyDbi->addSelectDb('PMA-storage');
