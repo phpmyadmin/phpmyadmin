@@ -2370,6 +2370,9 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$dbi</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCast occurrences="1">
+      <code>(string) $table[1]</code>
+    </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $data</code>
       <code>(string) $db</code>
