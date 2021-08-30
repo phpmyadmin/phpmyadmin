@@ -234,7 +234,7 @@ class GisPoint extends GisGeometry
      */
     public function prepareRowAsOl(
         $spatial,
-        $srid,
+        int $srid,
         $label,
         $point_color,
         array $scale_data
@@ -265,7 +265,7 @@ class GisPoint extends GisGeometry
 
         $result .= '});';
 
-        if ($srid == 0) {
+        if ($srid === 0) {
             $srid = 4326;
         }
 

@@ -1965,14 +1965,10 @@
       <code>$gis_data['gis_type']</code>
       <code>$gis_data['gis_type']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$geom_type</code>
       <code>$gis_data</code>
-      <code>$srid</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$srid</code>
-    </MixedOperand>
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($_POST['value'], '(')</code>
     </PossiblyFalseOperand>
@@ -7326,10 +7322,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="13">
       <code>$point[0]</code>
       <code>$point[0]</code>
@@ -7400,10 +7392,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="13">
       <code>$point[0]</code>
       <code>$point[0]</code>
@@ -7485,10 +7473,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="10">
       <code>$point</code>
       <code>$point[0]</code>
@@ -7563,10 +7547,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="9">
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -7695,10 +7675,6 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="10">
       <code>$points_arr[0]</code>
       <code>$points_arr[0][0]</code>
@@ -7763,10 +7739,6 @@
     <InvalidNullableReturnType occurrences="1">
       <code>array|false</code>
     </InvalidNullableReturnType>
-    <InvalidScalarArgument occurrences="2">
-      <code>$srid</code>
-      <code>$srid</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="7">
       <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
@@ -7930,7 +7902,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="22">
+    <MixedArgument occurrences="21">
       <code>$label</code>
       <code>$label</code>
       <code>$label</code>
@@ -7941,7 +7913,6 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
-      <code>$row['srid']</code>
       <code>$this-&gt;settings['colors']</code>
       <code>$this-&gt;settings['colors'][$index]</code>
       <code>$this-&gt;settings['colors'][$index]</code>
@@ -11125,7 +11096,7 @@
       <code>$values</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="25">
+    <MixedArrayAccess occurrences="26">
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$cfgRelation['mimework']</code>
       <code>$columnAliases[$column['name']]</code>
@@ -11137,6 +11108,7 @@
       <code>$column['Null']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
+      <code>$column['name']</code>
       <code>$definition['Type']</code>
       <code>$mime['mimetype']</code>
       <code>$oneKey['index_list']</code>
@@ -11152,20 +11124,26 @@
       <code>$trigger['create']</code>
       <code>$trigger['drop']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="6">
+    <MixedArrayAssignment occurrences="1">
+      <code>$field-&gt;key-&gt;columns[$key]['name']</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="8">
       <code>$aliases[$db]['tables'][$table]['columns'][$field]</code>
       <code>$aliases[$db]['tables'][$table]['columns'][$relField]</code>
       <code>$aliases[$db]['tables'][$view]['columns'][$colAlias]</code>
+      <code>$aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']]</code>
       <code>$aliases[$oldDatabase]['tables'][$refTable]['columns'][$column]</code>
+      <code>$columnAliases[$column['name']]</code>
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="43">
+    <MixedAssignment occurrences="44">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAs</code>
+      <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$columnAliases</code>

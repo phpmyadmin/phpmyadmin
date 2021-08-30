@@ -90,7 +90,7 @@ class GisDataEditorController extends AbstractController
         }
 
         // Generate Well Known Text
-        $srid = isset($gis_data['srid']) && $gis_data['srid'] != '' ? $gis_data['srid'] : 0;
+        $srid = isset($gis_data['srid']) && $gis_data['srid'] != '' ? (int) $gis_data['srid'] : 0;
         $wkt = $gis_obj->generateWkt($gis_data, 0);
         $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
         $result = "'" . $wkt . "'," . $srid;
