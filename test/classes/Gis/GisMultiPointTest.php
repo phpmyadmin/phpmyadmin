@@ -341,23 +341,12 @@ class GisMultiPointTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var fill = new ol.style.Fill({"color":"white"});var stroke = new ol.style.Stroke({'
-                . '"color":[176,46,224],"width":2});var style = new ol.style.Style({image: new ol.s'
-                . 'tyle.Circle({fill: fill,stroke: stroke,radius: 3}),fill: fill,stroke: stroke,tex'
-                . 't: new ol.style.Text({"text":"Ol","offsetY":-9})});var minLoc = [0, 0];var maxLo'
-                . 'c = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.tr'
-                . 'ansformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.get'
-                . 'View().fit(ext, map.getSize());var multiPoint = new ol.geom.MultiPoint(new Array'
-                . '((new ol.geom.Point([12,35]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
-                . 'PSG:3857\'))).getCoordinates(), (new ol.geom.Point([48,75]).transform(ol.proj.ge'
-                . 't("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Poin'
-                . 't([69,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getC'
-                . 'oordinates(), (new ol.geom.Point([25,45]).transform(ol.proj.get("EPSG:4326"), ol'
-                . '.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([14,53]).transfo'
-                . 'rm(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new'
-                . ' ol.geom.Point([35,78]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3'
-                . '857\'))).getCoordinates()));var feature = new ol.Feature({geometry: multiPoint})'
-                . ';feature.setStyle(style);vectorLayer.addFeature(feature);',
+                'var feature = new ol.Feature(new ol.geom.MultiPoint([[12,35],[48,75],[69,23],[25,4'
+                . '5],[14,53],[35,78]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.setStyle(n'
+                . 'ew ol.style.Style({image: new ol.style.Circle({fill: new ol.style.Fill({"color":'
+                . '"white"}),stroke: new ol.style.Stroke({"color":[176,46,224],"width":2}),radius: '
+                . '3}),text: new ol.style.Text({"text":"Ol","offsetY":-9})}));vectorLayer.addFeatur'
+                . 'e(feature);',
             ],
         ];
     }

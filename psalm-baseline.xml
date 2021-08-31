@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.13.0@cd489407a0219b93cadd04d5aff9845a942f7e5d">
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -6993,29 +6993,15 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
-    <MixedArgument occurrences="7">
-      <code>$line</code>
-      <code>$point</code>
-      <code>$polygon</code>
-      <code>$scale_data['maxX']</code>
-      <code>$scale_data['maxY']</code>
-      <code>$scale_data['minX']</code>
-      <code>$scale_data['minY']</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="7">
-      <code>$line</code>
-      <code>$point</code>
+    <MixedAssignment occurrences="4">
       <code>$points_arr[]</code>
       <code>$points_arr[]</code>
-      <code>$polygon</code>
       <code>$x</code>
       <code>$y</code>
     </MixedAssignment>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="5">
       <code>$coordinates[0] - $scale_data['x']</code>
       <code>$coordinates[1] - $scale_data['y']</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code>$scale_data['height']</code>
       <code>$scale_data['x']</code>
       <code>$scale_data['y']</code>
@@ -7220,8 +7206,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
-    <MixedArgument occurrences="10">
-      <code>$point</code>
+    <MixedArgument occurrences="9">
       <code>$point[0]</code>
       <code>$point[0]</code>
       <code>$point[1]</code>
@@ -7232,7 +7217,7 @@
       <code>$points_arr[0][1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="23">
+    <MixedArrayAccess occurrences="21">
       <code>$gis_data[$index]['MULTIPOINT']['no_of_points']</code>
       <code>$point[0]</code>
       <code>$point[0]</code>
@@ -7240,8 +7225,6 @@
       <code>$point[0]</code>
       <code>$point[0]</code>
       <code>$point[0]</code>
-      <code>$point[0]</code>
-      <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$point[1]</code>
       <code>$point[1]</code>
@@ -7262,12 +7245,11 @@
       <code>$params[$index]['MULTIPOINT']</code>
       <code>$params[$index]['MULTIPOINT']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="8">
       <code>$no_of_points</code>
       <code>$params[$index]['MULTIPOINT'][$i]['x']</code>
       <code>$params[$index]['MULTIPOINT'][$i]['y']</code>
       <code>$params['srid']</code>
-      <code>$point</code>
       <code>$point</code>
       <code>$point</code>
       <code>$point</code>
@@ -7417,13 +7399,9 @@
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
-    <UnusedVariable occurrences="1">
-      <code>$points_arr</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
-    <MixedArgument occurrences="10">
-      <code>$points_arr[0]</code>
+    <MixedArgument occurrences="9">
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
@@ -7434,7 +7412,7 @@
       <code>$points_arr[0][1]</code>
       <code>$wkt</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="16">
+    <MixedArrayAccess occurrences="14">
       <code>$gis_data[$index]['POINT']['x']</code>
       <code>$gis_data[$index]['POINT']['x']</code>
       <code>$gis_data[$index]['POINT']['y']</code>
@@ -7444,8 +7422,6 @@
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
       <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][0]</code>
-      <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
       <code>$points_arr[0][1]</code>
@@ -16772,9 +16748,7 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Gis/GisGeometryTest.php">
-    <MixedInferredReturnType occurrences="5">
-      <code>array</code>
-      <code>array</code>
+    <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
       <code>array</code>

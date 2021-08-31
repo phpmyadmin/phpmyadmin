@@ -251,42 +251,31 @@ class GisMultiPoint extends GisGeometry
             'color' => $point_color,
             'width' => 2,
         ];
-        $result = 'var fill = new ol.style.Fill(' . json_encode($fill_style) . ');'
-            . 'var stroke = new ol.style.Stroke(' . json_encode($stroke_style) . ');'
-            . 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'image: new ol.style.Circle({'
-            . 'fill: fill,'
-            . 'stroke: stroke,'
+            . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
+            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . '),'
             . 'radius: 3'
-            . '}),'
-            . 'fill: fill,'
-            . 'stroke: stroke';
-
+            . '})';
         if (trim($label) !== '') {
             $text_style = [
                 'text' => trim($label),
                 'offsetY' => -9,
             ];
-            $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $result .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
-
-        $result .= $this->getBoundsForOl($srid, $scale_data);
+        $style .= '})';
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
-        $multipoint = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints($multipoint, null);
+        $wktCoordinates = mb_substr($spatial, 11, -1);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.MultiPoint',
+            $this->extractPoints($wktCoordinates, null),
+            $srid
+        );
 
-        return $result . 'var multiPoint = new ol.geom.MultiPoint('
-            . $this->getPointsArrayForOpenLayers($points_arr, $srid) . ');'
-            . 'var feature = new ol.Feature({geometry: multiPoint});'
-            . 'feature.setStyle(style);'
-            . 'vectorLayer.addFeature(feature);';
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**
@@ -379,34 +368,5 @@ class GisMultiPoint extends GisGeometry
         }
 
         return $params;
-    }
-
-    /**
-     * Overridden to make sure that only the points having valid values
-     * for x and y coordinates are added.
-     *
-     * @param array $points_arr x and y coordinates for each point
-     * @param int   $srid       spatial reference id
-     *
-     * @return string JavaScript for adding an array of points to OpenLayers
-     *
-     * @access protected
-     */
-    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid)
-    {
-        $ol_array = 'new Array(';
-        foreach ($points_arr as $point) {
-            if ($point[0] == '' || $point[1] == '') {
-                continue;
-            }
-
-            $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
-        }
-
-        if (mb_substr($ol_array, -2) === ', ') {
-            $ol_array = mb_substr($ol_array, 0, -2);
-        }
-
-        return $ol_array . ')';
     }
 }

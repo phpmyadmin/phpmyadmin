@@ -352,22 +352,13 @@ class GisPointTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var fill = new ol.style.Fill({"color":"white"});'
-                . 'var stroke = new ol.style.Stroke({"color":[176'
-                . ',46,224],"width":2});var style = new ol.style.'
-                . 'Style({image: new ol.style.Circle({fill: fill,'
-                . 'stroke: stroke,radius: 3}),fill: fill,stroke: '
-                . 'stroke,text: new ol.style.Text({"text":"Ol","o'
-                . 'ffsetY":-9})});var minLoc = [0, 0];var maxLoc '
-                . '= [1, 1];var ext = ol.extent.boundingExtent([m'
-                . 'inLoc, maxLoc]);ext = ol.proj.transformExtent('
-                . 'ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
-                . 'PSG:3857\'));map.getView().fit(ext, map.getSiz'
-                . 'e());var point = new ol.Feature({geometry: (ne'
-                . 'w ol.geom.Point([12,35]).transform(ol.proj.get'
-                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});'
-                . 'point.setStyle(style);vectorLayer.addFeature(p'
-                . 'oint);',
+                'var feature = new ol.Feature(new ol.geom.Point([12,35]'
+                . ').transform(\'EPSG:4326\', \'EPSG:3857\'));feature.s'
+                . 'etStyle(new ol.style.Style({image: new ol.style.Circ'
+                . 'le({fill: new ol.style.Fill({"color":"white"}),strok'
+                . 'e: new ol.style.Stroke({"color":[176,46,224],"width"'
+                . ':2}),radius: 3}),text: new ol.style.Text({"text":"Ol'
+                . '","offsetY":-9})}));vectorLayer.addFeature(feature);',
             ],
         ];
     }

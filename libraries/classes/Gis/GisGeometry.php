@@ -10,14 +10,15 @@ namespace PhpMyAdmin\Gis;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
+use function array_map;
 use function explode;
 use function floatval;
+use function json_encode;
 use function mb_strripos;
 use function mb_substr;
 use function mt_getrandmax;
 use function preg_match;
 use function random_int;
-use function sprintf;
 use function str_replace;
 use function trim;
 
@@ -122,33 +123,6 @@ abstract class GisGeometry
      * @access public
      */
     abstract public function generateWkt(array $gis_data, $index, $empty = '');
-
-    /**
-     * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
-     *
-     * @param int   $srid       spatial reference ID
-     * @param array $scale_data data related to scaling
-     *
-     * @return string OpenLayers.Bounds object that
-     *                correspond to the bounds of GIS data
-     *
-     * @access protected
-     */
-    protected function getBoundsForOl(int $srid, array $scale_data)
-    {
-        return sprintf(
-            'var minLoc = [%s, %s];'
-            . 'var maxLoc = [%s, %s];'
-            . 'var ext = ol.extent.boundingExtent([minLoc, maxLoc]);'
-            . 'ext = ol.proj.transformExtent(ext, ol.proj.get("EPSG:%s"), ol.proj.get(\'EPSG:3857\'));'
-            . 'map.getView().fit(ext, map.getSize());',
-            $scale_data['minX'],
-            $scale_data['minY'],
-            $scale_data['maxX'],
-            $scale_data['maxY'],
-            $srid
-        );
-    }
 
     /**
      * Updates the min, max values with the given point set.
@@ -257,8 +231,8 @@ abstract class GisGeometry
                     $y = floatval(trim($coordinates[1]));
                 }
             } else {
-                $x = 0;
-                $y = 0;
+                $x = 0.0;
+                $y = 0.0;
             }
 
             if (! $linear) {
@@ -276,133 +250,57 @@ abstract class GisGeometry
     }
 
     /**
-     * Generates JavaScript for adding an array of polygons to OpenLayers.
+     * @param string     $wktCoords  string of ),( separated points
+     * @param array|null $scale_data data related to scaling
      *
-     * @param array $polygons x and y coordinates for each polygon
-     * @param int   $srid     spatial reference id
-     *
-     * @return string JavaScript for adding an array of polygons to OpenLayers
-     *
-     * @access protected
+     * @return array<array<array<float>>>  scaled points
      */
-    protected function getPolygonArrayForOpenLayers(array $polygons, int $srid)
+    protected function extractPoints2(string $wktCoords, $scale_data): array
     {
-        $ol_array = 'var polygonArray = [];';
-        foreach ($polygons as $polygon) {
-            $rings = explode('),(', $polygon);
-            $ol_array .= $this->getPolygonForOpenLayers($rings, $srid);
-            $ol_array .= 'polygonArray.push(polygon);';
+        $parts = explode('),(', $wktCoords);
+
+        return array_map(function ($coord) use ($scale_data) {
+            /** @var array<array<float>> $c */
+            $c = $this->extractPoints($coord, $scale_data);
+
+            return $c;
+        }, $parts);
+    }
+
+    /**
+     * @param string     $wktCoords  string of )),(( separated points
+     * @param array|null $scale_data data related to scaling
+     *
+     * @return array<array<array<array<float>>>> scaled points
+     */
+    protected function extractPoints3(string $wktCoords, $scale_data): array
+    {
+        $parts = explode(')),((', $wktCoords);
+
+        return array_map(function ($coord) use ($scale_data) {
+            return $this->extractPoints2($coord, $scale_data);
+        }, $parts);
+    }
+
+    /**
+     * @param string $contructor  OpenLayers geometry constructor string
+     * @param array  $coordinates Array of coordintes 1-4 dimensions
+     */
+    protected function toOpenLayersObject(string $contructor, array $coordinates, int $srid): string
+    {
+        $ol = 'new ' . $contructor . '(' . json_encode($coordinates) . ')';
+        if ($srid != 3857) {
+            $ol .= '.transform(\'EPSG:' . ($srid ?: 4326) . '\', \'EPSG:3857\')';
         }
 
-        return $ol_array;
+        return $ol;
     }
 
-    /**
-     * Generates JavaScript for adding points for OpenLayers polygon.
-     *
-     * @param array $polygon x and y coordinates for each line
-     * @param int   $srid    spatial reference id
-     *
-     * @return string JavaScript for adding points for OpenLayers polygon
-     *
-     * @access protected
-     */
-    protected function getPolygonForOpenLayers(array $polygon, int $srid)
+    protected function addGeometryToLayer(string $olGeometry, string $style): string
     {
-        return $this->getLineArrayForOpenLayers($polygon, $srid, false)
-        . 'var polygon = new ol.geom.Polygon(arr);';
-    }
-
-    /**
-     * Generates JavaScript for adding an array of LineString
-     * or LineRing to OpenLayers.
-     *
-     * @param array $lines          x and y coordinates for each line
-     * @param int   $srid           spatial reference id
-     * @param bool  $is_line_string whether it's an array of LineString
-     *
-     * @return string JavaScript for adding an array of LineString
-     *                or LineRing to OpenLayers
-     *
-     * @access protected
-     */
-    protected function getLineArrayForOpenLayers(
-        array $lines,
-        int $srid,
-        $is_line_string = true
-    ) {
-        $ol_array = 'var arr = [];';
-        foreach ($lines as $line) {
-            $ol_array .= 'var lineArr = [];';
-            $points_arr = $this->extractPoints($line, null);
-            $ol_array .= 'var line = ' . $this->getLineForOpenLayers($points_arr, $srid, $is_line_string) . ';';
-            $ol_array .= 'var coord = line.getCoordinates();';
-            $ol_array .= 'for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);';
-            $ol_array .= 'arr.push(lineArr);';
-        }
-
-        return $ol_array;
-    }
-
-    /**
-     * Generates JavaScript for adding a LineString or LineRing to OpenLayers.
-     *
-     * @param array $points_arr     x and y coordinates for each point
-     * @param int   $srid           spatial reference id
-     * @param bool  $is_line_string whether it's a LineString
-     *
-     * @return string JavaScript for adding a LineString or LineRing to OpenLayers
-     *
-     * @access protected
-     */
-    protected function getLineForOpenLayers(
-        array $points_arr,
-        int $srid,
-        $is_line_string = true
-    ) {
-        return 'new ol.geom.'
-        . ($is_line_string ? 'LineString' : 'LinearRing') . '('
-        . $this->getPointsArrayForOpenLayers($points_arr, $srid)
-        . ')';
-    }
-
-    /**
-     * Generates JavaScript for adding an array of points to OpenLayers.
-     *
-     * @param array $points_arr x and y coordinates for each point
-     * @param int   $srid       spatial reference id
-     *
-     * @return string JavaScript for adding an array of points to OpenLayers
-     *
-     * @access protected
-     */
-    protected function getPointsArrayForOpenLayers(array $points_arr, int $srid)
-    {
-        $ol_array = 'new Array(';
-        foreach ($points_arr as $point) {
-            $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
-        }
-
-        $ol_array = mb_substr($ol_array, 0, -2);
-
-        return $ol_array . ')';
-    }
-
-    /**
-     * Generates JavaScript for adding a point to OpenLayers.
-     *
-     * @param array $point array containing the x and y coordinates of the point
-     * @param int   $srid  spatial reference id
-     *
-     * @return string JavaScript for adding points to OpenLayers
-     *
-     * @access protected
-     */
-    protected function getPointForOpenLayers(array $point, int $srid)
-    {
-        return '(new ol.geom.Point([' . $point[0] . ',' . $point[1] . '])'
-        . '.transform(ol.proj.get("EPSG:' . $srid . '")'
-        . ', ol.proj.get(\'EPSG:3857\')))';
+        return 'var feature = new ol.Feature(' . $olGeometry . ');'
+            . 'feature.setStyle(' . $style . ');'
+            . 'vectorLayer.addFeature(feature);';
     }
 
     protected function getRandomId(): int

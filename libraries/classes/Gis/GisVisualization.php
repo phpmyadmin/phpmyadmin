@@ -458,7 +458,8 @@ class GisVisualization
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
-        $output = 'function drawOpenLayers() {'
+
+        return 'function drawOpenLayers() {'
             . 'if (typeof ol !== "undefined") {'
             . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
             . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
@@ -474,7 +475,7 @@ class GisVisualization
             . '})'
             . '],'
             . 'view: new ol.View({'
-            . 'center: ol.proj.fromLonLat([37.41, 8.82]),'
+            . 'center: [0, 0],'
             . 'zoom: 4'
             . '}),'
             . 'controls: [new ol.control.MousePosition({'
@@ -482,14 +483,16 @@ class GisVisualization
             . 'projection: \'EPSG:4326\'}),'
             . 'new ol.control.Zoom,'
             . 'new ol.control.Attribution]'
-            . '});';
-        $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
+            . '});'
+            . $this->prepareDataSet($this->data, $scale_data, 'ol', '')
+            . 'var extent = vectorLayer.getExtent();'
+            . 'if (!ol.extent.isEmpty(extent)) {'
+            . 'map.getView().fit(extent, {padding: [20, 20, 20, 20]});'
+            . '}'
             . 'return map;'
             . '}'
             . 'return undefined;'
             . '}';
-
-        return $output;
     }
 
     /**

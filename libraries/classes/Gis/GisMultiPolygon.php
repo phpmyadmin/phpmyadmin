@@ -275,20 +275,10 @@ class GisMultiPolygon extends GisGeometry
         foreach ($polygons as $polygon) {
             $row .= '<path d="';
 
-            // If the polygon doesn't have an inner polygon
-            if (! str_contains($polygon, '),(')) {
-                $row .= $this->drawPath($polygon, $scale_data);
-            } else {
-                // Separate outer and inner polygons
-                $parts = explode('),(', $polygon);
-                $outer = $parts[0];
-                $inner = array_slice($parts, 1);
-
-                $row .= $this->drawPath($outer, $scale_data);
-
-                foreach ($inner as $inner_poly) {
-                    $row .= $this->drawPath($inner_poly, $scale_data);
-                }
+            // Separate outer and inner polygons
+            $parts = explode('),(', $polygon);
+            foreach ($parts as $ring) {
+                $row .= $this->drawPath($ring, $scale_data);
             }
 
             $polygon_options['id'] = $label . $this->getRandomId();
@@ -325,33 +315,25 @@ class GisMultiPolygon extends GisGeometry
             'color' => [0,0,0],
             'width' => 0.5,
         ];
-        $row = 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-
         if (trim($label) !== '') {
             $text_style = ['text' => trim($label)];
-            $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $row .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
-
-        $row .= $this->getBoundsForOl($srid, $scale_data);
+        $style .= '})';
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
-        $multipolygon = mb_substr($spatial, 15, -3);
-        // Separate each polygon
-        $polygons = explode(')),((', $multipolygon);
+        $wktCoordinates = mb_substr($spatial, 15, -3);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.MultiPolygon',
+            $this->extractPoints3($wktCoordinates, null),
+            $srid
+        );
 
-        return $row . $this->getPolygonArrayForOpenLayers($polygons, $srid)
-            . 'var multiPolygon = new ol.geom.MultiPolygon(polygonArray);'
-            . 'var feature = new ol.Feature(multiPolygon);'
-            . 'feature.setStyle(style);'
-            . 'vectorLayer.addFeature(feature);';
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**

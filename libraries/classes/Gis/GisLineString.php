@@ -240,29 +240,24 @@ class GisLineString extends GisGeometry
             'width' => 2,
         ];
 
-        $result = 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if (trim($label) !== '') {
             $text_style = ['text' => trim($label)];
-            $result .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $result .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
-
-        $result .= $this->getBoundsForOl($srid, $scale_data);
+        $style .= '})';
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
-        $linesrting = mb_substr($spatial, 11, -1);
-        $points_arr = $this->extractPoints($linesrting, null);
+        $wktCoordinates = mb_substr($spatial, 11, -1);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.LineString',
+            $this->extractPoints($wktCoordinates, null),
+            $srid
+        );
 
-        return $result . 'var line = new ol.Feature({geometry: '
-            . $this->getLineForOpenLayers($points_arr, $srid) . '});'
-            . 'line.setStyle(style);'
-            . 'vectorLayer.addFeature(line);';
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**

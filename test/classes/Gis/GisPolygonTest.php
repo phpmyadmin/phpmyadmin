@@ -585,21 +585,11 @@ class GisPolygonTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var style = new ol.style.Style({fill: new ol.style.Fill({"color":[176,46,224,0.8]'
-                . '}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),text: new ol.styl'
-                . 'e.Text({"text":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.ex'
-                . 'tent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, ol.pro'
-                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getS'
-                . 'ize());var arr = [];var lineArr = [];var line = new ol.geom.LinearRing(new Arra'
-                . 'y((new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
-                . '\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([23,30]).transform(ol.pro'
-                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
-                . '.Point([17,63]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))'
-                . ').getCoordinates(), (new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:432'
-                . '6"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordi'
-                . 'nates();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);'
-                . 'var polygon = new ol.geom.Polygon(arr);var feature = new ol.Feature({geometry: polygon});f'
-                . 'eature.setStyle(style);vectorLayer.addFeature(feature);',
+                'var feature = new ol.Feature(new ol.geom.Polygon([[[123,0],[23,30],[17,63],[123,0'
+                . ']]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.setStyle(new ol.style.Sty'
+                . 'le({fill: new ol.style.Fill({"color":[176,46,224,0.8]}),stroke: new ol.style.St'
+                . 'roke({"color":[0,0,0],"width":0.5}),text: new ol.style.Text({"text":"Ol"})}));v'
+                . 'ectorLayer.addFeature(feature);',
             ],
         ];
     }

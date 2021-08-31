@@ -271,31 +271,24 @@ class GisMultiLineString extends GisGeometry
             'width' => 2,
         ];
 
-        $row = 'var style = new ol.style.Style({'
+        $style = 'new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if (trim($label) !== '') {
             $text_style = ['text' => trim($label)];
-            $row .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
+            $style .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $row .= '});';
-
-        if ($srid === 0) {
-            $srid = 4326;
-        }
-
-        $row .= $this->getBoundsForOl($srid, $scale_data);
+        $style .= '})';
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng = mb_substr($spatial, 17, -2);
-        // Separate each linestring
-        $linestirngs = explode('),(', $multilinestirng);
+        $wktCoordinates = mb_substr($spatial, 17, -2);
+        $olGeometry = $this->toOpenLayersObject(
+            'ol.geom.MultiLineString',
+            $this->extractPoints2($wktCoordinates, null),
+            $srid
+        );
 
-        return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
-            . 'var multiLineString = new ol.geom.MultiLineString(arr);'
-            . 'var feature = new ol.Feature({geometry: multiLineString});'
-            . 'feature.setStyle(style);'
-            . 'vectorLayer.addFeature(feature);';
+        return $this->addGeometryToLayer($olGeometry, $style);
     }
 
     /**

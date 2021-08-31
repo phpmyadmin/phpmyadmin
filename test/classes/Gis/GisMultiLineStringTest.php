@@ -415,25 +415,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var style = new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],'
-                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});var minLoc = [0, 0];var ma'
-                . 'xLoc = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj'
-                . '.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.'
-                . 'getView().fit(ext, map.getSize());var arr = [];var lineArr = [];var line = new o'
-                . 'l.geom.LineString(new Array((new ol.geom.Point([36,14]).transform(ol.proj.get("E'
-                . 'PSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([4'
-                . '7,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoord'
-                . 'inates(), (new ol.geom.Point([62,75]).transform(ol.proj.get("EPSG:4326"), ol.pro'
-                . 'j.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0;'
-                . ' i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = [];var lin'
-                . 'e = new ol.geom.LineString(new Array((new ol.geom.Point([36,10]).transform(ol.pr'
-                . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
-                . '.Point([17,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
-                . '.getCoordinates(), (new ol.geom.Point([178,53]).transform(ol.proj.get("EPSG:4326'
-                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordina'
-                . 'tes();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);va'
-                . 'r multiLineString = new ol.geom.MultiLineString(arr);var feature = new ol.Feature({geometry:'
-                . ' multiLineString});feature.setStyle(style);vectorLayer.addFeature(feature);',
+                'var feature = new ol.Feature(new ol.geom.MultiLineString([[[36,14],[47,23],[62,75]'
+                . '],[[36,10],[17,23],[178,53]]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.'
+                . 'setStyle(new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],"'
+                . 'width":2}), text: new ol.style.Text({"text":"Ol"})}));vectorLayer.addFeature(fea'
+                . 'ture);',
             ],
         ];
     }

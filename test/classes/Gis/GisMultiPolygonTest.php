@@ -502,31 +502,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'var style = new ol.style.Style({fill: new ol.style.Fill({"color":[176,46,224,0.8]}'
-                . '),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),text: new ol.style.'
-                . 'Text({"text":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.exten'
-                . 't.boundingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, ol.proj.ge'
-                . 't("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getSize()'
-                . ');var polygonArray = [];var arr = [];var lineArr = [];var line = new ol.geom.Lin'
-                . 'earRing(new Array((new ol.geom.Point([136,40]).transform(ol.proj.get("EPSG:4326"'
-                . '), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([147,83]).t'
-                . 'ransform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()'
-                . ', (new ol.geom.Point([16,75]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\''
-                . 'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([136,40]).transform(ol.proj.'
-                . 'get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = li'
-                . 'ne.getCoordinates();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.'
-                . 'push(lineArr);var polygon = new ol.geom.Polygon(arr);polygonArray.push(polygon);var arr = [];v'
-                . 'ar lineArr = [];var line = new ol.geom.LinearRing(new Array((new ol.geom.Point(['
-                . '105,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoor'
-                . 'dinates(), (new ol.geom.Point([56,20]).transform(ol.proj.get("EPSG:4326"), ol.pr'
-                . 'oj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([78,73]).transform('
-                . 'ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol'
-                . '.geom.Point([105,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857'
-                . '\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0; i < coord.length;'
-                . ' i++) lineArr.push(coord[i]);arr.push(lineArr);var polygon = new ol.geom.Polygon(arr);po'
-                . 'lygonArray.push(polygon);var multiPolygon = new ol.geom.MultiPolygon(polygonArra'
-                . 'y);var feature = new ol.Feature(multiPolygon);feature.setStyle(style);vectorLaye'
-                . 'r.addFeature(feature);',
+                'var feature = new ol.Feature(new ol.geom.MultiPolygon([[[[136,40],[147,83],[16,75]'
+                . ',[136,40]]],[[[105,0],[56,20],[78,73],[105,0]]]]).transform(\'EPSG:4326\', \'EPS'
+                . 'G:3857\'));feature.setStyle(new ol.style.Style({fill: new ol.style.Fill({"color"'
+                . ':[176,46,224,0.8]}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),t'
+                . 'ext: new ol.style.Text({"text":"Ol"})}));vectorLayer.addFeature(feature);',
             ],
         ];
     }
