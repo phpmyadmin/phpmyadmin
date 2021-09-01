@@ -184,7 +184,7 @@ return static function (RouteCollector $routes): void {
     $routes->post('/databases', DatabaseController::class);
     $routes->addRoute(['GET', 'POST'], '/error-report', ErrorReportController::class);
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '', ExportController::class);
         $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
         $routes->post('/tables', [DatabaseExportController::class, 'tables']);
         $routes->addGroup('/template', static function (RouteCollector $routes): void {

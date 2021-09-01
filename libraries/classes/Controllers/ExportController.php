@@ -9,6 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -55,7 +56,7 @@ final class ExportController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function index(): void
+    public function __invoke(ServerRequest $request): void
     {
         global $containerBuilder, $db, $export_type, $filename_template, $sql_query, $errorUrl, $message;
         global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle, $separate_files;
@@ -65,6 +66,28 @@ final class ExportController extends AbstractController
         global $time_start, $charset, $remember_template, $mime_type, $num_tables;
         global $active_page, $do_relation, $do_comments, $do_mime, $do_dates, $whatStrucOrData, $db_select;
         global $table_structure, $table_data, $lock_tables, $allrows, $limit_to, $limit_from;
+
+        /** @var array<string, string> $postParams */
+        $postParams = $request->getParsedBody();
+
+        /** @var string $whatParam */
+        $whatParam = $request->getParsedBodyParam('what', '');
+        /** @var string|null $quickOrCustom */
+        $quickOrCustom = $request->getParsedBodyParam('quick_or_custom');
+        /** @var string|null $outputFormat */
+        $outputFormat = $request->getParsedBodyParam('output_format');
+        /** @var string $compressionParam */
+        $compressionParam = $request->getParsedBodyParam('compression', '');
+        /** @var string|null $asSeparateFiles */
+        $asSeparateFiles = $request->getParsedBodyParam('as_separate_files');
+        /** @var string|null $quickExportOnServer */
+        $quickExportOnServer = $request->getParsedBodyParam('quick_export_onserver');
+        /** @var string|null $onServerParam */
+        $onServerParam = $request->getParsedBodyParam('onserver');
+        /** @var array|null $aliasesParam */
+        $aliasesParam = $request->getParsedBodyParam('aliases');
+        /** @var string|null $structureOrDataForced */
+        $structureOrDataForced = $request->getParsedBodyParam('structure_or_data_forced');
 
         $this->addScriptFiles(['export_output.js']);
 
@@ -77,7 +100,7 @@ final class ExportController extends AbstractController
          * TODO: this should be removed to avoid passing user input to GLOBALS
          * without checking
          */
-        $post_params = [
+        $allowedPostParams = [
             'db',
             'table',
             'what',
@@ -198,18 +221,18 @@ final class ExportController extends AbstractController
             'aliases',
         ];
 
-        foreach ($post_params as $one_post_param) {
-            if (! isset($_POST[$one_post_param])) {
+        foreach ($allowedPostParams as $param) {
+            if (! isset($postParams[$param])) {
                 continue;
             }
 
-            $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+            $GLOBALS[$param] = $postParams[$param];
         }
 
         Util::checkParameters(['what', 'export_type']);
 
         // sanitize this parameter which will be used below in a file inclusion
-        $what = Core::securePath($_POST['what']);
+        $what = Core::securePath($whatParam);
 
         // export class instance, not array of properties, as before
         /** @var ExportPlugin $export_plugin */
@@ -251,45 +274,33 @@ final class ExportController extends AbstractController
         $separate_files = '';
 
         // Is it a quick or custom export?
-        if (
-            isset($_POST['quick_or_custom'])
-            && $_POST['quick_or_custom'] === 'quick'
-        ) {
+        if ($quickOrCustom === 'quick') {
             $quick_export = true;
         } else {
             $quick_export = false;
         }
 
-        if (isset($_POST['output_format']) && $_POST['output_format'] === 'astext') {
+        if ($outputFormat === 'astext') {
             $asfile = false;
         } else {
             $asfile = true;
-            $selectedCompression = $_POST['compression'] ?? '';
-            if (
-                isset($_POST['as_separate_files'])
-                && ! empty($_POST['as_separate_files'])
-            ) {
-                if (
-                    ! empty($selectedCompression)
-                    && $selectedCompression === 'zip'
-                ) {
-                    $separate_files = $_POST['as_separate_files'];
-                }
+            if ($asSeparateFiles && $compressionParam === 'zip') {
+                $separate_files = $asSeparateFiles;
             }
 
-            if (in_array($selectedCompression, $compression_methods)) {
-                $compression = $selectedCompression;
+            if (in_array($compressionParam, $compression_methods)) {
+                $compression = $compressionParam;
                 $buffer_needed = true;
             }
 
             if (
-                ($quick_export && ! empty($_POST['quick_export_onserver']))
-                || (! $quick_export && ! empty($_POST['onserver']))
+                ($quick_export && ! empty($quickExportOnServer))
+                || (! $quick_export && ! empty($onServerParam))
             ) {
                 if ($quick_export) {
-                    $onserver = $_POST['quick_export_onserver'];
+                    $onserver = $quickExportOnServer;
                 } else {
-                    $onserver = $_POST['onserver'];
+                    $onserver = $onServerParam;
                 }
 
                 // Will we save dump on server?
@@ -301,7 +312,7 @@ final class ExportController extends AbstractController
          * If we are sending the export file (as opposed to just displaying it
          * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
          */
-        if (isset($_POST['output_format']) && $_POST['output_format'] === 'sendit' && ! $save_on_server) {
+        if ($outputFormat === 'sendit' && ! $save_on_server) {
             $this->response->disable();
             //Disable all active buffers (see: ob_get_status(true) at this point)
             do {
@@ -348,9 +359,9 @@ final class ExportController extends AbstractController
             $aliases = Misc::getAliases($parser->statements[0], $db);
         }
 
-        if (! empty($_POST['aliases'])) {
-            $aliases = $this->export->mergeAliases($aliases, $_POST['aliases']);
-            $_SESSION['tmpval']['aliases'] = $_POST['aliases'];
+        if (! empty($aliasesParam)) {
+            $aliases = $this->export->mergeAliases($aliases, $aliasesParam);
+            $_SESSION['tmpval']['aliases'] = $aliasesParam;
         }
 
         /**
@@ -531,7 +542,7 @@ final class ExportController extends AbstractController
                     $table_data = [];
                 }
 
-                if (! empty($_POST['structure_or_data_forced'])) {
+                if ($structureOrDataForced) {
                     $table_structure = $tables;
                     $table_data = $tables;
                 }

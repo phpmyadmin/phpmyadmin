@@ -1861,16 +1861,10 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </InvalidArgument>
-    <MixedArgument occurrences="55">
-      <code>$_POST['aliases']</code>
-      <code>$_POST['what']</code>
+    <MixedArgument occurrences="46">
       <code>$allrows</code>
       <code>$allrows</code>
       <code>$cfg['MemoryLimit']</code>
-      <code>$compression</code>
-      <code>$compression</code>
-      <code>$compression</code>
-      <code>$compression</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1895,9 +1889,6 @@
       <code>$limit_to</code>
       <code>$remember_template</code>
       <code>$save_filename</code>
-      <code>$separate_files</code>
-      <code>$separate_files</code>
-      <code>$separate_files</code>
       <code>$sql_query</code>
       <code>$sql_query</code>
       <code>$sql_query</code>
@@ -1921,14 +1912,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['aliases']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$GLOBALS[$one_post_param]</code>
-      <code>$_SESSION['tmpval']['aliases']</code>
-      <code>$compression</code>
-      <code>$onserver</code>
-      <code>$onserver</code>
-      <code>$selectedCompression</code>
-      <code>$separate_files</code>
+    <MixedAssignment occurrences="3">
       <code>$table_data</code>
       <code>$table_structure</code>
       <code>$tables</code>
@@ -1946,32 +1930,12 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
-    <MixedArgument occurrences="9">
-      <code>$_POST['type']</code>
-      <code>$_POST['value']</code>
-      <code>$_POST['value']</code>
-      <code>$_POST['value']</code>
-      <code>$_POST['value']</code>
-      <code>$_POST['value']</code>
+    <MixedArgument occurrences="1">
       <code>$geom_type</code>
-      <code>$gis_data</code>
-      <code>$gis_data</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$gis_data['gis_type']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$gis_data['gis_type']</code>
-      <code>$gis_data['gis_type']</code>
-      <code>$gis_data['gis_type']</code>
-    </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$geom_type</code>
-      <code>$gis_data</code>
     </MixedAssignment>
-    <PossiblyFalseOperand occurrences="1">
-      <code>mb_strpos($_POST['value'], '(')</code>
-    </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Controllers/HomeController.php">
     <MixedArgument occurrences="7">

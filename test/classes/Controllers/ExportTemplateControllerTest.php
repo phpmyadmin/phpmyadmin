@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use PhpMyAdmin\Controllers\ExportTemplateController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -62,11 +63,16 @@ class ExportTemplateControllerTest extends AbstractTestCase
         global $cfg;
 
         $cfg['Server']['user'] = 'user';
-        $_POST['exportType'] = 'type';
-        $_POST['templateName'] = 'name';
-        $_POST['templateData'] = 'data';
 
-        $this->controller->create();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['exportType', '', 'type'],
+            ['templateName', '', 'name'],
+            ['templateData', '', 'data'],
+            ['template_id', null, null],
+        ]);
+
+        $this->controller->create($request);
 
         $templates = [
             ExportTemplate::fromArray([
@@ -99,9 +105,11 @@ class ExportTemplateControllerTest extends AbstractTestCase
         global $cfg;
 
         $cfg['Server']['user'] = 'user';
-        $_POST['templateId'] = '1';
 
-        $this->controller->delete();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturn('1');
+
+        $this->controller->delete($request);
 
         $this->assertTrue($this->response->hasSuccessState());
     }
@@ -111,9 +119,11 @@ class ExportTemplateControllerTest extends AbstractTestCase
         global $cfg;
 
         $cfg['Server']['user'] = 'user';
-        $_POST['templateId'] = '1';
 
-        $this->controller->load();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturn('1');
+
+        $this->controller->load($request);
 
         $this->assertTrue($this->response->hasSuccessState());
         $this->assertEquals(['data' => 'data1'], $this->response->getJSONResult());
@@ -124,10 +134,14 @@ class ExportTemplateControllerTest extends AbstractTestCase
         global $cfg;
 
         $cfg['Server']['user'] = 'user';
-        $_POST['templateId'] = '1';
-        $_POST['templateData'] = 'data';
 
-        $this->controller->update();
+        $request = $this->createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['templateId', null, '1'],
+            ['templateData', '', 'data'],
+        ]);
+
+        $this->controller->update($request);
 
         $this->assertTrue($this->response->hasSuccessState());
     }

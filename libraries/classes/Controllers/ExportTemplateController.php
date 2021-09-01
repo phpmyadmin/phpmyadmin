@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -35,9 +36,18 @@ final class ExportTemplateController extends AbstractController
         $this->relation = $relation;
     }
 
-    public function create(): void
+    public function create(ServerRequest $request): void
     {
         global $cfg;
+
+        /** @var string $exportType */
+        $exportType = $request->getParsedBodyParam('exportType', '');
+        /** @var string $templateName */
+        $templateName = $request->getParsedBodyParam('templateName', '');
+        /** @var string $templateData */
+        $templateData = $request->getParsedBodyParam('templateData', '');
+        /** @var string|null $templateId */
+        $templateId = $request->getParsedBodyParam('template_id');
 
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -47,9 +57,9 @@ final class ExportTemplateController extends AbstractController
 
         $template = ExportTemplate::fromArray([
             'username' => $cfg['Server']['user'],
-            'exportType' => $_POST['exportType'] ?? '',
-            'name' => $_POST['templateName'] ?? '',
-            'data' => $_POST['templateData'] ?? '',
+            'exportType' => $exportType,
+            'name' => $templateName,
+            'data' => $templateData,
         ]);
         $result = $this->model->create($cfgRelation['db'], $cfgRelation['export_templates'], $template);
 
@@ -72,15 +82,16 @@ final class ExportTemplateController extends AbstractController
             'data',
             $this->template->render('export/template_options', [
                 'templates' => is_array($templates) ? $templates : [],
-                'selected_template' => $_POST['template_id'] ?? null,
+                'selected_template' => $templateId,
             ])
         );
     }
 
-    public function delete(): void
+    public function delete(ServerRequest $request): void
     {
         global $cfg;
 
+        $templateId = (int) $request->getParsedBodyParam('templateId');
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
@@ -91,7 +102,7 @@ final class ExportTemplateController extends AbstractController
             $cfgRelation['db'],
             $cfgRelation['export_templates'],
             $cfg['Server']['user'],
-            (int) $_POST['templateId']
+            $templateId
         );
 
         if (is_string($result)) {
@@ -104,10 +115,11 @@ final class ExportTemplateController extends AbstractController
         $this->response->setRequestStatus(true);
     }
 
-    public function load(): void
+    public function load(ServerRequest $request): void
     {
         global $cfg;
 
+        $templateId = (int) $request->getParsedBodyParam('templateId');
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
@@ -118,7 +130,7 @@ final class ExportTemplateController extends AbstractController
             $cfgRelation['db'],
             $cfgRelation['export_templates'],
             $cfg['Server']['user'],
-            (int) $_POST['templateId']
+            $templateId
         );
 
         if (! $template instanceof ExportTemplate) {
@@ -132,10 +144,13 @@ final class ExportTemplateController extends AbstractController
         $this->response->addJSON('data', $template->getData());
     }
 
-    public function update(): void
+    public function update(ServerRequest $request): void
     {
         global $cfg;
 
+        $templateId = (int) $request->getParsedBodyParam('templateId');
+        /** @var string $templateData */
+        $templateData = $request->getParsedBodyParam('templateData', '');
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (! $cfgRelation['exporttemplateswork']) {
@@ -143,9 +158,9 @@ final class ExportTemplateController extends AbstractController
         }
 
         $template = ExportTemplate::fromArray([
-            'id' => (int) $_POST['templateId'],
+            'id' => $templateId,
             'username' => $cfg['Server']['user'],
-            'data' => $_POST['templateData'],
+            'data' => $templateData,
         ]);
         $result = $this->model->update($cfgRelation['db'], $cfgRelation['export_templates'], $template);
 
