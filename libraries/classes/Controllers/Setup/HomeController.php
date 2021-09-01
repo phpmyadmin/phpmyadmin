@@ -132,6 +132,8 @@ class HomeController extends AbstractController
             $hasCheckPageRefresh = true;
         }
 
+        $isWindows = (bool) $GLOBALS['config']->get('PMA_IS_WINDOWS');
+
         return $this->template->render('setup/home/index', [
             'formset' => $params['formset'] ?? '',
             'languages' => $languages,
@@ -140,7 +142,9 @@ class HomeController extends AbstractController
             'servers' => $servers,
             'pages' => $pages,
             'has_check_page_refresh' => $hasCheckPageRefresh,
-            'eol' => Core::ifSetOr($_SESSION['eol'], ($GLOBALS['config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix')),
+            'eol' => Core::isValid($_SESSION['eol'], 'similar', $isWindows ? 'win' : 'unix')
+                ? $_SESSION['eol']
+                : ($isWindows ? 'win' : 'unix'),
         ]);
     }
 }

@@ -5315,11 +5315,11 @@
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
       <code>$clause</code>
       <code>$columns[$columnIndex]</code>
-      <code>$criteriaColumnCount</code>
+      <code>$criteriaColumnAdd</code>
+      <code>$criteriaRowAdd</code>
       <code>$eachTable</code>
       <code>$eachTable</code>
       <code>$index['Column_name']</code>
-      <code>$rows</code>
       <code>$select</code>
       <code>$selected['and'] ?? ''</code>
       <code>$selected['or'] ?? ''</code>
@@ -7180,11 +7180,9 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Footer.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$table</code>
-      <code>Core::ifSetOr($GLOBALS['db'], '')</code>
-      <code>Core::ifSetOr($GLOBALS['table'], '')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$params</code>
@@ -14345,8 +14343,6 @@
       <code>$user</code>
       <code>$username</code>
       <code>$username</code>
-      <code>Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length')</code>
-      <code>Core::ifSetOr($tablename, '*', 'length')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="16">
       <code>$queries</code>

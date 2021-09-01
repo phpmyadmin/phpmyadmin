@@ -3274,8 +3274,12 @@ class Privileges
 
         $privilegesTable = $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.
-            Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length'),
-            Core::ifSetOr($tablename, '*', 'length')
+            Core::isValid($dbname, 'length', is_array($dbname) ? $dbname[0] : '*')
+                ? $dbname
+                : (is_array($dbname) ? $dbname[0] : '*'),
+            Core::isValid($tablename, 'length', '*')
+                ? $tablename
+                : '*'
         );
 
         $tableSpecificRights = '';

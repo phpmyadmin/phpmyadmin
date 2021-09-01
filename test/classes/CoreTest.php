@@ -606,7 +606,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $default = 'foo';
         $in = 'bar';
-        $out = Core::ifSetOr($in, $default);
+        $out = Core::isValid($in, 'similar', $default) ? $in : $default;
         $this->assertEquals($in, $out);
     }
 
@@ -617,7 +617,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $default = 'foo';
         $in = 'bar';
-        $out = Core::ifSetOr($in, $default, 'boolean');
+        $out = Core::isValid($in, 'boolean', $default) ? $in : $default;
         $this->assertEquals($out, $default);
     }
 
@@ -628,7 +628,7 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $default = 'foo';
         // $in is not set!
-        $out = Core::ifSetOr($in, $default);
+        $out = Core::isValid($in, 'similar', $default) ? $in : $default;
         $this->assertEquals($out, $default);
     }
 
@@ -638,7 +638,7 @@ class CoreTest extends AbstractNetworkTestCase
     public function testVarNotSetNoDefault(): void
     {
         // $in is not set!
-        $out = Core::ifSetOr($in);
+        $out = Core::isValid($in, 'similar', null) ? $in : null;
         $this->assertNull($out);
     }
 

@@ -28,7 +28,7 @@ class ConfigController extends AbstractController
         return $this->template->render('setup/config/index', [
             'formset' => $params['formset'] ?? '',
             'pages' => $pages,
-            'eol' => Core::ifSetOr($params['eol'], 'unix'),
+            'eol' => Core::isValid($params['eol'], 'similar', 'unix') ? $params['eol'] : 'unix',
             'config' => $config,
             'has_check_page_refresh' => $hasCheckPageRefresh,
         ]);

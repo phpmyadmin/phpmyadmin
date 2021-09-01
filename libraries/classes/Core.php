@@ -65,44 +65,6 @@ use const FILTER_VALIDATE_IP;
 class Core
 {
     /**
-     * checks given $var and returns it if valid, or $default of not valid
-     * given $var is also checked for type being 'similar' as $default
-     * or against any other type if $type is provided
-     *
-     * <code>
-     * // $_REQUEST['db'] not set
-     * echo Core::ifSetOr($_REQUEST['db'], ''); // ''
-     * // $_POST['sql_query'] not set
-     * echo Core::ifSetOr($_POST['sql_query']); // null
-     * // $cfg['EnableFoo'] not set
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
-     * echo Core::ifSetOr($cfg['EnableFoo']); // null
-     * // $cfg['EnableFoo'] set to 1
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
-     * echo Core::ifSetOr($cfg['EnableFoo'], false); // 1
-     * // $cfg['EnableFoo'] set to true
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
-     * </code>
-     *
-     * @see self::isValid()
-     *
-     * @param mixed $var     param to check
-     * @param mixed $default default value
-     * @param mixed $type    var type or array of values to check against $var
-     *
-     * @return mixed $var or $default
-     */
-    public static function ifSetOr(&$var, $default = null, $type = 'similar')
-    {
-        if (! self::isValid($var, $type, $default)) {
-            return $default;
-        }
-
-        return $var;
-    }
-
-    /**
      * checks given $var against $type or $compare
      *
      * $type can be:

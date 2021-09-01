@@ -239,8 +239,8 @@ class Footer
         }
 
         $this->relation->setHistory(
-            Core::ifSetOr($GLOBALS['db'], ''),
-            Core::ifSetOr($GLOBALS['table'], ''),
+            Core::isValid($GLOBALS['db'], 'similar', '') ? $GLOBALS['db'] : '',
+            Core::isValid($GLOBALS['table'], 'similar', '') ? $GLOBALS['table'] : '',
             $GLOBALS['cfg']['Server']['user'],
             $GLOBALS['sql_query']
         );

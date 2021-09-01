@@ -33,7 +33,7 @@ if (isset($_POST['eol'])) {
     $_SESSION['eol'] = $_POST['eol'] === 'unix' ? 'unix' : 'win';
 }
 
-if (Core::ifSetOr($_POST['submit_clear'], '')) {
+if (Core::isValid($_POST['submit_clear'], 'similar', '') ? $_POST['submit_clear'] : '') {
     // Clear current config and return to main page
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
@@ -41,7 +41,7 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     exit;
 }
 
-if (Core::ifSetOr($_POST['submit_download'], '')) {
+if (Core::isValid($_POST['submit_download'], 'similar', '') ? $_POST['submit_download'] : '') {
     // Output generated config file
     Core::downloadHeader('config.inc.php', 'text/plain');
     $response->disable();

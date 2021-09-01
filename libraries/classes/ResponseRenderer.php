@@ -376,8 +376,8 @@ class ResponseRenderer
                 $this->addJSON(
                     'reloadQuerywindow',
                     [
-                        'db' => Core::ifSetOr($GLOBALS['db'], ''),
-                        'table' => Core::ifSetOr($GLOBALS['table'], ''),
+                        'db' => Core::isValid($GLOBALS['db'], 'similar', '') ? $GLOBALS['db'] : '',
+                        'table' => Core::isValid($GLOBALS['table'], 'similar', '') ? $GLOBALS['table'] : '',
                         'sql_query' => $query,
                     ]
                 );

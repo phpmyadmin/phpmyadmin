@@ -311,16 +311,12 @@ class Qbe
     {
         $criteriaColumnCount = $this->initializeCriteriasCount();
 
-        $this->criteriaColumnInsert = Core::ifSetOr(
-            $_POST['criteriaColumnInsert'],
-            null,
-            'array'
-        );
-        $this->criteriaColumnDelete = Core::ifSetOr(
-            $_POST['criteriaColumnDelete'],
-            null,
-            'array'
-        );
+        $this->criteriaColumnInsert = Core::isValid($_POST['criteriaColumnInsert'], 'array', null)
+            ? $_POST['criteriaColumnInsert']
+            : null;
+        $this->criteriaColumnDelete = Core::isValid($_POST['criteriaColumnDelete'], 'array', null)
+            ? $_POST['criteriaColumnDelete']
+            : null;
 
         $this->prevCriteria = $_POST['prev_criteria'] ?? [];
         $this->criteria = $_POST['criteria'] ?? array_fill(0, $criteriaColumnCount, '');
@@ -1846,24 +1842,20 @@ class Qbe
     private function initializeCriteriasCount(): int
     {
         // sets column count
-        $criteriaColumnCount = Core::ifSetOr(
-            $_POST['criteriaColumnCount'],
-            3,
-            'numeric'
-        );
-        $criteriaColumnAdd = Core::ifSetOr(
-            $_POST['criteriaColumnAdd'],
-            0,
-            'numeric'
-        );
+        $criteriaColumnCount = Core::isValid($_POST['criteriaColumnCount'], 'numeric', 3)
+            ? $_POST['criteriaColumnCount']
+            : 3;
+        $criteriaColumnAdd = Core::isValid($_POST['criteriaColumnAdd'], 'numeric', 0)
+            ? $_POST['criteriaColumnAdd']
+            : 0;
         $this->criteriaColumnCount = max(
             $criteriaColumnCount + $criteriaColumnAdd,
             0
         );
 
         // sets row count
-        $rows = Core::ifSetOr($_POST['rows'], 0, 'numeric');
-        $criteriaRowAdd = Core::ifSetOr($_POST['criteriaRowAdd'], 0, 'numeric');
+        $rows = Core::isValid($_POST['rows'], 'numeric', 0) ? $_POST['rows'] : 0;
+        $criteriaRowAdd = Core::isValid($_POST['criteriaRowAdd'], 'numeric', 0) ? $_POST['criteriaRowAdd'] : 0;
         $this->criteriaRowCount = min(
             100,
             max($rows + $criteriaRowAdd, 0)
