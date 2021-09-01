@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-29 00:09+0000\n"
-"PO-Revision-Date: 2021-08-06 03:34+0000\n"
+"PO-Revision-Date: 2021-09-02 02:56+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5683,27 +5683,23 @@ msgstr "閉じる"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "ロック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "ロック解除"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "ログファイル数"
+msgstr "このアカウントをロックします。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "ユーザアカウント"
+msgstr "このアカウントのロックを解除します。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
@@ -7483,16 +7479,14 @@ msgid "Overhead"
 msgstr "オーバーヘッド"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "カラムは正常に移動されました。"
+msgstr "アカウント %s@%s がロックされました。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "カラムは正常に移動されました。"
+msgstr "アカウント %s@%s のロックが解除されました。"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
@@ -12159,7 +12153,7 @@ msgstr "旧 MySQL 4.0 認証"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "アカウントのロックに対応していません。"
 
 #: libraries/classes/Server/Privileges.php:262
 msgid "No privileges."
