@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 
+use function is_numeric;
 use function ob_get_clean;
 use function ob_start;
 
@@ -22,7 +22,7 @@ class ServersController extends AbstractController
     {
         $pages = $this->getPages();
 
-        $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
+        $id = isset($params['id']) && is_numeric($params['id']) ? (int) $params['id'] : null;
         $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
         if (! $hasServer && ($params['mode'] !== 'revert' && $params['mode'] !== 'edit')) {
@@ -49,7 +49,7 @@ class ServersController extends AbstractController
      */
     public function destroy(array $params): void
     {
-        $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
+        $id = isset($params['id']) && is_numeric($params['id']) ? (int) $params['id'] : null;
 
         $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Controllers\Table\StructureController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -22,6 +21,7 @@ use function array_merge;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
+use function is_array;
 use function is_string;
 use function sprintf;
 use function str_contains;
@@ -109,7 +109,7 @@ class ViewCreateController extends AbstractController
                 $sql_query = 'ALTER';
             }
 
-            if (Core::isValid($_POST['view']['algorithm'], $view_algorithm_options)) {
+            if (isset($_POST['view']['algorithm']) && in_array($_POST['view']['algorithm'], $view_algorithm_options)) {
                 $sql_query .= $sep . ' ALGORITHM = ' . $_POST['view']['algorithm'];
             }
 
@@ -273,7 +273,7 @@ class ViewCreateController extends AbstractController
             }
         }
 
-        if (Core::isValid($_POST['view'], 'array')) {
+        if (isset($_POST['view']) && is_array($_POST['view'])) {
             $view = array_merge($view, $_POST['view']);
         }
 

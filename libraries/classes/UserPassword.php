@@ -135,13 +135,7 @@ class UserPassword
      */
     private function changePassHashingFunction()
     {
-        if (
-            Core::isValid(
-                $_POST['authentication_plugin'],
-                'identical',
-                'mysql_old_password'
-            )
-        ) {
+        if (isset($_POST['authentication_plugin']) && $_POST['authentication_plugin'] === 'mysql_old_password') {
             $hashing_function = 'OLD_PASSWORD';
         } else {
             $hashing_function = 'PASSWORD';

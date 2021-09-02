@@ -16,6 +16,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
+use function is_array;
 
 /**
  * Handles creation of the GIS visualizations.
@@ -92,9 +93,9 @@ final class GisVisualizationController extends AbstractController
         // Get settings if any posted
         $visualizationSettings = [];
         // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
-        if (Core::isValid($_POST['visualizationSettings'], 'array')) {
+        if (isset($_POST['visualizationSettings']) && is_array($_POST['visualizationSettings'])) {
             $visualizationSettings = $_POST['visualizationSettings'];
-        } elseif (Core::isValid($_GET['visualizationSettings'], 'array')) {
+        } elseif (isset($_GET['visualizationSettings']) && is_array($_GET['visualizationSettings'])) {
             $visualizationSettings = $_GET['visualizationSettings'];
         }
 

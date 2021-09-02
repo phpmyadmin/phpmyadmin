@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Partitioning;
 
-use PhpMyAdmin\Core;
-
 use function array_intersect_key;
 use function array_merge;
 use function array_splice;
+use function is_numeric;
 use function min;
 
 final class TablePartitionDefinition
@@ -83,7 +82,7 @@ final class TablePartitionDefinition
      */
     private static function extractPartitionCount(string $paramLabel): int
     {
-        if (Core::isValid($_POST[$paramLabel], 'numeric')) {
+        if (isset($_POST[$paramLabel]) && is_numeric($_POST[$paramLabel])) {
             // MySQL's limit is 8192, so do not allow more
             // @see https://dev.mysql.com/doc/refman/en/partitioning-limitations.html
             $count = min((int) $_POST[$paramLabel], 8192);

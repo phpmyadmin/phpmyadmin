@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
@@ -23,6 +22,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function intval;
+use function is_numeric;
 
 final class ImportController extends AbstractController
 {
@@ -75,7 +75,7 @@ final class ImportController extends AbstractController
         }
 
         $offset = null;
-        if (Core::isValid($_REQUEST['offset'], 'numeric')) {
+        if (isset($_REQUEST['offset']) && is_numeric($_REQUEST['offset'])) {
             $offset = intval($_REQUEST['offset']);
         }
 

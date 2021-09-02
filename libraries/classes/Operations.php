@@ -12,6 +12,7 @@ use function __;
 use function array_merge;
 use function count;
 use function explode;
+use function is_scalar;
 use function mb_strtolower;
 use function str_replace;
 use function strlen;
@@ -1020,7 +1021,7 @@ class Operations
         /**
          * A target table name has been sent to this script -> do the work
          */
-        if (Core::isValid($_POST['new_name'])) {
+        if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && strlen((string) $_POST['new_name']) > 0) {
             if ($db == $_POST['target_db'] && $table == $_POST['new_name']) {
                 if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));
@@ -1032,7 +1033,7 @@ class Operations
                     $db,
                     $table,
                     $_POST['target_db'],
-                    $_POST['new_name'],
+                    (string) $_POST['new_name'],
                     $_POST['what'],
                     isset($_POST['submit_move']),
                     'one_table'
@@ -1047,14 +1048,14 @@ class Operations
                             $db,
                             $table,
                             $_POST['target_db'],
-                            $_POST['new_name']
+                            (string) $_POST['new_name']
                         );
                     } else {
                         $this->adjustPrivilegesCopyTable(
                             $db,
                             $table,
                             $_POST['target_db'],
-                            $_POST['new_name']
+                            (string) $_POST['new_name']
                         );
                     }
 
@@ -1089,7 +1090,7 @@ class Operations
                     . Util::backquote($table);
                 $message->addParam($old);
 
-                $new_name = $_POST['new_name'];
+                $new_name = (string) $_POST['new_name'];
                 if ($this->dbi->getLowerCaseNames() === '1') {
                     $new_name = strtolower($new_name);
                 }

@@ -27,6 +27,7 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_scalar;
 use function is_string;
 use function ksort;
 use function mb_check_encoding;
@@ -1432,20 +1433,31 @@ class Relation
         $top = [];
         $bottom = [];
         if ($foreign_display) {
-            if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
-                if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
+            if (
+                isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
+                && is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])
+            ) {
+                if (
+                    isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])
+                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])
+                    && strlen((string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]) > 0
+                ) {
                     $top = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
+                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
                     );
                 }
 
-                if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
+                if (
+                    isset($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
+                    && is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])
+                    && strlen((string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]) > 0
+                ) {
                     $bottom = $this->buildForeignDropdown(
                         $foreign,
                         $data,
-                        $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
+                        (string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
                     );
                 }
             } else {

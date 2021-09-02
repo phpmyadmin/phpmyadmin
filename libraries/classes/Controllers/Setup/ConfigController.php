@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\ConfigGenerator;
+
+use function is_scalar;
 
 class ConfigController extends AbstractController
 {
@@ -28,7 +29,7 @@ class ConfigController extends AbstractController
         return $this->template->render('setup/config/index', [
             'formset' => $params['formset'] ?? '',
             'pages' => $pages,
-            'eol' => Core::isValid($params['eol'], 'similar', 'unix') ? $params['eol'] : 'unix',
+            'eol' => isset($params['eol']) && is_scalar($params['eol']) ? $params['eol'] : 'unix',
             'config' => $config,
             'has_check_page_refresh' => $hasCheckPageRefresh,
         ]);
