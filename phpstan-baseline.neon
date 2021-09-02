@@ -466,22 +466,22 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, class\\-string\\|string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -811,6 +811,11 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Parameter \\#3 \\$num_points of function imagefilledpolygon expects int, float\\|int\\<0, max\\> given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Parameter \\#4 \\$blue of function imagecolorallocate expects int, float\\|int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -877,6 +882,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$green of function imagecolorallocate expects int, float\\|int given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: "#^Parameter \\#3 \\$num_points of function imagefilledpolygon expects int, float\\|int\\<0, max\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -1029,6 +1039,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPresence\\(\\) should return int but returns float\\|int\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPresence\\(\\) should return int but returns int\\|string\\.$#"
