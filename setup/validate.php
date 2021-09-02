@@ -23,9 +23,9 @@ require ROOT_PATH . 'setup/lib/common.inc.php';
 
 Core::headerJSON();
 
-$ids = Core::isValid($_POST['id'], 'scalar') ? $_POST['id'] : null;
+$ids = isset($_POST['id']) && is_scalar($_POST['id']) ? (string) $_POST['id'] : '';
 $vids = explode(',', $ids);
-$vals = Core::isValid($_POST['values'], 'scalar') ? $_POST['values'] : null;
+$vals = isset($_POST['values']) && is_scalar($_POST['values']) ? (string) $_POST['values'] : '';
 $values = json_decode($vals);
 if (! ($values instanceof stdClass)) {
     Core::fatalError(__('Wrong data'));

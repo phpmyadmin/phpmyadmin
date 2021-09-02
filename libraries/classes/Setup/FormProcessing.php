@@ -8,10 +8,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
+use function is_numeric;
 
 /**
  * PhpMyAdmin\Setup\FormProcessing class
@@ -54,7 +55,7 @@ class FormProcessing
         // form has errors, show warning
         $page = $_GET['page'] ?? '';
         $formset = $_GET['formset'] ?? '';
-        $formId = Core::isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
+        $formId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int) $_GET['id'] : null;
         if ($formId === null && $page === 'servers') {
             // we've just added a new server, get its id
             $formId = $form_display->getConfigFile()->getServerCount();

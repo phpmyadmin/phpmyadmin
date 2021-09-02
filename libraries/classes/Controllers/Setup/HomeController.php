@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Setup;
 
 use PhpMyAdmin\Config\ServerConfigChecks;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
 
 use function __;
+use function is_scalar;
 use function preg_replace;
 use function uniqid;
 
@@ -26,7 +26,9 @@ class HomeController extends AbstractController
         $pages = $this->getPages();
 
         // Handle done action info
-        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : '';
+        $actionDone = isset($params['action_done']) && is_scalar($params['action_done'])
+            ? (string) $params['action_done']
+            : '';
         $actionDone = preg_replace('/[^a-z_]/', '', $actionDone);
 
         // message handling
@@ -140,7 +142,9 @@ class HomeController extends AbstractController
             'servers' => $servers,
             'pages' => $pages,
             'has_check_page_refresh' => $hasCheckPageRefresh,
-            'eol' => Core::ifSetOr($_SESSION['eol'], ($GLOBALS['config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix')),
+            'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
+                ? $_SESSION['eol']
+                : ($GLOBALS['config']->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
         ]);
     }
 }

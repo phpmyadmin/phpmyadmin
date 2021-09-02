@@ -46,6 +46,7 @@ use function ini_get;
 use function is_array;
 use function is_callable;
 use function is_object;
+use function is_scalar;
 use function is_string;
 use function log10;
 use function mb_detect_encoding;
@@ -2474,8 +2475,12 @@ class Util
         if (count($sotCache) > 0) {
             $tblGroupSql = '';
             $whereAdded = false;
-            if (Core::isValid($_REQUEST['tbl_group'])) {
-                $group = self::escapeMysqlWildcards($_REQUEST['tbl_group']);
+            if (
+                isset($_REQUEST['tbl_group'])
+                && is_scalar($_REQUEST['tbl_group'])
+                && strlen((string) $_REQUEST['tbl_group']) > 0
+            ) {
+                $group = self::escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
                 $groupWithSeparator = self::escapeMysqlWildcards(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
@@ -2489,7 +2494,7 @@ class Util
                 $whereAdded = true;
             }
 
-            if (Core::isValid($_REQUEST['tbl_type'], ['table', 'view'])) {
+            if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'])) {
                 $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
                 if ($_REQUEST['tbl_type'] === 'view') {
                     $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -2761,7 +2766,7 @@ class Util
             'sort_order' => $futureSortOrder,
         ];
 
-        if (Core::isValid($_REQUEST['tbl_type'], ['view', 'table'])) {
+        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['view', 'table'])) {
             $urlParams['tbl_type'] = $_REQUEST['tbl_type'];
         }
 

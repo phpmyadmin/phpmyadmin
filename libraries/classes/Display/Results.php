@@ -46,8 +46,10 @@ use function file_exists;
 use function floor;
 use function htmlspecialchars;
 use function implode;
+use function in_array;
 use function intval;
 use function is_array;
+use function is_numeric;
 use function json_encode;
 use function mb_check_encoding;
 use function mb_strlen;
@@ -3810,9 +3812,7 @@ class Results
         // The value can also be from _GET as described on issue #16146 when sorting results
         $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
 
-        // as this is a form value, the type is always string so we cannot
-        // use Core::isValid($_POST['session_max_rows'], 'integer')
-        if (Core::isValid($sessionMaxRows, 'numeric')) {
+        if (isset($sessionMaxRows) && is_numeric($sessionMaxRows)) {
             $query['max_rows'] = (int) $sessionMaxRows;
             unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif ($sessionMaxRows === self::ALL_ROWS) {
@@ -3822,7 +3822,7 @@ class Results
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }
 
-        if (Core::isValid($_REQUEST['pos'], 'numeric')) {
+        if (isset($_REQUEST['pos']) && is_numeric($_REQUEST['pos'])) {
             $query['pos'] = (int) $_REQUEST['pos'];
             unset($_REQUEST['pos']);
         } elseif (empty($query['pos'])) {
@@ -3830,12 +3830,9 @@ class Results
         }
 
         if (
-            Core::isValid(
+            isset($_REQUEST['pftext']) && in_array(
                 $_REQUEST['pftext'],
-                [
-                    self::DISPLAY_PARTIAL_TEXT,
-                    self::DISPLAY_FULL_TEXT,
-                ]
+                [self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT]
             )
         ) {
             $query['pftext'] = $_REQUEST['pftext'];
@@ -3845,12 +3842,9 @@ class Results
         }
 
         if (
-            Core::isValid(
+            isset($_REQUEST['relational_display']) && in_array(
                 $_REQUEST['relational_display'],
-                [
-                    self::RELATIONAL_KEY,
-                    self::RELATIONAL_DISPLAY_COLUMN,
-                ]
+                [self::RELATIONAL_KEY, self::RELATIONAL_DISPLAY_COLUMN]
             )
         ) {
             $query['relational_display'] = $_REQUEST['relational_display'];
@@ -3863,13 +3857,9 @@ class Results
         }
 
         if (
-            Core::isValid(
+            isset($_REQUEST['geoOption']) && in_array(
                 $_REQUEST['geoOption'],
-                [
-                    self::GEOMETRY_DISP_WKT,
-                    self::GEOMETRY_DISP_WKB,
-                    self::GEOMETRY_DISP_GEOM,
-                ]
+                [self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB, self::GEOMETRY_DISP_GEOM]
             )
         ) {
             $query['geoOption'] = $_REQUEST['geoOption'];

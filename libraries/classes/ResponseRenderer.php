@@ -11,6 +11,7 @@ use function defined;
 use function headers_sent;
 use function http_response_code;
 use function is_array;
+use function is_scalar;
 use function json_encode;
 use function json_last_error_msg;
 use function mb_strlen;
@@ -376,8 +377,10 @@ class ResponseRenderer
                 $this->addJSON(
                     'reloadQuerywindow',
                     [
-                        'db' => Core::ifSetOr($GLOBALS['db'], ''),
-                        'table' => Core::ifSetOr($GLOBALS['table'], ''),
+                        'db' => isset($GLOBALS['db']) && is_scalar($GLOBALS['db'])
+                            ? (string) $GLOBALS['db'] : '',
+                        'table' => isset($GLOBALS['table']) && is_scalar($GLOBALS['table'])
+                            ? (string) $GLOBALS['table'] : '',
                         'sql_query' => $query,
                     ]
                 );

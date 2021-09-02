@@ -19,7 +19,6 @@ use function explode;
 use function filter_var;
 use function function_exists;
 use function getenv;
-use function gettype;
 use function gmdate;
 use function hash_equals;
 use function hash_hmac;
@@ -29,8 +28,6 @@ use function http_build_query;
 use function in_array;
 use function intval;
 use function is_array;
-use function is_numeric;
-use function is_scalar;
 use function is_string;
 use function json_encode;
 use function mb_strlen;
@@ -64,165 +61,6 @@ use const FILTER_VALIDATE_IP;
  */
 class Core
 {
-    /**
-     * checks given $var and returns it if valid, or $default of not valid
-     * given $var is also checked for type being 'similar' as $default
-     * or against any other type if $type is provided
-     *
-     * <code>
-     * // $_REQUEST['db'] not set
-     * echo Core::ifSetOr($_REQUEST['db'], ''); // ''
-     * // $_POST['sql_query'] not set
-     * echo Core::ifSetOr($_POST['sql_query']); // null
-     * // $cfg['EnableFoo'] not set
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
-     * echo Core::ifSetOr($cfg['EnableFoo']); // null
-     * // $cfg['EnableFoo'] set to 1
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'similar'); // 1
-     * echo Core::ifSetOr($cfg['EnableFoo'], false); // 1
-     * // $cfg['EnableFoo'] set to true
-     * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
-     * </code>
-     *
-     * @see self::isValid()
-     *
-     * @param mixed $var     param to check
-     * @param mixed $default default value
-     * @param mixed $type    var type or array of values to check against $var
-     *
-     * @return mixed $var or $default
-     */
-    public static function ifSetOr(&$var, $default = null, $type = 'similar')
-    {
-        if (! self::isValid($var, $type, $default)) {
-            return $default;
-        }
-
-        return $var;
-    }
-
-    /**
-     * checks given $var against $type or $compare
-     *
-     * $type can be:
-     * - false       : no type checking
-     * - 'scalar'    : whether type of $var is integer, float, string or boolean
-     * - 'numeric'   : whether type of $var is any number representation
-     * - 'length'    : whether type of $var is scalar with a string length > 0
-     * - 'similar'   : whether type of $var is similar to type of $compare
-     * - 'equal'     : whether type of $var is identical to type of $compare
-     * - 'identical' : whether $var is identical to $compare, not only the type!
-     * - or any other valid PHP variable type
-     *
-     * <code>
-     * // $_REQUEST['doit'] = true;
-     * Core::isValid($_REQUEST['doit'], 'identical', 'true'); // false
-     * // $_REQUEST['doit'] = 'true';
-     * Core::isValid($_REQUEST['doit'], 'identical', 'true'); // true
-     * </code>
-     *
-     * NOTE: call-by-reference is used to not get NOTICE on undefined vars,
-     * but the var is not altered inside this function, also after checking a var
-     * this var exists nut is not set, example:
-     * <code>
-     * // $var is not set
-     * isset($var); // false
-     * functionCallByReference($var); // false
-     * isset($var); // true
-     * functionCallByReference($var); // true
-     * </code>
-     *
-     * to avoid this we set this var to null if not isset
-     *
-     * @see https://www.php.net/gettype
-     *
-     * @param mixed $var     variable to check
-     * @param mixed $type    var type or array of valid values to check against $var
-     * @param mixed $compare var to compare with $var
-     *
-     * @return bool whether valid or not
-     *
-     * @todo add some more var types like hex, bin, ...?
-     */
-    public static function isValid(&$var, $type = 'length', $compare = null): bool
-    {
-        if (! isset($var)) {
-            // var is not even set
-            return false;
-        }
-
-        if ($type === false) {
-            // no vartype requested
-            return true;
-        }
-
-        if (is_array($type)) {
-            return in_array($var, $type);
-        }
-
-        // allow some aliases of var types
-        $type = strtolower($type);
-        switch ($type) {
-            case 'identic':
-                $type = 'identical';
-                break;
-            case 'len':
-                $type = 'length';
-                break;
-            case 'bool':
-                $type = 'boolean';
-                break;
-            case 'float':
-                $type = 'double';
-                break;
-            case 'int':
-                $type = 'integer';
-                break;
-            case 'null':
-                $type = 'NULL';
-                break;
-        }
-
-        if ($type === 'identical') {
-            return $var === $compare;
-        }
-
-        // whether we should check against given $compare
-        if ($type === 'similar') {
-            switch (gettype($compare)) {
-                case 'string':
-                case 'boolean':
-                    $type = 'scalar';
-                    break;
-                case 'integer':
-                case 'double':
-                    $type = 'numeric';
-                    break;
-                default:
-                    $type = gettype($compare);
-            }
-        } elseif ($type === 'equal') {
-            $type = gettype($compare);
-        }
-
-        // do the check
-        if ($type === 'length' || $type === 'scalar') {
-            $is_scalar = is_scalar($var);
-            if ($is_scalar && $type === 'length') {
-                return strlen((string) $var) > 0;
-            }
-
-            return $is_scalar;
-        }
-
-        if ($type === 'numeric') {
-            return is_numeric($var);
-        }
-
-        return gettype($var) === $type;
-    }
-
     /**
      * Removes insecure parts in a path; used before include() or
      * require() when a part of the path comes from an insecure source

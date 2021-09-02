@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server;
 
 use mysqli_stmt;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -31,6 +30,8 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_scalar;
+use function is_string;
 use function json_decode;
 use function ksort;
 use function max;
@@ -2864,18 +2865,34 @@ class Privileges
         /**
          * Checks if a dropdown box has been used for selecting a database / table
          */
-        if (Core::isValid($_POST['pred_tablename'])) {
-            $tablename = $_POST['pred_tablename'];
-        } elseif (Core::isValid($_REQUEST['tablename'])) {
-            $tablename = $_REQUEST['tablename'];
+        if (
+            isset($_POST['pred_tablename'])
+            && is_scalar($_POST['pred_tablename'])
+            && strlen((string) $_POST['pred_tablename']) > 0
+        ) {
+            $tablename = (string) $_POST['pred_tablename'];
+        } elseif (
+            isset($_REQUEST['tablename'])
+            && is_scalar($_REQUEST['tablename'])
+            && strlen((string) $_REQUEST['tablename']) > 0
+        ) {
+            $tablename = (string) $_REQUEST['tablename'];
         } else {
             unset($tablename);
         }
 
-        if (Core::isValid($_POST['pred_routinename'])) {
-            $routinename = $_POST['pred_routinename'];
-        } elseif (Core::isValid($_REQUEST['routinename'])) {
-            $routinename = $_REQUEST['routinename'];
+        if (
+            isset($_POST['pred_routinename'])
+            && is_scalar($_POST['pred_routinename'])
+            && strlen((string) $_POST['pred_routinename']) > 0
+        ) {
+            $routinename = (string) $_POST['pred_routinename'];
+        } elseif (
+            isset($_REQUEST['routinename'])
+            && is_scalar($_REQUEST['routinename'])
+            && strlen((string) $_REQUEST['routinename']) > 0
+        ) {
+            $routinename = (string) $_REQUEST['routinename'];
         } else {
             unset($routinename);
         }
@@ -2883,7 +2900,7 @@ class Privileges
         if (isset($_POST['pred_dbname'])) {
             $isValidPredDbname = true;
             foreach ($_POST['pred_dbname'] as $key => $dbName) {
-                if (! Core::isValid($dbName)) {
+                if (! isset($dbName) || ! is_scalar($dbName) || strlen((string) $dbName) === 0) {
                     $isValidPredDbname = false;
                     break;
                 }
@@ -2894,13 +2911,17 @@ class Privileges
             $isValidDbname = true;
             if (is_array($_REQUEST['dbname'])) {
                 foreach ($_REQUEST['dbname'] as $key => $dbName) {
-                    if (! Core::isValid($dbName)) {
+                    if (! isset($dbName) || ! is_scalar($dbName) || strlen((string) $dbName) === 0) {
                         $isValidDbname = false;
                         break;
                     }
                 }
             } else {
-                if (! Core::isValid($_REQUEST['dbname'])) {
+                if (
+                    ! isset($_REQUEST['dbname'])
+                    || ! is_scalar($_REQUEST['dbname'])
+                    || strlen((string) $_REQUEST['dbname']) === 0
+                ) {
                     $isValidDbname = false;
                 }
             }
@@ -2913,7 +2934,7 @@ class Privileges
                 $dbname = $dbname[0];
             }
         } elseif (isset($isValidDbname) && $isValidDbname) {
-            $dbname = $_REQUEST['dbname'];
+            $dbname = (string) $_REQUEST['dbname'];
         } else {
             unset($dbname, $tablename);
         }
@@ -3274,8 +3295,12 @@ class Privileges
 
         $privilegesTable = $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.
-            Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length'),
-            Core::ifSetOr($tablename, '*', 'length')
+            is_string($dbname) && strlen($dbname) > 0
+                ? $dbname
+                : (is_array($dbname) ? (string) $dbname[0] : '*'),
+            strlen($tablename) > 0
+                ? $tablename
+                : '*'
         );
 
         $tableSpecificRights = '';

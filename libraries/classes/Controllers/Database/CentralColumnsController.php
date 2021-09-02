@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function is_bool;
+use function is_numeric;
 use function parse_str;
 use function sprintf;
 
@@ -132,7 +132,7 @@ class CentralColumnsController extends AbstractController
         ]);
 
         $pos = 0;
-        if (Core::isValid($_POST['pos'], 'integer')) {
+        if (isset($_POST['pos']) && is_numeric($_POST['pos'])) {
             $pos = (int) $_POST['pos'];
         }
 
@@ -158,17 +158,14 @@ class CentralColumnsController extends AbstractController
     {
         global $text_dir;
 
-        if (
-            ! empty($params['total_rows'])
-            && Core::isValid($params['total_rows'], 'integer')
-        ) {
+        if (! empty($params['total_rows']) && is_numeric($params['total_rows'])) {
             $totalRows = (int) $params['total_rows'];
         } else {
             $totalRows = $this->centralColumns->getCount($this->db);
         }
 
         $pos = 0;
-        if (Core::isValid($params['pos'], 'integer')) {
+        if (isset($params['pos']) && is_numeric($params['pos'])) {
             $pos = (int) $params['pos'];
         }
 

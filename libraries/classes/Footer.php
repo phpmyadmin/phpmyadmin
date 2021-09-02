@@ -14,6 +14,7 @@ use function file_exists;
 use function in_array;
 use function is_array;
 use function is_object;
+use function is_scalar;
 use function json_encode;
 use function json_last_error;
 use function strlen;
@@ -229,7 +230,11 @@ class Footer
         global $dbi;
 
         if (
-            Core::isValid($_REQUEST['no_history'])
+            (
+                isset($_REQUEST['no_history'])
+                && is_scalar($_REQUEST['no_history'])
+                && strlen((string) $_REQUEST['no_history']) > 0
+            )
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
             || ! isset($dbi)
@@ -239,8 +244,8 @@ class Footer
         }
 
         $this->relation->setHistory(
-            Core::ifSetOr($GLOBALS['db'], ''),
-            Core::ifSetOr($GLOBALS['table'], ''),
+            isset($GLOBALS['db']) && is_scalar($GLOBALS['db']) ? (string) $GLOBALS['db'] : '',
+            isset($GLOBALS['table']) && is_scalar($GLOBALS['table']) ? (string) $GLOBALS['table'] : '',
             $GLOBALS['cfg']['Server']['user'],
             $GLOBALS['sql_query']
         );

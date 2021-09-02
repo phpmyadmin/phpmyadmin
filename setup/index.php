@@ -32,7 +32,7 @@ if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 
-$page = Core::isValid($_GET['page'], 'scalar') ? (string) $_GET['page'] : '';
+$page = isset($_GET['page']) && is_scalar($_GET['page']) ? (string) $_GET['page'] : '';
 $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';

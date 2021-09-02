@@ -57,9 +57,9 @@ $response->getHeader()->sendHttpHeaders();
 $response->disable();
 
 if (
-    ! Core::isValid($_GET['url'])
-    || ! preg_match('/^https:\/\/[^\n\r]*$/', $_GET['url'])
-    || ! Core::isAllowedDomain($_GET['url'])
+    ! isset($_GET['url']) || ! is_scalar($_GET['url']) || strlen((string) $_GET['url']) === 0
+    || ! preg_match('/^https:\/\/[^\n\r]*$/', (string) $_GET['url'])
+    || ! Core::isAllowedDomain((string) $_GET['url'])
 ) {
     Core::sendHeaderLocation('./');
 } else {
@@ -69,7 +69,7 @@ if (
     //  external site.
     $template = $containerBuilder->get('template');
     echo $template->render('javascript/redirect', [
-        'url' => Sanitize::escapeJsString($_GET['url']),
+        'url' => Sanitize::escapeJsString((string) $_GET['url']),
     ]);
     // Display redirecting msg on screen.
     // Do not display the value of $_GET['url'] to avoid showing injected content

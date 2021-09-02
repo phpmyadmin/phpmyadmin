@@ -12,6 +12,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function _pgettext;
+use function in_array;
 use function intval;
 use function json_decode;
 use function json_encode;
@@ -108,7 +109,7 @@ class NormalizationController extends AbstractController
         $this->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
         $normalForm = '1nf';
-        if (Core::isValid($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
+        if (isset($_POST['normalizeTo']) && in_array($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
             $normalForm = $_POST['normalizeTo'];
         }
 

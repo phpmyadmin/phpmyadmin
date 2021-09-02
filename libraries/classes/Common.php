@@ -24,6 +24,7 @@ use function htmlspecialchars;
 use function implode;
 use function ini_get;
 use function ini_set;
+use function is_scalar;
 use function mb_internal_encoding;
 use function mb_strlen;
 use function mb_strpos;
@@ -461,9 +462,9 @@ final class Common
             return;
         }
 
-        if (Core::isValid($_POST['token'])) {
+        if (isset($_POST['token']) && is_scalar($_POST['token']) && strlen((string) $_POST['token']) > 0) {
             $token_provided = true;
-            $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], $_POST['token']);
+            $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], (string) $_POST['token']);
         }
 
         if (! $token_mismatch) {
@@ -493,11 +494,18 @@ final class Common
     {
         global $db, $table, $urlParams;
 
-        $databaseFromRequest = $_POST['db'] ?? $_GET['db'] ?? $_REQUEST['db'] ?? null;
-        $tableFromRequest = $_POST['table'] ?? $_GET['table'] ?? $_REQUEST['table'] ?? null;
+        $databaseFromRequest = $_POST['db'] ?? $_GET['db'] ?? $_REQUEST['db'] ?? '';
+        $tableFromRequest = $_POST['table'] ?? $_GET['table'] ?? $_REQUEST['table'] ?? '';
 
-        $db = Core::isValid($databaseFromRequest) ? $databaseFromRequest : '';
-        $table = Core::isValid($tableFromRequest) ? $tableFromRequest : '';
+        $db = '';
+        if (is_scalar($databaseFromRequest) && strlen((string) $databaseFromRequest) > 0) {
+            $db = (string) $databaseFromRequest;
+        }
+
+        $table = '';
+        if (is_scalar($tableFromRequest) && strlen((string) $tableFromRequest) > 0) {
+            $table = (string) $tableFromRequest;
+        }
 
         $urlParams['db'] = $db;
         $urlParams['table'] = $table;

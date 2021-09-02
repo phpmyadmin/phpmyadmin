@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -28,6 +27,8 @@ use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
+use function is_array;
+use function is_numeric;
 use function key;
 use function max;
 use function mb_strlen;
@@ -83,14 +84,14 @@ class Qbe
      * Whether to insert a new column
      *
      * @access private
-     * @var array
+     * @var array|null
      */
     private $criteriaColumnInsert;
     /**
      * Whether to delete a column
      *
      * @access private
-     * @var array
+     * @var array|null
      */
     private $criteriaColumnDelete;
     /**
@@ -311,16 +312,12 @@ class Qbe
     {
         $criteriaColumnCount = $this->initializeCriteriasCount();
 
-        $this->criteriaColumnInsert = Core::ifSetOr(
-            $_POST['criteriaColumnInsert'],
-            null,
-            'array'
-        );
-        $this->criteriaColumnDelete = Core::ifSetOr(
-            $_POST['criteriaColumnDelete'],
-            null,
-            'array'
-        );
+        $this->criteriaColumnInsert = isset($_POST['criteriaColumnInsert']) && is_array($_POST['criteriaColumnInsert'])
+            ? $_POST['criteriaColumnInsert']
+            : null;
+        $this->criteriaColumnDelete = isset($_POST['criteriaColumnDelete']) && is_array($_POST['criteriaColumnDelete'])
+            ? $_POST['criteriaColumnDelete']
+            : null;
 
         $this->prevCriteria = $_POST['prev_criteria'] ?? [];
         $this->criteria = $_POST['criteria'] ?? array_fill(0, $criteriaColumnCount, '');
@@ -347,7 +344,7 @@ class Qbe
     private function setCriteriaTablesAndColumns()
     {
         // The tables list sent by a previously submitted form
-        if (Core::isValid($_POST['TableList'], 'array')) {
+        if (isset($_POST['TableList']) && is_array($_POST['TableList'])) {
             foreach ($_POST['TableList'] as $eachTable) {
                 $this->criteriaTables[$eachTable] = ' selected="selected"';
             }
@@ -1846,30 +1843,28 @@ class Qbe
     private function initializeCriteriasCount(): int
     {
         // sets column count
-        $criteriaColumnCount = Core::ifSetOr(
-            $_POST['criteriaColumnCount'],
-            3,
-            'numeric'
-        );
-        $criteriaColumnAdd = Core::ifSetOr(
-            $_POST['criteriaColumnAdd'],
-            0,
-            'numeric'
-        );
+        $criteriaColumnCount = isset($_POST['criteriaColumnCount']) && is_numeric($_POST['criteriaColumnCount'])
+            ? (int) $_POST['criteriaColumnCount']
+            : 3;
+        $criteriaColumnAdd = isset($_POST['criteriaColumnAdd']) && is_numeric($_POST['criteriaColumnAdd'])
+            ? (int) $_POST['criteriaColumnAdd']
+            : 0;
         $this->criteriaColumnCount = max(
             $criteriaColumnCount + $criteriaColumnAdd,
             0
         );
 
         // sets row count
-        $rows = Core::ifSetOr($_POST['rows'], 0, 'numeric');
-        $criteriaRowAdd = Core::ifSetOr($_POST['criteriaRowAdd'], 0, 'numeric');
+        $rows = isset($_POST['rows']) && is_numeric($_POST['rows']) ? (int) $_POST['rows'] : 0;
+        $criteriaRowAdd = isset($_POST['criteriaRowAdd']) && is_numeric($_POST['criteriaRowAdd'])
+            ? (int) $_POST['criteriaRowAdd']
+            : 0;
         $this->criteriaRowCount = min(
             100,
             max($rows + $criteriaRowAdd, 0)
         );
 
-        return (int) $criteriaColumnCount;
+        return $criteriaColumnCount;
     }
 
     /**

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -102,7 +101,7 @@ class RoutinesController extends AbstractController
         $routines->handleExecute();
         $routines->export();
 
-        if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
+        if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
 

@@ -36,6 +36,7 @@ use function count;
 use function defined;
 use function explode;
 use function implode;
+use function in_array;
 use function is_array;
 use function is_int;
 use function is_string;
@@ -1591,7 +1592,7 @@ class DatabaseInterface implements DbalInterface
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $this->escapeString($db),
-                Core::isValid($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
+                isset($which) && in_array($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
                 empty($name) ? null : $this->escapeString($name)
             );
             $result = $this->fetchResult($query);
