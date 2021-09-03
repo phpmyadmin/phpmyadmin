@@ -2761,7 +2761,10 @@ class Privileges
                 $hostname,
                 $dbname,
                 $alterRealSqlQuery,
-                $alterSqlQuery
+                $alterSqlQuery,
+                isset($_POST['createdb-1']),
+                isset($_POST['createdb-2']),
+                isset($_POST['createdb-3'])
             );
             if (! empty($_POST['userGroup']) && $isMenuwork) {
                 $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
@@ -2996,14 +2999,17 @@ class Privileges
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
-        if (isset($_POST['selected_usr'])) {
+        /** @var array|null $selectedUsers */
+        $selectedUsers = $_POST['selected_usr'] ?? null;
+
+        if (isset($selectedUsers)) {
             // export privileges for selected users
             $title = __('Privileges');
 
             //For removing duplicate entries of users
-            $_POST['selected_usr'] = array_unique($_POST['selected_usr']);
+            $selectedUsers = array_unique($selectedUsers);
 
-            foreach ($_POST['selected_usr'] as $exportUser) {
+            foreach ($selectedUsers as $exportUser) {
                 $exportUsername = mb_substr(
                     $exportUser,
                     0,
@@ -3551,23 +3557,26 @@ class Privileges
         $hostname,
         $dbname,
         $alterRealSqlQuery,
-        $alterSqlQuery
+        $alterSqlQuery,
+        bool $createDb1,
+        bool $createDb2,
+        bool $createDb3
     ): array {
         if (
             $error || (! empty($realSqlQuery)
             && ! $this->dbi->tryQuery($realSqlQuery))
         ) {
-            $_POST['createdb-1'] = $_POST['createdb-2'] = $_POST['createdb-3'] = null;
+            $createDb1 = $createDb2 = $createDb3 = false;
             $message = Message::rawError((string) $this->dbi->getError());
         } elseif ($alterRealSqlQuery !== '' && ! $this->dbi->tryQuery($alterRealSqlQuery)) {
-            $_POST['createdb-1'] = $_POST['createdb-2'] = $_POST['createdb-3'] = null;
+            $createDb1 = $createDb2 = $createDb3 = false;
             $message = Message::rawError((string) $this->dbi->getError());
         } else {
             $sqlQuery .= $alterSqlQuery;
             $message = Message::success(__('You have added a new user.'));
         }
 
-        if (isset($_POST['createdb-1'])) {
+        if ($createDb1) {
             // Create database with same name and grant all privileges
             $query = 'CREATE DATABASE IF NOT EXISTS '
                 . Util::backquote(
@@ -3598,7 +3607,7 @@ class Privileges
             }
         }
 
-        if (isset($_POST['createdb-2'])) {
+        if ($createDb2) {
             // Grant all privileges on wildcard name (username\_%)
             $query = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
@@ -3614,7 +3623,7 @@ class Privileges
             }
         }
 
-        if (isset($_POST['createdb-3'])) {
+        if ($createDb3) {
             // Grant all privileges on the specified database to the new user
             $query = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(

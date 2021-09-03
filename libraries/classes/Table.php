@@ -1014,7 +1014,8 @@ class Table implements Stringable
         $targetTable,
         $what,
         $move,
-        $mode
+        $mode,
+        bool $addDropIfExists
     ) {
         global $errorUrl, $dbi;
 
@@ -1141,11 +1142,7 @@ class Table implements Stringable
             // Phase 1: Dropping existent element of the same name (if exists
             // and required).
 
-            if (
-                isset($_POST['drop_if_exists'])
-                && $_POST['drop_if_exists'] === 'true'
-            ) {
-
+            if ($addDropIfExists) {
                 /**
                  * Drop statement used for building the query.
                  *

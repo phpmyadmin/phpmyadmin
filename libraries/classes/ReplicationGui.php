@@ -584,9 +584,8 @@ class ReplicationGui
     {
         global $dbi;
 
-        if (empty($_POST['sr_slave_control_parm'])) {
-            $_POST['sr_slave_control_parm'] = null;
-        }
+        /** @var string|null $control */
+        $control = $_POST['sr_slave_control_parm'] ?? null;
 
         if ($_POST['sr_slave_action'] === 'reset') {
             $qStop = $this->replication->slaveControl('STOP', null, DatabaseInterface::CONNECT_USER);
@@ -599,7 +598,7 @@ class ReplicationGui
         } else {
             $qControl = $this->replication->slaveControl(
                 $_POST['sr_slave_action'],
-                $_POST['sr_slave_control_parm'],
+                $control,
                 DatabaseInterface::CONNECT_USER
             );
 

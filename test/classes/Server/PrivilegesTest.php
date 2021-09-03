@@ -1050,7 +1050,10 @@ class PrivilegesTest extends AbstractTestCase
             $hostname,
             $dbname,
             $alter_real_sql_query,
-            $alter_sql_query
+            $alter_sql_query,
+            false,
+            false,
+            false
         );
 
         //validate 5: $sql_query

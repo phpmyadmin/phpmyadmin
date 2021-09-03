@@ -596,19 +596,21 @@ class Export
             );
         }
 
+        $postParams = $_POST;
+
         // Convert the multiple select elements from an array to a string
         if ($exportType === 'database') {
-            $structOrDataForced = empty($_POST['structure_or_data_forced']);
-            if ($structOrDataForced && ! isset($_POST['table_structure'])) {
-                $_POST['table_structure'] = [];
+            $structOrDataForced = empty($postParams['structure_or_data_forced']);
+            if ($structOrDataForced && ! isset($postParams['table_structure'])) {
+                $postParams['table_structure'] = [];
             }
 
-            if ($structOrDataForced && ! isset($_POST['table_data'])) {
-                $_POST['table_data'] = [];
+            if ($structOrDataForced && ! isset($postParams['table_data'])) {
+                $postParams['table_data'] = [];
             }
         }
 
-        foreach ($_POST as $name => $value) {
+        foreach ($postParams as $name => $value) {
             if (is_array($value)) {
                 continue;
             }
@@ -622,7 +624,7 @@ class Export
         $refreshButton = '<form id="export_refresh_form" method="POST" action="'
             . Url::getFromRoute('/export') . '" class="disableAjax">';
         $refreshButton .= '[ <a class="disableAjax export_refresh_btn">' . __('Refresh') . '</a> ]';
-        foreach ($_POST as $name => $value) {
+        foreach ($postParams as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {
                     $refreshButton .= '<input type="hidden" name="' . htmlentities((string) $name)

@@ -13,6 +13,7 @@ use function array_merge;
 use function count;
 use function explode;
 use function is_scalar;
+use function is_string;
 use function mb_strtolower;
 use function str_replace;
 use function strlen;
@@ -232,7 +233,8 @@ class Operations
                     $each_table,
                     ($this_what ?? 'data'),
                     $move,
-                    'db_copy'
+                    'db_copy',
+                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
                 )
             ) {
                 $GLOBALS['_error'] = true;
@@ -305,14 +307,7 @@ class Operations
      */
     public function handleTheViews(array $views, $move, $db)
     {
-        // temporarily force to add DROP IF EXIST to CREATE VIEW query,
-        // to remove stand-in VIEW that was created earlier
-        // ( $_POST['drop_if_exists'] is used in moveCopy() )
-        if (isset($_POST['drop_if_exists'])) {
-            $temp_drop_if_exists = $_POST['drop_if_exists'];
-        }
-
-        $_POST['drop_if_exists'] = 'true';
+        // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
             $copying_succeeded = Table::moveCopy(
                 $db,
@@ -321,22 +316,14 @@ class Operations
                 $view,
                 'structure',
                 $move,
-                'db_copy'
+                'db_copy',
+                true
             );
             if (! $copying_succeeded) {
                 $GLOBALS['_error'] = true;
                 break;
             }
         }
-
-        unset($_POST['drop_if_exists']);
-
-        if (! isset($temp_drop_if_exists)) {
-            return;
-        }
-
-        // restore previous value
-        $_POST['drop_if_exists'] = $temp_drop_if_exists;
     }
 
     /**
@@ -772,36 +759,36 @@ class Operations
             $table_alters[] = 'pack_keys = ' . $_POST['new_pack_keys'];
         }
 
-        $_POST['new_checksum'] = empty($_POST['new_checksum']) ? '0' : '1';
+        $newChecksum = empty($_POST['new_checksum']) ? '0' : '1';
         if (
             $pma_table->isEngine(['MYISAM', 'ARIA'])
-            && $_POST['new_checksum'] !== $checksum
+            && $newChecksum !== $checksum
         ) {
-            $table_alters[] = 'checksum = ' . $_POST['new_checksum'];
+            $table_alters[] = 'checksum = ' . $newChecksum;
         }
 
-        $_POST['new_transactional'] = empty($_POST['new_transactional']) ? '0' : '1';
+        $newTransactional = empty($_POST['new_transactional']) ? '0' : '1';
         if (
             $pma_table->isEngine('ARIA')
-            && $_POST['new_transactional'] !== $transactional
+            && $newTransactional !== $transactional
         ) {
-            $table_alters[] = 'TRANSACTIONAL = ' . $_POST['new_transactional'];
+            $table_alters[] = 'TRANSACTIONAL = ' . $newTransactional;
         }
 
-        $_POST['new_page_checksum'] = empty($_POST['new_page_checksum']) ? '0' : '1';
+        $newPageChecksum = empty($_POST['new_page_checksum']) ? '0' : '1';
         if (
             $pma_table->isEngine('ARIA')
-            && $_POST['new_page_checksum'] !== $page_checksum
+            && $newPageChecksum !== $page_checksum
         ) {
-            $table_alters[] = 'PAGE_CHECKSUM = ' . $_POST['new_page_checksum'];
+            $table_alters[] = 'PAGE_CHECKSUM = ' . $newPageChecksum;
         }
 
-        $_POST['new_delay_key_write'] = empty($_POST['new_delay_key_write']) ? '0' : '1';
+        $newDelayKeyWrite = empty($_POST['new_delay_key_write']) ? '0' : '1';
         if (
             $pma_table->isEngine(['MYISAM', 'ARIA'])
-            && $_POST['new_delay_key_write'] !== $delay_key_write
+            && $newDelayKeyWrite !== $delay_key_write
         ) {
-            $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
+            $table_alters[] = 'delay_key_write = ' . $newDelayKeyWrite;
         }
 
         if (
@@ -1014,15 +1001,16 @@ class Operations
          * $_POST['target_db'] could be empty in case we came from an input field
          * (when there are many databases, no drop-down)
          */
-        if (empty($_POST['target_db'])) {
-            $_POST['target_db'] = $db;
+        $targetDb = $db;
+        if (isset($_POST['target_db']) && is_string($_POST['target_db']) && strlen($_POST['target_db']) > 0) {
+            $targetDb = $_POST['target_db'];
         }
 
         /**
          * A target table name has been sent to this script -> do the work
          */
         if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && strlen((string) $_POST['new_name']) > 0) {
-            if ($db == $_POST['target_db'] && $table == $_POST['new_name']) {
+            if ($db == $targetDb && $table == $_POST['new_name']) {
                 if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));
                 } else {
@@ -1032,11 +1020,12 @@ class Operations
                 Table::moveCopy(
                     $db,
                     $table,
-                    $_POST['target_db'],
+                    $targetDb,
                     (string) $_POST['new_name'],
                     $_POST['what'],
                     isset($_POST['submit_move']),
-                    'one_table'
+                    'one_table',
+                    isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
                 );
 
                 if (
@@ -1047,14 +1036,14 @@ class Operations
                         $this->adjustPrivilegesRenameOrMoveTable(
                             $db,
                             $table,
-                            $_POST['target_db'],
+                            $targetDb,
                             (string) $_POST['new_name']
                         );
                     } else {
                         $this->adjustPrivilegesCopyTable(
                             $db,
                             $table,
-                            $_POST['target_db'],
+                            $targetDb,
                             (string) $_POST['new_name']
                         );
                     }
@@ -1097,7 +1086,7 @@ class Operations
 
                 $GLOBALS['table'] = $new_name;
 
-                $new = Util::backquote($_POST['target_db']) . '.'
+                $new = Util::backquote($targetDb) . '.'
                     . Util::backquote($new_name);
                 $message->addParam($new);
             }

@@ -1477,8 +1477,6 @@ class TableTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue(new Table($target_table, $target_db)));
 
-        $_POST['drop_if_exists'] = true;
-
         $return = Table::moveCopy(
             $source_db,
             $source_table,
@@ -1486,7 +1484,8 @@ class TableTest extends AbstractTestCase
             $target_table,
             $what,
             $move,
-            $mode
+            $mode,
+            true
         );
 
         //successfully
@@ -1515,7 +1514,8 @@ class TableTest extends AbstractTestCase
             $target_table,
             $what,
             false,
-            $mode
+            $mode,
+            true
         );
 
         //successfully

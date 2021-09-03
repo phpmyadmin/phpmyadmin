@@ -17,6 +17,7 @@ use function explode;
 use function function_exists;
 use function in_array;
 use function is_array;
+use function is_string;
 use function mb_strpos;
 use function strlen;
 use function urldecode;
@@ -57,11 +58,14 @@ final class Options
      */
     public function getDatabasesForSelectOptions($tmpSelect = '')
     {
+        /** @var array|string|null $dbSelect */
+        $dbSelect = $_POST['db_select'] ?? null;
+
         // Check if the selected databases are defined in $_POST
         // (from clicking Back button on /export page)
-        if (isset($_POST['db_select'])) {
-            $_POST['db_select'] = urldecode($_POST['db_select']);
-            $_POST['db_select'] = explode(',', $_POST['db_select']);
+        if (isset($dbSelect) && is_string($dbSelect)) {
+            $dbSelect = urldecode($dbSelect);
+            $dbSelect = explode(',', $dbSelect);
         }
 
         $databases = [];
@@ -71,8 +75,8 @@ final class Options
             }
 
             $isSelected = false;
-            if (isset($_POST['db_select'])) {
-                if (in_array($currentDb, $_POST['db_select'])) {
+            if (isset($dbSelect) && is_array($dbSelect)) {
+                if (in_array($currentDb, $dbSelect)) {
                     $isSelected = true;
                 }
             } elseif (! empty($tmpSelect)) {

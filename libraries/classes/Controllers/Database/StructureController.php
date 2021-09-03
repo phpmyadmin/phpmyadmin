@@ -402,7 +402,8 @@ class StructureController extends AbstractController
                 $selected[$i],
                 $_POST['what'],
                 false,
-                'one_table'
+                'one_table',
+                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
             );
 
             if (empty($_POST['adjust_privileges'])) {
@@ -1746,7 +1747,8 @@ class StructureController extends AbstractController
                 $newTableName,
                 'data',
                 false,
-                'one_table'
+                'one_table',
+                isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
             );
         }
 

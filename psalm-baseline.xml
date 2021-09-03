@@ -6984,9 +6984,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Export/Options.php">
-    <MixedArgument occurrences="4">
-      <code>$_POST['db_select']</code>
-      <code>$_POST['db_select']</code>
+    <MixedArgument occurrences="2">
       <code>$_POST['filename_template'] ?? null</code>
       <code>$currentDb</code>
     </MixedArgument>
@@ -9770,7 +9768,7 @@
     </InvalidReturnType>
   </file>
   <file src="libraries/classes/Operations.php">
-    <MixedArgument occurrences="48">
+    <MixedArgument occurrences="44">
       <code>$_POST['comment']</code>
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['new_auto_increment']</code>
@@ -9785,10 +9783,6 @@
       <code>$_POST['newname']</code>
       <code>$_POST['newname']</code>
       <code>$_POST['prev_comment']</code>
-      <code>$_POST['target_db']</code>
-      <code>$_POST['target_db']</code>
-      <code>$_POST['target_db']</code>
-      <code>$_POST['target_db']</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['what']</code>
       <code>$arr['foreign_db']</code>
@@ -9881,8 +9875,7 @@
       <code>$warning['Level']</code>
       <code>$warning['Message']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="21">
-      <code>$_POST['drop_if_exists']</code>
+    <MixedAssignment occurrences="19">
       <code>$arr</code>
       <code>$event_name</code>
       <code>$foreignTable</code>
@@ -9896,7 +9889,6 @@
       <code>$old_priv</code>
       <code>$one_query</code>
       <code>$procedure_name</code>
-      <code>$temp_drop_if_exists</code>
       <code>$this_what</code>
       <code>$tmp</code>
       <code>$tmp</code>
@@ -9949,7 +9941,6 @@
       <code>$warning['Message']</code>
       <code>Util::backquote($_POST['newname'])</code>
       <code>Util::backquote($_POST['newname'])</code>
-      <code>Util::backquote($_POST['target_db'])</code>
       <code>Util::backquote($arr['foreign_db'])</code>
       <code>Util::backquote($arr['foreign_db'])</code>
       <code>Util::backquote($arr['foreign_db'])</code>
@@ -9970,6 +9961,7 @@
       <code>Util::backquote($table)</code>
       <code>Util::backquote($table)</code>
       <code>Util::backquote($table)</code>
+      <code>Util::backquote($targetDb)</code>
       <code>Util::backquote('columns_priv')</code>
       <code>Util::backquote('columns_priv')</code>
       <code>Util::backquote('columns_priv')</code>
@@ -13887,13 +13879,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/ReplicationGui.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$_POST['hostname']</code>
       <code>$_POST['hostname']</code>
       <code>$_POST['master_connection'] ?? null</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['sr_slave_action']</code>
-      <code>$_POST['sr_slave_control_parm']</code>
       <code>$_POST['text_port']</code>
       <code>$_POST['username']</code>
       <code>$_POST['username']</code>
@@ -14185,7 +14176,7 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <MixedArgument occurrences="121">
+    <MixedArgument occurrences="120">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
       <code>$_GET['initial']</code>
@@ -14207,7 +14198,6 @@
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
       <code>$_POST['pma_pw']</code>
-      <code>$_POST['selected_usr']</code>
       <code>$_POST['userGroup']</code>
       <code>$_POST['username']</code>
       <code>$alterRealSqlQuery</code>
