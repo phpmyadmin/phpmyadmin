@@ -57,3 +57,19 @@
     {{ messages|raw }}
 
     {{ recent_table|raw }}
+
+    <div class="modal fade" id="functionConfirmModal" tabindex="-1" aria-labelledby="functionConfirmModalLabel" aria-hidden="true">
+      <div class="modal-dialog" id="functionConfirmModalDialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="functionConfirmModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+          </div>
+          <div class="modal-body" id="confirm_dialog"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="functionConfirmOkButton">{% trans 'OK' %}</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+          </div>
+        </div>
+      </div>
+    </div>

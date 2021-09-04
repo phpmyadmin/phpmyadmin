@@ -284,32 +284,6 @@ const DatabaseTriggers = {
                 });
                 $('#rteDialog').find('input[name=item_name]').trigger('focus');
                 that.$ajaxDialog = $('#triggerEditorModal');
-                // that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
-                //     width: 700,
-                //     minWidth: 500,
-                //     buttons: that.buttonOptions,
-                //     // Issue #15810 - use button titles for modals (eg: new procedure)
-                //     // Respect the order: title on href tag, href content, title sent in response
-                //     title: $this.attr('title') || $this.text() || $(data.title).text(),
-                //     modal: true,
-                //     open: function () {
-                //         $('#rteDialog').dialog('option', 'max-height', $(window).height());
-                //         if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
-                //             $('#rteDialog').dialog('option', 'height', $(window).height());
-                //         }
-                //         $(this).find('input[name=item_name]').trigger('focus');
-                //         $(this).find('input.datefield').each(function () {
-                //             Functions.addDatepicker($(this).css('width', '95%'), 'date');
-                //         });
-                //         $(this).find('input.datetimefield').each(function () {
-                //             Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
-                //         });
-                //         $.datepicker.initialized = false;
-                //     },
-                //     close: function () {
-                //         $(this).remove();
-                //     }
-                // });
                 /**
                  * @var mode Used to remember whether the editor is in
                  *           "Edit" or "Add" mode

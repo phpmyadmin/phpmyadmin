@@ -111,18 +111,19 @@ const DatabaseEvents = {
                  * Display the dialog to the user
                  */
                 data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
-                var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                    width: 500,
-                    buttons: buttonOptions,
-                    title: data.title
-                });
+                $('#eventExportModal').modal('show');
+                $('#eventExportModalLabel').first().text(data.title);
+                $('#eventExportModal').find('.modal-body').first().html(data.message);
+                var $ajaxDialog = $('#eventExportModal');
                 // Attach syntax highlighted editor to export dialog
                 /**
                  * @var $elm jQuery object containing the reference
                  *           to the Export textarea.
                  */
-                var $elm = $ajaxDialog.find('textarea');
-                Functions.getSqlEditor($elm);
+                setTimeout(function () {
+                    var $elm = $ajaxDialog.find('textarea');
+                    Functions.getSqlEditor($elm);
+                }, 50);
             } else {
                 Functions.ajaxShowMessage(data.error, false);
             }
@@ -175,7 +176,7 @@ const DatabaseEvents = {
                                 // Item created successfully
                                 Functions.ajaxRemoveMessage($msg);
                                 Functions.slidingMessage(data.message);
-                                that.$ajaxDialog.dialog('close');
+                                that.$ajaxDialog.modal('hide');
                                 // If we are in 'edit' mode, we must
                                 // remove the reference to the old row.
                                 if (mode === 'edit' && $editRow !== null) {
@@ -276,13 +277,11 @@ const DatabaseEvents = {
                 // Respect the order: title on href tag, href content, title sent in response
                 $('#eventEditorModalLabel').first().text($this.attr('title') || $this.text() || $(data.title).text());
                 $('#eventEditorModal').find('.modal-body').first().html(data.message);
-                $('#rteDialog').find('input.datefield').each(function () {
-                    Functions.addDatepicker($(this).css('width', '95%'), 'date');
+                that.$ajaxDialog = $('#eventEditorModal');
+                $('.ui_tpicker_timezone').on('click', function (event) {
+                    console.log('saksham');
+                    event.stopPropagation();
                 });
-                $('#rteDialog').find('input.datetimefield').each(function () {
-                    Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
-                });
-                $.datepicker.initialized = false;
                 /**
                  * @var mode Used to remember whether the editor is in
                  *           "Edit" or "Add" mode
@@ -297,6 +296,13 @@ const DatabaseEvents = {
                  *                 the Definition textarea.
                  */
                 setTimeout(function () {
+                    $('#rteDialog').find('input.datefield').each(function () {
+                        Functions.addDatepicker($(this).css('width', '95%'), 'date');
+                    });
+                    $('#rteDialog').find('input.datetimefield').each(function () {
+                        Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
+                    });
+                    $.datepicker.initialized = false;
                     var $elm = $('textarea[name=item_definition]').last();
                     var linterOptions = {};
                     linterOptions.triggerEditor = true;
