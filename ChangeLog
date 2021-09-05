@@ -126,6 +126,8 @@ phpMyAdmin - ChangeLog
 - issue #16906 Create the phpMyAdmin storage database using the configured "['pmadb']" name and not always "phpmyadmin"
 - issue #16906 Prevent incorrect overriding of configured values after a pmadb fix
 - issue #16906 Use the control connection to create the storage database and tables and not the user connection
+- issue #16693 Fix can't see SQL after adding a new column
+- issue #12753 Show table structure after adding a new column
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
