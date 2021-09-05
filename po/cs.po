@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-09-05 00:09+0000\n"
-"PO-Revision-Date: 2021-03-02 18:02+0000\n"
+"PO-Revision-Date: 2021-09-06 21:35+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2670,8 +2670,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Zobrazí odkaz na výstup funkce [a@https://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Zobrazí odkaz na výstup funkce [a@https://www.php.net/manual/en/function."
+"phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:512
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5402,10 +5402,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Chystáte se VYPRÁZDNIT celou tabulku!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Chystáte se ZRUŠIT celou tabulku!"
+msgstr "Chystáte se SMAZAT všechny řádky tabulky!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -5688,27 +5686,23 @@ msgstr "Ukončit"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Uzamknout"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Odemknout"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:142
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Počet souborů s logy"
+msgstr "Uzamknout tento účet."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Uživatel"
+msgstr "Odemknout tento účet."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:146
 msgid "Template was created."
@@ -6978,6 +6972,8 @@ msgstr "Odstranit stránku"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Některé tabulky uložené na této stránce mohly být přejmenovány nebo "
+"odstraněny."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 #: templates/database/designer/main.twig:10
@@ -7250,11 +7246,11 @@ msgstr "Podle vašeho nastavení jsou právě odesílány, prosím buďte trpěl
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "Název sloupce byl úspěšně zkopírován do schránky!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "Kopírování názvu sloupce do schránky se nezdařilo!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Successfully copied!"
@@ -7352,8 +7348,6 @@ msgstr "Silné"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Vypršel čas pro aktivaci bezpečnostního klíče."
@@ -7362,37 +7356,31 @@ msgstr "Vypršel čas pro aktivaci bezpečnostního klíče."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Byl odeslán neplatný požadavek na bezpečnostní klíč."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Neznámá chyba"
+msgstr "Neznámá chyba bezpečnostního klíče."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Klient nepodporuje bezpečnostní klíč."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Selhala aktivace bezpečnostního klíče (%s)."
+msgstr "Selhala aktivace bezpečnostního klíče."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Chybný typ exportu"
+msgstr "Neplatný bezpečnostní klíč."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:733
 #, php-format
@@ -7500,16 +7488,14 @@ msgid "Overhead"
 msgstr "Navíc"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Vybrané sloupce byly úspěšně přesunuty."
+msgstr "Účet %s@%s byl úspěšně uzamčen."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Vybrané sloupce byly úspěšně přesunuty."
+msgstr "Účet %s@%s byl úspěšně odemčen."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:57
@@ -8060,16 +8046,12 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Počet řádků čekajících na zapsání ve frontě INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:551
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Celkem otevřených tabulek. Pokud je tato hodnota příliš vysoká, "
-"pravděpodobně máte malou mezipaměť pro tabulky."
+"Počet otevřených tabulek. Pokud je tento počet vysoký, pravděpodobně je "
+"příliš malá hodnota table_open_cache."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:555
 msgid "The number of files that are open."
@@ -8270,10 +8252,8 @@ msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:131
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Mezipaměť není povolena."
+msgstr "Správa skupin uživatelů není povolena."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:220
 msgid "Setting variable failed"
@@ -9610,10 +9590,8 @@ msgstr ""
 "podpora není implementována nebo je vypnuta ve vašem nastavení."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "Rozšíření SOAP nebylo nalezeno"
+msgstr "Relace nebyla nalezena."
 
 #: libraries/classes/Header.php:363
 msgid "Print view"
@@ -10258,10 +10236,8 @@ msgid "New"
 msgstr "Nový"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Triggery"
+msgstr "Trigger"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -16102,7 +16078,7 @@ msgstr "Prosím zadejte platné hexadecimální číslo"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Tento sloupec nemůže obsahovat hodnotu se 32 znaky"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16110,6 +16086,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Tyto funkce mají vracet binární výsledek. Chcete-li se vyhnout "
+"nekonzistentním výsledkům, měli byste ho uložit do sloupce typu BINARY, "
+"VARBINARY nebo BLOB."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
