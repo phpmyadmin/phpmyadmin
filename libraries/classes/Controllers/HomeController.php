@@ -32,7 +32,6 @@ use function ini_get;
 use function preg_match;
 use function sprintf;
 use function strlen;
-use function strtotime;
 use function trigger_error;
 
 use const E_USER_NOTICE;
@@ -63,7 +62,7 @@ class HomeController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $server, $collation_connection, $message, $show_query, $db, $table, $errorUrl;
 
@@ -256,55 +255,6 @@ class HomeController extends AbstractController
             'has_theme_manager' => $cfg['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
         ]);
-    }
-
-    public function setCollationConnection(): void
-    {
-        $this->config->setUserValue(
-            null,
-            'DefaultConnectionCollation',
-            $_POST['collation_connection'],
-            'utf8mb4_unicode_ci'
-        );
-
-        $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
-    }
-
-    public function reloadRecentTablesList(): void
-    {
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'list' => RecentFavoriteTable::getInstance('recent')->getHtmlList(),
-        ]);
-    }
-
-    public function gitRevision(): void
-    {
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $git = new Git($this->config->get('ShowGitRevision') ?? true);
-
-        if (! $git->isGitRevision()) {
-            return;
-        }
-
-        $commit = $git->checkGitRevision();
-
-        if (! $git->hasGitInformation() || $commit === null) {
-            $this->response->setRequestStatus(false);
-
-            return;
-        }
-
-        $commit['author']['date'] = Util::localisedDate(strtotime($commit['author']['date']));
-        $commit['committer']['date'] = Util::localisedDate(strtotime($commit['committer']['date']));
-
-        $this->render('home/git_info', $commit);
     }
 
     private function checkRequirements(): void

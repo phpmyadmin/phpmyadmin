@@ -1086,6 +1086,11 @@
       <code>$db</code>
     </MixedArgument>
   </file>
+  <file src="libraries/classes/Controllers/CollationConnectionController.php">
+    <MixedArgument occurrences="1">
+      <code>$_POST['collation_connection']</code>
+    </MixedArgument>
+  </file>
   <file src="libraries/classes/Controllers/ConfigController.php">
     <MixedArgument occurrences="1">
       <code>json_decode($value)</code>
@@ -1930,15 +1935,11 @@
       <code>$geom_type</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/HomeController.php">
-    <MixedArgument occurrences="7">
-      <code>$_POST['collation_connection']</code>
+  <file src="libraries/classes/Controllers/GitInfoController.php">
+    <MixedArgument occurrences="3">
       <code>$commit['author']['date']</code>
       <code>$commit['committer']['date']</code>
-      <code>$message</code>
       <code>$this-&gt;config-&gt;get('ShowGitRevision') ?? true</code>
-      <code>$this-&gt;config-&gt;get('ShowGitRevision') ?? true</code>
-      <code>$this-&gt;config-&gt;get('TempDir')</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$commit</code>
@@ -1951,6 +1952,13 @@
       <code>$commit['author']['date']</code>
       <code>$commit['committer']['date']</code>
     </MixedArrayAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/HomeController.php">
+    <MixedArgument occurrences="3">
+      <code>$message</code>
+      <code>$this-&gt;config-&gt;get('ShowGitRevision') ?? true</code>
+      <code>$this-&gt;config-&gt;get('TempDir')</code>
+    </MixedArgument>
     <MixedArrayOffset occurrences="2">
       <code>$GLOBALS['language_stats'][$lang]</code>
       <code>$cfg['Servers'][$server]</code>

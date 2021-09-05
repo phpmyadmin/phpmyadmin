@@ -6,6 +6,7 @@ use FastRoute\RouteCollector;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
+use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
 use PhpMyAdmin\Controllers\ConfigController;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
@@ -30,6 +31,7 @@ use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\ExportController;
 use PhpMyAdmin\Controllers\ExportTemplateController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
+use PhpMyAdmin\Controllers\GitInfoController;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Controllers\ImportController;
 use PhpMyAdmin\Controllers\ImportStatusController;
@@ -47,6 +49,7 @@ use PhpMyAdmin\Controllers\Preferences\ManageController;
 use PhpMyAdmin\Controllers\Preferences\NavigationController as PreferencesNavigationController;
 use PhpMyAdmin\Controllers\Preferences\SqlController as PreferencesSqlController;
 use PhpMyAdmin\Controllers\Preferences\TwoFactorController;
+use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
@@ -108,15 +111,11 @@ if (! defined('PHPMYADMIN')) {
 }
 
 return static function (RouteCollector $routes): void {
-    $routes->addGroup('', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
-        $routes->post('/collation-connection', [HomeController::class, 'setCollationConnection']);
-        $routes->addRoute(['GET', 'POST'], '/recent-table', [HomeController::class, 'reloadRecentTablesList']);
-        $routes->addRoute(['GET', 'POST'], '/git-revision', [HomeController::class, 'gitRevision']);
-    });
+    $routes->addRoute(['GET', 'POST'], '[/]', HomeController::class);
     $routes->addRoute(['GET', 'POST'], '/browse-foreigners', BrowseForeignersController::class);
     $routes->get('/changelog', ChangeLogController::class);
     $routes->addRoute(['GET', 'POST'], '/check-relations', CheckRelationsController::class);
+    $routes->post('/collation-connection', CollationConnectionController::class);
     $routes->post('/columns', ColumnController::class);
     $routes->addGroup('/config', static function (RouteCollector $routes): void {
         $routes->post('/get', [ConfigController::class, 'get']);
@@ -195,6 +194,7 @@ return static function (RouteCollector $routes): void {
         });
     });
     $routes->addRoute(['GET', 'POST'], '/gis-data-editor', GisDataEditorController::class);
+    $routes->addRoute(['GET', 'POST'], '/git-revision', GitInfoController::class);
     $routes->addRoute(['GET', 'POST'], '/import', ImportController::class);
     $routes->addRoute(['GET', 'POST'], '/import-status', ImportStatusController::class);
     $routes->get('/license', LicenseController::class);
@@ -213,6 +213,7 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/sql', PreferencesSqlController::class);
         $routes->addRoute(['GET', 'POST'], '/two-factor', TwoFactorController::class);
     });
+    $routes->addRoute(['GET', 'POST'], '/recent-table', RecentTablesListController::class);
     $routes->addRoute(['GET', 'POST'], '/schema-export', SchemaExportController::class);
     $routes->addGroup('/server', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/binlog', BinlogController::class);

@@ -28,6 +28,14 @@ return [
                 '$relation' => '@relation',
             ],
         ],
+        PhpMyAdmin\Controllers\CollationConnectionController::class => [
+            'class' => PhpMyAdmin\Controllers\CollationConnectionController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$config' => '@config',
+            ],
+        ],
         PhpMyAdmin\Controllers\ColumnController::class => [
             'class' => PhpMyAdmin\Controllers\ColumnController::class,
             'arguments' => [
@@ -264,6 +272,14 @@ return [
                 '$template' => '@template',
             ],
         ],
+        PhpMyAdmin\Controllers\GitInfoController::class => [
+            'class' => PhpMyAdmin\Controllers\GitInfoController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$config' => '@config',
+            ],
+        ],
         PhpMyAdmin\Controllers\HomeController::class => [
             'class' => PhpMyAdmin\Controllers\HomeController::class,
             'arguments' => [
@@ -327,6 +343,13 @@ return [
         ],
         PhpMyAdmin\Controllers\PhpInfoController::class => [
             'class' => PhpMyAdmin\Controllers\PhpInfoController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+            ],
+        ],
+        PhpMyAdmin\Controllers\RecentTablesListController::class => [
+            'class' => PhpMyAdmin\Controllers\RecentTablesListController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
