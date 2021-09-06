@@ -34,7 +34,7 @@ class CentralColumnsController extends AbstractController
         $this->centralColumns = $centralColumns;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $db, $message, $pos, $num_cols;
 
@@ -190,12 +190,6 @@ class CentralColumnsController extends AbstractController
             $this->db,
             $params['cur_table'] ?? ''
         );
-    }
-
-    public function populateColumns(): void
-    {
-        $columns = $this->centralColumns->getColumnsNotInCentralList($this->db, $_POST['selectedTable']);
-        $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
     }
 
     /**

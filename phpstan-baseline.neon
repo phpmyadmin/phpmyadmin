@@ -106,11 +106,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Expression \"null\" on a separate line does not do anything\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ExportController.php
-
-		-
 			message: "#^Elseif condition is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php

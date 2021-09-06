@@ -44,12 +44,29 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
-        PhpMyAdmin\Controllers\ConfigController::class => [
-            'class' => PhpMyAdmin\Controllers\ConfigController::class,
+        PhpMyAdmin\Controllers\Config\GetConfigController::class => [
+            'class' => PhpMyAdmin\Controllers\Config\GetConfigController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$config' => '@config',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Config\SetConfigController::class => [
+            'class' => PhpMyAdmin\Controllers\Config\SetConfigController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$config' => '@config',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\CentralColumns\PopulateColumnsController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\CentralColumns\PopulateColumnsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$centralColumns' => '@central_columns',
             ],
         ],
         PhpMyAdmin\Controllers\Database\CentralColumnsController::class => [
@@ -108,6 +125,21 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$db' => '%db%',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\MultiTableQuery\QueryController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\MultiTableQuery\QueryController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
                 '$dbi' => '@dbi',
             ],
         ],
@@ -247,8 +279,8 @@ return [
                 '$errorHandler' => '@error_handler',
             ],
         ],
-        PhpMyAdmin\Controllers\ExportController::class => [
-            'class' => PhpMyAdmin\Controllers\ExportController::class,
+        PhpMyAdmin\Controllers\Export\ExportController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\ExportController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -256,8 +288,43 @@ return [
                 '$relation' => '@relation',
             ],
         ],
-        PhpMyAdmin\Controllers\ExportTemplateController::class => [
-            'class' => PhpMyAdmin\Controllers\ExportTemplateController::class,
+        PhpMyAdmin\Controllers\Export\TablesController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\TablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$exportController' => '@' . PhpMyAdmin\Controllers\Database\ExportController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Export\Template\CreateController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\Template\CreateController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$model' => '@export_template_model',
+                '$relation' => '@relation',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Export\Template\DeleteController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\Template\DeleteController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$model' => '@export_template_model',
+                '$relation' => '@relation',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Export\Template\LoadController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\Template\LoadController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$model' => '@export_template_model',
+                '$relation' => '@relation',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Export\Template\UpdateController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\Template\UpdateController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -926,16 +993,16 @@ return [
                 '$themeManager' => '@theme_manager',
             ],
         ],
-        PhpMyAdmin\Controllers\TransformationOverviewController::class => [
-            'class' => PhpMyAdmin\Controllers\TransformationOverviewController::class,
+        PhpMyAdmin\Controllers\Transformation\OverviewController::class => [
+            'class' => PhpMyAdmin\Controllers\Transformation\OverviewController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$transformations' => '@transformations',
             ],
         ],
-        PhpMyAdmin\Controllers\TransformationWrapperController::class => [
-            'class' => PhpMyAdmin\Controllers\TransformationWrapperController::class,
+        PhpMyAdmin\Controllers\Transformation\WrapperController::class => [
+            'class' => PhpMyAdmin\Controllers\Transformation\WrapperController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -960,16 +1027,16 @@ return [
                 '$template' => '@template',
             ],
         ],
-        PhpMyAdmin\Controllers\ViewCreateController::class => [
-            'class' => PhpMyAdmin\Controllers\ViewCreateController::class,
+        PhpMyAdmin\Controllers\View\CreateController::class => [
+            'class' => PhpMyAdmin\Controllers\View\CreateController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
             ],
         ],
-        PhpMyAdmin\Controllers\ViewOperationsController::class => [
-            'class' => PhpMyAdmin\Controllers\ViewOperationsController::class,
+        PhpMyAdmin\Controllers\View\OperationsController::class => [
+            'class' => PhpMyAdmin\Controllers\View\OperationsController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

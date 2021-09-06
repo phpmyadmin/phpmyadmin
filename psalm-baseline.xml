@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.3@4c262932602b9bbab5020863d1eb22d49de0dbf4">
+<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
@@ -648,6 +648,9 @@
       <code>$verbose</code>
       <code>empty($host) ? 'localhost' : $host</code>
     </MixedReturnStatement>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;defaultCfg</code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;baseCfg</code>
     </PossiblyNullArgument>
@@ -1091,14 +1094,18 @@
       <code>$_POST['collation_connection']</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/ConfigController.php">
+  <file src="libraries/classes/Controllers/Config/SetConfigController.php">
     <MixedArgument occurrences="1">
       <code>json_decode($value)</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
-    <MixedArgument occurrences="25">
+  <file src="libraries/classes/Controllers/Database/CentralColumns/PopulateColumnsController.php">
+    <MixedArgument occurrences="1">
       <code>$_POST['selectedTable']</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/CentralColumnsController.php">
+    <MixedArgument occurrences="24">
       <code>$columnDefault</code>
       <code>$columnDefault</code>
       <code>$db</code>
@@ -1327,19 +1334,23 @@
       <code>$_SESSION[$SESSION_KEY]['handler']::getIdKey()</code>
     </MixedMethodCall>
   </file>
-  <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
-    <MixedArgument occurrences="4">
-      <code>$params['db']</code>
+  <file src="libraries/classes/Controllers/Database/MultiTableQuery/QueryController.php">
+    <MixedArgument occurrences="2">
       <code>$params['db']</code>
       <code>$params['sql_query']</code>
+    </MixedArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$params['db']</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Database/MultiTableQuery/TablesController.php">
+    <MixedArgument occurrences="2">
+      <code>$params['db']</code>
       <code>$table</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$table</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="1">
-      <code>$params['db']</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
     <MixedArgument occurrences="17">
@@ -1846,7 +1857,7 @@
       <code>$_SESSION['prev_error_subm_time']</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/ExportController.php">
+  <file src="libraries/classes/Controllers/Export/ExportController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>empty($export_plugin)</code>
     </DocblockTypeContradiction>
@@ -4178,7 +4189,7 @@
       <code>$preferences['config_data']['ThemeDefault']</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/TransformationOverviewController.php">
+  <file src="libraries/classes/Controllers/Transformation/OverviewController.php">
     <MixedArgument occurrences="1">
       <code>$types[$type . '_file'][$key]</code>
     </MixedArgument>
@@ -4195,7 +4206,7 @@
       <code>$transformation</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/TransformationWrapperController.php">
+  <file src="libraries/classes/Controllers/Transformation/WrapperController.php">
     <MixedArgument occurrences="20">
       <code>$_GET['where_clause_sign'] ?? ''</code>
       <code>$cn ?? ''</code>
@@ -4279,7 +4290,7 @@
       <code>$version</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/ViewCreateController.php">
+  <file src="libraries/classes/Controllers/View/CreateController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$view['as']</code>
     </DocblockTypeContradiction>
@@ -4348,7 +4359,7 @@
       <code>isset($stmt-&gt;body)</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="libraries/classes/Controllers/ViewOperationsController.php">
+  <file src="libraries/classes/Controllers/View/OperationsController.php">
     <MixedArgument occurrences="5">
       <code>$_POST['new_name']</code>
       <code>$db</code>
@@ -7667,9 +7678,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
-    <InvalidNullableReturnType occurrences="1">
-      <code>array|false</code>
-    </InvalidNullableReturnType>
     <MixedArgument occurrences="7">
       <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
@@ -9385,8 +9393,7 @@
       <code>$retval</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>$retval</code>
+    <MixedOperand occurrences="3">
       <code>$retval</code>
       <code>$retval</code>
       <code>$retval</code>
@@ -10866,9 +10873,8 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PossiblyNullArgument occurrences="10">
+    <PossiblyNullArgument occurrences="9">
       <code>$col_as</code>
-      <code>$table_alias</code>
       <code>$table_alias</code>
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -12096,10 +12102,6 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference occurrences="2">
-      <code>attributes</code>
-      <code>attributes</code>
-    </PossiblyNullReference>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$xml</code>
     </RedundantConditionGivenDocblockType>
@@ -17257,7 +17259,12 @@
       <code>[$currentTable]</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/ExportTemplateControllerTest.php">
+  <file src="test/classes/Controllers/Export/Template/CreateControllerTest.php">
+    <MixedArrayAssignment occurrences="1">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAssignment>
+  </file>
+  <file src="test/classes/Controllers/Export/Template/LoadControllerTest.php">
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
     </MixedArrayAssignment>

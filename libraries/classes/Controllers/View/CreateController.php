@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\View;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -30,7 +31,7 @@ use function substr;
 /**
  * Handles creation of VIEWs.
  */
-class ViewCreateController extends AbstractController
+class CreateController extends AbstractController
 {
     /** @var DatabaseInterface */
     private $dbi;

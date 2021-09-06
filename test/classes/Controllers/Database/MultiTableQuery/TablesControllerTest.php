@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers\Database;
+namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
-use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
+use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * @covers \PhpMyAdmin\Controllers\Database\MultiTableQueryController
+ * @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController
  */
-class MultiTableQueryControllerTest extends AbstractTestCase
+class TablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
     {
@@ -34,10 +34,9 @@ class MultiTableQueryControllerTest extends AbstractTestCase
         $_GET['db'] = 'test';
 
         global $containerBuilder;
-        $containerBuilder->setParameter('db', $_GET['db']);
-        /** @var MultiTableQueryController $multiTableQueryController */
-        $multiTableQueryController = $containerBuilder->get(MultiTableQueryController::class);
-        $multiTableQueryController->table();
+        /** @var TablesController $multiTableQueryController */
+        $multiTableQueryController = $containerBuilder->get(TablesController::class);
+        $multiTableQueryController();
         $this->assertSame(
             [
                 'foreignKeyConstrains' => [

@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Transformation;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -13,7 +14,7 @@ use function array_keys;
 /**
  * Lists available transformation plugins
  */
-class TransformationOverviewController extends AbstractController
+class OverviewController extends AbstractController
 {
     /** @var Transformations */
     private $transformations;

@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\View;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -19,7 +20,7 @@ use function __;
 /**
  * View manipulations
  */
-class ViewOperationsController extends AbstractController
+class OperationsController extends AbstractController
 {
     /** @var Operations */
     private $operations;

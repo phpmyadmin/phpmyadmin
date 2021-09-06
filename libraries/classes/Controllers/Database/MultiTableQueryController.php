@@ -6,11 +6,8 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-
-use function rtrim;
 
 /**
  * Handles database multi-table querying
@@ -31,7 +28,7 @@ class MultiTableQueryController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         $this->addScriptFiles([
             'database/multi_table_query.js',
@@ -41,45 +38,5 @@ class MultiTableQueryController extends AbstractController
         $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
 
         $this->response->addHTML($queryInstance->getFormHtml());
-    }
-
-    public function displayResults(): void
-    {
-        $params = [
-            'sql_query' => $_POST['sql_query'],
-            'db' => $_POST['db'] ?? $_GET['db'] ?? null,
-        ];
-
-        $this->response->addHTML(MultiTableQuery::displayResults(
-            $params['sql_query'],
-            $params['db']
-        ));
-    }
-
-    public function table(): void
-    {
-        $params = [
-            'tables' => $_GET['tables'] ?? [],
-            'db' => $_GET['db'] ?? '',
-        ];
-
-        $tablesListForQuery = '';
-        foreach ($params['tables'] as $table) {
-            $tablesListForQuery .= "'" . $this->dbi->escapeString($table) . "',";
-        }
-
-        $tablesListForQuery = rtrim($tablesListForQuery, ',');
-
-        $constrains = $this->dbi->fetchResult(
-            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->dbi->escapeString($params['db']),
-                $tablesListForQuery
-            ),
-            null,
-            null,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
-        $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }
 }

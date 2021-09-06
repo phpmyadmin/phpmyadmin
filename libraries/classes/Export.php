@@ -1243,7 +1243,7 @@ class Export
             $active_page = Url::getFromRoute('/database/export');
             /** @var DatabaseExportController $controller */
             $controller = $containerBuilder->get(DatabaseExportController::class);
-            $controller->index();
+            $controller();
 
             return;
         }

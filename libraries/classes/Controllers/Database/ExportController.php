@@ -37,7 +37,7 @@ final class ExportController extends AbstractController
         $this->exportOptions = $exportOptions;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $db, $table, $sub_part, $urlParams, $sql_query;
         global $tables, $num_tables, $total_num_tables, $tooltip_truename;
@@ -173,17 +173,5 @@ final class ExportController extends AbstractController
             'structure_or_data_forced' => $_POST['structure_or_data_forced'] ?? 0,
             'tables' => $tablesForMultiValues,
         ]));
-    }
-
-    public function tables(): void
-    {
-        if (empty($_POST['selected_tbl'])) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No table selected.'));
-
-            return;
-        }
-
-        $this->index();
     }
 }

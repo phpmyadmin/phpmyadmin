@@ -8,13 +8,17 @@ use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Controllers\CollationConnectionController;
 use PhpMyAdmin\Controllers\ColumnController;
-use PhpMyAdmin\Controllers\ConfigController;
+use PhpMyAdmin\Controllers\Config\GetConfigController;
+use PhpMyAdmin\Controllers\Config\SetConfigController;
+use PhpMyAdmin\Controllers\Database\CentralColumns\PopulateColumnsController;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
 use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Controllers\Database\ImportController as DatabaseImportController;
+use PhpMyAdmin\Controllers\Database\MultiTableQuery\QueryController;
+use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController as MultiTableQueryTablesController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
@@ -28,8 +32,12 @@ use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
-use PhpMyAdmin\Controllers\ExportController;
-use PhpMyAdmin\Controllers\ExportTemplateController;
+use PhpMyAdmin\Controllers\Export\ExportController;
+use PhpMyAdmin\Controllers\Export\TablesController;
+use PhpMyAdmin\Controllers\Export\Template\CreateController as TemplateCreateController;
+use PhpMyAdmin\Controllers\Export\Template\DeleteController as TemplateDeleteController;
+use PhpMyAdmin\Controllers\Export\Template\LoadController as TemplateLoadController;
+use PhpMyAdmin\Controllers\Export\Template\UpdateController as TemplateUpdateController;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
 use PhpMyAdmin\Controllers\HomeController;
@@ -99,12 +107,12 @@ use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
-use PhpMyAdmin\Controllers\TransformationOverviewController;
-use PhpMyAdmin\Controllers\TransformationWrapperController;
+use PhpMyAdmin\Controllers\Transformation\OverviewController;
+use PhpMyAdmin\Controllers\Transformation\WrapperController;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
-use PhpMyAdmin\Controllers\ViewCreateController;
-use PhpMyAdmin\Controllers\ViewOperationsController;
+use PhpMyAdmin\Controllers\View\CreateController as ViewCreateController;
+use PhpMyAdmin\Controllers\View\OperationsController as ViewOperationsController;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -118,23 +126,23 @@ return static function (RouteCollector $routes): void {
     $routes->post('/collation-connection', CollationConnectionController::class);
     $routes->post('/columns', ColumnController::class);
     $routes->addGroup('/config', static function (RouteCollector $routes): void {
-        $routes->post('/get', [ConfigController::class, 'get']);
-        $routes->post('/set', [ConfigController::class, 'set']);
+        $routes->post('/get', GetConfigController::class);
+        $routes->post('/set', SetConfigController::class);
     });
     $routes->addGroup('/database', static function (RouteCollector $routes): void {
         $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [CentralColumnsController::class, 'index']);
-            $routes->post('/populate', [CentralColumnsController::class, 'populateColumns']);
+            $routes->addRoute(['GET', 'POST'], '', CentralColumnsController::class);
+            $routes->post('/populate', PopulateColumnsController::class);
         });
         $routes->get('/data-dictionary', DataDictionaryController::class);
         $routes->addRoute(['GET', 'POST'], '/designer', DesignerController::class);
         $routes->addRoute(['GET', 'POST'], '/events', EventsController::class);
-        $routes->addRoute(['GET', 'POST'], '/export', [DatabaseExportController::class, 'index']);
+        $routes->addRoute(['GET', 'POST'], '/export', DatabaseExportController::class);
         $routes->addRoute(['GET', 'POST'], '/import', DatabaseImportController::class);
         $routes->addGroup('/multi-table-query', static function (RouteCollector $routes): void {
-            $routes->get('', [MultiTableQueryController::class, 'index']);
-            $routes->get('/tables', [MultiTableQueryController::class, 'table']);
-            $routes->post('/query', [MultiTableQueryController::class, 'displayResults']);
+            $routes->get('', MultiTableQueryController::class);
+            $routes->get('/tables', MultiTableQueryTablesController::class);
+            $routes->post('/query', QueryController::class);
         });
         $routes->addGroup('/operations', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [OperationsController::class, 'index']);
@@ -185,12 +193,12 @@ return static function (RouteCollector $routes): void {
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', ExportController::class);
         $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
-        $routes->post('/tables', [DatabaseExportController::class, 'tables']);
+        $routes->post('/tables', TablesController::class);
         $routes->addGroup('/template', static function (RouteCollector $routes): void {
-            $routes->post('/create', [ExportTemplateController::class, 'create']);
-            $routes->post('/delete', [ExportTemplateController::class, 'delete']);
-            $routes->post('/load', [ExportTemplateController::class, 'load']);
-            $routes->post('/update', [ExportTemplateController::class, 'update']);
+            $routes->post('/create', TemplateCreateController::class);
+            $routes->post('/delete', TemplateDeleteController::class);
+            $routes->post('/load', TemplateLoadController::class);
+            $routes->post('/update', TemplateUpdateController::class);
         });
     });
     $routes->addRoute(['GET', 'POST'], '/gis-data-editor', GisDataEditorController::class);
@@ -347,8 +355,8 @@ return static function (RouteCollector $routes): void {
         $routes->post('/set', [ThemesController::class, 'setTheme']);
     });
     $routes->addGroup('/transformation', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/overview', TransformationOverviewController::class);
-        $routes->addRoute(['GET', 'POST'], '/wrapper', TransformationWrapperController::class);
+        $routes->addRoute(['GET', 'POST'], '/overview', OverviewController::class);
+        $routes->addRoute(['GET', 'POST'], '/wrapper', WrapperController::class);
     });
     $routes->addRoute(['GET', 'POST'], '/user-password', UserPasswordController::class);
     $routes->addRoute(['GET', 'POST'], '/version-check', VersionCheckController::class);

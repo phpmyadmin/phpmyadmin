@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Config;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -12,7 +13,7 @@ use PhpMyAdmin\Template;
 
 use function json_decode;
 
-final class ConfigController extends AbstractController
+final class SetConfigController extends AbstractController
 {
     /** @var Config */
     private $config;
@@ -26,22 +27,7 @@ final class ConfigController extends AbstractController
         $this->config = $config;
     }
 
-    public function get(ServerRequest $request): void
-    {
-        /** @var string|null $key */
-        $key = $request->getParsedBodyParam('key');
-
-        if (! isset($key)) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON(['message' => Message::error()]);
-
-            return;
-        }
-
-        $this->response->addJSON(['value' => $this->config->get($key)]);
-    }
-
-    public function set(ServerRequest $request): void
+    public function __invoke(ServerRequest $request): void
     {
         /** @var string|null $key */
         $key = $request->getParsedBodyParam('key');

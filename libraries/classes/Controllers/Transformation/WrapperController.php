@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Transformation;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -27,7 +28,7 @@ use function substr;
 /**
  * Wrapper script for rendering transformations
  */
-class TransformationWrapperController extends AbstractController
+class WrapperController extends AbstractController
 {
     /** @var Transformations */
     private $transformations;

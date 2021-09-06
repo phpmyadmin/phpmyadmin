@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers;
+namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
-use PhpMyAdmin\Controllers\TransformationOverviewController;
+use PhpMyAdmin\Controllers\Transformation\OverviewController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -13,9 +13,9 @@ use PhpMyAdmin\Transformations;
 use function __;
 
 /**
- * @covers \PhpMyAdmin\Controllers\TransformationOverviewController
+ * @covers \PhpMyAdmin\Controllers\Transformation\OverviewController
  */
-class TransformationOverviewControllerTest extends AbstractTestCase
+class OverviewControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
@@ -37,7 +37,7 @@ class TransformationOverviewControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new TransformationOverviewController($response, new Template(), new Transformations());
+        $controller = new OverviewController($response, new Template(), new Transformations());
 
         $controller();
         $actual = $response->getHTMLResult();

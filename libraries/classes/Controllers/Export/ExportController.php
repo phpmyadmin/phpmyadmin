@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Export;
 
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
@@ -468,7 +469,7 @@ final class ExportController extends AbstractController
                         $active_page = Url::getFromRoute('/database/export');
                         /** @var DatabaseExportController $controller */
                         $controller = $containerBuilder->get(DatabaseExportController::class);
-                        $controller->index();
+                        $controller();
                         exit;
                     }
                 }
@@ -663,7 +664,7 @@ final class ExportController extends AbstractController
                 throw new ExportException('Failure during footer export.');
             }
         } catch (ExportException $e) {
-            null; // Avoid phpcs error...
+            // Ignore
         }
 
         if ($save_on_server && ! empty($message)) {
