@@ -1352,28 +1352,49 @@
       <code>$table</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Database/OperationsController.php">
-    <MixedArgument occurrences="17">
-      <code>$_POST['comment']</code>
+  <file src="libraries/classes/Controllers/Database/Operations/CollationController.php">
+    <MixedArgument occurrences="7">
       <code>$_POST['db_collation']</code>
       <code>$_POST['db_collation'] ?? ''</code>
       <code>$_POST['db_collation'] ?? ''</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
-      <code>$_POST['newname']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
+      <code>$tableName</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>['db' =&gt; $db]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$data</code>
+      <code>$tableName</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>Util::backquote($db)</code>
+      <code>Util::backquote($db)</code>
+      <code>Util::backquote($tableName)</code>
+    </MixedOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$_POST['db_collation']</code>
+    </PossiblyNullArgument>
+    <UnusedForeachValue occurrences="1">
+      <code>$data</code>
+    </UnusedForeachValue>
+  </file>
+  <file src="libraries/classes/Controllers/Database/OperationsController.php">
+    <MixedArgument occurrences="10">
+      <code>$_POST['comment']</code>
+      <code>$_POST['newname']</code>
+      <code>$_POST['newname']</code>
+      <code>$_POST['newname']</code>
+      <code>$_POST['newname']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$message</code>
-      <code>$tableName</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>['db' =&gt; $db]</code>
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment occurrences="1">
@@ -1382,21 +1403,13 @@
     <MixedArrayOffset occurrences="1">
       <code>$cfg['Servers'][$server]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="4">
-      <code>$data</code>
+    <MixedAssignment occurrences="2">
       <code>$db</code>
       <code>$db</code>
-      <code>$tableName</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="1">
       <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($tableName)</code>
     </MixedOperand>
-    <PossiblyNullArgument occurrences="1">
-      <code>$_POST['db_collation']</code>
-    </PossiblyNullArgument>
     <RedundantCondition occurrences="5">
       <code>! $_error</code>
       <code>! $_error</code>
@@ -1407,9 +1420,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedForeachValue occurrences="1">
-      <code>$data</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Database/PrivilegesController.php">
     <MixedArgument occurrences="1">
@@ -1505,28 +1515,295 @@
       <code>$query</code>
     </PossiblyNullArgument>
   </file>
+  <file src="libraries/classes/Controllers/Database/Structure/AddPrefixController.php">
+    <MixedAssignment occurrences="3">
+      <code>$params['selected'][]</code>
+      <code>$selected</code>
+      <code>$selectedValue</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/AddPrefixTableController.php">
+    <MixedArgument occurrences="3">
+      <code>$db</code>
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$_POST['add_prefix']</code>
+      <code>Util::backquote($newTableName)</code>
+      <code>Util::backquote($selected[$i])</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
+    <MixedArgument occurrences="1">
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php">
+    <MixedArgument occurrences="2">
+      <code>$_POST['db']</code>
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php">
+    <MixedAssignment occurrences="4">
+      <code>$selected</code>
+      <code>$selectedValue</code>
+      <code>$submitMult</code>
+      <code>$urlParams['selected'][]</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CopyFormController.php">
+    <MixedAssignment occurrences="6">
+      <code>$databaseName</code>
+      <code>$databasesList</code>
+      <code>$key</code>
+      <code>$selected</code>
+      <code>$selectedValue</code>
+      <code>$urlParams['selected'][]</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>getList</code>
+      <code>offsetUnset</code>
+    </MixedMethodCall>
+    <MixedPropertyFetch occurrences="1">
+      <code>$dblist-&gt;databases</code>
+    </MixedPropertyFetch>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CopyTableController.php">
+    <MixedArgument occurrences="9">
+      <code>$_POST['what']</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$targetDb</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="2">
+      <code>$selected</code>
+      <code>$targetDb</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/CopyTableWithPrefixController.php">
+    <MixedArgument occurrences="5">
+      <code>$current</code>
+      <code>$current</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="4">
+      <code>$current</code>
+      <code>$fromPrefix</code>
+      <code>$selected</code>
+      <code>$toPrefix</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$toPrefix</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/DropFormController.php">
+    <MixedArgument occurrences="3">
+      <code>$current</code>
+      <code>$current</code>
+      <code>$db</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="7">
+      <code>$current</code>
+      <code>$current</code>
+      <code>$selected</code>
+      <code>$selectedValue</code>
+      <code>$selectedValue</code>
+      <code>$urlParams['selected'][]</code>
+      <code>$urlParams['views'][]</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote(htmlspecialchars($current))</code>
+      <code>Util::backquote(htmlspecialchars($current))</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/DropTableController.php">
+    <MixedArgument occurrences="5">
+      <code>$current</code>
+      <code>$current</code>
+      <code>$db</code>
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$_SESSION['tmpval']['table_limit_offset']</code>
+      <code>$_SESSION['tmpval']['table_limit_offset_db']</code>
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="6">
+      <code>$current</code>
+      <code>$multBtn</code>
+      <code>$reload</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote($current)</code>
+      <code>Util::backquote($current)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/EmptyFormController.php">
+    <MixedArgument occurrences="1">
+      <code>$selectedValue</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$selected</code>
+      <code>$selectedValue</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>Util::backquote(htmlspecialchars($selectedValue))</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/EmptyTableController.php">
+    <MixedArgument occurrences="6">
+      <code>$_REQUEST['pos']</code>
+      <code>$db</code>
+      <code>$db</code>
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="2">
+      <code>$multBtn</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>Util::backquote($selected[$i])</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
+    <MixedArgument occurrences="5">
+      <code>$favoriteTable</code>
+      <code>$favoriteTables</code>
+      <code>$parameters['favoriteTables']</code>
+      <code>$value['db']</code>
+      <code>$value['table']</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>['db' =&gt; $db]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="5">
+      <code>$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]</code>
+      <code>$value['db']</code>
+      <code>$value['db']</code>
+      <code>$value['table']</code>
+      <code>$value['table']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$_SESSION['tmpval']['favorites_synced']</code>
+      <code>$favoriteTables[$user]</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="6">
+      <code>$favoriteTable</code>
+      <code>$favoriteTables</code>
+      <code>$favoriteTables</code>
+      <code>$key</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <UnusedVariable occurrences="1">
+      <code>$key</code>
+    </UnusedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
+    <MixedArgument occurrences="1">
+      <code>$table['TABLE_NAME']</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>['db' =&gt; $db]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="2">
+      <code>$table['TABLE_NAME']</code>
+      <code>$table['TABLE_NAME']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$table</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/ReplacePrefixController.php">
+    <MixedArgument occurrences="6">
+      <code>$current</code>
+      <code>$current</code>
+      <code>$db</code>
+      <code>$newTableName</code>
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="5">
+      <code>$current</code>
+      <code>$fromPrefix</code>
+      <code>$newTableName</code>
+      <code>$selected</code>
+      <code>$toPrefix</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$toPrefix</code>
+      <code>Util::backquote($newTableName)</code>
+      <code>Util::backquote($selected[$i])</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
+    <MixedArgument occurrences="2">
+      <code>$object-&gt;showCreate()</code>
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
     <InvalidScalarArgument occurrences="2">
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="89">
-      <code>$_POST['db']</code>
+    <MixedArgument occurrences="38">
       <code>$_POST['master_connection'] ?? null</code>
-      <code>$_POST['what']</code>
-      <code>$_REQUEST['pos']</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
       <code>$createTimeAll</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
       <code>$currentTable</code>
       <code>$currentTable</code>
       <code>$currentTable['Collation']</code>
@@ -1543,25 +1820,9 @@
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$dbTable</code>
       <code>$dbTable</code>
-      <code>$favoriteTable</code>
-      <code>$favoriteTables</code>
-      <code>$newTableName</code>
-      <code>$object-&gt;showCreate()</code>
       <code>$overheadSize</code>
-      <code>$parameters['favoriteTables']</code>
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Do_DB']</code>
@@ -1570,45 +1831,17 @@
       <code>$replicaInfo['Ignore_Table']</code>
       <code>$replicaInfo['Wild_Do_Table']</code>
       <code>$replicaInfo['Wild_Ignore_Table']</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
       <code>$sumSize</code>
-      <code>$table</code>
       <code>$tableIsView</code>
-      <code>$table['TABLE_NAME']</code>
-      <code>$targetDb</code>
       <code>$truename</code>
       <code>$updateTime</code>
       <code>$updateTimeAll</code>
-      <code>$value['db']</code>
-      <code>$value['table']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>['db' =&gt; $db]</code>
-      <code>['db' =&gt; $db]</code>
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="31">
+    <MixedArrayAccess occurrences="19">
       <code>$_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]</code>
-      <code>$_SESSION['tmpval']['table_limit_offset']</code>
-      <code>$_SESSION['tmpval']['table_limit_offset_db']</code>
       <code>$currentTable['Check_time']</code>
       <code>$currentTable['Collation']</code>
       <code>$currentTable['Create_time']</code>
@@ -1625,135 +1858,54 @@
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$currentTable['TABLE_TYPE']</code>
       <code>$currentTable['Update_time']</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$table['TABLE_NAME']</code>
-      <code>$table['TABLE_NAME']</code>
       <code>$value['db']</code>
-      <code>$value['db']</code>
-      <code>$value['table']</code>
       <code>$value['table']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$_SESSION['tmpval']['favorites_synced']</code>
+    <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$favoriteTables[$user]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="80">
+    <MixedAssignment occurrences="29">
       <code>$charset</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
       <code>$createTimeAll</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
-      <code>$current</code>
       <code>$currentTable</code>
       <code>$currentTable['Rows']</code>
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$databaseName</code>
-      <code>$databasesList</code>
       <code>$dbTable</code>
-      <code>$favoriteTable</code>
       <code>$favoriteTables</code>
-      <code>$favoriteTables</code>
-      <code>$fromPrefix</code>
-      <code>$fromPrefix</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$multBtn</code>
-      <code>$multBtn</code>
-      <code>$newTableName</code>
       <code>$overheadSize</code>
-      <code>$params['selected'][]</code>
-      <code>$reload</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$searchDb</code>
       <code>$searchDoDBInDB</code>
       <code>$searchDoDBInTruename</code>
       <code>$searchTable</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code>$selectedValue</code>
-      <code>$submitMult</code>
       <code>$sumEntries</code>
-      <code>$table</code>
-      <code>$targetDb</code>
       <code>$this-&gt;dbIsSystemSchema</code>
       <code>$this-&gt;isShowStats</code>
       <code>$this-&gt;numTables</code>
       <code>$this-&gt;position</code>
       <code>$this-&gt;tables</code>
       <code>$this-&gt;totalNumTables</code>
-      <code>$toPrefix</code>
-      <code>$toPrefix</code>
       <code>$truename</code>
       <code>$updateTime</code>
       <code>$updateTimeAll</code>
-      <code>$urlParams['selected'][]</code>
-      <code>$urlParams['selected'][]</code>
-      <code>$urlParams['selected'][]</code>
       <code>$urlParams['sort']</code>
       <code>$urlParams['sort_order']</code>
-      <code>$urlParams['views'][]</code>
-      <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="3">
+    <MixedMethodCall occurrences="1">
       <code>getCharset</code>
-      <code>getList</code>
-      <code>offsetUnset</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="20">
-      <code>$_POST['add_prefix']</code>
+    <MixedOperand occurrences="7">
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$toPrefix</code>
-      <code>$toPrefix</code>
-      <code>Util::backquote($current)</code>
-      <code>Util::backquote($current)</code>
-      <code>Util::backquote($newTableName)</code>
-      <code>Util::backquote($newTableName)</code>
-      <code>Util::backquote($selected[$i])</code>
-      <code>Util::backquote($selected[$i])</code>
-      <code>Util::backquote($selected[$i])</code>
-      <code>Util::backquote(htmlspecialchars($current))</code>
-      <code>Util::backquote(htmlspecialchars($current))</code>
-      <code>Util::backquote(htmlspecialchars($selectedValue))</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="1">
-      <code>$dblist-&gt;databases</code>
-    </MixedPropertyFetch>
     <PossiblyNullArrayAccess occurrences="8">
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
@@ -1772,8 +1924,7 @@
       <code>$tables</code>
       <code>$totalNumTables</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="2">
-      <code>$key</code>
+    <UnusedVariable occurrences="1">
       <code>$keyname</code>
     </UnusedVariable>
   </file>
@@ -2369,19 +2520,62 @@
       <code>$this-&gt;collations[$charset-&gt;getName()]</code>
     </PossiblyNullIterator>
   </file>
-  <file src="libraries/classes/Controllers/Server/DatabasesController.php">
-    <MixedArgument occurrences="23">
-      <code>$_POST['master_connection'] ?? null</code>
+  <file src="libraries/classes/Controllers/Server/Databases/CreateController.php">
+    <MixedArgument occurrences="7">
       <code>$collations[$databaseCharset]</code>
+      <code>$params['db_collation']</code>
+      <code>$params['db_collation']</code>
+      <code>$params['db_collation']</code>
+      <code>$params['new_db']</code>
+      <code>$params['new_db']</code>
+      <code>$params['new_db']</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>['db' =&gt; $params['new_db']]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$db</code>
+      <code>$result</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>Util::backquote($params['new_db'])</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
+    <MixedArgument occurrences="4">
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+      <code>$selected[$i]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>build</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="1">
+      <code>Util::backquote($selected[$i])</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="1">
+      <code>$dblist-&gt;databases</code>
+    </MixedPropertyFetch>
+    <UnusedVariable occurrences="2">
+      <code>$sqlQuery</code>
+      <code>$sqlQuery</code>
+    </UnusedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Server/DatabasesController.php">
+    <MixedArgument occurrences="12">
+      <code>$_POST['master_connection'] ?? null</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
       <code>$dblist-&gt;databases</code>
-      <code>$params['db_collation']</code>
-      <code>$params['db_collation']</code>
-      <code>$params['db_collation']</code>
-      <code>$params['new_db']</code>
-      <code>$params['new_db']</code>
-      <code>$params['new_db']</code>
       <code>$params['sort_by']</code>
       <code>$params['sort_order']</code>
       <code>$primaryInfo['Do_DB']</code>
@@ -2390,16 +2584,11 @@
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Do_DB']</code>
       <code>$replicaInfo['Ignore_DB']</code>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $database['SCHEMA_NAME']]</code>
-      <code>['db' =&gt; $params['new_db']]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="16">
+    <MixedArrayAccess occurrences="13">
       <code>$database[$key]</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
@@ -2412,9 +2601,6 @@
       <code>$database['SCHEMA_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
       <code>$totalStatistics[$key]['raw']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="2">
@@ -2425,28 +2611,19 @@
       <code>$databases[$database['SCHEMA_NAME']]</code>
       <code>$databases[$database['SCHEMA_NAME']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="7">
       <code>$database</code>
-      <code>$db</code>
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
-      <code>$result</code>
-      <code>$selected</code>
       <code>$statistics[$key]['raw']</code>
       <code>$totalStatistics[$key]['raw']</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>build</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$totalStatistics[$key]['raw']</code>
-      <code>Util::backquote($params['new_db'])</code>
-      <code>Util::backquote($selected[$i])</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="2">
-      <code>$dblist-&gt;databases</code>
+    <MixedPropertyFetch occurrences="1">
       <code>$dblist-&gt;databases</code>
     </MixedPropertyFetch>
     <PropertyNotSetInConstructor occurrences="4">
@@ -2461,10 +2638,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>0</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="2">
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/EnginesController.php">
     <MixedArgument occurrences="3">
@@ -17206,14 +17379,24 @@
       <code>include $this-&gt;object-&gt;defaultSource</code>
     </UnresolvableInclude>
   </file>
-  <file src="test/classes/Controllers/Database/StructureControllerTest.php">
-    <MixedArgument occurrences="4">
-      <code>$currentTable</code>
+  <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
+    <MixedArgument occurrences="1">
       <code>$json</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$json['favoriteTables']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$json</code>
+    </MixedAssignment>
+  </file>
+  <file src="test/classes/Controllers/Database/StructureControllerTest.php">
+    <MixedArgument occurrences="3">
+      <code>$currentTable</code>
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="24">
+    <MixedArrayAccess occurrences="23">
       <code>$currentTable</code>
       <code>$currentTable</code>
       <code>$currentTable</code>
@@ -17229,7 +17412,6 @@
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Rows']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$json['favoriteTables']</code>
       <code>$overheadSize</code>
       <code>$overheadSize</code>
       <code>$sumSize</code>
@@ -17245,8 +17427,7 @@
       <code>$currentTable['ENGINE']</code>
       <code>$currentTable['ENGINE']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="11">
-      <code>$json</code>
+    <MixedAssignment occurrences="10">
       <code>$result</code>
       <code>$result</code>
       <code>[$currentTable, , , $sumSize]</code>
@@ -17279,11 +17460,15 @@
       <code>$responseMessage</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/Controllers/Server/DatabasesControllerTest.php">
-    <MixedArgument occurrences="5">
+  <file src="test/classes/Controllers/Server/Databases/CreateControllerTest.php">
+    <MixedArgument occurrences="3">
       <code>$actual['message']</code>
       <code>$actual['message']</code>
       <code>$actual['message']</code>
+    </MixedArgument>
+  </file>
+  <file src="test/classes/Controllers/Server/Databases/DestroyControllerTest.php">
+    <MixedArgument occurrences="2">
       <code>$actual['message']</code>
       <code>$actual['message']</code>
     </MixedArgument>

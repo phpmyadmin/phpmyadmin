@@ -152,6 +152,16 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        PhpMyAdmin\Controllers\Database\Operations\CollationController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Operations\CollationController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$operations' => '@operations',
+                '$dbi' => '@dbi',
+            ],
+        ],
         PhpMyAdmin\Controllers\Database\OperationsController::class => [
             'class' => PhpMyAdmin\Controllers\Database\OperationsController::class,
             'arguments' => [
@@ -230,6 +240,168 @@ return [
                 '$db' => '%db%',
             ],
         ],
+        PhpMyAdmin\Controllers\Database\Structure\AddPrefixController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\AddPrefixController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\AddPrefixTableController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\AddPrefixTableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CentralColumns\AddController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CentralColumns\AddController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CentralColumns\MakeConsistentController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CentralColumns\MakeConsistentController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CentralColumns\RemoveController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CentralColumns\RemoveController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\ChangePrefixFormController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\ChangePrefixFormController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CopyFormController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CopyFormController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CopyTableController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CopyTableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$operations' => '@operations',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\CopyTableWithPrefixController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\CopyTableWithPrefixController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\DropFormController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\DropFormController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\DropTableController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\DropTableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$relationCleanup' => '@relation_cleanup',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\EmptyFormController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\EmptyFormController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\EmptyTableController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\EmptyTableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
+                '$relationCleanup' => '@relation_cleanup',
+                '$operations' => '@operations',
+                '$flash' => '@flash',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$relation' => '@relation',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\RealRowCountController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\RealRowCountController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\ReplacePrefixController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\ReplacePrefixController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+                '$structureController' => '@' . PhpMyAdmin\Controllers\Database\StructureController::class,
+            ],
+        ],
+        PhpMyAdmin\Controllers\Database\Structure\ShowCreateController::class => [
+            'class' => PhpMyAdmin\Controllers\Database\Structure\ShowCreateController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$dbi' => '@dbi',
+            ],
+        ],
         PhpMyAdmin\Controllers\Database\StructureController::class => [
             'class' => PhpMyAdmin\Controllers\Database\StructureController::class,
             'arguments' => [
@@ -277,6 +449,13 @@ return [
                 '$template' => '@template',
                 '$errorReport' => '@error_report',
                 '$errorHandler' => '@error_handler',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Export\CheckTimeOutController::class => [
+            'class' => PhpMyAdmin\Controllers\Export\CheckTimeOutController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
             ],
         ],
         PhpMyAdmin\Controllers\Export\ExportController::class => [
@@ -521,6 +700,24 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Server\Databases\CreateController::class => [
+            'class' => PhpMyAdmin\Controllers\Server\Databases\CreateController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Server\Databases\DestroyController::class => [
+            'class' => PhpMyAdmin\Controllers\Server\Databases\DestroyController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+                '$transformations' => '@transformations',
+                '$relationCleanup' => '@relation_cleanup',
             ],
         ],
         PhpMyAdmin\Controllers\Server\DatabasesController::class => [

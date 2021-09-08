@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Database\ImportController as DatabaseImportController
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\QueryController;
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController as MultiTableQueryTablesController;
 use PhpMyAdmin\Controllers\Database\MultiTableQueryController;
+use PhpMyAdmin\Controllers\Database\Operations\CollationController;
 use PhpMyAdmin\Controllers\Database\OperationsController;
 use PhpMyAdmin\Controllers\Database\QueryByExampleController;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
@@ -27,11 +28,13 @@ use PhpMyAdmin\Controllers\Database\SearchController;
 use PhpMyAdmin\Controllers\Database\SqlAutoCompleteController;
 use PhpMyAdmin\Controllers\Database\SqlController as DatabaseSqlController;
 use PhpMyAdmin\Controllers\Database\SqlFormatController;
+use PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\Export\CheckTimeOutController;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Controllers\Export\TablesController;
 use PhpMyAdmin\Controllers\Export\Template\CreateController as TemplateCreateController;
@@ -61,6 +64,8 @@ use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server\BinlogController;
 use PhpMyAdmin\Controllers\Server\CollationsController;
+use PhpMyAdmin\Controllers\Server\Databases\CreateController as DatabasesCreateController;
+use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
 use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Controllers\Server\ExportController as ServerExportController;
@@ -145,8 +150,8 @@ return static function (RouteCollector $routes): void {
             $routes->post('/query', QueryController::class);
         });
         $routes->addGroup('/operations', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [OperationsController::class, 'index']);
-            $routes->post('/collation', [OperationsController::class, 'collation']);
+            $routes->addRoute(['GET', 'POST'], '', OperationsController::class);
+            $routes->post('/collation', CollationController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/qbe', QueryByExampleController::class);
         $routes->addRoute(['GET', 'POST'], '/routines', RoutinesController::class);
@@ -157,33 +162,24 @@ return static function (RouteCollector $routes): void {
             $routes->post('/format', SqlFormatController::class);
         });
         $routes->addGroup('/structure', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [StructureController::class, 'index']);
-            $routes->post('/add-prefix', [StructureController::class, 'addPrefix']);
-            $routes->post('/add-prefix-table', [StructureController::class, 'addPrefixTable']);
-            $routes->post('/central-columns-add', [StructureController::class, 'centralColumnsAdd']);
-            $routes->post('/central-columns-make-consistent', [
-                StructureController::class,
-                'centralColumnsMakeConsistent',
-            ]);
-            $routes->post('/central-columns-remove', [StructureController::class, 'centralColumnsRemove']);
-            $routes->post('/change-prefix-form', [StructureController::class, 'changePrefixForm']);
-            $routes->post('/copy-form', [StructureController::class, 'copyForm']);
-            $routes->post('/copy-table', [StructureController::class, 'copyTable']);
-            $routes->post('/copy-table-with-prefix', [StructureController::class, 'copyTableWithPrefix']);
-            $routes->post('/drop-form', [StructureController::class, 'dropForm']);
-            $routes->post('/drop-table', [StructureController::class, 'dropTable']);
-            $routes->post('/empty-form', [StructureController::class, 'emptyForm']);
-            $routes->post('/empty-table', [StructureController::class, 'emptyTable']);
-            $routes->addRoute(['GET', 'POST'], '/favorite-table', [
-                StructureController::class,
-                'addRemoveFavoriteTablesAction',
-            ]);
-            $routes->addRoute(['GET', 'POST'], '/real-row-count', [
-                StructureController::class,
-                'handleRealRowCountRequestAction',
-            ]);
-            $routes->post('/replace-prefix', [StructureController::class, 'replacePrefix']);
-            $routes->post('/show-create', [StructureController::class, 'showCreate']);
+            $routes->addRoute(['GET', 'POST'], '', StructureController::class);
+            $routes->post('/add-prefix', Structure\AddPrefixController::class);
+            $routes->post('/add-prefix-table', Structure\AddPrefixTableController::class);
+            $routes->post('/central-columns-add', Structure\CentralColumns\AddController::class);
+            $routes->post('/central-columns-make-consistent', Structure\CentralColumns\MakeConsistentController::class);
+            $routes->post('/central-columns-remove', Structure\CentralColumns\RemoveController::class);
+            $routes->post('/change-prefix-form', Structure\ChangePrefixFormController::class);
+            $routes->post('/copy-form', Structure\CopyFormController::class);
+            $routes->post('/copy-table', Structure\CopyTableController::class);
+            $routes->post('/copy-table-with-prefix', Structure\CopyTableWithPrefixController::class);
+            $routes->post('/drop-form', Structure\DropFormController::class);
+            $routes->post('/drop-table', Structure\DropTableController::class);
+            $routes->post('/empty-form', Structure\EmptyFormController::class);
+            $routes->post('/empty-table', Structure\EmptyTableController::class);
+            $routes->addRoute(['GET', 'POST'], '/favorite-table', Structure\FavoriteTableController::class);
+            $routes->addRoute(['GET', 'POST'], '/real-row-count', Structure\RealRowCountController::class);
+            $routes->post('/replace-prefix', Structure\ReplacePrefixController::class);
+            $routes->post('/show-create', Structure\ShowCreateController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/tracking', TrackingController::class);
         $routes->addRoute(['GET', 'POST'], '/triggers', TriggersController::class);
@@ -192,7 +188,7 @@ return static function (RouteCollector $routes): void {
     $routes->addRoute(['GET', 'POST'], '/error-report', ErrorReportController::class);
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', ExportController::class);
-        $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
+        $routes->get('/check-time-out', CheckTimeOutController::class);
         $routes->post('/tables', TablesController::class);
         $routes->addGroup('/template', static function (RouteCollector $routes): void {
             $routes->post('/create', TemplateCreateController::class);
@@ -227,9 +223,9 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/binlog', BinlogController::class);
         $routes->get('/collations', CollationsController::class);
         $routes->addGroup('/databases', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [DatabasesController::class, 'index']);
-            $routes->post('/create', [DatabasesController::class, 'create']);
-            $routes->post('/destroy', [DatabasesController::class, 'destroy']);
+            $routes->addRoute(['GET', 'POST'], '', DatabasesController::class);
+            $routes->post('/create', DatabasesCreateController::class);
+            $routes->post('/destroy', DestroyController::class);
         });
         $routes->addGroup('/engines', static function (RouteCollector $routes): void {
             $routes->get('', [EnginesController::class, 'index']);

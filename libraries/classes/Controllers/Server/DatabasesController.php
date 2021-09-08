@@ -10,8 +10,6 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\ReplicationInfo;
@@ -22,14 +20,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function _ngettext;
-use function array_key_exists;
 use function array_keys;
 use function array_search;
 use function count;
-use function explode;
 use function in_array;
-use function mb_strlen;
 use function mb_strtolower;
 use function str_contains;
 use function strlen;
@@ -86,7 +80,7 @@ class DatabasesController extends AbstractController
         $checkUserPrivileges->getPrivileges();
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
         global $db_to_create, $text_dir, $errorUrl;
@@ -185,164 +179,6 @@ class DatabasesController extends AbstractController
             'is_drop_allowed' => $this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'],
             'text_dir' => $text_dir,
         ]);
-    }
-
-    public function create(): void
-    {
-        global $cfg, $db;
-
-        $params = [
-            'new_db' => $_POST['new_db'] ?? null,
-            'db_collation' => $_POST['db_collation'] ?? null,
-        ];
-
-        if (! isset($params['new_db']) || mb_strlen($params['new_db']) === 0 || ! $this->response->isAjax()) {
-            $this->response->addJSON(['message' => Message::error()]);
-
-            return;
-        }
-
-        // lower_case_table_names=1 `DB` becomes `db`
-        if ($this->dbi->getLowerCaseNames() === '1') {
-            $params['new_db'] = mb_strtolower(
-                $params['new_db']
-            );
-        }
-
-        /**
-         * Builds and executes the db creation sql query
-         */
-        $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
-        if (! empty($params['db_collation'])) {
-            [$databaseCharset] = explode('_', $params['db_collation']);
-            $charsets = Charsets::getCharsets(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-            $collations = Charsets::getCollations(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-            if (
-                array_key_exists($databaseCharset, $charsets)
-                && array_key_exists($params['db_collation'], $collations[$databaseCharset])
-            ) {
-                $sqlQuery .= ' DEFAULT'
-                    . Util::getCharsetQueryPart($params['db_collation']);
-            }
-        }
-
-        $sqlQuery .= ';';
-
-        $result = $this->dbi->tryQuery($sqlQuery);
-
-        if (! $result) {
-            // avoid displaying the not-created db name in header or navi panel
-            $db = '';
-
-            $message = Message::rawError((string) $this->dbi->getError());
-            $json = ['message' => $message];
-
-            $this->response->setRequestStatus(false);
-        } else {
-            $db = $params['new_db'];
-
-            $message = Message::success(__('Database %1$s has been created.'));
-            $message->addParam($params['new_db']);
-
-            $scriptName = Util::getScriptNameForOption(
-                $cfg['DefaultTabDatabase'],
-                'database'
-            );
-
-            $json = [
-                'message' => $message,
-                'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
-                'url' => $scriptName . Url::getCommon(
-                    ['db' => $params['new_db']],
-                    ! str_contains($scriptName, '?') ? '?' : '&'
-                ),
-            ];
-        }
-
-        $this->response->addJSON($json);
-    }
-
-    /**
-     * Handles dropping multiple databases
-     */
-    public function destroy(): void
-    {
-        global $selected, $errorUrl, $cfg, $dblist, $reload;
-
-        $params = [
-            'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
-            'selected_dbs' => $_POST['selected_dbs'] ?? null,
-        ];
-        /** @var Message|int $message */
-        $message = -1;
-
-        if (
-            ! isset($params['drop_selected_dbs'])
-            || ! $this->response->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
-        ) {
-            $message = Message::error();
-            $json = ['message' => $message];
-            $this->response->setRequestStatus($message->isSuccess());
-            $this->response->addJSON($json);
-
-            return;
-        }
-
-        if (! isset($params['selected_dbs'])) {
-            $message = Message::error(__('No databases selected.'));
-            $json = ['message' => $message];
-            $this->response->setRequestStatus($message->isSuccess());
-            $this->response->addJSON($json);
-
-            return;
-        }
-
-        $errorUrl = Url::getFromRoute('/server/databases');
-        $selected = $_POST['selected_dbs'];
-        $rebuildDatabaseList = false;
-        $sqlQuery = '';
-        $numberOfDatabases = count($selected);
-
-        for ($i = 0; $i < $numberOfDatabases; $i++) {
-            $this->relationCleanup->database($selected[$i]);
-            $aQuery = 'DROP DATABASE ' . Util::backquote($selected[$i]);
-            $reload = true;
-            $rebuildDatabaseList = true;
-
-            $sqlQuery .= $aQuery . ';' . "\n";
-            $this->dbi->query($aQuery);
-            $this->transformations->clear($selected[$i]);
-        }
-
-        if ($rebuildDatabaseList) {
-            $dblist->databases->build();
-        }
-
-        if ($message === -1) { // no error message
-            $message = Message::success(
-                _ngettext(
-                    '%1$d database has been dropped successfully.',
-                    '%1$d databases have been dropped successfully.',
-                    $numberOfDatabases
-                )
-            );
-            $message->addParam($numberOfDatabases);
-        }
-
-        $json = [];
-        if ($message instanceof Message) {
-            $json = ['message' => $message];
-            $this->response->setRequestStatus($message->isSuccess());
-        }
-
-        $this->response->addJSON($json);
     }
 
     /**

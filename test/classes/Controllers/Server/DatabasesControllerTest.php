@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\DatabasesController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
@@ -15,7 +14,6 @@ use PhpMyAdmin\Transformations;
 use stdClass;
 
 use function __;
-use function sprintf;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
@@ -64,7 +62,7 @@ class DatabasesControllerTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
@@ -101,7 +99,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $_REQUEST['sort_order'] = 'desc';
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
@@ -116,85 +114,5 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertStringContainsString('4.2', $actual);
         $this->assertStringContainsString('MiB', $actual);
         $this->assertStringContainsString('name="db_collation"', $actual);
-    }
-
-    public function testCreateDatabaseAction(): void
-    {
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $template = new Template();
-        $transformations = new Transformations();
-        $controller = new DatabasesController(
-            $response,
-            $template,
-            $transformations,
-            new RelationCleanup($this->dbi, new Relation($this->dbi, $template)),
-            $this->dbi
-        );
-
-        $_POST['new_db'] = 'test_db_error';
-
-        $controller->create();
-        $actual = $response->getJSONResult();
-
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new DatabasesController(
-            $response,
-            $template,
-            $transformations,
-            new RelationCleanup($this->dbi, new Relation($this->dbi, $template)),
-            $this->dbi
-        );
-
-        $_POST['new_db'] = 'test_db';
-        $_POST['db_collation'] = 'utf8_general_ci';
-
-        $controller->create();
-        $actual = $response->getJSONResult();
-
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
-        $this->assertStringContainsString(
-            sprintf(__('Database %1$s has been created.'), 'test_db'),
-            $actual['message']
-        );
-    }
-
-    public function testDropDatabasesAction(): void
-    {
-        global $cfg;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $cfg['AllowUserDropDatabase'] = true;
-
-        $template = new Template();
-        $controller = new DatabasesController(
-            $response,
-            $template,
-            new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi, $template)),
-            $dbi
-        );
-
-        $_POST['drop_selected_dbs'] = '1';
-
-        $controller->destroy();
-        $actual = $response->getJSONResult();
-
-        $this->assertArrayHasKey('message', $actual);
-        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-        $this->assertStringContainsString(__('No databases selected.'), $actual['message']);
     }
 }

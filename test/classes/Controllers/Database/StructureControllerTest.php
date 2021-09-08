@@ -8,7 +8,6 @@ use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Replication;
@@ -16,11 +15,8 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
-use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
-
-use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\StructureController
@@ -389,113 +385,6 @@ class StructureControllerTest extends AbstractTestCase
 
         $this->assertTrue(
             $method->invokeArgs($controller, ['table'])
-        );
-    }
-
-    /**
-     * Tests for synchronizeFavoriteTables()
-     */
-    public function testSynchronizeFavoriteTables(): void
-    {
-        $favoriteInstance = $this->getFavoriteTablesMock();
-
-        $class = new ReflectionClass(StructureController::class);
-        $method = $class->getMethod('synchronizeFavoriteTables');
-        $method->setAccessible(true);
-
-        $controller = new StructureController(
-            $this->response,
-            $this->template,
-            $GLOBALS['db'],
-            $this->relation,
-            $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
-        );
-
-        // The user hash for test
-        $user = 'abcdefg';
-        $favoriteTable = [
-            $user => [
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-            ],
-        ];
-
-        $json = $method->invokeArgs($controller, [$favoriteInstance, $user, $favoriteTable]);
-
-        $this->assertEquals(json_encode($favoriteTable), $json['favoriteTables'] ?? '');
-        $this->assertArrayHasKey('list', $json);
-    }
-
-    /**
-     * @return MockObject|RecentFavoriteTable
-     */
-    private function getFavoriteTablesMock()
-    {
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $favoriteInstance->expects($this->exactly(2))
-            ->method('getTables')
-            ->will($this->onConsecutiveCalls([[]], [['db' => 'db', 'table' => 'table']]));
-
-        return $favoriteInstance;
-    }
-
-    /**
-     * Tests for handleRealRowCountRequestAction()
-     */
-    public function testHandleRealRowCountRequestAction(): void
-    {
-        global $is_db;
-
-        $is_db = true;
-
-        $this->response->setAjax(true);
-        $controller = new StructureController(
-            $this->response,
-            $this->template,
-            $GLOBALS['db'],
-            $this->relation,
-            $this->replication,
-            $this->relationCleanup,
-            $this->operations,
-            $GLOBALS['dbi'],
-            $this->flash
-        );
-        // Showing statistics
-        $class = new ReflectionClass(StructureController::class);
-        $property = $class->getProperty('tables');
-        $property->setAccessible(true);
-
-        $_REQUEST['table'] = 'table';
-        $controller->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            6,
-            $json['real_row_count']
-        );
-
-        // Fall into another branch
-        $property->setValue($controller, [['TABLE_NAME' => 'table']]);
-        $_REQUEST['real_row_count_all'] = 'abc';
-        $controller->handleRealRowCountRequestAction();
-        $json = $this->response->getJSONResult();
-
-        $expectedResult = [
-            [
-                'table' => 'table',
-                'row_count' => 6,
-            ],
-        ];
-        $this->assertEquals(
-            json_encode($expectedResult),
-            $json['real_row_count_all']
         );
     }
 

@@ -718,18 +718,4 @@ final class ExportController extends AbstractController
 
         echo $this->export->dumpBuffer;
     }
-
-    public function checkTimeOut(): void
-    {
-        $this->response->setAjax(true);
-
-        if (isset($_SESSION['pma_export_error'])) {
-            unset($_SESSION['pma_export_error']);
-            $this->response->addJSON('message', 'timeout');
-
-            return;
-        }
-
-        $this->response->addJSON('message', 'success');
-    }
 }
