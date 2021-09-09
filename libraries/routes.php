@@ -148,8 +148,8 @@ return static function (RouteCollector $routes): void {
             $routes->post('/destroy', Server\Databases\DestroyController::class);
         });
         $routes->addGroup('/engines', static function (RouteCollector $routes): void {
-            $routes->get('', [Server\EnginesController::class, 'index']);
-            $routes->get('/{engine}[/{page}]', [Server\EnginesController::class, 'show']);
+            $routes->get('', Server\EnginesController::class);
+            $routes->get('/{engine}[/{page}]', Server\ShowEngineController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/export', Server\ExportController::class);
         $routes->addRoute(['GET', 'POST'], '/import', Server\ImportController::class);

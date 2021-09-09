@@ -833,6 +833,14 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        Server\ShowEngineController::class => [
+            'class' => Server\ShowEngineController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+            ],
+        ],
         Server\SqlController::class => [
             'class' => Server\SqlController::class,
             'arguments' => [

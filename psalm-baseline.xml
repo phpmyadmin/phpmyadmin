@@ -2639,16 +2639,6 @@
       <code>0</code>
     </TypeDoesNotContainNull>
   </file>
-  <file src="libraries/classes/Controllers/Server/EnginesController.php">
-    <MixedArgument occurrences="3">
-      <code>$page</code>
-      <code>$params['engine']</code>
-      <code>$params['engine']</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$page</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Controllers/Server/ExportController.php">
     <MixedArgument occurrences="6">
       <code>$db</code>
