@@ -273,7 +273,7 @@ class IndexesController extends AbstractController
             } else {
                 /** @var StructureController $controller */
                 $controller = $containerBuilder->get(StructureController::class);
-                $controller->index();
+                $controller();
             }
         } else {
             $this->response->setRequestStatus(false);

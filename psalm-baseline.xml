@@ -3916,12 +3916,200 @@
       <code>$url_params</code>
     </MixedArgumentTypeCoercion>
   </file>
-  <file src="libraries/classes/Controllers/Table/StructureController.php">
+  <file src="libraries/classes/Controllers/Table/Structure/AddIndexController.php">
+    <MixedArgument occurrences="4">
+      <code>$db</code>
+      <code>$field</code>
+      <code>$selected</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$field</code>
+      <code>$result</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote($field)</code>
+      <code>Util::backquote($table)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
+    <MixedArgument occurrences="4">
+      <code>$analyzed_sql_results ?? ''</code>
+      <code>$sval</code>
+      <code>Util::backquote($this-&gt;db)</code>
+      <code>Util::backquote($this-&gt;table)</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$fields</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$fields[]</code>
+      <code>$sval</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$analyzed_sql_results ?? ''</code>
+    </PossiblyInvalidArgument>
+    <UnusedVariable occurrences="1">
+      <code>$db</code>
+    </UnusedVariable>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
+    <MixedArgument occurrences="1">
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$selected</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$selected</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/ChangeController.php">
+    <MixedArgument occurrences="2">
+      <code>$selected</code>
+      <code>$selected[$i]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$selected</code>
+      <code>$selected[]</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/FulltextController.php">
+    <MixedArgument occurrences="4">
+      <code>$db</code>
+      <code>$field</code>
+      <code>$selected</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$field</code>
+      <code>$result</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote($field)</code>
+      <code>Util::backquote($table)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
+    <MixedArgument occurrences="17">
+      <code>$column</code>
+      <code>$column</code>
+      <code>$column</code>
+      <code>$column</code>
+      <code>$current_timestamp ? '' : $data['Default']</code>
+      <code>$data['Collation'] ?? ''</code>
+      <code>$data['Expression']</code>
+      <code>$data['Extra']</code>
+      <code>$data['Type']</code>
+      <code>$data['Virtuality']</code>
+      <code>$extracted_columnspec['attribute']</code>
+      <code>$extracted_columnspec['spec_in_brackets']</code>
+      <code>$extracted_columnspec['type']</code>
+      <code>$i === 0 ? '-first' : $column_names[$i - 1]</code>
+      <code>Util::backquote($this-&gt;table)</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="9">
+      <code>$data['Collation']</code>
+      <code>$data['Default']</code>
+      <code>$data['Default']</code>
+      <code>$data['Expression']</code>
+      <code>$data['Null']</code>
+      <code>$data['Null']</code>
+      <code>$data['Type']</code>
+      <code>$data['Type']</code>
+      <code>$data['Virtuality']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$data['Expression']</code>
+      <code>$data['Virtuality']</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="2">
+      <code>$columns[$column]</code>
+      <code>$expressions[$column]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="3">
+      <code>$column</code>
+      <code>$data</code>
+      <code>$data['Expression']</code>
+    </MixedAssignment>
+    <PossiblyFalseArgument occurrences="2"/>
+    <PossiblyNullArgument occurrences="4">
+      <code>$current_timestamp ? '' : $data['Default']</code>
+      <code>$data['Collation'] ?? ''</code>
+      <code>$data['Expression']</code>
+      <code>$data['Virtuality']</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/PartitioningController.php">
     <DocblockTypeContradiction occurrences="2">
       <code>count($stmt-&gt;partitions)</code>
       <code>count($stmt-&gt;partitions[0]-&gt;subpartitions)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="107">
+    <MixedArgument occurrences="1">
+      <code>$createTable</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$createTable</code>
+      <code>$result</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>Util::backquote($this-&gt;table)</code>
+    </MixedOperand>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$stmt-&gt;partitionsNum</code>
+      <code>$stmt-&gt;subpartitionsNum</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/PrimaryController.php">
+    <MixedArgument occurrences="6">
+      <code>$db</code>
+      <code>$field</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$selected</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$urlParams</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="7">
+      <code>$field</code>
+      <code>$mult_btn</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$selected</code>
+      <code>$selected</code>
+      <code>$selected_fld</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="4">
+      <code>$row['Column_name']</code>
+      <code>Util::backquote($field)</code>
+      <code>Util::backquote($table)</code>
+      <code>Util::backquote($this-&gt;table)</code>
+    </MixedOperand>
+    <TypeDoesNotContainType occurrences="1">
+      <code>! is_array($row)</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php">
+    <MixedArgument occurrences="1">
+      <code>$column</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$column</code>
+      <code>$columns_names</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/SaveController.php">
+    <MixedArgument occurrences="44">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_attribute_orig'][$i]</code>
       <code>$_POST['field_default_type'][$i]</code>
@@ -3945,68 +4133,10 @@
       <code>$_POST['field_transformation_options'][$fieldindex]</code>
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_type_orig'][$i]</code>
-      <code>$analyzed_sql_results ?? ''</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$createTable</code>
-      <code>$current_timestamp ? '' : $data['Default']</code>
-      <code>$data['Collation'] ?? ''</code>
-      <code>$data['Expression']</code>
-      <code>$data['Extra']</code>
-      <code>$data['Type']</code>
-      <code>$data['Virtuality']</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$extracted_columnspec['attribute']</code>
-      <code>$extracted_columnspec['spec_in_brackets']</code>
-      <code>$extracted_columnspec['type']</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field['Collation'] ?? ''</code>
-      <code>$field['Extra']</code>
-      <code>$field['Field']</code>
-      <code>$field['Type']</code>
       <code>$fieldcontent</code>
-      <code>$i === 0 ? '-first' : $column_names[$i - 1]</code>
       <code>$mimetype</code>
       <code>$newCol</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-      <code>$showtable['Data_free']</code>
-      <code>$showtable['Data_length']</code>
-      <code>$showtable['Data_length'] + $showtable['Index_length']</code>
-      <code>$showtable['Index_length']</code>
-      <code>$sval</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$tbl_collation</code>
       <code>Util::backquote($_POST['field_orig'][$i])</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
       <code>Util::backquote('columns_priv')</code>
       <code>Util::getValueByKey($_POST, "field_collation.${i}", '')</code>
       <code>Util::getValueByKey($_POST, "field_collation_orig.${i}", '')</code>
@@ -4025,12 +4155,7 @@
       <code>Util::getValueByKey($_POST, "field_virtuality.${i}", '')</code>
       <code>Util::getValueByKey($_POST, "field_virtuality_orig.${i}", '')</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$fields</code>
-      <code>$urlParams</code>
-      <code>$url_params</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="50">
+    <MixedArrayAccess occurrences="31">
       <code>$_POST[$field . '_orig'][$i]</code>
       <code>$_POST[$field][$i]</code>
       <code>$_POST['field_attribute'][$i]</code>
@@ -4062,15 +4187,82 @@
       <code>$_POST['field_transformation_options'][$fieldindex]</code>
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_type_orig'][$i]</code>
-      <code>$data['Collation']</code>
-      <code>$data['Default']</code>
-      <code>$data['Default']</code>
-      <code>$data['Expression']</code>
-      <code>$data['Null']</code>
-      <code>$data['Null']</code>
-      <code>$data['Type']</code>
-      <code>$data['Type']</code>
-      <code>$data['Virtuality']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$_POST['field_extra'][$i]</code>
+      <code>$_POST['field_null'][$i]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="1">
+      <code>$adjust_privileges[$_POST['field_orig'][$i]]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="6">
+      <code>$adjust_privileges[$_POST['field_orig'][$i]]</code>
+      <code>$fieldcontent</code>
+      <code>$mimetype</code>
+      <code>$newCol</code>
+      <code>$result</code>
+      <code>$sorted_col</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="8">
+      <code>$_POST['field_expression'][$i]</code>
+      <code>$_POST['field_virtuality'][$i]</code>
+      <code>Util::backquote($_POST['field_orig'][$i])</code>
+      <code>Util::backquote($this-&gt;db)</code>
+      <code>Util::backquote($this-&gt;table)</code>
+      <code>Util::backquote($this-&gt;table)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
+    <MixedArgument occurrences="4">
+      <code>$db</code>
+      <code>$field</code>
+      <code>$selected</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$field</code>
+      <code>$result</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote($field)</code>
+      <code>Util::backquote($table)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
+    <MixedArgument occurrences="4">
+      <code>$db</code>
+      <code>$field</code>
+      <code>$selected</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$field</code>
+      <code>$result</code>
+      <code>$selected</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>Util::backquote($field)</code>
+      <code>Util::backquote($table)</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Controllers/Table/StructureController.php">
+    <MixedArgument occurrences="13">
+      <code>$db</code>
+      <code>$field['Collation'] ?? ''</code>
+      <code>$field['Extra']</code>
+      <code>$field['Field']</code>
+      <code>$field['Type']</code>
+      <code>$showtable['Data_free']</code>
+      <code>$showtable['Data_length']</code>
+      <code>$showtable['Data_length'] + $showtable['Index_length']</code>
+      <code>$showtable['Index_length']</code>
+      <code>$tbl_collation</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$url_params</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="10">
       <code>$field['Collation']</code>
       <code>$field['Extra']</code>
       <code>$field['Field']</code>
@@ -4082,106 +4274,32 @@
       <code>$field['Type']</code>
       <code>$showtable['Rows']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$_POST['field_extra'][$i]</code>
-      <code>$_POST['field_null'][$i]</code>
-      <code>$data['Expression']</code>
-      <code>$data['Virtuality']</code>
+    <MixedArrayAssignment occurrences="2">
       <code>$showtable['Data_length']</code>
       <code>$showtable['Index_length']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="6">
-      <code>$adjust_privileges[$_POST['field_orig'][$i]]</code>
-      <code>$columns[$column]</code>
+    <MixedArrayOffset occurrences="3">
       <code>$comments_map[$field['Field']]</code>
       <code>$comments_map[$field['Field']]</code>
       <code>$comments_map[$field['Field']]</code>
-      <code>$expressions[$column]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="45">
-      <code>$adjust_privileges[$_POST['field_orig'][$i]]</code>
+    <MixedAssignment occurrences="7">
       <code>$attributes[$rownum]</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$columns_list[]</code>
-      <code>$columns_names</code>
-      <code>$createTable</code>
-      <code>$data</code>
-      <code>$data['Expression']</code>
       <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$field</code>
-      <code>$fieldcontent</code>
-      <code>$fields[]</code>
-      <code>$mimetype</code>
-      <code>$mult_btn</code>
-      <code>$newCol</code>
       <code>$reread_info</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$row_comments[$rownum]</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected</code>
-      <code>$selected[]</code>
-      <code>$selected_fld</code>
       <code>$showtable</code>
       <code>$showtable</code>
-      <code>$sorted_col</code>
-      <code>$sval</code>
     </MixedAssignment>
-    <MixedOperand occurrences="28">
-      <code>$_POST['field_expression'][$i]</code>
-      <code>$_POST['field_virtuality'][$i]</code>
+    <MixedOperand occurrences="7">
       <code>$displayed_fields[$rownum]-&gt;icon</code>
       <code>$displayed_fields[$rownum]-&gt;icon</code>
-      <code>$row['Column_name']</code>
       <code>$showtable['Data_length']</code>
       <code>$showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
       <code>$showtable['Index_length']</code>
-      <code>Util::backquote($_POST['field_orig'][$i])</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
-    <PossiblyFalseArgument occurrences="2"/>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$analyzed_sql_results ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="4">
-      <code>$current_timestamp ? '' : $data['Default']</code>
-      <code>$data['Collation'] ?? ''</code>
-      <code>$data['Expression']</code>
-      <code>$data['Virtuality']</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="14">
       <code>$avg_size</code>
       <code>$avg_unit</code>
@@ -4199,16 +4317,6 @@
       <code>$tot_unit</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="1"/>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$stmt-&gt;partitionsNum</code>
-      <code>$stmt-&gt;subpartitionsNum</code>
-    </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType occurrences="1">
-      <code>! is_array($row)</code>
-    </TypeDoesNotContainType>
-    <UnusedVariable occurrences="1">
-      <code>$db</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
     <MixedArgument occurrences="26">
@@ -17580,24 +17688,6 @@
       <code>with</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
-    </UndefinedMethod>
-  </file>
-  <file src="test/classes/Controllers/Table/StructureControllerTest.php">
-    <MixedAssignment occurrences="1">
-      <code>$callCount</code>
-    </MixedAssignment>
-    <MixedMethodCall occurrences="4">
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-    </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>$callCount</code>
-    </MixedOperand>
-    <UndefinedMethod occurrences="2">
-      <code>expects</code>
       <code>expects</code>
     </UndefinedMethod>
   </file>

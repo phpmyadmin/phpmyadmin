@@ -205,7 +205,7 @@ class CreateController extends AbstractController
                 $message = Message::success();
                 /** @var StructureController $controller */
                 $controller = $containerBuilder->get(StructureController::class);
-                $controller->index();
+                $controller();
             } else {
                 $this->response->addJSON(
                     'message',
