@@ -206,7 +206,7 @@ AJAX.registerOnload('database/structure.js', function () {
                     AJAX.source = $form;
 
                     $.post(
-                        'index.php?route=/database/structure/central-columns-make-consistent',
+                        'index.php?route=/database/structure/central-columns/make-consistent',
                         data,
                         AJAX.responseHandler
                     );
@@ -268,9 +268,9 @@ AJAX.registerOnload('database/structure.js', function () {
         if (action === 'analyze_tbl') {
             url = 'index.php?route=/table/maintenance/analyze';
         } else if (action === 'sync_unique_columns_central_list') {
-            url = 'index.php?route=/database/structure/central-columns-add';
+            url = 'index.php?route=/database/structure/central-columns/add';
         } else if (action === 'delete_unique_columns_central_list') {
-            url = 'index.php?route=/database/structure/central-columns-remove';
+            url = 'index.php?route=/database/structure/central-columns/remove';
         } else if (action === 'check_tbl') {
             url = 'index.php?route=/table/maintenance/check';
         } else if (action === 'checksum_tbl') {
