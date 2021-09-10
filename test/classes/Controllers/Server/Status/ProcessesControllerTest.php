@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\ProcessesController;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -43,7 +44,13 @@ class ProcessesControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new ProcessesController($response, new Template(), $this->data, $GLOBALS['dbi']);
+        $controller = new ProcessesController(
+            $response,
+            new Template(),
+            $this->data,
+            $GLOBALS['dbi'],
+            new Processes($GLOBALS['dbi'])
+        );
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller->index();
@@ -161,7 +168,13 @@ class ProcessesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
         $response->setAjax(true);
 
-        $controller = new ProcessesController($response, new Template(), $this->data, $GLOBALS['dbi']);
+        $controller = new ProcessesController(
+            $response,
+            new Template(),
+            $this->data,
+            $GLOBALS['dbi'],
+            new Processes($GLOBALS['dbi'])
+        );
 
         $_POST['full'] = '1';
         $_POST['order_by_field'] = 'process';

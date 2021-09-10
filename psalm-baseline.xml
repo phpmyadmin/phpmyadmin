@@ -2785,28 +2785,6 @@
       <code>$params['varValue']</code>
     </MixedArgument>
   </file>
-  <file src="libraries/classes/Controllers/Server/Status/ProcessesController.php">
-    <MixedArgument occurrences="4">
-      <code>$params['order_by_field']</code>
-      <code>$process['Info']</code>
-      <code>$process['db']</code>
-      <code>$result</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$key</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="5">
-      <code>$process[$newKey]</code>
-      <code>$result</code>
-      <code>$urlParams['order_by_field']</code>
-      <code>$urlParams['showExecuting']</code>
-      <code>$urlParams['sort_order']</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>$params['sort_order']</code>
-      <code>Util::backquote($params['order_by_field'])</code>
-    </MixedOperand>
-  </file>
   <file src="libraries/classes/Controllers/Server/Status/QueriesController.php">
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$key</code>
@@ -15081,6 +15059,28 @@
       <code>$row['#']</code>
       <code>$row['#']</code>
       <code>$row['#']</code>
+    </MixedOperand>
+  </file>
+  <file src="libraries/classes/Server/Status/Processes.php">
+    <MixedArgument occurrences="4">
+      <code>$params['order_by_field']</code>
+      <code>$process['Info']</code>
+      <code>$process['db']</code>
+      <code>$result</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="5">
+      <code>$process[$newKey]</code>
+      <code>$result</code>
+      <code>$urlParams['order_by_field']</code>
+      <code>$urlParams['showExecuting']</code>
+      <code>$urlParams['sort_order']</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>$params['sort_order']</code>
+      <code>Util::backquote($params['order_by_field'])</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Server/SysInfo/WindowsNt.php">

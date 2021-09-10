@@ -885,6 +885,7 @@ return [
                 '$template' => '@template',
                 '$data' => '@status_data',
                 '$dbi' => '@dbi',
+                '$processes' => '@status_processes',
             ],
         ],
         Server\Status\QueriesController::class => [

@@ -193,6 +193,10 @@ return [
             'class' => PhpMyAdmin\Server\Status\Monitor::class,
             'arguments' => ['@dbi'],
         ],
+        'status_processes' => [
+            'class' => PhpMyAdmin\Server\Status\Processes::class,
+            'arguments' => ['@dbi'],
+        ],
         'table_maintenance' => [
             'class' => PhpMyAdmin\Table\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],
