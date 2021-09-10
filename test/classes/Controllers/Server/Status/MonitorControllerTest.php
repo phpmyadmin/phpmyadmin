@@ -6,11 +6,9 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
 use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
 
@@ -47,12 +45,11 @@ class MonitorControllerTest extends AbstractTestCase
             $response,
             new Template(),
             $this->data,
-            new Monitor($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 
         $this->dummyDbi->addSelectDb('mysql');
-        $controller->index();
+        $controller();
         $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
@@ -136,194 +133,6 @@ class MonitorControllerTest extends AbstractTestCase
         $this->assertStringContainsString(
             '<div id="explain_docu" class="hide">',
             $html
-        );
-    }
-
-    public function testLogDataTypeSlow(): void
-    {
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new MonitorController(
-            $response,
-            new Template(),
-            $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
-
-        $_POST['time_start'] = '0';
-        $_POST['time_end'] = '10';
-
-        $this->dummyDbi->addSelectDb('mysql');
-        $controller->logDataTypeSlow();
-        $this->assertAllSelectsConsumed();
-        $ret = $response->getJSONResult();
-
-        $resultRows = [
-            [
-                'sql_text' => 'insert sql_text',
-                '#' => 11,
-            ],
-            [
-                'sql_text' => 'update sql_text',
-                '#' => 10,
-            ],
-        ];
-        $resultSum = [
-            'insert' => 11,
-            'TOTAL' => 21,
-            'update' => 10,
-        ];
-        $this->assertEquals(
-            2,
-            $ret['message']['numRows']
-        );
-        $this->assertEquals(
-            $resultRows,
-            $ret['message']['rows']
-        );
-        $this->assertEquals(
-            $resultSum,
-            $ret['message']['sum']
-        );
-    }
-
-    public function testLogDataTypeGeneral(): void
-    {
-        $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 10,
-            'argument' => 'argument argument2',
-        ];
-
-        $value2 = [
-            'sql_text' => 'update sql_text',
-            '#' => 11,
-            'argument' => 'argument3 argument4',
-        ];
-
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new MonitorController(
-            $response,
-            new Template(),
-            $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
-
-        $_POST['time_start'] = '0';
-        $_POST['time_end'] = '10';
-        $_POST['limitTypes'] = '1';
-
-        $this->dummyDbi->addSelectDb('mysql');
-        $controller->logDataTypeGeneral();
-        $this->assertAllSelectsConsumed();
-        $ret = $response->getJSONResult();
-
-        $resultRows = [
-            $value,
-            $value2,
-        ];
-        $resultSum = [
-            'argument' => 10,
-            'TOTAL' => 21,
-            'argument3' => 11,
-        ];
-
-        $this->assertEquals(
-            2,
-            $ret['message']['numRows']
-        );
-        $this->assertEquals(
-            $resultRows,
-            $ret['message']['rows']
-        );
-        $this->assertEquals(
-            $resultSum,
-            $ret['message']['sum']
-        );
-    }
-
-    public function testLoggingVars(): void
-    {
-        $value = [
-            'general_log' => 'OFF',
-            'log_output' => 'FILE',
-            'long_query_time' => '10.000000',
-            'slow_query_log' => 'OFF',
-        ];
-
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new MonitorController(
-            $response,
-            new Template(),
-            $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
-
-        $_POST['varName'] = 'varName';
-
-        $this->dummyDbi->addSelectDb('mysql');
-        $controller->loggingVars();
-        $this->assertAllSelectsConsumed();
-        $ret = $response->getJSONResult();
-
-        $this->assertEquals(
-            $value,
-            $ret['message']
-        );
-    }
-
-    public function testQueryAnalyzer(): void
-    {
-        global $cached_affected_rows;
-
-        $cached_affected_rows = 'cached_affected_rows';
-        SessionCache::set('profiling_supported', true);
-
-        $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 10,
-            'argument' => 'argument argument2',
-        ];
-
-        $response = new ResponseRenderer();
-        $response->setAjax(true);
-
-        $controller = new MonitorController(
-            $response,
-            new Template(),
-            $this->data,
-            new Monitor($GLOBALS['dbi']),
-            $GLOBALS['dbi']
-        );
-
-        $_POST['database'] = 'database';
-        $_POST['query'] = 'query';
-
-        $this->dummyDbi->addSelectDb('mysql');
-        $this->dummyDbi->addSelectDb('database');
-        $controller->queryAnalyzer();
-        $this->assertAllSelectsConsumed();
-        $ret = $response->getJSONResult();
-
-        $this->assertEquals(
-            'cached_affected_rows',
-            $ret['message']['affectedRows']
-        );
-        $this->assertEquals(
-            [],
-            $ret['message']['profiling']
-        );
-        $this->assertEquals(
-            [$value],
-            $ret['message']['explain']
         );
     }
 }

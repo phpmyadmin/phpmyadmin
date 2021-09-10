@@ -5,15 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-
-use function __;
 
 class ProcessesController extends AbstractController
 {
@@ -35,7 +31,7 @@ class ProcessesController extends AbstractController
         $this->processes = $processes;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl;
 
@@ -74,57 +70,5 @@ class ProcessesController extends AbstractController
             'is_checked' => $isChecked,
             'server_process_list' => $listHtml,
         ]);
-    }
-
-    /**
-     * Only sends the process list table
-     */
-    public function refresh(): void
-    {
-        $params = [
-            'showExecuting' => $_POST['showExecuting'] ?? null,
-            'full' => $_POST['full'] ?? null,
-            'column_name' => $_POST['column_name'] ?? null,
-            'order_by_field' => $_POST['order_by_field'] ?? null,
-            'sort_order' => $_POST['sort_order'] ?? null,
-        ];
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->render('server/status/processes/list', $this->processes->getList($params));
-    }
-
-    /**
-     * @param array $params Request parameters
-     */
-    public function kill(ServerRequest $request, array $params): void
-    {
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $kill = (int) $params['id'];
-        $query = $this->dbi->getKillQuery($kill);
-
-        if ($this->dbi->tryQuery($query)) {
-            $message = Message::success(
-                __('Thread %s was successfully killed.')
-            );
-            $this->response->setRequestStatus(true);
-        } else {
-            $message = Message::error(
-                __(
-                    'phpMyAdmin was unable to kill thread %s.'
-                    . ' It probably has already been closed.'
-                )
-            );
-            $this->response->setRequestStatus(false);
-        }
-
-        $message->addParam($kill);
-
-        $this->response->addJSON(['message' => $message]);
     }
 }

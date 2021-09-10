@@ -87,7 +87,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         $controller = new VariablesController($response, new Template(), $GLOBALS['dbi']);
 
-        $controller->index();
+        $controller();
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(

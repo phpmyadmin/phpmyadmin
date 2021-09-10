@@ -7,22 +7,15 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-use function __;
-use function header;
-use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_numeric;
-use function mb_strtolower;
-use function pow;
-use function preg_match;
 use function str_replace;
 use function strtolower;
 use function trim;
@@ -45,7 +38,7 @@ class VariablesController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl;
 
@@ -110,117 +103,6 @@ class VariablesController extends AbstractController
             'is_superuser' => $this->dbi->isSuperUser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
-    }
-
-    /**
-     * Handle the AJAX request for a single variable value
-     *
-     * @param array $params Request parameters
-     */
-    public function getValue(ServerRequest $request, array $params): void
-    {
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        // Send with correct charset
-        header('Content-Type: text/html; charset=UTF-8');
-        // Do not use double quotes inside the query to avoid a problem
-        // when server is running in ANSI_QUOTES sql_mode
-        $varValue = $this->dbi->fetchSingleRow(
-            'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . $this->dbi->escapeString($params['name']) . '\';',
-            'NUM'
-        );
-
-        $json = [
-            'message' => $varValue[1],
-        ];
-
-        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
-
-        if ($variableType === 'byte') {
-            /** @var string[] $bytes */
-            $bytes = Util::formatByteDown($varValue[1], 3, 3);
-            $json['message'] = implode(' ', $bytes);
-        }
-
-        $this->response->addJSON($json);
-    }
-
-    /**
-     * Handle the AJAX request for setting value for a single variable
-     *
-     * @param array $vars Request parameters
-     */
-    public function setValue(ServerRequest $request, array $vars): void
-    {
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $value = (string) $request->getParsedBodyParam('varValue');
-        $variableName = (string) $vars['name'];
-        $matches = [];
-        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
-
-        if (
-            $variableType === 'byte' && preg_match(
-                '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
-                $value,
-                $matches
-            )
-        ) {
-            $exp = [
-                'kb' => 1,
-                'kib' => 1,
-                'mb' => 2,
-                'mib' => 2,
-                'gb' => 3,
-                'gib' => 3,
-            ];
-            $value = (float) $matches[1] * pow(
-                1024,
-                $exp[mb_strtolower($matches[3])]
-            );
-        } else {
-            $value = $this->dbi->escapeString($value);
-        }
-
-        if (! is_numeric($value)) {
-            $value = "'" . $value . "'";
-        }
-
-        $json = [];
-        if (
-            ! preg_match('/[^a-zA-Z0-9_]+/', $variableName)
-            && $this->dbi->query(
-                'SET GLOBAL ' . $variableName . ' = ' . $value
-            )
-        ) {
-            // Some values are rounded down etc.
-            $varValue = $this->dbi->fetchSingleRow(
-                'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($variableName)
-                . '";',
-                'NUM'
-            );
-            [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
-                $variableName,
-                $varValue[1]
-            );
-
-            if ($isHtmlFormatted === false) {
-                $json['variable'] = htmlspecialchars($formattedValue);
-            } else {
-                $json['variable'] = $formattedValue;
-            }
-        } else {
-            $this->response->setRequestStatus(false);
-            $json['error'] = __('Setting variable failed');
-        }
-
-        $this->response->addJSON($json);
     }
 
     /**

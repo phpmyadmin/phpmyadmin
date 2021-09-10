@@ -32,6 +32,7 @@ use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
+use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\Controllers\Transformation;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
@@ -165,29 +166,29 @@ return static function (RouteCollector $routes): void {
             $routes->get('', Server\Status\StatusController::class);
             $routes->get('/advisor', Server\Status\AdvisorController::class);
             $routes->addGroup('/monitor', static function (RouteCollector $routes): void {
-                $routes->get('', [Server\Status\MonitorController::class, 'index']);
-                $routes->post('/chart', [Server\Status\MonitorController::class, 'chartingData']);
-                $routes->post('/slow-log', [Server\Status\MonitorController::class, 'logDataTypeSlow']);
-                $routes->post('/general-log', [Server\Status\MonitorController::class, 'logDataTypeGeneral']);
-                $routes->post('/log-vars', [Server\Status\MonitorController::class, 'loggingVars']);
-                $routes->post('/query', [Server\Status\MonitorController::class, 'queryAnalyzer']);
+                $routes->get('', Server\Status\MonitorController::class);
+                $routes->post('/chart', Server\Status\Monitor\ChartingDataController::class);
+                $routes->post('/slow-log', Server\Status\Monitor\SlowLogController::class);
+                $routes->post('/general-log', Server\Status\Monitor\GeneralLogController::class);
+                $routes->post('/log-vars', Server\Status\Monitor\LogVarsController::class);
+                $routes->post('/query', Server\Status\Monitor\QueryAnalyzerController::class);
             });
             $routes->addGroup('/processes', static function (RouteCollector $routes): void {
-                $routes->addRoute(['GET', 'POST'], '', [Server\Status\ProcessesController::class, 'index']);
-                $routes->post('/refresh', [Server\Status\ProcessesController::class, 'refresh']);
-                $routes->post('/kill/{id:\d+}', [Server\Status\ProcessesController::class, 'kill']);
+                $routes->addRoute(['GET', 'POST'], '', Server\Status\ProcessesController::class);
+                $routes->post('/refresh', Server\Status\Processes\RefreshController::class);
+                $routes->post('/kill/{id:\d+}', Server\Status\Processes\KillController::class);
             });
             $routes->get('/queries', Server\Status\QueriesController::class);
             $routes->addRoute(['GET', 'POST'], '/variables', Server\Status\VariablesController::class);
         });
         $routes->addGroup('/user-groups', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [Server\UserGroupsController::class, 'index']);
-            $routes->get('/edit-form', [Server\UserGroupsController::class, 'editUserGroupModalForm']);
+            $routes->addRoute(['GET', 'POST'], '', Server\UserGroupsController::class);
+            $routes->get('/edit-form', Server\UserGroupsFormController::class);
         });
         $routes->addGroup('/variables', static function (RouteCollector $routes): void {
-            $routes->get('', [Server\VariablesController::class, 'index']);
-            $routes->get('/get/{name}', [Server\VariablesController::class, 'getValue']);
-            $routes->post('/set/{name}', [Server\VariablesController::class, 'setValue']);
+            $routes->get('', Server\VariablesController::class);
+            $routes->get('/get/{name}', Server\Variables\GetVariableController::class);
+            $routes->post('/set/{name}', Server\Variables\SetVariableController::class);
         });
     });
     $routes->addGroup('/sql', static function (RouteCollector $routes): void {
@@ -267,8 +268,8 @@ return static function (RouteCollector $routes): void {
     });
     $routes->post('/tables', TableController::class);
     $routes->addGroup('/themes', static function (RouteCollector $routes): void {
-        $routes->get('', [ThemesController::class, 'index']);
-        $routes->post('/set', [ThemesController::class, 'setTheme']);
+        $routes->get('', ThemesController::class);
+        $routes->post('/set', ThemeSetController::class);
     });
     $routes->addGroup('/transformation', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/overview', Transformation\OverviewController::class);

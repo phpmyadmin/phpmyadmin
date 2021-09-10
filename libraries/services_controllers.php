@@ -32,6 +32,7 @@ use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
+use PhpMyAdmin\Controllers\ThemeSetController;
 use PhpMyAdmin\Controllers\Transformation;
 use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
@@ -859,6 +860,15 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        Server\UserGroupsFormController::class => [
+            'class' => Server\UserGroupsFormController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$relation' => '@relation',
+                '$dbi' => '@dbi',
+            ],
+        ],
         Server\Status\AdvisorController::class => [
             'class' => Server\Status\AdvisorController::class,
             'arguments' => [
@@ -866,6 +876,56 @@ return [
                 '$template' => '@template',
                 '$data' => '@status_data',
                 '$advisor' => '@advisor',
+            ],
+        ],
+        Server\Status\Monitor\ChartingDataController::class => [
+            'class' => Server\Status\Monitor\ChartingDataController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$monitor' => '@status_monitor',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Monitor\GeneralLogController::class => [
+            'class' => Server\Status\Monitor\GeneralLogController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$monitor' => '@status_monitor',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Monitor\LogVarsController::class => [
+            'class' => Server\Status\Monitor\LogVarsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$monitor' => '@status_monitor',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Monitor\QueryAnalyzerController::class => [
+            'class' => Server\Status\Monitor\QueryAnalyzerController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$monitor' => '@status_monitor',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Monitor\SlowLogController::class => [
+            'class' => Server\Status\Monitor\SlowLogController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$monitor' => '@status_monitor',
+                '$dbi' => '@dbi',
             ],
         ],
         Server\Status\MonitorController::class => [
@@ -876,6 +936,24 @@ return [
                 '$data' => '@status_data',
                 '$monitor' => '@status_monitor',
                 '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Processes\KillController::class => [
+            'class' => Server\Status\Processes\KillController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Status\Processes\RefreshController::class => [
+            'class' => Server\Status\Processes\RefreshController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$data' => '@status_data',
+                '$processes' => '@status_processes',
             ],
         ],
         Server\Status\ProcessesController::class => [
@@ -913,6 +991,22 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$data' => '@status_data',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Variables\GetVariableController::class => [
+            'class' => Server\Variables\GetVariableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Server\Variables\SetVariableController::class => [
+            'class' => Server\Variables\SetVariableController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
                 '$dbi' => '@dbi',
             ],
         ],
@@ -1382,6 +1476,14 @@ return [
         ],
         ThemesController::class => [
             'class' => ThemesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$themeManager' => '@theme_manager',
+            ],
+        ],
+        ThemeSetController::class => [
+            'class' => ThemeSetController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',

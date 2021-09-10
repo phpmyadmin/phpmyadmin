@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Server\Status;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -17,26 +16,21 @@ use function microtime;
 
 class MonitorController extends AbstractController
 {
-    /** @var Monitor */
-    private $monitor;
-
     /** @var DatabaseInterface */
     private $dbi;
 
     /**
      * @param ResponseRenderer  $response
      * @param Data              $data
-     * @param Monitor           $monitor
      * @param DatabaseInterface $dbi
      */
-    public function __construct($response, Template $template, $data, $monitor, $dbi)
+    public function __construct($response, Template $template, $data, $dbi)
     {
         parent::__construct($response, $template, $data);
-        $this->monitor = $monitor;
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $errorUrl;
 
@@ -81,136 +75,6 @@ class MonitorController extends AbstractController
         $this->render('server/status/monitor/index', [
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
-        ]);
-    }
-
-    public function chartingData(): void
-    {
-        global $errorUrl;
-
-        $params = ['requiredData' => $_POST['requiredData'] ?? null];
-        $errorUrl = Url::getFromRoute('/');
-
-        if ($this->dbi->isSuperUser()) {
-            $this->dbi->selectDb('mysql');
-        }
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForChartingData(
-                $params['requiredData'] ?? ''
-            ),
-        ]);
-    }
-
-    public function logDataTypeSlow(): void
-    {
-        global $errorUrl;
-
-        $params = [
-            'time_start' => $_POST['time_start'] ?? null,
-            'time_end' => $_POST['time_end'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
-
-        if ($this->dbi->isSuperUser()) {
-            $this->dbi->selectDb('mysql');
-        }
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeSlow(
-                (int) $params['time_start'],
-                (int) $params['time_end']
-            ),
-        ]);
-    }
-
-    public function logDataTypeGeneral(): void
-    {
-        global $errorUrl;
-
-        $params = [
-            'time_start' => $_POST['time_start'] ?? null,
-            'time_end' => $_POST['time_end'] ?? null,
-            'limitTypes' => $_POST['limitTypes'] ?? null,
-            'removeVariables' => $_POST['removeVariables'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
-
-        if ($this->dbi->isSuperUser()) {
-            $this->dbi->selectDb('mysql');
-        }
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
-                (int) $params['time_start'],
-                (int) $params['time_end'],
-                (bool) $params['limitTypes'],
-                (bool) $params['removeVariables']
-            ),
-        ]);
-    }
-
-    public function loggingVars(): void
-    {
-        global $errorUrl;
-
-        $params = [
-            'varName' => $_POST['varName'] ?? null,
-            'varValue' => $_POST['varValue'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
-
-        if ($this->dbi->isSuperUser()) {
-            $this->dbi->selectDb('mysql');
-        }
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForLoggingVars(
-                $params['varName'],
-                $params['varValue']
-            ),
-        ]);
-    }
-
-    public function queryAnalyzer(): void
-    {
-        global $errorUrl;
-
-        $params = [
-            'database' => $_POST['database'] ?? null,
-            'query' => $_POST['query'] ?? null,
-        ];
-        $errorUrl = Url::getFromRoute('/');
-
-        if ($this->dbi->isSuperUser()) {
-            $this->dbi->selectDb('mysql');
-        }
-
-        if (! $this->response->isAjax()) {
-            return;
-        }
-
-        $this->response->addJSON([
-            'message' => $this->monitor->getJsonForQueryAnalyzer(
-                $params['database'] ?? '',
-                $params['query'] ?? ''
-            ),
         ]);
     }
 }
