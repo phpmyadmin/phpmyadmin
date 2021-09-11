@@ -13,14 +13,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-use function count;
 use function is_array;
-use function json_decode;
 
-/**
- * Displays index edit/creation form and handles it.
- */
-class IndexesController extends AbstractController
+final class IndexRenameController extends AbstractController
 {
     /** @var DatabaseInterface */
     private $dbi;
@@ -67,73 +62,39 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->indexes->doSaveData($index, false, $this->db, $this->table);
+            $this->indexes->doSaveData($index, true, $this->db, $this->table);
 
             return;
         }
 
-        $this->displayForm($index);
+        $this->displayRenameForm($index);
     }
 
     /**
-     * Display the form to edit/create an index
+     * Display the rename form to rename an index
      *
      * @param Index $index An Index instance.
      */
-    private function displayForm(Index $index): void
+    private function displayRenameForm(Index $index): void
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $add_fields = 0;
-        if (isset($_POST['index']) && is_array($_POST['index'])) {
-            // coming already from form
-            if (isset($_POST['index']['columns']['names'])) {
-                $add_fields = count($_POST['index']['columns']['names'])
-                    - $index->getColumnCount();
-            }
 
-            if (isset($_POST['add_fields'])) {
-                $add_fields += $_POST['added_fields'];
-            }
-        } elseif (isset($_POST['create_index'])) {
-            $add_fields = $_POST['added_fields'];
-        }
-
-        // Get fields and stores their name/type
-        if (isset($_POST['create_edit_table'])) {
-            $fields = json_decode($_POST['columns'], true);
-            $index_params = [
-                'Non_unique' => $_POST['index']['Index_choice'] === 'UNIQUE'
-                    ? '0' : '1',
-            ];
-            $index->set($index_params);
-            $add_fields = count($fields);
-        } else {
-            $fields = $this->dbi->getTable($this->db, $this->table)
-                ->getNameAndTypeOfTheColumns();
-        }
-
-        $form_params = [
+        $formParams = [
             'db' => $this->db,
             'table' => $this->table,
         ];
 
-        if (isset($_POST['create_index'])) {
-            $form_params['create_index'] = 1;
-        } elseif (isset($_POST['old_index'])) {
-            $form_params['old_index'] = $_POST['old_index'];
+        if (isset($_POST['old_index'])) {
+            $formParams['old_index'] = $_POST['old_index'];
         } elseif (isset($_POST['index'])) {
-            $form_params['old_index'] = $_POST['index'];
+            $formParams['old_index'] = $_POST['index'];
         }
 
         $this->addScriptFiles(['indexes.js']);
 
-        $this->render('table/index_form', [
-            'fields' => $fields,
+        $this->render('table/index_rename_form', [
             'index' => $index,
-            'form_params' => $form_params,
-            'add_fields' => $add_fields,
-            'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'form_params' => $formParams,
         ]);
     }
 }

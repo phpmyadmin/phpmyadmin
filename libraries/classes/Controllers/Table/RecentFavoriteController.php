@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Controllers\SqlController;
+use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\RecentFavoriteTable;
 
 /**
@@ -28,6 +28,6 @@ class RecentFavoriteController extends AbstractController
 
         /** @var SqlController $controller */
         $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $controller();
     }
 }

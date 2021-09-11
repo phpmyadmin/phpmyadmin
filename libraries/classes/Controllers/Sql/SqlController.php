@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Sql;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -17,16 +18,12 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function htmlentities;
 use function mb_strpos;
 use function str_contains;
 use function strlen;
 use function urlencode;
-
-use const ENT_COMPAT;
 
 class SqlController extends AbstractController
 {
@@ -56,7 +53,7 @@ class SqlController extends AbstractController
         $this->dbi = $dbi;
     }
 
-    public function index(): void
+    public function __invoke(): void
     {
         global $cfg, $db, $display_query, $sql_query, $table;
         global $ajax_reload, $goto, $errorUrl, $find_real_end, $unlim_num_rows, $import_text, $disp_query;
@@ -224,151 +221,6 @@ class SqlController extends AbstractController
             $sql_query,
             $complete_query ?? null
         ));
-    }
-
-    /**
-     * Get values for the relational columns
-     *
-     * During grid edit, if we have a relational field, show the dropdown for it.
-     */
-    public function getRelationalValues(): void
-    {
-        global $db, $table;
-
-        $this->checkUserPrivileges->getPrivileges();
-
-        $column = $_POST['column'];
-        if (
-            $_SESSION['tmpval']['relational_display'] === 'D'
-            && isset($_POST['relation_key_or_display_column'])
-            && $_POST['relation_key_or_display_column']
-        ) {
-            $curr_value = $_POST['relation_key_or_display_column'];
-        } else {
-            $curr_value = $_POST['curr_value'];
-        }
-
-        $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
-        $this->response->addJSON('dropdown', $dropdown);
-    }
-
-    /**
-     * Get possible values for enum fields during grid edit.
-     */
-    public function getEnumValues(): void
-    {
-        global $db, $table;
-
-        $this->checkUserPrivileges->getPrivileges();
-
-        $column = $_POST['column'];
-        $curr_value = $_POST['curr_value'];
-        $values = $this->sql->getValuesForColumn($db, $table, $column);
-
-        if ($values === null) {
-            $this->response->addJSON('message', __('Error in processing request'));
-            $this->response->setRequestStatus(false);
-
-            return;
-        }
-
-        // Converts characters of $curr_value to HTML entities.
-        $convertedCurrentValue = htmlentities($curr_value, ENT_COMPAT, 'UTF-8');
-
-        $dropdown = $this->template->render('sql/enum_column_dropdown', [
-            'values' => $values,
-            'selected_values' => [$convertedCurrentValue],
-        ]);
-
-        $this->response->addJSON('dropdown', $dropdown);
-    }
-
-    /**
-     * Get possible values for SET fields during grid edit.
-     */
-    public function getSetValues(): void
-    {
-        global $db, $table;
-
-        $this->checkUserPrivileges->getPrivileges();
-
-        $column = $_POST['column'];
-        $currentValue = $_POST['curr_value'];
-        $fullValues = $_POST['get_full_values'] ?? false;
-        $whereClause = $_POST['where_clause'] ?? null;
-
-        $values = $this->sql->getValuesForColumn($db, $table, $column);
-
-        if ($values === null) {
-            $this->response->addJSON('message', __('Error in processing request'));
-            $this->response->setRequestStatus(false);
-
-            return;
-        }
-
-        // If the $currentValue was truncated, we should fetch the correct full values from the table.
-        if ($fullValues && ! empty($whereClause)) {
-            $currentValue = $this->sql->getFullValuesForSetColumn(
-                $db,
-                $table,
-                $column,
-                $whereClause
-            );
-        }
-
-        // Converts characters of $currentValue to HTML entities.
-        $convertedCurrentValue = htmlentities($currentValue, ENT_COMPAT, 'UTF-8');
-
-        $select = $this->template->render('sql/set_column', [
-            'values' => $values,
-            'current_values' => $convertedCurrentValue,
-        ]);
-
-        $this->response->addJSON('select', $select);
-    }
-
-    public function getDefaultForeignKeyCheckValue(): void
-    {
-        $this->checkUserPrivileges->getPrivileges();
-
-        $this->response->addJSON(
-            'default_fk_check_value',
-            ForeignKey::isCheckEnabled()
-        );
-    }
-
-    public function setColumnOrderOrVisibility(): void
-    {
-        global $db, $table;
-
-        $this->checkUserPrivileges->getPrivileges();
-
-        $tableObject = $this->dbi->getTable($db, $table);
-        $status = false;
-
-        // set column order
-        if (isset($_POST['col_order'])) {
-            $status = $this->sql->setColumnProperty($tableObject, 'col_order');
-        }
-
-        // set column visibility
-        if ($status === true && isset($_POST['col_visib'])) {
-            $status = $this->sql->setColumnProperty($tableObject, 'col_visib');
-        }
-
-        if ($status instanceof Message) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $status->getString());
-
-            return;
-        }
-
-        $this->response->setRequestStatus($status === true);
     }
 
     private function addBookmark(string $goto): void

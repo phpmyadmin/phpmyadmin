@@ -1251,7 +1251,7 @@ class Export
         $active_page = Url::getFromRoute('/table/export');
         /** @var TableExportController $controller */
         $controller = $containerBuilder->get(TableExportController::class);
-        $controller->index();
+        $controller();
     }
 
     /**

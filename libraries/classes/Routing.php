@@ -9,7 +9,6 @@ use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
-use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Http\ServerRequest;
 use Psr\Container\ContainerInterface;
 use RuntimeException;
@@ -20,7 +19,6 @@ use function file_put_contents;
 use function htmlspecialchars;
 use function is_array;
 use function is_readable;
-use function is_string;
 use function is_writable;
 use function mb_strlen;
 use function rawurldecode;
@@ -177,26 +175,13 @@ class Routing
             return;
         }
 
-        /** @psalm-var class-string|callable-array $handler */
-        $handler = $routeInfo[1];
+        /** @psalm-var class-string $controllerName */
+        $controllerName = $routeInfo[1];
         /** @var array<string, string> $vars */
         $vars = $routeInfo[2];
 
-        if (is_string($handler)) {
-            $controllerName = $handler;
-            /** @psalm-var callable(ServerRequest=, array=):void $controller */
-            $controller = $container->get($controllerName);
-            $controller($request, $vars);
-
-            return;
-        }
-
-        /** @psalm-var class-string $controllerName */
-        $controllerName = $handler[0];
-        /** @var string $action */
-        $action = $handler[1];
-        /** @var AbstractController $controller */
+        /** @psalm-var callable(ServerRequest=, array=):void $controller */
         $controller = $container->get($controllerName);
-        $controller->$action($request, $vars);
+        $controller($request, $vars);
     }
 }

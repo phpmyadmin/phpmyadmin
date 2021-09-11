@@ -2993,23 +2993,62 @@
       <code>$id</code>
     </PossiblyNullArgument>
   </file>
-  <file src="libraries/classes/Controllers/SqlController.php">
-    <MixedArgument occurrences="41">
+  <file src="libraries/classes/Controllers/Sql/ColumnPreferencesController.php">
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Sql/EnumValuesController.php">
+    <MixedArgument occurrences="4">
+      <code>$column</code>
+      <code>$curr_value</code>
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$column</code>
+      <code>$curr_value</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Sql/RelationalValuesController.php">
+    <MixedArgument occurrences="4">
+      <code>$column</code>
+      <code>$curr_value</code>
+      <code>$db</code>
+      <code>$table</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$_SESSION['tmpval']['relational_display']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="3">
+      <code>$column</code>
+      <code>$curr_value</code>
+      <code>$curr_value</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Sql/SetValuesController.php">
+    <MixedArgument occurrences="5">
+      <code>$column</code>
+      <code>$currentValue</code>
+      <code>$db</code>
+      <code>$table</code>
+      <code>$whereClause</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="4">
+      <code>$column</code>
+      <code>$currentValue</code>
+      <code>$fullValues</code>
+      <code>$whereClause</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Sql/SqlController.php">
+    <MixedArgument occurrences="26">
       <code>$_GET['sql_query']</code>
       <code>$_GET['sql_signature']</code>
       <code>$_POST['bkm_fields']</code>
       <code>$analyzed_sql_results</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$complete_query ?? null</code>
-      <code>$curr_value</code>
-      <code>$curr_value</code>
-      <code>$currentValue</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -3030,36 +3069,21 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$whereClause</code>
       <code>isset($disp_query) ? $display_query : null</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
+    <MixedArrayAccess occurrences="3">
       <code>$_POST['bkm_fields']['bkm_label']</code>
       <code>$_POST['bkm_fields']['bkm_label']</code>
-      <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$ajax_reload['reload']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="16">
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$curr_value</code>
-      <code>$curr_value</code>
-      <code>$curr_value</code>
-      <code>$currentValue</code>
+    <MixedAssignment occurrences="7">
       <code>$db</code>
       <code>$errorUrl</code>
-      <code>$fullValues</code>
       <code>$sql_query</code>
       <code>$sql_query</code>
       <code>$sql_query</code>
       <code>$table</code>
       <code>$unlim_num_rows</code>
-      <code>$whereClause</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
       <code>$_POST['bkm_fields']['bkm_label']</code>
@@ -3145,11 +3169,10 @@
       <code>$unsaved_values[$row_id]</code>
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="10">
       <code>$column</code>
       <code>$current_result</code>
       <code>$current_row</code>
-      <code>$i_where_clause</code>
       <code>$isUpload</code>
       <code>$jsvkey</code>
       <code>$repopulate</code>
@@ -3157,7 +3180,6 @@
       <code>$urlParams['db']</code>
       <code>$urlParams['table']</code>
       <code>$urlParams['table']</code>
-      <code>$where_clause[]</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$jsvkey</code>
@@ -3174,6 +3196,12 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ChangeRowsController.php">
+    <MixedAssignment occurrences="2">
+      <code>$i_where_clause</code>
+      <code>$where_clause[]</code>
+    </MixedAssignment>
     <UnusedVariable occurrences="1">
       <code>$i</code>
     </UnusedVariable>
@@ -3245,7 +3273,12 @@
       <code>$result</code>
     </MixedAssignment>
   </file>
-  <file src="libraries/classes/Controllers/Table/DeleteController.php">
+  <file src="libraries/classes/Controllers/Table/DeleteConfirmController.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$urlParams</code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="libraries/classes/Controllers/Table/DeleteRowsController.php">
     <MixedArgument occurrences="11">
       <code>$_REQUEST['pos']</code>
       <code>$db</code>
@@ -3259,9 +3292,6 @@
       <code>$table</code>
       <code>Util::backquote($table)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$urlParams</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="5">
       <code>$mult_btn</code>
       <code>$original_sql_query</code>
@@ -3314,8 +3344,12 @@
       <code>$replaces[]</code>
       <code>$replaces[]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['single_table']</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/ExportRowsController.php">
+    <MixedAssignment occurrences="2">
       <code>$i_where_clause</code>
       <code>$where_clause[]</code>
     </MixedAssignment>
@@ -3482,27 +3516,35 @@
       <code>$_SESSION[$SESSION_KEY]['handler']::getIdKey()</code>
     </MixedMethodCall>
   </file>
-  <file src="libraries/classes/Controllers/Table/IndexesController.php">
-    <MixedArgument occurrences="5">
-      <code>$_POST['columns']</code>
+  <file src="libraries/classes/Controllers/Table/IndexRenameController.php">
+    <MixedArgument occurrences="1">
       <code>$_POST['index']</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$urlParams</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$formParams['old_index']</code>
+      <code>$formParams['old_index']</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/IndexesController.php">
+    <MixedArgument occurrences="4">
+      <code>$_POST['columns']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']['columns']['names']</code>
       <code>$fields</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$urlParams</code>
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="1">
       <code>$_POST['index']['Index_choice']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="5">
       <code>$add_fields</code>
       <code>$add_fields</code>
       <code>$fields</code>
-      <code>$formParams['old_index']</code>
-      <code>$formParams['old_index']</code>
       <code>$form_params['old_index']</code>
       <code>$form_params['old_index']</code>
     </MixedAssignment>
@@ -3510,19 +3552,43 @@
       <code>$_POST['added_fields']</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/MaintenanceController.php">
-    <DocblockTypeContradiction occurrences="5">
-      <code>! is_array($selected)</code>
-      <code>! is_array($selected)</code>
-      <code>! is_array($selected)</code>
-      <code>! is_array($selected)</code>
+  <file src="libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php">
+    <DocblockTypeContradiction occurrences="1">
       <code>! is_array($selected)</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="5">
+    <MixedArgument occurrences="1">
       <code>$query</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Maintenance/CheckController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>! is_array($selected)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
       <code>$query</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Maintenance/ChecksumController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>! is_array($selected)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
       <code>$query</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Maintenance/OptimizeController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>! is_array($selected)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
       <code>$query</code>
+    </MixedArgument>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Maintenance/RepairController.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>! is_array($selected)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
       <code>$query</code>
     </MixedArgument>
   </file>
@@ -3578,33 +3644,69 @@
       <code>Util::backquote($table)</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/PartitionController.php">
-    <MixedArgument occurrences="17">
-      <code>$partitionName</code>
-      <code>$partitionName</code>
-      <code>$partitionName</code>
-      <code>$partitionName</code>
-      <code>$partitionName</code>
-      <code>$partitionName</code>
+  <file src="libraries/classes/Controllers/Table/Partition/AnalyzeController.php">
+    <MixedArgument occurrences="2">
       <code>$partitionName</code>
       <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/CheckController.php">
+    <MixedArgument occurrences="2">
+      <code>$partitionName</code>
       <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/DropController.php">
+    <MixedArgument occurrences="3">
+      <code>$partitionName</code>
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="7">
+    <MixedAssignment occurrences="1">
       <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/OptimizeController.php">
+    <MixedArgument occurrences="2">
       <code>$partitionName</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
       <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/RebuildController.php">
+    <MixedArgument occurrences="3">
       <code>$partitionName</code>
+      <code>$query</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
       <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/RepairController.php">
+    <MixedArgument occurrences="2">
       <code>$partitionName</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$partitionName</code>
+    </MixedAssignment>
+  </file>
+  <file src="libraries/classes/Controllers/Table/Partition/TruncateController.php">
+    <MixedArgument occurrences="3">
+      <code>$partitionName</code>
+      <code>$query</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
       <code>$partitionName</code>
     </MixedAssignment>
   </file>

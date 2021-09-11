@@ -28,7 +28,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
-use PhpMyAdmin\Controllers\SqlController;
+use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -1018,8 +1018,53 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
-        SqlController::class => [
-            'class' => SqlController::class,
+        Sql\ColumnPreferencesController::class => [
+            'class' => Sql\ColumnPreferencesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$sql' => '@sql',
+                '$checkUserPrivileges' => '@check_user_privileges',
+                '$dbi' => '@dbi',
+            ],
+        ],
+        Sql\DefaultForeignKeyCheckValueController::class => [
+            'class' => Sql\DefaultForeignKeyCheckValueController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$checkUserPrivileges' => '@check_user_privileges',
+            ],
+        ],
+        Sql\EnumValuesController::class => [
+            'class' => Sql\EnumValuesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$sql' => '@sql',
+                '$checkUserPrivileges' => '@check_user_privileges',
+            ],
+        ],
+        Sql\RelationalValuesController::class => [
+            'class' => Sql\RelationalValuesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$sql' => '@sql',
+                '$checkUserPrivileges' => '@check_user_privileges',
+            ],
+        ],
+        Sql\SetValuesController::class => [
+            'class' => Sql\SetValuesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$sql' => '@sql',
+                '$checkUserPrivileges' => '@check_user_privileges',
+            ],
+        ],
+        Sql\SqlController::class => [
+            'class' => Sql\SqlController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1052,6 +1097,16 @@ return [
                 '$relation' => '@relation',
             ],
         ],
+        Table\ChangeRowsController::class => [
+            'class' => Table\ChangeRowsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$changeController' => '@' . Table\ChangeController::class,
+            ],
+        ],
         Table\ChartController::class => [
             'class' => Table\ChartController::class,
             'arguments' => [
@@ -1075,8 +1130,17 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
-        Table\DeleteController::class => [
-            'class' => Table\DeleteController::class,
+        Table\DeleteConfirmController::class => [
+            'class' => Table\DeleteConfirmController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+            ],
+        ],
+        Table\DeleteRowsController::class => [
+            'class' => Table\DeleteRowsController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1114,6 +1178,16 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$export' => '@export_options',
+            ],
+        ],
+        Table\ExportRowsController::class => [
+            'class' => Table\ExportRowsController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$exportController' => '@' . Table\ExportController::class,
             ],
         ],
         Table\FindReplaceController::class => [
@@ -1167,8 +1241,19 @@ return [
                 '$indexes' => '@table_indexes',
             ],
         ],
-        Table\MaintenanceController::class => [
-            'class' => Table\MaintenanceController::class,
+        Table\IndexRenameController::class => [
+            'class' => Table\IndexRenameController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$dbi' => '@dbi',
+                '$indexes' => '@table_indexes',
+            ],
+        ],
+        Table\Maintenance\AnalyzeController::class => [
+            'class' => Table\Maintenance\AnalyzeController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1177,8 +1262,108 @@ return [
                 '$model' => '@table_maintenance',
             ],
         ],
-        Table\PartitionController::class => [
-            'class' => Table\PartitionController::class,
+        Table\Maintenance\CheckController::class => [
+            'class' => Table\Maintenance\CheckController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$model' => '@table_maintenance',
+            ],
+        ],
+        Table\Maintenance\ChecksumController::class => [
+            'class' => Table\Maintenance\ChecksumController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$model' => '@table_maintenance',
+            ],
+        ],
+        Table\Maintenance\OptimizeController::class => [
+            'class' => Table\Maintenance\OptimizeController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$model' => '@table_maintenance',
+            ],
+        ],
+        Table\Maintenance\RepairController::class => [
+            'class' => Table\Maintenance\RepairController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$model' => '@table_maintenance',
+            ],
+        ],
+        Table\Partition\AnalyzeController::class => [
+            'class' => Table\Partition\AnalyzeController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\CheckController::class => [
+            'class' => Table\Partition\CheckController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\DropController::class => [
+            'class' => Table\Partition\DropController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\OptimizeController::class => [
+            'class' => Table\Partition\OptimizeController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\RebuildController::class => [
+            'class' => Table\Partition\RebuildController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\RepairController::class => [
+            'class' => Table\Partition\RepairController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$maintenance' => '@partitioning_maintenance',
+            ],
+        ],
+        Table\Partition\TruncateController::class => [
+            'class' => Table\Partition\TruncateController::class,
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
@@ -1284,7 +1469,7 @@ return [
                 '$template' => '@template',
                 '$db' => '%db%',
                 '$table' => '%table%',
-                '$sqlController' => '@' . SqlController::class,
+                '$sqlController' => '@' . Sql\SqlController::class,
                 '$structureController' => '@' . Table\StructureController::class,
             ],
         ],

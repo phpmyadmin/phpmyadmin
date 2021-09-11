@@ -28,7 +28,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\RecentTablesListController;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
-use PhpMyAdmin\Controllers\SqlController;
+use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -192,50 +192,50 @@ return static function (RouteCollector $routes): void {
         });
     });
     $routes->addGroup('/sql', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '', [SqlController::class, 'index']);
-        $routes->post('/get-relational-values', [SqlController::class, 'getRelationalValues']);
-        $routes->post('/get-enum-values', [SqlController::class, 'getEnumValues']);
-        $routes->post('/get-set-values', [SqlController::class, 'getSetValues']);
-        $routes->get('/get-default-fk-check-value', [SqlController::class, 'getDefaultForeignKeyCheckValue']);
-        $routes->post('/set-column-preferences', [SqlController::class, 'setColumnOrderOrVisibility']);
+        $routes->addRoute(['GET', 'POST'], '', Sql\SqlController::class);
+        $routes->post('/get-relational-values', Sql\RelationalValuesController::class);
+        $routes->post('/get-enum-values', Sql\EnumValuesController::class);
+        $routes->post('/get-set-values', Sql\SetValuesController::class);
+        $routes->get('/get-default-fk-check-value', Sql\DefaultForeignKeyCheckValueController::class);
+        $routes->post('/set-column-preferences', Sql\ColumnPreferencesController::class);
     });
     $routes->addGroup('/table', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/add-field', Table\AddFieldController::class);
         $routes->addGroup('/change', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [Table\ChangeController::class, 'index']);
-            $routes->post('/rows', [Table\ChangeController::class, 'rows']);
+            $routes->addRoute(['GET', 'POST'], '', Table\ChangeController::class);
+            $routes->post('/rows', Table\ChangeRowsController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/chart', Table\ChartController::class);
         $routes->addRoute(['GET', 'POST'], '/create', Table\CreateController::class);
         $routes->addGroup('/delete', static function (RouteCollector $routes): void {
-            $routes->post('/confirm', [Table\DeleteController::class, 'confirm']);
-            $routes->post('/rows', [Table\DeleteController::class, 'rows']);
+            $routes->post('/confirm', Table\DeleteConfirmController::class);
+            $routes->post('/rows', Table\DeleteRowsController::class);
         });
         $routes->addGroup('/export', static function (RouteCollector $routes): void {
-            $routes->addRoute(['GET', 'POST'], '', [Table\ExportController::class, 'index']);
-            $routes->post('/rows', [Table\ExportController::class, 'rows']);
+            $routes->addRoute(['GET', 'POST'], '', Table\ExportController::class);
+            $routes->post('/rows', Table\ExportRowsController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/find-replace', Table\FindReplaceController::class);
         $routes->addRoute(['GET', 'POST'], '/get-field', Table\GetFieldController::class);
         $routes->addRoute(['GET', 'POST'], '/gis-visualization', Table\GisVisualizationController::class);
         $routes->addRoute(['GET', 'POST'], '/import', Table\ImportController::class);
-        $routes->addRoute(['GET', 'POST'], '/indexes', [Table\IndexesController::class, 'index']);
-        $routes->addRoute(['GET', 'POST'], '/indexes/rename', [Table\IndexesController::class, 'indexRename']);
+        $routes->addRoute(['GET', 'POST'], '/indexes', Table\IndexesController::class);
+        $routes->addRoute(['GET', 'POST'], '/indexes/rename', Table\IndexRenameController::class);
         $routes->addGroup('/maintenance', static function (RouteCollector $routes): void {
-            $routes->post('/analyze', [Table\MaintenanceController::class, 'analyze']);
-            $routes->post('/check', [Table\MaintenanceController::class, 'check']);
-            $routes->post('/checksum', [Table\MaintenanceController::class, 'checksum']);
-            $routes->post('/optimize', [Table\MaintenanceController::class, 'optimize']);
-            $routes->post('/repair', [Table\MaintenanceController::class, 'repair']);
+            $routes->post('/analyze', Table\Maintenance\AnalyzeController::class);
+            $routes->post('/check', Table\Maintenance\CheckController::class);
+            $routes->post('/checksum', Table\Maintenance\ChecksumController::class);
+            $routes->post('/optimize', Table\Maintenance\OptimizeController::class);
+            $routes->post('/repair', Table\Maintenance\RepairController::class);
         });
         $routes->addGroup('/partition', static function (RouteCollector $routes): void {
-            $routes->post('/analyze', [Table\PartitionController::class, 'analyze']);
-            $routes->post('/check', [Table\PartitionController::class, 'check']);
-            $routes->post('/drop', [Table\PartitionController::class, 'drop']);
-            $routes->post('/optimize', [Table\PartitionController::class, 'optimize']);
-            $routes->post('/rebuild', [Table\PartitionController::class, 'rebuild']);
-            $routes->post('/repair', [Table\PartitionController::class, 'repair']);
-            $routes->post('/truncate', [Table\PartitionController::class, 'truncate']);
+            $routes->post('/analyze', Table\Partition\AnalyzeController::class);
+            $routes->post('/check', Table\Partition\CheckController::class);
+            $routes->post('/drop', Table\Partition\DropController::class);
+            $routes->post('/optimize', Table\Partition\OptimizeController::class);
+            $routes->post('/rebuild', Table\Partition\RebuildController::class);
+            $routes->post('/repair', Table\Partition\RepairController::class);
+            $routes->post('/truncate', Table\Partition\TruncateController::class);
         });
         $routes->addRoute(['GET', 'POST'], '/operations', Table\OperationsController::class);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', Table\RecentFavoriteController::class);
