@@ -1143,10 +1143,18 @@ class NavigationTree
         $controlButtons = '';
         $paths = $node->getPaths();
         $nodeIsContainer = $node->type === Node::CONTAINER;
-        $hasSiblingsOrIsNotRoot = $node->hasSiblings() || $node->realParent() === false;
         $liClasses = '';
 
-        if ($hasSiblingsOrIsNotRoot) {
+        // Whether to show the node in the tree (true for all nodes but root)
+        // If false, the node's children will still be shown, but as children of the node's parent
+        $showNode = $node->hasSiblings() || count($node->parents(false, true)) > 0;
+
+        // Don't show the 'Tables' node under each database unless it has 'Views', etc. as a sibling
+        if ($node instanceof NodeTableContainer && ! $node->hasSiblings()) {
+            $showNode = false;
+        }
+
+        if ($showNode) {
             $response = ResponseRenderer::getInstance();
             if ($nodeIsContainer && count($node->children) === 0 && ! $response->isAjax()) {
                 return '';
@@ -1262,7 +1270,7 @@ class NavigationTree
         return $this->template->render('navigation/tree/node', [
             'node' => $node,
             'class' => $class,
-            'has_siblings_or_is_not_root' => $hasSiblingsOrIsNotRoot,
+            'show_node' => $showNode,
             'has_siblings' => $node->hasSiblings(),
             'li_classes' => $liClasses,
             'control_buttons' => $controlButtons,
