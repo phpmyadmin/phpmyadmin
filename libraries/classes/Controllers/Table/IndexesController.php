@@ -6,17 +6,13 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Query\Compatibility;
-use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-use function __;
 use function count;
 use function is_array;
 use function json_decode;
@@ -29,16 +25,20 @@ class IndexesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var Indexes */
+    private $indexes;
+
     /**
      * @param ResponseRenderer  $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
      * @param DatabaseInterface $dbi
      */
-    public function __construct($response, Template $template, $db, $table, $dbi)
+    public function __construct($response, Template $template, $db, $table, $dbi, Indexes $indexes)
     {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
+        $this->indexes = $indexes;
     }
 
     public function index(): void
@@ -67,7 +67,7 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->doSaveData($index, false);
+            $this->indexes->doSaveData($index, false, $this->db, $this->table);
 
             return;
         }
@@ -101,7 +101,7 @@ class IndexesController extends AbstractController
         }
 
         if (isset($_POST['do_save_data'])) {
-            $this->doSaveData($index, true);
+            $this->indexes->doSaveData($index, true, $this->db, $this->table);
 
             return;
         }
@@ -114,7 +114,7 @@ class IndexesController extends AbstractController
      *
      * @param Index $index An Index instance.
      */
-    public function displayRenameForm(Index $index): void
+    private function displayRenameForm(Index $index): void
     {
         $this->dbi->selectDb($GLOBALS['db']);
 
@@ -142,7 +142,7 @@ class IndexesController extends AbstractController
      *
      * @param Index $index An Index instance.
      */
-    public function displayForm(Index $index): void
+    private function displayForm(Index $index): void
     {
         $this->dbi->selectDb($GLOBALS['db']);
         $add_fields = 0;
@@ -197,87 +197,5 @@ class IndexesController extends AbstractController
             'create_edit_table' => isset($_POST['create_edit_table']),
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
         ]);
-    }
-
-    /**
-     * Process the data from the edit/create index form,
-     * run the query to build the new index
-     * and moves back to /table/sql
-     *
-     * @param Index $index      An Index instance.
-     * @param bool  $renameMode Rename the Index mode
-     */
-    public function doSaveData(Index $index, bool $renameMode): void
-    {
-        global $containerBuilder;
-
-        $error = false;
-        $sql_query = '';
-        if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
-            $oldIndexName = $_POST['old_index'];
-
-            if ($oldIndexName === 'PRIMARY') {
-                if ($index->getName() === '') {
-                    $index->setName('PRIMARY');
-                } elseif ($index->getName() !== 'PRIMARY') {
-                    $error = Message::error(
-                        __('The name of the primary key must be "PRIMARY"!')
-                    );
-                }
-            }
-
-            $sql_query = QueryGenerator::getSqlQueryForIndexRename(
-                $this->db,
-                $this->table,
-                $oldIndexName,
-                $index->getName()
-            );
-        } else {
-            $sql_query = $this->dbi->getTable($this->db, $this->table)
-                ->getSqlQueryForIndexCreateOrEdit($index, $error);
-        }
-
-        // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
-            $this->response->addJSON(
-                'sql_data',
-                $this->template->render('preview_sql', ['query_data' => $sql_query])
-            );
-        } elseif (! $error) {
-            $this->dbi->query($sql_query);
-            $response = ResponseRenderer::getInstance();
-            if ($response->isAjax()) {
-                $message = Message::success(
-                    __('Table %1$s has been altered successfully.')
-                );
-                $message->addParam($this->table);
-                $this->response->addJSON(
-                    'message',
-                    Generator::getMessage($message, $sql_query, 'success')
-                );
-
-                $indexes = Index::getFromTable($this->table, $this->db);
-                $indexesDuplicates = Index::findDuplicates($this->table, $this->db);
-
-                $this->response->addJSON(
-                    'index_table',
-                    $this->template->render('indexes', [
-                        'url_params' => [
-                            'db' => $this->db,
-                            'table' => $this->table,
-                        ],
-                        'indexes' => $indexes,
-                        'indexes_duplicates' => $indexesDuplicates,
-                    ])
-                );
-            } else {
-                /** @var StructureController $controller */
-                $controller = $containerBuilder->get(StructureController::class);
-                $controller();
-            }
-        } else {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $error);
-        }
     }
 }

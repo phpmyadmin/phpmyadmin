@@ -3483,13 +3483,12 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Table/IndexesController.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="5">
       <code>$_POST['columns']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']</code>
       <code>$_POST['index']['columns']['names']</code>
       <code>$fields</code>
-      <code>$oldIndexName</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$urlParams</code>
@@ -3498,7 +3497,7 @@
     <MixedArrayAccess occurrences="1">
       <code>$_POST['index']['Index_choice']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$add_fields</code>
       <code>$add_fields</code>
       <code>$fields</code>
@@ -3506,14 +3505,10 @@
       <code>$formParams['old_index']</code>
       <code>$form_params['old_index']</code>
       <code>$form_params['old_index']</code>
-      <code>$oldIndexName</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$_POST['added_fields']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$sql_query</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/MaintenanceController.php">
     <DocblockTypeContradiction occurrences="5">
@@ -9504,6 +9499,10 @@
       <code>getChild</code>
       <code>getChild</code>
     </MixedMethodCall>
+    <MixedOperand occurrences="2">
+      <code>$separators[0]</code>
+      <code>$separators[0]</code>
+    </MixedOperand>
     <MixedPropertyAssignment occurrences="3">
       <code>$node</code>
       <code>$node</code>
@@ -9524,7 +9523,8 @@
       <code>$retval</code>
       <code>$retval</code>
     </MixedReturnStatement>
-    <PossiblyFalseOperand occurrences="1">
+    <PossiblyFalseOperand occurrences="2">
+      <code>strrpos($class, '\\')</code>
       <code>strrpos($class, '\\')</code>
     </PossiblyFalseOperand>
     <PossiblyFalseReference occurrences="1">
@@ -9548,18 +9548,17 @@
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']</code>
       <code>(int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="4">
+    <RedundantCastGivenDocblockType occurrences="6">
       <code>(string) $child-&gt;name</code>
       <code>(string) $child-&gt;name</code>
+      <code>(string) $key</code>
+      <code>(string) $key</code>
       <code>(string) $key</code>
       <code>(string) $key</code>
     </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$node-&gt;title</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedForeachValue occurrences="1">
-      <code>$value</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Navigation/NodeFactory.php">
     <MixedMethodCall occurrences="1">
@@ -16186,6 +16185,17 @@
       <code>$fulltext_nr</code>
     </UnusedVariable>
   </file>
+  <file src="libraries/classes/Table/Indexes.php">
+    <MixedArgument occurrences="1">
+      <code>$oldIndexName</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$oldIndexName</code>
+    </MixedAssignment>
+    <UnusedVariable occurrences="1">
+      <code>$sql_query</code>
+    </UnusedVariable>
+  </file>
   <file src="libraries/classes/Table/Maintenance.php">
     <MixedArgument occurrences="5">
       <code>$backQuotedTables</code>
@@ -17658,17 +17668,11 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
-    <MixedArgument occurrences="1">
-      <code>$jsonArray['sql_data']</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="4">
+    <MixedMethodCall occurrences="2">
       <code>method</code>
-      <code>method</code>
-      <code>will</code>
       <code>will</code>
     </MixedMethodCall>
-    <UndefinedMethod occurrences="2">
-      <code>expects</code>
+    <UndefinedMethod occurrences="1">
       <code>expects</code>
     </UndefinedMethod>
   </file>
@@ -19166,6 +19170,18 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
     </MixedArrayAssignment>
+  </file>
+  <file src="test/classes/Table/IndexesTest.php">
+    <MixedArgument occurrences="1">
+      <code>$jsonArray['sql_data']</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="2">
+      <code>method</code>
+      <code>will</code>
+    </MixedMethodCall>
+    <UndefinedMethod occurrences="1">
+      <code>expects</code>
+    </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
     <MixedArrayAssignment occurrences="1">

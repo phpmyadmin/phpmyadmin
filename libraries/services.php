@@ -197,6 +197,10 @@ return [
             'class' => PhpMyAdmin\Server\Status\Processes::class,
             'arguments' => ['@dbi'],
         ],
+        'table_indexes' => [
+            'class' => PhpMyAdmin\Table\Indexes::class,
+            'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
+        ],
         'table_maintenance' => [
             'class' => PhpMyAdmin\Table\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],

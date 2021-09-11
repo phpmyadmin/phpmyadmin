@@ -1164,6 +1164,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$dbi' => '@dbi',
+                '$indexes' => '@table_indexes',
             ],
         ],
         Table\MaintenanceController::class => [

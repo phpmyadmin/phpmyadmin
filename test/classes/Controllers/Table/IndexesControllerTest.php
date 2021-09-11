@@ -10,12 +10,13 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Url;
+use ReflectionMethod;
 
 use function __;
 use function sprintf;
@@ -82,54 +83,6 @@ class IndexesControllerTest extends AbstractTestCase
     }
 
     /**
-     * Tests for doSaveDataAction() method
-     */
-    public function testDoSaveDataAction(): void
-    {
-        $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
-
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->will($this->returnValue($sql_query));
-
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($table));
-
-        $response = new ResponseStub();
-        $index = new Index();
-
-        $ctrl = new IndexesController(
-            $response,
-            new Template(),
-            $GLOBALS['db'],
-            $GLOBALS['table'],
-            $GLOBALS['dbi']
-        );
-
-        // Preview SQL
-        $_POST['preview_sql'] = true;
-        $ctrl->doSaveData($index, false);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString(
-            $sql_query,
-            $jsonArray['sql_data']
-        );
-
-        // Alter success
-        $response->clear();
-        ResponseRenderer::getInstance()->setAjax(true);
-        unset($_POST['preview_sql']);
-        $ctrl->doSaveData($index, false);
-        $jsonArray = $response->getJSONResult();
-        $this->assertArrayHasKey('index_table', $jsonArray);
-        $this->assertArrayHasKey('message', $jsonArray);
-        ResponseRenderer::getInstance()->setAjax(false);
-    }
-
-    /**
      * Tests for displayFormAction()
      */
     public function testDisplayFormAction(): void
@@ -149,18 +102,23 @@ class IndexesControllerTest extends AbstractTestCase
 
         $response = new ResponseStub();
         $index = new Index();
+        $template = new Template();
+
+        $method = new ReflectionMethod(IndexesController::class, 'displayForm');
+        $method->setAccessible(true);
 
         $ctrl = new IndexesController(
             $response,
-            new Template(),
+            $template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new Indexes($response, $template, $GLOBALS['dbi'])
         );
 
         $_POST['create_index'] = true;
         $_POST['added_fields'] = 3;
-        $ctrl->displayForm($index);
+        $method->invoke($ctrl, $index);
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
