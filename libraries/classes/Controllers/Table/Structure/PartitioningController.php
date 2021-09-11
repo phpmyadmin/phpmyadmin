@@ -38,18 +38,12 @@ final class PartitioningController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
-        $dbi,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi,
         CreateAddField $createAddField,
         StructureController $structureController
     ) {

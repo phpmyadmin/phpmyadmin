@@ -14,11 +14,7 @@ final class CollationConnectionController extends AbstractController
     /** @var Config */
     private $config;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param Config           $config
-     */
-    public function __construct($response, Template $template, $config)
+    public function __construct(ResponseRenderer $response, Template $template, Config $config)
     {
         parent::__construct($response, $template);
         $this->config = $config;

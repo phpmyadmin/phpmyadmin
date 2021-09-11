@@ -24,12 +24,7 @@ class VariablesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param Data              $data
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $data, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, Data $data, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template, $data);
         $this->dbi = $dbi;

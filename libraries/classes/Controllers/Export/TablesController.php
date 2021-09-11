@@ -16,10 +16,7 @@ final class TablesController extends AbstractController
     /** @var ExportController */
     private $exportController;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template, ExportController $exportController)
+    public function __construct(ResponseRenderer $response, Template $template, ExportController $exportController)
     {
         parent::__construct($response, $template);
         $this->exportController = $exportController;

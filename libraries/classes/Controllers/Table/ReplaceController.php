@@ -50,21 +50,15 @@ final class ReplaceController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         InsertEdit $insertEdit,
         Transformations $transformations,
         Relation $relation,
-        $dbi
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $db, $table);
         $this->insertEdit = $insertEdit;

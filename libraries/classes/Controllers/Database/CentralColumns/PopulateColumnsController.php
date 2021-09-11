@@ -14,13 +14,12 @@ final class PopulateColumnsController extends AbstractController
     /** @var CentralColumns */
     private $centralColumns;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db             Database name
-     * @param CentralColumns   $centralColumns
-     */
-    public function __construct($response, Template $template, $db, $centralColumns)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        CentralColumns $centralColumns
+    ) {
         parent::__construct($response, $template, $db);
         $this->centralColumns = $centralColumns;
     }

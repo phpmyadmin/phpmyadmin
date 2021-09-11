@@ -24,14 +24,10 @@ class DesignerController extends AbstractController
     /** @var DesignerCommon */
     private $designerCommon;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
+        string $db,
         Designer $databaseDesigner,
         DesignerCommon $designerCommon
     ) {

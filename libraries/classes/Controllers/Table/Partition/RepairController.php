@@ -21,14 +21,13 @@ final class RepairController extends AbstractController
     /** @var Maintenance */
     private $model;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db
-     * @param string           $table
-     * @param Maintenance      $maintenance
-     */
-    public function __construct($response, Template $template, $db, $table, $maintenance)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        Maintenance $maintenance
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->model = $maintenance;
     }

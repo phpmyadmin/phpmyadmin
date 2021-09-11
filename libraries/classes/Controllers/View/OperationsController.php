@@ -28,12 +28,12 @@ class OperationsController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Operations $operations, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Operations $operations,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->operations = $operations;
         $this->dbi = $dbi;

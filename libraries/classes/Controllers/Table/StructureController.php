@@ -62,22 +62,16 @@ class StructureController extends AbstractController
     /** @var FlashMessages */
     private $flash;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Relation $relation,
         Transformations $transformations,
         CreateAddField $createAddField,
         RelationCleanup $relationCleanup,
-        $dbi,
+        DatabaseInterface $dbi,
         FlashMessages $flash
     ) {
         parent::__construct($response, $template, $db, $table);

@@ -22,14 +22,10 @@ final class CopyTableController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
+        string $db,
         Operations $operations,
         StructureController $structureController
     ) {

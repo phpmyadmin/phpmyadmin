@@ -29,11 +29,8 @@ class NavigationController extends AbstractController
     /** @var Config */
     private $config;
 
-    /**
-     * @param ResponseRenderer $response
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         UserPreferences $userPreferences,
         Relation $relation,

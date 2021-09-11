@@ -2671,11 +2671,10 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <MixedArgument occurrences="55">
+    <MixedArgument occurrences="54">
       <code>$_GET['checkprivsdb']</code>
       <code>$_GET['checkprivsdb']</code>
       <code>$_POST['userGroup']</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db_name ?? ''</code>

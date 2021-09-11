@@ -16,13 +16,13 @@ final class ChangeRowsController extends AbstractController
     /** @var ChangeController */
     private $changeController;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     * @param string           $table    Table name
-     */
-    public function __construct($response, Template $template, $db, $table, ChangeController $changeController)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        ChangeController $changeController
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->changeController = $changeController;
     }

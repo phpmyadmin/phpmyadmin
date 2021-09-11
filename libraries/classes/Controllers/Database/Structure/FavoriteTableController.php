@@ -24,11 +24,7 @@ final class FavoriteTableController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db
-     */
-    public function __construct($response, Template $template, $db, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, Relation $relation)
     {
         parent::__construct($response, $template, $db);
         $this->relation = $relation;

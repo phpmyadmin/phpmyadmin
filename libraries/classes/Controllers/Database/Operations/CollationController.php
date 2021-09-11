@@ -23,17 +23,12 @@ final class CollationController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
+        string $db,
         Operations $operations,
-        $dbi
+        DatabaseInterface $dbi
     ) {
         parent::__construct($response, $template, $db);
         $this->operations = $operations;

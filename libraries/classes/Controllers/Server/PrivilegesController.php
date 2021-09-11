@@ -42,12 +42,12 @@ class PrivilegesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Relation $relation, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Relation $relation,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->relation = $relation;
         $this->dbi = $dbi;

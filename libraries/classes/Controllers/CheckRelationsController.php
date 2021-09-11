@@ -17,10 +17,7 @@ class CheckRelationsController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, Relation $relation)
     {
         parent::__construct($response, $template);
         $this->relation = $relation;

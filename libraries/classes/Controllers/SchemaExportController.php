@@ -19,10 +19,6 @@ class SchemaExportController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param Export   $export   A Export instance.
-     * @param Relation $relation A Relation instance.
-     */
     public function __construct(Export $export, Relation $relation)
     {
         $this->export = $export;

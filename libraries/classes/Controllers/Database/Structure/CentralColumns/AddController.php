@@ -22,13 +22,13 @@ final class AddController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $dbi, StructureController $structureController)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        DatabaseInterface $dbi,
+        StructureController $structureController
+    ) {
         parent::__construct($response, $template, $db);
         $this->dbi = $dbi;
         $this->structureController = $structureController;

@@ -21,16 +21,11 @@ final class CentralColumnsRemoveController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     * @param string           $table    Table name
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         CentralColumns $centralColumns,
         StructureController $structureController
     ) {

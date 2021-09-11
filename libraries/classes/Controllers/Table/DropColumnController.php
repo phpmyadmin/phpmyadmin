@@ -27,18 +27,12 @@ final class DropColumnController extends AbstractController
     /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
-        $dbi,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi,
         FlashMessages $flash,
         RelationCleanup $relationCleanup
     ) {

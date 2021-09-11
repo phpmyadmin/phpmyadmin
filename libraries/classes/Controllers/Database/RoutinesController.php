@@ -27,13 +27,13 @@ class RoutinesController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, CheckUserPrivileges $checkUserPrivileges, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        CheckUserPrivileges $checkUserPrivileges,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db);
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->dbi = $dbi;

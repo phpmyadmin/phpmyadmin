@@ -25,11 +25,7 @@ final class ExportController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Options $export, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, Options $export, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template);
         $this->export = $export;

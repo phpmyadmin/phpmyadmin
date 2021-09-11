@@ -934,7 +934,6 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$data' => '@status_data',
-                '$monitor' => '@status_monitor',
                 '$dbi' => '@dbi',
             ],
         ],

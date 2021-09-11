@@ -20,11 +20,8 @@ final class LoadController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param ResponseRenderer $response
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         TemplateModel $model,
         Relation $relation

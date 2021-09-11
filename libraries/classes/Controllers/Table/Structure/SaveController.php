@@ -45,20 +45,14 @@ final class SaveController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name
-     * @param string            $table    Table name
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Relation $relation,
         Transformations $transformations,
-        $dbi,
+        DatabaseInterface $dbi,
         StructureController $structureController
     ) {
         parent::__construct($response, $template, $db, $table);

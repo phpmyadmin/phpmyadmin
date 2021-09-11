@@ -15,11 +15,7 @@ final class RefreshController extends AbstractController
     /** @var Processes */
     private $processes;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param Data             $data
-     */
-    public function __construct($response, Template $template, $data, Processes $processes)
+    public function __construct(ResponseRenderer $response, Template $template, Data $data, Processes $processes)
     {
         parent::__construct($response, $template, $data);
         $this->processes = $processes;

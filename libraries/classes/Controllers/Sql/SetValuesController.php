@@ -23,11 +23,8 @@ final class SetValuesController extends AbstractController
     /** @var CheckUserPrivileges */
     private $checkUserPrivileges;
 
-    /**
-     * @param ResponseRenderer $response
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         Sql $sql,
         CheckUserPrivileges $checkUserPrivileges

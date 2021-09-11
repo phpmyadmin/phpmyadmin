@@ -19,11 +19,7 @@ class OverviewController extends AbstractController
     /** @var Transformations */
     private $transformations;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param Transformations  $transformations
-     */
-    public function __construct($response, Template $template, $transformations)
+    public function __construct(ResponseRenderer $response, Template $template, Transformations $transformations)
     {
         parent::__construct($response, $template);
         $this->transformations = $transformations;

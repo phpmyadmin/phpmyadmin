@@ -26,12 +26,13 @@ final class ExportController extends AbstractController
     /** @var Options */
     private $exportOptions;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name.
-     */
-    public function __construct($response, Template $template, $db, Export $export, Options $exportOptions)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        Export $export,
+        Options $exportOptions
+    ) {
         parent::__construct($response, $template, $db);
         $this->export = $export;
         $this->exportOptions = $exportOptions;

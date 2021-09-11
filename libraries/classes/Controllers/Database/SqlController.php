@@ -21,11 +21,7 @@ class SqlController extends AbstractController
     /** @var SqlQueryForm */
     private $sqlQueryForm;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     */
-    public function __construct($response, Template $template, $db, SqlQueryForm $sqlQueryForm)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, SqlQueryForm $sqlQueryForm)
     {
         parent::__construct($response, $template, $db);
         $this->sqlQueryForm = $sqlQueryForm;

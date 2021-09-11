@@ -13,10 +13,7 @@ class ThemesController extends AbstractController
     /** @var ThemeManager */
     private $themeManager;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template, ThemeManager $themeManager)
+    public function __construct(ResponseRenderer $response, Template $template, ThemeManager $themeManager)
     {
         parent::__construct($response, $template);
         $this->themeManager = $themeManager;

@@ -19,13 +19,13 @@ class ProcessesController extends AbstractController
     /** @var Processes */
     private $processes;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param Data              $data
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $data, $dbi, Processes $processes)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        DatabaseInterface $dbi,
+        Processes $processes
+    ) {
         parent::__construct($response, $template, $data);
         $this->dbi = $dbi;
         $this->processes = $processes;

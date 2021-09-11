@@ -28,14 +28,14 @@ class IndexesController extends AbstractController
     /** @var Indexes */
     private $indexes;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $table, $dbi, Indexes $indexes)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        DatabaseInterface $dbi,
+        Indexes $indexes
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->dbi = $dbi;
         $this->indexes = $indexes;

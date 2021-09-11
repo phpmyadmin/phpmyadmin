@@ -20,12 +20,12 @@ final class CopyTableWithPrefixController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db
-     */
-    public function __construct($response, Template $template, $db, StructureController $structureController)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        StructureController $structureController
+    ) {
         parent::__construct($response, $template, $db);
         $this->structureController = $structureController;
     }

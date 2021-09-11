@@ -47,10 +47,7 @@ final class ExportController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template, Export $export, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, Export $export, Relation $relation)
     {
         parent::__construct($response, $template);
         $this->export = $export;

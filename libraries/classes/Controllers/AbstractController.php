@@ -21,10 +21,7 @@ abstract class AbstractController
     /** @var Template */
     protected $template;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template)
+    public function __construct(ResponseRenderer $response, Template $template)
     {
         $this->response = $response;
         $this->template = $template;

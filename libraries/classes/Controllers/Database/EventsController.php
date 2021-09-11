@@ -21,13 +21,13 @@ final class EventsController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, Events $events, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        Events $events,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $db);
         $this->events = $events;
         $this->dbi = $dbi;

@@ -23,12 +23,7 @@ class TriggersController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db       Database name.
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $db, $dbi)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, DatabaseInterface $dbi)
     {
         parent::__construct($response, $template, $db);
         $this->dbi = $dbi;

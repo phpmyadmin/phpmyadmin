@@ -29,14 +29,10 @@ final class DestroyController extends AbstractController
     /** @var RelationCleanup */
     private $relationCleanup;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $dbi,
+        DatabaseInterface $dbi,
         Transformations $transformations,
         RelationCleanup $relationCleanup
     ) {

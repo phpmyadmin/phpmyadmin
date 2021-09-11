@@ -49,13 +49,13 @@ class HomeController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param Config            $config
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $config, ThemeManager $themeManager, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Config $config,
+        ThemeManager $themeManager,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->config = $config;
         $this->themeManager = $themeManager;

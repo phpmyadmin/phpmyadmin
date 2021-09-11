@@ -57,12 +57,13 @@ final class ImportController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, Import $import, Sql $sql, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Import $import,
+        Sql $sql,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template);
         $this->import = $import;
         $this->sql = $sql;

@@ -20,14 +20,13 @@ final class SlowLogController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param Data              $data
-     * @param Monitor           $monitor
-     * @param DatabaseInterface $dbi
-     */
-    public function __construct($response, Template $template, $data, $monitor, $dbi)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        Data $data,
+        Monitor $monitor,
+        DatabaseInterface $dbi
+    ) {
         parent::__construct($response, $template, $data);
         $this->monitor = $monitor;
         $this->dbi = $dbi;

@@ -17,11 +17,7 @@ class AdvisorController extends AbstractController
     /** @var Advisor */
     private $advisor;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param Data             $data
-     */
-    public function __construct($response, Template $template, $data, Advisor $advisor)
+    public function __construct(ResponseRenderer $response, Template $template, Data $data, Advisor $advisor)
     {
         parent::__construct($response, $template, $data);
         $this->advisor = $advisor;

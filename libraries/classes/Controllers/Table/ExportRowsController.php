@@ -16,13 +16,13 @@ final class ExportRowsController extends AbstractController
     /** @var ExportController */
     private $exportController;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     * @param string           $table    Table name
-     */
-    public function __construct($response, Template $template, $db, $table, ExportController $exportController)
-    {
+    public function __construct(
+        ResponseRenderer $response,
+        Template $template,
+        string $db,
+        string $table,
+        ExportController $exportController
+    ) {
         parent::__construct($response, $template, $db, $table);
         $this->exportController = $exportController;
     }

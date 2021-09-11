@@ -21,12 +21,7 @@ final class BrowseController extends AbstractController
     /** @var Sql */
     private $sql;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     * @param string           $table    Table name
-     */
-    public function __construct($response, Template $template, $db, $table, Sql $sql)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, string $table, Sql $sql)
     {
         parent::__construct($response, $template, $db, $table);
         $this->sql = $sql;

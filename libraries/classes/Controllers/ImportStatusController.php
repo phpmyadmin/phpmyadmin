@@ -25,9 +25,6 @@ class ImportStatusController
     /** @var Template */
     private $template;
 
-    /**
-     * @param Template $template Template object
-     */
     public function __construct(Template $template)
     {
         $this->template = $template;

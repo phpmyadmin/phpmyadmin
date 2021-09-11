@@ -32,16 +32,11 @@ class ChangeController extends AbstractController
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name.
-     * @param string           $table    Table name.
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         InsertEdit $insertEdit,
         Relation $relation
     ) {

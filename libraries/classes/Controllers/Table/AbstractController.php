@@ -16,12 +16,7 @@ abstract class AbstractController extends Controller
     /** @var string */
     protected $table;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name
-     * @param string           $table    Table name
-     */
-    public function __construct($response, Template $template, $db, $table)
+    public function __construct(ResponseRenderer $response, Template $template, string $db, string $table)
     {
         parent::__construct($response, $template);
         $this->db = $db;

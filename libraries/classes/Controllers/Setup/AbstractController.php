@@ -19,11 +19,7 @@ abstract class AbstractController
     /** @var Template */
     protected $template;
 
-    /**
-     * @param ConfigFile $config   ConfigFile instance
-     * @param Template   $template Template instance
-     */
-    public function __construct($config, $template)
+    public function __construct(ConfigFile $config, Template $template)
     {
         $this->config = $config;
         $this->template = $template;

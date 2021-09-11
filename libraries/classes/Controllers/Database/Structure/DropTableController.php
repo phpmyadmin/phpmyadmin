@@ -29,16 +29,11 @@ final class DropTableController extends AbstractController
     /** @var StructureController */
     private $structureController;
 
-    /**
-     * @param ResponseRenderer  $response
-     * @param string            $db
-     * @param DatabaseInterface $dbi
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $dbi,
+        string $db,
+        DatabaseInterface $dbi,
         RelationCleanup $relationCleanup,
         StructureController $structureController
     ) {

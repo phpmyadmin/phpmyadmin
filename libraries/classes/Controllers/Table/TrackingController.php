@@ -26,16 +26,11 @@ final class TrackingController extends AbstractController
     /** @var Tracking */
     private $tracking;
 
-    /**
-     * @param ResponseRenderer $response
-     * @param string           $db       Database name.
-     * @param string           $table    Table name.
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
-        $db,
-        $table,
+        string $db,
+        string $table,
         Tracking $tracking
     ) {
         parent::__construct($response, $template, $db, $table);

@@ -33,11 +33,8 @@ class ErrorReportController extends AbstractController
     /** @var ErrorHandler */
     private $errorHandler;
 
-    /**
-     * @param ResponseRenderer $response
-     */
     public function __construct(
-        $response,
+        ResponseRenderer $response,
         Template $template,
         ErrorReport $errorReport,
         ErrorHandler $errorHandler

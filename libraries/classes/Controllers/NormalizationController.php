@@ -26,10 +26,7 @@ class NormalizationController extends AbstractController
     /** @var Normalization */
     private $normalization;
 
-    /**
-     * @param ResponseRenderer $response
-     */
-    public function __construct($response, Template $template, Normalization $normalization)
+    public function __construct(ResponseRenderer $response, Template $template, Normalization $normalization)
     {
         parent::__construct($response, $template);
         $this->normalization = $normalization;
