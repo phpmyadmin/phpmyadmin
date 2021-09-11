@@ -21,7 +21,7 @@
       {% if table is not empty %}
         <li class="breadcrumb-item">
           {{ show_icons('TabsMode') ? get_image(table.is_view ? 'b_views' : 's_tbl') }}
-          <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}" data-raw-text="{{ table.name }}">
+          <span data-raw-text="{{ table.name }}">
             {% if show_text('TabsMode') %}
               {% if table.is_view %}
                 {% trans 'View:' %}
@@ -30,7 +30,7 @@
               {% endif %}
             {% endif %}
             {{ table.name }}
-          </a>
+          </span>
         </li>
 
         {% if table.comment is not empty %}
