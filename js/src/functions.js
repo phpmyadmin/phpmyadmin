@@ -1954,25 +1954,11 @@ Functions.previewSql = function ($form) {
         success: function (response) {
             Functions.ajaxRemoveMessage($messageBox);
             if (response.success) {
-                var $dialogContent = $('<div></div>')
-                    .append(response.sql_data);
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                $dialogContent.dialog({
-                    minWidth: 550,
-                    maxHeight: 400,
-                    modal: true,
-                    buttons: buttonOptions,
-                    title: Messages.strPreviewSQL,
-                    close: function () {
-                        $(this).remove();
-                    },
-                    open: function () {
-                        // Pretty SQL printing.
-                        Functions.highlightSql($(this));
-                    }
+                $('#previewSqlModal').modal('show');
+                $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
+                $('#previewSqlModalLabel').first().html(Messages.strPreviewSQL);
+                $('#previewSqlModal').on('shown.bs.modal', function () {
+                    Functions.highlightSql($('#previewSqlModal'));
                 });
             } else {
                 Functions.ajaxShowMessage(response.message);
@@ -3438,18 +3424,12 @@ AJAX.registerOnload('functions.js', function () {
 });
 Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, callbackFailure) {
     /* Remove the hidden dialogs if there are*/
-    var $editIndexDialog = $('#edit_index_dialog');
-    if ($editIndexDialog.length !== 0) {
-        $editIndexDialog.remove();
-    }
-    var $div = $('<div id="edit_index_dialog"></div>');
-
+    var modal = $('#indexDialogModal');
     /**
      * @var button_options Object that stores the options
      *                     passed to jQueryUI dialog
      */
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
+    $('#indexDialogModalGoButton').on('click', function () {
         /**
          * @var the_form object referring to the export form
          */
@@ -3472,7 +3452,7 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                     .append(data.index_table)
                     .find('#table_index')
                     .insertAfter('#index_header');
-                var $editIndexDialog = $('#edit_index_dialog');
+                var $editIndexDialog = $('#indexDialogModal');
                 if ($editIndexDialog.length > 0) {
                     $editIndexDialog.dialog('close');
                 }
@@ -3495,15 +3475,12 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
                 Functions.ajaxShowMessage($error, false);
             }
         }); // end $.post()
-    };
-    buttonOptions[Messages.strPreviewSQL] = function () {
+    });
+    $('#indexDialogModalPreviewButton').on('click', function () {
         // Function for Previewing SQL
         var $form = $('#index_frm');
         Functions.previewSql($form);
-    };
-    buttonOptions[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
+    });
     var $msgbox = Functions.ajaxShowMessage();
     $.post(routeUrl, url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
@@ -3512,20 +3489,12 @@ Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, ca
         } else {
             Functions.ajaxRemoveMessage($msgbox);
             // Show dialog if the request was successful
-            $div
-                .append(data.message)
-                .dialog({
-                    title: title,
-                    width: 'auto',
-                    open: Functions.verifyColumnsProperties,
-                    modal: true,
-                    buttons: buttonOptions,
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
-            $div.find('.tblFooters').remove();
-            Functions.showIndexEditDialog($div);
+            modal.modal('show');
+            modal.find('.modal-body').first().html(data.message);
+            $('#indexDialogModalLabel').first().text(title);
+            Functions.verifyColumnsProperties();
+            modal.find('.tblFooters').remove();
+            Functions.showIndexEditDialog(modal);
         }
     }); // end $.get()
 };

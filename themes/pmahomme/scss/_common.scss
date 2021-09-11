@@ -3060,3 +3060,8 @@ body .ui-dialog {
 .resize-vertical {
   resize: vertical;
 }
+
+#previewSqlModal {
+  z-index: 1056;
+  top: 100px;
+}
