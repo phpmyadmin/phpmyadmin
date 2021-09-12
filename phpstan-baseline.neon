@@ -1292,7 +1292,7 @@ parameters:
 
 		-
 			message: "#^Offset 'name' does not exist on SimpleXMLElement\\|null\\.$#"
-			count: 3
+			count: 8
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
