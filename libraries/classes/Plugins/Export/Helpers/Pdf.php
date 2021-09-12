@@ -150,14 +150,12 @@ class Pdf extends PdfLib
         }
 
         $current_page = $this->page;
-        if (
-            ($y + $h > $this->PageBreakTrigger)
-            && (! $this->InFooter)
-            && $this->AcceptPageBreak()
-        ) {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        if ($y + $h > $this->PageBreakTrigger && ! $this->InFooter && $this->AcceptPageBreak()) {
             if ($addpage) {
                 //Automatic page break
                 $x = $this->x;
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 $this->AddPage($this->CurOrientation);
                 $this->y = $this->dataY;
                 $oldpage = $this->page - 1;
@@ -193,7 +191,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    // @codingStandardsIgnoreLine
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header()
     {
         global $maxY;
@@ -203,6 +201,7 @@ class Pdf extends PdfLib
         // FIXME: Better approach might be to try to compact the content
         $this->SetAutoPageBreak(false);
         // Check if header for this page already exists
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if (! isset($this->headerset[$this->page])) {
             $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
@@ -266,6 +265,8 @@ class Pdf extends PdfLib
             // set headerset
             $this->headerset[$this->page] = 1;
         }
+
+        // phpcs:enable
 
         $this->dataY = $maxY;
         $this->SetAutoPageBreak(true);
@@ -456,6 +457,7 @@ class Pdf extends PdfLib
                 if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell(
                         $this->tablewidths[$col],
+                        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                         $this->FontSizePt,
                         $txt,
                         0,
@@ -698,6 +700,7 @@ class Pdf extends PdfLib
                 if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell(
                         $this->tablewidths[$col],
+                        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                         $this->FontSizePt,
                         $txt,
                         0,
@@ -921,6 +924,7 @@ class Pdf extends PdfLib
         $this->SetY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->morepagestable($this->FontSizePt);
         $dbi->freeResult($this->results);
     }

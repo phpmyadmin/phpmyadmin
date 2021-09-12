@@ -17,7 +17,6 @@ use function htmlspecialchars;
 /**
  * Handles the IPv4/IPv6 to long transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Iptolong extends IOTransformationsPlugin
 {
     /**

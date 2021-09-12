@@ -17,7 +17,6 @@ use function htmlspecialchars;
 /**
  * Handles the XML transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Xml extends TransformationsPlugin
 {
     public function __construct()

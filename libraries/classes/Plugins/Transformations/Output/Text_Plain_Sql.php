@@ -13,7 +13,6 @@ use PhpMyAdmin\ResponseRenderer;
 /**
  * Handles the sql transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     public function __construct()

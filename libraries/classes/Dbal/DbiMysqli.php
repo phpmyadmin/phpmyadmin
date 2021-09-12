@@ -136,8 +136,10 @@ class DbiMysqli implements DbiExtension
              * - #2001 - SSL Connection is required. Please specify SSL options and retry.
              * - #9002 - SSL connection is required. Please specify SSL options and retry.
              */
+            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
+            // phpcs:enable
             if (
                 ! $server['ssl']
                 && ($error_number == 3159
@@ -325,6 +327,7 @@ class DbiMysqli implements DbiExtension
      */
     public function getHostInfo($link)
     {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $link->host_info;
     }
 
@@ -337,6 +340,7 @@ class DbiMysqli implements DbiExtension
      */
     public function getProtoInfo($link)
     {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $link->protocol_version;
     }
 
@@ -402,6 +406,7 @@ class DbiMysqli implements DbiExtension
             return 0;
         }
 
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $result->num_rows;
     }
 
@@ -415,6 +420,7 @@ class DbiMysqli implements DbiExtension
      */
     public function affectedRows($link)
     {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $link->affected_rows;
     }
 
@@ -452,6 +458,7 @@ class DbiMysqli implements DbiExtension
      */
     public function numFields($result)
     {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $result->field_count;
     }
 

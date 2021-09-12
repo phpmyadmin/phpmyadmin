@@ -78,7 +78,7 @@ class Pdf extends TCPDF
      *
      * @return void
      */
-    // @codingStandardsIgnoreLine
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Footer()
     {
         // Check if footer for this page already exists
@@ -114,6 +114,7 @@ class Pdf extends TCPDF
      */
     public function setAlias($name, $value)
     {
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $name = TCPDF_FONTS::UTF8ToUTF16BE(
             $name,
             false,
@@ -126,6 +127,7 @@ class Pdf extends TCPDF
             true,
             $this->CurrentFont
         );
+        // phpcs:enable
     }
 
     // phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
@@ -145,8 +147,9 @@ class Pdf extends TCPDF
         }
 
         parent::_putpages();
-        // phpcs:enable
     }
+
+    // phpcs:enable
 
     /**
      * Displays an error message
@@ -155,7 +158,7 @@ class Pdf extends TCPDF
      *
      * @return void
      */
-    // @codingStandardsIgnoreLine
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Error($error_message = '')
     {
         echo Message::error(

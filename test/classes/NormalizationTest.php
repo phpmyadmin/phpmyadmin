@@ -386,6 +386,7 @@ class NormalizationTest extends AbstractTestCase
                 'PMA_table',
             ],
         ];
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $dependencies->PMA_table = [
             'col4',
             'col5',

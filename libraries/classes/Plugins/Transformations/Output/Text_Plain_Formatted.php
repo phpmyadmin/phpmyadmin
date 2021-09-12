@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\FormattedTransformationsPlugin;
 /**
  * Handles the formatted transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {
     /**

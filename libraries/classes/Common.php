@@ -243,6 +243,7 @@ final class Common
             // Sets the default delimiter (if specified).
             $sqlDelimiter = $request->getParam('sql_delimiter', '');
             if (strlen($sqlDelimiter) > 0) {
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 Lexer::$DEFAULT_DELIMITER = $sqlDelimiter;
             }
 

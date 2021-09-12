@@ -20,6 +20,10 @@
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
+    </rule>
+
     <!-- Rules that should be followed, but are not required -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
@@ -37,9 +41,6 @@
         <severity>4</severity>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps">
         <severity>4</severity>
     </rule>
     <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">

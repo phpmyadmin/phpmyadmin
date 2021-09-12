@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\TextImageLinkTransformationsPlugin;
 /**
  * Handles the image link transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {
     /**

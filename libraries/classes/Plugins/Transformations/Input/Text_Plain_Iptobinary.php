@@ -20,7 +20,6 @@ use function strlen;
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Iptobinary extends IOTransformationsPlugin
 {
     /**

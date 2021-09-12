@@ -84,11 +84,13 @@ class WindowsNt extends Base
         $arrData = [];
 
         $objWEBM = $this->wmi->Get($strClass);
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $arrProp = $objWEBM->Properties_;
         $arrWEBMCol = $objWEBM->Instances_();
         foreach ($arrWEBMCol as $objItem) {
             $arrInstance = [];
             foreach ($arrProp as $propItem) {
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 $name = $propItem->Name;
                 if (! empty($strValue) && ! in_array($name, $strValue)) {
                     continue;

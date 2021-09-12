@@ -14,7 +14,6 @@ use function __;
 /**
  * SQL editing with syntax highlighted CodeMirror editor
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**

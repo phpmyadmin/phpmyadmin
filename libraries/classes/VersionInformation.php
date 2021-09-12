@@ -160,6 +160,7 @@ class VersionInformation
         // Maintains the latest compatible version
         $latestRelease = null;
         foreach ($releases as $release) {
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             $phpVersions = $release->php_versions;
             $phpConditions = explode(',', $phpVersions);
             foreach ($phpConditions as $phpCondition) {
@@ -171,6 +172,7 @@ class VersionInformation
             // We evaluate MySQL version constraint if there are only
             // one server configured.
             if (count($GLOBALS['cfg']['Servers']) === 1) {
+                // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
                 $mysqlVersions = $release->mysql_versions;
                 $mysqlConditions = explode(',', $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {

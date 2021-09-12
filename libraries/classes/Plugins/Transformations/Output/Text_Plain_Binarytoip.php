@@ -16,7 +16,6 @@ use function __;
 /**
  * Handles the binary to IPv4/IPv6 transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Binarytoip extends TransformationsPlugin
 {
     /**

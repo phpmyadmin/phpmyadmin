@@ -27,6 +27,7 @@ class VersionInformationTest extends AbstractTestCase
         parent::setProxySettings();
         $this->releases = [];
 
+        // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $release = new stdClass();
         $release->date = '2015-09-08';
         $release->php_versions = '>=5.3,<7.1';
@@ -47,6 +48,7 @@ class VersionInformationTest extends AbstractTestCase
         $release->version = '4.0.10.10';
         $release->mysql_versions = '>=5.0';
         $this->releases[] = $release;
+        // phpcs:enable
     }
 
     /**

@@ -14,7 +14,6 @@ use function __;
 /**
  * JSON editing with syntax highlighted CodeMirror editor
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**

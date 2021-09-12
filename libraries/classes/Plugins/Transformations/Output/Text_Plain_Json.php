@@ -17,7 +17,6 @@ use function htmlspecialchars;
 /**
  * Handles the json transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Json extends TransformationsPlugin
 {
     public function __construct()

@@ -12,7 +12,6 @@ use PhpMyAdmin\Plugins\Transformations\Abs\SubstringTransformationsPlugin;
 /**
  * Handles the substring transformation for text plain
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_Substring extends SubstringTransformationsPlugin
 {
     /**

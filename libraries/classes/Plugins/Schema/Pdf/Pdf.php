@@ -278,7 +278,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    // @codingStandardsIgnoreLine
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header()
     {
         global $dbi;
@@ -321,7 +321,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    // @codingStandardsIgnoreLine
+    // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Footer()
     {
         if (! $this->withDoc) {
@@ -361,6 +361,7 @@ class Pdf extends PdfLib
             $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
 
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
         // page break if necessary
@@ -398,11 +399,13 @@ class Pdf extends PdfLib
      */
     public function numLines($w, $txt)
     {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
 
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
         $nb = strlen($s);

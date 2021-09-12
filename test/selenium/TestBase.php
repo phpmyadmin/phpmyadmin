@@ -1251,7 +1251,9 @@ abstract class TestBase extends TestCase
         }
 
         $proj = json_decode($result);
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if (isset($proj->automation_session)) {
+            // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
         }
 

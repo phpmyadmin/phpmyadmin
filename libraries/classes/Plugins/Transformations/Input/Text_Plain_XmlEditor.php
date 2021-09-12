@@ -14,7 +14,6 @@ use function __;
 /**
  * XML (and HTML) editing with syntax highlighted CodeMirror editor
  */
-// @codingStandardsIgnoreLine
 class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**
