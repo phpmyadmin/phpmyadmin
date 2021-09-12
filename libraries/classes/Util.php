@@ -791,12 +791,12 @@ class Util
 
         $date = (string) preg_replace(
             '@%[aA]@',
-            $dayOfWeek[(int) strftime('%w', (int) $timestamp)],
+            $dayOfWeek[(int) @strftime('%w', (int) $timestamp)],
             $format
         );
         $date = (string) preg_replace(
             '@%[bB]@',
-            $month[(int) strftime('%m', (int) $timestamp) - 1],
+            $month[(int) @strftime('%m', (int) $timestamp) - 1],
             $date
         );
 
@@ -812,7 +812,7 @@ class Util
 
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
-        $ret = strftime($date, (int) $timestamp);
+        $ret = @strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if (
@@ -1820,7 +1820,7 @@ class Util
         }
 
         /* Do the replacement */
-        return strtr((string) strftime($string), $replace);
+        return strtr((string) @strftime($string), $replace);
     }
 
     /**
