@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-05 00:09+0000\n"
+"POT-Creation-Date: 2021-09-12 00:10+0000\n"
 "PO-Revision-Date: 2021-06-17 22:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3707,7 +3707,7 @@ msgid "Servers"
 msgstr "Serverat"
 
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Controllers/Server/DatabasesController.php:485
+#: libraries/classes/Controllers/Server/DatabasesController.php:317
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:117
@@ -3960,7 +3960,7 @@ msgstr "Paneli i navigimit"
 
 #: libraries/classes/Config/Descriptions.php:842
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/Navigation/NavigationTree.php:1436
+#: libraries/classes/Navigation/NavigationTree.php:1478
 msgid "Link with main panel"
 msgstr "Lidh me panelin kryesor"
 
@@ -4477,12 +4477,12 @@ msgid "Textarea rows"
 msgstr "Radhët e zonës së tekstit"
 
 #: libraries/classes/Config/Descriptions.php:965
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:199
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
 #: libraries/classes/Server/Privileges.php:1921
 #: libraries/classes/Server/Privileges.php:1923
+#: libraries/classes/Server/Status/Processes.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4763,7 +4763,7 @@ msgstr "Struktura"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:495
+#: libraries/classes/Controllers/Server/DatabasesController.php:327
 #: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
@@ -5130,9 +5130,9 @@ msgstr "Jo faqeruajtës"
 msgid "SQL Query Console"
 msgstr "Pyetsori konsole SQL"
 
-#: libraries/classes/Controllers/AbstractController.php:76
+#: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
-#: libraries/classes/Controllers/Server/DatabasesController.php:299
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:70
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "Nuk janë zgjedhur databaza."
@@ -5147,91 +5147,70 @@ msgstr ""
 "Skedari %s nuk është i vlefshëm në këtë sistem, ju lutem vizitoni %s për më "
 "shumë informacion."
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:145
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:144
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Shfaqën radhët %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:131
-#: libraries/classes/Controllers/ExportController.php:466
+#: libraries/classes/Controllers/Export/ExportController.php:464
 #: libraries/classes/Database/Qbe.php:360
 #: templates/database/structure/index.twig:27
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "Nuk gjenden tabela në databazë."
 
-#: libraries/classes/Controllers/Database/ExportController.php:154
-#: libraries/classes/Controllers/Server/ExportController.php:77
-#: libraries/classes/Controllers/Table/ExportController.php:116
+#: libraries/classes/Controllers/Database/ExportController.php:155
+#: libraries/classes/Controllers/Server/ExportController.php:73
+#: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nuk mund të ngarkojë shtojcat e eksportit, ju lutem kontrollo instalimin "
 "tuaj!"
 
-#: libraries/classes/Controllers/Database/ExportController.php:182
-#: libraries/classes/Controllers/Database/StructureController.php:1250
-#: libraries/classes/Controllers/Database/StructureController.php:1291
-#: libraries/classes/Controllers/Database/StructureController.php:1324
-#: libraries/classes/Controllers/Database/StructureController.php:1347
-#: libraries/classes/Controllers/Database/StructureController.php:1370
-#: libraries/classes/Controllers/Database/StructureController.php:1393
-#: libraries/classes/Controllers/Database/StructureController.php:1416
-#: libraries/classes/Controllers/Database/StructureController.php:1446
-#: libraries/classes/Controllers/Database/StructureController.php:1499
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: libraries/classes/Controllers/Table/MaintenanceController.php:46
-#: libraries/classes/Controllers/Table/MaintenanceController.php:81
-#: libraries/classes/Controllers/Table/MaintenanceController.php:119
-#: libraries/classes/Controllers/Table/MaintenanceController.php:155
-#: libraries/classes/Controllers/Table/MaintenanceController.php:190
-#, fuzzy
-#| msgid "No tables selected."
-msgid "No table selected."
-msgstr "Nuk është zgjedhur tabelë."
-
-#: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:638
-#: libraries/classes/Controllers/Server/ImportController.php:63
-#: libraries/classes/Controllers/Table/ImportController.php:71
+#: libraries/classes/Controllers/Database/ImportController.php:73
+#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/Server/ImportController.php:59
+#: libraries/classes/Controllers/Table/ImportController.php:70
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nuk mund të ngarkojë shtojcat e importit, ju lutem kontrollo instalimin tuaj!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:98
-#: libraries/classes/Controllers/Table/CreateController.php:78
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:276
+msgid "No collation provided."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/OperationsController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:72
 msgid "The database name is empty!"
 msgstr "Emri i databazës është i zbrazët!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:109
+#: libraries/classes/Controllers/Database/OperationsController.php:104
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nuk mund të kopjoni bazën e të dhënave me të njëjtin emër. Ndrysho emrin dhe "
 "provo përsëri."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:198
+#: libraries/classes/Controllers/Database/OperationsController.php:193
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databaza %1$s është riemëruar në %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:211
+#: libraries/classes/Controllers/Database/OperationsController.php:206
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databaza %1$s është kopjuar në %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:329
+#: libraries/classes/Controllers/Database/OperationsController.php:324
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
 "Ruajtja e konfigurimit phpMyAdmin është pasivizuar. %sGjej arsyen pse%s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:368
-#: libraries/classes/Controllers/Table/OperationsController.php:282
-msgid "No collation provided."
-msgstr ""
-
-#: libraries/classes/Controllers/Database/SearchController.php:57
+#: libraries/classes/Controllers/Database/SearchController.php:52
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:108
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
@@ -5239,31 +5218,54 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Hyrja nuk lejohet!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:310
-msgid "Favorite List is full!"
-msgstr "Lista e preferencave është e mbushur!"
+#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:21
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:22
+#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/DropFormController.php:37
+#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
+#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
+#: libraries/classes/Controllers/Export/TablesController.php:29
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#, fuzzy
+#| msgid "No tables selected."
+msgid "No table selected."
+msgstr "Nuk është zgjedhur tabelë."
 
-#: libraries/classes/Controllers/Database/StructureController.php:592
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
+msgid "Success!"
+msgstr "Sukses!"
+
+#: libraries/classes/Controllers/Database/StructureController.php:382
 #: templates/table/operations/index.twig:448
 #: templates/table/operations/view.twig:31
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Paraqitja %s është fshirë."
 
-#: libraries/classes/Controllers/Database/StructureController.php:593
+#: libraries/classes/Controllers/Database/StructureController.php:383
 #: templates/table/operations/index.twig:448
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabela %s është fshirë."
 
-#: libraries/classes/Controllers/Database/StructureController.php:649
+#: libraries/classes/Controllers/Database/StructureController.php:439
 #: templates/table/operations/index.twig:409
 #: templates/table/operations/index.twig:426
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabela %s është zbrazur."
 
-#: libraries/classes/Controllers/Database/StructureController.php:821
+#: libraries/classes/Controllers/Database/StructureController.php:611
 #: libraries/classes/Display/Results.php:4370
 #, php-format
 msgid ""
@@ -5273,23 +5275,17 @@ msgstr ""
 "Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero "
 "%sdokumentacionin%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1073
+#: libraries/classes/Controllers/Database/StructureController.php:825
 msgid "unknown"
 msgstr "e panjohur"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1332
-#: libraries/classes/Controllers/Database/StructureController.php:1355
-#: libraries/classes/Controllers/Database/StructureController.php:1378
-msgid "Success!"
-msgstr "Sukses!"
-
-#: libraries/classes/Controllers/Database/StructureController.php:1530
-#: libraries/classes/Controllers/Database/StructureController.php:1613
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:503
-#: libraries/classes/Controllers/Table/DeleteController.php:59
-#: libraries/classes/Controllers/Table/DropColumnController.php:63
-#: libraries/classes/Controllers/Table/StructureController.php:469
-#: libraries/classes/Controllers/Table/StructureController.php:493
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:56
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:686
 #: libraries/classes/Plugins/Export/ExportLatex.php:657
@@ -5325,14 +5321,18 @@ msgstr "Sukses!"
 msgid "Yes"
 msgstr "Po"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1531
-#: libraries/classes/Controllers/Database/StructureController.php:1614
-#: libraries/classes/Controllers/Table/DropColumnController.php:80
-#: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:430
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:339
+#: libraries/classes/Controllers/Table/ReplaceController.php:424
 #: libraries/classes/Core.php:748 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nuk ka ndryshime"
+
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:105
+msgid "Favorite List is full!"
+msgstr "Lista e preferencave është e mbushur!"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:104
@@ -5355,7 +5355,7 @@ msgstr "Nuk është zgjedhur tabelë."
 msgid "Database Log"
 msgstr "Regjistri (log) databazës"
 
-#: libraries/classes/Controllers/ErrorReportController.php:109
+#: libraries/classes/Controllers/ErrorReportController.php:106
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5363,11 +5363,11 @@ msgstr ""
 "Një gabim është zbuluar dhe një raport gabim është dërguar automatikisht, "
 "duke u bazuar në rregullimet tuaja."
 
-#: libraries/classes/Controllers/ErrorReportController.php:113
+#: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "Thank you for submitting this report."
 msgstr "Faleminderit për dërgimin e këtij raporti."
 
-#: libraries/classes/Controllers/ErrorReportController.php:117
+#: libraries/classes/Controllers/ErrorReportController.php:114
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -5375,26 +5375,26 @@ msgstr ""
 "Një gabim është zbuluar dhe një raport gabim është krijuar, por nuk arriti "
 "të dërgohet."
 
-#: libraries/classes/Controllers/ErrorReportController.php:122
+#: libraries/classes/Controllers/ErrorReportController.php:119
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Nëse keni ndonjë problem, ju lutem dërgoni manualisht një raportim bug "
 "(defekti)."
 
-#: libraries/classes/Controllers/ErrorReportController.php:127
+#: libraries/classes/Controllers/ErrorReportController.php:124
 msgid "You may want to refresh the page."
 msgstr "Duhet të rifreskoni faqen."
 
-#: libraries/classes/Controllers/ExportController.php:246
+#: libraries/classes/Controllers/Export/ExportController.php:244
 #: libraries/classes/Export.php:1409
 msgid "Bad type!"
 msgstr "Tip i keq!"
 
-#: libraries/classes/Controllers/ExportController.php:347
+#: libraries/classes/Controllers/Export/ExportController.php:345
 msgid "Bad parameters!"
 msgstr "Parametra të këqinj!"
 
-#: libraries/classes/Controllers/HomeController.php:97
+#: libraries/classes/Controllers/HomeController.php:96
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5402,7 +5402,7 @@ msgstr ""
 "Ju dolet nga një server, për te dalë plotësisht nga phpMyAdmin, duhet të "
 "dilni nga të gjithë serverat."
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:202
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5411,14 +5411,14 @@ msgstr ""
 "Ruajtja e konfigurimit phpMyAdmin nuk është konfiguruar plotësisht, disa "
 "tipare të zgjeruara janë pasivizuar. %sGjej arsyen pse%s. "
 
-#: libraries/classes/Controllers/HomeController.php:210
+#: libraries/classes/Controllers/HomeController.php:209
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ose në mënyrë alternative, shko në tabelorin 'Veprime', të ndonjë databaze "
 "dhe vendosi atje."
 
-#: libraries/classes/Controllers/HomeController.php:324
+#: libraries/classes/Controllers/HomeController.php:274
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5431,7 +5431,7 @@ msgstr ""
 "shkak të kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar "
 "në phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:344
+#: libraries/classes/Controllers/HomeController.php:294
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5440,26 +5440,26 @@ msgstr ""
 "gatimit të konfiguruar në phpMyAdmin, sepse prej kësaj, hyrja juaj do të "
 "skadojë më shpejt sesa është konfiguruar në phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:313
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:379
+#: libraries/classes/Controllers/HomeController.php:329
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Fili i konfigurimit ka nevojë tani për një frazë kalimi sekrete "
 "(blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:386
+#: libraries/classes/Controllers/HomeController.php:336
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "Shprehja e kalimit sekret në konfigurimin (blowfish_secret) është shumë e "
 "shkurtër."
 
-#: libraries/classes/Controllers/HomeController.php:400
+#: libraries/classes/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5472,7 +5472,7 @@ msgstr ""
 "tuaj mund të rrezikohet nga njerëz të paautorizuar që mund të shkarkojnë "
 "konfigurimin tuaj."
 
-#: libraries/classes/Controllers/HomeController.php:421
+#: libraries/classes/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5481,7 +5481,7 @@ msgstr ""
 "Serveri po punon me Suhosin. Ju lutem, refero %sdokumentacionin%s për "
 "çështje të mundshme."
 
-#: libraries/classes/Controllers/HomeController.php:436
+#: libraries/classes/Controllers/HomeController.php:386
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5490,7 +5490,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) nuk është i arritshëm. phpMyAdmin nuk është në gjendje "
 "të cache templates dhe do të jetë i ngadalshëm për shkak të kësaj."
 
-#: libraries/classes/Controllers/HomeController.php:493
+#: libraries/classes/Controllers/HomeController.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5501,7 +5501,7 @@ msgstr ""
 "është në gjendje të ndajë vargjet si duhet dhe kjo mund të rezultojë në "
 "rezultate të papritura."
 
-#: libraries/classes/Controllers/HomeController.php:511
+#: libraries/classes/Controllers/HomeController.php:461
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5510,20 +5510,20 @@ msgstr ""
 "kësaj, disa tipare të tilla si raportimi gabim ose kontrolli i versionit "
 "janë pasifizuar."
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:115
 msgid "Incomplete params"
 msgstr "Parametra jo të plota"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:140
 msgid "Succeeded"
 msgstr "Me sukses"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:144
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Dështoi"
 
-#: libraries/classes/Controllers/ImportController.php:255
+#: libraries/classes/Controllers/ImportController.php:256
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5532,17 +5532,17 @@ msgstr ""
 "Ndoshta provuat të ngarkoni një fil, që është shumë i madh. Ju lutem, refero "
 "%sdokumentacionin%s për një vështrim të kujdesshëm për këtë kufizim."
 
-#: libraries/classes/Controllers/ImportController.php:441
-#: libraries/classes/Controllers/ImportController.php:678
+#: libraries/classes/Controllers/ImportController.php:442
+#: libraries/classes/Controllers/ImportController.php:679
 msgid "Showing bookmark"
 msgstr "Shfaqën faqeruajtësin"
 
-#: libraries/classes/Controllers/ImportController.php:467
-#: libraries/classes/Controllers/ImportController.php:674
+#: libraries/classes/Controllers/ImportController.php:468
+#: libraries/classes/Controllers/ImportController.php:675
 msgid "The bookmark has been deleted."
 msgstr "Faqeruajtësi është fshirë."
 
-#: libraries/classes/Controllers/ImportController.php:584
+#: libraries/classes/Controllers/ImportController.php:585
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5552,21 +5552,21 @@ msgstr ""
 "madhësia e filit tejkalon madhësinë maksimasle të lejuar nga konfigurimi "
 "juaj PHP. Shiko [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/ImportController.php:681
-#: libraries/classes/Controllers/SqlController.php:397
+#: libraries/classes/Controllers/ImportController.php:682
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
 
-#: libraries/classes/Controllers/ImportController.php:691
+#: libraries/classes/Controllers/ImportController.php:692
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importi ka përfunduar me sukses, %d pyetsor u ekzekutua."
 msgstr[1] "Importi ka përfunduar me sukses, %d pyetsorë u ekzekutuan."
 
-#: libraries/classes/Controllers/ImportController.php:723
+#: libraries/classes/Controllers/ImportController.php:724
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5575,7 +5575,7 @@ msgstr ""
 "Koha e skadimit të skriptit kaloi, nëse doni të përfundoni importin, ju "
 "lutem %sri-dërgo të njëjtin fil%s dhe importimi do të rifillojë."
 
-#: libraries/classes/Controllers/ImportController.php:733
+#: libraries/classes/Controllers/ImportController.php:734
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5584,12 +5584,12 @@ msgstr ""
 "zakonisht do të thotë që phpMyAdmin nuk do të jetë në gjendje të përfundojë "
 "këtë importim, nëse ju e rrisni kufizimin kohor të php."
 
-#: libraries/classes/Controllers/ImportController.php:810
-#: libraries/classes/Controllers/SqlController.php:176
+#: libraries/classes/Controllers/ImportController.php:811
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - deklaratat janë pasivizuar."
 
-#: libraries/classes/Controllers/ImportStatusController.php:69
+#: libraries/classes/Controllers/ImportStatusController.php:66
 msgid "Could not load the progress of the import."
 msgstr "Nuk mund të ngarkojë progresin e importit."
 
@@ -5955,7 +5955,7 @@ msgstr "Shablloni është fshirë."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:100
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:165
 msgid "Other"
 msgstr "Tjetër"
@@ -6372,9 +6372,9 @@ msgid "Explain output"
 msgstr "Sqaro rezultatin"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:2073
-#: libraries/config.values.php:157
+#: libraries/classes/Menu.php:534
+#: libraries/classes/Server/Status/Processes.php:141
+#: libraries/classes/Util.php:2073 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6383,11 +6383,11 @@ msgid "Status"
 msgstr "Statusi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:509
 #: libraries/classes/Plugins/Export/ExportOdt.php:635
 #: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
+#: libraries/classes/Server/Status/Processes.php:137
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6586,8 +6586,8 @@ msgid "Request failed!!"
 msgstr "Kërkesa dështoi!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/SqlController.php:274
-#: libraries/classes/Controllers/SqlController.php:308
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:51
+#: libraries/classes/Controllers/Sql/SetValuesController.php:54
 msgid "Error in processing request"
 msgstr "Gabim në proçesimin e kërkesës"
 
@@ -7423,7 +7423,7 @@ msgid "Show hidden navigation tree items."
 msgstr "Shfaq njësitë e fshehta të pemës së navigimit."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:628
-#: libraries/classes/Navigation/NavigationTree.php:1439
+#: libraries/classes/Navigation/NavigationTree.php:1481
 msgid "Unlink from main panel"
 msgstr "Moslidh nga paneli kryesor"
 
@@ -7669,70 +7669,58 @@ msgid "Hide"
 msgstr "Fsheh"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
-#: libraries/classes/Controllers/Table/ChangeController.php:210
+#: libraries/classes/Controllers/Table/ChangeController.php:205
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Shfaq"
 
-#: libraries/classes/Controllers/NavigationController.php:49
+#: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Gabim fatal: Navigacioni mund të arrihet përmes AJAX"
 
-#: libraries/classes/Controllers/NormalizationController.php:43
+#: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:262
 msgid "Select one…"
 msgstr "Zgjedh një…"
 
-#: libraries/classes/Controllers/NormalizationController.php:44
+#: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:263
 msgid "No such column"
 msgstr "Jo kolonë të tillë"
 
-#: libraries/classes/Controllers/NormalizationController.php:49
+#: libraries/classes/Controllers/NormalizationController.php:46
 #: libraries/classes/Normalization.php:267 libraries/classes/Types.php:828
 msgctxt "string types"
 msgid "String"
 msgstr "Varg (string)"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:96
+#: libraries/classes/Controllers/Preferences/ManageController.php:93
 msgid "phpMyAdmin configuration snippet"
 msgstr "fragmenti i konfigurimit phpMyAdmin"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:97
+#: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "Paste it to your config.inc.php"
 msgstr "Ngjiteni në config.inc.php"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:143
+#: libraries/classes/Controllers/Preferences/ManageController.php:140
 msgid "Could not import configuration"
 msgstr "Nuk mund të importojë konfigurimin"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:55
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:52
 #, fuzzy
 #| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "Relacionet e brendshme janë hequr."
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:66
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:63
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
 msgstr "Metodë e pavlefshme autentifikimi e vendosur në konfigurim:"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:250
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "Databaza %1$s është krijuar."
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:331
-#, php-format
-msgid "%1$d database has been dropped successfully."
-msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d databaza është fshirë me sukses."
-msgstr[1] "%1$d databazat janë fshirë me sukses."
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:490
+#: libraries/classes/Controllers/Server/DatabasesController.php:322
 #: libraries/classes/Import.php:152
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -7741,7 +7729,7 @@ msgstr[1] "%1$d databazat janë fshirë me sukses."
 msgid "Rows"
 msgstr "Radhët"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:500
+#: libraries/classes/Controllers/Server/DatabasesController.php:332
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -7750,18 +7738,30 @@ msgstr "Radhët"
 msgid "Indexes"
 msgstr "Indekset"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:505
+#: libraries/classes/Controllers/Server/DatabasesController.php:337
 #: libraries/classes/Controllers/Server/Status/StatusController.php:165
 #: libraries/classes/Controllers/Server/Status/StatusController.php:240
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Gjithsejt"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:510
+#: libraries/classes/Controllers/Server/DatabasesController.php:342
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Ngarkesa"
+
+#: libraries/classes/Controllers/Server/Databases/CreateController.php:95
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "Databaza %1$s është krijuar."
+
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:102
+#, php-format
+msgid "%1$d database has been dropped successfully."
+msgid_plural "%1$d databases have been dropped successfully."
+msgstr[0] "%1$d databaza është fshirë me sukses."
+msgstr[1] "%1$d databazat janë fshirë me sukses."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -7776,7 +7776,7 @@ msgid "The account %s@%s has been successfully unlocked."
 msgstr "Kolonat kanë lëvizur me sukses."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
-#: libraries/classes/Controllers/Server/UserGroupsController.php:57
+#: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Nuk ka privilegje"
 
@@ -7799,49 +7799,18 @@ msgstr ""
 msgid "User has been added."
 msgstr "Përdoruesi është shtuar."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:115
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Rrjedha %s u vra me sukses."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:121
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin nuk ishte në gjendje ta vriste rrjedhën %s. Kjo ka mundësi tashmë "
 "të jetë mbyllur."
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:220
-msgid "ID"
-msgstr "ID"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
-#: libraries/classes/Server/Privileges.php:3033
-#: templates/server/user_groups/user_listings.twig:9
-msgid "User"
-msgstr "Përdoruesi"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:228
-#: templates/server/replication/master_add_slave_user.twig:32
-#: templates/server/replication/master_add_slave_user.twig:43
-#: templates/server/replication/master_replication.twig:25
-msgid "Host"
-msgstr "Hosti (pritësi)"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:236
-msgid "Command"
-msgstr "Komanda"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:248
-msgid "Progress"
-msgstr "Progresi"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
-#: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
-msgid "SQL query"
-msgstr "SQL pyetsor"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:155
 msgid "Received"
@@ -7859,7 +7828,7 @@ msgstr "Maks. i lidhjeve konkurrente"
 msgid "Failed attempts"
 msgstr "Përpjekje të dështuara"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -7867,11 +7836,11 @@ msgstr ""
 "Numri i lidhjeve që u abortuan për shkak se klienti vdiq, pa mbyllur lidhjen "
 "si duhet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:250
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:245
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Numri i përpjekjeve që dështuan në lidhjen me MySQL server."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -7881,18 +7850,18 @@ msgstr ""
 "(log), që tejkalon vlerën e binlog_cache_size dhe përdor një fil të "
 "përkohshëm, për të ruajtur deklaratat nga transaksioni."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Numri i transaksioneve që përdorën cache binare të përkohshëm të regjistrit "
 "(log)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:261
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Numri i përpjekjeve të lidhjeve (të sukseshme ose jo) në MySQL server."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:265
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:260
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -7905,11 +7874,11 @@ msgstr ""
 "e përkohëshme që të jenë të bazuara në kujtesë, në vend se të bazuara në "
 "disk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
 msgid "How many temporary files mysqld has created."
 msgstr "Sa file të përkohëshme ka krijuar mysqld."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -7917,7 +7886,7 @@ msgstr ""
 "Numri i tabelave të përkohshme në-kujtesë, të krijuara automatikisht nga "
 "serveri, ndërsa deklaratat ekzekutoheshin."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:279
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -7925,7 +7894,7 @@ msgstr ""
 "Numri i radhëve të shkruara me INSERT DELAYED (fut të vonuarat), për të "
 "cilat disa gabime shfaqen (ka mundësi çelës i dyfishtë)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:278
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -7933,23 +7902,23 @@ msgstr ""
 "Numri i rrjedhave të trajtuesit INSERT DELAYED në përdorim. Çdo tabelë e "
 "ndryshme në të cilën dikush përdor INSERT DELAYED merr rrjedhën e vet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Numri i radhëve INSERT DELAYED të shkruara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:286
 msgid "The number of executed FLUSH statements."
 msgstr "Numri i deklaratave FLUSH që janë ekzekutuar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:294
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:289
 msgid "The number of internal COMMIT statements."
 msgstr "Numri i deklaratave të brendshme COMMIT."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid "The number of times a row was deleted from a table."
 msgstr "Numri i herëve, që një radhë është fshirë nga një tabelë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:295
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -7959,7 +7928,7 @@ msgstr ""
 "njohuri rreth një tabele me emrin e dhënë. Kjo quhet zbulim. "
 "Handler_discover indikon numrin e tabelave të kohës që janë zbuluar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:306
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -7970,7 +7939,7 @@ msgstr ""
 "indeksit; për shembull, SELECT col1 FROM foo, duke nënkuptuar se col1 është "
 "indeksuar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -7979,7 +7948,7 @@ msgstr ""
 "është e lartë, është një tregues i mirë që pyetjet tuaja dhe tabelat janë "
 "indeksuar si duhet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -7989,7 +7958,7 @@ msgstr ""
 "është rritur, nëse jeni duke pyetur në një kolonë indeksi, me një pengesë "
 "serie, ose nëse jeni duke bërë një skanim indeksi."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:322
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -7998,7 +7967,7 @@ msgstr ""
 "çelësit. Kjo metodë leximi është përdorur kryesisht për të optimizuar ORDER "
 "BY … DESC."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:326
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8010,7 +7979,7 @@ msgstr ""
 "klasifikim të rezultatit. Ndoshta keni shumë pyetje që kërkojnë MySQL të "
 "skanojë tabela të tëra ose keni bashkime që nuk i përdorin çelësat si duhet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:333
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:328
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8022,35 +7991,35 @@ msgstr ""
 "përgjithësi, kjo sugjeron që tabelat tuaja të mos jenë indeksuar si duhet, "
 "ose pyetsorët tuaj nuk janë shkruar për të përfituar nga indekset që keni."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
 msgid "The number of internal ROLLBACK statements."
 msgstr "Numri i deklaratave të brendshme ROLLBACK."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid "The number of requests to update a row in a table."
 msgstr "Numri i kërkesave për të aktualizuar një radhë në një tabelë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid "The number of requests to insert a row in a table."
 msgstr "Numri i kërkesave për të futur një radhë në një tabelë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:349
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Numri i faqeve që përmbajnë të dhëna (të pista ose të pastra)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid "The number of pages currently dirty."
 msgstr "Numri i faqeve aktualisht pista."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:355
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Numri i faqeve të pellgut zbutës, që janë kërkuar të zbrazen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:354
 msgid "The number of free pages."
 msgstr "Numri i faqeve të lira."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8060,7 +8029,7 @@ msgstr ""
 "aktualisht lexohen ose shkruhen ose që nuk mund të zbrazen apo të hiqen për "
 "disa arsye të tjera."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8072,11 +8041,11 @@ msgstr ""
 "vlerë mund të llogaritet gjithashtu si Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "Total size of buffer pool, in pages."
 msgstr "Madhësia e përgjithshme e pellgut zbutës, në faqet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8085,7 +8054,7 @@ msgstr ""
 "një pyetsor është për të skanuar një porcion të madh të një tabele, por në "
 "renditje të rastësishme."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8093,11 +8062,11 @@ msgstr ""
 "Numri i leximeve-përpara të vazhdueshme InnoDB të iniciuara. Kjo ndodh kur "
 "InnoDB bën një skanim të plotë tabele të vazhdueshëm."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Numri i kërkesave të leximit logjik, që InnoDB ka bërë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8105,7 +8074,7 @@ msgstr ""
 "Numri i leximeve logjike që InnoDB nuk mund të kënaqë nga pellgu zbutës dhe "
 "kishte për të bërë një lexim faqe-të-vetme."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8120,52 +8089,52 @@ msgstr ""
 "madhësia e pellgut zbutës është vendosur si duhet, kjo vlerë duhet të jetë e "
 "vogël."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:401
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Numri i shkrimeve të bëra në pellgun e zbutësit InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid "The number of fsync() operations so far."
 msgstr "Numri i veprimeve fsync() deri tani."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:402
 msgid "The current number of pending fsync() operations."
 msgstr "Numri aktual i veprimeve pezull fsync()."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:410
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid "The current number of pending reads."
 msgstr "Numri aktual i leximeve pezull."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
 msgid "The current number of pending writes."
 msgstr "Numri aktual i shkrimeve pezull."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:411
 msgid "The amount of data read so far, in bytes."
 msgstr "Sasia e të dhënave të lexuara deri tani, në bajt."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:419
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The total number of data reads."
 msgstr "Numri total i të dhënave të lexuara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:417
 msgid "The total number of data writes."
 msgstr "Numri total i të dhënave të shkruara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid "The amount of data written so far, in bytes."
 msgstr "Sasia e të dhënave të shkruara deri tani, në bajt."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Numri i faqeve që janë shkruar për veprimet doublewrite (shkrim i dyfishtë)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Numri i veprimeve të shkruara dyfish që janë kryer."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:430
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8173,35 +8142,35 @@ msgstr ""
 "Numri i pritjeve që kishim, sepse zbutësi i regjistrit (log) ishte shumë i "
 "vogël dhe na u desh të presim, që ajo të jetë zbrazur, para se të vazhdonim."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:439
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid "The number of log write requests."
 msgstr "Numri i kërkesave të regjistrit (log) të shkrimit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 msgid "The number of physical writes to the log file."
 msgstr "Numri i shkrimeve fizike në filin e regjistrit (log)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of fsync() writes done to the log file."
 msgstr "Numri i shkrimeve fsync() të bëra në filin e regjistrit (log)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of pending log file fsyncs."
 msgstr "Numri i filit të regjistrit (log) në pritje fsyncs."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:446
 msgid "Pending log file writes."
 msgstr "Fili pezull i regjistrit (log) shkruan."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:454
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The number of bytes written to the log file."
 msgstr "Numri i bajtëve të shkruara në një fil regjistri (log)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:457
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of pages created."
 msgstr "Numri i faqeve të krijuara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:455
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8210,51 +8179,51 @@ msgstr ""
 "numëruar në faqe; madhësia e faqes i lejon ato të konvertohen me lehtësi në "
 "bajt."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid "The number of pages read."
 msgstr "Numri i faqeve të lexuara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The number of pages written."
 msgstr "Numri i faqeve të shkruara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid "The number of row locks currently being waited for."
 msgstr "Numri i kyçeve të radhës, që presin aktualisht."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:474
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Koha mesatare për të marrë një kyçje rreshti, në milisekonda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:472
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Koha totale e shpenzuar në marrjen e kçeve të radhës, në milisekonda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Koha maksimale për të marrë një kyçje radhe, në milisekonda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:483
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of times a row lock had to be waited for."
 msgstr "Numri i herëve, që një kyç i radhës duhej të priste."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Numri i radhëve që fshihen nga tabela InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Numri i radhëve që futen nga tabela InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid "The number of rows read from InnoDB tables."
 msgstr "Numri i radhëve që lexohen nga tabela InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Numri i radhëve që aktualizohen nga tabela InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8262,7 +8231,7 @@ msgstr ""
 "Numri i blloqeve kryesore në cachen çelës, që kanë ndryshuar, por ende nuk "
 "janë zbrazur në disk. Ajo njihet si Not_flushed_key_blocks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:503
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8270,7 +8239,7 @@ msgstr ""
 "Numri i blloqeve të papërdorura në cache të çelësit. Mund ta përdorni këtë "
 "vlerë, për të përcaktuar se sa është në përdorim një cache e çelësit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8280,15 +8249,15 @@ msgstr ""
 "shenjë e lartë uji, që tregon numrin maksimal të blloqeve, që kanë qenë "
 "ndonjëherë në përdorim në të njëjtën kohë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:512
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Përqindja e cache të çelësit të përdorur (vlera e llogaritur)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:515
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid "The number of requests to read a key block from the cache."
 msgstr "Numri i kërkesave për të lexuar një bllok çelësazh nga cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8299,7 +8268,7 @@ msgstr ""
 "vogël. Norma e mungesës cache mund të llogaritet si Key_reads/"
 "Key_read_requests."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:524
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8307,22 +8276,22 @@ msgstr ""
 "Cache e çelësit e llogaritur keq si vlerë e leximeve fizike, krahasuar me "
 "kërkesat e leximit (vlera e llogaritur)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:528
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:523
 msgid "The number of requests to write a key block to the cache."
 msgstr "Numri i kërkesave për të shkruar një bllok çelësash në cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:531
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of physical writes of a key block to disk."
 msgstr "Numri i shkrimeve fizike të një blloku çelësash në disk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:534
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Përqindja e shkrimeve fizike të krahasuara me kërkesat e shkrimit (vlera e "
 "llogaritur)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:538
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8333,7 +8302,7 @@ msgstr ""
 "pyetsorit për të njëjtin pyetsor. Vlera e paracaktuar 0, do të thotë se nuk "
 "ka pyetsor të kompiluar ende."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:544
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:539
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -8341,13 +8310,13 @@ msgstr ""
 "Numri maksimal i lidhjeve që kanë qenë në përdorim në të njëjtën kohë, që "
 "nga fillimi i serverit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:548
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Numri i radhëve që presin të shkruhen në pyetsorët INSERT DELAYED  (fut të "
 "vonuarat)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:551
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -8359,19 +8328,19 @@ msgstr ""
 "Numri i tabelave që janë hapur. Nëse tabelat e hapura janë të mëdha, vlera "
 "cache e tabelës suaj është ndoshta shumë e vogël."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:555
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
 msgid "The number of files that are open."
 msgstr "Numri i fileve që janë hapur."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:558
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Numri i rrjedhave që janë hapur (përdorur kryesisht për prerjet)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:561
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of tables that are open."
 msgstr "Numri i tabelave që janë hapur."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:559
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8381,19 +8350,19 @@ msgstr ""
 "mund të tregojnë probleme të fragmentimit, të cilat mund të zgjidhen duke "
 "nxjerrë një derklaratë FLUSH QUERY CACHE (cache e zbrazjes së pyetsorit)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:569
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
 msgid "The amount of free memory for query cache."
 msgstr "Sasia e kujtesës së lirë për cache të pyetsorit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:567
 msgid "The number of cache hits."
 msgstr "Numri i goditjeve cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:570
 msgid "The number of queries added to the cache."
 msgstr "Numri i pyetsorëve të shtuar në cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:578
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:573
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8406,7 +8375,7 @@ msgstr ""
 "strategji (LRU) të përdorur së paku kohët e fundit, për të vendosur se cili "
 "pyetsor duhet hequr nga cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:585
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:580
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8414,20 +8383,20 @@ msgstr ""
 "Numri i pyetsorëve jo-cache (jo cachable, apo jo cached për shkak të "
 "rregullimit query_cache_type)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:589
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:584
 msgid "The number of queries registered in the cache."
 msgstr "Numri i pyetsorëve të regjistruar në cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:592
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:587
 msgid "The total number of blocks in the query cache."
 msgstr "Numri i përgjithshëm i blloqeve në cache të pyetsorit."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:595
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 "Statusi i replikimit të sigurisë së dështimit (nuk është implementuar akoma)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:598
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:593
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8435,12 +8404,12 @@ msgstr ""
 "Numri i bashkimeve, që nuk përdorin indekse. Nëse kjo vlerë nuk është 0, ju "
 "duhet të kontrolloni me kujdes treguesit e tabelave tuaja."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:597
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Numri i bashkimeve që përdor një kërkim serie, në një tabelë reference."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:600
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8449,7 +8418,7 @@ msgstr ""
 "çdo radhe. (Nëse kjo nuk është 0, duhet të kontrolloni me kujdes treguesit e "
 "tabelave tuaja.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:610
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8457,16 +8426,16 @@ msgstr ""
 "Numri i bashkimeve që përdorin seritë në tabelën e parë. (Kjo normalisht nuk "
 "është  kritike edhe nëse kjo është e madhe.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:614
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:609
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Numri i bashkimeve, që bënë një skanim të plotë të tabelës së parë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Numri i tabelave të përkohshme aktualisht të hapura nga rrjedha SQL skllave."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:621
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:616
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -8474,13 +8443,13 @@ msgstr ""
 "Numri i përgjithshëm (që nga fillimi) i herëve që replikimi skllav rrjedhë "
 "SQL, ka riprovuar transaksionet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:620
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Kjo është ON (po), nëse ky server është një skllav (slave), që është lidhur "
 "me një master."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:628
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -8488,12 +8457,12 @@ msgstr ""
 "Numri i rrjedhave që kanë marrë më shumë se slow_launch_time sekonda për të "
 "krijuar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:627
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Numri i pyetsorëve që kanë marrë më shumë se long_query_time sekonda."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:631
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8503,23 +8472,23 @@ msgstr ""
 "kjo vlerë është e madhe, duhet të konsideroni rritjen e vlerës së variablit "
 "të sistemit sort_buffer_size."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:641
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
 msgid "The number of sorts that were done with ranges."
 msgstr "Numri i klasifikimeve, që janë bërë me normat."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:644
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:639
 msgid "The number of sorted rows."
 msgstr "Numri i radhëve të klasifikuara."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:647
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:642
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Numri i klasifikimeve, që janë bërë nga skanimi tabelës."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:650
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Numri i herëve, që një kyç tabele është siguruar menjëherë."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:653
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:648
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8531,7 +8500,7 @@ msgstr ""
 "performancën, duhet së pari të optimizoni pyetsorët tuaj dhe pastaj të ndani "
 "tabelën ose tabelat, ose të përdorni replikim (përsëritje)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:654
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8541,11 +8510,11 @@ msgstr ""
 "llogaritet si Threads_created/Lidhjet. Nëse kjo vlerë është e kuqe, duhet të "
 "ngrini thread_cache_size tuaj."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:664
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
 msgid "The number of currently open connections."
 msgstr "Numri i lidhjeve të hapura aktualisht."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:667
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8557,26 +8526,26 @@ msgstr ""
 "kjo nuk do të japë një përmirësim të dukshëm të performancës, nëse keni "
 "zbatim të mirë të rrjedhave.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:674
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:669
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Shkalla e goditjes së cache të rrjedhës (vlera e llogaritur)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:677
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:672
 msgid "The number of threads that are not sleeping."
 msgstr "Numri i rrjedhave, që nuk janë duke fjetur."
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:116
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
 #: libraries/classes/Util.php:918
 msgid "Missing parameter:"
 msgstr "Parametri që mungon:"
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:131
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "Cache e pyetsorit nuk është aftësuar."
 
-#: libraries/classes/Controllers/Server/VariablesController.php:220
+#: libraries/classes/Controllers/Server/Variables/SetVariableController.php:104
 msgid "Setting variable failed"
 msgstr "Vendosja e variablit dështoi"
 
@@ -8633,64 +8602,64 @@ msgstr ""
 "[doc@setup_script]documentation[/doc]. Përndryshe, ju do të jeni në gjendje "
 "vetëm ta shkarkoni dhe shfaqni atë."
 
-#: libraries/classes/Controllers/SqlController.php:404
+#: libraries/classes/Controllers/Sql/SqlController.php:252
 msgid "Bookmark not created!"
 msgstr "Bookmark nuk u krijua!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:170
-#: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:948
-#: libraries/classes/Controllers/Table/StructureController.php:1178
+#: libraries/classes/Controllers/Table/AddFieldController.php:164
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:242
+#: libraries/classes/Table/Indexes.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabela %1$s është alternuar me sukses."
 
-#: libraries/classes/Controllers/Table/ChangeController.php:315
-#: libraries/classes/Controllers/Table/DeleteController.php:123
-#: libraries/classes/Controllers/Table/ExportController.php:151
+#: libraries/classes/Controllers/Table/ChangeRowsController.php:36
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
+#: libraries/classes/Controllers/Table/ExportRowsController.php:36
 msgid "No row selected."
 msgstr "Nuk është zgjedhur radha."
 
-#: libraries/classes/Controllers/Table/ChartController.php:63
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:71
+#: libraries/classes/Controllers/Table/ChartController.php:62
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "Nuk është vendosur pyetsor SQL për të kapur të dhëna."
 
-#: libraries/classes/Controllers/Table/ChartController.php:155
+#: libraries/classes/Controllers/Table/ChartController.php:154
 msgid "No numeric columns present in the table to plot."
 msgstr "Nuk ka kolona numerike të prezantuara në tabelën e komplotit."
 
-#: libraries/classes/Controllers/Table/ChartController.php:224
+#: libraries/classes/Controllers/Table/ChartController.php:223
 msgid "No data to display"
 msgstr "Nuk ka të dhëna për të shfaqur"
 
-#: libraries/classes/Controllers/Table/CreateController.php:90
-#: libraries/classes/Controllers/Table/GetFieldController.php:56
+#: libraries/classes/Controllers/Table/CreateController.php:84
+#: libraries/classes/Controllers/Table/GetFieldController.php:55
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' databaza nuk ekziston."
 
-#: libraries/classes/Controllers/Table/CreateController.php:100
+#: libraries/classes/Controllers/Table/CreateController.php:94
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabela %s ekziston ndërkohë!"
 
-#: libraries/classes/Controllers/Table/DeleteController.php:84
-#: libraries/classes/Controllers/Table/FindReplaceController.php:199
-#: libraries/classes/Controllers/Table/MaintenanceController.php:61
-#: libraries/classes/Controllers/Table/MaintenanceController.php:96
-#: libraries/classes/Controllers/Table/MaintenanceController.php:134
-#: libraries/classes/Controllers/Table/MaintenanceController.php:170
-#: libraries/classes/Controllers/Table/MaintenanceController.php:205
-#: libraries/classes/Controllers/Table/PartitionController.php:53
-#: libraries/classes/Controllers/Table/PartitionController.php:83
-#: libraries/classes/Controllers/Table/PartitionController.php:114
-#: libraries/classes/Controllers/Table/PartitionController.php:150
-#: libraries/classes/Controllers/Table/PartitionController.php:181
-#: libraries/classes/Controllers/Table/PartitionController.php:217
-#: libraries/classes/Controllers/Table/PartitionController.php:248
-#: libraries/classes/Controllers/Table/RelationController.php:285
-#: libraries/classes/Controllers/ViewOperationsController.php:86
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:81
+#: libraries/classes/Controllers/Table/FindReplaceController.php:198
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:53
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:53
+#: libraries/classes/Controllers/Table/Partition/DropController.php:54
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:53
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:54
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:53
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:54
+#: libraries/classes/Controllers/Table/RelationController.php:279
+#: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1332
 #: libraries/classes/Display/Results.php:4045 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
@@ -8698,20 +8667,20 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
-#: libraries/classes/Controllers/Table/DropColumnController.php:57
-#: libraries/classes/Controllers/Table/StructureController.php:219
-#: libraries/classes/Controllers/Table/StructureController.php:239
-#: libraries/classes/Controllers/Table/StructureController.php:255
-#: libraries/classes/Controllers/Table/StructureController.php:285
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:352
-#: libraries/classes/Controllers/Table/StructureController.php:388
-#: libraries/classes/Controllers/Table/StructureController.php:424
-#: libraries/classes/Controllers/Table/StructureController.php:461
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
+#: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:59
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "Nuk është zgjedhur kolona."
 
-#: libraries/classes/Controllers/Table/DropColumnController.php:86
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
 #| msgid "%1$d database has been dropped successfully."
 #| msgid_plural "%1$d databases have been dropped successfully."
@@ -8720,41 +8689,36 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d databaza është fshirë me sukses."
 msgstr[1] "%1$d databazat janë fshirë me sukses."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
 msgstr "Emër tabele i pavlefshëm"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:73
-#: libraries/classes/Controllers/TransformationWrapperController.php:106
+#: libraries/classes/Controllers/Table/GetFieldController.php:72
+#: libraries/classes/Controllers/Transformation/WrapperController.php:103
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Ka shumë bashkime pa indekse."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:87
+#: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1354
 #: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ktheu një set rezultati të zbrazët (psh. zero radhë)."
 
-#: libraries/classes/Controllers/Table/IndexesController.php:224
-#: libraries/classes/Table.php:2281
-msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Emri i çelësit primar duhet të jetë \"PRIMARY\"!"
-
-#: libraries/classes/Controllers/Table/MaintenanceController.php:53
-#: libraries/classes/Controllers/Table/MaintenanceController.php:88
-#: libraries/classes/Controllers/Table/MaintenanceController.php:126
-#: libraries/classes/Controllers/Table/MaintenanceController.php:162
-#: libraries/classes/Controllers/Table/MaintenanceController.php:197
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:117
-#: libraries/classes/Controllers/Table/OperationsController.php:325
-#: libraries/classes/Controllers/Table/StructureController.php:134
+#: libraries/classes/Controllers/Table/OperationsController.php:111
+#: libraries/classes/Controllers/Table/OperationsController.php:319
+#: libraries/classes/Controllers/Table/StructureController.php:102
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8762,51 +8726,35 @@ msgstr ""
 msgid "View"
 msgstr "Shfaq"
 
-#: libraries/classes/Controllers/Table/PartitionController.php:120
-#: libraries/classes/Controllers/Table/PartitionController.php:187
-#: libraries/classes/Controllers/Table/PartitionController.php:254
-#: libraries/classes/Controllers/ViewOperationsController.php:89
+#: libraries/classes/Controllers/Table/Partition/DropController.php:60
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:60
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
+#: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:918 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "Gabim"
 
-#: libraries/classes/Controllers/Table/RelationController.php:226
+#: libraries/classes/Controllers/Table/RelationController.php:220
 msgid "Display column was successfully updated."
 msgstr "Shfaqja e kolonës u aktualizua me sukses."
 
-#: libraries/classes/Controllers/Table/RelationController.php:318
+#: libraries/classes/Controllers/Table/RelationController.php:312
 msgid "Internal relationships were successfully updated."
 msgstr "Marrëdhëniet e brendshme u përditësuan me sukses."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:311
+#: libraries/classes/Controllers/Table/ReplaceController.php:305
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:659
-msgid "The columns have been moved successfully."
-msgstr "Kolonat kanë lëvizur me sukses."
-
-#: libraries/classes/Controllers/Table/StructureController.php:694
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:96
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Dështoi në marrjen e përshkrimit të kolonës %s!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:940
-#: libraries/classes/Controllers/Table/StructureController.php:1228
-#: libraries/classes/Tracking.php:790
-msgid "Query error"
-msgstr "Gabim pyetsori"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1172
-#, php-format
-msgid ""
-"Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabela %1$s është alternuar me sukses. Privilegjet janë përshtatur."
-
-#: libraries/classes/Controllers/Table/StructureController.php:1462
+#: libraries/classes/Controllers/Table/StructureController.php:246
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8816,7 +8764,7 @@ msgstr "Tabela %1$s është alternuar me sukses. Privilegjet janë përshtatur."
 msgid "Primary"
 msgstr "Primar"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1466
+#: libraries/classes/Controllers/Table/StructureController.php:250
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8828,27 +8776,43 @@ msgstr "Primar"
 msgid "Index"
 msgstr "Indeksi"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1726
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:180
+msgid "The columns have been moved successfully."
+msgstr "Kolonat kanë lëvizur me sukses."
+
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:292
+#: libraries/classes/Tracking.php:790
+msgid "Query error"
+msgstr "Gabim pyetsori"
+
+#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Emri '%s' është një fjalë kyçe e rezervuar MySQL."
 msgstr[1] "Emrat '%s' janë fjalë kyçe të rezervuara MySQL."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:74
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:236
+#, php-format
+msgid ""
+"Table %1$s has been altered successfully. Privileges have been adjusted."
+msgstr "Tabela %1$s është alternuar me sukses. Privilegjet janë përshtatur."
+
+#: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Gjurmimi i %s është aktivizuar."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:157
+#: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "Tracking versions deleted successfully."
 msgstr "Versionet e gjurmuara u fshinë me sukses."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:162
+#: libraries/classes/Controllers/Table/TrackingController.php:157
 msgid "No versions selected."
 msgstr "Nuk janë zgjedhur versione."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:197
+#: libraries/classes/Controllers/Table/TrackingController.php:192
 msgid "SQL statements executed."
 msgstr "SQL deklarata të ekzekutuara."
 
@@ -8856,7 +8820,7 @@ msgstr "SQL deklarata të ekzekutuara."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nuk keni privilegje të mjaftueshme të jeni këtu tani!"
 
-#: libraries/classes/Controllers/ViewCreateController.php:87
+#: libraries/classes/Controllers/View/CreateController.php:84
 msgid "View name can not be empty!"
 msgstr "Shaqja e emrit nuk mund të jetë bosh!"
 
@@ -10462,7 +10426,7 @@ msgstr "Tabelat:"
 msgid "Views:"
 msgstr "Shfaqje:"
 
-#: libraries/classes/Navigation/NavigationTree.php:858
+#: libraries/classes/Navigation/NavigationTree.php:860
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10471,20 +10435,20 @@ msgstr ""
 "në performancë. Konsidero pasivizimin e grupimit të njësive në panelin e "
 "navigimit."
 
-#: libraries/classes/Navigation/NavigationTree.php:874
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Grupet:"
 
-#: libraries/classes/Navigation/NavigationTree.php:1036
+#: libraries/classes/Navigation/NavigationTree.php:1070
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s rezultat është gjetur"
 msgstr[1] "%s rezultate janë gjetur"
 
-#: libraries/classes/Navigation/NavigationTree.php:1430
+#: libraries/classes/Navigation/NavigationTree.php:1472
 msgid "Collapse all"
 msgstr "Ngushto të gjitha"
 
@@ -12522,20 +12486,20 @@ msgstr "Nuk mund të ndryshojë master!"
 msgid "Master server changed successfully to %s."
 msgstr "Serveri master ka ndryshuar me sukses në %s."
 
-#: libraries/classes/Routing.php:106
+#: libraries/classes/Routing.php:104
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:160
+#: libraries/classes/Routing.php:158
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Databaza e burimit `%s` nuk gjendet!"
 
-#: libraries/classes/Routing.php:171
+#: libraries/classes/Routing.php:169
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12921,6 +12885,12 @@ msgstr "Përdoruesi %s ekziston ndërkohë!"
 msgid "Privileges for %s"
 msgstr "Privilegjet për %s"
 
+#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Status/Processes.php:121
+#: templates/server/user_groups/user_listings.twig:9
+msgid "User"
+msgstr "Përdoruesi"
+
 #: libraries/classes/Server/Privileges.php:3163
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -12962,6 +12932,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3576
 msgid "You have added a new user."
 msgstr "Keni shtuar një përdorues të ri."
+
+#: libraries/classes/Server/Status/Data.php:148
+#: libraries/classes/Server/Status/Processes.php:149
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
+msgid "SQL query"
+msgstr "SQL pyetsor"
 
 #: libraries/classes/Server/Status/Data.php:151
 msgid "Handler"
@@ -13028,6 +13004,25 @@ msgstr "Shfaq statusin skllav"
 #: libraries/classes/Server/Status/Data.php:217
 msgid "Flush query cache"
 msgstr "Zbraz cachen e pyetsorit"
+
+#: libraries/classes/Server/Status/Processes.php:117
+msgid "ID"
+msgstr "ID"
+
+#: libraries/classes/Server/Status/Processes.php:125
+#: templates/server/replication/master_add_slave_user.twig:32
+#: templates/server/replication/master_add_slave_user.twig:43
+#: templates/server/replication/master_replication.twig:25
+msgid "Host"
+msgstr "Hosti (pritësi)"
+
+#: libraries/classes/Server/Status/Processes.php:133
+msgid "Command"
+msgstr "Komanda"
+
+#: libraries/classes/Server/Status/Processes.php:145
+msgid "Progress"
+msgstr "Progresi"
 
 #: libraries/classes/Server/UserGroups.php:120
 msgid "View users"
@@ -13142,6 +13137,10 @@ msgstr "%s është pasivizuar për këtë MySQL server."
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ky MySQL server nuk e mbështet motorin e ruajtjes %s."
+
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2281
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "Emri i çelësit primar duhet të jetë \"PRIMARY\"!"
 
 #: libraries/classes/Table/Maintenance.php:96
 #, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-05 00:09+0000\n"
+"POT-Creation-Date: 2021-09-12 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -3766,7 +3766,7 @@ msgid "Servers"
 msgstr "Servrar"
 
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Controllers/Server/DatabasesController.php:485
+#: libraries/classes/Controllers/Server/DatabasesController.php:317
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:117
@@ -4019,7 +4019,7 @@ msgstr "Navigationspanel"
 
 #: libraries/classes/Config/Descriptions.php:842
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/Navigation/NavigationTree.php:1436
+#: libraries/classes/Navigation/NavigationTree.php:1478
 msgid "Link with main panel"
 msgstr "Länka med huvudpanelen"
 
@@ -4538,12 +4538,12 @@ msgid "Textarea rows"
 msgstr "Textarea rader"
 
 #: libraries/classes/Config/Descriptions.php:965
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:199
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
 #: libraries/classes/Server/Privileges.php:1921
 #: libraries/classes/Server/Privileges.php:1923
+#: libraries/classes/Server/Status/Processes.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4822,7 +4822,7 @@ msgstr "Struktur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:495
+#: libraries/classes/Controllers/Server/DatabasesController.php:327
 #: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
@@ -5199,9 +5199,9 @@ msgstr "Inga bokmärken"
 msgid "SQL Query Console"
 msgstr "SQL-frågeruta"
 
-#: libraries/classes/Controllers/AbstractController.php:76
+#: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
-#: libraries/classes/Controllers/Server/DatabasesController.php:299
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:70
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "Inga databaser markerade."
@@ -5215,87 +5215,66 @@ msgid ""
 msgstr ""
 "Filen %s är inte tillgänglig i detta system, gå till %s för mer information."
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:145
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:144
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Visar raderna %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:131
-#: libraries/classes/Controllers/ExportController.php:466
+#: libraries/classes/Controllers/Export/ExportController.php:464
 #: libraries/classes/Database/Qbe.php:360
 #: templates/database/structure/index.twig:27
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "Inga tabeller funna i databasen."
 
-#: libraries/classes/Controllers/Database/ExportController.php:154
-#: libraries/classes/Controllers/Server/ExportController.php:77
-#: libraries/classes/Controllers/Table/ExportController.php:116
+#: libraries/classes/Controllers/Database/ExportController.php:155
+#: libraries/classes/Controllers/Server/ExportController.php:73
+#: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för export. Kontrollera din installation!"
 
-#: libraries/classes/Controllers/Database/ExportController.php:182
-#: libraries/classes/Controllers/Database/StructureController.php:1250
-#: libraries/classes/Controllers/Database/StructureController.php:1291
-#: libraries/classes/Controllers/Database/StructureController.php:1324
-#: libraries/classes/Controllers/Database/StructureController.php:1347
-#: libraries/classes/Controllers/Database/StructureController.php:1370
-#: libraries/classes/Controllers/Database/StructureController.php:1393
-#: libraries/classes/Controllers/Database/StructureController.php:1416
-#: libraries/classes/Controllers/Database/StructureController.php:1446
-#: libraries/classes/Controllers/Database/StructureController.php:1499
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: libraries/classes/Controllers/Table/MaintenanceController.php:46
-#: libraries/classes/Controllers/Table/MaintenanceController.php:81
-#: libraries/classes/Controllers/Table/MaintenanceController.php:119
-#: libraries/classes/Controllers/Table/MaintenanceController.php:155
-#: libraries/classes/Controllers/Table/MaintenanceController.php:190
-#, fuzzy
-#| msgid "No tables selected."
-msgid "No table selected."
-msgstr "Inga tabeller markerade."
-
-#: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:638
-#: libraries/classes/Controllers/Server/ImportController.php:63
-#: libraries/classes/Controllers/Table/ImportController.php:71
+#: libraries/classes/Controllers/Database/ImportController.php:73
+#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/Server/ImportController.php:59
+#: libraries/classes/Controllers/Table/ImportController.php:70
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:98
-#: libraries/classes/Controllers/Table/CreateController.php:78
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:276
+msgid "No collation provided."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/OperationsController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:72
 msgid "The database name is empty!"
 msgstr "Databasens namn är tomt!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:109
+#: libraries/classes/Controllers/Database/OperationsController.php:104
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "Kan inte kopiera databasen till samma namn. Byt namn och försök igen."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:198
+#: libraries/classes/Controllers/Database/OperationsController.php:193
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasen %1$s har bytt namn till %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:211
+#: libraries/classes/Controllers/Database/OperationsController.php:206
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har kopierats till %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:329
+#: libraries/classes/Controllers/Database/OperationsController.php:324
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "PhpMyAdmins konfigurationslagring har inaktiverats. %sSe varför%s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:368
-#: libraries/classes/Controllers/Table/OperationsController.php:282
-msgid "No collation provided."
-msgstr ""
-
-#: libraries/classes/Controllers/Database/SearchController.php:57
+#: libraries/classes/Controllers/Database/SearchController.php:52
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:108
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
@@ -5303,31 +5282,54 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Åtkomst nekad!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:310
-msgid "Favorite List is full!"
-msgstr "Favoritlistan är full!"
+#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:21
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:22
+#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/DropFormController.php:37
+#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
+#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
+#: libraries/classes/Controllers/Export/TablesController.php:29
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#, fuzzy
+#| msgid "No tables selected."
+msgid "No table selected."
+msgstr "Inga tabeller markerade."
 
-#: libraries/classes/Controllers/Database/StructureController.php:592
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
+msgid "Success!"
+msgstr "Lyckades!"
+
+#: libraries/classes/Controllers/Database/StructureController.php:382
 #: templates/table/operations/index.twig:448
 #: templates/table/operations/view.twig:31
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vyn %s har tagits bort."
 
-#: libraries/classes/Controllers/Database/StructureController.php:593
+#: libraries/classes/Controllers/Database/StructureController.php:383
 #: templates/table/operations/index.twig:448
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabellen %s har tagits bort."
 
-#: libraries/classes/Controllers/Database/StructureController.php:649
+#: libraries/classes/Controllers/Database/StructureController.php:439
 #: templates/table/operations/index.twig:409
 #: templates/table/operations/index.twig:426
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har tömts."
 
-#: libraries/classes/Controllers/Database/StructureController.php:821
+#: libraries/classes/Controllers/Database/StructureController.php:611
 #: libraries/classes/Display/Results.php:4370
 #, php-format
 msgid ""
@@ -5335,23 +5337,17 @@ msgid ""
 "%s."
 msgstr "Denna vy har åtminstone detta antal rader. Se %sdokumentationen%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1073
+#: libraries/classes/Controllers/Database/StructureController.php:825
 msgid "unknown"
 msgstr "okänd"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1332
-#: libraries/classes/Controllers/Database/StructureController.php:1355
-#: libraries/classes/Controllers/Database/StructureController.php:1378
-msgid "Success!"
-msgstr "Lyckades!"
-
-#: libraries/classes/Controllers/Database/StructureController.php:1530
-#: libraries/classes/Controllers/Database/StructureController.php:1613
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:503
-#: libraries/classes/Controllers/Table/DeleteController.php:59
-#: libraries/classes/Controllers/Table/DropColumnController.php:63
-#: libraries/classes/Controllers/Table/StructureController.php:469
-#: libraries/classes/Controllers/Table/StructureController.php:493
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:56
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:686
 #: libraries/classes/Plugins/Export/ExportLatex.php:657
@@ -5387,14 +5383,18 @@ msgstr "Lyckades!"
 msgid "Yes"
 msgstr "Ja"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1531
-#: libraries/classes/Controllers/Database/StructureController.php:1614
-#: libraries/classes/Controllers/Table/DropColumnController.php:80
-#: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:430
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:339
+#: libraries/classes/Controllers/Table/ReplaceController.php:424
 #: libraries/classes/Core.php:748 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ingen förändring"
+
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:105
+msgid "Favorite List is full!"
+msgstr "Favoritlistan är full!"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:104
@@ -5415,7 +5415,7 @@ msgstr "Inga tabeller markerade."
 msgid "Database Log"
 msgstr "Databas-logg"
 
-#: libraries/classes/Controllers/ErrorReportController.php:109
+#: libraries/classes/Controllers/ErrorReportController.php:106
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -5423,35 +5423,35 @@ msgstr ""
 "Ett fel har upptäckts och en felrapport har skickats automatiskt i enlighet "
 "med dina inställningar."
 
-#: libraries/classes/Controllers/ErrorReportController.php:113
+#: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "Thank you for submitting this report."
 msgstr "Tack för att du skickar denna rapport."
 
-#: libraries/classes/Controllers/ErrorReportController.php:117
+#: libraries/classes/Controllers/ErrorReportController.php:114
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Ett fel har upptäckts och en felrapport har skapats men kunde inte skickas."
 
-#: libraries/classes/Controllers/ErrorReportController.php:122
+#: libraries/classes/Controllers/ErrorReportController.php:119
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Skicka en buggrapport manuellt om du upplever några problem."
 
-#: libraries/classes/Controllers/ErrorReportController.php:127
+#: libraries/classes/Controllers/ErrorReportController.php:124
 msgid "You may want to refresh the page."
 msgstr "Du kan vilja ladda om sidan."
 
-#: libraries/classes/Controllers/ExportController.php:246
+#: libraries/classes/Controllers/Export/ExportController.php:244
 #: libraries/classes/Export.php:1409
 msgid "Bad type!"
 msgstr "Dålig typ!"
 
-#: libraries/classes/Controllers/ExportController.php:347
+#: libraries/classes/Controllers/Export/ExportController.php:345
 msgid "Bad parameters!"
 msgstr "Felaktiga parametrar!"
 
-#: libraries/classes/Controllers/HomeController.php:97
+#: libraries/classes/Controllers/HomeController.php:96
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5459,7 +5459,7 @@ msgstr ""
 "Du blev utloggad från en av servrarna, för att logga ut fullständigt from "
 "phpMyAdmin så måste du logga ut från alla servrar."
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:202
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5468,14 +5468,14 @@ msgstr ""
 "phpMyAdmin-konfigurationen är inte fullständigt konfigurerad, vissa utökade "
 "funktioner har inaktiverats. För att ta reda på varför klicka %shär%s. "
 
-#: libraries/classes/Controllers/HomeController.php:210
+#: libraries/classes/Controllers/HomeController.php:209
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Eller alternativt gå till \"Drift\" fliken i någon databas till sätta den "
 "upp där."
 
-#: libraries/classes/Controllers/HomeController.php:324
+#: libraries/classes/Controllers/HomeController.php:274
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5487,7 +5487,7 @@ msgstr ""
 "cookie-giltighet konfigurerad i phpMyAdmin. På grund av detta kommer din "
 "inloggning upphöra tidigare än vad som är konfigurerat i phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:344
+#: libraries/classes/Controllers/HomeController.php:294
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5496,23 +5496,23 @@ msgstr ""
 "phpMyAdmin, på grund av detta kommer dina inloggningsuppgifter upphöra att "
 "gälla tidigare än konfigurerats i phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:313
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:379
+#: libraries/classes/Controllers/HomeController.php:329
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Konfigurationsfilen behöver nu ett hemligt lösenord (blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:386
+#: libraries/classes/Controllers/HomeController.php:336
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "Den hemliga lösenordsfrasen i konfigurationen (blowfish_secret) är för kort."
 
-#: libraries/classes/Controllers/HomeController.php:400
+#: libraries/classes/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5524,21 +5524,21 @@ msgstr ""
 "den när phpMyAdmin har konfigurerats. I annat fall kan din servers säkerhet "
 "hotas av obehöriga som laddar ner din konfiguration."
 
-#: libraries/classes/Controllers/HomeController.php:421
+#: libraries/classes/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "Server körs med Suhosin. Se %sdokumentation%s för möjliga problem."
 
-#: libraries/classes/Controllers/HomeController.php:436
+#: libraries/classes/Controllers/HomeController.php:386
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/HomeController.php:493
+#: libraries/classes/Controllers/HomeController.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5548,7 +5548,7 @@ msgstr ""
 "flerbitars teckenuppsättning. phpMyAdmin kan inte dela upp strängar korrekt "
 "utan tillägget mbstring, vilket kan resultera i oväntade resultat."
 
-#: libraries/classes/Controllers/HomeController.php:511
+#: libraries/classes/Controllers/HomeController.php:461
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5557,20 +5557,20 @@ msgstr ""
 "av detta är vissa funktioner, som felrapportering och versionskontroll, "
 "avstängda."
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:115
 msgid "Incomplete params"
 msgstr "Ofullständiga parametrar"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:140
 msgid "Succeeded"
 msgstr "Lyckades"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:144
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Misslyckades"
 
-#: libraries/classes/Controllers/ImportController.php:255
+#: libraries/classes/Controllers/ImportController.php:256
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -5579,17 +5579,17 @@ msgstr ""
 "Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
 "gå runt denna begränsning."
 
-#: libraries/classes/Controllers/ImportController.php:441
-#: libraries/classes/Controllers/ImportController.php:678
+#: libraries/classes/Controllers/ImportController.php:442
+#: libraries/classes/Controllers/ImportController.php:679
 msgid "Showing bookmark"
 msgstr "Visar bokmärke"
 
-#: libraries/classes/Controllers/ImportController.php:467
-#: libraries/classes/Controllers/ImportController.php:674
+#: libraries/classes/Controllers/ImportController.php:468
+#: libraries/classes/Controllers/ImportController.php:675
 msgid "The bookmark has been deleted."
 msgstr "Bokmärket har tagits bort."
 
-#: libraries/classes/Controllers/ImportController.php:584
+#: libraries/classes/Controllers/ImportController.php:585
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5599,21 +5599,21 @@ msgstr ""
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: libraries/classes/Controllers/ImportController.php:681
-#: libraries/classes/Controllers/SqlController.php:397
+#: libraries/classes/Controllers/ImportController.php:682
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
-#: libraries/classes/Controllers/ImportController.php:691
+#: libraries/classes/Controllers/ImportController.php:692
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importen har slutförts korrekt, %d förfrågan genomförd."
 msgstr[1] "Importen har slutförts korrekt, %d förfrågningar genomförda."
 
-#: libraries/classes/Controllers/ImportController.php:723
+#: libraries/classes/Controllers/ImportController.php:724
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5622,7 +5622,7 @@ msgstr ""
 "Timeout för skript passerade, om du vill avsluta import, vänligen %sresubmit "
 "samma fil%s och import kommer att återupptas."
 
-#: libraries/classes/Controllers/ImportController.php:733
+#: libraries/classes/Controllers/ImportController.php:734
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5631,12 +5631,12 @@ msgstr ""
 "att phpMyAdmin inte kan slutföra denna import såvida du inte ökar PHP:s "
 "tidsbegränsningar."
 
-#: libraries/classes/Controllers/ImportController.php:810
-#: libraries/classes/Controllers/SqlController.php:176
+#: libraries/classes/Controllers/ImportController.php:811
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
-#: libraries/classes/Controllers/ImportStatusController.php:69
+#: libraries/classes/Controllers/ImportStatusController.php:66
 msgid "Could not load the progress of the import."
 msgstr "Kunde inte läsa av status på import."
 
@@ -5999,7 +5999,7 @@ msgstr "Mallen har tagits bort."
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:100
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:165
 msgid "Other"
 msgstr "Annan"
@@ -6408,9 +6408,9 @@ msgid "Explain output"
 msgstr "Förklara utdata"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:2073
-#: libraries/config.values.php:157
+#: libraries/classes/Menu.php:534
+#: libraries/classes/Server/Status/Processes.php:141
+#: libraries/classes/Util.php:2073 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6419,11 +6419,11 @@ msgid "Status"
 msgstr "Status"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:509
 #: libraries/classes/Plugins/Export/ExportOdt.php:635
 #: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
+#: libraries/classes/Server/Status/Processes.php:137
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6622,8 +6622,8 @@ msgid "Request failed!!"
 msgstr "Begäran misslyckades!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/SqlController.php:274
-#: libraries/classes/Controllers/SqlController.php:308
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:51
+#: libraries/classes/Controllers/Sql/SetValuesController.php:54
 msgid "Error in processing request"
 msgstr "Fel i processbegäran"
 
@@ -7447,7 +7447,7 @@ msgid "Show hidden navigation tree items."
 msgstr "Visa dolda navigationsträdsobjekt."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:628
-#: libraries/classes/Navigation/NavigationTree.php:1439
+#: libraries/classes/Navigation/NavigationTree.php:1481
 msgid "Unlink from main panel"
 msgstr "Avlänka från huvudpanelen"
 
@@ -7689,72 +7689,60 @@ msgid "Hide"
 msgstr "Dölj"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
-#: libraries/classes/Controllers/Table/ChangeController.php:210
+#: libraries/classes/Controllers/Table/ChangeController.php:205
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Visa"
 
-#: libraries/classes/Controllers/NavigationController.php:49
+#: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Oåterkalleligt fel: Navigering kan endast nås via AJAX"
 
-#: libraries/classes/Controllers/NormalizationController.php:43
+#: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:262
 msgid "Select one…"
 msgstr "Välj en…"
 
-#: libraries/classes/Controllers/NormalizationController.php:44
+#: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:263
 msgid "No such column"
 msgstr "Ingen sådan kolumn"
 
-#: libraries/classes/Controllers/NormalizationController.php:49
+#: libraries/classes/Controllers/NormalizationController.php:46
 #: libraries/classes/Normalization.php:267 libraries/classes/Types.php:828
 msgctxt "string types"
 msgid "String"
 msgstr "Sträng"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:96
+#: libraries/classes/Controllers/Preferences/ManageController.php:93
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:97
+#: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:143
+#: libraries/classes/Controllers/Preferences/ManageController.php:140
 msgid "Could not import configuration"
 msgstr "Kan inte importera konfiguration"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:55
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:52
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "Inre relation har tagits bort."
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:66
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:63
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:250
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "Databas %1$s har skapats."
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:331
-#, php-format
-msgid "%1$d database has been dropped successfully."
-msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d databas har framgångsrikt tagits bort."
-msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:490
+#: libraries/classes/Controllers/Server/DatabasesController.php:322
 #: libraries/classes/Import.php:152
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -7763,7 +7751,7 @@ msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
 msgid "Rows"
 msgstr "Rader"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:500
+#: libraries/classes/Controllers/Server/DatabasesController.php:332
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -7772,18 +7760,30 @@ msgstr "Rader"
 msgid "Indexes"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:505
+#: libraries/classes/Controllers/Server/DatabasesController.php:337
 #: libraries/classes/Controllers/Server/Status/StatusController.php:165
 #: libraries/classes/Controllers/Server/Status/StatusController.php:240
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Totalt"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:510
+#: libraries/classes/Controllers/Server/DatabasesController.php:342
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Outnyttjat"
+
+#: libraries/classes/Controllers/Server/Databases/CreateController.php:95
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "Databas %1$s har skapats."
+
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:102
+#, php-format
+msgid "%1$d database has been dropped successfully."
+msgid_plural "%1$d databases have been dropped successfully."
+msgstr[0] "%1$d databas har framgångsrikt tagits bort."
+msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -7798,7 +7798,7 @@ msgid "The account %s@%s has been successfully unlocked."
 msgstr "Kolumnerna har flyttats framgångsrikt."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
-#: libraries/classes/Controllers/Server/UserGroupsController.php:57
+#: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "Inga privilegier"
 
@@ -7820,48 +7820,17 @@ msgstr ""
 msgid "User has been added."
 msgstr "En användare har skapats."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:115
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Tråden %s dödades med framgång."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:121
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin kunde inte döda tråd %s. Troligtvis har den redan avslutats."
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:220
-msgid "ID"
-msgstr "ID"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
-#: libraries/classes/Server/Privileges.php:3033
-#: templates/server/user_groups/user_listings.twig:9
-msgid "User"
-msgstr "Användare"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:228
-#: templates/server/replication/master_add_slave_user.twig:32
-#: templates/server/replication/master_add_slave_user.twig:43
-#: templates/server/replication/master_replication.twig:25
-msgid "Host"
-msgstr "Värd"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:236
-msgid "Command"
-msgstr "Kommando"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:248
-msgid "Progress"
-msgstr "Framsteg"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
-#: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
-msgid "SQL query"
-msgstr "SQL-fråga"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:155
 msgid "Received"
@@ -7879,7 +7848,7 @@ msgstr "Max antal samtidiga förbindelser"
 msgid "Failed attempts"
 msgstr "Misslyckade försök"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -7887,11 +7856,11 @@ msgstr ""
 "Antalet anslutningar som avbröts eftersom klienten dog utan att stänga "
 "anslutningen ordentligt."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:250
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:245
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Antalet misslyckade försök att ansluta till MySQL-servern."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -7901,16 +7870,16 @@ msgstr ""
 "överskred värdet binlog_cache_size och använde en temporär fil för att lagra "
 "satser från transaktionen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Antalet transaktioner som använde den temporära binära loggcachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:261
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Antalet anslutningsförsök (lyckade eller inte) till MySQL-servern."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:265
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:260
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -7922,11 +7891,11 @@ msgstr ""
 "kanske öka värdet tmp_table_size för att åstadkomma att temporära tabeller "
 "lagras i minne istället för på disk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
 msgid "How many temporary files mysqld has created."
 msgstr "Antalet temporära filer som mysqld har skapat."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -7934,7 +7903,7 @@ msgstr ""
 "Antalet temporära tabeller i minne skapade automatiskt av servern under "
 "utförande av satser."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:279
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -7942,7 +7911,7 @@ msgstr ""
 "Antalet rader skrivna med INSERT DELAYED för vilka något fel uppstod "
 "(förmodligen dubblerad nyckel)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:278
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -7950,23 +7919,23 @@ msgstr ""
 "Antalet INSERT DELAYED-hanteringstrådar i bruk. Varje tabell på vilken man "
 "använder INSERT DELAYED får sin egen tråd."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Antalet skrivna rader med INSERT DELAYED."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:286
 msgid "The number of executed FLUSH statements."
 msgstr "Antalet utförda FLUSH-satser."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:294
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:289
 msgid "The number of internal COMMIT statements."
 msgstr "Antalet interna COMMIT-satser."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid "The number of times a row was deleted from a table."
 msgstr "Antalet gånger en rad togs bort från en tabell."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:295
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -7976,7 +7945,7 @@ msgstr ""
 "tabell med ett givet namn. Detta kallas upptäckt. Handler_discover indikerar "
 "antalet gånger tabeller har upptäckts."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:306
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -7986,7 +7955,7 @@ msgstr ""
 "tyder det på att servern gör många helindex-avsökningar; t.ex. SELECT col1 "
 "FROM foo, under förutsättning att col1 är indexerad."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -7995,7 +7964,7 @@ msgstr ""
 "är högt är det en bra indikation på att dina frågor och tabeller är riktigt "
 "indexerade."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -8005,7 +7974,7 @@ msgstr ""
 "värde ökas om du frågar en indexkolumn med en urvalsbegränsning eller om du "
 "gör en indexavsökning."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:322
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -8013,7 +7982,7 @@ msgstr ""
 "Antalet efterfrågningar att läsa den föregående raden i nyckelordning. Denna "
 "läsmetod används huvudsakligen för att optimera ORDER BY … DESC."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:326
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -8025,7 +7994,7 @@ msgstr ""
 "Du har förmodligen många frågor som kräver att MySQL avsöker hela tabeller "
 "eller du har föreningar som inte använder nycklar på rätt sätt."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:333
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:328
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -8037,35 +8006,35 @@ msgstr ""
 "dina tabeller inte är riktigt indexerade eller att dina frågor inte är "
 "skrivna för att dra nytta av de index du har."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
 msgid "The number of internal ROLLBACK statements."
 msgstr "Antalet interna ROLLBACK-satser."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid "The number of requests to update a row in a table."
 msgstr "Antalet efterfrågningar att uppdatera en rad i en tabell."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid "The number of requests to insert a row in a table."
 msgstr "Antalet efterfrågningar att lägga till en rad i en tabell."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:349
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Antalet sidor innehållande data (orena eller rena)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid "The number of pages currently dirty."
 msgstr "Antalet sidor för närvarande orena."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:355
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Antalet buffert-sidor som har efterfrågats om att bli rensade."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:354
 msgid "The number of free pages."
 msgstr "Antalet tomma sidor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -8075,7 +8044,7 @@ msgstr ""
 "läses eller skrivs eller som inte kan rensas eller tas bort av någon annan "
 "anledning."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -8087,11 +8056,11 @@ msgstr ""
 "också beräknas som Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "Total size of buffer pool, in pages."
 msgstr "Total storlek på buffert, i antal sidor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -8099,7 +8068,7 @@ msgstr ""
 "Antalet \"slumpmässiga\" läsningar i förväg som InnoDB initierat. Detta sker "
 "när en fråga ska avsöka en stor del av en tabell men i slumpmässig ordning."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -8107,11 +8076,11 @@ msgstr ""
 "Antalet sekventiella läsningar i förväg som InnoDB initierat. Detta sker när "
 "InnoDB gör en sekventiell avsökning av en hel tabell."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Antalet logiska läsefterfrågningar som InnoDB har gjort."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -8119,7 +8088,7 @@ msgstr ""
 "Antalet logiska läsningar som InnoDB inte kunde uppfylla från buffert och "
 "fick göra en enkelsidig läsning."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8133,51 +8102,51 @@ msgstr ""
 "fall med dessa väntanden. Om buffertstorleken var riktigt satt ska detta "
 "värde vara litet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:401
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Antalet skrivningar gjorda till InnoDB-bufferten."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid "The number of fsync() operations so far."
 msgstr "Antalet fsync()-operationer hittills."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:402
 msgid "The current number of pending fsync() operations."
 msgstr "Nuvarande antal väntande fsync()-operationer."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:410
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid "The current number of pending reads."
 msgstr "Nuvarande antal väntande läsningar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
 msgid "The current number of pending writes."
 msgstr "Nuvarande antal väntande skrivningar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:411
 msgid "The amount of data read so far, in bytes."
 msgstr "Mängden data läst hittills, i bytes."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:419
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The total number of data reads."
 msgstr "Totalt antal läsningar av data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:417
 msgid "The total number of data writes."
 msgstr "Totalt antal skrivningar av data."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid "The amount of data written so far, in bytes."
 msgstr "Mängden data skriven hittills, i bytes."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Antalet sidor som har skrivits för doublewrite transaktioner."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Antalet doublewrite transaktioner som har utförts.."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:430
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -8185,35 +8154,35 @@ msgstr ""
 "Antalet väntanden pga loggbufferten var för liten och vi behövde vänta på "
 "att den skulle rensas innan kunde fortsätta."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:439
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid "The number of log write requests."
 msgstr "Antalet förfrågningar att skriva till logg."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 msgid "The number of physical writes to the log file."
 msgstr "Antalet fysiska skrivningar till loggfilen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of fsync() writes done to the log file."
 msgstr "Antalet fsync()-skrivningar gjorda till loggfilen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of pending log file fsyncs."
 msgstr "Antalet väntande fsync() av loggfil."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:446
 msgid "Pending log file writes."
 msgstr "Väntande skrivningar till loggfil."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:454
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The number of bytes written to the log file."
 msgstr "Antalet bytes skrivna till loggfilen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:457
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of pages created."
 msgstr "Antalet skapade sidor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:455
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -8221,51 +8190,51 @@ msgstr ""
 "Den inkompilerade InnoDB-sidstorleken (standard 16kB). Många värden räknas i "
 "sidor; sidstorleken tillåter dem att enkelt omvandlas till bytes."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid "The number of pages read."
 msgstr "Antalet lästa sidor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The number of pages written."
 msgstr "Antalet skrivna sidor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid "The number of row locks currently being waited for."
 msgstr "Antalet radlås som för närvarande väntas på."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:474
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Genomsnittlig tid för att skaffa ett radlås, i millisekunder."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:472
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Total tid spenderad på att skaffa radlås, i millisekunder."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Maximal tid för att skaffa ett radlås, i millisekunder."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:483
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of times a row lock had to be waited for."
 msgstr "Antalet gånger ett radlås behövde väntas på."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Antalet rader borttagna från InnoDB-tabeller."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Antalet rader tillagda i InnoDB-tabeller."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid "The number of rows read from InnoDB tables."
 msgstr "Antalet rader lästa från InnoDB-tabeller."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Antalet rader uppdaterade i InnoDB-tabeller."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -8273,7 +8242,7 @@ msgstr ""
 "Antalet nyckelblock i nyckelcachen som har ändrats men inte ännu överförts "
 "till disk. Det brukade vara känt som Not_flushed_key_blocks."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:503
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -8281,7 +8250,7 @@ msgstr ""
 "Antalet oanvända block i nyckelcachen. Du kan använda detta värde för att "
 "avgöra hur stor del av nyckelcachen som används."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -8290,15 +8259,15 @@ msgstr ""
 "Antalet använda block i nyckelcachen. Detta värde är ett högvattenmärke som "
 "indikerar maximala antalet block som någonsin använts vid ett tillfälle."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:512
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Andel av använd nyckelcache (beräknat värde)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:515
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid "The number of requests to read a key block from the cache."
 msgstr "Antalet efterfrågningar att läsa ett nyckelblock från cachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8308,7 +8277,7 @@ msgstr ""
 "är stort, då är förmodligen ditt värde key_buffer_size för litet. Cachens "
 "missfrekvens kan beräknas som Key_reads/Key_read_requests."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:524
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8316,20 +8285,20 @@ msgstr ""
 "Misslyckad nyckelcache beräknas som andelen fysiska läsningar jämfört med "
 "läsbegäran (beräknat värde)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:528
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:523
 msgid "The number of requests to write a key block to the cache."
 msgstr "Antalet efterfrågningar att skriva ett nyckelblock till cachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:531
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of physical writes of a key block to disk."
 msgstr "Antalet fysiska skrivningar av ett nyckelblock till disk."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:534
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr "Andel fysiska skrivningar jämfört med läsbegäran (beräknat värde)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:538
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -8340,7 +8309,7 @@ msgstr ""
 "av samma fråga. Standardvärdet 0 innebär att ingen fråga har kompilerats "
 "ännu."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:544
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:539
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -8348,11 +8317,11 @@ msgstr ""
 "Det maximala antalet anslutningar som har använts samtidigt sedan servern "
 "startade."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:548
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Antalet rader som väntar på att skrivas i INSERT DELAYED-köer."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:551
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -8364,19 +8333,19 @@ msgstr ""
 "Antalet tabeller som har öppnats. Om antalet öppnade tabeller är stort är "
 "förmodligen ditt tabellcache-värde för litet."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:555
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
 msgid "The number of files that are open."
 msgstr "Antalet filer som är öppna."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:558
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Antalet strömmar som är öppna (används huvudsakligen för loggning)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:561
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of tables that are open."
 msgstr "Antalet tabeller som är öppna."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:559
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8385,19 +8354,19 @@ msgstr ""
 "Antalet fria minnesblock i frågecache. Högt antal kan tyda på fragmentering, "
 "vilket kan lösas genom att köra ett FLUSH QUERY CACHE-kommando."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:569
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
 msgid "The amount of free memory for query cache."
 msgstr "Mängden fritt minne för frågecache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:567
 msgid "The number of cache hits."
 msgstr "Antalet cache-träffar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:570
 msgid "The number of queries added to the cache."
 msgstr "Antalet förfrågningar tillagda i cachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:578
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:573
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8409,7 +8378,7 @@ msgstr ""
 "storleken på frågecachen. Frågecachen använder strategin minst nyligen "
 "använd (LRU) för att bestämma vilka frågor som ska tas bort från cachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:585
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:580
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8417,19 +8386,19 @@ msgstr ""
 "Antalet icke-cachade frågor (inte möjliga att cacha eller inte cachade pga "
 "inställningen query_cache_type)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:589
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:584
 msgid "The number of queries registered in the cache."
 msgstr "Antalet frågor registrerade i cachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:592
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:587
 msgid "The total number of blocks in the query cache."
 msgstr "Totala antalet block i frågecachen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:595
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Status för felsäker replikering (ännu inte implementerat)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:598
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:593
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8437,11 +8406,11 @@ msgstr ""
 "Antalet kopplingar som inte använder index. Om detta värde inte är 0, bör du "
 "noggrant kontrollera index för dina tabeller."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:597
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Antalet kopplingar som använde en urvalssökning på en referenstabell."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:600
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8450,7 +8419,7 @@ msgstr ""
 "varje rad. (Om detta värde inte är 0, bör du noggrant kontrollera index för "
 "dina tabeller.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:610
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8458,17 +8427,17 @@ msgstr ""
 "Antalet kopplingar som använde urval på den första tabellen. (Det är normalt "
 "inte kritiskt även om detta är stort.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:614
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:609
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Antalet kopplingar som gjorde en fullständig genomsökning av den första "
 "tabellen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Antalet temporära tabeller för närvarande öppna av slavens SQL-tråd."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:621
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:616
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -8476,25 +8445,25 @@ msgstr ""
 "Totalt (sedan start) antal gånger som replikeringsslavens SQL-tråd har "
 "omprövat transaktioner."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:620
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Denna är ON ifall denna server är en slav som är förbunden till en "
 "huvudserver."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:628
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Antalet frågor som har tagit mer än slow_launch_time sekunder att skapa."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:627
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Antalet frågor som har tagit mer än long_query_time sekunder."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:631
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -8504,23 +8473,23 @@ msgstr ""
 "detta värde är stort bör du överväga att öka värdet i systemvariabeln "
 "sort_buffer_size."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:641
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
 msgid "The number of sorts that were done with ranges."
 msgstr "Antalet sorteringar som gjordes med intervall."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:644
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:639
 msgid "The number of sorted rows."
 msgstr "Antalet sorterade rader."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:647
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:642
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Antalet sorteringar som har gjorts genom avsökning av tabellen."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:650
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Antalet gånger som ett tabellås förvärvades omedelbart."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:653
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:648
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8532,7 +8501,7 @@ msgstr ""
 "du först optimera dina frågor och antingen dela upp din tabell eller "
 "tabeller eller använda replikering."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:654
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8542,11 +8511,11 @@ msgstr ""
 "Threads_created/Connections. Om detta värde är rött bör du öka värdet "
 "thread_cache_size."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:664
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
 msgid "The number of currently open connections."
 msgstr "Antalet öppna förbindelser."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:667
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8558,26 +8527,26 @@ msgstr ""
 "(Normalt ger detta inte någon märkbar prestandaförbättring om du har en bra "
 "trådimplementering.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:674
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:669
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Trådad cache träffrekvens (beräknat värde)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:677
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:672
 msgid "The number of threads that are not sleeping."
 msgstr "Antalet trådar som inte är vilande."
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:116
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
 #: libraries/classes/Util.php:918
 msgid "Missing parameter:"
 msgstr "Saknade parametrar:"
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:131
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "Frågecache är inte aktiverat."
 
-#: libraries/classes/Controllers/Server/VariablesController.php:220
+#: libraries/classes/Controllers/Server/Variables/SetVariableController.php:104
 msgid "Setting variable failed"
 msgstr "Inställning av variabeln misslyckades"
 
@@ -8638,64 +8607,64 @@ msgstr ""
 "huvudkatalog som beskrivs i [doc@setup_script]documentationen[/doc]. Annars "
 "kommer du enbart kunna hämta eller visa den."
 
-#: libraries/classes/Controllers/SqlController.php:404
+#: libraries/classes/Controllers/Sql/SqlController.php:252
 msgid "Bookmark not created!"
 msgstr "Bokmärke ej skapat!"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:170
-#: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:948
-#: libraries/classes/Controllers/Table/StructureController.php:1178
+#: libraries/classes/Controllers/Table/AddFieldController.php:164
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:242
+#: libraries/classes/Table/Indexes.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabellen %1$s har ändrats."
 
-#: libraries/classes/Controllers/Table/ChangeController.php:315
-#: libraries/classes/Controllers/Table/DeleteController.php:123
-#: libraries/classes/Controllers/Table/ExportController.php:151
+#: libraries/classes/Controllers/Table/ChangeRowsController.php:36
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
+#: libraries/classes/Controllers/Table/ExportRowsController.php:36
 msgid "No row selected."
 msgstr "Ingen rad vald."
 
-#: libraries/classes/Controllers/Table/ChartController.php:63
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:71
+#: libraries/classes/Controllers/Table/ChartController.php:62
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "Ingen SQL-fråga var inställd på att hämta data."
 
-#: libraries/classes/Controllers/Table/ChartController.php:155
+#: libraries/classes/Controllers/Table/ChartController.php:154
 msgid "No numeric columns present in the table to plot."
 msgstr "Det finns inga numeriska kolumner att plotta i tabellen."
 
-#: libraries/classes/Controllers/Table/ChartController.php:224
+#: libraries/classes/Controllers/Table/ChartController.php:223
 msgid "No data to display"
 msgstr "Ingen data att visa"
 
-#: libraries/classes/Controllers/Table/CreateController.php:90
-#: libraries/classes/Controllers/Table/GetFieldController.php:56
+#: libraries/classes/Controllers/Table/CreateController.php:84
+#: libraries/classes/Controllers/Table/GetFieldController.php:55
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Databasen '%s' existerar inte."
 
-#: libraries/classes/Controllers/Table/CreateController.php:100
+#: libraries/classes/Controllers/Table/CreateController.php:94
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabell %s finns redan!"
 
-#: libraries/classes/Controllers/Table/DeleteController.php:84
-#: libraries/classes/Controllers/Table/FindReplaceController.php:199
-#: libraries/classes/Controllers/Table/MaintenanceController.php:61
-#: libraries/classes/Controllers/Table/MaintenanceController.php:96
-#: libraries/classes/Controllers/Table/MaintenanceController.php:134
-#: libraries/classes/Controllers/Table/MaintenanceController.php:170
-#: libraries/classes/Controllers/Table/MaintenanceController.php:205
-#: libraries/classes/Controllers/Table/PartitionController.php:53
-#: libraries/classes/Controllers/Table/PartitionController.php:83
-#: libraries/classes/Controllers/Table/PartitionController.php:114
-#: libraries/classes/Controllers/Table/PartitionController.php:150
-#: libraries/classes/Controllers/Table/PartitionController.php:181
-#: libraries/classes/Controllers/Table/PartitionController.php:217
-#: libraries/classes/Controllers/Table/PartitionController.php:248
-#: libraries/classes/Controllers/Table/RelationController.php:285
-#: libraries/classes/Controllers/ViewOperationsController.php:86
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:81
+#: libraries/classes/Controllers/Table/FindReplaceController.php:198
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:53
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:53
+#: libraries/classes/Controllers/Table/Partition/DropController.php:54
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:53
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:54
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:53
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:54
+#: libraries/classes/Controllers/Table/RelationController.php:279
+#: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1332
 #: libraries/classes/Display/Results.php:4045 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
@@ -8703,20 +8672,20 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
-#: libraries/classes/Controllers/Table/DropColumnController.php:57
-#: libraries/classes/Controllers/Table/StructureController.php:219
-#: libraries/classes/Controllers/Table/StructureController.php:239
-#: libraries/classes/Controllers/Table/StructureController.php:255
-#: libraries/classes/Controllers/Table/StructureController.php:285
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:352
-#: libraries/classes/Controllers/Table/StructureController.php:388
-#: libraries/classes/Controllers/Table/StructureController.php:424
-#: libraries/classes/Controllers/Table/StructureController.php:461
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
+#: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:59
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "Ingen kolumn vald."
 
-#: libraries/classes/Controllers/Table/DropColumnController.php:86
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
 #| msgid "%1$d database has been dropped successfully."
 #| msgid_plural "%1$d databases have been dropped successfully."
@@ -8725,41 +8694,36 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d databas har framgångsrikt tagits bort."
 msgstr[1] "%1$d databaser har framgångsrikt tagits bort."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
 msgstr "Ogiltigt tabellnamn"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:73
-#: libraries/classes/Controllers/TransformationWrapperController.php:106
+#: libraries/classes/Controllers/Table/GetFieldController.php:72
+#: libraries/classes/Controllers/Transformation/WrapperController.php:103
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Det finns för många JOINS som saknar index."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:87
+#: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1354
 #: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
-#: libraries/classes/Controllers/Table/IndexesController.php:224
-#: libraries/classes/Table.php:2281
-msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Primärnyckelns namn måste vara \"PRIMARY\"!"
-
-#: libraries/classes/Controllers/Table/MaintenanceController.php:53
-#: libraries/classes/Controllers/Table/MaintenanceController.php:88
-#: libraries/classes/Controllers/Table/MaintenanceController.php:126
-#: libraries/classes/Controllers/Table/MaintenanceController.php:162
-#: libraries/classes/Controllers/Table/MaintenanceController.php:197
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:117
-#: libraries/classes/Controllers/Table/OperationsController.php:325
-#: libraries/classes/Controllers/Table/StructureController.php:134
+#: libraries/classes/Controllers/Table/OperationsController.php:111
+#: libraries/classes/Controllers/Table/OperationsController.php:319
+#: libraries/classes/Controllers/Table/StructureController.php:102
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8767,54 +8731,38 @@ msgstr ""
 msgid "View"
 msgstr "Vy"
 
-#: libraries/classes/Controllers/Table/PartitionController.php:120
-#: libraries/classes/Controllers/Table/PartitionController.php:187
-#: libraries/classes/Controllers/Table/PartitionController.php:254
-#: libraries/classes/Controllers/ViewOperationsController.php:89
+#: libraries/classes/Controllers/Table/Partition/DropController.php:60
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:60
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
+#: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:918 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "Fel"
 
-#: libraries/classes/Controllers/Table/RelationController.php:226
+#: libraries/classes/Controllers/Table/RelationController.php:220
 msgid "Display column was successfully updated."
 msgstr "Kolumnen har uppdaterats."
 
-#: libraries/classes/Controllers/Table/RelationController.php:318
+#: libraries/classes/Controllers/Table/RelationController.php:312
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Intern relation har uppdaterats."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:311
+#: libraries/classes/Controllers/Table/ReplaceController.php:305
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, kolumn: %2$s, fel: %3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:659
-msgid "The columns have been moved successfully."
-msgstr "Kolumnerna har flyttats framgångsrikt."
-
-#: libraries/classes/Controllers/Table/StructureController.php:694
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:96
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Det gick inte att få riktiga radantal."
 
-#: libraries/classes/Controllers/Table/StructureController.php:940
-#: libraries/classes/Controllers/Table/StructureController.php:1228
-#: libraries/classes/Tracking.php:790
-msgid "Query error"
-msgstr "Sökningsfel"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1172
-#, php-format
-msgid ""
-"Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
-
-#: libraries/classes/Controllers/Table/StructureController.php:1462
+#: libraries/classes/Controllers/Table/StructureController.php:246
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8824,7 +8772,7 @@ msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
 msgid "Primary"
 msgstr "Primär"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1466
+#: libraries/classes/Controllers/Table/StructureController.php:250
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8836,27 +8784,43 @@ msgstr "Primär"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1726
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:180
+msgid "The columns have been moved successfully."
+msgstr "Kolumnerna har flyttats framgångsrikt."
+
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:292
+#: libraries/classes/Tracking.php:790
+msgid "Query error"
+msgstr "Sökningsfel"
+
+#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
 msgstr[1] "Kolumnnamnen '%s' är reserverade nyckelord i MySQL."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:74
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:236
+#, php-format
+msgid ""
+"Table %1$s has been altered successfully. Privileges have been adjusted."
+msgstr "Tabellen %1$s har ändrats. Privilegierna har justerats."
+
+#: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Spårning av %s är aktiverad."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:157
+#: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "Tracking versions deleted successfully."
 msgstr "Spårningsversioner raderades."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:162
+#: libraries/classes/Controllers/Table/TrackingController.php:157
 msgid "No versions selected."
 msgstr "Ingen version vald."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:197
+#: libraries/classes/Controllers/Table/TrackingController.php:192
 msgid "SQL statements executed."
 msgstr "SQL-satser exekverade."
 
@@ -8864,7 +8828,7 @@ msgstr "SQL-satser exekverade."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 
-#: libraries/classes/Controllers/ViewCreateController.php:87
+#: libraries/classes/Controllers/View/CreateController.php:84
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -10479,7 +10443,7 @@ msgstr "Tabeller:"
 msgid "Views:"
 msgstr "Vyer:"
 
-#: libraries/classes/Navigation/NavigationTree.php:858
+#: libraries/classes/Navigation/NavigationTree.php:860
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10487,20 +10451,20 @@ msgstr ""
 "Det finns stora artikelgrupper i navigeringspanelen som kan påverka "
 "prestanda. Överväga att inaktivera objektgruppering i navigeringspanelen."
 
-#: libraries/classes/Navigation/NavigationTree.php:874
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Grupper:"
 
-#: libraries/classes/Navigation/NavigationTree.php:1036
+#: libraries/classes/Navigation/NavigationTree.php:1070
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultat hittat"
 msgstr[1] "%s resultat hittade"
 
-#: libraries/classes/Navigation/NavigationTree.php:1430
+#: libraries/classes/Navigation/NavigationTree.php:1472
 msgid "Collapse all"
 msgstr "Dölj alla"
 
@@ -12526,19 +12490,19 @@ msgstr "Kan inte ändra master!"
 msgid "Master server changed successfully to %s."
 msgstr "Huvudservern har ändrats till %s."
 
-#: libraries/classes/Routing.php:106
+#: libraries/classes/Routing.php:104
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:160
+#: libraries/classes/Routing.php:158
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Fel 404! Sidan %s hittades inte."
 
-#: libraries/classes/Routing.php:171
+#: libraries/classes/Routing.php:169
 msgid "Error 405! Request method not allowed."
 msgstr "Fel 405! Förfrågningsmetoden ej tillåten."
 
@@ -12927,6 +12891,12 @@ msgstr "Användaren %s finns redan!"
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
+#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Status/Processes.php:121
+#: templates/server/user_groups/user_listings.twig:9
+msgid "User"
+msgstr "Användare"
+
 #: libraries/classes/Server/Privileges.php:3163
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -12979,6 +12949,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3576
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
+
+#: libraries/classes/Server/Status/Data.php:148
+#: libraries/classes/Server/Status/Processes.php:149
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
+msgid "SQL query"
+msgstr "SQL-fråga"
 
 #: libraries/classes/Server/Status/Data.php:151
 msgid "Handler"
@@ -13045,6 +13021,25 @@ msgstr "Visa slav-status"
 #: libraries/classes/Server/Status/Data.php:217
 msgid "Flush query cache"
 msgstr "Rensa frågecache"
+
+#: libraries/classes/Server/Status/Processes.php:117
+msgid "ID"
+msgstr "ID"
+
+#: libraries/classes/Server/Status/Processes.php:125
+#: templates/server/replication/master_add_slave_user.twig:32
+#: templates/server/replication/master_add_slave_user.twig:43
+#: templates/server/replication/master_replication.twig:25
+msgid "Host"
+msgstr "Värd"
+
+#: libraries/classes/Server/Status/Processes.php:133
+msgid "Command"
+msgstr "Kommando"
+
+#: libraries/classes/Server/Status/Processes.php:145
+msgid "Progress"
+msgstr "Framsteg"
 
 #: libraries/classes/Server/UserGroups.php:120
 msgid "View users"
@@ -13163,6 +13158,10 @@ msgstr "%s har inaktiverats på denna MySQL-server."
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
+
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2281
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "Primärnyckelns namn måste vara \"PRIMARY\"!"
 
 #: libraries/classes/Table/Maintenance.php:96
 #, php-format

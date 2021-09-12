@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-05 00:09+0000\n"
+"POT-Creation-Date: 2021-09-12 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -3391,7 +3391,7 @@ msgid "Servers"
 msgstr "伺服器"
 
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Controllers/Server/DatabasesController.php:485
+#: libraries/classes/Controllers/Server/DatabasesController.php:317
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:117
@@ -3642,7 +3642,7 @@ msgstr "導覽面板寬度"
 
 #: libraries/classes/Config/Descriptions.php:842
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:627
-#: libraries/classes/Navigation/NavigationTree.php:1436
+#: libraries/classes/Navigation/NavigationTree.php:1478
 msgid "Link with main panel"
 msgstr "連結主面板"
 
@@ -4157,12 +4157,12 @@ msgid "Textarea rows"
 msgstr "文字框列數"
 
 #: libraries/classes/Config/Descriptions.php:965
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:232
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:199
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
 #: libraries/classes/Server/Privileges.php:1921
 #: libraries/classes/Server/Privileges.php:1923
+#: libraries/classes/Server/Status/Processes.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4431,7 +4431,7 @@ msgstr "結構"
 #: libraries/classes/Config/Forms/User/ExportForm.php:108
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
-#: libraries/classes/Controllers/Server/DatabasesController.php:495
+#: libraries/classes/Controllers/Server/DatabasesController.php:327
 #: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
@@ -4759,9 +4759,9 @@ msgstr "無書籤"
 msgid "SQL Query Console"
 msgstr "SQL 查詢主控台"
 
-#: libraries/classes/Controllers/AbstractController.php:76
+#: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
-#: libraries/classes/Controllers/Server/DatabasesController.php:299
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:70
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "尚未選擇資料庫。"
@@ -4774,85 +4774,64 @@ msgid ""
 "information."
 msgstr "在本系統找不到 %s 檔案，詳情請參閱 %s。"
 
-#: libraries/classes/Controllers/Database/CentralColumnsController.php:145
+#: libraries/classes/Controllers/Database/CentralColumnsController.php:144
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "正在顯示第 %1$s - %2$s 列。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:80
+#: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:131
-#: libraries/classes/Controllers/ExportController.php:466
+#: libraries/classes/Controllers/Export/ExportController.php:464
 #: libraries/classes/Database/Qbe.php:360
 #: templates/database/structure/index.twig:27
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "資料庫沒有資料表。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:154
-#: libraries/classes/Controllers/Server/ExportController.php:77
-#: libraries/classes/Controllers/Table/ExportController.php:116
+#: libraries/classes/Controllers/Database/ExportController.php:155
+#: libraries/classes/Controllers/Server/ExportController.php:73
+#: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
-#: libraries/classes/Controllers/Database/ExportController.php:182
-#: libraries/classes/Controllers/Database/StructureController.php:1250
-#: libraries/classes/Controllers/Database/StructureController.php:1291
-#: libraries/classes/Controllers/Database/StructureController.php:1324
-#: libraries/classes/Controllers/Database/StructureController.php:1347
-#: libraries/classes/Controllers/Database/StructureController.php:1370
-#: libraries/classes/Controllers/Database/StructureController.php:1393
-#: libraries/classes/Controllers/Database/StructureController.php:1416
-#: libraries/classes/Controllers/Database/StructureController.php:1446
-#: libraries/classes/Controllers/Database/StructureController.php:1499
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#: libraries/classes/Controllers/Table/MaintenanceController.php:46
-#: libraries/classes/Controllers/Table/MaintenanceController.php:81
-#: libraries/classes/Controllers/Table/MaintenanceController.php:119
-#: libraries/classes/Controllers/Table/MaintenanceController.php:155
-#: libraries/classes/Controllers/Table/MaintenanceController.php:190
-#, fuzzy
-#| msgid "No tables selected."
-msgid "No table selected."
-msgstr "尚未選擇資料表。"
-
-#: libraries/classes/Controllers/Database/ImportController.php:78
-#: libraries/classes/Controllers/ImportController.php:638
-#: libraries/classes/Controllers/Server/ImportController.php:63
-#: libraries/classes/Controllers/Table/ImportController.php:71
+#: libraries/classes/Controllers/Database/ImportController.php:73
+#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/Server/ImportController.php:59
+#: libraries/classes/Controllers/Table/ImportController.php:70
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查安裝是否有誤！"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:98
-#: libraries/classes/Controllers/Table/CreateController.php:78
+#: libraries/classes/Controllers/Database/Operations/CollationController.php:48
+#: libraries/classes/Controllers/Table/OperationsController.php:276
+msgid "No collation provided."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/OperationsController.php:93
+#: libraries/classes/Controllers/Table/CreateController.php:72
 msgid "The database name is empty!"
 msgstr "請填寫資料庫名稱！"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:109
+#: libraries/classes/Controllers/Database/OperationsController.php:104
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "無法複製為相同名稱的資料庫。請更改名稱後再試。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:198
+#: libraries/classes/Controllers/Database/OperationsController.php:193
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "資料庫 %1$s 已改名為 %2$s。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:211
+#: libraries/classes/Controllers/Database/OperationsController.php:206
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "資料庫 %1$s 已複製為 %2$s。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:329
+#: libraries/classes/Controllers/Database/OperationsController.php:324
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "已停用 phpMyAdmin 設定儲存空間。%s了解原因%s。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:368
-#: libraries/classes/Controllers/Table/OperationsController.php:282
-msgid "No collation provided."
-msgstr ""
-
-#: libraries/classes/Controllers/Database/SearchController.php:57
+#: libraries/classes/Controllers/Database/SearchController.php:52
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:92
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:108
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:84
@@ -4860,31 +4839,54 @@ msgstr ""
 msgid "Access denied!"
 msgstr "存取遭拒！"
 
-#: libraries/classes/Controllers/Database/StructureController.php:310
-msgid "Favorite List is full!"
-msgstr "最愛清單已滿！"
+#: libraries/classes/Controllers/Database/Structure/AddPrefixController.php:21
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:45
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:45
+#: libraries/classes/Controllers/Database/Structure/ChangePrefixFormController.php:22
+#: libraries/classes/Controllers/Database/Structure/CopyFormController.php:21
+#: libraries/classes/Controllers/Database/Structure/DropFormController.php:37
+#: libraries/classes/Controllers/Database/Structure/EmptyFormController.php:24
+#: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
+#: libraries/classes/Controllers/Export/TablesController.php:29
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#, fuzzy
+#| msgid "No tables selected."
+msgid "No table selected."
+msgstr "尚未選擇資料表。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:592
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
+#: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
+msgid "Success!"
+msgstr "成功！"
+
+#: libraries/classes/Controllers/Database/StructureController.php:382
 #: templates/table/operations/index.twig:448
 #: templates/table/operations/view.twig:31
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已刪除檢視表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:593
+#: libraries/classes/Controllers/Database/StructureController.php:383
 #: templates/table/operations/index.twig:448
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已刪除資料表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:649
+#: libraries/classes/Controllers/Database/StructureController.php:439
 #: templates/table/operations/index.twig:409
 #: templates/table/operations/index.twig:426
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空資料表 %s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:821
+#: libraries/classes/Controllers/Database/StructureController.php:611
 #: libraries/classes/Display/Results.php:4370
 #, php-format
 msgid ""
@@ -4892,23 +4894,17 @@ msgid ""
 "%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參閱%sdocumentation%s。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1073
+#: libraries/classes/Controllers/Database/StructureController.php:825
 msgid "unknown"
 msgstr "未知"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1332
-#: libraries/classes/Controllers/Database/StructureController.php:1355
-#: libraries/classes/Controllers/Database/StructureController.php:1378
-msgid "Success!"
-msgstr "成功！"
-
-#: libraries/classes/Controllers/Database/StructureController.php:1530
-#: libraries/classes/Controllers/Database/StructureController.php:1613
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:56
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:72
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:503
-#: libraries/classes/Controllers/Table/DeleteController.php:59
-#: libraries/classes/Controllers/Table/DropColumnController.php:63
-#: libraries/classes/Controllers/Table/StructureController.php:469
-#: libraries/classes/Controllers/Table/StructureController.php:493
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:56
+#: libraries/classes/Controllers/Table/DropColumnController.php:57
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:166 libraries/classes/Index.php:550
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:686
 #: libraries/classes/Plugins/Export/ExportLatex.php:657
@@ -4944,14 +4940,18 @@ msgstr "成功！"
 msgid "Yes"
 msgstr "是"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1531
-#: libraries/classes/Controllers/Database/StructureController.php:1614
-#: libraries/classes/Controllers/Table/DropColumnController.php:80
-#: libraries/classes/Controllers/Table/OperationsController.php:345
-#: libraries/classes/Controllers/Table/ReplaceController.php:430
+#: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
+#: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
+#: libraries/classes/Controllers/Table/DropColumnController.php:74
+#: libraries/classes/Controllers/Table/OperationsController.php:339
+#: libraries/classes/Controllers/Table/ReplaceController.php:424
 #: libraries/classes/Core.php:748 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "無更改"
+
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:105
+msgid "Favorite List is full!"
+msgstr "最愛清單已滿！"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:83
 #: libraries/classes/Controllers/Database/TrackingController.php:104
@@ -4972,46 +4972,46 @@ msgstr "尚未選擇資料表。"
 msgid "Database Log"
 msgstr "資料庫記錄"
 
-#: libraries/classes/Controllers/ErrorReportController.php:109
+#: libraries/classes/Controllers/ErrorReportController.php:106
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "偵測到問題發生；根據系統設定，錯誤報告已自動傳送給開發團隊。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:113
+#: libraries/classes/Controllers/ErrorReportController.php:110
 msgid "Thank you for submitting this report."
 msgstr "非常感謝您回報此錯誤。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:117
+#: libraries/classes/Controllers/ErrorReportController.php:114
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "偵測到系統發生錯誤；並已製作錯誤報告，但未能傳送給開發團隊。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:122
+#: libraries/classes/Controllers/ErrorReportController.php:119
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "若遇到問題，請手動回報錯誤報告給開發團隊。"
 
-#: libraries/classes/Controllers/ErrorReportController.php:127
+#: libraries/classes/Controllers/ErrorReportController.php:124
 msgid "You may want to refresh the page."
 msgstr "需要重新整理頁面。"
 
-#: libraries/classes/Controllers/ExportController.php:246
+#: libraries/classes/Controllers/Export/ExportController.php:244
 #: libraries/classes/Export.php:1409
 msgid "Bad type!"
 msgstr "類型錯誤！"
 
-#: libraries/classes/Controllers/ExportController.php:347
+#: libraries/classes/Controllers/Export/ExportController.php:345
 msgid "Bad parameters!"
 msgstr "參數出錯！"
 
-#: libraries/classes/Controllers/HomeController.php:97
+#: libraries/classes/Controllers/HomeController.php:96
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr "已經登出一台伺服器；如要完全登出 phpMyAdmin，則需要登出所有伺服器。"
 
-#: libraries/classes/Controllers/HomeController.php:203
+#: libraries/classes/Controllers/HomeController.php:202
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5019,12 +5019,12 @@ msgid ""
 msgstr ""
 "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。 %s了解原因%s。 "
 
-#: libraries/classes/Controllers/HomeController.php:210
+#: libraries/classes/Controllers/HomeController.php:209
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
-#: libraries/classes/Controllers/HomeController.php:324
+#: libraries/classes/Controllers/HomeController.php:274
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5036,7 +5036,7 @@ msgstr ""
 "短於在 phpMyAdmin 設定的 cookie 有效時間，因此登入連線有效時間可能比在 "
 "phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:344
+#: libraries/classes/Controllers/HomeController.php:294
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5044,7 +5044,7 @@ msgstr ""
 "phpMyAdmin 所設定的登入 cookie 儲存時間小於 phpMyAdmin 的 cookie 有效時間，因"
 "此登入連線有效期間會比在 phpMyAdmin 設定的時間要短。"
 
-#: libraries/classes/Controllers/HomeController.php:363
+#: libraries/classes/Controllers/HomeController.php:313
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5053,15 +5053,15 @@ msgstr ""
 "閣下伺服器的控制使用者 (controluser) 正在使用預設密碼 (controlpass)，很容易被"
 "入侵；請務必變更密碼 pma，以修復此安全問題。"
 
-#: libraries/classes/Controllers/HomeController.php:379
+#: libraries/classes/Controllers/HomeController.php:329
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "設定檔案需要設定加密密碼(blowfish_secret)。"
 
-#: libraries/classes/Controllers/HomeController.php:386
+#: libraries/classes/Controllers/HomeController.php:336
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr "設定的秘密密鑰(blowfish_secret)過短。"
 
-#: libraries/classes/Controllers/HomeController.php:400
+#: libraries/classes/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5072,14 +5072,14 @@ msgstr ""
 "成之後移除該資料夾，否則會有未經授權的人下載你的設定檔而對伺服器安全性造成威"
 "脅。"
 
-#: libraries/classes/Controllers/HomeController.php:421
+#: libraries/classes/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "伺服器執行了 Suhosin。請參閱%s說明文件%s進一步了解可能會有的問題。"
 
-#: libraries/classes/Controllers/HomeController.php:436
+#: libraries/classes/Controllers/HomeController.php:386
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5088,7 +5088,7 @@ msgstr ""
 "無法存取 $cfg['TempDir'] (%s)。phpMyAdmin 會無法快取模版，並且會因為此原因變"
 "得很慢。"
 
-#: libraries/classes/Controllers/HomeController.php:493
+#: libraries/classes/Controllers/HomeController.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5097,7 +5097,7 @@ msgstr ""
 "找不到 PHP 的 mbstring 擴充套件，且您正使用多位元組字元編碼。 若沒有 "
 "mbstring 擴充套件 phpMyAdmin 將無法正確分割字串，這可能造成奇怪的錯誤。"
 
-#: libraries/classes/Controllers/HomeController.php:511
+#: libraries/classes/Controllers/HomeController.php:461
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5105,37 +5105,37 @@ msgstr ""
 "找不到 curl 擴充套件，且 allow_url_fopen 已停用；故此某些功能，例如錯誤回報與"
 "版本檢查等，會無法使用。"
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:115
 msgid "Incomplete params"
 msgstr "參數不完整"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:140
 msgid "Succeeded"
 msgstr "成功"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:144
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "失敗"
 
-#: libraries/classes/Controllers/ImportController.php:255
+#: libraries/classes/Controllers/ImportController.php:256
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "上傳的檔案過大，請參閱%s說明文件%s了解如何解決此問題。"
 
-#: libraries/classes/Controllers/ImportController.php:441
-#: libraries/classes/Controllers/ImportController.php:678
+#: libraries/classes/Controllers/ImportController.php:442
+#: libraries/classes/Controllers/ImportController.php:679
 msgid "Showing bookmark"
 msgstr "顯示書籤"
 
-#: libraries/classes/Controllers/ImportController.php:467
-#: libraries/classes/Controllers/ImportController.php:674
+#: libraries/classes/Controllers/ImportController.php:468
+#: libraries/classes/Controllers/ImportController.php:675
 msgid "The bookmark has been deleted."
 msgstr "書籤已被刪除。"
 
-#: libraries/classes/Controllers/ImportController.php:584
+#: libraries/classes/Controllers/ImportController.php:585
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -5144,20 +5144,20 @@ msgstr ""
 "沒有接收到要匯入的資料。可能是因為未附上檔案名稱，或是檔案大小超出 PHP 限"
 "制。 請參閱 [doc@faq1-16]FAQ 1.16[/doc]。"
 
-#: libraries/classes/Controllers/ImportController.php:681
-#: libraries/classes/Controllers/SqlController.php:397
+#: libraries/classes/Controllers/ImportController.php:682
+#: libraries/classes/Controllers/Sql/SqlController.php:245
 #: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
 
-#: libraries/classes/Controllers/ImportController.php:691
+#: libraries/classes/Controllers/ImportController.php:692
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "完成匯入，共執行了 %d 個查詢指令。"
 
-#: libraries/classes/Controllers/ImportController.php:723
+#: libraries/classes/Controllers/ImportController.php:724
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -5165,7 +5165,7 @@ msgid ""
 msgstr ""
 "Script 執行已逾時，若要完成匯入，請%s重新上傳原來的檔案%s，匯入會繼續進行。"
 
-#: libraries/classes/Controllers/ImportController.php:733
+#: libraries/classes/Controllers/ImportController.php:734
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -5173,12 +5173,12 @@ msgstr ""
 "最近一次執行的匯入沒有資料可以解析，通常是因為 phpMyAdmin 無法在指定時間內完"
 "成匯入。可試試增加 PHP 執行時間上限。"
 
-#: libraries/classes/Controllers/ImportController.php:810
-#: libraries/classes/Controllers/SqlController.php:176
+#: libraries/classes/Controllers/ImportController.php:811
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
 
-#: libraries/classes/Controllers/ImportStatusController.php:69
+#: libraries/classes/Controllers/ImportStatusController.php:66
 msgid "Could not load the progress of the import."
 msgstr "無法得知匯入進度。"
 
@@ -5529,7 +5529,7 @@ msgstr "已刪除模板。"
 
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:100
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:165
 msgid "Other"
 msgstr "其他"
@@ -5930,9 +5930,9 @@ msgid "Explain output"
 msgstr "輸出說明"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:281
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:244
-#: libraries/classes/Menu.php:534 libraries/classes/Util.php:2073
-#: libraries/config.values.php:157
+#: libraries/classes/Menu.php:534
+#: libraries/classes/Server/Status/Processes.php:141
+#: libraries/classes/Util.php:2073 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -5941,11 +5941,11 @@ msgid "Status"
 msgstr "狀態"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:240
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:509
 #: libraries/classes/Plugins/Export/ExportOdt.php:635
 #: libraries/classes/Plugins/Export/ExportTexytext.php:484
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:411
+#: libraries/classes/Server/Status/Processes.php:137
 #: templates/database/triggers/list.twig:47
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6134,8 +6134,8 @@ msgid "Request failed!!"
 msgstr "請求失敗!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/SqlController.php:274
-#: libraries/classes/Controllers/SqlController.php:308
+#: libraries/classes/Controllers/Sql/EnumValuesController.php:51
+#: libraries/classes/Controllers/Sql/SetValuesController.php:54
 msgid "Error in processing request"
 msgstr "處理請求時發生錯誤"
 
@@ -6935,7 +6935,7 @@ msgid "Show hidden navigation tree items."
 msgstr "顯示隱藏的導覽樹項目。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:628
-#: libraries/classes/Navigation/NavigationTree.php:1439
+#: libraries/classes/Navigation/NavigationTree.php:1481
 msgid "Unlink from main panel"
 msgstr "取消連結主面板"
 
@@ -7170,67 +7170,54 @@ msgid "Hide"
 msgstr "隱藏"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:736
-#: libraries/classes/Controllers/Table/ChangeController.php:210
+#: libraries/classes/Controllers/Table/ChangeController.php:205
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "顯示"
 
-#: libraries/classes/Controllers/NavigationController.php:49
+#: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "嚴重錯誤：導覽頁只能使用 AJAX 存取"
 
-#: libraries/classes/Controllers/NormalizationController.php:43
+#: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:262
 msgid "Select one…"
 msgstr "請選擇一個…"
 
-#: libraries/classes/Controllers/NormalizationController.php:44
+#: libraries/classes/Controllers/NormalizationController.php:41
 #: libraries/classes/Normalization.php:263
 msgid "No such column"
 msgstr "無此欄位"
 
-#: libraries/classes/Controllers/NormalizationController.php:49
+#: libraries/classes/Controllers/NormalizationController.php:46
 #: libraries/classes/Normalization.php:267 libraries/classes/Types.php:828
 msgctxt "string types"
 msgid "String"
 msgstr "字串"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:96
+#: libraries/classes/Controllers/Preferences/ManageController.php:93
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin 設定片段"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:97
+#: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "Paste it to your config.inc.php"
 msgstr "貼至您的 config.inc.php"
 
-#: libraries/classes/Controllers/Preferences/ManageController.php:143
+#: libraries/classes/Controllers/Preferences/ManageController.php:140
 msgid "Could not import configuration"
 msgstr "無法匯入設定"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:55
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:52
 msgid "Two-factor authentication has been removed."
 msgstr "已移除雙因素認證。"
 
-#: libraries/classes/Controllers/Preferences/TwoFactorController.php:66
+#: libraries/classes/Controllers/Preferences/TwoFactorController.php:63
 msgid "Two-factor authentication has been configured."
 msgstr "已設定雙因素認證。"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:250
-#, php-format
-msgid "Database %1$s has been created."
-msgstr "已建立資料庫 %1$s。"
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:331
-#, php-format
-msgid "%1$d database has been dropped successfully."
-msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] ""
-"已成功刪除 %1$d 個資料庫。\n"
-"已成功刪除 %1$d 個資料庫。"
-
-#: libraries/classes/Controllers/Server/DatabasesController.php:490
+#: libraries/classes/Controllers/Server/DatabasesController.php:322
 #: libraries/classes/Import.php:152
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -7239,7 +7226,7 @@ msgstr[0] ""
 msgid "Rows"
 msgstr "資料列數"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:500
+#: libraries/classes/Controllers/Server/DatabasesController.php:332
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -7248,18 +7235,31 @@ msgstr "資料列數"
 msgid "Indexes"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:505
+#: libraries/classes/Controllers/Server/DatabasesController.php:337
 #: libraries/classes/Controllers/Server/Status/StatusController.php:165
 #: libraries/classes/Controllers/Server/Status/StatusController.php:240
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "總計"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:510
+#: libraries/classes/Controllers/Server/DatabasesController.php:342
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "資料分散"
+
+#: libraries/classes/Controllers/Server/Databases/CreateController.php:95
+#, php-format
+msgid "Database %1$s has been created."
+msgstr "已建立資料庫 %1$s。"
+
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:102
+#, php-format
+msgid "%1$d database has been dropped successfully."
+msgid_plural "%1$d databases have been dropped successfully."
+msgstr[0] ""
+"已成功刪除 %1$d 個資料庫。\n"
+"已成功刪除 %1$d 個資料庫。"
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
@@ -7274,7 +7274,7 @@ msgid "The account %s@%s has been successfully unlocked."
 msgstr "已成功移動欄位。"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
-#: libraries/classes/Controllers/Server/UserGroupsController.php:57
+#: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
 msgstr "無權限"
 
@@ -7292,47 +7292,16 @@ msgstr "用戶名稱與主機名稱尚未更改。如只想更改密碼，應使
 msgid "User has been added."
 msgstr "已新增使用者。"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:115
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "已中止執行緒 %s。"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:121
+#: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin 無法中止執行緒 %s。該執行緒可能已經關閉。"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:220
-msgid "ID"
-msgstr "ID"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:224
-#: libraries/classes/Server/Privileges.php:3033
-#: templates/server/user_groups/user_listings.twig:9
-msgid "User"
-msgstr "使用者"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:228
-#: templates/server/replication/master_add_slave_user.twig:32
-#: templates/server/replication/master_add_slave_user.twig:43
-#: templates/server/replication/master_replication.twig:25
-msgid "Host"
-msgstr "主機"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:236
-msgid "Command"
-msgstr "指令"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:248
-msgid "Progress"
-msgstr "進度"
-
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:252
-#: libraries/classes/Server/Status/Data.php:148
-#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
-msgid "SQL query"
-msgstr "SQL 查詢"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:155
 msgid "Received"
@@ -7350,17 +7319,17 @@ msgstr "最大同時連線數"
 msgid "Failed attempts"
 msgstr "嘗試連線失敗數"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr "由於用戶端沒有正常關閉連線，這些連線已被中斷。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:250
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:245
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "無法正常連接 MySQL 伺服器的連線數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -7369,16 +7338,16 @@ msgstr ""
 "使用暫存二進位記錄快取的交易數，但因超出 binlog_cache_size 限制而採用暫存檔案"
 "儲存交易指令的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "使用暫存二進位記錄快取的交易數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:261
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "嘗試連到 MySQL 伺服器的連線數 (不論成功或失敗)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:265
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:260
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -7389,23 +7358,23 @@ msgstr ""
 "很大，您可以增加 tmp_table_size 的值，令伺服器使用記憶體而非硬碟來儲存暫存"
 "表。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:267
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld 已建立的暫存檔案的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:275
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "伺服器執行指令時，自動在記憶體建立的暫存表的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:279
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:274
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr "延遲新增 (INSERT DELAYED) 發生錯誤的列數 (可能為重複鍵值造成)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:278
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -7413,23 +7382,23 @@ msgstr ""
 "正在使用的延遲新增處理程序執行緒的數量。每張使用延遲新增的表都有自己的執行"
 "緒。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:288
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:283
 msgid "The number of INSERT DELAYED rows written."
 msgstr "延遲新增已寫入的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:291
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:286
 msgid "The number of executed FLUSH statements."
 msgstr "已執行的強制更新 (FLUSH) 指令數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:294
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:289
 msgid "The number of internal COMMIT statements."
 msgstr "已執行的內部送出 (COMMIT) 指令數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:297
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid "The number of times a row was deleted from a table."
 msgstr "從資料表中刪除行的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:300
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:295
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -7439,7 +7408,7 @@ msgstr ""
 "在。這個動作稱為「探索(Discovery)」。Handler_discover 參數指的是資料表被探索"
 "到的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:306
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -7448,7 +7417,7 @@ msgstr ""
 "第一筆索引資料被讀取的次數。若這個值很大，代表您的伺服器執行了很多完整索引掃"
 "描。例子：欄位 col1 已經建立了索引，然後執行 SELECT col1 FROM foo。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:307
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -7456,7 +7425,7 @@ msgstr ""
 "根據鍵值查詢到資料列的請求次數。若這個值很大，代表您的查詢條件和資料表都有正"
 "確的索引。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:312
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -7465,7 +7434,7 @@ msgstr ""
 "查詢下一筆索引資料的請求次數。若查詢條件使用了索引的欄位做一段區間範圍的查"
 "詢，或者進行了索引掃描，會使這個值不斷增加。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:322
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -7473,7 +7442,7 @@ msgstr ""
 "查詢上一筆索引資料的請求次數。這種讀取方式通常用於最佳化有關 ORDER BY … DESC "
 "的查詢。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:326
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:321
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -7483,7 +7452,7 @@ msgstr ""
 "使用固定位置讀取資料列的請求次數。如果執行很多需要排序的查詢，該值會很高。您"
 "可能有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢(joins)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:333
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:328
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -7494,35 +7463,35 @@ msgstr ""
 "情況，這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索引"
 "的欄位。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:340
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:335
 msgid "The number of internal ROLLBACK statements."
 msgstr "使用內部回退(ROLLBACK)敘述句的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:343
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid "The number of requests to update a row in a table."
 msgstr "資料表中更新資料列的請求次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:346
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid "The number of requests to insert a row in a table."
 msgstr "資料表中新增資料列的請求數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:349
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "含資料頁數 (異動未儲存或已儲存)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid "The number of pages currently dirty."
 msgstr "目前異動未儲存的頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:355
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "請求更新的緩衝池頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:359
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:354
 msgid "The number of free pages."
 msgstr "空閒頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -7531,7 +7500,7 @@ msgstr ""
 "InnoDB 緩衝池中鎖定頁的數量。這些頁是正在被讀取或寫入的，或者是因其他原因不能"
 "被重新整理或刪除的。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:362
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -7542,11 +7511,11 @@ msgstr ""
 "公式計算：Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:374
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:369
 msgid "Total size of buffer pool, in pages."
 msgstr "緩衝池總大小 (單位：頁)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -7554,24 +7523,24 @@ msgstr ""
 "InnoDB 初始化的「隨機」預讀數。這通常會在對一個資料表進行大範圍的隨機排序查詢"
 "時發生。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 "InnoDB 初始化的順序預讀數。這會在 InnoDB 執行一個順序完整表掃描時發生。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB 完成的邏輯讀取請求數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:389
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr "InnoDB 進行邏輯讀取時，無法從緩衝池取得，而執行單頁讀取的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:393
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -7583,85 +7552,85 @@ msgstr ""
 "必要先等待頁被重新整理。該計數器統計了這種等待的數量。如果緩衝池大小設定正"
 "確，這個值應該會很小。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:401
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "寫入 InnoDB 緩衝池的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:404
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid "The number of fsync() operations so far."
 msgstr "到目前為止 fsync() 執行的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:407
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:402
 msgid "The current number of pending fsync() operations."
 msgstr "目前待執行 fsync() 的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:410
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid "The current number of pending reads."
 msgstr "目前待執行的讀取次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:413
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
 msgid "The current number of pending writes."
 msgstr "目前待執行的寫入次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:416
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:411
 msgid "The amount of data read so far, in bytes."
 msgstr "到目前為止已讀取的總資料量 (以位元組為單位)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:419
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The total number of data reads."
 msgstr "資料讀取總數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:422
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:417
 msgid "The total number of data writes."
 msgstr "資料寫入總數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid "The amount of data written so far, in bytes."
 msgstr "到目前為止已寫入的總資料量 (以位元組為單位)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "已經以雙寫(doublewrite)操作寫入的頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:427
 msgid "The number of doublewrite operations that have been performed."
 msgstr "已經執行的雙寫入次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:430
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr "因記錄緩衝太小而必須等待其被寫入所造成的等待數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:439
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:434
 msgid "The number of log write requests."
 msgstr "記錄寫入請求數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:442
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 msgid "The number of physical writes to the log file."
 msgstr "記錄檔案物理寫入次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:445
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of fsync() writes done to the log file."
 msgstr "使用 fsync() 寫入記錄檔案的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:448
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of pending log file fsyncs."
 msgstr "在記錄檔案中待執行的 fsync 數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:451
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:446
 msgid "Pending log file writes."
 msgstr "目前待執行的記錄檔案寫入數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:454
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The number of bytes written to the log file."
 msgstr "寫入記錄檔案的位元組。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:457
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of pages created."
 msgstr "已建立的頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:455
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -7669,79 +7638,79 @@ msgstr ""
 "編譯的 InnoDB 頁大小 (預設 16KB)。許多值都以頁為單位進行統計，頁大小可以很容"
 "易地將這些值轉換為位元組數目。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:465
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:460
 msgid "The number of pages read."
 msgstr "已讀取的頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:468
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The number of pages written."
 msgstr "已寫入的頁數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:471
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid "The number of row locks currently being waited for."
 msgstr "目前正等待的列鎖定(Row Lock)數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:474
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "等待取得列鎖定(Row lock)的平均時間 (毫秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:477
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:472
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "等待取得列鎖定(Row lock)的總時間 (毫秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:480
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "等待取得列鎖定(Row lock)的最大時間 (毫秒)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:483
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of times a row lock had to be waited for."
 msgstr "等待列鎖定(Row lock)的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:486
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "從 InnoDB 資料表刪除的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:489
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "新增到 InnoDB 資料表的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:492
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid "The number of rows read from InnoDB tables."
 msgstr "從 InnoDB 資料表讀取的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:495
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB 更新的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 "鍵快取中還沒有被寫入到硬碟的鍵塊數。該值過去名為 Not_flushed_key_blocks。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:503
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:498
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr "鍵快取中未使用的塊數。可以根據這個值判斷目前使用了多少鍵快取。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:502
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr "鍵快取中已經使用的塊數。該值指示在某個時刻使用了最多塊數的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:512
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:507
 msgid "Percentage of used key cache (calculated value)"
 msgstr "已使用鍵值快取的百分比 (計算值)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:515
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid "The number of requests to read a key block from the cache."
 msgstr "從快取中讀取鍵塊的請求次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:518
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -7750,26 +7719,26 @@ msgstr ""
 "從硬碟中物理讀取鍵塊的次數。如果 Key_reads 很大，則代表您的 key_buffer_size "
 "可能設定得太小了。快取缺失率可以由 Key_reads/Key_read_requests 計算得出。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:524
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:519
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr "由實際讀取數和讀取請求數比對，計算出的鍵值快取未命中率 (計算值)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:528
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:523
 msgid "The number of requests to write a key block to the cache."
 msgstr "將鍵塊寫入快取的請求數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:531
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of physical writes of a key block to disk."
 msgstr "將鍵塊實體寫入到硬碟的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:534
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr "實際寫入數和寫入請求數的百分比值 (計算值)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:538
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:533
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -7778,17 +7747,17 @@ msgstr ""
 "最後編譯的查詢的總開銷由查詢最佳化器計算得出，可用於比較使用不同的查詢指令進"
 "行相同的查詢時的效率差異。預設值0表示還沒有查詢被編譯。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:544
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:539
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "自伺服器啟動以來，最大的同時連線數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:548
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:543
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "延遲新增等待寫入序列的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:551
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -7798,19 +7767,19 @@ msgid ""
 "table_open_cache value is probably too small."
 msgstr "已經開啟的資料表數。如果該值很大，則代表資料表快取可能設得太小。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:555
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:550
 msgid "The number of files that are open."
 msgstr "已開啟的檔案個數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:558
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "已開啟的串流數 (主要用於記錄)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:561
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of tables that are open."
 msgstr "已開啟的資料表數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:559
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -7819,19 +7788,19 @@ msgstr ""
 "查詢快取中的閒置區塊數。數字越高表示有記憶體碎片問題，也許可用 FLUSH QUERY "
 "CACHE 語句解決。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:569
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:564
 msgid "The amount of free memory for query cache."
 msgstr "查詢快取中，空閒的記憶體總數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:572
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:567
 msgid "The number of cache hits."
 msgstr "快取命中數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:575
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:570
 msgid "The number of queries added to the cache."
 msgstr "加入到快取的查詢數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:578
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:573
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -7841,7 +7810,7 @@ msgstr ""
 "為快取新的查詢而被刪除的已快取查詢的個數，由最近最少使用算法 (LRU) 確定應刪除"
 "哪個已快取的查詢。該資訊可幫助您調整查詢快取大小。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:585
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:580
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -7849,19 +7818,19 @@ msgstr ""
 "未快取的查詢數 (包括不能被快取，或因為 query_cache_type 的設定而沒有被快取的"
 "查詢)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:589
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:584
 msgid "The number of queries registered in the cache."
 msgstr "在快取中註冊的查詢數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:592
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:587
 msgid "The total number of blocks in the query cache."
 msgstr "查詢快取中的總區塊數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:595
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "備援失敗保護器的狀態 (尚未實作)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:598
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:593
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -7869,11 +7838,11 @@ msgstr ""
 "沒有使用索引的多表查詢數。如果該值不為0，您應該仔細檢查是否已經為資料表建立了"
 "適當的索引。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:602
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:597
 msgid "The number of joins that used a range search on a reference table."
 msgstr "使用在關聯表上使用範圍搜尋的多表查詢的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:600
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -7881,7 +7850,7 @@ msgstr ""
 "沒有使用索引但在每行之後檢查索引使用的多表查詢數 (如果該值不為 0，您應該仔細"
 "檢查是否已經為資料表建立了適當的索引)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:610
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:605
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -7889,36 +7858,36 @@ msgstr ""
 "在第一個資料表上使用範圍查詢的多表查詢數 (即使該值很大，通常也不會有致命的影"
 "響)。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:614
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:609
 msgid "The number of joins that did a full scan of the first table."
 msgstr "在第一個資料表上進行了完整表掃描的多表查詢數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:617
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "目前由次要備援 SQL 執行緒開啟的暫存表的數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:621
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:616
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr "自伺服器啟動，次要備援伺服器執行緒重試的交易數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:620
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "若此伺服器為次要伺服器，且已連線到主要伺服器，此欄位值會顯示為 ON。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:628
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr "使用了比 slow_launch_time 更多的時間來啓動的執行緒數量。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:632
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:627
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "查詢時間超過 long_query_time 設定值的查詢筆數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:631
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -7927,23 +7896,23 @@ msgstr ""
 "排序算法使用合併的次數。如果該值很大，您應該考慮增加系統變數 "
 "sort_buffer_size 的值。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:641
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:636
 msgid "The number of sorts that were done with ranges."
 msgstr "局部範圍完成的排序次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:644
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:639
 msgid "The number of sorted rows."
 msgstr "已排序的列數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:647
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:642
 msgid "The number of sorts that were done by scanning the table."
 msgstr "掃描表完成的排序次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:650
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "立即需要鎖定表的次數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:653
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:648
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -7953,7 +7922,7 @@ msgstr ""
 "無法立即取得鎖定表而必須等待的次數。如果該值很高，且遇到了性能方面的問題，則"
 "應該首先最佳化您的查詢指令，然後分割資料表，又或使用備援操作。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:654
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -7962,11 +7931,11 @@ msgstr ""
 "執行緒快取中執行緒的數量。快取命中率可以由 Threads_created/Connections 計算得"
 "出。如果該值是紅色的，則應該增加 thread_cache_size 的值。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:664
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:659
 msgid "The number of currently open connections."
 msgstr "目前開啟的連線數。"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:667
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -7977,26 +7946,26 @@ msgstr ""
 "thread_cache_size 的值 (如果執行緒狀況良好，這麼做通常並不會帶來顯著的性能提"
 "升)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:674
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:669
 msgid "Thread cache hit rate (calculated value)"
 msgstr "執行緒快取命中率 (計算值)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:677
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:672
 msgid "The number of threads that are not sleeping."
 msgstr "非睡眠狀態的執行緒數量。"
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:116
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
 #: libraries/classes/Util.php:918
 msgid "Missing parameter:"
 msgstr "未填寫必要的參數："
 
-#: libraries/classes/Controllers/Server/UserGroupsController.php:131
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
 #| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "未啟用查詢快取。"
 
-#: libraries/classes/Controllers/Server/VariablesController.php:220
+#: libraries/classes/Controllers/Server/Variables/SetVariableController.php:104
 msgid "Setting variable failed"
 msgstr "設定變數失敗"
 
@@ -8046,64 +8015,64 @@ msgstr ""
 "請在 phpMyAdmin 的根資料夾下建立 [doc@setup_script]說明文件[/doc]中所述的，網"
 "站伺服器可以寫入的 [em]config[/em] 資料夾。否則只能下載或顯示設定。"
 
-#: libraries/classes/Controllers/SqlController.php:404
+#: libraries/classes/Controllers/Sql/SqlController.php:252
 msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
-#: libraries/classes/Controllers/Table/AddFieldController.php:170
-#: libraries/classes/Controllers/Table/IndexesController.php:251
-#: libraries/classes/Controllers/Table/StructureController.php:948
-#: libraries/classes/Controllers/Table/StructureController.php:1178
+#: libraries/classes/Controllers/Table/AddFieldController.php:164
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:242
+#: libraries/classes/Table/Indexes.php:86
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s 。"
 
-#: libraries/classes/Controllers/Table/ChangeController.php:315
-#: libraries/classes/Controllers/Table/DeleteController.php:123
-#: libraries/classes/Controllers/Table/ExportController.php:151
+#: libraries/classes/Controllers/Table/ChangeRowsController.php:36
+#: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
+#: libraries/classes/Controllers/Table/ExportRowsController.php:36
 msgid "No row selected."
 msgstr "尚未選擇列。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:63
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:71
+#: libraries/classes/Controllers/Table/ChartController.php:62
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
 msgstr "尚未設定 SQL 查詢來檢索資料。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:155
+#: libraries/classes/Controllers/Table/ChartController.php:154
 msgid "No numeric columns present in the table to plot."
 msgstr "目前資料表中沒有數值欄位可供繪製。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:224
+#: libraries/classes/Controllers/Table/ChartController.php:223
 msgid "No data to display"
 msgstr "無資料可顯示"
 
-#: libraries/classes/Controllers/Table/CreateController.php:90
-#: libraries/classes/Controllers/Table/GetFieldController.php:56
+#: libraries/classes/Controllers/Table/CreateController.php:84
+#: libraries/classes/Controllers/Table/GetFieldController.php:55
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "沒有「%s」資料庫。"
 
-#: libraries/classes/Controllers/Table/CreateController.php:100
+#: libraries/classes/Controllers/Table/CreateController.php:94
 #, php-format
 msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
-#: libraries/classes/Controllers/Table/DeleteController.php:84
-#: libraries/classes/Controllers/Table/FindReplaceController.php:199
-#: libraries/classes/Controllers/Table/MaintenanceController.php:61
-#: libraries/classes/Controllers/Table/MaintenanceController.php:96
-#: libraries/classes/Controllers/Table/MaintenanceController.php:134
-#: libraries/classes/Controllers/Table/MaintenanceController.php:170
-#: libraries/classes/Controllers/Table/MaintenanceController.php:205
-#: libraries/classes/Controllers/Table/PartitionController.php:53
-#: libraries/classes/Controllers/Table/PartitionController.php:83
-#: libraries/classes/Controllers/Table/PartitionController.php:114
-#: libraries/classes/Controllers/Table/PartitionController.php:150
-#: libraries/classes/Controllers/Table/PartitionController.php:181
-#: libraries/classes/Controllers/Table/PartitionController.php:217
-#: libraries/classes/Controllers/Table/PartitionController.php:248
-#: libraries/classes/Controllers/Table/RelationController.php:285
-#: libraries/classes/Controllers/ViewOperationsController.php:86
+#: libraries/classes/Controllers/Table/DeleteRowsController.php:81
+#: libraries/classes/Controllers/Table/FindReplaceController.php:198
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:53
+#: libraries/classes/Controllers/Table/Partition/CheckController.php:53
+#: libraries/classes/Controllers/Table/Partition/DropController.php:54
+#: libraries/classes/Controllers/Table/Partition/OptimizeController.php:53
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:54
+#: libraries/classes/Controllers/Table/Partition/RepairController.php:53
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:54
+#: libraries/classes/Controllers/Table/RelationController.php:279
+#: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1332
 #: libraries/classes/Display/Results.php:4045 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
@@ -8111,20 +8080,20 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
 
 #: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:23
-#: libraries/classes/Controllers/Table/DropColumnController.php:57
-#: libraries/classes/Controllers/Table/StructureController.php:219
-#: libraries/classes/Controllers/Table/StructureController.php:239
-#: libraries/classes/Controllers/Table/StructureController.php:255
-#: libraries/classes/Controllers/Table/StructureController.php:285
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:352
-#: libraries/classes/Controllers/Table/StructureController.php:388
-#: libraries/classes/Controllers/Table/StructureController.php:424
-#: libraries/classes/Controllers/Table/StructureController.php:461
+#: libraries/classes/Controllers/Table/DropColumnController.php:51
+#: libraries/classes/Controllers/Table/Structure/AddIndexController.php:47
+#: libraries/classes/Controllers/Table/Structure/BrowseController.php:34
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php:45
+#: libraries/classes/Controllers/Table/Structure/CentralColumnsRemoveController.php:45
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:59
+#: libraries/classes/Controllers/Table/Structure/FulltextController.php:47
+#: libraries/classes/Controllers/Table/Structure/PrimaryController.php:51
+#: libraries/classes/Controllers/Table/Structure/SpatialController.php:47
+#: libraries/classes/Controllers/Table/Structure/UniqueController.php:47
 msgid "No column selected."
 msgstr "尚未選擇欄位。"
 
-#: libraries/classes/Controllers/Table/DropColumnController.php:86
+#: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
 #| msgid "%1$d database has been dropped successfully."
 #| msgid_plural "%1$d databases have been dropped successfully."
@@ -8134,41 +8103,36 @@ msgstr[0] ""
 "已成功刪除 %1$d 個資料庫。\n"
 "已成功刪除 %1$d 個資料庫。"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:64
+#: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
 msgstr "資料表名稱無效"
 
 #. l10n: In case a SQL query did not pass a security check
-#: libraries/classes/Controllers/Table/GetFieldController.php:73
-#: libraries/classes/Controllers/TransformationWrapperController.php:106
+#: libraries/classes/Controllers/Table/GetFieldController.php:72
+#: libraries/classes/Controllers/Transformation/WrapperController.php:103
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "有太多的資料表連結(join)未使用索引。"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:87
+#: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1354
 #: libraries/classes/Import.php:160 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1062
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
-#: libraries/classes/Controllers/Table/IndexesController.php:224
-#: libraries/classes/Table.php:2281
-msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "主鍵名稱必須為 PRIMARY！"
-
-#: libraries/classes/Controllers/Table/MaintenanceController.php:53
-#: libraries/classes/Controllers/Table/MaintenanceController.php:88
-#: libraries/classes/Controllers/Table/MaintenanceController.php:126
-#: libraries/classes/Controllers/Table/MaintenanceController.php:162
-#: libraries/classes/Controllers/Table/MaintenanceController.php:197
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:117
-#: libraries/classes/Controllers/Table/OperationsController.php:325
-#: libraries/classes/Controllers/Table/StructureController.php:134
+#: libraries/classes/Controllers/Table/OperationsController.php:111
+#: libraries/classes/Controllers/Table/OperationsController.php:319
+#: libraries/classes/Controllers/Table/StructureController.php:102
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8176,51 +8140,35 @@ msgstr ""
 msgid "View"
 msgstr "檢視表"
 
-#: libraries/classes/Controllers/Table/PartitionController.php:120
-#: libraries/classes/Controllers/Table/PartitionController.php:187
-#: libraries/classes/Controllers/Table/PartitionController.php:254
-#: libraries/classes/Controllers/ViewOperationsController.php:89
+#: libraries/classes/Controllers/Table/Partition/DropController.php:60
+#: libraries/classes/Controllers/Table/Partition/RebuildController.php:60
+#: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
+#: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:918 libraries/classes/Import.php:141
 #: libraries/classes/InsertEdit.php:758 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "錯誤"
 
-#: libraries/classes/Controllers/Table/RelationController.php:226
+#: libraries/classes/Controllers/Table/RelationController.php:220
 msgid "Display column was successfully updated."
 msgstr "顯示欄位已成功更新。"
 
-#: libraries/classes/Controllers/Table/RelationController.php:318
+#: libraries/classes/Controllers/Table/RelationController.php:312
 msgid "Internal relationships were successfully updated."
 msgstr "內部關聯已成功更新。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:311
+#: libraries/classes/Controllers/Table/ReplaceController.php:305
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "列：%1$s，欄：%2$s，錯誤：%3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:659
-msgid "The columns have been moved successfully."
-msgstr "已成功移動欄位。"
-
-#: libraries/classes/Controllers/Table/StructureController.php:694
+#: libraries/classes/Controllers/Table/Structure/ChangeController.php:96
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "未能取得 %s 欄位的說明！"
 
-#: libraries/classes/Controllers/Table/StructureController.php:940
-#: libraries/classes/Controllers/Table/StructureController.php:1228
-#: libraries/classes/Tracking.php:790
-msgid "Query error"
-msgstr "查詢錯誤"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1172
-#, php-format
-msgid ""
-"Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "已成功修改資料表 %1$s 。已調整權限。"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1462
+#: libraries/classes/Controllers/Table/StructureController.php:246
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8230,7 +8178,7 @@ msgstr "已成功修改資料表 %1$s 。已調整權限。"
 msgid "Primary"
 msgstr "主鍵"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1466
+#: libraries/classes/Controllers/Table/StructureController.php:250
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8242,26 +8190,42 @@ msgstr "主鍵"
 msgid "Index"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1726
+#: libraries/classes/Controllers/Table/Structure/MoveColumnsController.php:180
+msgid "The columns have been moved successfully."
+msgstr "已成功移動欄位。"
+
+#: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:292
+#: libraries/classes/Tracking.php:790
+msgid "Query error"
+msgstr "查詢錯誤"
+
+#: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "名稱「%s」是 MySQL 保留字。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:74
+#: libraries/classes/Controllers/Table/Structure/SaveController.php:236
+#, php-format
+msgid ""
+"Table %1$s has been altered successfully. Privileges have been adjusted."
+msgstr "已成功修改資料表 %1$s 。已調整權限。"
+
+#: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s 的追蹤已啓用。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:157
+#: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "Tracking versions deleted successfully."
 msgstr "已成功刪除追蹤版本。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:162
+#: libraries/classes/Controllers/Table/TrackingController.php:157
 msgid "No versions selected."
 msgstr "尚未選擇版本。"
 
-#: libraries/classes/Controllers/Table/TrackingController.php:197
+#: libraries/classes/Controllers/Table/TrackingController.php:192
 msgid "SQL statements executed."
 msgstr "已執行 SQL 指令。"
 
@@ -8269,7 +8233,7 @@ msgstr "已執行 SQL 指令。"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "現時並沒有足夠權限！"
 
-#: libraries/classes/Controllers/ViewCreateController.php:87
+#: libraries/classes/Controllers/View/CreateController.php:84
 msgid "View name can not be empty!"
 msgstr "檢視表名稱不可以是空的！"
 
@@ -9811,7 +9775,7 @@ msgstr "資料表："
 msgid "Views:"
 msgstr "檢視表："
 
-#: libraries/classes/Navigation/NavigationTree.php:858
+#: libraries/classes/Navigation/NavigationTree.php:860
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -9819,17 +9783,17 @@ msgstr ""
 "導覽面板有群組含有大量項目，可能會影響效能；請考慮關閉導覽面板的項目群組功"
 "能。"
 
-#: libraries/classes/Navigation/NavigationTree.php:874
+#: libraries/classes/Navigation/NavigationTree.php:948
 msgid "Groups"
 msgstr "群組"
 
-#: libraries/classes/Navigation/NavigationTree.php:1036
+#: libraries/classes/Navigation/NavigationTree.php:1070
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "找到 %s 筆結果"
 
-#: libraries/classes/Navigation/NavigationTree.php:1430
+#: libraries/classes/Navigation/NavigationTree.php:1472
 msgid "Collapse all"
 msgstr "全部摺疊"
 
@@ -11757,19 +11721,19 @@ msgstr "無法更改主要備援伺服器！"
 msgid "Master server changed successfully to %s."
 msgstr "主要備援伺服器成功更改至 %s。"
 
-#: libraries/classes/Routing.php:106
+#: libraries/classes/Routing.php:104
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:160
+#: libraries/classes/Routing.php:158
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "錯誤 404！找不到 %s 頁面。"
 
-#: libraries/classes/Routing.php:171
+#: libraries/classes/Routing.php:169
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12150,6 +12114,12 @@ msgstr "已有 %s 使用者！"
 msgid "Privileges for %s"
 msgstr "%s 的權限"
 
+#: libraries/classes/Server/Privileges.php:3033
+#: libraries/classes/Server/Status/Processes.php:121
+#: templates/server/user_groups/user_listings.twig:9
+msgid "User"
+msgstr "使用者"
+
 #: libraries/classes/Server/Privileges.php:3163
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -12186,6 +12156,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3576
 msgid "You have added a new user."
 msgstr "已新增了新的使用者。"
+
+#: libraries/classes/Server/Status/Data.php:148
+#: libraries/classes/Server/Status/Processes.php:149
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
+msgid "SQL query"
+msgstr "SQL 查詢"
 
 #: libraries/classes/Server/Status/Data.php:151
 msgid "Handler"
@@ -12252,6 +12228,25 @@ msgstr "顯示次要伺服器狀態"
 #: libraries/classes/Server/Status/Data.php:217
 msgid "Flush query cache"
 msgstr "強制更新查詢快取"
+
+#: libraries/classes/Server/Status/Processes.php:117
+msgid "ID"
+msgstr "ID"
+
+#: libraries/classes/Server/Status/Processes.php:125
+#: templates/server/replication/master_add_slave_user.twig:32
+#: templates/server/replication/master_add_slave_user.twig:43
+#: templates/server/replication/master_replication.twig:25
+msgid "Host"
+msgstr "主機"
+
+#: libraries/classes/Server/Status/Processes.php:133
+msgid "Command"
+msgstr "指令"
+
+#: libraries/classes/Server/Status/Processes.php:145
+msgid "Progress"
+msgstr "進度"
 
 #: libraries/classes/Server/UserGroups.php:120
 msgid "View users"
@@ -12363,6 +12358,10 @@ msgstr "此 MySQL 伺服器已停用 %s。"
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
+
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2281
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "主鍵名稱必須為 PRIMARY！"
 
 #: libraries/classes/Table/Maintenance.php:96
 #, php-format
