@@ -76,10 +76,8 @@ class ImportShp extends ImportPlugin
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $db, $error, $finished, $import_file, $local_import_file, $message, $dbi;
 

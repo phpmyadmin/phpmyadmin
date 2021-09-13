@@ -1992,10 +1992,8 @@ class Table implements Stringable
      * Loads the UI preferences for this table.
      * If pmadb and table_uiprefs is set, it will load the UI preferences from
      * phpMyAdmin database.
-     *
-     * @return void
      */
-    protected function loadUiPrefs()
+    protected function loadUiPrefs(): void
     {
         $cfgRelation = $this->relation->getRelationsParam();
         $serverId = $GLOBALS['server'];

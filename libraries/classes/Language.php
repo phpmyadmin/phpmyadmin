@@ -179,10 +179,8 @@ class Language
 
     /**
      * Activates given translation
-     *
-     * @return void
      */
-    public function activate()
+    public function activate(): void
     {
         $GLOBALS['lang'] = $this->code;
 

@@ -775,7 +775,7 @@ class Core
                 /**
                  * @param mixed $item
                  */
-                static function ($item) use (&$empty) {
+                static function ($item) use (&$empty): void {
                     $empty = $empty && empty($item);
                 }
             );

@@ -58,7 +58,7 @@ Common::run();
 $buffer = OutputBuffering::getInstance();
 $buffer->start();
 
-register_shutdown_function(static function () {
+register_shutdown_function(static function (): void {
     echo OutputBuffering::getInstance()->getContents();
 });
 

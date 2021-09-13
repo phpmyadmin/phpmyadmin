@@ -65,10 +65,8 @@ class ImportMediawiki extends ImportPlugin
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $error, $timeout_passed, $finished;
 
@@ -311,11 +309,9 @@ class ImportMediawiki extends ImportPlugin
      *                        rows </code>
      * @param array $sql_data 2-element array with sql data
      *
-     * @return void
-     *
      * @global bool $analyze whether to scan for column types
      */
-    private function importDataOneTable(array $table, array &$sql_data)
+    private function importDataOneTable(array $table, array &$sql_data): void
     {
         $analyze = $this->getAnalyze();
         if ($analyze) {
@@ -348,10 +344,8 @@ class ImportMediawiki extends ImportPlugin
      * Sets the table name
      *
      * @param string $table_name reference to the name of the table
-     *
-     * @return void
      */
-    private function setTableName(&$table_name)
+    private function setTableName(&$table_name): void
     {
         global $dbi;
 
@@ -370,10 +364,8 @@ class ImportMediawiki extends ImportPlugin
      * @param array $table_headers reference to the array containing the headers
      *                             of a table
      * @param array $table_row     array containing the first content row
-     *
-     * @return void
      */
-    private function setTableHeaders(array &$table_headers, array $table_row)
+    private function setTableHeaders(array &$table_headers, array $table_row): void
     {
         if (! empty($table_headers)) {
             return;
@@ -402,11 +394,9 @@ class ImportMediawiki extends ImportPlugin
      *                        )
      * @param array $sql_data 2-element array with sql data
      *
-     * @return void
-     *
      * @global string $db      name of the database to import in
      */
-    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data)
+    private function executeImportTables(array &$tables, array &$analyses, array &$sql_data): void
     {
         global $db;
 
@@ -554,10 +544,8 @@ class ImportMediawiki extends ImportPlugin
      * Sets to true if the table should be analyzed, false otherwise
      *
      * @param bool $analyze status
-     *
-     * @return void
      */
-    private function setAnalyze($analyze)
+    private function setAnalyze($analyze): void
     {
         $this->analyze = $analyze;
     }

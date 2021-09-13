@@ -154,10 +154,8 @@ class EpsRelationSchema extends ExportRelationSchema
 
     /**
      * Output Eps Document for download
-     *
-     * @return void
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->showOutput($this->getFileName('.eps'));
     }
@@ -176,8 +174,6 @@ class EpsRelationSchema extends ExportRelationSchema
      * @param string $foreignTable   The foreign table name
      * @param string $foreignField   The relation field in the foreign table
      * @param bool   $tableDimension Whether to display table position or not
-     *
-     * @return void
      */
     private function addRelation(
         $masterTable,
@@ -187,7 +183,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField,
         $tableDimension
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsEps(
                 $this->diagram,
@@ -230,10 +226,8 @@ class EpsRelationSchema extends ExportRelationSchema
      * foreign table's foreign field
      *
      * @see RelationStatsEps::relationDraw()
-     *
-     * @return void
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         foreach ($this->relations as $relation) {
             $relation->relationDraw();
@@ -244,10 +238,8 @@ class EpsRelationSchema extends ExportRelationSchema
      * Draws tables
      *
      * @see TableStatsEps::Table_Stats_tableDraw()
-     *
-     * @return void
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);

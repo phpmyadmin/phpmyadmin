@@ -853,10 +853,8 @@ class Tracking
      * Function to export as entries
      *
      * @param array $entries entries
-     *
-     * @return void
      */
-    public function exportAsFileDownload(array $entries)
+    public function exportAsFileDownload(array $entries): void
     {
         ini_set('url_rewriter.tags', '');
 
@@ -1043,10 +1041,8 @@ class Tracking
      * Create tracking version for multiple tables
      *
      * @param array $selected list of selected tables
-     *
-     * @return void
      */
-    public function createTrackingForMultipleTables(string $db, array $selected)
+    public function createTrackingForMultipleTables(string $db, array $selected): void
     {
         $tracking_set = $this->getTrackingSet();
 

@@ -178,11 +178,9 @@ class GisVisualization
     /**
      * All the variable initialization, options handling has to be done here.
      *
-     * @return void
-     *
      * @access protected
      */
-    protected function init()
+    protected function init(): void
     {
         $this->handleOptions();
     }
@@ -279,11 +277,9 @@ class GisVisualization
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
      *
-     * @return void
-     *
      * @access private
      */
-    private function handleOptions()
+    private function handleOptions(): void
     {
         if ($this->userSpecifiedSettings === null) {
             return;
@@ -328,11 +324,9 @@ class GisVisualization
      * @param string $type      mime type
      * @param string $ext       extension of the file
      *
-     * @return void
-     *
      * @access private
      */
-    private function writeToFile($file_name, $type, $ext)
+    private function writeToFile($file_name, $type, $ext): void
     {
         $file_name = $this->sanitizeName($file_name, $ext);
         Core::downloadHeader($file_name, $type);
@@ -382,11 +376,9 @@ class GisVisualization
      *
      * @param string $file_name File name
      *
-     * @return void
-     *
      * @access public
      */
-    public function toFileAsSvg($file_name)
+    public function toFileAsSvg($file_name): void
     {
         $img = $this->svg();
         $this->writeToFile($file_name, 'image/svg+xml', 'svg');
@@ -514,11 +506,9 @@ class GisVisualization
      *
      * @param string $file_name File name
      *
-     * @return void
-     *
      * @access public
      */
-    public function toFileAsPdf($file_name)
+    public function toFileAsPdf($file_name): void
     {
         $this->init();
 
@@ -579,10 +569,8 @@ class GisVisualization
      *
      * @param string $filename Filename
      * @param string $format   Output format
-     *
-     * @return void
      */
-    public function toFile($filename, $format)
+    public function toFile($filename, $format): void
     {
         if ($format === 'svg') {
             $this->toFileAsSvg($filename);
@@ -780,10 +768,8 @@ class GisVisualization
      * Set user specified settings
      *
      * @param array $userSpecifiedSettings User specified settings
-     *
-     * @return void
      */
-    public function setUserSpecifiedSettings(array $userSpecifiedSettings)
+    public function setUserSpecifiedSettings(array $userSpecifiedSettings): void
     {
         $this->userSpecifiedSettings = $userSpecifiedSettings;
     }

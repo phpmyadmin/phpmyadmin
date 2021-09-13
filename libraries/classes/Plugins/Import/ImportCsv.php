@@ -156,10 +156,8 @@ class ImportCsv extends AbstractImportCsv
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $error, $message, $dbi;
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
@@ -958,10 +956,8 @@ class ImportCsv extends AbstractImportCsv
      * Sets to true if the table should be analyzed, false otherwise
      *
      * @param bool $analyze status
-     *
-     * @return void
      */
-    private function setAnalyze($analyze)
+    private function setAnalyze($analyze): void
     {
         $this->analyze = $analyze;
     }

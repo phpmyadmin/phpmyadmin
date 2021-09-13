@@ -147,10 +147,8 @@ class Privileges
      * Parses privileges into an array, it modifies the array
      *
      * @param array $row Results row from
-     *
-     * @return void
      */
-    public function fillInTablePrivileges(array &$row)
+    public function fillInTablePrivileges(array &$row): void
     {
         $row1 = $this->dbi->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
@@ -550,10 +548,8 @@ class Privileges
      *
      * @param string $username  username
      * @param string $userGroup user group to set
-     *
-     * @return void
      */
-    public function setUserGroup($username, $userGroup)
+    public function setUserGroup($username, $userGroup): void
     {
         $userGroup = $userGroup ?? '';
         $cfgRelation = $this->relation->getRelationsParam();
@@ -2827,10 +2823,8 @@ class Privileges
      * the authentication plugin selected
      *
      * @param string $authPlugin authentication plugin selected
-     *
-     * @return void
      */
-    public function setProperPasswordHashing($authPlugin)
+    public function setProperPasswordHashing($authPlugin): void
     {
         // Set the hashing method used by PASSWORD()
         // to be of type depending upon $authentication_plugin

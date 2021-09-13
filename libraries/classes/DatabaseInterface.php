@@ -1189,10 +1189,8 @@ class DatabaseInterface implements DbalInterface
     /**
      * This function checks and initializes the phpMyAdmin configuration
      * storage state before it is used into session cache.
-     *
-     * @return void
      */
-    public function initRelationParamsCache()
+    public function initRelationParamsCache(): void
     {
         if (strlen($GLOBALS['db'])) {
             $cfgRelation = $this->relation->getRelationsParam();

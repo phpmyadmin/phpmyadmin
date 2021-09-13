@@ -1274,10 +1274,8 @@ class InsertEdit
      * set $_SESSION for edit_next
      *
      * @param string $oneWhereClause one where clause from where clauses array
-     *
-     * @return void
      */
-    public function setSessionForEditNext($oneWhereClause)
+    public function setSessionForEditNext($oneWhereClause): void
     {
         $localQuery = 'SELECT * FROM ' . Util::backquote($GLOBALS['db'])
             . '.' . Util::backquote($GLOBALS['table']) . ' WHERE '
@@ -1977,15 +1975,13 @@ class InsertEdit
      * @param string $table      Table name
      * @param string $columnName Column name
      * @param array  $extraData  Extra data for ajax response
-     *
-     * @return void
      */
     public function verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         $db,
         $table,
         $columnName,
         array &$extraData
-    ) {
+    ): void {
         $extraData['isNeedToRecheck'] = false;
 
         $sqlForRealValue = 'SELECT ' . Util::backquote($table) . '.'

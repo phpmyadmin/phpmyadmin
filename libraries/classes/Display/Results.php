@@ -271,10 +271,8 @@ class Results
 
     /**
      * Sets default transformations for some columns
-     *
-     * @return void
      */
-    private function setDefaultTransformations()
+    private function setDefaultTransformations(): void
     {
         $jsonHighlightingData = [
             'libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php',
@@ -400,8 +398,6 @@ class Results
      * @param bool                      $isBrowseDistinct whether browsing distinct values
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
-     *
-     * @return void
      */
     public function setProperties(
         $unlimNumRows,
@@ -421,7 +417,7 @@ class Results
         $printView,
         $editable,
         $isBrowseDistinct
-    ) {
+    ): void {
         $this->properties['unlim_num_rows'] = $unlimNumRows;
         $this->properties['fields_meta'] = $fieldsMeta;
         $this->properties['is_count'] = $isCount;
@@ -1462,11 +1458,9 @@ class Results
      *
      * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return void
-     *
      * @access private
      */
-    private function setHighlightedColumnGlobalField(array $analyzedSqlResults)
+    private function setHighlightedColumnGlobalField(array $analyzedSqlResults): void
     {
         $highlightColumns = [];
 
@@ -2099,10 +2093,8 @@ class Results
      *
      * @param FieldMetadata $fieldsMeta set of field properties
      * @param array         $thClass    array containing classes
-     *
-     * @return void
      */
-    private function getClassForNumericColumnType(FieldMetadata $fieldsMeta, array &$thClass)
+    private function getClassForNumericColumnType(FieldMetadata $fieldsMeta, array &$thClass): void
     {
         // This was defined in commit b661cd7c9b31f8bc564d2f9a1b8527e0eb966de8
         // For issue https://github.com/phpmyadmin/phpmyadmin/issues/4746
@@ -2620,10 +2612,8 @@ class Results
 
     /**
      * Sets the MIME details of the columns in the results set
-     *
-     * @return void
      */
-    private function setMimeMap()
+    private function setMimeMap(): void
     {
         /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
@@ -3783,15 +3773,13 @@ class Results
      * Checks the posted options for viewing query results
      * and sets appropriate values in the session.
      *
-     * @return void
-     *
      * @todo    make maximum remembered queries configurable
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
      * @access public
      */
-    public function setConfigParamsForDisplayTable()
+    public function setConfigParamsForDisplayTable(): void
     {
         $sqlMd5 = md5(
             $this->properties['server']
@@ -4429,11 +4417,9 @@ class Results
      *
      * @param array $map the list of relations
      *
-     * @return void
-     *
      * @access private
      */
-    private function setParamForLinkForeignKeyRelatedTables(array &$map)
+    private function setParamForLinkForeignKeyRelatedTables(array &$map): void
     {
         // To be able to later display a link to the related table,
         // we verify both types of relations: either those that are

@@ -49,10 +49,8 @@ class SubPartition
      * Loads data from the fetched row from information_schema.PARTITIONS
      *
      * @param array $row fetched row
-     *
-     * @return void
      */
-    protected function loadData(array $row)
+    protected function loadData(array $row): void
     {
         $this->name = $row['SUBPARTITION_NAME'];
         $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'];
@@ -65,10 +63,8 @@ class SubPartition
      * Loads some data that is common to both partitions and sub partitions
      *
      * @param array $row fetched row
-     *
-     * @return void
      */
-    protected function loadCommonData(array $row)
+    protected function loadCommonData(array $row): void
     {
         $this->rows = $row['TABLE_ROWS'];
         $this->dataLength = $row['DATA_LENGTH'];

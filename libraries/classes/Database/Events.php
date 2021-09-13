@@ -79,10 +79,8 @@ class Events
 
     /**
      * Handles editor requests for adding or editing an item
-     *
-     * @return void
      */
-    public function handleEditor()
+    public function handleEditor(): void
     {
         global $db, $table, $errors, $message;
 
@@ -538,10 +536,8 @@ class Events
      * @param string     $title     Title of the editor
      * @param string     $db        Database
      * @param string     $operation Operation 'change' or ''
-     *
-     * @return void
      */
-    private function sendEditor($mode, ?array $item, $title, $db, $operation)
+    private function sendEditor($mode, ?array $item, $title, $db, $operation): void
     {
         if ($item !== null) {
             $editor = $this->getEditorForm($mode, $operation, $item);

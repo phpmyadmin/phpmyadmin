@@ -54,10 +54,8 @@ class RelationStatsEps extends RelationStats
      * shows foreign key relations
      *
      * @see Eps
-     *
-     * @return void
      */
-    public function relationDraw()
+    public function relationDraw(): void
     {
         // draw a line like -- to foreign field
         $this->diagram->line(

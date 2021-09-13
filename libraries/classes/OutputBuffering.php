@@ -97,10 +97,8 @@ class OutputBuffering
      * This function will need to run at the top of all pages if output
      * output buffering is turned on.  It also needs to be passed $mode from
      * the PMA_outBufferModeGet() function or it will be useless.
-     *
-     * @return void
      */
-    public function start()
+    public function start(): void
     {
         if ($this->on) {
             return;
@@ -135,10 +133,8 @@ class OutputBuffering
      * This function will need to run at the bottom of all pages if output
      * buffering is turned on.  It also needs to be passed $mode from the
      * PMA_outBufferModeGet() function or it will be useless.
-     *
-     * @return void
      */
-    public static function stop()
+    public static function stop(): void
     {
         $buffer = self::getInstance();
         if (! $buffer->on) {
@@ -166,10 +162,8 @@ class OutputBuffering
 
     /**
      * Flushes output buffer
-     *
-     * @return void
      */
-    public function flush()
+    public function flush(): void
     {
         if (ob_get_status() && $this->mode) {
             ob_flush();

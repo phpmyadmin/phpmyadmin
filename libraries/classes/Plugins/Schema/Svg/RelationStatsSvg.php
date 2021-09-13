@@ -55,11 +55,9 @@ class RelationStatsSvg extends RelationStats
      *
      * @param bool $showColor Whether to use one color per relation or not
      *
-     * @return void
-     *
      * @access public
      */
-    public function relationDraw($showColor)
+    public function relationDraw($showColor): void
     {
         if ($showColor) {
             $listOfColors = [

@@ -95,10 +95,8 @@ interface DbiExtension
      * Frees memory associated with the result
      *
      * @param object $result database result
-     *
-     * @return void
      */
-    public function freeResult($result);
+    public function freeResult($result): void;
 
     /**
      * Check if there are any more query results from a multi query

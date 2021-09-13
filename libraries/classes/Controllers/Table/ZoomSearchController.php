@@ -241,10 +241,8 @@ class ZoomSearchController extends AbstractController
      * Display selection form action
      *
      * @param string $dataLabel Data label
-     *
-     * @return void
      */
-    public function displaySelectionFormAction($dataLabel = null)
+    public function displaySelectionFormAction($dataLabel = null): void
     {
         global $goto;
 
@@ -289,10 +287,8 @@ class ZoomSearchController extends AbstractController
 
     /**
      * Get data row action
-     *
-     * @return void
      */
-    public function getDataRowAction()
+    public function getDataRowAction(): void
     {
         if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
             return;
@@ -329,10 +325,8 @@ class ZoomSearchController extends AbstractController
 
     /**
      * Change table info action
-     *
-     * @return void
      */
-    public function changeTableInfoAction()
+    public function changeTableInfoAction(): void
     {
         $field = $_POST['field'];
         if ($field === 'pma_null') {
@@ -363,10 +357,8 @@ class ZoomSearchController extends AbstractController
      *
      * @param string $dataLabel Data label
      * @param string $goto      Goto
-     *
-     * @return void
      */
-    public function zoomSubmitAction($dataLabel, $goto)
+    public function zoomSubmitAction($dataLabel, $goto): void
     {
         //Query generation part
         $sql_query = $this->search->buildSqlQuery();

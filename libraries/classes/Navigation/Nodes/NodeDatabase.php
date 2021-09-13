@@ -731,10 +731,8 @@ class NodeDatabase extends Node
      * Sets the number of hidden items in this database
      *
      * @param int $count hidden item count
-     *
-     * @return void
      */
-    public function setHiddenCount($count)
+    public function setHiddenCount($count): void
     {
         $this->hiddenCount = $count;
     }

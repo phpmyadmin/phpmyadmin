@@ -98,10 +98,8 @@ class PageSettings
      * @param FormDisplay  $formDisplay Form
      * @param ConfigFile   $cf          Configuration file
      * @param Message|null $error       Error message
-     *
-     * @return void
      */
-    private function processPageSettings(&$formDisplay, &$cf, &$error)
+    private function processPageSettings(&$formDisplay, &$cf, &$error): void
     {
         if (! $formDisplay->process(false) || $formDisplay->hasErrors()) {
             return;
@@ -126,10 +124,8 @@ class PageSettings
      *
      * @param FormDisplay  $formDisplay Form
      * @param Message|null $error       Error message
-     *
-     * @return void
      */
-    private function storeError(&$formDisplay, &$error)
+    private function storeError(&$formDisplay, &$error): void
     {
         $retval = '';
         if ($error) {

@@ -407,10 +407,8 @@ class ExportCodegen extends ExportPlugin
      * Setter for CodeGen formats
      *
      * @param array $CG_FORMATS contains CodeGen Formats
-     *
-     * @return void
      */
-    private function setCgFormats(array $CG_FORMATS)
+    private function setCgFormats(array $CG_FORMATS): void
     {
         $this->cgFormats = $CG_FORMATS;
     }

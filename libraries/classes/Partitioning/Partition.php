@@ -23,10 +23,8 @@ class Partition extends SubPartition
      * Loads data from the fetched row from information_schema.PARTITIONS
      *
      * @param array $row fetched row
-     *
-     * @return void
      */
-    protected function loadData(array $row)
+    protected function loadData(array $row): void
     {
         $this->name = $row['PARTITION_NAME'];
         $this->ordinal = $row['PARTITION_ORDINAL_POSITION'];
@@ -55,10 +53,8 @@ class Partition extends SubPartition
      * Add a sub partition
      *
      * @param SubPartition $partition Sub partition
-     *
-     * @return void
      */
-    public function addSubPartition(SubPartition $partition)
+    public function addSubPartition(SubPartition $partition): void
     {
         $this->subPartitions[] = $partition;
     }

@@ -340,8 +340,6 @@ class FindReplaceController extends AbstractController
      * @param string $replaceWith string to replace with
      * @param bool   $useRegex    to use Regex replace or not
      * @param string $charSet     character set of the connection
-     *
-     * @return void
      */
     public function replace(
         $columnIndex,
@@ -349,7 +347,7 @@ class FindReplaceController extends AbstractController
         $replaceWith,
         $useRegex,
         $charSet
-    ) {
+    ): void {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
             $toReplace = $this->getRegexReplaceRows(

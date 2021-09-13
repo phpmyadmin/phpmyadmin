@@ -67,10 +67,8 @@ class TableStatsDia extends TableStats
 
     /**
      * Displays an error when the table cannot be found.
-     *
-     * @return void
      */
-    protected function showMissingTableError()
+    protected function showMissingTableError(): void
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
@@ -95,11 +93,9 @@ class TableStatsDia extends TableStats
      *                        will be used to choose the random colors for tables
      *                        text we can change/add more colors to this array
      *
-     * @return void
-     *
      * @access public
      */
-    public function tableDraw($showColor)
+    public function tableDraw($showColor): void
     {
         if ($showColor) {
             $listOfColors = [

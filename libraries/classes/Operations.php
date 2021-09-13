@@ -49,10 +49,8 @@ class Operations
      * the db name
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    public function runProcedureAndFunctionDefinitions($db)
+    public function runProcedureAndFunctionDefinitions($db): void
     {
         $procedure_names = $this->dbi->getProceduresOrFunctions($db, 'PROCEDURE');
         if ($procedure_names) {
@@ -99,10 +97,8 @@ class Operations
 
     /**
      * Create database before copy
-     *
-     * @return void
      */
-    public function createDbBeforeCopy()
+    public function createDbBeforeCopy(): void
     {
         $local_query = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquote($_POST['newname']);
@@ -273,10 +269,8 @@ class Operations
      * the db name
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    public function runEventDefinitionsForDb($db)
+    public function runEventDefinitionsForDb($db): void
     {
         $event_names = $this->dbi->fetchResult(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
@@ -302,10 +296,8 @@ class Operations
      * @param array  $views views as an array
      * @param bool   $move  whether database name is empty or not
      * @param string $db    database name
-     *
-     * @return void
      */
-    public function handleTheViews(array $views, $move, $db)
+    public function handleTheViews(array $views, $move, $db): void
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
@@ -331,10 +323,8 @@ class Operations
      *
      * @param string $oldDb   Database name before renaming
      * @param string $newname New Database name requested
-     *
-     * @return void
      */
-    public function adjustPrivilegesMoveDb($oldDb, $newname)
+    public function adjustPrivilegesMoveDb($oldDb, $newname): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -382,10 +372,8 @@ class Operations
      *
      * @param string $oldDb   Database name before copying
      * @param string $newname New Database name requested
-     *
-     * @return void
      */
-    public function adjustPrivilegesCopyDb($oldDb, $newname)
+    public function adjustPrivilegesCopyDb($oldDb, $newname): void
     {
         if (
             ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
@@ -489,10 +477,8 @@ class Operations
      * Create all accumulated constraints
      *
      * @param array $sqlConstratints array of sql constraints for the database
-     *
-     * @return void
      */
-    public function createAllAccumulatedConstraints(array $sqlConstratints)
+    public function createAllAccumulatedConstraints(array $sqlConstratints): void
     {
         $this->dbi->selectDb($_POST['newname']);
         foreach ($sqlConstratints as $one_query) {
@@ -507,10 +493,8 @@ class Operations
      *
      * @param bool   $_error whether table rename/copy or not
      * @param string $db     database name
-     *
-     * @return void
      */
-    public function duplicateBookmarks($_error, $db)
+    public function duplicateBookmarks($_error, $db): void
     {
         if ($_error || $db == $_POST['newname']) {
             return;
@@ -856,10 +840,8 @@ class Operations
      * @param string $oldTable Table name before table renaming/moving table
      * @param string $newDb    Database name after table renaming/ moving table
      * @param string $newTable Table name after table renaming/moving table
-     *
-     * @return void
      */
-    public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
+    public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable): void
     {
         if (
             ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
@@ -900,10 +882,8 @@ class Operations
      * @param string $oldTable Table name before table copying
      * @param string $newDb    Database name after table copying
      * @param string $newTable Table name after table copying
-     *
-     * @return void
      */
-    public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable)
+    public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable): void
     {
         if (
             ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
@@ -965,10 +945,8 @@ class Operations
      * @param string $db            Database name
      * @param string $table         Table name
      * @param string $tbl_collation Collation Name
-     *
-     * @return void
      */
-    public function changeAllColumnsCollation($db, $table, $tbl_collation)
+    public function changeAllColumnsCollation($db, $table, $tbl_collation): void
     {
         $this->dbi->selectDb($db);
 

@@ -570,10 +570,8 @@ class ExportXml extends ExportPlugin
      * Sets the table name
      *
      * @param string $table table name
-     *
-     * @return void
      */
-    private function setTable($table)
+    private function setTable($table): void
     {
         $this->table = $table;
     }
@@ -592,10 +590,8 @@ class ExportXml extends ExportPlugin
      * Sets the table names
      *
      * @param array $tables table names
-     *
-     * @return void
      */
-    private function setTables(array $tables)
+    private function setTables(array $tables): void
     {
         $this->tables = $tables;
     }

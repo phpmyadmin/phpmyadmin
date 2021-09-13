@@ -100,10 +100,8 @@ class ImportSql extends ImportPlugin
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $error, $timeout_passed, $dbi;
 
@@ -174,10 +172,8 @@ class ImportSql extends ImportPlugin
      *
      * @param DatabaseInterface $dbi     Database interface
      * @param array             $request Request array
-     *
-     * @return void
      */
-    private function setSQLMode($dbi, array $request)
+    private function setSQLMode($dbi, array $request): void
     {
         $sql_modes = [];
         if (

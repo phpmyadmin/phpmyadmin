@@ -135,10 +135,8 @@ class FormDisplay
      * @param string $formName Form name
      * @param array  $form     Form data
      * @param int    $serverId 0 if new server, validation; >= 1 if editing a server
-     *
-     * @return void
      */
-    public function registerForm($formName, array $form, $serverId = null)
+    public function registerForm($formName, array $form, $serverId = null): void
     {
         $this->forms[$formName] = new Form(
             $formName,
@@ -181,10 +179,8 @@ class FormDisplay
 
     /**
      * Runs validation for all registered forms
-     *
-     * @return void
      */
-    private function validate()
+    private function validate(): void
     {
         if ($this->isValidated) {
             return;
@@ -524,10 +520,8 @@ class FormDisplay
 
     /**
      * Reverts erroneous fields to their default values
-     *
-     * @return void
      */
-    public function fixErrors()
+    public function fixErrors(): void
     {
         $this->validate();
         if (count($this->errors) === 0) {
@@ -804,10 +798,8 @@ class FormDisplay
 
     /**
      * Fills out {@link userprefs_keys} and {@link userprefs_disallow}
-     *
-     * @return void
      */
-    private function loadUserprefsInfo()
+    private function loadUserprefsInfo(): void
     {
         if ($this->userprefsKeys !== null) {
             return;
@@ -826,10 +818,8 @@ class FormDisplay
      *
      * @param string $systemPath Path to settings
      * @param array  $opts       Chosen options
-     *
-     * @return void
      */
-    private function setComments($systemPath, array &$opts)
+    private function setComments($systemPath, array &$opts): void
     {
         // RecodingEngine - mark unavailable types
         if ($systemPath === 'RecodingEngine') {
@@ -922,10 +912,8 @@ class FormDisplay
      *
      * @param array  $postValues List of parameters
      * @param string $key        Array key
-     *
-     * @return void
      */
-    private function fillPostArrayParameters(array $postValues, $key)
+    private function fillPostArrayParameters(array $postValues, $key): void
     {
         foreach ($postValues as $v) {
             $v = Util::requestString($v);

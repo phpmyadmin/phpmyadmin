@@ -188,11 +188,9 @@ class Pdf extends PdfLib
 
     /**
      * This method is used to render the page header.
-     *
-     * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function Header()
+    public function Header(): void
     {
         global $maxY;
         // We don't want automatic page breaks while generating header
@@ -276,10 +274,8 @@ class Pdf extends PdfLib
      * Generate table
      *
      * @param int $lineheight Height of line
-     *
-     * @return void
      */
-    public function morepagestable($lineheight = 8)
+    public function morepagestable($lineheight = 8): void
     {
         global $dbi;
 
@@ -369,10 +365,8 @@ class Pdf extends PdfLib
      * The method can be called before creating the first page.
      *
      * @param float $topMargin the margin
-     *
-     * @return void
      */
-    public function setTopMargin($topMargin)
+    public function setTopMargin($topMargin): void
     {
         $this->tMargin = $topMargin;
     }
@@ -382,10 +376,8 @@ class Pdf extends PdfLib
      *
      * @param string $db    database name
      * @param string $table table name
-     *
-     * @return void
      */
-    public function getTriggers($db, $table)
+    public function getTriggers($db, $table): void
     {
         global $dbi;
 
@@ -527,8 +519,6 @@ class Pdf extends PdfLib
      * @param bool   $do_mime     whether to include mime comments
      * @param bool   $view        whether we're handling a view
      * @param array  $aliases     aliases of db/table/columns
-     *
-     * @return void
      */
     public function getTableDef(
         $db,
@@ -538,7 +528,7 @@ class Pdf extends PdfLib
         $do_mime,
         $view = false,
         array $aliases = []
-    ) {
+    ): void {
         global $dbi;
 
         // set $cfgRelation here, because there is a chance that it's modified
@@ -759,10 +749,8 @@ class Pdf extends PdfLib
      * MySQL report
      *
      * @param string $query Query to execute
-     *
-     * @return void
      */
-    public function mysqlReport($query)
+    public function mysqlReport($query): void
     {
         global $dbi;
 

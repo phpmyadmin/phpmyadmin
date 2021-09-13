@@ -121,10 +121,8 @@ class Search
 
     /**
      * Sets search parameters
-     *
-     * @return void
      */
-    private function setSearchParams()
+    private function setSearchParams(): void
     {
         $this->tablesNamesOnly = $this->dbi->getTables($this->db);
 

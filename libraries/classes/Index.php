@@ -259,10 +259,8 @@ class Index
      * Add column to index
      *
      * @param array $params column params
-     *
-     * @return void
      */
-    public function addColumn(array $params)
+    public function addColumn(array $params): void
     {
         $key = $params['Column_name'] ?? $params['Expression'] ?? '';
         if (isset($params['Expression'])) {
@@ -281,10 +279,8 @@ class Index
      * Adds a list of columns to the index
      *
      * @param array $columns array containing details about the columns
-     *
-     * @return void
      */
-    public function addColumns(array $columns)
+    public function addColumns(array $columns): void
     {
         $_columns = [];
 
@@ -328,10 +324,8 @@ class Index
      * Sets index details
      *
      * @param array $params index details
-     *
-     * @return void
      */
-    public function set(array $params)
+    public function set(array $params): void
     {
         if (isset($params['columns'])) {
             $this->addColumns($params['columns']);
@@ -574,10 +568,8 @@ class Index
      * Sets the name of the index
      *
      * @param string $name index name
-     *
-     * @return void
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = (string) $name;
     }

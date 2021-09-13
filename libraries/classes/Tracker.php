@@ -835,11 +835,9 @@ class Tracker
      *
      * @param string $query a SQL query
      *
-     * @return void
-     *
      * @static
      */
-    public static function handleQuery($query)
+    public static function handleQuery($query): void
     {
         global $dbi;
 

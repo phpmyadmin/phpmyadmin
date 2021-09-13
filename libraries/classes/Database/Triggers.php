@@ -55,10 +55,8 @@ class Triggers
 
     /**
      * Main function for the triggers functionality
-     *
-     * @return void
      */
-    public function main()
+    public function main(): void
     {
         global $db, $table;
 
@@ -95,10 +93,8 @@ class Triggers
 
     /**
      * Handles editor requests for adding or editing an item
-     *
-     * @return void
      */
-    public function handleEditor()
+    public function handleEditor(): void
     {
         global $db, $errors, $message, $table;
 
@@ -473,10 +469,8 @@ class Triggers
      * @param array|null $item  Data necessary to create the editor
      * @param string     $title Title of the editor
      * @param string     $db    Database
-     *
-     * @return void
      */
-    private function sendEditor($mode, ?array $item, $title, $db)
+    private function sendEditor($mode, ?array $item, $title, $db): void
     {
         global $db, $table;
 

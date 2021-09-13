@@ -270,10 +270,8 @@ class DbiMysqli implements DbiExtension
      * Frees memory associated with the result
      *
      * @param mysqli_result $result database result
-     *
-     * @return void
      */
-    public function freeResult($result)
+    public function freeResult($result): void
     {
         if (! ($result instanceof mysqli_result)) {
             return;

@@ -124,10 +124,8 @@ abstract class TableStats
 
     /**
      * Validate whether the table exists.
-     *
-     * @return void
      */
-    protected function validateTableAndLoadFields()
+    protected function validateTableAndLoadFields(): void
     {
         global $dbi;
 
@@ -162,18 +160,14 @@ abstract class TableStats
     /**
      * Displays an error when the table cannot be found.
      *
-     * @return void
-     *
      * @abstract
      */
-    abstract protected function showMissingTableError();
+    abstract protected function showMissingTableError(): void;
 
     /**
      * Loads coordinates of a table
-     *
-     * @return void
      */
-    protected function loadCoordinates()
+    protected function loadCoordinates(): void
     {
         if (! isset($_POST['t_h'])) {
             return;
@@ -192,20 +186,16 @@ abstract class TableStats
 
     /**
      * Loads the table's display field
-     *
-     * @return void
      */
-    protected function loadDisplayField()
+    protected function loadDisplayField(): void
     {
         $this->displayfield = $this->relation->getDisplayField($this->db, $this->tableName);
     }
 
     /**
      * Loads the PRIMARY key.
-     *
-     * @return void
      */
-    protected function loadPrimaryKey()
+    protected function loadPrimaryKey(): void
     {
         global $dbi;
 

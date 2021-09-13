@@ -66,10 +66,7 @@ class TwigLintCommand extends Command
     /** @var string|null */
     protected static $defaultDescription = 'Lint a Twig template and outputs encountered errors';
 
-    /**
-     * @return void
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription((string) self::$defaultDescription)

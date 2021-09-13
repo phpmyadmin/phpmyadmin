@@ -44,10 +44,8 @@ class ServerConfigChecks
 
     /**
      * Perform config checks
-     *
-     * @return void
      */
-    public function performConfigChecks()
+    public function performConfigChecks(): void
     {
         $blowfishSecret = $this->cfg->get('blowfish_secret');
         $blowfishSecretSet = false;
@@ -286,10 +284,8 @@ class ServerConfigChecks
 
     /**
      * Perform config checks for zip part.
-     *
-     * @return void
      */
-    protected function performConfigChecksZips()
+    protected function performConfigChecksZips(): void
     {
         $this->performConfigChecksServerGZipdump();
         $this->performConfigChecksServerBZipdump();
@@ -298,10 +294,8 @@ class ServerConfigChecks
 
     /**
      * Perform config checks for zip part.
-     *
-     * @return void
      */
-    protected function performConfigChecksServersZipdump()
+    protected function performConfigChecksServersZipdump(): void
     {
         // $cfg['ZipDump']
         // requires zip_open in import
@@ -415,10 +409,8 @@ class ServerConfigChecks
 
     /**
      * Check configuration for login cookie
-     *
-     * @return void
      */
-    protected function performConfigChecksLoginCookie()
+    protected function performConfigChecksLoginCookie(): void
     {
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
@@ -495,10 +487,8 @@ class ServerConfigChecks
 
     /**
      * Check GZipDump configuration
-     *
-     * @return void
      */
-    protected function performConfigChecksServerBZipdump()
+    protected function performConfigChecksServerBZipdump(): void
     {
         // $cfg['BZipDump']
         // requires bzip2 functions
@@ -535,10 +525,8 @@ class ServerConfigChecks
 
     /**
      * Check GZipDump configuration
-     *
-     * @return void
      */
-    protected function performConfigChecksServerGZipdump()
+    protected function performConfigChecksServerGZipdump(): void
     {
         // $cfg['GZipDump']
         // requires zlib functions

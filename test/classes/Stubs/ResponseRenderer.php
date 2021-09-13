@@ -135,10 +135,8 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * This function is used to clear all data to this
      * stub after any operations.
-     *
-     * @return void
      */
-    public function clear()
+    public function clear(): void
     {
         $this->isSuccess = true;
         $this->json = [];
