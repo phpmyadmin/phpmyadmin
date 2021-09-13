@@ -31,7 +31,6 @@ jobs:
               # tcpdf allowed memory exhausted needs the memory_limit workaround
               # musl-locales and musl-locales-lang are needed to run some locale specific tests
               # gettext is needed to run generate-mo
-              # pcov for code coverage
               # git is needed to workaround a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
               run: |
                   printf "set -exu && \
@@ -42,10 +41,9 @@ jobs:
                   php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
                   musl-locales musl-locales-lang \
                   gettext composer git && \
-                  apk add --update --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing php\$V-pecl-pcov && \
                   composer update && \
                   ./scripts/generate-mo && \
-                  php -d memory_limit=512M ./vendor/bin/phpunit --testsuite unit --exclude-group=%s" \
+                  php -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
                   "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
             - name: Setup multi arch support
               run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -53,11 +51,6 @@ jobs:
               run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
             - name: Run tests on php ${{ matrix.php-version }}
               run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: arch-${{ matrix.php-version }}-${{ matrix.arch }}
-                name: phpunit-${{ matrix.php-version }}-${{ matrix.arch }}
     test-php:
         name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
