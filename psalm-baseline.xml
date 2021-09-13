@@ -17138,7 +17138,7 @@
     <RedundantCast occurrences="3">
       <code>(int) $GLOBALS['cfg']['ExecTimeLimit']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
-      <code>(string) strftime($string)</code>
+      <code>(string) @strftime($string)</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="8">
       <code>(int) $meta-&gt;length</code>

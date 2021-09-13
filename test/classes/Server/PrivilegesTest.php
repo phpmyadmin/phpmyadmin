@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
@@ -2221,7 +2222,9 @@ class PrivilegesTest extends AbstractTestCase
         $mysqliStmtStub = $this->createMock(mysqli_stmt::class);
         $mysqliStmtStub->expects($this->exactly(2))->method('bind_param')->willReturn(true);
         $mysqliStmtStub->expects($this->exactly(2))->method('execute')->willReturn(true);
-        $mysqliStmtStub->expects($this->exactly(2))->method('get_result')->willReturn(true);
+        $mysqliStmtStub->expects($this->exactly(2))
+            ->method('get_result')
+            ->willReturn($this->createStub(mysqli_result::class));
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);

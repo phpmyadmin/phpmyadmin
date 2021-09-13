@@ -336,18 +336,16 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $date = Util::date('Y-m-d H:i:s');
-
         $expectedMainQuery = '/*NOTRACK*/' .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
         " schema_snapshot, schema_sql, data_sql, tracking ) values (
         'pma_test',
         '',
         '1',
-        '" . $date . "',
-        '" . $date . "',
+        '%d-%d-%d %d:%d:%d',
+        '%d-%d-%d %d:%d:%d',
         '',
-        '# log " . $date . ' pma_test_user' .
+        '# log %d-%d-%d %d:%d:%d pma_test_user" .
         "\nSHOW DATABASES',
         '" .
         "\n',
@@ -355,7 +353,7 @@ class TrackerTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($expectedMainQuery, DatabaseInterface::CONNECT_CONTROL, 0, false)
+            ->with($this->matches($expectedMainQuery), DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue('executed'));
 
         $dbi->expects($this->any())->method('escapeString')
