@@ -61,7 +61,7 @@ class Advisor
          */
         $this->expression->register(
             'round',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -73,7 +73,7 @@ class Advisor
         );
         $this->expression->register(
             'substr',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -87,7 +87,7 @@ class Advisor
         );
         $this->expression->register(
             'preg_match',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -100,7 +100,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_bytime',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -113,7 +113,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -125,7 +125,7 @@ class Advisor
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments
@@ -139,7 +139,7 @@ class Advisor
         );
         $this->expression->register(
             'fired',
-            static function () {
+            static function (): void {
             },
             /**
              * @param array $arguments

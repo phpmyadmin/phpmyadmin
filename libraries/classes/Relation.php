@@ -1135,11 +1135,9 @@ class Relation
      * @param string $username the username
      * @param string $sqlquery the sql query
      *
-     * @return void
-     *
      * @access public
      */
-    public function setHistory($db, $table, $username, $sqlquery)
+    public function setHistory($db, $table, $username, $sqlquery): void
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
@@ -1243,11 +1241,9 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return void
-     *
      * @access public
      */
-    public function purgeHistory($username)
+    public function purgeHistory($username): void
     {
         $cfgRelation = $this->getRelationsParam();
         if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $cfgRelation['historywork']) {
@@ -1635,10 +1631,8 @@ class Relation
      * @param string $table    table name
      * @param string $field    old field name
      * @param string $new_name new field name
-     *
-     * @return void
      */
-    public function renameField($db, $table, $field, $new_name)
+    public function renameField($db, $table, $field, $new_name): void
     {
         $cfgRelation = $this->getRelationsParam();
 
@@ -1736,10 +1730,8 @@ class Relation
      * @param string $target_db    Target database name
      * @param string $source_table Source table name
      * @param string $target_table Target table name
-     *
-     * @return void
      */
-    public function renameTable($source_db, $target_db, $source_table, $target_table)
+    public function renameTable($source_db, $target_db, $source_table, $target_table): void
     {
         // Move old entries from PMA-DBs to new table
         if ($GLOBALS['cfgRelation']['commwork']) {
@@ -2111,10 +2103,8 @@ class Relation
      *
      * @param string $db     database
      * @param bool   $create whether to create tables if they don't exist.
-     *
-     * @return void
      */
-    public function fixPmaTables($db, $create = true)
+    public function fixPmaTables($db, $create = true): void
     {
         $tablesToFeatures = [
             'pma__bookmark' => 'bookmarktable',

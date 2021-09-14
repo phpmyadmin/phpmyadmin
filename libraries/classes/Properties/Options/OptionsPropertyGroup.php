@@ -33,10 +33,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @param OptionsPropertyItem $property the property instance to be added
      *                                      to the group
-     *
-     * @return void
      */
-    public function addProperty($property)
+    public function addProperty($property): void
     {
         if (
             ! $this->getProperties() == null
@@ -53,10 +51,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @param OptionsPropertyItem $property the property instance to be removed
      *                                      from the group
-     *
-     * @return void
      */
-    public function removeProperty($property)
+    public function removeProperty($property): void
     {
         $this->properties = array_diff(
             $this->getProperties(),

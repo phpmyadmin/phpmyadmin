@@ -124,10 +124,8 @@ class ConfigFile
      * they are set to their default values (use only full paths)
      *
      * @param array $keys the names of the config options
-     *
-     * @return void
      */
-    public function setPersistKeys(array $keys)
+    public function setPersistKeys(array $keys): void
     {
         // checking key presence is much faster than searching so move values
         // to keys
@@ -149,10 +147,8 @@ class ConfigFile
      * this method to set up a filter on {@link set()} method
      *
      * @param array|null $keys array of allowed keys or null to remove filter
-     *
-     * @return void
      */
-    public function setAllowedKeys($keys)
+    public function setAllowedKeys($keys): void
     {
         if ($keys === null) {
             $this->setFilter = null;
@@ -172,20 +168,16 @@ class ConfigFile
      *
      * @param array $mapping Contains the mapping of "Server/config options"
      *                       to "Server/1/config options"
-     *
-     * @return void
      */
-    public function setCfgUpdateReadMapping(array $mapping)
+    public function setCfgUpdateReadMapping(array $mapping): void
     {
         $this->cfgUpdateReadMapping = $mapping;
     }
 
     /**
      * Resets configuration data
-     *
-     * @return void
      */
-    public function resetConfigData()
+    public function resetConfigData(): void
     {
         $_SESSION[$this->id] = [];
     }
@@ -194,10 +186,8 @@ class ConfigFile
      * Sets configuration data (overrides old data)
      *
      * @param array $cfg Configuration options
-     *
-     * @return void
      */
-    public function setConfigData(array $cfg)
+    public function setConfigData(array $cfg): void
     {
         $_SESSION[$this->id] = $cfg;
     }
@@ -208,10 +198,8 @@ class ConfigFile
      * @param string $path          Path
      * @param mixed  $value         Value
      * @param string $canonicalPath Canonical path
-     *
-     * @return void
      */
-    public function set($path, $value, $canonicalPath = null)
+    public function set($path, $value, $canonicalPath = null): void
     {
         if ($canonicalPath === null) {
             $canonicalPath = $this->getCanonicalPath($path);
@@ -268,17 +256,15 @@ class ConfigFile
      * @param mixed $value  Value
      * @param mixed $key    Key
      * @param mixed $prefix Prefix
-     *
-     * @return void
      */
-    private function flattenArray($value, $key, $prefix)
+    private function flattenArray($value, $key, $prefix): void
     {
         // no recursion for numeric arrays
         if (is_array($value) && ! isset($value[0])) {
             $prefix .= $key . '/';
             array_walk(
                 $value,
-                function ($value, $key, $prefix) {
+                function ($value, $key, $prefix): void {
                     $this->flattenArray($value, $key, $prefix);
                 },
                 $prefix
@@ -298,7 +284,7 @@ class ConfigFile
         $this->flattenArrayResult = [];
         array_walk(
             $this->defaultCfg,
-            function ($value, $key, $prefix) {
+            function ($value, $key, $prefix): void {
                 $this->flattenArray($value, $key, $prefix);
             },
             ''
@@ -314,16 +300,14 @@ class ConfigFile
      * (config will contain differences to defaults from config.defaults.php).
      *
      * @param array $cfg Configuration
-     *
-     * @return void
      */
-    public function updateWithGlobalConfig(array $cfg)
+    public function updateWithGlobalConfig(array $cfg): void
     {
         // load config array and flatten it
         $this->flattenArrayResult = [];
         array_walk(
             $cfg,
-            function ($value, $key, $prefix) {
+            function ($value, $key, $prefix): void {
                 $this->flattenArray($value, $key, $prefix);
             },
             ''
@@ -503,10 +487,8 @@ class ConfigFile
      * Removes server
      *
      * @param int $server server index
-     *
-     * @return void
      */
-    public function removeServer($server)
+    public function removeServer($server): void
     {
         if (! isset($_SESSION[$this->id]['Servers'][$server])) {
             return;
@@ -561,7 +543,7 @@ class ConfigFile
         $this->flattenArrayResult = [];
         array_walk(
             $_SESSION[$this->id],
-            function ($value, $key, $prefix) {
+            function ($value, $key, $prefix): void {
                 $this->flattenArray($value, $key, $prefix);
             },
             ''

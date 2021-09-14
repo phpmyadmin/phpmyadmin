@@ -305,10 +305,8 @@ class Qbe
 
     /**
      * Sets search parameters
-     *
-     * @return void
      */
-    private function setSearchParams()
+    private function setSearchParams(): void
     {
         $criteriaColumnCount = $this->initializeCriteriasCount();
 
@@ -338,10 +336,8 @@ class Qbe
 
     /**
      * Sets criteria tables and columns
-     *
-     * @return void
      */
-    private function setCriteriaTablesAndColumns()
+    private function setCriteriaTablesAndColumns(): void
     {
         // The tables list sent by a previously submitted form
         if (isset($_POST['TableList']) && is_array($_POST['TableList'])) {
@@ -1635,10 +1631,8 @@ class Qbe
      *
      * @param array  $relations array of relations
      * @param string $oneTable  the table
-     *
-     * @return void
      */
-    private function loadRelationsForTable(array &$relations, $oneTable)
+    private function loadRelationsForTable(array &$relations, $oneTable): void
     {
         $relations[$oneTable] = [];
 
@@ -1674,10 +1668,8 @@ class Qbe
      * @param array $finalized    JOIN clauses for each table
      * @param array $relations    Relations among tables
      * @param array $searchTables Tables involved in the search
-     *
-     * @return void
      */
-    private function fillJoinClauses(array &$finalized, array $relations, array $searchTables)
+    private function fillJoinClauses(array &$finalized, array $relations, array $searchTables): void
     {
         while (true) {
             $added = false;

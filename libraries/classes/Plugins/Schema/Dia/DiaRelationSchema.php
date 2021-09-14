@@ -151,11 +151,9 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * Output Dia Document for download
      *
-     * @return void
-     *
      * @access public
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->showOutput($this->getFileName('.dia'));
     }
@@ -171,8 +169,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * @param string $foreignField The relation field in the foreign table
      * @param bool   $showKeys     Whether to display ONLY keys or not
      *
-     * @return void
-     *
      * @access private
      */
     private function addRelation(
@@ -181,7 +177,7 @@ class DiaRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField,
         $showKeys
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsDia(
                 $this->diagram,
@@ -220,11 +216,9 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @see    RelationStatsDia::relationDraw()
      *
-     * @return void
-     *
      * @access private
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         foreach ($this->relations as $relation) {
             $relation->relationDraw($this->showColor);
@@ -239,11 +233,9 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * @see    TableStatsDia::tableDraw()
      *
-     * @return void
-     *
      * @access private
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);

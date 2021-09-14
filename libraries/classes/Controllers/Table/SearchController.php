@@ -228,10 +228,8 @@ class SearchController extends AbstractController
 
     /**
      * Get data row action
-     *
-     * @return void
      */
-    public function getDataRowAction()
+    public function getDataRowAction(): void
     {
         if (! Core::checkSqlQuerySignature($_POST['where_clause'], $_POST['where_clause_sign'])) {
             return;
@@ -268,10 +266,8 @@ class SearchController extends AbstractController
 
     /**
      * Do selection action
-     *
-     * @return void
      */
-    public function doSelectionAction()
+    public function doSelectionAction(): void
     {
         /**
          * Selection criteria have been submitted -> do the work
@@ -338,10 +334,8 @@ class SearchController extends AbstractController
 
     /**
      * Range search action
-     *
-     * @return void
      */
-    public function rangeSearchAction()
+    public function rangeSearchAction(): void
     {
         $min_max = $this->getColumnMinMax($_POST['column']);
         $this->response->addJSON('column_data', $min_max);

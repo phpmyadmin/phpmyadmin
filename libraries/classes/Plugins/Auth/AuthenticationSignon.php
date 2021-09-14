@@ -273,10 +273,8 @@ class AuthenticationSignon extends AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         parent::showFailure($failure);
 

@@ -37,10 +37,8 @@ class ListDatabase extends ListAbstract
 
     /**
      * checks if the configuration wants to hide some databases
-     *
-     * @return void
      */
-    protected function checkHideDatabase()
+    protected function checkHideDatabase(): void
     {
         if (empty($GLOBALS['cfg']['Server']['hide_db'])) {
             return;
@@ -110,10 +108,8 @@ class ListDatabase extends ListAbstract
 
     /**
      * builds up the list
-     *
-     * @return void
      */
-    public function build()
+    public function build(): void
     {
         if (! $this->checkOnlyDatabase()) {
             $items = $this->retrieve();

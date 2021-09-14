@@ -116,10 +116,8 @@ class Pdf extends PdfLib
      * Sets the value for margins
      *
      * @param float $c_margin margin
-     *
-     * @return void
      */
-    public function setCMargin($c_margin)
+    public function setCMargin($c_margin): void
     {
         $this->cMargin = $c_margin;
     }
@@ -132,8 +130,6 @@ class Pdf extends PdfLib
      * @param float|int $yMin       The minimum Y coordinate
      * @param float|int $leftMargin The left margin
      * @param float|int $topMargin  The top margin
-     *
-     * @return void
      */
     public function setScale(
         $scale = 1,
@@ -141,7 +137,7 @@ class Pdf extends PdfLib
         $yMin = 0,
         $leftMargin = -1,
         $topMargin = -1
-    ) {
+    ): void {
         $this->scale = $scale;
         $this->xMin = $xMin;
         $this->yMin = $yMin;
@@ -169,8 +165,6 @@ class Pdf extends PdfLib
      * @param string    $align  Align mode
      * @param bool      $fill   Whether to fill the cell with a color or not
      * @param string    $link   Link
-     *
-     * @return void
      */
     public function cellScale(
         $w,
@@ -181,7 +175,7 @@ class Pdf extends PdfLib
         $align = '',
         bool $fill = false,
         $link = ''
-    ) {
+    ): void {
         $h /= $this->scale;
         $w /= $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
@@ -196,10 +190,8 @@ class Pdf extends PdfLib
      * @param float $y1 The vertical position of the starting point
      * @param float $x2 The horizontal position of the ending point
      * @param float $y2 The vertical position of the ending point
-     *
-     * @return void
      */
-    public function lineScale($x1, $y1, $x2, $y2)
+    public function lineScale($x1, $y1, $x2, $y2): void
     {
         $x1 = ($x1 - $this->xMin) / $this->scale + $this->leftMargin;
         $y1 = ($y1 - $this->yMin) / $this->scale + $this->topMargin;
@@ -215,10 +207,8 @@ class Pdf extends PdfLib
      *
      * @param float $x The x position
      * @param float $y The y position
-     *
-     * @return void
      */
-    public function setXyScale($x, $y)
+    public function setXyScale($x, $y): void
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $y = ($y - $this->yMin) / $this->scale + $this->topMargin;
@@ -231,10 +221,8 @@ class Pdf extends PdfLib
      * @see TCPDF::SetX()
      *
      * @param float $x The x position
-     *
-     * @return void
      */
-    public function setXScale($x)
+    public function setXScale($x): void
     {
         $x = ($x - $this->xMin) / $this->scale + $this->leftMargin;
         $this->SetX($x);
@@ -246,10 +234,8 @@ class Pdf extends PdfLib
      * @see TCPDF::SetFontSize()
      *
      * @param float $size The font size (in points)
-     *
-     * @return void
      */
-    public function setFontSizeScale($size)
+    public function setFontSizeScale($size): void
     {
         // Set font size in points
         $size /= $this->scale;
@@ -262,10 +248,8 @@ class Pdf extends PdfLib
      * @see TCPDF::SetLineWidth()
      *
      * @param float $width The line width
-     *
-     * @return void
      */
-    public function setLineWidthScale($width)
+    public function setLineWidthScale($width): void
     {
         $width /= $this->scale;
         $this->SetLineWidth($width);
@@ -275,11 +259,9 @@ class Pdf extends PdfLib
      * This method is used to render the page header.
      *
      * @see TCPDF::Header()
-     *
-     * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function Header()
+    public function Header(): void
     {
         global $dbi;
 
@@ -318,11 +300,9 @@ class Pdf extends PdfLib
      * This function must be named "Footer" to work with the TCPDF library
      *
      * @see PDF::Footer()
-     *
-     * @return void
      */
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-    public function Footer()
+    public function Footer(): void
     {
         if (! $this->withDoc) {
             return;
@@ -335,10 +315,8 @@ class Pdf extends PdfLib
      * Sets widths
      *
      * @param array $w array of widths
-     *
-     * @return void
      */
-    public function setWidths(array $w)
+    public function setWidths(array $w): void
     {
         // column widths
         $this->widths = $w;
@@ -349,10 +327,8 @@ class Pdf extends PdfLib
      *
      * @param array $data  Data for table
      * @param array $links Links for table cells
-     *
-     * @return void
      */
-    public function row(array $data, array $links)
+    public function row(array $data, array $links): void
     {
         // line height
         $nb = 0;
@@ -460,11 +436,9 @@ class Pdf extends PdfLib
      *
      * @param bool $value whether offline
      *
-     * @return void
-     *
      * @access private
      */
-    public function setOffline($value)
+    public function setOffline($value): void
     {
         $this->offline = $value;
     }

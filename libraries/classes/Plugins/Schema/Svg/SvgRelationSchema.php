@@ -177,10 +177,8 @@ class SvgRelationSchema extends ExportRelationSchema
 
     /**
      * Output RelationStatsSvg Document for download
-     *
-     * @return void
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->showOutput($this->getFileName('.svg'));
     }
@@ -189,10 +187,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * Sets X and Y minimum and maximum for a table cell
      *
      * @param TableStatsSvg $table The table
-     *
-     * @return void
      */
-    private function setMinMax($table)
+    private function setMinMax($table): void
     {
         $this->xMax = max($this->xMax, $table->x + $table->width);
         $this->yMax = max($this->yMax, $table->y + $table->height);
@@ -213,8 +209,6 @@ class SvgRelationSchema extends ExportRelationSchema
      * @param string $foreignTable   The foreign table name
      * @param string $foreignField   The relation field in the foreign table
      * @param bool   $tableDimension Whether to display table position or not
-     *
-     * @return void
      */
     private function addRelation(
         $masterTable,
@@ -224,7 +218,7 @@ class SvgRelationSchema extends ExportRelationSchema
         $foreignTable,
         $foreignField,
         $tableDimension
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsSvg(
                 $this->diagram,
@@ -270,10 +264,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * foreign table's foreign field
      *
      * @see Relation_Stats_Svg::relationDraw()
-     *
-     * @return void
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         foreach ($this->relations as $relation) {
             $relation->relationDraw($this->showColor);
@@ -284,10 +276,8 @@ class SvgRelationSchema extends ExportRelationSchema
      * Draws tables
      *
      * @see TableStatsSvg::Table_Stats_tableDraw()
-     *
-     * @return void
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw($this->showColor);

@@ -79,10 +79,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * Forces (not)using of openSSL
      *
      * @param bool $use The flag
-     *
-     * @return void
      */
-    public function setUseOpenSSL($use)
+    public function setUseOpenSSL($use): void
     {
         $this->useOpenSsl = $use;
     }
@@ -597,10 +595,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * Stores username in a cookie.
      *
      * @param string $username User name
-     *
-     * @return void
      */
-    public function storeUsernameCookie($username)
+    public function storeUsernameCookie($username): void
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
@@ -617,10 +613,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * Stores password in a cookie.
      *
      * @param string $password Password
-     *
-     * @return void
      */
-    public function storePasswordCookie($password)
+    public function storePasswordCookie($password): void
     {
         $payload = ['password' => $password];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
@@ -649,10 +643,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * currently done by call to showLoginForm()
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         global $conn_error;
 
@@ -775,10 +767,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * In neither case the error is useful to user, but we need to clear
      * the error buffer as otherwise the errors would pop up later, for
      * example during MySQL SSL setup.
-     *
-     * @return void
      */
-    public function cleanSSLErrors()
+    public function cleanSSLErrors(): void
     {
         if (! function_exists('openssl_error_string')) {
             return;
@@ -928,10 +918,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * This is for testing only!
      *
      * @param string $vector The IV
-     *
-     * @return void
      */
-    public function setIV($vector)
+    public function setIV($vector): void
     {
         $this->cookieIv = $vector;
     }
@@ -940,20 +928,16 @@ class AuthenticationCookie extends AuthenticationPlugin
      * Callback when user changes password.
      *
      * @param string $password New password to set
-     *
-     * @return void
      */
-    public function handlePasswordChange($password)
+    public function handlePasswordChange($password): void
     {
         $this->storePasswordCookie($password);
     }
 
     /**
      * Perform logout
-     *
-     * @return void
      */
-    public function logOut()
+    public function logOut(): void
     {
         global $config;
 

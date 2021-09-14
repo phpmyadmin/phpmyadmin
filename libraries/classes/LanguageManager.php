@@ -971,10 +971,8 @@ class LanguageManager
     /**
      * Displays warnings about invalid languages. This needs to be postponed
      * to show messages at time when language is initialized.
-     *
-     * @return void
      */
-    public function showWarnings()
+    public function showWarnings(): void
     {
         // now, that we have loaded the language strings we can send the errors
         if (

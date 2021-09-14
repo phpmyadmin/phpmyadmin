@@ -105,10 +105,8 @@ class Key extends TwoFactorPlugin
 
     /**
      * Loads needed javascripts into the page
-     *
-     * @return void
      */
-    public function loadScripts()
+    public function loadScripts(): void
     {
         $response = ResponseRenderer::getInstance();
         $scripts = $response->getHeader()->getScripts();

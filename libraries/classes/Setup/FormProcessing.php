@@ -23,10 +23,8 @@ class FormProcessing
      * Processes forms registered in $form_display, handles error correction
      *
      * @param FormDisplay $form_display Form to display
-     *
-     * @return void
      */
-    public static function process(FormDisplay $form_display)
+    public static function process(FormDisplay $form_display): void
     {
         if (isset($_GET['mode']) && $_GET['mode'] === 'revert') {
             // revert erroneous fields to their default values

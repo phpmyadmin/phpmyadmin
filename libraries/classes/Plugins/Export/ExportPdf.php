@@ -349,10 +349,8 @@ class ExportPdf extends ExportPlugin
      * Instantiates the PhpMyAdmin\Plugins\Export\Helpers\Pdf class
      *
      * @param Pdf $pdf The instance
-     *
-     * @return void
      */
-    private function setPdf($pdf)
+    private function setPdf($pdf): void
     {
         $this->pdf = $pdf;
     }

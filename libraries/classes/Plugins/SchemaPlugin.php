@@ -70,10 +70,8 @@ abstract class SchemaPlugin implements Plugin
      * Adds export options common to all plugins.
      *
      * @param OptionsPropertyMainGroup $propertyGroup property group
-     *
-     * @return void
      */
-    protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup)
+    protected function addCommonOptions(OptionsPropertyMainGroup $propertyGroup): void
     {
         $leaf = new BoolPropertyItem('show_color', __('Show color'));
         $propertyGroup->addProperty($leaf);

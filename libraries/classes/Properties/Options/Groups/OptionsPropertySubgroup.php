@@ -49,10 +49,8 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
      * Sets the subgroup header
      *
      * @param PropertyItem $subgroupHeader subgroup header
-     *
-     * @return void
      */
-    public function setSubgroupHeader($subgroupHeader)
+    public function setSubgroupHeader($subgroupHeader): void
     {
         $this->subgroupHeader = $subgroupHeader;
     }

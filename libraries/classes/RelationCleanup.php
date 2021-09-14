@@ -34,10 +34,8 @@ class RelationCleanup
      * @param string $db     database name
      * @param string $table  table name
      * @param string $column column name
-     *
-     * @return void
      */
-    public function column($db, $table, $column)
+    public function column($db, $table, $column): void
     {
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -97,10 +95,8 @@ class RelationCleanup
      *
      * @param string $db    database name
      * @param string $table table name
-     *
-     * @return void
      */
-    public function table($db, $table)
+    public function table($db, $table): void
     {
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -184,10 +180,8 @@ class RelationCleanup
      * Cleanup database related relation stuff
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    public function database($db)
+    public function database($db): void
     {
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -284,10 +278,8 @@ class RelationCleanup
      * Cleanup user related relation stuff
      *
      * @param string $username username
-     *
-     * @return void
      */
-    public function user($username)
+    public function user($username): void
     {
         $cfgRelation = $this->relation->getRelationsParam();
 

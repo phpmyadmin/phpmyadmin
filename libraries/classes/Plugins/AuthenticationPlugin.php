@@ -105,20 +105,16 @@ abstract class AuthenticationPlugin
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @param string $failure String describing why authentication has failed
-     *
-     * @return void
      */
-    public function showFailure($failure)
+    public function showFailure($failure): void
     {
         Logging::logUser($this->user, $failure);
     }
 
     /**
      * Perform logout
-     *
-     * @return void
      */
-    public function logOut()
+    public function logOut(): void
     {
         global $config;
 
@@ -225,10 +221,8 @@ abstract class AuthenticationPlugin
      * Callback when user changes password.
      *
      * @param string $password New password to set
-     *
-     * @return void
      */
-    public function handlePasswordChange($password)
+    public function handlePasswordChange($password): void
     {
     }
 
@@ -237,10 +231,8 @@ abstract class AuthenticationPlugin
      *
      * Tries to workaround PHP 5 session garbage collection which
      * looks at the session file's last modified time
-     *
-     * @return void
      */
-    public function setSessionAccessTime()
+    public function setSessionAccessTime(): void
     {
         if (isset($_REQUEST['guid'])) {
             $guid = (string) $_REQUEST['guid'];
@@ -266,10 +258,8 @@ abstract class AuthenticationPlugin
      * High level authentication interface
      *
      * Gets the credentials or shows login form if necessary
-     *
-     * @return void
      */
-    public function authenticate()
+    public function authenticate(): void
     {
         $success = $this->readCredentials();
 
@@ -288,10 +278,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Check configuration defined restrictions for authentication
-     *
-     * @return void
      */
-    public function checkRules()
+    public function checkRules(): void
     {
         global $cfg;
 

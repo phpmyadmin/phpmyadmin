@@ -233,10 +233,8 @@ class ResponseRenderer
     /**
      * Disables the rendering of the header
      * and the footer in responses
-     *
-     * @return void
      */
-    public function disable()
+    public function disable(): void
     {
         $this->header->disable();
         $this->footer->disable();
@@ -413,10 +411,8 @@ class ResponseRenderer
 
     /**
      * Sends an HTML response to the browser
-     *
-     * @return void
      */
-    public function response()
+    public function response(): void
     {
         $buffer = OutputBuffering::getInstance();
         if (empty($this->HTML)) {
@@ -437,10 +433,8 @@ class ResponseRenderer
      * Wrapper around PHP's header() function.
      *
      * @param string $text header string
-     *
-     * @return void
      */
-    public function header($text)
+    public function header($text): void
     {
         // phpcs:ignore SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         \header($text);
@@ -460,10 +454,8 @@ class ResponseRenderer
      * Wrapper around PHP's http_response_code() function.
      *
      * @param int $response_code will set the response code.
-     *
-     * @return void
      */
-    public function httpResponseCode($response_code)
+    public function httpResponseCode($response_code): void
     {
         http_response_code($response_code);
     }
@@ -494,10 +486,8 @@ class ResponseRenderer
      * Generate header for 303
      *
      * @param string $location will set location to redirect.
-     *
-     * @return void
      */
-    public function generateHeader303($location)
+    public function generateHeader303($location): void
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);

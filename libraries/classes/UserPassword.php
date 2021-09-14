@@ -153,8 +153,6 @@ class UserPassword
      * @param string $sql_query        SQL query
      * @param string $hashing_function Hashing function
      * @param string $orig_auth_plugin Original Authentication Plugin
-     *
-     * @return void
      */
     private function changePassUrlParamsAndSubmitQuery(
         $username,
@@ -163,7 +161,7 @@ class UserPassword
         $sql_query,
         $hashing_function,
         $orig_auth_plugin
-    ) {
+    ): void {
         global $dbi;
 
         $err_url = Url::getFromRoute('/user-password');

@@ -89,10 +89,8 @@ class TableStatsPdf extends TableStats
 
     /**
      * Displays an error when the table cannot be found.
-     *
-     * @return void
      */
-    protected function showMissingTableError()
+    protected function showMissingTableError(): void
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
@@ -124,11 +122,9 @@ class TableStatsPdf extends TableStats
      *
      * @param int $fontSize The font size
      *
-     * @return void
-     *
      * @access private
      */
-    private function setWidth($fontSize)
+    private function setWidth($fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));
@@ -150,11 +146,9 @@ class TableStatsPdf extends TableStats
     /**
      * Sets the height of the table
      *
-     * @return void
-     *
      * @access private
      */
-    private function setHeight()
+    private function setHeight(): void
     {
         $this->height = (count($this->fields) + 1) * $this->heightCell;
     }
@@ -168,11 +162,9 @@ class TableStatsPdf extends TableStats
      * @param bool     $withDoc  Whether to include links to documentation
      * @param bool     $setColor Whether to display color
      *
-     * @return void
-     *
      * @access public
      */
-    public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false)
+    public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false): void
     {
         $this->diagram->setXyScale($this->x, $this->y);
         $this->diagram->SetFont($this->ff, 'B', $fontSize);

@@ -274,10 +274,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Set Show Grid
      *
      * @param bool $value show grid of the document or not
-     *
-     * @return void
      */
-    public function setShowGrid($value)
+    public function setShowGrid($value): void
     {
         $this->showGrid = $value;
     }
@@ -296,10 +294,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Set Data Dictionary
      *
      * @param bool $value show selected database data dictionary or not
-     *
-     * @return void
      */
-    public function setWithDataDictionary($value)
+    public function setWithDataDictionary($value): void
     {
         $this->withDoc = $value;
     }
@@ -318,10 +314,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Sets the order of the table in data dictionary
      *
      * @param string $value table order
-     *
-     * @return void
      */
-    public function setTableOrder($value)
+    public function setTableOrder($value): void
     {
         $this->tableOrder = $value;
     }
@@ -338,10 +332,8 @@ class PdfRelationSchema extends ExportRelationSchema
 
     /**
      * Output Pdf Document for download
-     *
-     * @return void
      */
-    public function showOutput()
+    public function showOutput(): void
     {
         $this->diagram->download($this->getFileName('.pdf'));
     }
@@ -350,10 +342,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Sets X and Y minimum and maximum for a table cell
      *
      * @param TableStatsPdf $table The table name of which sets XY co-ordinates
-     *
-     * @return void
      */
-    private function setMinMax($table)
+    private function setMinMax($table): void
     {
         $this->xMax = max($this->xMax, $table->x + $table->width);
         $this->yMax = max($this->yMax, $table->y + $table->height);
@@ -370,15 +360,13 @@ class PdfRelationSchema extends ExportRelationSchema
      * @param string $masterField  The relation field in the master table
      * @param string $foreignTable The foreign table name
      * @param string $foreignField The relation field in the foreign table
-     *
-     * @return void
      */
     private function addRelation(
         $masterTable,
         $masterField,
         $foreignTable,
         $foreignField
-    ) {
+    ): void {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new TableStatsPdf(
                 $this->diagram,
@@ -420,10 +408,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Draws the grid
      *
      * @see PMA_Schema_PDF
-     *
-     * @return void
      */
-    private function strokeGrid()
+    private function strokeGrid(): void
     {
         $gridSize = 10;
         $labelHeight = 4;
@@ -485,10 +471,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Draws relation arrows
      *
      * @see Relation_Stats_Pdf::relationdraw()
-     *
-     * @return void
      */
-    private function drawRelations()
+    private function drawRelations(): void
     {
         $i = 0;
         foreach ($this->relations as $relation) {
@@ -501,10 +485,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Draws tables
      *
      * @see TableStatsPdf::tableDraw()
-     *
-     * @return void
      */
-    private function drawTables()
+    private function drawTables(): void
     {
         foreach ($this->tables as $table) {
             $table->tableDraw(null, $this->withDoc, $this->showColor);
@@ -515,10 +497,8 @@ class PdfRelationSchema extends ExportRelationSchema
      * Generates data dictionary pages.
      *
      * @param array $alltables Tables to document.
-     *
-     * @return void
      */
-    public function dataDictionaryDoc(array $alltables)
+    public function dataDictionaryDoc(array $alltables): void
     {
         global $dbi;
 

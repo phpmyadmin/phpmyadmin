@@ -345,10 +345,8 @@ class DbiDummy implements DbiExtension
      * Frees memory associated with the result
      *
      * @param object $result database result
-     *
-     * @return void
      */
-    public function freeResult($result)
+    public function freeResult($result): void
     {
     }
 
@@ -568,10 +566,8 @@ class DbiDummy implements DbiExtension
      * @param string[]   $columns  The result columns
      * @param object[]   $metadata The result metadata
      * @phpstan-param (int[]|string[]|array{string: string}|null[])[]|bool|bool[] $result
-     *
-     * @return void
      */
-    public function addResult(string $query, $result, array $columns = [], array $metadata = [])
+    public function addResult(string $query, $result, array $columns = [], array $metadata = []): void
     {
         $this->filoQueries[] = [
             'query' => $query,

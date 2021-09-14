@@ -248,11 +248,9 @@ class Theme
      *
      * @param string $path path to theme
      *
-     * @return void
-     *
      * @access public
      */
-    public function setPath($path)
+    public function setPath($path): void
     {
         $this->path = trim($path);
     }
@@ -272,11 +270,9 @@ class Theme
      *
      * @param string $version version to set
      *
-     * @return void
-     *
      * @access public
      */
-    public function setVersion($version)
+    public function setVersion($version): void
     {
         $this->version = trim($version);
     }
@@ -313,11 +309,9 @@ class Theme
      *
      * @param string $name name to set
      *
-     * @return void
-     *
      * @access public
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = trim($name);
     }
@@ -339,11 +333,9 @@ class Theme
      *
      * @param string $id new id
      *
-     * @return void
-     *
      * @access public
      */
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = trim($id);
     }
@@ -365,11 +357,9 @@ class Theme
      *
      * @param string $path path to images for this theme as an URL path
      *
-     * @return void
-     *
      * @access public
      */
-    public function setImgPath($path)
+    public function setImgPath($path): void
     {
         $this->imgPath = $path;
     }

@@ -83,15 +83,13 @@ class Sql
      * @param string $table              table name
      * @param array  $analyzedSqlResults the analyzed query results
      * @param string $fullSqlQuery       SQL query
-     *
-     * @return void
      */
     private function handleSortOrder(
         $db,
         $table,
         array &$analyzedSqlResults,
         &$fullSqlQuery
-    ) {
+    ): void {
         $tableObject = new Table($table, $db);
 
         if (empty($analyzedSqlResults['order'])) {
@@ -579,10 +577,8 @@ class Sql
      * @param bool   $isGotoFile   whether goto file or not
      * @param string $error        error after executing the query
      * @param string $fullSqlQuery full sql query
-     *
-     * @return void
      */
-    private function handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery)
+    private function handleQueryExecuteError($isGotoFile, $error, $fullSqlQuery): void
     {
         if ($isGotoFile) {
             $message = Message::rawError($error);
@@ -604,8 +600,6 @@ class Sql
      * @param string $sqlQueryForBookmark the query to be stored in bookmark
      * @param string $bookmarkLabel       bookmark label
      * @param bool   $bookmarkReplace     whether to replace existing bookmarks
-     *
-     * @return void
      */
     public function storeTheQueryAsBookmark(
         $db,
@@ -613,7 +607,7 @@ class Sql
         $sqlQueryForBookmark,
         $bookmarkLabel,
         bool $bookmarkReplace
-    ) {
+    ): void {
         $bfields = [
             'bkm_database' => $db,
             'bkm_user'  => $bookmarkUser,
@@ -728,10 +722,8 @@ class Sql
      * @param string      $table  current table
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
-     *
-     * @return void
      */
-    private function cleanupRelations($db, $table, ?string $column, $purge)
+    private function cleanupRelations($db, $table, ?string $column, $purge): void
     {
         if (empty($purge) || strlen($db) <= 0) {
             return;
@@ -972,10 +964,8 @@ class Sql
      * @param string $db                 current database
      * @param string $table              current table
      * @param array  $analyzedSqlResults analyzed sql results
-     *
-     * @return void
      */
-    private function deleteTransformationInfo($db, $table, array $analyzedSqlResults)
+    private function deleteTransformationInfo($db, $table, array $analyzedSqlResults): void
     {
         if (! isset($analyzedSqlResults['statement'])) {
             return;

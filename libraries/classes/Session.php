@@ -39,10 +39,8 @@ class Session
 {
     /**
      * Generates PMA_token session variable.
-     *
-     * @return void
      */
-    private static function generateToken()
+    private static function generateToken(): void
     {
         $_SESSION[' PMA_token '] = Util::generateRandom(16, true);
         $_SESSION[' HMAC_secret '] = Util::generateRandom(16);
@@ -64,10 +62,8 @@ class Session
      * tries to secure session from hijacking and fixation
      * should be called before login and after successful login
      * (only required if sensitive information stored in session)
-     *
-     * @return void
      */
-    public static function secure()
+    public static function secure(): void
     {
         // prevent session fixation and XSS
         if (session_status() === PHP_SESSION_ACTIVE) {
@@ -83,10 +79,8 @@ class Session
      * Session failed function
      *
      * @param array $errors PhpMyAdmin\ErrorHandler array
-     *
-     * @return void
      */
-    private static function sessionFailed(array $errors)
+    private static function sessionFailed(array $errors): void
     {
         $messages = [];
         foreach ($errors as $error) {
@@ -128,10 +122,8 @@ class Session
      *
      * @param Config       $config       Configuration handler
      * @param ErrorHandler $errorHandler Error handler
-     *
-     * @return void
      */
-    public static function setUp(Config $config, ErrorHandler $errorHandler)
+    public static function setUp(Config $config, ErrorHandler $errorHandler): void
     {
         // verify if PHP supports session, die if it does not
         if (! function_exists('session_name')) {

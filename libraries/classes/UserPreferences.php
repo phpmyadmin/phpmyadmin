@@ -42,10 +42,8 @@ class UserPreferences
      * Common initialization for user preferences modification pages
      *
      * @param ConfigFile $cf Config file instance
-     *
-     * @return void
      */
-    public function pageInit(ConfigFile $cf)
+    public function pageInit(ConfigFile $cf): void
     {
         $forms_all_keys = UserFormList::getFields();
         $cf->resetConfigData(); // start with a clean instance
@@ -247,14 +245,12 @@ class UserPreferences
      * @param string     $file_name Filename
      * @param array|null $params    URL parameters
      * @param string     $hash      Hash value
-     *
-     * @return void
      */
     public function redirect(
         $file_name,
         $params = null,
         $hash = null
-    ) {
+    ): void {
         // redirect
         $url_params = ['saved' => 1];
         if (is_array($params)) {

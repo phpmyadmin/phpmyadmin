@@ -86,10 +86,8 @@ class TableStatsEps extends TableStats
 
     /**
      * Displays an error when the table cannot be found.
-     *
-     * @return void
      */
-    protected function showMissingTableError()
+    protected function showMissingTableError(): void
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
@@ -105,10 +103,8 @@ class TableStatsEps extends TableStats
      *
      * @param string $font     The font name
      * @param int    $fontSize The font size
-     *
-     * @return void
      */
-    private function setWidthTable($font, $fontSize)
+    private function setWidthTable($font, $fontSize): void
     {
         foreach ($this->fields as $field) {
             $this->width = max(
@@ -142,10 +138,8 @@ class TableStatsEps extends TableStats
      * Sets the height of the table
      *
      * @param int $fontSize The font size
-     *
-     * @return void
      */
-    private function setHeightTable($fontSize)
+    private function setHeightTable($fontSize): void
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
@@ -159,10 +153,8 @@ class TableStatsEps extends TableStats
      * @see Eps::rect
      *
      * @param bool $showColor Whether to display color
-     *
-     * @return void
      */
-    public function tableDraw($showColor)
+    public function tableDraw($showColor): void
     {
         $this->diagram->rect(
             $this->x,

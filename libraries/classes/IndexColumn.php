@@ -82,10 +82,8 @@ class IndexColumn
      * Sets parameters of the index column
      *
      * @param array $params an array containing the parameters of the index column
-     *
-     * @return void
      */
-    public function set(array $params)
+    public function set(array $params): void
     {
         if (isset($params['Column_name'])) {
             $this->name = $params['Column_name'];

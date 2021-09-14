@@ -71,10 +71,8 @@ class Logging
      *
      * @param string $user   user name
      * @param string $status status message
-     *
-     * @return void
      */
-    public static function logUser($user, $status = 'ok')
+    public static function logUser($user, $status = 'ok'): void
     {
         if (function_exists('apache_note')) {
             apache_note('userID', $user);

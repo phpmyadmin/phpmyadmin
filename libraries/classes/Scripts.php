@@ -51,13 +51,11 @@ class Scripts
      *
      * @param string $filename The name of the file to include
      * @param array  $params   Additional parameters to pass to the file
-     *
-     * @return void
      */
     public function addFile(
         $filename,
         array $params = []
-    ) {
+    ): void {
         $hash = md5($filename);
         if (! empty($this->files[$hash])) {
             return;
@@ -75,10 +73,8 @@ class Scripts
      * Add new files to the list of scripts
      *
      * @param array $filelist The array of file names
-     *
-     * @return void
      */
-    public function addFiles(array $filelist)
+    public function addFiles(array $filelist): void
     {
         foreach ($filelist as $filename) {
             $this->addFile($filename);
@@ -112,10 +108,8 @@ class Scripts
      * Adds a new code snippet to the code to be executed
      *
      * @param string $code The JS code to be added
-     *
-     * @return void
      */
-    public function addCode($code)
+    public function addCode($code): void
     {
         $this->code .= $code . "\n";
     }

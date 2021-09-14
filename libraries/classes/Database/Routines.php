@@ -77,10 +77,8 @@ class Routines
 
     /**
      * Handles editor requests for adding or editing an item
-     *
-     * @return void
      */
-    public function handleEditor()
+    public function handleEditor(): void
     {
         global $db, $errors;
 
@@ -1388,10 +1386,8 @@ class Routines
 
     /**
      * Handles requests for executing a routine
-     *
-     * @return void
      */
-    public function handleExecute()
+    public function handleExecute(): void
     {
         global $db;
 

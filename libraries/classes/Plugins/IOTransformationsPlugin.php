@@ -90,10 +90,8 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
 
     /**
      * Resets the object properties
-     *
-     * @return void
      */
-    public function reset()
+    public function reset(): void
     {
         $this->success = true;
         $this->error = '';

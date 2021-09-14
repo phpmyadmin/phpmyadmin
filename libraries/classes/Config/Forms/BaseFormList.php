@@ -116,10 +116,8 @@ class BaseFormList
 
     /**
      * Reverts erroneous fields to their default values
-     *
-     * @return void
      */
-    public function fixErrors()
+    public function fixErrors(): void
     {
         foreach ($this->forms as $form) {
             $form->fixErrors();

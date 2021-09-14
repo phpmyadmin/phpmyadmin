@@ -88,10 +88,8 @@ class ImportLdi extends AbstractImportCsv
      * Handles the whole import logic
      *
      * @param array $sql_data 2-element array with sql data
-     *
-     * @return void
      */
-    public function doImport(?File $importHandle = null, array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = []): void
     {
         global $finished, $import_file, $charset_conversion, $table, $dbi;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,

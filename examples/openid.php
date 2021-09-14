@@ -37,10 +37,8 @@ $AUTH_MAP = [
  * Simple function to show HTML page with given content.
  *
  * @param string $contents Content to include in page
- *
- * @return void
  */
-function Show_page($contents)
+function Show_page($contents): void
 {
     header('Content-Type: text/html; charset=utf-8');
 
@@ -68,10 +66,8 @@ function Show_page($contents)
  * Display error and exit
  *
  * @param Exception $e Exception object
- *
- * @return void
  */
-function Die_error($e)
+function Die_error($e): void
 {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
