@@ -101,8 +101,6 @@ class Export
     /**
      * Detect whether gzencode is needed; it might not be needed if
      * the server is already compressing by itself
-     *
-     * @return bool Whether gzencode is needed
      */
     public function gzencodeNeeded(): bool
     {
@@ -128,8 +126,6 @@ class Export
      * $this->dumpBuffer, otherwise it prints them out.
      *
      * @param string $line the insert statement
-     *
-     * @return bool Whether output succeeded
      */
     public function outputHandler(?string $line): bool
     {

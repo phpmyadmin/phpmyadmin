@@ -552,8 +552,6 @@ class ErrorHandler
      *      also collected by global error handler.
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
-     *
-     * @return bool true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt(): bool
     {

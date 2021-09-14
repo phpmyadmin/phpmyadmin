@@ -127,10 +127,8 @@ class Language
 
     /**
      * Checks whether language is currently active.
-     *
-     * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return $GLOBALS['lang'] == $this->code;
     }
@@ -139,40 +137,34 @@ class Language
      * Checks whether language matches HTTP header Accept-Language.
      *
      * @param string $header Header content
-     *
-     * @return bool
      */
-    public function matchesAcceptLanguage($header)
+    public function matchesAcceptLanguage($header): bool
     {
         $pattern = '/^('
             . addcslashes($this->regex, '/')
             . ')(;q=[0-9]\\.[0-9])?$/i';
 
-        return preg_match($pattern, $header);
+        return (bool) preg_match($pattern, $header);
     }
 
     /**
      * Checks whether language matches HTTP header User-Agent
      *
      * @param string $header Header content
-     *
-     * @return bool
      */
-    public function matchesUserAgent($header)
+    public function matchesUserAgent($header): bool
     {
         $pattern = '/(\(|\[|;[[:space:]])('
             . addcslashes($this->regex, '/')
             . ')(;|\]|\))/i';
 
-        return preg_match($pattern, $header);
+        return (bool) preg_match($pattern, $header);
     }
 
     /**
      * Checks whether language is RTL
-     *
-     * @return bool
      */
-    public function isRTL()
+    public function isRTL(): bool
     {
         return in_array($this->code, ['ar', 'fa', 'he', 'ur']);
     }

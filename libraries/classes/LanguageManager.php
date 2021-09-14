@@ -798,10 +798,8 @@ class LanguageManager
 
     /**
      * Checks whether there are some languages available
-     *
-     * @return bool
      */
-    public function hasChoice()
+    public function hasChoice(): bool
     {
         return count($this->availableLanguages()) > 1;
     }

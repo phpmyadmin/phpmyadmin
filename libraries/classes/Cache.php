@@ -19,8 +19,6 @@ class Cache
      *
      * @param string $cacheKey The key to use
      * @param mixed  $value    The value to cache
-     *
-     * @return bool Depends on if the value could be cached
      */
     public static function set(string $cacheKey, $value): bool
     {
@@ -56,8 +54,6 @@ class Cache
      * Remove a cached value
      *
      * @param string $cacheKey The key to use to remove the value
-     *
-     * @return bool Depends on if the value could be removed
      */
     public static function remove(string $cacheKey): bool
     {
@@ -68,8 +64,6 @@ class Cache
 
     /**
      * Purge all cached values
-     *
-     * @return bool Depends on if the cache could be purged
      */
     public static function purge(): bool
     {

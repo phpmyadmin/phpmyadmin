@@ -62,11 +62,9 @@ class Tracker
     /**
      * Gets the on/off value of the Tracker module, starts initialization.
      *
-     * @return bool (true=on|false=off)
-     *
      * @static
      */
-    public static function isActive()
+    public static function isActive(): bool
     {
         global $dbi;
 
@@ -126,11 +124,9 @@ class Tracker
      * @param string $dbName    name of database
      * @param string $tableName name of table
      *
-     * @return bool true or false
-     *
      * @static
      */
-    public static function isTracked($dbName, $tableName)
+    public static function isTracked($dbName, $tableName): bool
     {
         global $dbi;
 
@@ -437,8 +433,6 @@ class Tracker
      * @param string       $type      type of data(DDL || DML)
      * @param string|array $newData   the new tracking data
      *
-     * @return bool result of change
-     *
      * @static
      */
     public static function changeTrackingData(
@@ -447,7 +441,7 @@ class Tracker
         $version,
         $type,
         $newData
-    ) {
+    ): bool {
         global $dbi;
 
         $relation = new Relation($dbi);

@@ -265,8 +265,6 @@ class Node
      *
      * @param bool $countEmptyContainers Whether to count empty child
      *                                   containers as valid children
-     *
-     * @return bool Whether the node has child nodes
      */
     public function hasChildren($countEmptyContainers = true): bool
     {
@@ -508,10 +506,8 @@ class Node
      * Detemines whether a given database should be hidden according to 'hide_db'
      *
      * @param string $db database name
-     *
-     * @return bool whether to hide
      */
-    private function isHideDb($db)
+    private function isHideDb($db): bool
     {
         return ! empty($GLOBALS['cfg']['Server']['hide_db'])
             && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);

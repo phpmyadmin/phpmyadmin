@@ -84,10 +84,8 @@ class TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         return true;
     }
@@ -114,10 +112,8 @@ class TwoFactorPlugin
 
     /**
      * Performs backend configuration
-     *
-     * @return bool
      */
-    public function configure()
+    public function configure(): bool
     {
         return true;
     }

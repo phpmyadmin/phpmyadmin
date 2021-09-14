@@ -96,10 +96,8 @@
       <code>$bookmark-&gt;query</code>
       <code>$row</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="1">
       <code>array|false</code>
-      <code>bool</code>
-      <code>bool</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="9">
       <code>Util::backquote($cfgBookmark['db'])</code>
@@ -112,9 +110,7 @@
       <code>Util::backquote($cfgBookmark['table'])</code>
       <code>Util::backquote($id_field)</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>$this-&gt;dbi-&gt;query($query, DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>$this-&gt;dbi-&gt;tryQuery($query, DatabaseInterface::CONNECT_CONTROL)</code>
+    <MixedReturnStatement occurrences="1">
       <code>Cache::get($cacheKey)</code>
     </MixedReturnStatement>
     <PropertyNotSetInConstructor occurrences="5">
@@ -534,19 +530,14 @@
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="2">
       <code>?string</code>
-      <code>bool</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="2">
       <code>$cookie_path</code>
       <code>$temp_dir[$name]</code>
-      <code>$this-&gt;get('is_https')</code>
     </MixedReturnStatement>
-    <NullableReturnStatement occurrences="1">
-      <code>$this-&gt;get('is_https')</code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="2">
       <code>$default_value</code>
       <code>$request</code>
@@ -6424,14 +6415,10 @@
       <code>$value</code>
       <code>$warningsCount</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="10">
+    <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
       <code>array</code>
-      <code>bool</code>
-      <code>bool</code>
-      <code>bool</code>
-      <code>bool</code>
       <code>int|false</code>
       <code>string</code>
       <code>string|bool</code>
@@ -6467,17 +6454,13 @@
     <MixedPropertyFetch occurrences="1">
       <code>$this-&gt;links[$link]-&gt;warning_count</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="12">
+    <MixedReturnStatement occurrences="8">
       <code>$column != null ? array_shift($fields) : $fields</code>
       <code>$tables[$database]</code>
       <code>$tables[mb_strtolower($database)]</code>
       <code>$this-&gt;fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link)</code>
       <code>$this-&gt;lowerCaseTableNames</code>
-      <code>$this-&gt;query('SET ' . $var . ' = ' . $value . ';', $link)</code>
       <code>$user</code>
-      <code>SessionCache::get('is_createuser')</code>
-      <code>SessionCache::get('is_grantuser')</code>
-      <code>SessionCache::get('is_superuser')</code>
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
@@ -6485,10 +6468,7 @@
       <code>$this-&gt;extension-&gt;realMultiQuery($this-&gt;links[$linkIndex], $multiQuery)</code>
       <code>mysqli_result[]|bool</code>
     </MixedReturnTypeCoercion>
-    <NullableReturnStatement occurrences="4">
-      <code>SessionCache::get('is_createuser')</code>
-      <code>SessionCache::get('is_grantuser')</code>
-      <code>SessionCache::get('is_superuser')</code>
+    <NullableReturnStatement occurrences="1">
       <code>SessionCache::get('mysql_cur_user')</code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="1">
@@ -8357,9 +8337,8 @@
       <code>$position</code>
       <code>$start</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="2">
       <code>?int</code>
-      <code>bool</code>
       <code>stdClass|null</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="9">
@@ -8381,8 +8360,7 @@
       <code>$commit_json-&gt;committer-&gt;email</code>
       <code>$commit_json-&gt;committer-&gt;name</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="3">
-      <code>$_SESSION['is_git_revision']</code>
+    <MixedReturnStatement occurrences="2">
       <code>$packOffsets[1]</code>
       <code>json_decode((string) $is_found)</code>
     </MixedReturnStatement>
@@ -9236,16 +9214,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($rules)</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Language.php">
-    <InvalidReturnStatement occurrences="2">
-      <code>preg_match($pattern, $header)</code>
-      <code>preg_match($pattern, $header)</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>bool</code>
-      <code>bool</code>
-    </InvalidReturnType>
   </file>
   <file src="libraries/classes/LanguageManager.php">
     <DocblockTypeContradiction occurrences="1">
@@ -10673,10 +10641,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$resp == null</code>
     </DocblockTypeContradiction>
-    <ImplementedReturnTypeMismatch occurrences="2">
-      <code>bool|void</code>
-      <code>void|bool</code>
-    </ImplementedReturnTypeMismatch>
     <InvalidScalarArgument occurrences="1">
       <code>Core::getIp()</code>
     </InvalidScalarArgument>
@@ -13549,10 +13513,6 @@
     </InvalidArgument>
   </file>
   <file src="libraries/classes/Plugins/TwoFactor/Application.php">
-    <InvalidReturnStatement occurrences="1"/>
-    <InvalidReturnType occurrences="1">
-      <code>bool</code>
-    </InvalidReturnType>
     <MixedArgument occurrences="3">
       <code>$_POST['2fa_code']</code>
       <code>$secret</code>
@@ -13618,19 +13578,10 @@
     <DocblockTypeContradiction occurrences="1">
       <code>is_array($result)</code>
     </DocblockTypeContradiction>
-    <MixedInferredReturnType occurrences="1">
-      <code>bool</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>SessionCache::get('profiling_supported')</code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion occurrences="2">
       <code>$result</code>
       <code>array&lt;string, string&gt;|null</code>
     </MixedReturnTypeCoercion>
-    <NullableReturnStatement occurrences="1">
-      <code>SessionCache::get('profiling_supported')</code>
-    </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Properties/Options/OptionsPropertyGroup.php">
     <DocblockTypeContradiction occurrences="1">
@@ -14043,9 +13994,8 @@
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="5">
+    <MixedInferredReturnType occurrences="4">
       <code>array|false</code>
-      <code>bool</code>
       <code>string</code>
       <code>string[]</code>
       <code>string|false</code>
@@ -14103,13 +14053,12 @@
       <code>Util::backquote($foreign_table)</code>
       <code>Util::backquote($tableDbName)</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="6">
+    <MixedReturnStatement occurrences="5">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$column['COLUMN_NAME']</code>
       <code>$comment</code>
       <code>$foreigners[$column]</code>
       <code>$row['display_field']</code>
-      <code>$this-&gt;queryAsControlUser($upd_query)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion occurrences="2">
       <code>$cfgRelation</code>
@@ -15713,9 +15662,8 @@
       <code>$this-&gt;comment</code>
       <code>$this-&gt;title</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="2">
       <code>array[]</code>
-      <code>bool</code>
       <code>string</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="4">
@@ -15724,10 +15672,9 @@
       <code>$parsed_size[0]</code>
       <code>$parsed_size[1]</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="2">
       <code>$storage_engines</code>
       <code>$this-&gt;$id()</code>
-      <code>Cache::get($cacheKey, false)</code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion occurrences="2">
       <code>[$dataLength, $indexLength]</code>
@@ -16744,10 +16691,8 @@
       <code>$test_rs</code>
       <code>$values</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="3">
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
-      <code>bool</code>
-      <code>bool</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="12">
       <code>Util::backquote($cfgRelation['column_info'])</code>
@@ -16763,9 +16708,7 @@
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>$dbi-&gt;tryQuery($delete_sql)</code>
-      <code>$relation-&gt;queryAsControlUser($upd_query)</code>
+    <MixedReturnStatement occurrences="1">
       <code>$stack</code>
     </MixedReturnStatement>
     <PossiblyNullArgument occurrences="1">
@@ -16796,9 +16739,8 @@
       <code>$result</code>
       <code>$result['type']</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
-      <code>bool</code>
     </MixedInferredReturnType>
     <MixedMethodCall occurrences="6">
       <code>$cls::getDescription()</code>
@@ -16808,8 +16750,7 @@
       <code>new $cls($this)</code>
       <code>new $name($this)</code>
     </MixedMethodCall>
-    <MixedReturnStatement occurrences="2">
-      <code>$_SESSION['two_factor_check']</code>
+    <MixedReturnStatement occurrences="1">
       <code>$result</code>
     </MixedReturnStatement>
     <MoreSpecificReturnType occurrences="1">

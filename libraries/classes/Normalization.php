@@ -1103,8 +1103,6 @@ class Normalization
      * @param int    $pkCnt      distinct value count for given partial key
      * @param int    $colCnt     distinct value count for given column
      * @param int    $totalRows  total distinct rows count of the table
-     *
-     * @return bool TRUE if $column is dependent on $partialKey, False otherwise
      */
     private function checkPartialDependency(
         $partialKey,
@@ -1113,7 +1111,7 @@ class Normalization
         $pkCnt,
         $colCnt,
         $totalRows
-    ) {
+    ): bool {
         $query = 'SELECT '
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)

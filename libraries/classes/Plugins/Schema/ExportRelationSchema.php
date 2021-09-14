@@ -103,10 +103,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show colors
-     *
-     * @return bool whether to show colors
      */
-    public function isShowColor()
+    public function isShowColor(): bool
     {
         return $this->showColor;
     }
@@ -123,10 +121,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show table dimensions
-     *
-     * @return bool whether to show table dimensions
      */
-    public function isTableDimension()
+    public function isTableDimension(): bool
     {
         return $this->tableDimension;
     }
@@ -143,10 +139,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to use same width for all tables or not
-     *
-     * @return bool whether to use same width for all tables or not
      */
-    public function isAllTableSameWidth()
+    public function isAllTableSameWidth(): bool
     {
         return $this->sameWide;
     }
@@ -165,10 +159,8 @@ class ExportRelationSchema
 
     /**
      * Returns whether to show keys
-     *
-     * @return bool whether to show keys
      */
-    public function isShowKeys()
+    public function isShowKeys(): bool
     {
         return $this->showKeys;
     }
@@ -232,11 +224,9 @@ class ExportRelationSchema
     /**
      * Returns whether the client side database is used
      *
-     * @return bool
-     *
      * @access public
      */
-    public function isOffline()
+    public function isOffline(): bool
     {
         return $this->offline;
     }

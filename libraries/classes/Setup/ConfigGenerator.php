@@ -120,10 +120,8 @@ class ConfigGenerator
      * Check whether $array is a continuous 0-based array
      *
      * @param array $array Array to check
-     *
-     * @return bool
      */
-    private static function isZeroBasedArray(array $array)
+    private static function isZeroBasedArray(array $array): bool
     {
         for ($i = 0, $nb = count($array); $i < $nb; $i++) {
             if (! isset($array[$i])) {

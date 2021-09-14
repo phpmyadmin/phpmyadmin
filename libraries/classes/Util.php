@@ -99,8 +99,6 @@ class Util
      * Checks whether configuration value tells to show icons.
      *
      * @param string $value Configuration option name
-     *
-     * @return bool Whether to show icons.
      */
     public static function showIcons($value): bool
     {
@@ -111,8 +109,6 @@ class Util
      * Checks whether configuration value tells to show text.
      *
      * @param string $value Configuration option name
-     *
-     * @return bool Whether to show text.
      */
     public static function showText($value): bool
     {

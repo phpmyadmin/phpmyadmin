@@ -81,8 +81,6 @@ class Import
     /**
      * Checks whether timeout is getting close
      *
-     * @return bool true if timeout is close
-     *
      * @access public
      */
     public function checkTimeout(): bool

@@ -138,10 +138,8 @@ class GisVisualization
 
     /**
      * Check if data has SRID
-     *
-     * @return bool
      */
-    public function hasSrid()
+    public function hasSrid(): bool
     {
         foreach ($this->data as $row) {
             if ($row['srid'] != 0) {

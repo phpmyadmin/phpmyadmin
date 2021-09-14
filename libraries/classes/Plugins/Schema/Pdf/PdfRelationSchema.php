@@ -282,10 +282,8 @@ class PdfRelationSchema extends ExportRelationSchema
 
     /**
      * Returns whether to show grid
-     *
-     * @return bool whether to show grid
      */
-    public function isShowGrid()
+    public function isShowGrid(): bool
     {
         return $this->showGrid;
     }
@@ -302,10 +300,8 @@ class PdfRelationSchema extends ExportRelationSchema
 
     /**
      * Return whether to show selected database data dictionary or not
-     *
-     * @return bool whether to show selected database data dictionary or not
      */
-    public function isWithDataDictionary()
+    public function isWithDataDictionary(): bool
     {
         return $this->withDoc;
     }

@@ -149,10 +149,8 @@ class Sql
      * Verify whether the result set has columns from just one table
      *
      * @param array $fieldsMeta meta fields
-     *
-     * @return bool whether the result set has columns from just one table
      */
-    private function resultSetHasJustOneTable(array $fieldsMeta)
+    private function resultSetHasJustOneTable(array $fieldsMeta): bool
     {
         $justOneTable = true;
         $prevTable = '';
@@ -182,10 +180,8 @@ class Sql
      * @param string $db         database name
      * @param string $table      table name
      * @param array  $fieldsMeta meta fields
-     *
-     * @return bool whether the result set contains a unique key
      */
-    private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta)
+    private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
@@ -360,10 +356,8 @@ class Sql
      *
      * @param array $analyzedSqlResults the analyzed query and other variables set
      *                                    after analyzing the query
-     *
-     * @return bool
      */
-    private function isRememberSortingOrder(array $analyzedSqlResults)
+    private function isRememberSortingOrder(array $analyzedSqlResults): bool
     {
         return isset($analyzedSqlResults['select_expr'], $analyzedSqlResults['select_tables'])
             && $GLOBALS['cfg']['RememberSorting']
@@ -383,10 +377,8 @@ class Sql
      *
      * @param array $analyzedSqlResults the analyzed query and other variables set
      *                                    after analyzing the query
-     *
-     * @return bool
      */
-    private function isAppendLimitClause(array $analyzedSqlResults)
+    private function isAppendLimitClause(array $analyzedSqlResults): bool
     {
         // Assigning LIMIT clause to an syntactically-wrong query
         // is not needed. Also we would want to show the true query
@@ -432,10 +424,8 @@ class Sql
      *
      * @param array $analyzedSqlResults the analyzed query and other variables set
      *                                    after analyzing the query
-     *
-     * @return bool
      */
-    private function isDeleteTransformationInfo(array $analyzedSqlResults)
+    private function isDeleteTransformationInfo(array $analyzedSqlResults): bool
     {
         return ! empty($analyzedSqlResults['querytype'])
             && (($analyzedSqlResults['querytype'] === 'ALTER')
@@ -449,14 +439,12 @@ class Sql
      *                                       after analyzing the query
      * @param bool  $allowUserDropDatabase whether the user is allowed to drop db
      * @param bool  $isSuperUser           whether this user is a superuser
-     *
-     * @return bool
      */
     public function hasNoRightsToDropDatabase(
         array $analyzedSqlResults,
         $allowUserDropDatabase,
         $isSuperUser
-    ) {
+    ): bool {
         return ! $allowUserDropDatabase
             && isset($analyzedSqlResults['drop_database'])
             && $analyzedSqlResults['drop_database']

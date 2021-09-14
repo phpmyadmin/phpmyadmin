@@ -90,11 +90,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @return bool|void
-     *
      * @global string $conn_error the last connection error
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
         global $conn_error, $route;
 
@@ -269,10 +267,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * it returns true if all seems ok which usually leads to auth_set_user()
      *
      * it directly switches to showFailure() if user inactivity timeout is reached
-     *
-     * @return bool whether we get authentication settings or not
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         global $conn_error;
 
@@ -477,7 +473,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return bool always true
      */
-    public function storeCredentials()
+    public function storeCredentials(): bool
     {
         global $cfg;
 
@@ -510,10 +506,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Stores user credentials after successful login.
-     *
-     * @return void|bool
      */
-    public function rememberCredentials()
+    public function rememberCredentials(): void
     {
         global $route;
 
@@ -562,33 +556,30 @@ class AuthenticationCookie extends AuthenticationPlugin
                 exit;
             }
 
-            return false;
+            return;
         }
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
-        if (! $GLOBALS['from_cookie']) {
-
-            /**
-             * Clear user cache.
-             */
-            Util::clearUserCache();
-
-            ResponseRenderer::getInstance()
-                ->disable();
-
-            Core::sendHeaderLocation(
-                './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
-                true
-            );
-            if (! defined('TESTSUITE')) {
-                exit;
-            }
-
-            return false;
+        if ($GLOBALS['from_cookie']) {
+            return;
         }
 
-        return true;
+        /**
+         * Clear user cache.
+         */
+        Util::clearUserCache();
+
+        ResponseRenderer::getInstance()->disable();
+
+        Core::sendHeaderLocation(
+            './index.php?route=/' . Url::getCommonRaw($url_params, '&'),
+            true
+        );
+
+        if (! defined('TESTSUITE')) {
+            exit;
+        }
     }
 
     /**

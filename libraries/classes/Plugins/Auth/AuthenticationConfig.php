@@ -32,7 +32,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return bool always true
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
         $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
@@ -54,7 +54,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return bool always true
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;

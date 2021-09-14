@@ -140,10 +140,8 @@ class Pdf extends PdfLib
      *                           position
      * @param bool      $addpage if true add a page, otherwise only return
      *                           the true/false state
-     *
-     * @return bool true in case of page break, false otherwise.
      */
-    public function checkPageBreak($h = 0, $y = '', $addpage = true)
+    public function checkPageBreak($h = 0, $y = '', $addpage = true): bool
     {
         if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;

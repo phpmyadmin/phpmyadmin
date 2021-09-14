@@ -331,10 +331,8 @@ class Common
      * Deletes a given pdf page and its corresponding coordinates
      *
      * @param int $pg page id
-     *
-     * @return bool success/failure
      */
-    public function deletePage($pg)
+    public function deletePage($pg): bool
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -405,8 +403,6 @@ class Common
      * If no such exists, returns negative index.
      *
      * @param string $pg name
-     *
-     * @return bool if the page already exists
      */
     public function getPageExists(string $pg): bool
     {
@@ -495,10 +491,8 @@ class Common
      * Saves positions of table(s) of a given pdf page
      *
      * @param int $pg pdf page id
-     *
-     * @return bool success/failure
      */
-    public function saveTablePositions($pg)
+    public function saveTablePositions($pg): bool
     {
         $pageId = $this->dbi->escapeString((string) $pg);
 
@@ -834,10 +828,8 @@ class Common
      *
      * @param string $index setting
      * @param string $value value
-     *
-     * @return bool whether the operation succeeded
      */
-    public function saveSetting($index, $value)
+    public function saveSetting($index, $value): bool
     {
         $cfgRelation = $this->relation->getRelationsParam();
         $success = true;

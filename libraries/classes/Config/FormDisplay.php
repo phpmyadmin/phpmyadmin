@@ -160,10 +160,8 @@ class FormDisplay
      * @param bool $allowPartialSave allows for partial form saving
      *                               on failed validation
      * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
-     *
-     * @return bool whether processing was successful
      */
-    public function process($allowPartialSave = true, $checkFormSubmit = true)
+    public function process($allowPartialSave = true, $checkFormSubmit = true): bool
     {
         if ($checkFormSubmit && ! isset($_POST['submit_save'])) {
             return false;
@@ -579,10 +577,8 @@ class FormDisplay
      * @param array|string $forms            array of form names
      * @param bool         $allowPartialSave allows for partial form saving on
      *                                       failed validation
-     *
-     * @return bool true on success (no errors and all saved)
      */
-    public function save($forms, $allowPartialSave = true)
+    public function save($forms, $allowPartialSave = true): bool
     {
         $result = true;
         $forms = (array) $forms;
@@ -755,10 +751,8 @@ class FormDisplay
 
     /**
      * Tells whether form validation failed
-     *
-     * @return bool
      */
-    public function hasErrors()
+    public function hasErrors(): bool
     {
         return count($this->errors) > 0;
     }

@@ -16,7 +16,7 @@ final class Profiling
     public static function isSupported(DatabaseInterface $dbi): bool
     {
         if (SessionCache::has('profiling_supported')) {
-            return SessionCache::get('profiling_supported');
+            return (bool) SessionCache::get('profiling_supported');
         }
 
         /**

@@ -363,8 +363,6 @@ class Transformations
      * @param bool   $forcedelete        force delete, will erase any existing
      *                                   comments for this column
      *
-     * @return bool true, if comment-query was made.
-     *
      * @access public
      */
     public function setMime(
@@ -377,7 +375,7 @@ class Transformations
         $inputTransform,
         $inputTransformOpts,
         $forcedelete = false
-    ) {
+    ): bool {
         global $dbi;
 
         $relation = new Relation($dbi);
@@ -465,7 +463,7 @@ class Transformations
         }
 
         if (isset($upd_query)) {
-            return $relation->queryAsControlUser($upd_query);
+            return (bool) $relation->queryAsControlUser($upd_query);
         }
 
         return false;
@@ -482,10 +480,8 @@ class Transformations
      * @param string $db     Database name
      * @param string $table  Table name
      * @param string $column Column name
-     *
-     * @return bool State of the query execution
      */
-    public function clear($db, $table = '', $column = '')
+    public function clear($db, $table = '', $column = ''): bool
     {
         global $dbi;
 
@@ -512,6 +508,6 @@ class Transformations
             $delete_sql .= '`db_name` = \'' . $db . '\' ';
         }
 
-        return $dbi->tryQuery($delete_sql);
+        return (bool) $dbi->tryQuery($delete_sql);
     }
 }

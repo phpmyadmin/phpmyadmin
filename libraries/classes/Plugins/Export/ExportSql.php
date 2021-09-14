@@ -601,10 +601,8 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db      Database
      * @param array  $aliases Aliases of db/table/columns
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportRoutines($db, array $aliases = [])
+    public function exportRoutines($db, array $aliases = []): bool
     {
         global $crlf, $dbi;
 
@@ -706,10 +704,8 @@ class ExportSql extends ExportPlugin
 
     /**
      * Outputs export footer
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportFooter()
+    public function exportFooter(): bool
     {
         global $crlf, $dbi;
 
@@ -746,10 +742,8 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs export header. It is the first method to be called, so all
      * the required variables are initialized here.
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportHeader()
+    public function exportHeader(): bool
     {
         global $crlf, $cfg, $dbi;
 
@@ -861,10 +855,8 @@ class ExportSql extends ExportPlugin
      * @param string $db         Database name
      * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = ''): bool
     {
         global $crlf, $dbi;
 
@@ -930,10 +922,8 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db     db to use
      * @param string $compat sql compatibility
-     *
-     * @return bool Whether it succeeded
      */
-    private function exportUseStatement($db, $compat)
+    private function exportUseStatement($db, $compat): bool
     {
         global $crlf;
 
@@ -962,10 +952,8 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db      Database name
      * @param string $dbAlias Alias of db
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $dbAlias = '')
+    public function exportDBHeader($db, $dbAlias = ''): bool
     {
         if (empty($dbAlias)) {
             $dbAlias = $db;
@@ -995,10 +983,8 @@ class ExportSql extends ExportPlugin
      * Outputs database footer
      *
      * @param string $db Database name
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportDBFooter($db)
+    public function exportDBFooter($db): bool
     {
         global $crlf;
 
@@ -1029,10 +1015,8 @@ class ExportSql extends ExportPlugin
      * Exports events
      *
      * @param string $db Database
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportEvents($db)
+    public function exportEvents($db): bool
     {
         global $crlf, $dbi;
 
@@ -1080,14 +1064,12 @@ class ExportSql extends ExportPlugin
      * @param string       $db            database being exported
      * @param string|array $tables        table(s) being exported
      * @param array        $metadataTypes types of metadata to export
-     *
-     * @return bool Whether it succeeded
      */
     public function exportMetadata(
         $db,
         $tables,
         array $metadataTypes
-    ) {
+    ): bool {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! isset($cfgRelation['db'])) {
             return true;
@@ -1134,14 +1116,12 @@ class ExportSql extends ExportPlugin
      * @param string      $db            database being exported
      * @param string|null $table         table being exported
      * @param array       $metadataTypes types of metadata to export
-     *
-     * @return bool Whether it succeeded
      */
     private function exportConfigurationMetadata(
         $db,
         $table,
         array $metadataTypes
-    ) {
+    ): bool {
         global $dbi;
 
         $cfgRelation = $this->relation->getRelationsParam();
@@ -2139,8 +2119,6 @@ class ExportSql extends ExportPlugin
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery the rawquery to output
      * @param string $crlf     the seperator for a file
-     *
-     * @return bool if succeeded
      */
     public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
@@ -2167,8 +2145,6 @@ class ExportSql extends ExportPlugin
      * @param bool   $mime       whether to include mime comments
      * @param bool   $dates      whether to include creation/update/check dates
      * @param array  $aliases    Aliases of db/table/columns
-     *
-     * @return bool Whether it succeeded
      */
     public function exportStructure(
         $db,
@@ -2182,7 +2158,7 @@ class ExportSql extends ExportPlugin
         $mime = false,
         $dates = false,
         array $aliases = []
-    ) {
+    ): bool {
         global $dbi;
 
         $dbAlias = $db;
@@ -2355,8 +2331,6 @@ class ExportSql extends ExportPlugin
      * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
-     *
-     * @return bool Whether it succeeded
      */
     public function exportData(
         $db,
@@ -2365,7 +2339,7 @@ class ExportSql extends ExportPlugin
         $errorUrl,
         $sqlQuery,
         array $aliases = []
-    ) {
+    ): bool {
         global $current_row, $sql_backquotes, $dbi;
 
         // Do not export data for merge tables

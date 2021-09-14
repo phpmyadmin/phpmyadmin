@@ -706,10 +706,8 @@ class StructureController extends AbstractController
      *
      * @param array  $db       DB to look into
      * @param string $truename Table name
-     *
-     * @return bool
      */
-    protected function hasTable(array $db, $truename)
+    protected function hasTable(array $db, $truename): bool
     {
         foreach ($db as $dbTable) {
             if (

@@ -106,11 +106,9 @@ class Theme
     /**
      * Loads theme information
      *
-     * @return bool whether loading them info was successful or not
-     *
      * @access public
      */
-    public function loadInfo()
+    public function loadInfo(): bool
     {
         $infofile = $this->getFsPath() . 'theme.json';
         if (! @file_exists($infofile)) {
@@ -183,11 +181,9 @@ class Theme
     /**
      * checks image path for existence - if not found use img from fallback theme
      *
-     * @return bool
-     *
      * @access public
      */
-    public function checkImgPath()
+    public function checkImgPath(): bool
     {
         // try current theme first
         if (is_dir($this->getFsPath() . 'img' . DIRECTORY_SEPARATOR)) {
@@ -295,11 +291,9 @@ class Theme
      *
      * @param string $version version to compare to
      *
-     * @return bool true if theme version is equal or higher to $version
-     *
      * @access public
      */
-    public function checkVersion($version)
+    public function checkVersion($version): bool
     {
         return version_compare($this->getVersion(), $version, 'lt');
     }

@@ -442,10 +442,8 @@ class ResponseRenderer
 
     /**
      * Wrapper around PHP's headers_sent() function.
-     *
-     * @return bool
      */
-    public function headersSent()
+    public function headersSent(): bool
     {
         return headers_sent();
     }
@@ -501,7 +499,7 @@ class ResponseRenderer
      *
      * @return bool Whether caller should exit
      */
-    public function loginPage()
+    public function loginPage(): bool
     {
         /* Handle AJAX redirection */
         if ($this->isAjax()) {

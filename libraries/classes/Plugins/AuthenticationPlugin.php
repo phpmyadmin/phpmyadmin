@@ -63,24 +63,18 @@ abstract class AuthenticationPlugin
 
     /**
      * Displays authentication form
-     *
-     * @return bool
      */
-    abstract public function showLoginForm();
+    abstract public function showLoginForm(): bool;
 
     /**
      * Gets authentication credentials
-     *
-     * @return bool
      */
-    abstract public function readCredentials();
+    abstract public function readCredentials(): bool;
 
     /**
      * Set the user and password after last checkings if required
-     *
-     * @return bool
      */
-    public function storeCredentials()
+    public function storeCredentials(): bool
     {
         global $cfg;
 
@@ -94,10 +88,8 @@ abstract class AuthenticationPlugin
 
     /**
      * Stores user credentials after successful login.
-     *
-     * @return void
      */
-    public function rememberCredentials()
+    public function rememberCredentials(): void
     {
     }
 

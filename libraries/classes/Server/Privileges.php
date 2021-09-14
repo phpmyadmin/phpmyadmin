@@ -3657,10 +3657,8 @@ class Privileges
     /**
      * Check if MariaDB's 'simple_password_check'
      * OR 'cracklib_password_check' is ACTIVE
-     *
-     * @return bool if at least one of the plugins is ACTIVE
      */
-    public function checkIfMariaDBPwdCheckPluginActive()
+    public function checkIfMariaDBPwdCheckPluginActive(): bool
     {
         $serverVersion = $this->dbi->getVersion();
         if (! (Compatibility::isMariaDb() && $serverVersion >= 100002)) {

@@ -557,10 +557,8 @@ class ServerConfigChecks
      * Wrapper around function_exists to allow mock in test
      *
      * @param string $name Function name
-     *
-     * @return bool
      */
-    protected function functionExists($name)
+    protected function functionExists($name): bool
     {
         return function_exists($name);
     }

@@ -245,8 +245,6 @@ interface DbalInterface
      * @param string $var   variable name
      * @param string $value value to set
      * @param mixed  $link  mysql link resource|object
-     *
-     * @return bool whether query was a successful
      */
     public function setVariable(string $var, string $value, $link = DatabaseInterface::CONNECT_USER): bool;
 
@@ -476,8 +474,6 @@ interface DbalInterface
 
     /**
      * Checks if current user is superuser
-     *
-     * @return bool Whether user is a superuser
      */
     public function isSuperUser(): bool;
 
@@ -547,8 +543,6 @@ interface DbalInterface
      *
      * @param object $result database result
      * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
      */
     public function dataSeek($result, int $offset): bool;
 
@@ -563,8 +557,6 @@ interface DbalInterface
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function moreResults($link = DatabaseInterface::CONNECT_USER): bool;
 
@@ -572,8 +564,6 @@ interface DbalInterface
      * Prepare next result from multi_query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function nextResult($link = DatabaseInterface::CONNECT_USER): bool;
 

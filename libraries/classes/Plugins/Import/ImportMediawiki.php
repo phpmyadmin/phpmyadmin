@@ -532,10 +532,8 @@ class ImportMediawiki extends ImportPlugin
 
     /**
      * Returns true if the table should be analyzed, false otherwise
-     *
-     * @return bool
      */
-    private function getAnalyze()
+    private function getAnalyze(): bool
     {
         return $this->analyze;
     }
@@ -579,10 +577,8 @@ class ImportMediawiki extends ImportPlugin
      * Manage $inside_structure_comment
      *
      * @param bool $inside_structure_comment Value to test
-     *
-     * @return bool
      */
-    private function mngInsideStructComm($inside_structure_comment)
+    private function mngInsideStructComm($inside_structure_comment): bool
     {
         // End ignoring structure rows
         if ($inside_structure_comment) {

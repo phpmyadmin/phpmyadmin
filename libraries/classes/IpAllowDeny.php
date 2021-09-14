@@ -36,11 +36,9 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return bool whether the IP mask matches
-     *
      * @access public
      */
-    public function ipMaskTest($testRange, $ipToTest)
+    public function ipMaskTest($testRange, $ipToTest): bool
     {
         if (
             mb_strpos($testRange, ':') > -1
@@ -72,11 +70,9 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      *
-     * @return bool whether the IP mask matches
-     *
      * @access public
      */
-    public function ipv4MaskTest($testRange, $ipToTest)
+    public function ipv4MaskTest($testRange, $ipToTest): bool
     {
         $result = true;
         $match = preg_match(
@@ -144,11 +140,9 @@ class IpAllowDeny
      * @param string $test_range string of IP range to match
      * @param string $ip_to_test string of IP to test against range
      *
-     * @return bool whether the IP mask matches
-     *
      * @access public
      */
-    public function ipv6MaskTest($test_range, $ip_to_test)
+    public function ipv6MaskTest($test_range, $ip_to_test): bool
     {
         $result = true;
 
@@ -240,11 +234,9 @@ class IpAllowDeny
      *
      * @see     Core::getIp()
      *
-     * @return bool Whether rule has matched
-     *
      * @access public
      */
-    public function allow()
+    public function allow(): bool
     {
         return $this->allowDeny('allow');
     }
@@ -254,11 +246,9 @@ class IpAllowDeny
      *
      * @see     Core::getIp()
      *
-     * @return bool Whether rule has matched
-     *
      * @access public
      */
-    public function deny()
+    public function deny(): bool
     {
         return $this->allowDeny('deny');
     }
@@ -270,11 +260,9 @@ class IpAllowDeny
      *
      * @param string $type 'allow' | 'deny' type of rule to match
      *
-     * @return bool   Whether rule has matched
-     *
      * @access public
      */
-    private function allowDeny($type)
+    private function allowDeny($type): bool
     {
         global $cfg;
 

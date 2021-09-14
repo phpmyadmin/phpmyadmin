@@ -61,10 +61,8 @@ abstract class SchemaPlugin implements Plugin
      * Exports the schema into the specified format.
      *
      * @param string $db database name
-     *
-     * @return bool Whether it succeeded
      */
-    abstract public function exportSchema($db);
+    abstract public function exportSchema($db): bool;
 
     /**
      * Adds export options common to all plugins.

@@ -205,8 +205,6 @@ class InsertEdit
      * @param array  $whereClauseArray array of where clauses
      * @param string $localQuery       query performed
      * @param array  $result           MySQL result handle
-     *
-     * @return bool
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
@@ -214,7 +212,7 @@ class InsertEdit
         array $whereClauseArray,
         $localQuery,
         array $result
-    ) {
+    ): bool {
         $hasUniqueCondition = false;
 
         // No row returned
@@ -439,10 +437,8 @@ class InsertEdit
       *
       * @param array $column description of column in given table
       * @param array $types  the types to verify
-      *
-      * @return bool whether the column's type if one of the $types
       */
-    public function isColumn(array $column, array $types)
+    public function isColumn(array $column, array $types): bool
     {
         foreach ($types as $oneType) {
             if (mb_stripos($column['Type'], $oneType) === 0) {

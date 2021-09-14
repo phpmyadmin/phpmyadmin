@@ -730,8 +730,6 @@ abstract class TestBase extends TestCase
 
     /**
      * Check if user is logged in to phpmyadmin
-     *
-     * @return bool Where or not user is logged in
      */
     public function isLoggedIn(): bool
     {
@@ -816,8 +814,6 @@ abstract class TestBase extends TestCase
      *
      * @param string $func Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
      * @param string $arg  Selector
-     *
-     * @return bool Whether or not the element is present
      */
     public function isElementPresent(string $func, string $arg): bool
     {

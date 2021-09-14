@@ -1045,8 +1045,6 @@ class DatabaseInterface implements DbalInterface
      * @param string $var   variable name
      * @param string $value value to set
      * @param mixed  $link  mysql link resource|object
-     *
-     * @return bool whether query was a successful
      */
     public function setVariable(
         string $var,
@@ -1062,7 +1060,7 @@ class DatabaseInterface implements DbalInterface
             return true;
         }
 
-        return $this->query('SET ' . $var . ' = ' . $value . ';', $link);
+        return (bool) $this->query('SET ' . $var . ' = ' . $value . ';', $link);
     }
 
     /**
@@ -1791,7 +1789,7 @@ class DatabaseInterface implements DbalInterface
     public function isSuperUser(): bool
     {
         if (SessionCache::has('is_superuser')) {
-            return SessionCache::get('is_superuser');
+            return (bool) SessionCache::get('is_superuser');
         }
 
         if (! $this->isConnected()) {
@@ -1820,7 +1818,7 @@ class DatabaseInterface implements DbalInterface
         global $cfg;
 
         if (SessionCache::has('is_grantuser')) {
-            return SessionCache::get('is_grantuser');
+            return (bool) SessionCache::get('is_grantuser');
         }
 
         if (! $this->isConnected()) {
@@ -1863,7 +1861,7 @@ class DatabaseInterface implements DbalInterface
         global $cfg;
 
         if (SessionCache::has('is_createuser')) {
-            return SessionCache::get('is_createuser');
+            return (bool) SessionCache::get('is_createuser');
         }
 
         if (! $this->isConnected()) {
@@ -2068,8 +2066,6 @@ class DatabaseInterface implements DbalInterface
      *
      * @param object $result database result
      * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
      */
     public function dataSeek($result, int $offset): bool
     {
@@ -2090,8 +2086,6 @@ class DatabaseInterface implements DbalInterface
      * Check if there are any more query results from a multi query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function moreResults($link = self::CONNECT_USER): bool
     {
@@ -2106,8 +2100,6 @@ class DatabaseInterface implements DbalInterface
      * Prepare next result from multi_query
      *
      * @param int $link link type
-     *
-     * @return bool true or false
      */
     public function nextResult($link = self::CONNECT_USER): bool
     {

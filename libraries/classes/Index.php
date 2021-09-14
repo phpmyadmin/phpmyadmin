@@ -227,10 +227,8 @@ class Index
      *
      * @param string $table  table
      * @param string $schema schema
-     *
-     * @return bool whether loading was successful
      */
-    private static function loadIndexes($table, $schema)
+    private static function loadIndexes($table, $schema): bool
     {
         global $dbi;
 
@@ -312,10 +310,8 @@ class Index
      * Returns true if $column indexed in this index
      *
      * @param string $column the column
-     *
-     * @return bool true if $column indexed in this index
      */
-    public function hasColumn($column)
+    public function hasColumn($column): bool
     {
         return isset($this->columns[$column]);
     }

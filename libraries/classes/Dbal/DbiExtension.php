@@ -34,10 +34,8 @@ interface DbiExtension
      *
      * @param string|DatabaseName $databaseName database name to select
      * @param object              $link         connection object
-     *
-     * @return bool
      */
-    public function selectDb($databaseName, $link);
+    public function selectDb($databaseName, $link): bool;
 
     /**
      * runs a query and returns the result
@@ -86,10 +84,8 @@ interface DbiExtension
      *
      * @param object $result database result
      * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
      */
-    public function dataSeek($result, $offset);
+    public function dataSeek($result, $offset): bool;
 
     /**
      * Frees memory associated with the result
@@ -102,19 +98,15 @@ interface DbiExtension
      * Check if there are any more query results from a multi query
      *
      * @param object $link the connection object
-     *
-     * @return bool true or false
      */
-    public function moreResults($link);
+    public function moreResults($link): bool;
 
     /**
      * Prepare next result from multi_query
      *
      * @param object $link the connection object
-     *
-     * @return bool true or false
      */
-    public function nextResult($link);
+    public function nextResult($link): bool;
 
     /**
      * Store the result returned from multi query

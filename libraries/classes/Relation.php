@@ -740,8 +740,6 @@ class Relation
      * Check if the table is accessible
      *
      * @param string $tableDbName The table or table.db
-     *
-     * @return bool The table is accessible
      */
     public function canAccessStorageTable(string $tableDbName): bool
     {
@@ -758,11 +756,9 @@ class Relation
      * Check whether column_info table input transformation
      * upgrade is required and try to upgrade silently
      *
-     * @return bool false if upgrade failed
-     *
      * @access public
      */
-    public function tryUpgradeTransformations()
+    public function tryUpgradeTransformations(): bool
     {
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
@@ -1090,11 +1086,9 @@ class Relation
      * @param string $db      the name of the db
      * @param string $comment the value of the column
      *
-     * @return bool true, if comment-query was made.
-     *
      * @access public
      */
-    public function setDbComment($db, $comment = '')
+    public function setDbComment($db, $comment = ''): bool
     {
         $cfgRelation = $this->getRelationsParam();
 
@@ -1124,7 +1118,7 @@ class Relation
                     AND `column_name` = \'(db_comment)\'';
         }
 
-        return $this->queryAsControlUser($upd_query);
+        return (bool) $this->queryAsControlUser($upd_query);
     }
 
     /**
@@ -2309,10 +2303,8 @@ class Relation
 
     /**
      * Verifies if all the pmadb tables are defined
-     *
-     * @return bool
      */
-    public function arePmadbTablesDefined()
+    public function arePmadbTablesDefined(): bool
     {
         return ! (empty($GLOBALS['cfg']['Server']['bookmarktable'])
             || empty($GLOBALS['cfg']['Server']['relation'])

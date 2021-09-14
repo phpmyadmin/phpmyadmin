@@ -32,10 +32,8 @@ abstract class ListAbstract extends ArrayObject
      * missing at least one item it returns false otherwise true
      *
      * @param mixed[] ...$params params
-     *
-     * @return bool true if all items exists, otherwise false
      */
-    public function exists(...$params)
+    public function exists(...$params): bool
     {
         $this_elements = $this->getArrayCopy();
         foreach ($params as $result) {

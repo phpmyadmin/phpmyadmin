@@ -40,10 +40,8 @@ class Sanitize
      * @param string $url   URL to check
      * @param bool   $http  Whether to allow http links
      * @param bool   $other Whether to allow ftp and mailto links
-     *
-     * @return bool True if string can be used as link
      */
-    public static function checkLink($url, $http = false, $other = false)
+    public static function checkLink($url, $http = false, $other = false): bool
     {
         $url = strtolower($url);
         $valid_starts = [
