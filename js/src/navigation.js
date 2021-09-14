@@ -500,23 +500,8 @@ $(function () {
         $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxRemoveMessage($msg);
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                $('<div></div>')
-                    .attr('id', 'unhideNavItemDialog')
-                    .append(data.message)
-                    .dialog({
-                        width: 400,
-                        minWidth: 200,
-                        modal: true,
-                        buttons: buttonOptions,
-                        title: Messages.strUnhideNavItem,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
+                $('#unhideNavItemModal').modal('show');
+                $('#unhideNavItemModal').find('.modal-body').first().html(data.message);
             } else {
                 Functions.ajaxShowMessage(data.error);
             }

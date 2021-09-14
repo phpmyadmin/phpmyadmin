@@ -620,7 +620,6 @@ final class JavaScriptMessagesController
             /* navigation panel */
             'strShowPanel' => __('Show panel'),
             'strHidePanel' => __('Hide panel'),
-            'strUnhideNavItem' => __('Show hidden navigation tree items.'),
             'linkWithMain' => __('Link with main panel'),
             'unlinkWithMain' => __('Unlink from main panel'),
 
