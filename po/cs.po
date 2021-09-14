@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-09-12 00:10+0000\n"
-"PO-Revision-Date: 2021-09-06 21:35+0000\n"
+"PO-Revision-Date: 2021-09-14 06:37+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8360,14 +8360,12 @@ msgid "No column selected."
 msgstr "Nebyl vybrán žádný sloupec."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d databáze byla úspěšně zrušena."
-msgstr[1] "%1$d databáze byly úspěšně zrušena."
-msgstr[2] "%1$d databází bylo úspěšně zrušeno."
+msgstr[0] "%1$d sloupec byl úspěšně zrušen."
+msgstr[1] "%1$d sloupce byly úspěšně zrušeny."
+msgstr[2] "%1$d sloupců bylo úspěšně zrušeno."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -12153,16 +12151,12 @@ msgid "Caching sha2 authentication"
 msgstr "Přihlašování config"
 
 #: libraries/classes/Server/Plugins.php:85
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Přihlašování přes cookie"
+msgstr "Ověřování založené na socketu Unix"
 
 #: libraries/classes/Server/Plugins.php:90
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Nativní ověřování MySQL"
+msgstr "Staré ověřování MySQL-4.0"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
