@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-09-12 00:10+0000\n"
-"PO-Revision-Date: 2021-09-14 06:37+0000\n"
+"PO-Revision-Date: 2021-09-14 18:33+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -12145,10 +12145,8 @@ msgid "SHA256 password authentication"
 msgstr "Ověřování heslem SHA256"
 
 #: libraries/classes/Server/Plugins.php:80
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Přihlašování config"
+msgstr "Ověřování sha2 s využitím mezipaměti"
 
 #: libraries/classes/Server/Plugins.php:85
 msgid "Unix Socket based authentication"
@@ -12161,7 +12159,7 @@ msgstr "Staré ověřování MySQL-4.0"
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Zamykání účtů není podporováno."
 
 #: libraries/classes/Server/Privileges.php:263
 msgid "No privileges."
@@ -13678,6 +13676,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Šířka sloupce u celočíselných typů se ve vaší verzi MySQL ignoruje, pokud "
+"není definován sloupec TINYINT(1)"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14344,10 +14344,8 @@ msgstr "Zapnuté parametry"
 #: templates/database/designer/main.twig:1119 templates/export_modal.twig:5
 #: templates/export.twig:63 templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Nahrávám…"
+msgstr "Načítání"
 
 #: templates/database/designer/page_save_as.twig:19
 msgid "Save to selected page"
@@ -15195,10 +15193,8 @@ msgstr "Seřadit podle klíče:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Možnosti návratové hodnoty"
+msgstr "Další možnosti"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
@@ -16477,11 +16473,9 @@ msgid "Character sets and collations"
 msgstr "Znakové sady a řazení"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "(výchozí)"
+msgstr "výchozí"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -17001,10 +16995,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Odstranit databáze se stejnými názvy jako jména uživatelů."
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Uložit stránku"
+msgstr "Uložit změny"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -17860,10 +17852,8 @@ msgid "Use this value"
 msgstr "Použít tuto hodnotu"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Název grafu"
+msgstr "Typ grafu"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -18110,10 +18100,8 @@ msgid "Binary"
 msgstr "Binární"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Hodnota pro sloupec „%s“"
+msgstr "Pro tento sloupec použijte hodnotu NULL."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -18192,10 +18180,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Vyprázdnit tabulku (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "Vyprázdnit tabulku (TRUNCATE)"
+msgstr "Vyprázdnit tabulku (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
