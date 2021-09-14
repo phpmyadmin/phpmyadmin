@@ -2000,39 +2000,15 @@ Functions.previewSql = function ($form) {
  * @return {void}
  */
 Functions.confirmPreviewSql = function (sqlData, url, callback) {
-    var $dialogContent = $('<div class="preview_sql"><code class="sql"><pre>'
-        + sqlData
-        + '</pre></code></div>'
-    );
-    var buttonOptions = [
-        {
-            text: Messages.strOK,
-            class: 'submitOK',
-            click: function () {
-                callback(url);
-            }
-        },
-        {
-            text: Messages.strCancel,
-            class: 'submitCancel',
-            click: function () {
-                $(this).dialog('close');
-            }
-        }
-    ];
-    $dialogContent.dialog({
-        minWidth: 550,
-        maxHeight: 400,
-        modal: true,
-        buttons: buttonOptions,
-        title: Messages.strPreviewSQL,
-        close: function () {
-            $(this).remove();
-        },
-        open: function () {
-            // Pretty SQL printing.
-            Functions.highlightSql($(this));
-        }
+    $('#previewSqlConfirmModal').modal('show');
+    $('#previewSqlConfirmModalLabel').first().html(Messages.strPreviewSQL);
+    $('#previewSqlConfirmCode').first().text(sqlData);
+    $('#previewSqlConfirmModal').on('shown.bs.modal', function () {
+        Functions.highlightSql($('#previewSqlConfirmModal'));
+    });
+    $('#previewSQLConfirmOkButton').on('click', function () {
+        callback(url);
+        $('#previewSqlConfirmModal').modal('hide');
     });
 };
 

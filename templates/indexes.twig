@@ -7,6 +7,7 @@
   {% if indexes is not empty %}
     {{ indexes_duplicates|raw }}
 
+    {{ include('modals/preview_sql_confirmation.twig') }}
     <div class="table-responsive jsresponsive">
       <table class="table table-light table-striped table-hover table-sm w-auto align-middle" id="table_index">
         <thead class="table-light">
