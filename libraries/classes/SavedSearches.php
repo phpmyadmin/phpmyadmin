@@ -271,10 +271,8 @@ class SavedSearches
 
     /**
      * Save the search
-     *
-     * @return bool
      */
-    public function save()
+    public function save(): bool
     {
         global $dbi;
 
@@ -375,10 +373,8 @@ class SavedSearches
 
     /**
      * Delete the search
-     *
-     * @return bool
      */
-    public function delete()
+    public function delete(): bool
     {
         global $dbi;
 
@@ -404,10 +400,8 @@ class SavedSearches
 
     /**
      * Load the current search from an id.
-     *
-     * @return bool Success
      */
-    public function load()
+    public function load(): bool
     {
         global $dbi;
 

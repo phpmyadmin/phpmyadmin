@@ -168,10 +168,8 @@ class DbiMysqli implements DbiExtension
      *
      * @param string|DatabaseName $databaseName database name to select
      * @param mysqli              $link         the mysqli object
-     *
-     * @return bool
      */
-    public function selectDb($databaseName, $link)
+    public function selectDb($databaseName, $link): bool
     {
         return $link->select_db((string) $databaseName);
     }
@@ -203,10 +201,8 @@ class DbiMysqli implements DbiExtension
      *
      * @param mysqli $link  mysqli object
      * @param string $query multi query statement to execute
-     *
-     * @return bool
      */
-    public function realMultiQuery($link, $query)
+    public function realMultiQuery($link, $query): bool
     {
         return $link->multi_query($query);
     }
@@ -258,10 +254,8 @@ class DbiMysqli implements DbiExtension
      *
      * @param mysqli_result $result database result
      * @param int           $offset offset to seek
-     *
-     * @return bool true on success, false on failure
      */
-    public function dataSeek($result, $offset)
+    public function dataSeek($result, $offset): bool
     {
         return $result->data_seek($offset);
     }
@@ -284,10 +278,8 @@ class DbiMysqli implements DbiExtension
      * Check if there are any more query results from a multi query
      *
      * @param mysqli $link the mysqli object
-     *
-     * @return bool true or false
      */
-    public function moreResults($link)
+    public function moreResults($link): bool
     {
         return $link->more_results();
     }
@@ -296,10 +288,8 @@ class DbiMysqli implements DbiExtension
      * Prepare next result from multi_query
      *
      * @param mysqli $link the mysqli object
-     *
-     * @return bool true or false
      */
-    public function nextResult($link)
+    public function nextResult($link): bool
     {
         return $link->next_result();
     }

@@ -92,7 +92,7 @@ class Git
             // Define location using cached value
             $git_location = $_SESSION['git_location'];
 
-            return $_SESSION['is_git_revision'];
+            return (bool) $_SESSION['is_git_revision'];
         }
 
         // find out if there is a .git folder

@@ -22,10 +22,8 @@ class Invalid extends TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         return false;
     }

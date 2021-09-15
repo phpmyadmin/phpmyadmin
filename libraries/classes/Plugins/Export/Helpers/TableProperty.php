@@ -212,8 +212,6 @@ class TableProperty
 
     /**
      * Tells whether the key is primary or not
-     *
-     * @return bool true if the key is primary, false otherwise
      */
     public function isPK(): bool
     {

@@ -116,10 +116,8 @@ class DbiDummy implements DbiExtension
      *
      * @param string|DatabaseName $databaseName name of db to select
      * @param object              $link         mysql link resource
-     *
-     * @return bool
      */
-    public function selectDb($databaseName, $link)
+    public function selectDb($databaseName, $link): bool
     {
         $databaseName = $databaseName instanceof DatabaseName
                         ? $databaseName->getName() : $databaseName;
@@ -326,10 +324,8 @@ class DbiDummy implements DbiExtension
      *
      * @param object $result database result
      * @param int    $offset offset to seek
-     *
-     * @return bool true on success, false on failure
      */
-    public function dataSeek($result, $offset)
+    public function dataSeek($result, $offset): bool
     {
         $query_data = &$this->getQueryData($result);
         if ($offset > count($query_data['result'])) {
@@ -354,10 +350,8 @@ class DbiDummy implements DbiExtension
      * Check if there are any more query results from a multi query
      *
      * @param object $link the connection object
-     *
-     * @return bool false
      */
-    public function moreResults($link)
+    public function moreResults($link): bool
     {
         return false;
     }
@@ -366,10 +360,8 @@ class DbiDummy implements DbiExtension
      * Prepare next result from multi_query
      *
      * @param object $link the connection object
-     *
-     * @return bool false
      */
-    public function nextResult($link)
+    public function nextResult($link): bool
     {
         return false;
     }

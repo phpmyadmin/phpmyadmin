@@ -70,10 +70,8 @@ class Key extends TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         $this->provided = false;
         if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
@@ -164,10 +162,8 @@ class Key extends TwoFactorPlugin
 
     /**
      * Performs backend configuration
-     *
-     * @return bool
      */
-    public function configure()
+    public function configure(): bool
     {
         $this->provided = false;
         if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {

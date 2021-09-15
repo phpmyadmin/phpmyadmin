@@ -425,12 +425,10 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @return bool whether a set of points represents an outer ring
-     *
      * @access public
      * @static
      */
-    public static function isOuterRing(array $ring)
+    public static function isOuterRing(array $ring): bool
     {
         // If area is negative then it's in clockwise orientation,
         // i.e. it's an outer ring
@@ -443,12 +441,10 @@ class GisPolygon extends GisGeometry
      * @param array $point   x, y coordinates of the point
      * @param array $polygon array of points forming the ring
      *
-     * @return bool whether a given point is inside a given polygon
-     *
      * @access public
      * @static
      */
-    public static function isPointInsidePolygon(array $point, array $polygon)
+    public static function isPointInsidePolygon(array $point, array $polygon): bool
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;

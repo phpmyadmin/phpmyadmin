@@ -293,8 +293,6 @@ class Core
      * @param string $page      page to check
      * @param array  $allowList allow list to check page against
      * @param bool   $include   whether the page is going to be included
-     *
-     * @return bool whether $page is valid or not (in $allowList or not)
      */
     public static function checkPageValidity(&$page, array $allowList = [], $include = false): bool
     {
@@ -661,9 +659,6 @@ class Core
      * Use only for URLs of external sites.
      *
      * @param string $url URL of external site.
-     *
-     * @return bool True: if domain of $url is allowed domain,
-     * False: otherwise.
      */
     public static function isAllowedDomain(string $url): bool
     {
@@ -763,8 +758,6 @@ class Core
      * recursively check if variable is empty
      *
      * @param mixed $value the variable
-     *
-     * @return bool true if empty
      */
     public static function emptyRecursive($value): bool
     {
@@ -997,10 +990,8 @@ class Core
      *
      * @param string $sqlQuery  The sql query
      * @param string $signature The Signature to check
-     *
-     * @return bool
      */
-    public static function checkSqlQuerySignature($sqlQuery, $signature)
+    public static function checkSqlQuerySignature($sqlQuery, $signature): bool
     {
         global $cfg;
 

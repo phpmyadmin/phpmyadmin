@@ -140,8 +140,6 @@ class ThemeManager
      *
      * @param string|null $theme theme name
      *
-     * @return bool true on success
-     *
      * @access public
      */
     public function setActiveTheme(?string $theme): bool

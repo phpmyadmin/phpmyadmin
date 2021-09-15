@@ -40,10 +40,8 @@ final class Options
      * Outputs appropriate checked statement for checkbox.
      *
      * @param string $str option name
-     *
-     * @return bool
      */
-    private function checkboxCheck($str)
+    private function checkboxCheck($str): bool
     {
         return isset($GLOBALS['cfg']['Export'][$str])
             && $GLOBALS['cfg']['Export'][$str];

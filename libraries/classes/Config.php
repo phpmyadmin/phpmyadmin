@@ -384,8 +384,6 @@ class Config
 
     /**
      * loads default values from default source
-     *
-     * @return bool success
      */
     public function loadDefaults(): bool
     {
@@ -727,8 +725,6 @@ class Config
 
     /**
      * check config source
-     *
-     * @return bool whether source is valid or not
      */
     public function checkConfigSource(): bool
     {
@@ -931,7 +927,7 @@ class Config
     public function isHttps(): bool
     {
         if ($this->get('is_https') !== null) {
-            return $this->get('is_https');
+            return (bool) $this->get('is_https');
         }
 
         $url = $this->get('PmaAbsoluteUri');
@@ -1019,8 +1015,6 @@ class Config
      * removes cookie
      *
      * @param string $cookieName name of cookie to remove
-     *
-     * @return bool result of setcookie()
      */
     public function removeCookie(string $cookieName): bool
     {
@@ -1053,8 +1047,6 @@ class Config
      * @param string $default  default value
      * @param int    $validity validity of cookie in seconds (default is one month)
      * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
-     *
-     * @return bool result of setcookie()
      */
     public function setCookie(
         string $cookie,
@@ -1165,8 +1157,6 @@ class Config
      * isset cookie
      *
      * @param string $cookieName The name of the cookie to check
-     *
-     * @return bool result of issetCookie()
      */
     public function issetCookie(string $cookieName): bool
     {

@@ -176,8 +176,6 @@ class RecentFavoriteTable
     /**
      * Trim recent.favorite table according to the
      * NumRecentTables/NumFavoriteTables configuration.
-     *
-     * @return bool True if trimming occurred
      */
     public function trim(): bool
     {

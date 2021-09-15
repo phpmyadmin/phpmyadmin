@@ -61,10 +61,8 @@ class Partition extends SubPartition
 
     /**
      * Whether there are sub partitions
-     *
-     * @return bool
      */
-    public function hasSubPartitions()
+    public function hasSubPartitions(): bool
     {
         return ! empty($this->subPartitions);
     }
@@ -240,14 +238,12 @@ class Partition extends SubPartition
     /**
      * checks if MySQL server supports partitioning
      *
-     * @return bool
-     *
      * @static
      * @staticvar bool $have_partitioning
      * @staticvar bool $already_checked
      * @access public
      */
-    public static function havePartitioning()
+    public static function havePartitioning(): bool
     {
         global $dbi;
 

@@ -118,10 +118,8 @@ class SchemaPdf extends SchemaPlugin
      * Exports the schema into PDF format.
      *
      * @param string $db database name
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportSchema($db)
+    public function exportSchema($db): bool
     {
         $export = new PdfRelationSchema($db);
         $export->showOutput();

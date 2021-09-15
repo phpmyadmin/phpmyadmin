@@ -139,8 +139,6 @@ class StorageEngine
      * This is public to be used in the StructureComtroller, the first release
      * of this function was looking Mroonga in the engines list but this second
      *  method checks too that mroonga is installed successfully
-     *
-     * @return bool true when the mroonga_command is found
      */
     public static function hasMroongaEngine(): bool
     {
@@ -148,7 +146,7 @@ class StorageEngine
         $cacheKey = 'storage-engine.mroonga.has.mroonga_command';
 
         if (Cache::has($cacheKey)) {
-            return Cache::get($cacheKey, false);
+            return (bool) Cache::get($cacheKey, false);
         }
 
         $supportsMroonga = $dbi->tryQuery('SELECT mroonga_command(\'object_list\');') !== false;
@@ -307,11 +305,9 @@ class StorageEngine
      *
      * @param string $engine name of engine
      *
-     * @return bool whether $engine is valid or not
-     *
      * @static
      */
-    public static function isValid($engine)
+    public static function isValid($engine): bool
     {
         if ($engine === 'PBMS') {
             return true;

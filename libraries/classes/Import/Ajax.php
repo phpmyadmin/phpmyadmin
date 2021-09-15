@@ -70,9 +70,6 @@ final class Ajax
     /**
      * Checks if PhpMyAdmin\Plugins\Import\Upload\UploadProgress bar extension is
      * available.
-     *
-     * @return bool true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
-     * extension is available, false if it is not
      */
     public static function progressCheck(): bool
     {
@@ -81,9 +78,6 @@ final class Ajax
 
     /**
      * Checks if PHP 5.4 session upload-progress feature is available.
-     *
-     * @return bool true if PHP 5.4 session upload-progress is available,
-     * false if it is not
      */
     public static function sessionCheck(): bool
     {

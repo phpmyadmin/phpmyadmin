@@ -59,8 +59,6 @@ final class ForeignKey
 
     /**
      * Handle foreign key check request
-     *
-     * @return bool Default foreign key checks value
      */
     public static function handleDisableCheckInit(): bool
     {

@@ -359,8 +359,6 @@ class Message implements Stringable
      * and optionally makes this message a success message
      *
      * @param bool $set Whether to make this message of SUCCESS type
-     *
-     * @return bool whether this is a success message or not
      */
     public function isSuccess(bool $set = false): bool
     {
@@ -376,8 +374,6 @@ class Message implements Stringable
      * and optionally makes this message a notice message
      *
      * @param bool $set Whether to make this message of NOTICE type
-     *
-     * @return bool whether this is a notice message or not
      */
     public function isNotice(bool $set = false): bool
     {
@@ -393,8 +389,6 @@ class Message implements Stringable
      * and optionally makes this message an error message
      *
      * @param bool $set Whether to make this message of ERROR type
-     *
-     * @return bool Whether this is an error message or not
      */
     public function isError(bool $set = false): bool
     {
@@ -776,8 +770,6 @@ class Message implements Stringable
      * sets and returns whether the message was displayed or not
      *
      * @param bool $isDisplayed whether to set displayed flag
-     *
-     * @return bool Message::$isDisplayed
      */
     public function isDisplayed(bool $isDisplayed = false): bool
     {

@@ -55,13 +55,11 @@ class Application extends TwoFactorPlugin
     /**
      * Checks authentication, returns true on success
      *
-     * @return bool
-     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function check()
+    public function check(): bool
     {
         $this->provided = false;
         if (! isset($_POST['2fa_code'])) {
@@ -70,7 +68,7 @@ class Application extends TwoFactorPlugin
 
         $this->provided = true;
 
-        return $this->google2fa->verifyKey(
+        return (bool) $this->google2fa->verifyKey(
             $this->twofactor->config['settings']['secret'],
             $_POST['2fa_code']
         );
@@ -110,13 +108,11 @@ class Application extends TwoFactorPlugin
     /**
      * Performs backend configuration
      *
-     * @return bool
-     *
      * @throws IncompatibleWithGoogleAuthenticatorException
      * @throws InvalidCharactersException
      * @throws SecretKeyTooShortException
      */
-    public function configure()
+    public function configure(): bool
     {
         if (! isset($_SESSION['2fa_application_key'])) {
             $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();

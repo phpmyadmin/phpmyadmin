@@ -203,11 +203,8 @@ class Table implements Stringable
      *
      * @param array|string $engine Checks the table engine against an
      *                             array of engine strings or a single string, should be uppercase
-     *
-     * @return bool True, if $engine matches the storage engine for the table,
-     * False otherwise.
      */
-    public function isEngine($engine)
+    public function isEngine($engine): bool
     {
         $tableStorageEngine = $this->getStorageEngine();
 
@@ -226,10 +223,8 @@ class Table implements Stringable
 
     /**
      * returns whether the table is actually a view
-     *
-     * @return bool whether the given is a view
      */
-    public function isView()
+    public function isView(): bool
     {
         $db = $this->dbName;
         $table = $this->name;
@@ -265,10 +260,8 @@ class Table implements Stringable
 
     /**
      * Returns whether the table is actually an updatable view
-     *
-     * @return bool whether the given is an updatable view
      */
-    public function isUpdatableView()
+    public function isUpdatableView(): bool
     {
         if (empty($this->dbName) || empty($this->name)) {
             return false;
@@ -290,10 +283,8 @@ class Table implements Stringable
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
      * this is a merge table.
-     *
-     * @return bool true if it is a merge table
      */
-    public function isMerge()
+    public function isMerge(): bool
     {
         return $this->isEngine(['MERGE', 'MRG_MYISAM']);
     }
@@ -702,10 +693,8 @@ class Table implements Stringable
      * $min_records
      *
      * @param int $minRecords Number of records to check for in a table
-     *
-     * @return bool True, if at least $min_records exist, False otherwise.
      */
-    public function checkIfMinRecordsExist($minRecords = 0)
+    public function checkIfMinRecordsExist($minRecords = 0): bool
     {
         $checkQuery = 'SELECT ';
 
@@ -1004,8 +993,6 @@ class Table implements Stringable
      * @param string      $what        what to be moved or copied (data, dataonly)
      * @param bool        $move        whether to move
      * @param string      $mode        mode
-     *
-     * @return bool true if success, false otherwise
      */
     public static function moveCopy(
         $sourceDb,
@@ -1016,7 +1003,7 @@ class Table implements Stringable
         $move,
         $mode,
         bool $addDropIfExists
-    ) {
+    ): bool {
         global $errorUrl, $dbi;
 
         $relation = new Relation($dbi);
@@ -1561,11 +1548,9 @@ class Table implements Stringable
      * @param string $tableName    name to check
      * @param bool   $isBackquoted whether this name is used inside backquotes or not
      *
-     * @return bool whether the string is valid or not
-     *
      * @todo add check for valid chars in filename on current system/os
      */
-    public static function isValidName($tableName, $isBackquoted = false)
+    public static function isValidName($tableName, $isBackquoted = false): bool
     {
         if ($tableName !== rtrim((string) $tableName)) {
             // trailing spaces not allowed even in backquotes
@@ -1597,10 +1582,8 @@ class Table implements Stringable
      *
      * @param string $newName new table name
      * @param string $newDb   new database name
-     *
-     * @return bool success
      */
-    public function rename($newName, $newDb = null)
+    public function rename($newName, $newDb = null): bool
     {
         if ($this->dbi->getLowerCaseNames() === '1') {
             $newName = strtolower($newName);
@@ -2363,10 +2346,8 @@ class Table implements Stringable
      *
      * @param string $displayField display field
      * @param array  $cfgRelation  configuration relation
-     *
-     * @return bool True on update succeed or False on failure
      */
-    public function updateDisplayField($displayField, array $cfgRelation)
+    public function updateDisplayField($displayField, array $cfgRelation): bool
     {
         if ($displayField == '') {
             $updQuery = 'DELETE FROM '
@@ -2403,8 +2384,6 @@ class Table implements Stringable
      * @param array      $destinationColumn    destination columns
      * @param array      $cfgRelation          configuration relation
      * @param array|null $existrel             db, table, column
-     *
-     * @return bool
      */
     public function updateInternalRelations(
         array $multiEditColumnsName,
@@ -2413,7 +2392,7 @@ class Table implements Stringable
         array $destinationColumn,
         array $cfgRelation,
         $existrel
-    ) {
+    ): bool {
         $updated = false;
         foreach ($destinationDb as $masterFieldMd5 => $foreignDb) {
             $updQuery = null;

@@ -34,7 +34,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return bool always true (no return indeed)
      */
-    public function showLoginForm()
+    public function showLoginForm(): bool
     {
         $response = ResponseRenderer::getInstance();
         if ($response->isAjax()) {
@@ -53,10 +53,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * Displays authentication form
-     *
-     * @return bool
      */
-    public function authForm()
+    public function authForm(): bool
     {
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
             if (empty($GLOBALS['cfg']['Server']['verbose'])) {
@@ -107,10 +105,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
     /**
      * Gets authentication credentials
-     *
-     * @return bool whether we get authentication settings or not
      */
-    public function readCredentials()
+    public function readCredentials(): bool
     {
         // Grabs the $PHP_AUTH_USER variable
         if (isset($GLOBALS['PHP_AUTH_USER'])) {

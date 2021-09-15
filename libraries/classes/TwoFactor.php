@@ -203,10 +203,8 @@ class TwoFactor
      * Checks authentication, returns true on success
      *
      * @param bool $skipSession Skip session cache
-     *
-     * @return bool
      */
-    public function check($skipSession = false)
+    public function check($skipSession = false): bool
     {
         if ($skipSession) {
             return $this->backend->check();
@@ -216,7 +214,7 @@ class TwoFactor
             $_SESSION['two_factor_check'] = $this->backend->check();
         }
 
-        return $_SESSION['two_factor_check'];
+        return (bool) $_SESSION['two_factor_check'];
     }
 
     /**
@@ -256,10 +254,8 @@ class TwoFactor
      * if configuration fails.
      *
      * @param string $name Backend name
-     *
-     * @return bool
      */
-    public function configure($name)
+    public function configure($name): bool
     {
         $this->config = ['backend' => $name];
         if ($name === '') {

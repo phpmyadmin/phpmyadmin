@@ -23,10 +23,8 @@ class Simple extends TwoFactorPlugin
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @return bool
      */
-    public function check()
+    public function check(): bool
     {
         return isset($_POST['2fa_confirm']);
     }

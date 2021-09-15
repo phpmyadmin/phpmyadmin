@@ -80,7 +80,7 @@ final class SaveController extends AbstractController
      *
      * @return bool true if error occurred
      */
-    private function updateColumns()
+    private function updateColumns(): bool
     {
         $err_url = Url::getFromRoute('/table/structure', [
             'db' => $this->db,
@@ -348,10 +348,8 @@ final class SaveController extends AbstractController
      * Verifies if some elements of a column have changed
      *
      * @param int $i column index in the request
-     *
-     * @return bool true if we need to generate ALTER TABLE
      */
-    private function columnNeedsAlterTable($i)
+    private function columnNeedsAlterTable($i): bool
     {
         // these two fields are checkboxes so might not be part of the
         // request; therefore we define them to avoid notices below
@@ -393,11 +391,8 @@ final class SaveController extends AbstractController
      *
      * @param array $adjust_privileges assoc array of old col names mapped to new
      *                                 cols
-     *
-     * @return bool boolean whether at least one column privileges
-     * adjusted
      */
-    private function adjustColumnPrivileges(array $adjust_privileges)
+    private function adjustColumnPrivileges(array $adjust_privileges): bool
     {
         $changed = false;
 

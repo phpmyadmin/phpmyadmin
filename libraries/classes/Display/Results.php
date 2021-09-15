@@ -695,11 +695,9 @@ class Results
      *
      * @param array $analyzedSqlResults analyzed sql results
      *
-     * @return bool
-     *
      * @access private
      */
-    private function isSelect(array $analyzedSqlResults)
+    private function isSelect(array $analyzedSqlResults): bool
     {
         return ! ($this->properties['is_count']
                 || $this->properties['is_export']
@@ -1880,8 +1878,6 @@ class Results
      * @param string $sortTable                 the table name
      * @param string $nameToUseInSort           the sorting column name
      *
-     * @return bool the column sorted or not
-     *
      * @access private
      */
     private function isInSorted(
@@ -1889,7 +1885,7 @@ class Results
         array $sortExpressionNoDirection,
         $sortTable,
         $nameToUseInSort
-    ) {
+    ): bool {
         $indexInExpression = 0;
 
         foreach ($sortExpressionNoDirection as $index => $clause) {

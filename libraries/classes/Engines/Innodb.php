@@ -364,10 +364,8 @@ class Innodb extends StorageEngine
      * Verifies if this server supports the innodb_file_per_table feature
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
-     *
-     * @return bool whether this feature is supported or not
      */
-    public function supportsFilePerTable()
+    public function supportsFilePerTable(): bool
     {
         global $dbi;
 

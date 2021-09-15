@@ -121,10 +121,8 @@ class ListDatabase extends ListAbstract
 
     /**
      * checks the only_db configuration
-     *
-     * @return bool false if there is no only_db, otherwise true
      */
-    protected function checkOnlyDatabase()
+    protected function checkOnlyDatabase(): bool
     {
         if (
             is_string($GLOBALS['cfg']['Server']['only_db'])

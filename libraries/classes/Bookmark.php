@@ -115,8 +115,6 @@ class Bookmark
     /**
      * Adds a bookmark
      *
-     * @return bool whether the INSERT succeeds or not
-     *
      * @access public
      */
     public function save(): bool
@@ -134,13 +132,11 @@ class Bookmark
             . "'" . $this->dbi->escapeString($this->query) . "', "
             . "'" . $this->dbi->escapeString($this->label) . "')";
 
-        return $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->query($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
      * Deletes a bookmark
-     *
-     * @return bool true if successful
      *
      * @access public
      */
@@ -155,7 +151,7 @@ class Bookmark
             . '.' . Util::backquote($cfgBookmark['table'])
             . ' WHERE id = ' . $this->id;
 
-        return $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
+        return (bool) $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**

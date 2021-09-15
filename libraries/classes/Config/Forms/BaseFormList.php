@@ -38,10 +38,8 @@ class BaseFormList
 
     /**
      * @param string $name Name
-     *
-     * @return bool
      */
-    public static function isValid($name)
+    public static function isValid($name): bool
     {
         return in_array($name, static::$all);
     }
@@ -86,10 +84,8 @@ class BaseFormList
      * @param bool $allowPartialSave allows for partial form saving
      *                               on failed validation
      * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
-     *
-     * @return bool whether processing was successful
      */
-    public function process($allowPartialSave = true, $checkFormSubmit = true)
+    public function process($allowPartialSave = true, $checkFormSubmit = true): bool
     {
         $ret = true;
         foreach ($this->forms as $form) {
@@ -126,10 +122,8 @@ class BaseFormList
 
     /**
      * Tells whether form validation failed
-     *
-     * @return bool
      */
-    public function hasErrors()
+    public function hasErrors(): bool
     {
         $ret = false;
         foreach ($this->forms as $form) {

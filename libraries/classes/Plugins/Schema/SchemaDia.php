@@ -83,10 +83,8 @@ class SchemaDia extends SchemaPlugin
      * Exports the schema into DIA format.
      *
      * @param string $db database name
-     *
-     * @return bool Whether it succeeded
      */
-    public function exportSchema($db)
+    public function exportSchema($db): bool
     {
         $export = new DiaRelationSchema($db);
         $export->showOutput();

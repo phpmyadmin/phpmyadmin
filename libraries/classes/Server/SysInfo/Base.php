@@ -40,10 +40,8 @@ class Base
 
     /**
      * Checks whether class is supported in this environment
-     *
-     * @return bool true on success
      */
-    public function supported()
+    public function supported(): bool
     {
         return true;
     }

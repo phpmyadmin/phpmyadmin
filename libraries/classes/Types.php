@@ -53,10 +53,8 @@ class Types
      * Check whether operator is unary.
      *
      * @param string $op operator name
-     *
-     * @return bool
      */
-    public function isUnaryOperator($op)
+    public function isUnaryOperator($op): bool
     {
         return in_array($op, $this->getUnaryOperators());
     }

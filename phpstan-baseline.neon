@@ -486,16 +486,6 @@ parameters:
 			path: libraries/classes/IpAllowDeny.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesAcceptLanguage\\(\\) should return bool but returns int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesUserAgent\\(\\) should return bool but returns int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array but returns array\\|false\\.$#"
 			count: 1
 			path: libraries/classes/LanguageManager.php
@@ -824,11 +814,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Transformations\\\\Output\\\\Text_Plain_Binarytoip\\:\\:applyTransformation\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\TwoFactor\\\\Application\\:\\:check\\(\\) should return bool but returns bool\\|int\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactor/Application.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, bool\\|string\\|null\\>\\.$#"
