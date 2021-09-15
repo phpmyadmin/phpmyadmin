@@ -186,16 +186,10 @@ class ImportShpTest extends AbstractTestCase
                 $sql_query
             );
 
-            $this->assertStringContainsString(
-                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
-                $sql_query
-            );
+            $this->assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', $sql_query);
         }
 
-        $this->assertStringContainsString(
-            "GeomFromText('POINT(1294523.1759236",
-            $sql_query
-        );
+        $this->assertStringContainsString("GeomFromText('POINT(1294523.1759236", $sql_query);
 
         //asset that all databases and tables are imported
         $this->assertMessages($import_notice);
@@ -212,26 +206,12 @@ class ImportShpTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `SHP_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `SHP_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `TBL_NAME`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `TBL_NAME`',
-            $import_notice
-        );
+        $this->assertStringContainsString('Go to database: `SHP_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `SHP_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `TBL_NAME`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `TBL_NAME`', $import_notice);
 
         //asset that the import process is finished
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

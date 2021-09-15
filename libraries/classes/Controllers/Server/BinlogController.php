@@ -62,10 +62,7 @@ class BinlogController extends AbstractController
         $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 
         $urlParams = [];
-        if (
-            isset($params['log'])
-            && array_key_exists($params['log'], $this->binaryLogs)
-        ) {
+        if (isset($params['log']) && array_key_exists($params['log'], $this->binaryLogs)) {
             $urlParams['log'] = $params['log'];
         }
 
@@ -75,11 +72,7 @@ class BinlogController extends AbstractController
             $urlParams['is_full_query'] = 1;
         }
 
-        $sqlQuery = $this->getSqlQuery(
-            $params['log'] ?? '',
-            $position,
-            (int) $cfg['MaxRows']
-        );
+        $sqlQuery = $this->getSqlQuery($params['log'] ?? '', $position, (int) $cfg['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = 0;

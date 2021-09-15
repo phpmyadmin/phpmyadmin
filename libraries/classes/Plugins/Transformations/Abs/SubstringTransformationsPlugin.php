@@ -56,11 +56,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         $optionZero = (int) $options[0];
 
         if ($options[1] !== 'all') {
-            $newtext = mb_substr(
-                (string) $buffer,
-                $optionZero,
-                (int) $options[1]
-            );
+            $newtext = mb_substr((string) $buffer, $optionZero, (int) $options[1]);
         } else {
             $newtext = mb_substr((string) $buffer, $optionZero);
         }

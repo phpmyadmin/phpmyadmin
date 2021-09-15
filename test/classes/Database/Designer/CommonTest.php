@@ -124,10 +124,7 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('query')
-            ->willReturnOnConsecutiveCalls(
-                true,
-                true
-            );
+            ->willReturnOnConsecutiveCalls(true, true);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -369,12 +366,7 @@ class CommonTest extends AbstractTestCase
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             false,
@@ -417,12 +409,7 @@ class CommonTest extends AbstractTestCase
             []
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             true,
@@ -486,12 +473,7 @@ class CommonTest extends AbstractTestCase
             []
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             true,
@@ -534,12 +516,7 @@ class CommonTest extends AbstractTestCase
             false// Delete failed
         );
 
-        $result = $this->designerCommon->removeRelation(
-            'db\'1.table\'1',
-            'field\'1',
-            'db\'2.table\'2',
-            'field\'2'
-        );
+        $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
         $this->assertSame([
             false,

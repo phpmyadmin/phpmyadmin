@@ -196,11 +196,11 @@ class IndexColumn
     public function getCompareData()
     {
         return [
-            'Column_name'   => $this->name,
-            'Seq_in_index'  => $this->seqInIndex,
-            'Collation'     => $this->collation,
-            'Sub_part'      => $this->subPart,
-            'Null'          => $this->null,
+            'Column_name' => $this->name,
+            'Seq_in_index' => $this->seqInIndex,
+            'Collation' => $this->collation,
+            'Sub_part' => $this->subPart,
+            'Null' => $this->null,
         ];
     }
 }

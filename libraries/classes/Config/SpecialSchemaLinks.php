@@ -66,10 +66,7 @@ class SpecialSchemaLinks
     {
         global $cfg;
 
-        $defaultPage = './' . Util::getScriptNameForOption(
-            $cfg['DefaultTabTable'],
-            'table'
-        );
+        $defaultPage = './' . Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
 
         return [
             'mysql' => [

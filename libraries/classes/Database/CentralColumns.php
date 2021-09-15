@@ -106,8 +106,8 @@ class CentralColumns
 
         if ($cfgRelation['centralcolumnswork']) {
             $cfgCentralColumns = [
-                'user'  => $this->user,
-                'db'    => $cfgRelation['db'],
+                'user' => $this->user,
+                'db' => $cfgRelation['db'],
                 'table' => $cfgRelation['central_columns'],
             ];
         } else {
@@ -148,12 +148,7 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $has_list = (array) $this->dbi->fetchResult(
-            $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $has_list = (array) $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         $this->handleColumnExtra($has_list);
 
         return $has_list;
@@ -179,12 +174,7 @@ class CentralColumns
         $query = 'SELECT count(db_name) FROM ' .
             Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
-        $res = $this->dbi->fetchResult(
-            $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $res = $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         if (isset($res[0])) {
             return (int) $res[0];
         }
@@ -218,23 +208,13 @@ class CentralColumns
         if ($allFields) {
             $query = 'SELECT * FROM ' . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = (array) $this->dbi->fetchResult(
-                $query,
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            );
+            $has_list = (array) $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
             $this->handleColumnExtra($has_list);
         } else {
             $query = 'SELECT col_name FROM '
                 . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
-            $has_list = (array) $this->dbi->fetchResult(
-                $query,
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            );
+            $has_list = (array) $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         }
 
         return $has_list;
@@ -325,12 +305,7 @@ class CentralColumns
         $message = true;
         if ($isTable) {
             foreach ($field_select as $table) {
-                $fields[$table] = (array) $this->dbi->getColumns(
-                    $db,
-                    $table,
-                    null,
-                    true
-                );
+                $fields[$table] = (array) $this->dbi->getColumns($db, $table, null, true);
                 foreach ($fields[$table] as $field => $def) {
                     $cols .= "'" . $this->dbi->escapeString($field) . "',";
                 }
@@ -341,12 +316,7 @@ class CentralColumns
                 foreach ($fields[$table] as $field => $def) {
                     if (! in_array($field, $has_list)) {
                         $has_list[] = $field;
-                        $insQuery[] = $this->getInsertQuery(
-                            $field,
-                            $def,
-                            $db,
-                            $central_list_table
-                        );
+                        $insQuery[] = $this->getInsertQuery($field, $def, $db, $central_list_table);
                     } else {
                         $existingCols[] = "'" . $field . "'";
                     }
@@ -365,18 +335,8 @@ class CentralColumns
             foreach ($field_select as $column) {
                 if (! in_array($column, $has_list)) {
                     $has_list[] = $column;
-                    $field = (array) $this->dbi->getColumns(
-                        $db,
-                        $table,
-                        $column,
-                        true
-                    );
-                    $insQuery[] = $this->getInsertQuery(
-                        $column,
-                        $field,
-                        $db,
-                        $central_list_table
-                    );
+                    $field = (array) $this->dbi->getColumns($db, $table, $column, true);
+                    $insQuery[] = $this->getInsertQuery($column, $field, $db, $central_list_table);
                 } else {
                     $existingCols[] = "'" . $column . "'";
                 }
@@ -452,10 +412,7 @@ class CentralColumns
         if ($isTable) {
             $cols = '';
             foreach ($field_select as $table) {
-                $fields[$table] = (array) $this->dbi->getColumnNames(
-                    $database,
-                    $table
-                );
+                $fields[$table] = (array) $this->dbi->getColumnNames($database, $table);
                 foreach ($fields[$table] as $col_select) {
                     $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
                 }
@@ -539,11 +496,7 @@ class CentralColumns
             $has_list = $this->getFromTable($db, $table, true);
             $this->dbi->selectDb($db);
             foreach ($has_list as $column) {
-                $column_status = $this->relation->checkChildForeignReferences(
-                    $db,
-                    $table,
-                    $column['col_name']
-                );
+                $column_status = $this->relation->checkChildForeignReferences($db, $table, $column['col_name']);
                 //column definition can only be changed if
                 //it is not referenced by another column
                 if (! $column_status['isEditable']) {
@@ -569,13 +522,9 @@ class CentralColumns
                         $column['col_default'] !== 'CURRENT_TIMESTAMP'
                         && $column['col_default'] !== 'current_timestamp()'
                     ) {
-                        $query .= ' DEFAULT \'' . $this->dbi->escapeString(
-                            (string) $column['col_default']
-                        ) . '\'';
+                        $query .= ' DEFAULT \'' . $this->dbi->escapeString((string) $column['col_default']) . '\'';
                     } else {
-                        $query .= ' DEFAULT ' . $this->dbi->escapeString(
-                            $column['col_default']
-                        );
+                        $query .= ' DEFAULT ' . $this->dbi->escapeString($column['col_default']);
                     }
                 }
 
@@ -621,10 +570,7 @@ class CentralColumns
         }
 
         $this->dbi->selectDb($db);
-        $fields = (array) $this->dbi->getColumnNames(
-            $db,
-            $table
-        );
+        $fields = (array) $this->dbi->getColumnNames($db, $table);
         $cols = '';
         foreach ($fields as $col_select) {
             $cols .= '\'' . $this->dbi->escapeString((string) $col_select) . '\',';
@@ -832,10 +778,7 @@ class CentralColumns
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames(
-                $db,
-                $table
-            );
+            $columns = (array) $this->dbi->getColumnNames($db, $table);
             $cols = '';
             foreach ($columns as $col_select) {
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
@@ -852,12 +795,7 @@ class CentralColumns
         }
 
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        $columns_list = (array) $this->dbi->fetchResult(
-            $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $columns_list = (array) $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
         $this->handleColumnExtra($columns_list);
 
         return $columns_list;
@@ -915,10 +853,7 @@ class CentralColumns
         $list_detail_cols = $this->findExistingColNames($selected_db, $columns_list, true);
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
-            $tableHtmlRow = $this->getHtmlForEditTableRow(
-                $row,
-                $row_num
-            );
+            $tableHtmlRow = $this->getHtmlForEditTableRow($row, $row_num);
             $html .= $tableHtmlRow;
             $row_num++;
         }
@@ -951,12 +886,7 @@ class CentralColumns
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
             ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = (array) $this->dbi->fetchResult(
-            $query,
-            null,
-            null,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $result = (array) $this->dbi->fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL);
 
         if (isset($result[0])) {
             return (int) $result[0];

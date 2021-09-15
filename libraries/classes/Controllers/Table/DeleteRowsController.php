@@ -69,11 +69,7 @@ final class DeleteRowsController extends AbstractController
             }
 
             if (! empty($_REQUEST['pos'])) {
-                $_REQUEST['pos'] = $sql->calculatePosForLastPage(
-                    $db,
-                    $table,
-                    $_REQUEST['pos']
-                );
+                $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
             }
 
             ForeignKey::handleDisableCheckCleanup($default_fk_check_value);

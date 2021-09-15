@@ -143,10 +143,7 @@ class TriggersTest extends TestBase
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'id',
-            'checkAllCheckbox'
-        );
+        $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Edit')->click();
 
@@ -190,16 +187,10 @@ class TriggersTest extends TestBase
         $ele = $this->waitForElement('partialLinkText', 'Triggers');
         $ele->click();
 
-        $this->waitForElement(
-            'id',
-            'checkAllCheckbox'
-        );
+        $this->waitForElement('id', 'checkAllCheckbox');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->waitAjaxMessage();
 

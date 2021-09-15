@@ -237,11 +237,7 @@ class TrackerTest extends AbstractTestCase
                 ['USE `pma_test`'],
                 ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
             )
-            ->willReturnOnConsecutiveCalls(
-                'res',
-                'res',
-                'res'
-            );
+            ->willReturnOnConsecutiveCalls('res', 'res', 'res');
 
         $date = Util::date('Y-m-d H:i:s');
 
@@ -408,23 +404,14 @@ class TrackerTest extends AbstractTestCase
         if ($type === null) {
             $method = new ReflectionMethod(Tracker::class, 'changeTracking');
             $method->setAccessible(true);
-            $result = $method->invoke(
-                null,
-                $dbname,
-                $tablename,
-                $version,
-                $new_state
-            );
+            $result = $method->invoke(null, $dbname, $tablename, $version, $new_state);
         } elseif ($type === 'activate') {
             $result = Tracker::activateTracking($dbname, $tablename, $version);
         } elseif ($type === 'deactivate') {
             $result = Tracker::deactivateTracking($dbname, $tablename, $version);
         }
 
-        $this->assertEquals(
-            'executed',
-            $result
-        );
+        $this->assertEquals('executed', $result);
     }
 
     /**
@@ -446,7 +433,7 @@ class TrackerTest extends AbstractTestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $date  = Util::date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $new_data = [
             [
@@ -577,10 +564,7 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $result = Tracker::getTrackedData("pma'db", "pma'table", '1.0');
 
-        $this->assertEquals(
-            $expectedArray,
-            $result
-        );
+        $this->assertEquals($expectedArray, $result);
     }
 
     /**
@@ -696,36 +680,21 @@ class TrackerTest extends AbstractTestCase
     ): void {
         $result = Tracker::parseQuery($query);
 
-        $this->assertEquals(
-            $type,
-            $result['type']
-        );
+        $this->assertEquals($type, $result['type']);
 
-        $this->assertEquals(
-            $identifier,
-            $result['identifier']
-        );
+        $this->assertEquals($identifier, $result['identifier']);
 
-        $this->assertEquals(
-            $tablename,
-            $result['tablename']
-        );
+        $this->assertEquals($tablename, $result['tablename']);
 
         if ($db) {
-            $this->assertEquals(
-                $db,
-                $GLOBALS['db']
-            );
+            $this->assertEquals($db, $GLOBALS['db']);
         }
 
         if (! $tablename_after_rename) {
             return;
         }
 
-        $this->assertEquals(
-            $result['tablename_after_rename'],
-            $tablename_after_rename
-        );
+        $this->assertEquals($result['tablename_after_rename'], $tablename_after_rename);
     }
 
     /**
@@ -801,49 +770,49 @@ class TrackerTest extends AbstractTestCase
             'CREATE TABLE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'ALTER TABLE db1.t1 ADD c2 TEXT;',
             'DDL',
             'ALTER TABLE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'DROP TABLE db1.t1',
             'DDL',
             'DROP TABLE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'DROP TABLE IF EXISTS db1.t1',
             'DDL',
             'DROP TABLE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'CREATE INDEX ind ON db1.t1 (c2(10));',
             'DDL',
             'CREATE INDEX',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));',
             'DDL',
             'CREATE INDEX',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));',
             'DDL',
             'CREATE INDEX',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'DROP INDEX ind ON db1.t1;',
             'DDL',
             'DROP INDEX',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'RENAME TABLE db1.t1 TO db1.t2',
             'DDL',
             'RENAME TABLE',
@@ -851,25 +820,25 @@ class TrackerTest extends AbstractTestCase
             '',
             't2',
         ];
-        $query[] =  [
+        $query[] = [
             'UPDATE db1.t1 SET a = 2',
             'DML',
             'UPDATE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)',
             'DML',
             'INSERT',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'DELETE FROM db1.t1',
             'DML',
             'DELETE',
             't1',
         ];
-        $query[] =  [
+        $query[] = [
             'TRUNCATE db1.t1',
             'DML',
             'TRUNCATE',

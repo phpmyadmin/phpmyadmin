@@ -48,9 +48,7 @@ class NodeTable extends NodeDatabaseChild
         $this->secondIcon = $this->addIcon(
             Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table')
         );
-        $title = (string) Util::getTitleForTarget(
-            $GLOBALS['cfg']['DefaultTabTable']
-        );
+        $title = (string) Util::getTitleForTarget($GLOBALS['cfg']['DefaultTabTable']);
         $this->title = $title;
 
         $this->links = [
@@ -58,11 +56,11 @@ class NodeTable extends NodeDatabaseChild
                 'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table'),
                 'params' => ['pos' => 0, 'db' => null, 'table' => null],
             ],
-            'icon'  => [
+            'icon' => [
                 'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
-            'second_icon'  => [
+            'second_icon' => [
                 'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
                 'params' => ['db' => null, 'table' => null],
             ],
@@ -204,7 +202,7 @@ class NodeTable extends NodeDatabaseChild
                             'name' => $arr['Field'],
                             'key' => $arr['Key'],
                             'type' => Util::extractColumnSpec($arr['Type'])['type'],
-                            'default' =>  $arr['Default'],
+                            'default' => $arr['Default'],
                             'nullable' => ($arr['Null'] === 'NO' ? '' : 'nullable'),
                         ];
                         $count++;

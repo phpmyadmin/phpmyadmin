@@ -52,23 +52,23 @@ use const ENT_COMPAT;
 class Message implements Stringable
 {
     public const SUCCESS = 1; // 0001
-    public const NOTICE  = 2; // 0010
-    public const ERROR   = 8; // 1000
+    public const NOTICE = 2; // 0010
+    public const ERROR = 8; // 1000
 
-    public const SANITIZE_NONE   = 0;  // 0000 0000
+    public const SANITIZE_NONE = 0; // 0000 0000
     public const SANITIZE_STRING = 16; // 0001 0000
     public const SANITIZE_PARAMS = 32; // 0010 0000
-    public const SANITIZE_BOOTH  = 48; // 0011 0000
+    public const SANITIZE_BOOTH = 48; // 0011 0000
 
     /**
      * message levels
      *
      * @var array
      */
-    public static $level =  [
+    public static $level = [
         self::SUCCESS => 'success',
-        self::NOTICE  => 'notice',
-        self::ERROR   => 'error',
+        self::NOTICE => 'notice',
+        self::ERROR => 'error',
     ];
 
     /**

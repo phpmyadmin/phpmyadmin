@@ -508,9 +508,6 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
-        $this->assertEquals(
-            $expected,
-            $sqlQuery
-        );
+        $this->assertEquals($expected, $sqlQuery);
     }
 }

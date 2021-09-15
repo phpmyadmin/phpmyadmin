@@ -72,10 +72,7 @@ class ExportXmlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'XML',
@@ -94,10 +91,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -108,10 +102,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -122,17 +113,11 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'structure',
@@ -143,45 +128,27 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'data',
@@ -192,10 +159,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
     /**
@@ -234,11 +198,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
-                $result,
-                $result,
-                false
-            );
+            ->willReturnOnConsecutiveCalls($result, $result, false);
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -263,10 +223,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('getDefinition')
-            ->willReturnOnConsecutiveCalls(
-                'fndef',
-                'prdef'
-            );
+            ->willReturnOnConsecutiveCalls('fndef', 'prdef');
 
         $dbi->expects($this->once())
             ->method('getTable')
@@ -350,13 +307,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls(
-                $result_1,
-                $result_2,
-                true,
-                $result_3,
-                false
-            );
+            ->willReturnOnConsecutiveCalls($result_1, $result_2, true, $result_3, false);
 
         $dbi->expects($this->any())
             ->method('getTable')
@@ -389,9 +340,7 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $this->expectOutputString(
-            '&lt;/pma_xml_export&gt;'
-        );
+        $this->expectOutputString('&lt;/pma_xml_export&gt;');
         $this->assertTrue(
             $this->object->exportFooter()
         );
@@ -409,10 +358,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;database name=&quot;&amp;amp;db&quot;&gt;',
-            $result
-        );
+        $this->assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
@@ -433,10 +379,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;/database&gt;',
-            $result
-        );
+        $this->assertStringContainsString('&lt;/database&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 

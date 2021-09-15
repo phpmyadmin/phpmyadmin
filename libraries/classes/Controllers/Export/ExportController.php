@@ -291,10 +291,7 @@ final class ExportController extends AbstractController
                 $buffer_needed = true;
             }
 
-            if (
-                ($quick_export && ! empty($quickExportOnServer))
-                || (! $quick_export && ! empty($onServerParam))
-            ) {
+            if (($quick_export && ! empty($quickExportOnServer)) || (! $quick_export && ! empty($onServerParam))) {
                 if ($quick_export) {
                     $onserver = $quickExportOnServer;
                 } else {
@@ -350,10 +347,7 @@ final class ExportController extends AbstractController
         // preference over SQL Query aliases.
         $parser = new Parser($sql_query);
         $aliases = [];
-        if (
-            ! empty($parser->statements[0])
-            && ($parser->statements[0] instanceof SelectStatement)
-        ) {
+        if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
             $aliases = Misc::getAliases($parser->statements[0], $db);
         }
 
@@ -422,19 +416,12 @@ final class ExportController extends AbstractController
 
         // For raw query export, filename will be export.extension
         if ($export_type === 'raw') {
-            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
-                $export_plugin,
-                $compression,
-                'export'
-            );
+            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename($export_plugin, $compression, 'export');
         }
 
         // Open file on server if needed
         if ($save_on_server) {
-            [$save_filename, $message, $file_handle] = $this->export->openFile(
-                $filename,
-                $quick_export
-            );
+            [$save_filename, $message, $file_handle] = $this->export->openFile($filename, $quick_export);
 
             // problem opening export file on server?
             if (! empty($message)) {
@@ -495,7 +482,7 @@ final class ExportController extends AbstractController
             $do_relation = isset($GLOBALS[$what . '_relation']);
             $do_comments = isset($GLOBALS[$what . '_include_comments'])
                 || isset($GLOBALS[$what . '_comments']);
-            $do_mime     = isset($GLOBALS[$what . '_mime']);
+            $do_mime = isset($GLOBALS[$what . '_mime']);
             if ($do_relation || $do_comments || $do_mime) {
                 $this->relation->getRelationsParam();
             }
@@ -588,14 +575,7 @@ final class ExportController extends AbstractController
                     );
                 }
             } elseif ($export_type === 'raw') {
-                Export::exportRaw(
-                    $whatStrucOrData,
-                    $export_plugin,
-                    $crlf,
-                    $errorUrl,
-                    $sql_query,
-                    $export_type
-                );
+                Export::exportRaw($whatStrucOrData, $export_plugin, $crlf, $errorUrl, $sql_query, $export_type);
             } else {
                 // We export just one table
                 // $allrows comes from the form when "Dump all rows" has been selected
@@ -703,11 +683,7 @@ final class ExportController extends AbstractController
 
         /* If we saved on server, we have to close file now */
         if ($save_on_server) {
-            $message = $this->export->closeFile(
-                $file_handle,
-                $this->export->dumpBuffer,
-                $save_filename
-            );
+            $message = $this->export->closeFile($file_handle, $this->export->dumpBuffer, $save_filename);
             $this->export->showPage($export_type);
 
             return;

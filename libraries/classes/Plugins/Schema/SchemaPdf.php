@@ -45,9 +45,7 @@ class SchemaPdf extends SchemaPlugin
         // create the root group that will be the options field for
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // specific options main group
         $specificOptions = new OptionsPropertyMainGroup('general_opts');
@@ -98,8 +96,8 @@ class SchemaPdf extends SchemaPlugin
         );
         $leaf->setValues(
             [
-                ''          => __('None'),
-                'name_asc'  => __('Name (Ascending)'),
+                '' => __('None'),
+                'name_asc' => __('Name (Ascending)'),
                 'name_desc' => __('Name (Descending)'),
             ]
         );

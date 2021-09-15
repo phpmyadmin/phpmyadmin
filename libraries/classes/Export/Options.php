@@ -78,12 +78,7 @@ final class Options
                     $isSelected = true;
                 }
             } elseif (! empty($tmpSelect)) {
-                if (
-                    mb_strpos(
-                        ' ' . $tmpSelect,
-                        '|' . $currentDb . '|'
-                    )
-                ) {
+                if (mb_strpos(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                     $isSelected = true;
                 }
             } else {
@@ -229,22 +224,13 @@ final class Options
         }
 
         if ($exportType === 'database') {
-            return (string) $config->getUserValue(
-                'pma_db_filename_template',
-                $cfg['Export']['file_template_database']
-            );
+            return (string) $config->getUserValue('pma_db_filename_template', $cfg['Export']['file_template_database']);
         }
 
         if ($exportType === 'table') {
-            return (string) $config->getUserValue(
-                'pma_table_filename_template',
-                $cfg['Export']['file_template_table']
-            );
+            return (string) $config->getUserValue('pma_table_filename_template', $cfg['Export']['file_template_table']);
         }
 
-        return (string) $config->getUserValue(
-            'pma_server_filename_template',
-            $cfg['Export']['file_template_server']
-        );
+        return (string) $config->getUserValue('pma_server_filename_template', $cfg['Export']['file_template_server']);
     }
 }

@@ -96,12 +96,7 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $this->data->dataLoaded = true;
 
-        $controller = new AdvisorController(
-            $this->response,
-            $this->template,
-            $this->data,
-            $advisor
-        );
+        $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 
         $controller();
 

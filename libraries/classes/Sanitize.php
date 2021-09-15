@@ -184,19 +184,19 @@ class Sanitize
 
         /* Interpret bb code */
         $replace_pairs = [
-            '[em]'      => '<em>',
-            '[/em]'     => '</em>',
-            '[strong]'  => '<strong>',
+            '[em]' => '<em>',
+            '[/em]' => '</em>',
+            '[strong]' => '<strong>',
             '[/strong]' => '</strong>',
-            '[code]'    => '<code>',
-            '[/code]'   => '</code>',
-            '[kbd]'     => '<kbd>',
-            '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br>',
-            '[/a]'      => '</a>',
-            '[/doc]'      => '</a>',
-            '[sup]'     => '<sup>',
-            '[/sup]'    => '</sup>',
+            '[code]' => '<code>',
+            '[/code]' => '</code>',
+            '[kbd]' => '<kbd>',
+            '[/kbd]' => '</kbd>',
+            '[br]' => '<br>',
+            '[/a]' => '</a>',
+            '[/doc]' => '</a>',
+            '[sup]' => '<sup>',
+            '[/sup]' => '</sup>',
             '[conferr]' => '<iframe src="show_config_errors.php"><a href='
                 . '"show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php

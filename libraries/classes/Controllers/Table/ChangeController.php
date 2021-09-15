@@ -72,11 +72,7 @@ class ChangeController extends AbstractController
             $rows,
             $found_unique_key,
             $after_insert,
-        ] = $this->insertEdit->determineInsertOrEdit(
-            $where_clause ?? null,
-            $db,
-            $table
-        );
+        ] = $this->insertEdit->determineInsertOrEdit($where_clause ?? null, $db, $table);
         // Increase number of rows if unsaved rows are more
         if (! empty($unsaved_values) && count($rows) < count($unsaved_values)) {
             $rows = array_fill(0, count($unsaved_values), false);
@@ -153,40 +149,27 @@ class ChangeController extends AbstractController
          */
         // autocomplete feature of IE kills the "onchange" event handler and it
         //        must be replaced by the "onpropertychange" one in this case
-        $chg_evt_handler =  'onchange';
+        $chg_evt_handler = 'onchange';
         // Had to put the URI because when hosted on an https server,
         // some browsers send wrongly this form to the http server.
 
         $html_output = '';
         // Set if we passed the first timestamp field
         $timestamp_seen = false;
-        $columns_cnt     = count($table_columns);
+        $columns_cnt = count($table_columns);
 
-        $tabindex              = 0;
-        $tabindex_for_value    = 0;
-        $o_rows                = 0;
+        $tabindex = 0;
+        $tabindex_for_value = 0;
+        $o_rows = 0;
         $biggest_max_file_size = 0;
 
         $urlParams['db'] = $db;
         $urlParams['table'] = $table;
-        $urlParams = $this->insertEdit->urlParamsInEditMode(
-            $urlParams,
-            $where_clause_array
-        );
+        $urlParams = $this->insertEdit->urlParamsInEditMode($urlParams, $where_clause_array);
 
         $has_blob_field = false;
         foreach ($table_columns as $column) {
-            if (
-                $this->insertEdit->isColumn(
-                    $column,
-                    [
-                        'blob',
-                        'tinyblob',
-                        'mediumblob',
-                        'longblob',
-                    ]
-                )
-            ) {
+            if ($this->insertEdit->isColumn($column, ['blob', 'tinyblob', 'mediumblob', 'longblob'])) {
                 $has_blob_field = true;
                 break;
             }
@@ -290,12 +273,7 @@ class ChangeController extends AbstractController
 
         if ($insert_mode) {
             //Continue insertion form
-            $html_output .= $this->insertEdit->getContinueInsertionForm(
-                $table,
-                $db,
-                $where_clause_array,
-                $errorUrl
-            );
+            $html_output .= $this->insertEdit->getContinueInsertionForm($table, $db, $where_clause_array, $errorUrl);
         }
 
         $this->response->addHTML($html_output);

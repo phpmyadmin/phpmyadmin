@@ -125,9 +125,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
         $properties = $this->object->getProperties();
-        $this->assertTrue(
-            $GLOBALS['cfg']['Import']['ldi_local_option']
-        );
+        $this->assertTrue($GLOBALS['cfg']['Import']['ldi_local_option']);
         $this->assertEquals(
             __('CSV using LOAD DATA'),
             $properties->getText()
@@ -171,9 +169,7 @@ class ImportLdiTest extends AbstractTestCase
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 
     /**
@@ -195,9 +191,7 @@ class ImportLdiTest extends AbstractTestCase
             $GLOBALS['message']->__toString()
         );
 
-        $this->assertTrue(
-            $GLOBALS['error']
-        );
+        $this->assertTrue($GLOBALS['error']);
     }
 
     /**
@@ -246,25 +240,14 @@ class ImportLdiTest extends AbstractTestCase
         );
 
         //FIELDS TERMINATED
-        $this->assertStringContainsString(
-            "FIELDS TERMINATED BY ','",
-            $sql_query
-        );
+        $this->assertStringContainsString("FIELDS TERMINATED BY ','", $sql_query);
 
         //LINES TERMINATED
-        $this->assertStringContainsString(
-            "LINES TERMINATED BY 'newline_mark'",
-            $sql_query
-        );
+        $this->assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $sql_query);
 
         //IGNORE
-        $this->assertStringContainsString(
-            'IGNORE 1 LINES',
-            $sql_query
-        );
+        $this->assertStringContainsString('IGNORE 1 LINES', $sql_query);
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

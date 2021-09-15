@@ -65,12 +65,7 @@ class NormalizationController extends AbstractController
                 'Field' => $table . '_id',
                 'Extra' => 'auto_increment',
             ];
-            $html = $this->normalization->getHtmlForCreateNewColumn(
-                $num_fields,
-                $db,
-                $table,
-                $columnMeta
-            );
+            $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $db, $table, $columnMeta);
             $html .= Url::getHiddenInputs($db, $table);
             echo $html;
 

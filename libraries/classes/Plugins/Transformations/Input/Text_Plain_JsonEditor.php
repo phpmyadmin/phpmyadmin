@@ -23,9 +23,7 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Syntax highlighted CodeMirror editor for JSON.'
-        );
+        return __('Syntax highlighted CodeMirror editor for JSON.');
     }
 
     /**

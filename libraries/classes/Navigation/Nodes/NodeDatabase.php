@@ -117,17 +117,13 @@ class NodeDatabase extends Node
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $db     = $dbi->escapeString($db);
-            $query  = 'SELECT COUNT(*) ';
+            $db = $dbi->escapeString($db);
+            $query = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $db . "' ";
             $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'TABLE_NAME'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'TABLE_NAME');
             }
 
             $retval = (int) $dbi->fetchValue($query);
@@ -136,11 +132,7 @@ class NodeDatabase extends Node
             $query .= Util::backquote($db);
             $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'Tables_in_' . $db
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Tables_in_' . $db);
             }
 
             $retval = $dbi->numRows(
@@ -163,11 +155,7 @@ class NodeDatabase extends Node
      */
     private function getTableCount($searchClause, $singleItem)
     {
-        return $this->getTableOrViewCount(
-            'tables',
-            $searchClause,
-            $singleItem
-        );
+        return $this->getTableOrViewCount('tables', $searchClause, $singleItem);
     }
 
     /**
@@ -182,11 +170,7 @@ class NodeDatabase extends Node
      */
     private function getViewCount($searchClause, $singleItem)
     {
-        return $this->getTableOrViewCount(
-            'views',
-            $searchClause,
-            $singleItem
-        );
+        return $this->getTableOrViewCount('views', $searchClause, $singleItem);
     }
 
     /**
@@ -212,11 +196,7 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . "='" . $db . "'";
             $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'ROUTINE_NAME'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'ROUTINE_NAME');
             }
 
             $retval = (int) $dbi->fetchValue($query);
@@ -224,11 +204,7 @@ class NodeDatabase extends Node
             $db = $dbi->escapeString($db);
             $query = "SHOW PROCEDURE STATUS WHERE `Db`='" . $db . "' ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'Name'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
             $retval = $dbi->numRows(
@@ -262,11 +238,7 @@ class NodeDatabase extends Node
                 . Util::getCollateForIS() . "='" . $db . "' ";
             $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'ROUTINE_NAME'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'ROUTINE_NAME');
             }
 
             $retval = (int) $dbi->fetchValue($query);
@@ -274,11 +246,7 @@ class NodeDatabase extends Node
             $db = $dbi->escapeString($db);
             $query = "SHOW FUNCTION STATUS WHERE `Db`='" . $db . "' ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'Name'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
             $retval = $dbi->numRows(
@@ -311,11 +279,7 @@ class NodeDatabase extends Node
             $query .= 'WHERE `EVENT_SCHEMA` '
                 . Util::getCollateForIS() . "='" . $db . "' ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'EVENT_NAME'
-                );
+                $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'EVENT_NAME');
             }
 
             $retval = (int) $dbi->fetchValue($query);
@@ -323,11 +287,7 @@ class NodeDatabase extends Node
             $db = Util::backquote($db);
             $query = 'SHOW EVENTS FROM ' . $db . ' ';
             if (! empty($searchClause)) {
-                $query .= 'WHERE ' . $this->getWhereClauseForSearch(
-                    $searchClause,
-                    $singleItem,
-                    'Name'
-                );
+                $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
             $retval = $dbi->numRows(
@@ -477,11 +437,11 @@ class NodeDatabase extends Node
         }
 
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval   = [];
-        $db       = $this->realName;
+        $retval = [];
+        $db = $this->realName;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $escdDb = $dbi->escapeString($db);
-            $query  = 'SELECT `TABLE_NAME` AS `name` ';
+            $query = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $escdDb . "' ";
             $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
@@ -499,12 +459,8 @@ class NodeDatabase extends Node
             $query .= Util::backquote($db);
             $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
-                $query .= 'AND ' . Util::backquote(
-                    'Tables_in_' . $db
-                );
-                $query .= " LIKE '%" . $dbi->escapeString(
-                    $searchClause
-                );
+                $query .= 'AND ' . Util::backquote('Tables_in_' . $db);
+                $query .= " LIKE '%" . $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
 

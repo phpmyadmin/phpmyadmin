@@ -40,10 +40,7 @@ class IpAllowDeny
      */
     public function ipMaskTest($testRange, $ipToTest): bool
     {
-        if (
-            mb_strpos($testRange, ':') > -1
-            || mb_strpos($ipToTest, ':') > -1
-        ) {
+        if (mb_strpos($testRange, ':') > -1 || mb_strpos($ipToTest, ':') > -1) {
             // assume IPv6
             $result = $this->ipv6MaskTest($testRange, $ipToTest);
         } else {
@@ -75,19 +72,13 @@ class IpAllowDeny
     public function ipv4MaskTest($testRange, $ipToTest): bool
     {
         $result = true;
-        $match = preg_match(
-            '|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|',
-            $testRange,
-            $regs
-        );
+        $match = preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs);
         if ($match) {
             // performs a mask match
-            $ipl    = ip2long($ipToTest);
-            $rangel = ip2long(
-                $regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]
-            );
+            $ipl = ip2long($ipToTest);
+            $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
 
-            $maskl  = 0;
+            $maskl = 0;
 
             for ($i = 0; $i < 31; $i++) {
                 if ($i >= $regs[5] - 1) {
@@ -102,7 +93,7 @@ class IpAllowDeny
 
         // range based
         $maskocts = explode('.', $testRange);
-        $ipocts   = explode('.', $ipToTest);
+        $ipocts = explode('.', $ipToTest);
 
         // perform a range match
         for ($i = 0; $i < 4; $i++) {
@@ -165,20 +156,16 @@ class IpAllowDeny
         if ($is_range) {
             // what range do we operate on?
             $range_match = [];
-            $match = preg_match(
-                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/',
-                $test_range,
-                $range_match
-            );
+            $match = preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match);
             if ($match) {
                 $range_start = $range_match[1];
-                $range_end   = $range_match[2];
+                $range_end = $range_match[2];
 
                 // get the first and last allowed IPs
-                $first_ip  = str_replace($range_match[0], $range_start, $test_range);
+                $first_ip = str_replace($range_match[0], $range_start, $test_range);
                 $first_hex = bin2hex((string) inet_pton($first_ip));
-                $last_ip   = str_replace($range_match[0], $range_end, $test_range);
-                $last_hex  = bin2hex((string) inet_pton($last_ip));
+                $last_ip = str_replace($range_match[0], $range_end, $test_range);
+                $last_hex = bin2hex((string) inet_pton($last_ip));
 
                 // check if the IP to test is within the range
                 $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
@@ -273,11 +260,11 @@ class IpAllowDeny
         }
 
         // copy username
-        $username  = $cfg['Server']['user'];
+        $username = $cfg['Server']['user'];
 
         // copy rule database
         if (isset($cfg['Server']['AllowDeny']['rules'])) {
-            $rules     = $cfg['Server']['AllowDeny']['rules'];
+            $rules = $cfg['Server']['AllowDeny']['rules'];
             if (! is_array($rules)) {
                 $rules = [];
             }
@@ -287,7 +274,7 @@ class IpAllowDeny
 
         // lookup table for some name shortcuts
         $shortcuts = [
-            'all'       => '0.0.0.0/0',
+            'all' => '0.0.0.0/0',
             'localhost' => '127.0.0.1/8',
         ];
 

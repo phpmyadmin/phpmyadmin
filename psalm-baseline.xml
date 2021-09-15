@@ -1896,6 +1896,7 @@
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
+      <code>Util::backquote($currentTable['TABLE_NAME'])</code>
     </MixedOperand>
     <PossiblyNullArrayAccess occurrences="8">
       <code>$formattedOverhead</code>
@@ -4286,7 +4287,9 @@
       <code>$_POST['field_expression'][$i]</code>
       <code>$_POST['field_virtuality'][$i]</code>
       <code>Util::backquote($_POST['field_orig'][$i])</code>
+      <code>Util::backquote($_POST['field_orig'][$i])</code>
       <code>Util::backquote($this-&gt;db)</code>
+      <code>Util::backquote($this-&gt;table)</code>
       <code>Util::backquote($this-&gt;table)</code>
       <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
@@ -4395,7 +4398,9 @@
       <code>$tot_size</code>
       <code>$tot_unit</code>
     </PossiblyNullArrayAccess>
-    <RedundantCast occurrences="1"/>
+    <RedundantCast occurrences="1">
+      <code>(array) $this-&gt;dbi-&gt;getColumns($this-&gt;db, $this-&gt;table, null, true)</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Table/TrackingController.php">
     <MixedArgument occurrences="26">
@@ -4917,6 +4922,7 @@
       <code>$partition['value_type']</code>
       <code>$type</code>
       <code>Util::backquote($_POST['after_field'])</code>
+      <code>Util::backquote($_POST['field_name'][$previousField])</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($index['Key_name'])</code>
@@ -5128,10 +5134,18 @@
     </MixedReturnTypeCoercion>
     <RedundantCast occurrences="5">
       <code>(array) $has_list</code>
+      <code>(array) $this-&gt;dbi-&gt;getColumns($db, $table, $column, true)</code>
+      <code>(array) $this-&gt;dbi-&gt;getColumns($db, $table, null, true)</code>
       <code>(bool) $GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>(int) $GLOBALS['cfg']['MaxRows']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="5"/>
+    <RedundantCastGivenDocblockType occurrences="5">
+      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
+    </RedundantCastGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$table == ''</code>
     </TypeDoesNotContainType>
@@ -5358,6 +5372,7 @@
       <code>Util::backquote($cfgRelation['pdf_pages'])</code>
       <code>Util::backquote($cfgRelation['pdf_pages'])</code>
       <code>Util::backquote($cfgRelation['pdf_pages'])</code>
+      <code>Util::backquote($cfgRelation['table_coords'])</code>
       <code>Util::backquote($cfgRelation['table_coords'])</code>
       <code>Util::backquote($cfgRelation['table_coords'])</code>
       <code>Util::backquote($cfgRelation['table_coords'])</code>
@@ -5669,6 +5684,7 @@
       <code>Util::backquote($oneKey['ref_table_name'])</code>
       <code>Util::backquote($oneTable)</code>
       <code>Util::backquote($oneTable)</code>
+      <code>Util::backquote($table)</code>
       <code>Util::backquote($table)</code>
       <code>Util::backquote($this-&gt;db)</code>
       <code>Util::backquote($this-&gt;formAliases[$columnIndex])</code>
@@ -5996,6 +6012,7 @@
       <code>Util::backquote($routine['item_name'])</code>
       <code>Util::backquote($routine['item_name'])</code>
       <code>Util::backquote($routine['item_param_name'][$i])</code>
+      <code>Util::backquote('mysql')</code>
       <code>Util::backquote('mysql')</code>
       <code>Util::backquote('procs_priv')</code>
       <code>Util::backquote('procs_priv')</code>
@@ -6617,6 +6634,7 @@
     </InvalidScalarArgument>
     <MixedArgument occurrences="85">
       <code>$_SESSION['tmpval']['max_rows']</code>
+      <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$_SESSION['tmpval']['query']</code>
       <code>$analyzedSqlResults['parser']-&gt;list</code>
@@ -6690,6 +6708,7 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
+      <code>$this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$total</code>
       <code>$unsortedSqlQuery</code>
       <code>$urlParams['where_clause']</code>
@@ -6959,6 +6978,8 @@
       <code>$sortOrder</code>
       <code>$val</code>
       <code>Util::backquote($currentName)</code>
+      <code>Util::backquote($currentName)</code>
+      <code>Util::backquote($fieldsMeta-&gt;table)</code>
       <code>Util::backquote($map[$meta-&gt;name][0])</code>
       <code>Util::backquote($map[$meta-&gt;name][0])</code>
       <code>Util::backquote($map[$meta-&gt;name][1])</code>
@@ -6966,6 +6987,7 @@
       <code>Util::backquote($map[$meta-&gt;name][2])</code>
       <code>Util::backquote($map[$meta-&gt;name][3])</code>
       <code>Util::backquote($map[$meta-&gt;name][3])</code>
+      <code>Util::backquote($nameToUseInSort)</code>
       <code>Util::backquote($this-&gt;properties['table'])</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="16">
@@ -7012,6 +7034,7 @@
     </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="2">
       <code>$dispval</code>
+      <code>$this-&gt;getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i])</code>
     </PossiblyNullOperand>
     <RedundantCast occurrences="3">
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
@@ -8279,6 +8302,8 @@
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'svg', '')</code>
       <code>$this-&gt;settings['height']</code>
       <code>$this-&gt;settings['width']</code>
+      <code>Util::backquote($this-&gt;userSpecifiedSettings['labelColumn'])</code>
+      <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
       <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
       <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
       <code>Util::backquote('srid')</code>
@@ -8707,6 +8732,7 @@
       <code>Util::backquote($dbName)</code>
       <code>Util::backquote($dbName)</code>
       <code>Util::backquote($table)</code>
+      <code>Util::backquote($tables[$i][self::COL_NAMES][$j])</code>
       <code>Util::backquote($tables[$i][self::COL_NAMES][$m])</code>
       <code>Util::backquote($tables[$i][self::TBL_NAME])</code>
       <code>Util::backquote($tables[$i][self::TBL_NAME])</code>
@@ -9702,6 +9728,7 @@
       <code>$db</code>
       <code>$prefix</code>
       <code>Util::backquote($cfgRelation['db'])</code>
+      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
       <code>Util::backquote($columnName)</code>
       <code>Util::backquote($columnName)</code>
       <code>Util::backquote($columnName)</code>
@@ -9800,6 +9827,7 @@
       <code>Util::backquote($columnName)</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($db)</code>
+      <code>Util::backquote('Tables_in_' . $db)</code>
     </MixedOperand>
     <PropertyNotSetInConstructor occurrences="3">
       <code>NodeDatabase</code>
@@ -11496,15 +11524,18 @@
       <code>$values[$i]</code>
       <code>Util::backquote($cfgRelation[$type])</code>
       <code>Util::backquote($cfgRelation[$type])</code>
+      <code>Util::backquote($cfgRelation[$type])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
       <code>Util::backquote($cfgRelation['db'])</code>
+      <code>Util::backquote($cfgRelation['table_coords'])</code>
       <code>Util::backquote($colAlias)</code>
       <code>Util::backquote($colAlias)</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($db)</code>
+      <code>Util::backquote($dbNameColumn)</code>
       <code>Util::backquote($dbNameColumn)</code>
       <code>Util::backquote($dbNameColumn)</code>
       <code>Util::backquote($eventName)</code>
@@ -11520,8 +11551,16 @@
       <code>Util::backquote($viewAlias)</code>
       <code>Util::backquote($viewAlias)</code>
       <code>Util::backquote($viewAlias)</code>
+      <code>Util::backquoteCompat($dbAlias, $compat, isset($GLOBALS['sql_backquotes']))</code>
+      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
     </MixedOperand>
-    <PossiblyInvalidOperand occurrences="1"/>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>Context::escape($field-&gt;name)</code>
+    </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
@@ -11867,6 +11906,7 @@
       <code>$this-&gt;tablewidths[$col]</code>
       <code>$this-&gt;tablewidths[$col]</code>
       <code>$this-&gt;tablewidths[$col]</code>
+      <code>$this-&gt;titleFontSize ?: $this-&gt;FontSizePt</code>
       <code>$txt</code>
       <code>$txt</code>
       <code>$txt</code>
@@ -13024,7 +13064,9 @@
       <code>setOffline</code>
       <code>setScale</code>
     </PossiblyNullReference>
-    <RedundantCast occurrences="2"/>
+    <RedundantCast occurrences="2">
+      <code>(string) sprintf('%.0f', ($j * $gridSize - $this-&gt;leftMargin) * $this-&gt;scale + $this-&gt;xMin)</code>
+    </RedundantCast>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($this-&gt;orientation)</code>
     </RedundantConditionGivenDocblockType>
@@ -14005,12 +14047,15 @@
       <code>$messages['disabled']</code>
       <code>$messages['enabled']</code>
       <code>$messages['ok']</code>
+      <code>Util::backquote($GLOBALS['cfg']['Server']['column_info'])</code>
+      <code>Util::backquote($GLOBALS['cfg']['Server']['pmadb'])</code>
       <code>Util::backquote($GLOBALS['cfg']['Server']['pmadb'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
+      <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['table_coords'])</code>
       <code>Util::backquote($cfgRelation['column_info'])</code>
       <code>Util::backquote($cfgRelation['column_info'])</code>
@@ -14870,6 +14915,7 @@
       <code>Util::backquote($cfgRelation['users'])</code>
       <code>Util::backquote($cfgRelation['users'])</code>
       <code>Util::backquote($cfgRelation['users'])</code>
+      <code>Util::backquote($dbname)</code>
       <code>Util::backquote($dbname)</code>
       <code>Util::backquote($dbname)</code>
       <code>Util::backquote($row['Db'])</code>
@@ -15988,6 +16034,7 @@
       <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
       <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['column_info'])</code>
+      <code>Util::backquote($GLOBALS['cfgRelation']['column_info'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
@@ -16008,6 +16055,7 @@
       <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
       <code>Util::backquote($db)</code>
       <code>Util::backquote($db)</code>
+      <code>Util::backquote($existrelForeign[$masterFieldMd5]['constraint'])</code>
       <code>Util::backquote($foreignDb)</code>
       <code>Util::backquote($foreignTable)</code>
       <code>Util::backquote($index-&gt;getName())</code>
@@ -16066,6 +16114,8 @@
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand occurrences="3">
       <code>$column-&gt;getSubPart()</code>
+      <code>Generator::mysqlDie($tmpErrorCreate, $createQuery, false, '', false)</code>
+      <code>Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false)</code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue occurrences="2">
       <code>null</code>
@@ -16096,6 +16146,7 @@
     </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>$columnsMetaQueryResult !== false</code>
+      <code>$columnsMetaQueryResult &amp;&amp; $columnsMetaQueryResult !== false</code>
     </RedundantConditionGivenDocblockType>
     <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>

@@ -31,10 +31,7 @@ class NodeTriggerContainer extends Node
         $this->realName = 'triggers';
 
         $newLabel = _pgettext('Create new trigger', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_trigger italics'
-        );
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_trigger italics');
         $new->icon = ['image' => 'b_trigger_add', 'title' => $newLabel];
         $new->links = [
             'text' => ['route' => '/database/triggers', 'params' => ['add_item' => 1, 'db' => null]],

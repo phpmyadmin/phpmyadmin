@@ -87,9 +87,6 @@ final class ForeignKey
     {
         global $dbi;
 
-        $dbi->setVariable(
-            'FOREIGN_KEY_CHECKS',
-            $defaultCheckValue ? 'ON' : 'OFF'
-        );
+        $dbi->setVariable('FOREIGN_KEY_CHECKS', $defaultCheckValue ? 'ON' : 'OFF');
     }
 }

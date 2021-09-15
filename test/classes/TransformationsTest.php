@@ -108,14 +108,14 @@ class TransformationsTest extends AbstractTestCase
     {
         $this->assertEquals(
             [
-                'mimetype' =>  [
+                'mimetype' => [
                     'Application/Octetstream' => 'Application/Octetstream',
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
                     'Text/Octetstream' => 'Text/Octetstream',
                 ],
-                'transformation' =>  [
+                'transformation' => [
                     0 => 'Application/Octetstream: Download',
                     1 => 'Application/Octetstream: Hex',
                     2 => 'Image/JPEG: Inline',
@@ -136,7 +136,7 @@ class TransformationsTest extends AbstractTestCase
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
                 ],
-                'transformation_file' =>  [
+                'transformation_file' => [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
                     2 => 'Output/Image_JPEG_Inline.php',
@@ -239,9 +239,7 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 1 : no configuration storage
         $actual = $this->transformations->clear('db');
-        $this->assertFalse(
-            $actual
-        );
+        $this->assertFalse($actual);
 
         $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
@@ -249,21 +247,15 @@ class TransformationsTest extends AbstractTestCase
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
 
         // Case 3 : table delete
         $actual = $this->transformations->clear('db', 'table');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
 
         // Case 4 : column delete
         $actual = $this->transformations->clear('db', 'table', 'col');
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
     }
 
     /**

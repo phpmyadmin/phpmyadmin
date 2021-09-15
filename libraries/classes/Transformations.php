@@ -76,11 +76,7 @@ class Transformations
 
         while (($option = array_shift($transformOptions)) !== null) {
             $trimmed = trim($option);
-            if (
-                strlen($trimmed) > 1
-                && $trimmed[0] == "'"
-                && $trimmed[strlen($trimmed) - 1] == "'"
-            ) {
+            if (strlen($trimmed) > 1 && $trimmed[0] == "'" && $trimmed[strlen($trimmed) - 1] == "'") {
                 // '...'
                 $option = mb_substr($trimmed, 1, -1);
             } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
@@ -303,7 +299,7 @@ class Transformations
                 . "`db_name`, '.', `table_name`, '.', `column_name`"
                 . ') AS column_name, ';
         } else {
-            $com_qry  = 'SELECT `column_name`, ';
+            $com_qry = 'SELECT `column_name`, ';
         }
 
         $com_qry .= '`mimetype`, '
@@ -320,12 +316,7 @@ class Transformations
                 . ' OR `transformation_options` != \'\''
                 . ' OR `input_transformation` != \'\''
                 . ' OR `input_transformation_options` != \'\'' : '') . ')';
-        $result = $dbi->fetchResult(
-            $com_qry,
-            'column_name',
-            null,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $result = $dbi->fetchResult($com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL);
 
         foreach ($result as $column => $values) {
             // convert mimetype to new format (f.e. Text_Plain, etc)
@@ -407,11 +398,7 @@ class Transformations
                 AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
                 AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
 
-        $test_rs = $relation->queryAsControlUser(
-            $test_qry,
-            true,
-            DatabaseInterface::QUERY_STORE
-        );
+        $test_rs = $relation->queryAsControlUser($test_qry, true, DatabaseInterface::QUERY_STORE);
 
         if ($test_rs && $dbi->numRows($test_rs) > 0) {
             $row = @$dbi->fetchAssoc($test_rs);

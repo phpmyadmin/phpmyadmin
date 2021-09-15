@@ -63,15 +63,7 @@ class TableStatsPdf extends TableStats
         $tableDimension = false,
         $offline = false
     ) {
-        parent::__construct(
-            $diagram,
-            $db,
-            $pageNumber,
-            $tableName,
-            $showKeys,
-            $tableDimension,
-            $offline
-        );
+        parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
         $this->heightCell = 6;
         $this->setHeight();
@@ -174,10 +166,7 @@ class TableStatsPdf extends TableStats
         }
 
         if ($withDoc) {
-            $this->diagram->SetLink(
-                $this->diagram->customLinks['RT'][$this->tableName]['-'],
-                -1
-            );
+            $this->diagram->SetLink($this->diagram->customLinks['RT'][$this->tableName]['-'], -1);
         } else {
             $this->diagram->customLinks['doc'][$this->tableName]['-'] = '';
         }
@@ -209,10 +198,7 @@ class TableStatsPdf extends TableStats
             }
 
             if ($withDoc) {
-                $this->diagram->SetLink(
-                    $this->diagram->customLinks['RT'][$this->tableName][$field],
-                    -1
-                );
+                $this->diagram->SetLink($this->diagram->customLinks['RT'][$this->tableName][$field], -1);
             } else {
                 $this->diagram->customLinks['doc'][$this->tableName][$field] = '';
             }

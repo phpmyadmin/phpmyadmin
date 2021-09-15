@@ -147,7 +147,7 @@ class Bookmark
             return false;
         }
 
-        $query  = 'DELETE FROM ' . Util::backquote($cfgBookmark['db'])
+        $query = 'DELETE FROM ' . Util::backquote($cfgBookmark['db'])
             . '.' . Util::backquote($cfgBookmark['table'])
             . ' WHERE id = ' . $this->id;
 
@@ -177,11 +177,7 @@ class Bookmark
     public function applyVariables(array $variables): string
     {
         // remove comments that encloses a variable placeholder
-        $query = (string) preg_replace(
-            '|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU',
-            '${1}',
-            $this->query
-        );
+        $query = (string) preg_replace('|/\*(.*\[VARIABLE[0-9]*\].*)\*/|imsU', '${1}', $this->query);
         // replace variable placeholders with values
         $number_of_variables = $this->getVariableCount();
         for ($i = 1; $i <= $number_of_variables; $i++) {
@@ -224,8 +220,8 @@ class Bookmark
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = [
-                'user'  => $user,
-                'db'    => $cfgRelation['db'],
+                'user' => $user,
+                'db' => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
             ];
             Cache::set($cacheKey, $cfgBookmark);

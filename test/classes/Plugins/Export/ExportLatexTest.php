@@ -72,10 +72,7 @@ class ExportLatexTest extends AbstractTestCase
         $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'LaTeX',
@@ -99,10 +96,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -113,10 +107,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -127,10 +118,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'caption',
@@ -144,10 +132,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
@@ -163,10 +148,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -185,10 +167,7 @@ class ExportLatexTest extends AbstractTestCase
         // hide structure
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'structure',
@@ -209,10 +188,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_caption',
@@ -231,10 +207,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_continued_caption',
@@ -253,10 +226,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_label',
@@ -275,10 +245,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'relation',
@@ -292,10 +259,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'comments',
@@ -309,10 +273,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'mime',
@@ -327,10 +288,7 @@ class ExportLatexTest extends AbstractTestCase
         // data options
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'data',
@@ -351,10 +309,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -368,10 +323,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_caption',
@@ -390,10 +342,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_continued_caption',
@@ -412,10 +361,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'data_label',
@@ -434,10 +380,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -457,10 +400,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $this->assertCount(
-            4,
-            $generalOptionsArray
-        );
+        $this->assertCount(4, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -477,10 +417,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            "\n% Host: localhost:80",
-            $result
-        );
+        $this->assertStringContainsString("\n% Host: localhost:80", $result);
     }
 
     public function testExportFooter(): void
@@ -494,9 +431,7 @@ class ExportLatexTest extends AbstractTestCase
     {
         $GLOBALS['crlf'] = "\n";
 
-        $this->expectOutputString(
-            "% \n% Database: 'testDB'\n% \n"
-        );
+        $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')
@@ -878,15 +813,9 @@ class ExportLatexTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '\\caption{latexstructure} \\label{latexlabel}',
-            $result
-        );
+        $this->assertStringContainsString('\\caption{latexstructure} \\label{latexlabel}', $result);
 
-        $this->assertStringContainsString(
-            'caption{latexcontinued}',
-            $result
-        );
+        $this->assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
         $this->assertTrue(

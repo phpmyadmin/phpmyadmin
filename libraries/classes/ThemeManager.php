@@ -243,11 +243,7 @@ class ThemeManager
                 continue;
             }
 
-            $newTheme = Theme::load(
-                $this->themesPathUrl . $dir,
-                $this->themesPath . $dir . DIRECTORY_SEPARATOR,
-                $dir
-            );
+            $newTheme = Theme::load($this->themesPathUrl . $dir, $this->themesPath . $dir . DIRECTORY_SEPARATOR, $dir);
             if (! $newTheme instanceof Theme) {
                 continue;
             }

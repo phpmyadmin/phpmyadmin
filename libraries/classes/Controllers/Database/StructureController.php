@@ -235,9 +235,9 @@ class StructureController extends AbstractController
         $numColumns = $GLOBALS['cfg']['PropertiesNumColumns'] > 1
             ? ceil($this->numTables / $GLOBALS['cfg']['PropertiesNumColumns']) + 1
             : 0;
-        $rowCount      = 0;
-        $sumSize       = 0;
-        $overheadSize  = 0;
+        $rowCount = 0;
+        $sumSize = 0;
+        $overheadSize = 0;
 
         $hiddenFields = [];
         $overallApproxRows = false;
@@ -266,11 +266,7 @@ class StructureController extends AbstractController
                 $overheadSize,
                 $tableIsView,
                 $sumSize,
-            ] = $this->getStuffForEngineTypeTable(
-                $currentTable,
-                $sumSize,
-                $overheadSize
-            );
+            ] = $this->getStuffForEngineTypeTable($currentTable, $sumSize, $overheadSize);
 
             $curTable = $this->dbi
                 ->getTable($this->db, $currentTable['TABLE_NAME']);
@@ -315,33 +311,21 @@ class StructureController extends AbstractController
 
             if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
                 $createTime = $currentTable['Create_time'] ?? '';
-                if (
-                    $createTime
-                    && (! $createTimeAll
-                    || $createTime < $createTimeAll)
-                ) {
+                if ($createTime && (! $createTimeAll || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
                 }
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
                 $updateTime = $currentTable['Update_time'] ?? '';
-                if (
-                    $updateTime
-                    && (! $updateTimeAll
-                    || $updateTime < $updateTimeAll)
-                ) {
+                if ($updateTime && (! $updateTimeAll || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
                 $checkTime = $currentTable['Check_time'] ?? '';
-                if (
-                    $checkTime
-                    && (! $checkTimeAll
-                    || $checkTime < $checkTimeAll)
-                ) {
+                if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
@@ -389,11 +373,7 @@ class StructureController extends AbstractController
                 );
             }
 
-            if (
-                $numColumns > 0
-                && $this->numTables > $numColumns
-                && ($rowCount % $numColumns) == 0
-            ) {
+            if ($numColumns > 0 && $this->numTables > $numColumns && ($rowCount % $numColumns) == 0) {
                 $rowCount = 1;
 
                 $html .= $this->template->render('database/structure/table_header', [
@@ -413,10 +393,7 @@ class StructureController extends AbstractController
                 $structureTableRows = [];
             }
 
-            [$approxRows, $showSuperscript] = $this->isRowCountApproximated(
-                $currentTable,
-                $tableIsView
-            );
+            [$approxRows, $showSuperscript] = $this->isRowCountApproximated($currentTable, $tableIsView);
 
             [$do, $ignored] = $this->getReplicationStatus($replicaInfo, $truename);
 
@@ -431,9 +408,7 @@ class StructureController extends AbstractController
                 'may_have_rows' => $mayHaveRows,
                 'browse_table_label_title' => htmlspecialchars($currentTable['TABLE_COMMENT']),
                 'browse_table_label_truename' => $truename,
-                'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote(
-                    $currentTable['TABLE_NAME']
-                ),
+                'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote($currentTable['TABLE_NAME']),
                 'empty_table_message_to_show' => urlencode(
                     sprintf(
                         __('Table %s has been emptied.'),
@@ -464,9 +439,7 @@ class StructureController extends AbstractController
                 'do' => $do,
                 'approx_rows' => $approxRows,
                 'show_superscript' => $showSuperscript,
-                'already_favorite' => $this->checkFavoriteTable(
-                    $currentTable['TABLE_NAME']
-                ),
+                'already_favorite' => $this->checkFavoriteTable($currentTable['TABLE_NAME']),
                 'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                 'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
                 'limit_chars' => $GLOBALS['cfg']['LimitChars'],
@@ -555,10 +528,7 @@ class StructureController extends AbstractController
         $trackingIcon = '';
         if (Tracker::isActive()) {
             $isTracked = Tracker::isTracked($this->db, $table);
-            if (
-                $isTracked
-                || Tracker::getVersion($this->db, $table) > 0
-            ) {
+            if ($isTracked || Tracker::getVersion($this->db, $table) > 0) {
                 $trackingIcon = $this->template->render('database/structure/tracking_icon', [
                     'db' => $this->db,
                     'table' => $table,
@@ -590,19 +560,13 @@ class StructureController extends AbstractController
         // - when it's a view
         //  so ensure that we'll display "in use" below for a table
         //  that needs to be repaired
-        if (
-            isset($currentTable['TABLE_ROWS'])
-            && ($currentTable['ENGINE'] != null || $tableIsView)
-        ) {
+        if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
                 && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
                 && ! $currentTable['COUNTED'];
 
-            if (
-                $tableIsView
-                && $currentTable['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-            ) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::sanitizeMessage(
@@ -637,43 +601,21 @@ class StructureController extends AbstractController
     {
         $do = $ignored = false;
         if ($replicaInfo['status']) {
-            $nbServSlaveDoDb = count(
-                $replicaInfo['Do_DB']
-            );
-            $nbServSlaveIgnoreDb = count(
-                $replicaInfo['Ignore_DB']
-            );
-            $searchDoDBInTruename = array_search(
-                $table,
-                $replicaInfo['Do_DB']
-            );
-            $searchDoDBInDB = array_search(
-                $this->db,
-                $replicaInfo['Do_DB']
-            );
+            $nbServSlaveDoDb = count($replicaInfo['Do_DB']);
+            $nbServSlaveIgnoreDb = count($replicaInfo['Ignore_DB']);
+            $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
+            $searchDoDBInDB = array_search($this->db, $replicaInfo['Do_DB']);
 
             $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
                 || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
                 || ($nbServSlaveDoDb == 0 && $nbServSlaveIgnoreDb == 0)
-                || $this->hasTable(
-                    $replicaInfo['Wild_Do_Table'],
-                    $table
-                );
+                || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
 
-            $searchDb = array_search(
-                $this->db,
-                $replicaInfo['Ignore_DB']
-            );
-            $searchTable = array_search(
-                $table,
-                $replicaInfo['Ignore_Table']
-            );
+            $searchDb = array_search($this->db, $replicaInfo['Ignore_DB']);
+            $searchTable = array_search($table, $replicaInfo['Ignore_Table']);
             $ignored = (is_string($searchTable) && strlen($searchTable) > 0)
                 || (is_string($searchDb) && strlen($searchDb) > 0)
-                || $this->hasTable(
-                    $replicaInfo['Wild_Ignore_Table'],
-                    $table
-                );
+                || $this->hasTable($replicaInfo['Wild_Ignore_Table'], $table);
         }
 
         return [
@@ -795,8 +737,8 @@ class StructureController extends AbstractController
             case 'BerkeleyDB':
                 // Merge or BerkleyDB table: Only row count is accurate.
                 if ($this->isShowStats) {
-                    $formattedSize =  ' - ';
-                    $unit          =  '';
+                    $formattedSize = ' - ';
+                    $unit = '';
                 }
 
                 break;
@@ -820,15 +762,12 @@ class StructureController extends AbstractController
             default:
                 // Unknown table type.
                 if ($this->isShowStats) {
-                    $formattedSize =  __('unknown');
-                    $unit          =  '';
+                    $formattedSize = __('unknown');
+                    $unit = '';
                 }
         }
 
-        if (
-            $currentTable['TABLE_TYPE'] === 'VIEW'
-            || $currentTable['TABLE_TYPE'] === 'SYSTEM VIEW'
-        ) {
+        if ($currentTable['TABLE_TYPE'] === 'VIEW' || $currentTable['TABLE_TYPE'] === 'SYSTEM VIEW') {
             // countRecords() takes care of $cfg['MaxExactCountViews']
             $currentTable['TABLE_ROWS'] = $this->dbi
                 ->getTable($this->db, $currentTable['TABLE_NAME'])
@@ -881,15 +820,8 @@ class StructureController extends AbstractController
             $tblsize = $currentTable['Data_length']
                 + $currentTable['Index_length'];
             $sumSize += $tblsize;
-            [$formattedSize, $unit] = Util::formatByteDown(
-                $tblsize,
-                3,
-                $tblsize > 0 ? 1 : 0
-            );
-            if (
-                isset($currentTable['Data_free'])
-                && $currentTable['Data_free'] > 0
-            ) {
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
+            if (isset($currentTable['Data_free']) && $currentTable['Data_free'] > 0) {
                 [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
                     $currentTable['Data_free'],
                     3,
@@ -942,11 +874,7 @@ class StructureController extends AbstractController
             $tblsize = $currentTable['Data_length']
                 + $currentTable['Index_length'];
             $sumSize += $tblsize;
-            [$formattedSize, $unit] = Util::formatByteDown(
-                $tblsize,
-                3,
-                ($tblsize > 0 ? 1 : 0)
-            );
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
         return [
@@ -976,11 +904,7 @@ class StructureController extends AbstractController
             /** @var int $tblsize */
             $tblsize = $currentTable['Data_length'] + $currentTable['Index_length'];
             $sumSize += $tblsize;
-            [$formattedSize, $unit] = Util::formatByteDown(
-                $tblsize,
-                3,
-                ($tblsize > 0 ? 1 : 0)
-            );
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, ($tblsize > 0 ? 1 : 0));
         }
 
         return [

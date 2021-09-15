@@ -206,17 +206,7 @@ class WrapperController extends AbstractController
                 // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
                 // $destWidth, $destHeight, $srcWidth, $srcHeight);
                 // better quality but slower:
-                $destImage->copyResampled(
-                    $srcImage,
-                    0,
-                    0,
-                    0,
-                    0,
-                    $destWidth,
-                    $destHeight,
-                    $srcWidth,
-                    $srcHeight
-                );
+                $destImage->copyResampled($srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
                 if ($_REQUEST['resize'] === 'jpeg') {
                     $destImage->jpeg(null, 75);
                 }

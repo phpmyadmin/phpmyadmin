@@ -130,14 +130,8 @@ class DesignerTest extends AbstractTestCase
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
-        $this->assertStringContainsString(
-            '<input type="hidden" name="operation" value="' . $operation . '">',
-            $result
-        );
-        $this->assertStringContainsString(
-            '<select name="selected_page" id="selected_page">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="operation" value="' . $operation . '">', $result);
+        $this->assertStringContainsString('<select name="selected_page" id="selected_page">', $result);
         $this->assertStringContainsString('<option value="0">', $result);
         $this->assertStringContainsString('<option value="1">', $result);
         $this->assertStringContainsString('page1', $result);
@@ -157,14 +151,8 @@ class DesignerTest extends AbstractTestCase
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
-        $this->assertStringContainsString(
-            '<input type="hidden" name="operation" value="savePage">',
-            $result
-        );
-        $this->assertStringContainsString(
-            '<select name="selected_page" id="selected_page">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="operation" value="savePage">', $result);
+        $this->assertStringContainsString('<select name="selected_page" id="selected_page">', $result);
         $this->assertStringContainsString('<option value="0">', $result);
         $this->assertStringContainsString('<option value="1">', $result);
         $this->assertStringContainsString('page1', $result);
@@ -179,10 +167,7 @@ class DesignerTest extends AbstractTestCase
             '<input type="radio" name="save_page" id="savePageNewRadio" value="new">',
             $result
         );
-        $this->assertStringContainsString(
-            '<input type="text" name="selected_value" id="selected_value">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="text" name="selected_value" id="selected_value">', $result);
     }
 
     /**
@@ -198,37 +183,19 @@ class DesignerTest extends AbstractTestCase
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type
-        $this->assertStringContainsString(
-            '<select id="plugins" name="export_type">',
-            $result
-        );
+        $this->assertStringContainsString('<select id="plugins" name="export_type">', $result);
 
         // hidden field
-        $this->assertStringContainsString(
-            '<input type="hidden" name="page_number" value="' . $page . '">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="page_number" value="' . $page . '">', $result);
 
         // orientation
-        $this->assertStringContainsString(
-            '<select name="pdf_orientation" id="select_pdf_orientation">',
-            $result
-        );
-        $this->assertStringContainsString(
-            '<option value="L" selected="selected">Landscape</option>',
-            $result
-        );
+        $this->assertStringContainsString('<select name="pdf_orientation" id="select_pdf_orientation">', $result);
+        $this->assertStringContainsString('<option value="L" selected="selected">Landscape</option>', $result);
         $this->assertStringContainsString('<option value="P">Portrait</option>', $result);
 
         // paper size
-        $this->assertStringContainsString(
-            '<select name="pdf_paper" id="select_pdf_paper">',
-            $result
-        );
+        $this->assertStringContainsString('<select name="pdf_paper" id="select_pdf_paper">', $result);
         $this->assertStringContainsString('<option value="A3">A3</option>', $result);
-        $this->assertStringContainsString(
-            '<option value="A4" selected="selected">A4</option>',
-            $result
-        );
+        $this->assertStringContainsString('<option value="A4" selected="selected">A4</option>', $result);
     }
 }

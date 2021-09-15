@@ -113,10 +113,7 @@ final class ReplaceController extends AbstractController
             'same_insert',
             'edit_next',
         ];
-        if (
-            isset($_POST['after_insert'])
-            && in_array($_POST['after_insert'], $after_insert_actions)
-        ) {
+        if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $after_insert_actions)) {
             $urlParams['after_insert'] = $_POST['after_insert'];
             if (isset($_POST['where_clause'])) {
                 foreach ($_POST['where_clause'] as $one_where_clause) {
@@ -275,10 +272,7 @@ final class ReplaceController extends AbstractController
                 }
 
                 // Apply Input Transformation if defined
-                if (
-                    ! empty($mime_map[$column_name])
-                    && ! empty($mime_map[$column_name]['input_transformation'])
-                ) {
+                if (! empty($mime_map[$column_name]) && ! empty($mime_map[$column_name]['input_transformation'])) {
                     $filename = 'libraries/classes/Plugins/Transformations/'
                         . $mime_map[$column_name]['input_transformation'];
                     if (is_file(ROOT_PATH . $filename)) {
@@ -490,14 +484,10 @@ final class ReplaceController extends AbstractController
         ] = $this->insertEdit->executeSqlQuery($urlParams, $query);
 
         if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
-            $message = Message::getMessageForInsertedRows(
-                $total_affected_rows
-            );
+            $message = Message::getMessageForInsertedRows($total_affected_rows);
             $unsaved_values = array_values($unsaved_values);
         } else {
-            $message = Message::getMessageForAffectedRows(
-                $total_affected_rows
-            );
+            $message = Message::getMessageForAffectedRows($total_affected_rows);
         }
 
         if ($row_skipped) {
@@ -567,10 +557,7 @@ final class ReplaceController extends AbstractController
                 }
             }
 
-            if (
-                isset($_POST['do_transformations'])
-                && $_POST['do_transformations'] == true
-            ) {
+            if (isset($_POST['do_transformations']) && $_POST['do_transformations'] == true) {
                 $edited_values = [];
                 parse_str($_POST['transform_fields_list'], $edited_values);
 
@@ -615,10 +602,7 @@ final class ReplaceController extends AbstractController
             $_table = new Table($_POST['table'], $_POST['db']);
             $extra_data['row_count'] = $_table->countRecords();
 
-            $extra_data['sql_query'] = Generator::getMessage(
-                $message,
-                $GLOBALS['display_query']
-            );
+            $extra_data['sql_query'] = Generator::getMessage($message, $GLOBALS['display_query']);
 
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON('message', $message);

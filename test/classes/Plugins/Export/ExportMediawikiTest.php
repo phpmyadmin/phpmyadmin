@@ -70,10 +70,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'MediaWiki Table',
@@ -97,10 +94,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -110,10 +104,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -129,10 +120,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            OptionsPropertySubgroup::class,
-            $property
-        );
+        $this->assertInstanceOf(OptionsPropertySubgroup::class, $property);
 
         $this->assertEquals(
             'dump_table',
@@ -146,10 +134,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $sgHeader = $property->getSubGroupHeader();
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $sgHeader
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $sgHeader);
 
         $this->assertEquals(
             'structure_or_data',
@@ -167,10 +152,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'caption',
@@ -184,10 +166,7 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'headers',

@@ -108,10 +108,10 @@ class Common
                     $tabColumn[$designerTable->getDbTableString()] = [];
                 }
 
-                $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j]   = $j;
+                $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j] = $j;
                 $tabColumn[$designerTable->getDbTableString()]['COLUMN_NAME'][$j] = $row['Field'];
-                $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j]        = $row['Type'];
-                $tabColumn[$designerTable->getDbTableString()]['NULLABLE'][$j]    = $row['Null'];
+                $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j] = $row['Type'];
+                $tabColumn[$designerTable->getDbTableString()]['NULLABLE'][$j] = $row['Null'];
                 $j++;
             }
         }
@@ -142,12 +142,10 @@ class Common
 
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                $con['DCN'][$i]    = rawurlencode((string) $field);
-                $con['STN'][$i]    = rawurlencode(
-                    $value['foreign_db'] . '.' . $value['foreign_table']
-                );
-                $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
+                $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                $con['DCN'][$i] = rawurlencode((string) $field);
+                $con['STN'][$i] = rawurlencode($value['foreign_db'] . '.' . $value['foreign_table']);
+                $con['SCN'][$i] = rawurlencode($value['foreign_field']);
                 $i++;
             }
 
@@ -161,9 +159,9 @@ class Common
             foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {
                     $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
-                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                    $con['DCN'][$i]    = rawurlencode($one_field);
-                    $con['STN'][$i]    = rawurlencode(
+                    $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                    $con['DCN'][$i] = rawurlencode($one_field);
+                    $con['STN'][$i] = rawurlencode(
                         ($one_key['ref_db_name'] ?? $GLOBALS['db'])
                         . '.' . $one_key['ref_table_name']
                     );
@@ -342,21 +340,13 @@ class Common
         $query = 'DELETE FROM ' . Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['table_coords'])
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
-        $success = $this->relation->queryAsControlUser(
-            $query,
-            true,
-            DatabaseInterface::QUERY_STORE
-        );
+        $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
         if ($success) {
             $query = 'DELETE FROM ' . Util::backquote($cfgRelation['db'])
                 . '.' . Util::backquote($cfgRelation['pdf_pages'])
                 . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-            $success = $this->relation->queryAsControlUser(
-                $query,
-                true,
-                DatabaseInterface::QUERY_STORE
-            );
+            $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
         }
 
         return (bool) $success;
@@ -501,18 +491,12 @@ class Common
             return false;
         }
 
-        $query =  'DELETE FROM '
+        $query = 'DELETE FROM '
             . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote(
-                $cfgRelation['table_coords']
-            )
+            . '.' . Util::backquote($cfgRelation['table_coords'])
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
-        $res = $this->relation->queryAsControlUser(
-            $query,
-            true,
-            DatabaseInterface::QUERY_STORE
-        );
+        $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
         if (! $res) {
             return (bool) $res;
@@ -536,11 +520,7 @@ class Common
                 . "'" . $this->dbi->escapeString($_POST['t_x'][$key]) . "', "
                 . "'" . $this->dbi->escapeString($_POST['t_y'][$key]) . "')";
 
-            $res = $this->relation->queryAsControlUser(
-                $query,
-                true,
-                DatabaseInterface::QUERY_STORE
-            );
+            $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
         }
 
         return (bool) $res;
@@ -603,18 +583,11 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
-        if (
-            ForeignKey::isSupported($type_T1)
-            && ForeignKey::isSupported($type_T2)
-            && $type_T1 == $type_T2
-        ) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
             // relation exists?
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
-            if (
-                $foreigner
-                && isset($foreigner['constraint'])
-            ) {
+            if ($foreigner && isset($foreigner['constraint'])) {
                 return [
                     false,
                     __('Error: relationship already exists.'),
@@ -650,7 +623,7 @@ class Common
             $this->dbi->freeResult($result);
 
             if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
-                $upd_query  = 'ALTER TABLE ' . Util::backquote($DB2)
+                $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
                     . '.' . Util::backquote($T2)
                     . ' ADD FOREIGN KEY ('
                     . Util::backquote($F2) . ')'
@@ -660,11 +633,11 @@ class Common
                     . Util::backquote($F1) . ')';
 
                 if ($on_delete !== 'nix') {
-                    $upd_query   .= ' ON DELETE ' . $on_delete;
+                    $upd_query .= ' ON DELETE ' . $on_delete;
                 }
 
                 if ($on_update !== 'nix') {
-                    $upd_query   .= ' ON UPDATE ' . $on_update;
+                    $upd_query .= ' ON UPDATE ' . $on_update;
                 }
 
                 $upd_query .= ';';
@@ -701,7 +674,7 @@ class Common
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
 
-        $q  = 'INSERT INTO '
+        $q = 'INSERT INTO '
             . Util::backquote($GLOBALS['cfgRelation']['db'])
             . '.'
             . Util::backquote($GLOBALS['cfgRelation']['relation'])
@@ -715,9 +688,7 @@ class Common
             . "'" . $this->dbi->escapeString($T1) . "', "
             . "'" . $this->dbi->escapeString($F1) . "')";
 
-        if (
-            $this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
-        ) {
+        if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)) {
             return [
                 true,
                 __('Internal relationship has been added.'),
@@ -753,11 +724,7 @@ class Common
         $tables = $this->dbi->getTablesFull($DB2, $T2);
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
-        if (
-            ForeignKey::isSupported($type_T1)
-            && ForeignKey::isSupported($type_T2)
-            && $type_T1 == $type_T2
-        ) {
+        if (ForeignKey::isSupported($type_T1) && ForeignKey::isSupported($type_T2) && $type_T1 == $type_T2) {
             // InnoDB
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
@@ -802,11 +769,7 @@ class Common
             . " AND foreign_table = '" . $this->dbi->escapeString($T1) . "'"
             . " AND foreign_field = '" . $this->dbi->escapeString($F1) . "'";
 
-        $result = $this->relation->queryAsControlUser(
-            $delete_query,
-            false,
-            DatabaseInterface::QUERY_STORE
-        );
+        $result = $this->relation->queryAsControlUser($delete_query, false, DatabaseInterface::QUERY_STORE);
 
         if (! $result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
@@ -835,8 +798,8 @@ class Common
         $success = true;
         if ($cfgRelation['designersettingswork']) {
             $cfgDesigner = [
-                'user'  => $GLOBALS['cfg']['Server']['user'],
-                'db'    => $cfgRelation['db'],
+                'user' => $GLOBALS['cfg']['Server']['user'],
+                'db' => $cfgRelation['db'],
                 'table' => $cfgRelation['designer_settings'],
             ];
 
@@ -846,11 +809,7 @@ class Common
                 . " WHERE username = '"
                 . $this->dbi->escapeString($cfgDesigner['user']) . "';";
 
-            $orig_data = $this->dbi->fetchSingleRow(
-                $orig_data_query,
-                'ASSOC',
-                DatabaseInterface::CONNECT_CONTROL
-            );
+            $orig_data = $this->dbi->fetchSingleRow($orig_data_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
 
             if (! empty($orig_data)) {
                 $orig_data = json_decode($orig_data['settings_data'], true);

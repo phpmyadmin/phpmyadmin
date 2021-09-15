@@ -135,10 +135,7 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
-        $this->menu = new Menu(
-            $db ?? '',
-            $table ?? ''
-        );
+        $this->menu = new Menu($db ?? '', $table ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
         $this->isPrintView = false;
@@ -149,10 +146,7 @@ class Header
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
         $this->userprefsOfferImport = false;
-        if (
-            $GLOBALS['config']->get('user_preferences') === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
+        if ($GLOBALS['config']->get('user_preferences') === 'session' && ! isset($_SESSION['userprefs_autoload'])) {
             $this->userprefsOfferImport = true;
         }
 
@@ -228,10 +222,7 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'],
-                'database'
-            ),
+            'opendb_url' => Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database'),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table ?? '',
@@ -402,16 +393,11 @@ class Header
             $this->scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
             if ($GLOBALS['cfg']['LintEnable']) {
                 $this->scripts->addFile('vendor/codemirror/addon/lint/lint.js');
-                $this->scripts->addFile(
-                    'codemirror/addon/lint/sql-lint.js'
-                );
+                $this->scripts->addFile('codemirror/addon/lint/sql-lint.js');
             }
         }
 
-        $this->scripts->addCode(
-            'ConsoleEnterExecutes='
-            . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
-        );
+        $this->scripts->addCode('ConsoleEnterExecutes=' . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false'));
         $this->scripts->addFiles($this->console->getScripts());
 
         if ($this->userprefsOfferImport) {
@@ -679,19 +665,12 @@ class Header
     private function addRecentTable(string $db, string $table): string
     {
         $retval = '';
-        if (
-            $this->menuEnabled
-            && strlen($table) > 0
-            && $GLOBALS['cfg']['NumRecentTables'] > 0
-        ) {
-            $tmpResult = RecentFavoriteTable::getInstance('recent')->add(
-                $db,
-                $table
-            );
+        if ($this->menuEnabled && strlen($table) > 0 && $GLOBALS['cfg']['NumRecentTables'] > 0) {
+            $tmpResult = RecentFavoriteTable::getInstance('recent')->add($db, $table);
             if ($tmpResult === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
-                $error  = $tmpResult;
+                $error = $tmpResult;
                 $retval = $error->getDisplay();
             }
         }

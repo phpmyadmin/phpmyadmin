@@ -348,7 +348,7 @@ class ImportXml extends ImportPlugin
             /* Set database collation/charset */
             $options = [
                 'db_collation' => $collation,
-                'db_charset'   => $charset,
+                'db_charset' => $charset,
             ];
         }
 

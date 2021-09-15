@@ -47,9 +47,7 @@ class ExportTexytext extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
@@ -60,8 +58,8 @@ class ExportTexytext extends ExportPlugin
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
-                'structure'          => __('structure'),
-                'data'               => __('data'),
+                'structure' => __('structure'),
+                'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ]
         );
@@ -185,11 +183,7 @@ class ExportTexytext extends ExportPlugin
         }
 
         // Gets the data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
 
         // If required, get fields name at the first line
@@ -306,11 +300,7 @@ class ExportTexytext extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
 
-            $text_output .= $this->formatOneColumnDefinition(
-                $column,
-                $unique_keys,
-                $col_as
-            );
+            $text_output .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
             $text_output .= "\n";
         }
 
@@ -414,11 +404,7 @@ class ExportTexytext extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $text_output .= $this->formatOneColumnDefinition(
-                $column,
-                $unique_keys,
-                $col_as
-            );
+            $text_output .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
             $field_name = $column['Field'];
             if ($do_relation && $have_rel) {
                 $text_output .= '|' . htmlspecialchars(
@@ -633,9 +619,7 @@ class ExportTexytext extends ExportPlugin
             . ($column['Null'] == '' || $column['Null'] === 'NO'
                 ? __('No') : __('Yes'));
         $definition .= '|'
-            . htmlspecialchars(
-                $column['Default'] ?? ''
-            );
+            . htmlspecialchars($column['Default'] ?? '');
 
         return $definition;
     }

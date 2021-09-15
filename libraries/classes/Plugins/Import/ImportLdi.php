@@ -100,11 +100,7 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if (
-            $import_file === 'none'
-            || $compression !== 'none'
-            || $charset_conversion
-        ) {
+        if ($import_file === 'none' || $compression !== 'none' || $charset_conversion) {
             // We handle only some kind of data!
             $GLOBALS['message'] = Message::error(
                 __('This plugin does not support compressed imports!')

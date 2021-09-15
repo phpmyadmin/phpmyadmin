@@ -219,13 +219,13 @@ class GisPolygon extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
         $polygon_options = [
-            'name'         => $label,
-            'id'           => $label . $this->getRandomId(),
-            'class'        => 'polygon vector',
-            'stroke'       => 'black',
+            'name' => $label,
+            'id' => $label . $this->getRandomId(),
+            'class' => 'polygon vector',
+            'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill'         => $fill_color,
-            'fill-rule'    => 'evenodd',
+            'fill' => $fill_color,
+            'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
 
@@ -283,7 +283,7 @@ class GisPolygon extends GisGeometry
             'color' => [0,0,0],
             'width' => 0.5,
         ];
-        $row =  'var style = new ol.style.Style({'
+        $row = 'var style = new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if (trim($label) !== '') {
@@ -396,10 +396,7 @@ class GisPolygon extends GisGeometry
 
         // If the last point is same as the first point ignore it
         $last = count($ring) - 1;
-        if (
-            ($ring[0]['x'] == $ring[$last]['x'])
-            && ($ring[0]['y'] == $ring[$last]['y'])
-        ) {
+        if (($ring[0]['x'] == $ring[$last]['x']) && ($ring[0]['y'] == $ring[$last]['y'])) {
             $no_of_points--;
         }
 
@@ -448,10 +445,7 @@ class GisPolygon extends GisGeometry
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;
-        if (
-            ($polygon[0]['x'] == $polygon[$last]['x'])
-            && ($polygon[0]['y'] == $polygon[$last]['y'])
-        ) {
+        if (($polygon[0]['x'] == $polygon[$last]['x']) && ($polygon[0]['y'] == $polygon[$last]['y'])) {
             $polygon = array_slice($polygon, 0, $last);
         }
 

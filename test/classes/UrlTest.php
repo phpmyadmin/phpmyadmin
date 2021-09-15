@@ -135,10 +135,7 @@ class UrlTest extends AbstractTestCase
         ]);
         $expectedUrl = 'index.php?route=/test&db=%26test%3D_database%3D'
         . '&table=%26test%3D_database%3D&field=%26test%3D_database%3D&change_column=1&lang=en';
-        $this->assertEquals(
-            $expectedUrl,
-            $generatedUrl
-        );
+        $this->assertEquals($expectedUrl, $generatedUrl);
 
         $this->assertEquals(
             'index.php?route=/test&db=&test=_database=&table=&'

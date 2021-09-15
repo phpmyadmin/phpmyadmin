@@ -122,10 +122,7 @@ PHP;
 
     private function writeGeneratedFile(string $generatedClass): bool
     {
-        $result = file_put_contents(
-            ROOT_PATH . 'revision-info.php',
-            $generatedClass
-        );
+        $result = file_put_contents(ROOT_PATH . 'revision-info.php', $generatedClass);
 
         return $result !== false;
     }

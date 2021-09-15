@@ -95,10 +95,7 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if (
-            $compression === 'application/zip'
-            && $this->zipExtension->getNumberOfFiles($import_file) > 1
-        ) {
+        if ($compression === 'application/zip' && $this->zipExtension->getNumberOfFiles($import_file) > 1) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
@@ -116,17 +113,11 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
-                $dbf_file_name = $this->zipExtension->findFile(
-                    $import_file,
-                    '/^.*\.dbf$/i'
-                );
+                $dbf_file_name = $this->zipExtension->findFile($import_file, '/^.*\.dbf$/i');
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {
                     // Extract the .dbf file and point to it.
-                    $extracted = $this->zipExtension->extract(
-                        $import_file,
-                        $dbf_file_name
-                    );
+                    $extracted = $this->zipExtension->extract($import_file, $dbf_file_name);
                     if ($extracted !== false) {
                         // remove filename extension, e.g.
                         // dresden_osm.shp/gis.osm_transport_a_v06.dbf
@@ -149,11 +140,7 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (
-                ! empty($local_import_file)
-                && ! empty($GLOBALS['cfg']['UploadDir'])
-                && $compression === 'none'
-            ) {
+            } elseif (! empty($local_import_file) && ! empty($GLOBALS['cfg']['UploadDir']) && $compression === 'none') {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
                 // to load extra data.
                 // Replace the .shp with .*,
@@ -166,11 +153,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
 
         // Delete the .dbf file extracted to 'TempDir'
-        if (
-            $temp_dbf_file
-            && isset($dbf_file_path)
-            && @file_exists($dbf_file_path)
-        ) {
+        if ($temp_dbf_file && isset($dbf_file_path) && @file_exists($dbf_file_path)) {
             unlink($dbf_file_path);
         }
 

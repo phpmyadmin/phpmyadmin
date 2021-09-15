@@ -58,12 +58,7 @@ final class CopyTableController extends AbstractController
                 continue;
             }
 
-            $this->operations->adjustPrivilegesCopyTable(
-                $db,
-                $selected[$i],
-                $targetDb,
-                $selected[$i]
-            );
+            $this->operations->adjustPrivilegesCopyTable($db, $selected[$i], $targetDb, $selected[$i]);
         }
 
         $message = Message::success();

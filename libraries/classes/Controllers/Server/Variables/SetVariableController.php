@@ -78,9 +78,7 @@ final class SetVariableController extends AbstractController
         $json = [];
         if (
             ! preg_match('/[^a-zA-Z0-9_]+/', $variableName)
-            && $this->dbi->query(
-                'SET GLOBAL ' . $variableName . ' = ' . $value
-            )
+            && $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value)
         ) {
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
@@ -89,10 +87,7 @@ final class SetVariableController extends AbstractController
                 . '";',
                 'NUM'
             );
-            [$formattedValue, $isHtmlFormatted] = $this->formatVariable(
-                $variableName,
-                $varValue[1]
-            );
+            [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
 
             if ($isHtmlFormatted === false) {
                 $json['variable'] = htmlspecialchars($formattedValue);

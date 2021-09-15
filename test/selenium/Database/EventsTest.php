@@ -169,10 +169,7 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[contains(., "Event scheduler status")]'
-        );
+        $this->waitForElement('xpath', '//div[contains(., "Event scheduler status")]');
 
         $this->byPartialLinkText('Edit')->click();
 
@@ -211,16 +208,10 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            '//div[contains(., "Event scheduler status")]'
-        );
+        $this->waitForElement('xpath', '//div[contains(., "Event scheduler status")]');
 
         $this->byPartialLinkText('Drop')->click();
-        $this->waitForElement(
-            'className',
-            'submitOK'
-        )->click();
+        $this->waitForElement('className', 'submitOK')->click();
 
         $this->waitAjaxMessage();
 

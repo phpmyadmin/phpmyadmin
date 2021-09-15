@@ -69,7 +69,7 @@ class Menu
      */
     public function getDisplay()
     {
-        $retval  = $this->getBreadcrumbs();
+        $retval = $this->getBreadcrumbs();
         $retval .= $this->getMenu();
 
         return $retval;
@@ -186,23 +186,14 @@ class Menu
             ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
         $server['name'] .= empty($cfg['Server']['port'])
             ? '' : ':' . $cfg['Server']['port'];
-        $server['url'] = Util::getUrlForOption(
-            $cfg['DefaultTabServer'],
-            'server'
-        );
+        $server['url'] = Util::getUrlForOption($cfg['DefaultTabServer'], 'server');
 
         if (strlen($this->db) > 0) {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption(
-                $cfg['DefaultTabDatabase'],
-                'database'
-            );
+            $database['url'] = Util::getUrlForOption($cfg['DefaultTabDatabase'], 'database');
             if (strlen((string) $this->table) > 0) {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption(
-                    $cfg['DefaultTabTable'],
-                    'table'
-                );
+                $table['url'] = Util::getUrlForOption($cfg['DefaultTabTable'], 'table');
                 /** @var Table $tableObj */
                 $tableObj = $dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
@@ -212,11 +203,7 @@ class Menu
                 }
 
                 if (mb_strstr($table['comment'], '; InnoDB free')) {
-                    $table['comment'] = preg_replace(
-                        '@; InnoDB free:.*?$@',
-                        '',
-                        $table['comment']
-                    );
+                    $table['comment'] = preg_replace('@; InnoDB free:.*?$@', '', $table['comment']);
                 }
             } else {
                 // no table selected, display database comment if present
@@ -311,10 +298,7 @@ class Menu
             $tabs['import']['active'] = $route === '/table/import';
         }
 
-        if (
-            ($isSuperUser || $isCreateOrGrantUser)
-            && ! $isSystemSchema
-        ) {
+        if (($isSuperUser || $isCreateOrGrantUser) && ! $isSystemSchema) {
             $tabs['privileges']['route'] = '/server/privileges';
             $tabs['privileges']['args']['checkprivsdb'] = $this->db;
             $tabs['privileges']['args']['checkprivstable'] = $this->table;
@@ -352,15 +336,7 @@ class Menu
             $tabs['tracking']['active'] = $route === '/table/tracking';
         }
 
-        if (
-            ! $isSystemSchema
-            && Util::currentUserHasPrivilege(
-                'TRIGGER',
-                $this->db,
-                $this->table
-            )
-            && ! $tableIsView
-        ) {
+        if (! $isSystemSchema && Util::currentUserHasPrivilege('TRIGGER', $this->db, $this->table) && ! $tableIsView) {
             $tabs['triggers']['route'] = '/table/triggers';
             $tabs['triggers']['text'] = __('Triggers');
             $tabs['triggers']['icon'] = 'b_triggers';
@@ -480,10 +456,7 @@ class Menu
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
-        if (
-            ! $isSystemSchema
-            && $cfgRelation['centralcolumnswork']
-        ) {
+        if (! $isSystemSchema && $cfgRelation['centralcolumnswork']) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
             $tabs['central_columns']['route'] = '/database/central-columns';

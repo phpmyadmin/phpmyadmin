@@ -44,35 +44,17 @@ class TablePropertyTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        $this->assertEquals(
-            'name',
-            $this->object->name
-        );
+        $this->assertEquals('name', $this->object->name);
 
-        $this->assertEquals(
-            'int',
-            $this->object->type
-        );
+        $this->assertEquals('int', $this->object->type);
 
-        $this->assertEquals(
-            1,
-            $this->object->nullable
-        );
+        $this->assertEquals(1, $this->object->nullable);
 
-        $this->assertEquals(
-            'PRI',
-            $this->object->key
-        );
+        $this->assertEquals('PRI', $this->object->key);
 
-        $this->assertEquals(
-            '0',
-            $this->object->defaultValue
-        );
+        $this->assertEquals('0', $this->object->defaultValue);
 
-        $this->assertEquals(
-            'mysql',
-            $this->object->ext
-        );
+        $this->assertEquals('mysql', $this->object->ext);
     }
 
     public function testGetPureType(): void

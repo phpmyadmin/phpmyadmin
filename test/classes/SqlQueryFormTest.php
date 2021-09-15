@@ -108,10 +108,7 @@ class SqlQueryFormTest extends AbstractTestCase
 
         //validate 2: enable auto select text in textarea
         $auto_sel = ' data-textarea-auto-select="true"';
-        $this->assertStringContainsString(
-            $auto_sel,
-            $html
-        );
+        $this->assertStringContainsString($auto_sel, $html);
 
         //validate 3: MySQLDocumentation::show
         $this->assertStringContainsString(
@@ -120,32 +117,14 @@ class SqlQueryFormTest extends AbstractTestCase
         );
 
         //validate 4: $fields_list
-        $this->assertStringContainsString(
-            '<input type="button" value="DELETE" id="delete"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="UPDATE" id="update"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="INSERT" id="insert"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="SELECT" id="select"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="button" value="SELECT *" id="selectall"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
+        $this->assertStringContainsString('<input type="button" value="UPDATE" id="update"', $html);
+        $this->assertStringContainsString('<input type="button" value="INSERT" id="insert"', $html);
+        $this->assertStringContainsString('<input type="button" value="SELECT" id="select"', $html);
+        $this->assertStringContainsString('<input type="button" value="SELECT *" id="selectall"', $html);
 
         //validate 5: Clear button
-        $this->assertStringContainsString(
-            '<input type="button" value="DELETE" id="delete"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="button" value="DELETE" id="delete"', $html);
         $this->assertStringContainsString(
             __('Clear'),
             $html
@@ -170,20 +149,14 @@ class SqlQueryFormTest extends AbstractTestCase
 
         //validate 2: $enctype
         $enctype = ' enctype="multipart/form-data">';
-        $this->assertStringContainsString(
-            $enctype,
-            $html
-        );
+        $this->assertStringContainsString($enctype, $html);
 
         //validate 3: sqlqueryform
-        $this->assertStringContainsString(
-            'id="sqlqueryform" name="sqlform"',
-            $html
-        );
+        $this->assertStringContainsString('id="sqlqueryform" name="sqlform"', $html);
 
         //validate 4: $db, $table
-        $table  = $GLOBALS['table'];
-        $db     = $GLOBALS['db'];
+        $table = $GLOBALS['table'];
+        $db = $GLOBALS['db'];
         $this->assertStringContainsString(
             Url::getHiddenInputs($db, $table),
             $html

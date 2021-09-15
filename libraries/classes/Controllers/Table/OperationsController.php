@@ -135,10 +135,7 @@ class OperationsController extends AbstractController
             $create_options['page_checksum'] = $create_options['page_checksum'] ?? '';
         }
 
-        $pma_table = $this->dbi->getTable(
-            $db,
-            $table
-        );
+        $pma_table = $this->dbi->getTable($db, $table);
         $reread_info = false;
         $table_alters = [];
 
@@ -179,9 +176,7 @@ class OperationsController extends AbstractController
             if (isset($_POST['new_name'])) {
                 // lower_case_table_names=1 `DB` becomes `db`
                 if ($lowerCaseNames) {
-                    $_POST['new_name'] = mb_strtolower(
-                        $_POST['new_name']
-                    );
+                    $_POST['new_name'] = mb_strtolower($_POST['new_name']);
                 }
 
                 // Get original names before rename operation
@@ -189,10 +184,7 @@ class OperationsController extends AbstractController
                 $oldDb = $pma_table->getDbName();
 
                 if ($pma_table->rename($_POST['new_name'])) {
-                    if (
-                        isset($_POST['adjust_privileges'])
-                        && ! empty($_POST['adjust_privileges'])
-                    ) {
+                    if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                         $this->operations->adjustPrivilegesRenameOrMoveTable(
                             $oldDb,
                             $oldTable,
@@ -246,12 +238,12 @@ class OperationsController extends AbstractController
             );
 
             if (count($table_alters) > 0) {
-                $sql_query      = 'ALTER TABLE '
+                $sql_query = 'ALTER TABLE '
                     . Util::backquote($table);
-                $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
-                $sql_query     .= ';';
-                $result         = (bool) $this->dbi->query($sql_query);
-                $reread_info    = true;
+                $sql_query .= "\r\n" . implode("\r\n", $table_alters);
+                $sql_query .= ';';
+                $result = (bool) $this->dbi->query($sql_query);
+                $reread_info = true;
                 unset($table_alters);
                 $warning_messages = $this->operations->getWarningMessagesArray();
             }
@@ -261,11 +253,7 @@ class OperationsController extends AbstractController
                 && ! empty($_POST['tbl_collation'])
                 && ! empty($_POST['change_all_collations'])
             ) {
-                $this->operations->changeAllColumnsCollation(
-                    $db,
-                    $table,
-                    $_POST['tbl_collation']
-                );
+                $this->operations->changeAllColumnsCollation($db, $table, $_POST['tbl_collation']);
             }
 
             if (isset($_POST['tbl_collation']) && empty($_POST['tbl_collation'])) {
@@ -296,10 +284,7 @@ class OperationsController extends AbstractController
         /**
          * A partition operation has been requested by the user
          */
-        if (
-            isset($_POST['submit_partition'])
-            && ! empty($_POST['partition_operation'])
-        ) {
+        if (isset($_POST['submit_partition']) && ! empty($_POST['partition_operation'])) {
             $sql_query = QueryGenerator::getQueryForPartitioningTable(
                 $table,
                 $_POST['partition_operation'],

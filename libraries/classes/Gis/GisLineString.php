@@ -157,13 +157,7 @@ class GisLineString extends GisGeometry
         foreach ($points_arr as $point) {
             if (isset($temp_point)) {
                 // draw line section
-                $pdf->Line(
-                    $temp_point[0],
-                    $temp_point[1],
-                    $point[0],
-                    $point[1],
-                    $line
-                );
+                $pdf->Line($temp_point[0], $temp_point[1], $point[0], $point[1], $line);
             }
 
             $temp_point = $point;
@@ -194,11 +188,11 @@ class GisLineString extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
         $line_options = [
-            'name'         => $label,
-            'id'           => $label . $this->getRandomId(),
-            'class'        => 'linestring vector',
-            'fill'         => 'none',
-            'stroke'       => $line_color,
+            'name' => $label,
+            'id' => $label . $this->getRandomId(),
+            'class' => 'linestring vector',
+            'fill' => 'none',
+            'stroke' => $line_color,
             'stroke-width' => 2,
         ];
 
@@ -242,7 +236,7 @@ class GisLineString extends GisGeometry
             'width' => 2,
         ];
 
-        $result =  'var style = new ol.style.Style({'
+        $result = 'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
         if (trim($label) !== '') {
             $text_style = ['text' => trim($label)];

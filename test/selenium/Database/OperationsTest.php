@@ -29,10 +29,7 @@ class OperationsTest extends TestBase
         $this->navigateDatabase($this->databaseName);
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Operations')->click();
-        $this->waitForElement(
-            'xpath',
-            '//div[contains(., \'Rename database to\')]'
-        );
+        $this->waitForElement('xpath', '//div[contains(., \'Rename database to\')]');
     }
 
     /**
@@ -46,9 +43,7 @@ class OperationsTest extends TestBase
 
         $this->getToDBOperations();
         $this->byName('comment')->sendKeys('comment_foobar');
-        $this->byCssSelector(
-            "form#formDatabaseComment input[type='submit']"
-        )->click();
+        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
         $this->assertNotNull(
             $this->waitForElement(
@@ -75,10 +70,7 @@ class OperationsTest extends TestBase
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->waitForElement(
             'xpath',

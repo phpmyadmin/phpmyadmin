@@ -81,10 +81,7 @@ class PageSettings
 
         // Process form
         $error = null;
-        if (
-            isset($_POST['submit_save'])
-            && $_POST['submit_save'] == $formGroupName
-        ) {
+        if (isset($_POST['submit_save']) && $_POST['submit_save'] == $formGroupName) {
             $this->processPageSettings($formDisplay, $cf, $error);
         }
 

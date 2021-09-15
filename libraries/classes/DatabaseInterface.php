@@ -416,10 +416,7 @@ class DatabaseInterface implements DbalInterface
                     [
                         $tables[$one_database_name][$one_table_name]['Data_length'],
                         $tables[$one_database_name][$one_table_name]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths(
-                        $one_database_name,
-                        $one_table_name
-                    );
+                    ] = StorageEngine::getMroongaLengths($one_database_name, $one_table_name);
                 }
             }
 
@@ -527,10 +524,7 @@ class DatabaseInterface implements DbalInterface
                     [
                         $each_tables[$table_name]['Data_length'],
                         $each_tables[$table_name]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths(
-                        $each_database,
-                        $table_name
-                    );
+                    ] = StorageEngine::getMroongaLengths($each_database, $table_name);
                 }
 
                 // Sort naturally if the config allows it and we're sorting
@@ -572,11 +566,7 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 if ($limit_count) {
-                    $each_tables = array_slice(
-                        $each_tables,
-                        $limit_offset,
-                        $limit_count
-                    );
+                    $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
                 }
 
                 $tables[$each_database] = Compatibility::getISCompatForGetTablesFull($each_tables, $each_database);
@@ -710,7 +700,7 @@ class DatabaseInterface implements DbalInterface
             $databases = [];
             foreach ($GLOBALS['dblist']->databases as $database_name) {
                 // Compatibility with INFORMATION_SCHEMA output
-                $databases[$database_name]['SCHEMA_NAME']      = $database_name;
+                $databases[$database_name]['SCHEMA_NAME'] = $database_name;
 
                 $databases[$database_name]['DEFAULT_COLLATION_NAME'] = $this->getDbCollation($database_name);
 
@@ -719,13 +709,13 @@ class DatabaseInterface implements DbalInterface
                 }
 
                 // get additional info about tables
-                $databases[$database_name]['SCHEMA_TABLES']          = 0;
-                $databases[$database_name]['SCHEMA_TABLE_ROWS']      = 0;
-                $databases[$database_name]['SCHEMA_DATA_LENGTH']     = 0;
+                $databases[$database_name]['SCHEMA_TABLES'] = 0;
+                $databases[$database_name]['SCHEMA_TABLE_ROWS'] = 0;
+                $databases[$database_name]['SCHEMA_DATA_LENGTH'] = 0;
                 $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] = 0;
-                $databases[$database_name]['SCHEMA_INDEX_LENGTH']    = 0;
-                $databases[$database_name]['SCHEMA_LENGTH']          = 0;
-                $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
+                $databases[$database_name]['SCHEMA_INDEX_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_LENGTH'] = 0;
+                $databases[$database_name]['SCHEMA_DATA_FREE'] = 0;
 
                 $res = $this->query(
                     'SHOW TABLE STATUS FROM '
@@ -798,9 +788,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         /** @var FieldMetadata[] $meta */
-        $meta = $this->getFieldsMeta(
-            $result
-        );
+        $meta = $this->getFieldsMeta($result);
 
         $nbFields = count($meta);
         if ($nbFields <= 0) {
@@ -855,12 +843,7 @@ class DatabaseInterface implements DbalInterface
         $columns = [];
         if ($database === null) {
             foreach ($GLOBALS['dblist']->databases as $database) {
-                $columns[$database] = $this->getColumnsFull(
-                    $database,
-                    null,
-                    null,
-                    $link
-                );
+                $columns[$database] = $this->getColumnsFull($database, null, null, $link);
             }
 
             return $columns;
@@ -869,12 +852,7 @@ class DatabaseInterface implements DbalInterface
         if ($table === null) {
             $tables = $this->getTables($database);
             foreach ($tables as $table) {
-                $columns[$table] = $this->getColumnsFull(
-                    $database,
-                    $table,
-                    null,
-                    $link
-                );
+                $columns[$table] = $this->getColumnsFull($database, $table, null, $link);
             }
 
             return $columns;
@@ -1031,12 +1009,7 @@ class DatabaseInterface implements DbalInterface
                 $modifier = '';
         }
 
-        return $this->fetchValue(
-            'SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';',
-            0,
-            1,
-            $link
-        );
+        return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 0, 1, $link);
     }
 
     /**
@@ -1051,11 +1024,7 @@ class DatabaseInterface implements DbalInterface
         string $value,
         $link = self::CONNECT_USER
     ): bool {
-        $current_value = $this->getVariable(
-            $var,
-            self::GETVAR_SESSION,
-            $link
-        );
+        $current_value = $this->getVariable($var, self::GETVAR_SESSION, $link);
         if ($current_value == $value) {
             return true;
         }
@@ -1070,11 +1039,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function postConnect(): void
     {
-        $version = $this->fetchSingleRow(
-            'SELECT @@version, @@version_comment',
-            'ASSOC',
-            self::CONNECT_USER
-        );
+        $version = $this->fetchSingleRow('SELECT @@version, @@version_comment', 'ASSOC', self::CONNECT_USER);
 
         if (is_array($version)) {
             $this->versionString = $version['@@version'] ?? '';
@@ -1108,11 +1073,7 @@ class DatabaseInterface implements DbalInterface
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
         if (! empty($locale)) {
-            $this->query(
-                "SET lc_messages = '" . $locale . "';",
-                self::CONNECT_USER,
-                self::QUERY_STORE
-            );
+            $this->query("SET lc_messages = '" . $locale . "';", self::CONNECT_USER, self::QUERY_STORE);
         }
 
         // Set timezone for the session, if required.
@@ -1141,9 +1102,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         /* Loads closest context to this version. */
-        Context::loadClosest(
-            ($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt
-        );
+        Context::loadClosest(($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt);
 
         /**
          * the DatabaseList class as a stub for the ListDatabase class
@@ -1253,12 +1212,7 @@ class DatabaseInterface implements DbalInterface
     ) {
         $value = false;
 
-        $result = $this->tryQuery(
-            $query,
-            $link,
-            self::QUERY_STORE,
-            false
-        );
+        $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
         if ($result === false) {
             return false;
         }
@@ -1310,12 +1264,7 @@ class DatabaseInterface implements DbalInterface
         string $type = 'ASSOC',
         $link = self::CONNECT_USER
     ): ?array {
-        $result = $this->tryQuery(
-            $query,
-            $link,
-            self::QUERY_STORE,
-            false
-        );
+        $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
         if ($result === false) {
             return null;
         }
@@ -1521,12 +1470,7 @@ class DatabaseInterface implements DbalInterface
         string $which,
         $link = self::CONNECT_USER
     ): array {
-        $shows = $this->fetchResult(
-            'SHOW ' . $which . ' STATUS;',
-            null,
-            null,
-            $link
-        );
+        $shows = $this->fetchResult('SHOW ' . $which . ' STATUS;', null, null, $link);
         $result = [];
         foreach ($shows as $one_show) {
             if ($one_show['Db'] != $db || $one_show['Type'] != $which) {
@@ -1557,9 +1501,9 @@ class DatabaseInterface implements DbalInterface
     ): ?string {
         $returned_field = [
             'PROCEDURE' => 'Create Procedure',
-            'FUNCTION'  => 'Create Function',
-            'EVENT'     => 'Create Event',
-            'VIEW'      => 'Create View',
+            'FUNCTION' => 'Create Function',
+            'EVENT' => 'Create Event',
+            'VIEW' => 'Create View',
         ];
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
@@ -1738,9 +1682,7 @@ class DatabaseInterface implements DbalInterface
 
             // do not prepend the schema name; this way, importing the
             // definition into another schema will work
-            $one_result['full_trigger_name'] = Util::backquote(
-                $trigger['TRIGGER_NAME']
-            );
+            $one_result['full_trigger_name'] = Util::backquote($trigger['TRIGGER_NAME']);
             $one_result['drop'] = 'DROP TRIGGER IF EXISTS '
                 . $one_result['full_trigger_name'];
             $one_result['create'] = 'CREATE TRIGGER '
@@ -1796,11 +1738,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        $result = $this->tryQuery(
-            'SELECT 1 FROM mysql.user LIMIT 1',
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        $result = $this->tryQuery('SELECT 1 FROM mysql.user LIMIT 1', self::CONNECT_USER, self::QUERY_STORE);
         $isSuperUser = false;
 
         if ($result) {
@@ -1874,10 +1812,7 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (
-                    str_contains($grant, 'ALL PRIVILEGES ON *.*')
-                    || str_contains($grant, 'CREATE USER')
-                ) {
+                if (str_contains($grant, 'ALL PRIVILEGES ON *.*') || str_contains($grant, 'CREATE USER')) {
                     $hasCreatePrivilege = true;
                     break;
                 }
@@ -1909,13 +1844,7 @@ class DatabaseInterface implements DbalInterface
 
     private function getCurrentUserGrants(): array
     {
-        return $this->fetchResult(
-            'SHOW GRANTS FOR CURRENT_USER();',
-            null,
-            null,
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        return $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();', null, null, self::CONNECT_USER, self::QUERY_STORE);
     }
 
     /**
@@ -1941,9 +1870,7 @@ class DatabaseInterface implements DbalInterface
     public function getLowerCaseNames()
     {
         if ($this->lowerCaseTableNames === null) {
-            $this->lowerCaseTableNames = $this->fetchValue(
-                'SELECT @@lower_case_table_names'
-            );
+            $this->lowerCaseTableNames = $this->fetchValue('SELECT @@lower_case_table_names');
         }
 
         return $this->lowerCaseTableNames;
@@ -1978,11 +1905,7 @@ class DatabaseInterface implements DbalInterface
 
         // Do not show location and backtrace for connection errors
         $GLOBALS['errorHandler']->setHideLocation(true);
-        $result = $this->extension->connect(
-            $user,
-            $password,
-            $server
-        );
+        $result = $this->extension->connect($user, $password, $server);
         $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result) {
@@ -2487,11 +2410,7 @@ class DatabaseInterface implements DbalInterface
                 '[doc@faqmysql]',
                 '[/doc]'
             );
-            Core::warnMissingExtension(
-                'mysqli',
-                true,
-                $docLink
-            );
+            Core::warnMissingExtension('mysqli', true, $docLink);
         }
 
         return new self(new DbiMysqli());

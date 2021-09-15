@@ -35,16 +35,11 @@ class Generator
             if (is_array($escapedTableOrTables)) {
                 $sqlWhereTable = 'AND t.`TABLE_NAME` '
                     . Util::getCollateForIS() . ' IN (\''
-                    . implode(
-                        '\', \'',
-                        $escapedTableOrTables
-                    )
+                    . implode('\', \'', $escapedTableOrTables)
                     . '\')';
             } elseif ($tblIsGroup === true) {
                 $sqlWhereTable = 'AND t.`TABLE_NAME` LIKE \''
-                    . Util::escapeMysqlWildcards(
-                        $escapedTableOrTables
-                    )
+                    . Util::escapeMysqlWildcards($escapedTableOrTables)
                     . '%\'';
             } else {
                 $sqlWhereTable = 'AND t.`TABLE_NAME` '
@@ -271,7 +266,7 @@ class Generator
         string $sortOrder,
         string $limit
     ): string {
-        $sql  = 'SELECT *, '
+        $sql = 'SELECT *, '
                 . 'CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
                 . ' FROM (';
         $sql .= 'SELECT'

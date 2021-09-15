@@ -98,10 +98,7 @@ class Triggers
     {
         global $db, $errors, $message, $table;
 
-        if (
-            ! empty($_POST['editor_process_add'])
-            || ! empty($_POST['editor_process_edit'])
-        ) {
+        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $sql_query = '';
 
             $item_query = $this->getQueryFromRequest();
@@ -199,10 +196,7 @@ class Triggers
                     }
 
                     $insert = false;
-                    if (
-                        empty($table)
-                        || ($trigger !== false && $table == $trigger['table'])
-                    ) {
+                    if (empty($table) || ($trigger !== false && $table == $trigger['table'])) {
                         $insert = true;
                         $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
                         $this->response->addJSON(
@@ -261,10 +255,7 @@ class Triggers
             $mode = 'add';
         } elseif (! empty($_REQUEST['edit_item'])) {
             $title = __('Edit trigger');
-            if (
-                ! empty($_REQUEST['item_name'])
-                && empty($_POST['editor_process_edit'])
-            ) {
+            if (! empty($_REQUEST['item_name']) && empty($_POST['editor_process_edit'])) {
                 $item = $this->getDataFromName($_REQUEST['item_name']);
                 if ($item !== null) {
                     $item['item_original_name'] = $item['item_name'];
@@ -330,14 +321,14 @@ class Triggers
         }
 
         $retval = [];
-        $retval['create']                  = $temp['create'];
-        $retval['drop']                    = $temp['drop'];
-        $retval['item_name']               = $temp['name'];
-        $retval['item_table']              = $temp['table'];
-        $retval['item_action_timing']      = $temp['action_timing'];
+        $retval['create'] = $temp['create'];
+        $retval['drop'] = $temp['drop'];
+        $retval['item_name'] = $temp['name'];
+        $retval['item_table'] = $temp['table'];
+        $retval['item_action_timing'] = $temp['action_timing'];
         $retval['item_event_manipulation'] = $temp['event_manipulation'];
-        $retval['item_definition']         = $temp['definition'];
-        $retval['item_definer']            = $temp['definer'];
+        $retval['item_definition'] = $temp['definition'];
+        $retval['item_definer'] = $temp['definer'];
 
         return $retval;
     }
@@ -380,9 +371,7 @@ class Triggers
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
-            if (
-                str_contains($_POST['item_definer'], '@')
-            ) {
+            if (str_contains($_POST['item_definer'], '@')) {
                 $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
@@ -398,29 +387,20 @@ class Triggers
             $errors[] = __('You must provide a trigger name!');
         }
 
-        if (
-            ! empty($_POST['item_timing'])
-            && in_array($_POST['item_timing'], $this->time)
-        ) {
+        if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time)) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
             $errors[] = __('You must provide a valid timing for the trigger!');
         }
 
-        if (
-            ! empty($_POST['item_event'])
-            && in_array($_POST['item_event'], $this->event)
-        ) {
+        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], $this->event)) {
             $query .= $_POST['item_event'] . ' ';
         } else {
             $errors[] = __('You must provide a valid event for the trigger!');
         }
 
         $query .= 'ON ';
-        if (
-            ! empty($_POST['item_table'])
-            && in_array($_POST['item_table'], $this->dbi->getTables($db))
-        ) {
+        if (! empty($_POST['item_table']) && in_array($_POST['item_table'], $this->dbi->getTables($db))) {
             $query .= Util::backquote($_POST['item_table']);
         } else {
             $errors[] = __('You must provide a valid table name!');
@@ -487,7 +467,7 @@ class Triggers
             exit;
         }
 
-        $message  = __('Error in processing request:') . ' ';
+        $message = __('Error in processing request:') . ' ';
         $message .= sprintf(
             __('No trigger with name %1$s found in database %2$s.'),
             htmlspecialchars(Util::backquote($_REQUEST['item_name'])),

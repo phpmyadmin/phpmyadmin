@@ -38,10 +38,7 @@ class Cache
             if (isset($this->tableCache[$one_database])) {
                 // the + operator does not do the intended effect
                 // when the cache for one table already exists
-                if (
-                    $table
-                    && isset($this->tableCache[$one_database][$table])
-                ) {
+                if ($table && isset($this->tableCache[$one_database][$table])) {
                     unset($this->tableCache[$one_database][$table]);
                 }
 

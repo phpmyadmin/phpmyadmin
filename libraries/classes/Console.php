@@ -82,10 +82,7 @@ class Console
         $template = new Template();
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
-            $bookmarks = Bookmark::getList(
-                $dbi,
-                $GLOBALS['cfg']['Server']['user']
-            );
+            $bookmarks = Bookmark::getList($dbi, $GLOBALS['cfg']['Server']['user']);
             $count_bookmarks = count($bookmarks);
             if ($count_bookmarks > 0) {
                 $welcomeMessage = sprintf(
@@ -127,14 +124,10 @@ class Console
     public function getDisplay(): string
     {
         if (! $this->isAjax && $this->isEnabled) {
-            $cfgBookmark = Bookmark::getParams(
-                $GLOBALS['cfg']['Server']['user']
-            );
+            $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
 
             $image = Html\Generator::getImage('console', __('SQL Query Console'));
-            $_sql_history = $this->relation->getHistory(
-                $GLOBALS['cfg']['Server']['user']
-            );
+            $_sql_history = $this->relation->getHistory($GLOBALS['cfg']['Server']['user']);
             $bookmarkContent = static::getBookmarkContent();
 
             return $this->template->render('console/display', [

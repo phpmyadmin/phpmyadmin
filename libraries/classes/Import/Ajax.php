@@ -52,9 +52,7 @@ final class Ajax
             $check = $plugin . 'Check';
 
             if (self::$check()) {
-                $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords(
-                    $plugin
-                );
+                $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
                 $_SESSION[$SESSION_KEY]['handler'] = $upload_class;
                 break;
             }

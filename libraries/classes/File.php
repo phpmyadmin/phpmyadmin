@@ -292,11 +292,7 @@ class File
             return false;
         }
 
-        $file = $this->fetchUploadedFromTblChangeRequestMultiple(
-            $_FILES['fields_upload'],
-            $rownumber,
-            $key
-        );
+        $file = $this->fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
 
         switch ($file['error']) {
             case UPLOAD_ERR_OK:
@@ -396,9 +392,7 @@ class File
             && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
         ) {
             // ... whether with multiple rows ...
-            return $this->setLocalSelectedFile(
-                $_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]
-            );
+            return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]);
         }
 
         return false;

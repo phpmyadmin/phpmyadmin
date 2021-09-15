@@ -185,10 +185,7 @@ class Validator
                         $result[$key] = [];
                     }
 
-                    $result[$key] = array_merge(
-                        $result[$key],
-                        (array) $errorList
-                    );
+                    $result[$key] = array_merge($result[$key], (array) $errorList);
                 }
             }
         }
@@ -286,20 +283,12 @@ class Validator
             $error = true;
         }
 
-        if (
-            $values['Servers/1/auth_type'] === 'config'
-            && empty($values['Servers/1/user'])
-        ) {
-            $result['Servers/1/user'] = __(
-                'Empty username while using [kbd]config[/kbd] authentication method!'
-            );
+        if ($values['Servers/1/auth_type'] === 'config' && empty($values['Servers/1/user'])) {
+            $result['Servers/1/user'] = __('Empty username while using [kbd]config[/kbd] authentication method!');
             $error = true;
         }
 
-        if (
-            $values['Servers/1/auth_type'] === 'signon'
-            && empty($values['Servers/1/SignonSession'])
-        ) {
+        if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonSession'])) {
             $result['Servers/1/SignonSession'] = __(
                 'Empty signon session name '
                 . 'while using [kbd]signon[/kbd] authentication method!'
@@ -307,10 +296,7 @@ class Validator
             $error = true;
         }
 
-        if (
-            $values['Servers/1/auth_type'] === 'signon'
-            && empty($values['Servers/1/SignonURL'])
-        ) {
+        if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonURL'])) {
             $result['Servers/1/SignonURL'] = __(
                 'Empty signon URL while using [kbd]signon[/kbd] authentication '
                 . 'method!'

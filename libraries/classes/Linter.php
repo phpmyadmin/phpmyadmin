@@ -33,11 +33,7 @@ class Linter
      */
     public static function getLines($str)
     {
-        if (
-            (! ($str instanceof UtfString))
-            && defined('USE_UTF_STRINGS')
-            && USE_UTF_STRINGS
-        ) {
+        if ((! ($str instanceof UtfString)) && defined('USE_UTF_STRINGS') && USE_UTF_STRINGS) {
             // If the lexer uses UtfString for processing then the position will
             // represent the position of the character and not the position of
             // the byte.
@@ -163,10 +159,7 @@ class Linter
         // Building the response.
         foreach ($errors as $idx => $error) {
             // Starting position of the string that caused the error.
-            [$fromLine, $fromColumn] = static::findLineNumberAndColumn(
-                $lines,
-                $error[3]
-            );
+            [$fromLine, $fromColumn] = static::findLineNumberAndColumn($lines, $error[3]);
 
             // Ending position of the string that caused the error.
             [$toLine, $toColumn] = static::findLineNumberAndColumn(

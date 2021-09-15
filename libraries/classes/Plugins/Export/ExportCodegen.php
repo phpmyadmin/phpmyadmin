@@ -68,9 +68,7 @@ class ExportCodegen extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -248,9 +246,7 @@ class ExportCodegen extends ExportPlugin
             $lines[] = '    {';
             $lines[] = '        #region Member Variables';
             foreach ($tableProperties as $tableProperty) {
-                $lines[] = $tableProperty->formatCs(
-                    '        protected #dotNetPrimitiveType# _#name#;'
-                );
+                $lines[] = $tableProperty->formatCs('        protected #dotNetPrimitiveType# _#name#;');
             }
 
             $lines[] = '        #endregion';
@@ -263,9 +259,7 @@ class ExportCodegen extends ExportPlugin
                     continue;
                 }
 
-                $temp[] = $tableProperty->formatCs(
-                    '#dotNetPrimitiveType# #name#'
-                );
+                $temp[] = $tableProperty->formatCs('#dotNetPrimitiveType# #name#');
             }
 
             $lines[] = '        public '
@@ -279,9 +273,7 @@ class ExportCodegen extends ExportPlugin
                     continue;
                 }
 
-                $lines[] = $tableProperty->formatCs(
-                    '            this._#name#=#name#;'
-                );
+                $lines[] = $tableProperty->formatCs('            this._#name#=#name#;');
             }
 
             $lines[] = '        }';

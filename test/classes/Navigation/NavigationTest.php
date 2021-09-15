@@ -108,10 +108,7 @@ class NavigationTest extends AbstractTestCase
     public function testGetItemUnhideDialog(): void
     {
         $html = $this->object->getItemUnhideDialog('db');
-        $this->assertStringContainsString(
-            '<td>tableName</td>',
-            $html
-        );
+        $this->assertStringContainsString('<td>tableName</td>', $html);
         $this->assertStringContainsString(
             '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&itemType=table&'

@@ -51,10 +51,7 @@ class DesignerController extends AbstractController
             } elseif ($_POST['dialog'] === 'save_as') {
                 $html = $this->databaseDesigner->getHtmlForPageSaveAs($_POST['db']);
             } elseif ($_POST['dialog'] === 'export') {
-                $html = $this->databaseDesigner->getHtmlForSchemaExport(
-                    $_POST['db'],
-                    $_POST['selected_page']
-                );
+                $html = $this->databaseDesigner->getHtmlForSchemaExport($_POST['db'], $_POST['selected_page']);
             } elseif ($_POST['dialog'] === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
                 $script_display_field = $this->designerCommon->getTablesInfo($_POST['db'], $_POST['table']);
@@ -112,11 +109,7 @@ class DesignerController extends AbstractController
                 [
                     $success,
                     $message,
-                ] = $this->designerCommon->saveDisplayField(
-                    $_POST['db'],
-                    $_POST['table'],
-                    $_POST['field']
-                );
+                ] = $this->designerCommon->saveDisplayField($_POST['db'], $_POST['table'], $_POST['field']);
                 $this->response->setRequestStatus($success);
                 $this->response->addJSON('message', $message);
             } elseif ($_POST['operation'] === 'addNewRelation') {

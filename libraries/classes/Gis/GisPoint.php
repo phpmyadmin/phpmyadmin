@@ -157,15 +157,7 @@ class GisPoint extends GisGeometry
 
         // draw a small circle to mark the point
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
-            $pdf->Circle(
-                $points_arr[0][0],
-                $points_arr[0][1],
-                2,
-                0,
-                360,
-                'D',
-                $line
-            );
+            $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
             // print label if applicable
             if (isset($label) && trim($label) != '') {
                 $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
@@ -192,11 +184,11 @@ class GisPoint extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = [
-            'name'         => $label,
-            'id'           => $label . $this->getRandomId(),
-            'class'        => 'point vector',
-            'fill'         => 'white',
-            'stroke'       => $point_color,
+            'name' => $label,
+            'id' => $label . $this->getRandomId(),
+            'class' => 'point vector',
+            'fill' => 'white',
+            'stroke' => $point_color,
             'stroke-width' => 2,
         ];
 

@@ -55,9 +55,7 @@ class ImportOds extends ImportPlugin
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
-        $importSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -245,10 +243,7 @@ class ImportOds extends ImportPlugin
         if (
             isset($_REQUEST['ods_recognize_percentages'])
             && $_REQUEST['ods_recognize_percentages']
-            && ! strcmp(
-                'percentage',
-                (string) $cell_attrs['value-type']
-            )
+            && ! strcmp('percentage', (string) $cell_attrs['value-type'])
         ) {
             return (float) $cell_attrs['value'];
         }
@@ -322,9 +317,7 @@ class ImportOds extends ImportPlugin
                     }
                 } else {
                     for ($i = 0; $i < $num_null; ++$i) {
-                        $col_names[] = $this->import->getColumnAlphaName(
-                            $col_count + 1
-                        );
+                        $col_names[] = $this->import->getColumnAlphaName($col_count + 1);
                         ++$col_count;
                     }
                 }
@@ -332,9 +325,7 @@ class ImportOds extends ImportPlugin
                 if (! $col_names_in_first_row) {
                     $tempRow[] = 'NULL';
                 } else {
-                    $col_names[] = $this->import->getColumnAlphaName(
-                        $col_count + 1
-                    );
+                    $col_names[] = $this->import->getColumnAlphaName($col_count + 1);
                 }
 
                 ++$col_count;

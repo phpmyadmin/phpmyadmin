@@ -452,10 +452,7 @@ class SavedSearches
     {
         global $dbi;
 
-        if (
-            $this->getUsername() == null
-            || $this->getDbname() == null
-        ) {
+        if ($this->getUsername() == null || $this->getDbname() == null) {
             return [];
         }
 

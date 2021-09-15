@@ -102,10 +102,7 @@ class GisVisualizationTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            'SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`',
-            $queryString
-        );
+        $this->assertEquals('SELECT ASTEXT(`abc`) AS `abc`, SRID(`abc`) AS `srid` FROM () AS `temp_gis`', $queryString);
     }
 
     /**

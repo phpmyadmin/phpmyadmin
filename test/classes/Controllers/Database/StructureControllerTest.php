@@ -125,17 +125,9 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertTrue(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            6,
-            $currentTable['TABLE_ROWS']
-        );
-        $this->assertEquals(
-            16394,
-            $sumSize
-        );
+        $this->assertTrue($currentTable['COUNTED']);
+        $this->assertEquals(6, $currentTable['TABLE_ROWS']);
+        $this->assertEquals(16394, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs(
@@ -146,13 +138,8 @@ class StructureControllerTest extends AbstractTestCase
             ]
         );
 
-        $this->assertFalse(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            16394,
-            $sumSize
-        );
+        $this->assertFalse($currentTable['COUNTED']);
+        $this->assertEquals(16394, $sumSize);
 
         $controller = new StructureController(
             $this->response,
@@ -168,23 +155,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $currentTable['ENGINE'] = 'InnoDB';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertTrue(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            10,
-            $sumSize
-        );
+        $this->assertTrue($currentTable['COUNTED']);
+        $this->assertEquals(10, $sumSize);
 
         $currentTable['ENGINE'] = 'MYISAM';
         [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
-        $this->assertFalse(
-            $currentTable['COUNTED']
-        );
-        $this->assertEquals(
-            10,
-            $sumSize
-        );
+        $this->assertFalse($currentTable['COUNTED']);
+        $this->assertEquals(10, $sumSize);
     }
 
     /**
@@ -216,10 +193,10 @@ class StructureControllerTest extends AbstractTestCase
         $property->setValue($controller, true);
 
         $currentTable = [
-            'Data_length'  => 16384,
+            'Data_length' => 16384,
             'Index_length' => 0,
-            'Name'         => 'table',
-            'Data_free'    => 300,
+            'Name' => 'table',
+            'Data_free' => 300,
         ];
         [$currentTable, , , , , $overheadSize, $sumSize] = $method->invokeArgs(
             $controller,
@@ -233,21 +210,12 @@ class StructureControllerTest extends AbstractTestCase
                 0,
             ]
         );
-        $this->assertEquals(
-            6,
-            $currentTable['Rows']
-        );
-        $this->assertEquals(
-            16384,
-            $sumSize
-        );
-        $this->assertEquals(
-            300,
-            $overheadSize
-        );
+        $this->assertEquals(6, $currentTable['Rows']);
+        $this->assertEquals(16384, $sumSize);
+        $this->assertEquals(300, $overheadSize);
 
         unset($currentTable['Data_free']);
-        [$currentTable, , , , , $overheadSize]  = $method->invokeArgs(
+        [$currentTable, , , , , $overheadSize] = $method->invokeArgs(
             $controller,
             [
                 $currentTable,

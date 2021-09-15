@@ -53,20 +53,11 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $opts
         );
 
-        $this->assertStringContainsString(
-            '<tr class="group-header-field group-header-1 disabled-field">',
-            $result
-        );
+        $this->assertStringContainsString('<tr class="group-header-field group-header-1 disabled-field">', $result);
 
-        $this->assertStringContainsString(
-            '<label for="test/path">',
-            $result
-        );
+        $this->assertStringContainsString('<label for="test/path">', $result);
 
-        $this->assertStringContainsString(
-            '<a href="https://example.com/" target="documentation"',
-            $result
-        );
+        $this->assertStringContainsString('<a href="https://example.com/" target="documentation"', $result);
 
         $this->assertStringContainsString(
             '<img src="themes/dot.gif" title="Documentation" ' .
@@ -74,15 +65,9 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<span class="disabled-notice"',
-            $result
-        );
+        $this->assertStringContainsString('<span class="disabled-notice"', $result);
 
-        $this->assertStringContainsString(
-            '<small>',
-            $result
-        );
+        $this->assertStringContainsString('<small>', $result);
 
         $this->assertStringContainsString(
             '<input type="text" name="test/path" id="test/path" value="val"' .
@@ -90,10 +75,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<a class="restore-default hide" href="#test/path"',
-            $result
-        );
+        $this->assertStringContainsString('<a class="restore-default hide" href="#test/path"', $result);
 
         $this->assertStringContainsString('<dl class="inline_errors">', $result);
         $this->assertStringContainsString('<dd>e1</dd>', $result);
@@ -120,10 +102,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $opts
         );
 
-        $this->assertStringContainsString(
-            '<tr class="group-field group-field-1">',
-            $result
-        );
+        $this->assertStringContainsString('<tr class="group-field group-field-1">', $result);
 
         $this->assertStringContainsString(
             '<input type="checkbox" name="test/path" id="test/path" ' .
@@ -131,10 +110,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<a class="userprefs-comment" title="userprefsComment">',
-            $result
-        );
+        $this->assertStringContainsString('<a class="userprefs-comment" title="userprefsComment">', $result);
 
         $this->assertStringContainsString(
             '<td class="userprefs-allow" title="Allow users to customize ' .
@@ -196,34 +172,14 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'key1' => true,
             'key2' => false,
         ];
-        $result = $this->formDisplayTemplate->displayInput(
-            'test/path',
-            'testName',
-            'select',
-            true,
-            '',
-            true,
-            $opts
-        );
-        $this->assertStringContainsString(
-            '<select name="test/path" id="test/path" class="w-75">',
-            $result
-        );
+        $result = $this->formDisplayTemplate->displayInput('test/path', 'testName', 'select', true, '', true, $opts);
+        $this->assertStringContainsString('<select name="test/path" id="test/path" class="w-75">', $result);
 
-        $this->assertStringContainsString(
-            '<option value="1" selected disabled>',
-            $result
-        );
+        $this->assertStringContainsString('<option value="1" selected disabled>', $result);
 
-        $this->assertStringContainsString(
-            '<option value="key1">',
-            $result
-        );
+        $this->assertStringContainsString('<option value="key1">', $result);
 
-        $this->assertStringContainsString(
-            '<option value="key2">',
-            $result
-        );
+        $this->assertStringContainsString('<option value="key2">', $result);
 
         // select case 2
         $opts['values_escaped'] = false;
@@ -236,26 +192,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
             'key1' => true,
             'key2' => false,
         ];
-        $result = $this->formDisplayTemplate->displayInput(
-            'test/path',
-            'testName',
-            'select',
-            false,
-            '',
-            true,
-            $opts
-        );
+        $result = $this->formDisplayTemplate->displayInput('test/path', 'testName', 'select', false, '', true, $opts);
 
-        $this->assertStringContainsString(
-            '<select name="test/path" id="test/path" class="w-75">',
-            $result
-        );
+        $this->assertStringContainsString('<select name="test/path" id="test/path" class="w-75">', $result);
 
         // assertContains doesn't seem to work with htmlentities
-        $this->assertStringContainsString(
-            '<option value="a&lt;b">c&amp;d</option>',
-            $result
-        );
+        $this->assertStringContainsString('<option value="a&lt;b">c&amp;d</option>', $result);
 
         // list
         $result = $this->formDisplayTemplate->displayInput(
@@ -293,10 +235,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
-        $this->assertStringContainsString(
-            '<tr class="group-header group-header-4">',
-            $result
-        );
+        $this->assertStringContainsString('<tr class="group-header group-header-4">', $result);
 
         // without PMA_SETUP
         $this->config->set('is_setup', false);
@@ -305,10 +244,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
-        $this->assertStringContainsString(
-            '<tr class="group-header group-header-4">',
-            $result
-        );
+        $this->assertStringContainsString('<tr class="group-header group-header-4">', $result);
     }
 
     /**
@@ -318,10 +254,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
     {
         $this->formDisplayTemplate->group = 3;
         $this->formDisplayTemplate->displayGroupFooter();
-        $this->assertEquals(
-            2,
-            $this->formDisplayTemplate->group
-        );
+        $this->assertEquals(2, $this->formDisplayTemplate->group);
     }
 
     /**

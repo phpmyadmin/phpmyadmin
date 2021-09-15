@@ -84,23 +84,14 @@ class NodeDatabaseTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('NodeDatabase');
 
         $tables = $parent->getData('tables', 0);
-        $this->assertContains(
-            'test1',
-            $tables
-        );
-        $this->assertContains(
-            'test2',
-            $tables
-        );
+        $this->assertContains('test1', $tables);
+        $this->assertContains('test2', $tables);
 
         $views = $parent->getData('views', 0);
         $this->assertEmpty($views);
 
         $functions = $parent->getData('functions', 0);
-        $this->assertContains(
-            'testFunction',
-            $functions
-        );
+        $this->assertContains('testFunction', $functions);
         $this->assertCount(1, $functions);
 
         $this->assertEmpty($parent->getData('procedures', 0));

@@ -143,13 +143,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $image = $gis_obj->prepareRowAsPng(
-                $sub_part,
-                $label,
-                $color,
-                $scale_data,
-                $image
-            );
+            $image = $gis_obj->prepareRowAsPng($sub_part, $label, $color, $scale_data, $image);
         }
 
         return $image;
@@ -188,13 +182,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $pdf = $gis_obj->prepareRowAsPdf(
-                $sub_part,
-                $label,
-                $color,
-                $scale_data,
-                $pdf
-            );
+            $pdf = $gis_obj->prepareRowAsPdf($sub_part, $label, $color, $scale_data, $pdf);
         }
 
         return $pdf;
@@ -234,12 +222,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $row .= $gis_obj->prepareRowAsSvg(
-                $sub_part,
-                $label,
-                $color,
-                $scale_data
-            );
+            $row .= $gis_obj->prepareRowAsSvg($sub_part, $label, $color, $scale_data);
         }
 
         return $row;
@@ -281,13 +264,7 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
 
-            $row .= $gis_obj->prepareRowAsOl(
-                $sub_part,
-                $srid,
-                $label,
-                $color,
-                $scale_data
-            );
+            $row .= $gis_obj->prepareRowAsOl($sub_part, $srid, $label, $color, $scale_data);
         }
 
         return $row;
@@ -314,11 +291,7 @@ class GisGeometryCollection extends GisGeometry
             } elseif ($char === ')') {
                 $br_count--;
                 if ($br_count == 0) {
-                    $sub_parts[] = mb_substr(
-                        $geom_col,
-                        $start,
-                        $count + 1 - $start
-                    );
+                    $sub_parts[] = mb_substr($geom_col, $start, $count + 1 - $start);
                     $start = $count + 2;
                 }
             }

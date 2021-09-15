@@ -65,11 +65,7 @@ class NavigationController extends AbstractController
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             if (isset($_POST['hideNavItem'])) {
-                if (
-                    ! empty($_POST['itemName'])
-                    && ! empty($_POST['itemType'])
-                    && ! empty($_POST['dbName'])
-                ) {
+                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->hideNavigationItem(
                         $_POST['itemName'],
                         $_POST['itemType'],
@@ -82,11 +78,7 @@ class NavigationController extends AbstractController
             }
 
             if (isset($_POST['unhideNavItem'])) {
-                if (
-                    ! empty($_POST['itemName'])
-                    && ! empty($_POST['itemType'])
-                    && ! empty($_POST['dbName'])
-                ) {
+                if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->unhideNavigationItem(
                         $_POST['itemName'],
                         $_POST['itemType'],

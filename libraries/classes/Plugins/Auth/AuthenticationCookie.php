@@ -119,10 +119,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         if ($session_expired) {
             $response->setRequestStatus(false);
-            $response->addJSON(
-                'new_token',
-                $_SESSION[' PMA_token ']
-            );
+            $response->addJSON('new_token', $_SESSION[' PMA_token ']);
         }
 
         /**
@@ -130,23 +127,17 @@ class AuthenticationCookie extends AuthenticationPlugin
          * using the modal was successful after session expiration.
          */
         if (isset($_REQUEST['session_timedout'])) {
-            $response->addJSON(
-                'logged_in',
-                0
-            );
+            $response->addJSON('logged_in', 0);
         }
 
         // No recall if blowfish secret is not configured as it would produce
         // garbage
-        if (
-            $GLOBALS['cfg']['LoginCookieRecall']
-            && ! empty($GLOBALS['cfg']['blowfish_secret'])
-        ) {
-            $default_user   = $this->user;
+        if ($GLOBALS['cfg']['LoginCookieRecall'] && ! empty($GLOBALS['cfg']['blowfish_secret'])) {
+            $default_user = $this->user;
             $default_server = $GLOBALS['pma_auth_server'];
             $hasAutocomplete = true;
         } else {
-            $default_user   = '';
+            $default_user = '';
             $default_server = '';
             $hasAutocomplete = false;
         }
@@ -168,10 +159,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Show error message
         if (! empty($conn_error)) {
             $errorMessages = Message::rawError((string) $conn_error)->getDisplay();
-        } elseif (
-            isset($_GET['session_expired'])
-            && intval($_GET['session_expired']) == 1
-        ) {
+        } elseif (isset($_GET['session_expired']) && intval($_GET['session_expired']) == 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.')
             )->getDisplay();
@@ -349,10 +337,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $this->password = $password;
 
-            if (
-                $GLOBALS['cfg']['AllowArbitraryServer']
-                && isset($_REQUEST['pma_servername'])
-            ) {
+            if ($GLOBALS['cfg']['AllowArbitraryServer'] && isset($_REQUEST['pma_servername'])) {
                 if ($GLOBALS['cfg']['ArbitraryServerRegexp']) {
                     $parts = explode(' ', $_REQUEST['pma_servername']);
                     if (count($parts) === 2) {
@@ -361,14 +346,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                         $tmp_host = $_REQUEST['pma_servername'];
                     }
 
-                    $match = preg_match(
-                        $GLOBALS['cfg']['ArbitraryServerRegexp'],
-                        $tmp_host
-                    );
+                    $match = preg_match($GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host);
                     if (! $match) {
-                        $conn_error = __(
-                            'You are not allowed to log in to this MySQL server!'
-                        );
+                        $conn_error = __('You are not allowed to log in to this MySQL server!');
 
                         return false;
                     }
@@ -477,10 +457,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $cfg;
 
-        if (
-            $GLOBALS['cfg']['AllowArbitraryServer']
-            && ! empty($GLOBALS['pma_auth_server'])
-        ) {
+        if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             /* Allow to specify 'host port' */
             $parts = explode(' ', $GLOBALS['pma_auth_server']);
             if (count($parts) === 2) {
@@ -539,18 +516,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         // user logged in successfully after session expiration
         if (isset($_REQUEST['session_timedout'])) {
             $response = ResponseRenderer::getInstance();
-            $response->addJSON(
-                'logged_in',
-                1
-            );
-            $response->addJSON(
-                'success',
-                1
-            );
-            $response->addJSON(
-                'new_token',
-                $_SESSION[' PMA_token ']
-            );
+            $response->addJSON('logged_in', 1);
+            $response->addJSON('success', 1);
+            $response->addJSON('new_token', $_SESSION[' PMA_token ']);
 
             if (! defined('TESTSUITE')) {
                 exit;
@@ -785,13 +753,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $aes_secret = $this->getAESSecret($secret);
         $iv = $this->createIV();
         if ($this->useOpenSsl) {
-            $result = openssl_encrypt(
-                $data,
-                'AES-128-CBC',
-                $aes_secret,
-                0,
-                $iv
-            );
+            $result = openssl_encrypt($data, 'AES-128-CBC', $aes_secret, 0, $iv);
         } else {
             $cipher = new AES('cbc');
             $cipher->setIV($iv);

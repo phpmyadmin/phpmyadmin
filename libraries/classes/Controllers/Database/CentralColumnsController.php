@@ -135,11 +135,7 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $_POST['pos'];
         }
 
-        $num_cols = $this->centralColumns->getColumnsCount(
-            $db,
-            $pos,
-            (int) $cfg['MaxRows']
-        );
+        $num_cols = $this->centralColumns->getColumnsCount($db, $pos, (int) $cfg['MaxRows']);
         $message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $num_cols)
         );
@@ -168,12 +164,7 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain(
-            $this->db,
-            $totalRows,
-            $pos,
-            $text_dir
-        );
+        $variables = $this->centralColumns->getTemplateVariablesForMain($this->db, $totalRows, $pos, $text_dir);
 
         $this->render('database/central_columns/main', $variables);
     }
@@ -185,10 +176,7 @@ class CentralColumnsController extends AbstractController
      */
     public function getColumnList(array $params): array
     {
-        return $this->centralColumns->getListRaw(
-            $this->db,
-            $params['cur_table'] ?? ''
-        );
+        return $this->centralColumns->getListRaw($this->db, $params['cur_table'] ?? '');
     }
 
     /**
@@ -262,10 +250,7 @@ class CentralColumnsController extends AbstractController
      */
     public function editPage(array $params): void
     {
-        $rows = $this->centralColumns->getHtmlForEditingPage(
-            $params['selected_fld'],
-            $params['db']
-        );
+        $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
 
         $this->render('database/central_columns/edit', ['rows' => $rows]);
     }
@@ -290,10 +275,6 @@ class CentralColumnsController extends AbstractController
         $name = [];
         parse_str($params['col_name'], $name);
 
-        return $this->centralColumns->deleteColumnsFromList(
-            $params['db'],
-            $name['selected_fld'],
-            false
-        );
+        return $this->centralColumns->deleteColumnsFromList($params['db'], $name['selected_fld'], false);
     }
 }

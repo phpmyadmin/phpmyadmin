@@ -114,16 +114,10 @@ class VariablesControllerTest extends AbstractTestCase
 
         $name = 'auto_increment_increment';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString(
-            $value,
-            $html
-        );
+        $this->assertStringContainsString($value, $html);
         $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
-        $this->assertStringContainsString(
-            $value,
-            $html
-        );
+        $this->assertStringContainsString($value, $html);
     }
 
     /**
@@ -146,10 +140,7 @@ class VariablesControllerTest extends AbstractTestCase
         $voidProviderMock
             ->expects($this->exactly(2))
             ->method('getVariableType')
-            ->willReturnOnConsecutiveCalls(
-                'byte',
-                'string'
-            );
+            ->willReturnOnConsecutiveCalls('byte', 'string');
 
         $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
         $response->setAccessible(true);
@@ -162,10 +153,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals(
-            '<abbr title="3">3 B</abbr>',
-            $formattedValue
-        );
+        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
         $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -179,10 +167,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -196,10 +181,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            'value',
-            $formattedValue
-        );
+        $this->assertEquals('value', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
     }
 
@@ -234,10 +216,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals(
-            '<abbr title="3">3 B</abbr>',
-            $formattedValue
-        );
+        $this->assertEquals('<abbr title="3">3 B</abbr>', $formattedValue);
         $this->assertTrue($isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
@@ -251,10 +230,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
 
         //value is not a number
@@ -268,10 +244,7 @@ class VariablesControllerTest extends AbstractTestCase
             'formatVariable',
             $args
         );
-        $this->assertEquals(
-            'value',
-            $formattedValue
-        );
+        $this->assertEquals('value', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
     }
 
@@ -301,10 +274,7 @@ class VariablesControllerTest extends AbstractTestCase
             $args
         );
 
-        $this->assertEquals(
-            '3',
-            $formattedValue
-        );
+        $this->assertEquals('3', $formattedValue);
         $this->assertFalse($isHtmlFormatted);
     }
 }

@@ -31,10 +31,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         $this->realName = 'functions';
 
         $newLabel = _pgettext('Create new function', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_function italics'
-        );
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_function italics');
         $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

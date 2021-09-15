@@ -52,12 +52,12 @@ class TableTest extends AbstractTestCase
             }
         };
 
-        $sql_isView_true =  'SELECT TABLE_NAME'
+        $sql_isView_true = 'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark\'';
 
-        $sql_isView_false =  'SELECT TABLE_NAME'
+        $sql_isView_false = 'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
             . ' WHERE TABLE_SCHEMA = \'PMA\''
             . ' AND TABLE_NAME = \'PMA_BookMark_2\'';
@@ -746,11 +746,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        $this->assertEquals(
-            '`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT '
-            . "COMMENT 'PMA_comment' FIRST",
-            $query
-        );
+        $this->assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT ' . "COMMENT 'PMA_comment' FIRST", $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -771,11 +767,7 @@ class TableTest extends AbstractTestCase
             ['id'],
             'id'
         );
-        $this->assertEquals(
-            '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
-            . "COMMENT 'PMA_comment' FIRST",
-            $query
-        );
+        $this->assertEquals('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT ' . "COMMENT 'PMA_comment' FIRST", $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -823,11 +815,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        $this->assertEquals(
-            '`id` INT(11) PMA_attribute NULL DEF '
-            . "COMMENT 'PMA_comment' FIRST",
-            $query
-        );
+        $this->assertEquals('`id` INT(11) PMA_attribute NULL DEF ' . "COMMENT 'PMA_comment' FIRST", $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -849,11 +837,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        $this->assertEquals(
-            '`ids` INT(11) PMA_attribute NULL DEF '
-            . "COMMENT 'PMA_comment' FIRST",
-            $query
-        );
+        $this->assertEquals('`ids` INT(11) PMA_attribute NULL DEF ' . "COMMENT 'PMA_comment' FIRST", $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -915,7 +899,7 @@ class TableTest extends AbstractTestCase
     {
         $work = 'PMA_work';
         $pma_table = 'pma_table';
-        $get_fields =  [
+        $get_fields = [
             'filed0',
             'field6',
         ];
@@ -931,17 +915,8 @@ class TableTest extends AbstractTestCase
         $GLOBALS['cfgRelation']['db'] = 'PMA_db';
         $GLOBALS['cfgRelation'][$pma_table] = 'pma_table';
 
-        $ret = Table::duplicateInfo(
-            $work,
-            $pma_table,
-            $get_fields,
-            $where_fields,
-            $new_fields
-        );
-        $this->assertSame(
-            -1,
-            $ret
-        );
+        $ret = Table::duplicateInfo($work, $pma_table, $get_fields, $where_fields, $new_fields);
+        $this->assertSame(-1, $ret);
     }
 
     /**
@@ -1072,10 +1047,7 @@ class TableTest extends AbstractTestCase
             . "charset1 NULL DEFAULT 'VARCHAR' "
             . "AUTO_INCREMENT COMMENT 'PMA comment' AFTER `new_name`";
 
-        $this->assertEquals(
-            $expect,
-            $result
-        );
+        $this->assertEquals($expect, $result);
     }
 
     /**
@@ -1091,29 +1063,21 @@ class TableTest extends AbstractTestCase
         //rename to same name
         $table_new = 'PMA_BookMark';
         $result = $table->rename($table_new);
-        $this->assertTrue(
-            $result
-        );
+        $this->assertTrue($result);
 
         //isValidName
         //space in table name
         $table_new = 'PMA_BookMark ';
         $result = $table->rename($table_new);
-        $this->assertFalse(
-            $result
-        );
+        $this->assertFalse($result);
         //empty name
         $table_new = '';
         $result = $table->rename($table_new);
-        $this->assertFalse(
-            $result
-        );
+        $this->assertFalse($result);
         //dot in table name
         $table_new = 'PMA_.BookMark';
         $result = $table->rename($table_new);
-        $this->assertTrue(
-            $result
-        );
+        $this->assertTrue($result);
 
         //message
         $this->assertEquals(
@@ -1124,9 +1088,7 @@ class TableTest extends AbstractTestCase
         $table_new = 'PMA_BookMark_new';
         $db_new = 'PMA_new';
         $result = $table->rename($table_new, $db_new);
-        $this->assertTrue(
-            $result
-        );
+        $this->assertTrue($result);
         //message
         $this->assertEquals(
             'Table PMA_.BookMark has been renamed to PMA_BookMark_new.',
@@ -1149,10 +1111,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`index3`',
             '`PMA`.`PMA_BookMark`.`index5`',
         ];
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
     }
 
     /**
@@ -1173,10 +1132,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
     }
 
     /**
@@ -1242,10 +1198,7 @@ class TableTest extends AbstractTestCase
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignDb`.`foreignTable`(`foreignField1`, `foreignField2`);';
-        $this->assertEquals(
-            $sql_excepted,
-            $sql
-        );
+        $this->assertEquals($sql_excepted, $sql);
 
         // Exclude db name when relations are made between table in the same db
         $sql = $this->callFunction(
@@ -1263,10 +1216,7 @@ class TableTest extends AbstractTestCase
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
             . '`foreignTable`(`foreignField1`, `foreignField2`);';
-        $this->assertEquals(
-            $sql_excepted,
-            $sql
-        );
+        $this->assertEquals($sql_excepted, $sql);
     }
 
     /**
@@ -1284,10 +1234,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        $this->assertEquals(
-            'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;',
-            $sql
-        );
+        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
     }
 
     /**
@@ -1305,10 +1252,7 @@ class TableTest extends AbstractTestCase
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
 
-        $this->assertEquals(
-            'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;',
-            $sql
-        );
+        $this->assertEquals('ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;', $sql);
     }
 
     /**
@@ -1329,10 +1273,7 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
 
         $return = $table->getReservedColumnNames();
         $expect = [
@@ -1340,10 +1281,7 @@ class TableTest extends AbstractTestCase
             'ADD',
             'ALL',
         ];
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
     }
 
     /**
@@ -1360,11 +1298,7 @@ class TableTest extends AbstractTestCase
             ->will($this->returnValue('res'));
         $dbi->expects($this->any())
             ->method('numRows')
-            ->willReturnOnConsecutiveCalls(
-                0,
-                10,
-                200
-            );
+            ->willReturnOnConsecutiveCalls(0, 10, 200);
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
@@ -1375,7 +1309,7 @@ class TableTest extends AbstractTestCase
                     '`sec_ind`',
                 ],
                 [], // No Uniques found
-                []  // No Indexed found
+                [] // No Indexed found
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -1387,26 +1321,17 @@ class TableTest extends AbstractTestCase
         // Case 1 : Check if table is non-empty
         $return = $tableObj->checkIfMinRecordsExist();
         $expect = true;
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
 
         // Case 2 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
         $expect = false;
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
 
         // Case 3 : Check if table contains at least 100
         $return = $tableObj->checkIfMinRecordsExist(100);
         $expect = true;
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
 
         $GLOBALS['dbi'] = $old_dbi;
     }
@@ -1442,23 +1367,16 @@ class TableTest extends AbstractTestCase
         $table->setUiProp($property, $value, $table_create_time);
 
         //set UI prop successfully
-        $this->assertEquals(
-            $value,
-            $table->uiprefs[$property]
-        );
+        $this->assertEquals($value, $table->uiprefs[$property]);
 
         //removeUiProp
         $table->removeUiProp($property);
         $is_define_property = isset($table->uiprefs[$property]);
-        $this->assertFalse(
-            $is_define_property
-        );
+        $this->assertFalse($is_define_property);
 
         //getUiProp after removeUiProp
         $is_define_property = $table->getUiProp($property);
-        $this->assertFalse(
-            $is_define_property
-        );
+        $this->assertFalse($is_define_property);
     }
 
     /**
@@ -1477,65 +1395,29 @@ class TableTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue(new Table($target_table, $target_db)));
 
-        $return = Table::moveCopy(
-            $source_db,
-            $source_table,
-            $target_db,
-            $target_table,
-            $what,
-            $move,
-            $mode,
-            true
-        );
+        $return = Table::moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode, true);
 
         //successfully
         $expect = true;
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
         $sql_query = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        $this->assertStringContainsString(
-            $sql_query,
-            $GLOBALS['sql_query']
-        );
+        $this->assertStringContainsString($sql_query, $GLOBALS['sql_query']);
         $sql_query = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        $this->assertStringContainsString(
-            $sql_query,
-            $GLOBALS['sql_query']
-        );
+        $this->assertStringContainsString($sql_query, $GLOBALS['sql_query']);
 
-        $return = Table::moveCopy(
-            $source_db,
-            $source_table,
-            $target_db,
-            $target_table,
-            $what,
-            false,
-            $mode,
-            true
-        );
+        $return = Table::moveCopy($source_db, $source_table, $target_db, $target_table, $what, false, $mode, true);
 
         //successfully
         $expect = true;
-        $this->assertEquals(
-            $expect,
-            $return
-        );
+        $this->assertEquals($expect, $return);
         $sql_query = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        $this->assertStringContainsString(
-            $sql_query,
-            $GLOBALS['sql_query']
-        );
+        $this->assertStringContainsString($sql_query, $GLOBALS['sql_query']);
         $sql_query = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        $this->assertStringNotContainsString(
-            $sql_query,
-            $GLOBALS['sql_query']
-        );
+        $this->assertStringNotContainsString($sql_query, $GLOBALS['sql_query']);
     }
 
     /**
@@ -1550,14 +1432,8 @@ class TableTest extends AbstractTestCase
         $tbl_object = new Table($target_db, $target_table, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'DBIDUMMY';
-        $tbl_storage_engine = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getStorageEngine();
-        $this->assertEquals(
-            $expect,
-            $tbl_storage_engine
-        );
+        $tbl_storage_engine = $dbi->getTable($target_db, $target_table)->getStorageEngine();
+        $this->assertEquals($expect, $tbl_storage_engine);
     }
 
     /**
@@ -1572,14 +1448,8 @@ class TableTest extends AbstractTestCase
         $tbl_object = new Table($target_db, $target_table, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Test comment for "table1" in \'pma_test\'';
-        $show_comment = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getComment();
-        $this->assertEquals(
-            $expect,
-            $show_comment
-        );
+        $show_comment = $dbi->getTable($target_db, $target_table)->getComment();
+        $this->assertEquals($expect, $show_comment);
     }
 
     /**
@@ -1594,14 +1464,8 @@ class TableTest extends AbstractTestCase
         $tbl_object = new Table($target_db, $target_table, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'utf8mb4_general_ci';
-        $tbl_collation = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getCollation();
-        $this->assertEquals(
-            $expect,
-            $tbl_collation
-        );
+        $tbl_collation = $dbi->getTable($target_db, $target_table)->getCollation();
+        $this->assertEquals($expect, $tbl_collation);
     }
 
     /**
@@ -1616,14 +1480,8 @@ class TableTest extends AbstractTestCase
         $tbl_object = new Table($target_db, $target_table, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = 'Redundant';
-        $row_format = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getRowFormat();
-        $this->assertEquals(
-            $expect,
-            $row_format
-        );
+        $row_format = $dbi->getTable($target_db, $target_table)->getRowFormat();
+        $this->assertEquals($expect, $row_format);
     }
 
     /**
@@ -1638,14 +1496,8 @@ class TableTest extends AbstractTestCase
         $tbl_object = new Table($target_db, $target_table, $dbi);
         $tbl_object->getStatusInfo(null, true);
         $expect = '5';
-        $auto_increment = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getAutoIncrement();
-        $this->assertEquals(
-            $expect,
-            $auto_increment
-        );
+        $auto_increment = $dbi->getTable($target_db, $target_table)->getAutoIncrement();
+        $this->assertEquals($expect, $auto_increment);
     }
 
     /**
@@ -1663,13 +1515,7 @@ class TableTest extends AbstractTestCase
             'pack_keys' => 'DEFAULT',
             'row_format' => 'REDUNDANT',
         ];
-        $create_options = $dbi->getTable(
-            $target_db,
-            $target_table
-        )->getCreateOptions();
-        $this->assertEquals(
-            $expect,
-            $create_options
-        );
+        $create_options = $dbi->getTable($target_db, $target_table)->getCreateOptions();
+        $this->assertEquals($expect, $create_options);
     }
 }

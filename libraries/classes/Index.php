@@ -15,10 +15,10 @@ use function strlen;
  */
 class Index
 {
-    public const PRIMARY  = 1;
-    public const UNIQUE   = 2;
-    public const INDEX    = 4;
-    public const SPATIAL  = 8;
+    public const PRIMARY = 1;
+    public const UNIQUE = 2;
+    public const INDEX = 4;
+    public const SPATIAL = 8;
     public const FULLTEXT = 16;
 
     /**
@@ -162,38 +162,23 @@ class Index
     {
         $indexes = [];
         foreach (self::getFromTable($table, $schema) as $index) {
-            if (
-                ($choices & self::PRIMARY)
-                && $index->getChoice() === 'PRIMARY'
-            ) {
+            if (($choices & self::PRIMARY) && $index->getChoice() === 'PRIMARY') {
                 $indexes[] = $index;
             }
 
-            if (
-                ($choices & self::UNIQUE)
-                && $index->getChoice() === 'UNIQUE'
-            ) {
+            if (($choices & self::UNIQUE) && $index->getChoice() === 'UNIQUE') {
                 $indexes[] = $index;
             }
 
-            if (
-                ($choices & self::INDEX)
-                && $index->getChoice() === 'INDEX'
-            ) {
+            if (($choices & self::INDEX) && $index->getChoice() === 'INDEX') {
                 $indexes[] = $index;
             }
 
-            if (
-                ($choices & self::SPATIAL)
-                && $index->getChoice() === 'SPATIAL'
-            ) {
+            if (($choices & self::SPATIAL) && $index->getChoice() === 'SPATIAL') {
                 $indexes[] = $index;
             }
 
-            if (
-                (! ($choices & self::FULLTEXT))
-                || $index->getChoice() !== 'FULLTEXT'
-            ) {
+            if ((! ($choices & self::FULLTEXT)) || $index->getChoice() !== 'FULLTEXT') {
                 continue;
             }
 
@@ -289,8 +274,8 @@ class Index
             foreach ($columns['names'] as $key => $name) {
                 $sub_part = $columns['sub_parts'][$key] ?? '';
                 $_columns[] = [
-                    'Column_name'   => $name,
-                    'Sub_part'      => $sub_part,
+                    'Column_name' => $name,
+                    'Sub_part' => $sub_part,
                 ];
             }
         } else {
@@ -588,8 +573,8 @@ class Index
     public function getCompareData()
     {
         $data = [
-            'Packed'        => $this->packed,
-            'Index_choice'    => $this->choice,
+            'Packed' => $this->packed,
+            'Index_choice' => $this->choice,
         ];
 
         foreach ($this->columns as $column) {
@@ -613,7 +598,7 @@ class Index
     {
         $indexes = self::getFromTable($table, $schema);
 
-        $output  = '';
+        $output = '';
 
         // count($indexes) < 2:
         //   there is no need to check if there less than two indexes
@@ -625,9 +610,7 @@ class Index
         while ($while_index = array_pop($indexes)) {
             // ... compare with every remaining index in stack
             foreach ($indexes as $each_index) {
-                if (
-                    $each_index->getCompareData() !== $while_index->getCompareData()
-                ) {
+                if ($each_index->getCompareData() !== $while_index->getCompareData()) {
                     continue;
                 }
 

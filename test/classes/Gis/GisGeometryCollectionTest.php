@@ -214,13 +214,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $line_color,
-            $scale_data,
-            $pdf
-        );
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
         $this->assertInstanceOf('TCPDF', $return);
     }
 
@@ -266,12 +260,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg(
-            $spatial,
-            $label,
-            $lineColor,
-            $scaleData
-        );
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
 
         if (method_exists($this, 'assertMatchesRegularExpression')) {

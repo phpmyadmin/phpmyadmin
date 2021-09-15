@@ -80,17 +80,8 @@ class GeneralLogControllerTest extends AbstractTestCase
             'argument3' => 11,
         ];
 
-        $this->assertEquals(
-            2,
-            $ret['message']['numRows']
-        );
-        $this->assertEquals(
-            $resultRows,
-            $ret['message']['rows']
-        );
-        $this->assertEquals(
-            $resultSum,
-            $ret['message']['sum']
-        );
+        $this->assertEquals(2, $ret['message']['numRows']);
+        $this->assertEquals($resultRows, $ret['message']['rows']);
+        $this->assertEquals($resultSum, $ret['message']['sum']);
     }
 }

@@ -155,10 +155,7 @@ class NormalizationTest extends AbstractTestCase
             $template
         );
         $result = $normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
-        $this->assertStringContainsString(
-            '<table id="table_columns"',
-            $result
-        );
+        $this->assertStringContainsString('<table id="table_columns"', $result);
     }
 
     /**
@@ -175,26 +172,14 @@ class NormalizationTest extends AbstractTestCase
             . __('First step of normalization (1NF)') . '</h3>',
             $result
         );
-        $this->assertStringContainsString(
-            "<div id='mainContent'",
-            $result
-        );
+        $this->assertStringContainsString("<div id='mainContent'", $result);
         $this->assertStringContainsString('<legend>' . __('Step 1.'), $result);
 
-        $this->assertStringContainsString(
-            '<h4',
-            $result
-        );
+        $this->assertStringContainsString('<h4', $result);
 
-        $this->assertStringContainsString(
-            '<p',
-            $result
-        );
+        $this->assertStringContainsString('<p', $result);
 
-        $this->assertStringContainsString(
-            "<select id='selectNonAtomicCol'",
-            $result
-        );
+        $this->assertStringContainsString("<select id='selectNonAtomicCol'", $result);
 
         $this->assertStringContainsString(
             $this->normalization->getHtmlForColumnsList(
@@ -220,14 +205,8 @@ class NormalizationTest extends AbstractTestCase
         $this->assertArrayHasKey('subText', $result);
         $this->assertArrayHasKey('hasPrimaryKey', $result);
         $this->assertArrayHasKey('extra', $result);
-        $this->assertStringContainsString(
-            '<a href="#" id="createPrimaryKey">',
-            $result['subText']
-        );
-        $this->assertStringContainsString(
-            '<a href="#" id="addNewPrimary">',
-            $result['extra']
-        );
+        $this->assertStringContainsString('<a href="#" id="createPrimaryKey">', $result['subText']);
+        $this->assertStringContainsString('<a href="#" id="addNewPrimary">', $result['extra']);
         $this->assertEquals('0', $result['hasPrimaryKey']);
         $this->assertStringContainsString(__('Step 1.') . 2, $result['legendText']);
         $result1 = $this->normalization->getHtmlContentsFor1NFStep2($db, 'PMA_table');
@@ -302,14 +281,8 @@ class NormalizationTest extends AbstractTestCase
         $this->assertEquals('id', $result['primary_key']);
         $result1 = $this->normalization->getHtmlFor2NFstep1($db, 'PMA_table2');
         $this->assertEquals('id, col1', $result1['primary_key']);
-        $this->assertStringContainsString(
-            '<a href="#" id="showPossiblePd"',
-            $result1['headText']
-        );
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="pd" value="id"',
-            $result1['extra']
-        );
+        $this->assertStringContainsString('<a href="#" id="showPossiblePd"', $result1['headText']);
+        $this->assertStringContainsString('<input type="checkbox" name="pd" value="id"', $result1['extra']);
     }
 
     /**
@@ -320,10 +293,7 @@ class NormalizationTest extends AbstractTestCase
         $table = 'PMA_table';
         $partialDependencies = ['col1' => ['col2']];
         $result = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $table);
-        $this->assertStringContainsString(
-            '<input type="text" name="col1"',
-            $result
-        );
+        $this->assertStringContainsString('<input type="text" name="col1"', $result);
     }
 
     /**
@@ -337,12 +307,7 @@ class NormalizationTest extends AbstractTestCase
         $tablesName->id = 'PMA_table';
         $tablesName->col1 = 'PMA_table1';
         $partialDependencies = ['id' => ['col2']];
-        $result = $this->normalization->createNewTablesFor2NF(
-            $partialDependencies,
-            $tablesName,
-            $table,
-            $db
-        );
+        $result = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
         $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
@@ -351,12 +316,7 @@ class NormalizationTest extends AbstractTestCase
             'id' => ['col2'],
             'col1' => ['col2'],
         ];
-        $result1 = $this->normalization->createNewTablesFor2NF(
-            $partialDependencies,
-            $tablesName,
-            $table,
-            $db
-        );
+        $result1 = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
         $this->assertArrayHasKey('extra', $result1);
         $this->assertEquals(__('End of step'), $result1['legendText']);
         $this->assertEquals('', $result1['extra']);
@@ -393,18 +353,15 @@ class NormalizationTest extends AbstractTestCase
         ];
         $result1 = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
         $this->assertIsArray($result1);
-        $this->assertStringContainsString(
-            '<input type="text" name="PMA_table"',
-            $result1['html']
-        );
+        $this->assertStringContainsString('<input type="text" name="PMA_table"', $result1['html']);
         $this->assertEquals(
             [
-                'PMA_table' =>  [
-                    'PMA_table' =>  [
+                'PMA_table' => [
+                    'PMA_table' => [
                         'pk' => 'col1',
                         'nonpk' => 'col2',
                     ],
-                    'table2' =>  [
+                    'table2' => [
                         'pk' => 'id',
                         'nonpk' => 'col4, col5',
                     ],
@@ -432,19 +389,13 @@ class NormalizationTest extends AbstractTestCase
                 ],
             ],
         ];
-        $result = $this->normalization->createNewTablesFor3NF(
-            $newTables,
-            $db
-        );
+        $result = $this->normalization->createNewTablesFor3NF($newTables, $db);
         $this->assertIsArray($result);
         $this->assertArrayHasKey('legendText', $result);
         $this->assertArrayHasKey('headText', $result);
         $this->assertArrayHasKey('queryError', $result);
         $newTables1 = [];
-        $result1 = $this->normalization->createNewTablesFor3NF(
-            $newTables1,
-            $db
-        );
+        $result1 = $this->normalization->createNewTablesFor3NF($newTables1, $db);
         $this->assertArrayHasKey('queryError', $result1);
         $this->assertEquals(__('End of step'), $result1['legendText']);
         $this->assertFalse($result1['queryError']);
@@ -472,10 +423,7 @@ class NormalizationTest extends AbstractTestCase
         $this->assertIsArray($result);
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
-        $this->assertInstanceOf(
-            Message::class,
-            $result['message']
-        );
+        $this->assertInstanceOf(Message::class, $result['message']);
     }
 
     /**
@@ -492,19 +440,10 @@ class NormalizationTest extends AbstractTestCase
         $this->assertArrayHasKey('subText', $result);
         $this->assertArrayHasKey('extra', $result);
         $this->assertStringContainsString(__('Step 3.') . 1, $result['legendText']);
-        $this->assertStringContainsString(
-            '<form',
-            $result['extra']
-        );
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="pd" value="col1"',
-            $result['extra']
-        );
+        $this->assertStringContainsString('<form', $result['extra']);
+        $this->assertStringContainsString('<input type="checkbox" name="pd" value="col1"', $result['extra']);
         $result1 = $this->normalization->getHtmlFor3NFstep1($db, ['PMA_table2']);
-        $this->assertEquals(
-            '',
-            $result1['subText']
-        );
+        $this->assertEquals('', $result1['subText']);
     }
 
     /**
@@ -518,10 +457,7 @@ class NormalizationTest extends AbstractTestCase
             . '" name="normalize" id="normalizeTable"',
             $result
         );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="step1" value="1">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="step1" value="1">', $result);
 
         $this->assertStringContainsString('type="radio" name="normalizeTo"', $result);
         $this->assertStringContainsString('id="normalizeToRadio1" value="1nf" checked>', $result);
@@ -537,10 +473,7 @@ class NormalizationTest extends AbstractTestCase
         $table = 'PMA_table2';
         $db = 'PMA_db';
         $result = $this->normalization->findPartialDependencies($table, $db);
-        $this->assertStringContainsString(
-            '<div class="dependencies_box"',
-            $result
-        );
+        $this->assertStringContainsString('<div class="dependencies_box"', $result);
         $this->assertStringContainsString(__('No partial dependencies found!'), $result);
     }
 

@@ -187,17 +187,10 @@ class Util
         }
 
         foreach ($quotes as $quote) {
-            if (
-                mb_substr($quotedString, 0, 1) === $quote
-                && mb_substr($quotedString, -1, 1) === $quote
-            ) {
+            if (mb_substr($quotedString, 0, 1) === $quote && mb_substr($quotedString, -1, 1) === $quote) {
                 $unquotedString = mb_substr($quotedString, 1, -1);
                 // replace escaped quotes
-                $unquotedString = str_replace(
-                    $quote . $quote,
-                    $quote,
-                    $unquotedString
-                );
+                $unquotedString = str_replace($quote . $quote, $quote, $unquotedString);
 
                 return $unquotedString;
             }
@@ -331,9 +324,9 @@ class Util
         }
 
         $default = [
-            'Name'      => '',
-            'Rows'      => 0,
-            'Comment'   => '',
+            'Name' => '',
+            'Rows' => 0,
+            'Comment' => '',
             'disp_name' => '',
         ];
 
@@ -344,10 +337,7 @@ class Util
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
-            if (
-                $GLOBALS['cfg']['NavigationTreeEnableGrouping']
-                && $sep && mb_strstr($tableName, $sep)
-            ) {
+            if ($GLOBALS['cfg']['NavigationTreeEnableGrouping'] && $sep && mb_strstr($tableName, $sep)) {
                 $parts = explode($sep, $tableName);
 
                 $group =& $tableGroups;
@@ -355,10 +345,7 @@ class Util
                 $groupNameFull = '';
                 $partsCount = count($parts) - 1;
 
-                while (
-                    ($i < $partsCount)
-                    && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])
-                ) {
+                while (($i < $partsCount) && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])) {
                     $groupName = $parts[$i] . $sep;
                     $groupNameFull .= $groupName;
 
@@ -661,12 +648,7 @@ class Util
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
-        $formattedValue = number_format(
-            $value,
-            $digitsRight,
-            $decimalSep,
-            $thousandsSep
-        );
+        $formattedValue = number_format($value, $digitsRight, $decimalSep, $thousandsSep);
         // If we don't want any zeros, remove them now
         if ($noTrailingZero && str_contains($formattedValue, $decimalSep)) {
             $formattedValue = preg_replace('/' . preg_quote($decimalSep, '/') . '?0+$/', '', $formattedValue);
@@ -699,23 +681,11 @@ class Util
         $formattedSize = (string) $formattedSize;
 
         if (preg_match('/^[0-9]+GB$/', $formattedSize)) {
-            $returnValue = (int) mb_substr(
-                $formattedSize,
-                0,
-                -2
-            ) * pow(1024, 3);
+            $returnValue = (int) mb_substr($formattedSize, 0, -2) * pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formattedSize)) {
-            $returnValue = (int) mb_substr(
-                $formattedSize,
-                0,
-                -2
-            ) * pow(1024, 2);
+            $returnValue = (int) mb_substr($formattedSize, 0, -2) * pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formattedSize)) {
-            $returnValue = (int) mb_substr(
-                $formattedSize,
-                0,
-                -1
-            ) * pow(1024, 1);
+            $returnValue = (int) mb_substr($formattedSize, 0, -1) * pow(1024, 1);
         }
 
         return $returnValue;
@@ -811,10 +781,7 @@ class Util
         $ret = @strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
-        if (
-            $ret === false
-            || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8'
-        ) {
+        if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
             $ret = date('Y-m-d H:i:s', (int) $timestamp);
         }
 
@@ -957,11 +924,7 @@ class Util
         // for real we use CONCAT above and it should compare to string
         // See commit: 049fc7fef7548c2ba603196937c6dcaf9ff9bf00
         // See bug: https://sourceforge.net/p/phpmyadmin/bugs/3064/
-        if (
-            $meta->isNumeric
-            && ! $meta->isMappedTypeTimestamp
-            && $meta->isNotType(FieldMetadata::TYPE_REAL)
-        ) {
+        if ($meta->isNumeric && ! $meta->isMappedTypeTimestamp && $meta->isNotType(FieldMetadata::TYPE_REAL)) {
             $conditionValue = '= ' . $row;
         } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
@@ -981,10 +944,7 @@ class Util
                 // this blob won't be part of the final condition
                 $conditionValue = null;
             }
-        } elseif (
-            $meta->isMappedTypeGeometry
-            && ! empty($row)
-        ) {
+        } elseif ($meta->isMappedTypeGeometry && ! empty($row)) {
             // do not build a too big condition
             if (mb_strlen((string) $row) < 5000) {
                 $condition .= '=0x' . bin2hex((string) $row) . ' AND';
@@ -1026,17 +986,17 @@ class Util
     ): array {
         global $dbi;
 
-        $primaryKey          = '';
-        $uniqueKey           = '';
+        $primaryKey = '';
+        $uniqueKey = '';
         $nonPrimaryCondition = '';
         $preferredCondition = '';
-        $primaryKeyArray    = [];
-        $uniqueKeyArray     = [];
+        $primaryKeyArray = [];
+        $uniqueKeyArray = [];
         $nonPrimaryConditionArray = [];
         $conditionArray = [];
 
         for ($i = 0; $i < $fieldsCount; ++$i) {
-            $meta        = $fieldsMeta[$i];
+            $meta = $fieldsMeta[$i];
 
             // do not use a column alias in a condition
             if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
@@ -1094,13 +1054,7 @@ class Util
 
             $condition = ' ' . $conKey . ' ';
 
-            [$conVal, $condition] = self::getConditionValue(
-                $row[$i] ?? null,
-                $meta,
-                $fieldsCount,
-                $conKey,
-                $condition
-            );
+            [$conVal, $condition] = self::getConditionValue($row[$i] ?? null, $meta, $fieldsCount, $conKey, $condition);
 
             if ($conVal === null) {
                 continue;
@@ -1112,7 +1066,7 @@ class Util
                 $primaryKey .= $condition;
                 $primaryKeyArray[$conKey] = $conVal;
             } elseif ($meta->isUniqueKey()) {
-                $uniqueKey  .= $condition;
+                $uniqueKey .= $condition;
                 $uniqueKeyArray[$conKey] = $conVal;
             }
 
@@ -1479,36 +1433,21 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (
-                str_contains($printType, 'binary')
-                && ! preg_match('@binary[\(]@', $printType)
-            ) {
+            if (str_contains($printType, 'binary') && ! preg_match('@binary[\(]@', $printType)) {
                 $printType = str_replace('binary', '', $printType);
                 $binary = true;
             } else {
                 $binary = false;
             }
 
-            $printType = (string) preg_replace(
-                '@zerofill@',
-                '',
-                $printType,
-                -1,
-                $zerofillCount
-            );
+            $printType = (string) preg_replace('@zerofill@', '', $printType, -1, $zerofillCount);
             $zerofill = ($zerofillCount > 0);
-            $printType = (string) preg_replace(
-                '@unsigned@',
-                '',
-                $printType,
-                -1,
-                $unsignedCount
-            );
+            $printType = (string) preg_replace('@unsigned@', '', $printType, -1, $unsignedCount);
             $unsigned = ($unsignedCount > 0);
             $printType = trim($printType);
         }
 
-        $attribute     = ' ';
+        $attribute = ' ';
         if ($binary) {
             $attribute = 'BINARY';
         }
@@ -1522,20 +1461,14 @@ class Util
         }
 
         $canContainCollation = false;
-        if (
-            ! $binary
-            && preg_match(
-                '@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@',
-                $type
-            )
-        ) {
+        if (! $binary && preg_match('@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@', $type)) {
             $canContainCollation = true;
         }
 
         // for the case ENUM('&#8211;','&ldquo;')
         $displayedType = htmlspecialchars($printType, ENT_COMPAT);
         if (mb_strlen($printType) > $GLOBALS['cfg']['LimitChars']) {
-            $displayedType  = '<abbr title="' . htmlspecialchars($printType) . '">';
+            $displayedType = '<abbr title="' . htmlspecialchars($printType) . '">';
             $displayedType .= htmlspecialchars(
                 mb_substr(
                     $printType,
@@ -1550,7 +1483,7 @@ class Util
         return [
             'type' => $type,
             'spec_in_brackets' => $specInBrackets,
-            'enum_set_values'  => $enumSetValues,
+            'enum_set_values' => $enumSetValues,
             'print_type' => $printType,
             'binary' => $binary,
             'unsigned' => $unsigned,
@@ -1591,7 +1524,7 @@ class Util
     public static function getTitleForTarget($target)
     {
         $mapping = [
-            'structure' =>  __('Structure'),
+            'structure' => __('Structure'),
             'sql' => __('SQL'),
             'search' => __('Search'),
             'insert' => __('Insert'),
@@ -1793,10 +1726,7 @@ class Util
 
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
-            $columnsList = $dbi->getColumns(
-                $GLOBALS['db'],
-                $GLOBALS['table']
-            );
+            $columnsList = $dbi->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
             // sometimes the table no longer exists at this point
             if ($columnsList !== null) {
@@ -1901,7 +1831,7 @@ class Util
             return true;
         }
 
-        $username  = "''";
+        $username = "''";
         $username .= str_replace("'", "''", $user);
         $username .= "''@''";
         $username .= str_replace("'", "''", $host);
@@ -2024,10 +1954,7 @@ class Util
             } elseif (($inString && $curr === '\\') && $next === '\\') {
                 $buffer .= '&#92;';
                 $i++;
-            } elseif (
-                ($inString && $next == "'")
-                && ($curr == "'" || $curr === '\\')
-            ) {
+            } elseif (($inString && $next == "'") && ($curr == "'" || $curr === '\\')) {
                 $buffer .= '&#39;';
                 $i++;
             } elseif ($inString && $curr == "'") {
@@ -2064,48 +1991,48 @@ class Util
     {
         $tabList = [
             'server' => [
-                'databases'   => __('Databases'),
-                'sql'         => __('SQL'),
-                'status'      => __('Status'),
-                'rights'      => __('Users'),
-                'export'      => __('Export'),
-                'import'      => __('Import'),
-                'settings'    => __('Settings'),
-                'binlog'      => __('Binary log'),
+                'databases' => __('Databases'),
+                'sql' => __('SQL'),
+                'status' => __('Status'),
+                'rights' => __('Users'),
+                'export' => __('Export'),
+                'import' => __('Import'),
+                'settings' => __('Settings'),
+                'binlog' => __('Binary log'),
                 'replication' => __('Replication'),
-                'vars'        => __('Variables'),
-                'charset'     => __('Charsets'),
-                'plugins'     => __('Plugins'),
-                'engine'      => __('Engines'),
+                'vars' => __('Variables'),
+                'charset' => __('Charsets'),
+                'plugins' => __('Plugins'),
+                'engine' => __('Engines'),
             ],
-            'db'     => [
-                'structure'   => __('Structure'),
-                'sql'         => __('SQL'),
-                'search'      => __('Search'),
-                'query'       => __('Query'),
-                'export'      => __('Export'),
-                'import'      => __('Import'),
-                'operation'   => __('Operations'),
-                'privileges'  => __('Privileges'),
-                'routines'    => __('Routines'),
-                'events'      => __('Events'),
-                'triggers'    => __('Triggers'),
-                'tracking'    => __('Tracking'),
-                'designer'    => __('Designer'),
+            'db' => [
+                'structure' => __('Structure'),
+                'sql' => __('SQL'),
+                'search' => __('Search'),
+                'query' => __('Query'),
+                'export' => __('Export'),
+                'import' => __('Import'),
+                'operation' => __('Operations'),
+                'privileges' => __('Privileges'),
+                'routines' => __('Routines'),
+                'events' => __('Events'),
+                'triggers' => __('Triggers'),
+                'tracking' => __('Tracking'),
+                'designer' => __('Designer'),
                 'central_columns' => __('Central columns'),
             ],
-            'table'  => [
-                'browse'      => __('Browse'),
-                'structure'   => __('Structure'),
-                'sql'         => __('SQL'),
-                'search'      => __('Search'),
-                'insert'      => __('Insert'),
-                'export'      => __('Export'),
-                'import'      => __('Import'),
-                'privileges'  => __('Privileges'),
-                'operation'   => __('Operations'),
-                'tracking'    => __('Tracking'),
-                'triggers'    => __('Triggers'),
+            'table' => [
+                'browse' => __('Browse'),
+                'structure' => __('Structure'),
+                'sql' => __('SQL'),
+                'search' => __('Search'),
+                'insert' => __('Insert'),
+                'export' => __('Export'),
+                'import' => __('Import'),
+                'privileges' => __('Privileges'),
+                'operation' => __('Operations'),
+                'tracking' => __('Tracking'),
+                'triggers' => __('Triggers'),
             ],
         ];
 
@@ -2131,10 +2058,7 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (
-            empty($value) || $value === 'CURRENT_TIMESTAMP'
-            || $value === 'current_timestamp()'
-        ) {
+        if (empty($value) || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
             return $value;
         }
 
@@ -2217,10 +2141,10 @@ class Util
      */
     public static function processIndexData(array $indexes)
     {
-        $lastIndex    = '';
+        $lastIndex = '';
 
-        $primary      = '';
-        $pkArray     = []; // will be use to emphasis prim. keys in the table
+        $primary = '';
+        $pkArray = []; // will be use to emphasis prim. keys in the table
         $indexesInfo = [];
         $indexesData = [];
 
@@ -2228,7 +2152,7 @@ class Util
         foreach ($indexes as $row) {
             // Backups the list of primary keys
             if ($row['Key_name'] === 'PRIMARY') {
-                $primary   .= $row['Column_name'] . ', ';
+                $primary .= $row['Column_name'] . ', ';
                 $pkArray[$row['Column_name']] = 1;
             }
 
@@ -2281,10 +2205,7 @@ class Util
         /**
          * limits for table list
          */
-        if (
-            ! isset($_SESSION['tmpval']['table_limit_offset'])
-            || $_SESSION['tmpval']['table_limit_offset_db'] != $db
-        ) {
+        if (! isset($_SESSION['tmpval']['table_limit_offset']) || $_SESSION['tmpval']['table_limit_offset_db'] != $db) {
             $_SESSION['tmpval']['table_limit_offset'] = 0;
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }
@@ -2339,16 +2260,16 @@ class Util
 
             if (isset($_REQUEST['sort'])) {
                 $sortableNameMappings = [
-                    'table'       => 'Name',
-                    'records'     => 'Rows',
-                    'type'        => 'Engine',
-                    'collation'   => 'Collation',
-                    'size'        => 'Data_length',
-                    'overhead'    => 'Data_free',
-                    'creation'    => 'Create_time',
+                    'table' => 'Name',
+                    'records' => 'Rows',
+                    'type' => 'Engine',
+                    'collation' => 'Collation',
+                    'size' => 'Data_length',
+                    'overhead' => 'Data_free',
+                    'creation' => 'Create_time',
                     'last_update' => 'Update_time',
-                    'last_check'  => 'Check_time',
-                    'comment'     => 'Comment',
+                    'last_check' => 'Check_time',
+                    'comment' => 'Comment',
                 ];
 
                 // Make sure the sort type is implemented

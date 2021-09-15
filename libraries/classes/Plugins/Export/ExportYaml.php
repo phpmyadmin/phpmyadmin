@@ -46,9 +46,7 @@ class ExportYaml extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -69,9 +67,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $this->export->outputHandler(
-            '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
-        );
+        $this->export->outputHandler('%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']);
 
         return true;
     }
@@ -142,11 +138,7 @@ class ExportYaml extends ExportPlugin
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         $columns_cnt = $dbi->numFields($result);
         $fieldsMeta = $dbi->getFieldsMeta($result) ?? [];

@@ -46,11 +46,7 @@ final class MoveColumnsController extends AbstractController
 
     public function __invoke(): void
     {
-        if (
-            ! isset($_POST['move_columns'])
-            || ! is_array($_POST['move_columns'])
-            || ! $this->response->isAjax()
-        ) {
+        if (! isset($_POST['move_columns']) || ! is_array($_POST['move_columns']) || ! $this->response->isAjax()) {
             return;
         }
 
@@ -77,10 +73,7 @@ final class MoveColumnsController extends AbstractController
             // it is not, let's move it to index $i
             $data = $columns[$column];
             $extracted_columnspec = Util::extractColumnSpec($data['Type']);
-            if (
-                isset($data['Extra'])
-                && $data['Extra'] === 'on update CURRENT_TIMESTAMP'
-            ) {
+            if (isset($data['Extra']) && $data['Extra'] === 'on update CURRENT_TIMESTAMP') {
                 $extracted_columnspec['attribute'] = $data['Extra'];
                 unset($data['Extra']);
             }

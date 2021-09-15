@@ -61,12 +61,7 @@ class VersionInformation
         $data = json_decode($response);
 
         /* Basic sanity checking */
-        if (
-            ! is_object($data)
-            || empty($data->version)
-            || empty($data->releases)
-            || empty($data->date)
-        ) {
+        if (! is_object($data) || empty($data->version) || empty($data->releases) || empty($data->date)) {
             return null;
         }
 

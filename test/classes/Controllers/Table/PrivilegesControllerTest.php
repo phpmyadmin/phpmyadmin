@@ -55,20 +55,14 @@ class PrivilegesControllerTest extends AbstractTestCase
             $dbi
         ))(['checkprivsdb' => $db, 'checkprivstable' => $table]);
 
-        $this->assertStringContainsString(
-            $db . '.' . $table,
-            $actual
-        );
+        $this->assertStringContainsString($db . '.' . $table, $actual);
 
         //validate 2: Url::getCommon
         $item = Url::getCommon([
             'db' => $db,
             'table' => $table,
         ], '');
-        $this->assertStringContainsString(
-            $item,
-            $actual
-        );
+        $this->assertStringContainsString($item, $actual);
 
         //validate 3: items
         $this->assertStringContainsString(

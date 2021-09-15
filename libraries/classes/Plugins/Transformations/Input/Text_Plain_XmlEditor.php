@@ -23,9 +23,7 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Syntax highlighted CodeMirror editor for XML (and HTML).'
-        );
+        return __('Syntax highlighted CodeMirror editor for XML (and HTML).');
     }
 
     /**

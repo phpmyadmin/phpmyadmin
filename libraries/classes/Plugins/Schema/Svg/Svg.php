@@ -60,11 +60,7 @@ class Svg extends XMLWriter
          */
 
         $this->startDocument('1.0', 'UTF-8');
-        $this->startDtd(
-            'svg',
-            '-//W3C//DTD SVG 1.1//EN',
-            'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'
-        );
+        $this->startDtd('svg', '-//W3C//DTD SVG 1.1//EN', 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd');
         $this->endDtd();
     }
 

@@ -51,28 +51,13 @@ class BinlogControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            'Select binary log to view',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<option value="index1" selected>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<option value="index2">',
-            $actual
-        );
+        $this->assertStringContainsString('Select binary log to view', $actual);
+        $this->assertStringContainsString('<option value="index1" selected>', $actual);
+        $this->assertStringContainsString('<option value="index2">', $actual);
 
-        $this->assertStringContainsString(
-            'Your SQL query has been executed successfully',
-            $actual
-        );
+        $this->assertStringContainsString('Your SQL query has been executed successfully', $actual);
 
-        $this->assertStringContainsString(
-            "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
-            $actual
-        );
+        $this->assertStringContainsString("SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10", $actual);
 
         $this->assertStringContainsString(
             '<table class="table table-light table-striped table-hover align-middle" id="binlogTable">',
@@ -81,35 +66,14 @@ class BinlogControllerTest extends AbstractTestCase
 
         $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&pos=3&'
             . 'is_full_query=1&server=1&';
-        $this->assertStringContainsString(
-            $urlNavigation,
-            $actual
-        );
-        $this->assertStringContainsString(
-            'title="Previous"',
-            $actual
-        );
+        $this->assertStringContainsString($urlNavigation, $actual);
+        $this->assertStringContainsString('title="Previous"', $actual);
 
-        $this->assertStringContainsString(
-            'Log name',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Position',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Event type',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Server ID',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Original position',
-            $actual
-        );
+        $this->assertStringContainsString('Log name', $actual);
+        $this->assertStringContainsString('Position', $actual);
+        $this->assertStringContainsString('Event type', $actual);
+        $this->assertStringContainsString('Server ID', $actual);
+        $this->assertStringContainsString('Original position', $actual);
 
         $this->assertStringContainsString('index1_Log_name', $actual);
         $this->assertStringContainsString('index1_Pos', $actual);

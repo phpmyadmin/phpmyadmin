@@ -67,10 +67,7 @@ class ExportYamlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'YAML',
@@ -89,10 +86,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -103,10 +97,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -117,10 +108,7 @@ class ExportYamlTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
@@ -133,17 +121,12 @@ class ExportYamlTest extends AbstractTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            "%YAML 1.1\n---\n",
-            $result
-        );
+        $this->assertStringContainsString("%YAML 1.1\n---\n", $result);
     }
 
     public function testExportFooter(): void
     {
-        $this->expectOutputString(
-            "...\n"
-        );
+        $this->expectOutputString("...\n");
         $this->assertTrue(
             $this->object->exportFooter()
         );

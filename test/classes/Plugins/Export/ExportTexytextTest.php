@@ -75,10 +75,7 @@ class ExportTexytextTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'Texy! text',
@@ -97,10 +94,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -111,10 +105,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -130,17 +121,11 @@ class ExportTexytextTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'data',
@@ -151,10 +136,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -163,10 +145,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -190,9 +169,7 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $this->expectOutputString(
-            "===Database testDb\n\n"
-        );
+        $this->expectOutputString("===Database testDb\n\n");
         $this->assertTrue(
             $this->object->exportDBHeader('testDb')
         );
@@ -343,20 +320,9 @@ class ExportTexytextTest extends AbstractTestCase
             'column_info' => 'col',
         ];
 
-        $result = $this->object->getTableDef(
-            'db',
-            'table',
-            "\n",
-            'example.com',
-            true,
-            true,
-            true
-        );
+        $result = $this->object->getTableDef('db', 'table', "\n", 'example.com', true, true, true);
 
-        $this->assertStringContainsString(
-            '1|&lt;ftable (ffield&gt;)|comm|Test&lt;',
-            $result
-        );
+        $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
 
     public function testGetTriggers(): void
@@ -383,15 +349,9 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTriggers('database', 'ta<ble');
 
-        $this->assertStringContainsString(
-            '|tna"me|ac>t|manip&|def',
-            $result
-        );
+        $this->assertStringContainsString('|tna"me|ac>t|manip&|def', $result);
 
-        $this->assertStringContainsString(
-            '|Name|Time|Event|Definition',
-            $result
-        );
+        $this->assertStringContainsString('|Name|Time|Event|Definition', $result);
     }
 
     public function testExportStructure(): void

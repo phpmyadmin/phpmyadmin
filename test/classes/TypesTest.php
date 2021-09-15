@@ -682,7 +682,7 @@ class TypesTest extends AbstractTestCase
                 1 => 'VARCHAR',
                 2 => 'TEXT',
                 3 => 'DATE',
-                'Numeric' =>  [
+                'Numeric' => [
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
@@ -698,14 +698,14 @@ class TypesTest extends AbstractTestCase
                     'BOOLEAN',
                     'SERIAL',
                 ],
-                'Date and time' =>  [
+                'Date and time' => [
                     'DATE',
                     'DATETIME',
                     'TIMESTAMP',
                     'TIME',
                     'YEAR',
                 ],
-                'String' =>  [
+                'String' => [
                     'CHAR',
                     'VARCHAR',
                     '-',
@@ -725,7 +725,7 @@ class TypesTest extends AbstractTestCase
                     'ENUM',
                     'SET',
                 ],
-                'Spatial' =>  [
+                'Spatial' => [
                     'GEOMETRY',
                     'POINT',
                     'LINESTRING',

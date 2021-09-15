@@ -69,10 +69,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object->registerForm('pma_testform', $array, 2);
         $_forms = $attrForms->getValue($this->object);
-        $this->assertInstanceOf(
-            Form::class,
-            $_forms['pma_testform']
-        );
+        $this->assertInstanceOf(Form::class, $_forms['pma_testform']);
 
         $attrSystemPaths = $reflection->getProperty('systemPaths');
         $attrSystemPaths->setAccessible(true);
@@ -229,10 +226,7 @@ class FormDisplayTest extends AbstractTestCase
      */
     public function testValidateSelect(): void
     {
-        $attrValidateSelect = new ReflectionMethod(
-            FormDisplay::class,
-            'validateSelect'
-        );
+        $attrValidateSelect = new ReflectionMethod(FormDisplay::class, 'validateSelect');
         $attrValidateSelect->setAccessible(true);
 
         $arr = ['foo' => 'var'];
@@ -362,10 +356,7 @@ class FormDisplayTest extends AbstractTestCase
         $method = new ReflectionMethod(FormDisplay::class, 'loadUserprefsInfo');
         $method->setAccessible(true);
 
-        $attrUserprefs = new ReflectionProperty(
-            FormDisplay::class,
-            'userprefsDisallow'
-        );
+        $attrUserprefs = new ReflectionProperty(FormDisplay::class, 'userprefsDisallow');
 
         $attrUserprefs->setAccessible(true);
         $method->invoke($this->object, null);
@@ -415,10 +406,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $expect['comment_warning'] = 1;
 
-        $this->assertEquals(
-            $expect,
-            $opts
-        );
+        $this->assertEquals($expect, $opts);
 
         // ZipDump, GZipDump, BZipDump
         $method->invokeArgs(
@@ -440,14 +428,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function gzcompress.';
         }
 
-        $this->assertEquals(
-            $comment,
-            $opts['comment']
-        );
+        $this->assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue(
-            $opts['comment_warning']
-        );
+        $this->assertTrue($opts['comment_warning']);
 
         $method->invokeArgs(
             $this->object,
@@ -468,14 +451,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function gzencode.';
         }
 
-        $this->assertEquals(
-            $comment,
-            $opts['comment']
-        );
+        $this->assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue(
-            $opts['comment_warning']
-        );
+        $this->assertTrue($opts['comment_warning']);
 
         $method->invokeArgs(
             $this->object,
@@ -496,14 +474,9 @@ class FormDisplayTest extends AbstractTestCase
             'due to missing function bzcompress.';
         }
 
-        $this->assertEquals(
-            $comment,
-            $opts['comment']
-        );
+        $this->assertEquals($comment, $opts['comment']);
 
-        $this->assertTrue(
-            $opts['comment_warning']
-        );
+        $this->assertTrue($opts['comment_warning']);
 
         $GLOBALS['config']->set('is_setup', false);
 
@@ -519,10 +492,7 @@ class FormDisplayTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            'maximum 10',
-            $opts['comment']
-        );
+        $this->assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
@@ -532,10 +502,7 @@ class FormDisplayTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            'maximum 10',
-            $opts['comment']
-        );
+        $this->assertEquals('maximum 10', $opts['comment']);
 
         $method->invokeArgs(
             $this->object,
@@ -545,9 +512,6 @@ class FormDisplayTest extends AbstractTestCase
             ]
         );
 
-        $this->assertEquals(
-            'maximum 10',
-            $opts['comment']
-        );
+        $this->assertEquals('maximum 10', $opts['comment']);
     }
 }

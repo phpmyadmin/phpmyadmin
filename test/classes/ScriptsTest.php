@@ -55,14 +55,8 @@ class ScriptsTest extends AbstractTestCase
             'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
             $actual
         );
-        $this->assertStringContainsString(
-            '.add(\'common.js\', 1)',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'AJAX.fireOnload(\'common.js\')',
-            $actual
-        );
+        $this->assertStringContainsString('.add(\'common.js\', 1)', $actual);
+        $this->assertStringContainsString('AJAX.fireOnload(\'common.js\')', $actual);
     }
 
     /**
@@ -74,10 +68,7 @@ class ScriptsTest extends AbstractTestCase
 
         $actual = $this->object->getDisplay();
 
-        $this->assertStringContainsString(
-            'alert(\'CodeAdded\');',
-            $actual
-        );
+        $this->assertStringContainsString('alert(\'CodeAdded\');', $actual);
     }
 
     /**

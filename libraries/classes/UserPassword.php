@@ -73,26 +73,17 @@ class UserPassword
 
         $serverVersion = $dbi->getVersion();
 
-        if (
-            isset($_POST['authentication_plugin'])
-            && ! empty($_POST['authentication_plugin'])
-        ) {
+        if (isset($_POST['authentication_plugin']) && ! empty($_POST['authentication_plugin'])) {
             $orig_auth_plugin = $_POST['authentication_plugin'];
         } else {
-            $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin(
-                'change',
-                $username,
-                $hostname
-            );
+            $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin('change', $username, $hostname);
         }
 
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
         $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
-        if (
-            $isPerconaOrMySql && $serverVersion >= 50706
-        ) {
+        if ($isPerconaOrMySql && $serverVersion >= 50706) {
             $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
@@ -168,10 +159,7 @@ class UserPassword
 
         $serverVersion = $dbi->getVersion();
 
-        if (
-            Compatibility::isMySqlOrPerconaDb()
-            && $serverVersion >= 50706
-        ) {
+        if (Compatibility::isMySqlOrPerconaDb() && $serverVersion >= 50706) {
             $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '

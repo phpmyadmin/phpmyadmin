@@ -91,9 +91,7 @@ final class JavaScriptMessagesController
                     . '</b>'
             )
                 . '<br><br>'
-                . __(
-                    'Are you sure you wish to change all the column collations and convert the data?'
-                ),
+                . __('Are you sure you wish to change all the column collations and convert the data?'),
 
             /* For modal dialog buttons */
             'strSaveAndClose' => __('Save & close'),
@@ -254,9 +252,7 @@ final class JavaScriptMessagesController
 
             'strFromSlowLog' => __('From slow log'),
             'strFromGeneralLog' => __('From general log'),
-            'strServerLogError' => __(
-                'The database name is not known for this query in the server\'s logs.'
-            ),
+            'strServerLogError' => __('The database name is not known for this query in the server\'s logs.'),
             'strAnalysingLogsTitle' => __('Analysing logs'),
             'strAnalysingLogs' => __('Analysing & loading logs. This may take a while.'),
             'strCancelRequest' => __('Cancel request'),
@@ -309,9 +305,7 @@ final class JavaScriptMessagesController
 
             'strAffectedRows' => __('Affected rows:'),
 
-            'strFailedParsingConfig' => __(
-                'Failed parsing config file. It doesn\'t seem to be valid JSON code.'
-            ),
+            'strFailedParsingConfig' => __('Failed parsing config file. It doesn\'t seem to be valid JSON code.'),
             'strFailedBuildingGrid' => __(
                 'Failed building chart grid with imported config. Resetting to default config…'
             ),
@@ -389,9 +383,7 @@ final class JavaScriptMessagesController
             'enum_addValue' => __('Add %d value(s)'),
 
             /* For import.js */
-            'strImportCSV' => __(
-                'Note: If the file contains multiple tables, they will be combined into one.'
-            ),
+            'strImportCSV' => __('Note: If the file contains multiple tables, they will be combined into one.'),
 
             /* For sql.js */
             'strHideQueryBox' => __('Hide query box'),
@@ -572,9 +564,7 @@ final class JavaScriptMessagesController
             ),
             'strColMarkHint' => __('Click to mark/unmark.'),
             'strColNameCopyHint' => __('Double-click to copy column name.'),
-            'strColVisibHint' => __(
-                'Click the drop-down arrow<br>to toggle column\'s visibility.'
-            ),
+            'strColVisibHint' => __('Click the drop-down arrow<br>to toggle column\'s visibility.'),
             'strShowAllCol' => __('Show all'),
             'strAlertNonUnique' => __(
                 'This table does not contain a unique column. Features related to the grid '
@@ -635,14 +625,10 @@ final class JavaScriptMessagesController
             'strCreateView' => __('Create view'),
 
             /* Error Reporting */
-            'strErrorOccurred' => __(
-                'A fatal JavaScript error has occurred. Would you like to send an error report?'
-            ),
+            'strErrorOccurred' => __('A fatal JavaScript error has occurred. Would you like to send an error report?'),
             'strChangeReportSettings' => __('Change report settings'),
             'strShowReportDetails' => __('Show report details'),
-            'strTimeOutError' => __(
-                'Your export is incomplete, due to a low execution time limit at the PHP level!'
-            ),
+            'strTimeOutError' => __('Your export is incomplete, due to a low execution time limit at the PHP level!'),
 
             'strTooManyInputs' => __(
                 'Warning: a form on this page has more than %d fields. On submission, '

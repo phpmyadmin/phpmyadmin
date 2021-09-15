@@ -61,15 +61,9 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertStringNotContainsString(
-            '<table id="userGroupsTable">',
-            $html
-        );
+        $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
         $url_tag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
-        $this->assertStringContainsString(
-            $url_tag,
-            $html
-        );
+        $this->assertStringContainsString($url_tag, $html);
     }
 
     /**
@@ -122,14 +116,8 @@ class UserGroupsTest extends AbstractTestCase
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();
-        $this->assertStringContainsString(
-            '<input type="hidden" name="addUserGroupSubmit" value="1"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="text" name="userGroup"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
+        $this->assertStringContainsString('<input type="text" name="userGroup"', $html);
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
@@ -160,18 +148,9 @@ class UserGroupsTest extends AbstractTestCase
 
         // editing a user group
         $html = UserGroups::getHtmlToEditUserGroup('ug');
-        $this->assertStringContainsString(
-            '<input type="hidden" name="userGroup" value="ug"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="editUserGroupSubmit" value="1"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="editUserGroupSubmit" value="1"',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="userGroup" value="ug"', $html);
+        $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
+        $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkall" checked="checked"'
             . ' name="server_sql" value="Y">',

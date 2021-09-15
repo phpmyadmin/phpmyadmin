@@ -42,8 +42,8 @@ class Scripts
     public function __construct()
     {
         $this->template = new Template();
-        $this->files  = [];
-        $this->code   = '';
+        $this->files = [];
+        $this->code = '';
     }
 
     /**

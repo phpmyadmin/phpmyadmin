@@ -108,10 +108,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         }
 
         $cfg = $GLOBALS['cfg'];
-        $options = $this->getOptions(
-            $options,
-            $cfg['DefaultTransformations']['External']
-        );
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['External']);
 
         if (isset($allowed_programs[$options[0]])) {
             $program = $allowed_programs[$options[0]];

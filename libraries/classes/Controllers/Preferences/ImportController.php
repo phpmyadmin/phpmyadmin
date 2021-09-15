@@ -72,11 +72,7 @@ class ImportController extends AbstractController
                 $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect(
-                    'index.php?route=/preferences/import',
-                    null,
-                    $hash
-                );
+                $this->userPreferences->redirect('index.php?route=/preferences/import', null, $hash);
 
                 return;
             }

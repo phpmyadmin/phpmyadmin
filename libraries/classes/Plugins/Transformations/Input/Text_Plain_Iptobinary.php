@@ -29,9 +29,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Converts an Internet network address in (IPv4/IPv6) format to binary'
-        );
+        return __('Converts an Internet network address in (IPv4/IPv6) format to binary');
     }
 
     /**

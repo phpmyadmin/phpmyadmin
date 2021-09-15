@@ -27,9 +27,7 @@ class CreateDropDatabaseTest extends TestBase
      */
     public function testCreateDropDatabase(): void
     {
-        $this->dbQuery(
-            'DROP DATABASE IF EXISTS `' . $this->databaseName . '`;'
-        );
+        $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
 
         $this->waitForElement('partialLinkText', 'Databases')->click();
         $this->waitAjax();
@@ -65,9 +63,7 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->scrollToBottom();
 
-        $dbElement = $this->byCssSelector(
-            "input[name='selected_dbs[]'][value='" . $this->databaseName . "']"
-        );
+        $dbElement = $this->byCssSelector("input[name='selected_dbs[]'][value='" . $this->databaseName . "']");
         $this->scrollToElement($dbElement, 0, 20);
         $dbElement->click();
 
@@ -81,10 +77,7 @@ class CreateDropDatabaseTest extends TestBase
             "input[name='selected_dbs[]'][value='" . $this->databaseName . "']"
         );
 
-        $this->waitForElement(
-            'cssSelector',
-            'span.ajax_notification .alert-success'
-        );
+        $this->waitForElement('cssSelector', 'span.ajax_notification .alert-success');
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',

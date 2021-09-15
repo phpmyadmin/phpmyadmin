@@ -111,10 +111,7 @@ class GisMultiPoint extends GisGeometry
         }
 
         // print label for each point
-        if (
-            (isset($label) && trim($label) != '')
-            && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
-        ) {
+        if ((isset($label) && trim($label) != '') && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
             $image->string(
                 1,
                 (int) round($points_arr[0][0]),
@@ -174,10 +171,7 @@ class GisMultiPoint extends GisGeometry
         }
 
         // print label for each point
-        if (
-            (isset($label) && trim($label) != '')
-            && ($points_arr[0][0] != '' && $points_arr[0][1] != '')
-        ) {
+        if ((isset($label) && trim($label) != '') && ($points_arr[0][0] != '' && $points_arr[0][1] != '')) {
             $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
             $pdf->SetFontSize(5);
             $pdf->Cell(0, 0, trim($label));
@@ -201,10 +195,10 @@ class GisMultiPoint extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = [
-            'name'         => $label,
-            'class'        => 'multipoint vector',
-            'fill'         => 'white',
-            'stroke'       => $point_color,
+            'name' => $label,
+            'class' => 'multipoint vector',
+            'fill' => 'white',
+            'stroke' => $point_color,
             'stroke-width' => 2,
         ];
 

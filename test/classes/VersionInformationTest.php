@@ -196,17 +196,7 @@ class VersionInformationTest extends AbstractTestCase
                 ['PHP', '<5.3'],
                 ['MySQL', '>=5.0']
             )
-            ->willReturnOnConsecutiveCalls(
-                true,
-                true,
-                true,
-                true,
-                true,
-                true,
-                true,
-                true,
-                true
-            );
+            ->willReturnOnConsecutiveCalls(true, true, true, true, true, true, true, true, true);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -233,10 +223,7 @@ class VersionInformationTest extends AbstractTestCase
                 ['PHP', '>=5.3'],
                 ['PHP', '<7.1']
             )
-            ->willReturnOnConsecutiveCalls(
-                true,
-                true
-            );
+            ->willReturnOnConsecutiveCalls(true, true);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -265,12 +252,7 @@ class VersionInformationTest extends AbstractTestCase
                 ['PHP', '>=5.2'],
                 ['PHP', '<5.3']
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false,
-                true,
-                true
-            );
+            ->willReturnOnConsecutiveCalls(false, false, true, true);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         $this->assertIsArray($compatible);
@@ -310,12 +292,8 @@ class VersionInformationTest extends AbstractTestCase
 
         $mockVersionInfo->expects($this->exactly(count($conditionsCalls)))
             ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ...$conditionsCalls
-            )
-            ->willReturnOnConsecutiveCalls(
-                ...$returnValues
-            );
+            ->withConsecutive(...$conditionsCalls)
+            ->willReturnOnConsecutiveCalls(...$returnValues);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
         $this->assertEquals($matchedLastVersion, $compatible['version'] ?? null);

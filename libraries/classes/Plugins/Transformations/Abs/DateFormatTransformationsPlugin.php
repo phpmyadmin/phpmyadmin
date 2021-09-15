@@ -135,10 +135,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $timestamp -= (int) $options[0] * 60 * 60;
             $source = $buffer;
             if ($options[2] === 'local') {
-                $text = Util::localisedDate(
-                    $timestamp,
-                    $options[1]
-                );
+                $text = Util::localisedDate($timestamp, $options[1]);
             } elseif ($options[2] === 'utc') {
                 $text = gmdate($options[1], $timestamp);
             } else {

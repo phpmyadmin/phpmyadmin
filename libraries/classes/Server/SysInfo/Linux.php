@@ -83,11 +83,7 @@ class Linux extends Base
             return [];
         }
 
-        preg_match_all(
-            SysInfo::MEMORY_REGEXP,
-            $content,
-            $matches
-        );
+        preg_match_all(SysInfo::MEMORY_REGEXP, $content, $matches);
 
         /** @var array<string, int>|false $mem */
         $mem = array_combine($matches[1], $matches[2]);
@@ -96,12 +92,12 @@ class Linux extends Base
         }
 
         $defaults = [
-            'MemTotal'   => 0,
-            'MemFree'    => 0,
-            'Cached'     => 0,
-            'Buffers'    => 0,
-            'SwapTotal'  => 0,
-            'SwapFree'   => 0,
+            'MemTotal' => 0,
+            'MemFree' => 0,
+            'Cached' => 0,
+            'Buffers' => 0,
+            'SwapTotal' => 0,
+            'SwapFree' => 0,
             'SwapCached' => 0,
         ];
 

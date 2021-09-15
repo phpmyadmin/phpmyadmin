@@ -79,22 +79,14 @@ class ImportSqlTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         //asset that all sql are executed
-        $this->assertStringContainsString(
-            'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"',
-            $sql_query
-        );
-        $this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `pma_bookmark`',
-            $sql_query
-        );
+        $this->assertStringContainsString('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"', $sql_query);
+        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `pma_bookmark`', $sql_query);
         $this->assertStringContainsString(
             'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
             . 'VALUES',
             $sql_query
         );
 
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

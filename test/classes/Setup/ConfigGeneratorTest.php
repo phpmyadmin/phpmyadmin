@@ -192,10 +192,7 @@ class ConfigGeneratorTest extends AbstractTestCase
 
         $result = $method->invoke(null, $arr, "\n");
 
-        $this->assertEquals(
-            '[1, 2, 3, 4]',
-            $result
-        );
+        $this->assertEquals('[1, 2, 3, 4]', $result);
 
         $arr = [
             1,

@@ -47,28 +47,21 @@ class ExportOdt extends ExportPlugin
     {
         global $plugin_param;
         $hide_structure = false;
-        if (
-            $plugin_param['export_type'] === 'table'
-            && ! $plugin_param['single_table']
-        ) {
+        if ($plugin_param['export_type'] === 'table' && ! $plugin_param['single_table']) {
             $hide_structure = true;
         }
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('OpenDocument Text');
         $exportPluginProperties->setExtension('odt');
-        $exportPluginProperties->setMimeType(
-            'application/vnd.oasis.opendocument.text'
-        );
+        $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.text');
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
@@ -79,8 +72,8 @@ class ExportOdt extends ExportPlugin
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
-                'structure'          => __('structure'),
-                'data'               => __('data'),
+                'structure' => __('structure'),
+                'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ]
         );
@@ -242,11 +235,7 @@ class ExportOdt extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
         /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
@@ -298,10 +287,7 @@ class ExportOdt extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (
-                    $fields_meta[$j]->isBinary
-                    && $fields_meta[$j]->isBlob
-                ) {
+                } elseif ($fields_meta[$j]->isBinary && $fields_meta[$j]->isBlob) {
                     // ignore BLOB
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
@@ -401,10 +387,7 @@ class ExportOdt extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
 
-            $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition(
-                $column,
-                $col_as
-            );
+            $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column, $col_as);
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
 
@@ -525,18 +508,13 @@ class ExportOdt extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition(
-                $column,
-                $col_as
-            );
+            $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column, $col_as);
             if ($do_relation && $have_rel) {
                 $foreigner = $this->relation->searchColumnInForeigners($res_rel, $field_name);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
                     $rfield = $foreigner['foreign_field'];
-                    if (
-                        ! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])
-                    ) {
+                    if (! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])) {
                         $rfield = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
                     }
 

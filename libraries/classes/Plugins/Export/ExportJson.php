@@ -52,17 +52,11 @@ class ExportJson extends ExportPlugin
     public function encode($data)
     {
         $options = 0;
-        if (
-            isset($GLOBALS['json_pretty_print'])
-            && $GLOBALS['json_pretty_print']
-        ) {
+        if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
             $options |= JSON_PRETTY_PRINT;
         }
 
-        if (
-            isset($GLOBALS['json_unicode'])
-            && $GLOBALS['json_unicode']
-        ) {
+        if (isset($GLOBALS['json_unicode']) && $GLOBALS['json_unicode']) {
             $options |= JSON_UNESCAPED_UNICODE;
         }
 
@@ -80,9 +74,7 @@ class ExportJson extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -127,9 +119,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->export->outputHandler(
-            '[' . $crlf . $data . ',' . $crlf
-        );
+        return $this->export->outputHandler('[' . $crlf . $data . ',' . $crlf);
     }
 
     /**
@@ -228,15 +218,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery(
-            $dbi,
-            $sqlQuery,
-            $buffer,
-            $crlf,
-            $aliases,
-            $db,
-            $table
-        );
+        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, $crlf, $aliases, $db, $table);
     }
 
     /**
@@ -267,11 +249,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $columns_cnt = $dbi->numFields($result);
         $fieldsMeta = $dbi->getFieldsMeta($result) ?? [];
 
@@ -364,14 +342,6 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        return $this->doExportForQuery(
-            $dbi,
-            $sqlQuery,
-            $buffer,
-            $crlf,
-            null,
-            null,
-            null
-        );
+        return $this->doExportForQuery($dbi, $sqlQuery, $buffer, $crlf, null, null, null);
     }
 }

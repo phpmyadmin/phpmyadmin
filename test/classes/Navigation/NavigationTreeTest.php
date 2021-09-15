@@ -35,7 +35,7 @@ class NavigationTreeTest extends AbstractTestCase
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
 
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';

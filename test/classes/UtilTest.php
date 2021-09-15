@@ -329,16 +329,10 @@ class UtilTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 'server';
         SessionCache::set('is_superuser', 'yes');
-        $this->assertEquals(
-            'yes',
-            $_SESSION['cache']['server_server']['is_superuser']
-        );
+        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
 
         Util::clearUserCache();
-        $this->assertArrayNotHasKey(
-            'is_superuser',
-            $_SESSION['cache']['server_server']
-        );
+        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
     }
 
     public function testCheckParameterMissing(): void
@@ -2081,10 +2075,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                'EVENT'
-            );
+            ->willReturnOnConsecutiveCalls(false, 'EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2115,10 +2106,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false
-            );
+            ->willReturnOnConsecutiveCalls(false, false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2154,11 +2142,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false,
-                'EVENT'
-            );
+            ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2194,11 +2178,7 @@ class UtilTest extends AbstractTestCase
                 . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
-            ->willReturnOnConsecutiveCalls(
-                false,
-                false,
-                false
-            );
+            ->willReturnOnConsecutiveCalls(false, false, false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;

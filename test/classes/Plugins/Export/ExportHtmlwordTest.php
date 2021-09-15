@@ -73,10 +73,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'Microsoft Word 2000',
@@ -104,10 +101,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -117,10 +111,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
@@ -136,10 +127,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            RadioPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(RadioPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -157,10 +145,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $generalOptions = $generalOptionsArray[1];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'dump_what',
@@ -181,10 +166,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -198,10 +180,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -233,10 +212,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals($expected, $result);
 
         // case 2
 
@@ -258,10 +234,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals(
-            $expected,
-            $result
-        );
+        $this->assertEquals($expected, $result);
     }
 
     public function testExportFooter(): void
@@ -272,10 +245,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '</body></html>',
-            $result
-        );
+        $this->assertEquals('</body></html>', $result);
     }
 
     public function testExportDBHeader(): void
@@ -286,10 +256,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h1>Database d&quot;b</h1>',
-            $result
-        );
+        $this->assertEquals('<h1>Database d&quot;b</h1>', $result);
     }
 
     public function testExportDBFooter(): void
@@ -482,13 +449,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'column_info' => 'col',
         ];
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            true,
-            true,
-            true
-        );
+        $result = $this->object->getTableDef('database', '', true, true, true);
 
         $this->assertEquals(
             '<table width="100%" cellspacing="1">' .
@@ -572,23 +533,11 @@ class ExportHtmlwordTest extends AbstractTestCase
             'column_info' => 'col',
         ];
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            true,
-            true,
-            true
-        );
+        $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertStringContainsString(
-            '<td class="print">ftable (ffield)</td>',
-            $result
-        );
+        $this->assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
-        $this->assertStringContainsString(
-            '<td class="print"></td><td class="print"></td>',
-            $result
-        );
+        $this->assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
 
          // case 3
 
@@ -641,13 +590,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             'column_info' => 'col',
         ];
 
-        $result = $this->object->getTableDef(
-            'database',
-            '',
-            false,
-            false,
-            false
-        );
+        $result = $this->object->getTableDef('database', '', false, false, false);
 
         $this->assertEquals(
             '<table width="100%" cellspacing="1">' .
@@ -808,10 +751,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
     public function testFormatOneColumnDefinition(): void
     {
-        $method = new ReflectionMethod(
-            ExportHtmlword::class,
-            'formatOneColumnDefinition'
-        );
+        $method = new ReflectionMethod(ExportHtmlword::class, 'formatOneColumnDefinition');
         $method->setAccessible(true);
 
         $cols = [

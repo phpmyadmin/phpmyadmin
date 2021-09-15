@@ -135,7 +135,7 @@ class QueryByExampleController extends AbstractController
             }
         }
 
-        $sub_part  = '_qbe';
+        $sub_part = '_qbe';
 
         Util::checkParameters(['db']);
 

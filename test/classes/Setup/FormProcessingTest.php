@@ -82,25 +82,13 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '<div class="error">',
-            $result
-        );
+        $this->assertStringContainsString('<div class="error">', $result);
 
-        $this->assertStringContainsString(
-            'mode=revert',
-            $result
-        );
+        $this->assertStringContainsString('mode=revert', $result);
 
-        $this->assertStringContainsString(
-            '<a class="btn" href="index.php?',
-            $result
-        );
+        $this->assertStringContainsString('<a class="btn" href="index.php?', $result);
 
-        $this->assertStringContainsString(
-            'mode=edit',
-            $result
-        );
+        $this->assertStringContainsString('mode=edit', $result);
 
         // case 3
         $formDisplay = $this->getMockBuilder(FormDisplay::class)

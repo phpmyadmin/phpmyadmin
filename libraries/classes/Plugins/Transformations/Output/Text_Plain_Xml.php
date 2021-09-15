@@ -41,9 +41,7 @@ class Text_Plain_Xml extends TransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Formats text as XML with syntax highlighting.'
-        );
+        return __('Formats text as XML with syntax highlighting.');
     }
 
     /**

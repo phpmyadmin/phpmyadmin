@@ -174,11 +174,11 @@ class ResponseRenderer
         }
 
         $this->header = new Header();
-        $this->HTML   = '';
-        $this->JSON   = [];
+        $this->HTML = '';
+        $this->JSON = [];
         $this->footer = new Footer();
 
-        $this->isSuccess  = true;
+        $this->isSuccess = true;
         $this->isDisabled = false;
         $this->setAjax(! empty($_REQUEST['ajax_request']));
     }
@@ -298,7 +298,7 @@ class ResponseRenderer
         // if its content was already rendered
         // and, in this case, the header will be
         // in the content part of the request
-        $retval  = $this->header->getDisplay();
+        $retval = $this->header->getDisplay();
         $retval .= $this->HTML;
         $retval .= $this->footer->getDisplay();
 
@@ -327,7 +327,7 @@ class ResponseRenderer
             $this->JSON['success'] = true;
         } else {
             $this->JSON['success'] = false;
-            $this->JSON['error']   = $this->JSON['message'];
+            $this->JSON['error'] = $this->JSON['message'];
             unset($this->JSON['message']);
         }
 
@@ -345,10 +345,7 @@ class ResponseRenderer
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->footer->getDebugMessage();
-            if (
-                empty($_REQUEST['no_debug'])
-                && strlen($debug) > 0
-            ) {
+            if (empty($_REQUEST['no_debug']) && strlen($debug) > 0) {
                 $this->addJSON('debug', $debug);
             }
 
@@ -365,10 +362,7 @@ class ResponseRenderer
                 // (this is for the bottom console)
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
-                if (
-                    isset($GLOBALS['sql_query'])
-                    && mb_strlen($GLOBALS['sql_query']) < $maxChars
-                ) {
+                if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
                     $query = $GLOBALS['sql_query'];
                 }
 

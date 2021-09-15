@@ -48,15 +48,7 @@ class TableStatsDia extends TableStats
         $showKeys = false,
         $offline = false
     ) {
-        parent::__construct(
-            $diagram,
-            $db,
-            $pageNumber,
-            $tableName,
-            $showKeys,
-            false,
-            $offline
-        );
+        parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
         /**
          * Every object in Dia document needs an ID to identify
@@ -104,7 +96,7 @@ class TableStatsDia extends TableStats
                 '00FF00',
             ];
             shuffle($listOfColors);
-            $this->tableColor =  '#' . $listOfColors[0] . '';
+            $this->tableColor = '#' . $listOfColors[0] . '';
         } else {
             $this->tableColor = '#000000';
         }

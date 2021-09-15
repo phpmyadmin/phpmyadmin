@@ -39,13 +39,7 @@ class RelationStatsSvg extends RelationStats
         $foreign_field
     ) {
         $this->wTick = 10;
-        parent::__construct(
-            $diagram,
-            $master_table,
-            $master_field,
-            $foreign_table,
-            $foreign_field
-        );
+        parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
     }
 
     /**

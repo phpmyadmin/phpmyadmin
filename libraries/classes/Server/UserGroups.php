@@ -161,10 +161,7 @@ class UserGroups
         $tabNames = [];
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
-            if (
-                isset($row[$level . '_' . $tab])
-                && $row[$level . '_' . $tab] !== 'Y'
-            ) {
+            if (isset($row[$level . '_' . $tab]) && $row[$level . '_' . $tab] !== 'Y') {
                 continue;
             }
 
@@ -246,10 +243,7 @@ class UserGroups
                         $allowedTabs['server'][] = mb_substr($key, 7);
                     } elseif (substr($key, 0, 3) === 'db_' && $value === 'Y') {
                         $allowedTabs['db'][] = mb_substr($key, 3);
-                    } elseif (
-                        substr($key, 0, 6) === 'table_'
-                        && $value === 'Y'
-                    ) {
+                    } elseif (substr($key, 0, 6) === 'table_' && $value === 'Y') {
                         $allowedTabs['table'][] = mb_substr($key, 6);
                     }
                 }

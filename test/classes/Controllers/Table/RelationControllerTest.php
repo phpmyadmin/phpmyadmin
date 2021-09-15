@@ -102,10 +102,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            $viewColumns,
-            $json['columns']
-        );
+        $this->assertEquals($viewColumns, $json['columns']);
     }
 
     /**
@@ -140,10 +137,7 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl->getDropdownValueForTable();
         $json = $this->response->getJSONResult();
-        $this->assertEquals(
-            $indexedColumns,
-            $json['columns']
-        );
+        $this->assertEquals($indexedColumns, $json['columns']);
     }
 
     /**

@@ -47,9 +47,7 @@ class ChartController extends AbstractController
     {
         global $db, $table, $cfg, $sql_query, $errorUrl;
 
-        if (
-            isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
-        ) {
+        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()) {
             $this->ajax();
 
             return;
@@ -98,10 +96,7 @@ class ChartController extends AbstractController
             $url_params['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb($db);
         } elseif (strlen($db) > 0) {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabDatabase'],
-                'database'
-            );
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
             $url_params['back'] = Url::getFromRoute('/sql');
 
             Util::checkParameters(['db']);
@@ -113,10 +108,7 @@ class ChartController extends AbstractController
                 return;
             }
         } else {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabServer'],
-                'server'
-            );
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabServer'], 'server');
             $url_params['back'] = Url::getFromRoute('/sql');
             $errorUrl = Url::getFromRoute('/');
 
@@ -197,16 +189,10 @@ class ChartController extends AbstractController
          */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
-            $statement->limit = new Limit(
-                $_REQUEST['session_max_rows'],
-                $_REQUEST['pos']
-            );
+            $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);
         } else {
             $start = $statement->limit->offset + $_REQUEST['pos'];
-            $rows = min(
-                $_REQUEST['session_max_rows'],
-                $statement->limit->rowCount - $_REQUEST['pos']
-            );
+            $rows = min($_REQUEST['session_max_rows'], $statement->limit->rowCount - $_REQUEST['pos']);
             $statement->limit = new Limit($rows, $start);
         }
 

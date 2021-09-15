@@ -81,7 +81,7 @@ class StorageEngineTest extends AbstractTestCase
                     'Comment' => 'Federated MySQL storage engine',
                 ],
                 'Pbxt' => [
-                    'Engine'  => 'Pbxt',
+                    'Engine' => 'Pbxt',
                     'Support' => 'NO',
                     'Comment' => 'Pbxt storage engine',
                 ],

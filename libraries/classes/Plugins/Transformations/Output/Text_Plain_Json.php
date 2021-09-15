@@ -41,9 +41,7 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Formats text as JSON with syntax highlighting.'
-        );
+        return __('Formats text as JSON with syntax highlighting.');
     }
 
     /**

@@ -128,12 +128,7 @@ class SearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
+        $columns = $this->dbi->getColumns($this->db, $this->table, null, true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 
@@ -150,10 +145,7 @@ class SearchController extends AbstractController
             }
 
             // reformat mysql query output
-            if (
-                strncasecmp($type, 'set', 3) == 0
-                || strncasecmp($type, 'enum', 4) == 0
-            ) {
+            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
                 $type = str_replace(',', ', ', $type);
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
@@ -216,10 +208,7 @@ class SearchController extends AbstractController
         /**
          * No selection criteria received -> display the selection form
          */
-        if (
-            ! isset($_POST['columnsToDisplay'])
-            && ! isset($_POST['displayAllColumns'])
-        ) {
+        if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
             $this->displaySelectionFormAction();
         } else {
             $this->doSelectionAction();
@@ -249,10 +238,7 @@ class SearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue(
-                        (int) $val,
-                        (int) $fields_meta[$i]->length
-                    );
+                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -312,10 +298,7 @@ class SearchController extends AbstractController
         global $goto, $cfg;
 
         if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $cfg['DefaultTabTable'],
-                'table'
-            );
+            $goto = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         }
 
         $this->render('table/search/index', [
@@ -395,14 +378,9 @@ class SearchController extends AbstractController
         );
         $htmlAttributes = '';
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
-            $extractedColumnspec = Util::extractColumnSpec(
-                $this->originalColumnTypes[$column_index]
-            );
+            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange(
-                $cleanType,
-                ! $is_unsigned
-            );
+            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
                             . 'data-max="' . $minMaxValues[1] . '"';
         }

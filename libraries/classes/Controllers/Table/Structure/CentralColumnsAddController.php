@@ -47,10 +47,7 @@ final class CentralColumnsAddController extends AbstractController
             return;
         }
 
-        $centralColsError = $this->centralColumns->syncUniqueColumns(
-            $selected,
-            false
-        );
+        $centralColsError = $this->centralColumns->syncUniqueColumns($selected, false);
 
         if ($centralColsError instanceof Message) {
             $message = $centralColsError;

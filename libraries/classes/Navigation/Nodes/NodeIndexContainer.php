@@ -31,10 +31,7 @@ class NodeIndexContainer extends Node
         $this->realName = 'indexes';
 
         $newLabel = _pgettext('Create new index', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_index italics'
-        );
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_index italics');
         $new->icon = ['image' => 'b_index_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

@@ -68,10 +68,7 @@ class ShowEngineControllerTest extends AbstractTestCase
             __('Variables'),
             $actual
         );
-        $this->assertStringContainsString(
-            'index.php?route=/server/engines/Pbxt/Documentation',
-            $actual
-        );
+        $this->assertStringContainsString('index.php?route=/server/engines/Pbxt/Documentation', $actual);
         $this->assertStringContainsString(
             $enginePlugin->getSupportInformationMessage(),
             $actual

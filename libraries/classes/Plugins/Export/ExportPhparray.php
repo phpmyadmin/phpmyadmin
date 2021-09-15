@@ -47,9 +47,7 @@ class ExportPhparray extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -168,11 +166,7 @@ class ExportPhparray extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
         $columns_cnt = $dbi->numFields($result);
         $columns = [];
@@ -189,19 +183,10 @@ class ExportPhparray extends ExportPlugin
 
         // fix variable names (based on
         // https://www.php.net/manual/en/language.variables.basics.php)
-        if (
-            ! preg_match(
-                '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
-                $table_alias
-            )
-        ) {
+        if (! preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $table_alias)) {
             // fix invalid characters in variable names by replacing them with
             // underscores
-            $tablefixed = preg_replace(
-                '/[^a-zA-Z0-9_\x7f-\xff]/',
-                '_',
-                $table_alias
-            );
+            $tablefixed = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]/', '_', $table_alias);
 
             // variable name must not start with a number or dash...
             if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) === 0) {

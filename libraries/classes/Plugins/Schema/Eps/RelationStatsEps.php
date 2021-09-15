@@ -38,14 +38,8 @@ class RelationStatsEps extends RelationStats
         $foreign_field
     ) {
         $this->wTick = 10;
-        parent::__construct(
-            $diagram,
-            $master_table,
-            $master_field,
-            $foreign_table,
-            $foreign_field
-        );
-        $this->ySrc  += 10;
+        parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
+        $this->ySrc += 10;
         $this->yDest += 10;
     }
 
@@ -58,21 +52,9 @@ class RelationStatsEps extends RelationStats
     public function relationDraw(): void
     {
         // draw a line like -- to foreign field
-        $this->diagram->line(
-            $this->xSrc,
-            $this->ySrc,
-            $this->xSrc + $this->srcDir * $this->wTick,
-            $this->ySrc,
-            1
-        );
+        $this->diagram->line($this->xSrc, $this->ySrc, $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc, 1);
         // draw a line like -- to master field
-        $this->diagram->line(
-            $this->xDest + $this->destDir * $this->wTick,
-            $this->yDest,
-            $this->xDest,
-            $this->yDest,
-            1
-        );
+        $this->diagram->line($this->xDest + $this->destDir * $this->wTick, $this->yDest, $this->xDest, $this->yDest, 1);
         // draw a line that connects to master field line and foreign field line
         $this->diagram->line(
             $this->xSrc + $this->srcDir * $this->wTick,

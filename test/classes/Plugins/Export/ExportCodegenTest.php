@@ -74,10 +74,7 @@ class ExportCodegenTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'CodeGen',
@@ -101,10 +98,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -114,10 +108,7 @@ class ExportCodegenTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -128,10 +119,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $hidden = $generalProperties[0];
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $hidden
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $hidden);
 
         $this->assertEquals(
             'structure_or_data',
@@ -140,10 +128,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $select = $generalProperties[1];
 
-        $this->assertInstanceOf(
-            SelectPropertyItem::class,
-            $select
-        );
+        $this->assertInstanceOf(SelectPropertyItem::class, $select);
 
         $this->assertEquals(
             'format',
@@ -202,13 +187,7 @@ class ExportCodegenTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->object->exportData(
-            'test_db',
-            'test_table',
-            "\n",
-            'localhost',
-            'SELECT * FROM `test_db`.`test_table`;'
-        );
+        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         $this->assertIsString($result);
@@ -233,17 +212,9 @@ class ExportCodegenTest extends AbstractTestCase
 
         $GLOBALS['codegen_format'] = 4;
 
-        $this->object->exportData(
-            'test_db',
-            'test_table',
-            "\n",
-            'localhost',
-            'SELECT * FROM `test_db`.`test_table`;'
-        );
+        $this->object->exportData('test_db', 'test_table', "\n", 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
 
-        $this->expectOutputString(
-            '4 is not supported.'
-        );
+        $this->expectOutputString('4 is not supported.');
     }
 
     public function testCgMakeIdentifier(): void

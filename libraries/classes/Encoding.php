@@ -189,25 +189,13 @@ class Encoding
 
         switch (self::$engine) {
             case self::ENGINE_RECODE:
-                return recode_string(
-                    $src_charset . '..' . $dest_charset,
-                    $what
-                );
+                return recode_string($src_charset . '..' . $dest_charset, $what);
 
             case self::ENGINE_ICONV:
-                return iconv(
-                    $src_charset,
-                    $dest_charset .
-                    ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
-                    $what
-                );
+                return iconv($src_charset, $dest_charset . ($GLOBALS['cfg']['IconvExtraParams'] ?? ''), $what);
 
             case self::ENGINE_MB:
-                return mb_convert_encoding(
-                    $what,
-                    $dest_charset,
-                    $src_charset
-                );
+                return mb_convert_encoding($what, $dest_charset, $src_charset);
 
             default:
                 return $what;
@@ -277,7 +265,7 @@ class Encoding
 
         if ($kana === 'kana') {
             $dist = mb_convert_kana($str, 'KV', $string_encoding);
-            $str  = $dist;
+            $str = $dist;
         }
 
         if ($string_encoding != $enc && $enc != '') {

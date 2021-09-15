@@ -33,9 +33,7 @@ class VersionCheckController extends AbstractController
             return;
         }
 
-        $latestCompatible = $versionInformation->getLatestCompatibleVersion(
-            $versionDetails->releases
-        );
+        $latestCompatible = $versionInformation->getLatestCompatibleVersion($versionDetails->releases);
         $version = '';
         $date = '';
         if ($latestCompatible != null) {

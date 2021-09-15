@@ -140,12 +140,7 @@ class UserPreferences
             . $dbi->escapeString($cfgRelation['user'])
             . '\'';
 
-        $has_config = $dbi->fetchValue(
-            $query,
-            0,
-            0,
-            DatabaseInterface::CONNECT_CONTROL
-        );
+        $has_config = $dbi->fetchValue($query, 0, 0, DatabaseInterface::CONNECT_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
@@ -273,10 +268,7 @@ class UserPreferences
      */
     public function autoloadGetHeader()
     {
-        if (
-            isset($_REQUEST['prefs_autoload'])
-            && $_REQUEST['prefs_autoload'] === 'hide'
-        ) {
+        if (isset($_REQUEST['prefs_autoload']) && $_REQUEST['prefs_autoload'] === 'hide') {
             $_SESSION['userprefs_autoload'] = true;
 
             return '';

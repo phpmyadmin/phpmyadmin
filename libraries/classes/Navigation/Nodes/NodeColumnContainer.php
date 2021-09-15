@@ -31,10 +31,7 @@ class NodeColumnContainer extends Node
         $this->realName = 'columns';
 
         $newLabel = _pgettext('Create new column', 'New');
-        $new = NodeFactory::getInstanceForNewNode(
-            $newLabel,
-            'new_column italics'
-        );
+        $new = NodeFactory::getInstanceForNewNode($newLabel, 'new_column italics');
         $new->icon = ['image' => 'b_column_add', 'title' => $newLabel];
         $new->links = [
             'text' => [

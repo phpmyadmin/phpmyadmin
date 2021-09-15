@@ -112,10 +112,7 @@ class QueryByExampleTest extends TestBase
         $actual = trim((string) $this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
 
         /* Compare generated query */
-        $this->assertEquals(
-            $expected,
-            $actual
-        );
+        $this->assertEquals($expected, $actual);
 
         /* Submit the query */
         $submitButton = $this->waitForElement('cssSelector', '#tblQbeFooters > input[type=submit]');

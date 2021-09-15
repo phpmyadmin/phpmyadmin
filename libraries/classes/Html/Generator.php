@@ -96,12 +96,7 @@ class Generator
         $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) :
                             $kbs->getDocLinkByNameMysql($name);
 
-        return MySQLDocumentation::show(
-            $name,
-            false,
-            $link,
-            $text
-        );
+        return MySQLDocumentation::show($name, false, $link, $text);
     }
 
     /**
@@ -144,10 +139,7 @@ class Generator
             $database = Util::unescapeMysqlWildcards($database);
         }
 
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'],
-            'database'
-        );
+        $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
 
         return '<a href="'
             . $scriptName
@@ -219,10 +211,7 @@ class Generator
             $includeIcon = true;
         }
 
-        if (
-            $forceText
-            || Util::showText($controlParam)
-        ) {
+        if ($forceText || Util::showText($controlParam)) {
             $includeText = true;
         }
 
@@ -421,10 +410,7 @@ class Generator
 
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
-            $retval .= self::getImage(
-                $icon,
-                $text
-            );
+            $retval .= self::getImage($icon, $text);
         }
 
         if ($showText) {
@@ -447,10 +433,7 @@ class Generator
     {
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = (int) $_REQUEST['session_max_rows'];
-        } elseif (
-            isset($_SESSION['tmpval']['max_rows'])
-            && $_SESSION['tmpval']['max_rows'] !== 'all'
-        ) {
+        } elseif (isset($_SESSION['tmpval']['max_rows']) && $_SESSION['tmpval']['max_rows'] !== 'all') {
             $rows = (int) $_SESSION['tmpval']['max_rows'];
         } else {
             $rows = (int) $GLOBALS['cfg']['MaxRows'];
@@ -595,11 +578,7 @@ class Generator
                 // when the query is large (for example an INSERT of binary
                 // data), the parser chokes; so avoid parsing the query
                 $queryTooBig = true;
-                $queryBase = mb_substr(
-                    $sqlQuery,
-                    0,
-                    $cfg['MaxCharactersInDisplayedSQL']
-                ) . '[...]';
+                $queryBase = mb_substr($sqlQuery, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
             } else {
                 $queryBase = $sqlQuery;
             }
@@ -611,11 +590,7 @@ class Generator
             if (! empty($GLOBALS['show_as_php'])) {
                 $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
                 $queryBase = htmlspecialchars(addslashes($queryBase));
-                $queryBase = preg_replace(
-                    '/((\015\012)|(\015)|(\012))/',
-                    $newLine,
-                    $queryBase
-                );
+                $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
                 $queryBase = '<code class="php"><pre>' . "\n"
                     . '$sql = "' . $queryBase . '";' . "\n"
                     . '</pre></code>';
@@ -663,12 +638,7 @@ class Generator
                             Url::getFromRoute('/import', $explainParams),
                             __('Explain SQL')
                         ) . '&nbsp;]';
-                } elseif (
-                    preg_match(
-                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i',
-                        $sqlQuery
-                    )
-                ) {
+                } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
                     $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
                     $explainLink = ' [&nbsp;'
                         . self::linkOrButton(
@@ -694,10 +664,7 @@ class Generator
 
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
-            if (
-                ! empty($cfg['SQLQuery']['Edit'])
-                && empty($GLOBALS['show_as_php'])
-            ) {
+            if (! empty($cfg['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
                 $editLink .= Url::getCommon($urlParams, '&');
                 $editLink = ' [&nbsp;'
                     . self::linkOrButton($editLink, __('Edit'))
@@ -774,11 +741,7 @@ class Generator
             /**
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
-            if (
-                ! empty($cfg['SQLQuery']['Edit'])
-                && ! $queryTooBig
-                && empty($GLOBALS['show_as_php'])
-            ) {
+            if (! empty($cfg['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
                 $inlineEditLink = ' [&nbsp;'
                     . self::linkOrButton(
                         '#',
@@ -979,11 +942,7 @@ class Generator
 
         // Display server's error.
         if (! empty($serverMessage)) {
-            $serverMessage = (string) preg_replace(
-                "@((\015\012)|(\015)|(\012)){3,}@",
-                "\n\n",
-                (string) $serverMessage
-            );
+            $serverMessage = (string) preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", (string) $serverMessage);
 
             // Adds a link to MySQL documentation.
             $errorMessage .= '<p>' . "\n"
@@ -1176,10 +1135,7 @@ class Generator
              */
             $tagParamsStrings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
-            if (
-                array_key_exists('class', $tagParams)
-                && str_contains($tagParams['class'], 'create_view')
-            ) {
+            if (array_key_exists('class', $tagParams) && str_contains($tagParams['class'], 'create_view')) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
             }
         }
@@ -1335,15 +1291,8 @@ class Generator
     {
         global $cfg;
 
-        if (
-            $truncate
-            && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
-        ) {
-            $sqlQuery = mb_substr(
-                $sqlQuery,
-                0,
-                $cfg['MaxCharactersInDisplayedSQL']
-            ) . '[...]';
+        if ($truncate && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']) {
+            $sqlQuery = mb_substr($sqlQuery, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]';
         }
 
         return '<code class="sql"><pre>' . "\n"

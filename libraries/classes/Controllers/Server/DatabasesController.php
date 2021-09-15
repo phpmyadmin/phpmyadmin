@@ -205,10 +205,7 @@ class DatabasesController extends AbstractController
         }
 
         $this->sortOrder = 'asc';
-        if (
-            ! isset($sortOrder)
-            || mb_strtolower($sortOrder) !== 'desc'
-        ) {
+        if (! isset($sortOrder) || mb_strtolower($sortOrder) !== 'desc') {
             return;
         }
 
@@ -277,10 +274,7 @@ class DatabasesController extends AbstractController
                 'collation' => [],
                 'statistics' => $statistics,
                 'replication' => $replication,
-                'is_system_schema' => Utilities::isSystemSchema(
-                    $database['SCHEMA_NAME'],
-                    true
-                ),
+                'is_system_schema' => Utilities::isSystemSchema($database['SCHEMA_NAME'], true),
                 'is_pmadb' => $database['SCHEMA_NAME'] === ($cfg['Server']['pmadb'] ?? ''),
                 'url' => $url,
             ];

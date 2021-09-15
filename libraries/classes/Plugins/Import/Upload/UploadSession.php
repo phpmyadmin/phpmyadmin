@@ -48,12 +48,12 @@ class UploadSession implements UploadInterface
 
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
-                'id'       => $id,
+                'id' => $id,
                 'finished' => false,
-                'percent'  => 0,
-                'total'    => 0,
+                'percent' => 0,
+                'total' => 0,
                 'complete' => 0,
-                'plugin'   => self::getIdKey(),
+                'plugin' => self::getIdKey(),
             ];
         }
 
@@ -80,12 +80,12 @@ class UploadSession implements UploadInterface
             }
         } else {
             $ret = [
-                'id'       => $id,
+                'id' => $id,
                 'finished' => true,
-                'percent'  => 100,
-                'total'    => $ret['total'],
+                'percent' => 100,
+                'total' => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => self::getIdKey(),
+                'plugin' => self::getIdKey(),
             ];
         }
 

@@ -48,9 +48,7 @@ class ExportCsv extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -90,9 +88,7 @@ class ExportCsv extends ExportPlugin
             __('Put columns names in the first row')
         );
         $generalOptions->addProperty($leaf);
-        $leaf = new HiddenPropertyItem(
-            'structure_or_data'
-        );
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -136,10 +132,7 @@ class ExportCsv extends ExportPlugin
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
-            if (
-                empty($csv_terminated)
-                || mb_strtolower($csv_terminated) === 'auto'
-            ) {
+            if (empty($csv_terminated) || mb_strtolower($csv_terminated) === 'auto') {
                 $csv_terminated = $GLOBALS['crlf'];
             } else {
                 $csv_terminated = str_replace(
@@ -229,11 +222,7 @@ class ExportCsv extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         // Gets the data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
 
         // If required, get fields name at the first line
@@ -250,11 +239,7 @@ class ExportCsv extends ExportPlugin
                     $schema_insert .= $col_as;
                 } else {
                     $schema_insert .= $csv_enclosed
-                        . str_replace(
-                            $csv_enclosed,
-                            $csv_escaped . $csv_enclosed,
-                            $col_as
-                        )
+                        . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $col_as)
                         . $csv_enclosed;
                 }
 
@@ -280,10 +265,7 @@ class ExportCsv extends ExportPlugin
                     }
 
                     // remove CRLF characters within field
-                    if (
-                        isset($GLOBALS[$what . '_removeCRLF'])
-                        && $GLOBALS[$what . '_removeCRLF']
-                    ) {
+                    if (isset($GLOBALS[$what . '_removeCRLF']) && $GLOBALS[$what . '_removeCRLF']) {
                         $row[$j] = str_replace(
                             [
                                 "\r",
@@ -313,11 +295,7 @@ class ExportCsv extends ExportPlugin
                         } else {
                             // avoid a problem when escape string equals enclose
                             $schema_insert .= $csv_enclosed
-                                . str_replace(
-                                    $csv_enclosed,
-                                    $csv_escaped . $csv_enclosed,
-                                    $row[$j]
-                                )
+                                . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed, $row[$j])
                                 . $csv_enclosed;
                         }
                     }

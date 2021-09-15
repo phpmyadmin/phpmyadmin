@@ -96,10 +96,7 @@ class CreateAddField
                         $_POST['field_expression'][$i] ?? ''
                     );
 
-            $definition .= $this->setColumnCreationStatementSuffix(
-                $previousField,
-                $isCreateTable
-            );
+            $definition .= $this->setColumnCreationStatementSuffix($previousField, $isCreateTable);
             $previousField = $i;
             $definitions[] = $definition;
         }
@@ -144,9 +141,7 @@ class CreateAddField
 
         return $sqlSuffix
                 . ' AFTER '
-                . Util::backquote(
-                    $_POST['field_name'][$previousField]
-                );
+                . Util::backquote($_POST['field_name'][$previousField]);
     }
 
     /**
@@ -179,9 +174,7 @@ class CreateAddField
 
         $indexFields = [];
         foreach ($index['columns'] as $key => $column) {
-            $indexFields[$key] = Util::backquote(
-                $_POST['field_name'][$column['col_index']]
-            );
+            $indexFields[$key] = Util::backquote($_POST['field_name'][$column['col_index']]);
             if (! $column['size']) {
                 continue;
             }
@@ -259,11 +252,7 @@ class CreateAddField
         string $indexKeyword
     ): array {
         foreach ($indexedColumns as $index) {
-            $statements = $this->buildIndexStatements(
-                $index,
-                ' ' . $indexKeyword . ' ',
-                $isCreateTable
-            );
+            $statements = $this->buildIndexStatements($index, ' ' . $indexKeyword . ' ', $isCreateTable);
             $definitions = array_merge($definitions, $statements);
         }
 
@@ -290,10 +279,7 @@ class CreateAddField
             $fieldFullText,
             $fieldSpatial,
         ] = $this->getIndexedColumns();
-        $definitions = $this->buildColumnCreationStatement(
-            $fieldCount,
-            $isCreateTable
-        );
+        $definitions = $this->buildColumnCreationStatement($fieldCount, $isCreateTable);
 
         // Builds the PRIMARY KEY statements
         $primaryKeyStatements = $this->buildIndexStatements(
@@ -304,36 +290,16 @@ class CreateAddField
         $definitions = array_merge($definitions, $primaryKeyStatements);
 
         // Builds the INDEX statements
-        $definitions = $this->mergeIndexStatements(
-            $definitions,
-            $isCreateTable,
-            $fieldIndex,
-            'INDEX'
-        );
+        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldIndex, 'INDEX');
 
         // Builds the UNIQUE statements
-        $definitions = $this->mergeIndexStatements(
-            $definitions,
-            $isCreateTable,
-            $fieldUnique,
-            'UNIQUE'
-        );
+        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldUnique, 'UNIQUE');
 
         // Builds the FULLTEXT statements
-        $definitions = $this->mergeIndexStatements(
-            $definitions,
-            $isCreateTable,
-            $fieldFullText,
-            'FULLTEXT'
-        );
+        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldFullText, 'FULLTEXT');
 
         // Builds the SPATIAL statements
-        $definitions = $this->mergeIndexStatements(
-            $definitions,
-            $isCreateTable,
-            $fieldSpatial,
-            'SPATIAL'
-        );
+        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldSpatial, 'SPATIAL');
 
         if (count($definitions)) {
             $sqlStatement = implode(', ', $definitions);
@@ -442,10 +408,7 @@ class CreateAddField
         if (! empty($partition['subpartitions'])) {
             $subpartitions = [];
             foreach ($partition['subpartitions'] as $subpartition) {
-                $subpartitions[] = $this->getPartitionDefinition(
-                    $subpartition,
-                    true
-                );
+                $subpartitions[] = $this->getPartitionDefinition($subpartition, true);
             }
 
             $sqlQuery .= ' (' . implode(', ', $subpartitions) . ')';
@@ -470,10 +433,7 @@ class CreateAddField
             . Util::backquote(trim($table)) . ' (' . $sqlStatement . ')';
 
         // Adds table type, character set, comments and partition definition
-        if (
-            ! empty($_POST['tbl_storage_engine'])
-            && ($_POST['tbl_storage_engine'] !== 'Default')
-        ) {
+        if (! empty($_POST['tbl_storage_engine']) && ($_POST['tbl_storage_engine'] !== 'Default')) {
             $sqlQuery .= ' ENGINE = ' . $this->dbi->escapeString($_POST['tbl_storage_engine']);
         }
 

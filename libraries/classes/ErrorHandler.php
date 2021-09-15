@@ -106,10 +106,7 @@ class ErrorHandler
                 break;
             }
 
-            if (
-                (! ($error instanceof Error))
-                || $error->isDisplayed()
-            ) {
+            if ((! ($error instanceof Error)) || $error->isDisplayed()) {
                 continue;
             }
 
@@ -256,12 +253,7 @@ class ErrorHandler
         }
 
         // create error object
-        $error = new Error(
-            $errno,
-            $errstr,
-            $errfile,
-            $errline
-        );
+        $error = new Error($errno, $errstr, $errfile, $errline);
         $error->setHideLocation($this->hideLocation);
 
         // do not repeat errors
@@ -398,10 +390,7 @@ class ErrorHandler
 
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if (
-            $GLOBALS['cfg']['SendErrorReports'] !== 'never'
-            && $this->countErrors() !=  $this->countUserErrors()
-        ) {
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never' && $this->countErrors() != $this->countUserErrors()) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
@@ -410,7 +399,7 @@ class ErrorHandler
                 $retval .= ' class="hide"';
             }
 
-            $retval .=  '>';
+            $retval .= '>';
             $retval .= Url::getHiddenFields([
                 'exception_type' => 'php',
                 'send_error_report' => '1',
@@ -556,7 +545,7 @@ class ErrorHandler
     public function hasErrorsForPrompt(): bool
     {
         return $GLOBALS['cfg']['SendErrorReports'] !== 'never'
-            && $this->countErrors() !=  $this->countUserErrors();
+            && $this->countErrors() != $this->countUserErrors();
     }
 
     /**
@@ -567,10 +556,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (
-            ! $this->hasErrors()
-            || $this->countErrors() ==  $this->countUserErrors()
-        ) {
+        if (! $this->hasErrors() || $this->countErrors() == $this->countUserErrors()) {
             // then simply return.
             return;
         }

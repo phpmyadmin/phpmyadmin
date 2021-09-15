@@ -126,20 +126,13 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (
-                ! isset($_SESSION['prev_errors'])
-                || $_SESSION['prev_errors'] == ''
-            ) {
+            if (! isset($_SESSION['prev_errors']) || $_SESSION['prev_errors'] == '') {
                 return [];
             }
 
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if (
-                    ! $errorObj->getLine()
-                    || ! $errorObj->getType()
-                    || $errorObj->getNumber() == E_USER_WARNING
-                ) {
+                if (! $errorObj->getLine() || ! $errorObj->getType() || $errorObj->getNumber() == E_USER_WARNING) {
                     continue;
                 }
 
@@ -187,10 +180,7 @@ class ErrorReport
             $components = [];
         }
 
-        if (
-            isset($components['fragment'])
-            && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
-        ) {
+        if (isset($components['fragment']) && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)) {
             $uri = str_replace($matches[0], '', $components['fragment']);
             $url = 'https://example.com/' . $uri;
             $components = parse_url($url);

@@ -531,9 +531,7 @@ return [
         'name' => __('Percentage of used connections'),
         'formula' => 'Max_used_connections / max_connections * 100',
         'test' => 'value > 80',
-        'issue' => __(
-            'The maximum amount of used connections is getting close to the value of {max_connections}.'
-        ),
+        'issue' => __('The maximum amount of used connections is getting close to the value of {max_connections}.'),
         'recommendation' => __(
             'Increase {max_connections}, or decrease {wait_timeout} so that connections that do not'
             . ' close database handlers properly get killed sooner.'
@@ -615,9 +613,7 @@ return [
         'precondition' => 'innodb_buffer_pool_size > 0 && ! (IS_MARIADB && PMA_MYSQL_INT_VERSION > 100500)',
         'formula' => '(innodb_log_file_size * innodb_log_files_in_group)/ innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
-        'issue' => __(
-            'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
-        ),
+        'issue' => __('The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'),
         'recommendation' => __(/* xgettext:no-php-format */
             'Especially on a system with a lot of writes to InnoDB tables you should set'
             . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'
@@ -644,9 +640,7 @@ return [
         // by the innodb_log_files_in_group system variable.
         'formula' => 'innodb_log_file_size / innodb_buffer_pool_size * 100',
         'test' => 'value < 20 && innodb_log_file_size / (1024 * 1024) < 256',
-        'issue' => __(
-            'The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'
-        ),
+        'issue' => __('The InnoDB log file size is not an appropriate size, in relation to the InnoDB buffer pool.'),
         'recommendation' => __(/* xgettext:no-php-format */
             'Especially on a system with a lot of writes to InnoDB tables you should set'
             . ' {innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the bigger this value,'

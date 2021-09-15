@@ -67,10 +67,7 @@ final class CollationController extends AbstractController
         /**
          * Changes tables charset if requested by the user
          */
-        if (
-            isset($_POST['change_all_tables_collations']) &&
-            $_POST['change_all_tables_collations'] === 'on'
-        ) {
+        if (isset($_POST['change_all_tables_collations']) && $_POST['change_all_tables_collations'] === 'on') {
             [$tables] = Util::getDbInfo($db, null);
             foreach ($tables as $tableName => $data) {
                 if ($this->dbi->getTable($db, $tableName)->isView()) {

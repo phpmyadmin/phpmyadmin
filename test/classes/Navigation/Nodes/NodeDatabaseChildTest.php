@@ -67,14 +67,8 @@ class NodeDatabaseChildTest extends AbstractTestCase
             ->will($this->returnValue('itemType'));
         $html = $this->object->getHtmlForControlButtons();
 
-        $this->assertStringStartsWith(
-            '<span class="navItemControls">',
-            $html
-        );
-        $this->assertStringEndsWith(
-            '</span>',
-            $html
-        );
+        $this->assertStringStartsWith('<span class="navItemControls">', $html);
+        $this->assertStringEndsWith('</span>', $html);
         $this->assertStringContainsString(
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'hideNavItem=1&itemType=itemType&itemName=child'

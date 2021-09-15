@@ -81,18 +81,12 @@ class SqlController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $is_gotofile  = true;
+        $is_gotofile = true;
         if (empty($goto)) {
             if (empty($table)) {
-                $goto = Util::getScriptNameForOption(
-                    $cfg['DefaultTabDatabase'],
-                    'database'
-                );
+                $goto = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
             } else {
-                $goto = Util::getScriptNameForOption(
-                    $cfg['DefaultTabTable'],
-                    'table'
-                );
+                $goto = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             }
         }
 

@@ -102,10 +102,7 @@ final class GisVisualizationController extends AbstractController
         $visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
         $visualizationSettings['isMariaDB'] = $this->dbi->isMariaDB();
 
-        if (
-            ! isset($visualizationSettings['labelColumn'])
-            && isset($labelCandidates[0])
-        ) {
+        if (! isset($visualizationSettings['labelColumn']) && isset($labelCandidates[0])) {
             $visualizationSettings['labelColumn'] = '';
         }
 
@@ -127,12 +124,7 @@ final class GisVisualizationController extends AbstractController
             }
         }
 
-        $this->visualization = GisVisualization::get(
-            $sqlQuery,
-            $visualizationSettings,
-            $rows,
-            $pos
-        );
+        $this->visualization = GisVisualization::get($sqlQuery, $visualizationSettings, $rows, $pos);
 
         if (isset($_GET['saveToFile'])) {
             $this->saveToFile($visualizationSettings['spatialColumn'], $_GET['fileFormat']);
@@ -169,10 +161,7 @@ final class GisVisualizationController extends AbstractController
         /**
          * Displays the page
          */
-        $urlParams['goto'] = Util::getScriptNameForOption(
-            $cfg['DefaultTabDatabase'],
-            'database'
-        );
+        $urlParams['goto'] = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);

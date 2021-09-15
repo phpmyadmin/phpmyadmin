@@ -130,12 +130,7 @@ final class ImportController extends AbstractController
                 'bkm_label' => $_POST['label'],
             ];
             $isShared = ($_POST['shared'] === 'true');
-            $bookmark = Bookmark::createBookmark(
-                $this->dbi,
-                $cfg['Server']['user'],
-                $bookmarkFields,
-                $isShared
-            );
+            $bookmark = Bookmark::createBookmark($this->dbi, $cfg['Server']['user'], $bookmarkFields, $isShared);
             if ($bookmark !== false && $bookmark->save()) {
                 $this->response->addJSON('message', __('Succeeded'));
                 $this->response->addJSON('data', $bookmarkFields);
@@ -165,11 +160,7 @@ final class ImportController extends AbstractController
         // (eg. non import, but query box/window run)
         if (! empty($sql_query)) {
             // apply values for parameters
-            if (
-                ! empty($_POST['parameterized'])
-                && ! empty($_POST['parameters'])
-                && is_array($_POST['parameters'])
-            ) {
+            if (! empty($_POST['parameterized']) && ! empty($_POST['parameters']) && is_array($_POST['parameters'])) {
                 $parameters = $_POST['parameters'];
                 foreach ($parameters as $parameter => $replacement) {
                     $replacementValue = $this->dbi->escapeString($replacement);
@@ -185,11 +176,7 @@ final class ImportController extends AbstractController
                         $sql_query
                     );
                     // for parameters the appear at the end of the string
-                    $sql_query = preg_replace(
-                        '/' . $quoted . '$/',
-                        $replacementValue,
-                        $sql_query
-                    );
+                    $sql_query = preg_replace('/' . $quoted . '$/', $replacementValue, $sql_query);
                 }
             }
 
@@ -211,28 +198,15 @@ final class ImportController extends AbstractController
             }
 
             // refresh navigation panel only
-            if (
-                preg_match(
-                    '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                    $sql_query
-                )
-            ) {
+            if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
                 $ajax_reload['reload'] = true;
             }
 
             // do a dynamic reload if table is RENAMED
             // (by sending the instruction to the AJAX response handler)
-            if (
-                preg_match(
-                    '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
-                    $sql_query,
-                    $rename_table_names
-                )
-            ) {
+            if (preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $sql_query, $rename_table_names)) {
                 $ajax_reload['reload'] = true;
-                $ajax_reload['table_name'] = Util::unQuote(
-                    $rename_table_names[2]
-                );
+                $ajax_reload['table_name'] = Util::unQuote($rename_table_names[2]);
             }
 
             $sql_query = '';
@@ -280,20 +254,7 @@ final class ImportController extends AbstractController
          * We only need to load the selected plugin
          */
 
-        if (
-            ! in_array(
-                $format,
-                [
-                    'csv',
-                    'ldi',
-                    'mediawiki',
-                    'ods',
-                    'shp',
-                    'sql',
-                    'xml',
-                ]
-            )
-        ) {
+        if (! in_array($format, ['csv', 'ldi', 'mediawiki', 'ods', 'shp', 'sql', 'xml'])) {
             // this should not happen for a normal user
             // but only during an attack
             Core::fatalError('Incorrect format parameter');
@@ -397,42 +358,25 @@ final class ImportController extends AbstractController
                     }
 
                     if (! empty($_POST['bookmark_variable'])) {
-                        $import_text = $bookmark->applyVariables(
-                            $_POST['bookmark_variable']
-                        );
+                        $import_text = $bookmark->applyVariables($_POST['bookmark_variable']);
                     } else {
                         $import_text = $bookmark->getQuery();
                     }
 
                     // refresh navigation and main panels
-                    if (
-                        preg_match(
-                            '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                            $import_text
-                        )
-                    ) {
+                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
                         $reload = true;
                         $ajax_reload['reload'] = true;
                     }
 
                     // refresh navigation panel only
-                    if (
-                        preg_match(
-                            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                            $import_text
-                        )
-                    ) {
+                    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
                         $ajax_reload['reload'] = true;
                     }
 
                     break;
                 case 1: // bookmarked query that have to be displayed
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $cfg['Server']['user'],
-                        $db,
-                        $id_bookmark
-                    );
+                    $bookmark = Bookmark::get($this->dbi, $cfg['Server']['user'], $db, $id_bookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -452,12 +396,7 @@ final class ImportController extends AbstractController
 
                     break;
                 case 2: // bookmarked query that have to be deleted
-                    $bookmark = Bookmark::get(
-                        $this->dbi,
-                        $cfg['Server']['user'],
-                        $db,
-                        $id_bookmark
-                    );
+                    $bookmark = Bookmark::get($this->dbi, $cfg['Server']['user'], $db, $id_bookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -534,10 +473,10 @@ final class ImportController extends AbstractController
              * but phpMyAdmin can).
              */
             if (@is_link($import_file)) {
-                $import_file  = 'none';
+                $import_file = 'none';
             }
         } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
-            $import_file  = 'none';
+            $import_file = 'none';
         }
 
         // Do we have file to import?
@@ -768,13 +707,7 @@ final class ImportController extends AbstractController
         // There was an error?
         if (isset($my_die)) {
             foreach ($my_die as $key => $die) {
-                Generator::mysqlDie(
-                    $die['error'],
-                    $die['sql'],
-                    false,
-                    $errorUrl,
-                    $error
-                );
+                Generator::mysqlDie($die['error'], $die['sql'], false, $errorUrl, $error);
             }
         }
 

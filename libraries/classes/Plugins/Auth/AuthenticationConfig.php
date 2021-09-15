@@ -99,10 +99,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     <table class="table table-borderless text-start w-75 mx-auto">
         <tr>
             <td>';
-        if (
-            isset($GLOBALS['allowDeny_forbidden'])
-            && $GLOBALS['allowDeny_forbidden']
-        ) {
+        if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
@@ -140,13 +137,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 );
             }
 
-            echo Generator::mysqlDie(
-                $conn_error,
-                '',
-                true,
-                '',
-                false
-            );
+            echo Generator::mysqlDie($conn_error, '', true, '', false);
         }
 
         $GLOBALS['errorHandler']->dispUserErrors();
@@ -155,10 +146,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            , Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'],
-                'server'
-            )
+            , Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server')
             , '" class="btn btn-primary mt-1 mb-1 disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";

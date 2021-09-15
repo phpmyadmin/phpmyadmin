@@ -221,11 +221,7 @@ class PrivilegesController extends AbstractController
          * Changes / copies a user, part III
          */
         if (isset($_POST['change_copy'])) {
-            $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
-                $queries,
-                $username,
-                $hostname
-            );
+            $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $hostname);
         }
 
         $itemType = '';
@@ -288,21 +284,14 @@ class PrivilegesController extends AbstractController
          * Updates the password
          */
         if (isset($_POST['change_pw'])) {
-            $message = $serverPrivileges->updatePassword(
-                $errorUrl,
-                $username,
-                $hostname
-            );
+            $message = $serverPrivileges->updatePassword($errorUrl, $username, $hostname);
         }
 
         /**
          * Deletes users
          *   (Changes / copies a user, part IV)
          */
-        if (
-            isset($_POST['delete'])
-            || (isset($_POST['change_copy']) && $_POST['mode'] < 4)
-        ) {
+        if (isset($_POST['delete']) || (isset($_POST['change_copy']) && $_POST['mode'] < 4)) {
             $queries = $serverPrivileges->getDataForDeleteUsers($queries);
             if (empty($_POST['change_copy'])) {
                 [$sql_query, $message] = $serverPrivileges->deleteUser($queries);
@@ -384,14 +373,8 @@ class PrivilegesController extends AbstractController
         }
 
         // export user definition
-        if (
-            isset($_GET['export'])
-            || (isset($_POST['submit_mult']) && $_POST['submit_mult'] === 'export')
-        ) {
-            [$title, $export] = $serverPrivileges->getListForExportUserDefinition(
-                $username ?? '',
-                $hostname ?? ''
-            );
+        if (isset($_GET['export']) || (isset($_POST['submit_mult']) && $_POST['submit_mult'] === 'export')) {
+            [$title, $export] = $serverPrivileges->getListForExportUserDefinition($username ?? '', $hostname ?? '');
 
             unset($username, $hostname, $grants, $one_grant);
 
@@ -479,10 +462,7 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if (
-            (! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server')
-            || ! $cfgRelation['menuswork']
-        ) {
+        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server') || ! $cfgRelation['menuswork']) {
             return;
         }
 

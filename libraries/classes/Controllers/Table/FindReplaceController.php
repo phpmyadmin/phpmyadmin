@@ -56,9 +56,7 @@ class FindReplaceController extends AbstractController
         $this->columnNames = [];
         $this->columnTypes = [];
         $this->loadTableInfo();
-        $this->connectionCharSet = $this->dbi->fetchValue(
-            'SELECT @@character_set_connection'
-        );
+        $this->connectionCharSet = $this->dbi->fetchValue('SELECT @@character_set_connection');
     }
 
     public function __invoke(): void
@@ -95,12 +93,7 @@ class FindReplaceController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
+        $columns = $this->dbi->getColumns($this->db, $this->table, null, true);
 
         foreach ($columns as $row) {
             // set column name
@@ -108,10 +101,7 @@ class FindReplaceController extends AbstractController
 
             $type = (string) $row['Type'];
             // reformat mysql query output
-            if (
-                strncasecmp($type, 'set', 3) == 0
-                || strncasecmp($type, 'enum', 4) == 0
-            ) {
+            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
                 $type = str_replace(',', ', ', $type);
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
@@ -141,10 +131,7 @@ class FindReplaceController extends AbstractController
         global $goto;
 
         if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
+            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $column_names = $this->columnNames;
@@ -152,11 +139,7 @@ class FindReplaceController extends AbstractController
         $types = [];
         $num_cols = count($column_names);
         for ($i = 0; $i < $num_cols; $i++) {
-            $types[$column_names[$i]] = preg_replace(
-                '@\\(.*@s',
-                '',
-                $column_types[$i]
-            );
+            $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
         }
 
         $this->render('table/find_replace/index', [
@@ -222,12 +205,7 @@ class FindReplaceController extends AbstractController
     ) {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
-            $result = $this->getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
+            $result = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
         } else {
             $sql_query = 'SELECT '
                 . Util::backquote($column) . ','
@@ -321,11 +299,7 @@ class FindReplaceController extends AbstractController
 
             $find = $delimiters[$i] . $find . $delimiters[$i];
             foreach ($result as $index => $row) {
-                $result[$index][1] = preg_replace(
-                    $find,
-                    $replaceWith,
-                    $row[0]
-                );
+                $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
             }
         }
 
@@ -350,12 +324,7 @@ class FindReplaceController extends AbstractController
     ): void {
         $column = $this->columnNames[$columnIndex];
         if ($useRegex) {
-            $toReplace = $this->getRegexReplaceRows(
-                $columnIndex,
-                $find,
-                $replaceWith,
-                $charSet
-            );
+            $toReplace = $this->getRegexReplaceRows($columnIndex, $find, $replaceWith, $charSet);
             $sql_query = 'UPDATE ' . Util::backquote($this->table)
                 . ' SET ' . Util::backquote($column) . ' = CASE';
             if (is_array($toReplace)) {
@@ -387,11 +356,7 @@ class FindReplaceController extends AbstractController
             // is case sensitive
         }
 
-        $this->dbi->query(
-            $sql_query,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $this->dbi->query($sql_query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
         $GLOBALS['sql_query'] = $sql_query;
     }
 }

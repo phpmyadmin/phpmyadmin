@@ -56,23 +56,23 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errortype =  [
-        0                    => 'Internal error',
-        E_ERROR              => 'Error',
-        E_WARNING            => 'Warning',
-        E_PARSE              => 'Parsing Error',
-        E_NOTICE             => 'Notice',
-        E_CORE_ERROR         => 'Core Error',
-        E_CORE_WARNING       => 'Core Warning',
-        E_COMPILE_ERROR      => 'Compile Error',
-        E_COMPILE_WARNING    => 'Compile Warning',
-        E_USER_ERROR         => 'User Error',
-        E_USER_WARNING       => 'User Warning',
-        E_USER_NOTICE        => 'User Notice',
-        E_STRICT             => 'Runtime Notice',
-        E_DEPRECATED         => 'Deprecation Notice',
-        E_USER_DEPRECATED    => 'Deprecation Notice',
-        E_RECOVERABLE_ERROR  => 'Catchable Fatal Error',
+    public static $errortype = [
+        0 => 'Internal error',
+        E_ERROR => 'Error',
+        E_WARNING => 'Warning',
+        E_PARSE => 'Parsing Error',
+        E_NOTICE => 'Notice',
+        E_CORE_ERROR => 'Core Error',
+        E_CORE_WARNING => 'Core Warning',
+        E_COMPILE_ERROR => 'Compile Error',
+        E_COMPILE_WARNING => 'Compile Warning',
+        E_USER_ERROR => 'User Error',
+        E_USER_WARNING => 'User Warning',
+        E_USER_NOTICE => 'User Notice',
+        E_STRICT => 'Runtime Notice',
+        E_DEPRECATED => 'Deprecation Notice',
+        E_USER_DEPRECATED => 'Deprecation Notice',
+        E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
     ];
 
     /**
@@ -80,23 +80,23 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errorlevel =  [
-        0                    => 'error',
-        E_ERROR              => 'error',
-        E_WARNING            => 'error',
-        E_PARSE              => 'error',
-        E_NOTICE             => 'notice',
-        E_CORE_ERROR         => 'error',
-        E_CORE_WARNING       => 'error',
-        E_COMPILE_ERROR      => 'error',
-        E_COMPILE_WARNING    => 'error',
-        E_USER_ERROR         => 'error',
-        E_USER_WARNING       => 'error',
-        E_USER_NOTICE        => 'notice',
-        E_STRICT             => 'notice',
-        E_DEPRECATED         => 'notice',
-        E_USER_DEPRECATED    => 'notice',
-        E_RECOVERABLE_ERROR  => 'error',
+    public static $errorlevel = [
+        0 => 'error',
+        E_ERROR => 'error',
+        E_WARNING => 'error',
+        E_PARSE => 'error',
+        E_NOTICE => 'notice',
+        E_CORE_ERROR => 'error',
+        E_CORE_WARNING => 'error',
+        E_COMPILE_ERROR => 'error',
+        E_COMPILE_WARNING => 'error',
+        E_USER_ERROR => 'error',
+        E_USER_WARNING => 'error',
+        E_USER_NOTICE => 'notice',
+        E_STRICT => 'notice',
+        E_DEPRECATED => 'notice',
+        E_USER_DEPRECATED => 'notice',
+        E_RECOVERABLE_ERROR => 'error',
     ];
 
     /**
@@ -450,10 +450,7 @@ class Error extends Message
 
         if (in_array($function, $includeFunctions)) {
             $retval .= self::relPath($arg);
-        } elseif (
-            in_array($function, $connectFunctions)
-            && is_string($arg)
-        ) {
+        } elseif (in_array($function, $connectFunctions) && is_string($arg)) {
             $retval .= gettype($arg) . ' ********';
         } elseif (is_scalar($arg)) {
             $retval .= gettype($arg) . ' '
@@ -547,10 +544,6 @@ class Error extends Message
 
         $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $destParts), '', $dest);
 
-        return str_replace(
-            DIRECTORY_SEPARATOR . PATH_SEPARATOR,
-            DIRECTORY_SEPARATOR,
-            $path
-        );
+        return str_replace(DIRECTORY_SEPARATOR . PATH_SEPARATOR, DIRECTORY_SEPARATOR, $path);
     }
 }

@@ -41,10 +41,7 @@ class Select
 
         $form_action = '';
         if ($not_only_options) {
-            $form_action = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'],
-                'server'
-            );
+            $form_action = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
         }
 
         $servers = [];
@@ -88,10 +85,7 @@ class Select
                         'label' => $label,
                     ];
                 } else {
-                    $scriptName = Util::getScriptNameForOption(
-                        $GLOBALS['cfg']['DefaultTabServer'],
-                        'server'
-                    );
+                    $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabServer'], 'server');
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
                         ! str_contains($scriptName, '?') ? '?' : '&'

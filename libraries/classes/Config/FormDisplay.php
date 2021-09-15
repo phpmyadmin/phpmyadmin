@@ -138,12 +138,7 @@ class FormDisplay
      */
     public function registerForm($formName, array $form, $serverId = null): void
     {
-        $this->forms[$formName] = new Form(
-            $formName,
-            $form,
-            $this->configFile,
-            $serverId
-        );
+        $this->forms[$formName] = new Form($formName, $form, $this->configFile, $serverId);
         $this->isValidated = false;
         foreach ($this->forms[$formName]->fields as $path) {
             $workPath = $serverId === null
@@ -198,12 +193,7 @@ class FormDisplay
         }
 
         // run validation
-        $errors = Validator::validate(
-            $this->configFile,
-            $paths,
-            $values,
-            false
-        );
+        $errors = Validator::validate($this->configFile, $paths, $values, false);
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -552,10 +542,7 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)
-            if (
-                ! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
-                || $vk === $value)
-            ) {
+            if (! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk))) || $vk === $value)) {
                 continue;
             }
 
@@ -629,13 +616,8 @@ class FormDisplay
                 }
 
                 // user preferences allow/disallow
-                if (
-                    $isSetupScript
-                    && isset($this->userprefsKeys[$systemPath])
-                ) {
-                    if (
-                        isset($this->userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])
-                    ) {
+                if ($isSetupScript && isset($this->userprefsKeys[$systemPath])) {
+                    if (isset($this->userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])) {
                         unset($this->userprefsDisallow[$systemPath]);
                     } elseif (! isset($_POST[$key . '-userprefs-allow'])) {
                         $this->userprefsDisallow[$systemPath] = true;
@@ -714,11 +696,7 @@ class FormDisplay
                 $i = 0;
                 foreach ($values[$path] as $value) {
                     $matches = [];
-                    $match = preg_match(
-                        '/^(.+):(?:[ ]?)(\\w+)$/',
-                        $value,
-                        $matches
-                    );
+                    $match = preg_match('/^(.+):(?:[ ]?)(\\w+)$/', $value, $matches);
                     if ($match) {
                         // correct 'IP: HTTP header' pair
                         $ip = trim($matches[1]);
@@ -842,14 +820,10 @@ class FormDisplay
         }
 
         // ZipDump, GZipDump, BZipDump - check function availability
-        if (
-            $systemPath === 'ZipDump'
-            || $systemPath === 'GZipDump'
-            || $systemPath === 'BZipDump'
-        ) {
+        if ($systemPath === 'ZipDump' || $systemPath === 'GZipDump' || $systemPath === 'BZipDump') {
             $comment = '';
             $funcs = [
-                'ZipDump'  => [
+                'ZipDump' => [
                     'zip_open',
                     'gzcompress',
                 ],
@@ -888,10 +862,7 @@ class FormDisplay
             return;
         }
 
-        if (
-            $systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList'
-            && $systemPath !== 'QueryHistoryMax'
-        ) {
+        if ($systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList' && $systemPath !== 'QueryHistoryMax') {
             return;
         }
 

@@ -51,12 +51,7 @@ final class RelationalValuesController extends AbstractController
             $curr_value = $_POST['curr_value'];
         }
 
-        $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
-            $db,
-            $table,
-            $column,
-            $curr_value
-        );
+        $dropdown = $this->sql->getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value);
         $this->response->addJSON('dropdown', $dropdown);
     }
 }

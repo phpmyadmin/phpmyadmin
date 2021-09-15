@@ -79,10 +79,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockResponse->expects($this->once())
             ->method('addJSON')
-            ->with(
-                'redirect_flag',
-                '1'
-            );
+            ->with('redirect_flag', '1');
 
         $GLOBALS['conn_error'] = true;
         $this->assertTrue(
@@ -204,15 +201,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            ' id="imLogo"',
-            $result
-        );
+        $this->assertStringContainsString(' id="imLogo"', $result);
 
-        $this->assertStringContainsString(
-            '<div class="alert alert-danger" role="alert">',
-            $result
-        );
+        $this->assertStringContainsString('<div class="alert alert-danger" role="alert">', $result);
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
@@ -245,15 +236,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="db" value="testDb">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="db" value="testDb">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="table" value="testTable">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
     /**
@@ -317,10 +302,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="server" value="0">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
 
         $this->assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
@@ -397,10 +379,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="server" value="0">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
 
         $this->assertStringContainsString(
             '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
@@ -408,10 +387,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<div class="g-recaptcha" data-sitekey="testpubkey"></div>',
-            $result
-        );
+        $this->assertStringContainsString('<div class="g-recaptcha" data-sitekey="testpubkey"></div>', $result);
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary" value="Log in" type="submit" id="input_go">',
@@ -489,10 +465,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->logOut();
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-0',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-0', $_COOKIE);
     }
 
     public function testLogout(): void
@@ -515,10 +488,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->logOut();
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-1',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckArbitrary(): void
@@ -538,25 +508,13 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'testPMAUser',
-            $this->object->user
-        );
+        $this->assertEquals('testPMAUser', $this->object->user);
 
-        $this->assertEquals(
-            'testPMAPSWD',
-            $this->object->password
-        );
+        $this->assertEquals('testPMAPSWD', $this->object->password);
 
-        $this->assertEquals(
-            'testPMAServer',
-            $GLOBALS['pma_auth_server']
-        );
+        $this->assertEquals('testPMAServer', $GLOBALS['pma_auth_server']);
 
-        $this->assertArrayNotHasKey(
-            'pmaAuth-1',
-            $_COOKIE
-        );
+        $this->assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
 
     public function testAuthCheckInvalidCookie(): void
@@ -621,10 +579,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'testBF',
-            $this->object->user
-        );
+        $this->assertEquals('testBF', $this->object->user);
     }
 
     public function testAuthCheckDecryptPassword(): void
@@ -660,14 +615,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertTrue(
-            $GLOBALS['from_cookie']
-        );
+        $this->assertTrue($GLOBALS['from_cookie']);
 
-        $this->assertEquals(
-            '',
-            $this->object->password
-        );
+        $this->assertEquals('', $this->object->password);
     }
 
     public function testAuthCheckAuthFails(): void
@@ -733,23 +683,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->rememberCredentials();
 
-        $this->assertArrayHasKey(
-            'pmaUser-2',
-            $_COOKIE
-        );
+        $this->assertArrayHasKey('pmaUser-2', $_COOKIE);
 
-        $this->assertArrayHasKey(
-            'pmaAuth-2',
-            $_COOKIE
-        );
+        $this->assertArrayHasKey('pmaAuth-2', $_COOKIE);
 
         $arr['password'] = 'testPW';
         $arr['host'] = 'b';
         $arr['port'] = '2';
-        $this->assertEquals(
-            $arr,
-            $GLOBALS['cfg']['Server']
-        );
+        $this->assertEquals($arr, $GLOBALS['cfg']['Server']);
     }
 
     public function testAuthSetUserWithHeaders(): void
@@ -857,10 +798,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             );
         }
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            $connError
-        );
+        $this->assertEquals($GLOBALS['conn_error'], $connError);
     }
 
     public function testAuthFailsDeny(): void
@@ -879,10 +817,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('allow-denied');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            'Access denied!'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], 'Access denied!');
     }
 
     public function testAuthFailsActivity(): void
@@ -938,10 +873,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            '#42 Cannot log in to the MySQL server'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
     public function testAuthFailsErrno(): void
@@ -971,18 +903,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            $GLOBALS['conn_error'],
-            'Cannot log in to the MySQL server'
-        );
+        $this->assertEquals($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
     }
 
     public function testGetEncryptionSecretEmpty(): void
     {
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getEncryptionSecret'
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
         $method->setAccessible(true);
 
         $GLOBALS['cfg']['blowfish_secret'] = '';
@@ -990,10 +916,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals(
-            $result,
-            $_SESSION['encryption_key']
-        );
+        $this->assertEquals($result, $_SESSION['encryption_key']);
 
         $this->assertEquals(
             32,
@@ -1003,20 +926,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     public function testGetEncryptionSecretConfigured(): void
     {
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getEncryptionSecret'
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getEncryptionSecret');
         $method->setAccessible(true);
 
         $GLOBALS['cfg']['blowfish_secret'] = 'notEmpty';
 
         $result = $method->invoke($this->object, null);
 
-        $this->assertEquals(
-            'notEmpty',
-            $result
-        );
+        $this->assertEquals('notEmpty', $result);
     }
 
     public function testCookieEncrypt(): void
@@ -1155,20 +1072,14 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             'password' => $newPassword,
             'server' => 'b 2',
         ];
-        $method = new ReflectionMethod(
-            AuthenticationCookie::class,
-            'getSessionEncryptionSecret'
-        );
+        $method = new ReflectionMethod(AuthenticationCookie::class, 'getSessionEncryptionSecret');
         $method->setAccessible(true);
 
         $encryptedCookie = $this->object->cookieEncrypt(
             (string) json_encode($payload),
             $method->invoke($this->object, null)
         );
-        $this->assertEquals(
-            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
-            $encryptedCookie
-        );
+        $this->assertEquals($_COOKIE['pmaAuth-' . $GLOBALS['server']], $encryptedCookie);
     }
 
     /**

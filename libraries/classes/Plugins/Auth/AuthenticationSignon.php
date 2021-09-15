@@ -123,10 +123,7 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         /* Check if we're using same signon server */
         $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
-        if (
-            isset($_SESSION['LAST_SIGNON_URL'])
-            && $_SESSION['LAST_SIGNON_URL'] != $signon_url
-        ) {
+        if (isset($_SESSION['LAST_SIGNON_URL']) && $_SESSION['LAST_SIGNON_URL'] != $signon_url) {
             return false;
         }
 
@@ -238,10 +235,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             $GLOBALS['cfg']['Server']['port'] = $single_signon_port;
 
             /* Configuration update */
-            $GLOBALS['cfg']['Server'] = array_merge(
-                $GLOBALS['cfg']['Server'],
-                $single_signon_cfgupdate
-            );
+            $GLOBALS['cfg']['Server'] = array_merge($GLOBALS['cfg']['Server'], $single_signon_cfgupdate);
 
             /* Restore our token */
             if (! empty($pma_token)) {

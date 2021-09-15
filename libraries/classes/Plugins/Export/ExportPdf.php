@@ -67,9 +67,7 @@ class ExportPdf extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -90,8 +88,8 @@ class ExportPdf extends ExportPlugin
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
-                'structure'          => __('structure'),
-                'data'               => __('data'),
+                'structure' => __('structure'),
+                'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ]
         );
@@ -283,29 +281,13 @@ class ExportPdf extends ExportPlugin
         $do_comments = true;
         switch ($exportMode) {
             case 'create_table':
-                $pdf->getTableDef(
-                    $db,
-                    $table,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    false,
-                    $aliases
-                );
+                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
                 break;
             case 'triggers':
                 $pdf->getTriggers($db, $table);
                 break;
             case 'create_view':
-                $pdf->getTableDef(
-                    $db,
-                    $table,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    false,
-                    $aliases
-                );
+                $pdf->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
                 break;
             case 'stand_in':
                 /* export a stand-in definition to resolve view dependencies

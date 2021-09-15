@@ -53,9 +53,7 @@ class Session
             return;
         }
 
-        Core::fatalError(
-            'Failed to generate random CSRF token!'
-        );
+        Core::fatalError('Failed to generate random CSRF token!');
     }
 
     /**
@@ -128,11 +126,7 @@ class Session
         // verify if PHP supports session, die if it does not
         if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
-        } elseif (
-            ! empty(ini_get('session.auto_start'))
-            && session_name() !== 'phpMyAdmin'
-            && ! empty(session_id())
-        ) {
+        } elseif (! empty(ini_get('session.auto_start')) && session_name() !== 'phpMyAdmin' && ! empty(session_id())) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if (empty($_SESSION)) {
@@ -202,10 +196,7 @@ class Session
 
         $session_result = session_start();
 
-        if (
-            $session_result !== true
-            || $orig_error_count != $errorHandler->countErrors(false)
-        ) {
+        if ($session_result !== true || $orig_error_count != $errorHandler->countErrors(false)) {
             setcookie($httpCookieName, '', 1);
             $errors = $errorHandler->sliceErrors($orig_error_count);
             self::sessionFailed($errors);

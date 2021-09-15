@@ -47,9 +47,7 @@ class ExportMediawiki extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup(
@@ -65,8 +63,8 @@ class ExportMediawiki extends ExportPlugin
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
-                'structure'          => __('structure'),
-                'data'               => __('data'),
+                'structure' => __('structure'),
+                'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ]
         );
@@ -213,9 +211,7 @@ class ExportMediawiki extends ExportPlugin
                     . $this->exportCRLF();
                     for ($i = 0; $i < $row_cnt; ++$i) {
                         $col_as = $columns[$i]['Field'];
-                        if (
-                            ! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
-                        ) {
+                        if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                             $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                         }
 
@@ -309,9 +305,7 @@ class ExportMediawiki extends ExportPlugin
 
                 // Use '!' for separating table headers
                 foreach ($column_names as $column) {
-                    if (
-                        ! empty($aliases[$db]['tables'][$table]['columns'][$column])
-                    ) {
+                    if (! empty($aliases[$db]['tables'][$table]['columns'][$column])) {
                         $column = $aliases[$db]['tables'][$table]['columns'][$column];
                     }
 
@@ -321,11 +315,7 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
 
         while ($row = $dbi->fetchRow($result)) {

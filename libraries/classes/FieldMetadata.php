@@ -278,39 +278,39 @@ final class FieldMetadata
 
         // Build an associative array for a type look up
         $typeAr = [];
-        $typeAr[MYSQLI_TYPE_DECIMAL]     = self::TYPE_REAL;
-        $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = self::TYPE_REAL;
-        $typeAr[MYSQLI_TYPE_BIT]         = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_TINY]        = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_SHORT]       = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_LONG]        = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_FLOAT]       = self::TYPE_REAL;
-        $typeAr[MYSQLI_TYPE_DOUBLE]      = self::TYPE_REAL;
-        $typeAr[MYSQLI_TYPE_NULL]        = self::TYPE_NULL;
-        $typeAr[MYSQLI_TYPE_TIMESTAMP]   = self::TYPE_TIMESTAMP;
-        $typeAr[MYSQLI_TYPE_LONGLONG]    = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_INT24]       = self::TYPE_INT;
-        $typeAr[MYSQLI_TYPE_DATE]        = self::TYPE_DATE;
-        $typeAr[MYSQLI_TYPE_TIME]        = self::TYPE_TIME;
-        $typeAr[MYSQLI_TYPE_DATETIME]    = self::TYPE_DATETIME;
-        $typeAr[MYSQLI_TYPE_YEAR]        = self::TYPE_YEAR;
-        $typeAr[MYSQLI_TYPE_NEWDATE]     = self::TYPE_DATE;
-        $typeAr[MYSQLI_TYPE_ENUM]        = self::TYPE_UNKNOWN;
-        $typeAr[MYSQLI_TYPE_SET]         = self::TYPE_UNKNOWN;
-        $typeAr[MYSQLI_TYPE_TINY_BLOB]   = self::TYPE_BLOB;
+        $typeAr[MYSQLI_TYPE_DECIMAL] = self::TYPE_REAL;
+        $typeAr[MYSQLI_TYPE_NEWDECIMAL] = self::TYPE_REAL;
+        $typeAr[MYSQLI_TYPE_BIT] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_TINY] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_SHORT] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_LONG] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_FLOAT] = self::TYPE_REAL;
+        $typeAr[MYSQLI_TYPE_DOUBLE] = self::TYPE_REAL;
+        $typeAr[MYSQLI_TYPE_NULL] = self::TYPE_NULL;
+        $typeAr[MYSQLI_TYPE_TIMESTAMP] = self::TYPE_TIMESTAMP;
+        $typeAr[MYSQLI_TYPE_LONGLONG] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_INT24] = self::TYPE_INT;
+        $typeAr[MYSQLI_TYPE_DATE] = self::TYPE_DATE;
+        $typeAr[MYSQLI_TYPE_TIME] = self::TYPE_TIME;
+        $typeAr[MYSQLI_TYPE_DATETIME] = self::TYPE_DATETIME;
+        $typeAr[MYSQLI_TYPE_YEAR] = self::TYPE_YEAR;
+        $typeAr[MYSQLI_TYPE_NEWDATE] = self::TYPE_DATE;
+        $typeAr[MYSQLI_TYPE_ENUM] = self::TYPE_UNKNOWN;
+        $typeAr[MYSQLI_TYPE_SET] = self::TYPE_UNKNOWN;
+        $typeAr[MYSQLI_TYPE_TINY_BLOB] = self::TYPE_BLOB;
         $typeAr[MYSQLI_TYPE_MEDIUM_BLOB] = self::TYPE_BLOB;
-        $typeAr[MYSQLI_TYPE_LONG_BLOB]   = self::TYPE_BLOB;
-        $typeAr[MYSQLI_TYPE_BLOB]        = self::TYPE_BLOB;
-        $typeAr[MYSQLI_TYPE_VAR_STRING]  = self::TYPE_STRING;
-        $typeAr[MYSQLI_TYPE_STRING]      = self::TYPE_STRING;
+        $typeAr[MYSQLI_TYPE_LONG_BLOB] = self::TYPE_BLOB;
+        $typeAr[MYSQLI_TYPE_BLOB] = self::TYPE_BLOB;
+        $typeAr[MYSQLI_TYPE_VAR_STRING] = self::TYPE_STRING;
+        $typeAr[MYSQLI_TYPE_STRING] = self::TYPE_STRING;
         // MySQL returns MYSQLI_TYPE_STRING for CHAR
         // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
         // so this would override TINYINT and mark all TINYINT as string
         // see https://github.com/phpmyadmin/phpmyadmin/issues/8569
         //$typeAr[MYSQLI_TYPE_CHAR]        = self::TYPE_STRING;
-        $typeAr[MYSQLI_TYPE_GEOMETRY]    = self::TYPE_GEOMETRY;
-        $typeAr[MYSQLI_TYPE_BIT]         = self::TYPE_BIT;
-        $typeAr[MYSQLI_TYPE_JSON]        = self::TYPE_JSON;
+        $typeAr[MYSQLI_TYPE_GEOMETRY] = self::TYPE_GEOMETRY;
+        $typeAr[MYSQLI_TYPE_BIT] = self::TYPE_BIT;
+        $typeAr[MYSQLI_TYPE_JSON] = self::TYPE_JSON;
 
         return $typeAr;
     }

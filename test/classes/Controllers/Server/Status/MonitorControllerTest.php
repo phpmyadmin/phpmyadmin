@@ -53,10 +53,7 @@ class MonitorControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            '<div class="tabLinks row">',
-            $html
-        );
+        $this->assertStringContainsString('<div class="tabLinks row">', $html);
         $this->assertStringContainsString(
             __('Start Monitor'),
             $html
@@ -70,69 +67,30 @@ class MonitorControllerTest extends AbstractTestCase
             $html
         );
 
-        $this->assertStringContainsString(
-            '<div class="popupContent settingsPopup">',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<a href="#settingsPopup" class="popupLink">',
-            $html
-        );
+        $this->assertStringContainsString('<div class="popupContent settingsPopup">', $html);
+        $this->assertStringContainsString('<a href="#settingsPopup" class="popupLink">', $html);
         $this->assertStringContainsString(
             __('Enable charts dragging'),
             $html
         );
-        $this->assertStringContainsString(
-            '<option>3</option>',
-            $html
-        );
+        $this->assertStringContainsString('<option>3</option>', $html);
 
         $this->assertStringContainsString(
             __('Monitor Instructions'),
             $html
         );
-        $this->assertStringContainsString(
-            'monitorInstructionsDialog',
-            $html
-        );
+        $this->assertStringContainsString('monitorInstructionsDialog', $html);
 
-        $this->assertStringContainsString(
-            '<div class="modal fade" id="addChartModal"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<div id="chartVariableSettings">',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<option>Processes</option>',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<option>Connections</option>',
-            $html
-        );
+        $this->assertStringContainsString('<div class="modal fade" id="addChartModal"', $html);
+        $this->assertStringContainsString('<div id="chartVariableSettings">', $html);
+        $this->assertStringContainsString('<option>Processes</option>', $html);
+        $this->assertStringContainsString('<option>Connections</option>', $html);
 
-        $this->assertStringContainsString(
-            '<form id="js_data" class="hide">',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="server_time"',
-            $html
-        );
+        $this->assertStringContainsString('<form id="js_data" class="hide">', $html);
+        $this->assertStringContainsString('<input type="hidden" name="server_time"', $html);
         //validate 2: inputs
-        $this->assertStringContainsString(
-            '<input type="hidden" name="is_superuser"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="hidden" name="server_db_isLocal"',
-            $html
-        );
-        $this->assertStringContainsString(
-            '<div id="explain_docu" class="hide">',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="is_superuser"', $html);
+        $this->assertStringContainsString('<input type="hidden" name="server_db_isLocal"', $html);
+        $this->assertStringContainsString('<div id="explain_docu" class="hide">', $html);
     }
 }

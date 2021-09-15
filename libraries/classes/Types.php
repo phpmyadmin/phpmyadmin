@@ -418,9 +418,7 @@ class Types
                 return __('A collection of points');
 
             case 'MULTILINESTRING':
-                return __(
-                    'A collection of curves with linear interpolation between points'
-                );
+                return __('A collection of curves with linear interpolation between points');
 
             case 'MULTIPOLYGON':
                 return __('A collection of polygons');
@@ -561,10 +559,7 @@ class Types
                     'VERSION',
                 ];
 
-                if (
-                    ($isMariaDB && $serverVersion < 100012)
-                    || $serverVersion < 50603
-                ) {
+                if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
 
@@ -644,10 +639,7 @@ class Types
                     'WEEKOFYEAR',
                     'YEARWEEK',
                 ];
-                if (
-                    ($isMariaDB && $serverVersion < 100012)
-                    || $serverVersion < 50603
-                ) {
+                if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
 
@@ -836,10 +828,7 @@ class Types
             'GEOMETRYCOLLECTION',
         ];
 
-        if (
-            ($isMariaDB && $serverVersion > 100207)
-            || (! $isMariaDB && $serverVersion >= 50708)
-        ) {
+        if (($isMariaDB && $serverVersion > 100207) || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = ['JSON'];
         }
 
@@ -874,11 +863,11 @@ class Types
     {
         $min_max_data = [
             'unsigned' => [
-                'tinyint'   => [
+                'tinyint' => [
                     '0',
                     '255',
                 ],
-                'smallint'  => [
+                'smallint' => [
                     '0',
                     '65535',
                 ],
@@ -886,21 +875,21 @@ class Types
                     '0',
                     '16777215',
                 ],
-                'int'       => [
+                'int' => [
                     '0',
                     '4294967295',
                 ],
-                'bigint'    => [
+                'bigint' => [
                     '0',
                     '18446744073709551615',
                 ],
             ],
             'signed' => [
-                'tinyint'   => [
+                'tinyint' => [
                     '-128',
                     '127',
                 ],
-                'smallint'  => [
+                'smallint' => [
                     '-32768',
                     '32767',
                 ],
@@ -908,11 +897,11 @@ class Types
                     '-8388608',
                     '8388607',
                 ],
-                'int'       => [
+                'int' => [
                     '-2147483648',
                     '2147483647',
                 ],
-                'bigint'    => [
+                'bigint' => [
                     '-9223372036854775808',
                     '9223372036854775807',
                 ],

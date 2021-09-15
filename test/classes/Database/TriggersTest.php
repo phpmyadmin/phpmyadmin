@@ -71,42 +71,42 @@ class TriggersTest extends AbstractTestCase
         return [
             [
                 [
-                    'item_name'               => '',
-                    'item_table'              => '',
-                    'item_original_name'      => '',
-                    'item_action_timing'      => '',
+                    'item_name' => '',
+                    'item_table' => '',
+                    'item_original_name' => '',
+                    'item_action_timing' => '',
                     'item_event_manipulation' => '',
-                    'item_definition'         => '',
-                    'item_definer'            => '',
+                    'item_definition' => '',
+                    'item_definer' => '',
                 ],
                 [
-                    'item_name'               => '',
-                    'item_table'              => '',
-                    'item_original_name'      => '',
-                    'item_action_timing'      => '',
+                    'item_name' => '',
+                    'item_table' => '',
+                    'item_original_name' => '',
+                    'item_action_timing' => '',
                     'item_event_manipulation' => '',
-                    'item_definition'         => '',
-                    'item_definer'            => '',
+                    'item_definition' => '',
+                    'item_definer' => '',
                 ],
             ],
             [
                 [
-                    'item_name'               => 'foo',
-                    'item_table'              => 'foo',
-                    'item_original_name'      => 'foo',
-                    'item_action_timing'      => 'foo',
+                    'item_name' => 'foo',
+                    'item_table' => 'foo',
+                    'item_original_name' => 'foo',
+                    'item_action_timing' => 'foo',
                     'item_event_manipulation' => 'foo',
-                    'item_definition'         => 'foo',
-                    'item_definer'            => 'foo',
+                    'item_definition' => 'foo',
+                    'item_definer' => 'foo',
                 ],
                 [
-                    'item_name'               => 'foo',
-                    'item_table'              => 'foo',
-                    'item_original_name'      => 'foo',
-                    'item_action_timing'      => 'foo',
+                    'item_name' => 'foo',
+                    'item_table' => 'foo',
+                    'item_original_name' => 'foo',
+                    'item_action_timing' => 'foo',
                     'item_event_manipulation' => 'foo',
-                    'item_definition'         => 'foo',
-                    'item_definer'            => 'foo',
+                    'item_definition' => 'foo',
+                    'item_definer' => 'foo',
                 ],
             ],
         ];
@@ -137,13 +137,13 @@ class TriggersTest extends AbstractTestCase
     public function providerGetEditorFormAdd(): array
     {
         $data = [
-            'item_name'               => '',
-            'item_table'              => 'table1',
-            'item_original_name'      => '',
-            'item_action_timing'      => '',
+            'item_name' => '',
+            'item_table' => 'table1',
+            'item_original_name' => '',
+            'item_action_timing' => '',
             'item_event_manipulation' => '',
-            'item_definition'         => '',
-            'item_definer'            => '',
+            'item_definition' => '',
+            'item_definer' => '',
         ];
 
         return [
@@ -183,13 +183,13 @@ class TriggersTest extends AbstractTestCase
     public function providerGetEditorFormEdit(): array
     {
         $data = [
-            'item_name'               => 'foo',
-            'item_table'              => 'table1',
-            'item_original_name'      => 'bar',
-            'item_action_timing'      => 'BEFORE',
+            'item_name' => 'foo',
+            'item_table' => 'table1',
+            'item_original_name' => 'bar',
+            'item_action_timing' => 'BEFORE',
             'item_event_manipulation' => 'INSERT',
-            'item_definition'         => 'SET @A=1;',
-            'item_definer'            => '',
+            'item_definition' => 'SET @A=1;',
+            'item_definer' => '',
         ];
 
         return [
@@ -230,13 +230,13 @@ class TriggersTest extends AbstractTestCase
     public function providerGetEditorFormAjax(): array
     {
         $data = [
-            'item_name'               => 'foo',
-            'item_table'              => 'table1',
-            'item_original_name'      => 'bar',
-            'item_action_timing'      => 'BEFORE',
+            'item_name' => 'foo',
+            'item_table' => 'table1',
+            'item_original_name' => 'bar',
+            'item_action_timing' => 'BEFORE',
             'item_event_manipulation' => 'INSERT',
-            'item_definition'         => 'SET @A=1;',
-            'item_definer'            => '',
+            'item_definition' => 'SET @A=1;',
+            'item_definer' => '',
         ];
 
         return [
@@ -273,11 +273,11 @@ class TriggersTest extends AbstractTestCase
 
         $errors = [];
 
-        $_POST['item_definer']    = $definer;
-        $_POST['item_name']       = $name;
-        $_POST['item_timing']     = $timing;
-        $_POST['item_event']      = $event;
-        $_POST['item_table']      = $table;
+        $_POST['item_definer'] = $definer;
+        $_POST['item_name'] = $name;
+        $_POST['item_timing'] = $timing;
+        $_POST['item_event'] = $event;
+        $_POST['item_table'] = $table;
         $_POST['item_definition'] = $definition;
         $GLOBALS['server'] = 1;
 

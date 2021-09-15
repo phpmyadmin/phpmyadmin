@@ -123,10 +123,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'view_columns2',
         ];
 
-        $column_map = $this->dbi->getColumnMapFromSql(
-            $sql_query,
-            $view_columns
-        );
+        $column_map = $this->dbi->getColumnMapFromSql($sql_query, $view_columns);
 
         $this->assertEquals(
             [
@@ -492,10 +489,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
 
         $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
-            'SHOW TABLES FROM `phpmyadmin`;',
-            false
-        );
+        $this->dummyDbi->addResult('SHOW TABLES FROM `phpmyadmin`;', false);
 
         $this->dbi->initRelationParamsCache();
 
@@ -713,10 +707,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             ['Tables_in_phpmyadmin']
         );
 
-        $this->dummyDbi->addResult(
-            'SELECT NULL FROM `pma__userconfig` LIMIT 0',
-            false
-        );
+        $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
 
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->dbi->initRelationParamsCache();

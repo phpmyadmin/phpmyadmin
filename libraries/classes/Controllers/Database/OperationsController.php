@@ -79,10 +79,7 @@ class OperationsController extends AbstractController
         /**
          * Rename/move or copy database
          */
-        if (
-            strlen($db) > 0
-            && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))
-        ) {
+        if (strlen($db) > 0 && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))) {
             if (! empty($_POST['db_rename'])) {
                 $move = true;
             } else {
@@ -94,9 +91,7 @@ class OperationsController extends AbstractController
             } else {
                 // lower_case_table_names=1 `DB` becomes `db`
                 if ($this->dbi->getLowerCaseNames() === '1') {
-                    $_POST['newname'] = mb_strtolower(
-                        $_POST['newname']
-                    );
+                    $_POST['newname'] = mb_strtolower($_POST['newname']);
                 }
 
                 if ($_POST['newname'] === $_REQUEST['db']) {
@@ -130,18 +125,10 @@ class OperationsController extends AbstractController
                     ]);
 
                     // create stand-in tables for views
-                    $views = $this->operations->getViewsAndCreateSqlViewStandIn(
-                        $tables_full,
-                        $export_sql_plugin,
-                        $db
-                    );
+                    $views = $this->operations->getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin, $db);
 
                     // copy tables
-                    $sqlConstratints = $this->operations->copyTables(
-                        $tables_full,
-                        $move,
-                        $db
-                    );
+                    $sqlConstratints = $this->operations->copyTables($tables_full, $move, $db);
 
                     // handle the views
                     if (! $_error) {
@@ -171,10 +158,7 @@ class OperationsController extends AbstractController
                     $this->operations->duplicateBookmarks($_error, $db);
 
                     if (! $_error && $move) {
-                        if (
-                            isset($_POST['adjust_privileges'])
-                            && ! empty($_POST['adjust_privileges'])
-                        ) {
+                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesMoveDb($db, $_POST['newname']);
                         }
 
@@ -195,10 +179,7 @@ class OperationsController extends AbstractController
                         $message->addParam($db);
                         $message->addParam($_POST['newname']);
                     } elseif (! $_error) {
-                        if (
-                            isset($_POST['adjust_privileges'])
-                            && ! empty($_POST['adjust_privileges'])
-                        ) {
+                        if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                             $this->operations->adjustPrivilegesCopyDb($db, $_POST['newname']);
                         }
 
@@ -217,10 +198,7 @@ class OperationsController extends AbstractController
                     if (! $_error && $move) {
                         $db = $_POST['newname'];
                     } elseif (! $_error) {
-                        if (
-                            isset($_POST['switch_to_new'])
-                            && $_POST['switch_to_new'] === 'true'
-                        ) {
+                        if (isset($_POST['switch_to_new']) && $_POST['switch_to_new'] === 'true') {
                             $_SESSION['pma_switch_to_new'] = true;
                             $db = $_POST['newname'];
                         } else {
@@ -315,10 +293,7 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        if (
-            ! $cfgRelation['allworks']
-            && $cfg['PmaNoRelation_DisableWarning'] == false
-        ) {
+        if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
             $message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. ' .

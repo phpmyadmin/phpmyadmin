@@ -26,9 +26,7 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Displays a link to download this image.'
-        );
+        return __('Displays a link to download this image.');
     }
 
     /**

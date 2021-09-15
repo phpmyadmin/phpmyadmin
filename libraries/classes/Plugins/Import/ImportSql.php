@@ -55,9 +55,7 @@ class ImportSql extends ImportPlugin
             // create the root group that will be the options field for
             // $importPluginProperties
             // this will be shown as "Format specific options"
-            $importSpecificOptions = new OptionsPropertyRootGroup(
-                'Format Specific Options'
-            );
+            $importSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
             // general options main group
             $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -176,10 +174,7 @@ class ImportSql extends ImportPlugin
     private function setSQLMode($dbi, array $request): void
     {
         $sql_modes = [];
-        if (
-            isset($request['sql_compatibility'])
-            && $request['sql_compatibility'] !== 'NONE'
-        ) {
+        if (isset($request['sql_compatibility']) && $request['sql_compatibility'] !== 'NONE') {
             $sql_modes[] = $request['sql_compatibility'];
         }
 

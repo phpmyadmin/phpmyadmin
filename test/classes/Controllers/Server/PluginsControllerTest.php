@@ -73,47 +73,17 @@ class PluginsControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         //validate 1:Items
-        $this->assertStringContainsString(
-            '<th scope="col">Plugin</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Description</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Version</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Author</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">License</th>',
-            $actual
-        );
+        $this->assertStringContainsString('<th scope="col">Plugin</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Description</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Version</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Author</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">License</th>', $actual);
 
         //validate 2: one Item HTML
-        $this->assertStringContainsString(
-            'plugin_name1',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_description1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_version1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_author1</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>plugin_license1</td>',
-            $actual
-        );
+        $this->assertStringContainsString('plugin_name1', $actual);
+        $this->assertStringContainsString('<td>plugin_description1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_version1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_author1</td>', $actual);
+        $this->assertStringContainsString('<td>plugin_license1</td>', $actual);
     }
 }

@@ -219,13 +219,7 @@ class Plugins
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (
-            ! preg_match_all(
-                '/(str[A-Z][A-Za-z0-9]*)/',
-                (string) $GLOBALS['cfg'][$section][$opt],
-                $matches
-            )
-        ) {
+        if (! preg_match_all('/(str[A-Z][A-Za-z0-9]*)/', (string) $GLOBALS['cfg'][$section][$opt], $matches)) {
             return htmlspecialchars((string) $GLOBALS['cfg'][$section][$opt]);
         }
 
@@ -325,11 +319,7 @@ class Plugins
                     /** @var OptionsPropertyItem|null $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
                     if ($subgroup_header !== null) {
-                        $ret .= self::getOneOption(
-                            $section,
-                            $plugin_name,
-                            $subgroup_header
-                        );
+                        $ret .= self::getOneOption($section, $plugin_name, $subgroup_header);
                     }
 
                     $ret .= '<li class="subgroup"><ul';
@@ -339,21 +329,12 @@ class Plugins
                         $ret .= '>';
                     }
 
-                    $ret .=  self::getOneOption(
-                        $section,
-                        $plugin_name,
-                        $propertyItem,
-                        true
-                    );
+                    $ret .= self::getOneOption($section, $plugin_name, $propertyItem, true);
                     continue;
                 }
 
                 // single property item
-                $ret .= self::getHtmlForProperty(
-                    $section,
-                    $plugin_name,
-                    $propertyItem
-                );
+                $ret .= self::getHtmlForProperty($section, $plugin_name, $propertyItem);
             }
         }
 
@@ -371,19 +352,11 @@ class Plugins
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) === 3) {
-                    $ret .= MySQLDocumentation::show(
-                        $doc[1],
-                        false,
-                        null,
-                        null,
-                        $doc[2]
-                    );
+                    $ret .= MySQLDocumentation::show($doc[1], false, null, null, $doc[2]);
                 } elseif (count($doc) === 1) {
                     $ret .= MySQLDocumentation::showDocumentation('faq', $doc[0]);
                 } else {
-                    $ret .= MySQLDocumentation::show(
-                        $doc[1]
-                    );
+                    $ret .= MySQLDocumentation::show($doc[1]);
                 }
             }
         }
@@ -608,11 +581,7 @@ class Plugins
                         }
                     }
 
-                    $ret .= self::getOneOption(
-                        $section,
-                        $plugin_name,
-                        $propertyMainGroup
-                    );
+                    $ret .= self::getOneOption($section, $plugin_name, $propertyMainGroup);
                 }
             }
 

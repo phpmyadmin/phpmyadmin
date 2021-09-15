@@ -36,15 +36,9 @@ class SessionCacheTest extends TestCase
         SessionCache::set('test_data_2', 25);
 
         SessionCache::remove('test_data');
-        $this->assertArrayNotHasKey(
-            'test_data',
-            $_SESSION['cache']['server_server']
-        );
+        $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
         SessionCache::remove('test_data_2');
-        $this->assertArrayNotHasKey(
-            'test_data_2',
-            $_SESSION['cache']['server_server']
-        );
+        $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
     }
 
     public function testSet(): void

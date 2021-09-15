@@ -86,9 +86,9 @@ class Tracking
                 && (in_array('*', $filter_users) || $filtered_user)
             ) {
                 $tmp_entries[] = [
-                    'id'        => $id,
+                    'id' => $id,
                     'timestamp' => $timestamp,
-                    'username'  => $entry['username'],
+                    'username' => $entry['username'],
                     'statement' => $entry['statement'],
                 ];
             }
@@ -139,10 +139,7 @@ class Tracking
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];
         while ($entry = $this->dbi->fetchArray($selectableTablesSqlResult)) {
-            $entry['is_tracked'] = Tracker::isTracked(
-                $entry['db_name'],
-                $entry['table_name']
-            );
+            $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
             $selectableTablesEntries[] = $entry;
         }
 
@@ -288,14 +285,7 @@ class Tracking
             $drop_image_or_text
         );
 
-        $html .= $this->getHtmlForTrackingReportExportForm2(
-            $url_params,
-            $str1,
-            $str2,
-            $str3,
-            $str4,
-            $str5
-        );
+        $html .= $this->getHtmlForTrackingReportExportForm2($url_params, $str1, $str2, $str3, $str4, $str5);
 
         $html .= "<br><br><hr><br>\n";
 
@@ -650,11 +640,7 @@ class Tracking
         $html = '<h3>' . __('Structure snapshot')
             . '  [<a href="' . Url::getFromRoute('/table/tracking', $params) . '">' . __('Close')
             . '</a>]</h3>';
-        $data = Tracker::getTrackedData(
-            $_POST['db'],
-            $_POST['table'],
-            $_POST['version']
-        );
+        $data = Tracker::getTrackedData($_POST['db'], $_POST['table'], $_POST['version']);
 
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
         $drop_create_statements = $data['ddlog'][0]['statement'];
@@ -1071,10 +1057,7 @@ class Tracking
     {
         $entries = [];
         // Filtering data definition statements
-        if (
-            $_POST['logtype'] === 'schema'
-            || $_POST['logtype'] === 'schema_and_data'
-        ) {
+        if ($_POST['logtype'] === 'schema' || $_POST['logtype'] === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
                 $this->filter(
@@ -1087,10 +1070,7 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if (
-            $_POST['logtype'] === 'data'
-            || $_POST['logtype'] === 'schema_and_data'
-        ) {
+        if ($_POST['logtype'] === 'data' || $_POST['logtype'] === 'schema_and_data') {
             $entries = array_merge(
                 $entries,
                 $this->filter(
@@ -1105,23 +1085,13 @@ class Tracking
         // Sort it
         $ids = $timestamps = $usernames = $statements = [];
         foreach ($entries as $key => $row) {
-            $ids[$key]        = $row['id'];
+            $ids[$key] = $row['id'];
             $timestamps[$key] = $row['timestamp'];
-            $usernames[$key]  = $row['username'];
+            $usernames[$key] = $row['username'];
             $statements[$key] = $row['statement'];
         }
 
-        array_multisort(
-            $timestamps,
-            SORT_ASC,
-            $ids,
-            SORT_ASC,
-            $usernames,
-            SORT_ASC,
-            $statements,
-            SORT_ASC,
-            $entries
-        );
+        array_multisort($timestamps, SORT_ASC, $ids, SORT_ASC, $usernames, SORT_ASC, $statements, SORT_ASC, $entries);
 
         return $entries;
     }
@@ -1204,10 +1174,7 @@ class Tracking
         $sep = $cfg['NavigationTreeTableSeparator'];
 
         foreach ($table_list as $key => $value) {
-            if (
-                is_array($value) && array_key_exists('is' . $sep . 'group', $value)
-                && $value['is' . $sep . 'group']
-            ) {
+            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
                 // Recursion step
                 $untracked_tables = array_merge($this->extractTableNames($value, $db, $testing), $untracked_tables);
             } else {

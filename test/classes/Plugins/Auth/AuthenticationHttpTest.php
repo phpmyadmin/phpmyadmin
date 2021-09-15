@@ -207,15 +207,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            $expectedUser,
-            $this->object->user
-        );
+        $this->assertEquals($expectedUser, $this->object->user);
 
-        $this->assertEquals(
-            $expectedPass,
-            $this->object->password
-        );
+        $this->assertEquals($expectedPass, $this->object->password);
 
         $_SERVER[$userIndex] = null;
         $_SERVER[$passIndex] = null;
@@ -291,25 +285,13 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             $this->object->storeCredentials()
         );
 
-        $this->assertEquals(
-            'testUser',
-            $GLOBALS['cfg']['Server']['user']
-        );
+        $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
 
-        $this->assertEquals(
-            'testPass',
-            $GLOBALS['cfg']['Server']['password']
-        );
+        $this->assertEquals('testPass', $GLOBALS['cfg']['Server']['password']);
 
-        $this->assertArrayNotHasKey(
-            'PHP_AUTH_PW',
-            $_SERVER
-        );
+        $this->assertArrayNotHasKey('PHP_AUTH_PW', $_SERVER);
 
-        $this->assertEquals(
-            2,
-            $GLOBALS['server']
-        );
+        $this->assertEquals(2, $GLOBALS['server']);
 
         // case 2
         $this->object->user = 'testUser';
@@ -338,10 +320,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             $GLOBALS['cfg']['Server']
         );
 
-        $this->assertEquals(
-            2,
-            $GLOBALS['server']
-        );
+        $this->assertEquals(2, $GLOBALS['server']);
 
         // case 3
         $GLOBALS['server'] = 3;
@@ -371,10 +350,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             $GLOBALS['cfg']['Server']
         );
 
-        $this->assertEquals(
-            3,
-            $GLOBALS['server']
-        );
+        $this->assertEquals(3, $GLOBALS['server']);
     }
 
     /**
@@ -402,10 +378,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            '<p>error 123</p>',
-            $result
-        );
+        $this->assertStringContainsString('<p>error 123</p>', $result);
 
         $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()

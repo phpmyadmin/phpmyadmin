@@ -59,10 +59,7 @@ class ExportJsonTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'JSON',
@@ -86,10 +83,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -99,10 +93,7 @@ class ExportJsonTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -113,10 +104,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -144,9 +132,7 @@ class ExportJsonTest extends AbstractTestCase
     {
         $GLOBALS['crlf'] = '';
 
-        $this->expectOutputString(
-            ']'
-        );
+        $this->expectOutputString(']');
 
         $this->assertTrue(
             $this->object->exportFooter()
@@ -157,9 +143,7 @@ class ExportJsonTest extends AbstractTestCase
     {
         $GLOBALS['crlf'] = "\n";
 
-        $this->expectOutputString(
-            '{"type":"database","name":"testDB"},' . "\n"
-        );
+        $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
         $this->assertTrue(
             $this->object->exportDBHeader('testDB')

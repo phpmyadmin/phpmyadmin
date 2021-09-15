@@ -141,10 +141,7 @@ class IndexesControllerTest extends AbstractTestCase
                 )
             )->getMessage()
         );
-        $this->assertStringContainsString(
-            $doc_html,
-            $html
-        );
+        $this->assertStringContainsString($doc_html, $html);
 
         $this->assertStringContainsString(
             MySQLDocumentation::show('ALTER_TABLE'),
@@ -157,13 +154,7 @@ class IndexesControllerTest extends AbstractTestCase
         );
 
         //$field_name & $field_type
-        $this->assertStringContainsString(
-            'field_name',
-            $html
-        );
-        $this->assertStringContainsString(
-            'field_type',
-            $html
-        );
+        $this->assertStringContainsString('field_name', $html);
+        $this->assertStringContainsString('field_type', $html);
     }
 }

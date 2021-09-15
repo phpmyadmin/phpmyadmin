@@ -378,13 +378,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $fill_color,
-            $scale_data,
-            $pdf
-        );
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf);
         $this->assertInstanceOf('TCPDF', $return);
     }
 
@@ -430,12 +424,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg(
-            $spatial,
-            $label,
-            $fillColor,
-            $scaleData
-        );
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
     }
 

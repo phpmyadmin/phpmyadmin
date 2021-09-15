@@ -106,9 +106,7 @@ class Utilities
             if (str_contains($error_message, 'errno: 13')) {
                 $error .= ' - ' . $error_message;
                 $error .= $separator
-                    . __(
-                        'Please check privileges of directory containing database.'
-                    );
+                    . __('Please check privileges of directory containing database.');
             } else {
                 /**
                  * InnoDB constraints, see
@@ -142,9 +140,7 @@ class Utilities
         global $cfg;
 
         /* No sorting when key is not present */
-        if (
-            ! isset($a[$sortBy], $b[$sortBy])
-        ) {
+        if (! isset($a[$sortBy], $b[$sortBy])) {
             return 0;
         }
 

@@ -85,10 +85,7 @@ class Git
         }
 
         // caching
-        if (
-            isset($_SESSION['is_git_revision'])
-            && array_key_exists('git_location', $_SESSION)
-        ) {
+        if (isset($_SESSION['is_git_revision']) && array_key_exists('git_location', $_SESSION)) {
             // Define location using cached value
             $git_location = $_SESSION['git_location'];
 
@@ -111,13 +108,7 @@ class Git
             $contents = (string) file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
-            if (
-                ! preg_match(
-                    '/^gitdir: (.*)$/',
-                    $contents,
-                    $gitmatch
-                )
-            ) {
+            if (! preg_match('/^gitdir: (.*)$/', $contents, $gitmatch)) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
@@ -150,10 +141,7 @@ class Git
     private function readPackFile(string $packFile, int $packOffset): ?string
     {
         // open pack file
-        $packFileRes = fopen(
-            $packFile,
-            'rb'
-        );
+        $packFileRes = fopen($packFile, 'rb');
         if ($packFileRes === false) {
             return null;
         }
@@ -204,9 +192,7 @@ class Git
     private function getPackOffset(string $packFile, string $hash): ?int
     {
         // load index
-        $index_data = @file_get_contents(
-            $packFile
-        );
+        $index_data = @file_get_contents($packFile);
         if ($index_data === false) {
             return null;
         }
@@ -333,15 +319,11 @@ class Git
                 // File missing. May be we can look in the .git/object/pack
                 // directory for all the .pack files and use that list of
                 // files instead
-                $dirIterator = new DirectoryIterator(
-                    $gitFolder . '/objects/pack'
-                );
+                $dirIterator = new DirectoryIterator($gitFolder . '/objects/pack');
                 foreach ($dirIterator as $file_info) {
                     $file_name = $file_info->getFilename();
                     // if this is a .pack file
-                    if (
-                        ! $file_info->isFile() || substr($file_name, -5) !== '.pack'
-                    ) {
+                    if (! $file_info->isFile() || substr($file_name, -5) !== '.pack') {
                         continue;
                     }
 
@@ -434,10 +416,7 @@ class Git
         $httpRequest = new HttpRequest();
 
         // check if commit exists in Github
-        if (
-            $commit !== false
-            && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
-        ) {
+        if ($commit !== false && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])) {
             $isRemoteCommit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
 
             return null;

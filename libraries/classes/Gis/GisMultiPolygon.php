@@ -254,12 +254,12 @@ class GisMultiPolygon extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
         $polygon_options = [
-            'name'         => $label,
-            'class'        => 'multipolygon vector',
-            'stroke'       => 'black',
+            'name' => $label,
+            'class' => 'multipolygon vector',
+            'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill'         => $fill_color,
-            'fill-rule'    => 'evenodd',
+            'fill' => $fill_color,
+            'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
 
@@ -324,7 +324,7 @@ class GisMultiPolygon extends GisGeometry
             'color' => [0,0,0],
             'width' => 0.5,
         ];
-        $row =  'var style = new ol.style.Style({'
+        $row = 'var style = new ol.style.Style({'
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
@@ -475,12 +475,7 @@ class GisMultiPolygon extends GisGeometry
 
                 // If the pointOnSurface of the inner ring
                 // is also inside the outer ring
-                if (
-                    ! GisPolygon::isPointInsidePolygon(
-                        $ring1['pointOnSurface'],
-                        $ring2['points']
-                    )
-                ) {
+                if (! GisPolygon::isPointInsidePolygon($ring1['pointOnSurface'], $ring2['points'])) {
                     continue;
                 }
 
@@ -518,7 +513,7 @@ class GisMultiPolygon extends GisGeometry
                     }
 
                     $wkt = mb_substr($wkt, 0, -1);
-                    $wkt .= ')';  // end of inner ring
+                    $wkt .= ')'; // end of inner ring
                 }
             }
 

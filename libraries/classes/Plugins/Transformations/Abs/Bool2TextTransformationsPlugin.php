@@ -45,10 +45,10 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Bool2Text']);
 
         if ($buffer == '0') {
-            return $options[1];   // return false label
+            return $options[1]; // return false label
         }
 
-        return $options[0];       // or true one if nonzero
+        return $options[0]; // or true one if nonzero
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

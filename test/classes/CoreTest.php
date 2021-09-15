@@ -553,7 +553,7 @@ class CoreTest extends AbstractNetworkTestCase
         $testUri = 'https://example.com/test.php';
 
         $this->mockResponse('Location: ' . $testUri);
-        Core::sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+        Core::sendHeaderLocation($testUri); // sets $GLOBALS['header']
     }
 
     /**

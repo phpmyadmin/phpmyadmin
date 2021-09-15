@@ -36,9 +36,7 @@ class CreateTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('id', 'create_table_form_minimal');
-        $this->byCssSelector(
-            'form#create_table_form_minimal input[name=table]'
-        )->sendKeys('test_table');
+        $this->byCssSelector('form#create_table_form_minimal input[name=table]')->sendKeys('test_table');
         $this->byName('num_fields')->clear();
         $this->byName('num_fields')->sendKeys('4');
         $this->byCssSelector('input[value=Go]')->click();
@@ -84,10 +82,7 @@ class CreateTest extends TestBase
         $this->moveto($ele);
         // post
         $ele->click();
-        $this->waitForElement(
-            'cssSelector',
-            'li.last.table'
-        );
+        $this->waitForElement('cssSelector', 'li.last.table');
 
         $this->waitAjax();
 

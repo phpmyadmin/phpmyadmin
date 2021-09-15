@@ -88,11 +88,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($command) {
-            $database_list = $dbi->fetchResult(
-                $command,
-                null,
-                null
-            );
+            $database_list = $dbi->fetchResult($command, null, null);
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -124,10 +120,7 @@ class ListDatabase extends ListAbstract
      */
     protected function checkOnlyDatabase(): bool
     {
-        if (
-            is_string($GLOBALS['cfg']['Server']['only_db'])
-            && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
-        ) {
+        if (is_string($GLOBALS['cfg']['Server']['only_db']) && strlen($GLOBALS['cfg']['Server']['only_db']) > 0) {
             $GLOBALS['cfg']['Server']['only_db'] = [
                 $GLOBALS['cfg']['Server']['only_db'],
             ];

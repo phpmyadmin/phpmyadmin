@@ -120,10 +120,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>',
-            $responseMessage
-        );
+        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         // root.air-balloon_burner_dev2
         // cm9vdA==.YWlyLWJhbGxvb25fYnVybmVyX2RldjI=
@@ -280,10 +277,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $this->getResponseJsonResult()['message'];
 
-        $this->assertStringContainsString(
-            '<div id=\'pma_navigation_tree_content\'>',
-            $responseMessage
-        );
+        $this->assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         $dbTemplate =
             '  <li class="database database">' . "\n"

@@ -22,16 +22,10 @@ class Compatibility
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
         foreach ($eachTables as $table_name => $_) {
-            if (
-                ! isset($eachTables[$table_name]['Type'])
-                && isset($eachTables[$table_name]['Engine'])
-            ) {
+            if (! isset($eachTables[$table_name]['Type']) && isset($eachTables[$table_name]['Engine'])) {
                 // pma BC, same parts of PMA still uses 'Type'
                 $eachTables[$table_name]['Type'] =& $eachTables[$table_name]['Engine'];
-            } elseif (
-                ! isset($eachTables[$table_name]['Engine'])
-                && isset($eachTables[$table_name]['Type'])
-            ) {
+            } elseif (! isset($eachTables[$table_name]['Engine']) && isset($eachTables[$table_name]['Type'])) {
                 // old MySQL reports Type, newer MySQL reports Engine
                 $eachTables[$table_name]['Engine'] =& $eachTables[$table_name]['Type'];
             }
@@ -99,11 +93,7 @@ class Compatibility
             $colType = is_string($colType) ? $colType : '';
             $colTypePosComa = strpos($colType, '(');
             $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
-            $columns[$column_name]['DATA_TYPE'] = substr(
-                $colType,
-                0,
-                $colTypePosComa
-            );
+            $columns[$column_name]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
             /**
              * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
             */
@@ -120,11 +110,7 @@ class Compatibility
             $colCollationPosUnderscore = $colCollationPosUnderscore !== false
                 ? $colCollationPosUnderscore
                 : strlen($colCollation);
-            $columns[$column_name]['CHARACTER_SET_NAME'] = substr(
-                $colCollation,
-                0,
-                $colCollationPosUnderscore
-            );
+            $columns[$column_name]['CHARACTER_SET_NAME'] = substr($colCollation, 0, $colCollationPosUnderscore);
 
             $ordinal_position++;
         }

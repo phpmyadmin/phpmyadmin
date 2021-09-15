@@ -25,9 +25,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      */
     public static function getInfo()
     {
-        return __(
-            'Formats text as SQL query with syntax highlighting.'
-        );
+        return __('Formats text as SQL query with syntax highlighting.');
     }
 
     /**

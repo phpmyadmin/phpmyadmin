@@ -127,9 +127,7 @@ class ReplicationGui
     ): string {
         global $dbi;
 
-        $serverSlaveMultiReplication = $dbi->fetchResult(
-            'SHOW ALL SLAVES STATUS'
-        );
+        $serverSlaveMultiReplication = $dbi->fetchResult('SHOW ALL SLAVES STATUS');
         if ($serverSlaveStatus) {
             $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
@@ -177,7 +175,7 @@ class ReplicationGui
             $urlParams['sl_configure'] = true;
             $urlParams['repl_clear_scr'] = true;
 
-            $reconfigureMasterLink =  Url::getCommon($urlParams, '');
+            $reconfigureMasterLink = Url::getCommon($urlParams, '');
 
             $slaveStatusTable = $this->getHtmlForReplicationStatusTable('slave', true, false);
 
@@ -293,15 +291,9 @@ class ReplicationGui
                 'value' => $serverReplicationVariable,
             ];
 
-            if (
-                isset($variablesAlerts[$variable])
-                && $variablesAlerts[$variable] === $serverReplicationVariable
-            ) {
+            if (isset($variablesAlerts[$variable]) && $variablesAlerts[$variable] === $serverReplicationVariable) {
                 $variables[$variable]['status'] = 'text-danger';
-            } elseif (
-                isset($variablesOks[$variable])
-                && $variablesOks[$variable] === $serverReplicationVariable
-            ) {
+            } elseif (isset($variablesOks[$variable]) && $variablesOks[$variable] === $serverReplicationVariable) {
                 $variables[$variable]['status'] = 'text-success';
             }
 
@@ -317,11 +309,7 @@ class ReplicationGui
                 continue;
             }
 
-            $variables[$variable]['value'] = str_replace(
-                ',',
-                ', ',
-                $serverReplicationVariable
-            );
+            $variables[$variable]['value'] = str_replace(',', ', ', $serverReplicationVariable);
         }
 
         return $this->template->render('server/replication/status_table', [
@@ -518,8 +506,8 @@ class ReplicationGui
         $_SESSION['replication']['m_username'] = $sr['username'];
         $_SESSION['replication']['m_password'] = $sr['pma_pw'];
         $_SESSION['replication']['m_hostname'] = $sr['hostname'];
-        $_SESSION['replication']['m_port']     = $sr['port'];
-        $_SESSION['replication']['m_correct']  = '';
+        $_SESSION['replication']['m_port'] = $sr['port'];
+        $_SESSION['replication']['m_correct'] = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
@@ -548,7 +536,7 @@ class ReplicationGui
                         . 'Possible privilege problem on master.'
                 );
             } else {
-                $_SESSION['replication']['m_correct']  = true;
+                $_SESSION['replication']['m_correct'] = true;
 
                 if (
                     ! $this->replication->slaveChangeMaster(
@@ -621,9 +609,7 @@ class ReplicationGui
         }
 
         $qStop = $this->replication->slaveControl('STOP', null, DatabaseInterface::CONNECT_USER);
-        $qSkip = $dbi->tryQuery(
-            'SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';'
-        );
+        $qSkip = $dbi->tryQuery('SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';');
         $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);
 
         return $qStop !== false && $qStop !== -1 &&

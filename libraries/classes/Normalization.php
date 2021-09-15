@@ -95,12 +95,7 @@ class Normalization
         }
 
         $this->dbi->selectDb($db);
-        $columns = $this->dbi->getColumns(
-            $db,
-            $table,
-            null,
-            true
-        );
+        $columns = $this->dbi->getColumns($db, $table, null, true);
         $type = '';
         $selectColHtml = '';
         foreach ($columns as $column => $def) {
@@ -109,10 +104,7 @@ class Normalization
                 $type = $extractedColumnSpec['type'];
             }
 
-            if (
-                ! empty($columnTypeList)
-                && ! in_array(mb_strtoupper($type), $columnTypeList)
-            ) {
+            if (! empty($columnTypeList) && ! in_array(mb_strtoupper($type), $columnTypeList)) {
                 continue;
             }
 
@@ -248,9 +240,7 @@ class Normalization
             )
             . "<br>(<a class='central_columns_dialog' data-maxrows='25' "
             . "data-pick=false href='#'> "
-            . __(
-                'Show me the central list of columns that are not already in this table'
-            ) . ' </a>)</h4>'
+            . __('Show me the central list of columns that are not already in this table') . ' </a>)</h4>'
             . "<p class='cm-em'>" . __(
                 'Select a column which can be split into more '
                 . 'than one (on select of \'no such column\', it\'ll move to next step).'
@@ -312,10 +302,7 @@ class Normalization
                     )
                 )
                 . '</a>';
-            $extra = __(
-                "If it's not possible to make existing "
-                . 'column combinations as primary key'
-            ) . '<br>'
+            $extra = __("If it's not possible to make existing " . 'column combinations as primary key') . '<br>'
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
@@ -439,10 +426,7 @@ class Normalization
         $key = implode(', ', $pk);
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames(
-                $db,
-                $table
-            );
+            $columns = (array) $this->dbi->getColumnNames($db, $table);
             if (count($pk) == count($columns)) {
                 $headText = sprintf(
                     __(
@@ -746,10 +730,7 @@ class Normalization
             }
 
             if ($dropCols) {
-                $columns = (array) $this->dbi->getColumnNames(
-                    $db,
-                    $originalTable
-                );
+                $columns = (array) $this->dbi->getColumnNames($db, $originalTable);
                 $colPresent = array_merge(
                     explode(', ', $dropCols['pk']),
                     explode(', ', $dropCols['nonpk'])
@@ -839,7 +820,7 @@ class Normalization
             }
 
             $first = false;
-            $query1 .=  ' SELECT ' . $primaryColumns . ',' . $repeatingColumn
+            $query1 .= ' SELECT ' . $primaryColumns . ',' . $repeatingColumn
                 . ' as ' . Util::backquote($newColumn)
                 . ' FROM ' . Util::backquote($table);
             $query2 .= ' DROP ' . $repeatingColumn . ',';
@@ -906,10 +887,7 @@ class Normalization
             }
 
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames(
-                $db,
-                $table
-            );
+            $columns = (array) $this->dbi->getColumnNames($db, $table);
             if (count($columns) - count($pk) <= 1) {
                 continue;
             }
@@ -1019,10 +997,7 @@ class Normalization
     {
         $dependencyList = [];
         $this->dbi->selectDb($db);
-        $columns = (array) $this->dbi->getColumnNames(
-            $db,
-            $table
-        );
+        $columns = (array) $this->dbi->getColumnNames($db, $table);
         $columns = (array) Util::backquote($columns);
         $totalRowsRes = $this->dbi->fetchResult(
             'SELECT COUNT(*) FROM (SELECT * FROM '

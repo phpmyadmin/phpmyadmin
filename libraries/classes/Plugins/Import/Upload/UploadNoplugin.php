@@ -47,12 +47,12 @@ class UploadNoplugin implements UploadInterface
 
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
-                'id'       => $id,
+                'id' => $id,
                 'finished' => false,
-                'percent'  => 0,
-                'total'    => 0,
+                'percent' => 0,
+                'total' => 0,
                 'complete' => 0,
-                'plugin'   => self::getIdKey(),
+                'plugin' => self::getIdKey(),
             ];
         }
 

@@ -83,10 +83,7 @@ final class Search
      */
     private function generateWhereClause(): string
     {
-        if (
-            isset($_POST['customWhereClause'])
-            && trim($_POST['customWhereClause']) != ''
-        ) {
+        if (isset($_POST['customWhereClause']) && trim($_POST['customWhereClause']) != '') {
             return ' WHERE ' . $_POST['customWhereClause'];
         }
 
@@ -103,7 +100,7 @@ final class Search
         // else continue to form the where clause from column criteria values
         $fullWhereClause = [];
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
-            $unaryFlag =  $this->dbi->types->isUnaryOperator($operator);
+            $unaryFlag = $this->dbi->types->isUnaryOperator($operator);
             $tmp_geom_func = $_POST['geom_func'][$column_index] ?? null;
 
             $whereClause = $this->getWhereClause(
@@ -151,13 +148,7 @@ final class Search
     ): string {
         // If geometry function is set
         if (! empty($geom_func)) {
-            return $this->getGeomWhereClause(
-                $criteriaValues,
-                $names,
-                $func_type,
-                $types,
-                $geom_func
-            );
+            return $this->getGeomWhereClause($criteriaValues, $names, $func_type, $types, $geom_func);
         }
 
         $backquoted_name = Util::backquote($names);
@@ -307,15 +298,9 @@ final class Search
             . '(' . Util::backquote($names) . ')';
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (
-            isset($geom_unary_functions[$geom_func])
-            && trim($criteriaValues) == ''
-        ) {
+        if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
             $where = $geom_function_applied;
-        } elseif (
-            in_array($type, Gis::getDataTypes())
-            && ! empty($criteriaValues)
-        ) {
+        } elseif (in_array($type, Gis::getDataTypes()) && ! empty($criteriaValues)) {
             // create gis data from the criteria input
             $gis_data = Gis::createData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . ' ' . $func_type . ' ' . $gis_data;
@@ -343,15 +328,15 @@ final class Search
 
         $enum_selected_count = count($criteriaValues);
         if ($func_type === '=' && $enum_selected_count > 1) {
-            $func_type    = 'IN';
-            $parens_open  = '(';
+            $func_type = 'IN';
+            $parens_open = '(';
             $parens_close = ')';
         } elseif ($func_type === '!=' && $enum_selected_count > 1) {
-            $func_type    = 'NOT IN';
-            $parens_open  = '(';
+            $func_type = 'NOT IN';
+            $parens_open = '(';
             $parens_close = ')';
         } else {
-            $parens_open  = '';
+            $parens_open = '';
             $parens_close = '';
         }
 

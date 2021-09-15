@@ -85,12 +85,7 @@ final class ChangeController extends AbstractController
          */
         $fields_meta = [];
         for ($i = 0; $i < $selected_cnt; $i++) {
-            $value = $this->dbi->getColumns(
-                $this->db,
-                $this->table,
-                $selected[$i],
-                true
-            );
+            $value = $this->dbi->getColumns($this->db, $this->table, $selected[$i], true);
             if (count($value) === 0) {
                 $message = Message::error(
                     __('Failed to get description of column %s!')

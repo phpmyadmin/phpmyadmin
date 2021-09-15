@@ -45,39 +45,15 @@ class EnginesControllerTest extends AbstractTestCase
 
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            '<th scope="col">Storage Engine</th>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<th scope="col">Description</th>',
-            $actual
-        );
+        $this->assertStringContainsString('<th scope="col">Storage Engine</th>', $actual);
+        $this->assertStringContainsString('<th scope="col">Description</th>', $actual);
 
-        $this->assertStringContainsString(
-            '<td>Federated MySQL storage engine</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'FEDERATED',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/server/engines/FEDERATED',
-            $actual
-        );
+        $this->assertStringContainsString('<td>Federated MySQL storage engine</td>', $actual);
+        $this->assertStringContainsString('FEDERATED', $actual);
+        $this->assertStringContainsString('index.php?route=/server/engines/FEDERATED', $actual);
 
-        $this->assertStringContainsString(
-            '<td>dummy comment</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'dummy',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/server/engines/dummy',
-            $actual
-        );
+        $this->assertStringContainsString('<td>dummy comment</td>', $actual);
+        $this->assertStringContainsString('dummy', $actual);
+        $this->assertStringContainsString('index.php?route=/server/engines/dummy', $actual);
     }
 }

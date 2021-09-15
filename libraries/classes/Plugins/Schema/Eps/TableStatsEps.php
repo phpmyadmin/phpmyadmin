@@ -62,15 +62,7 @@ class TableStatsEps extends TableStats
         $tableDimension = false,
         $offline = false
     ) {
-        parent::__construct(
-            $diagram,
-            $db,
-            $pageNumber,
-            $tableName,
-            $showKeys,
-            $tableDimension,
-            $offline
-        );
+        parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline);
 
         // height and width
         $this->setHeightTable($fontSize);
@@ -113,23 +105,12 @@ class TableStatsEps extends TableStats
             );
         }
 
-        $this->width += $this->font->getStringWidth(
-            '      ',
-            $font,
-            (int) $fontSize
-        );
+        $this->width += $this->font->getStringWidth('      ', $font, (int) $fontSize);
         /*
          * it is unknown what value must be added, because
         * table title is affected by the table width value
         */
-        while (
-            $this->width
-            < $this->font->getStringWidth(
-                $this->getTitle(),
-                $font,
-                (int) $fontSize
-            )
-        ) {
+        while ($this->width < $this->font->getStringWidth($this->getTitle(), $font, (int) $fontSize)) {
             $this->width += 7;
         }
     }
@@ -156,28 +137,12 @@ class TableStatsEps extends TableStats
      */
     public function tableDraw($showColor): void
     {
-        $this->diagram->rect(
-            $this->x,
-            $this->y + 12,
-            $this->width,
-            $this->heightCell,
-            1
-        );
+        $this->diagram->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
         $this->diagram->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
-            $this->diagram->rect(
-                $this->x,
-                $this->y + 12 + $this->currentCell,
-                $this->width,
-                $this->heightCell,
-                1
-            );
-            $this->diagram->showXY(
-                $field,
-                $this->x + 5,
-                $this->y + 14 + $this->currentCell
-            );
+            $this->diagram->rect($this->x, $this->y + 12 + $this->currentCell, $this->width, $this->heightCell, 1);
+            $this->diagram->showXY($field, $this->x + 5, $this->y + 14 + $this->currentCell);
         }
     }
 }

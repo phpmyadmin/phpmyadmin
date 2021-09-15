@@ -75,10 +75,7 @@ class VariablesController extends AbstractController
 
                 [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
                 if ($hasSessionValue) {
-                    [$sessionFormattedValue] = $this->formatVariable(
-                        $name,
-                        $serverVarsSession[$name]
-                    );
+                    [$sessionFormattedValue] = $this->formatVariable($name, $serverVarsSession[$name]);
                 }
 
                 $variables[] = [

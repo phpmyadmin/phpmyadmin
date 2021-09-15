@@ -43,15 +43,9 @@ class OperationsTest extends TestBase
         $this->byXPath("//a[contains(., 'Operations')]")->click();
 
         $this->waitAjax();
-        $this->waitForElement(
-            'xpath',
-            "//div[contains(., 'Table maintenance')]"
-        );
+        $this->waitForElement('xpath', "//div[contains(., 'Table maintenance')]");
         $this->reloadPage();
-        $this->waitForElement(
-            'xpath',
-            "//div[contains(., 'Table maintenance')]"
-        );
+        $this->waitForElement('xpath', "//div[contains(., 'Table maintenance')]");
     }
 
     /**
@@ -67,9 +61,7 @@ class OperationsTest extends TestBase
         );
 
         $this->byId('tableOrderDescRadio')->click();
-        $this->byCssSelector(
-            "form#alterTableOrderby input[type='submit']"
-        )->click();
+        $this->byCssSelector("form#alterTableOrderby input[type='submit']")->click();
 
         $this->waitAjax();
 
@@ -240,10 +232,7 @@ class OperationsTest extends TestBase
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
-        $this->waitForElement(
-            'xpath',
-            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
-        );
+        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'

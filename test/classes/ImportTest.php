@@ -522,7 +522,7 @@ class ImportTest extends AbstractTestCase
 
         // URL to matched rows.
         $_url_params = [
-            'db'        => 'PMA',
+            'db' => 'PMA',
             'sql_query' => $simulatedQuery,
         ];
         $matched_rows_url = Url::getFromRoute('/sql', $_url_params);

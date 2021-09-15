@@ -123,11 +123,7 @@ class Footer
     public function getDebugMessage(): string
     {
         $retval = '\'null\'';
-        if (
-            $GLOBALS['cfg']['DBG']['sql']
-            && empty($_REQUEST['no_debug'])
-            && ! empty($_SESSION['debug'])
-        ) {
+        if ($GLOBALS['cfg']['DBG']['sql'] && empty($_REQUEST['no_debug']) && ! empty($_SESSION['debug'])) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::removeRecursion($_SESSION['debug']);
 
@@ -165,10 +161,7 @@ class Footer
         $params['server'] = $server;
 
         // needed for server privileges tabs
-        if (
-            isset($_GET['viewing_mode'])
-            && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])
-        ) {
+        if (isset($_GET['viewing_mode']) && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])) {
             $params['viewing_mode'] = $_GET['viewing_mode'];
         }
 
@@ -177,9 +170,7 @@ class Footer
          *          add the following condition below when that is fixed
          *          && $_GET['checkprivsdb'] == $db
          */
-        if (
-            isset($_GET['checkprivsdb'])
-        ) {
+        if (isset($_GET['checkprivsdb'])) {
             $params['checkprivsdb'] = $_GET['checkprivsdb'];
         }
 
@@ -188,16 +179,11 @@ class Footer
          *          add the following condition below when that is fixed
          *          && $_REQUEST['checkprivstable'] == $table
          */
-        if (
-            isset($_GET['checkprivstable'])
-        ) {
+        if (isset($_GET['checkprivstable'])) {
             $params['checkprivstable'] = $_GET['checkprivstable'];
         }
 
-        if (
-            isset($_REQUEST['single_table'])
-            && in_array($_REQUEST['single_table'], [true, false])
-        ) {
+        if (isset($_REQUEST['single_table']) && in_array($_REQUEST['single_table'], [true, false])) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
 

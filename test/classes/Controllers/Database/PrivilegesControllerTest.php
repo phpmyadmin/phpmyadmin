@@ -58,10 +58,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $actual
         );
 
-        $this->assertStringContainsString(
-            $db,
-            $actual
-        );
+        $this->assertStringContainsString($db, $actual);
 
         $this->assertStringContainsString(
             __('User'),

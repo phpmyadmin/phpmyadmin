@@ -58,10 +58,7 @@ class TrackingTest extends TestBase
         $this->executeSqlAndReturnToTableTracking();
 
         $this->byPartialLinkText('Tracking report')->click();
-        $this->waitForElement(
-            'xpath',
-            "//h3[contains(., 'Tracking report')]"
-        );
+        $this->waitForElement('xpath', "//h3[contains(., 'Tracking report')]");
 
         $this->assertStringContainsString(
             'DROP TABLE IF EXISTS `test_table`',
@@ -140,10 +137,7 @@ class TrackingTest extends TestBase
     public function testDeactivateTracking(): void
     {
         $this->byCssSelector("input[value='Deactivate now']")->click();
-        $this->waitForElement(
-            'cssSelector',
-            "input[value='Activate now']"
-        );
+        $this->waitForElement('cssSelector', "input[value='Activate now']");
         $this->executeSqlAndReturnToTableTracking();
         $this->assertFalse(
             $this->isElementPresent('id', 'dml_versions')
@@ -165,17 +159,11 @@ class TrackingTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'versions');
 
-        $ele = $this->waitForElement(
-            'cssSelector',
-            'table#versions tbody tr:nth-child(1) td:nth-child(7) a'
-        );
+        $ele = $this->waitForElement('cssSelector', 'table#versions tbody tr:nth-child(1) td:nth-child(7) a');
         $this->moveto($ele);
         $this->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->waitAjax();
         $this->waitForElement(

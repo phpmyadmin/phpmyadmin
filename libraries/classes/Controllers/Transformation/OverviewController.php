@@ -49,9 +49,7 @@ class OverviewController extends AbstractController
             foreach ($types[$type] as $key => $transformation) {
                 $transformations[$type][] = [
                     'name' => $transformation,
-                    'description' => $this->transformations->getDescription(
-                        $types[$type . '_file'][$key]
-                    ),
+                    'description' => $this->transformations->getDescription($types[$type . '_file'][$key]),
                 ];
             }
         }

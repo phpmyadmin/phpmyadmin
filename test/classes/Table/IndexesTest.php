@@ -92,10 +92,7 @@ class IndexesTest extends AbstractTestCase
         $indexes->doSaveData($index, false, $GLOBALS['db'], $GLOBALS['table']);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
-        $this->assertStringContainsString(
-            $sql_query,
-            $jsonArray['sql_data']
-        );
+        $this->assertStringContainsString($sql_query, $jsonArray['sql_data']);
 
         // Alter success
         $response->clear();

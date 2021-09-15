@@ -77,15 +77,9 @@ class CreateController extends AbstractController
         ];
 
         // View name is a compulsory field
-        if (
-            isset($_POST['view']['name'])
-            && empty($_POST['view']['name'])
-        ) {
+        if (isset($_POST['view']['name']) && empty($_POST['view']['name'])) {
             $message = Message::error(__('View name can not be empty!'));
-            $this->response->addJSON(
-                'message',
-                $message
-            );
+            $this->response->addJSON('message', $message);
             $this->response->setRequestStatus(false);
 
             return;
@@ -170,15 +164,10 @@ class CreateController extends AbstractController
                 $view_columns = explode(',', $_POST['view']['column_names']);
             }
 
-            $column_map = $this->dbi->getColumnMapFromSql(
-                $_POST['view']['as'],
-                $view_columns
-            );
+            $column_map = $this->dbi->getColumnMapFromSql($_POST['view']['as'], $view_columns);
 
             $systemDb = $this->dbi->getSystemDatabase();
-            $pma_transformation_data = $systemDb->getExistingTransformationData(
-                $db
-            );
+            $pma_transformation_data = $systemDb->getExistingTransformationData($db);
 
             if ($pma_transformation_data !== false) {
                 // SQL for store new transformation details of VIEW

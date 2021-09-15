@@ -91,7 +91,7 @@ final class FavoriteTableController extends AbstractController
                 } else {
                     // Otherwise add to favorite list.
                     $favoriteInstance->add($this->db, $favoriteTable);
-                    $alreadyFavorite = true;  // for favorite_anchor template
+                    $alreadyFavorite = true; // for favorite_anchor template
                 }
             }
         }
@@ -146,10 +146,7 @@ final class FavoriteTableController extends AbstractController
     ): array {
         $favoriteInstanceTables = $favoriteInstance->getTables();
 
-        if (
-            empty($favoriteInstanceTables)
-            && isset($favoriteTables[$user])
-        ) {
+        if (empty($favoriteInstanceTables) && isset($favoriteTables[$user])) {
             foreach ($favoriteTables[$user] as $key => $value) {
                 $favoriteInstance->add($value['db'], $value['table']);
             }

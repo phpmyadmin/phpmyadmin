@@ -58,13 +58,8 @@ class BrowseForeignersController extends AbstractController
         $header->disableMenuAndConsole();
         $header->setBodyId('body_browse_foreigners');
 
-        $foreigners = $this->relation->getForeigners(
-            $database,
-            $table
-        );
-        $foreignLimit = $this->browseForeigners->getForeignLimit(
-            $foreignShowAll
-        );
+        $foreigners = $this->relation->getForeigners($database, $table);
+        $foreignLimit = $this->browseForeigners->getForeignLimit($foreignShowAll);
         $foreignData = $this->relation->getForeignData(
             $foreigners,
             $field,

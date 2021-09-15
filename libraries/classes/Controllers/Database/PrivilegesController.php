@@ -43,10 +43,7 @@ class PrivilegesController extends AbstractController
     {
         global $cfg, $text_dir;
 
-        $scriptName = Util::getScriptNameForOption(
-            $cfg['DefaultTabDatabase'],
-            'database'
-        );
+        $scriptName = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {

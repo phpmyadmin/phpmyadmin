@@ -106,11 +106,7 @@ class BookmarkTest extends AbstractTestCase
             'bkm_label' => 'bookmark1',
         ];
 
-        $bookmark = Bookmark::createBookmark(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $bookmarkData
-        );
+        $bookmark = Bookmark::createBookmark($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'], $bookmarkData);
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());

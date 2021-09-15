@@ -225,13 +225,7 @@ class GisPointTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
-            $pdf
-        );
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
         $this->assertInstanceOf('TCPDF', $return);
     }
 

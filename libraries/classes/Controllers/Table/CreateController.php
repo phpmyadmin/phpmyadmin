@@ -110,12 +110,8 @@ class CreateController extends AbstractController
         if (isset($_POST['do_save_data'])) {
             // lower_case_table_names=1 `DB` becomes `db`
             if ($this->dbi->getLowerCaseNames() === '1') {
-                $db = mb_strtolower(
-                    $db
-                );
-                $table = mb_strtolower(
-                    $table
-                );
+                $db = mb_strtolower($db);
+                $table = mb_strtolower($table);
             }
 
             $sql_query = $createAddField->getTableCreationQuery($db, $table);
@@ -132,11 +128,7 @@ class CreateController extends AbstractController
 
             if ($result) {
                 // Update comment table for mime types [MIME]
-                if (
-                    isset($_POST['field_mimetype'])
-                    && is_array($_POST['field_mimetype'])
-                    && $cfg['BrowseMIME']
-                ) {
+                if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
                         if (
                             ! isset($_POST['field_name'][$fieldindex])

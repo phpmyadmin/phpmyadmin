@@ -69,14 +69,8 @@ class QueriesControllerTest extends AbstractTestCase
         $questionsFromStart = __('Questions since startup:')
             . '    ' . Util::formatNumber($totalQueries, 0);
 
-        $this->assertStringContainsString(
-            '<h3 id="serverstatusqueries">',
-            $html
-        );
-        $this->assertStringContainsString(
-            $questionsFromStart,
-            $html
-        );
+        $this->assertStringContainsString('<h3 id="serverstatusqueries">', $html);
+        $this->assertStringContainsString($questionsFromStart, $html);
 
         $this->assertStringContainsString(
             __('per hour:'),
@@ -87,10 +81,7 @@ class QueriesControllerTest extends AbstractTestCase
             $html
         );
 
-        $valuePerMinute = Util::formatNumber(
-            $totalQueries * 60 / $this->data->status['Uptime'],
-            0
-        );
+        $valuePerMinute = Util::formatNumber($totalQueries * 60 / $this->data->status['Uptime'], 0);
         $this->assertStringContainsString(
             __('per minute:'),
             $html
@@ -109,10 +100,7 @@ class QueriesControllerTest extends AbstractTestCase
             htmlspecialchars('change db'),
             $html
         );
-        $this->assertStringContainsString(
-            '54',
-            $html
-        );
+        $this->assertStringContainsString('54', $html);
         $this->assertStringContainsString(
             htmlspecialchars('select'),
             $html

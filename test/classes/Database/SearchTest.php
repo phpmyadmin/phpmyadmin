@@ -175,25 +175,10 @@ class SearchTest extends AbstractTestCase
         $this->assertStringContainsString('criteriaSearchType', $main);
 
         // test result divs
-        $this->assertStringContainsString(
-            '<div id="table-info"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<a id="table-link"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<div id="browse-results"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<div id="sqlqueryform"',
-            $main
-        );
-        $this->assertStringContainsString(
-            '<button class="btn btn-secondary" id="togglequerybox"',
-            $main
-        );
+        $this->assertStringContainsString('<div id="table-info"', $main);
+        $this->assertStringContainsString('<a id="table-link"', $main);
+        $this->assertStringContainsString('<div id="browse-results"', $main);
+        $this->assertStringContainsString('<div id="sqlqueryform"', $main);
+        $this->assertStringContainsString('<button class="btn btn-secondary" id="togglequerybox"', $main);
     }
 }

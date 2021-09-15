@@ -129,10 +129,7 @@ class Search
         if (
             empty($_POST['criteriaSearchType'])
             || ! is_string($_POST['criteriaSearchType'])
-            || ! array_key_exists(
-                $_POST['criteriaSearchType'],
-                $this->searchTypes
-            )
+            || ! array_key_exists($_POST['criteriaSearchType'], $this->searchTypes)
         ) {
             $this->criteriaSearchType = 1;
             unset($_POST['submit_search']);
@@ -141,10 +138,7 @@ class Search
             $this->searchTypeDescription = $this->searchTypes[$_POST['criteriaSearchType']];
         }
 
-        if (
-            empty($_POST['criteriaSearchString'])
-            || ! is_string($_POST['criteriaSearchString'])
-        ) {
+        if (empty($_POST['criteriaSearchString']) || ! is_string($_POST['criteriaSearchString'])) {
             $this->criteriaSearchString = '';
             unset($_POST['submit_search']);
         } else {
@@ -152,27 +146,16 @@ class Search
         }
 
         $this->criteriaTables = [];
-        if (
-            empty($_POST['criteriaTables'])
-            || ! is_array($_POST['criteriaTables'])
-        ) {
+        if (empty($_POST['criteriaTables']) || ! is_array($_POST['criteriaTables'])) {
             unset($_POST['submit_search']);
         } else {
-            $this->criteriaTables = array_intersect(
-                $_POST['criteriaTables'],
-                $this->tablesNamesOnly
-            );
+            $this->criteriaTables = array_intersect($_POST['criteriaTables'], $this->tablesNamesOnly);
         }
 
-        if (
-            empty($_POST['criteriaColumnName'])
-            || ! is_string($_POST['criteriaColumnName'])
-        ) {
+        if (empty($_POST['criteriaColumnName']) || ! is_string($_POST['criteriaColumnName'])) {
             unset($this->criteriaColumnName);
         } else {
-            $this->criteriaColumnName = $this->dbi->escapeString(
-                $_POST['criteriaColumnName']
-            );
+            $this->criteriaColumnName = $this->dbi->escapeString($_POST['criteriaColumnName']);
         }
     }
 
@@ -209,9 +192,9 @@ class Search
             . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
         // VIEWs, anyway we have a WHERE clause that should limit results
-        $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`'
+        $sql['select_count'] = $sqlstr_select . ' COUNT(*) AS `count`'
             . $sqlstr_from . $where_clause;
-        $sql['delete']        = $sqlstr_delete . $sqlstr_from . $where_clause;
+        $sql['delete'] = $sqlstr_delete . $sqlstr_from . $where_clause;
 
         return $sql;
     }
@@ -229,14 +212,12 @@ class Search
         $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
         $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
-        $like_or_regex   = ($this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = ($this->criteriaSearchType < 4 ? '%' : '');
+        $like_or_regex = ($this->criteriaSearchType == 5 ? 'REGEXP' : 'LIKE');
+        $automatic_wildcard = ($this->criteriaSearchType < 4 ? '%' : '');
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // they should enter \$ as the value.
-        $criteriaSearchStringEscaped = $this->dbi->escapeString(
-            $this->criteriaSearchString
-        );
+        $criteriaSearchStringEscaped = $this->dbi->escapeString($this->criteriaSearchString);
         // Extract search words or pattern
         $search_words = $this->criteriaSearchType > 2
             ? [$criteriaSearchStringEscaped]
@@ -275,7 +256,7 @@ class Search
         }
 
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
-        $implode_str  = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
+        $implode_str = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
         if (empty($likeClauses)) {
             // this could happen when the "inside column" does not exist
             // in any selected tables

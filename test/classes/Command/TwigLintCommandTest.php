@@ -119,10 +119,7 @@ class TwigLintCommandTest extends AbstractTestCase
                 ['foo.twig'],
                 ['foo-invalid.twig']
             )
-            ->willReturnOnConsecutiveCalls(
-                '{{ file }}',
-                '{{ file }'
-            );
+            ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
             ROOT_PATH . 'test/classes/_data/file_listing',

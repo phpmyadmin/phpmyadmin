@@ -32,11 +32,7 @@ class NodeFactoryTest extends AbstractTestCase
 
     public function testDefaultContainer(): void
     {
-        $node = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER
-        );
+        $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertFalse($node->isGroup);
@@ -44,12 +40,7 @@ class NodeFactoryTest extends AbstractTestCase
 
     public function testGroupContainer(): void
     {
-        $node = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER,
-            true
-        );
+        $node = NodeFactory::getInstance('Node', 'default', Node::CONTAINER, true);
         $this->assertEquals('default', $node->name);
         $this->assertEquals(Node::CONTAINER, $node->type);
         $this->assertTrue($node->isGroup);

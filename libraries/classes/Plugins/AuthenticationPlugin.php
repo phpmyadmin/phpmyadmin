@@ -80,7 +80,7 @@ abstract class AuthenticationPlugin
 
         $this->setSessionAccessTime();
 
-        $cfg['Server']['user']     = $this->user;
+        $cfg['Server']['user'] = $this->user;
         $cfg['Server']['password'] = $this->password;
 
         return true;
@@ -125,10 +125,7 @@ abstract class AuthenticationPlugin
          * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
          */
         $server = 0;
-        if (
-            $GLOBALS['cfg']['LoginCookieDeleteAll'] === false
-            && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
-        ) {
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                 if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
@@ -278,9 +275,9 @@ abstract class AuthenticationPlugin
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache
         if (isset($cfg['Server']['AllowDeny']['order'])) {
-            $allowDeny_forbidden         = false; // default
+            $allowDeny_forbidden = false; // default
             if ($cfg['Server']['AllowDeny']['order'] === 'allow,deny') {
-                $allowDeny_forbidden     = true;
+                $allowDeny_forbidden = true;
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
@@ -316,10 +313,7 @@ abstract class AuthenticationPlugin
         }
 
         // is a login without password allowed?
-        if (
-            $cfg['Server']['AllowNoPassword']
-            || $cfg['Server']['password'] !== ''
-        ) {
+        if ($cfg['Server']['AllowNoPassword'] || $cfg['Server']['password'] !== '') {
             return;
         }
 

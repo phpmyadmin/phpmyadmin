@@ -104,10 +104,7 @@ class AuthenticationConfigTest extends AbstractTestCase
             $html
         );
 
-        $this->assertStringContainsString(
-            'Cannot connect: invalid settings.',
-            $html
-        );
+        $this->assertStringContainsString('Cannot connect: invalid settings.', $html);
 
         $this->assertStringContainsString(
             '<a href="index.php?route=/&server=0&lang=en" '

@@ -83,9 +83,7 @@ class InsertTest extends TestBase
         $this->byId('field_2_3')->sendKeys('Abcd');
 
         // post
-        $this->byCssSelector(
-            'input[value=Go]'
-        )->click();
+        $this->byCssSelector('input[value=Go]')->click();
 
         $this->waitAjax();
 

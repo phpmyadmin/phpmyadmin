@@ -241,20 +241,14 @@ class Tracker
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
         $sql_backquotes = true;
 
-        $createSql  = '';
+        $createSql = '';
 
-        if (
-            $GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
-            && $isView === false
-        ) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true && $isView === false) {
             $createSql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
 
-        if (
-            $GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
-            && $isView === true
-        ) {
+        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true && $isView === true) {
             $createSql .= self::getLogComment()
                 . 'DROP VIEW IF EXISTS ' . Util::backquote($tableName) . ";\n";
         }
@@ -357,7 +351,7 @@ class Tracker
             $trackingSet = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
-        $createSql  = '';
+        $createSql = '';
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_database'] == true) {
             $createSql .= self::getLogComment() . 'DROP DATABASE IF EXISTS ' . Util::backquote($dbName) . ";\n";
@@ -454,7 +448,7 @@ class Tracker
             return false;
         }
 
-        $date  = Util::date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $newDataProcessed = '';
         if (is_array($newData)) {
@@ -588,7 +582,7 @@ class Tracker
 
         // Parse log
         $logSchemaEntries = explode('# log ', (string) $mixed['schema_sql']);
-        $logDataEntries   = explode('# log ', (string) $mixed['data_sql']);
+        $logDataEntries = explode('# log ', (string) $mixed['data_sql']);
 
         $ddlDateFrom = $date = Util::date('Y-m-d H:i:s');
 
@@ -602,8 +596,8 @@ class Tracker
                 continue;
             }
 
-            $date      = mb_substr($logEntry, 0, 19);
-            $username  = mb_substr(
+            $date = mb_substr($logEntry, 0, 19);
+            $username = mb_substr(
                 $logEntry,
                 20,
                 mb_strpos($logEntry, "\n") - 20
@@ -637,8 +631,8 @@ class Tracker
                 continue;
             }
 
-            $date      = mb_substr($logEntry, 0, 19);
-            $username  = mb_substr(
+            $date = mb_substr($logEntry, 0, 19);
+            $username = mb_substr(
                 $logEntry,
                 20,
                 mb_strpos($logEntry, "\n") - 20
@@ -673,9 +667,9 @@ class Tracker
             $data['date_to'] = $dmlDateTo;
         }
 
-        $data['ddlog']           = $ddlog;
-        $data['dmlog']           = $dmlog;
-        $data['tracking']        = $mixed['tracking'];
+        $data['ddlog'] = $ddlog;
+        $data['dmlog'] = $dmlog;
+        $data['tracking'] = $mixed['tracking'];
         $data['schema_snapshot'] = $mixed['schema_snapshot'];
 
         return $data;
@@ -716,7 +710,7 @@ class Tracker
 
         if (! empty($parser->statements)) {
             $statement = $parser->statements[0];
-            $options   = isset($statement->options) ? $statement->options->options : null;
+            $options = isset($statement->options) ? $statement->options->options : null;
 
             /*
              * DDL statements
@@ -731,13 +725,13 @@ class Tracker
 
                 if ($options[6] === 'VIEW' || $options[6] === 'TABLE') {
                     $result['identifier'] = 'CREATE ' . $options[6];
-                    $result['tablename']  = $statement->name !== null ? $statement->name->table : null;
+                    $result['tablename'] = $statement->name !== null ? $statement->name->table : null;
                 } elseif ($options[6] === 'DATABASE') {
                     $result['identifier'] = 'CREATE DATABASE';
-                    $result['tablename']  = '';
+                    $result['tablename'] = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
-                    $GLOBALS['db']        = $statement->name !== null ? $statement->name->database : null;
+                    $GLOBALS['db'] = $statement->name !== null ? $statement->name->database : null;
                 } elseif (
                     $options[6] === 'INDEX'
                           || $options[6] === 'UNIQUE INDEX'
@@ -747,7 +741,7 @@ class Tracker
                     $result['identifier'] = 'CREATE INDEX';
 
                     // In case of CREATE INDEX, we have to get the table name from body of the statement
-                    $result['tablename']  = $statement->body[3]->value === '.' ? $statement->body[4]->value
+                    $result['tablename'] = $statement->body[3]->value === '.' ? $statement->body[4]->value
                                                                               : $statement->body[2]->value;
                 }
             } elseif ($statement instanceof AlterStatement) { // Parse ALTER statement
@@ -756,13 +750,13 @@ class Tracker
                 }
 
                 if ($options[3] === 'VIEW' || $options[3] === 'TABLE') {
-                    $result['identifier']   = 'ALTER ' . $options[3];
-                    $result['tablename']    = $statement->table->table;
+                    $result['identifier'] = 'ALTER ' . $options[3];
+                    $result['tablename'] = $statement->table->table;
                 } elseif ($options[3] === 'DATABASE') {
-                    $result['identifier']   = 'ALTER DATABASE';
-                    $result['tablename']    = '';
+                    $result['identifier'] = 'ALTER DATABASE';
+                    $result['tablename'] = '';
 
-                    $GLOBALS['db']          = $statement->table->table;
+                    $GLOBALS['db'] = $statement->table->table;
                 }
             } elseif ($statement instanceof DropStatement) { // Parse DROP statement
                 if (empty($options) || ! isset($options[1])) {
@@ -771,20 +765,20 @@ class Tracker
 
                 if ($options[1] === 'VIEW' || $options[1] === 'TABLE') {
                     $result['identifier'] = 'DROP ' . $options[1];
-                    $result['tablename']  = $statement->fields[0]->table;
+                    $result['tablename'] = $statement->fields[0]->table;
                 } elseif ($options[1] === 'DATABASE') {
                     $result['identifier'] = 'DROP DATABASE';
-                    $result['tablename']  = '';
+                    $result['tablename'] = '';
 
-                    $GLOBALS['db']        = $statement->fields[0]->table;
+                    $GLOBALS['db'] = $statement->fields[0]->table;
                 } elseif ($options[1] === 'INDEX') {
-                    $result['identifier']   = 'DROP INDEX';
-                    $result['tablename']    = $statement->table->table;
+                    $result['identifier'] = 'DROP INDEX';
+                    $result['tablename'] = $statement->table->table;
                 }
             } elseif ($statement instanceof RenameStatement) { // Parse RENAME statement
-                $result['identifier']               = 'RENAME TABLE';
-                $result['tablename']                = $statement->renames[0]->old->table;
-                $result['tablename_after_rename']   = $statement->renames[0]->new->table;
+                $result['identifier'] = 'RENAME TABLE';
+                $result['tablename'] = $statement->renames[0]->old->table;
+                $result['tablename_after_rename'] = $statement->renames[0]->new->table;
             }
 
             if (isset($result['identifier'])) {
@@ -798,26 +792,26 @@ class Tracker
 
             // Parse UPDATE statement
             if ($statement instanceof UpdateStatement) {
-                $result['identifier']   = 'UPDATE';
-                $result['tablename']    = $statement->tables[0]->table;
+                $result['identifier'] = 'UPDATE';
+                $result['tablename'] = $statement->tables[0]->table;
             }
 
             // Parse INSERT INTO statement
             if ($statement instanceof InsertStatement) {
-                $result['identifier']   = 'INSERT';
-                $result['tablename']    = $statement->into->dest->table;
+                $result['identifier'] = 'INSERT';
+                $result['tablename'] = $statement->into->dest->table;
             }
 
             // Parse DELETE statement
             if ($statement instanceof DeleteStatement) {
-                $result['identifier']   = 'DELETE';
-                $result['tablename']    = $statement->from[0]->table;
+                $result['identifier'] = 'DELETE';
+                $result['tablename'] = $statement->from[0]->table;
             }
 
             // Parse TRUNCATE statement
             if ($statement instanceof TruncateStatement) {
-                $result['identifier']   = 'TRUNCATE';
-                $result['tablename']    = $statement->table->table;
+                $result['identifier'] = 'TRUNCATE';
+                $result['tablename'] = $statement->table->table;
             }
         }
 
@@ -868,17 +862,10 @@ class Tracker
             return;
         }
 
-        $version = self::getVersion(
-            $dbname,
-            $result['tablename'],
-            $result['identifier']
-        );
+        $version = self::getVersion($dbname, $result['tablename'], $result['identifier']);
 
         // If version not exists and auto-creation is enabled
-        if (
-            $GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
-            && $version == -1
-        ) {
+        if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true && $version == -1) {
             // Create the version
 
             switch ($result['identifier']) {
@@ -886,13 +873,7 @@ class Tracker
                     self::createVersion($dbname, $result['tablename'], '1');
                     break;
                 case 'CREATE VIEW':
-                    self::createVersion(
-                        $dbname,
-                        $result['tablename'],
-                        '1',
-                        '',
-                        true
-                    );
+                    self::createVersion($dbname, $result['tablename'], '1', '', true);
                     break;
                 case 'CREATE DATABASE':
                     self::createDatabaseVersion($dbname, '1', $query);
@@ -917,7 +898,7 @@ class Tracker
             $saveTo = '';
         }
 
-        $date  = Util::date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         // Cut off `dbname`. from query
         $query = preg_replace(

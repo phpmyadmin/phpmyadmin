@@ -93,10 +93,7 @@ PHP;
 
     private function writeGeneratedClassFile(string $generatedClass): bool
     {
-        $result = file_put_contents(
-            ROOT_PATH . 'libraries/classes/Version.php',
-            $generatedClass
-        );
+        $result = file_put_contents(ROOT_PATH . 'libraries/classes/Version.php', $generatedClass);
 
         return $result !== false;
     }

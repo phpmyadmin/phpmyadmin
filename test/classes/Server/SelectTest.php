@@ -75,10 +75,7 @@ class SelectTest extends AbstractTestCase
 
         if ($not_only_options) {
             if (! $omit_fieldset) {
-                $this->assertStringContainsString(
-                    '</fieldset>',
-                    $html
-                );
+                $this->assertStringContainsString('</fieldset>', $html);
             }
 
             $this->assertStringContainsString(
@@ -100,22 +97,10 @@ class SelectTest extends AbstractTestCase
         }
 
         //server items
-        $this->assertStringContainsString(
-            $server['host'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['port'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['only_db'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['user'],
-            $html
-        );
+        $this->assertStringContainsString($server['host'], $html);
+        $this->assertStringContainsString($server['port'], $html);
+        $this->assertStringContainsString($server['only_db'], $html);
+        $this->assertStringContainsString($server['user'], $html);
     }
 
     public function renderDataProvider(): array

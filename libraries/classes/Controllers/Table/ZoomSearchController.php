@@ -121,10 +121,7 @@ class ZoomSearchController extends AbstractController
         /**
          * Handle AJAX request for data row on point select
          */
-        if (
-            isset($_POST['get_data_row'])
-            && $_POST['get_data_row'] == true
-        ) {
+        if (isset($_POST['get_data_row']) && $_POST['get_data_row'] == true) {
             $this->getDataRowAction();
 
             return;
@@ -134,10 +131,7 @@ class ZoomSearchController extends AbstractController
          * Handle AJAX request for changing field information
          * (value,collation,operators,field values) in input form
          */
-        if (
-            isset($_POST['change_tbl_info'])
-            && $_POST['change_tbl_info'] == true
-        ) {
+        if (isset($_POST['change_tbl_info']) && $_POST['change_tbl_info'] == true) {
             $this->changeTableInfoAction();
 
             return;
@@ -167,10 +161,7 @@ class ZoomSearchController extends AbstractController
         }
 
         if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
+            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $this->zoomSubmitAction($dataLabel, $goto);
@@ -183,12 +174,7 @@ class ZoomSearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
+        $columns = $this->dbi->getColumns($this->db, $this->table, null, true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 
@@ -205,10 +191,7 @@ class ZoomSearchController extends AbstractController
             }
 
             // reformat mysql query output
-            if (
-                strncasecmp($type, 'set', 3) == 0
-                || strncasecmp($type, 'enum', 4) == 0
-            ) {
+            if (strncasecmp($type, 'set', 3) == 0 || strncasecmp($type, 'enum', 4) == 0) {
                 $type = str_replace(',', ', ', $type);
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
@@ -247,10 +230,7 @@ class ZoomSearchController extends AbstractController
         global $goto;
 
         if (! isset($goto)) {
-            $goto = Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'],
-                'table'
-            );
+            $goto = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
         }
 
         $column_names = $this->columnNames;
@@ -308,10 +288,7 @@ class ZoomSearchController extends AbstractController
             $i = 0;
             foreach ($row as $col => $val) {
                 if ($fields_meta[$i]->isMappedTypeBit) {
-                    $row[$col] = Util::printableBitValue(
-                        (int) $val,
-                        (int) $fields_meta[$i]->length
-                    );
+                    $row[$col] = Util::printableBitValue((int) $val, (int) $fields_meta[$i]->length);
                 }
 
                 $i++;
@@ -365,11 +342,7 @@ class ZoomSearchController extends AbstractController
         $sql_query .= ' LIMIT ' . $_POST['maxPlotLimit'];
 
         //Query execution part
-        $result = $this->dbi->query(
-            $sql_query . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $result = $this->dbi->query($sql_query . ';', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
         $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
         $data = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -463,14 +436,9 @@ class ZoomSearchController extends AbstractController
         );
         $htmlAttributes = '';
         if (in_array($cleanType, $this->dbi->types->getIntegerTypes())) {
-            $extractedColumnspec = Util::extractColumnSpec(
-                $this->originalColumnTypes[$column_index]
-            );
+            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$column_index]);
             $is_unsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange(
-                $cleanType,
-                ! $is_unsigned
-            );
+            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $is_unsigned);
             $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
                             . 'data-max="' . $minMaxValues[1] . '"';
         }

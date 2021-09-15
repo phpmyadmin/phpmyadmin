@@ -73,30 +73,17 @@ final class RelationController extends AbstractController
 
         $relations = [];
         if ($cfgRelation['relwork']) {
-            $relations = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'internal'
-            );
+            $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
         $relationsForeign = [];
         if (ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'foreign'
-            );
+            $relationsForeign = $this->relation->getForeigners($this->db, $this->table, '', 'foreign');
         }
 
         // Send table of column names to populate corresponding dropdowns depending
         // on the current selection
-        if (
-            isset($_POST['getDropdownValues'])
-            && $_POST['getDropdownValues'] === 'true'
-        ) {
+        if (isset($_POST['getDropdownValues']) && $_POST['getDropdownValues'] === 'true') {
             // if both db and table are selected
             if (isset($_POST['foreignTable'])) {
                 $this->getDropdownValueForTable();
@@ -127,24 +114,11 @@ final class RelationController extends AbstractController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
-            $relations = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'internal'
-            );
+            $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
-        if (
-            isset($_POST['destination_foreign_db'])
-            && ForeignKey::isSupported($storageEngine)
-        ) {
-            $relationsForeign = $this->relation->getForeigners(
-                $this->db,
-                $this->table,
-                '',
-                'foreign'
-            );
+        if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
+            $relationsForeign = $this->relation->getForeigners($this->db, $this->table, '', 'foreign');
         }
 
         /**
@@ -159,10 +133,7 @@ final class RelationController extends AbstractController
         $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
-            if (
-                strtoupper($storageEngine) !== 'INNODB'
-                && empty($column['Key'])
-            ) {
+            if (strtoupper($storageEngine) !== 'INNODB' && empty($column['Key'])) {
                 continue;
             }
 
@@ -206,12 +177,7 @@ final class RelationController extends AbstractController
      */
     private function updateForDisplayField(Table $table, array $cfgRelation): void
     {
-        if (
-            ! $table->updateDisplayField(
-                $_POST['display_field'],
-                $cfgRelation
-            )
-        ) {
+        if (! $table->updateDisplayField($_POST['display_field'], $cfgRelation)) {
             return;
         }
 
@@ -364,17 +330,10 @@ final class RelationController extends AbstractController
         if ($foreign) {
             $query = 'SHOW TABLE STATUS FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query(
-                $query,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
 
             while ($row = $this->dbi->fetchArray($tables_rs)) {
-                if (
-                    ! isset($row['Engine'])
-                    || mb_strtoupper($row['Engine']) != $storageEngine
-                ) {
+                if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
                     continue;
                 }
 
@@ -383,11 +342,7 @@ final class RelationController extends AbstractController
         } else {
             $query = 'SHOW TABLES FROM '
                 . Util::backquote($_POST['foreignDb']);
-            $tables_rs = $this->dbi->query(
-                $query,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 $tables[] = htmlspecialchars($row[0]);
             }

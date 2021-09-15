@@ -36,10 +36,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function addProperty($property): void
     {
-        if (
-            ! $this->getProperties() == null
-            && in_array($property, $this->getProperties(), true)
-        ) {
+        if (! $this->getProperties() == null && in_array($property, $this->getProperties(), true)) {
             return;
         }
 

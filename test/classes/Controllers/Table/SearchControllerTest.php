@@ -186,9 +186,6 @@ class SearchControllerTest extends AbstractTestCase
         $ctrl->getDataRowAction();
 
         $json = $this->getResponseJsonResult();
-        $this->assertEquals(
-            $expected,
-            $json['row_info']
-        );
+        $this->assertEquals($expected, $json['row_info']);
     }
 }

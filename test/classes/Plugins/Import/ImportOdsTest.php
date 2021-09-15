@@ -114,10 +114,7 @@ class ImportOdsTest extends AbstractTestCase
             . 'utf8 COLLATE utf8_general_ci',
             $sql_query
         );
-        $this->assertStringContainsString(
-            'CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`',
-            $sql_query
-        );
+        $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', $sql_query);
         $this->assertStringContainsString(
             'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES '
             . "(1, 'dbbase', NULL, 'ddd');",
@@ -129,27 +126,13 @@ class ImportOdsTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `ODS_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `ODS_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `pma_bookmark`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `pma_bookmark`',
-            $import_notice
-        );
+        $this->assertStringContainsString('Go to database: `ODS_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `ODS_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `pma_bookmark`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `pma_bookmark`', $import_notice);
 
         //asset that the import process is finished
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 
     public function dataProviderOdsEmptyRows(): array
@@ -270,26 +253,12 @@ class ImportOdsTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `ODS_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `ODS_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `Shop`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `Shop`',
-            $import_notice
-        );
+        $this->assertStringContainsString('Go to database: `ODS_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `ODS_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `Shop`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `Shop`', $import_notice);
 
         //asset that the import process is finished
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

@@ -56,11 +56,7 @@ class Operations
         if ($procedure_names) {
             foreach ($procedure_names as $procedure_name) {
                 $this->dbi->selectDb($db);
-                $tmp_query = $this->dbi->getDefinition(
-                    $db,
-                    'PROCEDURE',
-                    $procedure_name
-                );
+                $tmp_query = $this->dbi->getDefinition($db, 'PROCEDURE', $procedure_name);
                 if ($tmp_query === null) {
                     continue;
                 }
@@ -79,11 +75,7 @@ class Operations
 
         foreach ($function_names as $function_name) {
             $this->dbi->selectDb($db);
-            $tmp_query = $this->dbi->getDefinition(
-                $db,
-                'FUNCTION',
-                $function_name
-            );
+            $tmp_query = $this->dbi->getDefinition($db, 'FUNCTION', $function_name);
             if ($tmp_query === null) {
                 continue;
             }
@@ -151,11 +143,7 @@ class Operations
             }
 
             // If view exists, and 'add drop view' is selected: Drop it!
-            if (
-                $_POST['what'] !== 'nocopy'
-                && isset($_POST['drop_if_exists'])
-                && $_POST['drop_if_exists'] === 'true'
-            ) {
+            if ($_POST['what'] !== 'nocopy' && isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true') {
                 $drop_query = 'DROP VIEW IF EXISTS '
                     . Util::backquote($_POST['newname']) . '.'
                     . Util::backquote($each_table);
@@ -166,11 +154,7 @@ class Operations
 
             $views[] = $each_table;
             // Create stand-in definition to resolve view dependencies
-            $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
-                $db,
-                $each_table,
-                "\n"
-            );
+            $sql_view_standin = $export_sql_plugin->getTableDefStandIn($db, $each_table, "\n");
             $this->dbi->selectDb($_POST['newname']);
             $this->dbi->query($sql_view_standin);
             $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
@@ -247,10 +231,7 @@ class Operations
             }
 
             // this does not apply to a rename operation
-            if (
-                ! isset($_POST['add_constraints'])
-                || empty($GLOBALS['sql_constraints_query'])
-            ) {
+            if (! isset($_POST['add_constraints']) || empty($GLOBALS['sql_constraints_query'])) {
                 continue;
             }
 
@@ -411,10 +392,7 @@ class Operations
             . Util::backquote('tables_priv') . ' WHERE '
             . 'Db = "' . $oldDb . '";';
 
-        $old_privs_table = $this->dbi->fetchResult(
-            $query_table_specific_old,
-            0
-        );
+        $old_privs_table = $this->dbi->fetchResult($query_table_specific_old, 0);
 
         foreach ($old_privs_table as $old_priv) {
             $newDb_table_privs_query = 'INSERT INTO ' . Util::backquote(
@@ -432,10 +410,7 @@ class Operations
             . Util::backquote('columns_priv') . ' WHERE '
             . 'Db = "' . $oldDb . '";';
 
-        $old_privs_col = $this->dbi->fetchResult(
-            $query_col_specific_old,
-            0
-        );
+        $old_privs_col = $this->dbi->fetchResult($query_col_specific_old, 0);
 
         foreach ($old_privs_col as $old_priv) {
             $newDb_col_privs_query = 'INSERT INTO ' . Util::backquote(
@@ -452,10 +427,7 @@ class Operations
             . Util::backquote('procs_priv') . ' WHERE '
             . 'Db = "' . $oldDb . '";';
 
-        $old_privs_proc = $this->dbi->fetchResult(
-            $query_proc_specific_old,
-            0
-        );
+        $old_privs_proc = $this->dbi->fetchResult($query_proc_specific_old, 0);
 
         foreach ($old_privs_proc as $old_priv) {
             $newDb_proc_privs_query = 'INSERT INTO ' . Util::backquote(
@@ -507,13 +479,7 @@ class Operations
         ];
         $where_fields = ['dbase' => $db];
         $new_fields = ['dbase' => $_POST['newname']];
-        Table::duplicateInfo(
-            'bookmarkwork',
-            'bookmark',
-            $get_fields,
-            $where_fields,
-            $new_fields
-        );
+        Table::duplicateInfo('bookmarkwork', 'bookmark', $get_fields, $where_fields, $new_fields);
     }
 
     /**
@@ -528,26 +494,26 @@ class Operations
 
         $possible_row_formats = [
             'ARCHIVE' => ['COMPRESSED' => 'COMPRESSED'],
-            'ARIA'  => [
-                'FIXED'     => 'FIXED',
-                'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE',
+            'ARIA' => [
+                'FIXED' => 'FIXED',
+                'DYNAMIC' => 'DYNAMIC',
+                'PAGE' => 'PAGE',
             ],
-            'MARIA'  => [
-                'FIXED'     => 'FIXED',
-                'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE',
+            'MARIA' => [
+                'FIXED' => 'FIXED',
+                'DYNAMIC' => 'DYNAMIC',
+                'PAGE' => 'PAGE',
             ],
             'MYISAM' => [
-                'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC',
+                'FIXED' => 'FIXED',
+                'DYNAMIC' => 'DYNAMIC',
             ],
-            'PBXT'   => [
-                'FIXED'    => 'FIXED',
-                'DYNAMIC'  => 'DYNAMIC',
+            'PBXT' => [
+                'FIXED' => 'FIXED',
+                'DYNAMIC' => 'DYNAMIC',
             ],
             'INNODB' => [
-                'COMPACT'  => 'COMPACT',
+                'COMPACT' => 'COMPACT',
                 'REDUNDANT' => 'REDUNDANT',
             ],
         ];
@@ -566,7 +532,7 @@ class Operations
          * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
          */
         if (
-            (strtolower($innodb_file_format)  === 'barracuda') || ($innodb_file_format == '')
+            (strtolower($innodb_file_format) === 'barracuda') || ($innodb_file_format == '')
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -630,7 +596,7 @@ class Operations
         $foreign = $this->relation->getForeigners($db, $table, '', 'internal');
 
         foreach ($foreign as $master => $arr) {
-            $joinQuery  = 'SELECT '
+            $joinQuery = 'SELECT '
                 . Util::backquote($table) . '.*'
                 . ' FROM ' . Util::backquote($table)
                 . ' LEFT JOIN '
@@ -712,10 +678,7 @@ class Operations
 
         $table_alters = [];
 
-        if (
-            isset($_POST['comment'])
-            && urldecode($_POST['prev_comment']) !== $_POST['comment']
-        ) {
+        if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {
             $table_alters[] = 'COMMENT = \''
                 . $this->dbi->escapeString($_POST['comment']) . '\'';
         }
@@ -727,10 +690,7 @@ class Operations
             $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
         }
 
-        if (
-            ! empty($_POST['tbl_collation'])
-            && $_POST['tbl_collation'] !== $tbl_collation
-        ) {
+        if (! empty($_POST['tbl_collation']) && $_POST['tbl_collation'] !== $tbl_collation) {
             $table_alters[] = 'DEFAULT '
                 . Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
         }
@@ -744,34 +704,22 @@ class Operations
         }
 
         $newChecksum = empty($_POST['new_checksum']) ? '0' : '1';
-        if (
-            $pma_table->isEngine(['MYISAM', 'ARIA'])
-            && $newChecksum !== $checksum
-        ) {
+        if ($pma_table->isEngine(['MYISAM', 'ARIA']) && $newChecksum !== $checksum) {
             $table_alters[] = 'checksum = ' . $newChecksum;
         }
 
         $newTransactional = empty($_POST['new_transactional']) ? '0' : '1';
-        if (
-            $pma_table->isEngine('ARIA')
-            && $newTransactional !== $transactional
-        ) {
+        if ($pma_table->isEngine('ARIA') && $newTransactional !== $transactional) {
             $table_alters[] = 'TRANSACTIONAL = ' . $newTransactional;
         }
 
         $newPageChecksum = empty($_POST['new_page_checksum']) ? '0' : '1';
-        if (
-            $pma_table->isEngine('ARIA')
-            && $newPageChecksum !== $page_checksum
-        ) {
+        if ($pma_table->isEngine('ARIA') && $newPageChecksum !== $page_checksum) {
             $table_alters[] = 'PAGE_CHECKSUM = ' . $newPageChecksum;
         }
 
         $newDelayKeyWrite = empty($_POST['new_delay_key_write']) ? '0' : '1';
-        if (
-            $pma_table->isEngine(['MYISAM', 'ARIA'])
-            && $newDelayKeyWrite !== $delay_key_write
-        ) {
+        if ($pma_table->isEngine(['MYISAM', 'ARIA']) && $newDelayKeyWrite !== $delay_key_write) {
             $table_alters[] = 'delay_key_write = ' . $newDelayKeyWrite;
         }
 
@@ -843,10 +791,7 @@ class Operations
      */
     public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable): void
     {
-        if (
-            ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
-            || ! $GLOBALS['is_reload_priv']
-        ) {
+        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
             return;
         }
 
@@ -885,10 +830,7 @@ class Operations
      */
     public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable): void
     {
-        if (
-            ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
-            || ! $GLOBALS['is_reload_priv']
-        ) {
+        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv'] || ! $GLOBALS['is_reload_priv']) {
             return;
         }
 
@@ -899,10 +841,7 @@ class Operations
             . Util::backquote('tables_priv') . ' where '
             . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
 
-        $old_privs_table = $this->dbi->fetchResult(
-            $query_table_specific_old,
-            0
-        );
+        $old_privs_table = $this->dbi->fetchResult($query_table_specific_old, 0);
 
         foreach ($old_privs_table as $old_priv) {
             $newDb_table_privs_query = 'INSERT INTO '
@@ -919,10 +858,7 @@ class Operations
             . Util::backquote('columns_priv') . ' WHERE '
             . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
 
-        $old_privs_col = $this->dbi->fetchResult(
-            $query_col_specific_old,
-            0
-        );
+        $old_privs_col = $this->dbi->fetchResult($query_col_specific_old, 0);
 
         foreach ($old_privs_col as $old_priv) {
             $newDb_col_privs_query = 'INSERT INTO '
@@ -1006,24 +942,11 @@ class Operations
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true'
                 );
 
-                if (
-                    isset($_POST['adjust_privileges'])
-                    && ! empty($_POST['adjust_privileges'])
-                ) {
+                if (isset($_POST['adjust_privileges']) && ! empty($_POST['adjust_privileges'])) {
                     if (isset($_POST['submit_move'])) {
-                        $this->adjustPrivilegesRenameOrMoveTable(
-                            $db,
-                            $table,
-                            $targetDb,
-                            (string) $_POST['new_name']
-                        );
+                        $this->adjustPrivilegesRenameOrMoveTable($db, $table, $targetDb, (string) $_POST['new_name']);
                     } else {
-                        $this->adjustPrivilegesCopyTable(
-                            $db,
-                            $table,
-                            $targetDb,
-                            (string) $_POST['new_name']
-                        );
+                        $this->adjustPrivilegesCopyTable($db, $table, $targetDb, (string) $_POST['new_name']);
                     }
 
                     if (isset($_POST['submit_move'])) {

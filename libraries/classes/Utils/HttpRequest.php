@@ -99,9 +99,7 @@ class HttpRequest
                 'request_fulluri' => true,
             ];
             if (strlen($this->proxyUser) > 0) {
-                $auth = base64_encode(
-                    $this->proxyUser . ':' . $this->proxyPass
-                );
+                $auth = base64_encode($this->proxyUser . ':' . $this->proxyPass);
                 $context['http']['header'] .= 'Proxy-Authorization: Basic '
                     . $auth . "\r\n";
             }
@@ -269,7 +267,7 @@ class HttpRequest
     ) {
         $context = [
             'http' => [
-                'method'  => $method,
+                'method' => $method,
                 'request_fulluri' => true,
                 'timeout' => 10,
                 'user_agent' => 'phpMyAdmin',

@@ -229,7 +229,7 @@ class BrowseForeigners
             . '<tbody>' . "\n";
 
         $descriptions = [];
-        $keys   = [];
+        $keys = [];
         foreach ($foreignData['disp_row'] as $relrow) {
             if ($foreignData['foreign_display'] != false) {
                 $descriptions[] = $relrow[$foreignData['foreign_display']] ?? '';
@@ -281,11 +281,7 @@ class BrowseForeigners
             $descriptionTitle = '';
         } else {
             $descriptionTitle = $description;
-            $description = mb_substr(
-                $description,
-                0,
-                $this->limitChars
-            )
+            $description = mb_substr($description, 0, $this->limitChars)
             . '...';
         }
 

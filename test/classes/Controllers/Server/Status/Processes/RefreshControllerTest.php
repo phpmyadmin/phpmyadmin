@@ -71,20 +71,11 @@ class RefreshControllerTest extends AbstractTestCase
         $controller();
         $html = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            'index.php?route=/server/status/processes',
-            $html
-        );
+        $this->assertStringContainsString('index.php?route=/server/status/processes', $html);
         $killProcess = 'data-post="'
             . Url::getCommon(['kill' => $process['Id']], '') . '"';
-        $this->assertStringContainsString(
-            $killProcess,
-            $html
-        );
-        $this->assertStringContainsString(
-            'ajax kill_process',
-            $html
-        );
+        $this->assertStringContainsString($killProcess, $html);
+        $this->assertStringContainsString('ajax kill_process', $html);
         $this->assertStringContainsString(
             __('Kill'),
             $html
@@ -115,21 +106,12 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         //validate 6: $process['Time']
-        $this->assertStringContainsString(
-            $process['Time'],
-            $html
-        );
+        $this->assertStringContainsString($process['Time'], $html);
 
         //validate 7: $process['state']
-        $this->assertStringContainsString(
-            $process['State'],
-            $html
-        );
+        $this->assertStringContainsString($process['State'], $html);
 
         //validate 8: $process['info']
-        $this->assertStringContainsString(
-            $process['Info'],
-            $html
-        );
+        $this->assertStringContainsString($process['Info'], $html);
     }
 }

@@ -63,9 +63,6 @@ class LogVarsControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        $this->assertEquals(
-            $value,
-            $ret['message']
-        );
+        $this->assertEquals($value, $ret['message']);
     }
 }

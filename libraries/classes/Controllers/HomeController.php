@@ -194,10 +194,7 @@ class HomeController extends AbstractController
         $relation = new Relation($this->dbi);
         if ($server > 0) {
             $cfgRelation = $relation->getRelationsParam();
-            if (
-                ! $cfgRelation['allworks']
-                && $cfg['PmaNoRelation_DisableWarning'] == false
-            ) {
+            if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
@@ -285,10 +282,7 @@ class HomeController extends AbstractController
         /**
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
-        if (
-            $cfg['LoginCookieStore'] != 0
-            && $cfg['LoginCookieStore'] < $cfg['LoginCookieValidity']
-        ) {
+        if ($cfg['LoginCookieStore'] != 0 && $cfg['LoginCookieStore'] < $cfg['LoginCookieValidity']) {
             trigger_error(
                 __(
                     'Login cookie store is lower than cookie validity configured in ' .

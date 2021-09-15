@@ -72,11 +72,7 @@ class FeaturesController extends AbstractController
                 $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect(
-                    'index.php?route=/preferences/features',
-                    null,
-                    $hash
-                );
+                $this->userPreferences->redirect('index.php?route=/preferences/features', null, $hash);
 
                 return;
             }

@@ -271,7 +271,7 @@ class Monitor
      */
     public function getJsonForLogDataTypeSlow(int $start, int $end): array
     {
-        $query  = 'SELECT start_time, user_host, ';
+        $query = 'SELECT start_time, user_host, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
         $query .= 'SUM(rows_sent) AS rows_sent, ';
@@ -484,9 +484,7 @@ class Monitor
             }
 
             if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
-                $this->dbi->query(
-                    'SET GLOBAL ' . $name . ' = ' . $escapedValue
-                );
+                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $escapedValue);
             }
         }
 
@@ -525,11 +523,7 @@ class Monitor
         }
 
         // Do not cache query
-        $sqlQuery = preg_replace(
-            '/^(\s*SELECT)/i',
-            '\\1 SQL_NO_CACHE',
-            $query
-        );
+        $sqlQuery = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $query);
 
         $this->dbi->tryQuery($sqlQuery);
         $return['affectedRows'] = $cached_affected_rows;

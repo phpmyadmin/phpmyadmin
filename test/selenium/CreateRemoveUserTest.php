@@ -98,9 +98,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('id', 'usersForm');
         $temp = $this->txtUsername . '&amp;#27;localhost';
 
-        $this->byXPath(
-            "(//input[@name='selected_usr[]'])[@value='" . $temp . "']"
-        )->click();
+        $this->byXPath("(//input[@name='selected_usr[]'])[@value='" . $temp . "']")->click();
 
         $this->scrollIntoView('deleteUserCard');
         $this->byId('dropUsersDbCheckbox')->click();

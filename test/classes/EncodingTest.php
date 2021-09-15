@@ -203,26 +203,11 @@ class EncodingTest extends AbstractTestCase
     public function testEncodingForm(): void
     {
         $actual = Encoding::kanjiEncodingForm();
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'type="radio" name="knjenc"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
-            $actual
-        );
+        $this->assertStringContainsString('<input type="radio" name="knjenc"', $actual);
+        $this->assertStringContainsString('type="radio" name="knjenc"', $actual);
+        $this->assertStringContainsString('<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">', $actual);
+        $this->assertStringContainsString('<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">', $actual);
+        $this->assertStringContainsString('<input type="checkbox" name="xkana" value="kana" id="kj-kana">', $actual);
     }
 
     public function testListEncodings(): void

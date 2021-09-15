@@ -94,10 +94,7 @@ final class Processes
                 'time' => $process['Time'],
                 'state' => ! empty($process['State']) ? $process['State'] : '---',
                 'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
-                'info' => ! empty($process['Info']) ? Generator::formatSql(
-                    $process['Info'],
-                    ! $showFullSql
-                ) : '---',
+                'info' => ! empty($process['Info']) ? Generator::formatSql($process['Info'], ! $showFullSql) : '---',
             ];
         }
 

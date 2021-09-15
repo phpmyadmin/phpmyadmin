@@ -29,10 +29,7 @@ class EnumValuesControllerTest extends AbstractTestCase
     {
         global $containerBuilder, $_POST;
 
-        $this->dummyDbi->addResult(
-            'SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'',
-            false
-        );
+        $this->dummyDbi->addResult('SHOW COLUMNS FROM `cvv`.`enums` LIKE \'set\'', false);
 
         $_POST = [
             'ajax_request' => true,

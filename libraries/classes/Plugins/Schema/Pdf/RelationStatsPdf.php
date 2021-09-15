@@ -40,13 +40,7 @@ class RelationStatsPdf extends RelationStats
         $foreign_field
     ) {
         $this->wTick = 5;
-        parent::__construct(
-            $diagram,
-            $master_table,
-            $master_field,
-            $foreign_table,
-            $foreign_field
-        );
+        parent::__construct($diagram, $master_table, $master_field, $foreign_table, $foreign_field);
     }
 
     /**
@@ -106,12 +100,7 @@ class RelationStatsPdf extends RelationStats
         }
 
         $this->diagram->setLineWidthScale(0.2);
-        $this->diagram->lineScale(
-            $this->xSrc,
-            $this->ySrc,
-            $this->xSrc + $this->srcDir * $this->wTick,
-            $this->ySrc
-        );
+        $this->diagram->lineScale($this->xSrc, $this->ySrc, $this->xSrc + $this->srcDir * $this->wTick, $this->ySrc);
         $this->diagram->lineScale(
             $this->xDest + $this->destDir * $this->wTick,
             $this->yDest,

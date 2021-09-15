@@ -98,15 +98,15 @@ abstract class TableStats
     ) {
         global $dbi;
 
-        $this->diagram    = $diagram;
-        $this->db         = $db;
+        $this->diagram = $diagram;
+        $this->db = $db;
         $this->pageNumber = $pageNumber;
-        $this->tableName  = $tableName;
+        $this->tableName = $tableName;
 
-        $this->showKeys   = $showKeys;
-        $this->tableDimension   = $tableDimension;
+        $this->showKeys = $showKeys;
+        $this->tableDimension = $tableDimension;
 
-        $this->offline    = $offline;
+        $this->offline = $offline;
 
         $this->relation = new Relation($dbi);
         $this->font = new Font();
@@ -130,11 +130,7 @@ abstract class TableStats
         global $dbi;
 
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $dbi->tryQuery(
-            $sql,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $result = $dbi->tryQuery($sql, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
         if (! $result || ! $dbi->numRows($result)) {
             $this->showMissingTableError();
         }

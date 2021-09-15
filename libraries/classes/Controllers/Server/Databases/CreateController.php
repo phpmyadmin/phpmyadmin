@@ -49,9 +49,7 @@ final class CreateController extends AbstractController
 
         // lower_case_table_names=1 `DB` becomes `db`
         if ($this->dbi->getLowerCaseNames() === '1') {
-            $params['new_db'] = mb_strtolower(
-                $params['new_db']
-            );
+            $params['new_db'] = mb_strtolower($params['new_db']);
         }
 
         /**
@@ -60,14 +58,8 @@ final class CreateController extends AbstractController
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($params['new_db']);
         if (! empty($params['db_collation'])) {
             [$databaseCharset] = explode('_', $params['db_collation']);
-            $charsets = Charsets::getCharsets(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
-            $collations = Charsets::getCollations(
-                $this->dbi,
-                $cfg['Server']['DisableIS']
-            );
+            $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
             if (
                 array_key_exists($databaseCharset, $charsets)
                 && array_key_exists($params['db_collation'], $collations[$databaseCharset])
@@ -95,10 +87,7 @@ final class CreateController extends AbstractController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($params['new_db']);
 
-            $scriptName = Util::getScriptNameForOption(
-                $cfg['DefaultTabDatabase'],
-                'database'
-            );
+            $scriptName = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
 
             $json = [
                 'message' => $message,

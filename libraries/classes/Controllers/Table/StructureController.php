@@ -92,10 +92,7 @@ class StructureController extends AbstractController
 
         $this->dbi->selectDb($this->db);
         $reread_info = $this->tableObj->getStatusInfo(null, true);
-        $showtable = $this->tableObj->getStatusInfo(
-            null,
-            (isset($reread_info) && $reread_info)
-        );
+        $showtable = $this->tableObj->getStatusInfo(null, (isset($reread_info) && $reread_info));
 
         if ($this->tableObj->isView()) {
             $tbl_is_view = true;
@@ -131,20 +128,12 @@ class StructureController extends AbstractController
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
             ->getTable($this->db, $this->table)
-            ->getColumnsWithIndex(
-                Index::UNIQUE | Index::INDEX | Index::SPATIAL
-                | Index::FULLTEXT
-            );
+            ->getColumnsWithIndex(Index::UNIQUE | Index::INDEX | Index::SPATIAL | Index::FULLTEXT);
         $columns_with_unique_index = $this->dbi
             ->getTable($this->db, $this->table)
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        $fields = (array) $this->dbi->getColumns(
-            $this->db,
-            $this->table,
-            null,
-            true
-        );
+        $fields = (array) $this->dbi->getColumns($this->db, $this->table, null, true);
 
         $this->response->addHTML($this->displayStructure(
             $cfgRelation,
@@ -190,10 +179,7 @@ class StructureController extends AbstractController
         }
 
         $centralColumns = new CentralColumns($this->dbi);
-        $central_list = $centralColumns->getFromTable(
-            $this->db,
-            $this->table
-        );
+        $central_list = $centralColumns->getFromTable($this->db, $this->table);
 
         /**
          * Displays Space usage and row statistics
@@ -321,10 +307,7 @@ class StructureController extends AbstractController
         global $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
 
         if (empty($showtable)) {
-            $showtable = $this->dbi->getTable(
-                $this->db,
-                $this->table
-            )->getStatusInfo(null, true);
+            $showtable = $this->dbi->getTable($this->db, $this->table)->getStatusInfo(null, true);
         }
 
         if (is_string($showtable)) {
@@ -347,25 +330,13 @@ class StructureController extends AbstractController
         // this is to display for example 261.2 MiB instead of 268k KiB
         $max_digits = 3;
         $decimals = 1;
-        [$data_size, $data_unit] = Util::formatByteDown(
-            $showtable['Data_length'],
-            $max_digits,
-            $decimals
-        );
+        [$data_size, $data_unit] = Util::formatByteDown($showtable['Data_length'], $max_digits, $decimals);
         if ($mergetable === false) {
-            [$index_size, $index_unit] = Util::formatByteDown(
-                $showtable['Index_length'],
-                $max_digits,
-                $decimals
-            );
+            [$index_size, $index_unit] = Util::formatByteDown($showtable['Index_length'], $max_digits, $decimals);
         }
 
         if (isset($showtable['Data_free'])) {
-            [$free_size, $free_unit] = Util::formatByteDown(
-                $showtable['Data_free'],
-                $max_digits,
-                $decimals
-            );
+            [$free_size, $free_unit] = Util::formatByteDown($showtable['Data_free'], $max_digits, $decimals);
             [$effect_size, $effect_unit] = Util::formatByteDown(
                 $showtable['Data_length']
                 + $showtable['Index_length']
@@ -407,11 +378,7 @@ class StructureController extends AbstractController
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
 
         $tableCollation = [];
-        $collation = Charsets::findCollationByName(
-            $this->dbi,
-            $GLOBALS['cfg']['Server']['DisableIS'],
-            $tbl_collation
-        );
+        $collation = Charsets::findCollationByName($this->dbi, $GLOBALS['cfg']['Server']['DisableIS'], $tbl_collation);
         if ($collation !== null) {
             $tableCollation = [
                 'name' => $collation->getName(),

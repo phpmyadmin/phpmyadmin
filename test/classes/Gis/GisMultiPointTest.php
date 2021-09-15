@@ -210,13 +210,7 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scale_data,
         TCPDF $pdf
     ): void {
-        $return = $this->object->prepareRowAsPdf(
-            $spatial,
-            $label,
-            $point_color,
-            $scale_data,
-            $pdf
-        );
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $point_color, $scale_data, $pdf);
         $this->assertInstanceOf('TCPDF', $return);
     }
 
@@ -261,12 +255,7 @@ class GisMultiPointTest extends GisGeomTestCase
         array $scaleData,
         string $output
     ): void {
-        $string = $this->object->prepareRowAsSvg(
-            $spatial,
-            $label,
-            $pointColor,
-            $scaleData
-        );
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $pointColor, $scaleData);
         $this->assertEquals(1, preg_match($output, $string));
     }
 

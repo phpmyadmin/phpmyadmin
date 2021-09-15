@@ -166,12 +166,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
             $this->object->countErrors()
@@ -185,18 +180,8 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testSliceErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            16
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
         $this->assertEquals(
             2,
             $this->object->countErrors()
@@ -227,12 +212,7 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {
-            $this->object->addError(
-                'Compile Error',
-                E_WARNING,
-                'error.txt',
-                $i
-            );
+            $this->object->addError('Compile Error', E_WARNING, 'error.txt', $i);
         }
 
         // 10 initial items
@@ -271,22 +251,12 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountUserErrors(): void
     {
-        $this->object->addError(
-            'Compile Error',
-            E_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->assertEquals(
             0,
             $this->object->countUserErrors()
         );
-        $this->object->addError(
-            'Compile Error',
-            E_USER_WARNING,
-            'error.txt',
-            15
-        );
+        $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
         $this->assertEquals(
             1,
             $this->object->countUserErrors()

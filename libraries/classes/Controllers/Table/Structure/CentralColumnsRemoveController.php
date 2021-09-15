@@ -47,11 +47,7 @@ final class CentralColumnsRemoveController extends AbstractController
             return;
         }
 
-        $centralColsError = $this->centralColumns->deleteColumnsFromList(
-            $db,
-            $selected,
-            false
-        );
+        $centralColsError = $this->centralColumns->deleteColumnsFromList($db, $selected, false);
 
         if ($centralColsError instanceof Message) {
             $message = $centralColsError;

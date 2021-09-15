@@ -98,20 +98,12 @@ class ExportTest extends AbstractTestCase
     public function testGetFinalFilenameAndMimetypeForFilename(): void
     {
         $exportPlugin = new ExportPhparray();
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
-            $exportPlugin,
-            'zip',
-            'myfilename'
-        );
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
         $this->assertSame([
             'myfilename.php.zip',
             'application/zip',
         ], $finalFileName);
-        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
-            $exportPlugin,
-            'gzip',
-            'myfilename'
-        );
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
         $this->assertSame([
             'myfilename.php.gz',
             'application/x-gzip',

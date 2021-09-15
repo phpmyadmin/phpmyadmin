@@ -48,18 +48,14 @@ class ExportOds extends ExportPlugin
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('OpenDocument Spreadsheet');
         $exportPluginProperties->setExtension('ods');
-        $exportPluginProperties->setMimeType(
-            'application/vnd.oasis.opendocument.spreadsheet'
-        );
+        $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.spreadsheet');
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup('general_opts');
@@ -213,11 +209,7 @@ class ExportOds extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
         /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
@@ -260,10 +252,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (
-                    $fields_meta[$j]->isBinary
-                    && $fields_meta[$j]->isBlob
-                ) {
+                } elseif ($fields_meta[$j]->isBinary && $fields_meta[$j]->isBlob) {
                     // ignore BLOB
                     $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'

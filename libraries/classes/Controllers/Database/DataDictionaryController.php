@@ -56,10 +56,7 @@ class DataDictionaryController extends AbstractController
 
         $tables = [];
         foreach ($tablesNames as $tableName) {
-            $showComment = (string) $this->dbi->getTable(
-                $this->db,
-                $tableName
-            )->getStatusInfo('TABLE_COMMENT');
+            $showComment = (string) $this->dbi->getTable($this->db, $tableName)->getStatusInfo('TABLE_COMMENT');
 
             [, $primaryKeys] = Util::processIndexData(
                 $this->dbi->getTableIndexes($this->db, $tableName)
@@ -80,10 +77,7 @@ class DataDictionaryController extends AbstractController
 
                 $relation = '';
                 if ($hasRelation) {
-                    $foreigner = $this->relation->searchColumnInForeigners(
-                        $foreigners,
-                        $row['Field']
-                    );
+                    $foreigner = $this->relation->searchColumnInForeigners($foreigners, $row['Field']);
                     if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
                         $relation .= ' -> ';
@@ -93,17 +87,9 @@ class DataDictionaryController extends AbstractController
 
                 $mime = '';
                 if ($cfgRelation['mimework']) {
-                    $mimeMap = $this->transformations->getMime(
-                        $this->db,
-                        $tableName,
-                        true
-                    );
+                    $mimeMap = $this->transformations->getMime($this->db, $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
-                        $mime = str_replace(
-                            '_',
-                            '/',
-                            $mimeMap[$row['Field']]['mimetype']
-                        );
+                        $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
                     }
                 }
 

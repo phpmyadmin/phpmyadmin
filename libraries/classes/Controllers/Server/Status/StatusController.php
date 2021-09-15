@@ -101,9 +101,7 @@ class StatusController extends AbstractController
 
     private function getStartTime(): int
     {
-        return (int) $this->dbi->fetchValue(
-            'SELECT UNIX_TIMESTAMP() - ' . $this->data->status['Uptime']
-        );
+        return (int) $this->dbi->fetchValue('SELECT UNIX_TIMESTAMP() - ' . $this->data->status['Uptime']);
     }
 
     /**
@@ -114,29 +112,13 @@ class StatusController extends AbstractController
         $hourFactor = 3600 / $this->data->status['Uptime'];
 
         /** @var string[] $bytesReceived */
-        $bytesReceived = Util::formatByteDown(
-            $this->data->status['Bytes_received'],
-            3,
-            1
-        );
+        $bytesReceived = Util::formatByteDown($this->data->status['Bytes_received'], 3, 1);
         /** @var string[] $bytesReceivedPerHour */
-        $bytesReceivedPerHour = Util::formatByteDown(
-            $this->data->status['Bytes_received'] * $hourFactor,
-            3,
-            1
-        );
+        $bytesReceivedPerHour = Util::formatByteDown($this->data->status['Bytes_received'] * $hourFactor, 3, 1);
         /** @var string[] $bytesSent */
-        $bytesSent = Util::formatByteDown(
-            $this->data->status['Bytes_sent'],
-            3,
-            1
-        );
+        $bytesSent = Util::formatByteDown($this->data->status['Bytes_sent'], 3, 1);
         /** @var string[] $bytesSentPerHour */
-        $bytesSentPerHour = Util::formatByteDown(
-            $this->data->status['Bytes_sent'] * $hourFactor,
-            3,
-            1
-        );
+        $bytesSentPerHour = Util::formatByteDown($this->data->status['Bytes_sent'] * $hourFactor, 3, 1);
         /** @var string[] $bytesTotal */
         $bytesTotal = Util::formatByteDown(
             $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
@@ -197,57 +179,26 @@ class StatusController extends AbstractController
         return [
             [
                 'name' => __('Max. concurrent connections'),
-                'number' => Util::formatNumber(
-                    $this->data->status['Max_used_connections'],
-                    0
-                ),
+                'number' => Util::formatNumber($this->data->status['Max_used_connections'], 0),
                 'per_hour' => '---',
                 'percentage' => '---',
             ],
             [
                 'name' => __('Failed attempts'),
-                'number' => Util::formatNumber(
-                    $this->data->status['Aborted_connects'],
-                    4,
-                    1,
-                    true
-                ),
-                'per_hour' => Util::formatNumber(
-                    $this->data->status['Aborted_connects'] * $hourFactor,
-                    4,
-                    2,
-                    true
-                ),
+                'number' => Util::formatNumber($this->data->status['Aborted_connects'], 4, 1, true),
+                'per_hour' => Util::formatNumber($this->data->status['Aborted_connects'] * $hourFactor, 4, 2, true),
                 'percentage' => $failedAttemptsPercentage,
             ],
             [
                 'name' => __('Aborted'),
-                'number' => Util::formatNumber(
-                    $this->data->status['Aborted_clients'],
-                    4,
-                    1,
-                    true
-                ),
-                'per_hour' => Util::formatNumber(
-                    $this->data->status['Aborted_clients'] * $hourFactor,
-                    4,
-                    2,
-                    true
-                ),
+                'number' => Util::formatNumber($this->data->status['Aborted_clients'], 4, 1, true),
+                'per_hour' => Util::formatNumber($this->data->status['Aborted_clients'] * $hourFactor, 4, 2, true),
                 'percentage' => $abortedPercentage,
             ],
             [
                 'name' => __('Total'),
-                'number' => Util::formatNumber(
-                    $this->data->status['Connections'],
-                    4,
-                    0
-                ),
-                'per_hour' => Util::formatNumber(
-                    $this->data->status['Connections'] * $hourFactor,
-                    4,
-                    2
-                ),
+                'number' => Util::formatNumber($this->data->status['Connections'], 4, 0),
+                'per_hour' => Util::formatNumber($this->data->status['Connections'] * $hourFactor, 4, 2),
                 'percentage' => Util::formatNumber(100, 0, 2) . '%',
             ],
         ];

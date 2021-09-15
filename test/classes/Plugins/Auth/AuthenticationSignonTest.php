@@ -62,10 +62,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->assertIsString($result);
 
-        $this->assertStringContainsString(
-            'You must set SignonURL!',
-            $result
-        );
+        $this->assertStringContainsString('You must set SignonURL!', $result);
     }
 
     public function testAuthLogoutURL(): void
@@ -114,20 +111,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'user',
-            $this->object->user
-        );
+        $this->assertEquals('user', $this->object->user);
 
-        $this->assertEquals(
-            'password',
-            $this->object->password
-        );
+        $this->assertEquals('password', $this->object->password);
 
-        $this->assertEquals(
-            'https://example.com/SignonURL',
-            $_SESSION['LAST_SIGNON_URL']
-        );
+        $this->assertEquals('https://example.com/SignonURL', $_SESSION['LAST_SIGNON_URL']);
     }
 
     public function testAuthCheckToken(): void
@@ -177,10 +165,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             session_id()
         );
 
-        $this->assertArrayNotHasKey(
-            'LAST_SIGNON_URL',
-            $_SESSION
-        );
+        $this->assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
     }
 
     public function testAuthCheckKeep(): void
@@ -205,15 +190,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             $this->object->readCredentials()
         );
 
-        $this->assertEquals(
-            'user123',
-            $this->object->user
-        );
+        $this->assertEquals('user123', $this->object->user);
 
-        $this->assertEquals(
-            'pass123',
-            $this->object->password
-        );
+        $this->assertEquals('pass123', $this->object->password);
     }
 
     public function testAuthSetUser(): void
@@ -225,15 +204,9 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             $this->object->storeCredentials()
         );
 
-        $this->assertEquals(
-            'testUser123',
-            $GLOBALS['cfg']['Server']['user']
-        );
+        $this->assertEquals('testUser123', $GLOBALS['cfg']['Server']['user']);
 
-        $this->assertEquals(
-            'testPass123',
-            $GLOBALS['cfg']['Server']['password']
-        );
+        $this->assertEquals('testPass123', $GLOBALS['cfg']['Server']['password']);
     }
 
     public function testAuthFailsForbidden(): void
@@ -273,10 +246,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('allow-denied');
 
-        $this->assertEquals(
-            'Access denied!',
-            $_SESSION['PMA_single_signon_error_message']
-        );
+        $this->assertEquals('Access denied!', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsTimeout(): void
@@ -329,10 +299,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            'error&lt;123&gt;',
-            $_SESSION['PMA_single_signon_error_message']
-        );
+        $this->assertEquals('error&lt;123&gt;', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testAuthFailsConnect(): void
@@ -361,10 +328,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object->showFailure('');
 
-        $this->assertEquals(
-            'Cannot log in to the MySQL server',
-            $_SESSION['PMA_single_signon_error_message']
-        );
+        $this->assertEquals('Cannot log in to the MySQL server', $_SESSION['PMA_single_signon_error_message']);
     }
 
     public function testSetCookieParamsDefaults(): void

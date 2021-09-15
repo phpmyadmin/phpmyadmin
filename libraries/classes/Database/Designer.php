@@ -105,11 +105,7 @@ class Designer
             . Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
             . ' ORDER BY `page_descr`';
-        $page_rs = $this->relation->queryAsControlUser(
-            $page_query,
-            false,
-            DatabaseInterface::QUERY_STORE
-        );
+        $page_rs = $this->relation->queryAsControlUser($page_query, false, DatabaseInterface::QUERY_STORE);
 
         while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
@@ -191,55 +187,37 @@ class Designer
         $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();
 
-        if (
-            isset($params_array['angular_direct'])
-            && $params_array['angular_direct'] === 'angular'
-        ) {
+        if (isset($params_array['angular_direct']) && $params_array['angular_direct'] === 'angular') {
             $classes_array['angular_direct'] = 'M_butt_Selected_down';
         } else {
             $classes_array['angular_direct'] = 'M_butt';
         }
 
-        if (
-            isset($params_array['snap_to_grid'])
-            && $params_array['snap_to_grid'] === 'on'
-        ) {
+        if (isset($params_array['snap_to_grid']) && $params_array['snap_to_grid'] === 'on') {
             $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
         } else {
             $classes_array['snap_to_grid'] = 'M_butt';
         }
 
-        if (
-            isset($params_array['pin_text'])
-            && $params_array['pin_text'] === 'true'
-        ) {
+        if (isset($params_array['pin_text']) && $params_array['pin_text'] === 'true') {
             $classes_array['pin_text'] = 'M_butt_Selected_down';
         } else {
             $classes_array['pin_text'] = 'M_butt';
         }
 
-        if (
-            isset($params_array['relation_lines'])
-            && $params_array['relation_lines'] === 'false'
-        ) {
+        if (isset($params_array['relation_lines']) && $params_array['relation_lines'] === 'false') {
             $classes_array['relation_lines'] = 'M_butt_Selected_down';
         } else {
             $classes_array['relation_lines'] = 'M_butt';
         }
 
-        if (
-            isset($params_array['small_big_all'])
-            && $params_array['small_big_all'] === 'v'
-        ) {
+        if (isset($params_array['small_big_all']) && $params_array['small_big_all'] === 'v') {
             $classes_array['small_big_all'] = 'M_butt_Selected_down';
         } else {
             $classes_array['small_big_all'] = 'M_butt';
         }
 
-        if (
-            isset($params_array['side_menu'])
-            && $params_array['side_menu'] === 'true'
-        ) {
+        if (isset($params_array['side_menu']) && $params_array['side_menu'] === 'true') {
             $classes_array['side_menu'] = 'M_butt_Selected_down';
         } else {
             $classes_array['side_menu'] = 'M_butt';

@@ -43,9 +43,7 @@ class SchemaEps extends SchemaPlugin
         // create the root group that will be the options field for
         // $schemaPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // specific options main group
         $specificOptions = new OptionsPropertyMainGroup('general_opts');

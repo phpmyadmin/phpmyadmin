@@ -146,10 +146,7 @@ class UtilExtension extends AbstractExtension
                 'timespan_format',
                 [Util::class, 'timespanFormat']
             ),
-            new TwigFunction(
-                'parse_enum_set_values',
-                'PhpMyAdmin\Util::parseEnumSetValues'
-            ),
+            new TwigFunction('parse_enum_set_values', 'PhpMyAdmin\Util::parseEnumSetValues'),
         ];
     }
 

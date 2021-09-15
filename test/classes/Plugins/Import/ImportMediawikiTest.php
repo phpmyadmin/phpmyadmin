@@ -124,24 +124,10 @@ class ImportMediawikiTest extends AbstractTestCase
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString(
-            'Go to database: `mediawiki_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `mediawiki_DB`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Go to table: `pma_bookmarktest`',
-            $import_notice
-        );
-        $this->assertStringContainsString(
-            'Edit settings for `pma_bookmarktest`',
-            $import_notice
-        );
-        $this->assertTrue(
-            $GLOBALS['finished']
-        );
+        $this->assertStringContainsString('Go to database: `mediawiki_DB`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `mediawiki_DB`', $import_notice);
+        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $import_notice);
+        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $import_notice);
+        $this->assertTrue($GLOBALS['finished']);
     }
 }

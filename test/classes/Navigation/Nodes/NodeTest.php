@@ -82,11 +82,7 @@ class NodeTest extends AbstractTestCase
     public function testNodeHasChildren(): void
     {
         $parent = NodeFactory::getInstance();
-        $emptyContainer = NodeFactory::getInstance(
-            'Node',
-            'empty',
-            Node::CONTAINER
-        );
+        $emptyContainer = NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
         $child = NodeFactory::getInstance();
         // test with no children
         $this->assertEquals(
@@ -136,11 +132,7 @@ class NodeTest extends AbstractTestCase
         $child->addChild(NodeFactory::getInstance());
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
-        $container = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER
-        );
+        $container = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
@@ -215,11 +207,7 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
-        $secondChild = NodeFactory::getInstance(
-            'Node',
-            'default',
-            Node::CONTAINER
-        );
+        $secondChild = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
         $this->assertFalse($firstChild->hasSiblings());
@@ -255,10 +243,7 @@ class NodeTest extends AbstractTestCase
      */
     public function testGetWhereClause(): void
     {
-        $method = new ReflectionMethod(
-            Node::class,
-            'getWhereClause'
-        );
+        $method = new ReflectionMethod(Node::class, 'getWhereClause');
         $method->setAccessible(true);
 
         // Vanilla case
@@ -320,7 +305,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $expectedSql  = 'SELECT `SCHEMA_NAME` ';
+        $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
         $expectedSql .= '(';
         $expectedSql .= 'SELECT DB_first_level ';
@@ -366,7 +351,7 @@ class NodeTest extends AbstractTestCase
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = false;
         $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
 
-        $expectedSql  = 'SELECT `SCHEMA_NAME` ';
+        $expectedSql = 'SELECT `SCHEMA_NAME` ';
         $expectedSql .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
         $expectedSql .= 'WHERE TRUE ';
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';

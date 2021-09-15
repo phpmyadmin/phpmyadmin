@@ -76,10 +76,7 @@ class GisDataEditorController extends AbstractController
                 $gis_data['gis_type'] = mb_substr($value, $start, (int) mb_strpos($value, '(') - $start);
             }
 
-            if (
-                ! isset($gis_data['gis_type'])
-                || (! in_array($gis_data['gis_type'], $gis_types))
-            ) {
+            if (! isset($gis_data['gis_type']) || (! in_array($gis_data['gis_type'], $gis_types))) {
                 $gis_data['gis_type'] = $gis_types[0];
             }
         }

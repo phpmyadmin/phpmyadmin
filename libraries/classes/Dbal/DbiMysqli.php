@@ -103,10 +103,7 @@ class DbiMysqli implements DbiExtension
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
             if (! $server['ssl_verify']) {
-                $mysqli->options(
-                    MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                    (int) $server['ssl_verify']
-                );
+                $mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, (int) $server['ssl_verify']);
                 $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
         }

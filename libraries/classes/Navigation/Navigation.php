@@ -113,11 +113,7 @@ class Navigation
             }
         }
 
-        if (
-            ! $response->isAjax()
-            || ! empty($_POST['full'])
-            || ! empty($_POST['reload'])
-        ) {
+        if (! $response->isAjax() || ! empty($_POST['full']) || ! empty($_POST['reload'])) {
             if ($cfg['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
                 $navRender = $this->tree->renderState();

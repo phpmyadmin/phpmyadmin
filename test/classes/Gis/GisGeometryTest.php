@@ -134,21 +134,21 @@ class GisGeometryTest extends AbstractTestCase
                 "'MULTIPOINT(125 50,156 25,178 43,175 80)',125",
                 [
                     'srid' => '125',
-                    'wkt'  => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
+                    'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 ],
             ],
             [
                 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 [
                     'srid' => '0',
-                    'wkt'  => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
+                    'wkt' => 'MULTIPOINT(125 50,156 25,178 43,175 80)',
                 ],
             ],
             [
                 'foo',
                 [
                     'srid' => '0',
-                    'wkt'  => '',
+                    'wkt' => '',
                 ],
             ],
         ];
@@ -213,9 +213,9 @@ class GisGeometryTest extends AbstractTestCase
             [
                 '12 35,48 75,69 23',
                 [
-                    'x'      => 5,
-                    'y'      => 5,
-                    'scale'  => 2,
+                    'x' => 5,
+                    'y' => 5,
+                    'scale' => 2,
                     'height' => 200,
                 ],
                 false,

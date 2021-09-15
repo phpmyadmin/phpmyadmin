@@ -280,10 +280,7 @@ class Qbe
      */
     private function loadCriterias()
     {
-        if (
-            $this->currentSearch === null
-            || $this->currentSearch->getCriterias() === null
-        ) {
+        if ($this->currentSearch === null || $this->currentSearch->getCriterias() === null) {
             return $this;
         }
 
@@ -361,10 +358,7 @@ class Qbe
         while ([$table] = $this->dbi->fetchRow($allTables)) {
             $columns = $this->dbi->getColumns($this->db, $table);
 
-            if (
-                empty($this->criteriaTables[$table])
-                && ! empty($_POST['TableList'])
-            ) {
+            if (empty($this->criteriaTables[$table]) && ! empty($_POST['TableList'])) {
                 $this->criteriaTables[$table] = '';
             } else {
                 $this->criteriaTables[$table] = ' selected="selected"';
@@ -376,7 +370,7 @@ class Qbe
             }
 
             $eachTable = Util::backquote($table);
-            $this->columnNames[]  = $eachTable . '.*';
+            $this->columnNames[] = $eachTable . '.*';
             foreach ($columns as $eachColumn) {
                 $eachColumn = $eachTable . '.'
                     . Util::backquote($eachColumn['Field']);
@@ -484,9 +478,7 @@ class Qbe
                 isset($this->criteriaColumnInsert[$columnIndex])
                 && $this->criteriaColumnInsert[$columnIndex] === 'on'
             ) {
-                $htmlOutput .= $this->showColumnSelectCell(
-                    $newColumnCount
-                );
+                $htmlOutput .= $this->showColumnSelectCell($newColumnCount);
                 $newColumnCount++;
             }
 
@@ -504,10 +496,7 @@ class Qbe
                 $this->formColumns[$newColumnCount] = $_POST['criteriaColumn'][$columnIndex];
             }
 
-            $htmlOutput .= $this->showColumnSelectCell(
-                $newColumnCount,
-                $selected
-            );
+            $htmlOutput .= $this->showColumnSelectCell($newColumnCount, $selected);
             $newColumnCount++;
         }
 
@@ -615,10 +604,7 @@ class Qbe
                 $this->formSorts[$newColumnCount] = '';
             }
 
-            $htmlOutput .= $this->getSortSelectCell(
-                $newColumnCount,
-                $selected
-            );
+            $htmlOutput .= $this->getSortSelectCell($newColumnCount, $selected);
             $newColumnCount++;
         }
 
@@ -642,10 +628,7 @@ class Qbe
                 && isset($this->criteriaColumnInsert[$colInd])
                 && $this->criteriaColumnInsert[$colInd] === 'on'
             ) {
-                $htmlOutput .= $this->getSortOrderSelectCell(
-                    $newColumnCount,
-                    null
-                );
+                $htmlOutput .= $this->getSortOrderSelectCell($newColumnCount, null);
                 $newColumnCount++;
             }
 
@@ -662,10 +645,7 @@ class Qbe
                 $sortOrder = $this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd];
             }
 
-            $htmlOutput .= $this->getSortOrderSelectCell(
-                $newColumnCount,
-                $sortOrder
-            );
+            $htmlOutput .= $this->getSortOrderSelectCell($newColumnCount, $sortOrder);
             $newColumnCount++;
         }
 
@@ -861,15 +841,12 @@ class Qbe
             }
 
             $checkedOptions = [];
-            if (
-                isset($this->criteriaAndOrColumn[$columnIndex])
-                && $this->criteriaAndOrColumn[$columnIndex] === 'or'
-            ) {
-                $checkedOptions['or']  = ' checked="checked"';
+            if (isset($this->criteriaAndOrColumn[$columnIndex]) && $this->criteriaAndOrColumn[$columnIndex] === 'or') {
+                $checkedOptions['or'] = ' checked="checked"';
                 $checkedOptions['and'] = '';
             } else {
                 $checkedOptions['and'] = ' checked="checked"';
-                $checkedOptions['or']  = '';
+                $checkedOptions['or'] = '';
             }
 
             $htmlOutput .= $this->getAndOrColCell(
@@ -922,7 +899,7 @@ class Qbe
             if (! empty($_POST[$or]) && isset($_POST[$or][$columnIndex])) {
                 $tmpOr = $_POST[$or][$columnIndex];
             } else {
-                $tmpOr     = '';
+                $tmpOr = '';
             }
 
             $htmlOutput .= '<td class="text-center">';
@@ -953,10 +930,7 @@ class Qbe
         $newRowCount = 0;
         $checkedOptions = [];
         for ($rowIndex = 0; $rowIndex <= $this->criteriaRowCount; $rowIndex++) {
-            if (
-                isset($this->criteriaRowInsert[$rowIndex])
-                && $this->criteriaRowInsert[$rowIndex] === 'on'
-            ) {
+            if (isset($this->criteriaRowInsert[$rowIndex]) && $this->criteriaRowInsert[$rowIndex] === 'on') {
                 $checkedOptions['or'] = true;
                 $checkedOptions['and'] = false;
                 $htmlOutput .= '<tr class="noclick">';
@@ -964,17 +938,12 @@ class Qbe
                     'row_index' => $newRowCount,
                     'checked_options' => $checkedOptions,
                 ]);
-                $htmlOutput .= $this->getInputboxRow(
-                    $newRowCount
-                );
+                $htmlOutput .= $this->getInputboxRow($newRowCount);
                 $newRowCount++;
                 $htmlOutput .= '</tr>';
             }
 
-            if (
-                isset($this->criteriaRowDelete[$rowIndex])
-                && $this->criteriaRowDelete[$rowIndex] === 'on'
-            ) {
+            if (isset($this->criteriaRowDelete[$rowIndex]) && $this->criteriaRowDelete[$rowIndex] === 'on') {
                 continue;
             }
 
@@ -982,10 +951,7 @@ class Qbe
                 $this->formAndOrRows[$newRowCount] = $this->criteriaAndOrRow[$rowIndex];
             }
 
-            if (
-                isset($this->criteriaAndOrRow[$rowIndex])
-                && $this->criteriaAndOrRow[$rowIndex] === 'and'
-            ) {
+            if (isset($this->criteriaAndOrRow[$rowIndex]) && $this->criteriaAndOrRow[$rowIndex] === 'and') {
                 $checkedOptions['and'] = true;
                 $checkedOptions['or'] = false;
             } else {
@@ -998,9 +964,7 @@ class Qbe
                 'row_index' => $newRowCount,
                 'checked_options' => $checkedOptions,
             ]);
-            $htmlOutput .= $this->getInputboxRow(
-                $newRowCount
-            );
+            $htmlOutput .= $this->getInputboxRow($newRowCount);
             $newRowCount++;
             $htmlOutput .= '</tr>';
         }
@@ -1066,10 +1030,7 @@ class Qbe
                     . ' ';
             }
 
-            if (
-                empty($this->formColumns[$columnIndex])
-                || empty($this->formCriterions[$columnIndex])
-            ) {
+            if (empty($this->formColumns[$columnIndex]) || empty($this->formCriterions[$columnIndex])) {
                 continue;
             }
 
@@ -1099,16 +1060,11 @@ class Qbe
                     && $columnIndex
                 ) {
                     $queryOrWhere .= ' '
-                        . mb_strtoupper(
-                            $this->formAndOrCols[$lastOrWhere]
-                        )
+                        . mb_strtoupper($this->formAndOrCols[$lastOrWhere])
                         . ' ';
                 }
 
-                if (
-                    empty($this->formColumns[$columnIndex])
-                    || empty($_POST['Or' . $rowIndex][$columnIndex])
-                ) {
+                if (empty($this->formColumns[$columnIndex]) || empty($_POST['Or' . $rowIndex][$columnIndex])) {
                     continue;
                 }
 
@@ -1121,7 +1077,7 @@ class Qbe
             }
 
             if ($criteriaCount > 1) {
-                $queryOrWhere      = '(' . $queryOrWhere . ')';
+                $queryOrWhere = '(' . $queryOrWhere . ')';
             }
 
             if (empty($queryOrWhere)) {
@@ -1129,11 +1085,7 @@ class Qbe
             }
 
             $whereClause .= "\n"
-                . mb_strtoupper(
-                    isset($this->formAndOrRows[$rowIndex])
-                    ? $this->formAndOrRows[$rowIndex] . ' '
-                    : ''
-                )
+                . mb_strtoupper(isset($this->formAndOrRows[$rowIndex]) ? $this->formAndOrRows[$rowIndex] . ' ' : '')
                 . $queryOrWhere;
         }
 
@@ -1158,11 +1110,7 @@ class Qbe
         $columns = $this->formColumns;
         $sort = $this->formSorts;
         $sortOrder = $this->formSortOrders;
-        if (
-            ! empty($sortOrder)
-            && count($sortOrder) == count($sort)
-            && count($sortOrder) == count($columns)
-        ) {
+        if (! empty($sortOrder) && count($sortOrder) == count($sort) && count($sortOrder) == count($columns)) {
             // Sort all three arrays based on sort order
             array_multisort($sortOrder, $sort, $columns);
         }
@@ -1171,10 +1119,7 @@ class Qbe
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
-            if (
-                empty($columns[$columnIndex])
-                && empty($sort[$columnIndex])
-            ) {
+            if (empty($columns[$columnIndex]) && empty($sort[$columnIndex])) {
                 continue;
             }
 
@@ -1262,11 +1207,7 @@ class Qbe
         $this->dbi->selectDb($this->db);
 
         // Get unique columns and index columns
-        $indexes = $this->getIndexes(
-            $searchTables,
-            $searchColumns,
-            $whereClauseColumns
-        );
+        $indexes = $this->getIndexes($searchTables, $searchColumns, $whereClauseColumns);
         $uniqueColumns = $indexes['unique'];
         $indexColumns = $indexes['index'];
 
@@ -1334,11 +1275,7 @@ class Qbe
         // (When the control user is the same as the normal user
         // because they are using one of their databases as pmadb,
         // the last db selected is not always the one where we need to work)
-        $candidateColumns = $this->getLeftJoinColumnCandidates(
-            $searchTables,
-            $searchColumns,
-            $whereClauseColumns
-        );
+        $candidateColumns = $this->getLeftJoinColumnCandidates($searchTables, $searchColumns, $whereClauseColumns);
 
         // Generally, we need to display all the rows of foreign (referenced)
         // table, whether they have any matching row in child table or not.
@@ -1437,7 +1374,7 @@ class Qbe
             }
 
             $whereClauseColumns[$column] = $column;
-            $whereClauseTables[$table]  = $table;
+            $whereClauseTables[$table] = $table;
         }
 
         return [
@@ -1472,18 +1409,11 @@ class Qbe
 
             $table = str_replace('`', '', $parts[0]);
             $searchTables[$table] = $table;
-            $searchColumns[] = $table . '.' . str_replace(
-                '`',
-                '',
-                $parts[1]
-            );
+            $searchColumns[] = $table . '.' . str_replace('`', '', $parts[1]);
         }
 
         // Create LEFT JOINS out of Relations
-        $fromClause = $this->getJoinForFromClause(
-            $searchTables,
-            $searchColumns
-        );
+        $fromClause = $this->getJoinForFromClause($searchTables, $searchColumns);
 
         // In case relations are not defined, just generate the FROM clause
         // from the list of tables, however we don't generate any JOIN
@@ -1522,12 +1452,7 @@ class Qbe
         $whereClauseColumns = $validWhereClauses['where_clause_columns'];
 
         // Get master table
-        $master = $this->getMasterTable(
-            $searchTables,
-            $searchColumns,
-            $whereClauseColumns,
-            $whereClauseTables
-        );
+        $master = $this->getMasterTable($searchTables, $searchColumns, $whereClauseColumns, $whereClauseTables);
 
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
@@ -1569,11 +1494,7 @@ class Qbe
                         $tempSearchTables[] = $table;
 
                         // Try joining with the added table
-                        $this->fillJoinClauses(
-                            $tempFinalized,
-                            $relations,
-                            $tempSearchTables
-                        );
+                        $this->fillJoinClauses($tempFinalized, $relations, $tempSearchTables);
 
                         $tempUnfinalized = array_diff(
                             $tempSearchTables,
@@ -1617,9 +1538,7 @@ class Qbe
                 $join .= Util::backquote($table);
                 $first = false;
             } else {
-                $join .= "\n    LEFT JOIN " . Util::backquote(
-                    $table
-                ) . ' ON ' . $clause;
+                $join .= "\n    LEFT JOIN " . Util::backquote($table) . ' ON ' . $clause;
             }
         }
 
@@ -1676,10 +1595,7 @@ class Qbe
             foreach ($searchTables as $masterTable) {
                 $foreignData = $relations[$masterTable];
                 foreach ($foreignData as $foreignTable => $clause) {
-                    if (
-                        ! isset($finalized[$masterTable])
-                        && isset($finalized[$foreignTable])
-                    ) {
+                    if (! isset($finalized[$masterTable]) && isset($finalized[$foreignTable])) {
                         $finalized[$masterTable] = $clause;
                         $added = true;
                     } elseif (
@@ -1841,10 +1757,7 @@ class Qbe
         $criteriaColumnAdd = isset($_POST['criteriaColumnAdd']) && is_numeric($_POST['criteriaColumnAdd'])
             ? (int) $_POST['criteriaColumnAdd']
             : 0;
-        $this->criteriaColumnCount = max(
-            $criteriaColumnCount + $criteriaColumnAdd,
-            0
-        );
+        $this->criteriaColumnCount = max($criteriaColumnCount + $criteriaColumnAdd, 0);
 
         // sets row count
         $rows = isset($_POST['rows']) && is_numeric($_POST['rows']) ? (int) $_POST['rows'] : 0;

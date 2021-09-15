@@ -44,17 +44,11 @@ class PrivilegesController extends AbstractController
     {
         global $cfg, $text_dir;
 
-        $scriptName = Util::getScriptNameForOption(
-            $cfg['DefaultTabTable'],
-            'table'
-        );
+        $scriptName = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
-            $privileges = $this->privileges->getAllPrivileges(
-                $params['checkprivsdb'],
-                $params['checkprivstable']
-            );
+            $privileges = $this->privileges->getAllPrivileges($params['checkprivsdb'], $params['checkprivstable']);
         }
 
         return $this->template->render('table/privileges/index', [

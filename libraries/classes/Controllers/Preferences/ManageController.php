@@ -196,10 +196,7 @@ class ManageController extends AbstractController
                     $tmanager->setThemeCookie();
                 }
 
-                if (
-                    isset($configuration['lang'])
-                    && $configuration['lang'] != $lang
-                ) {
+                if (isset($configuration['lang']) && $configuration['lang'] != $lang) {
                     $params['lang'] = $configuration['lang'];
                 }
 

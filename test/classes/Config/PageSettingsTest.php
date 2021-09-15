@@ -58,10 +58,7 @@ class PageSettingsTest extends AbstractTestCase
             $html
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="submit_save" value="Browse">',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Browse">', $html);
 
         $this->assertStringContainsString(
             "registerFieldValidator('MaxRows', 'validatePositiveNumber', true);\n"
@@ -81,14 +78,8 @@ class PageSettingsTest extends AbstractTestCase
         $html = $pageSettings->getHTML();
 
         // Test some sample parts
-        $this->assertStringContainsString(
-            '<div id="pma_navigation_settings">',
-            $html
-        );
+        $this->assertStringContainsString('<div id="pma_navigation_settings">', $html);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="submit_save" value="Navi">',
-            $html
-        );
+        $this->assertStringContainsString('<input type="hidden" name="submit_save" value="Navi">', $html);
     }
 }

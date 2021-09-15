@@ -486,25 +486,15 @@ class ConfigTest extends AbstractTestCase
             $this->object->defaultSourceMtime,
             filemtime($prevDefaultSource)
         );
-        $this->assertEquals(
-            $loadedConf['Servers'][1],
-            $this->object->defaultServer
-        );
+        $this->assertEquals($loadedConf['Servers'][1], $this->object->defaultServer);
 
         unset($loadedConf['Servers']);
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = array_replace_recursive(
-            $this->object->settings,
-            $loadedConf
-        );
+        $expectedSettings = array_replace_recursive($this->object->settings, $loadedConf);
 
-        $this->assertEquals(
-            $expectedSettings,
-            $this->object->settings,
-            'Settings loaded wrong'
-        );
+        $this->assertEquals($expectedSettings, $this->object->settings, 'Settings loaded wrong');
 
         $this->assertFalse($this->object->errorConfigDefaultFile);
     }

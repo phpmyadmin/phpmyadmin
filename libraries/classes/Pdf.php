@@ -57,15 +57,7 @@ class Pdf extends TCPDF
         $diskcache = false,
         $pdfa = false
     ) {
-        parent::__construct(
-            $orientation,
-            $unit,
-            $format,
-            $unicode,
-            $encoding,
-            $diskcache,
-            $pdfa
-        );
+        parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
         $this->SetAuthor('phpMyAdmin ' . Version::VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
@@ -111,18 +103,8 @@ class Pdf extends TCPDF
     public function setAlias($name, $value): void
     {
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $name = TCPDF_FONTS::UTF8ToUTF16BE(
-            $name,
-            false,
-            true,
-            $this->CurrentFont
-        );
-        $this->alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
-            $value,
-            false,
-            true,
-            $this->CurrentFont
-        );
+        $name = TCPDF_FONTS::UTF8ToUTF16BE($name, false, true, $this->CurrentFont);
+        $this->alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE($value, false, true, $this->CurrentFont);
         // phpcs:enable
     }
 

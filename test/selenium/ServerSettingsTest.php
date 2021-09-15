@@ -27,10 +27,7 @@ class ServerSettingsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Settings')->click();
         $this->waitAjax();
 
-        $this->waitForElement(
-            'xpath',
-            "//a[@class='nav-link text-nowrap' and contains(., 'Settings')]"
-        );
+        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Settings')]");
     }
 
     /**

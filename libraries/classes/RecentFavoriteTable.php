@@ -69,9 +69,7 @@ class RecentFavoriteTable
         $this->relation = new Relation($dbi);
         $this->tableType = $type;
         $server_id = $GLOBALS['server'];
-        if (
-            ! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id])
-        ) {
+        if (! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id])) {
             $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id] = $this->getPmaTable()
                 ? $this->getFromDb()
                 : [];
@@ -255,7 +253,7 @@ class RecentFavoriteTable
 
     public function getHtml(): string
     {
-        $html  = '<div class="drop_list">';
+        $html = '<div class="drop_list">';
         if ($this->tableType === 'recent') {
             $html .= '<button title="' . __('Recent tables')
                 . '" class="drop_button btn">'
@@ -377,7 +375,7 @@ class RecentFavoriteTable
                 'favorite_table' => true,
                 'sync_favorite_tables' => true,
             ]);
-            $retval  = '<a class="hide" id="sync_favorite_tables"';
+            $retval = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
         }
 
@@ -409,10 +407,7 @@ class RecentFavoriteTable
             return null;
         }
 
-        if (
-            ! empty($cfgRelation['db'])
-            && ! empty($cfgRelation[$this->tableType])
-        ) {
+        if (! empty($cfgRelation['db']) && ! empty($cfgRelation[$this->tableType])) {
             return Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation[$this->tableType]);
         }

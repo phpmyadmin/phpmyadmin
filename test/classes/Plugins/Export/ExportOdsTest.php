@@ -72,10 +72,7 @@ class ExportOdsTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(
-            ExportPluginProperties::class,
-            $properties
-        );
+        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
 
         $this->assertEquals(
             'OpenDocument Spreadsheet',
@@ -103,10 +100,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(
-            OptionsPropertyRootGroup::class,
-            $options
-        );
+        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $this->assertEquals(
             'Format Specific Options',
@@ -116,10 +110,7 @@ class ExportOdsTest extends AbstractTestCase
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(
-            OptionsPropertyMainGroup::class,
-            $generalOptions
-        );
+        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
         $this->assertEquals(
             'general_opts',
@@ -130,10 +121,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            TextPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(TextPropertyItem::class, $property);
 
         $this->assertEquals(
             'null',
@@ -147,10 +135,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            BoolPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(BoolPropertyItem::class, $property);
 
         $this->assertEquals(
             'columns',
@@ -164,10 +149,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(
-            HiddenPropertyItem::class,
-            $property
-        );
+        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $this->assertEquals(
             'structure_or_data',
@@ -177,10 +159,7 @@ class ExportOdsTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $this->assertArrayHasKey(
-            'ods_buffer',
-            $GLOBALS
-        );
+        $this->assertArrayHasKey('ods_buffer', $GLOBALS);
 
         $this->assertTrue(
             $this->object->exportHeader()
@@ -198,25 +177,13 @@ class ExportOdsTest extends AbstractTestCase
             $this->object->exportFooter()
         );
 
-        $this->assertStringContainsString(
-            'header',
-            $GLOBALS['ods_buffer']
-        );
+        $this->assertStringContainsString('header', $GLOBALS['ods_buffer']);
 
-        $this->assertStringContainsString(
-            '</office:spreadsheet>',
-            $GLOBALS['ods_buffer']
-        );
+        $this->assertStringContainsString('</office:spreadsheet>', $GLOBALS['ods_buffer']);
 
-        $this->assertStringContainsString(
-            '</office:body>',
-            $GLOBALS['ods_buffer']
-        );
+        $this->assertStringContainsString('</office:body>', $GLOBALS['ods_buffer']);
 
-        $this->assertStringContainsString(
-            '</office:document-content>',
-            $GLOBALS['ods_buffer']
-        );
+        $this->assertStringContainsString('</office:document-content>', $GLOBALS['ods_buffer']);
     }
 
     public function testExportDBHeader(): void
@@ -365,10 +332,7 @@ class ExportOdsTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('fieldName')
-            ->willReturnOnConsecutiveCalls(
-                'fna\"me',
-                'fnam/<e2'
-            );
+            ->willReturnOnConsecutiveCalls('fna\"me', 'fnam/<e2');
 
         $dbi->expects($this->exactly(1))
             ->method('fetchRow')

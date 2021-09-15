@@ -49,10 +49,7 @@ class StructureTest extends TestBase
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-        $this->waitForElement(
-            'cssSelector',
-            'button.submitOK'
-        )->click();
+        $this->waitForElement('cssSelector', 'button.submitOK')->click();
 
         $this->assertNotNull(
             $this->waitForElement(
@@ -89,10 +86,7 @@ class StructureTest extends TestBase
         $this->waitForElement('id', 'buttonYes')
             ->click();
 
-        $this->waitForElement(
-            'xpath',
-            "//*[contains(., 'No tables found in database')]"
-        );
+        $this->waitForElement('xpath', "//*[contains(., 'No tables found in database')]");
 
         $this->dbQuery(
             'SHOW TABLES FROM `' . $this->databaseName . '`;',

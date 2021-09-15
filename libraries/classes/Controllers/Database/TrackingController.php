@@ -140,11 +140,7 @@ class TrackingController extends AbstractController
             return;
         }
 
-        echo $this->tracking->getHtmlForDbTrackingTables(
-            $db,
-            $urlParams,
-            $text_dir
-        );
+        echo $this->tracking->getHtmlForDbTrackingTables($db, $urlParams, $text_dir);
 
         // If available print out database log
         if (count($data['ddlog']) <= 0) {

@@ -72,11 +72,7 @@ class MainPanelController extends AbstractController
                 $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
-                $this->userPreferences->redirect(
-                    'index.php?route=/preferences/main-panel',
-                    null,
-                    $hash
-                );
+                $this->userPreferences->redirect('index.php?route=/preferences/main-panel', null, $hash);
 
                 return;
             }

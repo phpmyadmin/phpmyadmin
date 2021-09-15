@@ -63,10 +63,7 @@ class ExportController extends AbstractController
         if (! empty($sql_query)) {
             $parser = new Parser($sql_query);
 
-            if (
-                ! empty($parser->statements[0])
-                && ($parser->statements[0] instanceof SelectStatement)
-            ) {
+            if (! empty($parser->statements[0]) && ($parser->statements[0] instanceof SelectStatement)) {
                 // Checking if the WHERE clause has to be replaced.
                 if (! empty($where_clause) && is_array($where_clause)) {
                     $replaces[] = [
@@ -82,11 +79,7 @@ class ExportController extends AbstractController
                 ];
 
                 // Replacing the clauses.
-                $sql_query = Query::replaceClauses(
-                    $parser->statements[0],
-                    $parser->list,
-                    $replaces
-                );
+                $sql_query = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
             }
         }
 

@@ -138,26 +138,11 @@ class ResultsTest extends AbstractTestCase
             ]
         );
 
-        $this->assertStringContainsString(
-            '<form action="index.php?route=/sql',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '" method="post" >',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'name="pos" value="1"',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'value="btn" title="Submit"',
-            $actual
-        );
+        $this->assertStringContainsString('<form action="index.php?route=/sql', $actual);
+        $this->assertStringContainsString('" method="post" >', $actual);
+        $this->assertStringContainsString('name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"', $actual);
+        $this->assertStringContainsString('name="pos" value="1"', $actual);
+        $this->assertStringContainsString('value="btn" title="Submit"', $actual);
     }
 
     /**
@@ -512,9 +497,7 @@ class ResultsTest extends AbstractTestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField(): array
     {
-        $parser = new Parser(
-            'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
-        );
+        $parser = new Parser('SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10');
 
         return [
             [
@@ -545,10 +528,7 @@ class ResultsTest extends AbstractTestCase
             [$analyzed_sql]
         );
 
-        $this->assertEquals(
-            $output,
-            $this->object->properties['highlight_columns']
-        );
+        $this->assertEquals($output, $this->object->properties['highlight_columns']);
     }
 
     /**
@@ -1083,15 +1063,9 @@ class ResultsTest extends AbstractTestCase
         );
 
         // Dateformat
-        $this->assertStringContainsString(
-            'Jan 01, 1970 at 01:00 AM',
-            $output
-        );
+        $this->assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
         // Bool2Text
-        $this->assertStringContainsString(
-            '>T<',
-            $output
-        );
+        $this->assertStringContainsString('>T<', $output);
         unset($_SESSION['tmpval']);
         unset($_SESSION['relation']);
     }
@@ -1209,11 +1183,7 @@ class ResultsTest extends AbstractTestCase
             'The first line should contain NOT url-add-order input'
         );
 
-        $this->assertStringContainsString(
-            $urlParamsRemove,
-            $firstLine,
-            'The first line should contain the URL params'
-        );
+        $this->assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
     }
 
     /**
@@ -1242,10 +1212,7 @@ class ResultsTest extends AbstractTestCase
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
             ]
         );
-        $this->assertSame(
-            '<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
-            $output
-        );
+        $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
@@ -1559,7 +1526,7 @@ class ResultsTest extends AbstractTestCase
             'edit_lnk' => DisplayResults::UPDATE_ROW,
             'del_lnk' => DisplayResults::DELETE_ROW,
             'sort_lnk' => '1',
-            'nav_bar'  => '1',
+            'nav_bar' => '1',
             'bkm_form' => '1',
             'text_btn' => '0',
             'pview_lnk' => '1',

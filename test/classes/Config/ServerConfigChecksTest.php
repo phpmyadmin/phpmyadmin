@@ -128,10 +128,7 @@ class ServerConfigChecksTest extends AbstractTestCase
             array_keys($_SESSION['messages']['notice'])
         );
 
-        $this->assertArrayNotHasKey(
-            'error',
-            $_SESSION['messages']
-        );
+        $this->assertArrayNotHasKey('error', $_SESSION['messages']);
     }
 
     public function testBlowfish(): void
@@ -148,9 +145,6 @@ class ServerConfigChecksTest extends AbstractTestCase
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();
 
-        $this->assertArrayHasKey(
-            'blowfish_warnings2',
-            $_SESSION['messages']['error']
-        );
+        $this->assertArrayHasKey('blowfish_warnings2', $_SESSION['messages']['error']);
     }
 }

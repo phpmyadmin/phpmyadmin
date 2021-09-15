@@ -205,10 +205,7 @@ class ConfigFile
             $canonicalPath = $this->getCanonicalPath($path);
         }
 
-        if (
-            $this->setFilter !== null
-            && ! isset($this->setFilter[$canonicalPath])
-        ) {
+        if ($this->setFilter !== null && ! isset($this->setFilter[$canonicalPath])) {
             return;
         }
 
@@ -229,10 +226,7 @@ class ConfigFile
             // get original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instanceDefaultValue = Core::arrayRead(
-                $canonicalPath,
-                $this->baseCfg
-            );
+            $instanceDefaultValue = Core::arrayRead($canonicalPath, $this->baseCfg);
             // remove if it has a default value and base config (config.inc.php)
             // uses default value
             $removePath = $removePath
@@ -502,10 +496,7 @@ class ConfigFile
 
         unset($_SESSION[$this->id]['Servers'][$lastServer]);
 
-        if (
-            ! isset($_SESSION[$this->id]['ServerDefault'])
-            || $_SESSION[$this->id]['ServerDefault'] != $lastServer
-        ) {
+        if (! isset($_SESSION[$this->id]['ServerDefault']) || $_SESSION[$this->id]['ServerDefault'] != $lastServer) {
             return;
         }
 

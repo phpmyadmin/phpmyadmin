@@ -45,7 +45,7 @@ class Url
         global $config;
 
         if (is_array($db)) {
-            $params  =& $db;
+            $params =& $db;
         } else {
             $params = [];
             if (strlen((string) $db) > 0) {
@@ -57,10 +57,7 @@ class Url
             }
         }
 
-        if (
-            ! empty($GLOBALS['server'])
-            && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
-        ) {
+        if (! empty($GLOBALS['server']) && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']) {
             $params['server'] = $GLOBALS['server'];
         }
 

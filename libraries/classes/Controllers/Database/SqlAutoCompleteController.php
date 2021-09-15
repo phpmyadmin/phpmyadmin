@@ -35,10 +35,7 @@ class SqlAutoCompleteController extends AbstractController
             if ($db) {
                 $tableNames = $this->dbi->getTables($db);
                 foreach ($tableNames as $tableName) {
-                    $sql_autocomplete[$tableName] = $this->dbi->getColumns(
-                        $db,
-                        $tableName
-                    );
+                    $sql_autocomplete[$tableName] = $this->dbi->getColumns($db, $tableName);
                 }
             }
         }

@@ -119,13 +119,7 @@ class AddFieldController extends AbstractController
             [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $errorUrl);
 
             if ($result !== true) {
-                $error_message_html = Generator::mysqlDie(
-                    '',
-                    '',
-                    false,
-                    $errorUrl,
-                    false
-                );
+                $error_message_html = Generator::mysqlDie('', '', false, $errorUrl, false);
                 $this->response->addHTML($error_message_html ?? '');
                 $this->response->setRequestStatus(false);
 
@@ -133,16 +127,9 @@ class AddFieldController extends AbstractController
             }
 
             // Update comment table for mime types [MIME]
-            if (
-                isset($_POST['field_mimetype'])
-                && is_array($_POST['field_mimetype'])
-                && $cfg['BrowseMIME']
-            ) {
+            if (isset($_POST['field_mimetype']) && is_array($_POST['field_mimetype']) && $cfg['BrowseMIME']) {
                 foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                    if (
-                        ! isset($_POST['field_name'][$fieldindex])
-                        || strlen($_POST['field_name'][$fieldindex]) <= 0
-                    ) {
+                    if (! isset($_POST['field_name'][$fieldindex]) || strlen($_POST['field_name'][$fieldindex]) <= 0) {
                         continue;
                     }
 

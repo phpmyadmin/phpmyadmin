@@ -57,11 +57,7 @@ class ServerConfigChecks
             $blowfishSecretSet
         );
 
-        $this->performConfigChecksCookieAuthUsed(
-            $cookieAuthUsed,
-            $blowfishSecretSet,
-            $blowfishSecret
-        );
+        $this->performConfigChecksCookieAuthUsed($cookieAuthUsed, $blowfishSecretSet, $blowfishSecret);
 
         // $cfg['AllowArbitraryServer']
         // should be disabled
@@ -377,9 +373,7 @@ class ServerConfigChecks
         // check length
         if (strlen($blowfishSecret) < 32) {
             // too short key
-            $blowfishWarnings[] = __(
-                'Key is too short, it should have at least 32 characters.'
-            );
+            $blowfishWarnings[] = __('Key is too short, it should have at least 32 characters.');
         }
 
         // check used characters
@@ -416,9 +410,7 @@ class ServerConfigChecks
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
         $loginCookieValidity = $this->cfg->getValue('LoginCookieValidity');
-        if (
-            $loginCookieValidity > ini_get('session.gc_maxlifetime')
-        ) {
+        if ($loginCookieValidity > ini_get('session.gc_maxlifetime')) {
             SetupIndex::messagesSet(
                 'error',
                 'LoginCookieValidity',

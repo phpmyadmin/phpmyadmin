@@ -72,10 +72,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->load();
 
-        $this->assertCount(
-            3,
-            $result
-        );
+        $this->assertCount(3, $result);
 
         $this->assertEquals(
             [],
@@ -89,10 +86,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ''
         );
 
-        $this->assertEquals(
-            'session',
-            $result['type']
-        );
+        $this->assertEquals('session', $result['type']);
 
         // case 2
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
@@ -151,14 +145,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->save([1]);
 
-        $this->assertTrue(
-            $result
-        );
+        $this->assertTrue($result);
 
-        $this->assertCount(
-            2,
-            $_SESSION['userconfig']
-        );
+        $this->assertCount(2, $_SESSION['userconfig']);
 
         $this->assertEquals(
             [1],
@@ -179,9 +168,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             $assert = false;
         }
 
-        $this->assertTrue(
-            $assert
-        );
+        $this->assertTrue($assert);
 
         // case 2
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
@@ -370,9 +357,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             $this->userPreferences->autoloadGetHeader()
         );
 
-        $this->assertTrue(
-            $_SESSION['userprefs_autoload']
-        );
+        $this->assertTrue($_SESSION['userprefs_autoload']);
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -384,24 +369,12 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="token" value="token"',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="token" value="token"', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="json" value="">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="json" value="">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="submit_import" value="1">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="hidden" name="return_url" value="index.php?">',
-            $result
-        );
+        $this->assertStringContainsString('<input type="hidden" name="return_url" value="index.php?">', $result);
     }
 }

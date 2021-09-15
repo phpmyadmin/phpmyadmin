@@ -44,9 +44,7 @@ final class Gis
             $wktsql .= ', ' . $spatialSrid . "(x'" . $hex . "')";
         }
 
-        $wktresult = $dbi->tryQuery(
-            $wktsql
-        );
+        $wktresult = $dbi->tryQuery($wktsql);
         $wktarr = $dbi->fetchRow($wktresult);
         $wktval = $wktarr[0] ?? '';
 

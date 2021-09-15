@@ -54,25 +54,10 @@ class OverviewControllerTest extends AbstractTestCase
             'id="input_transformation">' . __('Available input transformations'),
             $actual
         );
-        $this->assertStringContainsString(
-            'Text/Plain',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Image/JPEG: Inline',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Displays a clickable thumbnail.',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Image/JPEG: Upload',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'Image upload functionality which also displays a thumbnail.',
-            $actual
-        );
+        $this->assertStringContainsString('Text/Plain', $actual);
+        $this->assertStringContainsString('Image/JPEG: Inline', $actual);
+        $this->assertStringContainsString('Displays a clickable thumbnail.', $actual);
+        $this->assertStringContainsString('Image/JPEG: Upload', $actual);
+        $this->assertStringContainsString('Image upload functionality which also displays a thumbnail.', $actual);
     }
 }

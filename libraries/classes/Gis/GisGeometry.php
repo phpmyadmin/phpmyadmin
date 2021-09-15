@@ -335,11 +335,7 @@ abstract class GisGeometry
         foreach ($lines as $line) {
             $ol_array .= 'var lineArr = [];';
             $points_arr = $this->extractPoints($line, null);
-            $ol_array .= 'var line = ' . $this->getLineForOpenLayers(
-                $points_arr,
-                $srid,
-                $is_line_string
-            ) . ';';
+            $ol_array .= 'var line = ' . $this->getLineForOpenLayers($points_arr, $srid, $is_line_string) . ';';
             $ol_array .= 'var coord = line.getCoordinates();';
             $ol_array .= 'for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);';
             $ol_array .= 'arr.push(lineArr);';

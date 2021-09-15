@@ -83,85 +83,45 @@ class RelationTest extends AbstractTestCase
         $relationsPara = $this->relation->getRelationsParam();
         $this->assertAllSelectsConsumed();
 
-        $this->assertFalse(
-            $relationsPara['relwork']
-        );
-        $this->assertFalse(
-            $relationsPara['bookmarkwork']
-        );
-        $this->assertEquals(
-            'root',
-            $relationsPara['user']
-        );
-        $this->assertEquals(
-            'phpmyadmin',
-            $relationsPara['db']
-        );
+        $this->assertFalse($relationsPara['relwork']);
+        $this->assertFalse($relationsPara['bookmarkwork']);
+        $this->assertEquals('root', $relationsPara['user']);
+        $this->assertEquals('phpmyadmin', $relationsPara['db']);
 
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
         //check $cfg['Servers'][$i]['pmadb']
-        $this->assertStringContainsString(
-            "\$cfg['Servers'][\$i]['pmadb']",
-            $retval
-        );
-        $this->assertStringContainsString(
-            '<strong>OK</strong>',
-            $retval
-        );
+        $this->assertStringContainsString("\$cfg['Servers'][\$i]['pmadb']", $retval);
+        $this->assertStringContainsString('<strong>OK</strong>', $retval);
 
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"text-end\">"
             . '<span class="text-success"><strong>OK</strong></span>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"text-end\">"
             . '<span class="text-danger"><strong>not OK</strong></span>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         // General relation features
         $result = 'General relation features: <span class="text-danger">Disabled</span>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         // $cfg['Servers'][$i]['table_info']
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
             . '<td class="text-end">'
             . '<span class="text-danger"><strong>not OK</strong></span>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         // Display Features:
         $result = 'Display Features: <span class="text-danger">Disabled</span>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
 
         $relationsPara['db'] = false;
         $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         $result = 'Configuration of pmadb… ';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
         $result = '<strong>not OK</strong>';
-        $this->assertStringContainsString(
-            $result,
-            $retval
-        );
+        $this->assertStringContainsString($result, $retval);
     }
 
     /**
@@ -264,15 +224,11 @@ class RelationTest extends AbstractTestCase
 
         // Case 1
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertFalse(
-            $actual
-        );
+        $this->assertFalse($actual);
 
         // Case 2
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertTrue(
-            $actual
-        );
+        $this->assertTrue($actual);
     }
 
     public function testSearchColumnInForeignersError(): void
@@ -320,10 +276,7 @@ class RelationTest extends AbstractTestCase
         $expected['on_delete'] = 'CASCADE';
         $expected['on_update'] = 'CASCADE';
 
-        $this->assertEquals(
-            $expected,
-            $foreigner
-        );
+        $this->assertEquals($expected, $foreigner);
     }
 
     public function testFixPmaTablesNothingWorks(): void
@@ -334,10 +287,7 @@ class RelationTest extends AbstractTestCase
         $this->relation = new Relation($this->dbi);
 
         $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addResult(
-            'SHOW TABLES FROM `db_pma`;',
-            false
-        );
+        $this->dummyDbi->addResult('SHOW TABLES FROM `db_pma`;', false);
 
         $this->relation->fixPmaTables('db_pma', false);
         $this->assertAllQueriesConsumed();
@@ -1152,10 +1102,7 @@ class RelationTest extends AbstractTestCase
 
         $this->dummyDbi->removeDefaultResults();
         $this->dummyDbi->addErrorCode('MYSQL_ERROR');
-        $this->dummyDbi->addResult(
-            'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
-            false
-        );
+        $this->dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', false);
 
         $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
 
@@ -1183,10 +1130,7 @@ class RelationTest extends AbstractTestCase
 
         $this->dummyDbi->removeDefaultResults();
         $this->dummyDbi->addErrorCode('Too many connections');
-        $this->dummyDbi->addResult(
-            'CREATE DATABASE IF NOT EXISTS `pma_1040`',
-            false
-        );
+        $this->dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `pma_1040`', false);
 
         $GLOBALS['errno'] = 1040;
 
@@ -1195,10 +1139,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->assertArrayHasKey('message', $GLOBALS);
-        $this->assertSame(
-            'Too many connections',
-            $GLOBALS['message']
-        );
+        $this->assertSame('Too many connections', $GLOBALS['message']);
 
         $this->assertAllQueriesConsumed();
         $this->assertAllErrorCodesConsumed();

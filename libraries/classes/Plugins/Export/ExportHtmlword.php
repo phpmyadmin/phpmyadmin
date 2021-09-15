@@ -48,9 +48,7 @@ class ExportHtmlword extends ExportPlugin
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
-        $exportSpecificOptions = new OptionsPropertyRootGroup(
-            'Format Specific Options'
-        );
+        $exportSpecificOptions = new OptionsPropertyRootGroup('Format Specific Options');
 
         // what to dump (structure/data/both)
         $dumpWhat = new OptionsPropertyMainGroup(
@@ -61,8 +59,8 @@ class ExportHtmlword extends ExportPlugin
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
             [
-                'structure'          => __('structure'),
-                'data'               => __('data'),
+                'structure' => __('structure'),
+                'data' => __('data'),
                 'structure_and_data' => __('structure and data'),
             ]
         );
@@ -200,20 +198,12 @@ class ExportHtmlword extends ExportPlugin
             return false;
         }
 
-        if (
-            ! $this->export->outputHandler(
-                '<table width="100%" cellspacing="1">'
-            )
-        ) {
+        if (! $this->export->outputHandler('<table width="100%" cellspacing="1">')) {
             return false;
         }
 
         // Gets the data from the database
-        $result = $dbi->query(
-            $sqlQuery,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_UNBUFFERED
-        );
+        $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         $fields_cnt = $dbi->numFields($result);
 
         // If required, get fields name at the first line
@@ -315,11 +305,7 @@ class ExportHtmlword extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
 
-            $schema_insert .= $this->formatOneColumnDefinition(
-                $column,
-                $unique_keys,
-                $col_as
-            );
+            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
             $schema_insert .= '</tr>';
         }
 
@@ -436,11 +422,7 @@ class ExportHtmlword extends ExportPlugin
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
 
-            $schema_insert .= $this->formatOneColumnDefinition(
-                $column,
-                $unique_keys,
-                $col_as
-            );
+            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys, $col_as);
             $field_name = $column['Field'];
             if ($do_relation && $have_rel) {
                 $schema_insert .= '<td class="print">'
@@ -571,15 +553,7 @@ class ExportHtmlword extends ExportPlugin
                 . __('Table structure for table') . ' '
                 . htmlspecialchars($table_alias)
                 . '</h2>';
-                $dump .= $this->getTableDef(
-                    $db,
-                    $table,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    false,
-                    $aliases
-                );
+                $dump .= $this->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, false, $aliases);
                 break;
             case 'triggers':
                 $dump = '';
@@ -596,15 +570,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= '<h2>'
                 . __('Structure for view') . ' ' . htmlspecialchars($table_alias)
                 . '</h2>';
-                $dump .= $this->getTableDef(
-                    $db,
-                    $table,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    true,
-                    $aliases
-                );
+                $dump .= $this->getTableDef($db, $table, $do_relation, $do_comments, $do_mime, true, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'
