@@ -781,22 +781,11 @@ AJAX.registerOnload('sql.js', function () {
                     }
                     dialogContent += '</div>';
                     var $dialogContent = $(dialogContent);
-                    var buttonOptions = {};
-                    buttonOptions[Messages.strClose] = function () {
-                        $(this).dialog('close');
-                    };
-                    $('<div></div>').append($dialogContent).dialog({
-                        minWidth: 540,
-                        maxHeight: 400,
-                        modal: true,
-                        buttons: buttonOptions,
-                        title: Messages.strSimulateDML,
-                        open: function () {
-                            Functions.highlightSql($(this));
-                        },
-                        close: function () {
-                            $(this).remove();
-                        }
+                    var modal = $('#simulateDmlModal');
+                    modal.modal('show');
+                    modal.find('.modal-body').first().html($dialogContent);
+                    modal.on('shown.bs.modal', function () {
+                        Functions.highlightSql(modal);
                     });
                 } else {
                     Functions.ajaxShowMessage(response.error);
