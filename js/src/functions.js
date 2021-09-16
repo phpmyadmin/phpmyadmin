@@ -1954,25 +1954,11 @@ Functions.previewSql = function ($form) {
         success: function (response) {
             Functions.ajaxRemoveMessage($messageBox);
             if (response.success) {
-                var $dialogContent = $('<div></div>')
-                    .append(response.sql_data);
-                var buttonOptions = {};
-                buttonOptions[Messages.strClose] = function () {
-                    $(this).dialog('close');
-                };
-                $dialogContent.dialog({
-                    minWidth: 550,
-                    maxHeight: 400,
-                    modal: true,
-                    buttons: buttonOptions,
-                    title: Messages.strPreviewSQL,
-                    close: function () {
-                        $(this).remove();
-                    },
-                    open: function () {
-                        // Pretty SQL printing.
-                        Functions.highlightSql($(this));
-                    }
+                $('#previewSqlModal').modal('show');
+                $('#previewSqlModal').find('.modal-body').first().html(response.sql_data);
+                $('#previewSqlModalLabel').first().html(Messages.strPreviewSQL);
+                $('#previewSqlModal').on('shown.bs.modal', function () {
+                    Functions.highlightSql($('#previewSqlModal'));
                 });
             } else {
                 Functions.ajaxShowMessage(response.message);
