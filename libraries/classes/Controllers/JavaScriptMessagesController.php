@@ -36,7 +36,6 @@ final class JavaScriptMessagesController
 
         $this->messages = [
             /* For confirmations */
-            'strConfirm' => __('Confirm'),
             'strDoYouReally' => __('Do you really want to execute "%s"?'),
             'strDropDatabaseStrongWarning' => __('You are about to DESTROY a complete database!'),
             'strDatabaseRenameToSameName' => __(

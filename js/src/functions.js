@@ -2391,40 +2391,16 @@ Functions.confirm = function (question, url, callbackFn, openCallback) {
         return true;
     }
 
-    /**
-     * @var button_options Object that stores the options passed to jQueryUI
-     *                     dialog
-     */
-    var buttonOptions = [
-        {
-            text: Messages.strOK,
-            'class': 'submitOK',
-            click: function () {
-                $(this).dialog('close');
-                if (typeof callbackFn === 'function') {
-                    callbackFn.call(this, url);
-                }
-            }
-        },
-        {
-            text: Messages.strCancel,
-            'class': 'submitCancel',
-            click: function () {
-                $(this).dialog('close');
-            }
+    $('#functionConfirmModal').modal('show');
+    $('#functionConfirmModal').find('.modal-body').first().html(question);
+    $('#functionConfirmOkButton').on('click', function () {
+        if (typeof callbackFn === 'function') {
+            callbackFn.call(this, url);
         }
-    ];
-
-    $('<div></div>', { 'id': 'confirm_dialog', 'title': Messages.strConfirm })
-        .prepend(question)
-        .dialog({
-            buttons: buttonOptions,
-            close: function () {
-                $(this).remove();
-            },
-            open: openCallback,
-            modal: true
-        });
+    });
+    if (typeof openCallback === 'function') {
+        openCallback();
+    }
 };
 jQuery.fn.confirm = Functions.confirm;
 
