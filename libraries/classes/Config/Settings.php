@@ -15,6 +15,7 @@ use function defined;
 use function in_array;
 use function is_array;
 use function is_int;
+use function is_string;
 use function min;
 use function strlen;
 
@@ -25,6 +26,9 @@ use const VERSION_CHECK_DEFAULT;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
+/**
+ * @psalm-immutable
+ */
 final class Settings
 {
     /**
@@ -43,67 +47,59 @@ final class Settings
      * an error message if phpMyAdmin cannot auto-detect the correct value.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PmaAbsoluteUri = '';
+    public $PmaAbsoluteUri;
 
     /**
      * Configure authentication logging destination
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AuthLog = 'auto';
+    public $AuthLog;
 
     /**
      * Whether to log successful authentication attempts
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AuthLogSuccess = false;
+    public $AuthLogSuccess;
 
     /**
      * Disable the default warning that is displayed on the DB Details Structure page if
      * any of the required Tables for the configuration storage could not be found
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PmaNoRelation_DisableWarning = false;
+    public $PmaNoRelation_DisableWarning;
 
     /**
      * Disable the default warning that is displayed if Suhosin is detected
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SuhosinDisableWarning = false;
+    public $SuhosinDisableWarning;
 
     /**
      * Disable the default warning that is displayed if session.gc_maxlifetime
      * is less than `LoginCookieValidity`
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LoginCookieValidityDisableWarning = false;
+    public $LoginCookieValidityDisableWarning;
 
     /**
      * Disable the default warning about MySQL reserved words in column names
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ReservedWordDisableWarning = false;
+    public $ReservedWordDisableWarning;
 
     /**
      * Show warning about incomplete translations on certain threshold.
      *
      * @var int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TranslationWarningThreshold = 80;
+    public $TranslationWarningThreshold;
 
     /**
      * Allows phpMyAdmin to be included from a other document in a frame;
@@ -113,9 +109,8 @@ final class Settings
      *
      * @var bool|string
      * @psalm-var bool|'sameorigin'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AllowThirdPartyFraming = false;
+    public $AllowThirdPartyFraming;
 
     /**
      * The 'cookie' auth_type uses AES algorithm to encrypt the password. If
@@ -124,9 +119,8 @@ final class Settings
      * characters.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $blowfish_secret = '';
+    public $blowfish_secret;
 
     /**
      * Server(s) configuration
@@ -138,14 +132,11 @@ final class Settings
      * full server array, just define values you need to change.
      *
      * @var array<int, Server>
-     * @psalm-readonly-allow-private-mutation
+     * @psalm-var array<int<1, max>, Server>
      */
-    public $Servers = [];
+    public $Servers;
 
-    /**
-     * @var Server
-     * @psalm-readonly-allow-private-mutation
-     */
+    /** @var Server */
     public $Server;
 
     /**
@@ -159,17 +150,15 @@ final class Settings
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ServerDefault = 1;
+    public $ServerDefault;
 
     /**
      * whether version check is active
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $VersionCheck = true;
+    public $VersionCheck;
 
     /**
      * The url of the proxy to be used when retrieving the information about
@@ -179,9 +168,8 @@ final class Settings
      * The format is: "hostname:portnumber"
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ProxyUrl = '';
+    public $ProxyUrl;
 
     /**
      * The username for authenticating with the proxy. By default, no
@@ -190,94 +178,83 @@ final class Settings
      * are currently supported.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ProxyUser = '';
+    public $ProxyUser;
 
     /**
      * The password for authenticating with the proxy.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ProxyPass = '';
+    public $ProxyPass;
 
     /**
      * maximum number of db's displayed in database list
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxDbList = 100;
+    public $MaxDbList;
 
     /**
      * maximum number of tables displayed in table list
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxTableList = 250;
+    public $MaxTableList;
 
     /**
      * whether to show hint or not
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowHint = true;
+    public $ShowHint;
 
     /**
      * maximum number of characters when a SQL query is displayed
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxCharactersInDisplayedSQL = 1000;
+    public $MaxCharactersInDisplayedSQL;
 
     /**
      * use GZIP output buffering if possible (true|false|'auto')
      *
      * @var string|bool
      * @psalm-var 'auto'|bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $OBGzip = 'auto';
+    public $OBGzip;
 
     /**
      * use persistent connections to MySQL database
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PersistentConnections = false;
+    public $PersistentConnections;
 
     /**
      * maximum execution time in seconds (0 for no limit)
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ExecTimeLimit = 300;
+    public $ExecTimeLimit;
 
     /**
      * Path for storing session data (session_save_path PHP parameter).
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SessionSavePath = '';
+    public $SessionSavePath;
 
     /**
      * Hosts or IPs to consider safe when checking if SSL is used or not
      *
      * @var string[]
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MysqlSslWarningSafeHosts = ['127.0.0.1', 'localhost'];
+    public $MysqlSslWarningSafeHosts;
 
     /**
      * maximum allocated bytes ('-1' for no limit, '0' for no change)
@@ -285,82 +262,72 @@ final class Settings
      * a string as the default value so that /setup accepts strings
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MemoryLimit = '-1';
+    public $MemoryLimit;
 
     /**
      * mark used tables, make possible to show locked tables (since MySQL 3.23.30)
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SkipLockedTables = false;
+    public $SkipLockedTables;
 
     /**
      * show SQL queries as run
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowSQL = true;
+    public $ShowSQL;
 
     /**
      * retain SQL input on Ajax execute
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RetainQueryBox = false;
+    public $RetainQueryBox;
 
     /**
      * use CodeMirror syntax highlighting for editing SQL
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CodemirrorEnable = true;
+    public $CodemirrorEnable;
 
     /**
      * use the parser to find any errors in the query before executing
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LintEnable = true;
+    public $LintEnable;
 
     /**
      * show a 'Drop database' link to normal users
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AllowUserDropDatabase = false;
+    public $AllowUserDropDatabase;
 
     /**
      * confirm some commands that can result in loss of data
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $Confirm = true;
+    public $Confirm;
 
     /**
      * sets SameSite attribute of the Set-Cookie HTTP response header
      *
      * @var string
      * @psalm-var 'Lax'|'Strict'|'None'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CookieSameSite = 'Strict';
+    public $CookieSameSite;
 
     /**
      * recall previous login in cookie authentication mode or not
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LoginCookieRecall = true;
+    public $LoginCookieRecall;
 
     /**
      * validity of cookie login (in seconds; 1440 matches php.ini's
@@ -368,126 +335,110 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LoginCookieValidity = 1440;
+    public $LoginCookieValidity;
 
     /**
      * how long login cookie should be stored (in seconds)
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LoginCookieStore = 0;
+    public $LoginCookieStore;
 
     /**
      * whether to delete all login cookies on logout
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LoginCookieDeleteAll = true;
+    public $LoginCookieDeleteAll;
 
     /**
      * whether to enable the "database search" feature or not
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $UseDbSearch = true;
+    public $UseDbSearch;
 
     /**
      * if set to true, PMA continues computing multiple-statement queries
      * even if one of the queries failed
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $IgnoreMultiSubmitErrors = false;
+    public $IgnoreMultiSubmitErrors;
 
     /**
      * allow login to any user entered server in cookie based authentication
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AllowArbitraryServer = false;
+    public $AllowArbitraryServer;
 
     /**
      * restrict by IP (with regular expression) the MySQL servers the user can enter
      * when $cfg['AllowArbitraryServer'] = true
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ArbitraryServerRegexp = '';
+    public $ArbitraryServerRegexp;
 
     /**
      * To enable reCaptcha v2 checkbox mode if necessary
      *
      * @var string
      * @psalm-var 'invisible'|'checkbox'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaMethod = 'invisible';
+    public $CaptchaMethod;
 
     /**
      * URL for the reCaptcha v2 compatible API to use
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaApi = 'https://www.google.com/recaptcha/api.js';
+    public $CaptchaApi;
 
     /**
      * Content-Security-Policy snippet for the reCaptcha v2 compatible API
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaCsp = 'https://apis.google.com https://www.google.com/recaptcha/'
-        . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/';
+    public $CaptchaCsp;
 
     /**
      * reCaptcha API's request parameter name
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaRequestParam = 'g-recaptcha';
+    public $CaptchaRequestParam;
 
     /**
      * reCaptcha API's response parameter name
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaResponseParam = 'g-recaptcha-response';
+    public $CaptchaResponseParam;
 
     /**
      * if reCaptcha is enabled it needs public key to connect with the service
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaLoginPublicKey = '';
+    public $CaptchaLoginPublicKey;
 
     /**
      * if reCaptcha is enabled it needs private key to connect with the service
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaLoginPrivateKey = '';
+    public $CaptchaLoginPrivateKey;
 
     /**
      * if reCaptcha is enabled may need an URL for site verify
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CaptchaSiteVerifyURL = '';
+    public $CaptchaSiteVerifyURL;
 
     /**
      * Enable drag and drop import
@@ -495,60 +446,53 @@ final class Settings
      * @see https://github.com/phpmyadmin/phpmyadmin/issues/13155
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $enable_drag_drop_import = true;
+    public $enable_drag_drop_import;
 
     /**
      * In the navigation panel, replaces the database tree with a selector
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDatabasesNavigationAsTree = true;
+    public $ShowDatabasesNavigationAsTree;
 
     /**
      * maximum number of first level databases displayed in navigation panel
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $FirstLevelNavigationItems = 100;
+    public $FirstLevelNavigationItems;
 
     /**
      * maximum number of items displayed in navigation panel
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxNavigationItems = 50;
+    public $MaxNavigationItems;
 
     /**
      * turn the select-based light menu into a tree
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeEnableGrouping = true;
+    public $NavigationTreeEnableGrouping;
 
     /**
      * the separator to sub-tree the select-based light menu tree
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeDbSeparator = '_';
+    public $NavigationTreeDbSeparator;
 
     /**
      * Which string will be used to generate table prefixes
      * to split/nest tables into multiple categories
      *
      * @var string|string[]|false
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeTableSeparator = '__';
+    public $NavigationTreeTableSeparator;
 
     /**
      * How many sublevels should be displayed when splitting up tables
@@ -556,33 +500,29 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeTableLevel = 1;
+    public $NavigationTreeTableLevel;
 
     /**
      * link with main panel by highlighting the current db/table
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationLinkWithMainPanel = true;
+    public $NavigationLinkWithMainPanel;
 
     /**
      * display logo at top of navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationDisplayLogo = true;
+    public $NavigationDisplayLogo;
 
     /**
      * where should logo link point to (can also contain an external URL)
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationLogoLink = 'index.php';
+    public $NavigationLogoLink;
 
     /**
      * whether to open the linked page in the main window ('main') or
@@ -590,27 +530,24 @@ final class Settings
      *
      * @var string
      * @psalm-var 'main'|'new'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationLogoLinkWindow = 'main';
+    public $NavigationLogoLinkWindow;
 
     /**
      * number of recently used tables displayed in the navigation panel
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NumRecentTables = 10;
+    public $NumRecentTables;
 
     /**
      * number of favorite tables displayed in the navigation panel
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NumFavoriteTables = 10;
+    public $NumFavoriteTables;
 
     /**
      * display a JavaScript table filter in the navigation panel
@@ -618,25 +555,22 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeDisplayItemFilterMinimum = 30;
+    public $NavigationTreeDisplayItemFilterMinimum;
 
     /**
      * display server choice at top of navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationDisplayServers = true;
+    public $NavigationDisplayServers;
 
     /**
      * server choice as links
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DisplayServersList = false;
+    public $DisplayServersList;
 
     /**
      * display a JavaScript database filter in the navigation panel
@@ -644,9 +578,8 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeDisplayDbFilterMinimum = 30;
+    public $NavigationTreeDisplayDbFilterMinimum;
 
     /**
      * target of the navigation panel quick access icon
@@ -660,9 +593,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeDefaultTabTable = 'structure';
+    public $NavigationTreeDefaultTabTable;
 
     /**
      * target of the navigation panel quick second access icon
@@ -677,171 +609,150 @@ final class Settings
      *
      * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'|''
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeDefaultTabTable2 = '';
+    public $NavigationTreeDefaultTabTable2;
 
     /**
      * Enables the possibility of navigation tree expansion
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeEnableExpansion = true;
+    public $NavigationTreeEnableExpansion;
 
     /**
      * Show tables in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeShowTables = true;
+    public $NavigationTreeShowTables;
 
     /**
      * Show views in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeShowViews = true;
+    public $NavigationTreeShowViews;
 
     /**
      * Show functions in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeShowFunctions = true;
+    public $NavigationTreeShowFunctions;
 
     /**
      * Show procedures in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeShowProcedures = true;
+    public $NavigationTreeShowProcedures;
 
     /**
      * Show events in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeShowEvents = true;
+    public $NavigationTreeShowEvents;
 
     /**
      * Width of navigation panel
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationWidth = 240;
+    public $NavigationWidth;
 
     /**
      * Automatically expands single database in navigation panel
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreeAutoexpandSingleDb = true;
+    public $NavigationTreeAutoexpandSingleDb;
 
     /**
      * allow to display statistics and space usage in the pages about database
      * details and table properties
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowStats = true;
+    public $ShowStats;
 
     /**
      * show PHP info link
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowPhpInfo = false;
+    public $ShowPhpInfo;
 
     /**
      * show MySQL server and web server information
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowServerInfo = true;
+    public $ShowServerInfo;
 
     /**
      * show change password link
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowChgPassword = true;
+    public $ShowChgPassword;
 
     /**
      * show create database form
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowCreateDb = true;
+    public $ShowCreateDb;
 
     /**
      * show charset column in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDbStructureCharset = false;
+    public $ShowDbStructureCharset;
 
     /**
      * show comment column in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDbStructureComment = false;
+    public $ShowDbStructureComment;
 
     /**
      * show creation timestamp column in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDbStructureCreation = false;
+    public $ShowDbStructureCreation;
 
     /**
      * show last update timestamp column in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDbStructureLastUpdate = false;
+    public $ShowDbStructureLastUpdate;
 
     /**
      * show last check timestamp column in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowDbStructureLastCheck = false;
+    public $ShowDbStructureLastCheck;
 
     /**
      * allow hide action columns to drop down menu in database structure (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $HideStructureActions = true;
+    public $HideStructureActions;
 
     /**
      * Show column comments in table structure view (true|false)?
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowColumnComments = true;
+    public $ShowColumnComments;
 
     /**
      * Use icons instead of text for the navigation bar buttons (table browse)
@@ -849,18 +760,16 @@ final class Settings
      *
      * @var string
      * @psalm-var 'text'|'icons'|'both'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TableNavigationLinksMode = 'icons';
+    public $TableNavigationLinksMode;
 
     /**
      * Defines whether a user should be displayed a "show all (records)"
      * button in browse mode or not.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowAll = false;
+    public $ShowAll;
 
     /**
      * Number of rows displayed when browsing a result set. If the result
@@ -869,9 +778,8 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxRows = 25;
+    public $MaxRows;
 
     /**
      * default for 'ORDER BY' clause (valid values are 'ASC', 'DESC' or 'SMART' -ie
@@ -880,17 +788,15 @@ final class Settings
      *
      * @var string
      * @psalm-var 'ASC'|'DESC'|'SMART'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $Order = 'SMART';
+    public $Order;
 
     /**
      * grid editing: save edited cell(s) in browse-mode at once
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SaveCellsAtOnce = false;
+    public $SaveCellsAtOnce;
 
     /**
      * grid editing: which action triggers it, or completely disable the feature
@@ -902,9 +808,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'double-click'|'click'|'disabled'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $GridEditing = 'double-click';
+    public $GridEditing;
 
     /**
      * Options > Relational display
@@ -915,9 +820,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'K'|'D'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RelationalDisplay = 'K';
+    public $RelationalDisplay;
 
     /**
      * disallow editing of binary fields
@@ -929,25 +833,22 @@ final class Settings
      *
      * @var string|false
      * @psalm-var 'blob'|'noblob'|'all'|false
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ProtectBinary = 'blob';
+    public $ProtectBinary;
 
     /**
      * Display the function fields in edit/insert mode
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowFunctionFields = true;
+    public $ShowFunctionFields;
 
     /**
      * Display the type fields in edit/insert mode
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowFieldTypesInDataEditView = true;
+    public $ShowFieldTypesInDataEditView;
 
     /**
      * Which editor should be used for CHAR/VARCHAR fields:
@@ -956,36 +857,32 @@ final class Settings
      *
      * @var string
      * @psalm-var 'input'|'textarea'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CharEditing = 'input';
+    public $CharEditing;
 
     /**
      * The minimum size for character input fields
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MinSizeForInputField = 4;
+    public $MinSizeForInputField;
 
     /**
      * The maximum size for character input fields
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxSizeForInputField = 60;
+    public $MaxSizeForInputField;
 
     /**
      * How many rows can be inserted at one time
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $InsertRows = 2;
+    public $InsertRows;
 
     /**
      * Sort order for items in a foreign-key drop-down list.
@@ -993,78 +890,69 @@ final class Settings
      *
      * @var string[]
      * @psalm-var array{0: 'content-id'|'id-content', 1?: 'content-id'|'id-content'}
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ForeignKeyDropdownOrder = ['content-id', 'id-content'];
+    public $ForeignKeyDropdownOrder;
 
     /**
      * A drop-down list will be used if fewer items are present
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ForeignKeyMaxLimit = 100;
+    public $ForeignKeyMaxLimit;
 
     /**
      * Whether to disable foreign key checks while importing
      *
      * @var string
      * @psalm-var 'default'|'enable'|'disable'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultForeignKeyChecks = 'default';
+    public $DefaultForeignKeyChecks;
 
     /**
      * Allow for the use of zip compression (requires zip support to be enabled)
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ZipDump = true;
+    public $ZipDump;
 
     /**
      * Allow for the use of gzip compression (requires zlib)
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $GZipDump = true;
+    public $GZipDump;
 
     /**
      * Allow for the use of bzip2 decompression (requires bz2 extension)
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $BZipDump = true;
+    public $BZipDump;
 
     /**
      * Will compress gzip exports on the fly without the need for much memory.
      * If you encounter problems with created gzip files disable this feature.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CompressOnFly = true;
+    public $CompressOnFly;
 
     /**
      * How to display the menu tabs ('icons'|'text'|'both')
      *
      * @var string
      * @psalm-var 'icons'|'text'|'both'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TabsMode = 'both';
+    public $TabsMode;
 
     /**
      * How to display various action links ('icons'|'text'|'both')
      *
      * @var string
      * @psalm-var 'icons'|'text'|'both'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ActionLinksMode = 'both';
+    public $ActionLinksMode;
 
     /**
      * How many columns should be used for table display of a database?
@@ -1072,9 +960,8 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PropertiesNumColumns = 1;
+    public $PropertiesNumColumns;
 
     /**
      * Possible values:
@@ -1086,9 +973,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'welcome'|'databases'|'status'|'variables'|'privileges'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultTabServer = 'welcome';
+    public $DefaultTabServer;
 
     /**
      * Possible values:
@@ -1099,9 +985,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'structure'|'sql'|'search'|'operations'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultTabDatabase = 'structure';
+    public $DefaultTabDatabase;
 
     /**
      * Possible values:
@@ -1113,9 +998,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultTabTable = 'browse';
+    public $DefaultTabTable;
 
     /**
      * Whether to display image or text or both image and text in table row
@@ -1123,72 +1007,52 @@ final class Settings
      *
      * @var string
      * @psalm-var 'icons'|'text'|'both'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RowActionType = 'both';
+    public $RowActionType;
 
-    /**
-     * @var Export
-     * @psalm-readonly-allow-private-mutation
-     */
+    /** @var Export */
     public $Export;
 
-    /**
-     * @var Import
-     * @psalm-readonly-allow-private-mutation
-     */
+    /** @var Import */
     public $Import;
 
-    /**
-     * @var Schema
-     * @psalm-readonly-allow-private-mutation
-     */
+    /** @var Schema */
     public $Schema;
 
-    /**
-     * @var string[]
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PDFPageSizes = ['A3', 'A4', 'A5', 'letter', 'legal'];
+    /** @var string[] */
+    public $PDFPageSizes;
 
-    /**
-     * @var string
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PDFDefaultPageSize = 'A4';
+    /** @var string */
+    public $PDFDefaultPageSize;
 
     /**
      * Default language to use, if not browser-defined or user-defined
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultLang = 'en';
+    public $DefaultLang;
 
     /**
      * Default connection collation
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultConnectionCollation = 'utf8mb4_unicode_ci';
+    public $DefaultConnectionCollation;
 
     /**
      * Force: always use this language, e.g. 'en'
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $Lang = '';
+    public $Lang;
 
     /**
      * Regular expression to limit listed languages, e.g. '^(cs|en)' for Czech and
      * English only
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $FilterLanguages = '';
+    public $FilterLanguages;
 
     /**
      * You can select here which functions will be used for character set conversion.
@@ -1201,9 +1065,8 @@ final class Settings
      *
      * @var string
      * @psalm-var 'auto'|'iconv'|'recode'|'mb'|'none'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RecodingEngine = 'auto';
+    public $RecodingEngine;
 
     /**
      * Specify some parameters for iconv used in character set conversion. See iconv
@@ -1211,9 +1074,8 @@ final class Settings
      * https://www.gnu.org/savannah-checkouts/gnu/libiconv/documentation/libiconv-1.15/iconv_open.3.html
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $IconvExtraParams = '//TRANSLIT';
+    public $IconvExtraParams;
 
     /**
      * Available character sets for MySQL conversion. currently contains all which could
@@ -1222,67 +1084,29 @@ final class Settings
      * use some of these move them to the top.
      *
      * @var string[]
-     * @psalm-readonly-allow-private-mutation
      */
-    public $AvailableCharsets = [
-        'iso-8859-1',
-        'iso-8859-2',
-        'iso-8859-3',
-        'iso-8859-4',
-        'iso-8859-5',
-        'iso-8859-6',
-        'iso-8859-7',
-        'iso-8859-8',
-        'iso-8859-9',
-        'iso-8859-10',
-        'iso-8859-11',
-        'iso-8859-12',
-        'iso-8859-13',
-        'iso-8859-14',
-        'iso-8859-15',
-        'windows-1250',
-        'windows-1251',
-        'windows-1252',
-        'windows-1256',
-        'windows-1257',
-        'koi8-r',
-        'big5',
-        'gb2312',
-        'utf-16',
-        'utf-8',
-        'utf-7',
-        'x-user-defined',
-        'euc-jp',
-        'ks_c_5601-1987',
-        'tis-620',
-        'SHIFT_JIS',
-        'SJIS',
-        'SJIS-win',
-    ];
+    public $AvailableCharsets;
 
     /**
      * enable the left panel pointer
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NavigationTreePointerEnable = true;
+    public $NavigationTreePointerEnable;
 
     /**
      * enable the browse pointer
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $BrowsePointerEnable = true;
+    public $BrowsePointerEnable;
 
     /**
      * enable the browse marker
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $BrowseMarkerEnable = true;
+    public $BrowseMarkerEnable;
 
     /**
      * textarea size (columns) in edit mode
@@ -1291,61 +1115,54 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TextareaCols = 40;
+    public $TextareaCols;
 
     /**
      * textarea size (rows) in edit mode
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TextareaRows = 15;
+    public $TextareaRows;
 
     /**
      * double size of textarea size for LONGTEXT columns
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LongtextDoubleTextarea = true;
+    public $LongtextDoubleTextarea;
 
     /**
      * auto-select when clicking in the textarea of the query-box
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TextareaAutoSelect = false;
+    public $TextareaAutoSelect;
 
     /**
      * textarea size (columns) for CHAR/VARCHAR
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CharTextareaCols = 40;
+    public $CharTextareaCols;
 
     /**
      * textarea size (rows) for CHAR/VARCHAR
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CharTextareaRows = 7;
+    public $CharTextareaRows;
 
     /**
      * Max field data length in browse mode for all non-numeric fields
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LimitChars = 50;
+    public $LimitChars;
 
     /**
      * Where to show the edit/copy/delete links in browse mode
@@ -1353,112 +1170,99 @@ final class Settings
      *
      * @var string
      * @psalm-var 'left'|'right'|'both'|'none'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RowActionLinks = 'left';
+    public $RowActionLinks;
 
     /**
      * Whether to show row links (Edit, Copy, Delete) and checkboxes for
      * multiple row operations even when the selection does not have a unique key.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RowActionLinksWithoutUnique = false;
+    public $RowActionLinksWithoutUnique;
 
     /**
      * Default sort order by primary key.
      *
      * @var string
      * @psalm-var 'NONE'|'ASC'|'DESC'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TablePrimaryKeyOrder = 'NONE';
+    public $TablePrimaryKeyOrder;
 
     /**
      * remember the last way a table sorted
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RememberSorting = true;
+    public $RememberSorting;
 
     /**
      * shows column comments in 'browse' mode.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowBrowseComments = true;
+    public $ShowBrowseComments;
 
     /**
      * shows column comments in 'table property' mode.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowPropertyComments = true;
+    public $ShowPropertyComments;
 
     /**
      * repeat header names every X cells? (0 = deactivate)
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $RepeatCells = 100;
+    public $RepeatCells;
 
     /**
      * Set to true if you want DB-based query history.If false, this utilizes
      * JS-routines to display query history (lost by window close)
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $QueryHistoryDB = false;
+    public $QueryHistoryDB;
 
     /**
      * When using DB-based query history, how many entries should be kept?
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $QueryHistoryMax = 25;
+    public $QueryHistoryMax;
 
     /**
      * Use MIME-Types (stored in column comments table) for
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $BrowseMIME = true;
+    public $BrowseMIME;
 
     /**
      * When approximate count < this, PMA will get exact count for table rows.
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxExactCount = 50000;
+    public $MaxExactCount;
 
     /**
      * Zero means that no row count is done for views; see the doc
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MaxExactCountViews = 0;
+    public $MaxExactCountViews;
 
     /**
      * Sort table and database in natural order
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $NaturalOrder = true;
+    public $NaturalOrder;
 
     /**
      * Initial state for sliders
@@ -1466,100 +1270,88 @@ final class Settings
      *
      * @var string
      * @psalm-var 'open'|'closed'|'disabled'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $InitialSlidersState = 'closed';
+    public $InitialSlidersState;
 
     /**
      * User preferences: disallow these settings
      * For possible setting names look in libraries/config/user_preferences.forms.php
      *
      * @var string[]
-     * @psalm-readonly-allow-private-mutation
      */
-    public $UserprefsDisallow = [];
+    public $UserprefsDisallow;
 
     /**
      * User preferences: enable the Developer tab
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $UserprefsDeveloperTab = false;
+    public $UserprefsDeveloperTab;
 
     /**
      * title of browser window when a table is selected
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TitleTable = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
+    public $TitleTable;
 
     /**
      * title of browser window when a database is selected
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TitleDatabase = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@';
+    public $TitleDatabase;
 
     /**
      * title of browser window when a server is selected
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TitleServer = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
+    public $TitleServer;
 
     /**
      * title of browser window when nothing is selected
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TitleDefault = '@HTTP_HOST@ | @PHPMYADMIN@';
+    public $TitleDefault;
 
     /**
      * if you want to use selectable themes and if ThemesPath not empty
      * set it to true, else set it to false (default is false);
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ThemeManager = true;
+    public $ThemeManager;
 
     /**
      * set up default theme, you can set up here an valid
      * path to themes or 'original' for the original pma-theme
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ThemeDefault = 'pmahomme';
+    public $ThemeDefault;
 
     /**
      * allow different theme for each configured server
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ThemePerServer = false;
+    public $ThemePerServer;
 
     /**
      * Default query for table
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultQueryTable = 'SELECT * FROM @TABLE@ WHERE 1';
+    public $DefaultQueryTable;
 
     /**
      * Default query for database
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultQueryDatabase = '';
+    public $DefaultQueryDatabase;
 
     /**
      * SQL Query box settings
@@ -1567,29 +1359,15 @@ final class Settings
      *
      * @var array<string, bool>
      * @psalm-var array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SQLQuery = [
-        // Display an "Edit" link on the results page to change a query
-        'Edit' => true,
-
-        // Display an "Explain SQL" link on the results page
-        'Explain' => true,
-
-        // Display a "Create PHP code" link on the results page to wrap a query in PHP
-        'ShowAsPHP' => true,
-
-        // Display a "Refresh" link on the results page
-        'Refresh' => true,
-    ];
+    public $SQLQuery;
 
     /**
      * Enables autoComplete for table & column names in SQL queries
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $EnableAutocompleteForTablesAndColumns = true;
+    public $EnableAutocompleteForTablesAndColumns;
 
     /**
      * Directory for uploaded files that can be executed by phpMyAdmin.
@@ -1597,9 +1375,8 @@ final class Settings
      * Use %u for username inclusion.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $UploadDir = '';
+    public $UploadDir;
 
     /**
      * Directory where phpMyAdmin can save exported data on server.
@@ -1607,17 +1384,15 @@ final class Settings
      * Use %u for username inclusion.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SaveDir = '';
+    public $SaveDir;
 
     /**
      * Directory where phpMyAdmin can save temporary files.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TempDir = ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR;
+    public $TempDir;
 
     /**
      * Is GD >= 2 available? Set to yes/no/auto. 'auto' does auto-detection,
@@ -1625,17 +1400,15 @@ final class Settings
      *
      * @var string
      * @psalm-var 'auto'|'yes'|'no'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $GD2Available = 'auto';
+    public $GD2Available;
 
     /**
      * Lists proxy IP and HTTP header combinations which are trusted for IP allow/deny
      *
      * @var array<string, string>
-     * @psalm-readonly-allow-private-mutation
      */
-    public $TrustedProxies = [];
+    public $TrustedProxies;
 
     /**
      * We normally check the permissions on the configuration file to ensure
@@ -1645,9 +1418,8 @@ final class Settings
      * a sysadmin would set the following to false.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CheckConfigurationPermissions = true;
+    public $CheckConfigurationPermissions;
 
     /**
      * Limit for length of URL in links. When length would be above this limit, it
@@ -1659,17 +1431,15 @@ final class Settings
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $LinkLengthLimit = 1000;
+    public $LinkLengthLimit;
 
     /**
      * Additional string to allow in CSP headers.
      *
      * @var string
-     * @psalm-readonly-allow-private-mutation
      */
-    public $CSPAllow = '';
+    public $CSPAllow;
 
     /**
      * Disable the table maintenance mass operations, like optimizing or
@@ -1677,9 +1447,8 @@ final class Settings
      * of such a maintenance task can enormously slow down a bigger database.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DisableMultiTableMaintenance = false;
+    public $DisableMultiTableMaintenance;
 
     /**
      * Whether or not to query the user before sending the error report to
@@ -1690,46 +1459,30 @@ final class Settings
      *
      * @var string
      * @psalm-var 'ask'|'always'|'never'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $SendErrorReports = 'ask';
+    public $SendErrorReports;
 
     /**
      * Whether Enter or Ctrl+Enter executes queries in the console.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ConsoleEnterExecutes = false;
+    public $ConsoleEnterExecutes;
 
     /**
      * Zero Configuration mode.
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ZeroConf = true;
+    public $ZeroConf;
 
     /**
      * Developers ONLY!
      *
      * @var array<string, bool>
      * @psalm-var array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool}
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DBG = [
-        // Output executed queries and their execution times
-        'sql' => false,
-
-        // Log executed queries and their execution times to syslog
-        'sqllog' => false,
-
-        // Enable to let server present itself as demo server.
-        'demo' => false,
-
-        // Enable Simple two-factor authentication
-        'simple2fa' => false,
-    ];
+    public $DBG;
 
     /**
      * Sets the working environment
@@ -1741,58 +1494,45 @@ final class Settings
      *
      * @var string
      * @psalm-var 'production'|'development'
-     * @psalm-readonly-allow-private-mutation
      */
-    public $environment = 'production';
+    public $environment;
 
     /**
      * Default functions for above defined groups
      *
      * @var array<string, string>
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DefaultFunctions = [
-        'FUNC_CHAR' => '',
-        'FUNC_DATE' => '',
-        'FUNC_NUMBER' => '',
-        'FUNC_SPATIAL' => 'GeomFromText',
-        'FUNC_UUID' => 'UUID',
-        'first_timestamp' => 'NOW',
-    ];
+    public $DefaultFunctions;
 
     /**
      * Max rows retrieved for zoom search
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $maxRowPlotLimit = 500;
+    public $maxRowPlotLimit;
 
     /**
      * Show Git revision if applicable
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $ShowGitRevision = true;
+    public $ShowGitRevision;
 
     /**
      * MySQL minimal version required
      *
      * @var array<string, int|string>
      * @psalm-var array{internal: int, human: string}
-     * @psalm-readonly-allow-private-mutation
      */
-    public $MysqlMinVersion = ['internal' => 50500, 'human' => '5.5.0'];
+    public $MysqlMinVersion;
 
     /**
      * Disable shortcuts
      *
      * @var bool
-     * @psalm-readonly-allow-private-mutation
      */
-    public $DisableShortcutKeys = false;
+    public $DisableShortcutKeys;
 
     /**
      * Console configuration
@@ -1812,26 +1552,13 @@ final class Settings
      *   OrderBy: 'exec'|'time'|'count',
      *   Order: 'asc'|'desc'
      * }
-     * @psalm-readonly-allow-private-mutation
      */
-    public $Console = [
-        'StartHistory' => false,
-        'AlwaysExpand' => false,
-        'CurrentQuery' => true,
-        'EnterExecutes' => false,
-        'DarkTheme' => false,
-        'Mode' => 'info',
-        'Height' => 92,
-        'GroupQueries' => false,
-        'OrderBy' => 'exec',
-        'Order' => 'asc',
-    ];
+    public $Console;
 
     /**
      * Initialize default transformations array
      *
      * @var Transformations
-     * @psalm-readonly-allow-private-mutation
      */
     public $DefaultTransformations;
 
@@ -1840,673 +1567,613 @@ final class Settings
      *
      * @var int
      * @psalm-var 0|positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $FirstDayOfCalendar = 0;
+    public $FirstDayOfCalendar;
 
-    /**
-     * @var bool
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $is_setup = false;
+    /** @var bool */
+    public $is_setup;
 
-    /**
-     * @var bool
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PMA_IS_WINDOWS = false;
+    /** @var bool */
+    public $PMA_IS_WINDOWS;
 
     /**
      * @var int
      * @psalm-var 0|1
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PMA_IS_IIS = 0;
+    public $PMA_IS_IIS;
 
     /**
      * @var int
      * @psalm-var 0|1
-     * @psalm-readonly-allow-private-mutation
      */
-    public $PMA_IS_GD2 = 0;
+    public $PMA_IS_GD2;
 
-    /**
-     * @var string
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PMA_USR_OS = 'Other';
+    /** @var string */
+    public $PMA_USR_OS;
 
-    /**
-     * @var string|int
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PMA_USR_BROWSER_VER = 0;
+    /** @var string|int */
+    public $PMA_USR_BROWSER_VER;
 
-    /**
-     * @var string
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $PMA_USR_BROWSER_AGENT = 'OTHER';
+    /** @var string */
+    public $PMA_USR_BROWSER_AGENT;
 
-    /**
-     * @var bool
-     * @psalm-readonly-allow-private-mutation
-     */
-    public $enable_upload = false;
+    /** @var bool */
+    public $enable_upload;
 
     /**
      * Default: 2M (2 * 1024 * 1024)
      *
      * @var int
      * @psalm-var positive-int
-     * @psalm-readonly-allow-private-mutation
      */
-    public $max_upload_size = 2097152;
+    public $max_upload_size;
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
     public function __construct(array $settings)
     {
-        $this->setPmaAbsoluteUri($settings);
-        $this->setAuthLog($settings);
-        $this->setAuthLogSuccess($settings);
-        $this->setPmaNoRelationDisableWarning($settings);
-        $this->setSuhosinDisableWarning($settings);
-        $this->setLoginCookieValidityDisableWarning($settings);
-        $this->setReservedWordDisableWarning($settings);
-        $this->setTranslationWarningThreshold($settings);
-        $this->setAllowThirdPartyFraming($settings);
-        $this->setBlowfishSecret($settings);
-        $this->setServers($settings);
-        $this->setServerDefault($settings);
-        $this->setVersionCheck($settings);
-        $this->setProxyUrl($settings);
-        $this->setProxyUser($settings);
-        $this->setProxyPass($settings);
-        $this->setMaxDbList($settings);
-        $this->setMaxTableList($settings);
-        $this->setShowHint($settings);
-        $this->setMaxCharactersInDisplayedSQL($settings);
-        $this->setOBGzip($settings);
-        $this->setPersistentConnections($settings);
-        $this->setExecTimeLimit($settings);
-        $this->setSessionSavePath($settings);
-        $this->setMysqlSslWarningSafeHosts($settings);
-        $this->setMemoryLimit($settings);
-        $this->setSkipLockedTables($settings);
-        $this->setShowSQL($settings);
-        $this->setRetainQueryBox($settings);
-        $this->setCodemirrorEnable($settings);
-        $this->setLintEnable($settings);
-        $this->setAllowUserDropDatabase($settings);
-        $this->setConfirm($settings);
-        $this->setCookieSameSite($settings);
-        $this->setLoginCookieRecall($settings);
-        $this->setLoginCookieValidity($settings);
-        $this->setLoginCookieStore($settings);
-        $this->setLoginCookieDeleteAll($settings);
-        $this->setUseDbSearch($settings);
-        $this->setIgnoreMultiSubmitErrors($settings);
-        $this->setAllowArbitraryServer($settings);
-        $this->setArbitraryServerRegexp($settings);
-        $this->setCaptchaMethod($settings);
-        $this->setCaptchaApi($settings);
-        $this->setCaptchaCsp($settings);
-        $this->setCaptchaRequestParam($settings);
-        $this->setCaptchaResponseParam($settings);
-        $this->setCaptchaLoginPublicKey($settings);
-        $this->setCaptchaLoginPrivateKey($settings);
-        $this->setCaptchaSiteVerifyURL($settings);
-        $this->setEnableDragDropImport($settings);
-        $this->setShowDatabasesNavigationAsTree($settings);
-        $this->setFirstLevelNavigationItems($settings);
-        $this->setMaxNavigationItems($settings);
-        $this->setNavigationTreeEnableGrouping($settings);
-        $this->setNavigationTreeDbSeparator($settings);
-        $this->setNavigationTreeTableSeparator($settings);
-        $this->setNavigationTreeTableLevel($settings);
-        $this->setNavigationLinkWithMainPanel($settings);
-        $this->setNavigationDisplayLogo($settings);
-        $this->setNavigationLogoLink($settings);
-        $this->setNavigationLogoLinkWindow($settings);
-        $this->setNumRecentTables($settings);
-        $this->setNumFavoriteTables($settings);
-        $this->setNavigationTreeDisplayItemFilterMinimum($settings);
-        $this->setNavigationDisplayServers($settings);
-        $this->setDisplayServersList($settings);
-        $this->setNavigationTreeDisplayDbFilterMinimum($settings);
-        $this->setNavigationTreeDefaultTabTable($settings);
-        $this->setNavigationTreeDefaultTabTable2($settings);
-        $this->setNavigationTreeEnableExpansion($settings);
-        $this->setNavigationTreeShowTables($settings);
-        $this->setNavigationTreeShowViews($settings);
-        $this->setNavigationTreeShowFunctions($settings);
-        $this->setNavigationTreeShowProcedures($settings);
-        $this->setNavigationTreeShowEvents($settings);
-        $this->setNavigationWidth($settings);
-        $this->setNavigationTreeAutoexpandSingleDb($settings);
-        $this->setShowStats($settings);
-        $this->setShowPhpInfo($settings);
-        $this->setShowServerInfo($settings);
-        $this->setShowChgPassword($settings);
-        $this->setShowCreateDb($settings);
-        $this->setShowDbStructureCharset($settings);
-        $this->setShowDbStructureComment($settings);
-        $this->setShowDbStructureCreation($settings);
-        $this->setShowDbStructureLastUpdate($settings);
-        $this->setShowDbStructureLastCheck($settings);
-        $this->setHideStructureActions($settings);
-        $this->setShowColumnComments($settings);
-        $this->setTableNavigationLinksMode($settings);
-        $this->setShowAll($settings);
-        $this->setMaxRows($settings);
-        $this->setOrder($settings);
-        $this->setSaveCellsAtOnce($settings);
-        $this->setGridEditing($settings);
-        $this->setRelationalDisplay($settings);
-        $this->setProtectBinary($settings);
-        $this->setShowFunctionFields($settings);
-        $this->setShowFieldTypesInDataEditView($settings);
-        $this->setCharEditing($settings);
-        $this->setMinSizeForInputField($settings);
-        $this->setMaxSizeForInputField($settings);
-        $this->setInsertRows($settings);
-        $this->setForeignKeyDropdownOrder($settings);
-        $this->setForeignKeyMaxLimit($settings);
-        $this->setDefaultForeignKeyChecks($settings);
-        $this->setZipDump($settings);
-        $this->setGZipDump($settings);
-        $this->setBZipDump($settings);
-        $this->setCompressOnFly($settings);
-        $this->setTabsMode($settings);
-        $this->setActionLinksMode($settings);
-        $this->setPropertiesNumColumns($settings);
-        $this->setDefaultTabServer($settings);
-        $this->setDefaultTabDatabase($settings);
-        $this->setDefaultTabTable($settings);
-        $this->setRowActionType($settings);
-        $this->setExport($settings);
-        $this->setImport($settings);
-        $this->setSchema($settings);
-        $this->setPDFPageSizes($settings);
-        $this->setPDFDefaultPageSize($settings);
-        $this->setDefaultLang($settings);
-        $this->setDefaultConnectionCollation($settings);
-        $this->setLang($settings);
-        $this->setFilterLanguages($settings);
-        $this->setRecodingEngine($settings);
-        $this->setIconvExtraParams($settings);
-        $this->setAvailableCharsets($settings);
-        $this->setNavigationTreePointerEnable($settings);
-        $this->setBrowsePointerEnable($settings);
-        $this->setBrowseMarkerEnable($settings);
-        $this->setTextareaCols($settings);
-        $this->setTextareaRows($settings);
-        $this->setLongtextDoubleTextarea($settings);
-        $this->setTextareaAutoSelect($settings);
-        $this->setCharTextareaCols($settings);
-        $this->setCharTextareaRows($settings);
-        $this->setLimitChars($settings);
-        $this->setRowActionLinks($settings);
-        $this->setRowActionLinksWithoutUnique($settings);
-        $this->setTablePrimaryKeyOrder($settings);
-        $this->setRememberSorting($settings);
-        $this->setShowBrowseComments($settings);
-        $this->setShowPropertyComments($settings);
-        $this->setRepeatCells($settings);
-        $this->setQueryHistoryDB($settings);
-        $this->setQueryHistoryMax($settings);
-        $this->setBrowseMIME($settings);
-        $this->setMaxExactCount($settings);
-        $this->setMaxExactCountViews($settings);
-        $this->setNaturalOrder($settings);
-        $this->setInitialSlidersState($settings);
-        $this->setUserprefsDisallow($settings);
-        $this->setUserprefsDeveloperTab($settings);
-        $this->setTitleTable($settings);
-        $this->setTitleDatabase($settings);
-        $this->setTitleServer($settings);
-        $this->setTitleDefault($settings);
-        $this->setThemeManager($settings);
-        $this->setThemeDefault($settings);
-        $this->setThemePerServer($settings);
-        $this->setDefaultQueryTable($settings);
-        $this->setDefaultQueryDatabase($settings);
-        $this->setSQLQuery($settings);
-        $this->setEnableAutocompleteForTablesAndColumns($settings);
-        $this->setUploadDir($settings);
-        $this->setSaveDir($settings);
-        $this->setTempDir($settings);
-        $this->setGD2Available($settings);
-        $this->setTrustedProxies($settings);
-        $this->setCheckConfigurationPermissions($settings);
-        $this->setLinkLengthLimit($settings);
-        $this->setCSPAllow($settings);
-        $this->setDisableMultiTableMaintenance($settings);
-        $this->setSendErrorReports($settings);
-        $this->setConsoleEnterExecutes($settings);
-        $this->setZeroConf($settings);
-        $this->setDBG($settings);
-        $this->setEnvironment($settings);
-        $this->setDefaultFunctions($settings);
-        $this->setMaxRowPlotLimit($settings);
-        $this->setShowGitRevision($settings);
-        $this->setMysqlMinVersion($settings);
-        $this->setDisableShortcutKeys($settings);
-        $this->setConsole($settings);
-        $this->setDefaultTransformations($settings);
-        $this->setFirstDayOfCalendar($settings);
-        $this->setIsSetup($settings);
-        $this->setIsWindows($settings);
-        $this->setIsIIS($settings);
-        $this->setIsGD2($settings);
-        $this->setUserOperatingSystem($settings);
-        $this->setUserBrowserVersion($settings);
-        $this->setUserBrowserAgent($settings);
-        $this->setEnableUpload($settings);
-        $this->setMaxUploadSize($settings);
-        $this->setServer($settings);
+        $this->PmaAbsoluteUri = $this->setPmaAbsoluteUri($settings);
+        $this->AuthLog = $this->setAuthLog($settings);
+        $this->AuthLogSuccess = $this->setAuthLogSuccess($settings);
+        $this->PmaNoRelation_DisableWarning = $this->setPmaNoRelationDisableWarning($settings);
+        $this->SuhosinDisableWarning = $this->setSuhosinDisableWarning($settings);
+        $this->LoginCookieValidityDisableWarning = $this->setLoginCookieValidityDisableWarning($settings);
+        $this->ReservedWordDisableWarning = $this->setReservedWordDisableWarning($settings);
+        $this->TranslationWarningThreshold = $this->setTranslationWarningThreshold($settings);
+        $this->AllowThirdPartyFraming = $this->setAllowThirdPartyFraming($settings);
+        $this->blowfish_secret = $this->setBlowfishSecret($settings);
+        $this->Servers = $this->setServers($settings);
+        $this->ServerDefault = $this->setServerDefault($settings);
+        $this->VersionCheck = $this->setVersionCheck($settings);
+        $this->ProxyUrl = $this->setProxyUrl($settings);
+        $this->ProxyUser = $this->setProxyUser($settings);
+        $this->ProxyPass = $this->setProxyPass($settings);
+        $this->MaxDbList = $this->setMaxDbList($settings);
+        $this->MaxTableList = $this->setMaxTableList($settings);
+        $this->ShowHint = $this->setShowHint($settings);
+        $this->MaxCharactersInDisplayedSQL = $this->setMaxCharactersInDisplayedSQL($settings);
+        $this->OBGzip = $this->setOBGzip($settings);
+        $this->PersistentConnections = $this->setPersistentConnections($settings);
+        $this->ExecTimeLimit = $this->setExecTimeLimit($settings);
+        $this->SessionSavePath = $this->setSessionSavePath($settings);
+        $this->MysqlSslWarningSafeHosts = $this->setMysqlSslWarningSafeHosts($settings);
+        $this->MemoryLimit = $this->setMemoryLimit($settings);
+        $this->SkipLockedTables = $this->setSkipLockedTables($settings);
+        $this->ShowSQL = $this->setShowSQL($settings);
+        $this->RetainQueryBox = $this->setRetainQueryBox($settings);
+        $this->CodemirrorEnable = $this->setCodemirrorEnable($settings);
+        $this->LintEnable = $this->setLintEnable($settings);
+        $this->AllowUserDropDatabase = $this->setAllowUserDropDatabase($settings);
+        $this->Confirm = $this->setConfirm($settings);
+        $this->CookieSameSite = $this->setCookieSameSite($settings);
+        $this->LoginCookieRecall = $this->setLoginCookieRecall($settings);
+        $this->LoginCookieValidity = $this->setLoginCookieValidity($settings);
+        $this->LoginCookieStore = $this->setLoginCookieStore($settings);
+        $this->LoginCookieDeleteAll = $this->setLoginCookieDeleteAll($settings);
+        $this->UseDbSearch = $this->setUseDbSearch($settings);
+        $this->IgnoreMultiSubmitErrors = $this->setIgnoreMultiSubmitErrors($settings);
+        $this->AllowArbitraryServer = $this->setAllowArbitraryServer($settings);
+        $this->ArbitraryServerRegexp = $this->setArbitraryServerRegexp($settings);
+        $this->CaptchaMethod = $this->setCaptchaMethod($settings);
+        $this->CaptchaApi = $this->setCaptchaApi($settings);
+        $this->CaptchaCsp = $this->setCaptchaCsp($settings);
+        $this->CaptchaRequestParam = $this->setCaptchaRequestParam($settings);
+        $this->CaptchaResponseParam = $this->setCaptchaResponseParam($settings);
+        $this->CaptchaLoginPublicKey = $this->setCaptchaLoginPublicKey($settings);
+        $this->CaptchaLoginPrivateKey = $this->setCaptchaLoginPrivateKey($settings);
+        $this->CaptchaSiteVerifyURL = $this->setCaptchaSiteVerifyURL($settings);
+        $this->enable_drag_drop_import = $this->setEnableDragDropImport($settings);
+        $this->ShowDatabasesNavigationAsTree = $this->setShowDatabasesNavigationAsTree($settings);
+        $this->FirstLevelNavigationItems = $this->setFirstLevelNavigationItems($settings);
+        $this->MaxNavigationItems = $this->setMaxNavigationItems($settings);
+        $this->NavigationTreeEnableGrouping = $this->setNavigationTreeEnableGrouping($settings);
+        $this->NavigationTreeDbSeparator = $this->setNavigationTreeDbSeparator($settings);
+        $this->NavigationTreeTableSeparator = $this->setNavigationTreeTableSeparator($settings);
+        $this->NavigationTreeTableLevel = $this->setNavigationTreeTableLevel($settings);
+        $this->NavigationLinkWithMainPanel = $this->setNavigationLinkWithMainPanel($settings);
+        $this->NavigationDisplayLogo = $this->setNavigationDisplayLogo($settings);
+        $this->NavigationLogoLink = $this->setNavigationLogoLink($settings);
+        $this->NavigationLogoLinkWindow = $this->setNavigationLogoLinkWindow($settings);
+        $this->NumRecentTables = $this->setNumRecentTables($settings);
+        $this->NumFavoriteTables = $this->setNumFavoriteTables($settings);
+        $this->NavigationTreeDisplayItemFilterMinimum = $this->setNavigationTreeDisplayItemFilterMinimum($settings);
+        $this->NavigationDisplayServers = $this->setNavigationDisplayServers($settings);
+        $this->DisplayServersList = $this->setDisplayServersList($settings);
+        $this->NavigationTreeDisplayDbFilterMinimum = $this->setNavigationTreeDisplayDbFilterMinimum($settings);
+        $this->NavigationTreeDefaultTabTable = $this->setNavigationTreeDefaultTabTable($settings);
+        $this->NavigationTreeDefaultTabTable2 = $this->setNavigationTreeDefaultTabTable2($settings);
+        $this->NavigationTreeEnableExpansion = $this->setNavigationTreeEnableExpansion($settings);
+        $this->NavigationTreeShowTables = $this->setNavigationTreeShowTables($settings);
+        $this->NavigationTreeShowViews = $this->setNavigationTreeShowViews($settings);
+        $this->NavigationTreeShowFunctions = $this->setNavigationTreeShowFunctions($settings);
+        $this->NavigationTreeShowProcedures = $this->setNavigationTreeShowProcedures($settings);
+        $this->NavigationTreeShowEvents = $this->setNavigationTreeShowEvents($settings);
+        $this->NavigationWidth = $this->setNavigationWidth($settings);
+        $this->NavigationTreeAutoexpandSingleDb = $this->setNavigationTreeAutoexpandSingleDb($settings);
+        $this->ShowStats = $this->setShowStats($settings);
+        $this->ShowPhpInfo = $this->setShowPhpInfo($settings);
+        $this->ShowServerInfo = $this->setShowServerInfo($settings);
+        $this->ShowChgPassword = $this->setShowChgPassword($settings);
+        $this->ShowCreateDb = $this->setShowCreateDb($settings);
+        $this->ShowDbStructureCharset = $this->setShowDbStructureCharset($settings);
+        $this->ShowDbStructureComment = $this->setShowDbStructureComment($settings);
+        $this->ShowDbStructureCreation = $this->setShowDbStructureCreation($settings);
+        $this->ShowDbStructureLastUpdate = $this->setShowDbStructureLastUpdate($settings);
+        $this->ShowDbStructureLastCheck = $this->setShowDbStructureLastCheck($settings);
+        $this->HideStructureActions = $this->setHideStructureActions($settings);
+        $this->ShowColumnComments = $this->setShowColumnComments($settings);
+        $this->TableNavigationLinksMode = $this->setTableNavigationLinksMode($settings);
+        $this->ShowAll = $this->setShowAll($settings);
+        $this->MaxRows = $this->setMaxRows($settings);
+        $this->Order = $this->setOrder($settings);
+        $this->SaveCellsAtOnce = $this->setSaveCellsAtOnce($settings);
+        $this->GridEditing = $this->setGridEditing($settings);
+        $this->RelationalDisplay = $this->setRelationalDisplay($settings);
+        $this->ProtectBinary = $this->setProtectBinary($settings);
+        $this->ShowFunctionFields = $this->setShowFunctionFields($settings);
+        $this->ShowFieldTypesInDataEditView = $this->setShowFieldTypesInDataEditView($settings);
+        $this->CharEditing = $this->setCharEditing($settings);
+        $this->MinSizeForInputField = $this->setMinSizeForInputField($settings);
+        $this->MaxSizeForInputField = $this->setMaxSizeForInputField($settings);
+        $this->InsertRows = $this->setInsertRows($settings);
+        $this->ForeignKeyDropdownOrder = $this->setForeignKeyDropdownOrder($settings);
+        $this->ForeignKeyMaxLimit = $this->setForeignKeyMaxLimit($settings);
+        $this->DefaultForeignKeyChecks = $this->setDefaultForeignKeyChecks($settings);
+        $this->ZipDump = $this->setZipDump($settings);
+        $this->GZipDump = $this->setGZipDump($settings);
+        $this->BZipDump = $this->setBZipDump($settings);
+        $this->CompressOnFly = $this->setCompressOnFly($settings);
+        $this->TabsMode = $this->setTabsMode($settings);
+        $this->ActionLinksMode = $this->setActionLinksMode($settings);
+        $this->PropertiesNumColumns = $this->setPropertiesNumColumns($settings);
+        $this->DefaultTabServer = $this->setDefaultTabServer($settings);
+        $this->DefaultTabDatabase = $this->setDefaultTabDatabase($settings);
+        $this->DefaultTabTable = $this->setDefaultTabTable($settings);
+        $this->RowActionType = $this->setRowActionType($settings);
+        $this->Export = $this->setExport($settings);
+        $this->Import = $this->setImport($settings);
+        $this->Schema = $this->setSchema($settings);
+        $this->PDFPageSizes = $this->setPDFPageSizes($settings);
+        $this->PDFDefaultPageSize = $this->setPDFDefaultPageSize($settings);
+        $this->DefaultLang = $this->setDefaultLang($settings);
+        $this->DefaultConnectionCollation = $this->setDefaultConnectionCollation($settings);
+        $this->Lang = $this->setLang($settings);
+        $this->FilterLanguages = $this->setFilterLanguages($settings);
+        $this->RecodingEngine = $this->setRecodingEngine($settings);
+        $this->IconvExtraParams = $this->setIconvExtraParams($settings);
+        $this->AvailableCharsets = $this->setAvailableCharsets($settings);
+        $this->NavigationTreePointerEnable = $this->setNavigationTreePointerEnable($settings);
+        $this->BrowsePointerEnable = $this->setBrowsePointerEnable($settings);
+        $this->BrowseMarkerEnable = $this->setBrowseMarkerEnable($settings);
+        $this->TextareaCols = $this->setTextareaCols($settings);
+        $this->TextareaRows = $this->setTextareaRows($settings);
+        $this->LongtextDoubleTextarea = $this->setLongtextDoubleTextarea($settings);
+        $this->TextareaAutoSelect = $this->setTextareaAutoSelect($settings);
+        $this->CharTextareaCols = $this->setCharTextareaCols($settings);
+        $this->CharTextareaRows = $this->setCharTextareaRows($settings);
+        $this->LimitChars = $this->setLimitChars($settings);
+        $this->RowActionLinks = $this->setRowActionLinks($settings);
+        $this->RowActionLinksWithoutUnique = $this->setRowActionLinksWithoutUnique($settings);
+        $this->TablePrimaryKeyOrder = $this->setTablePrimaryKeyOrder($settings);
+        $this->RememberSorting = $this->setRememberSorting($settings);
+        $this->ShowBrowseComments = $this->setShowBrowseComments($settings);
+        $this->ShowPropertyComments = $this->setShowPropertyComments($settings);
+        $this->RepeatCells = $this->setRepeatCells($settings);
+        $this->QueryHistoryDB = $this->setQueryHistoryDB($settings);
+        $this->QueryHistoryMax = $this->setQueryHistoryMax($settings);
+        $this->BrowseMIME = $this->setBrowseMIME($settings);
+        $this->MaxExactCount = $this->setMaxExactCount($settings);
+        $this->MaxExactCountViews = $this->setMaxExactCountViews($settings);
+        $this->NaturalOrder = $this->setNaturalOrder($settings);
+        $this->InitialSlidersState = $this->setInitialSlidersState($settings);
+        $this->UserprefsDisallow = $this->setUserprefsDisallow($settings);
+        $this->UserprefsDeveloperTab = $this->setUserprefsDeveloperTab($settings);
+        $this->TitleTable = $this->setTitleTable($settings);
+        $this->TitleDatabase = $this->setTitleDatabase($settings);
+        $this->TitleServer = $this->setTitleServer($settings);
+        $this->TitleDefault = $this->setTitleDefault($settings);
+        $this->ThemeManager = $this->setThemeManager($settings);
+        $this->ThemeDefault = $this->setThemeDefault($settings);
+        $this->ThemePerServer = $this->setThemePerServer($settings);
+        $this->DefaultQueryTable = $this->setDefaultQueryTable($settings);
+        $this->DefaultQueryDatabase = $this->setDefaultQueryDatabase($settings);
+        $this->SQLQuery = $this->setSQLQuery($settings);
+        $this->EnableAutocompleteForTablesAndColumns = $this->setEnableAutocompleteForTablesAndColumns($settings);
+        $this->UploadDir = $this->setUploadDir($settings);
+        $this->SaveDir = $this->setSaveDir($settings);
+        $this->TempDir = $this->setTempDir($settings);
+        $this->GD2Available = $this->setGD2Available($settings);
+        $this->TrustedProxies = $this->setTrustedProxies($settings);
+        $this->CheckConfigurationPermissions = $this->setCheckConfigurationPermissions($settings);
+        $this->LinkLengthLimit = $this->setLinkLengthLimit($settings);
+        $this->CSPAllow = $this->setCSPAllow($settings);
+        $this->DisableMultiTableMaintenance = $this->setDisableMultiTableMaintenance($settings);
+        $this->SendErrorReports = $this->setSendErrorReports($settings);
+        $this->ConsoleEnterExecutes = $this->setConsoleEnterExecutes($settings);
+        $this->ZeroConf = $this->setZeroConf($settings);
+        $this->DBG = $this->setDBG($settings);
+        $this->environment = $this->setEnvironment($settings);
+        $this->DefaultFunctions = $this->setDefaultFunctions($settings);
+        $this->maxRowPlotLimit = $this->setMaxRowPlotLimit($settings);
+        $this->ShowGitRevision = $this->setShowGitRevision($settings);
+        $this->MysqlMinVersion = $this->setMysqlMinVersion($settings);
+        $this->DisableShortcutKeys = $this->setDisableShortcutKeys($settings);
+        $this->Console = $this->setConsole($settings);
+        $this->DefaultTransformations = $this->setDefaultTransformations($settings);
+        $this->FirstDayOfCalendar = $this->setFirstDayOfCalendar($settings);
+        $this->is_setup = $this->setIsSetup($settings);
+        $this->PMA_IS_WINDOWS = $this->setIsWindows($settings);
+        $this->PMA_IS_IIS = $this->setIsIIS($settings);
+        $this->PMA_IS_GD2 = $this->setIsGD2($settings);
+        $this->PMA_USR_OS = $this->setUserOperatingSystem($settings);
+        $this->PMA_USR_BROWSER_VER = $this->setUserBrowserVersion($settings);
+        $this->PMA_USR_BROWSER_AGENT = $this->setUserBrowserAgent($settings);
+        $this->enable_upload = $this->setEnableUpload($settings);
+        $this->max_upload_size = $this->setMaxUploadSize($settings);
+        $this->Server = $this->setServer($settings);
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setPmaAbsoluteUri(array $settings): void
+    private function setPmaAbsoluteUri(array $settings): string
     {
         if (! isset($settings['PmaAbsoluteUri'])) {
-            return;
+            return '';
         }
 
-        $this->PmaAbsoluteUri = (string) $settings['PmaAbsoluteUri'];
+        return (string) $settings['PmaAbsoluteUri'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setAuthLog(array $settings): void
+    private function setAuthLog(array $settings): string
     {
         if (! isset($settings['AuthLog'])) {
-            return;
+            return 'auto';
         }
 
-        $this->AuthLog = (string) $settings['AuthLog'];
+        return (string) $settings['AuthLog'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setAuthLogSuccess(array $settings): void
+    private function setAuthLogSuccess(array $settings): bool
     {
         if (! isset($settings['AuthLogSuccess'])) {
-            return;
+            return false;
         }
 
-        $this->AuthLogSuccess = (bool) $settings['AuthLogSuccess'];
+        return (bool) $settings['AuthLogSuccess'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setPmaNoRelationDisableWarning(array $settings): void
+    private function setPmaNoRelationDisableWarning(array $settings): bool
     {
         if (! isset($settings['PmaNoRelation_DisableWarning'])) {
-            return;
+            return false;
         }
 
-        $this->PmaNoRelation_DisableWarning = (bool) $settings['PmaNoRelation_DisableWarning'];
+        return (bool) $settings['PmaNoRelation_DisableWarning'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSuhosinDisableWarning(array $settings): void
+    private function setSuhosinDisableWarning(array $settings): bool
     {
         if (! isset($settings['SuhosinDisableWarning'])) {
-            return;
+            return false;
         }
 
-        $this->SuhosinDisableWarning = (bool) $settings['SuhosinDisableWarning'];
+        return (bool) $settings['SuhosinDisableWarning'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLoginCookieValidityDisableWarning(array $settings): void
+    private function setLoginCookieValidityDisableWarning(array $settings): bool
     {
         if (! isset($settings['LoginCookieValidityDisableWarning'])) {
-            return;
+            return false;
         }
 
-        $this->LoginCookieValidityDisableWarning = (bool) $settings['LoginCookieValidityDisableWarning'];
+        return (bool) $settings['LoginCookieValidityDisableWarning'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setReservedWordDisableWarning(array $settings): void
+    private function setReservedWordDisableWarning(array $settings): bool
     {
         if (! isset($settings['ReservedWordDisableWarning'])) {
-            return;
+            return false;
         }
 
-        $this->ReservedWordDisableWarning = (bool) $settings['ReservedWordDisableWarning'];
+        return (bool) $settings['ReservedWordDisableWarning'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTranslationWarningThreshold(array $settings): void
+    private function setTranslationWarningThreshold(array $settings): int
     {
         if (! isset($settings['TranslationWarningThreshold'])) {
-            return;
+            return 80;
         }
 
         $threshold = (int) $settings['TranslationWarningThreshold'];
         if ($threshold < 0) {
-            return;
+            return 80;
         }
 
-        $this->TranslationWarningThreshold = min($threshold, 100);
+        return min($threshold, 100);
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return bool|string
+     * @psalm-return bool|'sameorigin'
      */
-    private function setAllowThirdPartyFraming(array $settings): void
+    private function setAllowThirdPartyFraming(array $settings)
     {
         if (! isset($settings['AllowThirdPartyFraming'])) {
-            return;
+            return false;
         }
 
         if ($settings['AllowThirdPartyFraming'] === 'sameorigin') {
-            $this->AllowThirdPartyFraming = 'sameorigin';
-
-            return;
+            return 'sameorigin';
         }
 
-        $this->AllowThirdPartyFraming = (bool) $settings['AllowThirdPartyFraming'];
+        return (bool) $settings['AllowThirdPartyFraming'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setBlowfishSecret(array $settings): void
+    private function setBlowfishSecret(array $settings): string
     {
         if (! isset($settings['blowfish_secret'])) {
-            return;
+            return '';
         }
 
-        $this->blowfish_secret = (string) $settings['blowfish_secret'];
+        return (string) $settings['blowfish_secret'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<int, Server>
+     * @psalm-return array<int<1, max>, Server>
      */
-    private function setServers(array $settings): void
+    private function setServers(array $settings): array
     {
         if (! isset($settings['Servers']) || ! is_array($settings['Servers'])) {
-            $this->Servers[1] = new Server();
-
-            return;
+            return [1 => new Server()];
         }
 
+        $servers = [];
         /**
-         * @var int $key
-         * @var array<string, mixed> $server
+         * @var int|string $key
+         * @var mixed $server
          */
         foreach ($settings['Servers'] as $key => $server) {
-            $this->Servers[$key] = new Server($server);
+            if (! is_int($key) || $key < 1 || ! is_array($server)) {
+                continue;
+            }
+
+            $servers[$key] = new Server($server);
         }
+
+        if (count($servers) === 0) {
+            return [1 => new Server()];
+        }
+
+        return $servers;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setServerDefault(array $settings): void
+    private function setServerDefault(array $settings): int
     {
         if (! isset($settings['ServerDefault'])) {
-            return;
+            return 1;
         }
 
         $serverDefault = (int) $settings['ServerDefault'];
-        if ($serverDefault < 0) {
-            return;
-        }
 
-        $this->ServerDefault = $serverDefault;
+        return $serverDefault >= 0 ? $serverDefault : 1;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setVersionCheck(array $settings): void
+    private function setVersionCheck(array $settings): bool
     {
+        $versionCheck = true;
         if (defined('VERSION_CHECK_DEFAULT')) {
-            $this->VersionCheck = VERSION_CHECK_DEFAULT;
+            $versionCheck = VERSION_CHECK_DEFAULT;
         }
 
         if (! isset($settings['VersionCheck'])) {
-            return;
+            return $versionCheck;
         }
 
-        $this->VersionCheck = (bool) $settings['VersionCheck'];
+        return (bool) $settings['VersionCheck'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setProxyUrl(array $settings): void
+    private function setProxyUrl(array $settings): string
     {
         if (! isset($settings['ProxyUrl'])) {
-            return;
+            return '';
         }
 
-        $this->ProxyUrl = (string) $settings['ProxyUrl'];
+        return (string) $settings['ProxyUrl'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setProxyUser(array $settings): void
+    private function setProxyUser(array $settings): string
     {
         if (! isset($settings['ProxyUser'])) {
-            return;
+            return '';
         }
 
-        $this->ProxyUser = (string) $settings['ProxyUser'];
+        return (string) $settings['ProxyUser'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setProxyPass(array $settings): void
+    private function setProxyPass(array $settings): string
     {
         if (! isset($settings['ProxyPass'])) {
-            return;
+            return '';
         }
 
-        $this->ProxyPass = (string) $settings['ProxyPass'];
+        return (string) $settings['ProxyPass'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxDbList(array $settings): void
+    private function setMaxDbList(array $settings): int
     {
         if (! isset($settings['MaxDbList'])) {
-            return;
+            return 100;
         }
 
         $maxDbList = (int) $settings['MaxDbList'];
-        if ($maxDbList <= 0) {
-            return;
-        }
 
-        $this->MaxDbList = $maxDbList;
+        return $maxDbList >= 1 ? $maxDbList : 100;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxTableList(array $settings): void
+    private function setMaxTableList(array $settings): int
     {
         if (! isset($settings['MaxTableList'])) {
-            return;
+            return 250;
         }
 
         $maxTableList = (int) $settings['MaxTableList'];
-        if ($maxTableList <= 0) {
-            return;
-        }
 
-        $this->MaxTableList = $maxTableList;
+        return $maxTableList >= 1 ? $maxTableList : 250;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowHint(array $settings): void
+    private function setShowHint(array $settings): bool
     {
         if (! isset($settings['ShowHint'])) {
-            return;
+            return true;
         }
 
-        $this->ShowHint = (bool) $settings['ShowHint'];
+        return (bool) $settings['ShowHint'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxCharactersInDisplayedSQL(array $settings): void
+    private function setMaxCharactersInDisplayedSQL(array $settings): int
     {
         if (! isset($settings['MaxCharactersInDisplayedSQL'])) {
-            return;
+            return 1000;
         }
 
         $maxCharactersInDisplayedSQL = (int) $settings['MaxCharactersInDisplayedSQL'];
-        if ($maxCharactersInDisplayedSQL <= 0) {
-            return;
-        }
 
-        $this->MaxCharactersInDisplayedSQL = $maxCharactersInDisplayedSQL;
+        return $maxCharactersInDisplayedSQL >= 1 ? $maxCharactersInDisplayedSQL : 1000;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return bool|string
+     * @psalm-return 'auto'|bool
      */
-    private function setOBGzip(array $settings): void
+    private function setOBGzip(array $settings)
     {
         if (! isset($settings['OBGzip']) || $settings['OBGzip'] === 'auto') {
-            return;
+            return 'auto';
         }
 
-        $this->OBGzip = (bool) $settings['OBGzip'];
+        return (bool) $settings['OBGzip'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setPersistentConnections(array $settings): void
+    private function setPersistentConnections(array $settings): bool
     {
         if (! isset($settings['PersistentConnections'])) {
-            return;
+            return false;
         }
 
-        $this->PersistentConnections = (bool) $settings['PersistentConnections'];
+        return (bool) $settings['PersistentConnections'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setExecTimeLimit(array $settings): void
+    private function setExecTimeLimit(array $settings): int
     {
         if (! isset($settings['ExecTimeLimit'])) {
-            return;
+            return 300;
         }
 
         $execTimeLimit = (int) $settings['ExecTimeLimit'];
-        if ($execTimeLimit < 0) {
-            return;
-        }
 
-        $this->ExecTimeLimit = $execTimeLimit;
+        return $execTimeLimit >= 0 ? $execTimeLimit : 300;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSessionSavePath(array $settings): void
+    private function setSessionSavePath(array $settings): string
     {
         if (! isset($settings['SessionSavePath'])) {
-            return;
+            return '';
         }
 
-        $this->SessionSavePath = (string) $settings['SessionSavePath'];
+        return (string) $settings['SessionSavePath'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return string[]
      */
-    private function setMysqlSslWarningSafeHosts(array $settings): void
+    private function setMysqlSslWarningSafeHosts(array $settings): array
     {
         if (! isset($settings['MysqlSslWarningSafeHosts']) || ! is_array($settings['MysqlSslWarningSafeHosts'])) {
-            return;
+            return ['127.0.0.1', 'localhost'];
         }
 
-        $this->MysqlSslWarningSafeHosts = [];
+        $hosts = [];
         /** @var mixed $host */
         foreach ($settings['MysqlSslWarningSafeHosts'] as $host) {
             $safeHost = (string) $host;
@@ -2514,1249 +2181,1115 @@ final class Settings
                 continue;
             }
 
-            $this->MysqlSslWarningSafeHosts[] = $safeHost;
+            $hosts[] = $safeHost;
         }
+
+        return $hosts;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setMemoryLimit(array $settings): void
+    private function setMemoryLimit(array $settings): string
     {
         if (! isset($settings['MemoryLimit'])) {
-            return;
+            return '-1';
         }
 
-        $this->MemoryLimit = (string) $settings['MemoryLimit'];
+        return (string) $settings['MemoryLimit'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSkipLockedTables(array $settings): void
+    private function setSkipLockedTables(array $settings): bool
     {
         if (! isset($settings['SkipLockedTables'])) {
-            return;
+            return false;
         }
 
-        $this->SkipLockedTables = (bool) $settings['SkipLockedTables'];
+        return (bool) $settings['SkipLockedTables'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowSQL(array $settings): void
+    private function setShowSQL(array $settings): bool
     {
         if (! isset($settings['ShowSQL'])) {
-            return;
+            return true;
         }
 
-        $this->ShowSQL = (bool) $settings['ShowSQL'];
+        return (bool) $settings['ShowSQL'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setRetainQueryBox(array $settings): void
+    private function setRetainQueryBox(array $settings): bool
     {
         if (! isset($settings['RetainQueryBox'])) {
-            return;
+            return false;
         }
 
-        $this->RetainQueryBox = (bool) $settings['RetainQueryBox'];
+        return (bool) $settings['RetainQueryBox'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCodemirrorEnable(array $settings): void
+    private function setCodemirrorEnable(array $settings): bool
     {
         if (! isset($settings['CodemirrorEnable'])) {
-            return;
+            return true;
         }
 
-        $this->CodemirrorEnable = (bool) $settings['CodemirrorEnable'];
+        return (bool) $settings['CodemirrorEnable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLintEnable(array $settings): void
+    private function setLintEnable(array $settings): bool
     {
         if (! isset($settings['LintEnable'])) {
-            return;
+            return true;
         }
 
-        $this->LintEnable = (bool) $settings['LintEnable'];
+        return (bool) $settings['LintEnable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setAllowUserDropDatabase(array $settings): void
+    private function setAllowUserDropDatabase(array $settings): bool
     {
         if (! isset($settings['AllowUserDropDatabase'])) {
-            return;
+            return false;
         }
 
-        $this->AllowUserDropDatabase = (bool) $settings['AllowUserDropDatabase'];
+        return (bool) $settings['AllowUserDropDatabase'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setConfirm(array $settings): void
+    private function setConfirm(array $settings): bool
     {
         if (! isset($settings['Confirm'])) {
-            return;
+            return true;
         }
 
-        $this->Confirm = (bool) $settings['Confirm'];
+        return (bool) $settings['Confirm'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'Lax'|'Strict'|'None'
      */
-    private function setCookieSameSite(array $settings): void
+    private function setCookieSameSite(array $settings): string
     {
-        if (
-            ! isset($settings['CookieSameSite'])
-            || ! in_array($settings['CookieSameSite'], ['Lax', 'Strict', 'None'], true)
-        ) {
-            return;
+        if (! isset($settings['CookieSameSite']) || ! in_array($settings['CookieSameSite'], ['Lax', 'None'], true)) {
+            return 'Strict';
         }
 
-        $this->CookieSameSite = $settings['CookieSameSite'];
+        return $settings['CookieSameSite'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLoginCookieRecall(array $settings): void
+    private function setLoginCookieRecall(array $settings): bool
     {
         if (! isset($settings['LoginCookieRecall'])) {
-            return;
+            return true;
         }
 
-        $this->LoginCookieRecall = (bool) $settings['LoginCookieRecall'];
+        return (bool) $settings['LoginCookieRecall'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setLoginCookieValidity(array $settings): void
+    private function setLoginCookieValidity(array $settings): int
     {
         if (! isset($settings['LoginCookieValidity'])) {
-            return;
+            return 1440;
         }
 
         $loginCookieValidity = (int) $settings['LoginCookieValidity'];
-        if ($loginCookieValidity <= 0) {
-            return;
-        }
 
-        $this->LoginCookieValidity = $loginCookieValidity;
+        return $loginCookieValidity >= 1 ? $loginCookieValidity : 1440;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setLoginCookieStore(array $settings): void
+    private function setLoginCookieStore(array $settings): int
     {
         if (! isset($settings['LoginCookieStore'])) {
-            return;
+            return 0;
         }
 
         $loginCookieStore = (int) $settings['LoginCookieStore'];
-        if ($loginCookieStore < 1) {
-            return;
-        }
 
-        $this->LoginCookieStore = $loginCookieStore;
+        return $loginCookieStore >= 1 ? $loginCookieStore : 0;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLoginCookieDeleteAll(array $settings): void
+    private function setLoginCookieDeleteAll(array $settings): bool
     {
         if (! isset($settings['LoginCookieDeleteAll'])) {
-            return;
+            return true;
         }
 
-        $this->LoginCookieDeleteAll = (bool) $settings['LoginCookieDeleteAll'];
+        return (bool) $settings['LoginCookieDeleteAll'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setUseDbSearch(array $settings): void
+    private function setUseDbSearch(array $settings): bool
     {
         if (! isset($settings['UseDbSearch'])) {
-            return;
+            return true;
         }
 
-        $this->UseDbSearch = (bool) $settings['UseDbSearch'];
+        return (bool) $settings['UseDbSearch'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setIgnoreMultiSubmitErrors(array $settings): void
+    private function setIgnoreMultiSubmitErrors(array $settings): bool
     {
         if (! isset($settings['IgnoreMultiSubmitErrors'])) {
-            return;
+            return false;
         }
 
-        $this->IgnoreMultiSubmitErrors = (bool) $settings['IgnoreMultiSubmitErrors'];
+        return (bool) $settings['IgnoreMultiSubmitErrors'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setAllowArbitraryServer(array $settings): void
+    private function setAllowArbitraryServer(array $settings): bool
     {
         if (! isset($settings['AllowArbitraryServer'])) {
-            return;
+            return false;
         }
 
-        $this->AllowArbitraryServer = (bool) $settings['AllowArbitraryServer'];
+        return (bool) $settings['AllowArbitraryServer'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setArbitraryServerRegexp(array $settings): void
+    private function setArbitraryServerRegexp(array $settings): string
     {
         if (! isset($settings['ArbitraryServerRegexp'])) {
-            return;
+            return '';
         }
 
-        $this->ArbitraryServerRegexp = (string) $settings['ArbitraryServerRegexp'];
+        return (string) $settings['ArbitraryServerRegexp'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'invisible'|'checkbox'
      */
-    private function setCaptchaMethod(array $settings): void
+    private function setCaptchaMethod(array $settings): string
     {
         if (! isset($settings['CaptchaMethod']) || $settings['CaptchaMethod'] !== 'checkbox') {
-            return;
+            return 'invisible';
         }
 
-        $this->CaptchaMethod = 'checkbox';
+        return 'checkbox';
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaApi(array $settings): void
+    private function setCaptchaApi(array $settings): string
     {
         if (! isset($settings['CaptchaApi'])) {
-            return;
+            return 'https://www.google.com/recaptcha/api.js';
         }
 
-        $this->CaptchaApi = (string) $settings['CaptchaApi'];
+        return (string) $settings['CaptchaApi'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaCsp(array $settings): void
+    private function setCaptchaCsp(array $settings): string
     {
         if (! isset($settings['CaptchaCsp'])) {
-            return;
+            return 'https://apis.google.com https://www.google.com/recaptcha/'
+                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/';
         }
 
-        $this->CaptchaCsp = (string) $settings['CaptchaCsp'];
+        return (string) $settings['CaptchaCsp'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaRequestParam(array $settings): void
+    private function setCaptchaRequestParam(array $settings): string
     {
         if (! isset($settings['CaptchaRequestParam'])) {
-            return;
+            return 'g-recaptcha';
         }
 
-        $this->CaptchaRequestParam = (string) $settings['CaptchaRequestParam'];
+        return (string) $settings['CaptchaRequestParam'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaResponseParam(array $settings): void
+    private function setCaptchaResponseParam(array $settings): string
     {
         if (! isset($settings['CaptchaResponseParam'])) {
-            return;
+            return 'g-recaptcha-response';
         }
 
-        $this->CaptchaResponseParam = (string) $settings['CaptchaResponseParam'];
+        return (string) $settings['CaptchaResponseParam'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaLoginPublicKey(array $settings): void
+    private function setCaptchaLoginPublicKey(array $settings): string
     {
         if (! isset($settings['CaptchaLoginPublicKey'])) {
-            return;
+            return '';
         }
 
-        $this->CaptchaLoginPublicKey = (string) $settings['CaptchaLoginPublicKey'];
+        return (string) $settings['CaptchaLoginPublicKey'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaLoginPrivateKey(array $settings): void
+    private function setCaptchaLoginPrivateKey(array $settings): string
     {
         if (! isset($settings['CaptchaLoginPrivateKey'])) {
-            return;
+            return '';
         }
 
-        $this->CaptchaLoginPrivateKey = (string) $settings['CaptchaLoginPrivateKey'];
+        return (string) $settings['CaptchaLoginPrivateKey'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCaptchaSiteVerifyURL(array $settings): void
+    private function setCaptchaSiteVerifyURL(array $settings): string
     {
         if (! isset($settings['CaptchaSiteVerifyURL'])) {
-            return;
+            return '';
         }
 
-        $this->CaptchaSiteVerifyURL = (string) $settings['CaptchaSiteVerifyURL'];
+        return (string) $settings['CaptchaSiteVerifyURL'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setEnableDragDropImport(array $settings): void
+    private function setEnableDragDropImport(array $settings): bool
     {
         if (! isset($settings['enable_drag_drop_import'])) {
-            return;
+            return true;
         }
 
-        $this->enable_drag_drop_import = (bool) $settings['enable_drag_drop_import'];
+        return (bool) $settings['enable_drag_drop_import'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDatabasesNavigationAsTree(array $settings): void
+    private function setShowDatabasesNavigationAsTree(array $settings): bool
     {
         if (! isset($settings['ShowDatabasesNavigationAsTree'])) {
-            return;
+            return true;
         }
 
-        $this->ShowDatabasesNavigationAsTree = (bool) $settings['ShowDatabasesNavigationAsTree'];
+        return (bool) $settings['ShowDatabasesNavigationAsTree'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setFirstLevelNavigationItems(array $settings): void
+    private function setFirstLevelNavigationItems(array $settings): int
     {
         if (! isset($settings['FirstLevelNavigationItems'])) {
-            return;
+            return 100;
         }
 
         $firstLevelNavigationItems = (int) $settings['FirstLevelNavigationItems'];
-        if ($firstLevelNavigationItems <= 0) {
-            return;
-        }
 
-        $this->FirstLevelNavigationItems = $firstLevelNavigationItems;
+        return $firstLevelNavigationItems >= 1 ? $firstLevelNavigationItems : 100;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxNavigationItems(array $settings): void
+    private function setMaxNavigationItems(array $settings): int
     {
         if (! isset($settings['MaxNavigationItems'])) {
-            return;
+            return 50;
         }
 
         $maxNavigationItems = (int) $settings['MaxNavigationItems'];
-        if ($maxNavigationItems <= 0) {
-            return;
-        }
 
-        $this->MaxNavigationItems = $maxNavigationItems;
+        return $maxNavigationItems >= 1 ? $maxNavigationItems : 50;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeEnableGrouping(array $settings): void
+    private function setNavigationTreeEnableGrouping(array $settings): bool
     {
         if (! isset($settings['NavigationTreeEnableGrouping'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeEnableGrouping = (bool) $settings['NavigationTreeEnableGrouping'];
+        return (bool) $settings['NavigationTreeEnableGrouping'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeDbSeparator(array $settings): void
+    private function setNavigationTreeDbSeparator(array $settings): string
     {
         if (! isset($settings['NavigationTreeDbSeparator'])) {
-            return;
+            return '_';
         }
 
-        $this->NavigationTreeDbSeparator = (string) $settings['NavigationTreeDbSeparator'];
+        return (string) $settings['NavigationTreeDbSeparator'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return false|string|string[]
      */
-    private function setNavigationTreeTableSeparator(array $settings): void
+    private function setNavigationTreeTableSeparator(array $settings)
     {
         if (! isset($settings['NavigationTreeTableSeparator'])) {
-            return;
+            return '__';
         }
 
         if ($settings['NavigationTreeTableSeparator'] === false) {
-            $this->NavigationTreeTableSeparator = false;
-        } elseif (! is_array($settings['NavigationTreeTableSeparator'])) {
-            $this->NavigationTreeTableSeparator = (string) $settings['NavigationTreeTableSeparator'];
-        } elseif (count($settings['NavigationTreeTableSeparator']) > 0) {
-            $this->NavigationTreeTableSeparator = [];
+            return false;
+        }
+
+        if (! is_array($settings['NavigationTreeTableSeparator'])) {
+            return (string) $settings['NavigationTreeTableSeparator'];
+        }
+
+        if (count($settings['NavigationTreeTableSeparator']) > 0) {
+            $navigationTreeTableSeparator = [];
             /** @var mixed $separator */
             foreach ($settings['NavigationTreeTableSeparator'] as $separator) {
-                $this->NavigationTreeTableSeparator[] = (string) $separator;
+                $navigationTreeTableSeparator[] = (string) $separator;
             }
+
+            return $navigationTreeTableSeparator;
         }
+
+        return '__';
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setNavigationTreeTableLevel(array $settings): void
+    private function setNavigationTreeTableLevel(array $settings): int
     {
         if (! isset($settings['NavigationTreeTableLevel'])) {
-            return;
+            return 1;
         }
 
         $navigationTreeTableLevel = (int) $settings['NavigationTreeTableLevel'];
-        if ($navigationTreeTableLevel <= 0) {
-            return;
-        }
 
-        $this->NavigationTreeTableLevel = $navigationTreeTableLevel;
+        return $navigationTreeTableLevel >= 2 ? $navigationTreeTableLevel : 1;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationLinkWithMainPanel(array $settings): void
+    private function setNavigationLinkWithMainPanel(array $settings): bool
     {
         if (! isset($settings['NavigationLinkWithMainPanel'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationLinkWithMainPanel = (bool) $settings['NavigationLinkWithMainPanel'];
+        return (bool) $settings['NavigationLinkWithMainPanel'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationDisplayLogo(array $settings): void
+    private function setNavigationDisplayLogo(array $settings): bool
     {
         if (! isset($settings['NavigationDisplayLogo'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationDisplayLogo = (bool) $settings['NavigationDisplayLogo'];
+        return (bool) $settings['NavigationDisplayLogo'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationLogoLink(array $settings): void
+    private function setNavigationLogoLink(array $settings): string
     {
         if (! isset($settings['NavigationLogoLink'])) {
-            return;
+            return 'index.php';
         }
 
-        $this->NavigationLogoLink = (string) $settings['NavigationLogoLink'];
+        return (string) $settings['NavigationLogoLink'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'main'|'new'
      */
-    private function setNavigationLogoLinkWindow(array $settings): void
+    private function setNavigationLogoLinkWindow(array $settings): string
     {
         if (! isset($settings['NavigationLogoLinkWindow']) || $settings['NavigationLogoLinkWindow'] !== 'new') {
-            return;
+            return 'main';
         }
 
-        $this->NavigationLogoLinkWindow = 'new';
+        return 'new';
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setNumRecentTables(array $settings): void
+    private function setNumRecentTables(array $settings): int
     {
         if (! isset($settings['NumRecentTables'])) {
-            return;
+            return 10;
         }
 
         $numRecentTables = (int) $settings['NumRecentTables'];
-        if ($numRecentTables < 0) {
-            return;
-        }
 
-        $this->NumRecentTables = $numRecentTables;
+        return $numRecentTables >= 0 ? $numRecentTables : 10;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setNumFavoriteTables(array $settings): void
+    private function setNumFavoriteTables(array $settings): int
     {
         if (! isset($settings['NumFavoriteTables'])) {
-            return;
+            return 10;
         }
 
         $numFavoriteTables = (int) $settings['NumFavoriteTables'];
-        if ($numFavoriteTables < 0) {
-            return;
-        }
 
-        $this->NumFavoriteTables = $numFavoriteTables;
+        return $numFavoriteTables >= 0 ? $numFavoriteTables : 10;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setNavigationTreeDisplayItemFilterMinimum(array $settings): void
+    private function setNavigationTreeDisplayItemFilterMinimum(array $settings): int
     {
         if (! isset($settings['NavigationTreeDisplayItemFilterMinimum'])) {
-            return;
+            return 30;
         }
 
         $navigationTreeDisplayItemFilterMinimum = (int) $settings['NavigationTreeDisplayItemFilterMinimum'];
-        if ($navigationTreeDisplayItemFilterMinimum <= 0) {
-            return;
-        }
 
-        $this->NavigationTreeDisplayItemFilterMinimum = $navigationTreeDisplayItemFilterMinimum;
+        return $navigationTreeDisplayItemFilterMinimum >= 1 ? $navigationTreeDisplayItemFilterMinimum : 30;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationDisplayServers(array $settings): void
+    private function setNavigationDisplayServers(array $settings): bool
     {
         if (! isset($settings['NavigationDisplayServers'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationDisplayServers = (bool) $settings['NavigationDisplayServers'];
+        return (bool) $settings['NavigationDisplayServers'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDisplayServersList(array $settings): void
+    private function setDisplayServersList(array $settings): bool
     {
         if (! isset($settings['DisplayServersList'])) {
-            return;
+            return false;
         }
 
-        $this->DisplayServersList = (bool) $settings['DisplayServersList'];
+        return (bool) $settings['DisplayServersList'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setNavigationTreeDisplayDbFilterMinimum(array $settings): void
+    private function setNavigationTreeDisplayDbFilterMinimum(array $settings): int
     {
         if (! isset($settings['NavigationTreeDisplayDbFilterMinimum'])) {
-            return;
+            return 30;
         }
 
         $navigationTreeDisplayDbFilterMinimum = (int) $settings['NavigationTreeDisplayDbFilterMinimum'];
-        if ($navigationTreeDisplayDbFilterMinimum <= 0) {
-            return;
-        }
 
-        $this->NavigationTreeDisplayDbFilterMinimum = $navigationTreeDisplayDbFilterMinimum;
+        return $navigationTreeDisplayDbFilterMinimum >= 1 ? $navigationTreeDisplayDbFilterMinimum : 30;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'
      */
-    private function setNavigationTreeDefaultTabTable(array $settings): void
+    private function setNavigationTreeDefaultTabTable(array $settings): string
     {
         if (! isset($settings['NavigationTreeDefaultTabTable'])) {
-            return;
+            return 'structure';
         }
 
         switch ($settings['NavigationTreeDefaultTabTable']) {
             case 'sql':
             case 'tbl_sql.php':
-                $this->NavigationTreeDefaultTabTable = 'sql';
-                break;
+                return 'sql';
+
             case 'search':
             case 'tbl_select.php':
-                $this->NavigationTreeDefaultTabTable = 'search';
-                break;
+                return 'search';
+
             case 'insert':
             case 'tbl_change.php':
-                $this->NavigationTreeDefaultTabTable = 'insert';
-                break;
+                return 'insert';
+
             case 'browse':
             case 'sql.php':
-                $this->NavigationTreeDefaultTabTable = 'browse';
-                break;
+                return 'browse';
+
+            default:
+                return 'structure';
         }
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'|''
      */
-    private function setNavigationTreeDefaultTabTable2(array $settings): void
+    private function setNavigationTreeDefaultTabTable2(array $settings): string
     {
         if (! isset($settings['NavigationTreeDefaultTabTable2'])) {
-            return;
+            return '';
         }
 
         switch ($settings['NavigationTreeDefaultTabTable2']) {
             case 'structure':
             case 'tbl_structure.php':
-                $this->NavigationTreeDefaultTabTable2 = 'structure';
-                break;
+                return 'structure';
+
             case 'sql':
             case 'tbl_sql.php':
-                $this->NavigationTreeDefaultTabTable2 = 'sql';
-                break;
+                return 'sql';
+
             case 'search':
             case 'tbl_select.php':
-                $this->NavigationTreeDefaultTabTable2 = 'search';
-                break;
+                return 'search';
+
             case 'insert':
             case 'tbl_change.php':
-                $this->NavigationTreeDefaultTabTable2 = 'insert';
-                break;
+                return 'insert';
+
             case 'browse':
             case 'sql.php':
-                $this->NavigationTreeDefaultTabTable2 = 'browse';
-                break;
+                return 'browse';
+
+            default:
+                return '';
         }
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeEnableExpansion(array $settings): void
+    private function setNavigationTreeEnableExpansion(array $settings): bool
     {
         if (! isset($settings['NavigationTreeEnableExpansion'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeEnableExpansion = (bool) $settings['NavigationTreeEnableExpansion'];
+        return (bool) $settings['NavigationTreeEnableExpansion'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeShowTables(array $settings): void
+    private function setNavigationTreeShowTables(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowTables'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeShowTables = (bool) $settings['NavigationTreeShowTables'];
+        return (bool) $settings['NavigationTreeShowTables'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeShowViews(array $settings): void
+    private function setNavigationTreeShowViews(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowViews'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeShowViews = (bool) $settings['NavigationTreeShowViews'];
+        return (bool) $settings['NavigationTreeShowViews'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeShowFunctions(array $settings): void
+    private function setNavigationTreeShowFunctions(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowFunctions'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeShowFunctions = (bool) $settings['NavigationTreeShowFunctions'];
+        return (bool) $settings['NavigationTreeShowFunctions'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeShowProcedures(array $settings): void
+    private function setNavigationTreeShowProcedures(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowProcedures'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeShowProcedures = (bool) $settings['NavigationTreeShowProcedures'];
+        return (bool) $settings['NavigationTreeShowProcedures'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeShowEvents(array $settings): void
+    private function setNavigationTreeShowEvents(array $settings): bool
     {
         if (! isset($settings['NavigationTreeShowEvents'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeShowEvents = (bool) $settings['NavigationTreeShowEvents'];
+        return (bool) $settings['NavigationTreeShowEvents'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setNavigationWidth(array $settings): void
+    private function setNavigationWidth(array $settings): int
     {
         if (! isset($settings['NavigationWidth'])) {
-            return;
+            return 240;
         }
 
         $navigationWidth = (int) $settings['NavigationWidth'];
-        if ($navigationWidth < 0) {
-            return;
-        }
 
-        $this->NavigationWidth = $navigationWidth;
+        return $navigationWidth >= 0 ? $navigationWidth : 240;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreeAutoexpandSingleDb(array $settings): void
+    private function setNavigationTreeAutoexpandSingleDb(array $settings): bool
     {
         if (! isset($settings['NavigationTreeAutoexpandSingleDb'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreeAutoexpandSingleDb = (bool) $settings['NavigationTreeAutoexpandSingleDb'];
+        return (bool) $settings['NavigationTreeAutoexpandSingleDb'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowStats(array $settings): void
+    private function setShowStats(array $settings): bool
     {
         if (! isset($settings['ShowStats'])) {
-            return;
+            return true;
         }
 
-        $this->ShowStats = (bool) $settings['ShowStats'];
+        return (bool) $settings['ShowStats'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowPhpInfo(array $settings): void
+    private function setShowPhpInfo(array $settings): bool
     {
         if (! isset($settings['ShowPhpInfo'])) {
-            return;
+            return false;
         }
 
-        $this->ShowPhpInfo = (bool) $settings['ShowPhpInfo'];
+        return (bool) $settings['ShowPhpInfo'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowServerInfo(array $settings): void
+    private function setShowServerInfo(array $settings): bool
     {
         if (! isset($settings['ShowServerInfo'])) {
-            return;
+            return true;
         }
 
-        $this->ShowServerInfo = (bool) $settings['ShowServerInfo'];
+        return (bool) $settings['ShowServerInfo'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowChgPassword(array $settings): void
+    private function setShowChgPassword(array $settings): bool
     {
         if (! isset($settings['ShowChgPassword'])) {
-            return;
+            return true;
         }
 
-        $this->ShowChgPassword = (bool) $settings['ShowChgPassword'];
+        return (bool) $settings['ShowChgPassword'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowCreateDb(array $settings): void
+    private function setShowCreateDb(array $settings): bool
     {
         if (! isset($settings['ShowCreateDb'])) {
-            return;
+            return true;
         }
 
-        $this->ShowCreateDb = (bool) $settings['ShowCreateDb'];
+        return (bool) $settings['ShowCreateDb'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDbStructureCharset(array $settings): void
+    private function setShowDbStructureCharset(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureCharset'])) {
-            return;
+            return false;
         }
 
-        $this->ShowDbStructureCharset = (bool) $settings['ShowDbStructureCharset'];
+        return (bool) $settings['ShowDbStructureCharset'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDbStructureComment(array $settings): void
+    private function setShowDbStructureComment(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureComment'])) {
-            return;
+            return false;
         }
 
-        $this->ShowDbStructureComment = (bool) $settings['ShowDbStructureComment'];
+        return (bool) $settings['ShowDbStructureComment'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDbStructureCreation(array $settings): void
+    private function setShowDbStructureCreation(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureCreation'])) {
-            return;
+            return false;
         }
 
-        $this->ShowDbStructureCreation = (bool) $settings['ShowDbStructureCreation'];
+        return (bool) $settings['ShowDbStructureCreation'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDbStructureLastUpdate(array $settings): void
+    private function setShowDbStructureLastUpdate(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureLastUpdate'])) {
-            return;
+            return false;
         }
 
-        $this->ShowDbStructureLastUpdate = (bool) $settings['ShowDbStructureLastUpdate'];
+        return (bool) $settings['ShowDbStructureLastUpdate'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowDbStructureLastCheck(array $settings): void
+    private function setShowDbStructureLastCheck(array $settings): bool
     {
         if (! isset($settings['ShowDbStructureLastCheck'])) {
-            return;
+            return false;
         }
 
-        $this->ShowDbStructureLastCheck = (bool) $settings['ShowDbStructureLastCheck'];
+        return (bool) $settings['ShowDbStructureLastCheck'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setHideStructureActions(array $settings): void
+    private function setHideStructureActions(array $settings): bool
     {
         if (! isset($settings['HideStructureActions'])) {
-            return;
+            return true;
         }
 
-        $this->HideStructureActions = (bool) $settings['HideStructureActions'];
+        return (bool) $settings['HideStructureActions'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowColumnComments(array $settings): void
+    private function setShowColumnComments(array $settings): bool
     {
         if (! isset($settings['ShowColumnComments'])) {
-            return;
+            return true;
         }
 
-        $this->ShowColumnComments = (bool) $settings['ShowColumnComments'];
+        return (bool) $settings['ShowColumnComments'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'text'|'icons'|'both'
      */
-    private function setTableNavigationLinksMode(array $settings): void
+    private function setTableNavigationLinksMode(array $settings): string
     {
         if (
             ! isset($settings['TableNavigationLinksMode'])
-            || ! in_array($settings['TableNavigationLinksMode'], ['text', 'icons', 'both'], true)
+            || ! in_array($settings['TableNavigationLinksMode'], ['text', 'both'], true)
         ) {
-            return;
+            return 'icons';
         }
 
-        $this->TableNavigationLinksMode = $settings['TableNavigationLinksMode'];
+        return $settings['TableNavigationLinksMode'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowAll(array $settings): void
+    private function setShowAll(array $settings): bool
     {
         if (! isset($settings['ShowAll'])) {
-            return;
+            return false;
         }
 
-        $this->ShowAll = (bool) $settings['ShowAll'];
+        return (bool) $settings['ShowAll'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxRows(array $settings): void
+    private function setMaxRows(array $settings): int
     {
         if (! isset($settings['MaxRows'])) {
-            return;
+            return 25;
         }
 
         $maxRows = (int) $settings['MaxRows'];
-        if ($maxRows <= 0) {
-            return;
-        }
 
-        $this->MaxRows = $maxRows;
+        return $maxRows >= 1 ? $maxRows : 25;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'ASC'|'DESC'|'SMART'
      */
-    private function setOrder(array $settings): void
+    private function setOrder(array $settings): string
     {
-        if (! isset($settings['Order']) || ! in_array($settings['Order'], ['ASC', 'DESC', 'SMART'], true)) {
-            return;
+        if (! isset($settings['Order']) || ! in_array($settings['Order'], ['ASC', 'DESC'], true)) {
+            return 'SMART';
         }
 
-        $this->Order = $settings['Order'];
+        return $settings['Order'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSaveCellsAtOnce(array $settings): void
+    private function setSaveCellsAtOnce(array $settings): bool
     {
         if (! isset($settings['SaveCellsAtOnce'])) {
-            return;
+            return false;
         }
 
-        $this->SaveCellsAtOnce = (bool) $settings['SaveCellsAtOnce'];
+        return (bool) $settings['SaveCellsAtOnce'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'double-click'|'click'|'disabled'
      */
-    private function setGridEditing(array $settings): void
+    private function setGridEditing(array $settings): string
     {
         if (! isset($settings['GridEditing']) || ! in_array($settings['GridEditing'], ['click', 'disabled'], true)) {
-            return;
+            return 'double-click';
         }
 
-        $this->GridEditing = $settings['GridEditing'];
+        return $settings['GridEditing'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'K'|'D'
      */
-    private function setRelationalDisplay(array $settings): void
+    private function setRelationalDisplay(array $settings): string
     {
         if (! isset($settings['RelationalDisplay']) || $settings['RelationalDisplay'] !== 'D') {
-            return;
+            return 'K';
         }
 
-        $this->RelationalDisplay = 'D';
+        return 'D';
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return false|string
+     * @psalm-return 'blob'|'noblob'|'all'|false
      */
-    private function setProtectBinary(array $settings): void
+    private function setProtectBinary(array $settings)
     {
         if (
             ! isset($settings['ProtectBinary'])
             || ! in_array($settings['ProtectBinary'], ['noblob', 'all', false], true)
         ) {
-            return;
+            return 'blob';
         }
 
-        $this->ProtectBinary = $settings['ProtectBinary'];
+        return $settings['ProtectBinary'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowFunctionFields(array $settings): void
+    private function setShowFunctionFields(array $settings): bool
     {
         if (! isset($settings['ShowFunctionFields'])) {
-            return;
+            return true;
         }
 
-        $this->ShowFunctionFields = (bool) $settings['ShowFunctionFields'];
+        return (bool) $settings['ShowFunctionFields'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowFieldTypesInDataEditView(array $settings): void
+    private function setShowFieldTypesInDataEditView(array $settings): bool
     {
         if (! isset($settings['ShowFieldTypesInDataEditView'])) {
-            return;
+            return true;
         }
 
-        $this->ShowFieldTypesInDataEditView = (bool) $settings['ShowFieldTypesInDataEditView'];
+        return (bool) $settings['ShowFieldTypesInDataEditView'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'input'|'textarea'
      */
-    private function setCharEditing(array $settings): void
+    private function setCharEditing(array $settings): string
     {
         if (! isset($settings['CharEditing']) || $settings['CharEditing'] !== 'textarea') {
-            return;
+            return 'input';
         }
 
-        $this->CharEditing = 'textarea';
+        return 'textarea';
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setMinSizeForInputField(array $settings): void
+    private function setMinSizeForInputField(array $settings): int
     {
         if (! isset($settings['MinSizeForInputField'])) {
-            return;
+            return 4;
         }
 
         $minSizeForInputField = (int) $settings['MinSizeForInputField'];
-        if ($minSizeForInputField < 0) {
-            return;
-        }
 
-        $this->MinSizeForInputField = $minSizeForInputField;
+        return $minSizeForInputField >= 0 ? $minSizeForInputField : 4;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxSizeForInputField(array $settings): void
+    private function setMaxSizeForInputField(array $settings): int
     {
         if (! isset($settings['MaxSizeForInputField'])) {
-            return;
+            return 60;
         }
 
         $maxSizeForInputField = (int) $settings['MaxSizeForInputField'];
-        if ($maxSizeForInputField <= 0) {
-            return;
-        }
 
-        $this->MaxSizeForInputField = $maxSizeForInputField;
+        return $maxSizeForInputField >= 1 ? $maxSizeForInputField : 60;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setInsertRows(array $settings): void
+    private function setInsertRows(array $settings): int
     {
         if (! isset($settings['InsertRows'])) {
-            return;
+            return 2;
         }
 
         $insertRows = (int) $settings['InsertRows'];
-        if ($insertRows <= 0) {
-            return;
-        }
 
-        $this->InsertRows = $insertRows;
+        return $insertRows >= 1 ? $insertRows : 2;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return string[]
+     * @psalm-return array{0: 'content-id'|'id-content', 1?: 'content-id'|'id-content'}
      */
-    private function setForeignKeyDropdownOrder(array $settings): void
+    private function setForeignKeyDropdownOrder(array $settings): array
     {
         if (
             ! isset($settings['ForeignKeyDropdownOrder'])
@@ -3764,1605 +3297,1582 @@ final class Settings
             || ! isset($settings['ForeignKeyDropdownOrder'][0])
             || ! in_array($settings['ForeignKeyDropdownOrder'][0], ['content-id', 'id-content'], true)
         ) {
-            return;
+            return ['content-id', 'id-content'];
         }
 
-        $this->ForeignKeyDropdownOrder = [0 => $settings['ForeignKeyDropdownOrder'][0]];
         if (
             ! isset($settings['ForeignKeyDropdownOrder'][1])
             || ! in_array($settings['ForeignKeyDropdownOrder'][1], ['content-id', 'id-content'], true)
         ) {
-            return;
+            return [$settings['ForeignKeyDropdownOrder'][0]];
         }
 
-        $this->ForeignKeyDropdownOrder[1] = $settings['ForeignKeyDropdownOrder'][1];
+        return [$settings['ForeignKeyDropdownOrder'][0], $settings['ForeignKeyDropdownOrder'][1]];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setForeignKeyMaxLimit(array $settings): void
+    private function setForeignKeyMaxLimit(array $settings): int
     {
         if (! isset($settings['ForeignKeyMaxLimit'])) {
-            return;
+            return 100;
         }
 
         $foreignKeyMaxLimit = (int) $settings['ForeignKeyMaxLimit'];
-        if ($foreignKeyMaxLimit <= 0) {
-            return;
-        }
 
-        $this->ForeignKeyMaxLimit = $foreignKeyMaxLimit;
+        return $foreignKeyMaxLimit >= 1 ? $foreignKeyMaxLimit : 100;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'default'|'enable'|'disable'
      */
-    private function setDefaultForeignKeyChecks(array $settings): void
+    private function setDefaultForeignKeyChecks(array $settings): string
     {
         if (
             ! isset($settings['DefaultForeignKeyChecks'])
             || ! in_array($settings['DefaultForeignKeyChecks'], ['enable', 'disable'], true)
         ) {
-            return;
+            return 'default';
         }
 
-        $this->DefaultForeignKeyChecks = $settings['DefaultForeignKeyChecks'];
+        return $settings['DefaultForeignKeyChecks'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setZipDump(array $settings): void
+    private function setZipDump(array $settings): bool
     {
         if (! isset($settings['ZipDump'])) {
-            return;
+            return true;
         }
 
-        $this->ZipDump = (bool) $settings['ZipDump'];
+        return (bool) $settings['ZipDump'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setGZipDump(array $settings): void
+    private function setGZipDump(array $settings): bool
     {
         if (! isset($settings['GZipDump'])) {
-            return;
+            return true;
         }
 
-        $this->GZipDump = (bool) $settings['GZipDump'];
+        return (bool) $settings['GZipDump'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setBZipDump(array $settings): void
+    private function setBZipDump(array $settings): bool
     {
         if (! isset($settings['BZipDump'])) {
-            return;
+            return true;
         }
 
-        $this->BZipDump = (bool) $settings['BZipDump'];
+        return (bool) $settings['BZipDump'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCompressOnFly(array $settings): void
+    private function setCompressOnFly(array $settings): bool
     {
         if (! isset($settings['CompressOnFly'])) {
-            return;
+            return true;
         }
 
-        $this->CompressOnFly = (bool) $settings['CompressOnFly'];
+        return (bool) $settings['CompressOnFly'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'icons'|'text'|'both'
      */
-    private function setTabsMode(array $settings): void
+    private function setTabsMode(array $settings): string
     {
-        if (! isset($settings['TabsMode']) || ! in_array($settings['TabsMode'], ['icons', 'text', 'both'], true)) {
-            return;
+        if (! isset($settings['TabsMode']) || ! in_array($settings['TabsMode'], ['icons', 'text'], true)) {
+            return 'both';
         }
 
-        $this->TabsMode = $settings['TabsMode'];
+        return $settings['TabsMode'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'icons'|'text'|'both'
      */
-    private function setActionLinksMode(array $settings): void
+    private function setActionLinksMode(array $settings): string
     {
         if (
             ! isset($settings['ActionLinksMode'])
-            || ! in_array($settings['ActionLinksMode'], ['icons', 'text', 'both'], true)
+            || ! in_array($settings['ActionLinksMode'], ['icons', 'text'], true)
         ) {
-            return;
+            return 'both';
         }
 
-        $this->ActionLinksMode = $settings['ActionLinksMode'];
+        return $settings['ActionLinksMode'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setPropertiesNumColumns(array $settings): void
+    private function setPropertiesNumColumns(array $settings): int
     {
         if (! isset($settings['PropertiesNumColumns'])) {
-            return;
+            return 1;
         }
 
         $propertiesNumColumns = (int) $settings['PropertiesNumColumns'];
-        if ($propertiesNumColumns <= 0) {
-            return;
-        }
 
-        $this->PropertiesNumColumns = $propertiesNumColumns;
+        return $propertiesNumColumns >= 2 ? $propertiesNumColumns : 1;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'welcome'|'databases'|'status'|'variables'|'privileges'
      */
-    private function setDefaultTabServer(array $settings): void
+    private function setDefaultTabServer(array $settings): string
     {
         if (! isset($settings['DefaultTabServer'])) {
-            return;
+            return 'welcome';
         }
 
         switch ($settings['DefaultTabServer']) {
             case 'databases':
             case 'server_databases.php':
-                $this->DefaultTabServer = 'databases';
-                break;
+                return 'databases';
+
             case 'status':
             case 'server_status.php':
-                $this->DefaultTabServer = 'status';
-                break;
+                return 'status';
+
             case 'variables':
             case 'server_variables.php':
-                $this->DefaultTabServer = 'variables';
-                break;
+                return 'variables';
+
             case 'privileges':
             case 'server_privileges.php':
-                $this->DefaultTabServer = 'privileges';
-                break;
+                return 'privileges';
+
+            default:
+                return 'welcome';
         }
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'structure'|'sql'|'search'|'operations'
      */
-    private function setDefaultTabDatabase(array $settings): void
+    private function setDefaultTabDatabase(array $settings): string
     {
         if (! isset($settings['DefaultTabDatabase'])) {
-            return;
+            return 'structure';
         }
 
         switch ($settings['DefaultTabDatabase']) {
             case 'sql':
             case 'db_sql.php':
-                $this->DefaultTabDatabase = 'sql';
-                break;
+                return 'sql';
+
             case 'search':
             case 'db_search.php':
-                $this->DefaultTabDatabase = 'search';
-                break;
+                return 'search';
+
             case 'operations':
             case 'db_operations.php':
-                $this->DefaultTabDatabase = 'operations';
-                break;
+                return 'operations';
+
+            default:
+                return 'structure';
         }
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'
      */
-    private function setDefaultTabTable(array $settings): void
+    private function setDefaultTabTable(array $settings): string
     {
         if (! isset($settings['DefaultTabTable'])) {
-            return;
+            return 'browse';
         }
 
         switch ($settings['DefaultTabTable']) {
             case 'structure':
             case 'tbl_structure.php':
-                $this->DefaultTabTable = 'structure';
-                break;
+                return 'structure';
+
             case 'sql':
             case 'tbl_sql.php':
-                $this->DefaultTabTable = 'sql';
-                break;
+                return 'sql';
+
             case 'search':
             case 'tbl_select.php':
-                $this->DefaultTabTable = 'search';
-                break;
+                return 'search';
+
             case 'insert':
             case 'tbl_change.php':
-                $this->DefaultTabTable = 'insert';
-                break;
+                return 'insert';
+
+            default:
+                return 'browse';
         }
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'icons'|'text'|'both'
      */
-    private function setRowActionType(array $settings): void
+    private function setRowActionType(array $settings): string
     {
-        if (
-            ! isset($settings['RowActionType'])
-            || ! in_array($settings['RowActionType'], ['icons', 'text', 'both'], true)
-        ) {
-            return;
+        if (! isset($settings['RowActionType']) || ! in_array($settings['RowActionType'], ['icons', 'text'], true)) {
+            return 'both';
         }
 
-        $this->RowActionType = $settings['RowActionType'];
+        return $settings['RowActionType'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setExport(array $settings): void
+    private function setExport(array $settings): Export
     {
         if (isset($settings['Export']) && is_array($settings['Export'])) {
-            $this->Export = new Export($settings['Export']);
-        } else {
-            $this->Export = new Export();
+            return new Export($settings['Export']);
         }
+
+        return new Export();
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setImport(array $settings): void
+    private function setImport(array $settings): Import
     {
         if (isset($settings['Import']) && is_array($settings['Import'])) {
-            $this->Import = new Import($settings['Import']);
-        } else {
-            $this->Import = new Import();
+            return new Import($settings['Import']);
         }
+
+        return new Import();
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSchema(array $settings): void
+    private function setSchema(array $settings): Schema
     {
         if (isset($settings['Schema']) && is_array($settings['Schema'])) {
-            $this->Schema = new Schema($settings['Schema']);
-        } else {
-            $this->Schema = new Schema();
+            return new Schema($settings['Schema']);
         }
+
+        return new Schema();
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return string[]
      */
-    private function setPDFPageSizes(array $settings): void
+    private function setPDFPageSizes(array $settings): array
     {
         if (
             ! isset($settings['PDFPageSizes'])
             || ! is_array($settings['PDFPageSizes'])
             || $settings['PDFPageSizes'] === []
         ) {
-            return;
+            return ['A3', 'A4', 'A5', 'letter', 'legal'];
         }
 
-        $this->PDFPageSizes = [];
+        $pdfPageSizes = [];
         /** @var mixed $pageSize */
         foreach ($settings['PDFPageSizes'] as $pageSize) {
-            $this->PDFPageSizes[] = (string) $pageSize;
+            $pdfPageSizes[] = (string) $pageSize;
         }
+
+        return $pdfPageSizes;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setPDFDefaultPageSize(array $settings): void
+    private function setPDFDefaultPageSize(array $settings): string
     {
         if (! isset($settings['PDFDefaultPageSize'])) {
-            return;
+            return 'A4';
         }
 
-        $this->PDFDefaultPageSize = (string) $settings['PDFDefaultPageSize'];
+        return (string) $settings['PDFDefaultPageSize'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDefaultLang(array $settings): void
+    private function setDefaultLang(array $settings): string
     {
         if (! isset($settings['DefaultLang'])) {
-            return;
+            return 'en';
         }
 
-        $this->DefaultLang = (string) $settings['DefaultLang'];
+        return (string) $settings['DefaultLang'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDefaultConnectionCollation(array $settings): void
+    private function setDefaultConnectionCollation(array $settings): string
     {
         if (! isset($settings['DefaultConnectionCollation'])) {
-            return;
+            return 'utf8mb4_unicode_ci';
         }
 
-        $this->DefaultConnectionCollation = (string) $settings['DefaultConnectionCollation'];
+        return (string) $settings['DefaultConnectionCollation'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLang(array $settings): void
+    private function setLang(array $settings): string
     {
         if (! isset($settings['Lang'])) {
-            return;
+            return '';
         }
 
-        $this->Lang = (string) $settings['Lang'];
+        return (string) $settings['Lang'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setFilterLanguages(array $settings): void
+    private function setFilterLanguages(array $settings): string
     {
         if (! isset($settings['FilterLanguages'])) {
-            return;
+            return '';
         }
 
-        $this->FilterLanguages = (string) $settings['FilterLanguages'];
+        return (string) $settings['FilterLanguages'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'auto'|'iconv'|'recode'|'mb'|'none'
      */
-    private function setRecodingEngine(array $settings): void
+    private function setRecodingEngine(array $settings): string
     {
         if (
             ! isset($settings['RecodingEngine'])
             || ! in_array($settings['RecodingEngine'], ['iconv', 'recode', 'mb', 'none'], true)
         ) {
-            return;
+            return 'auto';
         }
 
-        $this->RecodingEngine = $settings['RecodingEngine'];
+        return $settings['RecodingEngine'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setIconvExtraParams(array $settings): void
+    private function setIconvExtraParams(array $settings): string
     {
         if (! isset($settings['IconvExtraParams'])) {
-            return;
+            return '//TRANSLIT';
         }
 
-        $this->IconvExtraParams = (string) $settings['IconvExtraParams'];
+        return (string) $settings['IconvExtraParams'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return string[]
      */
-    private function setAvailableCharsets(array $settings): void
+    private function setAvailableCharsets(array $settings): array
     {
         if (! isset($settings['AvailableCharsets']) || ! is_array($settings['AvailableCharsets'])) {
-            return;
+            return [
+                'iso-8859-1',
+                'iso-8859-2',
+                'iso-8859-3',
+                'iso-8859-4',
+                'iso-8859-5',
+                'iso-8859-6',
+                'iso-8859-7',
+                'iso-8859-8',
+                'iso-8859-9',
+                'iso-8859-10',
+                'iso-8859-11',
+                'iso-8859-12',
+                'iso-8859-13',
+                'iso-8859-14',
+                'iso-8859-15',
+                'windows-1250',
+                'windows-1251',
+                'windows-1252',
+                'windows-1256',
+                'windows-1257',
+                'koi8-r',
+                'big5',
+                'gb2312',
+                'utf-16',
+                'utf-8',
+                'utf-7',
+                'x-user-defined',
+                'euc-jp',
+                'ks_c_5601-1987',
+                'tis-620',
+                'SHIFT_JIS',
+                'SJIS',
+                'SJIS-win',
+            ];
         }
 
-        $this->AvailableCharsets = [];
+        $availableCharsets = [];
         /** @var mixed $availableCharset */
         foreach ($settings['AvailableCharsets'] as $availableCharset) {
-            $this->AvailableCharsets[] = (string) $availableCharset;
+            $availableCharsets[] = (string) $availableCharset;
         }
+
+        return $availableCharsets;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNavigationTreePointerEnable(array $settings): void
+    private function setNavigationTreePointerEnable(array $settings): bool
     {
         if (! isset($settings['NavigationTreePointerEnable'])) {
-            return;
+            return true;
         }
 
-        $this->NavigationTreePointerEnable = (bool) $settings['NavigationTreePointerEnable'];
+        return (bool) $settings['NavigationTreePointerEnable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setBrowsePointerEnable(array $settings): void
+    private function setBrowsePointerEnable(array $settings): bool
     {
         if (! isset($settings['BrowsePointerEnable'])) {
-            return;
+            return true;
         }
 
-        $this->BrowsePointerEnable = (bool) $settings['BrowsePointerEnable'];
+        return (bool) $settings['BrowsePointerEnable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setBrowseMarkerEnable(array $settings): void
+    private function setBrowseMarkerEnable(array $settings): bool
     {
         if (! isset($settings['BrowseMarkerEnable'])) {
-            return;
+            return true;
         }
 
-        $this->BrowseMarkerEnable = (bool) $settings['BrowseMarkerEnable'];
+        return (bool) $settings['BrowseMarkerEnable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setTextareaCols(array $settings): void
+    private function setTextareaCols(array $settings): int
     {
         if (! isset($settings['TextareaCols'])) {
-            return;
+            return 40;
         }
 
         $textareaCols = (int) $settings['TextareaCols'];
-        if ($textareaCols <= 0) {
-            return;
-        }
 
-        $this->TextareaCols = $textareaCols;
+        return $textareaCols >= 1 ? $textareaCols : 40;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setTextareaRows(array $settings): void
+    private function setTextareaRows(array $settings): int
     {
         if (! isset($settings['TextareaRows'])) {
-            return;
+            return 15;
         }
 
         $textareaRows = (int) $settings['TextareaRows'];
-        if ($textareaRows <= 0) {
-            return;
-        }
 
-        $this->TextareaRows = $textareaRows;
+        return $textareaRows >= 1 ? $textareaRows : 15;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setLongtextDoubleTextarea(array $settings): void
+    private function setLongtextDoubleTextarea(array $settings): bool
     {
         if (! isset($settings['LongtextDoubleTextarea'])) {
-            return;
+            return true;
         }
 
-        $this->LongtextDoubleTextarea = (bool) $settings['LongtextDoubleTextarea'];
+        return (bool) $settings['LongtextDoubleTextarea'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTextareaAutoSelect(array $settings): void
+    private function setTextareaAutoSelect(array $settings): bool
     {
         if (! isset($settings['TextareaAutoSelect'])) {
-            return;
+            return false;
         }
 
-        $this->TextareaAutoSelect = (bool) $settings['TextareaAutoSelect'];
+        return (bool) $settings['TextareaAutoSelect'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setCharTextareaCols(array $settings): void
+    private function setCharTextareaCols(array $settings): int
     {
         if (! isset($settings['CharTextareaCols'])) {
-            return;
+            return 40;
         }
 
         $charTextareaCols = (int) $settings['CharTextareaCols'];
-        if ($charTextareaCols <= 0) {
-            return;
-        }
 
-        $this->CharTextareaCols = $charTextareaCols;
+        return $charTextareaCols >= 1 ? $charTextareaCols : 40;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setCharTextareaRows(array $settings): void
+    private function setCharTextareaRows(array $settings): int
     {
         if (! isset($settings['CharTextareaRows'])) {
-            return;
+            return 7;
         }
 
         $charTextareaRows = (int) $settings['CharTextareaRows'];
-        if ($charTextareaRows <= 0) {
-            return;
-        }
 
-        $this->CharTextareaRows = $charTextareaRows;
+        return $charTextareaRows >= 1 ? $charTextareaRows : 7;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setLimitChars(array $settings): void
+    private function setLimitChars(array $settings): int
     {
         if (! isset($settings['LimitChars'])) {
-            return;
+            return 50;
         }
 
         $limitChars = (int) $settings['LimitChars'];
-        if ($limitChars <= 0) {
-            return;
-        }
 
-        $this->LimitChars = $limitChars;
+        return $limitChars >= 1 ? $limitChars : 50;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'left'|'right'|'both'|'none'
      */
-    private function setRowActionLinks(array $settings): void
+    private function setRowActionLinks(array $settings): string
     {
         if (
             ! isset($settings['RowActionLinks'])
             || ! in_array($settings['RowActionLinks'], ['right', 'both', 'none'], true)
         ) {
-            return;
+            return 'left';
         }
 
-        $this->RowActionLinks = $settings['RowActionLinks'];
+        return $settings['RowActionLinks'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setRowActionLinksWithoutUnique(array $settings): void
+    private function setRowActionLinksWithoutUnique(array $settings): bool
     {
         if (! isset($settings['RowActionLinksWithoutUnique'])) {
-            return;
+            return false;
         }
 
-        $this->RowActionLinksWithoutUnique = (bool) $settings['RowActionLinksWithoutUnique'];
+        return (bool) $settings['RowActionLinksWithoutUnique'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'NONE'|'ASC'|'DESC'
      */
-    private function setTablePrimaryKeyOrder(array $settings): void
+    private function setTablePrimaryKeyOrder(array $settings): string
     {
         if (
             ! isset($settings['TablePrimaryKeyOrder'])
             || ! in_array($settings['TablePrimaryKeyOrder'], ['ASC', 'DESC'], true)
         ) {
-            return;
+            return 'NONE';
         }
 
-        $this->TablePrimaryKeyOrder = $settings['TablePrimaryKeyOrder'];
+        return $settings['TablePrimaryKeyOrder'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setRememberSorting(array $settings): void
+    private function setRememberSorting(array $settings): bool
     {
         if (! isset($settings['RememberSorting'])) {
-            return;
+            return true;
         }
 
-        $this->RememberSorting = (bool) $settings['RememberSorting'];
+        return (bool) $settings['RememberSorting'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowBrowseComments(array $settings): void
+    private function setShowBrowseComments(array $settings): bool
     {
         if (! isset($settings['ShowBrowseComments'])) {
-            return;
+            return true;
         }
 
-        $this->ShowBrowseComments = (bool) $settings['ShowBrowseComments'];
+        return (bool) $settings['ShowBrowseComments'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowPropertyComments(array $settings): void
+    private function setShowPropertyComments(array $settings): bool
     {
         if (! isset($settings['ShowPropertyComments'])) {
-            return;
+            return true;
         }
 
-        $this->ShowPropertyComments = (bool) $settings['ShowPropertyComments'];
+        return (bool) $settings['ShowPropertyComments'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setRepeatCells(array $settings): void
+    private function setRepeatCells(array $settings): int
     {
         if (! isset($settings['RepeatCells'])) {
-            return;
+            return 100;
         }
 
         $repeatCells = (int) $settings['RepeatCells'];
-        if ($repeatCells < 0) {
-            return;
-        }
 
-        $this->RepeatCells = $repeatCells;
+        return $repeatCells >= 0 ? $repeatCells : 100;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setQueryHistoryDB(array $settings): void
+    private function setQueryHistoryDB(array $settings): bool
     {
         if (! isset($settings['QueryHistoryDB'])) {
-            return;
+            return false;
         }
 
-        $this->QueryHistoryDB = (bool) $settings['QueryHistoryDB'];
+        return (bool) $settings['QueryHistoryDB'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setQueryHistoryMax(array $settings): void
+    private function setQueryHistoryMax(array $settings): int
     {
         if (! isset($settings['QueryHistoryMax'])) {
-            return;
+            return 25;
         }
 
         $queryHistoryMax = (int) $settings['QueryHistoryMax'];
-        if ($queryHistoryMax <= 0) {
-            return;
-        }
 
-        $this->QueryHistoryMax = $queryHistoryMax;
+        return $queryHistoryMax >= 1 ? $queryHistoryMax : 25;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setBrowseMIME(array $settings): void
+    private function setBrowseMIME(array $settings): bool
     {
         if (! isset($settings['BrowseMIME'])) {
-            return;
+            return true;
         }
 
-        $this->BrowseMIME = (bool) $settings['BrowseMIME'];
+        return (bool) $settings['BrowseMIME'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxExactCount(array $settings): void
+    private function setMaxExactCount(array $settings): int
     {
         if (! isset($settings['MaxExactCount'])) {
-            return;
+            return 50000;
         }
 
         $maxExactCount = (int) $settings['MaxExactCount'];
-        if ($maxExactCount <= 0) {
-            return;
-        }
 
-        $this->MaxExactCount = $maxExactCount;
+        return $maxExactCount >= 1 ? $maxExactCount : 50000;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setMaxExactCountViews(array $settings): void
+    private function setMaxExactCountViews(array $settings): int
     {
         if (! isset($settings['MaxExactCountViews'])) {
-            return;
+            return 0;
         }
 
         $maxExactCountViews = (int) $settings['MaxExactCountViews'];
-        if ($maxExactCountViews < 1) {
-            return;
-        }
 
-        $this->MaxExactCountViews = $maxExactCountViews;
+        return $maxExactCountViews >= 1 ? $maxExactCountViews : 0;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setNaturalOrder(array $settings): void
+    private function setNaturalOrder(array $settings): bool
     {
         if (! isset($settings['NaturalOrder'])) {
-            return;
+            return true;
         }
 
-        $this->NaturalOrder = (bool) $settings['NaturalOrder'];
+        return (bool) $settings['NaturalOrder'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'open'|'closed'|'disabled'
      */
-    private function setInitialSlidersState(array $settings): void
+    private function setInitialSlidersState(array $settings): string
     {
         if (
             ! isset($settings['InitialSlidersState'])
-            || ! in_array($settings['InitialSlidersState'], ['open', 'closed', 'disabled'], true)
+            || ! in_array($settings['InitialSlidersState'], ['open', 'disabled'], true)
         ) {
-            return;
+            return 'closed';
         }
 
-        $this->InitialSlidersState = $settings['InitialSlidersState'];
+        return $settings['InitialSlidersState'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return string[]
      */
-    private function setUserprefsDisallow(array $settings): void
+    private function setUserprefsDisallow(array $settings): array
     {
         if (! isset($settings['UserprefsDisallow']) || ! is_array($settings['UserprefsDisallow'])) {
-            return;
+            return [];
         }
 
-        $this->UserprefsDisallow = [];
+        $userprefsDisallow = [];
         /** @var mixed $userPreference */
         foreach ($settings['UserprefsDisallow'] as $userPreference) {
-            $this->UserprefsDisallow[] = (string) $userPreference;
+            $userprefsDisallow[] = (string) $userPreference;
         }
+
+        return $userprefsDisallow;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setUserprefsDeveloperTab(array $settings): void
+    private function setUserprefsDeveloperTab(array $settings): bool
     {
         if (! isset($settings['UserprefsDeveloperTab'])) {
-            return;
+            return false;
         }
 
-        $this->UserprefsDeveloperTab = (bool) $settings['UserprefsDeveloperTab'];
+        return (bool) $settings['UserprefsDeveloperTab'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTitleTable(array $settings): void
+    private function setTitleTable(array $settings): string
     {
         if (! isset($settings['TitleTable'])) {
-            return;
+            return '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
         }
 
-        $this->TitleTable = (string) $settings['TitleTable'];
+        return (string) $settings['TitleTable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTitleDatabase(array $settings): void
+    private function setTitleDatabase(array $settings): string
     {
         if (! isset($settings['TitleDatabase'])) {
-            return;
+            return '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@';
         }
 
-        $this->TitleDatabase = (string) $settings['TitleDatabase'];
+        return (string) $settings['TitleDatabase'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTitleServer(array $settings): void
+    private function setTitleServer(array $settings): string
     {
         if (! isset($settings['TitleServer'])) {
-            return;
+            return '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
         }
 
-        $this->TitleServer = (string) $settings['TitleServer'];
+        return (string) $settings['TitleServer'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTitleDefault(array $settings): void
+    private function setTitleDefault(array $settings): string
     {
         if (! isset($settings['TitleDefault'])) {
-            return;
+            return '@HTTP_HOST@ | @PHPMYADMIN@';
         }
 
-        $this->TitleDefault = (string) $settings['TitleDefault'];
+        return (string) $settings['TitleDefault'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setThemeManager(array $settings): void
+    private function setThemeManager(array $settings): bool
     {
         if (! isset($settings['ThemeManager'])) {
-            return;
+            return true;
         }
 
-        $this->ThemeManager = (bool) $settings['ThemeManager'];
+        return (bool) $settings['ThemeManager'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setThemeDefault(array $settings): void
+    private function setThemeDefault(array $settings): string
     {
         if (! isset($settings['ThemeDefault'])) {
-            return;
+            return 'pmahomme';
         }
 
-        $this->ThemeDefault = (string) $settings['ThemeDefault'];
+        return (string) $settings['ThemeDefault'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setThemePerServer(array $settings): void
+    private function setThemePerServer(array $settings): bool
     {
         if (! isset($settings['ThemePerServer'])) {
-            return;
+            return false;
         }
 
-        $this->ThemePerServer = (bool) $settings['ThemePerServer'];
+        return (bool) $settings['ThemePerServer'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDefaultQueryTable(array $settings): void
+    private function setDefaultQueryTable(array $settings): string
     {
         if (! isset($settings['DefaultQueryTable'])) {
-            return;
+            return 'SELECT * FROM @TABLE@ WHERE 1';
         }
 
-        $this->DefaultQueryTable = (string) $settings['DefaultQueryTable'];
+        return (string) $settings['DefaultQueryTable'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDefaultQueryDatabase(array $settings): void
+    private function setDefaultQueryDatabase(array $settings): string
     {
         if (! isset($settings['DefaultQueryDatabase'])) {
-            return;
+            return '';
         }
 
-        $this->DefaultQueryDatabase = (string) $settings['DefaultQueryDatabase'];
+        return (string) $settings['DefaultQueryDatabase'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, bool>
+     * @psalm-return array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
      */
-    private function setSQLQuery(array $settings): void
+    private function setSQLQuery(array $settings): array
     {
+        $sqlQuery = [
+            // Display an "Edit" link on the results page to change a query
+            'Edit' => true,
+
+            // Display an "Explain SQL" link on the results page
+            'Explain' => true,
+
+            // Display a "Create PHP code" link on the results page to wrap a query in PHP
+            'ShowAsPHP' => true,
+
+            // Display a "Refresh" link on the results page
+            'Refresh' => true,
+        ];
         if (! isset($settings['SQLQuery']) || ! is_array($settings['SQLQuery'])) {
-            return;
+            return $sqlQuery;
         }
 
         if (isset($settings['SQLQuery']['Edit'])) {
-            $this->SQLQuery['Edit'] = (bool) $settings['SQLQuery']['Edit'];
+            $sqlQuery['Edit'] = (bool) $settings['SQLQuery']['Edit'];
         }
 
         if (isset($settings['SQLQuery']['Explain'])) {
-            $this->SQLQuery['Explain'] = (bool) $settings['SQLQuery']['Explain'];
+            $sqlQuery['Explain'] = (bool) $settings['SQLQuery']['Explain'];
         }
 
         if (isset($settings['SQLQuery']['ShowAsPHP'])) {
-            $this->SQLQuery['ShowAsPHP'] = (bool) $settings['SQLQuery']['ShowAsPHP'];
+            $sqlQuery['ShowAsPHP'] = (bool) $settings['SQLQuery']['ShowAsPHP'];
         }
 
         if (! isset($settings['SQLQuery']['Refresh'])) {
-            return;
+            return $sqlQuery;
         }
 
-        $this->SQLQuery['Refresh'] = (bool) $settings['SQLQuery']['Refresh'];
+        $sqlQuery['Refresh'] = (bool) $settings['SQLQuery']['Refresh'];
+
+        return $sqlQuery;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setEnableAutocompleteForTablesAndColumns(array $settings): void
+    private function setEnableAutocompleteForTablesAndColumns(array $settings): bool
     {
         if (! isset($settings['EnableAutocompleteForTablesAndColumns'])) {
-            return;
+            return true;
         }
 
-        $this->EnableAutocompleteForTablesAndColumns = (bool) $settings['EnableAutocompleteForTablesAndColumns'];
+        return (bool) $settings['EnableAutocompleteForTablesAndColumns'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setUploadDir(array $settings): void
+    private function setUploadDir(array $settings): string
     {
         if (! isset($settings['UploadDir'])) {
-            return;
+            return '';
         }
 
-        $this->UploadDir = (string) $settings['UploadDir'];
+        return (string) $settings['UploadDir'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setSaveDir(array $settings): void
+    private function setSaveDir(array $settings): string
     {
         if (! isset($settings['SaveDir'])) {
-            return;
+            return '';
         }
 
-        $this->SaveDir = (string) $settings['SaveDir'];
+        return (string) $settings['SaveDir'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setTempDir(array $settings): void
+    private function setTempDir(array $settings): string
     {
+        $tempDir = ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR;
         if (defined('TEMP_DIR')) {
-            $this->TempDir = TEMP_DIR;
+            $tempDir = TEMP_DIR;
         }
 
         if (! isset($settings['TempDir'])) {
-            return;
+            return $tempDir;
         }
 
-        $this->TempDir = (string) $settings['TempDir'];
+        return (string) $settings['TempDir'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'auto'|'yes'|'no'
      */
-    private function setGD2Available(array $settings): void
+    private function setGD2Available(array $settings): string
     {
         if (! isset($settings['GD2Available']) || ! in_array($settings['GD2Available'], ['yes', 'no'], true)) {
-            return;
+            return 'auto';
         }
 
-        $this->GD2Available = $settings['GD2Available'];
+        return $settings['GD2Available'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, string>
      */
-    private function setTrustedProxies(array $settings): void
+    private function setTrustedProxies(array $settings): array
     {
         if (! isset($settings['TrustedProxies']) || ! is_array($settings['TrustedProxies'])) {
-            return;
+            return [];
         }
 
-        $this->TrustedProxies = [];
+        $trustedProxies = [];
         /**
          * @var int|string $proxy
          * @var mixed $header
          */
         foreach ($settings['TrustedProxies'] as $proxy => $header) {
-            $this->TrustedProxies[(string) $proxy] = (string) $header;
+            if (! is_string($proxy)) {
+                continue;
+            }
+
+            $trustedProxies[$proxy] = (string) $header;
         }
+
+        return $trustedProxies;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCheckConfigurationPermissions(array $settings): void
+    private function setCheckConfigurationPermissions(array $settings): bool
     {
         if (! isset($settings['CheckConfigurationPermissions'])) {
-            return;
+            return true;
         }
 
-        $this->CheckConfigurationPermissions = (bool) $settings['CheckConfigurationPermissions'];
+        return (bool) $settings['CheckConfigurationPermissions'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setLinkLengthLimit(array $settings): void
+    private function setLinkLengthLimit(array $settings): int
     {
         if (! isset($settings['LinkLengthLimit'])) {
-            return;
+            return 1000;
         }
 
         $linkLengthLimit = (int) $settings['LinkLengthLimit'];
-        if ($linkLengthLimit <= 0) {
-            return;
-        }
 
-        $this->LinkLengthLimit = $linkLengthLimit;
+        return $linkLengthLimit >= 1 ? $linkLengthLimit : 1000;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setCSPAllow(array $settings): void
+    private function setCSPAllow(array $settings): string
     {
         if (! isset($settings['CSPAllow'])) {
-            return;
+            return '';
         }
 
-        $this->CSPAllow = (string) $settings['CSPAllow'];
+        return (string) $settings['CSPAllow'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDisableMultiTableMaintenance(array $settings): void
+    private function setDisableMultiTableMaintenance(array $settings): bool
     {
         if (! isset($settings['DisableMultiTableMaintenance'])) {
-            return;
+            return false;
         }
 
-        $this->DisableMultiTableMaintenance = (bool) $settings['DisableMultiTableMaintenance'];
+        return (bool) $settings['DisableMultiTableMaintenance'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'ask'|'always'|'never'
      */
-    private function setSendErrorReports(array $settings): void
+    private function setSendErrorReports(array $settings): string
     {
         if (
             ! isset($settings['SendErrorReports'])
             || ! in_array($settings['SendErrorReports'], ['always', 'never'], true)
         ) {
-            return;
+            return 'ask';
         }
 
-        $this->SendErrorReports = $settings['SendErrorReports'];
+        return $settings['SendErrorReports'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setConsoleEnterExecutes(array $settings): void
+    private function setConsoleEnterExecutes(array $settings): bool
     {
         if (! isset($settings['ConsoleEnterExecutes'])) {
-            return;
+            return false;
         }
 
-        $this->ConsoleEnterExecutes = (bool) $settings['ConsoleEnterExecutes'];
+        return (bool) $settings['ConsoleEnterExecutes'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setZeroConf(array $settings): void
+    private function setZeroConf(array $settings): bool
     {
         if (! isset($settings['ZeroConf'])) {
-            return;
+            return true;
         }
 
-        $this->ZeroConf = (bool) $settings['ZeroConf'];
+        return (bool) $settings['ZeroConf'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, bool>
+     * @psalm-return array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool}
      */
-    private function setDBG(array $settings): void
+    private function setDBG(array $settings): array
     {
+        $debug = [
+            // Output executed queries and their execution times
+            'sql' => false,
+
+            // Log executed queries and their execution times to syslog
+            'sqllog' => false,
+
+            // Enable to let server present itself as demo server.
+            'demo' => false,
+
+            // Enable Simple two-factor authentication
+            'simple2fa' => false,
+        ];
         if (! isset($settings['DBG']) || ! is_array($settings['DBG'])) {
-            return;
+            return $debug;
         }
 
         if (isset($settings['DBG']['sql'])) {
-            $this->DBG['sql'] = (bool) $settings['DBG']['sql'];
+            $debug['sql'] = (bool) $settings['DBG']['sql'];
         }
 
         if (isset($settings['DBG']['sqllog'])) {
-            $this->DBG['sqllog'] = (bool) $settings['DBG']['sqllog'];
+            $debug['sqllog'] = (bool) $settings['DBG']['sqllog'];
         }
 
         if (isset($settings['DBG']['demo'])) {
-            $this->DBG['demo'] = (bool) $settings['DBG']['demo'];
+            $debug['demo'] = (bool) $settings['DBG']['demo'];
         }
 
         if (! isset($settings['DBG']['simple2fa'])) {
-            return;
+            return $debug;
         }
 
-        $this->DBG['simple2fa'] = (bool) $settings['DBG']['simple2fa'];
+        $debug['simple2fa'] = (bool) $settings['DBG']['simple2fa'];
+
+        return $debug;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 'production'|'development'
      */
-    private function setEnvironment(array $settings): void
+    private function setEnvironment(array $settings): string
     {
         if (! isset($settings['environment']) || $settings['environment'] !== 'development') {
-            return;
+            return 'production';
         }
 
-        $this->environment = 'development';
+        return 'development';
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, string>
      */
-    private function setDefaultFunctions(array $settings): void
+    private function setDefaultFunctions(array $settings): array
     {
         if (! isset($settings['DefaultFunctions']) || ! is_array($settings['DefaultFunctions'])) {
-            return;
+            return [
+                'FUNC_CHAR' => '',
+                'FUNC_DATE' => '',
+                'FUNC_NUMBER' => '',
+                'FUNC_SPATIAL' => 'GeomFromText',
+                'FUNC_UUID' => 'UUID',
+                'first_timestamp' => 'NOW',
+            ];
         }
 
-        $this->DefaultFunctions = [];
+        $defaultFunctions = [];
         /**
          * @var int|string $key
          * @var mixed $value
          */
         foreach ($settings['DefaultFunctions'] as $key => $value) {
-            $this->DefaultFunctions[(string) $key] = (string) $value;
+            if (! is_string($key)) {
+                continue;
+            }
+
+            $defaultFunctions[$key] = (string) $value;
         }
+
+        return $defaultFunctions;
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxRowPlotLimit(array $settings): void
+    private function setMaxRowPlotLimit(array $settings): int
     {
         if (! isset($settings['maxRowPlotLimit'])) {
-            return;
+            return 500;
         }
 
         $maxRowPlotLimit = (int) $settings['maxRowPlotLimit'];
-        if ($maxRowPlotLimit <= 0) {
-            return;
-        }
 
-        $this->maxRowPlotLimit = $maxRowPlotLimit;
+        return $maxRowPlotLimit >= 1 ? $maxRowPlotLimit : 500;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setShowGitRevision(array $settings): void
+    private function setShowGitRevision(array $settings): bool
     {
         if (! isset($settings['ShowGitRevision'])) {
-            return;
+            return true;
         }
 
-        $this->ShowGitRevision = (bool) $settings['ShowGitRevision'];
+        return (bool) $settings['ShowGitRevision'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, int|string>
+     * @psalm-return array{internal: int, human: string}
      */
-    private function setMysqlMinVersion(array $settings): void
+    private function setMysqlMinVersion(array $settings): array
     {
+        $mysqlMinVersion = ['internal' => 50500, 'human' => '5.5.0'];
         if (! isset($settings['MysqlMinVersion']) || ! is_array($settings['MysqlMinVersion'])) {
-            return;
+            return $mysqlMinVersion;
         }
 
         if (isset($settings['MysqlMinVersion']['internal'])) {
-            $this->MysqlMinVersion['internal'] = (int) $settings['MysqlMinVersion']['internal'];
+            $mysqlMinVersion['internal'] = (int) $settings['MysqlMinVersion']['internal'];
         }
 
         if (! isset($settings['MysqlMinVersion']['human'])) {
-            return;
+            return $mysqlMinVersion;
         }
 
-        $this->MysqlMinVersion['human'] = (string) $settings['MysqlMinVersion']['human'];
+        $mysqlMinVersion['human'] = (string) $settings['MysqlMinVersion']['human'];
+
+        return $mysqlMinVersion;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDisableShortcutKeys(array $settings): void
+    private function setDisableShortcutKeys(array $settings): bool
     {
         if (! isset($settings['DisableShortcutKeys'])) {
-            return;
+            return false;
         }
 
-        $this->DisableShortcutKeys = (bool) $settings['DisableShortcutKeys'];
+        return (bool) $settings['DisableShortcutKeys'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return array<string, string|int|bool>
+     * @psalm-return array{
+     *   StartHistory: bool,
+     *   AlwaysExpand: bool,
+     *   CurrentQuery: bool,
+     *   EnterExecutes: bool,
+     *   DarkTheme: bool,
+     *   Mode: 'info'|'show'|'collapse',
+     *   Height: positive-int,
+     *   GroupQueries: bool,
+     *   OrderBy: 'exec'|'time'|'count',
+     *   Order: 'asc'|'desc'
+     * }
      */
-    private function setConsole(array $settings): void
+    private function setConsole(array $settings): array
     {
+        $console = [
+            'StartHistory' => false,
+            'AlwaysExpand' => false,
+            'CurrentQuery' => true,
+            'EnterExecutes' => false,
+            'DarkTheme' => false,
+            'Mode' => 'info',
+            'Height' => 92,
+            'GroupQueries' => false,
+            'OrderBy' => 'exec',
+            'Order' => 'asc',
+        ];
+
         if (! isset($settings['Console']) || ! is_array($settings['Console'])) {
-            return;
+            return $console;
         }
 
         if (isset($settings['Console']['StartHistory'])) {
-            $this->Console['StartHistory'] = (bool) $settings['Console']['StartHistory'];
+            $console['StartHistory'] = (bool) $settings['Console']['StartHistory'];
         }
 
         if (isset($settings['Console']['AlwaysExpand'])) {
-            $this->Console['AlwaysExpand'] = (bool) $settings['Console']['AlwaysExpand'];
+            $console['AlwaysExpand'] = (bool) $settings['Console']['AlwaysExpand'];
         }
 
         if (isset($settings['Console']['CurrentQuery'])) {
-            $this->Console['CurrentQuery'] = (bool) $settings['Console']['CurrentQuery'];
+            $console['CurrentQuery'] = (bool) $settings['Console']['CurrentQuery'];
         }
 
         if (isset($settings['Console']['EnterExecutes'])) {
-            $this->Console['EnterExecutes'] = (bool) $settings['Console']['EnterExecutes'];
+            $console['EnterExecutes'] = (bool) $settings['Console']['EnterExecutes'];
         }
 
         if (isset($settings['Console']['DarkTheme'])) {
-            $this->Console['DarkTheme'] = (bool) $settings['Console']['DarkTheme'];
+            $console['DarkTheme'] = (bool) $settings['Console']['DarkTheme'];
         }
 
         if (isset($settings['Console']['Mode']) && in_array($settings['Console']['Mode'], ['show', 'collapse'], true)) {
-            $this->Console['Mode'] = $settings['Console']['Mode'];
+            $console['Mode'] = $settings['Console']['Mode'];
         }
 
         if (isset($settings['Console']['Height'])) {
             $height = (int) $settings['Console']['Height'];
             if ($height > 0) {
-                $this->Console['Height'] = $height;
+                $console['Height'] = $height;
             }
         }
 
         if (isset($settings['Console']['GroupQueries'])) {
-            $this->Console['GroupQueries'] = (bool) $settings['Console']['GroupQueries'];
+            $console['GroupQueries'] = (bool) $settings['Console']['GroupQueries'];
         }
 
         if (
             isset($settings['Console']['OrderBy'])
             && in_array($settings['Console']['OrderBy'], ['time', 'count'], true)
         ) {
-            $this->Console['OrderBy'] = $settings['Console']['OrderBy'];
+            $console['OrderBy'] = $settings['Console']['OrderBy'];
         }
 
         if (! isset($settings['Console']['Order']) || $settings['Console']['Order'] !== 'desc') {
-            return;
+            return $console;
         }
 
-        $this->Console['Order'] = 'desc';
+        $console['Order'] = 'desc';
+
+        return $console;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setDefaultTransformations(array $settings): void
+    private function setDefaultTransformations(array $settings): Transformations
     {
         if (isset($settings['DefaultTransformations']) && is_array($settings['DefaultTransformations'])) {
-            $this->DefaultTransformations = new Transformations($settings['DefaultTransformations']);
-        } else {
-            $this->DefaultTransformations = new Transformations();
+            return new Transformations($settings['DefaultTransformations']);
         }
+
+        return new Transformations();
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|positive-int
      */
-    private function setFirstDayOfCalendar(array $settings): void
+    private function setFirstDayOfCalendar(array $settings): int
     {
         if (! isset($settings['FirstDayOfCalendar'])) {
-            return;
+            return 0;
         }
 
         $firstDayOfCalendar = (int) $settings['FirstDayOfCalendar'];
-        if ($firstDayOfCalendar < 1 || $firstDayOfCalendar > 7) {
-            return;
-        }
 
-        $this->FirstDayOfCalendar = $firstDayOfCalendar;
+        return $firstDayOfCalendar >= 1 && $firstDayOfCalendar <= 7 ? $firstDayOfCalendar : 0;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setIsSetup(array $settings): void
+    private function setIsSetup(array $settings): bool
     {
         if (! isset($settings['is_setup'])) {
-            return;
+            return false;
         }
 
-        $this->is_setup = (bool) $settings['is_setup'];
+        return (bool) $settings['is_setup'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setIsWindows(array $settings): void
+    private function setIsWindows(array $settings): bool
     {
         if (! isset($settings['PMA_IS_WINDOWS'])) {
-            return;
+            return false;
         }
 
-        $this->PMA_IS_WINDOWS = (bool) $settings['PMA_IS_WINDOWS'];
+        return (bool) $settings['PMA_IS_WINDOWS'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|1
      */
-    private function setIsIIS(array $settings): void
+    private function setIsIIS(array $settings): int
     {
         if (! isset($settings['PMA_IS_IIS'])) {
-            return;
+            return 0;
         }
 
-        $this->PMA_IS_IIS = (int) (bool) $settings['PMA_IS_IIS'];
+        return (int) (bool) $settings['PMA_IS_IIS'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return 0|1
      */
-    private function setIsGD2(array $settings): void
+    private function setIsGD2(array $settings): int
     {
         if (! isset($settings['PMA_IS_GD2'])) {
-            return;
+            return 0;
         }
 
-        $this->PMA_IS_GD2 = (int) (bool) $settings['PMA_IS_GD2'];
+        return (int) (bool) $settings['PMA_IS_GD2'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setUserOperatingSystem(array $settings): void
+    private function setUserOperatingSystem(array $settings): string
     {
         if (! isset($settings['PMA_USR_OS'])) {
-            return;
+            return 'Other';
         }
 
-        $this->PMA_USR_OS = (string) $settings['PMA_USR_OS'];
+        return (string) $settings['PMA_USR_OS'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @return int|string
      */
-    private function setUserBrowserVersion(array $settings): void
+    private function setUserBrowserVersion(array $settings)
     {
         if (! isset($settings['PMA_USR_BROWSER_VER'])) {
-            return;
+            return 0;
         }
 
         if (is_int($settings['PMA_USR_BROWSER_VER'])) {
-            $this->PMA_USR_BROWSER_VER = $settings['PMA_USR_BROWSER_VER'];
-
-            return;
+            return $settings['PMA_USR_BROWSER_VER'];
         }
 
-        $this->PMA_USR_BROWSER_VER = (string) $settings['PMA_USR_BROWSER_VER'];
+        return (string) $settings['PMA_USR_BROWSER_VER'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setUserBrowserAgent(array $settings): void
+    private function setUserBrowserAgent(array $settings): string
     {
         if (! isset($settings['PMA_USR_BROWSER_AGENT'])) {
-            return;
+            return 'OTHER';
         }
 
-        $this->PMA_USR_BROWSER_AGENT = (string) $settings['PMA_USR_BROWSER_AGENT'];
+        return (string) $settings['PMA_USR_BROWSER_AGENT'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setEnableUpload(array $settings): void
+    private function setEnableUpload(array $settings): bool
     {
         if (! isset($settings['enable_upload'])) {
-            return;
+            return false;
         }
 
-        $this->enable_upload = (bool) $settings['enable_upload'];
+        return (bool) $settings['enable_upload'];
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-external-mutation-free
+     * @psalm-return positive-int
      */
-    private function setMaxUploadSize(array $settings): void
+    private function setMaxUploadSize(array $settings): int
     {
+        // Default: 2M (2 * 1024 * 1024)
+        $default = 2097152;
         if (! isset($settings['max_upload_size'])) {
-            return;
+            return $default;
         }
 
         $maxUploadSize = (int) $settings['max_upload_size'];
-        if ($maxUploadSize <= 0) {
-            return;
+        if ($maxUploadSize >= 1) {
+            return $maxUploadSize;
         }
 
-        $this->max_upload_size = $maxUploadSize;
+        return $default;
     }
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @psalm-external-mutation-free
      */
-    private function setServer(array $settings): void
+    private function setServer(array $settings): Server
     {
         if (isset($settings['Server']) && is_array($settings['Server'])) {
-            $this->Server = new Server($settings['Server']);
-        } else {
-            $this->Server = new Server();
+            return new Server($settings['Server']);
         }
+
+        return new Server();
     }
 }

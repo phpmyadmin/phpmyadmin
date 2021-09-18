@@ -20,9 +20,9 @@ final class Transformations
      * - The third option is the string to append and/or prepend when truncation occurs (Default: "…").
      *
      * @var array<int, int|string>
-     * @psalm-var array{0: 0|positive-int, 1: 'all'|int, 2: string}
+     * @psalm-var array{0: int, 1: 'all'|int, 2: string}
      */
-    public $Substring = [0, 'all', '…'];
+    public $Substring;
 
     /**
      * Converts Boolean values to text (default 'T' and 'F').
@@ -31,7 +31,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: string, 1: string}
      */
-    public $Bool2Text = ['T', 'F'];
+    public $Bool2Text;
 
     /**
      * LINUX ONLY: Launches an external application and feeds it the column data via standard input.
@@ -48,7 +48,7 @@ final class Transformations
      * @var array<int, int|string>
      * @psalm-var array{0: int, 1: string, 2: int, 3: int}
      */
-    public $External = [0, '-f /dev/null -i -wrap -q', 1, 1];
+    public $External;
 
     /**
      * Prepends and/or Appends text to a string.
@@ -57,7 +57,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: string, 1: string}
      */
-    public $PreApPend = ['', ''];
+    public $PreApPend;
 
     /**
      * Displays hexadecimal representation of data.
@@ -66,7 +66,7 @@ final class Transformations
      * @var string[]
      * @psalm-var array{0: 0|positive-int}
      */
-    public $Hex = [2];
+    public $Hex;
 
     /**
      * Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as formatted date.
@@ -79,7 +79,7 @@ final class Transformations
      * @var array<int, int|string>
      * @psalm-var array{0: 0|positive-int, 1: string, 2: 'local'|'utc'}
      */
-    public $DateFormat = [0, '', 'local'];
+    public $DateFormat;
 
     /**
      * Displays a clickable thumbnail.
@@ -94,7 +94,7 @@ final class Transformations
      *   wrapper_params: array<array-key, string>
      * }
      */
-    public $Inline = [100, 100, 'wrapper_link' => null, 'wrapper_params' => []];
+    public $Inline;
 
     /**
      * Displays an image and a link; the column contains the filename.
@@ -104,7 +104,7 @@ final class Transformations
      * @var array<int, int|string|null>
      * @psalm-var array{0: string|null, 1: 0|positive-int, 2: 0|positive-int}
      */
-    public $TextImageLink = [null, 100, 50];
+    public $TextImageLink;
 
     /**
      * Displays a link; the column contains the filename.
@@ -114,108 +114,204 @@ final class Transformations
      * @var array<int, string|null>
      * @psalm-var array{0: string|null, 1: string|null, 2: bool|null}
      */
-    public $TextLink = [null, null, null];
+    public $TextLink;
 
     /**
      * @param array<int|string, mixed> $transformations
      */
     public function __construct(array $transformations = [])
     {
+        $this->Substring = $this->setSubstring($transformations);
+        $this->Bool2Text = $this->setBool2Text($transformations);
+        $this->External = $this->setExternal($transformations);
+        $this->PreApPend = $this->setPreApPend($transformations);
+        $this->Hex = $this->setHex($transformations);
+        $this->DateFormat = $this->setDateFormat($transformations);
+        $this->Inline = $this->setInline($transformations);
+        $this->TextImageLink = $this->setTextImageLink($transformations);
+        $this->TextLink = $this->setTextLink($transformations);
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<int, int|string>
+     * @psalm-return array{0: int, 1: 'all'|int, 2: string}
+     */
+    private function setSubstring(array $transformations): array
+    {
+        $substring = [0, 'all', '…'];
         if (isset($transformations['Substring']) && is_array($transformations['Substring'])) {
             if (isset($transformations['Substring'][0])) {
-                $this->Substring[0] = (int) $transformations['Substring'][0];
+                $substring[0] = (int) $transformations['Substring'][0];
             }
 
             if (isset($transformations['Substring'][1]) && $transformations['Substring'][1] !== 'all') {
-                $this->Substring[1] = (int) $transformations['Substring'][1];
+                $substring[1] = (int) $transformations['Substring'][1];
             }
 
             if (isset($transformations['Substring'][2])) {
-                $this->Substring[2] = (string) $transformations['Substring'][2];
+                $substring[2] = (string) $transformations['Substring'][2];
             }
         }
 
+        return $substring;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return string[]
+     * @psalm-return array{0: string, 1: string}
+     */
+    private function setBool2Text(array $transformations): array
+    {
+        $bool2Text = ['T', 'F'];
         if (isset($transformations['Bool2Text']) && is_array($transformations['Bool2Text'])) {
             if (isset($transformations['Bool2Text'][0])) {
-                $this->Bool2Text[0] = (string) $transformations['Bool2Text'][0];
+                $bool2Text[0] = (string) $transformations['Bool2Text'][0];
             }
 
             if (isset($transformations['Bool2Text'][1])) {
-                $this->Bool2Text[1] = (string) $transformations['Bool2Text'][1];
+                $bool2Text[1] = (string) $transformations['Bool2Text'][1];
             }
         }
 
+        return $bool2Text;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<int, int|string>
+     * @psalm-return array{0: int, 1: string, 2: int, 3: int}
+     */
+    private function setExternal(array $transformations): array
+    {
+        $external = [0, '-f /dev/null -i -wrap -q', 1, 1];
         if (isset($transformations['External']) && is_array($transformations['External'])) {
             if (isset($transformations['External'][0])) {
-                $this->External[0] = (int) $transformations['External'][0];
+                $external[0] = (int) $transformations['External'][0];
             }
 
             if (isset($transformations['External'][1])) {
-                $this->External[1] = (string) $transformations['External'][1];
+                $external[1] = (string) $transformations['External'][1];
             }
 
             if (isset($transformations['External'][2])) {
-                $this->External[2] = (int) $transformations['External'][2];
+                $external[2] = (int) $transformations['External'][2];
             }
 
             if (isset($transformations['External'][3])) {
-                $this->External[3] = (int) $transformations['External'][3];
+                $external[3] = (int) $transformations['External'][3];
             }
         }
 
+        return $external;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return string[]
+     * @psalm-return array{0: string, 1: string}
+     */
+    private function setPreApPend(array $transformations): array
+    {
+        $preApPend = ['', ''];
         if (isset($transformations['PreApPend']) && is_array($transformations['PreApPend'])) {
             if (isset($transformations['PreApPend'][0])) {
-                $this->PreApPend[0] = (string) $transformations['PreApPend'][0];
+                $preApPend[0] = (string) $transformations['PreApPend'][0];
             }
 
             if (isset($transformations['PreApPend'][1])) {
-                $this->PreApPend[1] = (string) $transformations['PreApPend'][1];
+                $preApPend[1] = (string) $transformations['PreApPend'][1];
             }
         }
 
+        return $preApPend;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return string[]
+     * @psalm-return array{0: 0|positive-int}
+     */
+    private function setHex(array $transformations): array
+    {
         if (isset($transformations['Hex']) && is_array($transformations['Hex'])) {
             if (isset($transformations['Hex'][0])) {
-                $hex = (int) $transformations['Hex'][0];
-                if ($hex >= 0) {
-                    $this->Hex[0] = $hex;
+                $length = (int) $transformations['Hex'][0];
+                if ($length >= 0) {
+                    return [$length];
                 }
             }
         }
 
+        return [2];
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<int, int|string>
+     * @psalm-return array{0: 0|positive-int, 1: string, 2: 'local'|'utc'}
+     */
+    private function setDateFormat(array $transformations): array
+    {
+        $dateFormat = [0, '', 'local'];
         if (isset($transformations['DateFormat']) && is_array($transformations['DateFormat'])) {
             if (isset($transformations['DateFormat'][0])) {
-                $dateFormat = (int) $transformations['DateFormat'][0];
-                if ($dateFormat >= 1) {
-                    $this->DateFormat[0] = $dateFormat;
+                $offset = (int) $transformations['DateFormat'][0];
+                if ($offset >= 1) {
+                    $dateFormat[0] = $offset;
                 }
             }
 
             if (isset($transformations['DateFormat'][1])) {
-                $this->DateFormat[1] = (string) $transformations['DateFormat'][1];
+                $dateFormat[1] = (string) $transformations['DateFormat'][1];
             }
 
             if (isset($transformations['DateFormat'][2]) && $transformations['DateFormat'][2] === 'utc') {
-                $this->DateFormat[2] = 'utc';
+                $dateFormat[2] = 'utc';
             }
         }
 
+        return $dateFormat;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<(int|string), (int|string|array<string, string>|null)>
+     * @psalm-return array{
+     *   0: 0|positive-int,
+     *   1: 0|positive-int,
+     *   wrapper_link: string|null,
+     *   wrapper_params: array<array-key, string>
+     * }
+     */
+    private function setInline(array $transformations): array
+    {
+        $inline = [100, 100, 'wrapper_link' => null, 'wrapper_params' => []];
         if (isset($transformations['Inline']) && is_array($transformations['Inline'])) {
             if (isset($transformations['Inline'][0])) {
                 $width = (int) $transformations['Inline'][0];
                 if ($width >= 0) {
-                    $this->Inline[0] = $width;
+                    $inline[0] = $width;
                 }
             }
 
             if (isset($transformations['Inline'][1])) {
                 $height = (int) $transformations['Inline'][1];
                 if ($height >= 0) {
-                    $this->Inline[1] = $height;
+                    $inline[1] = $height;
                 }
             }
 
             if (isset($transformations['Inline']['wrapper_link'])) {
-                $this->Inline['wrapper_link'] = (string) $transformations['Inline']['wrapper_link'];
+                $inline['wrapper_link'] = (string) $transformations['Inline']['wrapper_link'];
             }
 
             if (
@@ -227,47 +323,69 @@ final class Transformations
                  * @var mixed $value
                  */
                 foreach ($transformations['Inline']['wrapper_params'] as $key => $value) {
-                    $this->Inline['wrapper_params'][$key] = (string) $value;
+                    $inline['wrapper_params'][$key] = (string) $value;
                 }
             }
         }
 
+        return $inline;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<int, int|string|null>
+     * @psalm-return array{0: string|null, 1: 0|positive-int, 2: 0|positive-int}
+     */
+    private function setTextImageLink(array $transformations): array
+    {
+        $textImageLink = [null, 100, 50];
         if (isset($transformations['TextImageLink']) && is_array($transformations['TextImageLink'])) {
             if (isset($transformations['TextImageLink'][0])) {
-                $this->TextImageLink[0] = (string) $transformations['TextImageLink'][0];
+                $textImageLink[0] = (string) $transformations['TextImageLink'][0];
             }
 
             if (isset($transformations['TextImageLink'][1])) {
                 $width = (int) $transformations['TextImageLink'][1];
                 if ($width >= 0) {
-                    $this->TextImageLink[1] = $width;
+                    $textImageLink[1] = $width;
                 }
             }
 
             if (isset($transformations['TextImageLink'][2])) {
                 $height = (int) $transformations['TextImageLink'][2];
                 if ($height >= 0) {
-                    $this->TextImageLink[2] = $height;
+                    $textImageLink[2] = $height;
                 }
             }
         }
 
-        if (! isset($transformations['TextLink']) || ! is_array($transformations['TextLink'])) {
-            return;
+        return $textImageLink;
+    }
+
+    /**
+     * @param array<int|string, mixed> $transformations
+     *
+     * @return array<int, string|null>
+     * @psalm-return array{0: string|null, 1: string|null, 2: bool|null}
+     */
+    private function setTextLink(array $transformations): array
+    {
+        $textLink = [null, null, null];
+        if (isset($transformations['TextLink']) && is_array($transformations['TextLink'])) {
+            if (isset($transformations['TextLink'][0])) {
+                $textLink[0] = (string) $transformations['TextLink'][0];
+            }
+
+            if (isset($transformations['TextLink'][1])) {
+                $textLink[1] = (string) $transformations['TextLink'][1];
+            }
+
+            if (isset($transformations['TextLink'][2])) {
+                $textLink[2] = (bool) $transformations['TextLink'][2];
+            }
         }
 
-        if (isset($transformations['TextLink'][0])) {
-            $this->TextLink[0] = (string) $transformations['TextLink'][0];
-        }
-
-        if (isset($transformations['TextLink'][1])) {
-            $this->TextLink[1] = (string) $transformations['TextLink'][1];
-        }
-
-        if (! isset($transformations['TextLink'][2])) {
-            return;
-        }
-
-        $this->TextLink[2] = (bool) $transformations['TextLink'][2];
+        return $textLink;
     }
 }

@@ -20,63 +20,63 @@ final class Server
      *
      * @var string
      */
-    public $host = 'localhost';
+    public $host;
 
     /**
      * MySQL port - leave blank for default port
      *
      * @var string
      */
-    public $port = '';
+    public $port;
 
     /**
      * Path to the socket - leave blank for default socket
      *
      * @var string
      */
-    public $socket = '';
+    public $socket;
 
     /**
      * Use SSL for connecting to MySQL server?
      *
      * @var bool
      */
-    public $ssl = false;
+    public $ssl;
 
     /**
      * Path to the key file when using SSL for connecting to the MySQL server
      *
      * @var string|null
      */
-    public $ssl_key = null;
+    public $ssl_key;
 
     /**
      * Path to the cert file when using SSL for connecting to the MySQL server
      *
      * @var string|null
      */
-    public $ssl_cert = null;
+    public $ssl_cert;
 
     /**
      * Path to the CA file when using SSL for connecting to the MySQL server
      *
      * @var string|null
      */
-    public $ssl_ca = null;
+    public $ssl_ca;
 
     /**
      * Directory containing trusted SSL CA certificates in PEM format
      *
      * @var string|null
      */
-    public $ssl_ca_path = null;
+    public $ssl_ca_path;
 
     /**
      * List of allowable ciphers for SSL connections to the MySQL server
      *
      * @var string|null
      */
-    public $ssl_ciphers = null;
+    public $ssl_ciphers;
 
     /**
      * MySQL 5.6 or later triggers the mysqlnd driver in PHP to validate the
@@ -88,14 +88,14 @@ final class Server
      *
      * @var bool
      */
-    public $ssl_verify = true;
+    public $ssl_verify;
 
     /**
      * Use compressed protocol for the MySQL connection
      *
      * @var bool
      */
-    public $compress = false;
+    public $compress;
 
     /**
      * MySQL control host. This permits to use a host different than the
@@ -104,7 +104,7 @@ final class Server
      *
      * @var string
      */
-    public $controlhost = '';
+    public $controlhost;
 
     /**
      * MySQL control port. This permits to use a port different than the
@@ -113,7 +113,7 @@ final class Server
      *
      * @var string
      */
-    public $controlport = '';
+    public $controlport;
 
     /**
      * MySQL control user settings (this user must have read-only
@@ -122,7 +122,7 @@ final class Server
      *
      * @var string
      */
-    public $controluser = '';
+    public $controluser;
 
     /**
      * MySQL control user settings (this user must have read-only
@@ -131,7 +131,7 @@ final class Server
      *
      * @var string
      */
-    public $controlpass = '';
+    public $controlpass;
 
     /**
      * Authentication method (valid choices: config, http, signon or cookie)
@@ -139,35 +139,35 @@ final class Server
      * @var string
      * @psalm-var 'config'|'http'|'signon'|'cookie'
      */
-    public $auth_type = 'cookie';
+    public $auth_type;
 
     /**
      * HTTP Basic Auth Realm name to display (only used with 'HTTP' auth_type)
      *
      * @var string
      */
-    public $auth_http_realm = '';
+    public $auth_http_realm;
 
     /**
      * MySQL user
      *
      * @var string
      */
-    public $user = 'root';
+    public $user;
 
     /**
      * MySQL password (only needed with 'config' auth_type)
      *
      * @var string
      */
-    public $password = '';
+    public $password;
 
     /**
      * Session to use for 'signon' authentication method
      *
      * @var string
      */
-    public $SignonSession = '';
+    public $SignonSession;
 
     /**
      * Cookie params to match session to use for 'signon' authentication method
@@ -178,34 +178,28 @@ final class Server
      *   lifetime: 0|positive-int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'
      * }
      */
-    public $SignonCookieParams = [
-        'lifetime' => 0,
-        'path' => '/',
-        'domain' => '',
-        'secure' => false,
-        'httponly' => false,
-    ];
+    public $SignonCookieParams;
 
     /**
      * PHP script to use for 'signon' authentication method
      *
      * @var string
      */
-    public $SignonScript = '';
+    public $SignonScript;
 
     /**
      * URL where to redirect user to login for 'signon' authentication method
      *
      * @var string
      */
-    public $SignonURL = '';
+    public $SignonURL;
 
     /**
      * URL where to redirect user after logout
      *
      * @var string
      */
-    public $LogoutURL = '';
+    public $LogoutURL;
 
     /**
      * If set to a db-name, only this db is displayed in navigation panel
@@ -213,14 +207,14 @@ final class Server
      *
      * @var string|string[]
      */
-    public $only_db = '';
+    public $only_db;
 
     /**
      * Database name to be hidden from listings
      *
      * @var string
      */
-    public $hide_db = '';
+    public $hide_db;
 
     /**
      * Verbose name for this host - leave blank to show the hostname
@@ -228,7 +222,7 @@ final class Server
      *
      * @var string
      */
-    public $verbose = '';
+    public $verbose;
 
     /**
      * Database used for Relation, Bookmark and PDF Features
@@ -238,7 +232,7 @@ final class Server
      *
      * @var string
      */
-    public $pmadb = '';
+    public $pmadb;
 
     /**
      * Bookmark table
@@ -247,7 +241,7 @@ final class Server
      *
      * @var string|false
      */
-    public $bookmarktable = '';
+    public $bookmarktable;
 
     /**
      * table to describe the relation between links (see doc)
@@ -256,7 +250,7 @@ final class Server
      *
      * @var string|false
      */
-    public $relation = '';
+    public $relation;
 
     /**
      * table to describe the display fields
@@ -265,7 +259,7 @@ final class Server
      *
      * @var string|false
      */
-    public $table_info = '';
+    public $table_info;
 
     /**
      * table to describe the tables position for the designer and PDF schema
@@ -274,7 +268,7 @@ final class Server
      *
      * @var string|false
      */
-    public $table_coords = '';
+    public $table_coords;
 
     /**
      * table to describe pages of relationpdf
@@ -283,7 +277,7 @@ final class Server
      *
      * @var string|false
      */
-    public $pdf_pages = '';
+    public $pdf_pages;
 
     /**
      * table to store column information
@@ -292,7 +286,7 @@ final class Server
      *
      * @var string|false
      */
-    public $column_info = '';
+    public $column_info;
 
     /**
      * table to store SQL history
@@ -301,7 +295,7 @@ final class Server
      *
      * @var string|false
      */
-    public $history = '';
+    public $history;
 
     /**
      * table to store recently used tables
@@ -310,7 +304,7 @@ final class Server
      *
      * @var string|false
      */
-    public $recent = '';
+    public $recent;
 
     /**
      * table to store favorite tables
@@ -319,7 +313,7 @@ final class Server
      *
      * @var string|false
      */
-    public $favorite = '';
+    public $favorite;
 
     /**
      * table to store UI preferences for tables
@@ -328,7 +322,7 @@ final class Server
      *
      * @var string|false
      */
-    public $table_uiprefs = '';
+    public $table_uiprefs;
 
     /**
      * table to store SQL tracking
@@ -337,7 +331,7 @@ final class Server
      *
      * @var string|false
      */
-    public $tracking = '';
+    public $tracking;
 
     /**
      * table to store user preferences
@@ -346,7 +340,7 @@ final class Server
      *
      * @var string|false
      */
-    public $userconfig = '';
+    public $userconfig;
 
     /**
      * table to store users and their assignment to user groups
@@ -355,7 +349,7 @@ final class Server
      *
      * @var string|false
      */
-    public $users = '';
+    public $users;
 
     /**
      * table to store allowed menu items for each user group
@@ -364,7 +358,7 @@ final class Server
      *
      * @var string|false
      */
-    public $usergroups = '';
+    public $usergroups;
 
     /**
      * table to store information about item hidden from navigation tree
@@ -373,7 +367,7 @@ final class Server
      *
      * @var string|false
      */
-    public $navigationhiding = '';
+    public $navigationhiding;
 
     /**
      * table to store information about saved searches from query-by-example on a db
@@ -382,7 +376,7 @@ final class Server
      *
      * @var string|false
      */
-    public $savedsearches = '';
+    public $savedsearches;
 
     /**
      * table to store central list of columns per database
@@ -391,7 +385,7 @@ final class Server
      *
      * @var string|false
      */
-    public $central_columns = '';
+    public $central_columns;
 
     /**
      * table to store designer settings
@@ -400,7 +394,7 @@ final class Server
      *
      * @var string|false
      */
-    public $designer_settings = '';
+    public $designer_settings;
 
     /**
      * table to store export templates
@@ -409,7 +403,7 @@ final class Server
      *
      * @var string|false
      */
-    public $export_templates = '';
+    public $export_templates;
 
     /**
      * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
@@ -423,7 +417,7 @@ final class Server
      * @var int
      * @psalm-var positive-int
      */
-    public $MaxTableUiprefs = 100;
+    public $MaxTableUiprefs;
 
     /**
      * Sets the time zone used by phpMyAdmin. Possible values are explained at
@@ -431,21 +425,21 @@ final class Server
      *
      * @var string
      */
-    public $SessionTimeZone = '';
+    public $SessionTimeZone;
 
     /**
      * whether to allow root login
      *
      * @var bool
      */
-    public $AllowRoot = true;
+    public $AllowRoot;
 
     /**
      * whether to allow login of any user without a password
      *
      * @var bool
      */
-    public $AllowNoPassword = false;
+    public $AllowNoPassword;
 
     /**
      * Host authentication
@@ -456,7 +450,7 @@ final class Server
      * @var array<string, string|string[]>
      * @psalm-var array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]}
      */
-    public $AllowDeny = ['order' => '', 'rules' => []];
+    public $AllowDeny;
 
     /**
      * Disable use of INFORMATION_SCHEMA.
@@ -466,7 +460,7 @@ final class Server
      *
      * @var bool
      */
-    public $DisableIS = false;
+    public $DisableIS;
 
     /**
      * Whether the tracking mechanism creates
@@ -474,7 +468,7 @@ final class Server
      *
      * @var bool
      */
-    public $tracking_version_auto_create = false;
+    public $tracking_version_auto_create;
 
     /**
      * Defines the list of statements
@@ -482,9 +476,7 @@ final class Server
      *
      * @var string
      */
-    public $tracking_default_statements = 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,'
-        . 'DROP INDEX,INSERT,UPDATE,DELETE,TRUNCATE,REPLACE,CREATE VIEW,'
-        . 'ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
+    public $tracking_default_statements;
 
     /**
      * Whether a DROP VIEW IF EXISTS statement will be added
@@ -492,7 +484,7 @@ final class Server
      *
      * @var bool
      */
-    public $tracking_add_drop_view = true;
+    public $tracking_add_drop_view;
 
     /**
      * Whether a DROP TABLE IF EXISTS statement will be added
@@ -500,7 +492,7 @@ final class Server
      *
      * @var bool
      */
-    public $tracking_add_drop_table = true;
+    public $tracking_add_drop_table;
 
     /**
      * Whether a DROP DATABASE IF EXISTS statement will be added
@@ -508,304 +500,879 @@ final class Server
      *
      * @var bool
      */
-    public $tracking_add_drop_database = true;
+    public $tracking_add_drop_database;
 
     /**
      * @param array<int|string, mixed> $server
      */
     public function __construct(array $server = [])
     {
+        $this->host = $this->setHost($server);
+        $this->port = $this->setPort($server);
+        $this->socket = $this->setSocket($server);
+        $this->ssl = $this->setSsl($server);
+        $this->ssl_key = $this->setSslKey($server);
+        $this->ssl_cert = $this->setSslCert($server);
+        $this->ssl_ca = $this->setSslCa($server);
+        $this->ssl_ca_path = $this->setSslCaPath($server);
+        $this->ssl_ciphers = $this->setSslCiphers($server);
+        $this->ssl_verify = $this->setSslVerify($server);
+        $this->compress = $this->setCompress($server);
+        $this->controlhost = $this->setControlhost($server);
+        $this->controlport = $this->setControlport($server);
+        $this->controluser = $this->setControluser($server);
+        $this->controlpass = $this->setControlpass($server);
+        $this->auth_type = $this->setAuthType($server);
+        $this->auth_http_realm = $this->setAuthHttpRealm($server);
+        $this->user = $this->setUser($server);
+        $this->password = $this->setPassword($server);
+        $this->SignonSession = $this->setSignonSession($server);
+        $this->SignonCookieParams = $this->setSignonCookieParams($server);
+        $this->SignonScript = $this->setSignonScript($server);
+        $this->SignonURL = $this->setSignonUrl($server);
+        $this->LogoutURL = $this->setLogoutUrl($server);
+        $this->only_db = $this->setOnlyDb($server);
+        $this->hide_db = $this->setHideDb($server);
+        $this->verbose = $this->setVerbose($server);
+        $this->pmadb = $this->setPmadb($server);
+        $this->bookmarktable = $this->setBookmarktable($server);
+        $this->relation = $this->setRelation($server);
+        $this->table_info = $this->setTableInfo($server);
+        $this->table_coords = $this->setTableCoords($server);
+        $this->pdf_pages = $this->setPdfPages($server);
+        $this->column_info = $this->setColumnInfo($server);
+        $this->history = $this->setHistory($server);
+        $this->recent = $this->setRecent($server);
+        $this->favorite = $this->setFavorite($server);
+        $this->table_uiprefs = $this->setTableUiprefs($server);
+        $this->tracking = $this->setTracking($server);
+        $this->userconfig = $this->setUserconfig($server);
+        $this->users = $this->setUsers($server);
+        $this->usergroups = $this->setUsergroups($server);
+        $this->navigationhiding = $this->setNavigationhiding($server);
+        $this->savedsearches = $this->setSavedsearches($server);
+        $this->central_columns = $this->setCentralColumns($server);
+        $this->designer_settings = $this->setDesignerSettings($server);
+        $this->export_templates = $this->setExportTemplates($server);
+        $this->MaxTableUiprefs = $this->setMaxTableUiprefs($server);
+        $this->SessionTimeZone = $this->setSessionTimeZone($server);
+        $this->AllowRoot = $this->setAllowRoot($server);
+        $this->AllowNoPassword = $this->setAllowNoPassword($server);
+        $this->AllowDeny = $this->setAllowDeny($server);
+        $this->DisableIS = $this->setDisableIs($server);
+        $this->tracking_version_auto_create = $this->setTrackingVersionAutoCreate($server);
+        $this->tracking_default_statements = $this->setTrackingDefaultStatements($server);
+        $this->tracking_add_drop_view = $this->setTrackingAddDropView($server);
+        $this->tracking_add_drop_table = $this->setTrackingAddDropTable($server);
+        $this->tracking_add_drop_database = $this->setTrackingAddDropDatabase($server);
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setHost(array $server): string
+    {
         if (isset($server['host'])) {
-            $this->host = (string) $server['host'];
+            return (string) $server['host'];
         }
 
+        return 'localhost';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setPort(array $server): string
+    {
         if (isset($server['port'])) {
-            $this->port = (string) $server['port'];
+            return (string) $server['port'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSocket(array $server): string
+    {
         if (isset($server['socket'])) {
-            $this->socket = (string) $server['socket'];
+            return (string) $server['socket'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSsl(array $server): bool
+    {
         if (isset($server['ssl'])) {
-            $this->ssl = (bool) $server['ssl'];
+            return (bool) $server['ssl'];
         }
 
+        return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslKey(array $server): ?string
+    {
         if (isset($server['ssl_key'])) {
-            $this->ssl_key = (string) $server['ssl_key'];
+            return (string) $server['ssl_key'];
         }
 
+        return null;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslCert(array $server): ?string
+    {
         if (isset($server['ssl_cert'])) {
-            $this->ssl_cert = (string) $server['ssl_cert'];
+            return (string) $server['ssl_cert'];
         }
 
+        return null;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslCa(array $server): ?string
+    {
         if (isset($server['ssl_ca'])) {
-            $this->ssl_ca = (string) $server['ssl_ca'];
+            return (string) $server['ssl_ca'];
         }
 
+        return null;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslCaPath(array $server): ?string
+    {
         if (isset($server['ssl_ca_path'])) {
-            $this->ssl_ca_path = (string) $server['ssl_ca_path'];
+            return (string) $server['ssl_ca_path'];
         }
 
+        return null;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslCiphers(array $server): ?string
+    {
         if (isset($server['ssl_ciphers'])) {
-            $this->ssl_ciphers = (string) $server['ssl_ciphers'];
+            return (string) $server['ssl_ciphers'];
         }
 
+        return null;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSslVerify(array $server): bool
+    {
         if (isset($server['ssl_verify'])) {
-            $this->ssl_verify = (bool) $server['ssl_verify'];
+            return (bool) $server['ssl_verify'];
         }
 
+        return true;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setCompress(array $server): bool
+    {
         if (isset($server['compress'])) {
-            $this->compress = (bool) $server['compress'];
+            return (bool) $server['compress'];
         }
 
+        return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setControlhost(array $server): string
+    {
         if (isset($server['controlhost'])) {
-            $this->controlhost = (string) $server['controlhost'];
+            return (string) $server['controlhost'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setControlport(array $server): string
+    {
         if (isset($server['controlport'])) {
-            $this->controlport = (string) $server['controlport'];
+            return (string) $server['controlport'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setControluser(array $server): string
+    {
         if (isset($server['controluser'])) {
-            $this->controluser = (string) $server['controluser'];
+            return (string) $server['controluser'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setControlpass(array $server): string
+    {
         if (isset($server['controlpass'])) {
-            $this->controlpass = (string) $server['controlpass'];
+            return (string) $server['controlpass'];
         }
 
-        if (
-            isset($server['auth_type']) && in_array($server['auth_type'], ['config', 'http', 'signon', 'cookie'], true)
-        ) {
-            $this->auth_type = $server['auth_type'];
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @psalm-return 'config'|'http'|'signon'|'cookie'
+     */
+    private function setAuthType(array $server): string
+    {
+        if (isset($server['auth_type']) && in_array($server['auth_type'], ['config', 'http', 'signon'], true)) {
+            return $server['auth_type'];
         }
 
+        return 'cookie';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setAuthHttpRealm(array $server): string
+    {
         if (isset($server['auth_http_realm'])) {
-            $this->auth_http_realm = (string) $server['auth_http_realm'];
+            return (string) $server['auth_http_realm'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setUser(array $server): string
+    {
         if (isset($server['user'])) {
-            $this->user = (string) $server['user'];
+            return (string) $server['user'];
         }
 
+        return 'root';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setPassword(array $server): string
+    {
         if (isset($server['password'])) {
-            $this->password = (string) $server['password'];
+            return (string) $server['password'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSignonSession(array $server): string
+    {
         if (isset($server['SignonSession'])) {
-            $this->SignonSession = (string) $server['SignonSession'];
+            return (string) $server['SignonSession'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return array<string, int|string|bool>
+     * @psalm-return array{
+     *   lifetime: 0|positive-int, path: string, domain: string, secure: bool, httponly: bool, samesite?: 'Lax'|'Strict'
+     * }
+     */
+    private function setSignonCookieParams(array $server): array
+    {
+        $params = ['lifetime' => 0, 'path' => '/', 'domain' => '', 'secure' => false, 'httponly' => false];
         if (isset($server['SignonCookieParams']) && is_array($server['SignonCookieParams'])) {
             if (isset($server['SignonCookieParams']['lifetime'])) {
                 $lifetime = (int) $server['SignonCookieParams']['lifetime'];
                 if ($lifetime >= 1) {
-                    $this->SignonCookieParams['lifetime'] = $lifetime;
+                    $params['lifetime'] = $lifetime;
                 }
             }
 
             if (isset($server['SignonCookieParams']['path'])) {
-                $this->SignonCookieParams['path'] = (string) $server['SignonCookieParams']['path'];
+                $params['path'] = (string) $server['SignonCookieParams']['path'];
             }
 
             if (isset($server['SignonCookieParams']['domain'])) {
-                $this->SignonCookieParams['domain'] = (string) $server['SignonCookieParams']['domain'];
+                $params['domain'] = (string) $server['SignonCookieParams']['domain'];
             }
 
             if (isset($server['SignonCookieParams']['secure'])) {
-                $this->SignonCookieParams['secure'] = (bool) $server['SignonCookieParams']['secure'];
+                $params['secure'] = (bool) $server['SignonCookieParams']['secure'];
             }
 
             if (isset($server['SignonCookieParams']['httponly'])) {
-                $this->SignonCookieParams['httponly'] = (bool) $server['SignonCookieParams']['httponly'];
+                $params['httponly'] = (bool) $server['SignonCookieParams']['httponly'];
             }
 
             if (
                 isset($server['SignonCookieParams']['samesite'])
                 && in_array($server['SignonCookieParams']['samesite'], ['Lax', 'Strict'], true)
             ) {
-                $this->SignonCookieParams['samesite'] = $server['SignonCookieParams']['samesite'];
+                $params['samesite'] = $server['SignonCookieParams']['samesite'];
             }
         }
 
+        return $params;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSignonScript(array $server): string
+    {
         if (isset($server['SignonScript'])) {
-            $this->SignonScript = (string) $server['SignonScript'];
+            return (string) $server['SignonScript'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSignonUrl(array $server): string
+    {
         if (isset($server['SignonURL'])) {
-            $this->SignonURL = (string) $server['SignonURL'];
+            return (string) $server['SignonURL'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setLogoutUrl(array $server): string
+    {
         if (isset($server['LogoutURL'])) {
-            $this->LogoutURL = (string) $server['LogoutURL'];
+            return (string) $server['LogoutURL'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return string|string[]
+     */
+    private function setOnlyDb(array $server)
+    {
+        $onlyDb = '';
         if (isset($server['only_db'])) {
             if (! is_array($server['only_db'])) {
-                $this->only_db = (string) $server['only_db'];
+                $onlyDb = (string) $server['only_db'];
             } elseif (count($server['only_db']) > 0) {
-                $this->only_db = [];
+                $onlyDb = [];
                 /** @var mixed $database */
                 foreach ($server['only_db'] as $database) {
-                    $this->only_db[] = (string) $database;
+                    $onlyDb[] = (string) $database;
                 }
             }
         }
 
+        return $onlyDb;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setHideDb(array $server): string
+    {
         if (isset($server['hide_db'])) {
-            $this->hide_db = (string) $server['hide_db'];
+            return (string) $server['hide_db'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setVerbose(array $server): string
+    {
         if (isset($server['verbose'])) {
-            $this->verbose = (string) $server['verbose'];
+            return (string) $server['verbose'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setPmadb(array $server): string
+    {
         if (isset($server['pmadb'])) {
-            $this->pmadb = (string) $server['pmadb'];
+            return (string) $server['pmadb'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setBookmarktable(array $server)
+    {
         if (isset($server['bookmarktable'])) {
-            $this->bookmarktable = $server['bookmarktable'] === false ? false : (string) $server['bookmarktable'];
+            return $server['bookmarktable'] === false ? false : (string) $server['bookmarktable'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setRelation(array $server)
+    {
         if (isset($server['relation'])) {
-            $this->relation = $server['relation'] === false ? false : (string) $server['relation'];
+            return $server['relation'] === false ? false : (string) $server['relation'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setTableInfo(array $server)
+    {
         if (isset($server['table_info'])) {
-            $this->table_info = $server['table_info'] === false ? false : (string) $server['table_info'];
+            return $server['table_info'] === false ? false : (string) $server['table_info'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setTableCoords(array $server)
+    {
         if (isset($server['table_coords'])) {
-            $this->table_coords = $server['table_coords'] === false ? false : (string) $server['table_coords'];
+            return $server['table_coords'] === false ? false : (string) $server['table_coords'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setPdfPages(array $server)
+    {
         if (isset($server['pdf_pages'])) {
-            $this->pdf_pages = $server['pdf_pages'] === false ? false : (string) $server['pdf_pages'];
+            return $server['pdf_pages'] === false ? false : (string) $server['pdf_pages'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setColumnInfo(array $server)
+    {
         if (isset($server['column_info'])) {
-            $this->column_info = $server['column_info'] === false ? false : (string) $server['column_info'];
+            return $server['column_info'] === false ? false : (string) $server['column_info'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setHistory(array $server)
+    {
         if (isset($server['history'])) {
-            $this->history = $server['history'] === false ? false : (string) $server['history'];
+            return $server['history'] === false ? false : (string) $server['history'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setRecent(array $server)
+    {
         if (isset($server['recent'])) {
-            $this->recent = $server['recent'] === false ? false : (string) $server['recent'];
+            return $server['recent'] === false ? false : (string) $server['recent'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setFavorite(array $server)
+    {
         if (isset($server['favorite'])) {
-            $this->favorite = $server['favorite'] === false ? false : (string) $server['favorite'];
+            return $server['favorite'] === false ? false : (string) $server['favorite'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setTableUiprefs(array $server)
+    {
         if (isset($server['table_uiprefs'])) {
-            $this->table_uiprefs = $server['table_uiprefs'] === false ? false : (string) $server['table_uiprefs'];
+            return $server['table_uiprefs'] === false ? false : (string) $server['table_uiprefs'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setTracking(array $server)
+    {
         if (isset($server['tracking'])) {
-            $this->tracking = $server['tracking'] === false ? false : (string) $server['tracking'];
+            return $server['tracking'] === false ? false : (string) $server['tracking'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setUserconfig(array $server)
+    {
         if (isset($server['userconfig'])) {
-            $this->userconfig = $server['userconfig'] === false ? false : (string) $server['userconfig'];
+            return $server['userconfig'] === false ? false : (string) $server['userconfig'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setUsers(array $server)
+    {
         if (isset($server['users'])) {
-            $this->users = $server['users'] === false ? false : (string) $server['users'];
+            return $server['users'] === false ? false : (string) $server['users'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setUsergroups(array $server)
+    {
         if (isset($server['usergroups'])) {
-            $this->usergroups = $server['usergroups'] === false ? false : (string) $server['usergroups'];
+            return $server['usergroups'] === false ? false : (string) $server['usergroups'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setNavigationhiding(array $server)
+    {
         if (isset($server['navigationhiding'])) {
-            $this->navigationhiding = $server['navigationhiding'] === false
+            return $server['navigationhiding'] === false
                 ? false
                 : (string) $server['navigationhiding'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setSavedsearches(array $server)
+    {
         if (isset($server['savedsearches'])) {
-            $this->savedsearches = $server['savedsearches'] === false ? false : (string) $server['savedsearches'];
+            return $server['savedsearches'] === false ? false : (string) $server['savedsearches'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setCentralColumns(array $server)
+    {
         if (isset($server['central_columns'])) {
-            $this->central_columns = $server['central_columns'] === false ? false : (string) $server['central_columns'];
+            return $server['central_columns'] === false ? false : (string) $server['central_columns'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setDesignerSettings(array $server)
+    {
         if (isset($server['designer_settings'])) {
-            $this->designer_settings = $server['designer_settings'] === false
+            return $server['designer_settings'] === false
                 ? false
                 : (string) $server['designer_settings'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return false|string
+     */
+    private function setExportTemplates(array $server)
+    {
         if (isset($server['export_templates'])) {
-            $this->export_templates = $server['export_templates'] === false
+            return $server['export_templates'] === false
                 ? false
                 : (string) $server['export_templates'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @psalm-return positive-int
+     */
+    private function setMaxTableUiprefs(array $server): int
+    {
         if (isset($server['MaxTableUiprefs'])) {
             $maxTableUiprefs = (int) $server['MaxTableUiprefs'];
             if ($maxTableUiprefs >= 1) {
-                $this->MaxTableUiprefs = $maxTableUiprefs;
+                return $maxTableUiprefs;
             }
         }
 
+        return 100;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setSessionTimeZone(array $server): string
+    {
         if (isset($server['SessionTimeZone'])) {
-            $this->SessionTimeZone = (string) $server['SessionTimeZone'];
+            return (string) $server['SessionTimeZone'];
         }
 
+        return '';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setAllowRoot(array $server): bool
+    {
         if (isset($server['AllowRoot'])) {
-            $this->AllowRoot = (bool) $server['AllowRoot'];
+            return (bool) $server['AllowRoot'];
         }
 
+        return true;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setAllowNoPassword(array $server): bool
+    {
         if (isset($server['AllowNoPassword'])) {
-            $this->AllowNoPassword = (bool) $server['AllowNoPassword'];
+            return (bool) $server['AllowNoPassword'];
         }
 
+        return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     *
+     * @return array<string, string|string[]>
+     * @psalm-return array{order: ''|'deny,allow'|'allow,deny'|'explicit', rules: string[]}
+     */
+    private function setAllowDeny(array $server): array
+    {
+        $allowDeny = ['order' => '', 'rules' => []];
         if (isset($server['AllowDeny']) && is_array($server['AllowDeny'])) {
             if (
                 isset($server['AllowDeny']['order'])
                 && in_array($server['AllowDeny']['order'], ['deny,allow', 'allow,deny', 'explicit'], true)
             ) {
-                $this->AllowDeny['order'] = $server['AllowDeny']['order'];
+                $allowDeny['order'] = $server['AllowDeny']['order'];
             }
 
             if (isset($server['AllowDeny']['rules']) && is_array($server['AllowDeny']['rules'])) {
                 /** @var mixed $rule */
                 foreach ($server['AllowDeny']['rules'] as $rule) {
-                    $this->AllowDeny['rules'][] = (string) $rule;
+                    $allowDeny['rules'][] = (string) $rule;
                 }
             }
         }
 
+        return $allowDeny;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setDisableIs(array $server): bool
+    {
         if (isset($server['DisableIS'])) {
-            $this->DisableIS = (bool) $server['DisableIS'];
+            return (bool) $server['DisableIS'];
         }
 
+        return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setTrackingVersionAutoCreate(array $server): bool
+    {
         if (isset($server['tracking_version_auto_create'])) {
-            $this->tracking_version_auto_create = (bool) $server['tracking_version_auto_create'];
+            return (bool) $server['tracking_version_auto_create'];
         }
 
+        return false;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setTrackingDefaultStatements(array $server): string
+    {
         if (isset($server['tracking_default_statements'])) {
-            $this->tracking_default_statements = (string) $server['tracking_default_statements'];
+            return (string) $server['tracking_default_statements'];
         }
 
+        return 'CREATE TABLE,ALTER TABLE,DROP TABLE,RENAME TABLE,CREATE INDEX,DROP INDEX,INSERT,UPDATE,DELETE,'
+            . 'TRUNCATE,REPLACE,CREATE VIEW,ALTER VIEW,DROP VIEW,CREATE DATABASE,ALTER DATABASE,DROP DATABASE';
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setTrackingAddDropView(array $server): bool
+    {
         if (isset($server['tracking_add_drop_view'])) {
-            $this->tracking_add_drop_view = (bool) $server['tracking_add_drop_view'];
+            return (bool) $server['tracking_add_drop_view'];
         }
 
+        return true;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setTrackingAddDropTable(array $server): bool
+    {
         if (isset($server['tracking_add_drop_table'])) {
-            $this->tracking_add_drop_table = (bool) $server['tracking_add_drop_table'];
+            return (bool) $server['tracking_add_drop_table'];
         }
 
-        if (! isset($server['tracking_add_drop_database'])) {
-            return;
+        return true;
+    }
+
+    /**
+     * @param array<int|string, mixed> $server
+     */
+    private function setTrackingAddDropDatabase(array $server): bool
+    {
+        if (isset($server['tracking_add_drop_database'])) {
+            return (bool) $server['tracking_add_drop_database'];
         }
 
-        $this->tracking_add_drop_database = (bool) $server['tracking_add_drop_database'];
+        return true;
     }
 }
