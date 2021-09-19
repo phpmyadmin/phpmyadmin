@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Config\Settings\Console;
+use PhpMyAdmin\Config\Settings\Debug;
 use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Config\Settings\Import;
 use PhpMyAdmin\Config\Settings\Schema;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
 use PHPUnit\Framework\TestCase;
 
@@ -22,10 +25,13 @@ use const ROOT_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config\Settings
+ * @covers \PhpMyAdmin\Config\Settings\Console
+ * @covers \PhpMyAdmin\Config\Settings\Debug
  * @covers \PhpMyAdmin\Config\Settings\Export
  * @covers \PhpMyAdmin\Config\Settings\Import
  * @covers \PhpMyAdmin\Config\Settings\Schema
  * @covers \PhpMyAdmin\Config\Settings\Server
+ * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
  * @covers \PhpMyAdmin\Config\Settings\Transformations
  */
 class SettingsTest extends TestCase
@@ -233,7 +239,7 @@ class SettingsTest extends TestCase
         'ThemePerServer' => false,
         'DefaultQueryTable' => 'SELECT * FROM @TABLE@ WHERE 1',
         'DefaultQueryDatabase' => '',
-        'SQLQuery' => ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true],
+        'SQLQuery' => null,
         'EnableAutocompleteForTablesAndColumns' => true,
         'UploadDir' => '',
         'SaveDir' => '',
@@ -247,7 +253,7 @@ class SettingsTest extends TestCase
         'SendErrorReports' => 'ask',
         'ConsoleEnterExecutes' => false,
         'ZeroConf' => true,
-        'DBG' => ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false],
+        'DBG' => null,
         'environment' => 'production',
         'DefaultFunctions' => [
             'FUNC_CHAR' => '',
@@ -261,18 +267,7 @@ class SettingsTest extends TestCase
         'ShowGitRevision' => true,
         'MysqlMinVersion' => ['internal' => 50500, 'human' => '5.5.0'],
         'DisableShortcutKeys' => false,
-        'Console' => [
-            'StartHistory' => false,
-            'AlwaysExpand' => false,
-            'CurrentQuery' => true,
-            'EnterExecutes' => false,
-            'DarkTheme' => false,
-            'Mode' => 'info',
-            'Height' => 92,
-            'GroupQueries' => false,
-            'OrderBy' => 'exec',
-            'Order' => 'asc',
-        ],
+        'Console' => null,
         'DefaultTransformations' => null,
         'FirstDayOfCalendar' => 0,
         'is_setup' => false,
@@ -317,6 +312,16 @@ class SettingsTest extends TestCase
                 continue;
             }
 
+            if ($key === 'Console') {
+                $this->assertInstanceOf(Console::class, $settings->Console);
+                continue;
+            }
+
+            if ($key === 'DBG') {
+                $this->assertInstanceOf(Debug::class, $settings->DBG);
+                continue;
+            }
+
             if ($key === 'Export') {
                 $this->assertInstanceOf(Export::class, $settings->Export);
                 continue;
@@ -329,6 +334,11 @@ class SettingsTest extends TestCase
 
             if ($key === 'Schema') {
                 $this->assertInstanceOf(Schema::class, $settings->Schema);
+                continue;
+            }
+
+            if ($key === 'SQLQuery') {
+                $this->assertInstanceOf(SqlQueryBox::class, $settings->SQLQuery);
                 continue;
             }
 
@@ -518,7 +528,7 @@ class SettingsTest extends TestCase
                     ['ThemePerServer', null, false],
                     ['DefaultQueryTable', null, 'SELECT * FROM @TABLE@ WHERE 1'],
                     ['DefaultQueryDatabase', null, ''],
-                    ['SQLQuery', null, ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true]],
+                    ['SQLQuery', null, null],
                     ['EnableAutocompleteForTablesAndColumns', null, true],
                     ['UploadDir', null, ''],
                     ['SaveDir', null, ''],
@@ -532,14 +542,14 @@ class SettingsTest extends TestCase
                     ['SendErrorReports', null, 'ask'],
                     ['ConsoleEnterExecutes', null, false],
                     ['ZeroConf', null, true],
-                    ['DBG', null, ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false]],
+                    ['DBG', null, null],
                     ['environment', null, 'production'],
                     ['DefaultFunctions', null, ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', null, 500],
                     ['ShowGitRevision', null, true],
                     ['MysqlMinVersion', null, ['internal' => 50500, 'human' => '5.5.0']],
                     ['DisableShortcutKeys', null, false],
-                    ['Console', null, ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
+                    ['Console', null, null],
                     ['DefaultTransformations', null, null],
                     ['FirstDayOfCalendar', null, 0],
                     ['is_setup', null, false],
@@ -721,7 +731,7 @@ class SettingsTest extends TestCase
                     ['ThemePerServer', true, true],
                     ['DefaultQueryTable', 'test', 'test'],
                     ['DefaultQueryDatabase', 'test', 'test'],
-                    ['SQLQuery', ['Edit' => false, 'Explain' => false, 'ShowAsPHP' => false, 'Refresh' => false], ['Edit' => false, 'Explain' => false, 'ShowAsPHP' => false, 'Refresh' => false]],
+                    ['SQLQuery', [], null],
                     ['EnableAutocompleteForTablesAndColumns', false, false],
                     ['UploadDir', 'test', 'test'],
                     ['SaveDir', 'test', 'test'],
@@ -735,14 +745,14 @@ class SettingsTest extends TestCase
                     ['SendErrorReports', 'never', 'never'],
                     ['ConsoleEnterExecutes', true, true],
                     ['ZeroConf', false, false],
-                    ['DBG', ['sql' => true, 'sqllog' => true, 'demo' => true, 'simple2fa' => true], ['sql' => true, 'sqllog' => true, 'demo' => true, 'simple2fa' => true]],
+                    ['DBG', [], null],
                     ['environment', 'development', 'development'],
                     ['DefaultFunctions', ['key' => 'value', 'key2' => 'value2'], ['key' => 'value', 'key2' => 'value2']],
                     ['maxRowPlotLimit', 1, 1],
                     ['ShowGitRevision', false, false],
                     ['MysqlMinVersion', ['internal' => 80026, 'human' => '8.0.26'], ['internal' => 80026, 'human' => '8.0.26']],
                     ['DisableShortcutKeys', true, true],
-                    ['Console', ['StartHistory' => true, 'AlwaysExpand' => true, 'CurrentQuery' => false, 'EnterExecutes' => true, 'DarkTheme' => true, 'Mode' => 'collapse', 'Height' => 1, 'GroupQueries' => true, 'OrderBy' => 'count', 'Order' => 'desc'], ['StartHistory' => true, 'AlwaysExpand' => true, 'CurrentQuery' => false, 'EnterExecutes' => true, 'DarkTheme' => true, 'Mode' => 'collapse', 'Height' => 1, 'GroupQueries' => true, 'OrderBy' => 'count', 'Order' => 'desc']],
+                    ['Console', [], null],
                     ['DefaultTransformations', [], null],
                     ['FirstDayOfCalendar', 7, 7],
                     ['is_setup', true, true],
@@ -782,15 +792,12 @@ class SettingsTest extends TestCase
                     ['RowActionLinks', 'left', 'left'],
                     ['TablePrimaryKeyOrder', 'NONE', 'NONE'],
                     ['InitialSlidersState', 'closed', 'closed'],
-                    ['SQLQuery', [], ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true]],
                     ['GD2Available', 'auto', 'auto'],
                     ['TrustedProxies', [], []],
                     ['SendErrorReports', 'ask', 'ask'],
-                    ['DBG', [], ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false]],
                     ['environment', 'production', 'production'],
                     ['DefaultFunctions', [], []],
                     ['MysqlMinVersion', [], ['internal' => 50500, 'human' => '5.5.0']],
-                    ['Console', [], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
                     ['FirstDayOfCalendar', 0, 0],
                     ['PMA_USR_BROWSER_VER', 78, 78],
                 ],
@@ -819,7 +826,6 @@ class SettingsTest extends TestCase
                     ['InitialSlidersState', 'disabled', 'disabled'],
                     ['GD2Available', 'no', 'no'],
                     ['SendErrorReports', 'always', 'always'],
-                    ['Console', ['Mode' => 'info', 'OrderBy' => 'exec', 'Order' => 'asc'], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
                 ],
             ],
             'valid values 4' => [
@@ -833,7 +839,6 @@ class SettingsTest extends TestCase
                     ['DefaultTabTable', 'search', 'search'],
                     ['RecodingEngine', 'recode', 'recode'],
                     ['RowActionLinks', 'both', 'both'],
-                    ['Console', ['Mode' => 'show', 'OrderBy' => 'time'], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'show', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'time', 'Order' => 'asc']],
                 ],
             ],
             'valid values 5' => [
@@ -1030,7 +1035,6 @@ class SettingsTest extends TestCase
                     ['ThemePerServer', 1, true],
                     ['DefaultQueryTable', 1234, '1234'],
                     ['DefaultQueryDatabase', 1234, '1234'],
-                    ['SQLQuery', ['Edit' => 0, 'Explain' => 0, 'ShowAsPHP' => 0, 'Refresh' => 0], ['Edit' => false, 'Explain' => false, 'ShowAsPHP' => false, 'Refresh' => false]],
                     ['EnableAutocompleteForTablesAndColumns', 0, false],
                     ['UploadDir', 1234, '1234'],
                     ['SaveDir', 1234, '1234'],
@@ -1042,13 +1046,11 @@ class SettingsTest extends TestCase
                     ['DisableMultiTableMaintenance', 1, true],
                     ['ConsoleEnterExecutes', 1, true],
                     ['ZeroConf', 0, false],
-                    ['DBG', ['sql' => 1, 'sqllog' => 1, 'demo' => 1, 'simple2fa' => 1], ['sql' => true, 'sqllog' => true, 'demo' => true, 'simple2fa' => true]],
                     ['DefaultFunctions', ['test' => 1234], ['test' => '1234']],
                     ['maxRowPlotLimit', '1', 1],
                     ['ShowGitRevision', 0, false],
                     ['MysqlMinVersion', ['internal' => '50500', 'human' => 550], ['internal' => 50500, 'human' => '550']],
                     ['DisableShortcutKeys', 1, true],
-                    ['Console', ['StartHistory' => 1, 'AlwaysExpand' => 1, 'CurrentQuery' => 0, 'EnterExecutes' => 1, 'DarkTheme' => 1, 'Height' => '1', 'GroupQueries' => 1], ['StartHistory' => true, 'AlwaysExpand' => true, 'CurrentQuery' => false, 'EnterExecutes' => true, 'DarkTheme' => true, 'Mode' => 'info', 'Height' => 1, 'GroupQueries' => true, 'OrderBy' => 'exec', 'Order' => 'asc']],
                     ['FirstDayOfCalendar', '1', 1],
                     ['is_setup', 1, true],
                     ['PMA_IS_WINDOWS', 1, true],
@@ -1123,18 +1125,18 @@ class SettingsTest extends TestCase
                     ['MaxExactCountViews', -1, 0],
                     ['InitialSlidersState', 'invalid', 'closed'],
                     ['UserprefsDisallow', 'invalid', []],
-                    ['SQLQuery', 'invalid', ['Edit' => true, 'Explain' => true, 'ShowAsPHP' => true, 'Refresh' => true]],
+                    ['SQLQuery', 'invalid', null],
                     ['EnableAutocompleteForTablesAndColumns', null, true],
                     ['GD2Available', 'invalid', 'auto'],
                     ['TrustedProxies', 'invalid', []],
                     ['LinkLengthLimit', 0, 1000],
                     ['SendErrorReports', 'invalid', 'ask'],
-                    ['DBG', 'invalid', ['sql' => false, 'sqllog' => false, 'demo' => false, 'simple2fa' => false]],
+                    ['DBG', 'invalid', null],
                     ['environment', 'invalid', 'production'],
                     ['DefaultFunctions', 'invalid', ['FUNC_CHAR' => '', 'FUNC_DATE' => '', 'FUNC_NUMBER' => '', 'FUNC_SPATIAL' => 'GeomFromText', 'FUNC_UUID' => 'UUID', 'first_timestamp' => 'NOW']],
                     ['maxRowPlotLimit', 0, 500],
                     ['MysqlMinVersion', 'invalid', ['internal' => 50500, 'human' => '5.5.0']],
-                    ['Console', 'invalid', ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
+                    ['Console', 'invalid', null],
                     ['FirstDayOfCalendar', 8, 0],
                     ['max_upload_size', 0, 2097152],
                 ],
@@ -1146,7 +1148,6 @@ class SettingsTest extends TestCase
                     ['ForeignKeyDropdownOrder', ['id-content', 'invalid'], ['id-content']],
                     ['TrustedProxies', [1234 => 'invalid', 'valid' => 'valid'], ['valid' => 'valid']],
                     ['DefaultFunctions', [1234 => 'invalid', 'valid' => 'valid'], ['valid' => 'valid']],
-                    ['Console', ['Mode' => 'invalid', 'Height' => 0, 'OrderBy' => 'invalid', 'Order' => 'invalid'], ['StartHistory' => false, 'AlwaysExpand' => false, 'CurrentQuery' => true, 'EnterExecutes' => false, 'DarkTheme' => false, 'Mode' => 'info', 'Height' => 92, 'GroupQueries' => false, 'OrderBy' => 'exec', 'Order' => 'asc']],
                     ['FirstDayOfCalendar', -1, 0],
                 ],
             ],

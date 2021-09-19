@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config\Settings\Console;
+use PhpMyAdmin\Config\Settings\Debug;
 use PhpMyAdmin\Config\Settings\Export;
 use PhpMyAdmin\Config\Settings\Import;
 use PhpMyAdmin\Config\Settings\Schema;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
 
 use function count;
@@ -1357,8 +1360,7 @@ final class Settings
      * SQL Query box settings
      * These are the links display in all of the SQL Query boxes
      *
-     * @var array<string, bool>
-     * @psalm-var array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
+     * @var SqlQueryBox
      */
     public $SQLQuery;
 
@@ -1479,8 +1481,7 @@ final class Settings
     /**
      * Developers ONLY!
      *
-     * @var array<string, bool>
-     * @psalm-var array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool}
+     * @var Debug
      */
     public $DBG;
 
@@ -1539,19 +1540,7 @@ final class Settings
      *
      * This is mostly meant for user preferences.
      *
-     * @var array<string, string|int|bool>
-     * @psalm-var array{
-     *   StartHistory: bool,
-     *   AlwaysExpand: bool,
-     *   CurrentQuery: bool,
-     *   EnterExecutes: bool,
-     *   DarkTheme: bool,
-     *   Mode: 'info'|'show'|'collapse',
-     *   Height: positive-int,
-     *   GroupQueries: bool,
-     *   OrderBy: 'exec'|'time'|'count',
-     *   Order: 'asc'|'desc'
-     * }
+     * @var Console
      */
     public $Console;
 
@@ -4231,48 +4220,14 @@ final class Settings
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @return array<string, bool>
-     * @psalm-return array{Edit: bool, Explain: bool, ShowAsPHP: bool, Refresh: bool}
      */
-    private function setSQLQuery(array $settings): array
+    private function setSQLQuery(array $settings): SqlQueryBox
     {
-        $sqlQuery = [
-            // Display an "Edit" link on the results page to change a query
-            'Edit' => true,
-
-            // Display an "Explain SQL" link on the results page
-            'Explain' => true,
-
-            // Display a "Create PHP code" link on the results page to wrap a query in PHP
-            'ShowAsPHP' => true,
-
-            // Display a "Refresh" link on the results page
-            'Refresh' => true,
-        ];
-        if (! isset($settings['SQLQuery']) || ! is_array($settings['SQLQuery'])) {
-            return $sqlQuery;
+        if (isset($settings['SQLQuery']) && is_array($settings['SQLQuery'])) {
+            return new SqlQueryBox($settings['SQLQuery']);
         }
 
-        if (isset($settings['SQLQuery']['Edit'])) {
-            $sqlQuery['Edit'] = (bool) $settings['SQLQuery']['Edit'];
-        }
-
-        if (isset($settings['SQLQuery']['Explain'])) {
-            $sqlQuery['Explain'] = (bool) $settings['SQLQuery']['Explain'];
-        }
-
-        if (isset($settings['SQLQuery']['ShowAsPHP'])) {
-            $sqlQuery['ShowAsPHP'] = (bool) $settings['SQLQuery']['ShowAsPHP'];
-        }
-
-        if (! isset($settings['SQLQuery']['Refresh'])) {
-            return $sqlQuery;
-        }
-
-        $sqlQuery['Refresh'] = (bool) $settings['SQLQuery']['Refresh'];
-
-        return $sqlQuery;
+        return new SqlQueryBox();
     }
 
     /**
@@ -4464,48 +4419,14 @@ final class Settings
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @return array<string, bool>
-     * @psalm-return array{sql: bool, sqllog: bool, demo: bool, simple2fa: bool}
      */
-    private function setDBG(array $settings): array
+    private function setDBG(array $settings): Debug
     {
-        $debug = [
-            // Output executed queries and their execution times
-            'sql' => false,
-
-            // Log executed queries and their execution times to syslog
-            'sqllog' => false,
-
-            // Enable to let server present itself as demo server.
-            'demo' => false,
-
-            // Enable Simple two-factor authentication
-            'simple2fa' => false,
-        ];
-        if (! isset($settings['DBG']) || ! is_array($settings['DBG'])) {
-            return $debug;
+        if (isset($settings['DBG']) && is_array($settings['DBG'])) {
+            return new Debug($settings['DBG']);
         }
 
-        if (isset($settings['DBG']['sql'])) {
-            $debug['sql'] = (bool) $settings['DBG']['sql'];
-        }
-
-        if (isset($settings['DBG']['sqllog'])) {
-            $debug['sqllog'] = (bool) $settings['DBG']['sqllog'];
-        }
-
-        if (isset($settings['DBG']['demo'])) {
-            $debug['demo'] = (bool) $settings['DBG']['demo'];
-        }
-
-        if (! isset($settings['DBG']['simple2fa'])) {
-            return $debug;
-        }
-
-        $debug['simple2fa'] = (bool) $settings['DBG']['simple2fa'];
-
-        return $debug;
+        return new Debug();
     }
 
     /**
@@ -4624,89 +4545,14 @@ final class Settings
 
     /**
      * @param array<int|string, mixed> $settings
-     *
-     * @return array<string, string|int|bool>
-     * @psalm-return array{
-     *   StartHistory: bool,
-     *   AlwaysExpand: bool,
-     *   CurrentQuery: bool,
-     *   EnterExecutes: bool,
-     *   DarkTheme: bool,
-     *   Mode: 'info'|'show'|'collapse',
-     *   Height: positive-int,
-     *   GroupQueries: bool,
-     *   OrderBy: 'exec'|'time'|'count',
-     *   Order: 'asc'|'desc'
-     * }
      */
-    private function setConsole(array $settings): array
+    private function setConsole(array $settings): Console
     {
-        $console = [
-            'StartHistory' => false,
-            'AlwaysExpand' => false,
-            'CurrentQuery' => true,
-            'EnterExecutes' => false,
-            'DarkTheme' => false,
-            'Mode' => 'info',
-            'Height' => 92,
-            'GroupQueries' => false,
-            'OrderBy' => 'exec',
-            'Order' => 'asc',
-        ];
-
-        if (! isset($settings['Console']) || ! is_array($settings['Console'])) {
-            return $console;
+        if (isset($settings['Console']) && is_array($settings['Console'])) {
+            return new Console($settings['Console']);
         }
 
-        if (isset($settings['Console']['StartHistory'])) {
-            $console['StartHistory'] = (bool) $settings['Console']['StartHistory'];
-        }
-
-        if (isset($settings['Console']['AlwaysExpand'])) {
-            $console['AlwaysExpand'] = (bool) $settings['Console']['AlwaysExpand'];
-        }
-
-        if (isset($settings['Console']['CurrentQuery'])) {
-            $console['CurrentQuery'] = (bool) $settings['Console']['CurrentQuery'];
-        }
-
-        if (isset($settings['Console']['EnterExecutes'])) {
-            $console['EnterExecutes'] = (bool) $settings['Console']['EnterExecutes'];
-        }
-
-        if (isset($settings['Console']['DarkTheme'])) {
-            $console['DarkTheme'] = (bool) $settings['Console']['DarkTheme'];
-        }
-
-        if (isset($settings['Console']['Mode']) && in_array($settings['Console']['Mode'], ['show', 'collapse'], true)) {
-            $console['Mode'] = $settings['Console']['Mode'];
-        }
-
-        if (isset($settings['Console']['Height'])) {
-            $height = (int) $settings['Console']['Height'];
-            if ($height > 0) {
-                $console['Height'] = $height;
-            }
-        }
-
-        if (isset($settings['Console']['GroupQueries'])) {
-            $console['GroupQueries'] = (bool) $settings['Console']['GroupQueries'];
-        }
-
-        if (
-            isset($settings['Console']['OrderBy'])
-            && in_array($settings['Console']['OrderBy'], ['time', 'count'], true)
-        ) {
-            $console['OrderBy'] = $settings['Console']['OrderBy'];
-        }
-
-        if (! isset($settings['Console']['Order']) || $settings['Console']['Order'] !== 'desc') {
-            return $console;
-        }
-
-        $console['Order'] = 'desc';
-
-        return $console;
+        return new Console();
     }
 
     /**
