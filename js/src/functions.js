@@ -3004,12 +3004,6 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 /**
- * @var $enumEditorDialog An object that points to the jQuery
- *                          dialog of the ENUM/SET editor
- */
-var $enumEditorDialog = null;
-
-/**
  * Opens the ENUM/SET editor and controls its functions
  */
 AJAX.registerOnload('functions.js', function () {
@@ -3103,27 +3097,18 @@ AJAX.registerOnload('functions.js', function () {
                     '\'>' +
                     '</fieldset>' +
                     '</div>';
-        /**
-         * @var {object} buttonOptions Defines functions to be called when the buttons in
-         * the buttonOptions jQuery dialog bar are pressed
-         */
-        var buttonOptions = {};
-        buttonOptions[Messages.strGo] = function () {
+        $('#enumEditorGoButton').on('click', function () {
             // When the submit button is clicked,
             // put the data back into the original form
             var valueArray = [];
-            $(this).find('.values input').each(function (index, elm) {
+            $('#enumEditorModal').find('.values input').each(function (index, elm) {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
                 valueArray.push('\'' + val + '\'');
             });
             // get the Length/Values text field where this value belongs
-            var valuesId = $(this).find('input[type=\'hidden\']').val();
+            var valuesId = $('#enumEditorModal').find('input[type=\'hidden\']').val();
             $('input#' + valuesId).val(valueArray.join(','));
-            $(this).dialog('close');
-        };
-        buttonOptions[Messages.strClose] = function () {
-            $(this).dialog('close');
-        };
+        });
         // Show the dialog
         var width = parseInt(
             (parseInt($('html').css('font-size'), 10) / 13) * 340,
@@ -3132,22 +3117,10 @@ AJAX.registerOnload('functions.js', function () {
         if (! width) {
             width = 340;
         }
-        $enumEditorDialog = $(dialog).dialog({
-            minWidth: width,
-            maxHeight: 450,
-            modal: true,
-            title: Messages.enum_editor,
-            buttons: buttonOptions,
-            open: function () {
-                // Focus the "Go" button after opening the dialog
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button').first().trigger('focus');
-            },
-            close: function () {
-                $(this).remove();
-            }
-        });
+        $('#enumEditorModal').modal('show');
+        $('#enumEditorModal').find('.modal-body').first().html(dialog);
         // slider for choosing how many fields to add
-        $enumEditorDialog.find('.slider').slider({
+        $('#enumEditorModal').find('.slider').slider({
             animate: true,
             range: 'min',
             value: 1,
@@ -3303,9 +3276,9 @@ AJAX.registerOnload('functions.js', function () {
     // When "add a new value" is clicked, append an empty text field
     $(document).on('click', 'input.add_value', function (e) {
         e.preventDefault();
-        var numNewRows = $enumEditorDialog.find('div.slider').slider('value');
+        var numNewRows = $('#enumEditorModal').find('div.slider').slider('value');
         while (numNewRows--) {
-            $enumEditorDialog.find('.values')
+            $('#enumEditorModal').find('.values')
                 .append(
                     '<tr class=\'hide\'><td>' +
                     '<input type=\'text\'>' +
