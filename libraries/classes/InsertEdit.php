@@ -1634,6 +1634,10 @@ class InsertEdit
         }
 
         if ($multiEditFuncs[$key] === 'PHP_PASSWORD_HASH') {
+            // Remove single quote and escaped value
+            $currentValue = mb_substr($currentValue, 1, -1);
+            $currentValue = stripslashes($currentValue);
+
             /**
              * @see https://github.com/vimeo/psalm/issues/3350
              *
