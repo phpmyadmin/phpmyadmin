@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-immutable
  */
-final class DatabaseName implements Stringable
+final class TableName implements Stringable
 {
     /**
      * @see https://dev.mysql.com/doc/refman/en/identifier-length.html
