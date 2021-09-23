@@ -167,4 +167,16 @@ class UrlTest extends AbstractTestCase
             $generatedUrl
         );
     }
+
+    public function testGetHiddenFields(): void
+    {
+        $_SESSION = [];
+        $this->assertSame('', Url::getHiddenFields([]));
+
+        $_SESSION = [' PMA_token ' => '<b>token</b>'];
+        $this->assertSame(
+            '<input type="hidden" name="token" value="&lt;b&gt;token&lt;/b&gt;">',
+            Url::getHiddenFields([])
+        );
+    }
 }
