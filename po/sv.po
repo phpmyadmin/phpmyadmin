@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-09-24 12:36+0000\n"
+"Last-Translator: Edward wahnström <edward.wahnstrom@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "sv/>\n"
 "Language: sv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3008,8 +3008,8 @@ msgstr "En listruta kommer användas om färre objekt finns."
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Standardvärdet för främmande nyckelkontrollers kryssrutan för vissa "
-"sökningar."
+"Standardvärdet för kryssrutan \"Aktivera kontroller av främmande nycklar\", "
+"för vissa sökningar."
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Uncheck the checkbox to disable drag and drop import"
@@ -3059,10 +3059,8 @@ msgstr "Möjliggör visning av rad-länkar även vid avsaknad av en unik nyckel.
 
 #: libraries/classes/Config/Descriptions.php:591
 #: libraries/classes/Config/Descriptions.php:867
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Inaktivera kontroller av främmande nycklar"
+msgstr "Inaktivera shortcut keys"
 
 #: libraries/classes/Config/Descriptions.php:592
 msgid "Use natural order for sorting table and database names."
@@ -3637,7 +3635,7 @@ msgstr "Begränsning för främmande nyckel"
 
 #: libraries/classes/Config/Descriptions.php:755
 msgid "Foreign key checks"
-msgstr "Kontroll av sekundärnyckel"
+msgstr "Kontroll av främmande nyckel"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
@@ -6626,7 +6624,7 @@ msgstr "Ändrar teckenuppsättning"
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:193
 #: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
-msgstr "Inaktivera kontroll av främmande nycklar"
+msgstr "Aktivera kontroll av främmande nycklar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 msgid "Failed to get real row count."
@@ -8893,16 +8891,12 @@ msgid "Error: relationship already exists."
 msgstr "Fel: Relation finns redan."
 
 #: libraries/classes/Database/Designer/Common.php:666
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
-msgstr "FOREIGN KEY-relation har lagts till."
+msgstr "Främmande nyckel-relation har lagts till."
 
 #: libraries/classes/Database/Designer/Common.php:674
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Fel: Extern nyckel-relation kunde inte läggas till!"
+msgstr "Fel: Främmande nyckel-relation kunde inte läggas till!"
 
 #: libraries/classes/Database/Designer/Common.php:681
 msgid "Error: Missing index on column(s)."
@@ -8926,16 +8920,12 @@ msgid "Error: Internal relationship could not be added!"
 msgstr "Fel: Interna relationen kunde inte läggas till!"
 
 #: libraries/classes/Database/Designer/Common.php:762
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "EXTERN nyckel-relation har tagits bort."
+msgstr "Främmande nyckel-relation har tagits bort."
 
 #: libraries/classes/Database/Designer/Common.php:770
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Fel: Extern nyckel-relation kunde inte tas bort!"
+msgstr "Fel: Främmande nyckel-relation kunde inte tas bort!"
 
 #: libraries/classes/Database/Designer/Common.php:806
 #, fuzzy
@@ -17435,10 +17425,8 @@ msgstr ""
 "privilegietabeller."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Tillåter skapande av lagrade rutiner."
+msgstr "Tillåter skapande av främmande nyckel-relationer."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
@@ -18838,8 +18826,8 @@ msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"En intern relation är inte nödvändig när en motsvarande FOREIGN KEY relation "
-"finns."
+"En intern relation är inte nödvändig när en motsvarande främmande nyckel "
+"relation finns."
 
 #: templates/table/relation/common_form.twig:205
 msgid "Choose column to display:"
@@ -18848,7 +18836,7 @@ msgstr "Välj kolumn att visa:"
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Sekundärnyckelbegränsning %s har tagits bort"
+msgstr "Främmande nyckel-begränsning %s har tagits bort"
 
 #: templates/table/relation/foreign_key_row.twig:34
 msgid "Constraint name"
