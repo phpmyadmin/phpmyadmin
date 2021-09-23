@@ -91,7 +91,7 @@
         "php-webdriver/webdriver": "^1.11",
         "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^0.12.98",
+        "phpstan/phpstan": "^0.12.99",
         "phpstan/phpstan-phpunit": "^0.12.17",
         "phpstan/phpstan-webmozart-assert": "^0.12.12",
         "phpunit/phpunit": "^8.5 || ^9.5",

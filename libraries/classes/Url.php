@@ -118,7 +118,7 @@ class Url
         $fields = '';
 
         /* Always include token in plain forms */
-        if ($is_token === false) {
+        if ($is_token === false && isset($_SESSION[' PMA_token '])) {
             $values['token'] = $_SESSION[' PMA_token '];
         }
 
