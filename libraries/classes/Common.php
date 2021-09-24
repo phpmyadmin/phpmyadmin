@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use InvalidArgumentException;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\SqlParser\Lexer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_pop;
@@ -24,6 +29,7 @@ use function htmlspecialchars;
 use function implode;
 use function ini_get;
 use function ini_set;
+use function is_array;
 use function is_scalar;
 use function mb_internal_encoding;
 use function mb_strlen;
@@ -127,7 +133,7 @@ final class Common
 
         self::setGotoAndBackGlobals($containerBuilder, $config);
         self::checkTokenRequestParam();
-        self::setDatabaseAndTableFromRequest($containerBuilder);
+        self::setDatabaseAndTableFromRequest($containerBuilder, $request);
 
         /**
          * SQL query to be executed
@@ -491,21 +497,32 @@ final class Common
         Sanitize::removeRequestVars($allowList);
     }
 
-    private static function setDatabaseAndTableFromRequest(ContainerInterface $containerBuilder): void
-    {
+    private static function setDatabaseAndTableFromRequest(
+        ContainerInterface $containerBuilder,
+        ServerRequest $request
+    ): void {
         global $db, $table, $urlParams;
 
-        $databaseFromRequest = $_POST['db'] ?? $_GET['db'] ?? $_REQUEST['db'] ?? '';
-        $tableFromRequest = $_POST['table'] ?? $_GET['table'] ?? $_REQUEST['table'] ?? '';
+        $databaseFromRequest = $request->getParam('db');
+        $tableFromRequest = $request->getParam('table');
 
-        $db = '';
-        if (is_scalar($databaseFromRequest) && strlen((string) $databaseFromRequest) > 0) {
-            $db = (string) $databaseFromRequest;
+        try {
+            Assert::string($databaseFromRequest);
+            $db = (new DatabaseName($databaseFromRequest))->getName();
+        } catch (InvalidArgumentException $exception) {
+            $db = '';
         }
 
-        $table = '';
-        if (is_scalar($tableFromRequest) && strlen((string) $tableFromRequest) > 0) {
-            $table = (string) $tableFromRequest;
+        try {
+            Assert::stringNotEmpty($db);
+            Assert::string($tableFromRequest);
+            $table = (new TableName($tableFromRequest))->getName();
+        } catch (InvalidArgumentException $exception) {
+            $table = '';
+        }
+
+        if (! is_array($urlParams)) {
+            $urlParams = [];
         }
 
         $urlParams['db'] = $db;

@@ -418,7 +418,7 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Common.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$_REQUEST['back']</code>
       <code>$_REQUEST['goto']</code>
       <code>$_SESSION[' PMA_token ']</code>
@@ -428,26 +428,21 @@
       <code>$sqlDelimiter</code>
       <code>$sql_query</code>
       <code>$urlParams</code>
-      <code>$urlParams</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="3">
       <code>$cfg['MysqlMinVersion']['human']</code>
       <code>$cfg['MysqlMinVersion']['internal']</code>
       <code>$cfg['Server']['user']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="3">
-      <code>$urlParams['db']</code>
+    <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
-      <code>$urlParams['table']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="9">
+    <MixedAssignment occurrences="7">
       <code>$back</code>
       <code>$controlLink</code>
-      <code>$databaseFromRequest</code>
       <code>$goto</code>
       <code>$sqlDelimiter</code>
       <code>$sql_query</code>
-      <code>$tableFromRequest</code>
       <code>$urlParams['goto']</code>
       <code>$userLink</code>
     </MixedAssignment>
