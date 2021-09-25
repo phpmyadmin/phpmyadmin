@@ -300,6 +300,34 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
     return $compositeIndexList;
 };
 
+var addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
+    var isMissingValue = false;
+    $('select[name="index[columns][names][]"]').each(function () {
+        if ($(this).val() === '') {
+            isMissingValue = true;
+        }
+    });
+
+    if (! isMissingValue) {
+        Indexes.addColumnToIndex(
+            sourceArray,
+            arrayIndex,
+            index.Index_choice,
+            colIndex
+        );
+    } else {
+        Functions.ajaxShowMessage(
+            '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
+            ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
+            ' </div>', false
+        );
+
+        return false;
+    }
+
+    $('#addIndexModal').modal('hide');
+};
+
 /**
  * Shows 'Add Index' dialog.
  *
@@ -334,35 +362,10 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
     }
     postData.columns = JSON.stringify(columns);
 
-    var buttonOptions = {};
-    buttonOptions[Messages.strGo] = function () {
-        var isMissingValue = false;
-        $('select[name="index[columns][names][]"]').each(function () {
-            if ($(this).val() === '') {
-                isMissingValue = true;
-            }
-        });
-
-        if (! isMissingValue) {
-            Indexes.addColumnToIndex(
-                sourceArray,
-                arrayIndex,
-                index.Index_choice,
-                colIndex
-            );
-        } else {
-            Functions.ajaxShowMessage(
-                '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
-                ' class="icon ic_s_error"> ' + Messages.strMissingColumn +
-                ' </div>', false
-            );
-
-            return false;
-        }
-
-        $(this).remove();
-    };
-    buttonOptions[Messages.strCancel] = function () {
+    $('#addIndexModalGoButton').on('click', function () {
+        addIndexGo(sourceArray, arrayIndex, index, colIndex);
+    });
+    $('#addIndexModalCancelButton').on('click', function () {
         if (colIndex >= 0) {
             // Handle state on 'Cancel'.
             var $selectList = $('select[name="field_key[' + colIndex + ']"]');
@@ -374,8 +377,11 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                     .attr('selected', 'selected');
             }
         }
-        $(this).dialog('close');
-    };
+        $('#addIndexModal').modal('hide');
+    });
+    $('#addIndexModalCloseButton').on('click', function () {
+        $('#addIndexModal').modal('hide');
+    });
     var $msgbox = Functions.ajaxShowMessage();
     $.post('index.php?route=/table/indexes', postData, function (data) {
         if (data.success === false) {
@@ -389,39 +395,27 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
                 }
-                $div
-                    .append(data.message)
-                    .dialog({
-                        title: Messages.strAddIndex,
-                        width: 450,
-                        minHeight: 250,
-                        create: function () {
-                            $(this).on('keypress', function (e) {
-                                if (e.which === 13 || e.keyCode === 13 || window.event.keyCode === 13) {
-                                    e.preventDefault();
-                                    buttonOptions[Messages.strGo]();
-                                    $(this).remove();
-                                }
-                            });
-                        },
-                        open: function () {
-                            Functions.checkIndexName('index_frm');
-                            Functions.showHints($div);
-                            $('#index_columns').find('td').each(function () {
-                                $(this).css('width', $(this).width() + 'px');
-                            });
-                            $('#index_columns').find('tbody').sortable({
-                                axis: 'y',
-                                containment: $('#index_columns').find('tbody'),
-                                tolerance: 'pointer'
-                            });
-                        },
-                        modal: true,
-                        buttons: buttonOptions,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
+                $('#addIndexModal').on('keypress', function (e) {
+                    if (e.which === 13 || e.keyCode === 13 || window.event.keyCode === 13) {
+                        e.preventDefault();
+                        console.log('BOOM');
+                        addIndexGo(sourceArray, arrayIndex, index, colIndex);
+                        $('#addIndexModal').modal('hide');
+                    }
+                });
+                $('#addIndexModal').modal('show');
+                $('#addIndexModalLabel').first().text(Messages.strAddIndex);
+                $('#addIndexModal').find('.modal-body').first().html(data.message);
+                Functions.checkIndexName('index_frm');
+                Functions.showHints($div);
+                $('#index_columns').find('td').each(function () {
+                    $(this).css('width', $(this).width() + 'px');
+                });
+                $('#index_columns').find('tbody').sortable({
+                    axis: 'y',
+                    containment: $('#index_columns').find('tbody'),
+                    tolerance: 'pointer'
+                });
             } else {
                 $div
                     .append(data.message);
@@ -456,6 +450,12 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
     });
 };
 
+var removeIndexOnChangeEvent = function () {
+    $('#composite_index').off('change');
+    $('#single_column').off('change');
+    $('#addIndexModal').modal('hide');
+};
+
 /**
  * Creates a advanced index type selection dialog.
  *
@@ -480,9 +480,8 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
     $dialogContent.append($singleColumnRadio);
     $dialogContent.append($compositeIndexRadio);
 
-    var buttonOptions = {};
     // 'OK' operation.
-    buttonOptions[Messages.strGo] = function () {
+    $('#addIndexModalGoButton').on('click', function () {
         if ($('#single_column').is(':checked')) {
             var index = {
                 'Key_name': (indexChoice === 'primary' ? 'PRIMARY' : ''),
@@ -515,10 +514,9 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
             Indexes.showAddIndexDialog(sourceArray, arrayIndex, targetColumns, colIndex,
                 sourceArray[arrayIndex]);
         }
-
-        $(this).remove();
-    };
-    buttonOptions[Messages.strCancel] = function () {
+        $('#addIndexModal').modal('hide');
+    });
+    $('#addIndexModalCancelButton').on('click', function () {
         // Handle state on 'Cancel'.
         var $selectList = $('select[name="field_key[' + colIndex + ']"]');
         if (! $selectList.attr('data-index').length) {
@@ -528,33 +526,24 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
             $selectList.find('option[value*="' + previousIndex[0].toLowerCase() + '"]')
                 .attr('selected', 'selected');
         }
-        $(this).remove();
-    };
-    $('<div></div>').append($dialogContent).dialog({
-        minWidth: 525,
-        minHeight: 200,
-        modal: true,
-        title: Messages.strAddIndex,
-        resizable: false,
-        buttons: buttonOptions,
-        open: function () {
-            $('#composite_index').on('change', function () {
-                if ($(this).is(':checked')) {
-                    $dialogContent.append(Indexes.getCompositeIndexList(sourceArray, colIndex));
-                }
-            });
-            $('#single_column').on('change', function () {
-                if ($(this).is(':checked')) {
-                    if ($('#composite_index_list').length) {
-                        $('#composite_index_list').remove();
-                    }
-                }
-            });
-        },
-        close: function () {
-            $('#composite_index').off('change');
-            $('#single_column').off('change');
-            $(this).remove();
+        removeIndexOnChangeEvent();
+    });
+    $('#addIndexModalCloseButton').on('click', function () {
+        removeIndexOnChangeEvent();
+    });
+    $('#addIndexModal').modal('show');
+    $('#addIndexModalLabel').first().text(Messages.strAddIndex);
+    $('#addIndexModal').find('.modal-body').first().html($dialogContent);
+    $('#composite_index').on('change', function () {
+        if ($(this).is(':checked')) {
+            $dialogContent.append(Indexes.getCompositeIndexList(sourceArray, colIndex));
+        }
+    });
+    $('#single_column').on('change', function () {
+        if ($(this).is(':checked')) {
+            if ($('#composite_index_list').length) {
+                $('#composite_index_list').remove();
+            }
         }
     });
 };
