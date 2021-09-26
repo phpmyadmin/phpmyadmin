@@ -1708,16 +1708,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamština"
 
-#: libraries/classes/Common.php:241
+#: libraries/classes/Common.php:241 libraries/classes/Common.php:235
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/classes/Common.php:273
+#: libraries/classes/Common.php:273 libraries/classes/Common.php:267
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/classes/Common.php:485
+#: libraries/classes/Common.php:485 libraries/classes/Common.php:479
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1725,7 +1725,7 @@ msgstr ""
 "Nepodařilo se nastavit session cookie. Možná pro přístup do phpMyAdmina "
 "používáte protokol HTTP místo HTTPS."
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:550 libraries/classes/Common.php:533
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1734,7 +1734,7 @@ msgstr ""
 "V nastavení PHP máte zapnuto mbstring.func_overload. Toto nastavení není "
 "kompatibilní s phpMyAdminem a může způsobit poškození dat!"
 
-#: libraries/classes/Common.php:567
+#: libraries/classes/Common.php:567 libraries/classes/Common.php:550
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1742,11 +1742,11 @@ msgstr ""
 "V souboru php.ini je zakázaná funkce ini_get nebo ini_set. phpMyAdmin však "
 "tyto funkce vyžaduje!"
 
-#: libraries/classes/Common.php:579
+#: libraries/classes/Common.php:579 libraries/classes/Common.php:562
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/classes/Common.php:589
+#: libraries/classes/Common.php:589 libraries/classes/Common.php:572
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -16198,7 +16198,7 @@ msgstr "Pohled:"
 #: templates/modals/preview_sql_confirmation.twig:14
 #: templates/table/structure/display_structure.twig:353
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -18723,7 +18723,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ "znovu."
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a routine"
 #~ msgid "You do not have the necessary privileges to create a routine."
 #~ msgstr "Nemáte dostatečná práva pro vytvoření rutiny"
 
@@ -18731,7 +18730,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "spoušť"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a trigger"
 #~ msgid "You do not have the necessary privileges to create a trigger."
 #~ msgstr "Nemáte dostatečná práva pro vytvoření spouště"
 
@@ -18739,7 +18737,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "událost"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create an event"
 #~ msgid "You do not have the necessary privileges to create an event."
 #~ msgstr "Nemáte dostatečná práva pro vytvoření události"
 
@@ -18773,7 +18770,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Použít tabulku Host"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Popis"
@@ -18798,8 +18794,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Chybný parametr souboru v požadavku GET"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d sekunda"
@@ -18807,8 +18801,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr[2] "%d sekund"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "%d minuta"
@@ -18822,7 +18814,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Zobrazit celé dotazy"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "Žádné databáze"
@@ -18830,10 +18821,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr[2] "Žádné databáze"
 
 #, fuzzy
-#~| msgid ""
-#~| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#~| "option is incompatible with phpMyAdmin and might cause some data to be "
-#~| "corrupted!"
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
 #~ "incompatible with phpMyAdmin!"
@@ -18858,7 +18845,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Výsledky vyhledávání pro „<i>%s</i>“ %s:"
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "Text"
@@ -18891,7 +18877,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Globální hodnota"
 
 #, fuzzy
-#~| msgid "Height"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Výška"
@@ -18918,17 +18903,14 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Tradiční španělština"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Porovnávání"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "nerozlišovat velká a malá písmena"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "rozlišovat velká a malá písmena"
 
@@ -18973,82 +18955,66 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Nahrát"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Názvy polí"
 
 #, fuzzy
-#~| msgid "Iconic table operations"
 #~ msgid "Unrecognized alter operation."
 #~ msgstr "Zobrazení ikon pro operace s tabulkami"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected keyword."
 #~ msgstr "Neočekávané znaky na řádku %s."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Vzor pro jméno tabulky"
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "Nebyly vybrány žádné tabulky."
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "An alias was expected."
 #~ msgstr "Nebyly vybrány žádné tabulky."
 
 #, fuzzy
-#~| msgid "No versions selected."
 #~ msgid "An expression was expected."
 #~ msgstr "Nebyly vybrány žádné verze."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "Byla vytvořena událost %1$s."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The old name of the table was expected."
 #~ msgstr "Počet aktuálně otevřených tabulek."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The new name of the table was expected."
 #~ msgstr "Počet aktuálně otevřených tabulek."
 
 #, fuzzy
-#~| msgid "Template was deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "Šablona byla smazána."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected character."
 #~ msgstr "Neočekávané znaky na řádku %s."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Ending quote %1$s was expected."
 #~ msgstr "Byla vytvořena událost %1$s."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "Variable name was expected."
 #~ msgstr "Vzor pro jméno tabulky"
 
 #, fuzzy
-#~| msgid "at beginning of table"
 #~ msgid "Unexpected beginning of statement."
 #~ msgstr "na začátku tabulky"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "Neočekávané znaky na řádku %s."
 
@@ -19056,37 +19022,30 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Nerozpoznané klíčové slovo."
 
 #, fuzzy
-#~| msgid "at beginning of table"
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "na začátku tabulky"
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The name of the entity was expected."
 #~ msgstr "Počet aktuálně otevřených tabulek."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A table name was expected."
 #~ msgstr "Vzor pro jméno tabulky"
 
 #, fuzzy
-#~| msgid "Template was deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "Šablona byla smazána."
 
 #, fuzzy
-#~| msgid "errors."
 #~ msgid "error #1"
 #~ msgstr "chyb."
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "Sbírat chyby"
 
 #, fuzzy
-#~| msgid "Cookie authentication"
 #~ msgid "Native MySQL Authentication"
 #~ msgstr "Přihlašování přes cookie"
 
@@ -19292,7 +19251,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Přesměrovávám na %s."
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Přihlašování"
 
@@ -19501,7 +19459,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Vypnout kontrolu cizího klíče"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Načítám oprávnění"
 
@@ -19521,7 +19478,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "(Vygeneruje dokument obsahující data jedné tabulky)"
 
 #, fuzzy
-#~| msgid "Please select a database"
 #~ msgid "Please select a database."
 #~ msgstr "Prosím vyberte databázi"
 
@@ -19535,7 +19491,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Uložit rozmístění"
 
 #, fuzzy
-#~| msgid "Save position"
 #~ msgid "Save positions as"
 #~ msgstr "Uložit rozmístění"
 
@@ -19549,7 +19504,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Odstranit všechny informace o sledování této tabulky"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "Struktura tabulky"
 
@@ -19564,7 +19518,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Upravit zde"
 
 #, fuzzy
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "po %s"
 
@@ -19611,17 +19564,14 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Tato stránka neobsahuje žádné tabulky!"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "Chybný typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "Chybný typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "Chybný typ exportu"
 
@@ -19674,7 +19624,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Rozšíření je vypnuté"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Přizpůsobení hlavního panelu"
 
@@ -19682,12 +19631,10 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgstr "Není definován žádný klíč! Vytvořte nový níže"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Chybný typ exportu"
 
@@ -19703,37 +19650,30 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ "použít zobrazování grafů s informacemi o serveru."
 
 #, fuzzy
-#~| msgid "Click to sort."
 #~ msgid "Click to sort"
 #~ msgstr "Klikněte pro řazení."
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "Celkem"
 
 #, fuzzy
-#~| msgid "New bookmark"
 #~ msgid " bookmarks, "
 #~ msgstr "Nová záložka"
 
 #, fuzzy
-#~| msgid "Select a column."
 #~ msgid "Select one ..."
 #~ msgstr "Zvolte sloupec."
 
 #, fuzzy
-#~| msgid "Add unique index"
 #~ msgid "Add unique/primary index"
 #~ msgstr "Přidat unikátní klíč"
 
 #, fuzzy
-#~| msgid "Move columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Přesunout pole"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "Uživatel %s již existuje!"
 
@@ -19889,12 +19829,10 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ "Kontrolování SQL nemohlo být spušteno. Prosím ověřte, jestli máte "
 #~ "požadovaná rozšíření PHP, jak je popsáno v %sdokumentaci%s."
 
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Chyba: Relace nebyla přidána."
 
 #, fuzzy
-#~| msgid "Copy"
 #~ msgid "Copy Salt"
 #~ msgstr "Kopírovat"
 
@@ -20089,7 +20027,6 @@ msgstr "Probíhá přesměrování na cílový web."
 #~ msgid "Table seems to be empty!"
 #~ msgstr "Tabulka se zdá být prázdná!"
 
-#~| msgid "General relation features"
 #~ msgid "General relation features:"
 #~ msgstr "Obecné funkce relací:"
 
