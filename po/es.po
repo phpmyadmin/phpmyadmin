@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-19 00:09+0000\n"
+"POT-Creation-Date: 2021-09-26 00:10+0000\n"
 "PO-Revision-Date: 2021-03-21 21:41+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1815,16 +1815,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: libraries/classes/Common.php:235
+#: libraries/classes/Common.php:241
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Usted debería actualizar su %s a la versión %s o más reciente."
 
-#: libraries/classes/Common.php:267
+#: libraries/classes/Common.php:273
 msgid "Error: Token mismatch"
 msgstr "Error: no coincide un «token»"
 
-#: libraries/classes/Common.php:479
+#: libraries/classes/Common.php:485
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1832,7 +1832,7 @@ msgstr ""
 "No se pudo establecer la cookie de sesión. Tal vez está usando HTTP en lugar "
 "de HTTPS para acceder a phpMyAdmin."
 
-#: libraries/classes/Common.php:533
+#: libraries/classes/Common.php:550
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1842,7 +1842,7 @@ msgstr ""
 "opción es incompatible con phpMyAdmin y podría causar la pérdida de algunos "
 "datos!"
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:567
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1850,11 +1850,11 @@ msgstr ""
 "Las funciones ini_get y/o ini_set están deshabilitadas en php.ini. "
 "¡phpMyAdmin requiere estas funciones!"
 
-#: libraries/classes/Common.php:562
+#: libraries/classes/Common.php:579
 msgid "GLOBALS overwrite attempt"
 msgstr "intento de sobre-escritura de la variable GLOBALS"
 
-#: libraries/classes/Common.php:572
+#: libraries/classes/Common.php:589
 msgid "possible exploit"
 msgstr "posible aprovechamiento"
 

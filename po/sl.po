@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-19 00:09+0000\n"
+"POT-Creation-Date: 2021-09-26 00:10+0000\n"
 "PO-Revision-Date: 2021-09-20 14:38+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1726,16 +1726,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamsko"
 
-#: libraries/classes/Common.php:235
+#: libraries/classes/Common.php:241
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
-#: libraries/classes/Common.php:267
+#: libraries/classes/Common.php:273
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
-#: libraries/classes/Common.php:479
+#: libraries/classes/Common.php:485
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1743,7 +1743,7 @@ msgstr ""
 "Nastavljanje piškotka seje je spodletelo. Morda uporabljate HTTP namesto "
 "HTTPS za dostop do phpMyAdmina."
 
-#: libraries/classes/Common.php:533
+#: libraries/classes/Common.php:550
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1752,7 +1752,7 @@ msgstr ""
 "V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Možnost ni "
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:567
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1760,11 +1760,11 @@ msgstr ""
 "Funkciji ini_get in/ali ini_set sta onemogočeni v php.ini. phpMyAdmin "
 "potrebuje ti funkciji!"
 
-#: libraries/classes/Common.php:562
+#: libraries/classes/Common.php:579
 msgid "GLOBALS overwrite attempt"
 msgstr "poskus prepisa GLOBALS"
 
-#: libraries/classes/Common.php:572
+#: libraries/classes/Common.php:589
 msgid "possible exploit"
 msgstr "možno izkoriščanje"
 

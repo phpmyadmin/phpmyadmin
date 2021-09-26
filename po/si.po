@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-19 00:09+0000\n"
+"POT-Creation-Date: 2021-09-26 00:10+0000\n"
 "PO-Revision-Date: 2021-05-29 06:32+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@protonmail.ch>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1708,22 +1708,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "වියට්නාම්"
 
-#: libraries/classes/Common.php:235
+#: libraries/classes/Common.php:241
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/classes/Common.php:267
+#: libraries/classes/Common.php:273
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
-#: libraries/classes/Common.php:479
+#: libraries/classes/Common.php:485
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:533
+#: libraries/classes/Common.php:550
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1732,17 +1732,17 @@ msgstr ""
 "ඔබගේ PHP වින්‍යාසයන් හි mbstring.func_overload සක්‍රීය කර ඇත. මෙම විකල්පය phpMyAdmin "
 "සමඟ නොගැළපෙන අතර යම් දත්ත විනාශ වීමට හේතු විය හැකිය!"
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:567
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:562
+#: libraries/classes/Common.php:579
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS අගයන් උඩින් ලිවීමේ උත්සාහය"
 
-#: libraries/classes/Common.php:572
+#: libraries/classes/Common.php:589
 msgid "possible exploit"
 msgstr "විය හැකි අයුතු ප්‍රයෝජන ගැනීමක්"
 

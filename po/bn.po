@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-09-19 00:09+0000\n"
+"POT-Creation-Date: 2021-09-26 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1810,22 +1810,22 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ফাইলের নাম"
 
-#: libraries/classes/Common.php:235
+#: libraries/classes/Common.php:241
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/classes/Common.php:267
+#: libraries/classes/Common.php:273
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
-#: libraries/classes/Common.php:479
+#: libraries/classes/Common.php:485
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:533
+#: libraries/classes/Common.php:550
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1834,17 +1834,17 @@ msgstr ""
 "আপনার পিএইছপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা  "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: libraries/classes/Common.php:550
+#: libraries/classes/Common.php:567
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:562
+#: libraries/classes/Common.php:579
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Common.php:572
+#: libraries/classes/Common.php:589
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
