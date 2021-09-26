@@ -1603,10 +1603,6 @@ class UtilTest extends AbstractTestCase
      */
     public function testBackquote($a, $b): void
     {
-        // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, Util::backquote($a, false));
-
-        // Test backquote
         $this->assertEquals($b, Util::backquote($a));
     }
 
@@ -1727,12 +1723,12 @@ class UtilTest extends AbstractTestCase
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     '`' . $keyword . '`',
-                    Util::backquote($keyword, false)
+                    Util::backquoteCompat($keyword, 'NONE', false)
                 );
             } else {
                 $this->assertEquals(
                     $keyword,
-                    Util::backquote($keyword, false)
+                    Util::backquoteCompat($keyword, 'NONE', false)
                 );
             }
         }

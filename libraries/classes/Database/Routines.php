@@ -975,14 +975,14 @@ class Routines
                     $do_backquote = false;
                 }
 
-                $query .= 'DEFINER=' . Util::backquote($arr[0], $do_backquote);
+                $query .= 'DEFINER=' . Util::backquoteCompat($arr[0], 'NONE', $do_backquote);
 
                 $do_backquote = true;
                 if (substr($arr[1], 0, 1) === '`' && substr($arr[1], -1) === '`') {
                     $do_backquote = false;
                 }
 
-                $query .= '@' . Util::backquote($arr[1], $do_backquote) . ' ';
+                $query .= '@' . Util::backquoteCompat($arr[1], 'NONE', $do_backquote) . ' ';
             } else {
                 $errors[] = __('The definer must be in the "username@hostname" format!');
             }

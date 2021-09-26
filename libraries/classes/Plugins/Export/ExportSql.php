@@ -1490,14 +1490,14 @@ class ExportSql extends ExportPlugin
 
         if (! empty($sql_drop_table) && $dbi->getTable($db, $table)->isView()) {
             $schemaCreate .= 'DROP VIEW IF EXISTS '
-                . Util::backquote($tableAlias, $sql_backquotes) . ';'
+                . Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes) . ';'
                 . $crlf;
         }
 
         // no need to generate a DROP VIEW here, it was done earlier
         if (! empty($sql_drop_table) && ! $dbi->getTable($db, $table)->isView()) {
             $schemaCreate .= 'DROP TABLE IF EXISTS '
-                . Util::backquote($tableAlias, $sql_backquotes) . ';'
+                . Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes) . ';'
                 . $crlf;
         }
 
@@ -1922,17 +1922,18 @@ class ExportSql extends ExportPlugin
                 . $this->exportComment()
                 . $this->exportComment(
                     __('MEDIA TYPES FOR TABLE') . ' '
-                    . Util::backquote($table, $sql_backquotes) . ':'
+                    . Util::backquoteCompat($table, 'NONE', $sql_backquotes) . ':'
                 );
             foreach ($mimeMap as $mimeField => $mime) {
                 $schemaCreate .= $this->exportComment(
                     '  '
-                    . Util::backquote($mimeField, $sql_backquotes)
+                    . Util::backquoteCompat($mimeField, 'NONE', $sql_backquotes)
                 )
                 . $this->exportComment(
                     '      '
-                    . Util::backquote(
+                    . Util::backquoteCompat(
                         $mime['mimetype'],
+                        'NONE',
                         $sql_backquotes
                     )
                 );
@@ -1946,7 +1947,7 @@ class ExportSql extends ExportPlugin
                 . $this->exportComment()
                 . $this->exportComment(
                     __('RELATIONSHIPS FOR TABLE') . ' '
-                    . Util::backquote($tableAlias, $sql_backquotes)
+                    . Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)
                     . ':'
                 );
 
@@ -1958,20 +1959,23 @@ class ExportSql extends ExportPlugin
                         : $relField;
                     $schemaCreate .= $this->exportComment(
                         '  '
-                        . Util::backquote(
+                        . Util::backquoteCompat(
                             $relFieldAlias,
+                            'NONE',
                             $sql_backquotes
                         )
                     )
                     . $this->exportComment(
                         '      '
-                        . Util::backquote(
+                        . Util::backquoteCompat(
                             $rel['foreign_table'],
+                            'NONE',
                             $sql_backquotes
                         )
                         . ' -> '
-                        . Util::backquote(
+                        . Util::backquoteCompat(
                             $rel['foreign_field'],
+                            'NONE',
                             $sql_backquotes
                         )
                     );
@@ -1984,20 +1988,23 @@ class ExportSql extends ExportPlugin
                                 : $field;
                             $schemaCreate .= $this->exportComment(
                                 '  '
-                                . Util::backquote(
+                                . Util::backquoteCompat(
                                     $relFieldAlias,
+                                    'NONE',
                                     $sql_backquotes
                                 )
                             )
                             . $this->exportComment(
                                 '      '
-                                . Util::backquote(
+                                . Util::backquoteCompat(
                                     $oneKey['ref_table_name'],
+                                    'NONE',
                                     $sql_backquotes
                                 )
                                 . ' -> '
-                                . Util::backquote(
+                                . Util::backquoteCompat(
                                     $oneKey['ref_index_list'][$index],
+                                    'NONE',
                                     $sql_backquotes
                                 )
                             );

@@ -5968,8 +5968,6 @@
       <code>$routine['item_num_params']</code>
       <code>$string</code>
       <code>Util::backquote($_POST['item_original_name'])</code>
-      <code>Util::backquote($arr[0], $do_backquote)</code>
-      <code>Util::backquote($arr[1], $do_backquote)</code>
       <code>Util::backquote($itemName)</code>
       <code>Util::backquote($itemParamName[$i])</code>
       <code>Util::backquote($itemParamName[$i])</code>
@@ -5981,6 +5979,8 @@
       <code>Util::backquote('mysql')</code>
       <code>Util::backquote('procs_priv')</code>
       <code>Util::backquote('procs_priv')</code>
+      <code>Util::backquoteCompat($arr[0], 'NONE', $do_backquote)</code>
+      <code>Util::backquoteCompat($arr[1], 'NONE', $do_backquote)</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="7">
       <code>$create_routine</code>
@@ -11504,24 +11504,24 @@
       <code>Util::backquote($dbNameColumn)</code>
       <code>Util::backquote($dbNameColumn)</code>
       <code>Util::backquote($eventName)</code>
-      <code>Util::backquote($mimeField, $sql_backquotes)</code>
       <code>Util::backquote($routine)</code>
       <code>Util::backquote($table)</code>
-      <code>Util::backquote($table, $sql_backquotes)</code>
       <code>Util::backquote($tableAlias)</code>
       <code>Util::backquote($tableAlias)</code>
-      <code>Util::backquote($tableAlias, $sql_backquotes)</code>
-      <code>Util::backquote($tableAlias, $sql_backquotes)</code>
-      <code>Util::backquote($tableAlias, $sql_backquotes)</code>
       <code>Util::backquote($viewAlias)</code>
       <code>Util::backquote($viewAlias)</code>
       <code>Util::backquote($viewAlias)</code>
       <code>Util::backquoteCompat($dbAlias, $compat, isset($GLOBALS['sql_backquotes']))</code>
+      <code>Util::backquoteCompat($mimeField, 'NONE', $sql_backquotes)</code>
+      <code>Util::backquoteCompat($table, 'NONE', $sql_backquotes)</code>
       <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
       <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
       <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
       <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
       <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
+      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
     </MixedOperand>
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($field-&gt;name)</code>

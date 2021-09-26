@@ -396,15 +396,14 @@ class Util
      * </code>
      *
      * @param array|string $aName the database, table or field name to "backquote" or array of it
-     * @param bool         $doIt  a flag to bypass this function (used by dump functions)
      *
      * @return mixed the "backquoted" database, table or field name
      *
      * @access public
      */
-    public static function backquote($aName, $doIt = true)
+    public static function backquote($aName)
     {
-        return static::backquoteCompat($aName, 'NONE', $doIt);
+        return static::backquoteCompat($aName, 'NONE', true);
     }
 
     /**
