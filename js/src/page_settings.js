@@ -8,31 +8,21 @@
  */
 
 function showSettings (selector) {
-    var buttons = {};
-    buttons[Messages.strApply] = function () {
-        $('.config-form').trigger('submit');
-    };
-
-    buttons[Messages.strCancel] = function () {
-        $(this).dialog('close');
-    };
-
     // Keeping a clone to restore in case the user cancels the operation
     var $clone = $(selector + ' .page_settings').clone(true);
-    $(selector)
-        .dialog({
-            title: Messages.strPageSettings,
-            width: 700,
-            minHeight: 250,
-            modal: true,
-            open: function () {
-                $(this).dialog('option', 'maxHeight', $(window).height() - $(this).offset().top);
-            },
-            close: function () {
-                $(selector + ' .page_settings').replaceWith($clone);
-            },
-            buttons: buttons
-        });
+
+    $('#pageSettingsModalApplyButton').on('click', function () {
+        $('.config-form').trigger('submit');
+    });
+
+    $('#pageSettingsModalCloseButton,#pageSettingsModalCancelButton').on('click', function () {
+        $(selector + ' .page_settings').replaceWith($clone);
+        $('#pageSettingsModal').modal('hide');
+    });
+
+    $('#pageSettingsModal').modal('show');
+    $('#pageSettingsModal').find('.modal-body').first().html($(selector));
+    $(selector).css('display', 'block');
 }
 
 function showPageSettings () {
