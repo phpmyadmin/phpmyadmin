@@ -4000,7 +4000,7 @@ Functions.printPage = function () {
 AJAX.registerTeardown('functions.js', function () {
     $('input#print').off('click');
     $(document).off('click', 'a.create_view.ajax');
-    $(document).off('keydown', '#createViewDialog input, #createViewDialog select');
+    $(document).off('keydown', '#createViewModal input, #createViewModal select');
     $(document).off('change', '#fkc_checkbox');
 });
 
@@ -4022,14 +4022,14 @@ AJAX.registerOnload('functions.js', function () {
      */
     $(document).on('click', 'a.create_view.ajax', function (e) {
         e.preventDefault();
-        Functions.createViewDialog($(this));
+        Functions.createViewModal($(this));
     });
     /**
      * Attach Ajax event handlers for input fields in the editor
      * and used to submit the Ajax request when the ENTER key is pressed.
      */
-    if ($('#createViewDialog').length !== 0) {
-        $(document).on('keydown', '#createViewDialog input, #createViewDialog select', function (e) {
+    if ($('#createViewModal').length !== 0) {
+        $(document).on('keydown', '#createViewModal input, #createViewModal select', function (e) {
             if (e.which === 13) { // 13 is the ENTER key
                 e.preventDefault();
 
@@ -4047,7 +4047,7 @@ AJAX.registerOnload('functions.js', function () {
     }
 });
 
-Functions.createViewDialog = function ($this) {
+Functions.createViewModal = function ($this) {
     var $msg = Functions.ajaxShowMessage();
     var sep = CommonParams.get('arg_separator');
     var params = Functions.getJsConfirmCommonParam(this, $this.getPostData());
@@ -4055,40 +4055,30 @@ Functions.createViewDialog = function ($this) {
     $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             Functions.ajaxRemoveMessage($msg);
-            var buttonOptions = {};
-            buttonOptions[Messages.strGo] = function () {
+            $('#createViewModalGoButton').on('click', function () {
                 if (typeof CodeMirror !== 'undefined') {
                     codeMirrorEditor.save();
                 }
                 $msg = Functions.ajaxShowMessage();
-                $.post('index.php?route=/view/create', $('#createViewDialog').find('form').serialize(), function (data) {
+                $.post('index.php?route=/view/create', $('#createViewModal').find('form').serialize(), function (data) {
                     Functions.ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
-                        $('#createViewDialog').dialog('close');
+                        $('#createViewModal').modal('hide');
                         $('.result_query').html(data.message);
                         Navigation.reload();
                     } else {
                         Functions.ajaxShowMessage(data.error);
                     }
                 });
-            };
-            buttonOptions[Messages.strClose] = function () {
-                $(this).dialog('close');
-            };
-            var $dialog = $('<div></div>').attr('id', 'createViewDialog').append(data.message).dialog({
-                width: 600,
-                minWidth: 400,
-                height: $(window).height(),
-                modal: true,
-                buttons: buttonOptions,
-                title: Messages.strCreateView,
-                close: function () {
-                    $(this).remove();
-                }
             });
+            $('#createViewModal').find('.modal-body').first().html(data.message);
             // Attach syntax highlighted editor
-            codeMirrorEditor = Functions.getSqlEditor($dialog.find('textarea'));
-            $('input:visible[type=text]', $dialog).first().trigger('focus');
+            $('#createViewModal').on('shown.bs.modal', function () {
+                codeMirrorEditor = Functions.getSqlEditor($('#createViewModal').find('textarea'));
+                $('input:visible[type=text]', $('#createViewModal')).first().trigger('focus');
+                $('#createViewModal').off('shown.bs.modal');
+            });
+            $('#createViewModal').modal('show');
         } else {
             Functions.ajaxShowMessage(data.error);
         }

@@ -614,7 +614,6 @@ final class JavaScriptMessagesController
             'strLatestAvailable' => __(', latest stable version:'),
             'strUpToDate' => __('up to date'),
 
-            'strCreateView' => __('Create view'),
 
             /* Error Reporting */
             'strErrorOccurred' => __('A fatal JavaScript error has occurred. Would you like to send an error report?'),
