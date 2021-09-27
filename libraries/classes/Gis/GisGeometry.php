@@ -14,8 +14,9 @@ use function explode;
 use function floatval;
 use function mb_strripos;
 use function mb_substr;
-use function mt_rand;
+use function mt_getrandmax;
 use function preg_match;
+use function random_int;
 use function sprintf;
 use function str_replace;
 use function trim;
@@ -407,6 +408,6 @@ abstract class GisGeometry
 
     protected function getRandomId(): int
     {
-        return mt_rand();
+        return random_int(0, mt_getrandmax());
     }
 }

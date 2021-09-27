@@ -37,8 +37,9 @@ use function json_decode;
 use function json_encode;
 use function mb_strtolower;
 use function mb_substr;
+use function mt_getrandmax;
 use function preg_match;
-use function rand;
+use function random_int;
 use function reset;
 use function sha1;
 use function sprintf;
@@ -159,7 +160,7 @@ abstract class TestBase extends TestCase
      */
     protected function createDatabase(): void
     {
-        $this->databaseName = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
+        $this->databaseName = $this->getDbPrefix() . mb_substr(sha1((string) random_int(0, mt_getrandmax())), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`; USE `' . $this->databaseName . '`;'
         );

@@ -58,10 +58,11 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function md5;
-use function mt_rand;
+use function mt_getrandmax;
 use function pack;
 use function preg_match;
 use function preg_replace;
+use function random_int;
 use function str_contains;
 use function str_replace;
 use function strcasecmp;
@@ -266,7 +267,7 @@ class Results
         $this->properties['server'] = $server;
         $this->properties['goto'] = $goto;
         $this->properties['sql_query'] = $sqlQuery;
-        $this->properties['unique_id'] = mt_rand();
+        $this->properties['unique_id'] = random_int(0, mt_getrandmax());
     }
 
     /**

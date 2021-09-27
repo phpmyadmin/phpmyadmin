@@ -11,7 +11,8 @@ use function file_put_contents;
 use function getcwd;
 use function is_string;
 use function mkdir;
-use function mt_rand;
+use function mt_getrandmax;
+use function random_int;
 use function rmdir;
 use function sys_get_temp_dir;
 use function unlink;
@@ -43,7 +44,7 @@ class GitTest extends AbstractTestCase
         parent::setUp();
         parent::setProxySettings();
         $this->object = new Git(true);
-        $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . mt_rand();
+        $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . random_int(0, mt_getrandmax());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
