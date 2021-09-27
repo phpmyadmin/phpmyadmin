@@ -797,13 +797,7 @@ abstract class TestBase extends TestCase
     {
         try {
             $this->webDriver->findElement(WebDriverBy::$func($arg));
-        } catch (NoSuchElementException $e) {
-            // Element not present
-            return false;
-        } catch (InvalidArgumentException $e) {
-            // Element not present
-            return false;
-        } catch (InvalidSelectorException $e) {
+        } catch (NoSuchElementException | InvalidArgumentException | InvalidSelectorException $e) {
             // Element not present
             return false;
         }
