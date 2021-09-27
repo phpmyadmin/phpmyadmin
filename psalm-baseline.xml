@@ -17431,9 +17431,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/Config/ConfigFileTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'stdClass'</code>
-    </ArgumentTypeCoercion>
     <MixedAssignment occurrences="9">
       <code>$default_host</code>
       <code>$default_host</code>
@@ -18103,9 +18100,6 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
@@ -18125,9 +18119,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -18138,9 +18129,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiLineStringTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -18151,9 +18139,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -18164,9 +18149,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedArrayAssignment occurrences="3">
       <code>$temp1[0]['MULTIPOLYGON']['no_of_polygons']</code>
       <code>$temp2[0]['MULTIPOLYGON'][1]</code>
@@ -18183,9 +18165,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
@@ -18197,9 +18176,6 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>'TCPDF'</code>
-    </ArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$temp1[0]['POLYGON'][1]</code>
       <code>$temp['POLYGON'][0]</code>

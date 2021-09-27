@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use BaconQrCode\Renderer\ImageRenderer;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
@@ -123,7 +124,7 @@ class TwoFactor
             $result[] = 'simple';
         }
 
-        if (class_exists(Google2FA::class) && class_exists('BaconQrCode\Renderer\ImageRenderer')) {
+        if (class_exists(Google2FA::class) && class_exists(ImageRenderer::class)) {
             $result[] = 'application';
         }
 
@@ -149,7 +150,7 @@ class TwoFactor
             ];
         }
 
-        if (! class_exists('BaconQrCode\Renderer\ImageRenderer')) {
+        if (! class_exists(ImageRenderer::class)) {
             $result[] = [
                 'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',

@@ -252,7 +252,7 @@ class ConfigFileTest extends AbstractTestCase
         );
         $default = new stdClass();
         $this->assertInstanceOf(
-            'stdClass',
+            stdClass::class,
             $this->object->get('key not excist', $default)
         );
     }

@@ -291,7 +291,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf('TCPDF', $return);
+        $this->assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
