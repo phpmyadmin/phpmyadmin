@@ -12,7 +12,6 @@ use function __;
 use function array_merge;
 use function htmlspecialchars;
 use function implode;
-use function pow;
 use function preg_match;
 use function preg_replace_callback;
 use function round;
@@ -426,7 +425,7 @@ class Advisor
         $num = round($num, $precision);
 
         if ($num == 0) {
-            $num = '<' . pow(10, -$precision);
+            $num = '<' . 10 ** (-$precision);
         }
 
         return $num . ' ' . $per;

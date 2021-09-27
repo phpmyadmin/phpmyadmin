@@ -20,7 +20,6 @@ use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function min;
-use function pow;
 use function preg_match;
 use function str_replace;
 use function substr_replace;
@@ -85,7 +84,7 @@ class IpAllowDeny
                     continue;
                 }
 
-                $maskl += pow(2, 30 - $i);
+                $maskl += 2 ** (30 - $i);
             }
 
             return ($maskl & $rangel) == ($maskl & $ipl);
@@ -196,7 +195,7 @@ class IpAllowDeny
                 $origval = hexdec($orig);
 
                 // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-                $newval = $origval | pow(2, min(4, $flexbits)) - 1;
+                $newval = $origval | 2 ** min(4, $flexbits) - 1;
 
                 // Convert it back to a hexadecimal character
                 $new = dechex($newval);

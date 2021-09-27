@@ -20,7 +20,6 @@ use function json_encode;
 use function max;
 use function mb_substr;
 use function min;
-use function pow;
 use function round;
 use function sqrt;
 use function str_contains;
@@ -521,7 +520,7 @@ class GisPolygon extends GisGeometry
 
         // Always keep $epsilon < 1 to go with the reduction logic down here
         $epsilon = 0.1;
-        $denominator = sqrt(pow($y1 - $y0, 2) + pow($x0 - $x1, 2));
+        $denominator = sqrt(($y1 - $y0) ** 2 + ($x0 - $x1) ** 2);
         $pointA = [];
         $pointB = [];
 
@@ -546,7 +545,7 @@ class GisPolygon extends GisGeometry
 
             //If both are outside the polygon reduce the epsilon and
             //recalculate the points(reduce exponentially for faster convergence)
-            $epsilon = pow($epsilon, 2);
+            $epsilon **= 2;
             if ($epsilon == 0) {
                 return false;
             }

@@ -8015,14 +8015,13 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="6">
       <code>$points_arr[2]</code>
       <code>$points_arr[2]</code>
       <code>$points_arr[3]</code>
       <code>$points_arr[3]</code>
       <code>$wkt</code>
-      <code>$x0 - $x1</code>
-      <code>$y1 - $y0</code>
+      <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="42">
       <code>$gis_data[$index]['POLYGON']</code>
@@ -8106,7 +8105,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>float</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="34">
+    <MixedOperand occurrences="35">
       <code>$area</code>
       <code>$area</code>
       <code>$epsilon * ($y1 - $y0)</code>
@@ -8138,6 +8137,7 @@
       <code>$y2</code>
       <code>($pointA['x'] - $x2) * ($x0 - $x1)</code>
       <code>($pointB['x'] - $x2) * ($x0 - $x1)</code>
+      <code>($y1 - $y0) ** 2</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$area</code>
@@ -8499,12 +8499,10 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Import.php">
-    <InvalidReturnStatement occurrences="2">
-      <code>$columnNumber</code>
+    <InvalidReturnStatement occurrences="1">
       <code>$result</code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="2">
-      <code>int</code>
+    <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <MixedArgument occurrences="67">
@@ -9199,9 +9197,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$remote_ip</code>
     </InvalidScalarArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$newval</code>
-    </PossiblyInvalidArgument>
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($rules)</code>
     </TypeDoesNotContainType>

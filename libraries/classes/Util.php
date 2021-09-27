@@ -59,7 +59,6 @@ use function mb_substr;
 use function number_format;
 use function ord;
 use function parse_url;
-use function pow;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
@@ -501,15 +500,15 @@ class Util
             __('EiB'),
         ];
 
-        $dh = pow(10, $comma);
-        $li = pow(10, $limes);
+        $dh = 10 ** $comma;
+        $li = 10 ** $limes;
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
-            $unitSize = $li * pow(10, $ex);
+            $unitSize = $li * 10 ** $ex;
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (pow(1024, $d) / $dh)) / $dh;
+                $value = round($value / (1024 ** $d / $dh)) / $dh;
                 $unit = $byteUnits[$d];
                 break 1;
             }
@@ -583,7 +582,7 @@ class Util
                 __(',')
             );
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / pow(10, $digitsRight));
+                $value = ' <' . (1 / 10 ** $digitsRight);
             }
 
             return $value;
@@ -622,7 +621,7 @@ class Util
             $sign = '';
         }
 
-        $dh = pow(10, $digitsRight);
+        $dh = 10 ** $digitsRight;
 
         /*
          * This gives us the right SI prefix already,
@@ -634,7 +633,7 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $curDigits = floor(log10($value / pow(1000, $d)) + 1);
+        $curDigits = floor(log10($value / 1000 ** $d) + 1);
         if ($digitsLeft > $curDigits) {
             $d -= floor(($digitsLeft - $curDigits) / 3);
         }
@@ -643,7 +642,7 @@ class Util
             $d = 0;
         }
 
-        $value = round($value / (pow(1000, $d) / $dh)) / $dh;
+        $value = round($value / (1000 ** $d / $dh)) / $dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
@@ -655,7 +654,7 @@ class Util
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . number_format(
-                1 / pow(10, $digitsRight),
+                1 / 10 ** $digitsRight,
                 $digitsRight,
                 $decimalSep,
                 $thousandsSep
@@ -680,11 +679,11 @@ class Util
         $formattedSize = (string) $formattedSize;
 
         if (preg_match('/^[0-9]+GB$/', $formattedSize)) {
-            $returnValue = (int) mb_substr($formattedSize, 0, -2) * pow(1024, 3);
+            $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 3;
         } elseif (preg_match('/^[0-9]+MB$/', $formattedSize)) {
-            $returnValue = (int) mb_substr($formattedSize, 0, -2) * pow(1024, 2);
+            $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 2;
         } elseif (preg_match('/^[0-9]+K$/', $formattedSize)) {
-            $returnValue = (int) mb_substr($formattedSize, 0, -1) * pow(1024, 1);
+            $returnValue = (int) mb_substr($formattedSize, 0, -1) * 1024 ** 1;
         }
 
         return $returnValue;
@@ -1338,7 +1337,7 @@ class Util
             // FIXME: does not work for the leftmost bit of a 64-bit value
             $i = 0;
             $printable = '';
-            while ($value >= pow(2, $i)) {
+            while ($value >= 2 ** $i) {
                 ++$i;
             }
 
@@ -1347,11 +1346,11 @@ class Util
             }
 
             while ($i >= 0) {
-                if ($value - pow(2, $i) < 0) {
+                if ($value - 2 ** $i < 0) {
                     $printable = '0' . $printable;
                 } else {
                     $printable = '1' . $printable;
-                    $value -= pow(2, $i);
+                    $value -= 2 ** $i;
                 }
 
                 --$i;

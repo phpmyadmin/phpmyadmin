@@ -17,7 +17,6 @@ use function htmlspecialchars;
 use function implode;
 use function is_numeric;
 use function mb_strtolower;
-use function pow;
 use function preg_match;
 use function trim;
 
@@ -63,10 +62,7 @@ final class SetVariableController extends AbstractController
                 'gb' => 3,
                 'gib' => 3,
             ];
-            $value = (float) $matches[1] * pow(
-                1024,
-                $exp[mb_strtolower($matches[3])]
-            );
+            $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
         } else {
             $value = $this->dbi->escapeString($value);
         }
