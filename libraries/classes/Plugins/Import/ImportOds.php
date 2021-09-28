@@ -150,8 +150,7 @@ class ImportOds extends ImportPlugin
             $sheets = [];
             $GLOBALS['message'] = Message::error(
                 __(
-                    'The XML file specified was either malformed or incomplete.'
-                    . ' Please correct the issue and try again.'
+                    'The XML file specified was either malformed or incomplete. Please correct the issue and try again.'
                 )
             );
             $GLOBALS['error'] = true;

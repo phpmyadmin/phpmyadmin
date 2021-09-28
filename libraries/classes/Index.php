@@ -619,8 +619,7 @@ class Index
 
                 $message = Message::notice(
                     __(
-                        'The indexes %1$s and %2$s seem to be equal and one of them '
-                        . 'could possibly be removed.'
+                        'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'
                     )
                 );
                 $message->addParam($each_index->getName());

@@ -302,14 +302,12 @@ class File
                 break;
             case UPLOAD_ERR_INI_SIZE:
                 $this->errorMessage = Message::error(__(
-                    'The uploaded file exceeds the upload_max_filesize directive in '
-                    . 'php.ini.'
+                    'The uploaded file exceeds the upload_max_filesize directive in php.ini.'
                 ));
                 break;
             case UPLOAD_ERR_FORM_SIZE:
                 $this->errorMessage = Message::error(__(
-                    'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
-                    . 'specified in the HTML form.'
+                    'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'
                 ));
                 break;
             case UPLOAD_ERR_PARTIAL:

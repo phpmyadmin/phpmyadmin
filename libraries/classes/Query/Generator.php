@@ -266,12 +266,8 @@ class Generator
         string $sortOrder,
         string $limit
     ): string {
-        $sql = 'SELECT *, '
-                . 'CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME'
-                . ' FROM (';
-        $sql .= 'SELECT'
-                . ' BINARY s.SCHEMA_NAME AS BIN_NAME,'
-                . ' s.DEFAULT_COLLATION_NAME';
+        $sql = 'SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (';
+        $sql .= 'SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME';
         if ($forceStats) {
             $sql .= ','
                 . ' COUNT(t.TABLE_SCHEMA)  AS SCHEMA_TABLES,'
@@ -285,8 +281,7 @@ class Generator
 
         $sql .= ' FROM `information_schema`.SCHEMATA s ';
         if ($forceStats) {
-            $sql .= ' LEFT JOIN `information_schema`.TABLES t'
-                    . ' ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
+            $sql .= ' LEFT JOIN `information_schema`.TABLES t ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
         }
 
         $sql .= $sqlWhereSchema

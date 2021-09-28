@@ -239,9 +239,6 @@ class Session
             return;
         }
 
-        Core::fatalError(
-            'Failed to store CSRF token in session! ' .
-            'Probably sessions are not working properly.'
-        );
+        Core::fatalError('Failed to store CSRF token in session! Probably sessions are not working properly.');
     }
 }

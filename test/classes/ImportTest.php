@@ -486,13 +486,10 @@ class ImportTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'PMA';
 
-        $updateQuery = 'UPDATE `table_1` '
-            . 'SET `id` = 20 '
-            . 'WHERE `id` > 10';
+        $updateQuery = 'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10';
         $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
 
-        $deleteQuery = 'DELETE FROM `table_1` '
-            . 'WHERE `id` > 10';
+        $deleteQuery = 'DELETE FROM `table_1` WHERE `id` > 10';
         $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
 
         $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
@@ -546,9 +543,7 @@ class ImportTest extends AbstractTestCase
     {
         $GLOBALS['db'] = 'PMA';
 
-        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
-            . 'SET `table_1`.`id` = `table_2`.`id` '
-            . 'WHERE 1';
+        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 SET `table_1`.`id` = `table_2`.`id` WHERE 1';
 
         $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
     }

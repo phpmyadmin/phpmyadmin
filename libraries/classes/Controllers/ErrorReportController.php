@@ -111,14 +111,10 @@ class ErrorReportController extends AbstractController
                     }
                 } else {
                     $msg = __(
-                        'An error has been detected and an error report has been '
-                        . 'generated but failed to be sent.'
+                        'An error has been detected and an error report has been generated but failed to be sent.'
                     );
                     $msg .= ' ';
-                    $msg .= __(
-                        'If you experience any '
-                        . 'problems please submit a bug report manually.'
-                    );
+                    $msg .= __('If you experience any problems please submit a bug report manually.');
                 }
 
                 $msg .= ' ' . __('You may want to refresh the page.');

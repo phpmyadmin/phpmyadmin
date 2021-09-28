@@ -302,7 +302,7 @@ class Normalization
                     )
                 )
                 . '</a>';
-            $extra = __("If it's not possible to make existing " . 'column combinations as primary key') . '<br>'
+            $extra = __('If it\'s not possible to make existing column combinations as primary key') . '<br>'
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
@@ -375,8 +375,7 @@ class Normalization
             . 'be created.'
         );
         $subText = __(
-            'Check the columns which form a repeating group. '
-            . "If no such group, click on 'No repeating group'"
+            'Check the columns which form a repeating group. If no such group, click on \'No repeating group\''
         );
         $extra = $this->getHtmlForColumnsList($db, $table, 'all', 'checkbox') . '<br>'
             . '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup" value="'
@@ -445,13 +444,9 @@ class Normalization
                         . 'so we need to find the partial dependencies.'
                     ),
                     htmlspecialchars($key)
-                ) . '<br>' . __(
-                    'Please answer the following question(s) '
-                    . 'carefully to obtain a correct normalization.'
-                )
+                ) . '<br>' . __('Please answer the following question(s) carefully to obtain a correct normalization.')
                     . '<br><a href="#" id="showPossiblePd">' . __(
-                        '+ Show me the possible partial dependencies '
-                        . 'based on data in the table'
+                        '+ Show me the possible partial dependencies based on data in the table'
                     ) . '</a>';
                 $subText = __(
                     'For each column below, '
@@ -478,8 +473,7 @@ class Normalization
         } else {
             $headText = sprintf(
                 __(
-                    'No partial dependencies possible as the primary key'
-                    . ' ( %1$s ) has just one column.'
+                    'No partial dependencies possible as the primary key ( %1$s ) has just one column.'
                 ),
                 htmlspecialchars($key)
             ) . '<br>';
@@ -864,10 +858,7 @@ class Normalization
     {
         $legendText = __('Step 3.') . '1 ' . __('Find transitive dependencies');
         $extra = '';
-        $headText = __(
-            'Please answer the following question(s) '
-            . 'carefully to obtain a correct normalization.'
-        );
+        $headText = __('Please answer the following question(s) carefully to obtain a correct normalization.');
         $subText = __(
             'For each column below, '
             . 'please select the <b>minimal set</b> of columns among given set '
@@ -923,8 +914,7 @@ class Normalization
 
         if ($extra == '') {
             $headText = __(
-                'No Transitive dependencies possible as the table '
-                . "doesn't have any non primary key columns"
+                'No Transitive dependencies possible as the table doesn\'t have any non primary key columns'
             );
             $subText = '';
             $extra = '<h3>' . __('Table is already in Third normal form!') . '</h3>';
@@ -974,8 +964,7 @@ class Normalization
 
         $htmlOutput .= '</fieldset><fieldset class="pma-fieldset tblFooters">'
             . "<span class='float-start'>" . __(
-                'Hint: Please follow the procedure carefully in order '
-                . 'to obtain correct normalization'
+                'Hint: Please follow the procedure carefully in order to obtain correct normalization'
             ) . '</span>'
             . '<input class="btn btn-primary" type="submit" name="submit_normalize" value="' . __('Go') . '">'
             . '</fieldset>'
@@ -1042,10 +1031,7 @@ class Normalization
             }
         }
 
-        $html = __(
-            'This list is based on a subset of the table\'s data '
-            . 'and is not necessarily accurate. '
-        )
+        $html = __('This list is based on a subset of the table\'s data and is not necessarily accurate. ')
             . '<div class="dependencies_box">';
         foreach ($dependencyList as $dependon => $colList) {
             $html .= '<span class="d-block">'

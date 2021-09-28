@@ -1340,8 +1340,8 @@ class RoutinesTest extends AbstractTestCase
                     'item_securitytype' => 'INVOKER',
                     'item_sqldataaccess' => 'NO SQL',
                 ],
-                'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC '
-                . 'NO SQL SQL SECURITY INVOKER SELECT 0;', // valid query
+                // valid query
+                'CREATE PROCEDURE `proc`() COMMENT \'foo\' DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT 0;',
                 1,
             ],
             [
@@ -1428,8 +1428,7 @@ class RoutinesTest extends AbstractTestCase
                     'item_securitytype' => 'DEFINER',
                     'item_sqldataaccess' => '',
                 ],
-                'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL '
-                . 'SECURITY DEFINER SELECT 0;', // invalid query
+                'CREATE FUNCTION `func`()  NOT DETERMINISTIC SQL SECURITY DEFINER SELECT 0;', // invalid query
                 1,
             ],
         ];

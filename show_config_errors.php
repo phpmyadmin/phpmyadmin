@@ -14,10 +14,7 @@ if (! defined('ROOT_PATH')) {
 // rfc2616 - Section 14.21
 header('Expires: ' . gmdate(DATE_RFC1123));
 // HTTP/1.1
-header(
-    'Cache-Control: no-store, no-cache, must-revalidate,'
-    . '  pre-check=0, post-check=0, max-age=0'
-);
+header('Cache-Control: no-store, no-cache, must-revalidate,  pre-check=0, post-check=0, max-age=0');
 
 header('Pragma: no-cache'); // HTTP/1.0
 // test case: exporting a database into a .gz file with Safari

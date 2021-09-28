@@ -202,10 +202,7 @@ class HomeController extends AbstractController
                 );
                 if ($cfg['ZeroConf'] == true) {
                     $messageText .= '<br>' .
-                        __(
-                            'Or alternately go to \'Operations\' tab of any database '
-                            . 'to set it up there.'
-                        );
+                        __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
 
                 $messageInstance = Message::notice($messageText);
@@ -362,8 +359,7 @@ class HomeController extends AbstractController
             trigger_error(
                 sprintf(
                     __(
-                        'Server running with Suhosin. Please refer ' .
-                        'to %sdocumentation%s for possible issues.'
+                        'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'
                     ),
                     '[doc@faq1-38]',
                     '[/doc]'

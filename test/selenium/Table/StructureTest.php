@@ -111,8 +111,7 @@ class StructureTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'2 columns have been dropped successfully.')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'2 columns have been dropped successfully.\')]'
         );
         $this->waitAjax();
 

@@ -360,8 +360,7 @@ class TablePropertyTest extends AbstractTestCase
         $this->assertEquals(
             'NameintInt32intfalsetrue',
             $this->object->format(
-                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type#' .
-                '#notNull##unique#'
+                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#'
             )
         );
     }

@@ -264,8 +264,7 @@ class Routines
         if (count($errors)) {
             $message = Message::error(
                 __(
-                    'One or more errors have occurred while'
-                    . ' processing your request:'
+                    'One or more errors have occurred while processing your request:'
                 )
             );
             $message->addHtml('<ul>');
@@ -848,9 +847,7 @@ class Routines
             if (
                 $itemParamLength[$i] != ''
                 && ! preg_match(
-                    '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                    . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
-                    . 'SERIAL|BOOLEAN)$@i',
+                    '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                     $itemParamType[$i]
                 )
             ) {
@@ -929,8 +926,7 @@ class Routines
         ) {
             if (! $warnedAboutLength) {
                 $errors[] = __(
-                    'You must provide length/values for routine parameters'
-                    . ' of type ENUM, SET, VARCHAR and VARBINARY.'
+                    'You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.'
                 );
             }
         }
@@ -1234,10 +1230,8 @@ class Routines
                 // output from the routine
                 $message .= sprintf(
                     _ngettext(
-                        '%d row affected by the last statement inside the '
-                        . 'procedure.',
-                        '%d rows affected by the last statement inside the '
-                        . 'procedure.',
+                        '%d row affected by the last statement inside the procedure.',
+                        '%d rows affected by the last statement inside the procedure.',
                         (int) $affected
                     ),
                     $affected

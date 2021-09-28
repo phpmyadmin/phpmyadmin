@@ -110,14 +110,12 @@ class ImportOdsTest extends AbstractTestCase
         $this->object->doImport($importHandle);
 
         $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
-            . 'utf8 COLLATE utf8_general_ci',
+            'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
         $this->assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', $sql_query);
         $this->assertStringContainsString(
-            'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES '
-            . "(1, 'dbbase', NULL, 'ddd');",
+            'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, \'dbbase\', NULL, \'ddd\');',
             $sql_query
         );
 

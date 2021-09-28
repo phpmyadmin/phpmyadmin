@@ -313,8 +313,7 @@ class FormDisplayTest extends AbstractTestCase
     public function testGetDocLink(): void
     {
         $this->assertEquals(
-            './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F' .
-            'config.html%23cfg_Servers_3_test_2_',
+            './url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Servers_3_test_2_',
             $this->object->getDocLink('Servers/3/test/2/')
         );
 
@@ -419,8 +418,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $comment = '';
         if (! function_exists('zip_open')) {
-            $comment = 'Compressed import will not work due to missing function ' .
-                'zip_open.';
+            $comment = 'Compressed import will not work due to missing function zip_open.';
         }
 
         if (! function_exists('gzcompress')) {
@@ -442,8 +440,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $comment = '';
         if (! function_exists('gzopen')) {
-            $comment = 'Compressed import will not work due to missing function ' .
-                'gzopen.';
+            $comment = 'Compressed import will not work due to missing function gzopen.';
         }
 
         if (! function_exists('gzencode')) {
@@ -465,8 +462,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $comment = '';
         if (! function_exists('bzopen')) {
-            $comment = 'Compressed import will not work due to missing function ' .
-                'bzopen.';
+            $comment = 'Compressed import will not work due to missing function bzopen.';
         }
 
         if (! function_exists('bzcompress')) {

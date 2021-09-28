@@ -153,8 +153,7 @@ class ProceduresTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Routine `test_procedure` has been created')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Routine `test_procedure` has been created\')]'
         );
 
         $this->dbQuery(
@@ -190,8 +189,7 @@ class ProceduresTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Routine `test_procedure` has been modified')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Routine `test_procedure` has been modified\')]'
         );
 
         $this->executeProcedure('test_procedure', 14);

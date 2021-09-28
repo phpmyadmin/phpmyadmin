@@ -455,8 +455,7 @@ class PrivilegesTest extends AbstractTestCase
         $message = $this->serverPrivileges->updatePassword($err_url, $username, $hostname);
 
         $this->assertEquals(
-            "The password for 'pma_username'@'pma_hostname' "
-            . 'was changed successfully.',
+            'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',
             $message->getMessage()
         );
     }
@@ -525,8 +524,7 @@ class PrivilegesTest extends AbstractTestCase
             $message->getMessage()
         );
         $this->assertEquals(
-            'REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` '
-            . "FROM 'pma_username'@'pma_hostname';   ",
+            'REVOKE ALL PRIVILEGES ON  `pma_dbname`.`pma_tablename` FROM \'pma_username\'@\'pma_hostname\';   ',
             $sql_query
         );
     }
@@ -752,15 +750,13 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
-            . ' BY \'pma_password\';',
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
-            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password'
-            . ' BY \'***\';',
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password BY \'***\';',
             $create_user_show
         );
     }
@@ -786,17 +782,12 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
-            . ' BY \'pma_password\';',
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
-        $this->assertEquals(
-            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED'
-            . ' BY \'***\';',
-            $create_user_show
-        );
+        $this->assertEquals('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $create_user_show);
     }
 
     /**
@@ -826,15 +817,13 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 1: $create_user_real
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
-            . "WITH mysql_native_password AS 'pma_password';",
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'pma_password\';',
             $create_user_real
         );
 
         //validate 2: $create_user_show
         $this->assertEquals(
-            "CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED "
-            . "WITH mysql_native_password AS '***';",
+            'CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED WITH mysql_native_password AS \'***\';',
             $create_user_show
         );
 
@@ -974,8 +963,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $output = Generator::showHint(
             __(
-                'When Host table is used, this field is ignored '
-                . 'and values stored in Host table are used instead.'
+                'When Host table is used, this field is ignored and values stored in Host table are used instead.'
             )
         );
         $this->assertStringContainsString($output, $html);
@@ -1631,8 +1619,7 @@ class PrivilegesTest extends AbstractTestCase
         $actual = $this->serverPrivileges->getHtmlForUserOverview('ltr');
         $this->assertStringContainsString('Note: MySQL privilege names are expressed in English.', $actual);
         $this->assertStringContainsString(
-            'Note: phpMyAdmin gets the users’ privileges directly '
-            . 'from MySQL’s privilege tables.',
+            'Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege tables.',
             $actual
         );
     }
@@ -1680,13 +1667,11 @@ class PrivilegesTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=-'
-            . '&lang=en">-</a>',
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=-&lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&initial=%22'
-            . '&lang=en">&quot;</a>',
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=%22&lang=en">&quot;</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);

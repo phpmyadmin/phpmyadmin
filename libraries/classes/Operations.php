@@ -952,15 +952,13 @@ class Operations
                     if (isset($_POST['submit_move'])) {
                         $message = Message::success(
                             __(
-                                'Table %s has been moved to %s. Privileges have been '
-                                . 'adjusted.'
+                                'Table %s has been moved to %s. Privileges have been adjusted.'
                             )
                         );
                     } else {
                         $message = Message::success(
                             __(
-                                'Table %s has been copied to %s. Privileges have been '
-                                . 'adjusted.'
+                                'Table %s has been copied to %s. Privileges have been adjusted.'
                             )
                         );
                     }

@@ -140,9 +140,7 @@ class ExportOds extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
-            . '</office:body>'
-            . '</office:document-content>';
+        $GLOBALS['ods_buffer'] .= '</office:spreadsheet></office:body></office:document-content>';
 
         return $this->export->outputHandler(
             OpenDocument::create(

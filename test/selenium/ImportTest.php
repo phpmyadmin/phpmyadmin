@@ -37,10 +37,7 @@ class ImportTest extends TestBase
         );
 
         // clear db
-        $this->dbQuery(
-            'DROP DATABASE test_import1;'
-            . 'DROP DATABASE test_import2;'
-        );
+        $this->dbQuery('DROP DATABASE test_import1;DROP DATABASE test_import2;');
     }
 
     /**

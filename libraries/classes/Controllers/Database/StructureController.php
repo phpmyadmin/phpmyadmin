@@ -572,8 +572,7 @@ class StructureController extends AbstractController
                     Sanitize::sanitizeMessage(
                         sprintf(
                             __(
-                                'This view has at least this number of '
-                                . 'rows. Please refer to %sdocumentation%s.'
+                                'This view has at least this number of rows. Please refer to %sdocumentation%s.'
                             ),
                             '[doc@cfg_MaxExactCountViews]',
                             '[/doc]'

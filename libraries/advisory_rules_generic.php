@@ -40,8 +40,7 @@ return [
         'test' => 'value >= 5',
         'issue' => __('There is a lot of slow queries compared to the overall amount of Queries.'),
         'recommendation' => __(
-            'You might want to increase {long_query_time}'
-            . ' or optimize the queries listed in the slow query log'
+            'You might want to increase {long_query_time} or optimize the queries listed in the slow query log'
         ),
         'justification' => __('The slow query rate should be below 5%%, your value is %s%%.'),
         'justification_formula' => 'round(value,2)',
@@ -54,8 +53,7 @@ return [
         'test' => 'value * 60 * 60 > 1',
         'issue' => __('There is a high percentage of slow queries compared to the server uptime.'),
         'recommendation' => __(
-            'You might want to increase {long_query_time}'
-            . ' or optimize the queries listed in the slow query log'
+            'You might want to increase {long_query_time} or optimize the queries listed in the slow query log'
         ),
         'justification' => __('You have a slow query rate of %s per hour, you should have less than 1%% per hour.'),
         'justification_formula' => 'ADVISOR_bytime(value,2)',
@@ -421,8 +419,7 @@ return [
         'test' => 'value*60*60 > 10',
         'issue' => __('The rate of opening tables is high.'),
         'recommendation' => __(
-            'Opening tables requires disk I/O which is costly.'
-            . ' Increasing {table_open_cache} might avoid this.'
+            'Opening tables requires disk I/O which is costly. Increasing {table_open_cache} might avoid this.'
         ),
         'justification' => __('Opened table rate: %s, this value should be less than 10 per hour'),
         'justification_formula' => 'ADVISOR_bytime(value,2)',

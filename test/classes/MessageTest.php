@@ -357,8 +357,7 @@ class MessageTest extends AbstractTestCase
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
-                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F"'
-                . ' target="Documentation">link</a>',
+                '<a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="Documentation">link</a>',
             ],
             [
                 '[a@./non-existing@Documentation]link[/a]',

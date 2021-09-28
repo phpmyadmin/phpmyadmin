@@ -244,13 +244,8 @@ class VariablesController extends AbstractController
                 . ' but that exceeded the value of binlog_cache_size and used a'
                 . ' temporary file to store statements from the transaction.'
             ),
-            'Binlog_cache_use' => __(
-                'The number of transactions that used the temporary binary log cache.'
-            ),
-            'Connections' => __(
-                'The number of connection attempts (successful or not)'
-                . ' to the MySQL server.'
-            ),
+            'Binlog_cache_use' => __('The number of transactions that used the temporary binary log cache.'),
+            'Connections' => __('The number of connection attempts (successful or not) to the MySQL server.'),
             'Created_tmp_disk_tables' => __(
                 'The number of temporary tables on disk created automatically by'
                 . ' the server while executing statements. If'
@@ -322,8 +317,7 @@ class VariablesController extends AbstractController
             'Innodb_buffer_pool_pages_data' => __('The number of pages containing data (dirty or clean).'),
             'Innodb_buffer_pool_pages_dirty' => __('The number of pages currently dirty.'),
             'Innodb_buffer_pool_pages_flushed' => __(
-                'The number of buffer pool pages that have been requested'
-                . ' to be flushed.'
+                'The number of buffer pool pages that have been requested to be flushed.'
             ),
             'Innodb_buffer_pool_pages_free' => __('The number of free pages.'),
             'Innodb_buffer_pool_pages_latched' => __(
@@ -371,8 +365,7 @@ class VariablesController extends AbstractController
             'Innodb_data_writes' => __('The total number of data writes.'),
             'Innodb_data_written' => __('The amount of data written so far, in bytes.'),
             'Innodb_dblwr_pages_written' => __(
-                'The number of pages that have been written for'
-                . ' doublewrite operations.'
+                'The number of pages that have been written for doublewrite operations.'
             ),
             'Innodb_dblwr_writes' => __('The number of doublewrite operations that have been performed.'),
             'Innodb_log_waits' => __(
@@ -425,15 +418,11 @@ class VariablesController extends AbstractController
                 . ' Key_reads/Key_read_requests.'
             ),
             'Key_read_ratio_%' => __(
-                'Key cache miss calculated as rate of physical reads compared'
-                . ' to read requests (calculated value)'
+                'Key cache miss calculated as rate of physical reads compared to read requests (calculated value)'
             ),
             'Key_write_requests' => __('The number of requests to write a key block to the cache.'),
             'Key_writes' => __('The number of physical writes of a key block to disk.'),
-            'Key_write_ratio_%' => __(
-                'Percentage of physical writes compared'
-                . ' to write requests (calculated value)'
-            ),
+            'Key_write_ratio_%' => __('Percentage of physical writes compared to write requests (calculated value)'),
             'Last_query_cost' => __(
                 'The total cost of the last compiled query as computed by the query'
                 . ' optimizer. Useful for comparing the cost of different query'
@@ -441,8 +430,7 @@ class VariablesController extends AbstractController
                 . ' no query has been compiled yet.'
             ),
             'Max_used_connections' => __(
-                'The maximum number of connections that have been in use'
-                . ' simultaneously since the server started.'
+                'The maximum number of connections that have been in use simultaneously since the server started.'
             ),
             'Not_flushed_delayed_rows' => __('The number of rows waiting to be written in INSERT DELAYED queues.'),
             'Opened_tables' => __(
@@ -468,8 +456,7 @@ class VariablesController extends AbstractController
                 . ' to remove from the cache.'
             ),
             'Qcache_not_cached' => __(
-                'The number of non-cached queries (not cachable, or not cached'
-                . ' due to the query_cache_type setting).'
+                'The number of non-cached queries (not cachable, or not cached due to the query_cache_type setting).'
             ),
             'Qcache_queries_in_cache' => __('The number of queries registered in the cache.'),
             'Qcache_total_blocks' => __('The total number of blocks in the query cache.'),
@@ -489,23 +476,15 @@ class VariablesController extends AbstractController
                 . ' normally not critical even if this is big.)'
             ),
             'Select_scan' => __('The number of joins that did a full scan of the first table.'),
-            'Slave_open_temp_tables' => __(
-                'The number of temporary tables currently'
-                . ' open by the slave SQL thread.'
-            ),
+            'Slave_open_temp_tables' => __('The number of temporary tables currently open by the slave SQL thread.'),
             'Slave_retried_transactions' => __(
-                'Total (since startup) number of times the replication slave SQL'
-                . ' thread has retried transactions.'
+                'Total (since startup) number of times the replication slave SQL thread has retried transactions.'
             ),
             'Slave_running' => __('This is ON if this server is a slave that is connected to a master.'),
             'Slow_launch_threads' => __(
-                'The number of threads that have taken more than slow_launch_time'
-                . ' seconds to create.'
+                'The number of threads that have taken more than slow_launch_time seconds to create.'
             ),
-            'Slow_queries' => __(
-                'The number of queries that have taken more than long_query_time'
-                . ' seconds.'
-            ),
+            'Slow_queries' => __('The number of queries that have taken more than long_query_time seconds.'),
             'Sort_merge_passes' => __(
                 'The number of merge passes the sort algorithm has had to do.'
                 . ' If this value is large, you should consider increasing the'

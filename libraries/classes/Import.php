@@ -151,10 +151,7 @@ class Import
                 $message = Message::getMessageForAffectedRows($aAffectedRows);
                 $msg .= $message->getMessage();
             } else {
-                $msg .= __(
-                    'MySQL returned an empty result set (i.e. zero '
-                    . 'rows).'
-                );
+                $msg .= __('MySQL returned an empty result set (i.e. zero rows).');
             }
 
             if (($aNumRows > 0) || $isUseQuery) {
@@ -177,8 +174,7 @@ class Import
             [$db, $reload] = $this->lookForUse($sql, $db, $reload);
         }
 
-        $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
-            . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
+        $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im';
         if ($result == false || ! preg_match($pattern, $sql)) {
             return;
         }

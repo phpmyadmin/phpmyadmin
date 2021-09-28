@@ -198,8 +198,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'MySQL returned an empty result set')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]'
         );
 
         $this->dbQuery(
@@ -228,8 +227,7 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and "
-            . "contains(., 'MySQL returned an empty result set')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]'
         );
 
         $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");

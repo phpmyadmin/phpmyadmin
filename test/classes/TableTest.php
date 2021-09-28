@@ -502,8 +502,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            "`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b'10' "
-            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` BIT(12) PMA_attribute NULL DEFAULT b\'10\' AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -525,8 +524,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            "`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT '12' "
-            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT \'12\' AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -548,8 +546,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE '
-            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT TRUE AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -571,8 +568,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL '
-            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` BOOLEAN PMA_attribute NULL DEFAULT NULL AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -643,8 +639,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            '`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) '
-            . "COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` TIMESTAMP(3) PMA_attribute NULL DEFAULT CURRENT_TIMESTAMP(3) COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -669,8 +664,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00\' '
-            . "COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00\' COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -695,8 +689,7 @@ class TableTest extends AbstractTestCase
             $move_to
         );
         $this->assertEquals(
-            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.0\' '
-            . "COMMENT 'PMA_comment' FIRST",
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.0\' COMMENT \'PMA_comment\' FIRST',
             $query
         );
 
@@ -746,7 +739,7 @@ class TableTest extends AbstractTestCase
             $expression,
             $move_to
         );
-        $this->assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT ' . "COMMENT 'PMA_comment' FIRST", $query);
+        $this->assertEquals('`PMA_name` BOOLEAN PMA_attribute NULL INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -767,7 +760,7 @@ class TableTest extends AbstractTestCase
             ['id'],
             'id'
         );
-        $this->assertEquals('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT ' . "COMMENT 'PMA_comment' FIRST", $query);
+        $this->assertEquals('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -815,7 +808,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        $this->assertEquals('`id` INT(11) PMA_attribute NULL DEF ' . "COMMENT 'PMA_comment' FIRST", $query);
+        $this->assertEquals('`id` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -837,7 +830,7 @@ class TableTest extends AbstractTestCase
             'id'
         );
         // Do not add PK
-        $this->assertEquals('`ids` INT(11) PMA_attribute NULL DEF ' . "COMMENT 'PMA_comment' FIRST", $query);
+        $this->assertEquals('`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST', $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -860,8 +853,7 @@ class TableTest extends AbstractTestCase
         );
         // Add it beaucause it is missing
         $this->assertEquals(
-            '`ids` INT(11) PMA_attribute NULL DEF '
-            . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
+            '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, add PRIMARY KEY (`ids`)',
             $query
         );
 
@@ -886,8 +878,7 @@ class TableTest extends AbstractTestCase
         );
         // Do not add PK since it is not a AUTO_INCREMENT
         $this->assertEquals(
-            '`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL '
-            . "USER_DEFINED COMMENT 'PMA_comment' FIRST",
+            '`ids` INT(11) PMA_attribute AS (1) VIRTUAL NULL USER_DEFINED COMMENT \'PMA_comment\' FIRST',
             $query
         );
     }

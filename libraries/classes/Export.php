@@ -418,16 +418,14 @@ class Export
         ) {
             $message = Message::error(
                 __(
-                    'File %s already exists on server, '
-                    . 'change filename or check overwrite option.'
+                    'File %s already exists on server, change filename or check overwrite option.'
                 )
             );
             $message->addParam($saveFilename);
         } elseif (@is_file($saveFilename) && ! @is_writable($saveFilename)) {
             $message = Message::error(
                 __(
-                    'The web server does not have permission '
-                    . 'to save the file %s.'
+                    'The web server does not have permission to save the file %s.'
                 )
             );
             $message->addParam($saveFilename);
@@ -437,8 +435,7 @@ class Export
             if ($fileHandle === false) {
                 $message = Message::error(
                     __(
-                        'The web server does not have permission '
-                        . 'to save the file %s.'
+                        'The web server does not have permission to save the file %s.'
                     )
                 );
                 $message->addParam($saveFilename);

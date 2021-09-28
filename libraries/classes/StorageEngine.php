@@ -363,10 +363,7 @@ class StorageEngine
         if (! $ret) {
             $ret = '<p>' . "\n"
                 . '    '
-                . __(
-                    'There is no detailed status information available for this '
-                    . 'storage engine.'
-                )
+                . __('There is no detailed status information available for this storage engine.')
                 . "\n"
                 . '</p>' . "\n";
         } else {

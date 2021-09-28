@@ -160,8 +160,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 $temp1,
                 0,
                 null,
-                'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10)'
-                    . ',(20 30,35 32,30 20,20 30)))',
+                'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
             ],
             // a polygon should have at least one ring
             [
@@ -318,8 +317,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
-                    . '((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
                 [
                     'minX' => 16,
                     'maxX' => 147,
@@ -349,8 +347,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
         $image = ImageWrapper::create(120, 150);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
-            . '((105 0,56 20,78 73,105 0)))',
+            'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
@@ -391,8 +388,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
-                    . '((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
                 'pdf',
                 '#B02EE0',
                 [
@@ -437,8 +433,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
-                    . '((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
                 'svg',
                 '#B02EE0',
                 [
@@ -499,8 +494,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
     {
         return [
             [
-                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),'
-                    . '((105 0,56 20,78 73,105 0)))',
+                'MULTIPOLYGON(((136 40,147 83,16 75,136 40)),((105 0,56 20,78 73,105 0)))',
                 4326,
                 'Ol',
                 [176, 46, 224],

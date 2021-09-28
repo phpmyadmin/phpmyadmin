@@ -1728,13 +1728,11 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'DELETE FROM `mysql`.`db` WHERE `host` = "" '
-                    . 'AND `Db` = "" AND `User` = ""',
+                'query' => 'DELETE FROM `mysql`.`db` WHERE `host` = "" AND `Db` = "" AND `User` = ""',
                 'result' => true,
             ],
             [
-                'query' => 'DELETE FROM `mysql`.`columns_priv` WHERE '
-                    . '`host` = "" AND `Db` = "" AND `User` = ""',
+                'query' => 'DELETE FROM `mysql`.`columns_priv` WHERE `host` = "" AND `Db` = "" AND `User` = ""',
                 'result' => true,
             ],
             [

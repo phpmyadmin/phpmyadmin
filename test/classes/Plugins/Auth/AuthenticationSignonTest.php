@@ -225,8 +225,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->showFailure('empty-denied');
 
         $this->assertEquals(
-            'Login without a password is forbidden by configuration '
-            . '(see AllowNoPassword)',
+            'Login without a password is forbidden by configuration (see AllowNoPassword)',
             $_SESSION['PMA_single_signon_error_message']
         );
     }

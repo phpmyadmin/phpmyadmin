@@ -226,8 +226,7 @@ final class JavaScriptMessagesController
             ),
             'strLongQueryTimeSet' => __('long_query_time is set to %d second(s).'),
             'strSettingsAppliedGlobal' => __(
-                'Following settings will be applied globally and reset to default on server '
-                . 'restart:'
+                'Following settings will be applied globally and reset to default on server restart:'
             ),
             /* l10n: %s is FILE or TABLE */
             'strSetLogOutput' => __('Set log_output to %s'),
@@ -238,8 +237,7 @@ final class JavaScriptMessagesController
             /* l10n: %d seconds */
             'setSetLongQueryTime' => __('Set long_query_time to %d seconds.'),
             'strNoSuperUser' => __(
-                'You can\'t change these variables. Please log in as root or contact'
-                . ' your database administrator.'
+                'You can\'t change these variables. Please log in as root or contact your database administrator.'
             ),
             'strChangeSettings' => __('Change settings'),
             'strCurrentSettings' => __('Current settings'),
@@ -427,8 +425,7 @@ final class JavaScriptMessagesController
             'strShowPossiblePd' => __('Show me the possible partial dependencies based on data in the table'),
             'strHidePd' => __('Hide partial dependencies list'),
             'strWaitForPd' => __(
-                'Sit tight! It may take few seconds depending on data size and column count of '
-                . 'the table.'
+                'Sit tight! It may take few seconds depending on data size and column count of the table.'
             ),
             'strStep' => __('Step'),
             'strMoveRepeatingGroup' => '<ol><b>' . __('The following actions will be performed:') . '</b>'
@@ -547,10 +544,7 @@ final class JavaScriptMessagesController
             'strSubmit' => __('Submit'),
 
             /* For makegrid.js (column reordering, show/hide column, grid editing) */
-            'strCellEditHint' => __(
-                'Press escape to cancel editing.'
-                . '<br>- Shift+Enter for a newline.'
-            ),
+            'strCellEditHint' => __('Press escape to cancel editing.<br>- Shift+Enter for a newline.'),
             'strSaveCellWarning' => __(
                 'You have edited some data and they have not been saved. Are you sure you want '
                 . 'to leave this page before saving the data?'
@@ -572,8 +566,7 @@ final class JavaScriptMessagesController
             ),
             'strEnterValidHex' => __('Please enter a valid hexadecimal string. Valid characters are 0-9, A-F.'),
             'strShowAllRowsWarning' => __(
-                'Do you really want to see all of the rows? For a big table this could crash '
-                . 'the browser.'
+                'Do you really want to see all of the rows? For a big table this could crash the browser.'
             ),
             'strOriginalLength' => __('Original length'),
 
@@ -652,10 +645,7 @@ final class JavaScriptMessagesController
             'phpErrorsBeingSubmitted' => '<div class="alert alert-danger" role="alert">'
                 . __('Some errors have been detected on the server!')
                 . '<br>'
-                . __(
-                    'As per your settings, they are being submitted currently, please be '
-                    . 'patient.'
-                )
+                . __('As per your settings, they are being submitted currently, please be patient.')
                 . '<br>'
                 . '<img src="'
                 . $ajaxClockSmallGifPath

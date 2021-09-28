@@ -91,10 +91,7 @@ class Utilities
         if ($error_number == 2002) {
             $error .= ' - ' . $error_message;
             $error .= $separator;
-            $error .= __(
-                'The server is not responding (or the local server\'s socket'
-                . ' is not correctly configured).'
-            );
+            $error .= __('The server is not responding (or the local server\'s socket is not correctly configured).');
         } elseif ($error_number == 2003) {
             $error .= ' - ' . $error_message;
             $error .= $separator . __('The server is not responding.');
@@ -146,13 +143,9 @@ class Utilities
 
         // produces f.e.:
         // return -1 * strnatcasecmp($a['SCHEMA_TABLES'], $b['SCHEMA_TABLES'])
-        $compare = $cfg['NaturalOrder'] ? strnatcasecmp(
-            $a[$sortBy],
-            $b[$sortBy]
-        ) : strcasecmp(
-            $a[$sortBy],
-            $b[$sortBy]
-        );
+        $compare = $cfg['NaturalOrder']
+            ? strnatcasecmp($a[$sortBy], $b[$sortBy])
+            : strcasecmp($a[$sortBy], $b[$sortBy]);
 
         return ($sortOrder === 'ASC' ? 1 : -1) * $compare;
     }

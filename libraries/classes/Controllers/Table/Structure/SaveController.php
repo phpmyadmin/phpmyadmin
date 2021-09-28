@@ -215,8 +215,7 @@ final class SaveController extends AbstractController
                 if ($changed_privileges) {
                     $message = Message::success(
                         __(
-                            'Table %1$s has been altered successfully. Privileges ' .
-                            'have been adjusted.'
+                            'Table %1$s has been altered successfully. Privileges have been adjusted.'
                         )
                     );
                 } else {

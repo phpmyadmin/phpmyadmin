@@ -176,8 +176,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
         $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
 
-        $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
-            . 'WHERE `username` = \'user\'';
+        $query1 = 'SELECT `username` FROM `pmadb`.`testconf` WHERE `username` = \'user\'';
 
         $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode([1]) . '\' WHERE `username` = \'user\'';
@@ -208,8 +207,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         // case 3
 
-        $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
-            . 'WHERE `username` = \'user\'';
+        $query1 = 'SELECT `username` FROM `pmadb`.`testconf` WHERE `username` = \'user\'';
 
         $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\'user\', NOW(), \'' . json_encode([1]) . '\')';

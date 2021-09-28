@@ -653,13 +653,7 @@ class Util
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . number_format(
-                1 / 10 ** $digitsRight,
-                $digitsRight,
-                $decimalSep,
-                $thousandsSep
-            )
-            . ' ' . $unit;
+            return ' <' . number_format(1 / 10 ** $digitsRight, $digitsRight, $decimalSep, $thousandsSep) . ' ' . $unit;
         }
 
         return $sign . $formattedValue . ' ' . $unit;

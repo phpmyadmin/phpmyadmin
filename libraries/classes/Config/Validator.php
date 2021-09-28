@@ -290,16 +290,14 @@ class Validator
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonSession'])) {
             $result['Servers/1/SignonSession'] = __(
-                'Empty signon session name '
-                . 'while using [kbd]signon[/kbd] authentication method!'
+                'Empty signon session name while using [kbd]signon[/kbd] authentication method!'
             );
             $error = true;
         }
 
         if ($values['Servers/1/auth_type'] === 'signon' && empty($values['Servers/1/SignonURL'])) {
             $result['Servers/1/SignonURL'] = __(
-                'Empty signon URL while using [kbd]signon[/kbd] authentication '
-                . 'method!'
+                'Empty signon URL while using [kbd]signon[/kbd] authentication method!'
             );
             $error = true;
         }
@@ -353,16 +351,14 @@ class Validator
         $result = [];
         if (empty($values['Servers/1/controluser'])) {
             $result['Servers/1/controluser'] = __(
-                'Empty phpMyAdmin control user while using phpMyAdmin configuration '
-                . 'storage!'
+                'Empty phpMyAdmin control user while using phpMyAdmin configuration storage!'
             );
             $error = true;
         }
 
         if (empty($values['Servers/1/controlpass'])) {
             $result['Servers/1/controlpass'] = __(
-                'Empty phpMyAdmin control user password while using phpMyAdmin '
-                . 'configuration storage!'
+                'Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!'
             );
             $error = true;
         }

@@ -136,8 +136,7 @@ class IndexesControllerTest extends AbstractTestCase
         $doc_html = Generator::showHint(
             Message::notice(
                 __(
-                    '"PRIMARY" <b>must</b> be the name of'
-                    . ' and <b>only of</b> a primary key!'
+                    '"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'
                 )
             )->getMessage()
         );

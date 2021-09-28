@@ -59,8 +59,7 @@ class InnodbTest extends AbstractTestCase
                 'innodb_autoextend_increment' => [
                     'title' => __('Autoextend increment'),
                     'desc' => __(
-                        'The increment size for extending the size of an'
-                        . ' autoextending tablespace when it becomes full.'
+                        'The increment size for extending the size of an autoextending tablespace when it becomes full.'
                     ),
                     'type' => 2,
                 ],

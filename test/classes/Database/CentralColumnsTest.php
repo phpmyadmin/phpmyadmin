@@ -206,8 +206,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                'SELECT count(db_name) FROM `pma_central_columns` '
-                . "WHERE db_name = 'phpmyadmin';",
+                'SELECT count(db_name) FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL
@@ -457,8 +456,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                'SELECT * FROM `pma_central_columns` '
-                . "WHERE db_name = 'phpmyadmin';",
+                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\';',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL
@@ -510,8 +508,7 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
             ->with(
-                "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"
-                . " AND col_name IN ('col1');",
+                'SELECT * FROM `pma_central_columns` WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');',
                 null,
                 null,
                 DatabaseInterface::CONNECT_CONTROL

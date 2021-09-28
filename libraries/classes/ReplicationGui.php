@@ -532,8 +532,7 @@ class ReplicationGui
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info'] = __(
-                    'Unable to read master log position. '
-                        . 'Possible privilege problem on master.'
+                    'Unable to read master log position. Possible privilege problem on master.'
                 );
             } else {
                 $_SESSION['replication']['m_correct'] = true;

@@ -105,10 +105,7 @@ class Linter
         if (mb_strlen($query) > 10000) {
             return [
                 [
-                    'message' => __(
-                        'Linting is disabled for this query because it exceeds the '
-                        . 'maximum length.'
-                    ),
+                    'message' => __('Linting is disabled for this query because it exceeds the maximum length.'),
                     'fromLine' => 0,
                     'fromColumn' => 0,
                     'toLine' => 0,

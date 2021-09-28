@@ -212,8 +212,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" name="pma_servername" id="serverNameInput" ' .
-            'value="localhost"',
+            '<input type="text" name="pma_servername" id="serverNameInput" value="localhost"',
             $result
         );
 
@@ -305,8 +304,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
 
         $this->assertStringContainsString(
-            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
-            . ' async defer></script>',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result
         );
 
@@ -382,8 +380,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->assertStringContainsString('<input type="hidden" name="server" value="0">', $result);
 
         $this->assertStringContainsString(
-            '<script src="https://www.google.com/recaptcha/api.js?hl=en"'
-            . ' async defer></script>',
+            '<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>',
             $result
         );
 
@@ -741,8 +738,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
-            'Login without a password is forbidden by configuration'
-            . ' (see AllowNoPassword)'
+            'Login without a password is forbidden by configuration (see AllowNoPassword)'
         );
     }
 

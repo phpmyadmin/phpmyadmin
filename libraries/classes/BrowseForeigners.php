@@ -262,8 +262,7 @@ class BrowseForeigners
             $output .= $html;
         }
 
-        $output .= '</tbody>'
-            . '</table>';
+        $output .= '</tbody></table>';
 
         return $output;
     }

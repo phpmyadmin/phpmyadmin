@@ -231,10 +231,7 @@ class Relation
             );
             if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
                 $retval .= '<tr><td colspan=2 class="text-start error">';
-                $retval .= __(
-                    'Please see the documentation on how to'
-                    . ' update your column_info table.'
-                );
+                $retval .= __('Please see the documentation on how to update your column_info table.');
                 $retval .= MySQLDocumentation::showDocumentation('config', 'cfg_Servers_column_info');
                 $retval .= '</td></tr>';
             }
@@ -2122,16 +2119,14 @@ class Relation
                 $params['create_pmadb'] = 1;
                 $message = Message::notice(
                     __(
-                        '%sCreate%s a database named \'%s\' and setup '
-                        . 'the phpMyAdmin configuration storage there.'
+                        '%sCreate%s a database named \'%s\' and setup the phpMyAdmin configuration storage there.'
                     )
                 );
             } else {
                 $params['fixall_pmadb'] = 1;
                 $message = Message::notice(
                     __(
-                        '%sCreate%s the phpMyAdmin configuration storage in the '
-                        . 'current database.'
+                        '%sCreate%s the phpMyAdmin configuration storage in the current database.'
                     )
                 );
             }

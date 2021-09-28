@@ -204,21 +204,14 @@ class Types
         $type = mb_strtoupper($type);
         switch ($type) {
             case 'TINYINT':
-                return __(
-                    'A 1-byte integer, signed range is -128 to 127, unsigned range is ' .
-                    '0 to 255'
-                );
+                return __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255');
 
             case 'SMALLINT':
-                return __(
-                    'A 2-byte integer, signed range is -32,768 to 32,767, unsigned ' .
-                    'range is 0 to 65,535'
-                );
+                return __('A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to 65,535');
 
             case 'MEDIUMINT':
                 return __(
-                    'A 3-byte integer, signed range is -8,388,608 to 8,388,607, ' .
-                    'unsigned range is 0 to 16,777,215'
+                    'A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is 0 to 16,777,215'
                 );
 
             case 'INT':
@@ -257,21 +250,14 @@ class Types
                 );
 
             case 'REAL':
-                return __(
-                    'Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is ' .
-                    'a synonym for FLOAT)'
-                );
+                return __('Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for FLOAT)');
 
             case 'BIT':
-                return __(
-                    'A bit-field type (M), storing M of bits per value (default is 1, ' .
-                    'maximum is 64)'
-                );
+                return __('A bit-field type (M), storing M of bits per value (default is 1, maximum is 64)');
 
             case 'BOOLEAN':
                 return __(
-                    'A synonym for TINYINT(1), a value of zero is considered false, ' .
-                    'nonzero values are considered true'
+                    'A synonym for TINYINT(1), a value of zero is considered false, nonzero values are considered true'
                 );
 
             case 'SERIAL':
@@ -321,8 +307,7 @@ class Types
             case 'VARCHAR':
                 return sprintf(
                     __(
-                        'A variable-length (%s) string, the effective maximum length ' .
-                        'is subject to the maximum row size'
+                        'A variable-length (%s) string, the effective maximum length is subject to the maximum row size'
                     ),
                     '0-65,535'
                 );
@@ -357,8 +342,7 @@ class Types
 
             case 'BINARY':
                 return __(
-                    'Similar to the CHAR type, but stores binary byte strings rather ' .
-                    'than non-binary character strings'
+                    'Similar to the CHAR type, but stores binary byte strings rather than non-binary character strings'
                 );
 
             case 'VARBINARY':
@@ -395,8 +379,7 @@ class Types
 
             case 'ENUM':
                 return __(
-                    'An enumeration, chosen from the list of up to 65,535 values or ' .
-                    "the special '' error value"
+                    'An enumeration, chosen from the list of up to 65,535 values or the special \'\' error value'
                 );
 
             case 'SET':
@@ -427,10 +410,7 @@ class Types
                 return __('A collection of geometry objects of any type');
 
             case 'JSON':
-                return __(
-                    'Stores and enables efficient access to data in JSON'
-                    . ' (JavaScript Object Notation) documents'
-                );
+                return __('Stores and enables efficient access to data in JSON (JavaScript Object Notation) documents');
 
             case 'INET6':
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '

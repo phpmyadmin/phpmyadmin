@@ -2045,9 +2045,7 @@ class InsertEdit
      */
     public function getHtmlForGisEditor()
     {
-        return '<div id="gis_editor"></div>'
-            . '<div id="popup_background"></div>'
-            . '<br>';
+        return '<div id="gis_editor"></div><div id="popup_background"></div><br>';
     }
 
     /**

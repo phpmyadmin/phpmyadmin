@@ -649,20 +649,17 @@ class ExportOdtTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table:table table:name="_structure"><table:table-column ' .
-            'table:number-columns-repeated="6"/>',
+            '<table:table table:name="_structure"><table:table-column table:number-columns-repeated="6"/>',
             $GLOBALS['odt_buffer']
         );
 
         $this->assertStringContainsString(
-            '<table:table-cell office:value-type="string"><text:p>Comments' .
-            '</text:p></table:table-cell>',
+            '<table:table-cell office:value-type="string"><text:p>Comments</text:p></table:table-cell>',
             $GLOBALS['odt_buffer']
         );
 
         $this->assertStringContainsString(
-            '<table:table-cell office:value-type="string"><text:p>Media type' .
-            '</text:p></table:table-cell>',
+            '<table:table-cell office:value-type="string"><text:p>Media type</text:p></table:table-cell>',
             $GLOBALS['odt_buffer']
         );
 

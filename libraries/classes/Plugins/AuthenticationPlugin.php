@@ -175,10 +175,7 @@ abstract class AuthenticationPlugin
         global $dbi;
 
         if ($failure === 'empty-denied') {
-            return __(
-                'Login without a password is forbidden by configuration'
-                . ' (see AllowNoPassword)'
-            );
+            return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
         }
 
         if ($failure === 'root-denied' || $failure === 'allow-denied') {

@@ -957,8 +957,7 @@ class Results
 
         // prepare some options for the End button
         if ($isInnodb && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount']) {
-            $inputForRealEnd = '<input id="real_end_input" type="hidden" '
-                . 'name="find_real_end" value="1">';
+            $inputForRealEnd = '<input id="real_end_input" type="hidden" name="find_real_end" value="1">';
             // no backquote around this message
             $onclick = '';
         } else {
@@ -1284,8 +1283,7 @@ class Results
             $unsortedSqlQuerySecondPart = '';
             if (
                 preg_match(
-                    '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
-                    . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
+                    '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is',
                     $unsortedSqlQuery,
                     $myReg
                 )
@@ -1630,8 +1628,7 @@ class Results
 
         if (
             preg_match(
-                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
-                . 'LOCK IN SHARE MODE))@is',
+                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|LOCK IN SHARE MODE))@is',
                 $unsortedSqlQuery,
                 $regs3
             )
@@ -4179,8 +4176,7 @@ class Results
         if ($table->isView() && ($total == $GLOBALS['cfg']['MaxExactCountViews'])) {
             $message = Message::notice(
                 __(
-                    'This view has at least this number of rows. '
-                    . 'Please refer to %sdocumentation%s.'
+                    'This view has at least this number of rows. Please refer to %sdocumentation%s.'
                 )
             );
 

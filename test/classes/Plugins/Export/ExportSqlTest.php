@@ -217,8 +217,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertInstanceOf(BoolPropertyItem::class, $leaf);
 
         $this->assertEquals(
-            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION' .
-            ' / EVENT</code><code> / TRIGGER</code> statement',
+            'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
 
@@ -475,8 +474,7 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertStringContainsString("DROP DATABASE IF EXISTS `db`;\n", $result);
 
         $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER ' .
-            'SET utf8 COLLATE utf8_general_ci;',
+            'CREATE DATABASE IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
             $result
         );
 
@@ -562,10 +560,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchResult')
-            ->with(
-                'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-                . ' EVENT_SCHEMA= \'db\';'
-            )
+            ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\';')
             ->will($this->returnValue(['f1', 'f2']));
 
         $dbi->expects($this->exactly(2))

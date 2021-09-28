@@ -105,9 +105,7 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetColumnMinMax(): void
     {
-        $expected = 'SELECT MIN(`column`) AS `min`, '
-            . 'MAX(`column`) AS `max` '
-            . 'FROM `PMA`.`PMA_BookMark`';
+        $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchSingleRow')

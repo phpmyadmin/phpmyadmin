@@ -72,8 +72,7 @@ class StatusControllerTest extends AbstractTestCase
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';
         $this->assertStringContainsString($trafficHtml, $html);
         //updatetime
-        $upTimeHtml = 'This MySQL server has been running for '
-            . '0 days, 10 hours, 0 minutes and 0 seconds';
+        $upTimeHtml = 'This MySQL server has been running for 0 days, 10 hours, 0 minutes and 0 seconds';
         $this->assertStringContainsString($upTimeHtml, $html);
         //master state
         $masterHtml = 'This MySQL server works as <b>master</b>';

@@ -164,8 +164,7 @@ class ImportLdiTest extends AbstractTestCase
 
         //asset that all sql are executed
         $this->assertStringContainsString(
-            "LOAD DATA INFILE 'test/test_data/db_test_ldi.csv' INTO TABLE "
-            . '`phpmyadmintest`',
+            'LOAD DATA INFILE \'test/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
             $sql_query
         );
 
@@ -234,8 +233,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         //replace
         $this->assertStringContainsString(
-            "LOAD DATA LOCAL INFILE 'test/test_data/db_test_ldi.csv' REPLACE INTO "
-            . 'TABLE `phpmyadmintest`',
+            'LOAD DATA LOCAL INFILE \'test/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
             $sql_query
         );
 

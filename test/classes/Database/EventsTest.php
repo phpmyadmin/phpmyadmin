@@ -408,8 +408,7 @@ class EventsTest extends AbstractTestCase
                     'item_execute_at' => '', // no execution time
                     'item_definition' => 'SET @A=0;',
                 ],
-                'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT ' .
-                'PRESERVE DO SET @A=0;',
+                'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT PRESERVE DO SET @A=0;',
                 2,
             ],
             [
@@ -421,8 +420,7 @@ class EventsTest extends AbstractTestCase
                     'item_status' => 'DISABLED',
                     'item_definition' => 'SET @A=0;',
                 ],
-                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
-                'PRESERVE DISABLE DO SET @A=0;',
+                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
                 1,
             ],
             [
@@ -434,8 +432,7 @@ class EventsTest extends AbstractTestCase
                     'item_status' => 'DISABLED',
                     'item_definition' => 'SET @A=0;',
                 ],
-                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
-                'PRESERVE DISABLE DO SET @A=0;',
+                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
                 1,
             ],
         ];

@@ -67,8 +67,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     {
         return [
             [
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 [
                     'maxX' => 45.0,
                     'minX' => 10.0,
@@ -185,8 +184,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         $image = ImageWrapper::create(120, 150);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
-            'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-            . '(20 30,35 32,30 20,20 30)))',
+            'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
             'image',
             '#B02EE0',
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
@@ -227,8 +225,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     {
         return [
             [
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'pdf',
                 '#B02EE0',
                 [
@@ -286,8 +283,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     {
         return [
             [
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 'svg',
                 '#B02EE0',
                 [
@@ -345,8 +341,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     {
         return [
             [
-                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
+                'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 4326,
                 'Ol',
                 [176, 46, 224],

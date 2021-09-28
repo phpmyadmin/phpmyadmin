@@ -159,9 +159,7 @@ class ExportOdt extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $GLOBALS['odt_buffer'] .= '</office:text>'
-            . '</office:body>'
-            . '</office:document-content>';
+        $GLOBALS['odt_buffer'] .= '</office:text></office:body></office:document-content>';
 
         return $this->export->outputHandler(OpenDocument::create(
             'application/vnd.oasis.opendocument.text',

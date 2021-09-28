@@ -418,8 +418,7 @@ class ExportOdsTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<table:table table:name="table"><table:table-row></table:table-row>' .
-            '</table:table>',
+            '<table:table table:name="table"><table:table-row></table:table-row></table:table>',
             $GLOBALS['ods_buffer']
         );
     }

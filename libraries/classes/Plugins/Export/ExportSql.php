@@ -126,8 +126,7 @@ class ExportSql extends ExportPlugin
         $leaf = new BoolPropertyItem(
             'include_comments',
             __(
-                'Display comments <i>(includes info such as export'
-                . ' timestamp, PHP version, and server version)</i>'
+                'Display comments <i>(includes info such as export timestamp, PHP version, and server version)</i>'
             )
         );
         $subgroup->setSubgroupHeader($leaf);
@@ -140,8 +139,7 @@ class ExportSql extends ExportPlugin
         $leaf = new BoolPropertyItem(
             'dates',
             __(
-                'Include a timestamp of when databases were created, last'
-                . ' updated, and last checked'
+                'Include a timestamp of when databases were created, last updated, and last checked'
             )
         );
         $subgroup->addProperty($leaf);
@@ -216,8 +214,7 @@ class ExportSql extends ExportPlugin
             $leaf = new SelectPropertyItem(
                 'compatibility',
                 __(
-                    'Database system or older MySQL server to maximize output'
-                    . ' compatibility with:'
+                    'Database system or older MySQL server to maximize output compatibility with:'
                 )
             );
             $leaf->setValues($values);
@@ -290,8 +287,7 @@ class ExportSql extends ExportPlugin
                     ? '<code>DROP VIEW</code>'
                     : '<code>DROP TABLE</code>';
             } else {
-                $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE'
-                    . ' / FUNCTION / EVENT</code>';
+                $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code>';
             }
 
             $dropClause .= '<code> / TRIGGER</code>';
@@ -314,8 +310,7 @@ class ExportSql extends ExportPlugin
             $leaf = new BoolPropertyItem(
                 'if_not_exists',
                 '<code>IF NOT EXISTS</code> ' . __(
-                    '(less efficient as indexes will be generated during table '
-                    . 'creation)'
+                    '(less efficient as indexes will be generated during table creation)'
                 )
             );
             $subgroupCreateTable->addProperty($leaf);
@@ -496,8 +491,7 @@ class ExportSql extends ExportPlugin
         $leaf = new BoolPropertyItem(
             'hex_for_binary',
             __(
-                'Dump binary columns in hexadecimal notation'
-                . ' <i>(for example, "abc" becomes 0x616263)</i>'
+                'Dump binary columns in hexadecimal notation <i>(for example, "abc" becomes 0x616263)</i>'
             )
         );
         $dataOptions->addProperty($leaf);
@@ -1218,8 +1212,7 @@ class ExportSql extends ExportPlugin
                     . ' `transformation_options`, `input_transformation`,'
                     . ' `input_transformation_options` FROM';
             } elseif ($type === 'savedsearches') {
-                $sqlQuery = 'SELECT `username`, `db_name`, `search_name`,'
-                    . ' `search_data` FROM';
+                $sqlQuery = 'SELECT `username`, `db_name`, `search_name`, `search_data` FROM';
             } else {
                 $sqlQuery = 'SELECT * FROM ';
             }

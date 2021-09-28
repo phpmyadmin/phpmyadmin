@@ -355,8 +355,7 @@ class CentralColumns
             );
             $message->addMessage(
                 Message::notice(
-                    'Please remove them first '
-                    . 'from central list if you want to update above columns'
+                    'Please remove them first from central list if you want to update above columns'
                 )
             );
         }
@@ -451,8 +450,7 @@ class CentralColumns
             $message = Message::notice(
                 sprintf(
                     __(
-                        'Couldn\'t remove Column(s) %1$s '
-                        . 'as they don\'t exist in central columns list!'
+                        'Couldn\'t remove Column(s) %1$s as they don\'t exist in central columns list!'
                     ),
                     htmlspecialchars($colNotExist)
                 )

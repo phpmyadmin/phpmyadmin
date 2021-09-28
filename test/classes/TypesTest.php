@@ -231,8 +231,7 @@ class TypesTest extends AbstractTestCase
                 'enum',
                 false,
                 '=',
-                '<option value="=" selected="selected">=</option>'
-                . '<option value="!=">!=</option>',
+                '<option value="=" selected="selected">=</option><option value="!=">!=</option>',
             ],
         ];
     }

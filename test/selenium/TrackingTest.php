@@ -168,8 +168,7 @@ class TrackingTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Tracking data deleted successfully.')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Tracking data deleted successfully.\')]'
         );
 
         // Can not use getCellByTableId,
@@ -230,10 +229,7 @@ class TrackingTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement('id', 'queryfieldscontainer');
-        $this->typeInTextArea(
-            ';UPDATE test_table SET val = val + 1; '
-            . 'DELETE FROM test_table WHERE val = 3'
-        );
+        $this->typeInTextArea(';UPDATE test_table SET val = val + 1; DELETE FROM test_table WHERE val = 3');
         $this->scrollToBottom();
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();

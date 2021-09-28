@@ -54,8 +54,7 @@ class StructureTest extends TestBase
         $this->assertNotNull(
             $this->waitForElement(
                 'xpath',
-                "//div[@class='alert alert-success' and contains(., "
-                . "'MySQL returned an empty result')]"
+                '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result\')]'
             )
         );
 

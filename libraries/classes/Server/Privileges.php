@@ -2127,8 +2127,7 @@ class Privileges
         }
 
         $initials = $this->dbi->tryQuery(
-            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
-            . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
+            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );

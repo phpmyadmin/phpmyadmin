@@ -162,8 +162,7 @@ class ImportShpTest extends AbstractTestCase
 
         // asset that all sql are executed
         $this->assertStringContainsString(
-            'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER '
-            . 'SET utf8 COLLATE utf8_general_ci',
+            'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
 

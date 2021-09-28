@@ -1921,8 +1921,7 @@ class DatabaseInterface implements DbalInterface
         if ($mode == self::CONNECT_CONTROL) {
             trigger_error(
                 __(
-                    'Connection for controluser as defined in your '
-                    . 'configuration failed.'
+                    'Connection for controluser as defined in your configuration failed.'
                 ),
                 E_USER_WARNING
             );

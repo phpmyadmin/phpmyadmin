@@ -29,10 +29,7 @@ class Innodb extends StorageEngine
         return [
             'innodb_data_home_dir' => [
                 'title' => __('Data home directory'),
-                'desc' => __(
-                    'The common part of the directory path for all InnoDB data '
-                    . 'files.'
-                ),
+                'desc' => __('The common part of the directory path for all InnoDB data files.'),
             ],
             'innodb_data_file_path' => [
                 'title' => __('Data files'),
@@ -40,17 +37,13 @@ class Innodb extends StorageEngine
             'innodb_autoextend_increment' => [
                 'title' => __('Autoextend increment'),
                 'desc' => __(
-                    'The increment size for extending the size of an autoextending '
-                    . 'tablespace when it becomes full.'
+                    'The increment size for extending the size of an autoextending tablespace when it becomes full.'
                 ),
                 'type' => StorageEngine::DETAILS_TYPE_NUMERIC,
             ],
             'innodb_buffer_pool_size' => [
                 'title' => __('Buffer pool size'),
-                'desc' => __(
-                    'The size of the memory buffer InnoDB uses to cache data and '
-                    . 'indexes of its tables.'
-                ),
+                'desc' => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
                 'type' => StorageEngine::DETAILS_TYPE_SIZE,
             ],
             'innodb_additional_mem_pool_size' => [

@@ -87,8 +87,7 @@ class TrackingController extends AbstractController
             echo Message::success(
                 sprintf(
                     __(
-                        'Version %1$s was created for selected tables,'
-                        . ' tracking is active for them.'
+                        'Version %1$s was created for selected tables, tracking is active for them.'
                     ),
                     htmlspecialchars($_POST['version'])
                 )

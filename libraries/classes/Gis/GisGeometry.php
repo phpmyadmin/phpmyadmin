@@ -206,8 +206,7 @@ abstract class GisGeometry
      */
     public function generateParams($value)
     {
-        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING'
-            . '|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
+        $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
         $srid = 0;
         $wkt = '';
 

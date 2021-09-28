@@ -159,8 +159,7 @@ class ServerConfigChecks
                     'Servers/' . $i . '/ssl',
                     $title,
                     __(
-                        'You should use SSL connections if your database server '
-                        . 'supports it.'
+                        'You should use SSL connections if your database server supports it.'
                     )
                 );
             }
@@ -302,8 +301,7 @@ class ServerConfigChecks
                 Descriptions::get('ZipDump'),
                 Sanitize::sanitizeMessage(sprintf(
                     __(
-                        '%sZip decompression%s requires functions (%s) which are unavailable '
-                        . 'on this system.'
+                        '%sZip decompression%s requires functions (%s) which are unavailable on this system.'
                     ),
                     '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
@@ -324,8 +322,7 @@ class ServerConfigChecks
             Descriptions::get('ZipDump'),
             Sanitize::sanitizeMessage(sprintf(
                 __(
-                    '%sZip compression%s requires functions (%s) which are unavailable on '
-                    . 'this system.'
+                    '%sZip compression%s requires functions (%s) which are unavailable on this system.'
                 ),
                 '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                 '[/a]',
@@ -383,8 +380,7 @@ class ServerConfigChecks
         if (! $hasDigits || ! $hasChars || ! $hasNonword) {
             $blowfishWarnings[] = Sanitize::sanitizeMessage(
                 __(
-                    'Key should contain letters, numbers [em]and[/em] '
-                    . 'special characters.'
+                    'Key should contain letters, numbers [em]and[/em] special characters.'
                 )
             );
         }

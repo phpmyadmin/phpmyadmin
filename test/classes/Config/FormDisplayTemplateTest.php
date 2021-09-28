@@ -60,8 +60,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $this->assertStringContainsString('<a href="https://example.com/" target="documentation"', $result);
 
         $this->assertStringContainsString(
-            '<img src="themes/dot.gif" title="Documentation" ' .
-            'alt="Documentation" class="icon ic_b_help"',
+            '<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"',
             $result
         );
 
@@ -70,8 +69,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $this->assertStringContainsString('<small>', $result);
 
         $this->assertStringContainsString(
-            '<input type="text" name="test/path" id="test/path" value="val"' .
-            ' class="w-75 custom field-error">',
+            '<input type="text" name="test/path" id="test/path" value="val" class="w-75 custom field-error">',
             $result
         );
 
@@ -104,23 +102,17 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString('<tr class="group-field group-field-1">', $result);
 
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="test/path" id="test/path" ' .
-            'checked>',
-            $result
-        );
+        $this->assertStringContainsString('<input type="checkbox" name="test/path" id="test/path" checked>', $result);
 
         $this->assertStringContainsString('<a class="userprefs-comment" title="userprefsComment">', $result);
 
         $this->assertStringContainsString(
-            '<td class="userprefs-allow" title="Allow users to customize ' .
-            'this value">',
+            '<td class="userprefs-allow" title="Allow users to customize this value">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<a class="set-value hide" href="#test/path=setVal" ' .
-            'title="Set value: setVal">',
+            '<a class="set-value hide" href="#test/path=setVal" title="Set value: setVal">',
             $result
         );
 
@@ -139,8 +131,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" size="25" name="test/path" id="test/path" ' .
-            'value="val" class="">',
+            '<input type="text" size="25" name="test/path" id="test/path" value="val" class="">',
             $result
         );
 
@@ -156,8 +147,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="number" name="test/path" ' .
-            'id="test/path" value="val" class="">',
+            '<input type="number" name="test/path" id="test/path" value="val" class="">',
             $result
         );
 

@@ -488,8 +488,7 @@ class ImportCsv extends AbstractImportCsv
                         if ($values[count($values) - 1] !== ';') {
                             $message = Message::error(
                                 __(
-                                    'Invalid column count in CSV input'
-                                    . ' on line %d.'
+                                    'Invalid column count in CSV input on line %d.'
                                 )
                             );
                             $message->addParam($line);

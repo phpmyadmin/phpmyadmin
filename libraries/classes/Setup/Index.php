@@ -127,8 +127,7 @@ class Index
                 $message_id,
                 __('Version check'),
                 __(
-                    'Reading of version failed. '
-                    . 'Maybe you\'re offline or the upgrade server does not respond.'
+                    'Reading of version failed. Maybe you\'re offline or the upgrade server does not respond.'
                 )
             );
 

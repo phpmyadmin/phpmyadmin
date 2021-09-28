@@ -45,8 +45,7 @@ final class KillController extends AbstractController
         } else {
             $message = Message::error(
                 __(
-                    'phpMyAdmin was unable to kill thread %s.'
-                    . ' It probably has already been closed.'
+                    'phpMyAdmin was unable to kill thread %s. It probably has already been closed.'
                 )
             );
             $this->response->setRequestStatus(false);

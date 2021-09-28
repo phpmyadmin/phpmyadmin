@@ -129,8 +129,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $this->assertStringContainsString('<form method="post" action="index.php?route=/server/replication', $html);
         $this->assertStringContainsString('Slave configuration', $html);
         $this->assertStringContainsString('Change or reconfigure master server', $html);
-        $notice = 'Make sure you have a unique server-id '
-            . 'in your configuration file (my.cnf)';
+        $notice = 'Make sure you have a unique server-id in your configuration file (my.cnf)';
         $this->assertStringContainsString($notice, $html);
     }
 }

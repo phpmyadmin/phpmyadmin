@@ -285,8 +285,7 @@ class NodeTest extends AbstractTestCase
             'onlyDbTwo',
         ];
         $this->assertEquals(
-            "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
-            . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' ) ",
+            'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME')
         );
         unset($GLOBALS['cfg']['Server']['only_db']);

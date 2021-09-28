@@ -152,8 +152,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Text_Plain_FileUpload(),
                 'getInfo',
-                'File upload functionality for TEXT columns. '
-                . 'It does not have a textarea for input.',
+                'File upload functionality for TEXT columns. It does not have a textarea for input.',
             ],
             [
                 new Text_Plain_FileUpload(),
@@ -844,8 +843,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345\');" title="12345">'
-                . 'Jan 01, 1970 at 03:25 AM</dfn>',
+                '<dfn onclick="alert(\'12345\');" title="12345">Jan 01, 1970 at 03:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -854,8 +852,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'12345678\');" title="12345678">'
-                . 'May 23, 1970 at 09:21 PM</dfn>',
+                '<dfn onclick="alert(\'12345678\');" title="12345678">May 23, 1970 at 09:21 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -864,8 +861,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'123456789\');" title="123456789">'
-                . 'Nov 29, 1973 at 09:33 PM</dfn>',
+                '<dfn onclick="alert(\'123456789\');" title="123456789">Nov 29, 1973 at 09:33 PM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -874,8 +870,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     [0],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'20100201\');" title="20100201">'
-                . 'Feb 01, 2010 at 12:00 AM</dfn>',
+                '<dfn onclick="alert(\'20100201\');" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -888,8 +883,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -902,8 +896,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . '2021-03-31  01:25:41</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">2021-03-31  01:25:41</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -916,8 +909,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">Mar 31, 2021 at 01:25 AM</dfn>',
             ],
             [
                 new Text_Plain_Dateformat(),
@@ -930,8 +922,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                     new FieldMetadata(-1, 0, (object) []),
                 ],
-                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
-                . '01:25:41 2021-31-03</dfn>',
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">01:25:41 2021-31-03</dfn>',
             ],
             [
                 new Text_Plain_External(),

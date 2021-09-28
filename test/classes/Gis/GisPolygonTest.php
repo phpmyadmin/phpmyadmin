@@ -181,8 +181,7 @@ class GisPolygonTest extends GisGeomTestCase
 
         return [
             [
-                "'POLYGON((35 10,10 20,15 40,45 45,35 10),"
-                    . "(20 30,35 32,30 20,20 30))',124",
+                '\'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))\',124',
                 null,
                 [
                     'srid' => '124',
@@ -414,8 +413,7 @@ class GisPolygonTest extends GisGeomTestCase
                 ],
             ],
             [
-                'POLYGON((35 10,10 20,15 40,45 45,35 10),'
-                    . '(20 30,35 32,30 20,20 30)))',
+                'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
                 [
                     'minX' => 10,
                     'maxX' => 45,

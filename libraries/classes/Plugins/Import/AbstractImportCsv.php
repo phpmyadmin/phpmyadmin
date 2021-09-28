@@ -27,8 +27,7 @@ abstract class AbstractImportCsv extends ImportPlugin
         $leaf = new BoolPropertyItem(
             'replace',
             __(
-                'Update data when duplicate keys found on import (add ON DUPLICATE '
-                . 'KEY UPDATE)'
+                'Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)'
             )
         );
         $generalOptions->addProperty($leaf);

@@ -108,11 +108,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         $this->assertStringContainsString('<select class="pageselector ajax" name="pos"', $result);
 
-        $this->assertStringContainsString(
-            '<option selected="selected" '
-            . 'style="font-weight: bold" value="0">',
-            $result
-        );
+        $this->assertStringContainsString('<option selected="selected" style="font-weight: bold" value="0">', $result);
 
         $this->assertStringContainsString('<option  value="25"', $result);
     }

@@ -1844,8 +1844,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE '
-                . '`f`=1',
+                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             )
@@ -2641,11 +2640,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<span class="column_type" dir="ltr">varchar(20)</span>', $actual);
         $this->assertStringContainsString('<tr class="noclick">', $actual);
         $this->assertStringContainsString('<span class="default_value hide">', $actual);
-        $this->assertStringContainsString(
-            '<img src="" width="150" height="100" '
-            . 'alt="Image preview here">',
-            $actual
-        );
+        $this->assertStringContainsString('<img src="" width="150" height="100" alt="Image preview here">', $actual);
         $this->assertStringContainsString(
             '<input type="file" '
             . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
@@ -2704,9 +2699,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertStringContainsString('<option>UUID</option>', $actual);
         $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
-            '<input type="text" '
-            . 'name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
-            . 'value="12-10-14.000000"',
+            '<input type="text" name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="12-10-14.000000"',
             $actual
         );
 

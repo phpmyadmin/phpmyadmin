@@ -296,8 +296,7 @@ class OperationsController extends AbstractController
         if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
             $message = Message::notice(
                 __(
-                    'The phpMyAdmin configuration storage has been deactivated. ' .
-                    '%sFind out why%s.'
+                    'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
                 )
             );
             $message->addParamHtml(

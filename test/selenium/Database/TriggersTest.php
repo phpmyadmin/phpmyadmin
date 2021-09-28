@@ -96,8 +96,7 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Trigger `test_trigger` has been created')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been created\')]'
         );
 
         $this->assertTrue(
@@ -116,10 +115,7 @@ class TriggersTest extends TestBase
         );
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
@@ -155,15 +151,11 @@ class TriggersTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='alert alert-success' and contains(., "
-            . "'Trigger `test_trigger` has been modified')]"
+            '//div[@class=\'alert alert-success\' and contains(., \'Trigger `test_trigger` has been modified\')]'
         );
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
@@ -195,10 +187,7 @@ class TriggersTest extends TestBase
         $this->waitAjaxMessage();
 
         // test trigger
-        $this->dbQuery(
-            'USE `' . $this->databaseName . '`;'
-            . 'INSERT INTO `test_table` (val) VALUES (1);'
-        );
+        $this->dbQuery('USE `' . $this->databaseName . '`;INSERT INTO `test_table` (val) VALUES (1);');
         $this->dbQuery(
             'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {

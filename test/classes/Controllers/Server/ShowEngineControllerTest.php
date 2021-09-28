@@ -74,8 +74,7 @@ class ShowEngineControllerTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            'There is no detailed status information available for this '
-            . 'storage engine.',
+            'There is no detailed status information available for this storage engine.',
             $actual
         );
     }

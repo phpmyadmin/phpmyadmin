@@ -295,9 +295,7 @@ class Transformations
 
         $com_qry = '';
         if ($fullName) {
-            $com_qry .= 'SELECT CONCAT('
-                . "`db_name`, '.', `table_name`, '.', `column_name`"
-                . ') AS column_name, ';
+            $com_qry .= 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, ';
         } else {
             $com_qry = 'SELECT `column_name`, ';
         }

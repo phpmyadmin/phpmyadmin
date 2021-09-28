@@ -330,8 +330,7 @@ class ResultsTest extends AbstractTestCase
                     'routine_type' => 'PROCEDURE',
                 ],
                 'routine_name',
-                'index.php?route=/database/routines&item_name=area&db=data'
-                . '&item_type=PROCEDURE&server=0&lang=en',
+                'index.php?route=/database/routines&item_name=area&db=data&item_type=PROCEDURE&server=0&lang=en',
             ],
         ];
     }

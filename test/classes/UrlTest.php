@@ -115,8 +115,7 @@ class UrlTest extends AbstractTestCase
             'change_column' => 1,
         ]);
         $this->assertEquals(
-            'index.php?route=/test&db=%253%5C%24s&table=%252%'
-            . '5C%24s&field=%251%5C%24s&change_column=1&lang=en',
+            'index.php?route=/test&db=%253%5C%24s&table=%252%5C%24s&field=%251%5C%24s&change_column=1&lang=en',
             $generatedUrl
         );
     }

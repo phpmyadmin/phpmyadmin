@@ -239,8 +239,7 @@ class ConfigTest extends AbstractTestCase
                 '9.80',
             ],
             [
-                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/'
-                . '528.16 OmniWeb/622.8.0.112941',
+                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
@@ -258,15 +257,13 @@ class ConfigTest extends AbstractTestCase
                 '9.0',
             ],
             [
-                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; '
-                . 'Trident/6.0)',
+                'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)',
                 'Win',
                 'IE',
                 '10.0',
             ],
             [
-                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; '
-                . '.NET4.0C; rv:11.0) like Gecko',
+                'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
@@ -300,8 +297,7 @@ class ConfigTest extends AbstractTestCase
                 '1.9',
             ],
             [
-                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; '
-                . 'amd64; en_US) KHTML/4.5.4 (like Gecko)',
+                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
             ],
@@ -312,8 +308,7 @@ class ConfigTest extends AbstractTestCase
                 '5.0',
             ],
             [
-                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 '
-                . 'Firefox/12.0',
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
                 'Linux',
                 'FIREFOX',
                 '12.0',

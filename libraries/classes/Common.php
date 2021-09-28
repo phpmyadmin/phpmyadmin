@@ -482,8 +482,7 @@ final class Common
         if (isset($_POST['set_session']) && $_POST['set_session'] !== session_id()) {
             trigger_error(
                 __(
-                    'Failed to set session cookie. Maybe you are using '
-                    . 'HTTP instead of HTTPS to access phpMyAdmin.'
+                    'Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to access phpMyAdmin.'
                 ),
                 E_USER_ERROR
             );
@@ -564,8 +563,7 @@ final class Common
 
         Core::fatalError(
             __(
-                'The ini_get and/or ini_set functions are disabled in php.ini. '
-                . 'phpMyAdmin requires these functions!'
+                'The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin requires these functions!'
             )
         );
     }

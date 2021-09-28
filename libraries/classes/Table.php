@@ -1862,8 +1862,7 @@ class Table implements Stringable
                 $message = Message::error(
                     sprintf(
                         __(
-                            'Failed to cleanup table UI preferences (see ' .
-                            '$cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'
+                            'Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'
                         ),
                         MySQLDocumentation::showDocumentation('config', 'cfg_Servers_MaxTableUiprefs')
                     )
@@ -2486,8 +2485,7 @@ class Table implements Stringable
                     if (substr($tmpErrorCreate, 1, 4) == '1005') {
                         $message = Message::error(
                             __(
-                                'Error creating foreign key on %1$s (check data ' .
-                                'types)'
+                                'Error creating foreign key on %1$s (check data types)'
                             )
                         );
                         $message->addParam(implode(', ', $masterField));

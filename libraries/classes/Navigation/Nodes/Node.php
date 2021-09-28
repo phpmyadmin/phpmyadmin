@@ -671,8 +671,7 @@ class Node
         $maxItems = $cfg['FirstLevelNavigationItems'];
         if (! $cfg['NavigationTreeEnableGrouping'] || ! $cfg['ShowDatabasesNavigationAsTree']) {
             $query = sprintf(
-                'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %s'
-                    . 'ORDER BY `SCHEMA_NAME` LIMIT %d, %d',
+                'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %sORDER BY `SCHEMA_NAME` LIMIT %d, %d',
                 $this->getWhereClause('SCHEMA_NAME', $searchClause),
                 $pos,
                 $maxItems

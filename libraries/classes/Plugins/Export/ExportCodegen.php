@@ -321,7 +321,7 @@ class ExportCodegen extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = [];
-        $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
+        $lines[] = '<?xml version="1.0" encoding="utf-8" ?>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . self::cgMakeIdentifier($db_alias) . '" '
             . 'assembly="' . self::cgMakeIdentifier($db_alias) . '">';

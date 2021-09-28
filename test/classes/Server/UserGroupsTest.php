@@ -42,8 +42,7 @@ class UserGroupsTest extends AbstractTestCase
      */
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
-        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
-            . ' ORDER BY `usergroup` ASC';
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -119,8 +118,7 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="text" name="userGroup"', $html);
 
-        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
-            . " WHERE `usergroup`='ug'";
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -152,13 +150,11 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString(
-            '<input type="checkbox" class="checkall" checked="checked"'
-            . ' name="server_sql" value="Y">',
+            '<input type="checkbox" class="checkall" checked="checked" name="server_sql" value="Y">',
             $html
         );
         $this->assertStringContainsString(
-            '<input type="checkbox" class="checkall"'
-            . ' name="server_databases" value="Y">',
+            '<input type="checkbox" class="checkall" name="server_databases" value="Y">',
             $html
         );
     }
