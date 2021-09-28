@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-09-29 09:56+0000\n"
+"Last-Translator: hugyik <seniorhugyik@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hu/>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15409,13 +15409,10 @@ msgstr[0] "%1$s találat ebben: <strong>%2$s</strong>"
 msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Összesen:</b> <i>%s</i> találat"
-msgstr[1] "<b>Összesen:</b> <i>%s</i> találat"
+msgstr[0] "<strong>Összesen:<strong> <em>%</em> egyezés"
+msgstr[1] "<strong>Összesen:<strong> <em>%</em> egyezések"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15826,10 +15823,9 @@ msgid "Output:"
 msgstr "Kimenet:"
 
 #: templates/export.twig:143 templates/export.twig:309
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Mentés a kiszolgáló <b>%s</b> könyvtárába"
+msgstr "Mentés a szerver <strong>%s</strong>könyvtárába"
 
 #: templates/export.twig:157 templates/export.twig:284
 msgid "Rename exported databases/tables/columns"
@@ -16223,16 +16219,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "A fájl lehet tömörített (%s) vagy tömörítetlen."
 
 #: templates/import.twig:47
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"A tömörített fájl nevének <b>.[formátum].[tömörítés]</b> végződésűnek kell "
-"lennie. Például: <b>.sql.zip</b>"
+"A tömörített fájl nevének végződésűnek<strong>.[format].[compression]</"
+"strong> kell lennie. Például: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:57 templates/import.twig:90
 #: templates/preferences/manage/main.twig:22
@@ -16250,10 +16242,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Válasszon a webkiszolgáló feltöltési könyvtárából <b> %s </b>:"
+msgstr "Válassza ki a webszerver feltöltési könyvtárából [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 #, fuzzy
@@ -16282,19 +16273,14 @@ msgstr ""
 "pozíciótól folytatódik."
 
 #: templates/import.twig:165
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Az importálás megszakításának engedélyezése, ha a parancsfájl észleli, hogy "
-"közel van a PHP időkorlát leteltéhez. <i>(Nagy fájlok importálásakor jól "
-"jöhet, azonban meg tudja szakítani a tranzakciót.)</i>"
+"közel van a PHP időkorlát leteltéhez. <em> (Nagy fájlok importálásakor jól "
+"jöhet, azonban meg tudja szakítani a tranzakciót.)</em>"
 
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -17293,18 +17279,14 @@ msgid "Password hashing method"
 msgstr "Jelszó-titkosítási eljárás"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Ez a módszer <i>SSL kapcsolatot</i> vagy <i>RSA-val kódolt jelszót előállító "
-"nem kódolt kapcsolatot</i> igényel a szerverhez kapcsolódás közben."
+"Ehhez a módszerhez '<em>SSL-kapcsolat </em>' vagy olyan '<em>titkosítatlan "
+"kapcsolat használata szükséges, amely a jelszót RSA használatával "
+"titkosítja</em>'; a kiszolgálóhoz való csatlakozás során."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
@@ -17607,11 +17589,6 @@ msgstr ""
 "végére, és utána indítsa újra a MySQL szervert."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -17619,7 +17596,7 @@ msgid ""
 msgstr ""
 "Miután újraindította a MySQL szervert, kérjük, kattintson az Indítás gombra. "
 "Ezt követően egy üzenet fogja tájékoztatni arról, hogy a szerver mesterként "
-"<b>van</b> beállítva."
+"<strong>is</strong> van beállítva."
 
 #: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
@@ -18944,10 +18921,9 @@ msgid "at beginning of table"
 msgstr "a tábla elejénél"
 
 #: templates/table/structure/display_structure.twig:507
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Index készítése a(z) &nbsp;%s&nbsp;oszlopokon"
+msgstr "Index létrehozása %s oszlopokon"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
