@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-09-26 00:10+0000\n"
-"PO-Revision-Date: 2021-08-14 16:53+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2021-09-30 15:36+0000\n"
+"Last-Translator: SC <lalocas@protonmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2921,7 +2921,7 @@ msgstr "Separador que é mostrado quando se entra numa tabela."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Whether the table structure actions should be hidden."
-msgstr "Se as acções da estrutura da tabela devem ser escondidas."
+msgstr "Se as ações da estrutura da tabela devem ser escondidas."
 
 #: libraries/classes/Config/Descriptions.php:578
 msgid "Whether column comments should be shown in table structure view"
@@ -3208,7 +3208,7 @@ msgstr "Mostrar comentários da coluna"
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Hide table structure actions"
-msgstr "Ocultar as acções à estrutura da tabela"
+msgstr "Ocultar as ações à estrutura da tabela"
 
 #: libraries/classes/Config/Descriptions.php:651
 msgid "Default transformations for Hex"
@@ -4012,7 +4012,7 @@ msgstr "Como mostrar os separadores do menu"
 
 #: libraries/classes/Config/Descriptions.php:878
 msgid "How to display various action links"
-msgstr "Como mostrar várias ligações de acções"
+msgstr "Como mostrar várias ligações de ações"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Protect binary columns"
@@ -5823,27 +5823,23 @@ msgstr "Fechar"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Log file count"
 msgid "Lock this account."
-msgstr "Contagem de ficheiros de log"
+msgstr "Bloquear esta conta."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
-msgstr "Conta de utilizador"
+msgstr "Desbloquear esta conta."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:144
 msgid "Template was created."
@@ -7518,19 +7514,15 @@ msgstr "O cliente não suporta chaves de segurança."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Falhou a activação com chave segura (%s)."
+msgstr "Falha na ativação da chave de segurança."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:710
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Tipo de exportação inválido"
+msgstr "Chave de segurança inválida."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:715
 #, php-format
@@ -7637,16 +7629,14 @@ msgstr[0] "A base de dados %1$d foi removida com sucesso."
 msgstr[1] "As bases de dados %1$d foram removidas com sucesso."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "As colunas foram movidas com sucesso."
+msgstr "A conta %s@%s foi bloqueada com sucesso."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "As colunas foram movidas com sucesso."
+msgstr "A conta %s@%s foi desbloqueada com sucesso."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8189,16 +8179,12 @@ msgstr ""
 "A quantidade de linhas esperando a serem escritas na fila de INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:449
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
 "A quantidade de tabelas que foram abertas. Se esta quantidade for grande, o "
-"valor do cache de tabelas provavelmente é muito pequeno."
+"valor table_open_cache (cache de tabelas) provavelmente é muito pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of files that are open."
@@ -8416,10 +8402,8 @@ msgid "Missing parameter:"
 msgstr "Parâmetros em falta:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "O cache de query não está ativado."
+msgstr "A gestão de grupos de utilizadores não está ativada."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:99
 msgid "Setting variable failed"
@@ -8557,13 +8541,11 @@ msgid "No column selected."
 msgstr "Nenhuma coluna seleccionada."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "A base de dados %1$d foi removida com sucesso."
-msgstr[1] "As bases de dados %1$d foram removidas com sucesso."
+msgstr[0] "A coluna %1$d foi removida com sucesso."
+msgstr[1] "As colunas %1$d foram removidas com sucesso."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8931,9 +8913,9 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 "Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor, verifique sua configuração em [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. O phpMyAdmin está atualmente usando o fuso horário "
-"predefinido do servidor de banco de dados."
+"favor, verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está neste "
+"momento a usar o fuso horário predefinido do servidor da base de dados."
 
 #: libraries/classes/DatabaseInterface.php:1136
 msgid "Failed to set configured collation connection!"
@@ -9767,10 +9749,8 @@ msgstr ""
 "suporte não está implementado ou está desativado na sua configuração."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "Extensão SOAP não encontrada"
+msgstr "Sessão não encontrada."
 
 #: libraries/classes/Header.php:354
 msgid "Print view"
@@ -10412,10 +10392,8 @@ msgid "New"
 msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Acionadores"
+msgstr "Acionador"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -12340,6 +12318,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"A cache de encaminhamento não pôde ser escrito, tem de ajustar as permissões "
+"na pasta/ficheiro \"%s\""
 
 #: libraries/classes/Routing.php:158
 #, php-format
@@ -12386,27 +12366,21 @@ msgid "SHA256 password authentication"
 msgstr "Autenticação com palavra-passe SHA256"
 
 #: libraries/classes/Server/Plugins.php:80
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Autenticação por config"
+msgstr "Autenticação de sha2 caching"
 
 #: libraries/classes/Server/Plugins.php:85
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Autenticação por cookie"
+msgstr "Autenticação baseada em Socket Unix"
 
 #: libraries/classes/Server/Plugins.php:90
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Autenticação nativa do MySQL"
+msgstr "Autenticação do antigo MySQL 4.0"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "O bloqueio de conta não é suportado."
 
 #: libraries/classes/Server/Privileges.php:258
 msgid "No privileges."
@@ -12817,7 +12791,7 @@ msgstr "Ordem"
 
 #: libraries/classes/Server/Status/Data.php:160
 msgid "Transaction coordinator"
-msgstr "Coordenador de Transacção"
+msgstr "Coordenador de transações"
 
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
@@ -13943,6 +13917,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"A largura da coluna de tipos inteiros é ignorada na sua versão do MySQL a "
+"não ser que seja definida uma coluna TINYINT(1)"
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1104
@@ -13954,10 +13930,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
-msgstr "Carregando…"
+msgstr "A carregar"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14392,7 +14366,7 @@ msgstr "Clique para ordenar."
 #: templates/table/tracking/main.twig:32
 #: templates/table/tracking/report_table.twig:8
 msgid "Action"
-msgstr "Acções"
+msgstr "Ação"
 
 #: templates/database/create_table.twig:7
 #: templates/database/designer/main.twig:84
@@ -15371,11 +15345,11 @@ msgstr "Última Verificação"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr "Detecção de Alterações está activa."
+msgstr "O rastreamento está ativo."
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr "Detecção de Alterações está desactivada."
+msgstr "O rastreamento não está ativo."
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
@@ -15466,10 +15440,8 @@ msgstr "Ordenar pela chave:"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
-msgstr "Opções de retorno"
+msgstr "Opções extra"
 
 #: templates/display/results/table.twig:141
 msgid "Relational key"
@@ -15983,20 +15955,17 @@ msgid "License"
 msgstr "Licença"
 
 #: templates/home/index.twig:276
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Página inicial do phpMyAdmin"
+msgstr "Temas do phpMyAdmin"
 
 #: templates/home/index.twig:287
 msgid "Get more themes!"
 msgstr "Obter mais temas!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Esquema de banco de dados %s"
+msgstr "Captura de ecrã do tema %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -16346,7 +16315,7 @@ msgstr "Por favor, digite um valor HEX válido"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Esta coluna não pode conter um valor de 32 caracteres"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16354,6 +16323,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Estas funções destinam-se a retornar um resultado binário; para evitar "
+"resultados inconsistentes deve armazená-lo numa coluna BINÁRIA, VARBINÁRIA "
+"ou BLOB."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16459,7 +16431,7 @@ msgstr "Ver:"
 #: templates/modals/preview_sql_confirmation.twig:14
 #: templates/table/structure/display_structure.twig:353
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -16766,11 +16738,9 @@ msgid "Character sets and collations"
 msgstr "Conjuntos de caracteres e collations"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "(predefinido)"
+msgstr "predefinido"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -17299,10 +17269,8 @@ msgstr ""
 "Apagar as Bases de Dados que tenham os mesmos nomes que os utilizadores."
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Guardar página"
+msgstr "Guardar alterações"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -17319,7 +17287,7 @@ msgid ""
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
 "Certifique-se de que tem um ID de servidor único no seu ficheiro de "
-"configuração (my.cnf). Senão, favor adicionar a seguinte linha dentro da "
+"configuração (my.cnf). Senão, favor adicione a seguinte linha dentro da "
 "secção [mysqld]:"
 
 #: templates/server/replication/change_master.twig:26
@@ -18169,10 +18137,8 @@ msgid "Use this value"
 msgstr "Utilizar este valor"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Título do gráfico"
+msgstr "Tipo de gráfico"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -18421,10 +18387,8 @@ msgid "Binary"
 msgstr "Binário"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Valor para a coluna \"%s\""
+msgstr "Usar o valor NULL para esta coluna."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -18503,10 +18467,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Esvaziar a tabela (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "Esvaziar a tabela (TRUNCATE)"
+msgstr "Esvaziar a tabela (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
