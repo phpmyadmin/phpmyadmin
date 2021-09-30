@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Partition;
 
+use InvalidArgumentException;
 use PhpMyAdmin\Controllers\Table\AbstractController;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
-use function strlen;
 
 final class RepairController extends AbstractController
 {
@@ -32,22 +34,26 @@ final class RepairController extends AbstractController
         $this->model = $maintenance;
     }
 
-    public function __invoke(): void
+    public function __invoke(ServerRequest $request): void
     {
-        $partitionName = $_POST['partition_name'] ?? '';
-
-        if (strlen($partitionName) === 0) {
-            return;
-        }
+        $dbParam = $request->getParam('db');
+        $tableParam = $request->getParam('table');
+        $partitionName = $request->getParsedBodyParam('partition_name');
 
         try {
-            [$rows, $query] = $this->model->repair(new DatabaseName($this->db), $this->table, $partitionName);
-        } catch (Throwable $e) {
-            $message = Message::error($e->getMessage());
+            Assert::string($dbParam);
+            Assert::string($tableParam);
+            Assert::stringNotEmpty($partitionName);
+            $database = DatabaseName::create($dbParam);
+            $table = TableName::create($tableParam);
+        } catch (InvalidArgumentException $exception) {
+            $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 
             return;
         }
+
+        [$rows, $query] = $this->model->repair($database, $table, $partitionName);
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),

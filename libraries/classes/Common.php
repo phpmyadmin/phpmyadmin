@@ -507,7 +507,7 @@ final class Common
 
         try {
             Assert::string($databaseFromRequest);
-            $db = (new DatabaseName($databaseFromRequest))->getName();
+            $db = DatabaseName::create($databaseFromRequest)->getName();
         } catch (InvalidArgumentException $exception) {
             $db = '';
         }
@@ -515,7 +515,7 @@ final class Common
         try {
             Assert::stringNotEmpty($db);
             Assert::string($tableFromRequest);
-            $table = (new TableName($tableFromRequest))->getName();
+            $table = TableName::create($tableFromRequest)->getName();
         } catch (InvalidArgumentException $exception) {
             $table = '';
         }

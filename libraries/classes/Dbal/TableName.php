@@ -28,12 +28,20 @@ final class TableName implements Stringable
     /**
      * @throws InvalidArgumentException
      */
-    public function __construct(string $name)
+    private function __construct(string $name)
     {
         Assert::stringNotEmpty($name);
         Assert::maxLength($name, self::MAX_LENGTH);
         Assert::notEndsWith($name, ' ');
         $this->name = $name;
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public static function create(string $name): self
+    {
+        return new self($name);
     }
 
     /**

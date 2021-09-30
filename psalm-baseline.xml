@@ -3591,70 +3591,30 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/AnalyzeController.php">
-    <MixedArgument occurrences="2">
-      <code>$partitionName</code>
+    <MixedArgument occurrences="1">
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/CheckController.php">
-    <MixedArgument occurrences="2">
-      <code>$partitionName</code>
+    <MixedArgument occurrences="1">
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/DropController.php">
-    <MixedArgument occurrences="3">
-      <code>$partitionName</code>
+    <MixedArgument occurrences="2">
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/OptimizeController.php">
-    <MixedArgument occurrences="2">
-      <code>$partitionName</code>
+    <MixedArgument occurrences="1">
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Partition/RebuildController.php">
-    <MixedArgument occurrences="3">
-      <code>$partitionName</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/RepairController.php">
-    <MixedArgument occurrences="2">
-      <code>$partitionName</code>
+    <MixedArgument occurrences="1">
       <code>$query</code>
     </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Partition/TruncateController.php">
-    <MixedArgument occurrences="3">
-      <code>$partitionName</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$partitionName</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/PrivilegesController.php">
     <MixedArgument occurrences="2">
@@ -10357,13 +10317,13 @@
       <code>Util::backquote($partition)</code>
       <code>Util::backquote($partition)</code>
       <code>Util::backquote($partition)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
+      <code>Util::backquote($table-&gt;getName())</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$row['Table']</code>
