@@ -1088,13 +1088,6 @@ var designerConfig = {{ designer_config|raw }};
         <div class="clearfloat"></div>
     </div>
     <a class="trigger" href="#">{% trans 'Active options' %}</a>
-    <div id="box">
-        <form method="post" action="{{ url('/database/qbe') }}" id="vqb_form">
-            <textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea>
-            <input type="hidden" name="submit_sql" value="true">
-            {{ get_hidden_inputs(get_db) }}
-        </form>
-    </div>
 {% endif %}
 <div id="PMA_disable_floating_menubar"></div>
 <div class="modal fade" id="designerGoModal" tabindex="-1" aria-labelledby="designerGoModalLabel" aria-hidden="true">
@@ -1128,3 +1121,6 @@ var designerConfig = {{ designer_config|raw }};
     </div>
   </div>
 </div>
+{% if visual_builder %}
+  {{ include('modals/build_query.twig', {'get_db': get_db}) }}
+{% endif %}
