@@ -33,7 +33,6 @@ class CoreTest extends AbstractNetworkTestCase
         parent::setUp();
         parent::setTheme();
         parent::setLanguage();
-        parent::loadDefaultConfig();
 
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';

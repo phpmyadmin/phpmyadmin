@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\Config\Settings;
+
 if (! defined('ROOT_PATH')) {
     // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -24,14 +26,12 @@ if (! defined('TESTSUITE')) {
 
 // phpcs:enable
 
-$cfg = [];
-
 include_once ROOT_PATH . 'examples/signon-script.php';
-require_once ROOT_PATH . 'libraries/config.default.php';
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
-$GLOBALS['cfg'] = $cfg;
+$settings = new Settings([]);
+$GLOBALS['cfg'] = $settings->toArray();
 $GLOBALS['server'] = 0;
 
 // phpcs:disable PSR1.Files.SideEffects

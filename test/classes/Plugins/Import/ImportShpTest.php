@@ -30,7 +30,6 @@ class ImportShpTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
 
         $GLOBALS['server'] = 0;
         //setting

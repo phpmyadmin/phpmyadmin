@@ -20,7 +20,6 @@ class NavigationControllerTest extends AbstractTestCase
 
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;
@@ -172,7 +171,6 @@ class NavigationControllerTest extends AbstractTestCase
 
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         parent::setLanguage();
 
         $GLOBALS['server'] = 1;

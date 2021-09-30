@@ -11,12 +11,6 @@ use PhpMyAdmin\Plugins;
  */
 class PluginsTest extends AbstractTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        parent::loadDefaultConfig();
-    }
-
     public function testGetExport(): void
     {
         global $plugin_param;

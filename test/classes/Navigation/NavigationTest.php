@@ -27,7 +27,6 @@ class NavigationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

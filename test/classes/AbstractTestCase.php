@@ -92,13 +92,6 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
     }
 
-    protected function loadDefaultConfig(): void
-    {
-        global $cfg;
-
-        require ROOT_PATH . 'libraries/config.default.php';
-    }
-
     protected function assertAllQueriesConsumed(): void
     {
         $unUsedQueries = $this->dummyDbi->getUnUsedQueries();
@@ -210,6 +203,7 @@ abstract class AbstractTestCase extends TestCase
     {
         global $config, $cfg;
         $config = new Config();
+        $config->checkServers();
         $config->set('environment', 'development');
         $cfg = $config->settings;
     }

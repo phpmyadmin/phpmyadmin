@@ -24,7 +24,9 @@ use function preg_replace;
 class ConfigFile
 {
     /**
-     * Stores default PMA config from config.default.php
+     * Stores default phpMyAdmin config
+     *
+     * @see Settings
      *
      * @var array
      */
@@ -96,8 +98,8 @@ class ConfigFile
     public function __construct($baseConfig = null)
     {
         // load default config values
-        $cfg = &$this->defaultCfg;
-        include ROOT_PATH . 'libraries/config.default.php';
+        $settings = new Settings([]);
+        $this->defaultCfg = $settings->toArray();
 
         // load additional config information
         $this->cfgDb = include ROOT_PATH . 'libraries/config.values.php';
@@ -105,7 +107,7 @@ class ConfigFile
         // apply default values overrides
         if (count($this->cfgDb['_overrides'])) {
             foreach ($this->cfgDb['_overrides'] as $path => $value) {
-                Core::arrayWrite($path, $cfg, $value);
+                Core::arrayWrite($path, $this->defaultCfg, $value);
             }
         }
 
@@ -291,7 +293,7 @@ class ConfigFile
 
     /**
      * Updates config with values read from given array
-     * (config will contain differences to defaults from config.defaults.php).
+     * (config will contain differences to defaults from {@see \PhpMyAdmin\Config\Settings}).
      *
      * @param array $cfg Configuration
      */
@@ -336,7 +338,7 @@ class ConfigFile
 
     /**
      * Returns default config value or $default it it's not set ie. it doesn't
-     * exist in config.default.php ($cfg) and config.values.php
+     * exist in {@see \PhpMyAdmin\Config\Settings} ($cfg) and config.values.php
      * ($_cfg_db['_overrides'])
      *
      * @param string $canonicalPath Canonical path

@@ -16,16 +16,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$defaultSourceMtime \\(int\\) does not accept int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$sourceMtime \\(int\\) does not accept int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Empty array passed to foreach\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php

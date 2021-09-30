@@ -38,7 +38,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
         $GLOBALS['output_kanji_conversion'] = false;

@@ -18,7 +18,6 @@ class EnumValuesControllerTest extends AbstractTestCase
         parent::setGlobalDbi();
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';

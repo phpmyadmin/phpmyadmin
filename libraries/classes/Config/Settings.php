@@ -13,8 +13,10 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
 
+use function array_keys;
 use function count;
 use function defined;
+use function get_object_vars;
 use function in_array;
 use function is_array;
 use function is_int;
@@ -138,9 +140,6 @@ final class Settings
      * @psalm-var array<int<1, max>, Server>
      */
     public $Servers;
-
-    /** @var Server */
-    public $Server;
 
     /**
      * Default server (0 = no default server)
@@ -1559,44 +1558,6 @@ final class Settings
      */
     public $FirstDayOfCalendar;
 
-    /** @var bool */
-    public $is_setup;
-
-    /** @var bool */
-    public $PMA_IS_WINDOWS;
-
-    /**
-     * @var int
-     * @psalm-var 0|1
-     */
-    public $PMA_IS_IIS;
-
-    /**
-     * @var int
-     * @psalm-var 0|1
-     */
-    public $PMA_IS_GD2;
-
-    /** @var string */
-    public $PMA_USR_OS;
-
-    /** @var string|int */
-    public $PMA_USR_BROWSER_VER;
-
-    /** @var string */
-    public $PMA_USR_BROWSER_AGENT;
-
-    /** @var bool */
-    public $enable_upload;
-
-    /**
-     * Default: 2M (2 * 1024 * 1024)
-     *
-     * @var int
-     * @psalm-var positive-int
-     */
-    public $max_upload_size;
-
     /**
      * @param array<int|string, mixed> $settings
      */
@@ -1791,16 +1752,27 @@ final class Settings
         $this->Console = $this->setConsole($settings);
         $this->DefaultTransformations = $this->setDefaultTransformations($settings);
         $this->FirstDayOfCalendar = $this->setFirstDayOfCalendar($settings);
-        $this->is_setup = $this->setIsSetup($settings);
-        $this->PMA_IS_WINDOWS = $this->setIsWindows($settings);
-        $this->PMA_IS_IIS = $this->setIsIIS($settings);
-        $this->PMA_IS_GD2 = $this->setIsGD2($settings);
-        $this->PMA_USR_OS = $this->setUserOperatingSystem($settings);
-        $this->PMA_USR_BROWSER_VER = $this->setUserBrowserVersion($settings);
-        $this->PMA_USR_BROWSER_AGENT = $this->setUserBrowserAgent($settings);
-        $this->enable_upload = $this->setEnableUpload($settings);
-        $this->max_upload_size = $this->setMaxUploadSize($settings);
-        $this->Server = $this->setServer($settings);
+    }
+
+    /**
+     * @return array<string, array|bool|int|string|null>
+     */
+    public function toArray(): array
+    {
+        $settings = get_object_vars($this);
+        $settings['Console'] = get_object_vars($this->Console);
+        $settings['DBG'] = get_object_vars($this->DBG);
+        $settings['SQLQuery'] = get_object_vars($this->SQLQuery);
+        $settings['Export'] = get_object_vars($this->Export);
+        $settings['Import'] = get_object_vars($this->Import);
+        $settings['Schema'] = get_object_vars($this->Schema);
+        $settings['DefaultTransformations'] = get_object_vars($this->DefaultTransformations);
+
+        foreach (array_keys($settings['Servers']) as $key) {
+            $settings['Servers'][$key] = get_object_vars($this->Servers[$key]);
+        }
+
+        return $settings;
     }
 
     /**
@@ -4581,144 +4553,5 @@ final class Settings
         $firstDayOfCalendar = (int) $settings['FirstDayOfCalendar'];
 
         return $firstDayOfCalendar >= 1 && $firstDayOfCalendar <= 7 ? $firstDayOfCalendar : 0;
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setIsSetup(array $settings): bool
-    {
-        if (! isset($settings['is_setup'])) {
-            return false;
-        }
-
-        return (bool) $settings['is_setup'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setIsWindows(array $settings): bool
-    {
-        if (! isset($settings['PMA_IS_WINDOWS'])) {
-            return false;
-        }
-
-        return (bool) $settings['PMA_IS_WINDOWS'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     *
-     * @psalm-return 0|1
-     */
-    private function setIsIIS(array $settings): int
-    {
-        if (! isset($settings['PMA_IS_IIS'])) {
-            return 0;
-        }
-
-        return (int) (bool) $settings['PMA_IS_IIS'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     *
-     * @psalm-return 0|1
-     */
-    private function setIsGD2(array $settings): int
-    {
-        if (! isset($settings['PMA_IS_GD2'])) {
-            return 0;
-        }
-
-        return (int) (bool) $settings['PMA_IS_GD2'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setUserOperatingSystem(array $settings): string
-    {
-        if (! isset($settings['PMA_USR_OS'])) {
-            return 'Other';
-        }
-
-        return (string) $settings['PMA_USR_OS'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     *
-     * @return int|string
-     */
-    private function setUserBrowserVersion(array $settings)
-    {
-        if (! isset($settings['PMA_USR_BROWSER_VER'])) {
-            return 0;
-        }
-
-        if (is_int($settings['PMA_USR_BROWSER_VER'])) {
-            return $settings['PMA_USR_BROWSER_VER'];
-        }
-
-        return (string) $settings['PMA_USR_BROWSER_VER'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setUserBrowserAgent(array $settings): string
-    {
-        if (! isset($settings['PMA_USR_BROWSER_AGENT'])) {
-            return 'OTHER';
-        }
-
-        return (string) $settings['PMA_USR_BROWSER_AGENT'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setEnableUpload(array $settings): bool
-    {
-        if (! isset($settings['enable_upload'])) {
-            return false;
-        }
-
-        return (bool) $settings['enable_upload'];
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     *
-     * @psalm-return positive-int
-     */
-    private function setMaxUploadSize(array $settings): int
-    {
-        // Default: 2M (2 * 1024 * 1024)
-        $default = 2097152;
-        if (! isset($settings['max_upload_size'])) {
-            return $default;
-        }
-
-        $maxUploadSize = (int) $settings['max_upload_size'];
-        if ($maxUploadSize >= 1) {
-            return $maxUploadSize;
-        }
-
-        return $default;
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     */
-    private function setServer(array $settings): Server
-    {
-        if (isset($settings['Server']) && is_array($settings['Server'])) {
-            return new Server($settings['Server']);
-        }
-
-        return new Server();
     }
 }

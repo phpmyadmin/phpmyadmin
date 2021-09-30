@@ -470,12 +470,11 @@
       <code>$url</code>
       <code>$url</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="11">
+    <MixedArrayAccess occurrences="10">
       <code>$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
-      <code>$cfg['Servers'][1]</code>
       <code>$config_data['lang']</code>
       <code>$server['host']</code>
       <code>$server['verbose']</code>
@@ -494,7 +493,7 @@
       <code>$this-&gt;settings['Servers'][$server]</code>
       <code>$this-&gt;settings['Servers'][$this-&gt;settings['ServerDefault']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="29">
+    <MixedAssignment occurrences="27">
       <code>$_SESSION['cache'][$cache_key]['userprefs_mtime']</code>
       <code>$_SESSION['cache'][$cache_key]['userprefs_type']</code>
       <code>$cfg['LoginCookieValidity']</code>
@@ -503,7 +502,6 @@
       <code>$default_value</code>
       <code>$default_value</code>
       <code>$each_server</code>
-      <code>$eval_result</code>
       <code>$eval_result</code>
       <code>$i</code>
       <code>$password</code>
@@ -518,7 +516,6 @@
       <code>$server['host']</code>
       <code>$server['port']</code>
       <code>$server[substr($key, 8)]</code>
-      <code>$this-&gt;defaultServer</code>
       <code>$url</code>
       <code>$url</code>
       <code>$user</code>
@@ -537,8 +534,7 @@
       <code>$default_value</code>
       <code>$request</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$oldErrorReporting</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$oldErrorReporting</code>
     </PossiblyNullArgument>
     <RedundantConditionGivenDocblockType occurrences="1">
@@ -640,15 +636,9 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;baseCfg</code>
     </PossiblyNullArgument>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$defaultCfg</code>
-    </PropertyNotSetInConstructor>
     <TypeDoesNotContainType occurrences="1">
       <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
-    <UninitializedProperty occurrences="1">
-      <code>$this-&gt;defaultCfg</code>
-    </UninitializedProperty>
   </file>
   <file src="libraries/classes/Config/Descriptions.php">
     <MixedInferredReturnType occurrences="1">
@@ -17448,29 +17438,16 @@
     </MixedOperand>
   </file>
   <file src="test/classes/Config/DescriptionTest.php">
-    <MixedArgument occurrences="1">
-      <code>$key</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$value[1]</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="8">
-      <code>$item</code>
-      <code>$item</code>
-      <code>$key</code>
+    <MixedAssignment occurrences="4">
       <code>$second</code>
       <code>$val</code>
       <code>$val</code>
       <code>$val2</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="4">
-      <code>$item</code>
-      <code>$item</code>
-      <code>$item</code>
+    <MixedOperand occurrences="1">
       <code>$second</code>
     </MixedOperand>
     <UnusedForeachValue occurrences="1">
@@ -17544,9 +17521,6 @@
     <MixedArgument occurrences="1">
       <code>$gd_nfo['GD Version']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$loadedConf['Servers'][1]</code>
-    </MixedArrayAccess>
     <MixedInferredReturnType occurrences="8">
       <code>array</code>
       <code>array</code>
@@ -17557,9 +17531,6 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <UnresolvableInclude occurrences="1">
-      <code>include $this-&gt;object-&gt;defaultSource</code>
-    </UnresolvableInclude>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
     <MixedArgument occurrences="1">

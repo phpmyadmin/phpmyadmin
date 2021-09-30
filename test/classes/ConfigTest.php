@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\DatabaseInterface;
 
 use function array_merge;
@@ -13,7 +14,6 @@ use function define;
 use function defined;
 use function file_exists;
 use function file_put_contents;
-use function filemtime;
 use function fileperms;
 use function function_exists;
 use function gd_info;
@@ -462,36 +462,23 @@ class ConfigTest extends AbstractTestCase
      */
     public function testLoadDefaults(): void
     {
-        $prevDefaultSource = $this->object->defaultSource;
+        $this->object->defaultServer = [];
+        $this->object->default = [];
+        $this->object->settings = ['is_setup' => false, 'AvailableCharsets' => ['test']];
 
-        $this->object->defaultSource = 'unexisted.file.php';
-        $this->assertFalse($this->object->loadDefaults());
+        $this->object->loadDefaults();
 
-        $this->object->defaultSource = $prevDefaultSource;
+        $settings = new Settings([]);
+        $config = $settings->toArray();
 
-        /** @var array<string,mixed> $cfg */
-        $cfg = [];
-        include $this->object->defaultSource;
-        $loadedConf = $cfg;
-        unset($cfg);
-
-        $this->assertTrue($this->object->loadDefaults());
-
+        $this->assertIsArray($config['Servers']);
+        $this->assertEquals($config['Servers'][1], $this->object->defaultServer);
+        unset($config['Servers']);
+        $this->assertEquals($config, $this->object->default);
         $this->assertEquals(
-            $this->object->defaultSourceMtime,
-            filemtime($prevDefaultSource)
+            array_replace_recursive(['is_setup' => false, 'AvailableCharsets' => ['test']], $config),
+            $this->object->settings
         );
-        $this->assertEquals($loadedConf['Servers'][1], $this->object->defaultServer);
-
-        unset($loadedConf['Servers']);
-
-        $this->assertEquals($loadedConf, $this->object->default);
-
-        $expectedSettings = array_replace_recursive($this->object->settings, $loadedConf);
-
-        $this->assertEquals($expectedSettings, $this->object->settings, 'Settings loaded wrong');
-
-        $this->assertFalse($this->object->errorConfigDefaultFile);
     }
 
     /**
@@ -503,7 +490,7 @@ class ConfigTest extends AbstractTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->sourceMtime);
 
-        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'test/test_data/config.inc.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -942,10 +929,6 @@ class ConfigTest extends AbstractTestCase
             [
                 ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
-            ],
-            [
-                ROOT_PATH . 'libraries/config.default.php',
-                true,
             ],
         ];
     }

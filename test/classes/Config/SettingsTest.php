@@ -49,7 +49,6 @@ class SettingsTest extends TestCase
         'AllowThirdPartyFraming' => false,
         'blowfish_secret' => '',
         'Servers' => [],
-        'Server' => null,
         'ServerDefault' => 1,
         'VersionCheck' => true,
         'ProxyUrl' => '',
@@ -270,16 +269,35 @@ class SettingsTest extends TestCase
         'Console' => null,
         'DefaultTransformations' => null,
         'FirstDayOfCalendar' => 0,
-        'is_setup' => false,
-        'PMA_IS_WINDOWS' => false,
-        'PMA_IS_IIS' => 0,
-        'PMA_IS_GD2' => 0,
-        'PMA_USR_OS' => 'Other',
-        'PMA_USR_BROWSER_VER' => 0,
-        'PMA_USR_BROWSER_AGENT' => 'OTHER',
-        'enable_upload' => false,
-        'max_upload_size' => 2097152,
     ];
+
+    /**
+     * @psalm-suppress UnusedVariable, PossiblyNullArrayAssignment, PossiblyInvalidArrayAssignment
+     */
+    public function testConfigDefaultFile(): void
+    {
+        $cfg = [];
+        include ROOT_PATH . 'libraries/config.default.php';
+        $settings = new Settings($cfg);
+        $config = $settings->toArray();
+        $config['Servers'][1]['SignonCookieParams'] = [];
+        $this->assertEquals($config, $cfg);
+    }
+
+    public function testToArray(): void
+    {
+        $settings = new Settings([]);
+        $config = $settings->toArray();
+        $this->assertIsArray($config['Console']);
+        $this->assertIsArray($config['DBG']);
+        $this->assertIsArray($config['Export']);
+        $this->assertIsArray($config['Import']);
+        $this->assertIsArray($config['Schema']);
+        $this->assertIsArray($config['SQLQuery']);
+        $this->assertIsArray($config['DefaultTransformations']);
+        $this->assertIsArray($config['Servers']);
+        $this->assertIsArray($config['Servers'][1]);
+    }
 
     /**
      * @param mixed[][] $values
@@ -304,11 +322,6 @@ class SettingsTest extends TestCase
                 $this->assertContainsOnlyInstancesOf(Server::class, $settings->Servers);
                 $this->assertIsArray($expected[$key]);
                 $this->assertSame(array_keys($expected[$key]), array_keys($settings->Servers));
-                continue;
-            }
-
-            if ($key === 'Server') {
-                $this->assertInstanceOf(Server::class, $settings->Server);
                 continue;
             }
 
@@ -373,7 +386,6 @@ class SettingsTest extends TestCase
                     ['AllowThirdPartyFraming', null, false],
                     ['blowfish_secret', null, ''],
                     ['Servers', null, [1 => null]],
-                    ['Server', null, null],
                     ['ServerDefault', null, 1],
                     ['VersionCheck', null, true],
                     ['ProxyUrl', null, ''],
@@ -552,15 +564,6 @@ class SettingsTest extends TestCase
                     ['Console', null, null],
                     ['DefaultTransformations', null, null],
                     ['FirstDayOfCalendar', null, 0],
-                    ['is_setup', null, false],
-                    ['PMA_IS_WINDOWS', null, false],
-                    ['PMA_IS_IIS', null, 0],
-                    ['PMA_IS_GD2', null, 0],
-                    ['PMA_USR_OS', null, 'Other'],
-                    ['PMA_USR_BROWSER_VER', null, 0],
-                    ['PMA_USR_BROWSER_AGENT', null, 'OTHER'],
-                    ['enable_upload', null, false],
-                    ['max_upload_size', null, 2097152],
                 ],
             ],
             'valid values' => [
@@ -576,7 +579,6 @@ class SettingsTest extends TestCase
                     ['AllowThirdPartyFraming', 'sameorigin', 'sameorigin'],
                     ['blowfish_secret', 'blowfish_secret', 'blowfish_secret'],
                     ['Servers', [1 => [], 2 => []], [1 => null, 2 => null]],
-                    ['Server', [], null],
                     ['ServerDefault', 0, 0],
                     ['VersionCheck', false, false],
                     ['ProxyUrl', 'test', 'test'],
@@ -755,15 +757,6 @@ class SettingsTest extends TestCase
                     ['Console', [], null],
                     ['DefaultTransformations', [], null],
                     ['FirstDayOfCalendar', 7, 7],
-                    ['is_setup', true, true],
-                    ['PMA_IS_WINDOWS', true, true],
-                    ['PMA_IS_IIS', 1, 1],
-                    ['PMA_IS_GD2', 1, 1],
-                    ['PMA_USR_OS', 'Linux', 'Linux'],
-                    ['PMA_USR_BROWSER_VER', '78.0', '78.0'],
-                    ['PMA_USR_BROWSER_AGENT', 'FIREFOX', 'FIREFOX'],
-                    ['enable_upload', true, true],
-                    ['max_upload_size', 1, 1],
                 ],
             ],
             'valid values 2' => [
@@ -799,7 +792,6 @@ class SettingsTest extends TestCase
                     ['DefaultFunctions', [], []],
                     ['MysqlMinVersion', [], ['internal' => 50500, 'human' => '5.5.0']],
                     ['FirstDayOfCalendar', 0, 0],
-                    ['PMA_USR_BROWSER_VER', 78, 78],
                 ],
             ],
             'valid values 3' => [
@@ -1052,15 +1044,6 @@ class SettingsTest extends TestCase
                     ['MysqlMinVersion', ['internal' => '50500', 'human' => 550], ['internal' => 50500, 'human' => '550']],
                     ['DisableShortcutKeys', 1, true],
                     ['FirstDayOfCalendar', '1', 1],
-                    ['is_setup', 1, true],
-                    ['PMA_IS_WINDOWS', 1, true],
-                    ['PMA_IS_IIS', '2', 1],
-                    ['PMA_IS_GD2', '2', 1],
-                    ['PMA_USR_OS', 1234, '1234'],
-                    ['PMA_USR_BROWSER_VER', true, '1'],
-                    ['PMA_USR_BROWSER_AGENT', 1234, '1234'],
-                    ['enable_upload', 1, true],
-                    ['max_upload_size', '1', 1],
                 ],
             ],
             'invalid values' => [
@@ -1138,7 +1121,6 @@ class SettingsTest extends TestCase
                     ['MysqlMinVersion', 'invalid', ['internal' => 50500, 'human' => '5.5.0']],
                     ['Console', 'invalid', null],
                     ['FirstDayOfCalendar', 8, 0],
-                    ['max_upload_size', 0, 2097152],
                 ],
             ],
             'invalid values 2' => [

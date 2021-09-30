@@ -23,7 +23,6 @@ class TableTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
 
         /**
          * SET these to avoid undefined index error

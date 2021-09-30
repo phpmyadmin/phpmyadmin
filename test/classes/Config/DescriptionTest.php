@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\Descriptions;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function in_array;
@@ -85,12 +86,14 @@ class DescriptionTest extends AbstractTestCase
             'SQLQuery',
         ];
 
-        $cfg = [];
-        include ROOT_PATH . 'libraries/config.default.php';
-        // @phpstan-ignore-next-line
+        $settings = new Settings([]);
+        $cfg = $settings->toArray();
+
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
             if ($key == 'Servers') {
+                $this->assertIsArray($value);
+                $this->assertIsArray($value[1]);
                 foreach ($value[1] as $item => $val) {
                     $this->assertGet($key . '/1/' . $item);
                     if ($item != 'AllowDeny') {
@@ -103,6 +106,7 @@ class DescriptionTest extends AbstractTestCase
                     }
                 }
             } elseif (in_array($key, $nested)) {
+                $this->assertIsArray($value);
                 foreach ($value as $item => $val) {
                     $this->assertGet($key . '/' . $item);
                 }
