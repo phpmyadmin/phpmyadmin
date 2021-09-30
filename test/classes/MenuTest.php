@@ -19,7 +19,6 @@ class MenuTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setTheme();
-        parent::loadDefaultConfig();
 
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;

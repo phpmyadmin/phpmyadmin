@@ -50,7 +50,6 @@ class StructureControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;

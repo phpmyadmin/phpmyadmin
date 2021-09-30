@@ -20,7 +20,6 @@ class FileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['charset_conversion'] = false;
     }
 

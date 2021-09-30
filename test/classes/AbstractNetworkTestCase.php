@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\ResponseRenderer;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -29,9 +30,10 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $cfg = [];
-        require ROOT_PATH . 'libraries/config.default.php';
-        $GLOBALS['cfg'] = $cfg;
+        global $cfg;
+
+        $settings = new Settings([]);
+        $cfg = $settings->toArray();
     }
 
     /**

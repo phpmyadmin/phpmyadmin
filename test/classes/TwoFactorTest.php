@@ -250,7 +250,6 @@ class TwoFactorTest extends AbstractTestCase
     public function testApplication(): void
     {
         parent::setLanguage();
-        parent::loadDefaultConfig();
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         if (! in_array('application', $object->getAvailable())) {
@@ -304,7 +303,6 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testKey(): void
     {
-        parent::loadDefaultConfig();
         parent::setLanguage();
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);

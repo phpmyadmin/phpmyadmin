@@ -31,10 +31,10 @@ class ErrorHandlerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['environment'] = 'production';
         $GLOBALS['cfg']['SendErrorReports'] = 'always';
     }
 

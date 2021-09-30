@@ -17,7 +17,6 @@ class NormalizationControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalDbi();

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
 
@@ -17,7 +18,7 @@ use function count;
 class ConfigFileTest extends AbstractTestCase
 {
     /**
-     * Any valid key that exists in config.default.php and isn't empty
+     * Any valid key that exists in {@see \PhpMyAdmin\Config\Settings} and isn't empty
      */
     public const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
 
@@ -36,7 +37,6 @@ class ConfigFileTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         $GLOBALS['server'] = 1;
         $this->object = new ConfigFile();
     }
@@ -283,8 +283,8 @@ class ConfigFileTest extends AbstractTestCase
         $this->object->set(self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_value);
         $this->assertEmpty($this->object->getConfig());
 
-        // but if config.inc.php differs from config.default.php,
-        // allow to overwrite with value from config.default.php
+        // but if config.inc.php differs from the default values,
+        // allow to overwrite with value from the default values
         $config_inc_php_value = $default_value . 'suffix';
         $this->object = new ConfigFile(
             [self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $config_inc_php_value]
@@ -311,9 +311,9 @@ class ConfigFileTest extends AbstractTestCase
         $localhost_value = $this->object->getDefault('Servers/1/host');
         $this->assertEquals($localhost_value, $flat_default_config['Servers/1/host']);
 
-        $cfg = [];
-        include ROOT_PATH . 'libraries/config.default.php';
-        // verify that $cfg read from config.default.php is valid
+        $settings = new Settings([]);
+        $cfg = $settings->toArray();
+
         $this->assertGreaterThanOrEqual(100, count($cfg));
         $this->assertGreaterThanOrEqual(count($cfg), count($flat_default_config));
     }

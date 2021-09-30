@@ -30,7 +30,6 @@ class RelationControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setTheme();
 
         $GLOBALS['server'] = 0;

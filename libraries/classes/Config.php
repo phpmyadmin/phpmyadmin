@@ -1,11 +1,10 @@
 <?php
-/**
- * Configuration handling.
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
+
+use PhpMyAdmin\Config\Settings;
 
 use function __;
 use function array_filter;
@@ -25,6 +24,7 @@ use function fopen;
 use function fread;
 use function function_exists;
 use function gd_info;
+use function get_object_vars;
 use function implode;
 use function ini_get;
 use function intval;
@@ -34,7 +34,6 @@ use function is_numeric;
 use function is_readable;
 use function is_string;
 use function is_writable;
-use function max;
 use function mb_strstr;
 use function mb_strtolower;
 use function md5;
@@ -69,13 +68,10 @@ use const PHP_URL_SCHEME;
 use const PHP_VERSION_ID;
 
 /**
- * Configuration class
+ * Configuration handling
  */
 class Config
 {
-    /** @var string  default config source */
-    public $defaultSource = ROOT_PATH . 'libraries/config.default.php';
-
     /** @var array   default configuration settings */
     public $default = [];
 
@@ -92,16 +88,10 @@ class Config
     public $sourceMtime = 0;
 
     /** @var int */
-    public $defaultSourceMtime = 0;
-
-    /** @var int */
     public $setMtime = 0;
 
     /** @var bool */
     public $errorConfigFile = false;
-
-    /** @var bool */
-    public $errorConfigDefaultFile = false;
 
     /** @var array */
     public $defaultServer = [];
@@ -333,51 +323,17 @@ class Config
     /**
      * loads default values from default source
      */
-    public function loadDefaults(): bool
+    public function loadDefaults(): void
     {
-        global $isConfigLoading;
+        $settings = new Settings([]);
+        $cfg = $settings->toArray();
 
-        /** @var array<string,mixed> $cfg */
-        $cfg = [];
-        if (! @file_exists($this->defaultSource)) {
-            $this->errorConfigDefaultFile = true;
-
-            return false;
-        }
-
-        $canUseErrorReporting = Util::isErrorReportingAvailable();
-        $oldErrorReporting = null;
-        if ($canUseErrorReporting) {
-            $oldErrorReporting = error_reporting(0);
-        }
-
-        ob_start();
-        $isConfigLoading = true;
-        $eval_result = include $this->defaultSource;
-        $isConfigLoading = false;
-        ob_end_clean();
-
-        if ($canUseErrorReporting) {
-            error_reporting($oldErrorReporting);
-        }
-
-        if ($eval_result === false) {
-            $this->errorConfigDefaultFile = true;
-
-            return false;
-        }
-
-        $this->defaultSourceMtime = filemtime($this->defaultSource);
-
-        $this->defaultServer = $cfg['Servers'][1];
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+        $this->defaultServer = get_object_vars($settings->Servers[1]);
         unset($cfg['Servers']);
 
         $this->default = $cfg;
         $this->settings = array_replace_recursive($this->settings, $cfg);
-
-        $this->errorConfigDefaultFile = false;
-
-        return true;
     }
 
     /**
@@ -427,7 +383,7 @@ class Config
             $this->errorConfigFile = true;
         } else {
             $this->errorConfigFile = false;
-            $this->sourceMtime = filemtime($this->getSource());
+            $this->sourceMtime = (int) filemtime($this->getSource());
         }
 
         /**
@@ -485,17 +441,16 @@ class Config
                 : 0);
         $cache_key = 'server_' . $server;
         if ($server > 0 && ! isset($isMinimumCommon)) {
-            $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
             // cache user preferences, use database only when needed
             if (
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
-                || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
+                || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
-                $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
+                $_SESSION['cache'][$cache_key]['config_mtime'] = $this->sourceMtime;
             }
         } elseif ($server == 0 || ! isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             $this->set('user_preferences', false);
@@ -738,15 +693,6 @@ class Config
      */
     public function checkErrors(): void
     {
-        if ($this->errorConfigDefaultFile) {
-            Core::fatalError(
-                sprintf(
-                    __('Could not load default configuration from: %1$s'),
-                    $this->defaultSource
-                )
-            );
-        }
-
         if (! $this->errorConfigFile) {
             return;
         }

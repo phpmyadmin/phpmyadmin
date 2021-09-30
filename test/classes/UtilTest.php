@@ -53,7 +53,6 @@ class UtilTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setTheme();
-        parent::loadDefaultConfig();
     }
 
     /**

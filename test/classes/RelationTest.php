@@ -282,7 +282,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNothingWorks(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
 
         $this->relation = new Relation($this->dbi);
 
@@ -296,7 +295,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormal(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
 
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
@@ -387,7 +385,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTables(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
 
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
@@ -686,7 +683,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTablesWithCustomOverride(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
 
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
@@ -991,7 +987,6 @@ class RelationTest extends AbstractTestCase
     public function testFixPmaTablesNormalFixTablesFails(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
 
         $GLOBALS['db'] = '';
         $GLOBALS['server'] = 1;
@@ -1065,7 +1060,6 @@ class RelationTest extends AbstractTestCase
     public function testCreatePmaDatabase(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
         $this->relation = new Relation($this->dbi);
 
         $this->dummyDbi->removeDefaultResults();
@@ -1097,7 +1091,6 @@ class RelationTest extends AbstractTestCase
     public function testCreatePmaDatabaseFailsError1044(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
         $this->relation = new Relation($this->dbi);
 
         $this->dummyDbi->removeDefaultResults();
@@ -1125,7 +1118,6 @@ class RelationTest extends AbstractTestCase
     public function testCreatePmaDatabaseFailsError1040(): void
     {
         parent::setGlobalDbi();
-        parent::loadDefaultConfig();
         $this->relation = new Relation($this->dbi);
 
         $this->dummyDbi->removeDefaultResults();

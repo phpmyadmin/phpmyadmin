@@ -519,7 +519,7 @@ To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
 a minimal configuration file) in the main (top-level) phpMyAdmin
 directory (the one that contains :file:`index.php`). phpMyAdmin first
-loads :file:`libraries/config.default.php` and then overrides those values
+loads the default configuration values and then overrides those values
 with anything found in :file:`config.inc.php`. If the default value is
 okay for a particular setting, there is no need to include it in
 :file:`config.inc.php`. You'll probably need only a few directives to get going; a
@@ -851,10 +851,6 @@ require some tweaking as some options have been changed or removed.
 For compatibility with PHP 5.3 and later, remove a
 ``set_magic_quotes_runtime(0);`` statement that you might find near
 the end of your configuration file.
-
-You should **not** copy :file:`libraries/config.default.php` over
-:file:`config.inc.php` because the default configuration file is version-
-specific.
 
 The complete upgrade can be performed in a few simple steps:
 

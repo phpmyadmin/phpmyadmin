@@ -21,7 +21,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::loadDefaultConfig();
         parent::setGlobalDbi();
         $GLOBALS['server'] = 0;
     }

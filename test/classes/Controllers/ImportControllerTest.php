@@ -18,7 +18,6 @@ class ImportControllerTest extends AbstractTestCase
 
         parent::loadContainerBuilder();
         parent::loadDbiIntoContainerBuilder();
-        parent::loadDefaultConfig();
         parent::setLanguage();
         parent::setTheme();
 
