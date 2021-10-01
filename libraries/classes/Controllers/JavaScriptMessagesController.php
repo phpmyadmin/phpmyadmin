@@ -374,7 +374,6 @@ final class JavaScriptMessagesController
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
 
             /* For ENUM/SET editor*/
-            'enum_editor' => __('ENUM/SET editor'),
             'enum_columnVals' => __('Values for column %s'),
             'enum_newColumnVals' => __('Values for a new column'),
             'enum_hint' => __('Enter each value in a separate field.'),
