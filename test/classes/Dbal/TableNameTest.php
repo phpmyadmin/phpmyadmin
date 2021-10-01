@@ -19,14 +19,14 @@ class TableNameTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a different value than "".');
-        TableName::create('');
+        TableName::fromString('');
     }
 
     public function testNameWithTrailingWhitespace(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
-        TableName::create('a ');
+        TableName::fromString('a ');
     }
 
     public function testLongName(): void
@@ -36,12 +36,12 @@ class TableNameTest extends TestCase
             'Expected a value to contain at most 64 characters. Got: '
             . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
         );
-        TableName::create(str_repeat('a', 65));
+        TableName::fromString(str_repeat('a', 65));
     }
 
     public function testValidName(): void
     {
-        $name = TableName::create('name');
+        $name = TableName::fromString('name');
         $this->assertEquals('name', $name->getName());
         $this->assertEquals('name', (string) $name);
     }

@@ -19,14 +19,14 @@ class DatabaseNameTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a different value than "".');
-        DatabaseName::create('');
+        DatabaseName::fromString('');
     }
 
     public function testNameWithTrailingWhitespace(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
-        DatabaseName::create('a ');
+        DatabaseName::fromString('a ');
     }
 
     public function testLongName(): void
@@ -36,12 +36,12 @@ class DatabaseNameTest extends TestCase
             'Expected a value to contain at most 64 characters. Got: '
             . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
         );
-        DatabaseName::create(str_repeat('a', 65));
+        DatabaseName::fromString(str_repeat('a', 65));
     }
 
     public function testValidName(): void
     {
-        $name = DatabaseName::create('name');
+        $name = DatabaseName::fromString('name');
         $this->assertEquals('name', $name->getName());
         $this->assertEquals('name', (string) $name);
     }

@@ -39,7 +39,7 @@ final class TableName implements Stringable
     /**
      * @throws InvalidArgumentException
      */
-    public static function create(string $name): self
+    public static function fromString(string $name): self
     {
         return new self($name);
     }

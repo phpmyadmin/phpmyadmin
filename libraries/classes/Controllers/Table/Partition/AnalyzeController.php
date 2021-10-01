@@ -44,8 +44,8 @@ final class AnalyzeController extends AbstractController
             Assert::string($dbParam);
             Assert::string($tableParam);
             Assert::stringNotEmpty($partitionName);
-            $database = DatabaseName::create($dbParam);
-            $table = TableName::create($tableParam);
+            $database = DatabaseName::fromString($dbParam);
+            $table = TableName::fromString($tableParam);
         } catch (InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
