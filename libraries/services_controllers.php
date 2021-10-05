@@ -1259,6 +1259,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$model' => '@table_maintenance',
+                '$config' => '@config',
             ],
         ],
         Table\Maintenance\CheckController::class => [
@@ -1269,6 +1270,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$model' => '@table_maintenance',
+                '$config' => '@config',
             ],
         ],
         Table\Maintenance\ChecksumController::class => [
@@ -1279,6 +1281,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$model' => '@table_maintenance',
+                '$config' => '@config',
             ],
         ],
         Table\Maintenance\OptimizeController::class => [
@@ -1289,6 +1292,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$model' => '@table_maintenance',
+                '$config' => '@config',
             ],
         ],
         Table\Maintenance\RepairController::class => [
@@ -1299,6 +1303,7 @@ return [
                 '$db' => '%db%',
                 '$table' => '%table%',
                 '$model' => '@table_maintenance',
+                '$config' => '@config',
             ],
         ],
         Table\Partition\AnalyzeController::class => [

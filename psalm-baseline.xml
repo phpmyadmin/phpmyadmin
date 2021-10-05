@@ -3498,46 +3498,6 @@
       <code>$_POST['added_fields']</code>
     </MixedOperand>
   </file>
-  <file src="libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! is_array($selected)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Maintenance/CheckController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! is_array($selected)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Maintenance/ChecksumController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! is_array($selected)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Maintenance/OptimizeController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! is_array($selected)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Controllers/Table/Maintenance/RepairController.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! is_array($selected)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$query</code>
-    </MixedArgument>
-  </file>
   <file src="libraries/classes/Controllers/Table/OperationsController.php">
     <MixedArgument occurrences="24">
       <code>$GLOBALS['dblist']-&gt;databases</code>
@@ -16204,42 +16164,6 @@
     <UnusedVariable occurrences="1">
       <code>$sql_query</code>
     </UnusedVariable>
-  </file>
-  <file src="libraries/classes/Table/Maintenance.php">
-    <MixedArgument occurrences="5">
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-      <code>$row['Table']</code>
-    </MixedArrayAccess>
-    <MixedArrayOffset occurrences="4">
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-      <code>$rows[$row['Table']]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="13">
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$backQuotedTables</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$row</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-      <code>$rows[$row['Table']][]</code>
-    </MixedAssignment>
   </file>
   <file src="libraries/classes/Table/Search.php">
     <MixedArgument occurrences="20">
