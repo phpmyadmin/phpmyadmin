@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Table\Maintenance\Message;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -27,8 +28,8 @@ final class Maintenance
     /**
      * @param TableName[] $tables
      *
-     * @return array<int, array<string, array<int, array<string, string>>>|string>
-     * @psalm-return array{array<string, array<int, array<string, string>>>, string}
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
     public function getAnalyzeTableRows(DatabaseName $db, array $tables): array
     {
@@ -45,7 +46,8 @@ final class Maintenance
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
@@ -54,8 +56,8 @@ final class Maintenance
     /**
      * @param TableName[] $tables
      *
-     * @return array<int, array<string, array<int, array<string, string>>>|string>
-     * @psalm-return array{array<string, array<int, array<string, string>>>, string}
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
     public function getCheckTableRows(DatabaseName $db, array $tables): array
     {
@@ -72,7 +74,8 @@ final class Maintenance
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
@@ -126,8 +129,8 @@ final class Maintenance
     /**
      * @param TableName[] $tables
      *
-     * @return array<int, array<string, array<int, array<string, string>>>|string>
-     * @psalm-return array{array<string, array<int, array<string, string>>>, string}
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
     public function getOptimizeTableRows(DatabaseName $db, array $tables): array
     {
@@ -144,7 +147,8 @@ final class Maintenance
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
@@ -153,8 +157,8 @@ final class Maintenance
     /**
      * @param TableName[] $tables
      *
-     * @return array<int, array<string, array<int, array<string, string>>>|string>
-     * @psalm-return array{array<string, array<int, array<string, string>>>, string}
+     * @return array<int, array<string, Message[]>|string>
+     * @psalm-return array{array<string, Message[]>, string}
      */
     public function getRepairTableRows(DatabaseName $db, array $tables): array
     {
@@ -171,7 +175,8 @@ final class Maintenance
 
         $rows = [];
         foreach ($result as $row) {
-            $rows[$row['Table']][] = $row;
+            $message = Message::fromArray($row);
+            $rows[$message->table][] = $message;
         }
 
         return [$rows, $query];
