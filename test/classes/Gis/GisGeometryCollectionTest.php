@@ -9,7 +9,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 
-use function function_exists;
 use function method_exists;
 use function preg_match;
 
@@ -175,12 +174,11 @@ class GisGeometryCollectionTest extends AbstractTestCase
         ];
     }
 
+    /**
+     * @requires extension gd
+     */
     public function testPrepareRowAsPng(): void
     {
-        if (! function_exists('imagecreatetruecolor')) {
-            $this->markTestSkipped('GD extension missing!');
-        }
-
         $image = ImageWrapper::create(120, 150);
         $this->assertNotNull($image);
         $return = $this->object->prepareRowAsPng(

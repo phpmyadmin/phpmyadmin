@@ -145,6 +145,7 @@ class ImportOdsTest extends AbstractTestCase
      *
      * @group medium
      * @dataProvider dataProviderOdsEmptyRows
+     * @requires extension simplexml
      */
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {

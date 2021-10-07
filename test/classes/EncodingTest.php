@@ -58,12 +58,11 @@ class EncodingTest extends AbstractTestCase
         );
     }
 
+    /**
+     * @requires extension recode
+     */
     public function testRecode(): void
     {
-        if (! function_exists('recode_string')) {
-            $this->markTestSkipped('recode extension missing');
-        }
-
         Encoding::setEngine(Encoding::ENGINE_RECODE);
         $this->assertEquals(
             'Only That ecole & Can Be My Blame',
@@ -81,13 +80,10 @@ class EncodingTest extends AbstractTestCase
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
      *
      * @group extension-iconv
+     * @requires extension iconv
      */
     public function testIconv(): void
     {
-        if (! function_exists('iconv')) {
-            $this->markTestSkipped('iconv extension missing');
-        }
-
         // Set PHP native locale
         if (function_exists('setlocale')) {
             if (setlocale(0, 'POSIX') === false) {

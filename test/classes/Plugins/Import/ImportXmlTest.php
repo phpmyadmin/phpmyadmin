@@ -90,6 +90,7 @@ class ImportXmlTest extends AbstractTestCase
      * Test for doImport
      *
      * @group medium
+     * @requires extension simplexml
      */
     public function testDoImport(): void
     {

@@ -15,7 +15,6 @@ use ReflectionException;
 use ReflectionMethod;
 
 use function base64_encode;
-use function function_exists;
 use function is_readable;
 use function json_encode;
 use function ob_get_clean;
@@ -949,12 +948,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->testCookieEncrypt();
     }
 
+    /**
+     * @requires extension openssl
+     */
     public function testCookieEncryptOpenSSL(): void
     {
-        if (! function_exists('openssl_encrypt')) {
-            $this->markTestSkipped('openssl not available');
-        }
-
         $this->object->setUseOpenSSL(true);
         $this->testCookieEncrypt();
     }
@@ -993,12 +991,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->testCookieDecrypt();
     }
 
+    /**
+     * @requires extension openssl
+     */
     public function testCookieDecryptOpenSSL(): void
     {
-        if (! function_exists('openssl_encrypt')) {
-            $this->markTestSkipped('openssl not available');
-        }
-
         $this->object->setUseOpenSSL(true);
         $this->testCookieDecrypt();
     }

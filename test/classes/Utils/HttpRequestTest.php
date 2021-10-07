@@ -8,7 +8,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
 
 use function curl_version;
-use function function_exists;
 use function ini_get;
 use function stripos;
 
@@ -31,20 +30,10 @@ class HttpRequestTest extends AbstractTestCase
     }
 
     /**
-     * Skip test if CURL extension is not installed
-     *
-     * @param bool $ssl_flags Whether to check support for SSL flags
+     * Skip test if CURL extension does not support SSL flags
      */
-    public function checkCurl(bool $ssl_flags = false): void
+    private function checkCurlSslFlagsSupport(): void
     {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('curl not supported');
-        }
-
-        if (! $ssl_flags) {
-            return;
-        }
-
         $curl = curl_version();
         /*
          * Some SSL engines in CURL do not support CURLOPT_CAPATH
@@ -72,10 +61,10 @@ class HttpRequestTest extends AbstractTestCase
      * @group medium
      * @dataProvider httpRequests
      * @group network
+     * @requires extension curl
      */
     public function testCurl(string $url, string $method, bool $return_only_status, $expected): void
     {
-        $this->checkCurl();
         $result = $this->callFunction(
             $this->httpRequest,
             HttpRequest::class,
@@ -96,10 +85,11 @@ class HttpRequestTest extends AbstractTestCase
      * @group medium
      * @dataProvider httpRequests
      * @group network
+     * @requires extension curl
      */
     public function testCurlCAPath(string $url, string $method, bool $return_only_status, $expected): void
     {
-        $this->checkCurl(true);
+        $this->checkCurlSslFlagsSupport();
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
             $url,
             $method,
@@ -122,10 +112,11 @@ class HttpRequestTest extends AbstractTestCase
      * @group medium
      * @dataProvider httpRequests
      * @group network
+     * @requires extension curl
      */
     public function testCurlCAInfo(string $url, string $method, bool $return_only_status, $expected): void
     {
-        $this->checkCurl(true);
+        $this->checkCurlSslFlagsSupport();
         $result = $this->callFunction($this->httpRequest, HttpRequest::class, 'curl', [
             $url,
             $method,
@@ -152,7 +143,7 @@ class HttpRequestTest extends AbstractTestCase
     public function testFopen(string $url, string $method, bool $return_only_status, $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
-            $this->markTestSkipped('allow_url_fopen not supported');
+            $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
 
         $result = $this->callFunction(
@@ -175,11 +166,12 @@ class HttpRequestTest extends AbstractTestCase
      * @group medium
      * @dataProvider httpRequests
      * @group network
+     * @requires extension curl
      */
     public function testCreate(string $url, string $method, bool $return_only_status, $expected): void
     {
-        if (! function_exists('curl_init') && ! ini_get('allow_url_fopen')) {
-            $this->markTestSkipped('neither curl nor allow_url_fopen are supported');
+        if (! ini_get('allow_url_fopen')) {
+            $this->markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
 
         $result = $this->httpRequest->create($url, $method, $return_only_status);

@@ -245,7 +245,9 @@ class TwoFactorTest extends AbstractTestCase
     }
 
     /**
+     * @group extension-iconv
      * @requires extension xmlwriter
+     * @requires extension iconv
      */
     public function testApplication(): void
     {
