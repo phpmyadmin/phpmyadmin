@@ -9,192 +9,192 @@ on:
       - QA_**
 
 jobs:
-    multi-arch-tests-php:
-        name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        runs-on: ubuntu-latest
-        continue-on-error: ${{ matrix.experimental }}
-        strategy:
-          fail-fast: false
-          matrix:
-            include:
-              - { php-version: '7', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-              - { php-version: '7', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-              - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-        steps:
-            - uses: actions/checkout@v2
-            - name: Write script
-              # tcpdf allowed memory exhausted needs the memory_limit workaround
-              # musl-locales and musl-locales-lang are needed to run some locale specific tests
-              # gettext is needed to run generate-mo
-              # git is needed to workaround a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
-              run: |
-                  printf "set -exu && \
-                  export V='%s' && \
-                  apk add --update --no-cache \
-                  php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype \
-                  php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
-                  php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
-                  musl-locales musl-locales-lang \
-                  gettext composer git && \
-                  composer update && \
-                  ./scripts/generate-mo && \
-                  php -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
-                  "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
-            - name: Setup multi arch support
-              run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-            - name: Print arch
-              run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
-            - name: Run tests on php ${{ matrix.php-version }}
-              run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
-    test-php:
-        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        runs-on: ${{ matrix.os }}
-        continue-on-error: ${{ matrix.experimental }}
-        strategy:
-            matrix:
-                php-version: ["7.2", "7.3", "7.4", "8.0"]
-                experimental: [false]
-                os: [ubuntu-latest]
-                phpunit-options: ['--testsuite unit']
-                include:
-                  - php-version: '8.1'
-                    experimental: true
-                    os: ubuntu-latest
-                    phpunit-options: '--configuration test/phpunit-php-nightly.xml'
-                    composer-options: '--ignore-platform-req=php'
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Generate mo files
-              run: ./scripts/generate-mo --quiet
-            - name: Use php ${{ matrix.php-version }}
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
-                  coverage: xdebug
+  multi-arch-tests-php:
+    name: Test on php ${{ matrix.php-version }} (${{ matrix.arch }})
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { php-version: '7', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '7', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '7', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '7', experimental: false, arch: 'arm32v6', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '7', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '7', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '7', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+    steps:
+      - uses: actions/checkout@v2
+      - name: Write script
+        # tcpdf allowed memory exhausted needs the memory_limit workaround
+        # musl-locales and musl-locales-lang are needed to run some locale specific tests
+        # gettext is needed to run generate-mo
+        # git is needed to workaround a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
+        run: |
+          printf "set -exu && \
+          export V='%s' && \
+          apk add --update --no-cache \
+          php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype \
+          php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
+          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
+          musl-locales musl-locales-lang \
+          gettext composer git && \
+          composer update && \
+          ./scripts/generate-mo && \
+          php -d memory_limit=512M ./vendor/bin/phpunit --no-coverage --testsuite unit --exclude-group=%s" \
+          "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
+      - name: Setup multi arch support
+        run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+      - name: Print arch
+        run: docker run --rm ${{ matrix.arch }}/alpine:3.14 uname -a
+      - name: Run tests on php ${{ matrix.php-version }}
+        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.14 sh /app/do-tests.sh
+  test-php:
+    name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      matrix:
+        php-version: ["7.2", "7.3", "7.4", "8.0"]
+        experimental: [false]
+        os: [ubuntu-latest]
+        phpunit-options: ['--testsuite unit']
+        include:
+          - php-version: '8.1'
+            experimental: true
+            os: ubuntu-latest
+            phpunit-options: '--configuration test/phpunit-php-nightly.xml'
+            composer-options: '--ignore-platform-req=php'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+      - name: Use php ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: xdebug
 
-            - name: Get Composer cache directory
-              id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-                restore-keys: |
-                  composer-${{ runner.os }}-${{ matrix.php-version }}-
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
+          restore-keys: |
+            composer-${{ runner.os }}-${{ matrix.php-version }}-
 
-            - name: Install dependencies
-              run: composer install --no-interaction ${{ matrix.composer-options }}
-            - name: Run php tests
-              run: composer run phpunit -- ${{ matrix.phpunit-options }}
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
-                name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
-            - name: Send coverage to Scrutinizer
-              uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
-              with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
-            - name: Send coverage to Codacy
-              # Upload can fail on forks or if the secret is missing
-              continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
-              with:
-                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                coverage-reports: build/logs/clover.xml
+      - name: Install dependencies
+        run: composer install --no-interaction ${{ matrix.composer-options }}
+      - name: Run php tests
+        run: composer run phpunit -- ${{ matrix.phpunit-options }}
+      - name: Send coverage
+        uses: codecov/codecov-action@v1
+        with:
+          flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
+          name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+      - name: Send coverage to Scrutinizer
+        uses: sudo-bot/action-scrutinizer@latest
+        # Upload can fail on forks
+        continue-on-error: true
+        with:
+          cli-args: "--format=php-clover build/logs/clover.xml"
+      - name: Send coverage to Codacy
+        # Upload can fail on forks or if the secret is missing
+        continue-on-error: true
+        uses: codacy/codacy-coverage-reporter-action@master
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: build/logs/clover.xml
 
-    test-php-optional-extensions:
-        name: Test on php (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        strategy:
-            matrix:
-                php-version: ["7.2"]
-                os: [ubuntu-latest]
-                extension: ["dbase", "recode"]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Generate mo files
-              run: ./scripts/generate-mo --quiet
-            - name: Use php ${{ matrix.php-version }}
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php-version }}
-                  extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
-                  coverage: xdebug
+  test-php-optional-extensions:
+    name: Test on php (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    strategy:
+      matrix:
+        php-version: ["7.2"]
+        os: [ubuntu-latest]
+        extension: ["dbase", "recode"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install gettext
+        run: sudo apt-get install -y gettext
+      - name: Generate mo files
+        run: ./scripts/generate-mo --quiet
+      - name: Use php ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
+          coverage: xdebug
 
-            - name: Get Composer cache directory
-              id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                path: ${{ steps.composer-cache.outputs.dir }}
-                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-                restore-keys: |
-                  composer-${{ runner.os }}-${{ matrix.php-version }}-
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
+          restore-keys: |
+            composer-${{ runner.os }}-${{ matrix.php-version }}-
 
-            - name: Install dependencies
-              run: composer install
-            - name: Run php tests
-              run: composer run phpunit -- --testsuite unit
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: ${{ matrix.extension }}-extension
-                name: php-7.2-${{ matrix.extension }}-enabled
-            - name: Send coverage to Scrutinizer
-              uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
-              with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
-            - name: Send coverage to Codacy
-              # Upload can fail on forks or if the secret is missing
-              continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
-              with:
-                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                coverage-reports: build/logs/clover.xml
+      - name: Install dependencies
+        run: composer install
+      - name: Run php tests
+        run: composer run phpunit -- --testsuite unit
+      - name: Send coverage
+        uses: codecov/codecov-action@v1
+        with:
+          flags: ${{ matrix.extension }}-extension
+          name: php-7.2-${{ matrix.extension }}-enabled
+      - name: Send coverage to Scrutinizer
+        uses: sudo-bot/action-scrutinizer@latest
+        # Upload can fail on forks
+        continue-on-error: true
+        with:
+          cli-args: "--format=php-clover build/logs/clover.xml"
+      - name: Send coverage to Codacy
+        # Upload can fail on forks or if the secret is missing
+        continue-on-error: true
+        uses: codacy/codacy-coverage-reporter-action@master
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: build/logs/clover.xml
 
-    test-js:
-        name: Test javascript files
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 12
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - name: yarn cache
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
-            - name: Install modules
-              run: yarn install --non-interactive
-            - name: Run tests
-              run: yarn test
+  test-js:
+    name: Test javascript files
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: yarn cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install modules
+        run: yarn install --non-interactive
+      - name: Run tests
+        run: yarn test
