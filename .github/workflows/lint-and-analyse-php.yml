@@ -13,24 +13,32 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Get yarn cache directory path
+
+      - name: Get Yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: yarn cache
+
+      - name: Cache Yarn dependencies
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install modules
         run: yarn install --non-interactive
-      - name: Lint JS files
+
+      - name: Lint JavaScript files
         run: yarn run js-lint --quiet
+
       - name: Lint CSS files
         run: yarn run css-lint
 
@@ -41,40 +49,37 @@ jobs:
       matrix:
         php-version: ["7.2"]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use PHP ${{ matrix.php-version }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+
       - name: Validate composer.json and composer.lock
-        run: composer validate
+        run: composer validate --strict
 
-      - name: Get Composer cache directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-          restore-keys: |
-            composer-${{ runner.os }}-${{ matrix.php-version }}-
+          dependency-versions: highest
+          # Ignore zip for php-webdriver/webdriver
+          composer-options: "--ignore-platform-req=ext-zip"
 
       - name: Cache coding-standard
         uses: actions/cache@v2
         with:
           path: .phpcs-cache
           key: phpcs-cache
-      - name: Install dependencies
-        # Ignore zip for php-webdriver/webdriver
-        run: composer install --ignore-platform-req=ext-zip
+
       - name: Lint PHP files
         run: ./test/ci-phplint
+
       - name: Check coding-standard
         run: composer phpcs
-      - name: Check twig templates
+
+      - name: Check Twig templates
         run: composer run twig-lint
 
   analyse-php:
@@ -84,29 +89,22 @@ jobs:
       matrix:
         php-version: ["7.2"]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use PHP ${{ matrix.php-version }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
-      - name: Get Composer cache directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v1
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-          restore-keys: |
-            composer-${{ runner.os }}-${{ matrix.php-version }}-
+          dependency-versions: highest
 
-      - name: Install dependencies
-        run: composer install
-      - name: Analyse files with phpstan
+      - name: Analyse files with PHPStan
         run: composer phpstan -- --memory-limit 2G
-      - name: Analyse files with psalm
+
+      - name: Analyse files with Psalm
         run: composer psalm -- --shepherd
