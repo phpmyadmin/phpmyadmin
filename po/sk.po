@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2018-08-25 07:42+0000\n"
+"PO-Revision-Date: 2021-10-10 07:05+0000\n"
 "Last-Translator: worm6666 <worm6666@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-8/sk/"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-9/sk/"
 ">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16468,6 +16468,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Môžete zvýšiť {long_query_time} alebo optimalizovať dopyty zahrnuté v logu "
+"pomalých dopytov"
 
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
@@ -16489,6 +16491,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Máš frekvenciu pomalých dopytov %s za hodinu, mal by si ju mať menej ako 1%% "
+"za hodinu."
 
 #: libraries/advisory_rules_generic.txt:77
 msgid "Long query time"
@@ -16499,12 +16503,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} je nastavené na 10 sekúnd alebo viac, takže iba dopyty "
+"trvajúce 10 sekúnd a viac sú zaznamenané."
 
 #: libraries/advisory_rules_generic.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Je doporučené nastaviť {long_query_time} na nižšiu hodnotu podľa Vašeho "
+"prostredia. Obvykle doporučená hodnota je 1-5 sekúnd."
 
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
@@ -16526,6 +16534,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Zapni výpis pomalých dopytov nastavením {log_slow_queries} na 'ON'. Toto "
+"pomôže pri riešení problémov dopytov so zlým výkonom."
 
 #: libraries/advisory_rules_generic.txt:89
 msgid "log_slow_queries is set to 'OFF'"
@@ -16536,6 +16546,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Zapni výpis pomalých dopytov nastavením {slow_query_log} na 'ON'. Toto "
+"pomôže pri riešení problémov dopytov so zlým výkonom."
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
@@ -16543,17 +16555,19 @@ msgstr "slow_query_log je nastavený na 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
-msgstr ""
+msgstr "Uvoľnená verzia."
 
 #: libraries/advisory_rules_generic.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL verzia serveru je nižšia ako 5.1."
 
 #: libraries/advisory_rules_generic.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Mal by si aktualizovať, keďže MySQL 5.1 má vylepšený výkon a MySQL 5.5 "
+"dokonca ešte viac."
 
 #: libraries/advisory_rules_generic.txt:105
 #: libraries/advisory_rules_generic.txt:112
@@ -16569,7 +16583,7 @@ msgstr "Minor verzia"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Verzia je nižšia ako 5.1.30 (prvé GA vydanie verzie 5.1)."
 
 #: libraries/advisory_rules_generic.txt:111
 msgid ""
