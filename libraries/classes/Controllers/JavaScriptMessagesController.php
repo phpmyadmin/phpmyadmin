@@ -706,6 +706,9 @@ final class JavaScriptMessagesController
             'strHide' => __('Hide'),
             'strShow' => __('Show'),
             'strStructure' => __('Structure'),
+
+            // For breadcrumbs.js
+            'strCopiedTableNameToClipboard' => __('Copied table name to clipboard.')
         ];
     }
 }

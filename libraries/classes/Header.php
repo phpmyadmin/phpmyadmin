@@ -173,6 +173,7 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->scripts->addFile('vendor/jquery/jquery.debounce-1.0.6.js');
         $this->scripts->addFile('menu_resizer.js');
+        $this->scripts->addFile('breadcrumbs.js');
 
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {

@@ -31,6 +31,9 @@
             {% endif %}
             {{ table.name }}
           </a>
+
+          <button class="breadcrumb-table-copy-button ic_s_link" data-copy-text="{{ table.name }}">
+          </button>
         </li>
 
         {% if table.comment is not empty %}
