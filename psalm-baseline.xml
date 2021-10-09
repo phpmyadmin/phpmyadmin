@@ -8875,7 +8875,7 @@
       <code>$urlParams</code>
       <code>$valueSets</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="23">
+    <MixedArrayAccess occurrences="20">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['where_clause'][0]</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
@@ -8896,9 +8896,6 @@
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$tableColumn['Extra']</code>
       <code>$tableColumn['Field']</code>
-      <code>$warning['Code']</code>
-      <code>$warning['Level']</code>
-      <code>$warning['Message']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="6">
       <code>$column['Default']</code>
@@ -8943,7 +8940,7 @@
       <code>$repopulate[$column['Field_md5']]</code>
       <code>$repopulate[$column['Field_md5']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="63">
+    <MixedAssignment occurrences="61">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
@@ -8998,8 +8995,6 @@
       <code>$uuid</code>
       <code>$val</code>
       <code>$val</code>
-      <code>$warning</code>
-      <code>$warningMessages[]</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -9018,7 +9013,7 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="37">
+    <MixedOperand occurrences="34">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['Field_html']</code>
       <code>$column['Field_md5']</code>
@@ -9031,9 +9026,6 @@
       <code>$multiEditFuncs[$key]</code>
       <code>$multiEditFuncs[$key]</code>
       <code>$uuid</code>
-      <code>$warning['Code']</code>
-      <code>$warning['Level']</code>
-      <code>$warning['Message']</code>
       <code>$whereClause</code>
       <code>Util::backquote($GLOBALS['db'])</code>
       <code>Util::backquote($GLOBALS['table'])</code>
@@ -10076,7 +10068,7 @@
       <code>$master</code>
       <code>$master</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="51">
+    <MixedArrayAccess occurrences="46">
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_db']</code>
       <code>$arr['foreign_db']</code>
@@ -10123,13 +10115,8 @@
       <code>$old_priv[7]</code>
       <code>$trigger['create']</code>
       <code>$trigger['create']</code>
-      <code>$warning['Code']</code>
-      <code>$warning['Code']</code>
-      <code>$warning['Level']</code>
-      <code>$warning['Level']</code>
-      <code>$warning['Message']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="18">
       <code>$arr</code>
       <code>$event_name</code>
       <code>$foreignTable</code>
@@ -10148,12 +10135,11 @@
       <code>$tmp</code>
       <code>$trigger</code>
       <code>$view</code>
-      <code>$warning</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>build</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="80">
+    <MixedOperand occurrences="77">
       <code>$_POST['new_pack_keys']</code>
       <code>$old_priv[$i]</code>
       <code>$old_priv[0]</code>
@@ -10190,9 +10176,6 @@
       <code>$old_priv[7]</code>
       <code>$table</code>
       <code>$trigger['create']</code>
-      <code>$warning['Code']</code>
-      <code>$warning['Level']</code>
-      <code>$warning['Message']</code>
       <code>Util::backquote($_POST['newname'])</code>
       <code>Util::backquote($_POST['newname'])</code>
       <code>Util::backquote($arr['foreign_db'])</code>
@@ -15400,7 +15383,7 @@
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['possible_as_geometry']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="26">
+    <MixedAssignment occurrences="25">
       <code>$currentDb</code>
       <code>$maxRows</code>
       <code>$oneFieldMeta</code>
@@ -15426,7 +15409,6 @@
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
-      <code>$warning</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="4">
       <code>int</code>

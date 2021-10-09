@@ -1417,15 +1417,13 @@ class InsertEdit
     /**
      * get the warning messages array
      *
-     * @return array
+     * @return string[]
      */
-    private function getWarningMessages()
+    private function getWarningMessages(): array
     {
         $warningMessages = [];
         foreach ($this->dbi->getWarnings() as $warning) {
-            $warningMessages[] = Message::sanitize(
-                $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
-            );
+            $warningMessages[] = htmlspecialchars((string) $warning);
         }
 
         return $warningMessages;

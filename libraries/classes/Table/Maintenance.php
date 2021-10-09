@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table\Maintenance\Message;
 use PhpMyAdmin\Util;
@@ -85,7 +86,7 @@ final class Maintenance
      * @param TableName[] $tables
      *
      * @return array<int, array<string, array<int, array<string, string|null>>>|string>
-     * @psalm-return array{array<int, array<string, string|null>>, string, array<int, array<string, string>>}
+     * @psalm-return array{array<int, array<string, string|null>>, string, Warning[]}
      */
     public function getChecksumTableRows(DatabaseName $db, array $tables): array
     {
@@ -99,7 +100,6 @@ final class Maintenance
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string|null>> $rows */
         $rows = $this->dbi->fetchResult($query);
-        /** @var array<int, array<string, string>> $warnings */
         $warnings = $this->dbi->getWarnings();
 
         return [$rows, $query, $warnings];
