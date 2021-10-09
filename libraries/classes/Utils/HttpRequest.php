@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use Composer\CaBundle\CaBundle;
+
 use function base64_encode;
 use function curl_exec;
 use function curl_getinfo;
@@ -15,6 +17,7 @@ use function getenv;
 use function ini_get;
 use function intval;
 use function is_array;
+use function is_dir;
 use function parse_url;
 use function preg_match;
 use function stream_context_create;
@@ -22,7 +25,6 @@ use function strlen;
 
 use const CURL_IPRESOLVE_V4;
 use const CURLINFO_HTTP_CODE;
-use const CURLINFO_SSL_VERIFYRESULT;
 use const CURLOPT_CAINFO;
 use const CURLOPT_CAPATH;
 use const CURLOPT_CONNECTTIMEOUT;
@@ -145,7 +147,6 @@ class HttpRequest
      * @param bool   $returnOnlyStatus If set to true, the method would only return response status
      * @param mixed  $content          Content to be sent with HTTP request
      * @param string $header           Header to be set for the HTTP request
-     * @param int    $ssl              SSL mode to use
      *
      * @return string|bool|null
      */
@@ -154,8 +155,7 @@ class HttpRequest
         $method,
         $returnOnlyStatus = false,
         $content = null,
-        $header = '',
-        $ssl = 0
+        $header = ''
     ) {
         $curlHandle = curl_init($url);
         if ($curlHandle === false) {
@@ -188,21 +188,14 @@ class HttpRequest
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
         }
 
-        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, '2');
-        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, '1');
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, true);
 
-        /**
-         * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
-         * certificates even without properly configured curl in PHP.
-         *
-         * See https://letsencrypt.org/certificates/
-         */
-        $certsDir = ROOT_PATH . 'libraries/certs/';
-        /* See code below for logic */
-        if ($ssl == CURLOPT_CAPATH) {
-            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAPATH, $certsDir);
-        } elseif ($ssl == CURLOPT_CAINFO) {
-            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAINFO, $certsDir . 'cacert.pem');
+        $caPathOrFile = CaBundle::getSystemCaRootBundlePath();
+        if (is_dir($caPathOrFile)) {
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAPATH, $caPathOrFile);
+        } else {
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CAINFO, $caPathOrFile);
         }
 
         $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
@@ -217,28 +210,6 @@ class HttpRequest
 
         $response = @curl_exec($curlHandle);
         if ($response === false) {
-            /*
-             * In case of SSL verification failure let's try configuring curl
-             * certificate verification. Unfortunately it is tricky as setting
-             * options incompatible with PHP build settings can lead to failure.
-             *
-             * So let's rather try the options one by one.
-             *
-             * 1. Try using system SSL storage.
-             * 2. Try setting CURLOPT_CAINFO.
-             * 3. Try setting CURLOPT_CAPATH.
-             * 4. Fail.
-             */
-            if (curl_getinfo($curlHandle, CURLINFO_SSL_VERIFYRESULT) != 0) {
-                if ($ssl == 0) {
-                    return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAINFO);
-                }
-
-                if ($ssl == CURLOPT_CAINFO) {
-                    return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
-                }
-            }
-
             return null;
         }
 
@@ -273,6 +244,10 @@ class HttpRequest
                 'user_agent' => 'phpMyAdmin',
                 'header' => 'Accept: */*',
             ],
+            'ssl' => [
+                'verify_peer' => true,
+                'verify_peer_name' => true,
+            ],
         ];
         if ($header) {
             $context['http']['header'] .= "\n" . $header;
@@ -280,6 +255,13 @@ class HttpRequest
 
         if ($method === 'POST') {
             $context['http']['content'] = $content;
+        }
+
+        $caPathOrFile = CaBundle::getSystemCaRootBundlePath();
+        if (is_dir($caPathOrFile)) {
+            $context['ssl']['capath'] = $caPathOrFile;
+        } else {
+            $context['ssl']['cafile'] = $caPathOrFile;
         }
 
         $context = $this->handleContext($context);

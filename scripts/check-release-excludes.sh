@@ -100,11 +100,6 @@ validateExtension() {
                 foundFileExt
             fi
         ;;
-        libraries/certs/*)
-            if [ "${extension}" != "0" -a "${extension}" != "rst" -a "${extension}" != "pem" ]; then
-                foundFileExt
-            fi
-        ;;
         libraries/*)
             if [ \
                 "${extension}" != "php" -a "${extension}" != "md" \
