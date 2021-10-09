@@ -7,12 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use InvalidArgumentException;
 use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
+use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
@@ -1449,11 +1451,26 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return array warnings
+     * @return Warning[] warnings
      */
     public function getWarnings($link = self::CONNECT_USER): array
     {
-        return $this->fetchResult('SHOW WARNINGS', null, null, $link);
+        /** @var object|false $result */
+        $result = $this->tryQuery('SHOW WARNINGS', $link, 0, false);
+        if ($result === false) {
+            return [];
+        }
+
+        $warnings = [];
+        while ($row = $this->fetchAssoc($result)) {
+            try {
+                $warnings[] = Warning::fromArray($row);
+            } catch (InvalidArgumentException $exception) {
+                // ignore
+            }
+        }
+
+        return $warnings;
     }
 
     /**

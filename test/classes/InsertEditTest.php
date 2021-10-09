@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\ResponseRenderer;
@@ -1787,16 +1788,8 @@ class InsertEditTest extends AbstractTestCase
     public function testGetWarningMessages(): void
     {
         $warnings = [
-            [
-                'Level' => 1,
-                'Code' => 42,
-                'Message' => 'msg1',
-            ],
-            [
-                'Level' => 2,
-                'Code' => 43,
-                'Message' => 'msg2',
-            ],
+            Warning::fromArray(['Level' => 'Error', 'Code' => '1001', 'Message' => 'Message 1']),
+            Warning::fromArray(['Level' => 'Warning', 'Code' => '1002', 'Message' => 'Message 2']),
         ];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1817,13 +1810,7 @@ class InsertEditTest extends AbstractTestCase
             []
         );
 
-        $this->assertEquals(
-            [
-                '1: #42 msg1',
-                '2: #43 msg2',
-            ],
-            $result
-        );
+        $this->assertEquals(['Error: #1001 Message 1', 'Warning: #1002 Message 2'], $result);
     }
 
     /**

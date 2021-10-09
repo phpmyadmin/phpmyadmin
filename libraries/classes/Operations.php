@@ -753,9 +753,9 @@ class Operations
     /**
      * Get warning messages array
      *
-     * @return array
+     * @return string[]
      */
-    public function getWarningMessagesArray()
+    public function getWarningMessagesArray(): array
     {
         $warning_messages = [];
         foreach ($this->dbi->getWarnings() as $warning) {
@@ -768,14 +768,13 @@ class Operations
             if (
                 isset($_POST['new_tbl_storage_engine'])
                 && $_POST['new_tbl_storage_engine'] === 'MyISAM'
-                && $warning['Code'] == '1478'
-                && $warning['Level'] === 'Error'
+                && $warning->code === 1478
+                && $warning->level === 'Error'
             ) {
                 continue;
             }
 
-            $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
-                . ' ' . $warning['Message'];
+            $warning_messages[] = (string) $warning;
         }
 
         return $warning_messages;
