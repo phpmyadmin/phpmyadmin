@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-03 00:11+0000\n"
+"POT-Creation-Date: 2021-10-10 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -5095,11 +5095,11 @@ msgstr "접근이 거부되었습니다!"
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:55
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
@@ -6874,7 +6874,7 @@ msgstr "데이터 포인트 내용"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2066
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2064
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "무시"
@@ -8345,11 +8345,11 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:77
 #: libraries/classes/Controllers/Table/FindReplaceController.php:181
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:85
 #: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:59
 #: libraries/classes/Controllers/Table/Partition/CheckController.php:59
 #: libraries/classes/Controllers/Table/Partition/DropController.php:60
@@ -8406,11 +8406,11 @@ msgstr "인덱스 없는 조인이 너무 많습니다."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:77
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
@@ -8763,7 +8763,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "데이터베이스 %2$s에 %1$s라는 이름의 이벤트가 없음"
 
-#: libraries/classes/DatabaseInterface.php:1089
+#: libraries/classes/DatabaseInterface.php:1091
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -8779,19 +8779,19 @@ msgstr ""
 "['SessionTimeZone'][/em] 설정을 확인해 주십시오. phpMyAdmin 은 현재 데이터베"
 "이스 서버의 기본 시간대 설정을 사용하고 있습니다."
 
-#: libraries/classes/DatabaseInterface.php:1136
+#: libraries/classes/DatabaseInterface.php:1138
 msgid "Failed to set configured collation connection!"
 msgstr "정렬 방식 연결을 구성하는데 실패했습니다!"
 
-#: libraries/classes/DatabaseInterface.php:1899
+#: libraries/classes/DatabaseInterface.php:1916
 msgid "Missing connection parameters!"
 msgstr "연결의 파라미터가 없습니다!"
 
-#: libraries/classes/DatabaseInterface.php:1924
+#: libraries/classes/DatabaseInterface.php:1941
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "관리사용자(controluser, 설정에 정의됨)로서의 접속에 실패."
 
-#: libraries/classes/DatabaseInterface.php:2408
+#: libraries/classes/DatabaseInterface.php:2425
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -10559,35 +10559,35 @@ msgstr "삭제"
 msgid "Coalesce"
 msgstr "병합"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:928
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:930
 msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:954
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "테이블 %s 을 %s 로 옮겼습니다. 권한설정을 조정하였습니다."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:960
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s 테이블을 %s 으로 복사하였습니다. 권한설정을 조정하였습니다."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:967
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:971
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:995
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -11742,7 +11742,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
 msgid ""
-"Provides authentication using hardware security tokens supporting FIDO U2F."
+"Provides authentication using hardware security tokens supporting FIDO U2F, "
+"such as a Yubikey."
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
@@ -12731,7 +12732,7 @@ msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다.
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "기본 키의 이름은 반드시 PRIMARY여야 합니다!"
 
-#: libraries/classes/Table/Maintenance.php:96
+#: libraries/classes/Table/Maintenance.php:122
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""

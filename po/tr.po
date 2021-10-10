@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-03 00:11+0000\n"
+"POT-Creation-Date: 2021-10-10 00:10+0000\n"
 "PO-Revision-Date: 2021-09-20 14:38+0000\n"
 "Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5066,11 +5066,11 @@ msgstr "Erişim engellendi!"
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:55
 msgid "No table selected."
 msgstr "Seçilen tablo yok."
 
@@ -6864,7 +6864,7 @@ msgstr "Veri imleci içeriği"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2066
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2064
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Yoksay"
@@ -8421,11 +8421,11 @@ msgstr "%s tablosu zaten var!"
 
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:77
 #: libraries/classes/Controllers/Table/FindReplaceController.php:181
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:85
 #: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:59
 #: libraries/classes/Controllers/Table/Partition/CheckController.php:59
 #: libraries/classes/Controllers/Table/Partition/DropController.php:60
@@ -8479,11 +8479,11 @@ msgstr "İsteğinizle ilgili bir sorun var."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL boş bir sonuç kümesi döndürdü (yani sıfır satır)."
 
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:77
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Birden çok tablodaki bakım işlemleri etkisizleştirildi."
 
@@ -8814,7 +8814,7 @@ msgid ""
 msgstr ""
 "İstek işlenirken hata oldu: %2$s veritabanında %1$s adıyla olay bulunamadı."
 
-#: libraries/classes/DatabaseInterface.php:1089
+#: libraries/classes/DatabaseInterface.php:1091
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8826,21 +8826,21 @@ msgstr ""
 "ayarlarınızı denetleyin. phpMyAdmin, veritabanı sunucusunun şu anki "
 "varsayılan saat dilimini kullanıyor."
 
-#: libraries/classes/DatabaseInterface.php:1136
+#: libraries/classes/DatabaseInterface.php:1138
 msgid "Failed to set configured collation connection!"
 msgstr "Yapılandırılmış karşılaştırma bağlantısı ayarlama başarısız!"
 
-#: libraries/classes/DatabaseInterface.php:1899
+#: libraries/classes/DatabaseInterface.php:1916
 msgid "Missing connection parameters!"
 msgstr "Eksik bağlantı parametreleri!"
 
-#: libraries/classes/DatabaseInterface.php:1924
+#: libraries/classes/DatabaseInterface.php:1941
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
 "başarısız oldu."
 
-#: libraries/classes/DatabaseInterface.php:2408
+#: libraries/classes/DatabaseInterface.php:2425
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Daha fazla bilgi için %sbelgelerimize%s bakın."
@@ -10679,35 +10679,35 @@ msgstr "Kaldır"
 msgid "Coalesce"
 msgstr "Birleştir"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:928
 msgid "Can't move table to same one!"
 msgstr "Tablo aynısına taşınamıyor!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:930
 msgid "Can't copy table to same one!"
 msgstr "Tablo aynısına kopyalanamıyor!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:954
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "%s tablosu %s üzerine taşındı. Yetkiler ayarlandı."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:960
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s tablosu %s üzerine kopyalandı. Yetkiler ayarlandı."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:967
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "%s tablosu %s üzerine taşındı."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:971
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s tablosu %s üzerine kopyalandı."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:995
 msgid "The table name is empty!"
 msgstr "Tablo adı boş!"
 
@@ -11924,8 +11924,13 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Donanım Güvenlik Anahtarı (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
+#, fuzzy
+#| msgid ""
+#| "Provides authentication using hardware security tokens supporting FIDO "
+#| "U2F."
 msgid ""
-"Provides authentication using hardware security tokens supporting FIDO U2F."
+"Provides authentication using hardware security tokens supporting FIDO U2F, "
+"such as a Yubikey."
 msgstr ""
 "FIDO U2F destekleyen donanım güvenlik belirteçleri kullanarak kimlik "
 "doğrulaması sağlar."
@@ -12861,7 +12866,7 @@ msgstr "Bu MySQL sunucusu %s depolama motorunu desteklemez."
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Birincil anahtarın adı \"PRIMARY\" olmalıdır!"
 
-#: libraries/classes/Table/Maintenance.php:96
+#: libraries/classes/Table/Maintenance.php:122
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` tablosunun indeksleri ile ilgili sorunlar"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-03 00:11+0000\n"
+"POT-Creation-Date: 2021-10-10 00:10+0000\n"
 "PO-Revision-Date: 2021-09-20 14:38+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5044,11 +5044,11 @@ msgstr "Dostop zavrnjen!"
 #: libraries/classes/Controllers/Database/Structure/ShowCreateController.php:32
 #: libraries/classes/Controllers/Export/TablesController.php:29
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:55
 msgid "No table selected."
 msgstr "Izbrana ni nobena tabela."
 
@@ -6840,7 +6840,7 @@ msgstr "Vsebina kazalca podatkov"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2066
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2064
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Prezri"
@@ -8392,11 +8392,11 @@ msgstr "Tabela %s že obstaja!"
 
 #: libraries/classes/Controllers/Table/DeleteRowsController.php:77
 #: libraries/classes/Controllers/Table/FindReplaceController.php:181
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:85
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:85
 #: libraries/classes/Controllers/Table/Partition/AnalyzeController.php:59
 #: libraries/classes/Controllers/Table/Partition/CheckController.php:59
 #: libraries/classes/Controllers/Table/Partition/DropController.php:60
@@ -8452,11 +8452,11 @@ msgstr "Prišlo je do težave z vašo zahtevo."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
-#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
-#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:77
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Vzdrževalni posegi na več tabelah so onemogočeni."
 
@@ -8790,7 +8790,7 @@ msgstr ""
 "Napaka v obdelavi zahteve: Dogodka imenovanega %1$s ni mogoče najti v zbirki "
 "podatkov %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1089
+#: libraries/classes/DatabaseInterface.php:1091
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8802,21 +8802,21 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin trenutno uporalja privzeti časovni pas "
 "strežnika zbirke podatkov."
 
-#: libraries/classes/DatabaseInterface.php:1136
+#: libraries/classes/DatabaseInterface.php:1138
 msgid "Failed to set configured collation connection!"
 msgstr "Ne morem nastaviti povezave konfiguriranega razvrščanja znakov!"
 
-#: libraries/classes/DatabaseInterface.php:1899
+#: libraries/classes/DatabaseInterface.php:1916
 msgid "Missing connection parameters!"
 msgstr "Manjkajo parametri povezave!"
 
-#: libraries/classes/DatabaseInterface.php:1924
+#: libraries/classes/DatabaseInterface.php:1941
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Povezava za controluserja, kot je določena v vaši konfiguraciji, je "
 "spodletela."
 
-#: libraries/classes/DatabaseInterface.php:2408
+#: libraries/classes/DatabaseInterface.php:2425
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Za več informacij si oglejte %snašo dokumentacijo%s."
@@ -10657,35 +10657,35 @@ msgstr "Zavrzi"
 msgid "Coalesce"
 msgstr "Združi (coalesce)"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:928
 msgid "Can't move table to same one!"
 msgstr "Tabele ne morete premakniti same vase!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:930
 msgid "Can't copy table to same one!"
 msgstr "Tabele ne morete kopirati same vase!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:954
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo premaknili na %s. Privilegije smo prilagodili."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:960
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabelo %s smo skopirali na %s. Privilegije smo prilagodili."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:967
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabelo %s smo premaknili na %s."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:971
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabelo %s smo skopirali na %s."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:995
 msgid "The table name is empty!"
 msgstr "Ime tabele je prazno!"
 
@@ -11892,8 +11892,13 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Varnostni ključ strojne opreme (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
+#, fuzzy
+#| msgid ""
+#| "Provides authentication using hardware security tokens supporting FIDO "
+#| "U2F."
 msgid ""
-"Provides authentication using hardware security tokens supporting FIDO U2F."
+"Provides authentication using hardware security tokens supporting FIDO U2F, "
+"such as a Yubikey."
 msgstr ""
 "Nudi overovitev z žetoni varnosti strojne opreme, ki podpirajo FIDO U2F."
 
@@ -12827,7 +12832,7 @@ msgstr "Ta strežnik MySQL ne podpira skladiščnega pogona %s."
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Ime primarnega ključa mora biti \"PRIMARY\"!"
 
-#: libraries/classes/Table/Maintenance.php:96
+#: libraries/classes/Table/Maintenance.php:122
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Težave z indeksi tabele `%s`"
