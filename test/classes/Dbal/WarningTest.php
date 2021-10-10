@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
-use InvalidArgumentException;
 use PhpMyAdmin\Dbal\Warning;
 use PHPUnit\Framework\TestCase;
 
@@ -13,47 +12,69 @@ use PHPUnit\Framework\TestCase;
  */
 class WarningTest extends TestCase
 {
-    public function testValidWarning(): void
-    {
-        $warning = Warning::fromArray(['Level' => 'Error', 'Code' => '1046', 'Message' => 'No database selected']);
-        $this->assertSame('Error', $warning->level);
-        $this->assertSame(1046, $warning->code);
-        $this->assertSame('No database selected', $warning->message);
-        $this->assertSame('Error: #1046 No database selected', (string) $warning);
-    }
-
     /**
      * @param mixed[] $row
      *
-     * @dataProvider providerForTestInvalidWarning
+     * @dataProvider providerForTestWarning
      */
-    public function testInvalidWarning(array $row, string $exceptionMessage): void
+    public function testWarning(array $row, string $level, int $code, string $message, string $toString): void
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage($exceptionMessage);
-        Warning::fromArray($row);
+        $warning = Warning::fromArray($row);
+        $this->assertSame($level, $warning->level);
+        $this->assertSame($code, $warning->code);
+        $this->assertSame($message, $warning->message);
+        $this->assertSame($toString, (string) $warning);
     }
 
     /**
-     * @return mixed[][][]|string[][]
-     * @psalm-return array{array{mixed[], string}}
+     * @return int[][]|string[][]|string[][][]
+     * @psalm-return array{string[], string, int, string, string}[]
      */
-    public function providerForTestInvalidWarning(): array
+    public function providerForTestWarning(): array
     {
         return [
-            [['Code' => '1046', 'Message' => ''], 'Expected the key "Level" to exist.'],
-            [['Level' => 'Error', 'Message' => ''], 'Expected the key "Code" to exist.'],
-            [['Level' => 'Error', 'Code' => '1046'], 'Expected the key "Message" to exist.'],
             [
-                ['Level' => '', 'Code' => '1046', 'Message' => 'No database selected'],
-                'Expected a different value than "".',
+                ['Level' => 'Error', 'Code' => '1046', 'Message' => 'No database selected'],
+                'Error',
+                1046,
+                'No database selected',
+                'Error: #1046 No database selected',
             ],
-            [['Level' => null, 'Code' => '1046', 'Message' => 'No database selected'], 'Expected a string. Got: NULL'],
             [
-                ['Level' => 'Error', 'Code' => 'Code', 'Message' => 'No database selected'],
-                'Expected a numeric. Got: string',
+                ['Level' => 'Warning', 'Code' => '0', 'Message' => ''],
+                'Warning',
+                0,
+                '',
+                'Warning: #0',
             ],
-            [['Level' => 'Error', 'Code' => '1046', 'Message' => null], 'Expected a string. Got: NULL'],
+            [
+                ['Level' => 'Note', 'Code' => '1', 'Message' => 'Message'],
+                'Note',
+                1,
+                'Message',
+                'Note: #1 Message',
+            ],
+            [
+                ['Level' => 'Invalid', 'Code' => 'Invalid', 'Message' => 'Invalid'],
+                '?',
+                0,
+                'Invalid',
+                '?: #0 Invalid',
+            ],
+            [
+                ['Level' => 'Unknown', 'Code' => '-1', 'Message' => ''],
+                '?',
+                0,
+                '',
+                '?: #0',
+            ],
+            [
+                [],
+                '?',
+                0,
+                '',
+                '?: #0',
+            ],
         ];
     }
 }

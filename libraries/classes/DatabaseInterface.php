@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use InvalidArgumentException;
 use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
@@ -1463,11 +1462,7 @@ class DatabaseInterface implements DbalInterface
 
         $warnings = [];
         while ($row = $this->fetchAssoc($result)) {
-            try {
-                $warnings[] = Warning::fromArray($row);
-            } catch (InvalidArgumentException $exception) {
-                // ignore
-            }
+            $warnings[] = Warning::fromArray($row);
         }
 
         return $warnings;

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
-use InvalidArgumentException;
 use Stringable;
-use Webmozart\Assert\Assert;
+
+use function in_array;
+use function is_numeric;
+use function is_string;
 
 /**
  * @see https://mariadb.com/kb/en/show-warnings/
@@ -16,10 +18,16 @@ use Webmozart\Assert\Assert;
  */
 final class Warning implements Stringable
 {
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var 'Note'|'Warning'|'Error'|'?'
+     */
     public $level;
 
-    /** @var int */
+    /**
+     * @var int
+     * @psalm-var 0|positive-int
+     */
     public $code;
 
     /** @var string */
@@ -27,30 +35,40 @@ final class Warning implements Stringable
 
     private function __construct(string $level, int $code, string $message)
     {
-        $this->level = $level;
-        $this->code = $code;
+        $this->level = in_array($level, ['Note', 'Warning', 'Error'], true) ? $level : '?';
+        $this->code = $code >= 1 ? $code : 0;
         $this->message = $message;
     }
 
     /**
      * @param mixed[] $row
-     *
-     * @throws InvalidArgumentException
      */
     public static function fromArray(array $row): self
     {
-        Assert::keyExists($row, 'Level');
-        Assert::keyExists($row, 'Code');
-        Assert::keyExists($row, 'Message');
-        Assert::stringNotEmpty($row['Level']);
-        Assert::numeric($row['Code']);
-        Assert::string($row['Message']);
+        $level = '';
+        $code = 0;
+        $message = '';
 
-        return new self($row['Level'], (int) $row['Code'], $row['Message']);
+        if (isset($row['Level']) && is_string($row['Level'])) {
+            $level = $row['Level'];
+        }
+
+        if (isset($row['Code']) && is_numeric($row['Code'])) {
+            $code = (int) $row['Code'];
+        }
+
+        if (isset($row['Message']) && is_string($row['Message'])) {
+            $message = $row['Message'];
+        }
+
+        return new self($level, $code, $message);
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public function __toString(): string
     {
-        return $this->level . ': #' . $this->code . ' ' . $this->message;
+        return $this->level . ': #' . $this->code . ($this->message !== '' ? ' ' . $this->message : '');
     }
 }
