@@ -21,6 +21,8 @@ phpMyAdmin - ChangeLog
 - issue #16425 Add "DELETE FROM" table on table operations page
 - issue #16482 Add a select all link for table-specific privileges
 - issue #14276 Add support for account locking
+- issue #17143 Use composer/ca-bundle to manage the CA cert file
+- issue #17143 Require the openssl PHP extension
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
