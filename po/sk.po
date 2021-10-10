@@ -70,6 +70,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Môžete zvýšiť {long_query_time} alebo optimalizovať dopyty zahrnuté v logu "
+"pomalých dopytov"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
@@ -91,6 +93,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Máš frekvenciu pomalých dopytov %s za hodinu, mal by si ju mať menej ako 1%% "
+"za hodinu."
 
 #: libraries/advisory_rules_generic.php:63
 msgid "Long query time"
@@ -101,12 +105,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} je nastavené na 10 sekúnd alebo viac, takže iba dopyty "
+"trvajúce 10 sekúnd a viac sú zaznamenané."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Je doporučené nastaviť {long_query_time} na nižšiu hodnotu podľa Vašeho "
+"prostredia. Obvykle doporučená hodnota je 1-5 sekúnd."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
@@ -128,6 +136,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Zapni výpis pomalých dopytov nastavením {log_slow_queries} na 'ON'. Toto "
+"pomôže pri riešení problémov dopytov so zlým výkonom."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
@@ -138,6 +148,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Zapni výpis pomalých dopytov nastavením {slow_query_log} na 'ON'. Toto "
+"pomôže pri riešení problémov dopytov so zlým výkonom."
 
 #: libraries/advisory_rules_generic.php:101
 msgid "slow_query_log is set to 'OFF'"
@@ -145,17 +157,19 @@ msgstr "slow_query_log je nastavený na 'OFF'"
 
 #: libraries/advisory_rules_generic.php:106
 msgid "Release Series"
-msgstr ""
+msgstr "Uvoľnená verzia."
 
 #: libraries/advisory_rules_generic.php:109
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL verzia serveru je nižšia ako 5.1."
 
 #: libraries/advisory_rules_generic.php:111
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Mal by si aktualizovať, keďže MySQL 5.1 má vylepšený výkon a MySQL 5.5 "
+"dokonca ešte viac."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
@@ -171,7 +185,7 @@ msgstr "Minor verzia"
 
 #: libraries/advisory_rules_generic.php:122
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Verzia je nižšia ako 5.1.30 (prvé GA vydanie verzie 5.1)."
 
 #: libraries/advisory_rules_generic.php:124
 msgid ""
@@ -185,7 +199,6 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:137
 #, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
 msgstr "Mali by ste aktualizovať na stabilnú verziu MySQL 5.5"
 
@@ -503,14 +516,12 @@ msgstr "key_buffer_size je 0"
 
 #: libraries/advisory_rules_generic.php:371
 #, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
 msgid "Max % MyISAM key buffer ever used"
 msgstr "Maximálne využitie (%%) vyrovnávacej pamäte MyISAM pre kľúče"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
 #, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
 msgid "MyISAM key buffer (index cache) % used is low."
 msgstr "Využitie MyISAM vyrovnávacej pamäte kľúčov je nízke %%."
 
@@ -620,7 +631,6 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:459
 #, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
 msgid "Immediate table locks %"
 msgstr "Okamžite získané zámky tabuľky %%"
 
@@ -671,7 +681,6 @@ msgstr "Vyrovnávacia pamäť vlákien je 0"
 
 #: libraries/advisory_rules_generic.php:490
 #, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate %"
 msgstr "Frekvencia úspešnosti vyrovnávacej pamäte %%"
 
@@ -715,15 +724,11 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:518
 #, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
 msgstr "Slow_launch_time je viac ako 2s"
 
 #: libraries/advisory_rules_generic.php:520
 #, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
@@ -856,17 +861,6 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:615
 #: libraries/advisory_rules_generic.php:642
 #, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -908,17 +902,6 @@ msgstr "Veľkosť záznamového súboru je príliš veľká."
 
 #: libraries/advisory_rules_generic.php:666
 #, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1018,7 +1001,6 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
 msgid "Query cache efficiency (%)"
 msgstr "Úspešnosť vyrovnávacej pamäte príkazov (%%)"
 
@@ -1041,7 +1023,6 @@ msgstr "Využitie vyrovnávacej pamäte dopytov"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
 #, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
 msgid "Less than 80% of the query cache is being utilized."
 msgstr "Vyrovnávacia pamäť dopytov je využitá na menej než 80 %%."
 
@@ -1305,7 +1286,6 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:220
 #: libraries/classes/Charsets/Collation.php:494
 #, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dátový slovník"
@@ -1319,56 +1299,48 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:233
 #: libraries/classes/Charsets/Collation.php:565
 #, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Španielština"
 
 #: libraries/classes/Charsets/Collation.php:303
 #, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
 #: libraries/classes/Charsets/Collation.php:306
 #, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
 #: libraries/classes/Charsets/Collation.php:309
 #, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
 #: libraries/classes/Charsets/Collation.php:312
 #, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
 #: libraries/classes/Charsets/Collation.php:315
 #, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
 #: libraries/classes/Charsets/Collation.php:319
 #, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "mnohojazyčný"
 
 #: libraries/classes/Charsets/Collation.php:322
 #, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binárny"
@@ -1380,7 +1352,6 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:341
 #, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binárny"
@@ -1405,21 +1376,18 @@ msgstr "Stredoeurópsky"
 #: libraries/classes/Charsets/Collation.php:375
 #: libraries/classes/Charsets/Collation.php:550
 #, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
 #: libraries/classes/Charsets/Collation.php:380
 #, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená Čínština"
 
 #: libraries/classes/Charsets/Collation.php:383
 #, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradičná Čínština"
@@ -1433,35 +1401,30 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:394
 #: libraries/classes/Charsets/Collation.php:514
 #, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japončina"
 
 #: libraries/classes/Charsets/Collation.php:399
 #, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltické"
 
 #: libraries/classes/Charsets/Collation.php:404
 #, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
 
 #: libraries/classes/Charsets/Collation.php:407
 #, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
 #: libraries/classes/Charsets/Collation.php:410
 #, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
@@ -1469,35 +1432,30 @@ msgstr "Arabština"
 #: libraries/classes/Charsets/Collation.php:413
 #: libraries/classes/Charsets/Collation.php:529
 #, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Kórejčina"
 
 #: libraries/classes/Charsets/Collation.php:416
 #, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsky"
 
 #: libraries/classes/Charsets/Collation.php:419
 #, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínčina"
 
 #: libraries/classes/Charsets/Collation.php:422
 #, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Gréčtina"
 
 #: libraries/classes/Charsets/Collation.php:425
 #, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čeština/Slovenčina"
@@ -1505,7 +1463,6 @@ msgstr "Čeština/Slovenčina"
 #: libraries/classes/Charsets/Collation.php:428
 #: libraries/classes/Charsets/Collation.php:588
 #, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsky"
@@ -1513,7 +1470,6 @@ msgstr "Ukrajinsky"
 #: libraries/classes/Charsets/Collation.php:431
 #: libraries/classes/Charsets/Collation.php:584
 #, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecky"
@@ -1521,7 +1477,6 @@ msgstr "Turecky"
 #: libraries/classes/Charsets/Collation.php:434
 #: libraries/classes/Charsets/Collation.php:576
 #, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
@@ -1529,77 +1484,66 @@ msgstr "Švédština"
 #: libraries/classes/Charsets/Collation.php:437
 #: libraries/classes/Charsets/Collation.php:580
 #, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajčina"
 
 #: libraries/classes/Charsets/Collation.php:440
 #, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámy"
 
 #: libraries/classes/Charsets/Collation.php:459
 #, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
 
 #: libraries/classes/Charsets/Collation.php:471
 #, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvátsky"
 
 #: libraries/classes/Charsets/Collation.php:475
 #, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
 
 #: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
 #: libraries/classes/Charsets/Collation.php:483
 #, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglicky"
 
 #: libraries/classes/Charsets/Collation.php:487
 #, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets/Collation.php:491
 #, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estónsky"
 
 #: libraries/classes/Charsets/Collation.php:506
 #, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarsky"
 
 #: libraries/classes/Charsets/Collation.php:510
 #, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandčina"
@@ -1611,14 +1555,12 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:521
 #, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyšstina"
 
 #: libraries/classes/Charsets/Collation.php:525
 #, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litovsky"
@@ -1630,21 +1572,18 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:536
 #, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
 
 #: libraries/classes/Charsets/Collation.php:540
 #, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poľština"
 
 #: libraries/classes/Charsets/Collation.php:547
 #, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
@@ -1656,21 +1595,18 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:558
 #, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenčina"
 
 #: libraries/classes/Charsets/Collation.php:562
 #, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinčina"
 
 #: libraries/classes/Charsets/Collation.php:592
 #, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamčina"
@@ -1757,13 +1693,11 @@ msgstr "Povoliť bzip2 kompresiu pre operácie importu."
 
 #: libraries/classes/Config/Descriptions.php:86
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:87
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
@@ -1771,31 +1705,26 @@ msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:88
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:89
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:90
 #, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Vložte váš verejný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:91
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:92
 #, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Zadajte váš súkromný kľúč pre službu reCaptcha."
 
@@ -2153,9 +2082,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:268
 #, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
@@ -2173,9 +2099,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:278
 #, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
@@ -2210,13 +2133,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:294
 #, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Či sa majú zobrazovať udalosti pod databázou v navigačnom strome"
 
 #: libraries/classes/Config/Descriptions.php:296
 #, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "Zobraziť logo v navigačnom paneli."
 
@@ -2315,9 +2236,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:332
 #, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
 msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -2327,10 +2245,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:335
 #, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -2358,10 +2272,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:347
 #, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -2429,10 +2339,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:375
 #, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -2461,9 +2367,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 #, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -2473,9 +2376,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:393
 #, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
@@ -2676,9 +2576,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:477
 #, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
-#| "[/a] output."
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
@@ -2697,7 +2594,6 @@ msgstr "Zobraziť/Skryť stĺpec zobrazujúci komentáre pre všetky tabuľky."
 
 #: libraries/classes/Config/Descriptions.php:481
 #, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Zobraziť/Skryť stĺpec zobrazujúci komentáre pre všetky tabuľky."
 
@@ -2716,7 +2612,6 @@ msgstr "Určuje, či sa budú zobrazovať SQL dopyty generované phpMyAdminom."
 
 #: libraries/classes/Config/Descriptions.php:485
 #, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Povoliť zobrazenie štatistík o databázach a tabuľkách (napr. využité miesto)."
@@ -2807,7 +2702,6 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:529
 #, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -2919,7 +2813,6 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:556
 #: libraries/classes/Config/Descriptions.php:831
 #, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "Vypnúť kontrolu cudzích kľúčov"
 
@@ -3014,9 +2907,6 @@ msgstr "Heslo pre prihlásenie sa k proxy serveru."
 
 #: libraries/classes/Config/Descriptions.php:580
 #, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "Povolí [a@https://sk.wikipedia.org/wiki/GZ_(súborový_formát)]gzip[/a] "
@@ -3135,55 +3025,46 @@ msgstr "Skryť akcie štruktúry tabuľky"
 
 #: libraries/classes/Config/Descriptions.php:614
 #, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
 msgstr "Východzie radenie"
 
 #: libraries/classes/Config/Descriptions.php:615
 #, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/classes/Config/Descriptions.php:616
 #, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
 msgstr "Východzie radenie"
 
 #: libraries/classes/Config/Descriptions.php:617
 #, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
 msgstr "Východzie radenie"
 
 #: libraries/classes/Config/Descriptions.php:618
 #, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/classes/Config/Descriptions.php:619
 #, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
 msgstr "Východzie radenie"
 
 #: libraries/classes/Config/Descriptions.php:620
 #, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/classes/Config/Descriptions.php:621
 #, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
 msgstr "Vstupné parametre transformácie"
 
 #: libraries/classes/Config/Descriptions.php:622
 #, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
 msgstr "Vstupné parametre transformácie"
 
@@ -3359,7 +3240,6 @@ msgstr "Návestie"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
 #, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
 msgstr "MIME typ"
 
@@ -3367,7 +3247,6 @@ msgstr "MIME typ"
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:709
 #, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Prepojenia"
 
@@ -3392,7 +3271,6 @@ msgstr "Exportovať ako samostatné súbory"
 
 #: libraries/classes/Config/Descriptions.php:679
 #, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Zapamätať si vzor pre názov súboru"
 
@@ -3460,7 +3338,6 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:702
 #: libraries/classes/Plugins/Export/ExportSql.php:349
 #, fuzzy, php-format
-#| msgid "%s value"
 msgid "%s view"
 msgstr "%s hodnota"
 
@@ -3816,7 +3693,6 @@ msgstr "Zobraziť databázovú navigáciu ako strom"
 
 #: libraries/classes/Config/Descriptions.php:803
 #, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
 msgstr "Navigačný panel"
 
@@ -3904,7 +3780,6 @@ msgstr "Zobraziť udalosti v strome"
 
 #: libraries/classes/Config/Descriptions.php:826
 #, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Kopírujem databázu"
 
@@ -4239,7 +4114,6 @@ msgstr "Zobraziť časovú značku poslednej kontroly"
 
 #: libraries/classes/Config/Descriptions.php:909
 #, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
 msgstr "Zobraziť komentáre tabuľky"
 
@@ -4420,7 +4294,6 @@ msgstr "Kontrola verzie"
 
 #: libraries/classes/Config/Descriptions.php:936
 #, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "Proxy url"
 
@@ -4454,13 +4327,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:944
 #, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
 msgstr "Verejný kľúč pre reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:945
 #, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
 msgstr "Verejný kľúč pre reCaptcha"
 
@@ -4510,7 +4381,6 @@ msgstr "Výška konzoly"
 
 #: libraries/classes/Config/Descriptions.php:956
 #, fuzzy
-#| msgid "Console"
 msgid "Console mode"
 msgstr "Konzola"
 
@@ -4526,7 +4396,6 @@ msgstr "Poradie"
 
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
 msgstr "Zoradiť podľa:"
 
@@ -4699,7 +4568,6 @@ msgstr "Import"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:37
 #, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
 msgstr "Vstupná transformácia"
 
@@ -4846,9 +4714,6 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
 #, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -4858,9 +4723,6 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:534
 #, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -5060,8 +4922,12 @@ msgstr "Prístup odmietnutý!"
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:55
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:55
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:55
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:42
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:42
 #, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Neboli vybrané žiadne tabuľky."
 
@@ -5439,7 +5305,6 @@ msgstr "Chystáte sa VYPRÁZDNIŤ celú tabuľku!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 #, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Chystáte sa ZRUŠIŤ celú tabuľku!"
 
@@ -5610,7 +5475,6 @@ msgstr "Upraviť index"
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 #, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
 msgstr "Odstrániť index(y)"
 
@@ -5668,7 +5532,6 @@ msgstr "Hodnoty Y"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 #, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
 msgstr "Prosím zadajte tú istú hodnotu ešte raz"
 
@@ -5753,14 +5616,12 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Lock this account."
 msgstr "Odstrániť redundantné stĺpce"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
 #: templates/server/privileges/users_overview.twig:100
 #, fuzzy
-#| msgid "User account"
 msgid "Unlock this account."
 msgstr "Užívateľský účet"
 
@@ -5995,7 +5856,6 @@ msgstr "Žiadny"
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 #, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL dopyt"
 
@@ -6327,13 +6187,11 @@ msgstr "Prosím zvoľte súbor, ktorý chcete importovať."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Prosím zadajte platný názov stránky"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 #, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Prosím zadajte platný názov stránky"
 
@@ -6840,6 +6698,7 @@ msgstr "Obsah datového bodu"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2064
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/InsertEdit.php:2066
 msgid "Ignore"
 msgstr "Ignorovať"
 
@@ -6978,7 +6837,6 @@ msgstr ""
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 #, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
 
@@ -7049,7 +6907,6 @@ msgstr "Bolo vytvorených %d objektov."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 #, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Názvy stĺpcov"
 
@@ -7060,7 +6917,6 @@ msgstr "Odošli"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Klávesou ESC ukončíte upravovanie."
 
@@ -7289,13 +7145,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 #, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Stránka bola odstránená"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Kopírujem databázu"
 
@@ -7394,7 +7248,6 @@ msgstr ""
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 #, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Neznáma chyba"
@@ -7414,14 +7267,12 @@ msgstr ""
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 #, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Chybný typ exportu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy, php-format
-#| msgid "Table %s already exists!"
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -7463,7 +7314,6 @@ msgstr "Reťazec"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:93
 #, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
@@ -7477,13 +7327,11 @@ msgstr "Nepodarilo sa načítať konfiguráciu"
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:52
 #, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "Interný vzťah bol odstránený."
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:63
 #, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
 msgstr "V konfigurácii je nastavená nesprávna autentifikačná metóda:"
 
@@ -7533,13 +7381,11 @@ msgstr[2] "%1$d databáz bolo úspešne zrušených."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully locked."
 msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Stĺpce boli úspešne presunuté."
 
@@ -7550,7 +7396,6 @@ msgstr "Žiadne oprávnenia"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:161
 #, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera"
 
@@ -8066,9 +7911,6 @@ msgstr "Počet riadkov čakajúcich na zápis cez INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 #, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
@@ -8284,7 +8126,6 @@ msgstr "Chýbajúci parameter:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 #, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "Cache dopytov nie je povolená."
 
@@ -8324,7 +8165,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:80
 #, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
 msgstr "Konfigurácia bola uložená."
 
@@ -8396,6 +8236,11 @@ msgstr "Tabuľka %s už existuje!"
 #: libraries/classes/Database/Routines.php:1225
 #: libraries/classes/Display/Results.php:3881 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:57
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:57
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL dopyt bol úspešne vykonaný."
 
@@ -8415,8 +8260,6 @@ msgstr "Nebol vybraný žiadny stĺpec."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
 #, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d databáza bola úspešne zrušená."
@@ -8431,7 +8274,6 @@ msgstr "Chybné meno tabuľky"
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
 #, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Je príliš veľa spojení bez indexov."
 
@@ -8447,6 +8289,11 @@ msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 #: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:77
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:77
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:77
+#: libraries/classes/Controllers/Table/Maintenance/AnalyzeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/CheckController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/ChecksumController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:49
+#: libraries/classes/Controllers/Table/Maintenance/RepairController.php:49
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
@@ -8477,7 +8324,6 @@ msgstr "Zobrazený stĺpec bol aktualizovný."
 
 #: libraries/classes/Controllers/Table/RelationController.php:278
 #, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Interné vzťahy boli úspešne zmenené."
 
@@ -8488,7 +8334,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
 #, fuzzy, php-format
-#| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Nepodarilo sa zístiť skutočný počet riadkov."
 
@@ -8605,8 +8450,6 @@ msgstr "NIE"
 
 #: libraries/classes/Database/Designer/Common.php:548
 #, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -8617,19 +8460,16 @@ msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:593
 #, fuzzy
-#| msgid "Primary key already exists."
 msgid "Error: relationship already exists."
 msgstr "Primárny kľúč už existuje."
 
 #: libraries/classes/Database/Designer/Common.php:647
 #, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Bol pridaný FOREIGN KEY vzťah."
 
 #: libraries/classes/Database/Designer/Common.php:655
 #, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Chyba: FOREIGN KEY vzťah nemohol byť pridaný!"
 
@@ -8644,37 +8484,31 @@ msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:694
 #, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Bol pridaný interný vzťah."
 
 #: libraries/classes/Database/Designer/Common.php:702
 #, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Chyba: Interný vzťah nemohol byť pridaný!"
 
 #: libraries/classes/Database/Designer/Common.php:739
 #, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY vzťah bol odstránený."
 
 #: libraries/classes/Database/Designer/Common.php:747
 #, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Chyba: FOREIGN KEY vzťah nehomol byť odstránený!"
 
 #: libraries/classes/Database/Designer/Common.php:779
 #, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Chyba: Vnútorný vzťah nemôže byť odstránený!"
 
 #: libraries/classes/Database/Designer/Common.php:785
 #, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Interný vzťah bol odstránený."
 
@@ -8785,7 +8619,6 @@ msgstr "Chyba pri spracovaní požiadavky:"
 
 #: libraries/classes/Database/Events.php:539
 #, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "V databáze %2$s nebola nájdená žiadna udalosť s menom %1$s"
 
@@ -8796,12 +8629,12 @@ msgstr "Exportovať udalosť %s"
 
 #: libraries/classes/Database/Events.php:592
 #, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "V databáze %2$s nebola nájdená žiadna udalosť s menom %1$s"
 
 #: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1089
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8810,22 +8643,24 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1136
 #, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
 #: libraries/classes/DatabaseInterface.php:1916
+#: libraries/classes/DatabaseInterface.php:1899
 #, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Chýbajúci parameter:"
 
 #: libraries/classes/DatabaseInterface.php:1941
+#: libraries/classes/DatabaseInterface.php:1924
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
 #: libraries/classes/DatabaseInterface.php:2425
+#: libraries/classes/DatabaseInterface.php:2408
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Pozri %sour documentation%s pre viacej informácií."
@@ -8935,7 +8770,6 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:1144
 #: libraries/classes/Database/Routines.php:1315
 #, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
 
@@ -8982,21 +8816,18 @@ msgstr "najmenej jedno zo slov"
 #: libraries/classes/Database/Search.php:112
 #: templates/database/search/main.twig:23
 #, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "najmenej jedno zo slov"
 
 #: libraries/classes/Database/Search.php:113
 #: templates/database/search/main.twig:27
 #, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "presný výraz"
 
 #: libraries/classes/Database/Search.php:114
 #: templates/database/search/main.twig:31
 #, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "presný výraz"
 
@@ -9049,7 +8880,6 @@ msgstr "Prepáčte, ale nepodarilo sa obnoviť odstránený trigger."
 
 #: libraries/classes/Database/Triggers.php:472
 #, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "V databáze %2$s nebol nájdený žiadny trigger s menom %1$s"
 
@@ -9061,7 +8891,6 @@ msgstr ""
 
 #: libraries/classes/Database/Triggers.php:524
 #, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
@@ -9617,7 +9446,6 @@ msgstr ""
 
 #: libraries/classes/FlashMessages.php:24
 #, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
 msgstr "Nebolo nájdené rozšírenie SOAP"
 
@@ -9627,7 +9455,6 @@ msgstr "Náhľad k tlači"
 
 #: libraries/classes/Html/Generator.php:150
 #, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Prejsť na databázu \"%s\"."
 
@@ -10147,7 +9974,6 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:834
 #, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
 msgstr "Skupiny:"
 
@@ -10262,7 +10088,6 @@ msgstr "Nová"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
 #, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
 msgstr "Spúšťače"
 
@@ -10599,35 +10424,35 @@ msgstr "Odstrániť"
 msgid "Coalesce"
 msgstr "Zlúčiť"
 
-#: libraries/classes/Operations.php:928
+#: libraries/classes/Operations.php:928 libraries/classes/Operations.php:929
 msgid "Can't move table to same one!"
 msgstr "Nedá sa presunúť tabuľka sama do seba!"
 
-#: libraries/classes/Operations.php:930
+#: libraries/classes/Operations.php:930 libraries/classes/Operations.php:931
 msgid "Can't copy table to same one!"
 msgstr "Nedá sa skopírovať tabuľka sama do seba!"
 
-#: libraries/classes/Operations.php:954
+#: libraries/classes/Operations.php:954 libraries/classes/Operations.php:955
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabuľka %s bola presunutá do %s. Oprávnenia boli upravené."
 
-#: libraries/classes/Operations.php:960
+#: libraries/classes/Operations.php:960 libraries/classes/Operations.php:961
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabuľka %s bola skopírovaná do %s. Oprávnenia boli upravené."
 
-#: libraries/classes/Operations.php:967
+#: libraries/classes/Operations.php:967 libraries/classes/Operations.php:968
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabuľka %s bola presunutá do %s."
 
-#: libraries/classes/Operations.php:971
+#: libraries/classes/Operations.php:971 libraries/classes/Operations.php:972
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabuľka %s bola skorírovaná do %s."
 
-#: libraries/classes/Operations.php:995
+#: libraries/classes/Operations.php:995 libraries/classes/Operations.php:996
 msgid "The table name is empty!"
 msgstr "Tabuľka je prázdna!"
 
@@ -10680,7 +10505,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:318
 #, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Nepodarilo sa pripojiť k databázovému serveru!"
 
@@ -10965,7 +10789,6 @@ msgstr "Zobraziť komentáre"
 #: libraries/classes/Plugins/Export/ExportOdt.php:108
 #: libraries/classes/Plugins/Export/ExportSql.php:157
 #, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "Zobraziť MIME typy"
 
@@ -11029,7 +10852,6 @@ msgstr "Exportovať záhlavia tabuliek"
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
 #, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "Sťahujem dáta pre tabuľku"
 
@@ -11043,7 +10865,6 @@ msgstr "Vypisujem dáta"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:210
 #, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
 msgstr "Výsledky dopytu"
 
@@ -11053,7 +10874,6 @@ msgstr "Zobraziť štruktúru"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:267
 #, fuzzy
-#| msgid "and then"
 msgid "Stand in"
 msgstr "a potom"
 
@@ -11233,7 +11053,6 @@ msgstr "Posledná kontrola:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1523
 #, fuzzy, php-format
-#| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Štruktúra tabuľky pre tabuľku"
 
@@ -11267,13 +11086,11 @@ msgstr "AUTO_INCREMENT pre tabuľku"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1917
 #, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPY PRE TABUĽKU"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1942
 #, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "PREPOJENIA PRE TABUĽKU"
 
@@ -11292,7 +11109,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2235
 #, fuzzy, php-format
-#| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "Chyba pri čítaní dát:"
 
@@ -11347,7 +11163,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:135
 #, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
 msgstr "Názvy stĺpcov: "
 
@@ -11603,17 +11418,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:42
 #, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11787,7 +11591,6 @@ msgstr "Formátuje text ako XML so zvýrazňovaním syntaxe."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
 #, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
 msgstr "Rozšírenie pre prihlasovanie"
 
@@ -11809,19 +11612,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed: %s"
 msgstr "Hardwarové prihlasovanie zlyhalo!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
 #, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "Hardwarové prihlasovanie zlyhalo!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
 #, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
 msgstr "Overenie konfigurácie"
 
@@ -11831,7 +11631,6 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 #, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
 msgstr "Overovanie signon"
 
@@ -12096,7 +11895,6 @@ msgstr ""
 
 #: libraries/classes/Routing.php:158
 #, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Zdrojová databáza `%s` nebola nájdená!"
 
@@ -12141,19 +11939,16 @@ msgstr "SHA256 overovanie hesla"
 
 #: libraries/classes/Server/Plugins.php:80
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
 msgstr "Overenie konfigurácie"
 
 #: libraries/classes/Server/Plugins.php:85
 #, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
 msgstr "Overovanie pomocou cookie"
 
 #: libraries/classes/Server/Plugins.php:90
 #, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
 msgstr "Natívne MySQL overovanie"
 
@@ -12363,7 +12158,6 @@ msgstr "Umožňuje plánovať udalosti pomocou plánovača."
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 #, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
 msgstr "Povolí mazanie dát."
 
@@ -12442,7 +12236,6 @@ msgstr "Rutina"
 #: libraries/classes/Server/Privileges.php:1868
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Oprávnenia pre jednotlivé stĺpce"
 
@@ -12503,11 +12296,6 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3097
 #, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12521,12 +12309,6 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3113
 #, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12695,9 +12477,6 @@ msgstr ""
 
 #: libraries/classes/Sql.php:1354
 #, fuzzy, php-format
-#| msgid ""
-#| "Current selection does not contain a unique column. Grid edit, checkbox, "
-#| "Edit, Copy and Delete features are not available."
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
@@ -12707,7 +12486,6 @@ msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:149
 #, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Spustiť SQL príkaz(y) na serveri %s"
 
@@ -12753,6 +12531,7 @@ msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Názov primárneho kľúča musí byť \"PRIMARY\"!"
 
 #: libraries/classes/Table/Maintenance.php:122
+#: libraries/classes/Table/Maintenance.php:96
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"
@@ -12827,7 +12606,6 @@ msgstr ""
 
 #: libraries/classes/Template.php:135
 #, fuzzy, php-format
-#| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
 msgstr "Chyba pri načítaní vyhľadávania."
 
@@ -13273,7 +13051,6 @@ msgstr "Profil bol aktualizovaný."
 
 #: libraries/classes/UserPassword.php:50
 #, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
 msgstr "Hashovanie hesla:"
 
@@ -13361,7 +13138,6 @@ msgstr "Dec"
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:726
 #, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
@@ -13659,7 +13435,6 @@ msgstr "Pridať"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
 #, fuzzy
-#| msgid "Add column(s)"
 msgid "column(s)"
 msgstr "Pridať stĺpce"
 
@@ -13679,7 +13454,6 @@ msgstr "Spojenie:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 #, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
 msgstr "Úložné Systémy"
 
@@ -13689,7 +13463,6 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 #, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Uzatvoriť príkazy v transakcii"
@@ -13712,7 +13485,6 @@ msgstr ""
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:95
 #, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
 msgstr "Načítanie…"
 
@@ -13727,38 +13499,32 @@ msgstr "Je to cudzí kľúč."
 
 #: templates/columns_definitions/column_name.twig:39
 #, fuzzy
-#| msgid "Remove column(s)"
 msgid "Pick from Central Columns"
 msgstr "Odstrániť stĺpce"
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
-#| msgid "Position"
 msgid "Partition by:"
 msgstr "Pozícia"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
 #, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
 msgstr "Hodnoty pre pole %s"
 
 #: templates/columns_definitions/partitions.twig:37
 #, fuzzy
-#| msgid "Position"
 msgid "Partitions:"
 msgstr "Pozícia"
 
 #: templates/columns_definitions/partitions.twig:45
 #, fuzzy
-#| msgid "Position"
 msgid "Subpartition by:"
 msgstr "Pozícia"
 
 #: templates/columns_definitions/partitions.twig:65
 #, fuzzy
-#| msgid "Position"
 msgid "Subpartitions:"
 msgstr "Pozícia"
 
@@ -13766,25 +13532,21 @@ msgstr "Pozícia"
 #: templates/table/operations/index.twig:477
 #: templates/table/structure/display_partitions.twig:24
 #, fuzzy
-#| msgid "Position"
 msgid "Partition"
 msgstr "Pozícia"
 
 #: templates/columns_definitions/partitions.twig:78
 #, fuzzy
-#| msgid "Value"
 msgid "Values"
 msgstr "Hodnota"
 
 #: templates/columns_definitions/partitions.twig:82
 #, fuzzy
-#| msgid "Position"
 msgid "Subpartition"
 msgstr "Pozícia"
 
 #: templates/columns_definitions/partitions.twig:84
 #, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "Systémy"
 
@@ -13803,37 +13565,31 @@ msgstr "Komentár"
 
 #: templates/columns_definitions/partitions.twig:86
 #, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
 msgstr "Domovský adresár pre dáta"
 
 #: templates/columns_definitions/partitions.twig:87
 #, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
 msgstr "Adresár pre ukladanie"
 
 #: templates/columns_definitions/partitions.twig:88
 #, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "Vyhovujúce riadky:"
 
 #: templates/columns_definitions/partitions.twig:89
 #, fuzzy
-#| msgid "rows"
 msgid "Min rows"
 msgstr "Prechádzať"
 
 #: templates/columns_definitions/partitions.twig:90
 #, fuzzy
-#| msgid "Table search"
 msgid "Table space"
 msgstr "Vyhľadávanie v tabuľke"
 
 #: templates/columns_definitions/partitions.twig:91
 #, fuzzy
-#| msgid "User groups"
 msgid "Node group"
 msgstr "Užívateľské skupiny"
 
@@ -14108,7 +13864,6 @@ msgstr "Vytvoriť verziu"
 
 #: templates/database/central_columns/edit.twig:15
 #, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -14120,7 +13875,6 @@ msgstr "Pridať nový stĺpec"
 #: templates/database/central_columns/main.twig:24
 #: templates/database/central_columns/main.twig:230
 #, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
 msgstr "Dĺžka/Nastaviť*"
 
@@ -14136,7 +13890,6 @@ msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:131
 #, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
 msgstr "Ústredný zoznam stĺpcov pre aktuálnu databázu je prázdny."
 
@@ -14201,7 +13954,6 @@ msgstr "Počet polí"
 
 #: templates/database/data_dictionary/index.twig:3
 #, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
 msgstr "Komentár k databáze"
 
@@ -14243,7 +13995,6 @@ msgstr "Zobraziť štruktúru tabuľky"
 
 #: templates/database/designer/database_tables.twig:91
 #, fuzzy, php-format
-#| msgid "Select all"
 msgid "Select \"%s\""
 msgstr "Vybrať všetko"
 
@@ -14289,7 +14040,6 @@ msgstr "Odstrániť stránky"
 #: templates/database/designer/main.twig:94
 #: templates/database/designer/main.twig:271
 #, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Vytvoriť relaciu"
 
@@ -14331,7 +14081,6 @@ msgstr "Prepnúť malé/veľké"
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
 #, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "Prepnúť príbuzné riadky"
 
@@ -14361,7 +14110,6 @@ msgstr "Skryť/Zobraziť všetko"
 
 #: templates/database/designer/main.twig:212
 #, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Hide/Show tables with no relationship"
 msgstr "Skryť akcie štruktúry tabuľky"
 
@@ -14371,14 +14119,12 @@ msgstr "Počet tabuliek:"
 
 #: templates/database/designer/main.twig:381
 #, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Zmazať reláciu"
 
 #: templates/database/designer/main.twig:445
 #: templates/database/designer/main.twig:610
 #, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Relačný operátor"
 
@@ -14522,7 +14268,6 @@ msgstr "Označiť všetko"
 
 #: templates/database/events/index.twig:27
 #, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
 msgstr "Vytvoriť relaciu"
 
@@ -14549,7 +14294,6 @@ msgstr "OFF"
 
 #: templates/database/export/index.twig:62
 #, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
@@ -14558,7 +14302,6 @@ msgstr ", meno databázy bude zmenené na @DATABASE@"
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 #, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
 msgstr "Zobrazujem SQL dotaz"
 
@@ -14575,14 +14318,12 @@ msgstr "Importujem do databázy \"%s\""
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 #, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
 msgstr "Simulovať dopyt"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 #, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
 msgstr "Dopyt zlyhal"
 
@@ -14593,50 +14334,42 @@ msgstr "SQL okno"
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/multi_table_query/form.twig:128
 #, fuzzy
-#| msgid "Select table"
 msgid "select table"
 msgstr "Zvoľte tabuľku"
 
 #: templates/database/multi_table_query/form.twig:45
 #: templates/database/multi_table_query/form.twig:136
 #, fuzzy
-#| msgid "Select a column."
 msgid "select column"
 msgstr "Zvoľte stĺpec."
 
 #: templates/database/multi_table_query/form.twig:51
 #, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
 msgstr "Tabuľky"
 
 #: templates/database/multi_table_query/form.twig:52
 #, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
 msgstr "Názvy stĺpcov"
 
 #: templates/database/multi_table_query/form.twig:55
 #, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
 msgstr "Tento stĺpec sa použije na označenie každého bodu"
 
 #: templates/database/multi_table_query/form.twig:59
 #, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
 msgstr "Kritériá:"
 
 #: templates/database/multi_table_query/form.twig:73
 #, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
 msgstr "Pridať %s"
 
 #: templates/database/multi_table_query/form.twig:119
 #, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
 msgstr "Upraviť stĺpce"
 
@@ -14646,7 +14379,6 @@ msgstr ""
 
 #: templates/database/multi_table_query/form.twig:153
 #, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
 msgstr "Odstrániť redundantné stĺpce"
 
@@ -14659,7 +14391,6 @@ msgstr "+ Pridať stĺpec"
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
 #, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Aktualizovať dotaz"
 
@@ -14682,9 +14413,6 @@ msgstr "Nové meno databázy"
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
 #, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
@@ -14725,7 +14453,6 @@ msgstr "Prepnúť na skopírovanú databázu"
 
 #: templates/database/operations/index.twig:221
 #, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
 msgstr "Nadpis pokračovania tabuľky"
 
@@ -14839,7 +14566,6 @@ msgstr "Vložiť:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
 #, fuzzy
-#| msgid "And:"
 msgid "And"
 msgstr "A:"
 
@@ -14878,20 +14604,17 @@ msgstr "Zmeniť:"
 
 #: templates/database/qbe/selection_form.twig:54
 #, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
 msgstr "Pridať/Odobrať riadky s kritériami"
 
 #: templates/database/qbe/selection_form.twig:67
 #, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
 msgstr "Pridať/Odobrať stĺpce"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
 #, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Použiť tabuľky"
 
@@ -14944,9 +14667,6 @@ msgstr "Je deterministický"
 
 #: templates/database/routines/editor_form.twig:131
 #, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
@@ -14969,7 +14689,6 @@ msgstr ""
 
 #: templates/database/routines/index.twig:33
 #, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
 msgstr "Vytvoriť verziu"
 
@@ -15033,8 +14752,6 @@ msgstr[2] "%1$s výskytov v <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>Celkovo:</b> <i>%s</i> výskyt"
@@ -15072,7 +14789,6 @@ msgstr "Zvoliť neoptimálne"
 
 #: templates/database/structure/check_all_tables.twig:10
 #, fuzzy
-#| msgid "No tables"
 msgid "Copy table"
 msgstr "Žiadne tabuľky"
 
@@ -15170,7 +14886,6 @@ msgstr ""
 
 #: templates/database/structure/copy_form.twig:14
 #, fuzzy
-#| msgid "Options"
 msgid "Options:"
 msgstr "Nastavenia"
 
@@ -15306,7 +15021,6 @@ msgstr "Čas"
 
 #: templates/database/triggers/list.twig:27
 #, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
 msgstr "Vytvoriť relaciu"
 
@@ -15333,14 +15047,12 @@ msgstr "Všetko"
 
 #: templates/display/results/table.twig:70
 #, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
 msgstr "Zoradiť podľa kľúča"
 
 #: templates/display/results/table.twig:119
 #: templates/table/search/index.twig:102
 #, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
 msgstr "Návratové možnosti"
 
@@ -15350,7 +15062,6 @@ msgstr "Relačný kľúč"
 
 #: templates/display/results/table.twig:145
 #, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Zobraziť stĺpec so vzťahmi"
 
@@ -15460,7 +15171,6 @@ msgstr "Aktualizovať"
 
 #: templates/export.twig:53
 #, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
@@ -15498,7 +15208,6 @@ msgstr "Výstup:"
 
 #: templates/export.twig:165 templates/export.twig:346
 #, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Uložiť na server do adresára <b>%s</b>"
 
@@ -15513,7 +15222,6 @@ msgstr ""
 #: templates/export.twig:206 templates/export.twig:220
 #: templates/export.twig:233 templates/export.twig:250
 #, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
 msgstr "Vzdialený server"
 
@@ -15523,13 +15231,11 @@ msgstr ""
 
 #: templates/export.twig:264
 #, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
 msgstr "Zvoľte databázu"
 
 #: templates/export.twig:278
 #, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
 msgstr "Zvoľte tabuľku"
 
@@ -15539,7 +15245,6 @@ msgstr "Nové meno tabuľky"
 
 #: templates/export.twig:292
 #, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
 msgstr "Zvoľte stĺpec."
 
@@ -15557,11 +15262,6 @@ msgstr "Šablóna pre názov súboru:"
 
 #: templates/export.twig:361
 #, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -15606,7 +15306,6 @@ msgstr "Zobraziť výstup ako text"
 
 #: templates/export.twig:437
 #, fuzzy, php-format
-#| msgid "Skip tables larger than"
 msgid "Skip tables larger than %s MiB"
 msgstr "Preskočiť tabuľky väčšie ako"
 
@@ -15665,7 +15364,6 @@ msgstr "Použíť OpenStreetMap ako základnú vrstvu"
 
 #: templates/gis_data_editor_form.twig:38
 #, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15683,7 +15381,6 @@ msgstr "Bod:"
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
 #, fuzzy, php-format
-#| msgid "Point %d"
 msgid "Point %d:"
 msgstr "Bod %d"
 
@@ -15750,19 +15447,16 @@ msgstr "žiadna vetva"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
 #, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
 msgid "from %s branch"
 msgstr "%1$s z %2$s vetvy"
 
 #: templates/home/git_info.twig:25
 #, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
 msgid "committed on %s by %s"
 msgstr "uložil %2$s dňa %1$s"
 
 #: templates/home/git_info.twig:32
 #, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
 msgid "authored on %s by %s"
 msgstr "autorizoval %2$s dňa %1$s"
 
@@ -15782,7 +15476,6 @@ msgstr "Všeobecné nastavenia"
 
 #: templates/home/index.twig:56
 #, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
 msgstr "Znaková sada pre pripojenie k serveru"
 
@@ -15879,7 +15572,6 @@ msgstr "Licencia"
 
 #: templates/home/index.twig:276
 #, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin domovská stránka"
 
@@ -15889,14 +15581,12 @@ msgstr "Získať viac tém!"
 
 #: templates/home/themes.twig:7
 #, fuzzy, php-format
-#| msgid "Schema of the %s database"
 msgid "Screenshot of the %s theme."
 msgstr "Schéma databázy %s"
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 #, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "zvoliť"
 
@@ -15955,9 +15645,6 @@ msgstr "Súbor môže byť komprimovaný (%s) alebo nekomprimovaný."
 
 #: templates/import.twig:46
 #, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
@@ -15972,7 +15659,6 @@ msgstr "Prechádzať váš počítač:"
 
 #: templates/import.twig:61
 #, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
 msgstr "Prechádzať váš počítač:"
 
@@ -15982,13 +15668,11 @@ msgstr ""
 
 #: templates/import.twig:73 templates/import.twig:103
 #, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Zvoľte súbor z upload adresára <b>%s</b> web servera:"
 
 #: templates/import.twig:79
 #, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
 msgstr "Súbor na importovanie:"
 
@@ -16014,10 +15698,6 @@ msgstr ""
 
 #: templates/import.twig:163
 #, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
@@ -16038,7 +15718,6 @@ msgstr "Ďalšie nastavenia:"
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:480
 #, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
 msgstr "Premenovať na"
 
@@ -16061,16 +15740,12 @@ msgstr "kalendár-mesiac-rok"
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
 #, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "žiadny"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
 #, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
@@ -16298,7 +15973,6 @@ msgstr "Heslo:"
 
 #: templates/login/form.twig:95
 #, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "Voľba servera:"
 
@@ -16322,7 +15996,6 @@ msgstr ""
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
 #, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
 msgstr "Overenie"
 
@@ -16334,7 +16007,6 @@ msgstr ""
 
 #: templates/login/twofactor/invalid.twig:2
 #, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
@@ -16364,7 +16036,6 @@ msgstr ""
 
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
-#| msgid "Views:"
 msgid "View:"
 msgstr "Náhľady:"
 
@@ -16387,7 +16058,6 @@ msgstr "Domov"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 #, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
 msgstr "Vypisujem dáta"
 
@@ -16401,13 +16071,11 @@ msgstr "phpMyAdmin Dokumentácia"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
 msgstr "Dokumentácia"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
 msgstr "Dokumentácia"
 
@@ -16425,7 +16093,6 @@ msgstr ""
 
 #: templates/navigation/main.twig:88
 #, fuzzy
-#| msgid "SQL result"
 msgid "SQL upload"
 msgstr "Výsledok SQL dopytu"
 
@@ -16446,7 +16113,6 @@ msgstr ""
 
 #: templates/preferences/autoload.twig:13
 #, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
 msgstr "Vymazať sledovanie"
 
@@ -16460,7 +16126,6 @@ msgstr "Spravovať svoje nastavenia"
 
 #: templates/preferences/header.twig:12
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
 msgstr "Overenie konfigurácie"
 
@@ -16527,13 +16192,11 @@ msgstr ""
 
 #: templates/preferences/manage/main.twig:81
 #, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "Uložiť ako súbor"
 
 #: templates/preferences/manage/main.twig:85
 #, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "Uložiť ako súbor"
 
@@ -16558,19 +16221,16 @@ msgstr ""
 #: templates/preferences/two_factor/main.twig:57
 #: templates/preferences/two_factor/main.twig:70
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
 msgstr "Overenie konfigurácie"
 
 #: templates/preferences/two_factor/configure.twig:12
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
 msgstr "Overenie konfigurácie"
 
 #: templates/preferences/two_factor/confirm.twig:5
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
 msgstr "Overenie konfigurácie"
 
@@ -16583,13 +16243,11 @@ msgstr ""
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:46
 #, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
 msgstr "Overenie konfigurácie"
 
 #: templates/preferences/two_factor/main.twig:5
 #, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
 msgstr "Nastavenia prihlasovania."
 
@@ -16614,7 +16272,6 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:26
 #, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
@@ -16654,14 +16311,12 @@ msgstr "Vyberte binárny log na zobrazenie"
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
 #, fuzzy
-#| msgid "Truncate Shown Queries"
 msgid "Truncate shown queries"
 msgstr "Zobraziť skrátene dopyty"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
 #, fuzzy
-#| msgid "Show Full Queries"
 msgid "Show full queries"
 msgstr "Zobraziť kompletné dopyty"
 
@@ -16689,13 +16344,11 @@ msgstr "Informácia"
 
 #: templates/server/collations/index.twig:4
 #, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Znakové sady a Zotriedenia"
 
 #: templates/server/collations/index.twig:23
 #, fuzzy
-#| msgid "Default"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Predvolené"
@@ -16710,7 +16363,6 @@ msgstr "Vytvoriť databázu"
 
 #: templates/server/databases/index.twig:50
 #, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
 msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
 
@@ -16727,7 +16379,6 @@ msgstr "Slave replikácia"
 
 #: templates/server/databases/index.twig:181
 #, fuzzy, php-format
-#| msgid "Jump to database"
 msgid "Jump to database '%s'"
 msgstr "Prejsť do databázy"
 
@@ -16759,7 +16410,6 @@ msgstr "Žiadne databázy"
 
 #: templates/server/engines/index.twig:5 templates/server/engines/show.twig:3
 #, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Úložné Systémy"
 
@@ -16769,13 +16419,11 @@ msgstr "Úložný Systém"
 
 #: templates/server/engines/show.twig:45
 #, fuzzy
-#| msgid "Storage Engines"
 msgid "Unknown storage engine."
 msgstr "Úložné Systémy"
 
 #: templates/server/export/index.twig:32
 #, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
 msgstr "Meno servera bude zmenené na @SERVER@"
 
@@ -16805,7 +16453,6 @@ msgstr "Autor"
 
 #: templates/server/plugins/index.twig:41
 #, fuzzy
-#| msgid "active"
 msgid "inactive"
 msgstr "zapnuté"
 
@@ -16815,13 +16462,11 @@ msgstr "vypnuté"
 
 #: templates/server/plugins/index.twig:45
 #, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "Odstraňujem"
 
 #: templates/server/plugins/index.twig:47
 #, fuzzy
-#| msgid "Delete"
 msgid "deleted"
 msgstr "Zmazať"
 
@@ -16839,7 +16484,6 @@ msgstr "Prideliť všetky oprávnenia pomocou masky (používateľ\\_%)."
 
 #: templates/server/privileges/add_user.twig:24
 #, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Prideliť všetky oprávnenia na databázu \"%s\"."
 
@@ -16854,7 +16498,6 @@ msgstr ""
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
 #, fuzzy
-#| msgid "Row length"
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "Dĺžka riadku"
@@ -16878,7 +16521,6 @@ msgstr ""
 
 #: templates/server/privileges/choose_user_group.twig:5
 #, fuzzy
-#| msgid "User groups"
 msgid "User group:"
 msgstr "Užívateľské skupiny"
 
@@ -16915,20 +16557,17 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
 #, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
 msgstr "Umožňuje upravovať a odstraňovať uložené procedúry."
 
 #: templates/server/privileges/edit_routine_privileges.twig:88
 #: templates/server/privileges/edit_routine_privileges.twig:91
 #, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
 msgstr "Umožňuje spúšťať uložené procedúry."
 
 #: templates/server/privileges/initials_row.twig:1
 #, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
 msgstr "Zmeniť prihlasovacie informácie  / Kopírovať účet používateľa"
 
@@ -16979,14 +16618,12 @@ msgstr "Lokálny"
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/master_add_slave_user.twig:37
 #, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Tento počítač"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/master_add_slave_user.twig:39
 #, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Použiť tabuľku s hostiteľmi"
 
@@ -17015,7 +16652,6 @@ msgstr "Nezmeniť heslo"
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/master_add_slave_user.twig:53
 #, fuzzy
-#| msgid "No Password"
 msgid "No password"
 msgstr "Žiadne heslo"
 
@@ -17026,13 +16662,11 @@ msgstr "Potvrdiť"
 
 #: templates/server/privileges/login_information_fields.twig:68
 #, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
 msgstr "Rozšírenie pre prihlasovanie"
 
 #: templates/server/privileges/login_information_fields.twig:70
 #, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Metóda hešovania hesla"
 
@@ -17069,7 +16703,6 @@ msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
 
 #: templates/server/privileges/privileges_summary.twig:86
 #, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
 msgstr "Pridať oprávnenia pre nasledujúcu tabuľku:"
 
@@ -17115,7 +16748,6 @@ msgstr "Povolí pridávanie uživatelov a práv bez znovunačítania tabuliek pr
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
 msgstr "Umožňuje vytvárať uložené procedúry."
 
@@ -17125,7 +16757,6 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:670
 #, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
 msgstr "Nefunguje v tejto verzii MySQL."
 
@@ -17252,7 +16883,6 @@ msgstr "Odstrániť databázy s rovnakým menom ako majú používatelia."
 
 #: templates/server/privileges/users_overview.twig:178
 #, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
 msgstr "Uložiť stránku"
 
@@ -17277,9 +16907,6 @@ msgstr "Port:"
 
 #: templates/server/replication/index.twig:21
 #, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -17289,7 +16916,6 @@ msgstr ""
 
 #: templates/server/replication/index.twig:43
 #, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
 msgstr "Žiadne práva."
 
@@ -17425,9 +17051,6 @@ msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:107
 #, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -17503,31 +17126,26 @@ msgstr "Možné problémy s výkonom"
 
 #: templates/server/status/advisor/index.twig:76
 #, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
 msgstr "Problém"
 
 #: templates/server/status/advisor/index.twig:79
 #, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "Odporúčanie"
 
 #: templates/server/status/advisor/index.twig:82
 #, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
 msgstr "Zdôvodnenie"
 
 #: templates/server/status/advisor/index.twig:85
 #, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
 msgstr "Použitá premenná / vzorec"
 
 #: templates/server/status/advisor/index.twig:88
 #, fuzzy
-#| msgid "Test"
 msgid "Test:"
 msgstr "Kontrola"
 
@@ -17575,30 +17193,24 @@ msgstr "Obnovovacia frekvencia"
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
 #, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "%d second"
 msgstr "%d sekunda"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
 #, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "%d seconds"
 msgstr "%d sekunda"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
 #, fuzzy, php-format
-#| msgid "per minute"
 msgid "%d minute"
 msgstr "za minútu"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
 #, fuzzy, php-format
-#| msgid "per minute"
 msgid "%d minutes"
 msgstr "za minútu"
 
@@ -17756,7 +17368,6 @@ msgstr ""
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
 #, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
 msgstr "Dopytov od spustenia: %s"
 
@@ -17785,7 +17396,6 @@ msgstr "#"
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 #, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
 msgstr "za hodinu"
 
@@ -17891,7 +17501,6 @@ msgstr "Záložky pre prácu s tabuľkami"
 
 #: templates/server/user_groups/user_groups.twig:50
 #, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
 msgstr "Upraviť užívateľské skupiny"
 
@@ -17932,7 +17541,6 @@ msgstr "Konfiguračný súbor"
 
 #: templates/setup/config/index.twig:16
 #, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
@@ -17962,7 +17570,6 @@ msgstr "Zobraziť formulár"
 
 #: templates/setup/home/index.twig:23
 #, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
 msgstr "Zobraziť skryté položky"
 
@@ -18065,7 +17672,6 @@ msgstr ""
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:51
 #, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "Chybné parametre!"
 
@@ -18091,7 +17697,6 @@ msgstr ""
 
 #: templates/sql/query.twig:160
 #, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "Záložka"
 
@@ -18109,7 +17714,6 @@ msgstr "Použiť túto hodnotu"
 
 #: templates/table/chart/tbl_chart.twig:10
 #, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
 msgstr "Názov grafu"
 
@@ -18159,7 +17763,6 @@ msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:51
 #, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
 msgstr "Názov grafu"
 
@@ -18193,13 +17796,11 @@ msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:116
 #, fuzzy
-#| msgid "Inside column:"
 msgid "Series column:"
 msgstr "V tabuľke:"
 
 #: templates/table/chart/tbl_chart.twig:126
 #, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
 msgstr "Hodnoty pre pole %s"
 
@@ -18209,7 +17810,6 @@ msgstr "Uložiť graf ako obrázok"
 
 #: templates/table/export/index.twig:12
 #, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
@@ -18298,7 +17898,6 @@ msgstr "Výber indexu:"
 
 #: templates/table/index_form.twig:54
 #, fuzzy
-#| msgid "Active options"
 msgid "Advanced options"
 msgstr "Zapnuté parametre"
 
@@ -18356,8 +17955,6 @@ msgstr "Upraviť nasledujúci riadok"
 
 #: templates/table/insert/actions_panel.twig:32
 #, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
@@ -18370,7 +17967,6 @@ msgstr "Binárny"
 
 #: templates/table/insert/column_row.twig:30
 #, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
 msgstr "Hodnota pre pole \"%s\""
 
@@ -18394,7 +17990,6 @@ msgstr ""
 
 #: templates/table/maintenance/checksum.twig:13
 #, fuzzy
-#| msgid "Check"
 msgid "Checksum"
 msgstr "Skontrolovať"
 
@@ -18404,14 +17999,12 @@ msgstr "Zmeniť poradie tabuľky podľa"
 
 #: templates/table/operations/index.twig:20
 #, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(po jednom)"
 
 #: templates/table/operations/index.twig:50
 #, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
 msgstr "Presunúť tabuľku do (databáza<b>.</b>tabuľka)"
 
@@ -18433,7 +18026,6 @@ msgstr ""
 
 #: templates/table/operations/index.twig:251
 #, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
 msgstr "Skopírovať tabuľku do (databáza<b>.</b>tabuľka)"
 
@@ -18460,7 +18052,6 @@ msgstr "Vyprázdniť tabuľku  (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
 #, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
 msgstr "Vyprázdniť tabuľku  (TRUNCATE)"
 
@@ -18479,7 +18070,6 @@ msgstr ""
 
 #: templates/table/operations/index.twig:510
 #, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
 msgstr "Skontrolovať referenčnú integritu:"
 
@@ -18497,45 +18087,36 @@ msgstr "Zobrazenie relácii"
 
 #: templates/table/partition/analyze.twig:2
 #, fuzzy
-#| msgid "Position"
 msgid "Analyze partition"
 msgstr "Pozícia"
 
 #: templates/table/partition/check.twig:2
 #, fuzzy
-#| msgid "Position"
 msgid "Check partition"
 msgstr "Pozícia"
 
 #: templates/table/partition/drop.twig:2
 #, fuzzy
-#| msgid "Position"
 msgid "Drop partition"
 msgstr "Pozícia"
 
 #: templates/table/partition/optimize.twig:2
 #, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Edit inline"
 msgid "Optimize partition"
 msgstr "Upraviť v riadku"
 
 #: templates/table/partition/rebuild.twig:2
 #, fuzzy
-#| msgid "Position"
 msgid "Rebuild partition"
 msgstr "Pozícia"
 
 #: templates/table/partition/repair.twig:2
 #, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Edit inline"
 msgid "Repair partition"
 msgstr "Upraviť v riadku"
 
 #: templates/table/partition/truncate.twig:2
 #, fuzzy
-#| msgid "Position"
 msgid "Truncate partition"
 msgstr "Pozícia"
 
@@ -18578,7 +18159,6 @@ msgstr "+ Pridať obmedzenie"
 #: templates/table/relation/common_form.twig:106
 #: templates/table/relation/common_form.twig:114
 #, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Interné vzťahy"
 
@@ -18648,7 +18228,6 @@ msgstr "Oddiely"
 
 #: templates/table/structure/display_partitions.twig:8
 #, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
 msgstr "Nebol definovaný žiadny index!"
 
@@ -18662,7 +18241,6 @@ msgstr ""
 
 #: templates/table/structure/display_partitions.twig:29
 #, fuzzy
-#| msgid "Row length"
 msgid "Data length"
 msgstr "Dĺžka riadku"
 
@@ -18672,21 +18250,17 @@ msgstr "Dĺžka kľúča"
 
 #: templates/table/structure/display_partitions.twig:194
 #, fuzzy
-#| msgid "Position"
 msgid "Partition table"
 msgstr "Pozícia"
 
 #: templates/table/structure/display_partitions.twig:206
 #: templates/table/structure/partition_definition_form.twig:5
 #, fuzzy
-#| msgctxt "Inline edit query"
-#| msgid "Edit inline"
 msgid "Edit partitioning"
 msgstr "Upraviť v riadku"
 
 #: templates/table/structure/display_structure.twig:71
 #, fuzzy
-#| msgid "MIME type"
 msgid "Media type:"
 msgstr "MIME typ"
 
@@ -18771,7 +18345,6 @@ msgstr "na začiatku tabuľky"
 
 #: templates/table/structure/display_structure.twig:542
 #, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgid "Create an index on %s columns"
 msgstr "Vytvoriť index na&nbsp;%s&nbsp;stĺpcoch"
 
@@ -18837,7 +18410,6 @@ msgstr ""
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -18883,7 +18455,6 @@ msgstr "Zrušiť zoom"
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
 #, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
 msgstr "Navigačná lišta tabuľky"
 
@@ -18894,7 +18465,6 @@ msgstr ""
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
-#| msgid "Available MIME types"
 msgid "Available media types"
 msgstr "Dostupné MIME typy"
 
@@ -18905,7 +18475,6 @@ msgstr "Dostupné transformácie pre zobrazenie"
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
 #, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "Popis"
@@ -18924,9 +18493,13 @@ msgstr "Názvy stĺpcov"
 
 #: url.php:76
 #, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "Vezmeme vás na ďalší krok…"
+
+#: libraries/classes/Plugins/TwoFactor/Key.php:213
+msgid ""
+"Provides authentication using hardware security tokens supporting FIDO U2F."
+msgstr ""
 
 #~ msgid "Could not load default configuration from: %1$s"
 #~ msgstr "Nepodarilo sa načítať prednastavenú konfiguráciu zo súboru: %1$s"
@@ -18956,8 +18529,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Nebola nájdená platná cesta ku vzhľadu %s!"
 
 #, fuzzy
-#~| msgctxt "Create new column"
-#~| msgid "New"
 #~ msgctxt "Create new routine"
 #~ msgid "New"
 #~ msgstr "Nový"
@@ -18992,7 +18563,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 
 #, fuzzy
-#~| msgid "Create User"
 #~ msgid "Create %s"
 #~ msgstr "Vytvoriť uživateľa"
 
@@ -19011,7 +18581,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Boli ste neaktívni viac ako %s sekúnd, prihláste sa prosím znovu."
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a routine"
 #~ msgid "You do not have the necessary privileges to create a routine."
 #~ msgstr "Nemáte potrebné oprávnenia na vytvorenie rutiny"
 
@@ -19019,7 +18588,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "spúšťač"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a trigger"
 #~ msgid "You do not have the necessary privileges to create a trigger."
 #~ msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera"
 
@@ -19027,7 +18595,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "udalosť"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create an event"
 #~ msgid "You do not have the necessary privileges to create an event."
 #~ msgstr "Nemáte potrebné oprávnenia na vytvorenie udalosti"
 
@@ -19055,7 +18622,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Použiť tabuľku s hostiteľmi"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Popis"
@@ -19071,8 +18637,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Zobraz skryté správy (#MSG_COUNT)"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d sekunda"
@@ -19080,8 +18644,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr[2] "%d sekúnd"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "%d minúta"
@@ -19095,7 +18657,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Zobraziť kompletné dopyty"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "Žiadne databázy"
@@ -19103,10 +18664,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr[2] "Žiadne databázy"
 
 #, fuzzy
-#~| msgid ""
-#~| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#~| "option is incompatible with phpMyAdmin and might cause some data to be "
-#~| "corrupted!"
 #~ msgid ""
 #~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
 #~ "incompatible with phpMyAdmin!"
@@ -19124,7 +18681,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Prehľadať výsledky na \"<i>%s</i>\" %s:"
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "Text"
@@ -19142,7 +18698,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Prispôsobiť hlavný panel"
 
 #, fuzzy
-#~| msgid "unknown"
 #~ msgid "Unknonwn"
 #~ msgstr "neznámy"
 
@@ -19150,7 +18705,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Globálna hodnota"
 
 #, fuzzy
-#~| msgid "Right"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Vpravo"
@@ -19177,17 +18731,14 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Tradičná Španielčina"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Zotriedenie"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "nerozlišovať veľké a malé písmená"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "rozlišovať veľké a malé písmená"
 
@@ -19228,7 +18779,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Záťaž"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Názvy stĺpcov"
 
@@ -19236,12 +18786,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Nerozpoznaná aktualizačná operácia."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected keyword."
 #~ msgstr "Neočakávané znaky na riadku %s."
 
 #, fuzzy
-#~| msgid "Variable name was expected."
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Očakávalo sa meno premennej."
 
@@ -19255,7 +18803,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Bol očakávaný výraz."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "Udalosť %1$s bola vytvorená."
 
@@ -19272,7 +18819,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Neočakávaný znak."
 
 #, fuzzy
-#~| msgid "Event %1$s has been created."
 #~ msgid "Ending quote %1$s was expected."
 #~ msgstr "Udalosť %1$s bola vytvorená."
 
@@ -19283,22 +18829,18 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Neočakávaný začiatok výrazu."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "Neočakávané znaky na riadku %s."
 
 #, fuzzy
-#~| msgid "Unexpected beginning of statement."
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "Neočakávaný začiatok výrazu."
 
 #, fuzzy
-#~| msgid "The number of tables that are open."
 #~ msgid "The name of the entity was expected."
 #~ msgstr "Počet práve otvorených tabuliek."
 
 #, fuzzy
-#~| msgid "Variable name was expected."
 #~ msgid "A table name was expected."
 #~ msgstr "Očakávalo sa meno premennej."
 
@@ -19306,12 +18848,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Očakávala sa aspoň jedna definícia stĺpca."
 
 #, fuzzy
-#~| msgid "Error"
 #~ msgid "error #1"
 #~ msgstr "Chyba"
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "Zbierať chyby"
 
@@ -19495,7 +19035,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Smerujem ťa na %s."
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Overenie"
 
@@ -19682,7 +19221,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Vypnúť kontrolu cudzích kľúčov"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Načítavam oprávnenia"
 
@@ -19720,7 +19258,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Odstrániť všetky informácie o sledovaní tejto tabuľky"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "Štruktúra tabuľky"
 
@@ -19734,7 +19271,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgid "Inline"
 #~ msgstr "Upraviť tu"
 
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "po"
 
@@ -19753,9 +19289,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgid "Default display direction"
 #~ msgstr "Východzí smer zobrazovania"
 
-#~| msgid ""
-#~| "Defines whether or not type display direction option is shown when "
-#~| "browsing a table"
 #~ msgid ""
 #~ "Defines whether or not type display direction option is shown when "
 #~ "browsing a table."
@@ -19778,17 +19311,14 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Zobraziť chyby"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "Chybný typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "Chybný typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "Chybný typ exportu"
 
@@ -19802,7 +19332,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Upraviť v okne"
 
 #, fuzzy
-#~| msgid "Tab displayed when opening a new query window"
 #~ msgid "Tab displayed when opening a new query window."
 #~ msgstr "Zobrazený panel pri otvorení nového okna dopytov"
 
@@ -19810,7 +19339,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Východzí panel okna dopytov"
 
 #, fuzzy
-#~| msgid "Query window height (in pixels)"
 #~ msgid "Query window height (in pixels)."
 #~ msgstr "Výška okna dopytov (v pixeloch)"
 
@@ -19818,7 +19346,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Výška okna dopytov"
 
 #, fuzzy
-#~| msgid "Query window width (in pixels)"
 #~ msgid "Query window width (in pixels)."
 #~ msgstr "Šírka okna dopytov (v pixeloch)"
 
@@ -19841,12 +19368,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Súbor neexistuje"
 
 #, fuzzy
-#~| msgid "SQL Validator is disabled"
 #~ msgid "Plugin is disabled"
 #~ msgstr "SQL validátor je vypnutý"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Prispôsobiť hlavný panel"
 
@@ -19854,47 +19379,38 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Nebol definovaný žiadny index! Vytvorte ho nižšie"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Typ exportu"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Chybný typ exportu"
 
 #, fuzzy
-#~| msgid "Click to sort."
 #~ msgid "Click to sort"
 #~ msgstr "Kliknite pre zoradenie."
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "Celkom"
 
 #, fuzzy
-#~| msgid "New bookmark"
 #~ msgid " bookmarks, "
 #~ msgstr "Nová záložka"
 
 #, fuzzy
-#~| msgid "Select two columns"
 #~ msgid "Select one ..."
 #~ msgstr "Zvoľte dva stĺpce"
 
 #, fuzzy
-#~| msgid "Add unique index"
 #~ msgid "Add unique/primary index"
 #~ msgstr "Pridať unikátny index"
 
 #, fuzzy
-#~| msgid "Move columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Presunúť stĺpce"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "Používateľ %s už existuje!"
 
@@ -19927,9 +19443,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Tabuľka <b>%s</b> nebola nájdená alebo nie je nastavená v %s"
 
 #, fuzzy
-#~| msgid ""
-#~| "Disable the default warning that is displayed if mcrypt is missing for "
-#~| "cookie authentication"
 #~ msgid ""
 #~ "Disable the default warning that is displayed if mcrypt is missing for "
 #~ "[kbd]cookie[/kbd] authentication."
@@ -19944,7 +19457,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Tabuľka návrhára"
 
 #, fuzzy
-#~| msgid "Import/Export coordinates for PDF schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "Import/Export koordináty pre PDF schému"
 
@@ -19952,7 +19464,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Stránka bola vytvorená."
 
 #, fuzzy
-#~| msgid "PBMS connection failed:"
 #~ msgid "Page creation has failed!"
 #~ msgstr "Pripojenie k PBMS zlyhalo:"
 
@@ -19960,12 +19471,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Stránka:"
 
 #, fuzzy
-#~| msgid "Import from selected page"
 #~ msgid "Import from selected page."
 #~ msgstr "Importovať zo zvolenej stránky"
 
 #, fuzzy
-#~| msgid "Export to selected page"
 #~ msgid "Export/Import to scale:"
 #~ msgstr "Exportovať na zvolenú stránku"
 
@@ -19995,7 +19504,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ "bezpečnostných nastavení."
 
 #, fuzzy
-#~| msgid "Show binary contents as HEX by default"
 #~ msgid "Show binary contents as HEX by default."
 #~ msgstr "Zobrazenie binárneho obsahu štandardne v HEX formáte"
 
@@ -20027,14 +19535,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #, fuzzy
-#~| msgid "Requires SQL Validator to be enabled"
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Vyžaduje povolené kontrolovanie SQL"
 
 #, fuzzy
-#~| msgid ""
-#~| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-#~| "installed"
 #~ msgid ""
 #~ "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #~ "installed."
@@ -20043,9 +19547,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ "alebo PEAR SOAP"
 
 #, fuzzy
-#~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
 #~ "If you have a custom username, specify it here (defaults to "
 #~ "[kbd]anonymous[/kbd])."
@@ -20066,7 +19567,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ "%sdocumentation%s."
 
 #, fuzzy
-#~| msgid "Copy"
 #~ msgid "Copy Salt"
 #~ msgstr "Kopírovať"
 
@@ -20075,9 +19575,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "<b>Pri spracovaní požiadavky došlo k niekoľkým chybám:</b>"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__users[/kbd]."
@@ -20086,9 +19583,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ "v databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: "
-#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -20161,17 +19655,14 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "SHOW DATABASES príkaz"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy url"
 #~ msgstr "Kontrola verzie"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy username"
 #~ msgstr "Kontrola verzie"
 
 #, fuzzy
-#~| msgid "Version check"
 #~ msgid "Version check proxy password"
 #~ msgstr "Kontrola verzie"
 
@@ -20188,7 +19679,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Upraviť dopyt na tejto stránke"
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "Nájdi:"
 
@@ -20199,7 +19689,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Opakovať hlavičku každých %s riadkov"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Hľadať v tabuľke"
 
@@ -20226,7 +19715,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Tabuľka vyzerá prázdna!"
 
 #, fuzzy
-#~| msgid "General relation features"
 #~ msgid "General relation features:"
 #~ msgstr "Možnosti všeobecných vzťahov"
 
@@ -20391,12 +19879,10 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "en"
 
 #, fuzzy
-#~| msgid "Do you really want to "
 #~ msgid "Do you really want to execute following query?"
 #~ msgstr "Skutočne chcete vykonať príkaz "
 
 #, fuzzy
-#~| msgid "Privileges"
 #~ msgid "Privileges for all users"
 #~ msgstr "Oprávnenia"
 
@@ -20431,7 +19917,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Reťazce boli pre vykreslenie prevedené na čísla"
 
 #, fuzzy
-#~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Linka"
 
@@ -20445,7 +19930,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Zobraziť tlačidlo nápovedy"
 
 #, fuzzy
-#~| msgid "Textarea columns"
 #~ msgid "The remaining columns"
 #~ msgstr "Stĺpce s textovou oblasťou"
 
@@ -20453,7 +19937,6 @@ msgstr "Vezmeme vás na ďalší krok…"
 #~ msgstr "Podrobné viacprvkové dopyty"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Iba dáta"
 
