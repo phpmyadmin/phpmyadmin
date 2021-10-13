@@ -52,6 +52,13 @@ class LanguageManager
             'ar|arabic',
             'ar_AE',
         ),
+        'ar_ly' => array(
+            'ar_LY',
+            'Arabic (Libya)',
+            'ليبي',
+            'ar[_-]ly|arabic (libya)|libian arabic',
+            'ar_LY',
+        ),
         'az' => array(
             'az',
             'Azerbaijani',
@@ -500,6 +507,13 @@ class LanguageManager
             'pt|portuguese',
             'pt_PT',
         ),
+        'rcf' => array(
+            'rcf',
+            'R&eacute;union Creole',
+            'Kr&eacute;ol',
+            'rcf|creole (reunion)',
+            '',
+        ),
         'ro' => array(
             'ro',
             'Romanian',
@@ -603,6 +617,13 @@ class LanguageManager
             'Tatarish',
             'Tatar&ccedil;a',
             'tt|tatarish',
+            '',
+        ),
+        'tzm' => array(
+            'tzm',
+            'Central Atlas Tamazight',
+            'Tamaziɣt',
+            'tzm|central atlas tamazight',
             '',
         ),
         'ug' => array(
