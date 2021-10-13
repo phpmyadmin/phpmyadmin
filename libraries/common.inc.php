@@ -43,6 +43,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -130,6 +131,17 @@ $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
  */
 if (! defined('PMA_NO_SESSION')) {
     Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
+}
+
+if (isset($_GET['eq']) && is_string($_GET['eq'])) {
+    $decryptedQuery = Url::decryptQuery($_GET['eq']);
+    if ($decryptedQuery !== null) {
+        parse_str($decryptedQuery, $urlQueryParams);
+        foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
+            $_GET[$urlQueryParamKey] = $urlQueryParamValue;
+            $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;
+        }
+    }
 }
 
 /**
