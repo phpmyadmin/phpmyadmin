@@ -43,6 +43,7 @@ class NavigationTreeTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';

@@ -7,8 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use phpseclib\Crypt\AES;
-use phpseclib\Crypt\Random;
+use PhpMyAdmin\Crypto\Crypto;
 
 /**
  * Static methods for URL/hidden inputs generating
@@ -223,7 +222,7 @@ class Url
 
         $query = http_build_query($params, null, $separator);
 
-        if (isset($params['db'])) {
+        if ($PMA_Config->get('URLQueryEncryption') && isset($params['db'])) {
             $encryptedQuery = self::encryptQuery($query);
             $query = http_build_query(['eq' => $encryptedQuery], null, $separator);
         }
@@ -241,17 +240,7 @@ class Url
      */
     public static function encryptQuery($query)
     {
-        global $PMA_Config;
-
-        $key = $_SESSION[' HMAC_secret '] . $PMA_Config->get('blowfish_secret');
-        $cipher = new AES(AES::MODE_CBC);
-        $iv = Random::string(16);
-        $cipher->setIV($iv);
-        $cipher->setKey($key);
-        $ciphertext = $cipher->encrypt($query);
-        $hmac = hash_hmac('sha256', $iv . $ciphertext, $key, true);
-
-        return strtr(base64_encode($hmac . $iv . $ciphertext), '+/', '-_');
+        return strtr(base64_encode(Crypto::encrypt($query)), '+/', '-_');
     }
 
     /**
@@ -260,24 +249,7 @@ class Url
      */
     public static function decryptQuery($query)
     {
-        global $PMA_Config;
-
-        $encryptedQuery = base64_decode(strtr($query, '-_', '+/'));
-        $hmac = mb_substr($encryptedQuery, 0, 32, '8bit');
-        $iv = mb_substr($encryptedQuery, 32, 16, '8bit');
-        $ciphertext = mb_substr($encryptedQuery, 48, null, '8bit');
-        $key = $_SESSION[' HMAC_secret '] . $PMA_Config->get('blowfish_secret');
-        $calculated = hash_hmac('sha256', $iv . $ciphertext, $key, true);
-
-        if (! hash_equals($hmac, $calculated)) {
-            return null;
-        }
-
-        $cipher = new AES(AES::MODE_CBC);
-        $cipher->setIV($iv);
-        $cipher->setKey($key);
-
-        return $cipher->decrypt($ciphertext);
+        return Crypto::decrypt(base64_decode(strtr($query, '-_', '+/')));
     }
 
     /**

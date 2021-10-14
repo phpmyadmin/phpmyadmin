@@ -62,6 +62,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
 
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
     }

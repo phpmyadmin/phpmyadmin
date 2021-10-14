@@ -818,6 +818,13 @@ $cfg['UseDbSearch'] = true;
 $cfg['IgnoreMultiSubmitErrors'] = false;
 
 /**
+ * Define whether phpMyAdmin will encrypt sensitive data from the URL query string.
+ *
+ * @global bool $cfg['URLQueryEncryption']
+ */
+$cfg['URLQueryEncryption'] = true;
+
+/**
  * allow login to any user entered server in cookie based authentication
  *
  * @global boolean $cfg['AllowArbitraryServer']

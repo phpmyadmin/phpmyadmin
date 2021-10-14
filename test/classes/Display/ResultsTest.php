@@ -44,6 +44,7 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $this->object = new DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->set('URLQueryEncryption', false);
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $_SESSION[' HMAC_secret '] = 'test';

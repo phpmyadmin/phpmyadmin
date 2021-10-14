@@ -65,7 +65,7 @@
         "samyoul/u2f-php-server": "<1.1"
     },
     "suggest": {
-        "ext-openssl": "Cookie encryption",
+        "ext-openssl": "For encryption performance",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",

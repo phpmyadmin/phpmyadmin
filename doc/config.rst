@@ -1736,6 +1736,17 @@ Generic settings
     Define whether phpMyAdmin will continue executing a multi-query
     statement if one of the queries fails. Default is to abort execution.
 
+.. config:option:: $cfg['URLQueryEncryption']
+
+    :type: boolean
+    :default: true
+
+    .. versionadded:: 4.9.8
+
+    Define whether phpMyAdmin will encrypt sensitive data (like database name
+    and table name) from the URL query string. Default is to encrypt the URL
+    query string.
+
 Cookie authentication options
 -----------------------------
 
