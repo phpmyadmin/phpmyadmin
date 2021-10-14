@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-10-10 00:10+0000\n"
-"PO-Revision-Date: 2021-09-27 02:36+0000\n"
+"PO-Revision-Date: 2021-10-15 01:55+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -11728,15 +11728,15 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr "JSONの構文を強調するCodemirrorエディタ。"
+msgstr "JSONの構文を強調するCodeMirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr "SQLの構文を強調するCodemirrorエディタ。"
+msgstr "SQLの構文を強調するCodeMirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr "XML(またHTML)の構文を強調するCodemirrorエディタ。"
+msgstr "XML(およびHTML)の構文を強調するCodeMirrorエディタ。"
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:29
 msgid ""
@@ -11771,16 +11771,10 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "ハードウェアセキュリティキー (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
-msgstr ""
-"FIDO U2Fをサポートするハードウェアセキュリティトークンを使用して認証を行いま"
-"す。"
+msgstr "YubikeyなどのFIDO U2Fをサポートするハードウェアセキュリティトークンを使用して認証を行います。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
