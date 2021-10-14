@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-09-29 09:56+0000\n"
+"PO-Revision-Date: 2021-10-15 01:55+0000\n"
 "Last-Translator: hugyik <seniorhugyik@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hu/>\n"
@@ -15411,8 +15411,8 @@ msgstr[1] "%1$s találat ebben: <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Összesen:<strong> <em>%</em> egyezés"
-msgstr[1] "<strong>Összesen:<strong> <em>%</em> egyezések"
+msgstr[0] "<strong>Összesen:</strong> <em>%count% </em> egyezés"
+msgstr[1] "<strong>Összesen:</strong> <em>%count% </em> egyezés"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
