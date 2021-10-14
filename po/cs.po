@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-10-10 00:10+0000\n"
-"PO-Revision-Date: 2021-09-14 18:33+0000\n"
+"PO-Revision-Date: 2021-10-15 01:55+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -11810,16 +11810,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
 msgstr ""
 "Poskytuje ověření pomocí hardwarových bezpečnostních tokenů podporujících "
-"FIDO U2F."
+"FIDO U2F, například Yubikey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
