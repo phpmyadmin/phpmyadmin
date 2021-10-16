@@ -136,7 +136,7 @@ if (! defined('PMA_NO_SESSION')) {
 if (isset($_GET['eq']) && is_string($_GET['eq'])) {
     $decryptedQuery = Url::decryptQuery($_GET['eq']);
     if ($decryptedQuery !== null) {
-        parse_str($decryptedQuery, $urlQueryParams);
+        $urlQueryParams = json_decode($decryptedQuery);
         foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
             $_GET[$urlQueryParamKey] = $urlQueryParamValue;
             $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;

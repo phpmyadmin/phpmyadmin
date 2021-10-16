@@ -205,7 +205,6 @@ class Url
     {
         /** @var Config $PMA_Config */
         global $PMA_Config;
-        $separator = Url::getArgSeparator();
 
         // avoid overwriting when creating navi panel links to servers
         if (isset($GLOBALS['server'])
@@ -220,18 +219,59 @@ class Url
             $params['lang'] = $GLOBALS['lang'];
         }
 
-        $query = http_build_query($params, null, $separator);
-
-        if ($PMA_Config->get('URLQueryEncryption') && isset($params['db'])) {
-            $encryptedQuery = self::encryptQuery($query);
-            $query = http_build_query(['eq' => $encryptedQuery], null, $separator);
-        }
+        $query = self::buildHttpQuery($params);
 
         if ($divider != '?' || strlen($query) > 0) {
             return $divider . $query;
         }
 
         return '';
+    }
+
+    /**
+     * @param array<string, mixed> $params
+     * @return string
+     */
+    private static function buildHttpQuery($params)
+    {
+        global $PMA_Config;
+
+        $separator = self::getArgSeparator();
+
+        if (! $PMA_Config->get('URLQueryEncryption')) {
+            return http_build_query($params, null, $separator);
+        }
+
+        $data = $params;
+        $keys = [
+            'db',
+            'table',
+            'sql_query',
+            'sql_signature',
+            'where_clause',
+            'goto',
+            'back',
+            'message_to_show',
+            'username',
+            'hostname',
+            'dbname',
+            'tablename',
+            'checkprivsdb',
+            'checkprivstable',
+        ];
+        $paramsToEncrypt = [];
+        foreach ($params as $paramKey => $paramValue) {
+            if (! in_array($paramKey, $keys)) {
+                continue;
+            }
+
+            $paramsToEncrypt[$paramKey] = $paramValue;
+            unset($data[$paramKey]);
+        }
+
+        $data['eq'] = self::encryptQuery(json_encode($paramsToEncrypt));
+
+        return http_build_query($data, null, $separator);
     }
 
     /**
