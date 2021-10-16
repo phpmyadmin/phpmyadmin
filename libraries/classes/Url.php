@@ -240,7 +240,9 @@ class Url
      */
     public static function encryptQuery($query)
     {
-        return strtr(base64_encode(Crypto::encrypt($query)), '+/', '-_');
+        $crypto = new Crypto();
+
+        return strtr(base64_encode($crypto->encrypt($query)), '+/', '-_');
     }
 
     /**
@@ -249,7 +251,9 @@ class Url
      */
     public static function decryptQuery($query)
     {
-        return Crypto::decrypt(base64_decode(strtr($query, '-_', '+/')));
+        $crypto = new Crypto();
+
+        return $crypto->decrypt(base64_decode(strtr($query, '-_', '+/')));
     }
 
     /**

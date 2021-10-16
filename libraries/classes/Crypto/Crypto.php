@@ -7,14 +7,34 @@ use phpseclib\Crypt\Random;
 
 final class Crypto
 {
+    /** @var bool */
+    private $hasRandomBytesSupport;
+
+    /** @var bool */
+    private $hasSodiumSupport;
+
+    public function __construct()
+    {
+        $this->hasRandomBytesSupport = is_callable('random_bytes');
+        $this->hasSodiumSupport = $this->hasRandomBytesSupport
+            && is_callable('sodium_crypto_secretbox')
+            && is_callable('sodium_crypto_secretbox_open')
+            && defined('SODIUM_CRYPTO_SECRETBOX_NONCEBYTES')
+            && defined('SODIUM_CRYPTO_SECRETBOX_KEYBYTES');
+    }
+
     /**
      * @param string $plaintext
      *
      * @return string
      */
-    public static function encrypt($plaintext)
+    public function encrypt($plaintext)
     {
-        return self::encryptWithPhpseclib($plaintext);
+        if ($this->hasSodiumSupport) {
+            return $this->encryptWithSodium($plaintext);
+        }
+
+        return $this->encryptWithPhpseclib($plaintext);
     }
 
     /**
@@ -22,9 +42,38 @@ final class Crypto
      *
      * @return string
      */
-    public static function decrypt($ciphertext)
+    public function decrypt($ciphertext)
     {
-        return self::decryptWithPhpseclib($ciphertext);
+        if ($this->hasSodiumSupport) {
+            return $this->decryptWithSodium($ciphertext);
+        }
+
+        return $this->decryptWithPhpseclib($ciphertext);
+    }
+
+    /**
+     * @return string
+     */
+    private function getEncryptionKey()
+    {
+        global $PMA_Config;
+
+        $keyLength = $this->hasSodiumSupport ? SODIUM_CRYPTO_SECRETBOX_KEYBYTES : 32;
+
+        $key = $PMA_Config->get('URLQueryEncryptionSecretKey');
+        if (is_string($key) && mb_strlen($key, '8bit') === $keyLength) {
+            return $key;
+        }
+
+        $key = isset($_SESSION['URLQueryEncryptionSecretKey']) ? $_SESSION['URLQueryEncryptionSecretKey'] : null;
+        if (is_string($key) && mb_strlen($key, '8bit') === $keyLength) {
+            return $key;
+        }
+
+        $key = $this->hasRandomBytesSupport ? random_bytes($keyLength) : Random::string($keyLength);
+        $_SESSION['URLQueryEncryptionSecretKey'] = $key;
+
+        return $key;
     }
 
     /**
@@ -32,11 +81,11 @@ final class Crypto
      *
      * @return string
      */
-    private static function encryptWithPhpseclib($plaintext)
+    private function encryptWithPhpseclib($plaintext)
     {
-        $key = self::getEncryptionKey();
+        $key = $this->getEncryptionKey();
         $cipher = new AES(AES::MODE_CBC);
-        $iv = Random::string(16);
+        $iv = $this->hasRandomBytesSupport ? random_bytes(16) : Random::string(16);
         $cipher->setIV($iv);
         $cipher->setKey($key);
         $ciphertext = $cipher->encrypt($plaintext);
@@ -50,9 +99,9 @@ final class Crypto
      *
      * @return string|null
      */
-    private static function decryptWithPhpseclib($encrypted)
+    private function decryptWithPhpseclib($encrypted)
     {
-        $key = self::getEncryptionKey();
+        $key = $this->getEncryptionKey();
         $hmac = mb_substr($encrypted, 0, 32, '8bit');
         $iv = mb_substr($encrypted, 32, 16, '8bit');
         $ciphertext = mb_substr($encrypted, 48, null, '8bit');
@@ -69,12 +118,34 @@ final class Crypto
     }
 
     /**
+     * @param string $plaintext
+     *
      * @return string
      */
-    private static function getEncryptionKey()
+    private function encryptWithSodium($plaintext)
     {
-        global $PMA_Config;
+        $key = $this->getEncryptionKey();
+        $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
+        $ciphertext = sodium_crypto_secretbox($plaintext, $nonce, $key);
 
-        return $_SESSION[' HMAC_secret '] . $PMA_Config->get('blowfish_secret');
+        return $nonce . $ciphertext;
+    }
+
+    /**
+     * @param string $encrypted
+     *
+     * @return string|null
+     */
+    private function decryptWithSodium($encrypted)
+    {
+        $key = $this->getEncryptionKey();
+        $nonce = mb_substr($encrypted, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
+        $ciphertext = mb_substr($encrypted, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
+        $decrypted = sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
+        if ($decrypted === false) {
+            return null;
+        }
+
+        return $decrypted;
     }
 }

@@ -1747,6 +1747,16 @@ Generic settings
     and table name) from the URL query string. Default is to encrypt the URL
     query string.
 
+.. config:option:: $cfg['URLQueryEncryptionSecretKey']
+
+    :type: string
+    :default: ``''``
+
+    .. versionadded:: 4.9.8
+
+    A secret key used to encrypt/decrypt the URL query string.
+    Should be 32 bytes long.
+
 Cookie authentication options
 -----------------------------
 

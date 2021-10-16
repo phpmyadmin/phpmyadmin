@@ -825,6 +825,13 @@ $cfg['IgnoreMultiSubmitErrors'] = false;
 $cfg['URLQueryEncryption'] = true;
 
 /**
+ * A secret key used to encrypt/decrypt the URL query string. Should be 32 bytes long.
+ *
+ * @global string $cfg['URLQueryEncryptionSecretKey']
+ */
+$cfg['URLQueryEncryptionSecretKey'] = '';
+
+/**
  * allow login to any user entered server in cookie based authentication
  *
  * @global boolean $cfg['AllowArbitraryServer']
