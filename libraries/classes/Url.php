@@ -232,7 +232,7 @@ class Url
      * @param array<string, mixed> $params
      * @return string
      */
-    private static function buildHttpQuery($params)
+    public static function buildHttpQuery($params)
     {
         global $PMA_Config;
 
@@ -246,6 +246,7 @@ class Url
         $keys = [
             'db',
             'table',
+            'field',
             'sql_query',
             'sql_signature',
             'where_clause',

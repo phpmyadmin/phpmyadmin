@@ -1156,7 +1156,7 @@ class NavigationTree
                 }
 
                 foreach ($icons as $key => $icon) {
-                    $link = vsprintf($iconLinks[$key], $args);
+                    $link = $this->encryptQueryParams(vsprintf($iconLinks[$key], $args));
                     if ($linkClass != '') {
                         $retval .= "<a class='$linkClass' href='$link'>";
                         $retval .= "{$icon}</a>";
@@ -1174,7 +1174,7 @@ class NavigationTree
                 foreach ($node->parents(true) as $parent) {;
                     $args[] = urlencode($parent->real_name);
                 }
-                $link = vsprintf($node->links['text'], $args);
+                $link = $this->encryptQueryParams(vsprintf($node->links['text'], $args));
                 $title = isset($node->links['title']) ? $node->links['title'] : '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
@@ -1556,5 +1556,24 @@ class NavigationTree
         $retval .= '</div>';
 
         return $retval;
+    }
+
+    /**
+     * @param string $link
+     *
+     * @return string
+     */
+    private function encryptQueryParams($link)
+    {
+        global $PMA_Config;
+
+        if (! $PMA_Config->get('URLQueryEncryption')) {
+            return $link;
+        }
+
+        $url = parse_url($link);
+        parse_str(htmlspecialchars_decode($url['query']), $query);
+
+        return $url['path'] . '?' . Url::buildHttpQuery($query);
     }
 }
