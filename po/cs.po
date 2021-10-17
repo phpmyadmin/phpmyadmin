@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-10 00:10+0000\n"
+"POT-Creation-Date: 2021-10-17 00:10+0000\n"
 "PO-Revision-Date: 2021-10-15 01:55+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -8723,7 +8723,7 @@ msgstr ""
 "Chyba při zpracování požadavku: V databázi %2$s nebyla nalezena žádná "
 "událost s názvem %1$s."
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1090
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8734,20 +8734,20 @@ msgstr ""
 "nastavení konfigurace [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin aktuálně používá výchozí časové pásmo databázového serveru."
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1137
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodařilo se nastavit nakonfigurované kódování pro připojení!"
 
-#: libraries/classes/DatabaseInterface.php:1916
+#: libraries/classes/DatabaseInterface.php:1911
 msgid "Missing connection parameters!"
 msgstr "Chybí parametry připojení!"
 
-#: libraries/classes/DatabaseInterface.php:1941
+#: libraries/classes/DatabaseInterface.php:1936
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Nepodařilo se připojit jako controluser, který je nadefinován v nastaveních."
 
-#: libraries/classes/DatabaseInterface.php:2425
+#: libraries/classes/DatabaseInterface.php:2420
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Více informací naleznete %sv naší dokumentaci%s."

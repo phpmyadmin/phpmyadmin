@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-10 00:10+0000\n"
+"POT-Creation-Date: 2021-10-17 00:10+0000\n"
 "PO-Revision-Date: 2020-08-09 15:50+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -8933,7 +8933,7 @@ msgid ""
 msgstr ""
 "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1090
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8941,23 +8941,23 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1137
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "Dibosupl lenn ar restr keluniañ"
 
-#: libraries/classes/DatabaseInterface.php:1916
+#: libraries/classes/DatabaseInterface.php:1911
 #, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Missing connection parameters!"
 msgstr "Merkañ arventennoù kevreañ ar servijer"
 
-#: libraries/classes/DatabaseInterface.php:1941
+#: libraries/classes/DatabaseInterface.php:1936
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2425
+#: libraries/classes/DatabaseInterface.php:2420
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
