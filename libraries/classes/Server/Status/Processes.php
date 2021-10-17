@@ -141,7 +141,7 @@ class Processes
             }
 
             $retval .= '<th>';
-            $columnUrl = Url::getCommon($column);
+            $columnUrl = Url::getCommon($column, '', false);
             $retval .= '<a href="server_status_processes.php" data-post="' . $columnUrl . '" class="sortlink">';
 
             $retval .= $column['column_name'];
@@ -179,7 +179,7 @@ class Processes
                 if (isset($_POST['sort_order'])) {
                     $url_params['sort_order'] = $_POST['sort_order'];
                 }
-                $retval .= '<a href="server_status_processes.php" data-post="' . Url::getCommon($url_params, '') . '" >';
+                $retval .= '<a href="server_status_processes.php" data-post="' . Url::getCommon($url_params, '', false) . '" >';
                 if ($show_full_sql) {
                     $retval .= Util::getImage('s_partialtext',
                         __('Truncate Shown Queries'), ['class' => 'icon_fulltext']);
@@ -275,7 +275,7 @@ class Processes
 
         $retval  = '<tr>';
         $retval .= '<td><a class="ajax kill_process" href="server_status_processes.php"'
-            . ' data-post="' . Url::getCommon(['kill' => $process['Id']], '') . '">'
+            . ' data-post="' . Url::getCommon(['kill' => $process['Id']], '', false) . '">'
             . __('Kill') . '</a></td>';
         $retval .= '<td class="value">' . $process['Id'] . '</td>';
         $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';

@@ -161,14 +161,15 @@ class Url
      *
      * @param mixed  $params  optional, Contains an associative array with url params
      * @param string $divider optional character to use instead of '?'
+     * @param bool   $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      * @access  public
      */
-    public static function getCommon($params = array(), $divider = '?')
+    public static function getCommon($params = array(), $divider = '?', $encrypt = true)
     {
         return htmlspecialchars(
-            Url::getCommonRaw($params, $divider)
+            Url::getCommonRaw($params, $divider, $encrypt)
         );
     }
 
@@ -197,11 +198,12 @@ class Url
      *
      * @param mixed  $params  optional, Contains an associative array with url params
      * @param string $divider optional character to use instead of '?'
+     * @param bool   $encrypt whether to encrypt URL params
      *
      * @return string   string with URL parameters
      * @access  public
      */
-    public static function getCommonRaw($params = array(), $divider = '?')
+    public static function getCommonRaw($params = array(), $divider = '?', $encrypt = true)
     {
         /** @var Config $PMA_Config */
         global $PMA_Config;
@@ -219,7 +221,7 @@ class Url
             $params['lang'] = $GLOBALS['lang'];
         }
 
-        $query = self::buildHttpQuery($params);
+        $query = self::buildHttpQuery($params, $encrypt);
 
         if ($divider != '?' || strlen($query) > 0) {
             return $divider . $query;
@@ -230,15 +232,17 @@ class Url
 
     /**
      * @param array<string, mixed> $params
+     * @param bool                 $encrypt whether to encrypt URL params
+     *
      * @return string
      */
-    public static function buildHttpQuery($params)
+    public static function buildHttpQuery($params, $encrypt = true)
     {
         global $PMA_Config;
 
         $separator = self::getArgSeparator();
 
-        if (! $PMA_Config->get('URLQueryEncryption')) {
+        if (! $encrypt || ! $PMA_Config->get('URLQueryEncryption')) {
             return http_build_query($params, null, $separator);
         }
 
@@ -279,6 +283,7 @@ class Url
 
     /**
      * @param string $query
+     *
      * @return string
      */
     public static function encryptQuery($query)
@@ -290,6 +295,7 @@ class Url
 
     /**
      * @param string $query
+     *
      * @return string|null
      */
     public static function decryptQuery($query)

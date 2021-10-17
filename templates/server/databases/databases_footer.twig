@@ -67,7 +67,7 @@
     {{ Message_notice('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
     <ul>
         <li class="li_switch_dbstats">
-            <a href="server_databases.php" data-post="{{ Url_getCommon({'dbstats': '1'}, '') }}" title="{% trans 'Enable statistics' %}">
+            <a href="server_databases.php" data-post="{{ Url_getCommon({'dbstats': '1'}, '', false) }}" title="{% trans 'Enable statistics' %}">
                 <strong>{% trans 'Enable statistics' %}</strong>
             </a>
         </li>
