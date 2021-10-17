@@ -1574,6 +1574,6 @@ class NavigationTree
         $url = parse_url($link);
         parse_str(htmlspecialchars_decode($url['query']), $query);
 
-        return $url['path'] . '?' . Url::buildHttpQuery($query);
+        return $url['path'] . '?' . htmlspecialchars(Url::buildHttpQuery($query));
     }
 }

@@ -43,7 +43,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -133,16 +132,7 @@ if (! defined('PMA_NO_SESSION')) {
     Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
 }
 
-if (isset($_GET['eq']) && is_string($_GET['eq'])) {
-    $decryptedQuery = Url::decryptQuery($_GET['eq']);
-    if ($decryptedQuery !== null) {
-        $urlQueryParams = json_decode($decryptedQuery);
-        foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
-            $_GET[$urlQueryParamKey] = $urlQueryParamValue;
-            $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;
-        }
-    }
-}
+Core::populateRequestWithEncryptedQueryParams();
 
 /**
  * init some variables LABEL_variables_init

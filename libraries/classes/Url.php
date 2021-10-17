@@ -270,7 +270,9 @@ class Url
             unset($data[$paramKey]);
         }
 
-        $data['eq'] = self::encryptQuery(json_encode($paramsToEncrypt));
+        if ($paramsToEncrypt !== []) {
+            $data['eq'] = self::encryptQuery(json_encode($paramsToEncrypt));
+        }
 
         return http_build_query($data, null, $separator);
     }

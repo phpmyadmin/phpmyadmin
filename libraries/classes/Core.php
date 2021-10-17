@@ -1317,4 +1317,27 @@ class Core
         $hmac = hash_hmac('sha256', $sqlQuery, $_SESSION[' HMAC_secret '] . $cfg['blowfish_secret']);
         return hash_equals($hmac, $signature);
     }
+
+    /**
+     * @return void
+     */
+    public static function populateRequestWithEncryptedQueryParams()
+    {
+        if (! isset($_GET['eq']) || ! is_string($_GET['eq'])) {
+            unset($_GET['eq'], $_REQUEST['eq']);
+            return;
+        }
+
+        $decryptedQuery = Url::decryptQuery($_GET['eq']);
+        unset($_GET['eq'], $_REQUEST['eq']);
+        if ($decryptedQuery === null) {
+            return;
+        }
+
+        $urlQueryParams = (array) json_decode($decryptedQuery);
+        foreach ($urlQueryParams as $urlQueryParamKey => $urlQueryParamValue) {
+            $_GET[$urlQueryParamKey] = $urlQueryParamValue;
+            $_REQUEST[$urlQueryParamKey] = $urlQueryParamValue;
+        }
+    }
 }

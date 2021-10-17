@@ -13,10 +13,14 @@ final class Crypto
     /** @var bool */
     private $hasSodiumSupport;
 
-    public function __construct()
+    /**
+     * @param bool $forceFallback Force the usage of the fallback functions.
+     */
+    public function __construct($forceFallback = false)
     {
-        $this->hasRandomBytesSupport = is_callable('random_bytes');
-        $this->hasSodiumSupport = $this->hasRandomBytesSupport
+        $this->hasRandomBytesSupport = ! $forceFallback && is_callable('random_bytes');
+        $this->hasSodiumSupport = ! $forceFallback
+            && $this->hasRandomBytesSupport
             && is_callable('sodium_crypto_secretbox')
             && is_callable('sodium_crypto_secretbox_open')
             && defined('SODIUM_CRYPTO_SECRETBOX_NONCEBYTES')
