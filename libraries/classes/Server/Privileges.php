@@ -1536,14 +1536,21 @@ class Privileges
 
         $html .= '">';
 
+        $action = [];
         switch ($linktype) {
             case 'edit':
+                $action['icon'] = 'b_usredit';
+                $action['text'] = 'Edit privileges';
                 $html .= Generator::getIcon('b_usredit', __('Edit privileges'));
                 break;
             case 'revoke':
+                $action['icon'] = 'b_usrdrop';
+                $action['text'] = 'Revoke';
                 $html .= Generator::getIcon('b_usrdrop', __('Revoke'));
                 break;
             case 'export':
+                $action['icon'] = 'b_tblexport';
+                $action['text'] = 'Export';
                 $html .= Generator::getIcon('b_tblexport', __('Export'));
                 break;
         }
@@ -1551,6 +1558,7 @@ class Privileges
         return $html . '</a>';
         return $this->template->render('server/privileges/get_user_link', [
             'link_class' => $linkClass,
+            'action' => $action,
         ]);
     }
 
