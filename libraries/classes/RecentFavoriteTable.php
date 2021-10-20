@@ -249,11 +249,9 @@ class RecentFavoriteTable
             return $html;
         }
 
-        return '<li class="warp_link">'
-                . ($this->tableType === 'recent'
-                ? __('There are no recent tables.')
-                : __('There are no favorite tables.'))
-                . '</li>';
+        return $this->template->render('recent_favorite_table_no_tables', [
+            'is_recent' => $this->tableType === 'recent',
+        ]);
     }
 
     public function getHtml(): string
