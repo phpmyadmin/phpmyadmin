@@ -7,9 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Template;
-
 use function __;
 use function array_key_exists;
 use function array_merge;
