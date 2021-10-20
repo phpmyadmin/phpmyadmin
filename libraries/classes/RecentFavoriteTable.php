@@ -218,7 +218,23 @@ class RecentFavoriteTable
             }
 
             $html = '';
+            $tables = [];
             foreach ($this->tables as $table) {
+                $removeParameters = [
+                    'db' => $table['db'],
+                    'ajax_request' => true,
+                    'favorite_table' => $table['table'],
+                    'remove_favorite' => true,
+                ];
+                $tableParameters = [
+                    'db' => $table['db'],
+                    'table' => $table['table'],
+                ];
+
+                $tables[] = [
+                    'remove_parameters' => $removeParameters,
+                    'table_parameters' => $tableParameters,
+                ];
                 $html .= '<li class="warp_link">';
 
                 $html .= '<a class="ajax favorite_table_anchor" ';
