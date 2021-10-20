@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Template;
 
 use function __;
 use function array_key_exists;
@@ -33,6 +34,9 @@ use const SORT_REGULAR;
  */
 class RecentFavoriteTable
 {
+    /** @var Template */
+    public $template;
+
     /**
      * Reference to session variable containing recently used or favorite tables.
      *
@@ -60,10 +64,13 @@ class RecentFavoriteTable
     /**
      * Creates a new instance of RecentFavoriteTable
      *
+     * @param Template $template Template object
      * @param string $type the table type
      */
-    private function __construct(string $type)
+    private function __construct(Template $template, string $type)
     {
+        $this->template = $template;
+
         global $dbi;
 
         $this->relation = new Relation($dbi);
@@ -86,7 +93,8 @@ class RecentFavoriteTable
     public static function getInstance(string $type): RecentFavoriteTable
     {
         if (! array_key_exists($type, self::$instances)) {
-            self::$instances[$type] = new RecentFavoriteTable($type);
+            $template = new Template();
+            self::$instances[$type] = new RecentFavoriteTable($template, $type);
         }
 
         return self::$instances[$type];
