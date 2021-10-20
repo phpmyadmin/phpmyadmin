@@ -14,11 +14,9 @@ use function array_pop;
 use function array_unique;
 use function array_unshift;
 use function count;
-use function htmlspecialchars;
 use function json_decode;
 use function json_encode;
 use function max;
-use function md5;
 use function ucfirst;
 
 use const SORT_REGULAR;
@@ -62,7 +60,7 @@ class RecentFavoriteTable
      * Creates a new instance of RecentFavoriteTable
      *
      * @param Template $template Template object
-     * @param string $type the table type
+     * @param string   $type     the table type
      */
     private function __construct(Template $template, string $type)
     {
@@ -209,9 +207,7 @@ class RecentFavoriteTable
                     ];
                 }
 
-                return $this->template->render('recent_favorite_table_recent', [
-                    'tables' => $tables,
-                ]);
+                return $this->template->render('recent_favorite_table_recent', ['tables' => $tables]);
             }
 
             $tables = [];
@@ -233,9 +229,7 @@ class RecentFavoriteTable
                 ];
             }
 
-            return $this->template->render('recent_favorite_table_favorite', [
-                'tables' => $tables,
-            ]);
+            return $this->template->render('recent_favorite_table_favorite', ['tables' => $tables]);
         }
 
         return $this->template->render('recent_favorite_table_no_tables', [
