@@ -2107,22 +2107,22 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                ['index.php', 'text'],
+                ['index.php', null, 'text'],
                 1000,
                 '<a href="index.php" >text</a>'
             ],
             [
-                ['index.php?some=parameter', 'text'],
+                ['index.php', ['some' => 'parameter'], 'text'],
                 20,
-                '<a href="index.php" data-post="some=parameter">text</a>',
+                '<a href="index.php" data-post="some=parameter&amp;lang=en">text</a>',
             ],
             [
-                ['index.php', 'text', [], 'target'],
+                ['index.php', null, 'text', [], 'target'],
                 1000,
                 '<a href="index.php" target="target">text</a>',
             ],
             [
-                ['url.php?url=http://phpmyadmin.net/', 'text', [], '_blank'],
+                ['url.php?url=http://phpmyadmin.net/', null, 'text', [], '_blank'],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
             ],

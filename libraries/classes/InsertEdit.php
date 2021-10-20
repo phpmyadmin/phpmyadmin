@@ -1704,6 +1704,7 @@ class InsertEdit
         return '<span class="open_gis_editor">'
             . Util::linkOrButton(
                 '#',
+                null,
                 $edit_str,
                 array(),
                 '_blank'

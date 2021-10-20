@@ -133,9 +133,9 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
-        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ Util_linkOrButton(
-            edit_view_url,
+            'view_create.php',
+            {'db': db, 'table': table},
             Util_getIcon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
@@ -194,7 +194,6 @@
         {{ Util_getDivForSliderEffect('partitions', 'Partitions'|trans) }}
 
         {% set remove_sql = 'ALTER TABLE ' ~ Util_backquote(table) ~ ' REMOVE PARTITIONING' %}
-        {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
 
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,
@@ -209,7 +208,7 @@
             'sub_partition_expression': has_sub_partitions ? first_sub_partition.getExpression(),
             'action_icons': action_icons,
             'range_or_list': range_or_list,
-            'remove_url': remove_url
+            'remove_url_params': url_params|merge({'sql_query': remove_sql})
         } only %}
     {% else %}
         {% include 'table/structure/display_partitions.twig' with {

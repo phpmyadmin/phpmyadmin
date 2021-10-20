@@ -26,9 +26,8 @@
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
                 {{- js_msg }}" />
-            {% set drop_url = 'sql.php' ~ Url_getCommon(this_params) %}
             {% set drop_str = Util_getIcon('b_drop', 'Drop'|trans) %}
-            {{ Util_linkOrButton(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
+            {{ Util_linkOrButton('sql.php', this_params, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
     </td>
     <td>
