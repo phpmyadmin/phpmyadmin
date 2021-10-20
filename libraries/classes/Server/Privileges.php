@@ -1558,6 +1558,8 @@ class Privileges
         return $html . '</a>';
         return $this->template->render('server/privileges/get_user_link', [
             'link_class' => $linkClass,
+            'is_revoke' => $linktype === 'revoke',
+            'url_params' => $params,
             'action' => $action,
         ]);
     }

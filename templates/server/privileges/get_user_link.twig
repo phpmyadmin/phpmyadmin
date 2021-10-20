@@ -2,6 +2,10 @@
   {% if link_class is not same as ('') %}
     class="{{ link_class }}"
   {% endif %}
+  href="{{ url('/server/privileges', is_revoke ? [] : url_params) }}"
+  {% if is_revoke %}
+    data-post="{{ get_common(url_params, '')  }}"
+  {% endif %}
 >
   {{ get_icon(action.icon, action.text|trans) }}
 </a>
