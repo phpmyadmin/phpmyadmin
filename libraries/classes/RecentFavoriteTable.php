@@ -263,6 +263,9 @@ class RecentFavoriteTable
             }
 
             return $html;
+            return $this->template->render('recent_favorite_table_favorite', [
+                'tables' => $tables,
+            ]);
         }
 
         return $this->template->render('recent_favorite_table_no_tables', [
