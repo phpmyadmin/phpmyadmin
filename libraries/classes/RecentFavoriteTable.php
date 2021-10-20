@@ -217,7 +217,6 @@ class RecentFavoriteTable
                 ]);
             }
 
-            $html = '';
             $tables = [];
             foreach ($this->tables as $table) {
                 $removeParameters = [
@@ -235,34 +234,8 @@ class RecentFavoriteTable
                     'remove_parameters' => $removeParameters,
                     'table_parameters' => $tableParameters,
                 ];
-                $html .= '<li class="warp_link">';
-
-                $html .= '<a class="ajax favorite_table_anchor" ';
-                $fav_rm_url = Url::getFromRoute('/database/structure/favorite-table', [
-                    'db' => $table['db'],
-                    'ajax_request' => true,
-                    'favorite_table' => $table['table'],
-                    'remove_favorite' => true,
-                ]);
-                $html .= 'href="' . $fav_rm_url
-                    . '" title="' . __('Remove from Favorites')
-                    . '" data-favtargetn="'
-                    . md5($table['db'] . '.' . $table['table'])
-                    . '" >'
-                    . Generator::getIcon('b_favorite')
-                    . '</a>';
-
-                $table_url = Url::getFromRoute('/table/recent-favorite', [
-                    'db' => $table['db'],
-                    'table' => $table['table'],
-                ]);
-                $html .= '<a href="' . $table_url . '">`'
-                    . htmlspecialchars($table['db']) . '`.`'
-                    . htmlspecialchars($table['table']) . '`</a>';
-                $html .= '</li>';
             }
 
-            return $html;
             return $this->template->render('recent_favorite_table_favorite', [
                 'tables' => $tables,
             ]);
