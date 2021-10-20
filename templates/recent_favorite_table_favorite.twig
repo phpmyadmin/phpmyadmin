@@ -1,7 +1,8 @@
+{% for table in tables %}
 <li class="warp_link">
   <a
     class="ajax favorite_table_anchor"
-    href="{{ url('/table/structure/favorite-table', table.remove_parameters) }}"
+    href="{{ url('/database/structure/favorite-table', table.remove_parameters) }}"
     title="{% trans 'Remove from Favorites' %}"
     data-favtargetn="{{ table.table_parameters.db }}.{{ table.table_parameters.table }}"
   >
