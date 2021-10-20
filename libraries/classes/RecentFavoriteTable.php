@@ -205,7 +205,12 @@ class RecentFavoriteTable
         if (count($this->tables)) {
             if ($this->tableType === 'recent') {
                 $html = '';
+                $tables = [];
                 foreach ($this->tables as $table) {
+                    $tables[] = [
+                        'db' => $table['db'],
+                        'table' => $table['table'],
+                    ];
                     $html .= '<li class="warp_link">';
                     $recent_url = Url::getFromRoute('/table/recent-favorite', [
                         'db' => $table['db'],
@@ -218,6 +223,9 @@ class RecentFavoriteTable
                 }
 
                 return $html;
+                return $this->template->render('recent_favorite_table', [
+                    'tables' => $tables,
+                ]);
             }
 
             $html = '';
