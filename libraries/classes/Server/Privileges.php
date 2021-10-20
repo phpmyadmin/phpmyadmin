@@ -1493,11 +1493,14 @@ class Privileges
         $initial = ''
     ) {
         $html = '<a';
+        $linkClass = '';
         switch ($linktype) {
             case 'edit':
                 $html .= ' class="edit_user_anchor"';
+                $linkClass = 'edit_user_anchor';
                 break;
             case 'export':
+                $linkClass = 'export_user_anchor ajax';
                 $html .= ' class="export_user_anchor ajax"';
                 break;
         }
@@ -1546,6 +1549,9 @@ class Privileges
         }
 
         return $html . '</a>';
+        return $this->template->render('server/privileges/get_user_link', [
+            'link_class' => $linkClass,
+        ]);
     }
 
     /**

@@ -1,2 +1,6 @@
-<a>
+<a
+  {% if link_class is not same as ('') %}
+    class="{{ link_class }}"
+  {% endif %}
+>
 </a>
