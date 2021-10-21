@@ -999,33 +999,23 @@ class InsertEdit
      */
     private function getHeadAndFootOfInsertRowTable(array $urlParams)
     {
-        $htmlOutput = '<div class="table-responsive-lg">'
-            . '<table class="table table-light table-striped align-middle my-3 insertRowTable w-auto">'
-            . '<thead>'
-            . '<tr>'
-            . '<th>' . __('Column') . '</th>';
+        $type = '';
+        $function = '';
 
         if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-            $htmlOutput .= $this->showTypeOrFunction('type', $urlParams, true);
+            $type = $this->showTypeOrFunction('type', $urlParams, true);
         }
 
         if ($GLOBALS['cfg']['ShowFunctionFields']) {
-            $htmlOutput .= $this->showTypeOrFunction('function', $urlParams, true);
+            $function = $this->showTypeOrFunction('function', $urlParams, true);
         }
 
-        $htmlOutput .= '<th>' . __('Null') . '</th>'
-            . '<th class="w-50">' . __('Value') . '</th>'
-            . '</tr>'
-            . '</thead>'
-            . ' <tfoot>'
-            . '<tr>'
-            . '<th colspan="5" class="tblFooters text-end">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</th>'
-            . '</tr>'
-            . '</tfoot>';
+        $template = new Template();
 
-        return $htmlOutput;
+        return $template->render('table/insert/get_head_and_foot_of_insert_row_table', [
+            'type' => $type,
+            'function' => $function,
+        ]);
     }
 
     /**
