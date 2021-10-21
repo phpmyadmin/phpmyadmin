@@ -2069,7 +2069,7 @@ class InsertEdit
 
         return $template->render('table/insert/get_html_for_insert_edit_form_header', [
             'has_blob_field' => $hasBlobField,
-            'is_uploaded' => $isUpload,
+            'is_upload' => $isUpload,
         ]);
     }
 
