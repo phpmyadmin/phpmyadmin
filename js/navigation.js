@@ -158,7 +158,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
     }
 
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-    $.get(url, params, function (data) {
+    $.post(url, params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             if (isNode) {
