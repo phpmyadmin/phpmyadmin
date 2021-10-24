@@ -1423,6 +1423,7 @@ msgstr "Pesquisar:"
 #: templates/table/structure/display_structure.twig:428
 #: templates/table/structure/display_structure.twig:545
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
+#: libraries/classes/InsertEdit.php:1023
 msgid "Go"
 msgstr "Executar"
 
@@ -6926,6 +6927,7 @@ msgstr "Conteúdo do ponto de dados"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
+#: libraries/classes/InsertEdit.php:2064
 msgid "Ignore"
 msgstr "Ignora"
 
@@ -7102,7 +7104,8 @@ msgstr "Eliminar página"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
-"Algumas tabelas gravadas nesta página podem ter sido renomeadas ou apagadas."
+"Algumas tabelas guardadas nesta página podem ter sido renomeadas ou "
+"eliminadas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
@@ -9984,10 +9987,12 @@ msgid "web server upload directory:"
 msgstr "diretório de envio do servidor web:"
 
 #: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:977
+#: libraries/classes/InsertEdit.php:1366
 msgid "Showing SQL query"
 msgstr "Exibindo consulta SQL"
 
 #: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:957
+#: libraries/classes/InsertEdit.php:1396
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
@@ -10268,6 +10273,7 @@ msgstr "Nova"
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/zoom_search/index.twig:36
 #: templates/table/zoom_search/result_form.twig:35
+#: libraries/classes/InsertEdit.php:1006
 msgid "Column"
 msgstr "Coluna"
 
@@ -10991,6 +10997,7 @@ msgstr "Extraindo dados da tabela"
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
+#: libraries/classes/InsertEdit.php:1016
 msgid "Null"
 msgstr "Nulo"
 
@@ -12003,16 +12010,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:213
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a Yubikey."
 msgstr ""
 "Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
-"U2F."
+"U2F, como a Yubikey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -14556,6 +14559,7 @@ msgstr "Exceto"
 #: templates/table/search/index.twig:42
 #: templates/table/zoom_search/index.twig:40
 #: templates/table/zoom_search/result_form.twig:37
+#: libraries/classes/InsertEdit.php:1017
 msgid "Value"
 msgstr "Valor"
 
@@ -19046,7 +19050,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Usar a tabela do anfitrião"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Descrição"
@@ -19065,16 +19068,12 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Paragem completa"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d segundo"
 #~ msgstr[1] "%d segundos"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "$d minuto"
@@ -19087,7 +19086,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Mostrar consultas completas"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "Sem bases de dados"
@@ -19117,7 +19115,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Procurar resultados para \"<i>%s</i>\" %s:"
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "Texto"
@@ -19135,7 +19132,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Personalizar o painel principal"
 
 #, fuzzy
-#~| msgid "unknown"
 #~ msgid "Unknonwn"
 #~ msgstr "desconhecido"
 
@@ -19143,13 +19139,11 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Valor Global"
 
 #, fuzzy
-#~| msgid "Right"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Direita"
 
 #, fuzzy
-#~| msgid "Copy column name."
 #~ msgid "Old column name"
 #~ msgstr "Copiar nome da coluna."
 
@@ -19173,17 +19167,14 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Chinês Tradicional"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Agrupamento (Collation)"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "Sensível a maiúsculas/minúculas"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "Não-sensível a a maiúsculas/minúculas"
 
@@ -19191,7 +19182,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "todas as palavras"
 
 #, fuzzy
-#~| msgid "Propose table structure"
 #~ msgid "Improve table structure"
 #~ msgstr "Propor uma estrutura de tabela"
 
@@ -19229,7 +19219,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Local"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Nome dos Campos"
 
@@ -19237,7 +19226,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Ainda não foi implementado."
 
 #, fuzzy
-#~| msgid "Iconic table operations"
 #~ msgid "Unrecognized alter operation."
 #~ msgstr "Tabela de operações em ícones"
 
@@ -19245,22 +19233,18 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Palavra-chave inesperada."
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Modelo de nome da tabela"
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "Nenhuma tabela selecionada."
 
 #, fuzzy
-#~| msgid "No tables selected."
 #~ msgid "An alias was expected."
 #~ msgstr "Nenhuma tabela selecionada."
 
 #, fuzzy
-#~| msgid "No rows selected"
 #~ msgid "An expression was expected."
 #~ msgstr "Nenhum registo(linha) seleccionado"
 
@@ -19269,18 +19253,15 @@ msgstr "Indo para o site alvo."
 #~ msgstr "A tabela %s foi eliminada"
 
 #, fuzzy
-#~| msgid "Title of browser window when a table is selected."
 #~ msgid "The old name of the table was expected."
 #~ msgstr ""
 #~ "Título da janela do navegador quando uma tabela estiver selecionada."
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "Registo eliminado."
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected character."
 #~ msgstr "Caracteres inesperados na linha %s."
 
@@ -19289,47 +19270,38 @@ msgstr "Indo para o site alvo."
 #~ msgstr "A tabela %s foi eliminada"
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "Variable name was expected."
 #~ msgstr "Modelo de nome da tabela"
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected beginning of statement."
 #~ msgstr "No Início da Tabela"
 
 #, fuzzy
-#~| msgid "Unexpected characters on line %s."
 #~ msgid "Unexpected token."
 #~ msgstr "Caracteres inesperados na linha %s."
 
 #, fuzzy
-#~| msgid "At Beginning of Table"
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "No Início da Tabela"
 
 #, fuzzy
-#~| msgid "Table name template"
 #~ msgid "A table name was expected."
 #~ msgstr "Modelo de nome da tabela"
 
 #, fuzzy
-#~| msgid "The row has been deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "Registo eliminado."
 
 #, fuzzy
-#~| msgid "Error"
 #~ msgid "error #1"
 #~ msgstr "Erro"
 
 #, fuzzy
-#~| msgid "Gather errors"
 #~ msgid "strict error"
 #~ msgstr "Reunir erros"
 
 #, fuzzy
-#~| msgid "Cookie authentication"
 #~ msgid "Native MySQL Authentication"
 #~ msgstr "Autenticação por cookie"
 
@@ -19363,7 +19335,6 @@ msgstr "Indo para o site alvo."
 #~ "open_basedir ligado sem acesso à diretoria (dos ficheiros temporários) %s."
 
 #, fuzzy
-#~| msgid "Count"
 #~ msgid "Count:"
 #~ msgstr "Contagem"
 
@@ -19419,12 +19390,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Forçar conexão SSL"
 
 #, fuzzy
-#~| msgid "Replace table prefix"
 #~ msgid "Replace table prefix:"
 #~ msgstr "Substituir prefixo da tabela"
 
 #, fuzzy
-#~| msgid "Copy table with prefix"
 #~ msgid "Copy table with prefix:"
 #~ msgstr "Copiar tabela com prefixo"
 
@@ -19473,11 +19442,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "possível ataque de recursividade em profundidade (deep recursion)"
 
 #, fuzzy
-#~| msgid ""
-#~| "Your configuration file contains settings (root with no password) that "
-#~| "correspond to the default MySQL privileged account. Your MySQL server is "
-#~| "running with this default, is open to intrusion, and you really should "
-#~| "fix this security hole by setting a password for user 'root'."
 #~ msgid ""
 #~ "You are connected as 'root' with no password, which corresponds to the "
 #~ "default MySQL privileged account. Your MySQL server is running with this "
@@ -19497,7 +19461,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Tabelas"
 
 #, fuzzy
-#~| msgid "View"
 #~ msgid "views"
 #~ msgstr "Vista"
 
@@ -19513,32 +19476,26 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Funções"
 
 #, fuzzy
-#~| msgid "Alter table order by"
 #~ msgid "Filter databases by name or regex"
 #~ msgstr "Alterar a ordem da tabela por"
 
 #, fuzzy
-#~| msgid "Alter table order by"
 #~ msgid "Filter by name or regex"
 #~ msgstr "Alterar a ordem da tabela por"
 
 #, fuzzy
-#~| msgid "Tracking report"
 #~ msgid "Taking you to %s."
 #~ msgstr "Relatório do acompanhamento"
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Autenticação"
 
 #, fuzzy
-#~| msgid "Generate password"
 #~ msgid "MySQL native password"
 #~ msgstr "Gerar palavra-passe"
 
 #, fuzzy
-#~| msgid "Change password"
 #~ msgid "SHA256 password"
 #~ msgstr "Alterar a palavra-passe"
 
@@ -19595,7 +19552,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Opções específicas do formato:"
 
 #, fuzzy
-#~| msgid "Generate password"
 #~ msgid "Generate Password:"
 #~ msgstr "Gerar palavra-passe"
 
@@ -19672,22 +19628,18 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Resultado SQL"
 
 #, fuzzy
-#~| msgid "Generated by"
 #~ msgid "Generated by:"
 #~ msgstr "Gerado por"
 
 #, fuzzy
-#~| msgid "Row Statistics"
 #~ msgid "Row Statistics:"
 #~ msgstr "Estatísticas dos registos"
 
 #, fuzzy
-#~| msgid "Space usage"
 #~ msgid "Space usage:"
 #~ msgstr "Espaço ocupado"
 
 #, fuzzy
-#~| msgid "Show tables"
 #~ msgid "Showing tables:"
 #~ msgstr "Mostra tabelas"
 
@@ -19698,17 +19650,14 @@ msgstr "Indo para o site alvo."
 #~ msgstr "(Desativado)"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Temporarily disable foreign key checks while importing"
 #~ msgstr "Desativar verificação de chaves estrangeiras"
 
 #, fuzzy
-#~| msgid "Disable foreign key checks"
 #~ msgid "Disable foreign key check"
 #~ msgstr "Desativar verificação de chaves estrangeiras"
 
 #, fuzzy
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Recarregar Privilégios"
 
@@ -19719,17 +19668,14 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Opções de personalização da janela de consulta"
 
 #, fuzzy
-#~| msgid "Please select a database"
 #~ msgid "Please select a database."
 #~ msgstr "Por favor seleccione uma base de dados"
 
 #, fuzzy
-#~| msgid "Autoextend increment"
 #~ msgid "auto_increment"
 #~ msgstr "Prolongar automaticamente o incremento"
 
 #, fuzzy
-#~| msgid "Table options"
 #~ msgid "Save positions as"
 #~ msgstr "Opções da tabela"
 
@@ -19743,7 +19689,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Apagar dados de tracking para esta tabela"
 
 #, fuzzy
-#~| msgid "Table structure"
 #~ msgid "Table Structure"
 #~ msgstr "Estrutura da tabela"
 
@@ -19755,7 +19700,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Na linha"
 
 #, fuzzy
-#~| msgid "After %s"
 #~ msgid "after"
 #~ msgstr "Depois %s"
 
@@ -19793,17 +19737,14 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Esta página não contém tabelas!"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "Tipo de exportação inválido"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "EPS export page"
 #~ msgstr "Tipo de exportação inválido"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "Tipo de exportação inválido"
 
@@ -19847,42 +19788,34 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Importar"
 
 #, fuzzy
-#~| msgid "SQL history"
 #~ msgid "SQL history:"
 #~ msgstr "Histórico SQL"
 
 #, fuzzy
-#~| msgid "The \"%s\" table doesn't exist!"
 #~ msgid "File doesn't exist"
 #~ msgstr "A tabela \"%s\" não existe!"
 
 #, fuzzy
-#~| msgid "SQL Validator is disabled"
 #~ msgid "Plugin is disabled"
 #~ msgstr "Validador SQL desactivado"
 
 #, fuzzy
-#~| msgid "Customize main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Personalizar o painel principal"
 
 #, fuzzy
-#~| msgid "No index defined!"
 #~ msgid "No index defined! Create one below"
 #~ msgstr "Nenhum indíce definido!"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Tipo de Exportação"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Tipo de exportação inválido"
 
 #, fuzzy
-#~| msgid "Click to sort."
 #~ msgid "Click to sort"
 #~ msgstr "Clique para organizar."
 
@@ -19894,27 +19827,22 @@ msgstr "Indo para o site alvo."
 #~ "completa!"
 
 #, fuzzy
-#~| msgid "Total"
 #~ msgid "Total "
 #~ msgstr "Total"
 
 #, fuzzy
-#~| msgid "New bookmark"
 #~ msgid " bookmarks, "
 #~ msgstr "Novo marcador"
 
 #, fuzzy
-#~| msgid "Select two columns"
 #~ msgid "Select one ..."
 #~ msgstr "Seleccione duas colunas"
 
 #, fuzzy
-#~| msgid "Add columns"
 #~ msgid "Have unique columns"
 #~ msgstr "Adicionar colunas"
 
 #, fuzzy
-#~| msgid "The user %s already exists!"
 #~ msgid "Unique column(s) already exist"
 #~ msgstr "O utilizador %s já existe!"
 
@@ -19930,7 +19858,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Criar uma Página nova"
 
 #, fuzzy
-#~| msgid "Automatic layout"
 #~ msgid "Automatic layout based on"
 #~ msgstr "Layout automático"
 
@@ -19964,12 +19891,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Tabela de Designer"
 
 #, fuzzy
-#~| msgid "Edit or export relational schema"
 #~ msgid "Import/Export coordinates for relational schema"
 #~ msgstr "Editar ou exporta o esquema relacional (schema)"
 
 #, fuzzy
-#~| msgid "Page creation failed"
 #~ msgid "Page creation has failed!"
 #~ msgstr "Erro ao criar página"
 
@@ -19977,7 +19902,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Página:"
 
 #, fuzzy
-#~| msgid "Import from selected page"
 #~ msgid "Import from selected page."
 #~ msgstr "Importar da página seleccionada"
 
@@ -20042,14 +19966,10 @@ msgstr "Indo para o site alvo."
 #~ "Technology. Todos os direitos reservados.[/em]"
 
 #, fuzzy
-#~| msgid "SQL Validator is disabled"
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Validador SQL desactivado"
 
 #, fuzzy
-#~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to "
-#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
 #~ "If you have a custom username, specify it here (defaults to "
 #~ "[kbd]anonymous[/kbd])."
@@ -20058,19 +19978,14 @@ msgstr "Indo para o site alvo."
 #~ "[kbd]anonymous[/kbd])"
 
 #, fuzzy
-#~| msgid "Validate SQL"
 #~ msgid "Validated SQL"
 #~ msgstr "Validar SQL"
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Erro: Relação não adicionada."
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: "
-#~| "[kbd]pma_designer_coords[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__users[/kbd]."
@@ -20079,9 +19994,6 @@ msgstr "Indo para o site alvo."
 #~ "[kbd]pma_designer_coords[/kbd]"
 
 #, fuzzy
-#~| msgid ""
-#~| "Leave blank for no Designer support, suggested: "
-#~| "[kbd]pma_designer_coords[/kbd]"
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -20120,7 +20032,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Mostrar índices"
 
 #, fuzzy
-#~| msgid "\"bzipped\""
 #~ msgid "bzipped"
 #~ msgstr "\"Compressão bzip\""
 
@@ -20178,7 +20089,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Na linha de edição desta consulta"
 
 #, fuzzy
-#~| msgid "Find:"
 #~ msgid "Find"
 #~ msgstr "Procurar:"
 
@@ -20189,7 +20099,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Cabeçalho a cada %s linhas"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Pesquisa de tabela"
 
@@ -20198,7 +20107,6 @@ msgstr "Indo para o site alvo."
 #~ "O mecanismo de \"Cookies\" tem de estar ligado a partir deste ponto."
 
 #, fuzzy
-#~| msgid "Remove database"
 #~ msgid "Rearrange/edit charts"
 #~ msgstr "Remover a Base de Dados"
 
@@ -20212,7 +20120,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Tabela aparenta estar vazia!"
 
 #, fuzzy
-#~| msgid "General relation features"
 #~ msgid "General relation features:"
 #~ msgstr "Características gerais de Relação"
 
@@ -20244,12 +20151,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "ltr"
 
 #, fuzzy
-#~| msgid "Server version"
 #~ msgid "Software version"
 #~ msgstr "Versão do servidor"
 
 #, fuzzy
-#~| msgid "Save as file"
 #~ msgid "Save to file"
 #~ msgstr "envia"
 
@@ -20281,7 +20186,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Informação de Runtime"
 
 #, fuzzy
-#~| msgid "Number of rows per page"
 #~ msgid "Number of data points: "
 #~ msgstr "Número de registos por página"
 
@@ -20290,12 +20194,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Gerado por"
 
 #, fuzzy
-#~| msgid "Query type"
 #~ msgid "Run analyzer"
 #~ msgstr "Tipo de Query"
 
 #, fuzzy
-#~| msgid "Show PHP information"
 #~ msgid "Show more actions"
 #~ msgstr "Mostra informação do PHP"
 
@@ -20364,12 +20266,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "en"
 
 #, fuzzy
-#~| msgid "Do you really want to "
 #~ msgid "Do you really want to execute following query?"
 #~ msgstr "Confirma : "
 
 #, fuzzy
-#~| msgid "Privileges"
 #~ msgid "Privileges for all users"
 #~ msgstr "Privilégios"
 
@@ -20400,7 +20300,6 @@ msgstr "Indo para o site alvo."
 #~ msgstr "As 'Strings' serão convertidas em inteiros por mapeamento"
 
 #, fuzzy
-#~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Segmento de Reta "
 
@@ -20408,12 +20307,10 @@ msgstr "Indo para o site alvo."
 #~ msgstr "Apague a pasta \"./config\" antes de utilizar o phpMyAdmin!"
 
 #, fuzzy
-#~| msgid "Add/Delete Field Columns"
 #~ msgid "The remaining columns"
 #~ msgstr "Adicionar/Remover Campos"
 
 #, fuzzy
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Apenas dados"
 
