@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-17 00:10+0000\n"
+"POT-Creation-Date: 2021-10-24 00:10+0000\n"
 "PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1459,7 +1459,6 @@ msgstr "Αναζήτηση:"
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: libraries/classes/Controllers/Server/PrivilegesController.php:329
-#: libraries/classes/InsertEdit.php:1023
 #: libraries/classes/Normalization.php:262
 #: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1499,6 +1498,7 @@ msgstr "Αναζήτηση:"
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/insert/actions_panel.twig:37
+#: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:15
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
 #: templates/table/operations/index.twig:241
@@ -7099,7 +7099,7 @@ msgstr "Περιεχόμενο δείκτη δεδομένων"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:637
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2064
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Παράληψη"
@@ -10217,83 +10217,11 @@ msgstr "Ενωση"
 msgid "web server upload directory:"
 msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
-#: libraries/classes/InsertEdit.php:1006
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
-#: libraries/classes/Plugins/Export/ExportLatex.php:539
-#: libraries/classes/Plugins/Export/ExportOdt.php:368
-#: libraries/classes/Plugins/Export/ExportOdt.php:469
-#: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:531
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
-#: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:20
-#: templates/table/index_form.twig:138 templates/table/operations/index.twig:13
-#: templates/table/relation/common_form.twig:18
-#: templates/table/relation/common_form.twig:23
-#: templates/table/relation/common_form.twig:38
-#: templates/table/relation/common_form.twig:120
-#: templates/table/relation/common_form.twig:189
-#: templates/table/relation/foreign_key_row.twig:121
-#: templates/table/relation/foreign_key_row.twig:131
-#: templates/table/search/index.twig:38
-#: templates/table/structure/display_structure.twig:453
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
-#: templates/table/zoom_search/index.twig:36
-#: templates/table/zoom_search/result_form.twig:35
-msgid "Column"
-msgstr "Στήλη"
-
-#: libraries/classes/InsertEdit.php:1016
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:281
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
-#: libraries/classes/Plugins/Export/ExportLatex.php:541
-#: libraries/classes/Plugins/Export/ExportOdt.php:374
-#: libraries/classes/Plugins/Export/ExportOdt.php:475
-#: libraries/classes/Plugins/Export/ExportTexytext.php:292
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
-#: templates/columns_definitions/table_fields_definitions.twig:30
-#: templates/database/central_columns/edit.twig:14
-#: templates/database/central_columns/main.twig:40
-#: templates/database/central_columns/main.twig:246
-#: templates/database/data_dictionary/index.twig:18
-#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:23
-#: templates/table/structure/display_structure.twig:26
-#: templates/table/structure/display_structure.twig:456
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/zoom_search/result_form.twig:36
-msgid "Null"
-msgstr "Κενό"
-
-#: libraries/classes/InsertEdit.php:1017
-#: templates/database/designer/main.twig:484
-#: templates/database/designer/main.twig:649
-#: templates/database/designer/main.twig:855
-#: templates/database/designer/main.twig:1048
-#: templates/database/routines/execute_form.twig:20
-#: templates/server/replication/status_table.twig:17
-#: templates/server/status/variables/index.twig:76
-#: templates/server/variables/index.twig:32
-#: templates/table/search/index.twig:42
-#: templates/table/zoom_search/index.twig:40
-#: templates/table/zoom_search/result_form.twig:37
-msgid "Value"
-msgstr "Τιμή"
-
-#: libraries/classes/InsertEdit.php:1366 libraries/classes/Sql.php:977
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:977
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/classes/InsertEdit.php:1396 libraries/classes/Sql.php:957
+#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:957
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -10547,6 +10475,39 @@ msgstr "Στήλες"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Νέα"
+
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:32
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:275
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
+#: libraries/classes/Plugins/Export/ExportLatex.php:539
+#: libraries/classes/Plugins/Export/ExportOdt.php:368
+#: libraries/classes/Plugins/Export/ExportOdt.php:469
+#: libraries/classes/Plugins/Export/ExportTexytext.php:290
+#: libraries/classes/Plugins/Export/ExportTexytext.php:380
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:531
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
+#: templates/columns_definitions/column_name.twig:16
+#: templates/database/data_dictionary/index.twig:16
+#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:20
+#: templates/table/index_form.twig:138
+#: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
+#: templates/table/operations/index.twig:13
+#: templates/table/relation/common_form.twig:18
+#: templates/table/relation/common_form.twig:23
+#: templates/table/relation/common_form.twig:38
+#: templates/table/relation/common_form.twig:120
+#: templates/table/relation/common_form.twig:189
+#: templates/table/relation/foreign_key_row.twig:121
+#: templates/table/relation/foreign_key_row.twig:131
+#: templates/table/search/index.twig:38
+#: templates/table/structure/display_structure.twig:453
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/zoom_search/index.twig:36
+#: templates/table/zoom_search/result_form.twig:35
+msgid "Column"
+msgstr "Στήλη"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
@@ -11240,6 +11201,31 @@ msgstr "Επιλογές απορριμμάτων δεδομένων"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "Άδειασμα δεδομένων του πίνακα"
+
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:281
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
+#: libraries/classes/Plugins/Export/ExportLatex.php:541
+#: libraries/classes/Plugins/Export/ExportOdt.php:374
+#: libraries/classes/Plugins/Export/ExportOdt.php:475
+#: libraries/classes/Plugins/Export/ExportTexytext.php:292
+#: libraries/classes/Plugins/Export/ExportTexytext.php:382
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
+#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/database/central_columns/edit.twig:14
+#: templates/database/central_columns/main.twig:40
+#: templates/database/central_columns/main.twig:246
+#: templates/database/data_dictionary/index.twig:18
+#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:23
+#: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
+#: templates/table/structure/display_structure.twig:26
+#: templates/table/structure/display_structure.twig:456
+#: templates/table/tracking/structure_snapshot_columns.twig:9
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/table/zoom_search/result_form.twig:36
+msgid "Null"
+msgstr "Κενό"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:284
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:381
@@ -14844,6 +14830,21 @@ msgstr "Λειτουργός συσχέτισης"
 #: templates/database/designer/main.twig:1038
 msgid "Except"
 msgstr "Εξαίρεση"
+
+#: templates/database/designer/main.twig:484
+#: templates/database/designer/main.twig:649
+#: templates/database/designer/main.twig:855
+#: templates/database/designer/main.twig:1048
+#: templates/database/routines/execute_form.twig:20
+#: templates/server/replication/status_table.twig:17
+#: templates/server/status/variables/index.twig:76
+#: templates/server/variables/index.twig:32
+#: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:9
+#: templates/table/search/index.twig:42
+#: templates/table/zoom_search/index.twig:40
+#: templates/table/zoom_search/result_form.twig:37
+msgid "Value"
+msgstr "Τιμή"
 
 #: templates/database/designer/main.twig:486
 #: templates/database/designer/main.twig:651
