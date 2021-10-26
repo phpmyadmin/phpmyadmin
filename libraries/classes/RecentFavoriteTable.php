@@ -17,6 +17,7 @@ use function count;
 use function json_decode;
 use function json_encode;
 use function max;
+use function md5;
 use function ucfirst;
 
 use const SORT_REGULAR;
@@ -221,6 +222,7 @@ class RecentFavoriteTable
                 $tableParameters = [
                     'db' => $table['db'],
                     'table' => $table['table'],
+                    'md5' => md5($table['db'] . '.' . $table['table']),
                 ];
 
                 $tables[] = [
