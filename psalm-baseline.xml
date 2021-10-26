@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+<files psalm-version="4.11.1@e33492398bd4e5e2ab60e331d445979bd83feecd">
+  <file src="index.php">
+    <InvalidGlobal occurrences="1">
+      <code>global $route, $containerBuilder, $request;</code>
+    </InvalidGlobal>
+    <MixedArgument occurrences="2">
+      <code>$request</code>
+      <code>$route</code>
+    </MixedArgument>
+  </file>
   <file src="js/messages.php">
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
@@ -630,13 +639,11 @@
       <code>$verbose</code>
       <code>empty($host) ? 'localhost' : $host</code>
     </MixedReturnStatement>
-    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
-      <code>$this-&gt;defaultCfg</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;baseCfg</code>
     </PossiblyNullArgument>
-    <TypeDoesNotContainType occurrences="1">
+    <TypeDoesNotContainType occurrences="2">
+      <code>count($this-&gt;cfgDb['_overrides'])</code>
       <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
   </file>
@@ -1356,7 +1363,13 @@
     <MixedOperand occurrences="1">
       <code>Util::backquote($db)</code>
     </MixedOperand>
-    <RedundantCondition occurrences="5">
+    <RedundantCondition occurrences="11">
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>! $_error</code>
+      <code>! $_error</code>
       <code>! $_error</code>
       <code>! $_error</code>
       <code>! $_error</code>
@@ -1729,6 +1742,9 @@
       <code>Util::backquote($newTableName)</code>
       <code>Util::backquote($selected[$i])</code>
     </MixedOperand>
+    <RedundantCast occurrences="1">
+      <code>(string) $fromPrefix</code>
+    </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/ShowCreateController.php">
     <MixedArgument occurrences="2">
@@ -1871,6 +1887,9 @@
       <code>$tables</code>
       <code>$totalNumTables</code>
     </PropertyNotSetInConstructor>
+    <RedundantCondition occurrences="1">
+      <code>$currentTable['Data_free'] &gt; 0</code>
+    </RedundantCondition>
     <UnusedVariable occurrences="1">
       <code>$keyname</code>
     </UnusedVariable>
@@ -2035,6 +2054,9 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </PossiblyInvalidCast>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$onserver</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <MixedArgument occurrences="1">
@@ -2867,6 +2889,9 @@
       <code>Util::backquote($cfgRelation['usergroups'])</code>
       <code>Util::backquote($cfgRelation['users'])</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$result</code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/Variables/GetVariableController.php">
     <MixedArgument occurrences="3">
@@ -3127,7 +3152,8 @@
       <code>$urlParams['table']</code>
       <code>$urlParams['table']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
+    <MixedOperand occurrences="2">
+      <code>$biggest_max_file_size</code>
       <code>$jsvkey</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">
@@ -6490,6 +6516,9 @@
       <code>-1</code>
       <code>[]</code>
     </DocblockTypeContradiction>
+    <FalseOperand occurrences="1">
+      <code>! $rowNumber</code>
+    </FalseOperand>
     <InvalidArgument occurrences="9">
       <code>$added[$orgFullTableName]</code>
       <code>$dtResult</code>
@@ -6601,7 +6630,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="76">
+    <MixedArrayAccess occurrences="79">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6609,10 +6638,13 @@
       <code>$_SESSION['tmpval']['display_blob']</code>
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['geoOption']</code>
+      <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
@@ -6827,13 +6859,12 @@
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="36">
+    <MixedOperand occurrences="35">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
-      <code>$_SESSION['tmpval']['repeat_cells']</code>
       <code>$displayParams['emptyafter']</code>
       <code>$displayParams['emptypre']</code>
       <code>$displayParams['rowdata'][$i][$rowNumber]</code>
@@ -7469,7 +7500,8 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Gis/GisGeometryCollection.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
+      <code>! $gis_obj</code>
       <code>$gis_obj</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="20">
@@ -9267,6 +9299,9 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($row['tab'], '_')</code>
     </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$result</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$allowedTabs[$tabName]</code>
     </PossiblyNullArrayAccess>
@@ -9354,6 +9389,9 @@
       <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
       <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$result</code>
+    </PossiblyInvalidArgument>
     <RedundantCast occurrences="2">
       <code>(string) $cfg['NavigationLogoLink']</code>
       <code>(string) $cfg['NavigationLogoLink']</code>
@@ -9691,6 +9729,9 @@
       <code>Util::backquote($db)</code>
       <code>Util::backquote('Tables_in_' . $db)</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$result</code>
+    </PossiblyInvalidArgument>
     <PropertyNotSetInConstructor occurrences="3">
       <code>NodeDatabase</code>
       <code>NodeDatabase</code>
@@ -11470,7 +11511,8 @@
     <UnusedParam occurrences="1">
       <code>$crlf</code>
     </UnusedParam>
-    <UnusedVariable occurrences="1">
+    <UnusedVariable occurrences="2">
+      <code>$autoIncrement</code>
       <code>$autoIncrement</code>
     </UnusedVariable>
   </file>
@@ -12171,7 +12213,8 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$analyze</code>
     </PropertyNotSetInConstructor>
-    <RedundantCondition occurrences="1">
+    <RedundantCondition occurrences="2">
+      <code>! $finished</code>
       <code>$finished</code>
     </RedundantCondition>
     <ReferenceConstraintViolation occurrences="1">
@@ -12179,9 +12222,6 @@
     </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportOds.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>empty($root)</code>
-    </DocblockTypeContradiction>
     <InvalidArgument occurrences="2">
       <code>$cell_attrs</code>
       <code>$text</code>
@@ -12235,9 +12275,6 @@
     <MixedPropertyFetch occurrences="1">
       <code>$xml-&gt;children('office', true)-&gt;{'body'}-&gt;{'spreadsheet'}</code>
     </MixedPropertyFetch>
-    <UndefinedPropertyFetch occurrences="1">
-      <code>$xml-&gt;children('office', true)-&gt;{'body'}</code>
-    </UndefinedPropertyFetch>
     <UnnecessaryVarAnnotation occurrences="2">
       <code>SimpleXMLElement</code>
       <code>SimpleXMLElement</code>
@@ -12332,10 +12369,10 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidCast>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$xml</code>
       <code>$xml</code>
     </RedundantConditionGivenDocblockType>
-    <UndefinedPropertyFetch occurrences="1"/>
     <UnnecessaryVarAnnotation occurrences="2">
       <code>SimpleXMLElement</code>
       <code>SimpleXMLElement</code>
@@ -12925,6 +12962,17 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>$case[$d]</code>
+    </InvalidArrayOffset>
+    <MixedArrayAccess occurrences="3">
+      <code>$a</code>
+      <code>$b</code>
+      <code>$c</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>[$a, $b, $c]</code>
+    </MixedAssignment>
     <MixedMethodCall occurrences="12">
       <code>SetDrawColor</code>
       <code>SetDrawColor</code>
@@ -12939,7 +12987,10 @@
       <code>setLineWidthScale</code>
       <code>setLineWidthScale</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="16">
+    <MixedOperand occurrences="19">
+      <code>$a</code>
+      <code>$b</code>
+      <code>$c</code>
       <code>$this-&gt;xDest</code>
       <code>$this-&gt;xDest</code>
       <code>$this-&gt;xDest</code>
@@ -13273,16 +13324,16 @@
     </MixedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
-    <EmptyArrayAccess occurrences="2">
-      <code>$allowed_programs[$options[0]]</code>
-      <code>$allowed_programs[0]</code>
-    </EmptyArrayAccess>
     <InvalidScalarArgument occurrences="1">
       <code>$cfg['DefaultTransformations']['External']</code>
     </InvalidScalarArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$options</code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="2">
+      <code>$allowed_programs[$options[0]]</code>
+      <code>$allowed_programs[0]</code>
+    </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$allowed_programs[$options[0]]</code>
       <code>$allowed_programs[$options[0]]</code>
@@ -13711,8 +13762,9 @@
     <MixedReturnStatement occurrences="1">
       <code>$return</code>
     </MixedReturnStatement>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="2">
       <code>$dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+      <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyNullOperand occurrences="2">
       <code>$this-&gt;getPmaTable()</code>
@@ -13720,7 +13772,8 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Relation.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
+      <code>! $cfgRelation['historywork']</code>
       <code>$cfgRelation['historywork']</code>
     </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="2">
@@ -13972,8 +14025,11 @@
       <code>$GLOBALS['cfg']['Server']['pmadb']</code>
       <code>$GLOBALS['cfg']['Server']['pmadb']</code>
     </PossiblyFalseArgument>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$com_rs</code>
+      <code>$com_rs</code>
       <code>$foreigners</code>
+      <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$row['comment']</code>
@@ -14803,10 +14859,11 @@
       <code>mb_strrpos($currentUserName, '@')</code>
       <code>mb_strrpos($exportUser, ';')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$dbname</code>
+      <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="2">
       <code>$_REQUEST['dbname']</code>
@@ -14838,10 +14895,8 @@
       <code>$_POST['pred_dbname']</code>
       <code>$_REQUEST['dbname']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast occurrences="1">
+    <RedundantCastGivenDocblockType occurrences="2">
       <code>(bool) ! $this-&gt;dbi-&gt;fetchValue($sql)</code>
-    </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $privs</code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="1">
@@ -15174,6 +15229,11 @@
       <code>Util::backquote($cfgRelation['users'])</code>
       <code>Util::backquote($cfgRelation['users'])</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullIterator occurrences="3">
       <code>$tabs</code>
       <code>$tabs</code>
@@ -15621,7 +15681,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="94">
+    <MixedArgument occurrences="93">
       <code>$GLOBALS['cfgRelation'][$table]</code>
       <code>$GLOBALS['cfgRelation'][$table]</code>
       <code>$GLOBALS['cfgRelation']['column_info']</code>
@@ -15636,7 +15696,6 @@
       <code>$GLOBALS['cfgRelation']['db']</code>
       <code>$GLOBALS['cfgRelation']['db']</code>
       <code>$GLOBALS['sql_auto_increments']</code>
-      <code>$GLOBALS['sql_constraints_query']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
       <code>$cachedResult</code>
@@ -16578,6 +16637,10 @@
     <MixedReturnStatement occurrences="1">
       <code>$stack</code>
     </MixedReturnStatement>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$test_rs</code>
+      <code>$test_rs</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$row['comment']</code>
     </PossiblyNullArgument>
@@ -17026,9 +17089,8 @@
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="1">
       <code>$httpStatus</code>
-      <code>$http_response_header[0]</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$context['http']['content']</code>
@@ -17106,6 +17168,9 @@
     <MoreSpecificReturnType occurrences="1">
       <code>stdClass|null</code>
     </MoreSpecificReturnType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$response</code>
+    </PossiblyInvalidArgument>
     <RedundantCondition occurrences="1">
       <code>isset($dbi)</code>
     </RedundantCondition>
@@ -19391,5 +19456,20 @@
       <code>is_string($text)</code>
       <code>is_string($text)</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="url.php">
+    <InvalidGlobal occurrences="1">
+      <code>global $containerBuilder, $dbi;</code>
+    </InvalidGlobal>
+    <MixedArgument occurrences="1"/>
+    <MixedMethodCall occurrences="1">
+      <code>render</code>
+    </MixedMethodCall>
+    <PossiblyNullReference occurrences="1">
+      <code>render</code>
+    </PossiblyNullReference>
+    <UnusedVariable occurrences="1">
+      <code>$isMinimumCommon</code>
+    </UnusedVariable>
   </file>
 </files>
