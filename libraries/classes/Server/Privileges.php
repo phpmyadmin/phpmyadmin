@@ -1492,13 +1492,13 @@ class Privileges
         $routinename = '',
         $initial = ''
     ) {
-        $html = '<a';
+        $linkClass = '';
         switch ($linktype) {
             case 'edit':
-                $html .= ' class="edit_user_anchor"';
+                $linkClass = 'edit_user_anchor';
                 break;
             case 'export':
-                $html .= ' class="export_user_anchor ajax"';
+                $linkClass = 'export_user_anchor ajax';
                 break;
         }
 
@@ -1524,28 +1524,28 @@ class Privileges
                 break;
         }
 
-        $html .= ' href="' . Url::getFromRoute('/server/privileges');
-        if ($linktype === 'revoke') {
-            $html .= '" data-post="' . Url::getCommon($params, '');
-        } else {
-            $html .= Url::getCommon($params, '&');
-        }
-
-        $html .= '">';
-
+        $action = [];
         switch ($linktype) {
             case 'edit':
-                $html .= Generator::getIcon('b_usredit', __('Edit privileges'));
+                $action['icon'] = 'b_usredit';
+                $action['text'] = __('Edit privileges');
                 break;
             case 'revoke':
-                $html .= Generator::getIcon('b_usrdrop', __('Revoke'));
+                $action['icon'] = 'b_usrdrop';
+                $action['text'] = __('Revoke');
                 break;
             case 'export':
-                $html .= Generator::getIcon('b_tblexport', __('Export'));
+                $action['icon'] = 'b_tblexport';
+                $action['text'] = __('Export');
                 break;
         }
 
-        return $html . '</a>';
+        return $this->template->render('server/privileges/get_user_link', [
+            'link_class' => $linkClass,
+            'is_revoke' => $linktype === 'revoke',
+            'url_params' => $params,
+            'action' => $action,
+        ]);
     }
 
     /**
