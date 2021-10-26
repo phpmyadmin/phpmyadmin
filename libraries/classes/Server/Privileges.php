@@ -1528,15 +1528,15 @@ class Privileges
         switch ($linktype) {
             case 'edit':
                 $action['icon'] = 'b_usredit';
-                $action['text'] = 'Edit privileges';
+                $action['text'] = __('Edit privileges');
                 break;
             case 'revoke':
                 $action['icon'] = 'b_usrdrop';
-                $action['text'] = 'Revoke';
+                $action['text'] = __('Revoke');
                 break;
             case 'export':
                 $action['icon'] = 'b_tblexport';
-                $action['text'] = 'Export';
+                $action['text'] = __('Export');
                 break;
         }
 
