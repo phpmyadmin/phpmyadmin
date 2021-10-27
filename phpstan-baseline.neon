@@ -96,11 +96,6 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
 			message: "#^Parameter \\#1 \\$function of function call_user_func_array expects callable\\(\\)\\: mixed, non\\-empty\\-string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
