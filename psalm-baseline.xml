@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.11.1@e33492398bd4e5e2ab60e331d445979bd83feecd">
+<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -939,15 +939,14 @@
     </MoreSpecificReturnType>
   </file>
   <file src="libraries/classes/Config/Validator.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$ip</code>
       <code>$password</code>
       <code>$uv[$i]</code>
       <code>$uv[$i]</code>
-      <code>$v</code>
-      <code>$v</code>
       <code>$values[$path]</code>
       <code>$vid</code>
+      <code>(array) $errorList</code>
       <code>empty($values['Servers/1/controlpass']) ? '' : $values['Servers/1/controlpass']</code>
       <code>empty($values['Servers/1/controluser']) ? '' : $values['Servers/1/controluser']</code>
       <code>empty($values['Servers/1/host']) ? '' : $values['Servers/1/host']</code>
@@ -1012,9 +1011,6 @@
       <code>$uv[$i]</code>
       <code>$uv[$i]</code>
     </PossiblyInvalidCast>
-    <RedundantCondition occurrences="1">
-      <code>is_array($v)</code>
-    </RedundantCondition>
   </file>
   <file src="libraries/classes/Console.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -6630,7 +6626,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="79">
+    <MixedArrayAccess occurrences="76">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6638,13 +6634,10 @@
       <code>$_SESSION['tmpval']['display_blob']</code>
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['geoOption']</code>
-      <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
-      <code>$_SESSION['tmpval']['max_rows']</code>
-      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
@@ -7279,6 +7272,9 @@
       <code>$line</code>
       <code>$line</code>
     </PossiblyNullArgument>
+    <RedundantCondition occurrences="1">
+      <code>mb_strtolower($userExtension) != $requiredExtension</code>
+    </RedundantCondition>
   </file>
   <file src="libraries/classes/Export/Options.php">
     <MixedArgument occurrences="2">
@@ -8238,6 +8234,9 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$modifiedSql</code>
     </PropertyNotSetInConstructor>
+    <RedundantCondition occurrences="1">
+      <code>mb_strtolower($user_extension) != $required_extension</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>is_numeric($pos)</code>
       <code>is_numeric($rows)</code>
@@ -13702,28 +13701,20 @@
     </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/RecentFavoriteTable.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="6">
       <code>$result</code>
       <code>$row[0]</code>
-      <code>$table['db']</code>
-      <code>$table['db']</code>
-      <code>$table['table']</code>
-      <code>$table['table']</code>
       <code>$tbl['db']</code>
       <code>$tbl['db']</code>
       <code>$tbl['table']</code>
       <code>$tbl['table']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="17">
       <code>$_SESSION['tmpval'][$this-&gt;tableType . 'Tables']</code>
       <code>$table['db']</code>
       <code>$table['db']</code>
       <code>$table['db']</code>
       <code>$table['db']</code>
-      <code>$table['db']</code>
-      <code>$table['db']</code>
-      <code>$table['table']</code>
-      <code>$table['table']</code>
       <code>$table['table']</code>
       <code>$table['table']</code>
       <code>$table['table']</code>

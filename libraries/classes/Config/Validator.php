@@ -185,7 +185,8 @@ class Validator
                         $result[$key] = [];
                     }
 
-                    $result[$key] = array_merge($result[$key], (array) $errorList);
+                    $errorList = array_map('PhpMyAdmin\Sanitize::sanitizeMessage', (array) $errorList);
+                    $result[$key] = array_merge($result[$key], $errorList);
                 }
             }
         }
@@ -194,11 +195,7 @@ class Validator
         $newResult = [];
         foreach ($result as $k => $v) {
             $k2 = $keyMap[$k] ?? $k;
-            if (is_array($v)) {
-                $newResult[$k2] = array_map('htmlspecialchars', $v);
-            } else {
-                $newResult[$k2] = htmlspecialchars($v);
-            }
+            $newResult[$k2] = $v;
         }
 
         return empty($newResult) ? true : $newResult;

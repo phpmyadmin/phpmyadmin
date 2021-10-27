@@ -131,6 +131,7 @@ phpMyAdmin - ChangeLog
 - issue #16693 Fix can't see SQL after adding a new column
 - issue #12753 Show table structure after adding a new column
 - issue        Fix a PHP notice when logging out
+- issue #17090 Fix bbcode not rendered for error messages on setup
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
