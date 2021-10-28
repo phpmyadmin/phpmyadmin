@@ -338,11 +338,6 @@ class DbiMysqli implements DbiExtension
      */
     public function getClientInfo($link)
     {
-        // See: https://github.com/phpmyadmin/phpmyadmin/issues/16911
-        if (PHP_VERSION_ID < 80100) {
-            return $link->get_client_info();
-        }
-
         return mysqli_get_client_info();
     }
 
