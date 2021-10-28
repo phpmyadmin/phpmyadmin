@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-01-22 01:27+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-10-29 18:36+0000\n"
+"Last-Translator: Alireza Ivaz <info@alirezaivaz.ir>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -18986,10 +18986,9 @@ msgid "at beginning of table"
 msgstr "در ابتداي جدول"
 
 #: templates/table/structure/display_structure.twig:507
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "ساخت يك فهرست در&nbsp;%s&nbsp;ستون"
+msgstr "ساخت یک فهرست در %s ستون"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
