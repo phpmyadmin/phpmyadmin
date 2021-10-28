@@ -354,11 +354,9 @@ class DbiDummy implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
-     * @param object $link connection link
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link)
+    public function getClientInfo()
     {
         return 'libmysql - mysqlnd x.x.x-dev (phpMyAdmin tests)';
     }

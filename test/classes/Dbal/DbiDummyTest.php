@@ -33,10 +33,9 @@ class DbiDummyTest extends AbstractTestCase
 
     public function testGetClientInfo(): void
     {
-        $obj = (object) [];
-        $this->assertNotEmpty($this->object->getClientInfo($obj));
+        $this->assertNotEmpty($this->object->getClientInfo());
         // Call the DatabaseInterface
-        $this->assertSame($GLOBALS['dbi']->getClientInfo(), $this->object->getClientInfo($obj));
+        $this->assertSame($GLOBALS['dbi']->getClientInfo(), $this->object->getClientInfo());
     }
 
     /**

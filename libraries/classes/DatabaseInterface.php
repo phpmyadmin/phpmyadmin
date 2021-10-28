@@ -2133,17 +2133,11 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns a string that represents the client library version
      *
-     * @param int $link link type
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link = self::CONNECT_USER): string
+    public function getClientInfo(): string
     {
-        if (! isset($this->links[$link])) {
-            return '';
-        }
-
-        return $this->extension->getClientInfo($this->links[$link]);
+        return $this->extension->getClientInfo();
     }
 
     /**
