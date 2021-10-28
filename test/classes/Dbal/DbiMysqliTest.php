@@ -33,14 +33,9 @@ class DbiMysqliTest extends AbstractTestCase
         $this->object = new DbiMysqli();
     }
 
-    /**
-     * @requires PHP >= 8.1
-     */
     public function testGetClientInfo(): void
     {
-        /** @var mysqli $obj */
-        $obj = null;
-        $this->assertNotEmpty($this->object->getClientInfo($obj));
+        $this->assertNotEmpty($this->object->getClientInfo());
     }
 
     /**

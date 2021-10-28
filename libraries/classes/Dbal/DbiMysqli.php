@@ -39,7 +39,6 @@ use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
 use const MYSQLI_REPORT_OFF;
 use const MYSQLI_STORE_RESULT;
 use const MYSQLI_USE_RESULT;
-use const PHP_VERSION_ID;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)
@@ -332,17 +331,10 @@ class DbiMysqli implements DbiExtension
     /**
      * returns a string that represents the client library version
      *
-     * @param mysqli $link mysql link
-     *
      * @return string MySQL client library version
      */
-    public function getClientInfo($link)
+    public function getClientInfo()
     {
-        // See: https://github.com/phpmyadmin/phpmyadmin/issues/16911
-        if (PHP_VERSION_ID < 80100) {
-            return $link->get_client_info();
-        }
-
         return mysqli_get_client_info();
     }
 
