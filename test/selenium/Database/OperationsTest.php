@@ -64,7 +64,7 @@ class OperationsTest extends TestBase
 
         $new_db_name = $this->databaseName . 'rename';
 
-        $this->scrollIntoView('create_table_form_minimal');
+        $this->scrollIntoView('createTableMinimalForm');
         $this->byCssSelector('form#rename_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
