@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-10-31 00:10+0000\n"
-"PO-Revision-Date: 2021-10-11 20:04+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2021-11-01 22:37+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -14235,10 +14235,8 @@ msgstr "Eylem"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Tablo oluştur"
+msgstr "Yeni tablo oluştur"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
