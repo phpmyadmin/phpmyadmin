@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-10-24 14:47+0000\n"
+"PO-Revision-Date: 2021-11-01 22:36+0000\n"
 "Last-Translator: SC <lalocas@protonmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -1893,7 +1893,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Autocompletar os nomes das tabelas e colunas nas consultas SQL."
+msgstr ""
+"Preenchimento automático dos nomes de tabelas e colunas nas consultas SQL."
 
 #: libraries/classes/Config/Descriptions.php:129
 #: libraries/classes/Config/Descriptions.php:133
