@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-24 00:10+0000\n"
+"POT-Creation-Date: 2021-10-31 00:10+0000\n"
 "PO-Revision-Date: 2021-10-11 20:04+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1343,21 +1343,20 @@ msgstr "Arama:"
 #: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/database/create_table.twig:21
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:44
-#: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:190
-#: templates/database/operations/index.twig:230
+#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:224
 #: templates/database/routines/editor_form.twig:176
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:190 templates/export.twig:459
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/enum_set_editor.twig:10
+#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
@@ -3407,7 +3406,7 @@ msgid "Remember filename template"
 msgstr "Dosya adı şablonunu hatırla"
 
 #: libraries/classes/Config/Descriptions.php:680
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:159
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
@@ -3451,7 +3450,7 @@ msgstr "phpMyAdmin yapılandırma depolamasından ilgili üstveriyi içe aktar"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:708
-#: templates/database/operations/index.twig:160
+#: templates/database/operations/index.twig:154
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
@@ -3920,7 +3919,7 @@ msgid "Recently used tables"
 msgstr "Son kullanılan tablolar"
 
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/RecentFavoriteTable.php:262
+#: libraries/classes/RecentFavoriteTable.php:250
 msgid "Favorite tables"
 msgstr "Sık kullanılan tablolar"
 
@@ -4118,7 +4117,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF şeması: sayfalar tablosu"
 
 #: libraries/classes/Config/Descriptions.php:878
-#: templates/database/operations/index.twig:127
+#: templates/database/operations/index.twig:121
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Veritabanı adı"
@@ -4537,7 +4536,7 @@ msgid "Missing data for %s"
 msgstr "%s için kayıp veri"
 
 #: libraries/classes/Config/FormDisplay.php:649
-#: libraries/classes/Config/Validator.php:593
+#: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Yanlış değer!"
@@ -4591,7 +4590,7 @@ msgstr "Özel"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4641,7 +4640,7 @@ msgstr "OpenDocument Metni"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
 #: libraries/classes/Util.php:1990 libraries/classes/Util.php:2005
 #: libraries/classes/Util.php:2022 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4884,21 +4883,21 @@ msgstr ""
 "%1$sGZip sıkıştırması ve açması%2$s bu sistemde mevcut olmayan işlevleri "
 "(%3$s) gerektiriyor."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "Veritabanı sunucusuna bağlanamadı!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:279
 msgid "Invalid authentication type!"
 msgstr "Geçersiz kimlik doğrulaması türü!"
 
-#: libraries/classes/Config/Validator.php:287
+#: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması yöntemi kullanırken kullanıcı adı "
 "boş!"
 
-#: libraries/classes/Config/Validator.php:293
+#: libraries/classes/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -4906,20 +4905,20 @@ msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "oturum adı boş!"
 
-#: libraries/classes/Config/Validator.php:300
+#: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "[kbd]Oturumu açma[/kbd] kimlik doğrulaması yöntemi kullanırken oturumu açma "
 "URL'si boş!"
 
-#: libraries/classes/Config/Validator.php:354
+#: libraries/classes/Config/Validator.php:351
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim "
 "kullanıcısı boş!"
 
-#: libraries/classes/Config/Validator.php:361
+#: libraries/classes/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -4927,31 +4926,31 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması kullanırken phpMyAdmin denetim kullanıcı "
 "parolası boş!"
 
-#: libraries/classes/Config/Validator.php:452
+#: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
 msgstr "Yanlış değer:"
 
-#: libraries/classes/Config/Validator.php:463
+#: libraries/classes/Config/Validator.php:460
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Yanlış IP adresi: %s"
 
-#: libraries/classes/Config/Validator.php:526
+#: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Geçerli bir bağlantı noktası numarası değil!"
 
-#: libraries/classes/Config/Validator.php:548
+#: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Pozitif bir sayı değil!"
 
-#: libraries/classes/Config/Validator.php:570
+#: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Negatif olmayan bir sayı değil!"
 
-#: libraries/classes/Config/Validator.php:611
+#: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -5729,6 +5728,7 @@ msgstr "Seçilen Kullanıcılar Kaldırılıyor"
 #: templates/export.twig:74 templates/export.twig:184
 #: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
+#: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
@@ -6863,7 +6863,7 @@ msgid "Data point content"
 msgstr "Veri imleci içeriği"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -7260,14 +7260,7 @@ msgstr ", son sağlam sürüm:"
 msgid "up to date"
 msgstr "güncel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
-#: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297
-#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
-msgid "Create view"
-msgstr "Görünüm oluştur"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -7275,15 +7268,15 @@ msgstr ""
 "Önemli bir JavaScript hatası meydana geldi. Bir hata raporu göndermek ister "
 "misiniz?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Change report settings"
 msgstr "Rapor ayarlarını değiştir"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show report details"
 msgstr "Rapor ayrıntılarını göster"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7291,7 +7284,7 @@ msgstr ""
 "Dışa aktarmanız PHP seviyesindeki düşük çalıştırma süresinden dolayı "
 "tamamlanmadı!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7300,76 +7293,76 @@ msgstr ""
 "Uyarı: bu sayfadaki form %d alandan daha fazlasına sahip. Gönderimde, bazı "
 "alanlar, PHP'nin max_input_vars yapılandırmasından dolayı yoksayılabilir."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Some errors have been detected on the server!"
 msgstr "Sunucu üzerinde bazı hatalar algılandı!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "Please look at the bottom of this window."
 msgstr "Lütfen bu pencerenin altına bakın."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Tümünü Yoksay"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Ayarlarınıza göre, bunlar şu anda gönderiliyor, lütfen sabırlı olun."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name successfully copied to clipboard!"
 msgstr "Sütun adı panoya başarılı olarak kopyalandı!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name copying to clipboard failed!"
 msgstr "Sütun adını panoya kopyalama başarısız oldu!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Successfully copied!"
 msgstr "Başarılı olarak kopyalandı!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Copying failed!"
 msgstr "Kopyalama başarısız oldu!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Execute this query again?"
 msgstr "Bu sorgu tekrar çalıştırılsın mı?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bu yer işaretini silmek istediğinize emin misiniz?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL hata ayıklama bilgisi alınırken bazı hatalar meydana geldi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s sorguları %s defa %s saniye içinde çalıştırıldı."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s bağımsız değişken(ler)i geçti"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Show arguments"
 msgstr "Bağımsız değişkenleri göster"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 msgid "Hide arguments"
 msgstr "Bağımsız değişkenleri gizle"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr "Aldığı süre:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7384,93 +7377,93 @@ msgstr ""
 "olabilir. Safari'de, genellikle böyle bir soruna \"Özel Kipte Tarama\" neden "
 "olur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Copy tables to"
 msgstr "Tabloları şuraya kopyala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Add table prefix"
 msgstr "Tablo ön eki ekle"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Replace table with prefix"
 msgstr "Tabloyu ön ek ile değiştir"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Tabloyu ön ek ile kopyala"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Extremely weak"
 msgstr "Son derece zayıf"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Very weak"
 msgstr "Çok zayıf"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Weak"
 msgstr "Zayıf"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Good"
 msgstr "İyi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Strong"
 msgstr "Güçlü"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Güvenlik anahtarı etkinleştirme beklenirken zaman aşımına uğradı."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Güvenlik anahtarına geçersiz istek gönderildi."
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Bilinmeyen güvenlik anahtarı hatası."
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "İstemci güvenlik anahtarını desteklemiyor."
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Güvenlik anahtarı etkinleştirme başarısız."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Geçersiz güvenlik anahtarı."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "%s tablosu zaten var!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Gizle"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -8840,7 +8833,7 @@ msgstr ""
 "Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
 "başarısız oldu."
 
-#: libraries/classes/DatabaseInterface.php:2420
+#: libraries/classes/DatabaseInterface.php:2414
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Daha fazla bilgi için %sbelgelerimize%s bakın."
@@ -9081,7 +9074,7 @@ msgstr ""
 "İstek işlenirken hata oldu: %2$s veritabanında %1$s adıyla tetikleyici "
 "bulunamadı."
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 "SSL bağlantısı sunucu tarafından zorlandı, otomatik olarak etkinleştiriliyor."
@@ -10942,9 +10935,7 @@ msgstr "Bağlantı verilen"
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
-#: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
-#: templates/database/operations/index.twig:33
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
@@ -11966,36 +11957,23 @@ msgstr "Lütfen veritabanını içeren dizinin yetkilerini denetleyin."
 msgid "Details…"
 msgstr "Ayrıntılar…"
 
-#: libraries/classes/RecentFavoriteTable.php:152
+#: libraries/classes/RecentFavoriteTable.php:156
 msgid "Could not save recent table!"
 msgstr "Son tablo kaydedilemedi!"
 
-#: libraries/classes/RecentFavoriteTable.php:156
+#: libraries/classes/RecentFavoriteTable.php:160
 msgid "Could not save favorite table!"
 msgstr "Sık kullanılan tablo kaydedilemedi!"
 
-#: libraries/classes/RecentFavoriteTable.php:227
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Remove from Favorites"
-msgstr "Sık Kullanılanlardan kaldır"
-
-#: libraries/classes/RecentFavoriteTable.php:249
-msgid "There are no recent tables."
-msgstr "Son tablolar yok."
-
-#: libraries/classes/RecentFavoriteTable.php:250
-msgid "There are no favorite tables."
-msgstr "Sık kullanılan tablolar yok."
-
-#: libraries/classes/RecentFavoriteTable.php:258
+#: libraries/classes/RecentFavoriteTable.php:246
 msgid "Recent tables"
 msgstr "Son tablolar"
 
-#: libraries/classes/RecentFavoriteTable.php:260
+#: libraries/classes/RecentFavoriteTable.php:248
 msgid "Recent"
 msgstr "Son"
 
-#: libraries/classes/RecentFavoriteTable.php:264
+#: libraries/classes/RecentFavoriteTable.php:252
 msgid "Favorites"
 msgstr "Sık kullanılanlar"
 
@@ -12513,7 +12491,7 @@ msgstr "%s için yetkileri geri aldınız."
 msgid "Not enough privilege to view users."
 msgstr "Kullanıcıları görüntülemek için yetersiz yetki."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1531
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12521,7 +12499,7 @@ msgstr "Kullanıcıları görüntülemek için yetersiz yetki."
 msgid "Edit privileges"
 msgstr "Yetkileri düzenle"
 
-#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:1535
 msgid "Revoke"
 msgstr "Geri al"
 
@@ -12961,21 +12939,21 @@ msgid "No data"
 msgstr "Veri yok"
 
 #: libraries/classes/Tracking.php:312
-#: templates/database/operations/index.twig:136
+#: templates/database/operations/index.twig:130
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Sadece yapı"
 
 #: libraries/classes/Tracking.php:315
-#: templates/database/operations/index.twig:148
+#: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Sadece veri"
 
 #: libraries/classes/Tracking.php:318
-#: templates/database/operations/index.twig:142
+#: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
@@ -13756,6 +13734,8 @@ msgid "after %s"
 msgstr "%s sonrasına"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/database/create_table.twig:6
+#: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "Tablo adı"
 
@@ -13939,8 +13919,8 @@ msgstr ""
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
-#: templates/database/operations/index.twig:199
-#: templates/database/operations/index.twig:203
+#: templates/database/operations/index.twig:193
+#: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:61 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
@@ -13958,8 +13938,8 @@ msgid "Collation"
 msgstr "Karşılaştırma"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
+#: templates/database/operations/index.twig:68
+#: templates/database/operations/index.twig:172
 #: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
@@ -14253,18 +14233,23 @@ msgstr "Sıralamak için tıklayın."
 msgid "Action"
 msgstr "Eylem"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:84
-#: templates/database/designer/main.twig:87
-#: templates/database/operations/index.twig:29
-#: templates/database/structure/show_create.twig:11
-msgid "Create table"
+#: templates/database/create_table.twig:3
+#: templates/database/operations/index.twig:27
+#, fuzzy
+#| msgid "Create table"
+msgid "Create new table"
 msgstr "Tablo oluştur"
 
-#: templates/database/create_table.twig:15
-#: templates/database/operations/index.twig:37
+#: templates/database/create_table.twig:10
+#: templates/database/operations/index.twig:34
 msgid "Number of columns"
 msgstr "Sütun sayısı"
+
+#: templates/database/create_table.twig:14
+#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/server/databases/index.twig:46
+msgid "Create"
+msgstr "Oluştur"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
@@ -14348,6 +14333,12 @@ msgstr "Yeni sayfa"
 #: templates/database/designer/main.twig:80
 msgid "Delete pages"
 msgstr "Sayfaları sil"
+
+#: templates/database/designer/main.twig:84
+#: templates/database/designer/main.twig:87
+#: templates/database/structure/show_create.twig:11
+msgid "Create table"
+msgstr "Tablo oluştur"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
@@ -14707,16 +14698,16 @@ msgstr "Sorguyu güncelle"
 msgid "Database comment"
 msgstr "Veritabanı açıklaması"
 
-#: templates/database/operations/index.twig:60
+#: templates/database/operations/index.twig:54
 msgid "Rename database to"
 msgstr "Veritabanını şuna yeniden adlandır"
 
-#: templates/database/operations/index.twig:64 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:270
 msgid "New database name"
 msgstr "Yeni veritabanı adı"
 
-#: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:176
+#: templates/database/operations/index.twig:66
+#: templates/database/operations/index.twig:170
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
@@ -14727,42 +14718,42 @@ msgstr ""
 "Bu işlemi yapmak için yeterli yetkilere sahip değilsiniz; Lütfen daha fazla "
 "ayrıntı için belgelere bakın."
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:83
 msgid "Remove database"
 msgstr "Veritabanını kaldır"
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:88
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "%s veritabanı kaldırıldı."
 
-#: templates/database/operations/index.twig:99
+#: templates/database/operations/index.twig:93
 msgid "Drop the database (DROP)"
 msgstr "Veritabanını kaldır (DROP)"
 
-#: templates/database/operations/index.twig:123
+#: templates/database/operations/index.twig:117
 msgid "Copy database to"
 msgstr "Veritabanını şuraya kopyala"
 
-#: templates/database/operations/index.twig:155
+#: templates/database/operations/index.twig:149
 msgid "CREATE DATABASE before copying"
 msgstr "Kopyalamadan önce VERİTABANI OLUŞTUR"
 
-#: templates/database/operations/index.twig:170
+#: templates/database/operations/index.twig:164
 #: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
 msgstr "Kısıtlamaları ekle"
 
-#: templates/database/operations/index.twig:185
+#: templates/database/operations/index.twig:179
 msgid "Switch to copied database"
 msgstr "Kopyalanmış veritabanına geç"
 
-#: templates/database/operations/index.twig:221
+#: templates/database/operations/index.twig:215
 msgid "Change all tables collations"
 msgstr "Tüm tablo karşılaştırmalarını değiştir"
 
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:219
 msgid "Change all tables columns collations"
 msgstr "Tüm tablo sütunları karşılaştırmalarını değiştir"
 
@@ -15196,12 +15187,23 @@ msgid "Do you really want to execute the following query?"
 msgstr "Aşağıdaki sorguya çalıştırmak istiyor musunuz?"
 
 #: templates/database/structure/favorite_anchor.twig:4
+#: templates/recent_favorite_table_favorite.twig:6
+msgid "Remove from Favorites"
+msgstr "Sık Kullanılanlardan kaldır"
+
+#: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
 msgstr "Sık Kullanılanlara ekle"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
 msgstr "Sorguları oluşturma gösteriliyor"
+
+#: templates/database/structure/show_create.twig:33
+#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
+msgid "Create view"
+msgstr "Görünüm oluştur"
 
 #: templates/database/structure/structure_table_row.twig:17
 #: templates/server/databases/index.twig:219
@@ -15447,10 +15449,6 @@ msgstr "Yeni şablon:"
 #: templates/export.twig:20
 msgid "Template name"
 msgstr "Şablon adı"
-
-#: templates/export.twig:21 templates/server/databases/index.twig:46
-msgid "Create"
-msgstr "Oluştur"
 
 #: templates/export.twig:27
 msgid "Existing templates:"
@@ -16575,6 +16573,14 @@ msgstr ""
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
 msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
+
+#: templates/recent_favorite_table_no_tables.twig:3
+msgid "There are no recent tables."
+msgstr "Son tablolar yok."
+
+#: templates/recent_favorite_table_no_tables.twig:5
+msgid "There are no favorite tables."
+msgstr "Sık kullanılan tablolar yok."
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"

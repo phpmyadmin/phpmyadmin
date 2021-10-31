@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-24 00:10+0000\n"
+"POT-Creation-Date: 2021-10-31 00:10+0000\n"
 "PO-Revision-Date: 2021-09-24 12:38+0000\n"
 "Last-Translator: Edward wahnström <edward.wahnstrom@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1410,21 +1410,20 @@ msgstr "Sök:"
 #: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/database/create_table.twig:21
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:44
-#: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:190
-#: templates/database/operations/index.twig:230
+#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:224
 #: templates/database/routines/editor_form.twig:176
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:190 templates/export.twig:459
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/enum_set_editor.twig:10
+#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
@@ -3593,7 +3592,7 @@ msgid "Remember filename template"
 msgstr "Kom ihåg mall för filnamn"
 
 #: libraries/classes/Config/Descriptions.php:680
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:159
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
@@ -3637,7 +3636,7 @@ msgstr "Exportera relaterade metadata från sparade inställningar i phpMyAdmin"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:708
-#: templates/database/operations/index.twig:160
+#: templates/database/operations/index.twig:154
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
@@ -4111,7 +4110,7 @@ msgid "Recently used tables"
 msgstr "Nyligen använda tabeller"
 
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/RecentFavoriteTable.php:262
+#: libraries/classes/RecentFavoriteTable.php:250
 msgid "Favorite tables"
 msgstr "Favorittabeller"
 
@@ -4309,7 +4308,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF-schema: Tabell för sidor"
 
 #: libraries/classes/Config/Descriptions.php:878
-#: templates/database/operations/index.twig:127
+#: templates/database/operations/index.twig:121
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Databasnamn"
@@ -4746,7 +4745,7 @@ msgid "Missing data for %s"
 msgstr "Saknar data för %s"
 
 #: libraries/classes/Config/FormDisplay.php:649
-#: libraries/classes/Config/Validator.php:593
+#: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "Felaktigt värde!"
@@ -4800,7 +4799,7 @@ msgstr "Anpassad"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4850,7 +4849,7 @@ msgstr "OpenDocument-text"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
 #: libraries/classes/Util.php:1990 libraries/classes/Util.php:2005
 #: libraries/classes/Util.php:2022 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5111,19 +5110,19 @@ msgstr ""
 "%sGZip komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
 "tillgängliga på detta system."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:279
 msgid "Invalid authentication type!"
 msgstr "Ogiltig autentiseringstyp!"
 
-#: libraries/classes/Config/Validator.php:287
+#: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "Tomt användarnamn vid användning av [kbd]config[/kbd]-autentisering!"
 
-#: libraries/classes/Config/Validator.php:293
+#: libraries/classes/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5131,18 +5130,18 @@ msgstr ""
 "Tomt sessionsnamn för signon vid användning av [kbd]signon[/kbd]-"
 "autentisering!"
 
-#: libraries/classes/Config/Validator.php:300
+#: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Tom URL för signon vid användning av [kbd]signon[/kbd]-autentisering!"
 
-#: libraries/classes/Config/Validator.php:354
+#: libraries/classes/Config/Validator.php:351
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Tom phpMyAdmin-kontrollanvändare vid användning av konfigurationslagring för "
 "phpMyAdmin!"
 
-#: libraries/classes/Config/Validator.php:361
+#: libraries/classes/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5150,31 +5149,31 @@ msgstr ""
 "Tomt lösenord för phpMyAdmin-kontrollanvändare vid användning av "
 "konfigurationslagring för phpMyAdmin!"
 
-#: libraries/classes/Config/Validator.php:452
+#: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
 msgstr "Felaktigt värde:"
 
-#: libraries/classes/Config/Validator.php:463
+#: libraries/classes/Config/Validator.php:460
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "Felaktig IP-adress: %s"
 
-#: libraries/classes/Config/Validator.php:526
+#: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Inte ett giltigt portnummer!"
 
-#: libraries/classes/Config/Validator.php:548
+#: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Inte ett positivt tal!"
 
-#: libraries/classes/Config/Validator.php:570
+#: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Inte ett icke-negativt tal!"
 
-#: libraries/classes/Config/Validator.php:611
+#: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -5943,6 +5942,7 @@ msgstr "Tar bort valda användare"
 #: templates/export.twig:74 templates/export.twig:184
 #: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
+#: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
@@ -7076,7 +7076,7 @@ msgid "Data point content"
 msgstr "Innehåll för datapunkt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -7471,36 +7471,29 @@ msgstr ", senaste stabila version:"
 msgid "up to date"
 msgstr "aktuell"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
-#: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297
-#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
-msgid "Create view"
-msgstr "Skapa vy"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Ett allvarligt JavaScript-fel har uppstått. Vill du skicka en felrapport?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Change report settings"
 msgstr "Ändra rapportinställningar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show report details"
 msgstr "Visa rapportdetaljer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Din export är inkomplett på grund av en låg exekveringstidsgräns på PHP-nivå!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7510,80 +7503,80 @@ msgstr ""
 "kan några av fälten ignoreras på grund av max_input_vars-inställningen för "
 "PHP."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Some errors have been detected on the server!"
 msgstr "Fel har påträffats på servern!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "Please look at the bottom of this window."
 msgstr "Titta längst ned i fönstret."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Ignorera alla"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "Enligt dina inställningar, ha tålamod."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Raderingen av sidan lyckades"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Kopiera databas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Execute this query again?"
 msgstr "Köra den här frågan igen?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Do you really want to delete this bookmark?"
 msgstr "Vill du verkligen ta bort detta bokmärke?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Vissa fel uppstod när SQL inhämtade felinformation."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s frågor körs %s gånger i %s sekunder."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argument utförda"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Show arguments"
 msgstr "Visa argument"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 msgid "Hide arguments"
 msgstr "Dölja argument"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr "Tidsåtgång:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7598,57 +7591,57 @@ msgstr ""
 "webbinnehåll och användardata\" kan hjälpa. I Safari orsakas dylika problem "
 "oftast av \"Privat läge\"."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Copy tables to"
 msgstr "Kopiera tabeller till"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Add table prefix"
 msgstr "Lägg till tabellprefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Replace table with prefix"
 msgstr "Ersätt tabell med prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Kopiera tabell med prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Extremely weak"
 msgstr "Extremt svag"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Very weak"
 msgstr "Väldigt svag"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Weak"
 msgstr "Svag"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Good"
 msgstr "Bra"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Strong"
 msgstr "Stark"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7656,26 +7649,26 @@ msgid "Unknown security key error."
 msgstr "Okänt fel"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Ogiltig export-typ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7683,13 +7676,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabell %s finns redan!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Dölj"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -9101,7 +9094,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Uppkoppling för kontrollanvändare enligt din konfiguration misslyckades."
 
-#: libraries/classes/DatabaseInterface.php:2420
+#: libraries/classes/DatabaseInterface.php:2414
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Se %sdokumentationen%s för mer information."
@@ -9344,7 +9337,7 @@ msgid ""
 "%2$s."
 msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -11194,9 +11187,7 @@ msgstr "Länkar till"
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
-#: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
-#: templates/database/operations/index.twig:33
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
@@ -12245,36 +12236,23 @@ msgstr "Kontrollera privilegierna för katalogen som innehåller databasen."
 msgid "Details…"
 msgstr "Detaljer…"
 
-#: libraries/classes/RecentFavoriteTable.php:152
+#: libraries/classes/RecentFavoriteTable.php:156
 msgid "Could not save recent table!"
 msgstr "Kunde inte spara den senaste tabellen!"
 
-#: libraries/classes/RecentFavoriteTable.php:156
+#: libraries/classes/RecentFavoriteTable.php:160
 msgid "Could not save favorite table!"
 msgstr "Kunde inte spara favorittabell!"
 
-#: libraries/classes/RecentFavoriteTable.php:227
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Remove from Favorites"
-msgstr "Ta bort från favoriter"
-
-#: libraries/classes/RecentFavoriteTable.php:249
-msgid "There are no recent tables."
-msgstr "Det finns inga nya tabeller."
-
-#: libraries/classes/RecentFavoriteTable.php:250
-msgid "There are no favorite tables."
-msgstr "Det finns inga favorittabeller."
-
-#: libraries/classes/RecentFavoriteTable.php:258
+#: libraries/classes/RecentFavoriteTable.php:246
 msgid "Recent tables"
 msgstr "De senaste tabellerna"
 
-#: libraries/classes/RecentFavoriteTable.php:260
+#: libraries/classes/RecentFavoriteTable.php:248
 msgid "Recent"
 msgstr "Senaste"
 
-#: libraries/classes/RecentFavoriteTable.php:264
+#: libraries/classes/RecentFavoriteTable.php:252
 msgid "Favorites"
 msgstr "Favoriter"
 
@@ -12789,7 +12767,7 @@ msgstr "Du har upphävt privilegierna för %s."
 msgid "Not enough privilege to view users."
 msgstr "Inte tillräckligt privilegier för att visa användare."
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1531
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12797,7 +12775,7 @@ msgstr "Inte tillräckligt privilegier för att visa användare."
 msgid "Edit privileges"
 msgstr "Redigera behörigheter"
 
-#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:1535
 msgid "Revoke"
 msgstr "Upphäv"
 
@@ -13258,21 +13236,21 @@ msgid "No data"
 msgstr "Inget data"
 
 #: libraries/classes/Tracking.php:312
-#: templates/database/operations/index.twig:136
+#: templates/database/operations/index.twig:130
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Enbart struktur"
 
 #: libraries/classes/Tracking.php:315
-#: templates/database/operations/index.twig:148
+#: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Enbart data"
 
 #: libraries/classes/Tracking.php:318
-#: templates/database/operations/index.twig:142
+#: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
@@ -14048,6 +14026,8 @@ msgid "after %s"
 msgstr "efter %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/database/create_table.twig:6
+#: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "Tabellnamn"
 
@@ -14267,8 +14247,8 @@ msgstr ""
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
-#: templates/database/operations/index.twig:199
-#: templates/database/operations/index.twig:203
+#: templates/database/operations/index.twig:193
+#: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:61 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
@@ -14286,8 +14266,8 @@ msgid "Collation"
 msgstr "Kollationering"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
+#: templates/database/operations/index.twig:68
+#: templates/database/operations/index.twig:172
 #: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
@@ -14593,18 +14573,23 @@ msgstr "Klicka för att sortera."
 msgid "Action"
 msgstr "Åtgärd"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:84
-#: templates/database/designer/main.twig:87
-#: templates/database/operations/index.twig:29
-#: templates/database/structure/show_create.twig:11
-msgid "Create table"
+#: templates/database/create_table.twig:3
+#: templates/database/operations/index.twig:27
+#, fuzzy
+#| msgid "Create table"
+msgid "Create new table"
 msgstr "Skapa tabell"
 
-#: templates/database/create_table.twig:15
-#: templates/database/operations/index.twig:37
+#: templates/database/create_table.twig:10
+#: templates/database/operations/index.twig:34
 msgid "Number of columns"
 msgstr "Antal kolumner"
+
+#: templates/database/create_table.twig:14
+#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/server/databases/index.twig:46
+msgid "Create"
+msgstr "Skapa"
 
 #: templates/database/data_dictionary/index.twig:3
 #, fuzzy
@@ -14691,6 +14676,12 @@ msgstr "Ny sida"
 #: templates/database/designer/main.twig:80
 msgid "Delete pages"
 msgstr "Ta bort sidor"
+
+#: templates/database/designer/main.twig:84
+#: templates/database/designer/main.twig:87
+#: templates/database/structure/show_create.twig:11
+msgid "Create table"
+msgstr "Skapa tabell"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
@@ -15090,16 +15081,16 @@ msgstr "Uppdatera fråga"
 msgid "Database comment"
 msgstr "Databaskommentar"
 
-#: templates/database/operations/index.twig:60
+#: templates/database/operations/index.twig:54
 msgid "Rename database to"
 msgstr "Byt namn på databasen till"
 
-#: templates/database/operations/index.twig:64 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:270
 msgid "New database name"
 msgstr "Nytt Databasnamn"
 
-#: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:176
+#: templates/database/operations/index.twig:66
+#: templates/database/operations/index.twig:170
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
@@ -15114,44 +15105,44 @@ msgstr ""
 "Du har inte tillräcklig behörighet att utföra åtgärden; Se dokumentationen "
 "för mer information"
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:83
 msgid "Remove database"
 msgstr "Radera databasen"
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:88
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "Databasen %s har tagits bort."
 
-#: templates/database/operations/index.twig:99
+#: templates/database/operations/index.twig:93
 msgid "Drop the database (DROP)"
 msgstr "Tag bort databasen (DROP)"
 
-#: templates/database/operations/index.twig:123
+#: templates/database/operations/index.twig:117
 msgid "Copy database to"
 msgstr "Kopiera databasen till"
 
-#: templates/database/operations/index.twig:155
+#: templates/database/operations/index.twig:149
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE före kopiering"
 
-#: templates/database/operations/index.twig:170
+#: templates/database/operations/index.twig:164
 #: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
 msgstr "Lägg till restriktioner"
 
-#: templates/database/operations/index.twig:185
+#: templates/database/operations/index.twig:179
 msgid "Switch to copied database"
 msgstr "Byt till den kopierade databasen"
 
-#: templates/database/operations/index.twig:221
+#: templates/database/operations/index.twig:215
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Ändra alla kolumners sortering"
 
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:219
 #, fuzzy
 #| msgid "Change all column collations"
 msgid "Change all tables columns collations"
@@ -15608,12 +15599,23 @@ msgid "Do you really want to execute the following query?"
 msgstr "Vill du verkligen exekvera följande fråga?"
 
 #: templates/database/structure/favorite_anchor.twig:4
+#: templates/recent_favorite_table_favorite.twig:6
+msgid "Remove from Favorites"
+msgstr "Ta bort från favoriter"
+
+#: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
 msgstr "Lägg till i favoriter"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
 msgstr "Visa skapade frågor"
+
+#: templates/database/structure/show_create.twig:33
+#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
+msgid "Create view"
+msgstr "Skapa vy"
 
 #: templates/database/structure/structure_table_row.twig:17
 #: templates/server/databases/index.twig:219
@@ -15870,10 +15872,6 @@ msgstr "Ny mall:"
 #: templates/export.twig:20
 msgid "Template name"
 msgstr "Mallens namn"
-
-#: templates/export.twig:21 templates/server/databases/index.twig:46
-msgid "Create"
-msgstr "Skapa"
 
 #: templates/export.twig:27
 msgid "Existing templates:"
@@ -17053,6 +17051,14 @@ msgstr "%sCreate%s saknade phpMyAdmin konfiguration lagringstabeller."
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
 msgstr ""
+
+#: templates/recent_favorite_table_no_tables.twig:3
+msgid "There are no recent tables."
+msgstr "Det finns inga nya tabeller."
+
+#: templates/recent_favorite_table_no_tables.twig:5
+msgid "There are no favorite tables."
+msgstr "Det finns inga favorittabeller."
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"

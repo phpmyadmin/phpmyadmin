@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-24 00:10+0000\n"
+"POT-Creation-Date: 2021-10-31 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1465,21 +1465,20 @@ msgstr "Buscar:"
 #: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/database/create_table.twig:21
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:44
-#: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:190
-#: templates/database/operations/index.twig:230
+#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:224
 #: templates/database/routines/editor_form.twig:176
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:190 templates/export.twig:459
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/enum_set_editor.twig:10
+#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
@@ -3806,7 +3805,7 @@ msgid "Remember filename template"
 msgstr "Lembrar o modelo do nome de ficheiro"
 
 #: libraries/classes/Config/Descriptions.php:680
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:159
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
@@ -3852,7 +3851,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:708
-#: templates/database/operations/index.twig:160
+#: templates/database/operations/index.twig:154
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
@@ -4326,7 +4325,7 @@ msgid "Recently used tables"
 msgstr "Táboas usadas recentemente"
 
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/RecentFavoriteTable.php:262
+#: libraries/classes/RecentFavoriteTable.php:250
 msgid "Favorite tables"
 msgstr "Táboas favoritas"
 
@@ -4530,7 +4529,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF schema: táboa de páxinas"
 
 #: libraries/classes/Config/Descriptions.php:878
-#: templates/database/operations/index.twig:127
+#: templates/database/operations/index.twig:121
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Nome da base de datos"
@@ -4977,7 +4976,7 @@ msgid "Missing data for %s"
 msgstr "Faltan datos de %s"
 
 #: libraries/classes/Config/FormDisplay.php:649
-#: libraries/classes/Config/Validator.php:593
+#: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "O valor é incorrecto!"
@@ -5031,7 +5030,7 @@ msgstr "Personalizada"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -5081,7 +5080,7 @@ msgstr "Texto de OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
 #: libraries/classes/Util.php:1990 libraries/classes/Util.php:2005
 #: libraries/classes/Util.php:2022 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5350,23 +5349,23 @@ msgstr ""
 "A %scompresión e descompresión con GZip%s require funcións (%s) que non "
 "están dispoñíbeis neste sistema."
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "Non foi posíbel conectar co servidor de bases de datos!"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:279
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
 msgstr "Tipo de autenticación"
 
-#: libraries/classes/Config/Validator.php:287
+#: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación "
 "mediante [kbd]configuración[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:293
+#: libraries/classes/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
@@ -5374,20 +5373,20 @@ msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:300
+#: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "Atopouse un URL de acceso baleiro ao empregar o método de autenticación "
 "mediante [kbd]rexistro de acceso[/kbd]!"
 
-#: libraries/classes/Config/Validator.php:354
+#: libraries/classes/Config/Validator.php:351
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Atopouse un usuario de control de phpMyAdmin baleiro ao empregar phpMyAdmin "
 "configuration storage!"
 
-#: libraries/classes/Config/Validator.php:361
+#: libraries/classes/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
@@ -5395,31 +5394,31 @@ msgstr ""
 "Atopouse un contrasinal de control de phpMyAdmin baleiro ao empregar "
 "phpMyAdmin configuration storage!"
 
-#: libraries/classes/Config/Validator.php:452
+#: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
 msgstr "O valor é incorrecto:"
 
-#: libraries/classes/Config/Validator.php:463
+#: libraries/classes/Config/Validator.php:460
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "O enderezo de IP é incorrecto: %s"
 
-#: libraries/classes/Config/Validator.php:526
+#: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "Non é un número de porto aceptábel!"
 
-#: libraries/classes/Config/Validator.php:548
+#: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "Non é un número positivo!"
 
-#: libraries/classes/Config/Validator.php:570
+#: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "Non é un número negativo!"
 
-#: libraries/classes/Config/Validator.php:611
+#: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -6201,6 +6200,7 @@ msgstr "A eliminar os usuarios escollidos"
 #: templates/export.twig:74 templates/export.twig:184
 #: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
+#: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
@@ -7347,7 +7347,7 @@ msgid "Data point content"
 msgstr "Contido do punto de datos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -7743,29 +7743,22 @@ msgstr ",última versión estable:"
 msgid "up to date"
 msgstr "actualizada"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
-#: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297
-#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
-msgid "Create view"
-msgstr "Crear unha vista"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Produciuse un erro global de JavaScript. Desexa enviar un informe do erro?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Change report settings"
 msgstr "Cambiar a configuración dos informes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show report details"
 msgstr "Mostrar os detalles do informe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7773,7 +7766,7 @@ msgstr ""
 "A exportación está incompleta debido a un límite de tempo de execución baixo "
 "no nivel de PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7783,82 +7776,82 @@ msgstr ""
 "envialo, algúns dos campos poderían ser ignorados por causa da configuración "
 "de max_input_vars de PHP."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Some errors have been detected on the server!"
 msgstr "Detectáronse algúns erros no servidor!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "Please look at the bottom of this window."
 msgstr "Mire na parte inferior desta xanela."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Ignorar todo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Segundo as opcións de configuración, están a ser enviados neste momento; "
 "agarde un anaquiño."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "A páxina foi eliminada correctamente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "A copiar a base de datos"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Execute this query again?"
 msgstr "Executar esta consulta de novo?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Do you really want to delete this bookmark?"
 msgstr "Confirma que desexa eliminar este marcador?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Produciuse un erro ao obter a información de depuración de SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s consultas executadas %s veces en %s segundos."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Paráronse %s argumento(s)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Show arguments"
 msgstr "Mostrar os argumentos"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 msgid "Hide arguments"
 msgstr "Agochar os argumentos"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr "Tempo que levou:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7873,57 +7866,57 @@ msgstr ""
 "tipo; limpar os «Datos de sitios web sen conexión» podería axudar. No Safari "
 "este é un problema que causa frecuentemente a «Navegación en modo privado»."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Copy tables to"
 msgstr "Copiar as táboas a"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Add table prefix"
 msgstr "Engadir un prefixo á táboa"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Replace table with prefix"
 msgstr "Substituír a táboa co prefixo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copiar a táboa con prefixo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Extremely weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Very weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Weak"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Good"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7931,26 +7924,26 @@ msgid "Unknown security key error."
 msgstr "Produciuse un erro descoñecido"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Este tipo de exportación non é válido"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7958,13 +7951,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Xa existe a táboa %s!!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Agochar"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -9425,7 +9418,7 @@ msgstr ""
 "Fallou a conexión para «controluser» tal e como está definida na "
 "configuración."
 
-#: libraries/classes/DatabaseInterface.php:2420
+#: libraries/classes/DatabaseInterface.php:2414
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9683,7 +9676,7 @@ msgid ""
 "%2$s."
 msgstr "Non se atopou ningún disparador co nome %1$s na base de datos %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -11552,9 +11545,7 @@ msgstr "Liga a"
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
-#: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
-#: templates/database/operations/index.twig:33
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
@@ -12648,36 +12639,23 @@ msgstr "Comprobe os privilexios do directorio que contén a base de datos."
 msgid "Details…"
 msgstr "Detalles…"
 
-#: libraries/classes/RecentFavoriteTable.php:152
+#: libraries/classes/RecentFavoriteTable.php:156
 msgid "Could not save recent table!"
 msgstr "Non foi posíbel gravar a táboa recente!"
 
-#: libraries/classes/RecentFavoriteTable.php:156
+#: libraries/classes/RecentFavoriteTable.php:160
 msgid "Could not save favorite table!"
 msgstr "Non foi posíbel gravar a táboa favorita!"
 
-#: libraries/classes/RecentFavoriteTable.php:227
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Remove from Favorites"
-msgstr "Retirar dos favoritos"
-
-#: libraries/classes/RecentFavoriteTable.php:249
-msgid "There are no recent tables."
-msgstr "Non hai táboas recentes."
-
-#: libraries/classes/RecentFavoriteTable.php:250
-msgid "There are no favorite tables."
-msgstr "Non hai táboas favoritas."
-
-#: libraries/classes/RecentFavoriteTable.php:258
+#: libraries/classes/RecentFavoriteTable.php:246
 msgid "Recent tables"
 msgstr "Táboas recentes"
 
-#: libraries/classes/RecentFavoriteTable.php:260
+#: libraries/classes/RecentFavoriteTable.php:248
 msgid "Recent"
 msgstr "Recentes"
 
-#: libraries/classes/RecentFavoriteTable.php:264
+#: libraries/classes/RecentFavoriteTable.php:252
 msgid "Favorites"
 msgstr "Favoritos"
 
@@ -13235,7 +13213,7 @@ msgstr "Revogou os privilexios de %s."
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1531
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -13245,7 +13223,7 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Modificar os privilexios:"
 
-#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:1535
 msgid "Revoke"
 msgstr "Revogar"
 
@@ -13718,21 +13696,21 @@ msgid "No data"
 msgstr "Non hai datos"
 
 #: libraries/classes/Tracking.php:312
-#: templates/database/operations/index.twig:136
+#: templates/database/operations/index.twig:130
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Só a estrutura"
 
 #: libraries/classes/Tracking.php:315
-#: templates/database/operations/index.twig:148
+#: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Só os datos"
 
 #: libraries/classes/Tracking.php:318
-#: templates/database/operations/index.twig:142
+#: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
@@ -14518,6 +14496,8 @@ msgid "after %s"
 msgstr "despois de %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/database/create_table.twig:6
+#: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "Nome da táboa"
 
@@ -14744,8 +14724,8 @@ msgstr ""
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
-#: templates/database/operations/index.twig:199
-#: templates/database/operations/index.twig:203
+#: templates/database/operations/index.twig:193
+#: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:61 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
@@ -14763,8 +14743,8 @@ msgid "Collation"
 msgstr "Orde alfabética"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
+#: templates/database/operations/index.twig:68
+#: templates/database/operations/index.twig:172
 #: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
@@ -15084,18 +15064,23 @@ msgstr "Prema para ordenar."
 msgid "Action"
 msgstr "Acción"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:84
-#: templates/database/designer/main.twig:87
-#: templates/database/operations/index.twig:29
-#: templates/database/structure/show_create.twig:11
-msgid "Create table"
+#: templates/database/create_table.twig:3
+#: templates/database/operations/index.twig:27
+#, fuzzy
+#| msgid "Create table"
+msgid "Create new table"
 msgstr "Crear unha táboa"
 
-#: templates/database/create_table.twig:15
-#: templates/database/operations/index.twig:37
+#: templates/database/create_table.twig:10
+#: templates/database/operations/index.twig:34
 msgid "Number of columns"
 msgstr "Número de columnas"
+
+#: templates/database/create_table.twig:14
+#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/server/databases/index.twig:46
+msgid "Create"
+msgstr "Crear"
 
 #: templates/database/data_dictionary/index.twig:3
 #, fuzzy
@@ -15196,6 +15181,12 @@ msgstr "Novo nome"
 #| msgid "Select page"
 msgid "Delete pages"
 msgstr "Escoller unha páxina"
+
+#: templates/database/designer/main.twig:84
+#: templates/database/designer/main.twig:87
+#: templates/database/structure/show_create.twig:11
+msgid "Create table"
+msgstr "Crear unha táboa"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
@@ -15607,18 +15598,18 @@ msgstr "Actualizar a consulta"
 msgid "Database comment"
 msgstr "Comentario da base de datos"
 
-#: templates/database/operations/index.twig:60
+#: templates/database/operations/index.twig:54
 msgid "Rename database to"
 msgstr "Renomear a base de datos como"
 
-#: templates/database/operations/index.twig:64 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:270
 #, fuzzy
 #| msgid "database name"
 msgid "New database name"
 msgstr "nome da base de datos"
 
-#: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:176
+#: templates/database/operations/index.twig:66
+#: templates/database/operations/index.twig:170
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
@@ -15629,44 +15620,44 @@ msgid ""
 "to the documentation for more details."
 msgstr "Non ten dereitos suficientes para estar aquí agora!"
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:83
 msgid "Remove database"
 msgstr "Eliminar base de datos"
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:88
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "A base de datos %s foi eliminada."
 
-#: templates/database/operations/index.twig:99
+#: templates/database/operations/index.twig:93
 msgid "Drop the database (DROP)"
 msgstr "Eliminar a base de datos (DROP)"
 
-#: templates/database/operations/index.twig:123
+#: templates/database/operations/index.twig:117
 msgid "Copy database to"
 msgstr "Copiar a base de datos a"
 
-#: templates/database/operations/index.twig:155
+#: templates/database/operations/index.twig:149
 msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE antes de copiar"
 
-#: templates/database/operations/index.twig:170
+#: templates/database/operations/index.twig:164
 #: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
 msgstr "Engadir limitacións"
 
-#: templates/database/operations/index.twig:185
+#: templates/database/operations/index.twig:179
 msgid "Switch to copied database"
 msgstr "Cambiar á base de datos copiada"
 
-#: templates/database/operations/index.twig:221
+#: templates/database/operations/index.twig:215
 #, fuzzy
 #| msgid "Continued table caption"
 msgid "Change all tables collations"
 msgstr "Título da táboa continuado"
 
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:219
 msgid "Change all tables columns collations"
 msgstr ""
 
@@ -16133,6 +16124,11 @@ msgid "Do you really want to execute the following query?"
 msgstr "Está realmente seguro de executar a seguinte petición?"
 
 #: templates/database/structure/favorite_anchor.twig:4
+#: templates/recent_favorite_table_favorite.twig:6
+msgid "Remove from Favorites"
+msgstr "Retirar dos favoritos"
+
+#: templates/database/structure/favorite_anchor.twig:4
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -16143,6 +16139,12 @@ msgstr "Engadir esta serie"
 #| msgid "Show SQL queries"
 msgid "Showing create queries"
 msgstr "Mostrar as consultas de SQL"
+
+#: templates/database/structure/show_create.twig:33
+#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
+msgid "Create view"
+msgstr "Crear unha vista"
 
 #: templates/database/structure/structure_table_row.twig:17
 #: templates/server/databases/index.twig:219
@@ -16396,10 +16398,6 @@ msgstr "Modelo novo:"
 #: templates/export.twig:20
 msgid "Template name"
 msgstr "Nome do modelo"
-
-#: templates/export.twig:21 templates/server/databases/index.twig:46
-msgid "Create"
-msgstr "Crear"
 
 #: templates/export.twig:27
 msgid "Existing templates:"
@@ -17601,6 +17599,14 @@ msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
 msgstr ""
+
+#: templates/recent_favorite_table_no_tables.twig:3
+msgid "There are no recent tables."
+msgstr "Non hai táboas recentes."
+
+#: templates/recent_favorite_table_no_tables.twig:5
+msgid "There are no favorite tables."
+msgstr "Non hai táboas favoritas."
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"

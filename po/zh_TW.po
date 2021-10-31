@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-24 00:10+0000\n"
+"POT-Creation-Date: 2021-10-31 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -1292,21 +1292,20 @@ msgstr "搜尋："
 #: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/database/create_table.twig:21
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
 #: templates/database/operations/index.twig:19
-#: templates/database/operations/index.twig:44
-#: templates/database/operations/index.twig:81
-#: templates/database/operations/index.twig:190
-#: templates/database/operations/index.twig:230
+#: templates/database/operations/index.twig:75
+#: templates/database/operations/index.twig:184
+#: templates/database/operations/index.twig:224
 #: templates/database/routines/editor_form.twig:176
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:190 templates/export.twig:459
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/enum_set_editor.twig:10
+#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
@@ -3223,7 +3222,7 @@ msgid "Remember filename template"
 msgstr "記錄模板檔案名稱"
 
 #: libraries/classes/Config/Descriptions.php:680
-#: templates/database/operations/index.twig:165
+#: templates/database/operations/index.twig:159
 #: templates/table/operations/index.twig:72
 #: templates/table/operations/index.twig:300
 msgid "Add AUTO_INCREMENT value"
@@ -3267,7 +3266,7 @@ msgstr "自 phpMyAdmin 設定儲存空間匯出相關的 Metadata"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:696
 #: libraries/classes/Config/Descriptions.php:708
-#: templates/database/operations/index.twig:160
+#: templates/database/operations/index.twig:154
 #: templates/table/operations/index.twig:295
 #, php-format
 msgid "Add %s"
@@ -3734,7 +3733,7 @@ msgid "Recently used tables"
 msgstr "最近使用的資料表"
 
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/RecentFavoriteTable.php:262
+#: libraries/classes/RecentFavoriteTable.php:250
 msgid "Favorite tables"
 msgstr "最愛資料表"
 
@@ -3932,7 +3931,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF 綱要：資料表頁"
 
 #: libraries/classes/Config/Descriptions.php:878
-#: templates/database/operations/index.twig:127
+#: templates/database/operations/index.twig:121
 #: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "資料庫名稱"
@@ -4357,7 +4356,7 @@ msgid "Missing data for %s"
 msgstr "缺少 %s 所需的資料"
 
 #: libraries/classes/Config/FormDisplay.php:649
-#: libraries/classes/Config/Validator.php:593
+#: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "輸入的值不正確！"
@@ -4411,7 +4410,7 @@ msgstr "自訂"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4461,7 +4460,7 @@ msgstr "OpenDocument/OpenOffice 文字檔"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
 #: libraries/classes/Util.php:1990 libraries/classes/Util.php:2005
 #: libraries/classes/Util.php:2022 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4680,64 +4679,64 @@ msgid ""
 "are unavailable on this system."
 msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 (%3$s) 函式。"
 
-#: libraries/classes/Config/Validator.php:246
+#: libraries/classes/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "無法連線到資料庫伺服器！"
 
-#: libraries/classes/Config/Validator.php:282
+#: libraries/classes/Config/Validator.php:279
 msgid "Invalid authentication type!"
 msgstr "認證方式無效！"
 
-#: libraries/classes/Config/Validator.php:287
+#: libraries/classes/Config/Validator.php:284
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "使用 [kbd]config[/kbd] 認證方式時使用者帳號不能為空！"
 
-#: libraries/classes/Config/Validator.php:293
+#: libraries/classes/Config/Validator.php:290
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr "選擇使用 [kbd]signon[/kbd] 認證方式時，signon 連線階段名稱必須填寫！"
 
-#: libraries/classes/Config/Validator.php:300
+#: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "使用 [kbd]signon[/kbd] 認證方式時，登入網址不能為空！"
 
-#: libraries/classes/Config/Validator.php:354
+#: libraries/classes/Config/Validator.php:351
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者！"
 
-#: libraries/classes/Config/Validator.php:361
+#: libraries/classes/Config/Validator.php:358
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者密碼！"
 
-#: libraries/classes/Config/Validator.php:452
+#: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
 msgstr "輸入的值不正確："
 
-#: libraries/classes/Config/Validator.php:463
+#: libraries/classes/Config/Validator.php:460
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr "%s 是錯誤的 IP 位址"
 
-#: libraries/classes/Config/Validator.php:526
+#: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
 msgstr "連結埠無效！"
 
-#: libraries/classes/Config/Validator.php:548
+#: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
 msgstr "輸入值不是正數！"
 
-#: libraries/classes/Config/Validator.php:570
+#: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
 msgstr "輸入值不是非負數！"
 
-#: libraries/classes/Config/Validator.php:611
+#: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
@@ -5475,6 +5474,7 @@ msgstr "正在刪除已選擇的使用者"
 #: templates/export.twig:74 templates/export.twig:184
 #: templates/home/index.twig:277 templates/home/index.twig:285
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
+#: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
@@ -6585,7 +6585,7 @@ msgid "Data point content"
 msgstr "資料點內容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -6960,34 +6960,27 @@ msgstr "，最新的穩定版："
 msgid "up to date"
 msgstr "最新"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
-#: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297
-#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
-msgid "Create view"
-msgstr "新增檢視表"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "發生 JavaScript 嚴重錯誤，是否要回報錯誤報告？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Change report settings"
 msgstr "更改報告設定"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 msgid "Show report details"
 msgstr "顯示報告詳細資訊"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:623
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "因 PHP 執行期時間限制太短，資料未完成匯出動作！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -6996,76 +6989,76 @@ msgstr ""
 "警告：此頁面中的表單超過 %d 個欄位，因超出 PHP 中 max_input_vars 設定值的限"
 "制，在送出時可能會忽略部份欄位。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Some errors have been detected on the server!"
 msgstr "偵測到伺服器發生錯誤！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid "Please look at the bottom of this window."
 msgstr "請瀏覽此視窗的底部。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "全部略過"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "根據設定正在提交，請耐心等候。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Successfully copied!"
 msgstr "已成功複製！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Copying failed!"
 msgstr "複製失敗！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 msgid "Execute this query again?"
 msgstr "再執行此查詢一次？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Do you really want to delete this bookmark?"
 msgstr "真的要刪除此書籤？"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Some error occurred while getting SQL debug info."
 msgstr "取得 SQL 除錯資訊時發生一些錯誤。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s 筆查詢已執行 %s 次，使用 %s 秒。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "已傳入 %s 個引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Show arguments"
 msgstr "顯示引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
 msgid "Hide arguments"
 msgstr "隱藏引數"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid "Time taken:"
 msgstr "使用時間："
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7078,45 +7071,45 @@ msgstr ""
 "題，可試著清空「離線網站資料」來解決；在 Safari 則通常是「隱私模式瀏覽」引起"
 "的問題。"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Copy tables to"
 msgstr "複製資料表到"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 msgid "Add table prefix"
 msgstr "增加資料表字首"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Replace table with prefix"
 msgstr "取代此字首的資料表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "複製此字首的資料表"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Extremely weak"
 msgstr "極差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Very weak"
 msgstr "很差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Weak"
 msgstr "差"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Good"
 msgstr "好"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Strong"
 msgstr "很好"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 #, fuzzy
 #| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
@@ -7124,13 +7117,13 @@ msgid "Timed out waiting for security key activation."
 msgstr "等候啟用安全金鑰逾時。"
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7138,13 +7131,13 @@ msgid "Unknown security key error."
 msgstr "不明錯誤"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -7152,27 +7145,27 @@ msgid "Failed security key activation."
 msgstr "未能啟用安全金鑰 (%s)。"
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "無效的匯出類型"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "已有 %s 資料表！"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "隱藏"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -8481,7 +8474,7 @@ msgstr "缺少連線參數！"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用設定檔案定義的控制使用者連線失敗。"
 
-#: libraries/classes/DatabaseInterface.php:2420
+#: libraries/classes/DatabaseInterface.php:2414
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "請參閱%s我們的說明文件%s以取得更多的資訊。"
@@ -8721,7 +8714,7 @@ msgid ""
 "%2$s."
 msgstr "在資料庫 %2$s 中查無名稱為 %1$s 的觸發器。"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "伺服器強制使用 SSL 連線，正在自動啟用。"
 
@@ -10497,9 +10490,7 @@ msgstr "連結到"
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
-#: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:43
-#: templates/database/operations/index.twig:33
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
@@ -11493,36 +11484,23 @@ msgstr "請檢查資料庫所在的資料夾權限。"
 msgid "Details…"
 msgstr "詳細資訊…"
 
-#: libraries/classes/RecentFavoriteTable.php:152
+#: libraries/classes/RecentFavoriteTable.php:156
 msgid "Could not save recent table!"
 msgstr "無法儲存最近使用的資料表！"
 
-#: libraries/classes/RecentFavoriteTable.php:156
+#: libraries/classes/RecentFavoriteTable.php:160
 msgid "Could not save favorite table!"
 msgstr "無法儲存最愛資料表！"
 
-#: libraries/classes/RecentFavoriteTable.php:227
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Remove from Favorites"
-msgstr "自「最愛」移除"
-
-#: libraries/classes/RecentFavoriteTable.php:249
-msgid "There are no recent tables."
-msgstr "沒有最近使用的資料表。"
-
-#: libraries/classes/RecentFavoriteTable.php:250
-msgid "There are no favorite tables."
-msgstr "沒有「最愛」資料表。"
-
-#: libraries/classes/RecentFavoriteTable.php:258
+#: libraries/classes/RecentFavoriteTable.php:246
 msgid "Recent tables"
 msgstr "最近使用的資料表"
 
-#: libraries/classes/RecentFavoriteTable.php:260
+#: libraries/classes/RecentFavoriteTable.php:248
 msgid "Recent"
 msgstr "最近使用"
 
-#: libraries/classes/RecentFavoriteTable.php:264
+#: libraries/classes/RecentFavoriteTable.php:252
 msgid "Favorites"
 msgstr "最愛"
 
@@ -12030,7 +12008,7 @@ msgstr "已收回 %s 的權限。"
 msgid "Not enough privilege to view users."
 msgstr "權限不足以檢視使用者。"
 
-#: libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Server/Privileges.php:1531
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12038,7 +12016,7 @@ msgstr "權限不足以檢視使用者。"
 msgid "Edit privileges"
 msgstr "編輯權限"
 
-#: libraries/classes/Server/Privileges.php:1541
+#: libraries/classes/Server/Privileges.php:1535
 msgid "Revoke"
 msgstr "撤銷"
 
@@ -12469,21 +12447,21 @@ msgid "No data"
 msgstr "沒有資料"
 
 #: libraries/classes/Tracking.php:312
-#: templates/database/operations/index.twig:136
+#: templates/database/operations/index.twig:130
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "僅結構"
 
 #: libraries/classes/Tracking.php:315
-#: templates/database/operations/index.twig:148
+#: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "僅資料"
 
 #: libraries/classes/Tracking.php:318
-#: templates/database/operations/index.twig:142
+#: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
@@ -13233,6 +13211,8 @@ msgid "after %s"
 msgstr "於 %s 之後"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
+#: templates/database/create_table.twig:6
+#: templates/database/operations/index.twig:30
 msgid "Table name"
 msgstr "資料表名稱"
 
@@ -13422,8 +13402,8 @@ msgstr "欄位預設值，請輸入單一值，不可加反斜線或引號，即
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
-#: templates/database/operations/index.twig:199
-#: templates/database/operations/index.twig:203
+#: templates/database/operations/index.twig:193
+#: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
 #: templates/home/index.twig:61 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
@@ -13441,8 +13421,8 @@ msgid "Collation"
 msgstr "編碼與排序"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#: templates/database/operations/index.twig:74
-#: templates/database/operations/index.twig:178
+#: templates/database/operations/index.twig:68
+#: templates/database/operations/index.twig:172
 #: templates/database/routines/editor_form.twig:124
 #: templates/database/structure/copy_form.twig:50
 #: templates/table/operations/index.twig:79
@@ -13740,18 +13720,23 @@ msgstr "點選排序。"
 msgid "Action"
 msgstr "動作"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:84
-#: templates/database/designer/main.twig:87
-#: templates/database/operations/index.twig:29
-#: templates/database/structure/show_create.twig:11
-msgid "Create table"
+#: templates/database/create_table.twig:3
+#: templates/database/operations/index.twig:27
+#, fuzzy
+#| msgid "Create table"
+msgid "Create new table"
 msgstr "建立資料表"
 
-#: templates/database/create_table.twig:15
-#: templates/database/operations/index.twig:37
+#: templates/database/create_table.twig:10
+#: templates/database/operations/index.twig:34
 msgid "Number of columns"
 msgstr "欄位數"
+
+#: templates/database/create_table.twig:14
+#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/server/databases/index.twig:46
+msgid "Create"
+msgstr "建立"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
@@ -13836,6 +13821,12 @@ msgstr "新頁面"
 #: templates/database/designer/main.twig:80
 msgid "Delete pages"
 msgstr "刪除頁面"
+
+#: templates/database/designer/main.twig:84
+#: templates/database/designer/main.twig:87
+#: templates/database/structure/show_create.twig:11
+msgid "Create table"
+msgstr "建立資料表"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
@@ -14201,16 +14192,16 @@ msgstr "更新查詢"
 msgid "Database comment"
 msgstr "資料庫備註"
 
-#: templates/database/operations/index.twig:60
+#: templates/database/operations/index.twig:54
 msgid "Rename database to"
 msgstr "將資料庫改名為"
 
-#: templates/database/operations/index.twig:64 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:270
 msgid "New database name"
 msgstr "新資料庫名稱"
 
-#: templates/database/operations/index.twig:72
-#: templates/database/operations/index.twig:176
+#: templates/database/operations/index.twig:66
+#: templates/database/operations/index.twig:170
 #: templates/table/operations/index.twig:77
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:313
@@ -14223,42 +14214,42 @@ msgid ""
 "to the documentation for more details."
 msgstr "您的權限不足以執行此操作；請參閱說明文件了解詳細資訊"
 
-#: templates/database/operations/index.twig:89
+#: templates/database/operations/index.twig:83
 msgid "Remove database"
 msgstr "移除資料庫"
 
-#: templates/database/operations/index.twig:94
+#: templates/database/operations/index.twig:88
 #, php-format
 msgid "Database %s has been dropped."
 msgstr "已刪除 %s 資料庫。"
 
-#: templates/database/operations/index.twig:99
+#: templates/database/operations/index.twig:93
 msgid "Drop the database (DROP)"
 msgstr "刪除資料庫 (DROP)"
 
-#: templates/database/operations/index.twig:123
+#: templates/database/operations/index.twig:117
 msgid "Copy database to"
 msgstr "複製資料庫到"
 
-#: templates/database/operations/index.twig:155
+#: templates/database/operations/index.twig:149
 msgid "CREATE DATABASE before copying"
 msgstr "複製前建立資料庫 (CREATE DATABASE)"
 
-#: templates/database/operations/index.twig:170
+#: templates/database/operations/index.twig:164
 #: templates/database/structure/copy_form.twig:44
 #: templates/table/operations/index.twig:306
 msgid "Add constraints"
 msgstr "加入限制式"
 
-#: templates/database/operations/index.twig:185
+#: templates/database/operations/index.twig:179
 msgid "Switch to copied database"
 msgstr "切換到複製的資料庫"
 
-#: templates/database/operations/index.twig:221
+#: templates/database/operations/index.twig:215
 msgid "Change all tables collations"
 msgstr "更改所有資料表的編碼與排序"
 
-#: templates/database/operations/index.twig:225
+#: templates/database/operations/index.twig:219
 msgid "Change all tables columns collations"
 msgstr "更改所有資料表欄位的編碼與排序"
 
@@ -14701,12 +14692,23 @@ msgid "Do you really want to execute the following query?"
 msgstr "真的要執行以下查詢？"
 
 #: templates/database/structure/favorite_anchor.twig:4
+#: templates/recent_favorite_table_favorite.twig:6
+msgid "Remove from Favorites"
+msgstr "自「最愛」移除"
+
+#: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
 msgstr "新增至「最愛」"
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
 msgstr "顯示建立查詢"
+
+#: templates/database/structure/show_create.twig:33
+#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
+msgid "Create view"
+msgstr "新增檢視表"
 
 #: templates/database/structure/structure_table_row.twig:17
 #: templates/server/databases/index.twig:219
@@ -14953,10 +14955,6 @@ msgstr "新模板："
 #: templates/export.twig:20
 msgid "Template name"
 msgstr "模板名稱"
-
-#: templates/export.twig:21 templates/server/databases/index.twig:46
-msgid "Create"
-msgstr "建立"
 
 #: templates/export.twig:27
 msgid "Existing templates:"
@@ -16065,6 +16063,14 @@ msgstr "未能提供雙因素認證；啟用 phpMyAdmin 設定儲存空間以使
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
 msgstr "已啟用雙因素認證。"
+
+#: templates/recent_favorite_table_no_tables.twig:3
+msgid "There are no recent tables."
+msgstr "沒有最近使用的資料表。"
+
+#: templates/recent_favorite_table_no_tables.twig:5
+msgid "There are no favorite tables."
+msgstr "沒有「最愛」資料表。"
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"
