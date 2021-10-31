@@ -120,6 +120,7 @@ class DataDictionaryController extends AbstractController
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,
+            'hide_modals' => true,
         ]);
     }
 }
