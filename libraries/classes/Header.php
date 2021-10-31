@@ -10,7 +10,6 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
 
-use function __;
 use function array_merge;
 use function defined;
 use function gmdate;
@@ -86,13 +85,6 @@ class Header
      */
     private $warningsEnabled;
     /**
-     * Whether the page is in 'print view' mode
-     *
-     * @access private
-     * @var bool
-     */
-    private $isPrintView;
-    /**
      * Whether we are servicing an ajax request.
      *
      * @access private
@@ -138,7 +130,6 @@ class Header
         $this->menu = new Menu($db ?? '', $table ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
-        $this->isPrintView = false;
         $this->scripts = new Scripts();
         $this->addDefaultScripts();
         $this->headerIsSent = false;
@@ -346,16 +337,6 @@ class Header
     }
 
     /**
-     * Turns on 'print view' mode
-     */
-    public function enablePrintView(): void
-    {
-        $this->disableMenuAndConsole();
-        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . Version::VERSION);
-        $this->isPrintView = true;
-    }
-
-    /**
      * Generates the header
      *
      * @return string The header
@@ -430,7 +411,6 @@ class Header
         return $this->template->render('header', [
             'lang' => $GLOBALS['lang'],
             'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
-            'is_print_view' => $this->isPrintView,
             'base_dir' => $baseDir,
             'theme_path' => $themePath,
             'version' => $version,

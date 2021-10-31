@@ -11,16 +11,12 @@
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  {% if is_print_view %}
-    <link rel="stylesheet" type="text/css" href="{{ base_dir }}print.css?{{ version }}">
-  {% else %}
-    <link rel="stylesheet" type="text/css" href="{{ theme_path }}/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/lib/codemirror.css?{{ version }}">
-    <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ version }}">
-    <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ version }}">
-    <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/theme{{ text_dir == 'rtl' ? '.rtl' }}.css?{{ version }}">
-    <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/printview.css?{{ version }}" media="print" id="printcss">
-  {% endif %}
+  <link rel="stylesheet" type="text/css" href="{{ theme_path }}/jquery/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/lib/codemirror.css?{{ version }}">
+  <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ version }}">
+  <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ version }}">
+  <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/theme{{ text_dir == 'rtl' ? '.rtl' }}.css?{{ version }}">
+  <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/printview.css?{{ version }}" media="print" id="printcss">
   <title>{{ title }}</title>
   {{ scripts|raw }}
   <noscript><style>html{display:block}</style></noscript>

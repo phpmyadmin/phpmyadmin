@@ -169,8 +169,6 @@ validateExtension() {
         ;;
         favicon.ico)
         ;;
-        print.css)
-        ;;
         babel.config.json)
         ;;
         package.json)

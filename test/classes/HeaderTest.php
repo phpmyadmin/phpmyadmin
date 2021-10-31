@@ -82,19 +82,6 @@ class HeaderTest extends AbstractTestCase
     }
 
     /**
-     * Test for print view
-     */
-    public function testPrintView(): void
-    {
-        $header = new Header();
-        $header->enablePrintView();
-        $this->assertStringContainsString(
-            'Print view',
-            $header->getDisplay()
-        );
-    }
-
-    /**
      * Test for Get JsParams
      */
     public function testGetJsParams(): void

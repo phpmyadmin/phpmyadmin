@@ -44,9 +44,6 @@ class DataDictionaryController extends AbstractController
     {
         Util::checkParameters(['db'], true);
 
-        $header = $this->response->getHeader();
-        $header->enablePrintView();
-
         $cfgRelation = $this->relation->getRelationsParam();
 
         $comment = $this->relation->getDbComment($this->db);
