@@ -1360,7 +1360,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<th class="column_action sticky print_ignore" ' . $colspan
+            $buttonHtml .= '<th class="column_action sticky d-print-none" ' . $colspan
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
@@ -2106,7 +2106,7 @@ class Results
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
             $rightColumnHtml .= "\n"
-                . '<th class="column_action print_ignore" ' . $colspan . '>'
+                . '<th class="column_action d-print-none" ' . $colspan . '>'
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
@@ -2122,7 +2122,7 @@ class Results
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
-            $rightColumnHtml .= "\n" . '<td class="print_ignore" ' . $colspan
+            $rightColumnHtml .= "\n" . '<td class="d-print-none" ' . $colspan
                 . '></td>';
         }
 

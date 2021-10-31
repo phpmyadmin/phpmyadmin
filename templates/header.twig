@@ -16,7 +16,6 @@
   <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ version }}">
   <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ version }}">
   <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/theme{{ text_dir == 'rtl' ? '.rtl' }}.css?{{ version }}">
-  <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/printview.css?{{ version }}" media="print" id="printcss">
   <title>{{ title }}</title>
   {{ scripts|raw }}
   <noscript><style>html{display:block}</style></noscript>
@@ -38,7 +37,7 @@
 
   {% if is_menu_enabled and server > 0 %}
     {{ menu|raw }}
-    <span id="page_nav_icons">
+    <span id="page_nav_icons" class="d-print-none">
       <span id="lock_page_icon"></span>
       <span id="page_settings_icon">
         {{ get_image('s_cog', 'Page-related settings'|trans) }}

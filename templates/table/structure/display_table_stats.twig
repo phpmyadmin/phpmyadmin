@@ -57,7 +57,7 @@
                     or tbl_storage_engine == 'BDB')
                     or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
                 <tfoot class="table-light">
-                    <tr class="print_ignore">
+                    <tr class="d-print-none">
                         <th colspan="3" class="center">
                             <a href="{{ url('/sql') }}" data-post="{{ get_common({
                               'db': db,

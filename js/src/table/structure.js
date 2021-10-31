@@ -49,7 +49,6 @@ AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', 'a.drop_column_anchor.ajax');
     $(document).off('click', 'a.add_key.ajax');
     $(document).off('click', '#move_columns_anchor');
-    $(document).off('click', '#printView');
     $(document).off('submit', '.append_fields_form.ajax');
     $('body').off('click', '#fieldsForm.ajax button');
     $(document).off('click', 'a[id^=partition_action].ajax');
@@ -242,16 +241,6 @@ AJAX.registerOnload('table/structure.js', function () {
             }); // end $.post()
         });
     }); // end of Drop Column Anchor action
-
-    /**
-     * Attach Event Handler for 'Print' link
-     */
-    $(document).on('click', '#printView', function (event) {
-        event.preventDefault();
-
-        // Take to preview mode
-        Functions.printPreview();
-    }); // end of Print View action
 
     /**
      * Ajax Event handler for adding keys

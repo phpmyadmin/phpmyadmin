@@ -17,7 +17,7 @@
         {# Table header #}
         <thead>
             <tr>
-                <th class="print_ignore"></th>
+                <th class="d-print-none"></th>
                 <th>#</th>
                 <th>{% trans 'Name' %}</th>
                 <th>{% trans 'Type' %}</th>
@@ -32,7 +32,7 @@
                 {# @see table/structure.js, function moreOptsMenuResize() #}
                 {% if not db_is_system_schema and not tbl_is_view %}
                     <th colspan="{{ show_icons('ActionLinksMode') ? '8' : '9' -}}
-                        " class="action print_ignore">{% trans 'Action' %}</th>
+                        " class="action d-print-none">{% trans 'Action' %}</th>
                 {% endif %}
             </tr>
         </thead>
@@ -49,7 +49,7 @@
             {# Underline commented fields and display a hover-title (CSS only) #}
 
         <tr>
-            <td class="text-center print_ignore">
+            <td class="text-center d-print-none">
                 <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="text-end">{{ rownum }}</td>
@@ -99,7 +99,7 @@
             {% endif %}
             <td class="text-nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
-                <td class="edit text-center print_ignore">
+                <td class="edit text-center d-print-none">
                     <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', {
                       'db': db,
                       'table': table,
@@ -109,7 +109,7 @@
                       {{ get_icon('b_edit', 'Change'|trans) }}
                     </a>
                 </td>
-                <td class="drop text-center print_ignore">
+                <td class="drop text-center d-print-none">
                     <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common({
                       'db': db,
                       'table': table,
@@ -125,7 +125,7 @@
 
             {% if not tbl_is_view and not db_is_system_schema %}
                 {% set type = extracted_columnspec['print_type'] is not empty ? extracted_columnspec['print_type'] %}
-                <td class="print_ignore">
+                <td class="d-print-none">
                     <ul class="table-structure-actions resizable-menu">
                         {% if hide_structure_actions %}
                             <li class="submenu shown">
@@ -137,7 +137,7 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
                             {{ get_icon('bd_primary', 'Primary'|trans) }}
                           {% else %}
-                            <a rel="samepage" class="ajax add_key print_ignore add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
@@ -152,7 +152,7 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or field_name in columns_with_unique_index %}
                             {{ get_icon('bd_unique', 'Unique'|trans) }}
                           {% else %}
-                            <a rel="samepage" class="ajax add_key print_ignore add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
@@ -167,7 +167,7 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
                             {{ get_icon('bd_index', 'Index'|trans) }}
                           {% else %}
-                            <a rel="samepage" class="ajax add_key print_ignore add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
@@ -192,7 +192,7 @@
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
                             {{ get_icon('bd_spatial', 'Spatial'|trans) }}
                           {% else %}
-                            <a rel="samepage" class="ajax add_key print_ignore add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
@@ -264,7 +264,7 @@
         </tbody>
     </table>
     </div>
-    <div class="print_ignore">
+    <div class="d-print-none">
         {% include 'select_all.twig' with {
             'text_dir': text_dir,
             'form_name': 'fieldsForm'
@@ -311,7 +311,7 @@
         {% endif %}
     </div>
 </form>
-<hr class="print_ignore">
+<hr class="d-print-none">
 
 <div class="modal fade" id="moveColumnsModal" tabindex="-1" aria-labelledby="moveColumnsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -357,14 +357,14 @@
 </div>
 
 {# Work on the table #}
-<div id="structure-action-links">
+<div id="structure-action-links" class="d-print-none">
     {% if tbl_is_view and not db_is_system_schema %}
         {{ link_or_button(
             url('/view/create', {'db': db, 'table': table}),
             get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
-    <a href="#" id="printView">{{ get_icon('b_print', 'Print'|trans, true) }}</a>
+    <button type="button" class="btn btn-link p-0 jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
@@ -403,7 +403,7 @@
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns">
+    <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns" class="d-print-none">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
             {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
@@ -445,7 +445,7 @@
           <table class="table table-light table-striped table-hover table-sm w-auto align-middle" id="table_index">
             <thead class="table-light">
               <tr>
-                <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
+                <th colspan="3" class="d-print-none">{% trans 'Action' %}</th>
                 <th>{% trans 'Keyname' %}</th>
                 <th>{% trans 'Type' %}</th>
                 <th>{% trans 'Unique' %}</th>
@@ -462,7 +462,7 @@
               <tbody class="row_span">
                 {% set columns_count = index.getColumnCount() %}
                 <tr class="noclick">
-                <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
+                <td rowspan="{{ columns_count }}" class="edit_index d-print-none ajax">
                   <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common({
                     'db': db,
                     'table': table,
@@ -471,7 +471,7 @@
                     {{ get_icon('b_edit', 'Edit'|trans) }}
                   </a>
                 </td>
-                <td rowspan="{{ columns_count }}" class="rename_index print_ignore ajax" >
+                <td rowspan="{{ columns_count }}" class="rename_index d-print-none ajax" >
                   <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common({
                     'db': db,
                     'table': table,
@@ -480,7 +480,7 @@
                     {{ get_icon('b_rename', 'Rename'|trans) }}
                   </a>
                 </td>
-                <td rowspan="{{ columns_count }}" class="print_ignore">
+                <td rowspan="{{ columns_count }}" class="d-print-none">
                   {% if index.getName() == 'PRIMARY' %}
                     {% set index_params = {
                       'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',
@@ -533,7 +533,7 @@
       {% endif %}
     </fieldset>
 
-    <fieldset class="pma-fieldset tblFooters print_ignore text-start">
+    <fieldset class="pma-fieldset tblFooters d-print-none text-start">
       <form action="{{ url('/table/indexes') }}" method="post">
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="create_index" value="1">
