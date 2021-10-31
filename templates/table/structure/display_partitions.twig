@@ -186,7 +186,7 @@
             </table>
         {% endif %}
     </fieldset>
-    <fieldset class="pma-fieldset tblFooters print_ignore">
+    <fieldset class="pma-fieldset tblFooters d-print-none">
         <form action="{{ url('/table/structure/partitioning') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
 

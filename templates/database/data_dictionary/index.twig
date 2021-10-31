@@ -5,7 +5,7 @@
   {% endif %}
 
   <p class="d-print-none">
-    <input type="button" class="btn btn-secondary button" id="print" value="{% trans 'Print' %}">
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
   </p>
 
   <div>
@@ -121,6 +121,6 @@
   </div>
 
   <p class="d-print-none">
-    <input type="button" class="btn btn-secondary button" id="print" value="{% trans 'Print' %}">
+    <button type="button" class="btn btn-secondary jsPrintButton">{{ get_icon('b_print', 'Print'|trans, true) }}</button>
   </p>
 </div>

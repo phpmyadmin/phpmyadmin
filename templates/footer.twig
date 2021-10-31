@@ -3,7 +3,7 @@
 {% endif %}
 {% if not is_ajax and not is_minimal %}
   {% if self_url is not empty %}
-    <div id="selflink" class="print_ignore">
+    <div id="selflink" class="d-print-none">
       <a href="{{ self_url }}" title="{% trans 'Open new phpMyAdmin window' %}" target="_blank" rel="noopener noreferrer">
         {% if show_icons('TabsMode') %}
           {{ get_image('window-new', 'Open new phpMyAdmin window'|trans) }}
@@ -14,14 +14,14 @@
     </div>
   {% endif %}
 
-  <div class="clearfloat" id="pma_errors">
+  <div class="clearfloat d-print-none" id="pma_errors">
     {{ error_messages|raw }}
   </div>
 
   {{ scripts|raw }}
 
   {% if is_demo %}
-    <div id="pma_demo">
+    <div id="pma_demo" class="d-print-none">
       {% apply notice %}
         <a href="{{ url('/') }}">{% trans 'phpMyAdmin Demo Server' %}:</a>
         {% if git_revision_info is not empty %}

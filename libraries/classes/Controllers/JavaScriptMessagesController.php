@@ -578,10 +578,6 @@ final class JavaScriptMessagesController
             'dropImportDropFiles' => __('Drop files here'),
             'dropImportSelectDB' => __('Select database first'),
 
-            /* For Print view */
-            'print' => __('Print'),
-            'back' => __('Back'),
-
             // this approach does not work when the parameter is changed via user prefs
             'strGridEditFeatureHint' => $cfg['GridEditing'] === 'double-click'
                 ? __('You can also edit most values<br>by double-clicking directly on them.')

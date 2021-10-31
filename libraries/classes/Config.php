@@ -1067,7 +1067,7 @@ class Config
     {
         $retval = '';
         if (@file_exists($filename)) {
-            $retval .= '<div id="' . $id . '">';
+            $retval .= '<div id="' . $id . '" class="d-print-none">';
             ob_start();
             include $filename;
             $retval .= ob_get_clean();

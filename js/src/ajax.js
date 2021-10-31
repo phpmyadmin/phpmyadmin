@@ -378,7 +378,7 @@ var AJAX = {
             msg = data.errSubmitMsg;
         }
         if (data.errors) {
-            $('<div></div>', { id : 'pma_errors', class : 'clearfloat' })
+            $('<div></div>', { id : 'pma_errors', class : 'clearfloat d-print-none' })
                 .insertAfter('#selflink')
                 .append(data.errors);
             // bind for php error reporting forms (bottom)
@@ -553,7 +553,7 @@ var AJAX = {
                     msg = data.errSubmitMsg;
                 }
                 if (data.errors) {
-                    $('<div></div>', { id : 'pma_errors', class : 'clearfloat' })
+                    $('<div></div>', { id : 'pma_errors', class : 'clearfloat d-print-none' })
                         .insertAfter('#selflink')
                         .append(data.errors);
                     // bind for php error reporting forms (bottom)
