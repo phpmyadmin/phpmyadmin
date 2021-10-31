@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-10-31 00:10+0000\n"
-"PO-Revision-Date: 2021-10-11 20:04+0000\n"
+"PO-Revision-Date: 2021-11-01 22:37+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -14364,10 +14364,8 @@ msgstr "Actie"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Tabel aanmaken"
+msgstr "Nieuwe tabel aanmaken"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
