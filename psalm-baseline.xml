@@ -725,8 +725,7 @@
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
     </InvalidPropertyFetch>
-    <MoreSpecificImplementedParamType occurrences="24">
-      <code>$mysqli</code>
+    <MoreSpecificImplementedParamType occurrences="23">
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
@@ -751,9 +750,8 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
-    <ParamNameMismatch occurrences="15">
+    <ParamNameMismatch occurrences="14">
       <code>$databaseName</code>
-      <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
