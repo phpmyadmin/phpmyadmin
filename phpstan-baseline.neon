@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\<int, string\\>&nonEmpty and false will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between non\\-empty\\-array\\<int, string\\> and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
 
@@ -76,9 +76,29 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
+			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/ExportController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
 			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
+			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/OperationsController.php
+
+		-
+			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/QueryByExampleController.php
+
+		-
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 4
+			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
 			message: "#^Parameter \\#4 \\$formattedSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
@@ -89,6 +109,36 @@ parameters:
 			message: "#^Parameter \\#6 \\$formattedOverhead of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$operations is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relation is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/TrackingController.php
+
+		-
+			message: "#^Variable \\$export_plugin in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
 			message: "#^Elseif condition is always false\\.$#"
@@ -126,6 +176,26 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/DatabasesController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$relationCleanup is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/DatabasesController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$transformations is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/DatabasesController.php
+
+		-
+			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/PrivilegesController.php
+
+		-
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
@@ -146,9 +216,19 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/ChartController.php
+
+		-
 			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/OperationsController.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function uksort expects callable\\(int\\|string, int\\|string\\)\\: int, 'strnatcasecmp' given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
@@ -156,32 +236,72 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
+			message: "#^Offset 'partition_by' on array\\{partition_by\\: string, partition_expr\\: string, partition_count\\: int, subpartition_by\\: string, subpartition_expr\\: string, subpartition_count\\: int, can_have_subpartitions\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
+
+		-
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 7
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$createAddField is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$flash is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Table/StructureController.php
+
+		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$body \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{scheme\\?\\: string, host\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
 		-
-			message: "#^Offset 'DCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DCN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'DTN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'SCN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'SCN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Offset 'STN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, non\\-empty\\-string\\>&nonEmpty\\)\\.$#"
+			message: "#^Offset 'STN' does not exist on array\\{C_NAME\\: array\\<int, string\\>, DCN\\?\\: non\\-empty\\-array\\<int, string\\>, DTN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>, SCN\\?\\: non\\-empty\\-array\\<int, string\\>, STN\\?\\: non\\-empty\\-array\\<int, non\\-empty\\-string\\>\\}\\.$#"
 			count: 2
 			path: libraries/classes/Database/Designer/Common.php
 
@@ -191,12 +311,27 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
 			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrCols \\(array\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrRows \\(array\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -224,6 +359,16 @@ parameters:
 			message: "#^Parameter \\#2 \\$create_routine of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:create\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$criteriaColumnName \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Database/Search.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Database\\\\Search\\:\\:\\$criteriaColumnName \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Database/Search.php
 
 		-
 			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
@@ -266,12 +411,42 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$decimals \\(int\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$order \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\>\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
 
@@ -316,6 +491,11 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
+			message: "#^Parameter \\#2 \\$length of function fread expects int\\<0, max\\>, int given\\.$#"
+			count: 1
+			path: libraries/classes/File.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
@@ -326,7 +506,17 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
+			message: "#^Variable \\$charLists in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Font.php
+
+		-
 			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
@@ -341,6 +531,11 @@ parameters:
 			path: libraries/classes/Gis/GisLineString.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisLineString\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisLineString.php
+
+		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:line\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
@@ -351,12 +546,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiLineString.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPoint.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -371,12 +576,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPoint\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -387,6 +602,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPolygon\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
 
@@ -421,6 +641,11 @@ parameters:
 			path: libraries/classes/Git.php
 
 		-
+			message: "#^Parameter \\#2 \\$length of function fread expects int\\<0, max\\>, int given\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
 			message: "#^Function imagefilledpolygon invoked with 3 parameters, 4 required\\.$#"
 			count: 1
 			path: libraries/classes/Image/ImageWrapper.php
@@ -446,7 +671,7 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Cannot call method getScripts\\(\\) on class\\-string\\|object\\.$#"
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -481,6 +706,11 @@ parameters:
 			path: libraries/classes/LanguageManager.php
 
 		-
+			message: "#^Unsafe access to private property PhpMyAdmin\\\\LanguageManager\\:\\:\\$languageData through static\\:\\:\\.$#"
+			count: 2
+			path: libraries/classes/LanguageManager.php
+
+		-
 			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
@@ -489,6 +719,21 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
+
+		-
+			message: "#^Offset 'text' on array\\{text\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, icon\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, second_icon\\?\\: array\\{route\\: string, params\\: array\\<string, mixed\\>\\}, title\\?\\: string\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:\\$pos \\(int\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:\\$title \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
@@ -526,6 +771,11 @@ parameters:
 			path: libraries/classes/OutputBuffering.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$instance \\(PhpMyAdmin\\\\OutputBuffering\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/OutputBuffering.php
+
+		-
 			message: "#^Parameter \\#1 \\$font of method TCPDF\\:\\:setFooterFont\\(\\) expects array\\<int, string\\>, array\\<int, int\\|string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
@@ -534,6 +784,11 @@ parameters:
 			message: "#^Parameter \\#7 \\$pdfa of method TCPDF\\:\\:__construct\\(\\) expects int, bool given\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
+
+		-
+			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Auth\\\\AuthenticationCookie\\:\\:cookieEncrypt\\(\\) should return string but returns string\\|false\\.$#"
@@ -556,6 +811,11 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationCookie.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin\\:\\:\\$user \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
+
+		-
 			message: "#^Binary operation \"\\.\" between 'FOREIGN KEY ' and array\\|string results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -566,9 +826,44 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$key \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\) in empty\\(\\) is not falsy\\.$#"
+			count: 3
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$entityOptions \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
+			count: 2
+			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$token \\(string\\) does not accept array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$colFits is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Export\\\\Helpers\\\\Pdf\\:\\:\\$titleWidth is never read, only written\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
@@ -701,6 +996,11 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\Plugins\\\\Schema\\\\ExportRelationSchema\\:\\:\\$orientation \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: "#^Call to an undefined method object\\:\\:SetDrawColor\\(\\)\\.$#"
 			count: 3
 			path: libraries/classes/Plugins/Schema/Pdf/RelationStatsPdf.php
@@ -801,6 +1101,11 @@ parameters:
 			path: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
 
 		-
+			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: libraries/classes/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, bool\\|string\\|null\\>\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -831,6 +1136,11 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
+			message: "#^Static property PhpMyAdmin\\\\ResponseRenderer\\:\\:\\$instance \\(PhpMyAdmin\\\\ResponseRenderer\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/ResponseRenderer.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
@@ -854,6 +1164,11 @@ parameters:
 			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
+
+		-
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
@@ -891,6 +1206,11 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
+			message: "#^Variable \\$userGroup on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Monitor.php
@@ -922,6 +1242,11 @@ parameters:
 
 		-
 			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -991,12 +1316,27 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Variable \\$db on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 2
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$filesizeInfo \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs \\(array\\) in isset\\(\\) is not nullable\\.$#"
+			count: 3
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Dead catch \\- RuntimeException is never thrown in the try block\\.$#"
+			count: 1
+			path: libraries/classes/Template.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$filesizeInfo \\(int\\) does not accept int\\<0, max\\>\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Theme.php
 
@@ -1007,6 +1347,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
 
@@ -1026,7 +1371,52 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> non\\-empty\\-string, 'request_fulluri' \\=\\> true\\)\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Variable \\$dbname on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Variable \\$version on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Tracker.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:configure\\(\\)\\.$#"
+			count: 1
+			path: libraries/classes/TwoFactor.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\TwoFactor\\:\\:getBackendForCurrentUser\\(\\) should return PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin but returns object\\.$#"
+			count: 1
+			path: libraries/classes/TwoFactor.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\TwoFactor\\:\\:\\$backend \\(PhpMyAdmin\\\\Plugins\\\\TwoFactorPlugin\\) does not accept object\\.$#"
+			count: 2
+			path: libraries/classes/TwoFactor.php
+
+		-
+			message: "#^Cannot use array destructuring on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgname \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgtable \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Util.php
+
+		-
+			message: "#^Offset 'header' does not exist on array\\{proxy\\: non\\-empty\\-string, request_fulluri\\: true\\}\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
 
@@ -1044,6 +1434,21 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
+			count: 1
+			path: test/classes/CacheTest.php
+
+		-
+			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
+			count: 1
+			path: test/classes/Command/SetVersionCommandTest.php
+
+		-
+			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
+			count: 1
+			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
@@ -1064,4 +1469,29 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
+
+		-
+			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not covariant with PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
+
+		-
+			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$dummyQueries contains unresolvable type\\.$#"
+			count: 1
+			path: test/classes/Stubs/DbiDummy.php
+
+		-
+			message: "#^PHPDoc tag @var for property PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:\\$filoQueries contains unresolvable type\\.$#"
+			count: 1
+			path: test/classes/Stubs/DbiDummy.php
+
+		-
+			message: "#^Missing call to parent\\:\\:tearDown\\(\\) method\\.$#"
+			count: 1
+			path: test/classes/TwoFactorTest.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\Tests\\\\Selenium\\\\ChangePasswordTest\\:\\:\\$verificationErrors is never written, only read\\.$#"
+			count: 1
+			path: test/selenium/ChangePasswordTest.php
 

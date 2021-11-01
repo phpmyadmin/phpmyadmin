@@ -39,5 +39,6 @@ if (function_exists('error_reporting')) {
  * Read config file.
  */
 if (is_readable(CONFIG_FILE)) {
+    /** @psalm-suppress MissingFile */
     include CONFIG_FILE;
 }

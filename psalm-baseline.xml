@@ -6104,7 +6104,7 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="76">
+    <MixedArgument occurrences="75">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
@@ -6163,7 +6163,6 @@
       <code>$table</code>
       <code>$table_data[$sort_by] ?? ''</code>
       <code>$this-&gt;links[$linkIndex]</code>
-      <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
@@ -6475,8 +6474,7 @@
       <code>$fields</code>
       <code>FieldMetadata[]|null</code>
     </MixedReturnTypeCoercion>
-    <MoreSpecificImplementedParamType occurrences="23">
-      <code>$link</code>
+    <MoreSpecificImplementedParamType occurrences="22">
       <code>$link</code>
       <code>$link</code>
       <code>$link</code>

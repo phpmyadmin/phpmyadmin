@@ -1,7 +1,7 @@
 includes:
     - phpstan-baseline.neon
 parameters:
-    level: max
+    level: 8
     paths:
         - .
     scanFiles:
@@ -9,7 +9,7 @@ parameters:
     bootstrapFiles:
         - test/phpstan-constants.php
     checkMissingIterableValueType: false
-    excludes_analyse:
+    excludePaths:
         - examples/openid.php
         - node_modules/*
         - libraries/cache/*
