@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue #14276 Add support for account locking
 - issue #17143 Use composer/ca-bundle to manage the CA cert file
 - issue #17143 Require the openssl PHP extension
+- issue #17171 Remove the printview.css file from themes
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
