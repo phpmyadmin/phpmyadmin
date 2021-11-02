@@ -72,6 +72,7 @@
             totalLen += $($li[i]).outerWidth(true);
         }
 
+        // eslint-disable-next-line compat/compat
         var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
         if (hasVScroll) {
             windowWidth += 15;

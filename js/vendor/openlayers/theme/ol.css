@@ -1,7 +1,8 @@
 .ol-box {
   box-sizing: border-box;
   border-radius: 2px;
-  border: 2px solid blue;
+  border: 1.5px solid rgb(179,197,219);
+  background-color: rgba(255,255,255,0.4);
 }
 
 .ol-mouse-position {
@@ -130,9 +131,9 @@
   margin: 1px;
   padding: 0;
   color: white;
-  font-size: 1.14em;
   font-weight: bold;
   text-decoration: none;
+  font-size: inherit;
   text-align: center;
   height: 1.375em;
   width: 1.375em;
@@ -178,13 +179,20 @@
   bottom: .5em;
   right: .5em;
   max-width: calc(100% - 1.3em);
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
 }
-
+.ol-attribution a {
+  color: rgba(0,60,136,0.7);
+  text-decoration: none;
+}
 .ol-attribution ul {
   margin: 0;
-  padding: 0 .5em;
+  padding: 1px .5em;
   color: #000;
   text-shadow: 0 0 2px #fff;
+  font-size: 12px;
 }
 .ol-attribution li {
   display: inline;
@@ -198,8 +206,8 @@
   max-width: inherit;
   vertical-align: middle;
 }
-.ol-attribution ul, .ol-attribution button {
-  display: inline-block;
+.ol-attribution button {
+  flex-shrink: 0;
 }
 .ol-attribution.ol-collapsed ul {
   display: none;
@@ -245,7 +253,7 @@
 }
 .ol-overviewmap .ol-overviewmap-map,
 .ol-overviewmap button {
-  display: inline-block;
+  display: block;
 }
 .ol-overviewmap .ol-overviewmap-map {
   border: 1px solid #7b98bc;
@@ -253,8 +261,8 @@
   margin: 2px;
   width: 150px;
 }
-.ol-overviewmap:not(.ol-collapsed) button{
-  bottom: 1px;
+.ol-overviewmap:not(.ol-collapsed) button {
+  bottom: 2px;
   left: 2px;
   position: absolute;
 }

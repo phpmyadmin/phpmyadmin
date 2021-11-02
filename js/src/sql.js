@@ -384,6 +384,7 @@ AJAX.registerOnload('sql.js', function () {
             textArea.value += '\n';
         });
 
+        // eslint-disable-next-line compat/compat
         document.body.appendChild(textArea);
 
         textArea.select();
@@ -394,6 +395,7 @@ AJAX.registerOnload('sql.js', function () {
             alert('Sorry! Unable to copy');
         }
 
+        // eslint-disable-next-line compat/compat
         document.body.removeChild(textArea);
     }); // end of Copy to Clipboard action
 
