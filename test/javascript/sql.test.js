@@ -1,6 +1,6 @@
 /* eslint-env node, jest */
 
-var Sql = require('phpmyadmin/sql');
+const Sql = require('phpmyadmin/sql');
 
 describe('SQL', () => {
     test('test URL encode', () => {
