@@ -94,6 +94,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 objLeft: $(obj).position().left,
                 objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'col-resize').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
@@ -133,6 +134,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 objLeft: objPos.left
             };
 
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'move').noSelect();
             if (g.isCellEditActive) {
                 g.hideEditCell();
@@ -229,6 +231,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
                 g.colReorder = false;
             }
+            // eslint-disable-next-line compat/compat
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
 

@@ -2496,8 +2496,8 @@ input#auto_increment_opt {
 
   height: $height;
   width: $width;
-  margin-top: $height / -2;
-  margin-#{$left}: $width / -2;
+  margin-top: $height * -0.5;
+  margin-#{$left}: $width * -0.5;
   background: url("../img/col_pointer.png");
   position: absolute;
 }

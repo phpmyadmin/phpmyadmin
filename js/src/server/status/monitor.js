@@ -1312,6 +1312,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 $('#selection_box').remove();
             }
             var selectionBox = $('<div id="selection_box" >');
+            // eslint-disable-next-line compat/compat
             $(document.body).append(selectionBox);
             selectionStartX = ev.pageX;
             selectionStartY = ev.pageY;
@@ -1360,6 +1361,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             drawTimeSpan = false;
         });
 
+        // eslint-disable-next-line compat/compat
         $(document.body).on('mouseup', function () {
             if ($('#selection_box').length) {
                 $('#selection_box').remove();

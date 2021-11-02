@@ -2409,8 +2409,8 @@ form.append_fields_form .tblFooters {
 
   height: $height;
   width: $width;
-  margin-#{$left}: $height / -2;
-  margin-top: $width / -2;
+  margin-#{$left}: $height * -0.5;
+  margin-top: $width * -0.5;
   position: absolute;
   background: url("../img/col_pointer.png");
 }

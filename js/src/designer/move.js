@@ -95,7 +95,9 @@ if (isIe) {
 }
 
 DesignerMove.mouseDown = function (e) {
+    // eslint-disable-next-line compat/compat
     globX = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    // eslint-disable-next-line compat/compat
     globY = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
     if (e.target.tagName === 'SPAN') {
@@ -119,7 +121,9 @@ DesignerMove.mouseMove = function (e) {
         e.preventDefault();
     }
 
+    // eslint-disable-next-line compat/compat
     var newDx = isIe ? e.clientX + document.body.scrollLeft : e.pageX;
+    // eslint-disable-next-line compat/compat
     var newDy = isIe ? e.clientY + document.body.scrollTop : e.pageY;
 
     var deltaX = globX - newDx;
@@ -1489,7 +1493,9 @@ DesignerMove.canvasClick = function (id, event) {
     var key;
     var key2;
     var key3;
+    // eslint-disable-next-line compat/compat
     var localX = isIe ? event.clientX + document.body.scrollLeft : event.pageX;
+    // eslint-disable-next-line compat/compat
     var localY = isIe ? event.clientY + document.body.scrollTop : event.pageY;
     localX -= $('#osn_tab').offset().left;
     localY -= $('#osn_tab').offset().top;
@@ -1697,7 +1703,9 @@ DesignerMove.generalScroll = function () {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(
         function () {
+            // eslint-disable-next-line compat/compat
             document.getElementById('top_menu').style.left = document.body.scrollLeft + 'px';
+            // eslint-disable-next-line compat/compat
             document.getElementById('top_menu').style.top  = document.body.scrollTop + 'px';
         },
         200
