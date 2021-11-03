@@ -87,23 +87,6 @@ class Theme
     public $filesizeInfo = 0;
 
     /**
-     * @var array List of css files to load
-     * @access private
-     */
-    public $cssFiles = [
-        'common',
-        'enum_editor',
-        'gis',
-        'navigation',
-        'designer',
-        'rte',
-        'codemirror',
-        'jqplot',
-        'resizable-menu',
-        'icons',
-    ];
-
-    /**
      * Loads theme information
      *
      * @access public
