@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-11-05 03:33+0000\n"
+"Last-Translator: Istiak Ferdous <hello@istiakferdous.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "bn/>\n"
 "Language: bn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -240,6 +240,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"পারকোনা ডকুমেন্টেশান এখানে <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:166
 msgid "'percona' found in version_comment"
@@ -313,16 +315,12 @@ msgstr "অনেক সংখ্যক সর্ট সাময়িক টে�
 
 #: libraries/advisory_rules_generic.php:212
 #: libraries/advisory_rules_generic.php:225
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "আপনার সিস্টেমের মেমোরীর উপর ভিত্তি করে {sort_buffer_size} এবং/অথবা "
-"{read_rnd_buffer_size} বাড়ান"
+"{read_rnd_buffer_size} বাড়ান।"
 
 #: libraries/advisory_rules_generic.php:215
 #, php-format
@@ -333,7 +331,7 @@ msgstr "সমস্ত সর্টের %s%% সাময়িক টেবল 
 
 #: libraries/advisory_rules_generic.php:220
 msgid "Rate of sorts that cause temporary tables"
-msgstr "সর্টের হার যেগুলো সাময়িক টেবল তৈরী করছে।"
+msgstr "সর্টের হার যেগুলো সাময়িক টেবল তৈরী করছে"
 
 #: libraries/advisory_rules_generic.php:228
 #, php-format
@@ -350,21 +348,15 @@ msgid "There are lots of rows being sorted."
 msgstr "অনেক রো সর্ট করা হয়েছে।"
 
 #: libraries/advisory_rules_generic.php:238
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"অনেক বেশী রো সর্টিং এ কোন ভুল নাই, যে অনুসন্ধানটির অনেক বেশী সর্টিং ব্যবহার করছে "
-"তা যেন ইনডেক্স করা কলাম ORDER BY অংশে ব্যবহার করে তা নিশ্চিত করুন, এতে দ্রুত সর্টিং "
-"এর ফলাফল পাওয়া যাবে"
+"অনেক বেশী রো সর্টিং এ কোন ভুল নাই, যে অনুসন্ধানটির অনেক বেশী সর্টিং ব্যবহার "
+"করছে তা যেন ইনডেক্স করা কলাম ORDER BY অংশে ব্যবহার করে তা নিশ্চিত করুন, এতে "
+"দ্রুত সর্টিং এর ফলাফল পাওয়া যাবে।"
 
 #: libraries/advisory_rules_generic.php:242
 #, php-format
@@ -380,17 +372,12 @@ msgid "There are too many joins without indexes."
 msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
 #: libraries/advisory_rules_generic.php:253
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"এতে বোঝা যায় সংযোগগুলো সর্ম্পুন টেবল স্ক্যান করছে। সংযোগে ব্যবহৃত স্তম্ভগুলোতে ইনডেক্স "
-"যোগ করলে সংযুক্ত টেবলগুলোর গতি অনেক বেড়ে যাবে"
+"এতে বোঝা যায় সংযোগগুলো সর্ম্পুন টেবল স্ক্যান করছে। সংযোগে ব্যবহৃত "
+"স্তম্ভগুলোতে ইনডেক্স যোগ করলে সংযুক্ত টেবলগুলোর গতি অনেক বেড়ে যাবে।"
 
 #: libraries/advisory_rules_generic.php:256
 #, php-format
@@ -713,10 +700,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "ফাইল খোলার হার:%s, এর মান প্রতি ঘন্টায় ৫ এর কম হবে"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "তাৎক্ষনিক টেবল লক  %%"
+msgstr "তাৎক্ষনিক টেবল লক %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -805,21 +791,16 @@ msgid "Slow launch time"
 msgstr "ধীর আরম্ভের সময়"
 
 #: libraries/advisory_rules_generic.php:521
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time 2s উপরে"
+msgstr "Slow_launch_time 2s উপরে।"
 
 #: libraries/advisory_rules_generic.php:523
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"ধীরে আরম্ভ হওয়া থ্রেডগুলো গণনার জন্য{slow_launch_time}1s বা 2s এ নির্ধারন করুন"
+"ধীরে আরম্ভ হওয়া থ্রেডগুলো গণনার জন্য{slow_launch_time}1s বা 2s এ নির্ধারন "
+"করুন।"
 
 #: libraries/advisory_rules_generic.php:525
 #, php-format
@@ -957,18 +938,7 @@ msgstr "InnoDB বাফার পুলের ভিত্তিতে InnoDB �
 
 #: libraries/advisory_rules_generic.php:622
 #: libraries/advisory_rules_generic.php:651
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -982,12 +952,12 @@ msgid ""
 msgstr ""
 "যে সিস্টেমে অনেক বেশী InnoDB টেবলে লেখা হয় {innodb_log_file_size} কে "
 "{innodb_buffer_pool_size} এর 25%% নির্ধারন করতে হয়। এর মানটি যত বেশী হবে "
-"ধ্বংসপ্রাপ্ত ডাটাবেইজ উদ্ধারে তত বেশী সময় লাগবে তাই এর মান ২৫৬ মেবা'র বেশি না "
-"হওয়া ভাল। মনে রাখবেন এই চলকটি শুধু নির্ধরান করলেই হবে না সার্ভারটি বন্ধ করে "
-"InnoDB লগ ফাইলগুলো মুছে, my.cnf নতুন মান নির্ধারন করে সার্ভারটি আরম্ভ করুন, ভুলের লগ "
-"পরীক্ষা করে দেখুন সব ঠিক আছে কিনা। <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">this blog entry</a> দেখতে পারেন।"
+"ধ্বংসপ্রাপ্ত ডাটাবেইজ উদ্ধারে তত বেশী সময় লাগবে তাই এর মান ২৫৬ মেবা'র বেশি না"
+" হওয়া ভাল। মনে রাখবেন এই চলকটি শুধু নির্ধরান করলেই হবে না সার্ভারটি বন্ধ করে "
+"InnoDB লগ ফাইলগুলো মুছে, my.cnf নতুন মান নির্ধারন করে সার্ভারটি আরম্ভ করুন, "
+"ভুলের লগ পরীক্ষা করে দেখুন সব ঠিক আছে কিনা। <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে পারেন"
 
 #: libraries/advisory_rules_generic.php:633
 #: libraries/advisory_rules_generic.php:662
@@ -1008,17 +978,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB লগ ফাইলের আকার অত্যন্ত বড়।"
 
 #: libraries/advisory_rules_generic.php:675
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1032,10 +992,10 @@ msgid ""
 msgstr ""
 "সাধারনত {innodb_log_file_size} {innodb_buffer_pool_size} এর 25%% এ নির্ধারন "
 "করাই যথেষ্ট। একটি অনেক বড় {innodb_log_file_size}কোন ধ্বংস হয়ে যাওয়া ডাটাবেইজ "
-"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, সার্ভারটি "
-"আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে কিনা। এটিও <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">this blog entry</a> দেখতে পারেন।"
+"উদ্ধারের কাজকে লক্ষনীয়ভাবে ধীর করে দেয়, নতুন মানটি my.cnf এ সেট করুন, "
+"সার্ভারটি আরম্ভ করুন, তারপর error logs পরীক্ষাকরে দেখুন সব কিছু ঠিক আছে কিনা।"
+" এটিও <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">এই ব্লগ এন্ট্রি</a> দেখতে পারেন"
 
 #: libraries/advisory_rules_generic.php:685
 #, php-format
@@ -1051,18 +1011,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "InnoDB বাফার পুলের আকার বেশ ছোট।"
 
 #: libraries/advisory_rules_generic.php:696
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.mysqlperformanceblog.com/2007/11/03/"
-#| "choosing-innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1075,15 +1024,16 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB টেবলের কার্যকারীতার উপর InnoDB বাফার পুলের যথেষ্ট প্রভাব আছে। আপনার হাতে "
-"থাকা সমস্ত মেমোরী এতে নির্ধারন করুন। যে সমস্ত সার্ভার শুধু InnoDB কেই একমাত্র মজুদ "
-"ব্যাবস্থা হিসাবে ব্যবহার করে এবং অন্য কোন সার্ভিস (ওয়েব র্সার্ভার) ব্যাবহার করে না, "
-"সে ক্ষেত্রে আপনার মেমোরীর 80%% নির্ধারন করতে পারেন। কারন যদি এটি না হয় তবে "
-"আপনার মেমোরীর ব্যবহার সর্তকভাবে পর্যবেক্ষন করে অন্যান্য সার্ভিস এবং non-InnoDB-"
-"Tables কি পরিমাণ ব্যবহার করছে তা জেনে সেই অনুযায়ী এই চলকটি সেট করুন। এটি যদি "
-"অনেক বেশী নির্ধারন করা হয় তবে আপনার সিস্টেম সোআপ করবে এবং সিস্টেমের কার্যকারিতা "
-"কমে যাবে। <a href=\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">this article</a> দেখুন।"
+"InnoDB টেবলের কার্যকারীতার উপর InnoDB বাফার পুলের যথেষ্ট প্রভাব আছে। আপনার "
+"হাতে থাকা সমস্ত মেমোরী এতে নির্ধারন করুন। যে সমস্ত সার্ভার শুধু InnoDB কেই "
+"একমাত্র মজুদ ব্যাবস্থা হিসাবে ব্যবহার করে এবং অন্য কোন সার্ভিস (ওয়েব "
+"র্সার্ভার) ব্যাবহার করে না, সে ক্ষেত্রে আপনার মেমোরীর 80%% নির্ধারন করতে "
+"পারেন। কারন যদি এটি না হয় তবে আপনার মেমোরীর ব্যবহার সর্তকভাবে পর্যবেক্ষন করে "
+"অন্যান্য সার্ভিস এবং non-InnoDB-Tables কি পরিমাণ ব্যবহার করছে তা জেনে সেই "
+"অনুযায়ী এই চলকটি সেট করুন। এটি যদি অনেক বেশী নির্ধারন করা হয় তবে আপনার সিস্টে"
+"ম সোআপ করবে এবং সিস্টেমের কার্যকারিতা কমে যাবে। <a href=\"https://www.percona"
+".com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">এই আর্টিকেল</a> "
+"দেখুন"
 
 #: libraries/advisory_rules_generic.php:706
 #, php-format
@@ -1136,9 +1086,9 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 "অনুসন্ধান ক্যাশ সঠিক ভাবে কনফিগার করলে কার্য ক্ষমতা অনেক উন্নত হয়। "
-"{query_cache_size} ২ সংখ্যার কোন মেবা মানে নির্ধারন করুন এবং {query_cache_type} "
-"টি  'ON' নির্ধারন করুন। <b>টিকা:</b> আপনি যদি memcached ব্যাবহার করেন তবে এটি "
-"কার্যকর করার প্রয়োজন নাই।"
+"{query_cache_size} ২ সংখ্যার কোন মেবা মানে নির্ধারন করুন এবং "
+"{query_cache_type} টি 'ON' নির্ধারন করুন। <b>টিকা:</b> আপনি যদি memcached "
+"ব্যাবহার করেন তবে এটি কার্যকর করার প্রয়োজন নাই।"
 
 #: libraries/advisory_rules_mysql_before80003.php:18
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -1168,10 +1118,9 @@ msgid "Query Cache usage"
 msgstr "অনুসন্ধান ক্যাশের ব্যবহার"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "অনুসন্ধান ক্যাশের 80%%'র কম ব্যবহৃত হচ্ছে।"
+msgstr "অনুসন্ধান ক্যাশের 80%'র কম ব্যবহৃত হচ্ছে।"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1294,10 +1243,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
 
 #: libraries/classes/Advisor.php:233
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF তৈরীর সময় ভুল:"
+msgstr "PDF তৈরীর সময় ভুল: %s"
 
 #: libraries/classes/Advisor.php:260
 #, php-format
@@ -1307,12 +1255,12 @@ msgstr ""
 #: libraries/classes/Advisor.php:280
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "%s রুলের মান নির্ধারণ করতে ব্যর্থ হয়েছে।"
 
 #: libraries/classes/Advisor.php:299
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "%s রুলের টেস্টটি রান করতে ব্যর্থ হয়েছে।"
 
 #: libraries/classes/Advisor.php:327
 #, php-format
@@ -1429,8 +1377,6 @@ msgstr "সব দেখাও"
 
 #: libraries/classes/Charsets/Collation.php:168
 #: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "অজানা"
 
@@ -1438,7 +1384,7 @@ msgstr "অজানা"
 #: libraries/classes/Charsets/Collation.php:481
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "জার্মান (ফোন বুক অর্ডার)"
 
 #: libraries/classes/Charsets/Collation.php:215
 #: libraries/classes/Charsets/Collation.php:478
@@ -1452,25 +1398,23 @@ msgstr "তথ্য অভিধান"
 #: libraries/classes/Charsets/Collation.php:556
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "স্প্যানিশ (ট্র্যাডিশনাল)"
 
 #: libraries/classes/Charsets/Collation.php:226
 #: libraries/classes/Charsets/Collation.php:549
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "স্পেনিশ"
+msgstr "স্প্যানিশ (আধুনিক)"
 
 #: libraries/classes/Charsets/Collation.php:288
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr ""
+msgstr "কেস-ইন্সেন্সিটিভ"
 
 #: libraries/classes/Charsets/Collation.php:291
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr ""
+msgstr "কেস-সেন্সিটিভ"
 
 #: libraries/classes/Charsets/Collation.php:294
 msgctxt "Collation variant"
@@ -1495,8 +1439,6 @@ msgid "multi-level"
 msgstr "বহুভাষী"
 
 #: libraries/classes/Charsets/Collation.php:307
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "বাইনারী"
@@ -1538,8 +1480,6 @@ msgstr "মধ্য ইউরোপিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:360
 #: libraries/classes/Charsets/Collation.php:534
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "রাশিয়ান"
@@ -1562,153 +1502,113 @@ msgstr "প্রথাগত চাইনিজ"
 #: libraries/classes/Charsets/Collation.php:450
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "চাইনিজ"
 
 #: libraries/classes/Charsets/Collation.php:379
 #: libraries/classes/Charsets/Collation.php:498
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "জাপানী"
 
 #: libraries/classes/Charsets/Collation.php:384
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "বাল্টিক"
 
 #: libraries/classes/Charsets/Collation.php:389
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "আর্মেনিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:392
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "সিরিলিক"
 
 #: libraries/classes/Charsets/Collation.php:395
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "আরবি"
 
 #: libraries/classes/Charsets/Collation.php:398
 #: libraries/classes/Charsets/Collation.php:513
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "কোরিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:401
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "হিব্রু"
 
 #: libraries/classes/Charsets/Collation.php:404
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "জর্জিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:407
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "গ্রীক"
 
 #: libraries/classes/Charsets/Collation.php:410
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "চেক-স্লোভাক"
 
 #: libraries/classes/Charsets/Collation.php:413
 #: libraries/classes/Charsets/Collation.php:572
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "ইউক্রেনিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:416
 #: libraries/classes/Charsets/Collation.php:568
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "তুর্কী"
 
 #: libraries/classes/Charsets/Collation.php:419
 #: libraries/classes/Charsets/Collation.php:560
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "সুইডিশ"
 
 #: libraries/classes/Charsets/Collation.php:422
 #: libraries/classes/Charsets/Collation.php:564
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "থাই"
 
 #: libraries/classes/Charsets/Collation.php:425
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "অজানা"
 
 #: libraries/classes/Charsets/Collation.php:444
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "বুলগেরিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:455
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "কোরাটিয়ান"
+msgstr "ক্রোয়েশিয়"
 
 #: libraries/classes/Charsets/Collation.php:459
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "চেক"
 
 #: libraries/classes/Charsets/Collation.php:463
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "ড্যানিশ"
 
 #: libraries/classes/Charsets/Collation.php:467
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
-msgstr "ইংলিশ"
+msgstr "ইংরেজি"
 
 #: libraries/classes/Charsets/Collation.php:471
 #, fuzzy
@@ -1718,11 +1618,9 @@ msgid "Esperanto"
 msgstr "এসপার‍েন্টো"
 
 #: libraries/classes/Charsets/Collation.php:475
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
-msgstr "ইস্টোনিয়ান"
+msgstr "এস্তোনিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:490
 #, fuzzy
@@ -1732,8 +1630,6 @@ msgid "Hungarian"
 msgstr "হাঙ্গেরীয়ান"
 
 #: libraries/classes/Charsets/Collation.php:494
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "আইসল্যান্ডিক"
@@ -1741,18 +1637,14 @@ msgstr "আইসল্যান্ডিক"
 #: libraries/classes/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "ক্লাসিক্যাল ল্যাটিন"
 
 #: libraries/classes/Charsets/Collation.php:505
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "লাটভিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:509
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "লিথুনিয়ান"
@@ -1760,33 +1652,27 @@ msgstr "লিথুনিয়ান"
 #: libraries/classes/Charsets/Collation.php:517
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "বার্মিজ"
 
 #: libraries/classes/Charsets/Collation.php:520
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "পার্সিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:524
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "পোলিশ"
 
 #: libraries/classes/Charsets/Collation.php:531
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "রোমান"
+msgstr "রোমানিয়ান"
 
 #: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "সিনহালিজ"
 
 #: libraries/classes/Charsets/Collation.php:542
 #, fuzzy
@@ -1855,7 +1741,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:88
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "আপনার রিক্যাপচা ভার্সন ২ কম্প্যাটিবল এপিআই এর ইউআরএল দিন।"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
@@ -1873,15 +1759,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "আপনার ডোমেইন রিক্যাপচা সার্ভিসের জন্য আপনার পাবলিক কি টি দিন।"
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "আপনার ডোমেইন রিক্যাপচা সার্ভিসের জন্য আপনার প্রাইভেট কি টি দিন।"
 
 #: libraries/classes/Config/Descriptions.php:94
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr ""
+msgstr "আপনার রিক্যাপচা সার্ভিসের জন্য আপনার সাইট ভেরিফাই ইউআরএলটি দিন।"
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -1932,22 +1818,18 @@ msgstr ""
 "gzip ফাইল ঠিকমত কাজ না করে তবে ইহা অকার্যকর করুন।"
 
 #: libraries/classes/Config/Descriptions.php:122
-#, fuzzy
-#| msgid ""
-#| "Whether a warning (\"Are your really sure…\") should be displayed when "
-#| "you're about to lose data"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"আপনি যখন তথ্য নষ্ট করতে বা হারাতে যাচ্ছেন তখন একটি সর্তক বার্তা (\"আপনি কি সম্পূর্ন "
-"নিশ্চিত…\")দেখাবে"
+"আপনি যখন তথ্য নষ্ট করতে বা হারাতে যাচ্ছেন তখন একটি সর্তক বার্তা (\"আপনি কি "
+"সম্পূর্ন নিশ্চিত…\")দেখাবে।"
 
 #: libraries/classes/Config/Descriptions.php:126
 #, fuzzy
 #| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "টেবল এবং স্তম্ভের নামা backquotes দ্বারা আবদ্ধ কর"
+msgstr "টেবিল এবং স্তম্ভের নাম backquotes দ্বারা আবদ্ধ কর।"
 
 #: libraries/classes/Config/Descriptions.php:129
 #: libraries/classes/Config/Descriptions.php:133
@@ -2516,17 +2398,16 @@ msgid ""
 msgstr "পিডিএফ গঠন সমর্থনের জন্য খালি রাখুন, দেখুন: [kbd]pma_table_coords[/kbd]।"
 
 #: libraries/classes/Config/Descriptions.php:391
-#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "আপনি MySQL wildcard অক্ষর (% and _)ব্যবহার করতে পারেন, ওগুলো escape করেন যদি "
-"এগুলো আক্ষরিকভাবে ব্যবহার করতে চান, যেমন [kbd]'my\\_db'[/kbd] এবং  "
+"এগুলো আক্ষরিকভাবে ব্যবহার করতে চান, যেমন [kbd]'my\\_db'[/kbd] এবং "
 "[kbd]'my_db'[/kbd]'টি নয়। এই অপশন ব্যবহার করে ডাটাবেইজের তালিকা গুছানো যাবে, "
-"শুধু ওগুলোর নাম দেন এবং শেষে[kbd]*[/kbd] ব্যবহার করুন alphabetical ভাবে সাজানোর "
-"জন্য।"
+"শুধু ওগুলোর নাম দেন এবং শেষে[kbd]*[/kbd] ব্যবহার করুন alphabetical ভাবে "
+"সাজানোর জন্য।"
 
 #: libraries/classes/Config/Descriptions.php:396
 msgid ""
@@ -2851,16 +2732,12 @@ msgstr ""
 "পাতায় যে সর্তকবার্তা প্রদর্শন করা হয় তা অকার্যকর কর।"
 
 #: libraries/classes/Config/Descriptions.php:530
-#, fuzzy
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)."
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"সম্পাদনার সময়, টেক্সটএরিয়া (স্তম্ভ) আকৃতি  এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া (*২) "
-"এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
+"সম্পাদনার সময়, টেক্সটএরিয়া (স্তম্ভ) আকৃতি এই মানটি SQL অনুসন্ধানের "
+"টেক্সটএরিয়া (*২) এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
 
 #: libraries/classes/Config/Descriptions.php:534
 #, fuzzy
@@ -3577,10 +3454,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:738
 #: libraries/classes/Plugins/Export/ExportSql.php:354
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s view"
-msgstr "সেশনের মান"
+msgstr "%s ভিউ"
 
 #: libraries/classes/Config/Descriptions.php:739
 msgid "Use ignore inserts"
@@ -3617,10 +3493,8 @@ msgid "Foreign key limit"
 msgstr "Foreign key সীমা"
 
 #: libraries/classes/Config/Descriptions.php:755
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "foreign key পরীক্ষা:"
+msgstr "ফরেইন কী পরীক্ষা"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
@@ -5223,15 +5097,13 @@ msgstr ""
 "নাই।"
 
 #: libraries/classes/Config/ServerConfigChecks.php:547
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip compression and decompression%s এ ফাংশন  (%s) প্রয়োজন যা এখানে নাই।"
+"%1$sGZip compression and decompression%2$s এ ফাংশন (%3$s) প্রয়োজন যা এখানে "
+"নাই।"
 
 #: libraries/classes/Config/Validator.php:238
 msgid "Could not connect to the database server!"
@@ -5534,16 +5406,13 @@ msgstr ""
 "পারেন, আপনি সব সার্ভার থেকে জানতে হবে।"
 
 #: libraries/classes/Controllers/HomeController.php:198
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage is not completely configured, some "
-#| "extended features have been deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"কনফিগারেশন মজুদ ব্যবস্থা (phpMyAdmin)সর্ম্পূণভাবে সম্পন্ন হয়নি, কিছু উন্নত বিষয় "
-"অকার্যকর রয়েছে। কেন জানতে ক্লীক করুন %shere%s।"
+"কনফিগারেশন মজুদ ব্যবস্থা (phpMyAdmin)সর্ম্পূণভাবে সম্পন্ন হয়নি, কিছু উন্নত বি"
+"ষয় অকার্যকর রয়েছে। কেন জানতে ক্লীক করুন %shere%s। "
 
 #: libraries/classes/Controllers/HomeController.php:205
 msgid ""
@@ -8251,8 +8120,8 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"InnoDB'র \"random\" পড়ার চেষ্টা করেছে তার সংখ্যা। যখন কোন অনুসন্ধান  টেবলের একটি "
-"বড় অংশ random ভাবে স্ক্যন করে তখন ঘটে।"
+"InnoDB'র \"random\" পড়ার চেষ্টা করেছে তার সংখ্যা। যখন কোন অনুসন্ধান টেবলের "
+"একটি বড় অংশ random ভাবে স্ক্যন করে তখন ঘটে।"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid ""
@@ -8715,16 +8584,12 @@ msgstr ""
 "পাসওয়ার্ড)আনএনক্রিপটেড স্থানান্তর করা হবে।"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:50
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@"
-"%s]this link[/a] ব্যবহার করেন।"
+"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের জন্য এই "
+"লিংক ব্যবহার করেন।"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:54
 msgid "Insecure connection"
@@ -8779,10 +8644,8 @@ msgid "End of line"
 msgstr "লাইনের শেষ"
 
 #: libraries/classes/Controllers/SqlController.php:396
-#, fuzzy
-#| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
+msgstr "বুকমার্ক তৈরি করা হয়নি!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
@@ -9027,7 +8890,7 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"আপনার পিএইছপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা  "
+"আপনার পিএইচপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
 #: libraries/classes/Core.php:1249
@@ -10080,8 +9943,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় ব্যবহার "
-"করবে  (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)।"
+"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় "
+"ব্যবহার করবে (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)।"
 
 #: libraries/classes/Engines/Myisam.php:50
 msgid "Maximum size for temporary files on index creation"
@@ -10142,9 +10005,9 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"টেবলের তথ্য ক্যাশ করার জন্য রের্কড ক্যাশের নির্ধারিত মেমোরীর পরিমান। স্বাভাবিক মান "
-"হচ্ছে ৩২মেবা। এই মেমোরী  handle data (.xtd) and row pointer (.xtr)ফাইলের "
-"পরিবর্তন ক্যাশ করতে ব্যবহৃত হবে।"
+"টেবলের তথ্য ক্যাশ করার জন্য রের্কড ক্যাশের নির্ধারিত মেমোরীর পরিমান। স্বাভাবি"
+"ক মান হচ্ছে ৩২মেবা। এই মেমোরী handle data (.xtd) and row pointer (.xtr)ফাইলে"
+"র পরিবর্তন ক্যাশ করতে ব্যবহৃত হবে।"
 
 #: libraries/classes/Engines/Pbxt.php:50
 msgid "Log cache size"
@@ -10270,7 +10133,7 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"নথিপত্রাদি এবং PBXT'র  অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
+"নথিপত্রাদি এবং PBXT'র অন্যান্য তথ্য %sPrimeBase XT Home Page%s এ পাওয়া যাবে।"
 
 #: libraries/classes/ErrorHandler.php:96
 msgid "Too many error messages, some are not displayed."
@@ -10321,7 +10184,7 @@ msgstr "ফাইলটি আপলোডকৃত ফাইল ছিল ন�
 
 #: libraries/classes/File.php:326
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "আপলোডকৃত ফাইলের আকার  php.ini তে দেওয়া upload_max_filesize চাইতে বেশী।"
+msgstr "আপলোডকৃত ফাইলের আকার php.ini তে দেওয়া upload_max_filesize চাইতে বেশী।"
 
 #: libraries/classes/File.php:332
 msgid ""
@@ -12139,10 +12002,8 @@ msgstr ""
 "তালিকা কর। স্তম্ভের নাম অবশ্যই কমা দ্ধারা পৃথক হবে এবং কৌটেশন দ্ধারা বন্ধ হবে না।"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:128
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "স্তম্ভের নাম: "
+msgstr "স্তম্ভের নাম:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:267
 #: libraries/classes/Plugins/Import/ImportCsv.php:643
@@ -12392,12 +12253,12 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"TIME, TIMESTAMP, DATETIME অথবা সংখ্যার  unix সময়কাল গঠিত তারিখ স্তম্ভ হিসাবে "
-"প্রদর্শন কর। প্রথম অপশনটি হল অফসেট যা সময়ের সংগে যুক্ত হবে (স্বাভাবিক:০)। দ্বিতীয় "
-"অপশনটি ভিন্ন তারিখ/সময়ের গঠন। তৃতীয়টি নির্ধারন করে আপনি স্থানীয় সময় না UTC দেখতে "
-"চান (\"local\" or \"utc\" ব্যাবহার করেন)তার জন্য। সেই অনুযায়ী, সময়ের গঠনের "
-"বিভিন্ন মান হয় -\"local\" এর জন্য পিএইচপির strftime() ফাংশনের সহায়িকা দেখুন এবং "
-"\"utc\" হয় gmdate() ফাংশন ব্যাবহার করে।"
+"TIME, TIMESTAMP, DATETIME অথবা সংখ্যার unix সময়কাল গঠিত তারিখ স্তম্ভ হিসাবে "
+"প্রদর্শন কর। প্রথম অপশনটি হল অফসেট যা সময়ের সংগে যুক্ত হবে (স্বাভাবিক:০)। "
+"দ্বিতীয় অপশনটি ভিন্ন তারিখ/সময়ের গঠন। তৃতীয়টি নির্ধারন করে আপনি স্থানীয় সময় "
+"না UTC দেখতে চান (\"local\" or \"utc\" ব্যাবহার করেন)তার জন্য। সেই অনুযায়ী, "
+"সময়ের গঠনের বিভিন্ন মান হয় -\"local\" এর জন্য পিএইচপির strftime() ফাংশনের "
+"সহায়িকা দেখুন এবং \"utc\" হয় gmdate() ফাংশন ব্যাবহার করে।"
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
@@ -13583,10 +13444,8 @@ msgid "Problems with indexes of table `%s`"
 msgstr "টেবল `%s` এর ইনডেক্সে সমস্যা আছে"
 
 #: libraries/classes/Table.php:352
-#, fuzzy
-#| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "টেবিলের অবস্থা অজ্ঞাত: "
+msgstr "টেবিলের অবস্থা অজ্ঞাত:"
 
 #: libraries/classes/Table.php:1024
 #, php-format
@@ -14017,8 +13876,8 @@ msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"BLOB স্তম্ভ সর্বোচ্চ ৬৫,৫৩৫(২^১৬ - ১)বাইট হয়, সন্মুখে দুইটি বাইট সহ মজুদ করা হয় যা "
-"এর দৈর্ঘ্যের পরিমান এই  বাইটে রাখে"
+"BLOB স্তম্ভ সর্বোচ্চ ৬৫,৫৩৫(২^১৬ - ১)বাইট হয়, সন্মুখে দুইটি বাইট সহ মজুদ করা "
+"হয় যা এর দৈর্ঘ্যের পরিমান এই বাইটে রাখে"
 
 #: libraries/classes/Types.php:361
 msgid ""
@@ -15109,10 +14968,9 @@ msgid "Select \"%s\""
 msgstr "সবগুলো নির্বাচন"
 
 #: templates/database/designer/database_tables.twig:109
-#, fuzzy, php-format
-#| msgid "Add an option for column "
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
+msgstr "\"%s\" স্তম্ভের জন্য একটি অপশন যোগ কর।"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 #, fuzzy
@@ -15315,10 +15173,8 @@ msgid "Create a page and save to it"
 msgstr "একটি পাতা তৈরী কর এবং উহাতে রফতানী কর"
 
 #: templates/database/designer/page_save_as.twig:29
-#, fuzzy
-#| msgid "New page name: "
 msgid "New page name"
-msgstr "নতুন পাতার নাম: "
+msgstr "নতুন পাতার নাম:"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -16314,7 +16170,7 @@ msgstr ""
 #: templates/export.twig:177 templates/export.twig:191
 #: templates/export.twig:204 templates/export.twig:221
 msgid "Remove"
-msgstr ""
+msgstr "বাদ দিন"
 
 #: templates/export.twig:230
 msgid "Define new aliases"
@@ -16333,10 +16189,8 @@ msgid "Select table:"
 msgstr "টেবল নির্বাচন"
 
 #: templates/export.twig:255
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "নতুন পাতার নাম: "
+msgstr "নতুন টেবিলের নাম:"
 
 #: templates/export.twig:263
 #, fuzzy
@@ -16359,20 +16213,15 @@ msgid "File name template:"
 msgstr "ফাইলের নামের নকশা:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"এই মানটি %1$sstrftime%2$s ভাবে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার করতে "
-"পারেন। এখন এই রুপান্তরটি হবে:%3$s। অন্যান্য লেখা ঠিকই থাকবে।  %4$sFAQ%5$s এ বিশদ "
-"পাওয়া যাবে।"
+"এই মানটি 'strftime' ফাংশন দিয়ে অনুবাদিত হবে, আপনি সময় গঠনের স্ট্রিং ব্যবহার "
+"করতে পারেন। এখন এই রুপান্তরটি হবে:%s। অন্যান্য লেখা ঠিকই থাকবে। FAQ 6.27 এ বি"
+"শদ পাওয়া যাবে।"
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -17410,13 +17259,10 @@ msgid "Quick steps to set up advanced features:"
 msgstr "উন্নততর বিষয়গুলো দ্রুত সেটআপের পদক্ষেপসমূহ:"
 
 #: templates/relation/diagnostic_info.twig:5
-#, fuzzy, php-format
-#| msgid ""
-#| "Create the needed tables with the <code>examples/create_tables.sql</code>."
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
-"প্রয়োজনীয় টেবলসমূহ  <code>examples/create_tables.sql</code> এর সাহায্যে তৈরী কর "
-"।"
+"প্রয়োজনীয় টেবলসমূহ <code>%screate_tables.sql</code> এর সাহায্যে তৈরী কর ।"
 
 #: templates/relation/diagnostic_info.twig:9
 msgid "Create a pma user and give access to these tables."
@@ -18213,7 +18059,7 @@ msgstr "শুধু এসকিউএল প্রক্রিয়া চাল
 
 #: templates/server/replication/slave_configuration.twig:56
 msgid "Stop SQL Thread only"
-msgstr "শুধু  এসকিউএল প্রক্রিয়া বন্ধ কর"
+msgstr "শুধু এসকিউএল প্রক্রিয়া বন্ধ কর"
 
 #: templates/server/replication/slave_configuration.twig:63
 msgid "Start IO Thread only"
