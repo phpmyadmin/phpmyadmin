@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-10-31 00:10+0000\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-11-05 03:35+0000\n"
+"Last-Translator: Tymofii Lytvynenko <till.svit@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
 "Language: uk\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -12163,7 +12163,7 @@ msgstr "Показати можливості"
 
 #: libraries/classes/Relation.php:211
 msgid "Designer and creation of PDFs"
-msgstr "Проектувальник створення  PDF-файлів"
+msgstr "Проєктувальник створення  PDF-файлів"
 
 #: libraries/classes/Relation.php:222
 msgid "Displaying Column Comments"
@@ -12220,7 +12220,7 @@ msgstr "Керування Головним списком стовпців"
 
 #: libraries/classes/Relation.php:363
 msgid "Remembering Designer Settings"
-msgstr "Запам'ятати налаштування проектувальника"
+msgstr "Запам'ятати налаштування проєктувальника"
 
 #: libraries/classes/Relation.php:374
 msgid "Saving export templates"
