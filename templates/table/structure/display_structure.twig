@@ -1,8 +1,7 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
 <h1 class="d-none d-print-block">{{table}}</h1>
-<form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
-    class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
+<form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
         {%- if db_is_system_schema -%}
@@ -126,18 +125,18 @@
             {% if not tbl_is_view and not db_is_system_schema %}
                 {% set type = extracted_columnspec['print_type'] is not empty ? extracted_columnspec['print_type'] %}
                 <td class="d-print-none">
-                    <ul class="table-structure-actions resizable-menu">
-                        {% if hide_structure_actions %}
-                            <li class="submenu shown">
-                                <a href="#" class="tab text-nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
-                                <ul>
-                        {% endif %}
-
-                        <li class="primary text-nowrap">
+                  {% if hide_structure_actions %}
+                  <div class="dropdown">
+                    <button class="btn btn-link p-0 dropdown-toggle" type="button" id="moreActionsButton" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'More' %}</button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreActionsButton">
+                  {% else %}
+                    <ul class="nav">
+                  {% endif %}
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}primary text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
-                            {{ get_icon('bd_primary', 'Primary'|trans) }}
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_primary', 'Primary'|trans) }}</span>
                           {% else %}
-                            <a rel="samepage" class="ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
@@ -148,11 +147,11 @@
                           {% endif %}
                         </li>
 
-                        <li class="add_unique unique text-nowrap">
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}add_unique unique text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or field_name in columns_with_unique_index %}
-                            {{ get_icon('bd_unique', 'Unique'|trans) }}
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_unique', 'Unique'|trans) }}</span>
                           {% else %}
-                            <a rel="samepage" class="ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
@@ -163,11 +162,11 @@
                           {% endif %}
                         </li>
 
-                        <li class="add_index text-nowrap">
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}add_index text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
-                            {{ get_icon('bd_index', 'Index'|trans) }}
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_index', 'Index'|trans) }}</span>
                           {% else %}
-                            <a rel="samepage" class="ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
@@ -188,11 +187,11 @@
                             'multipolygon',
                             'geomtrycollection'
                         ] %}
-                        <li class="spatial text-nowrap">
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}spatial text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
-                            {{ get_icon('bd_spatial', 'Spatial'|trans) }}
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_spatial', 'Spatial'|trans) }}</span>
                           {% else %}
-                            <a rel="samepage" class="ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key d-print-none add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
@@ -204,14 +203,14 @@
                         </li>
 
                         {# FULLTEXT is possible on TEXT, CHAR and VARCHAR #}
-                        <li class="fulltext text-nowrap">
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}fulltext text-nowrap">
                         {% if tbl_storage_engine is not empty and (
                                 tbl_storage_engine == 'MYISAM'
                                 or tbl_storage_engine == 'ARIA'
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                            <a rel="samepage" class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }} ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
@@ -220,13 +219,13 @@
                               {{ get_icon('b_ftext', 'Fulltext'|trans) }}
                             </a>
                         {% else %}
-                          {{ get_icon('bd_ftext', 'Fulltext'|trans) }}
+                            <span class="{{ hide_structure_actions ? 'dropdown-item-text' : 'nav-link px-1' }} disabled">{{ get_icon('bd_ftext', 'Fulltext'|trans) }}</span>
                         {% endif %}
                         </li>
 
                         {# Distinct value action #}
-                        <li class="browse text-nowrap">
-                            <a href="{{ url('/sql') }}" data-post="{{ get_common({
+                        <li class="{{ not hide_structure_actions ? 'nav-item ' }}browse text-nowrap">
+                            <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/sql') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
                               'sql_query': 'SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
@@ -240,23 +239,32 @@
                             </a>
                         </li>
                         {% if central_columns_work %}
-                            <li class="browse text-nowrap">
+                            <li class="{{ not hide_structure_actions ? 'nav-item ' }}browse text-nowrap">
                             {% if row['Field'] in central_list %}
-                                <a href="#" class="central_columns remove_button">
+                                <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/table/structure/central-columns-remove') }}" data-post="{{ get_common({
+                                  'db': db,
+                                  'table': table,
+                                  'selected_fld': [row['Field']],
+                                }) }}">
                                     {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
                                 </a>
                             {% else %}
-                                <a href="#" class="central_columns add_button">
+                                <a class="{{ hide_structure_actions ? 'dropdown-item' : 'nav-link px-1' }}" href="{{ url('/table/structure/central-columns-add') }}" data-post="{{ get_common({
+                                  'db': db,
+                                  'table': table,
+                                  'selected_fld': [row['Field']],
+                                }) }}">
                                     {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
                                 </a>
                             {% endif %}
                             </li>
                         {% endif %}
-                        {% if hide_structure_actions %}
-                                </ul>
-                            </li>
-                        {% endif %}
+                  {% if not hide_structure_actions %}
                     </ul>
+                  {% else %}
+                    </ul>
+                  </div>
+                  {% endif %}
                 </td>
             {% endif %}
         </tr>

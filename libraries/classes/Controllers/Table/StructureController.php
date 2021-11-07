@@ -195,11 +195,6 @@ class StructureController extends AbstractController
 
         // END - Calc Table Space
 
-        $hideStructureActions = false;
-        if ($GLOBALS['cfg']['HideStructureActions'] === true) {
-            $hideStructureActions = true;
-        }
-
         // logic removed from Template
         $rownum = 0;
         $columns_list = [];
@@ -259,7 +254,7 @@ class StructureController extends AbstractController
             'indexes' => Index::getFromTable($this->table, $this->db),
             'indexes_duplicates' => Index::findDuplicates($this->table, $this->db),
             'cfg_relation' => $this->relation->getRelationsParam(),
-            'hide_structure_actions' => $hideStructureActions,
+            'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
             'db' => $this->db,
             'table' => $this->table,
             'db_is_system_schema' => $isSystemSchema,
