@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
+<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -670,18 +670,16 @@
       <code>$path</code>
       <code>$path</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$keys</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="6">
-      <code>$keys[]</code>
       <code>$path</code>
       <code>$path</code>
       <code>$type</code>
       <code>$v</code>
       <code>$value</code>
+      <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
       <code>string|null</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="4">
@@ -702,6 +700,9 @@
       <code>$fieldsTypes</code>
       <code>$name</code>
     </PropertyNotSetInConstructor>
+    <UnevaluatedCode occurrences="1">
+      <code>return [];</code>
+    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Config/FormDisplay.php">
     <MixedArgument occurrences="22">
@@ -6431,13 +6432,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <DocblockTypeContradiction occurrences="5">
-      <code>$result instanceof mysqli_result</code>
-      <code>$result instanceof mysqli_result</code>
-      <code>$result instanceof mysqli_result</code>
-      <code>$result instanceof mysqli_result</code>
-      <code>$result instanceof mysqli_result</code>
-    </DocblockTypeContradiction>
     <MixedArgument occurrences="10">
       <code>$field</code>
       <code>$field-&gt;flags</code>
@@ -16283,6 +16277,9 @@
       <code>$data['name']</code>
       <code>$data['version']</code>
     </MixedArgument>
+    <UnevaluatedCode occurrences="1">
+      <code>return false;</code>
+    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/ThemeManager.php">
     <DocblockTypeContradiction occurrences="2">
@@ -16299,26 +16296,20 @@
     <MixedReturnStatement occurrences="1">
       <code>$config-&gt;getCookie($name)</code>
     </MixedReturnStatement>
-    <PossiblyNullArrayOffset occurrences="1">
-      <code>$this-&gt;themes</code>
-    </PossiblyNullArrayOffset>
-    <PossiblyNullPropertyAssignmentValue occurrences="2">
-      <code>$theme</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCastGivenDocblockType occurrences="2">
       <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>$configThemeExists</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;theme !== null</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable occurrences="1">
-      <code>$configThemeExists</code>
-    </UnusedVariable>
+    <UnevaluatedCode occurrences="2">
+      <code>$configThemeExists = false;</code>
+      <code>return false;</code>
+    </UnevaluatedCode>
   </file>
   <file src="libraries/classes/Tracker.php">
     <DocblockTypeContradiction occurrences="4">
@@ -17838,6 +17829,12 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
+    <InvalidScalarArgument occurrences="4">
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+    </InvalidScalarArgument>
     <MixedArgumentTypeCoercion occurrences="3">
       <code>$value</code>
       <code>$value</code>
@@ -17934,6 +17931,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/ErrorHandlerTest.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$_SESSION</code>
+    </InvalidScalarArgument>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
@@ -17965,6 +17965,9 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/FlashMessagesTest.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$_SESSION</code>
+    </InvalidScalarArgument>
     <MixedArgument occurrences="2">
       <code>$_SESSION[self::STORAGE_KEY]</code>
       <code>$_SESSION[self::STORAGE_KEY]</code>
@@ -18821,6 +18824,16 @@
       <code>assertFalse</code>
       <code>assertSame</code>
     </DocblockTypeContradiction>
+    <InvalidScalarArgument occurrences="8">
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+    </InvalidScalarArgument>
     <MixedArrayAccess occurrences="3">
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
