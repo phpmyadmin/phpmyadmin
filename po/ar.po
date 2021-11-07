@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-31 00:10+0000\n"
+"POT-Creation-Date: 2021-11-07 00:10+0000\n"
 "PO-Revision-Date: 2021-05-01 18:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1284,7 +1284,7 @@ msgstr "إنطلق"
 
 #: libraries/classes/BrowseForeigners.php:220
 #: libraries/classes/BrowseForeigners.php:224
-#: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
 #: templates/table/structure/display_structure.twig:449
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -3082,7 +3082,7 @@ msgstr "أضف عنواناً للجدول"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
 #: templates/columns_definitions/table_fields_definitions.twig:54
-#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:29
 msgid "Comments"
 msgstr "التعليقات"
@@ -3110,7 +3110,7 @@ msgstr "مفتاح التسمية"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:394
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#: templates/database/data_dictionary/index.twig:25
+#: templates/database/data_dictionary/index.twig:31
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -3579,7 +3579,7 @@ msgid "Navigation panel width"
 msgstr "إطار التصفح"
 
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "ربط مع اللوحة الرئيسية"
@@ -4386,7 +4386,7 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4459,7 +4459,7 @@ msgstr "مستند مفتوح"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:275 templates/export.twig:8
+#: templates/display/results/table.twig:270 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4756,7 +4756,7 @@ msgstr "اعرض الصفوف  %1$s - %2$s."
 #: libraries/classes/Controllers/Database/TrackingController.php:130
 #: libraries/classes/Controllers/Export/ExportController.php:451
 #: libraries/classes/Database/Qbe.php:353
-#: templates/database/structure/index.twig:27
+#: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "لم يعثر على جداول في قاعدة البيانات."
@@ -4890,8 +4890,8 @@ msgstr "غير معروفة"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:19
@@ -6140,7 +6140,7 @@ msgid "Cancel"
 msgstr "ألغاء"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:48
+#: templates/header.twig:43
 msgid "Page-related settings"
 msgstr "الإعدادات المتعلقة بالصفحة"
 
@@ -6239,8 +6239,8 @@ msgstr "تغيير مجموعة الأحرف"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
@@ -6472,7 +6472,6 @@ msgid "No partial dependencies selected!"
 msgstr "لم يتم تحديد أي تبعيات جزئية!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 #: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:1005
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:302
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6604,7 +6603,7 @@ msgid "Data point content"
 msgstr "محتوى نقطة البيانات"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -6919,61 +6918,53 @@ msgstr "إسقاط الملفات هنا"
 msgid "Select database first"
 msgstr "حدد قاعدة البيانات أولا"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-#: templates/database/data_dictionary/index.twig:117
-#: templates/database/structure/index.twig:20
-#: templates/display/results/table.twig:258
-#: templates/table/structure/display_structure.twig:367
-msgid "Print"
-msgstr "طباعة"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br > بالنقر المزدوج عليها مباشرة."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر عليها مباشرة."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Go to link:"
 msgstr "الانتقال إلى الرابط:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Generate password"
 msgstr "توليد كلمة مرور"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "توليد"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "تغيير كلمة السر"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "أكثر"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "Show panel"
 msgstr "إظهار اللوحة"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Hide panel"
 msgstr "إخفاء اللوحة"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "إلغاء الربط من اللوحة الرئيسية"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -6984,35 +6975,35 @@ msgstr ""
 "هو %s, released on %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid ", latest stable version:"
 msgstr ", آخر إصدار مستقر:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "up to date"
 msgstr "محدثة"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "حدث خطأ فادح في جافا سكريبت. هل تريد إرسال تقرير عن الخطأ؟"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Change report settings"
 msgstr "تغيير إعدادات التقرير"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Show report details"
 msgstr "عرض تفاصيل التقرير"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "التصدير الخاص بك غير مكتمل، بسبب انخفاض وقت التنفيذ على مستوى PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7021,78 +7012,78 @@ msgstr ""
 "تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
 "الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Some errors have been detected on the server!"
 msgstr "تم اكتشاف بعض الأخطاء على الخادم!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 msgid "Please look at the bottom of this window."
 msgstr "يرجى النظر في الجزء السفلي من هذه النافذة."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "تجاهل الكل"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "وفقا للإعدادات الخاصة بك، يتم تقديمها حاليا، يرجى التحلي بالصبر."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
 msgstr "تم  النقل بنجاح !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Copying failed!"
 msgstr "النقل فاشل !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Execute this query again?"
 msgstr "هل تريد تنفيذ هذا الاستعلام مرة أخرى؟"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Do you really want to delete this bookmark?"
 msgstr "هل تريد حقا حذف هذه الإشارة المرجعية؟"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Some error occurred while getting SQL debug info."
 msgstr "حدث خطأ ما أثناء الحصول على معلومات تصحيح أخطاء SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من الثواني."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "تم تمرير وسيطة %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Show arguments"
 msgstr "إظهار الحجج"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "إخفاء نتائج البحث"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Time taken:"
 msgstr "الوقت المستغرق:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7101,45 +7092,45 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Copy tables to"
 msgstr "نسخ الجداول إلى"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Add table prefix"
 msgstr "إضافة بادئة الجدول"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
 msgstr "استبدال الجدول مع البادئة"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Extremely weak"
 msgstr "ضعيف جدا"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Very weak"
 msgstr "ضعيف جدا"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Weak"
 msgstr "ضعيف"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Good"
 msgstr "جيد"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Strong"
 msgstr "قوي"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 #, fuzzy
 #| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
@@ -7147,25 +7138,25 @@ msgid "Timed out waiting for security key activation."
 msgstr "انتهت مهلة انتظار تنشيط مفتاح الأمان."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -7173,27 +7164,27 @@ msgid "Failed security key activation."
 msgstr "فشل تنشيط مفتاح الأمان (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "نوع التصدير غير صحيح"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "جدول %s موجود مسبقاً!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "أخفاء"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7263,7 +7254,7 @@ msgstr "صفوف"
 #: libraries/classes/Controllers/Server/DatabasesController.php:326
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
-#: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:436
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
@@ -8157,7 +8148,7 @@ msgstr "أخفق الحصول على عدد الصفوف الحقيقية."
 
 #: libraries/classes/Controllers/Table/StructureController.php:232
 #: templates/columns_definitions/column_attributes.twig:107
-#: templates/database/data_dictionary/index.twig:33
+#: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:138
 #: templates/table/structure/display_structure.twig:146
 #: templates/table/structure/display_structure.twig:287
@@ -9299,10 +9290,6 @@ msgstr "انت تحاول رفع ملف بصيغة ضغط غير معروفة (%
 msgid "Session not found."
 msgstr "الإمتداد SOAP غير موجود"
 
-#: libraries/classes/Header.php:354
-msgid "Print view"
-msgstr "عرض نسخة للطباعة"
-
 #: libraries/classes/Html/Generator.php:150
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
@@ -9499,8 +9486,8 @@ msgstr "دالة"
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
-#: templates/database/data_dictionary/index.twig:17
-#: templates/database/data_dictionary/index.twig:66
+#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:74
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
 #: templates/database/routines/editor_form.twig:26
@@ -9824,8 +9811,8 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
 #: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:22
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
 #: templates/table/index_form.twig:138
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
@@ -10534,8 +10521,8 @@ msgstr "إرجاع أو استيراد بيانات الجدول"
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
-#: templates/database/data_dictionary/index.twig:18
-#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:24
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:26
 #: templates/table/structure/display_structure.twig:456
@@ -10559,7 +10546,7 @@ msgstr "خالي"
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
-#: templates/database/data_dictionary/index.twig:19
+#: templates/database/data_dictionary/index.twig:25
 #: templates/database/structure/body_for_table_summary.twig:52
 #: templates/server/replication/slave_configuration.twig:9
 #: templates/table/structure/display_structure.twig:27
@@ -10574,7 +10561,7 @@ msgstr "إفتراضي"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:707
-#: templates/database/data_dictionary/index.twig:21
+#: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "مرتبط بـ"
 
@@ -11273,7 +11260,7 @@ msgstr "جدول المحتويات"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
 #: templates/columns_definitions/column_definitions_form.twig:72
-#: templates/database/data_dictionary/index.twig:11
+#: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "تعليقات الجدول:"
@@ -11332,7 +11319,7 @@ msgid "Show grid"
 msgstr "أظهر تخطيط الجدول"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
-#: templates/database/structure/index.twig:23
+#: templates/database/structure/index.twig:21
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
@@ -12653,7 +12640,7 @@ msgstr "المظهر الإفتراضي %s غير موجود!"
 msgid "Theme %s not found!"
 msgstr "المظهر %s غير موجود!"
 
-#: libraries/classes/Theme.php:211
+#: libraries/classes/Theme.php:194
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "مسار الصورة للمظهر %s غير صحيح!"
@@ -13386,7 +13373,7 @@ msgid ""
 msgstr "ليس لديك الحقوق الكافية بأن تكون هنا الآن!"
 
 #: templates/columns_definitions/column_attributes.twig:111
-#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:153
 #: templates/table/structure/display_structure.twig:161
 #: templates/table/structure/display_structure.twig:290
@@ -13582,7 +13569,7 @@ msgstr "محركات"
 
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
-#: templates/database/data_dictionary/index.twig:73
+#: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
@@ -13665,7 +13652,7 @@ msgstr ""
 #: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
-#: templates/database/data_dictionary/index.twig:71
+#: templates/database/data_dictionary/index.twig:79
 #: templates/database/operations/index.twig:193
 #: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
@@ -14069,25 +14056,33 @@ msgstr "عدد العواميد"
 msgid "Create"
 msgstr "تكوين"
 
-#: templates/database/data_dictionary/index.twig:3
+#: templates/database/data_dictionary/index.twig:4
 #, fuzzy
 #| msgid "Database comment"
 msgid "Database comment:"
 msgstr "ملاحظة قاعدة البيانات"
 
-#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:8
+#: templates/database/data_dictionary/index.twig:124
+#: templates/database/structure/index.twig:19
+#: templates/display/results/table.twig:258
+#: templates/table/structure/display_structure.twig:367
+msgid "Print"
+msgstr "طباعة"
+
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:452
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "محزم"
 
-#: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr ""
 
-#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:91
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:91
 #: templates/table/structure/display_structure.twig:532
 msgid "No index defined!"
 msgstr "لم يتم تعريف الفهرس!"
@@ -15188,7 +15183,7 @@ msgid "Showing create queries"
 msgstr "اعرض الاستعلامات كاملة"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:292 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "إنشاء عرض"
@@ -15380,16 +15375,16 @@ msgstr "ثنائي معروف جيّداً"
 msgid "Query results operations"
 msgstr "عمليّات على نتائج الإستعلام"
 
-#: templates/display/results/table.twig:265
+#: templates/display/results/table.twig:260
 msgid "Copy to clipboard"
 msgstr "نسخ إلى الحافظة"
 
-#: templates/display/results/table.twig:281
+#: templates/display/results/table.twig:276
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "عرض الرّسم البياني"
 
-#: templates/display/results/table.twig:288
+#: templates/display/results/table.twig:283
 msgid "Visualize GIS data"
 msgstr "إبداء بيانات نظام المعلومات الجغرافية للعيان"
 
@@ -15726,11 +15721,11 @@ msgstr ""
 "اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل "
 "\"القيمة\"."
 
-#: templates/header.twig:39 templates/login/header.twig:13
+#: templates/header.twig:34 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "يجب تفعيل Javascript بعد هذه النقطة!"
 
-#: templates/header.twig:50
+#: templates/header.twig:45
 msgid "Click on the bar to scroll to top of page"
 msgstr "انقر على الشريط للتمرير إلى أعلى الصفحة"
 
@@ -19120,6 +19115,9 @@ msgstr "اسم العمود"
 #| msgid "Tracking report"
 msgid "Taking you to the target site."
 msgstr "تقرير التتبع"
+
+#~ msgid "Print view"
+#~ msgstr "عرض نسخة للطباعة"
 
 #~ msgid "Could not load default configuration from: %1$s"
 #~ msgstr "لا يمكن تحميل الإعدادات الإفتراضية من : %1$s"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-31 00:10+0000\n"
+"POT-Creation-Date: 2021-11-07 00:10+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1446,7 +1446,7 @@ msgstr "Execută"
 
 #: libraries/classes/BrowseForeigners.php:220
 #: libraries/classes/BrowseForeigners.php:224
-#: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
 #: templates/table/structure/display_structure.twig:449
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -3434,7 +3434,7 @@ msgstr "Include text asociat tabel"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
 #: templates/columns_definitions/table_fields_definitions.twig:54
-#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:29
 msgid "Comments"
 msgstr "Comentarii"
@@ -3463,7 +3463,7 @@ msgstr "Cheie etichetă"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:394
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#: templates/database/data_dictionary/index.twig:25
+#: templates/database/data_dictionary/index.twig:31
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -3926,7 +3926,7 @@ msgid "Navigation panel width"
 msgstr "Lățime panou de navigare"
 
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Leagă la panoul principal"
@@ -4709,7 +4709,7 @@ msgstr "Personalizat"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4778,7 +4778,7 @@ msgstr "Text OpenDocument"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:275 templates/export.twig:8
+#: templates/display/results/table.twig:270 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -5104,7 +5104,7 @@ msgstr "Arăt rândurile %1$s - %2$s."
 #: libraries/classes/Controllers/Database/TrackingController.php:130
 #: libraries/classes/Controllers/Export/ExportController.php:451
 #: libraries/classes/Database/Qbe.php:353
-#: templates/database/structure/index.twig:27
+#: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "Niciun tabel găsit în baza de date."
@@ -5240,8 +5240,8 @@ msgstr "necunoscut"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:19
@@ -6517,7 +6517,7 @@ msgid "Cancel"
 msgstr "Anulează"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:48
+#: templates/header.twig:43
 msgid "Page-related settings"
 msgstr "Setări legate de pagini"
 
@@ -6617,8 +6617,8 @@ msgstr "Schimb setul de caractere"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
@@ -6850,7 +6850,6 @@ msgid "No partial dependencies selected!"
 msgstr "Nicio dependență parțială selectată!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 #: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:1005
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:302
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6984,7 +6983,7 @@ msgid "Data point content"
 msgstr "Conținut punct de date"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -7303,64 +7302,56 @@ msgstr "Aruncă fișiere aici"
 msgid "Select database first"
 msgstr "Mai întâi selectează baza de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-#: templates/database/data_dictionary/index.twig:117
-#: templates/database/structure/index.twig:20
-#: templates/display/results/table.twig:258
-#: templates/table/structure/display_structure.twig:367
-msgid "Print"
-msgstr "Imprimare"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br>dând dublu-clic direct pe "
 "ele."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br>dând clic direct pe ele."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Go to link:"
 msgstr "Du-te la legătura:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Generate password"
 msgstr "Generează parola"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Generează"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Schimbă parola"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Mai mult"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "Show panel"
 msgstr "Arată panoul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Hide panel"
 msgstr "Ascunde panoul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Anulează legătura din panoul principal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -7371,30 +7362,30 @@ msgstr ""
 "actualizarea. Noua versiune %s a fost lansată pe %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "up to date"
 msgstr "la zi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "A apărut o eroare JavaScript fatală. Vrei să trimiți un raport de erori?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Change report settings"
 msgstr "Modifică setări rapoarte"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Show report details"
 msgstr "Arată detalii raport"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7402,7 +7393,7 @@ msgstr ""
 "Exportul tău este incomplet din cauza unei limite de execuție reduse la "
 "nivel de PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7412,81 +7403,81 @@ msgstr ""
 "trimitere, unele dintre câmpuri pot fi ignorate datorită configurării PHP "
 "max_input_vars."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Some errors have been detected on the server!"
 msgstr "Au fost detectate unele erori pe server!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Pagină ștearsă cu succes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Copiez baza de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Execute this query again?"
 msgstr "Execuți această interogare din nou?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur vrei să ștergi acest semn de carte?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Au apărut erori în timpul obținerii informațiilor de depanare SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s interogări executate de %s ori în %s secunde."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Un argument trecut (%s argumente trecute)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Show arguments"
 msgstr "Arată argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Hide arguments"
 msgstr "Ascunde argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Time taken:"
 msgstr "Timp luat:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7495,45 +7486,45 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Copy tables to"
 msgstr "Copiază tabelele în"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Add table prefix"
 msgstr "Adaugă prefix tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
 msgstr "Înlocuiește tabelul cu prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copiază tabelul cu prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Extremely weak"
 msgstr "Extrem de slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Very weak"
 msgstr "Foarte slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Weak"
 msgstr "Slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Good"
 msgstr "Bună"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Strong"
 msgstr "Puternică"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 #, fuzzy
 #| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
@@ -7541,13 +7532,13 @@ msgid "Timed out waiting for security key activation."
 msgstr "A expirat așteptarea pentru activarea cheii de securitate."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -7555,13 +7546,13 @@ msgid "Unknown security key error."
 msgstr "Eroare necunoscută"
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy
 #| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
@@ -7569,14 +7560,14 @@ msgid "Failed security key activation."
 msgstr "Activarea cheii de securitate a eșuat (%s)."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Tip invalid de export"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7584,13 +7575,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Ascunde"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7650,7 +7641,7 @@ msgstr "Rânduri"
 #: libraries/classes/Controllers/Server/DatabasesController.php:326
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
-#: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:436
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
@@ -8614,7 +8605,7 @@ msgstr "Obținerea descrierii coloanei %s a eșuat!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:232
 #: templates/columns_definitions/column_attributes.twig:107
-#: templates/database/data_dictionary/index.twig:33
+#: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:138
 #: templates/table/structure/display_structure.twig:146
 #: templates/table/structure/display_structure.twig:287
@@ -9769,10 +9760,6 @@ msgstr ""
 msgid "Session not found."
 msgstr "Extensia SOAP nu a fost găsită"
 
-#: libraries/classes/Header.php:354
-msgid "Print view"
-msgstr "Vizualizare imprimare"
-
 #: libraries/classes/Html/Generator.php:150
 #, php-format
 msgid "Jump to database “%s”."
@@ -9968,8 +9955,8 @@ msgstr "Funcție"
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
-#: templates/database/data_dictionary/index.twig:17
-#: templates/database/data_dictionary/index.twig:66
+#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:74
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
 #: templates/database/routines/editor_form.twig:26
@@ -10282,8 +10269,8 @@ msgstr "Nouă"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
 #: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:22
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
 #: templates/table/index_form.twig:138
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
@@ -11005,8 +10992,8 @@ msgstr "Eliminarea datelor din tabel"
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
-#: templates/database/data_dictionary/index.twig:18
-#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:24
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:26
 #: templates/table/structure/display_structure.twig:456
@@ -11030,7 +11017,7 @@ msgstr "Nul"
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
-#: templates/database/data_dictionary/index.twig:19
+#: templates/database/data_dictionary/index.twig:25
 #: templates/database/structure/body_for_table_summary.twig:52
 #: templates/server/replication/slave_configuration.twig:9
 #: templates/table/structure/display_structure.twig:27
@@ -11045,7 +11032,7 @@ msgstr "Implicit"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:707
-#: templates/database/data_dictionary/index.twig:21
+#: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "Legături la"
 
@@ -11703,7 +11690,7 @@ msgstr "Cuprins"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
 #: templates/columns_definitions/column_definitions_form.twig:72
-#: templates/database/data_dictionary/index.twig:11
+#: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Comentarii tabel:"
@@ -11760,7 +11747,7 @@ msgid "Show grid"
 msgstr "Arată grila"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
-#: templates/database/structure/index.twig:23
+#: templates/database/structure/index.twig:21
 msgid "Data dictionary"
 msgstr "Dicționar de date"
 
@@ -13078,7 +13065,7 @@ msgstr "Tema implicită %s negăsită!"
 msgid "Theme %s not found!"
 msgstr "Tema %s negăsită!"
 
-#: libraries/classes/Theme.php:211
+#: libraries/classes/Theme.php:194
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Nicio cale validă de imagine găsită pentru tema %s!"
@@ -13852,7 +13839,7 @@ msgstr ""
 "consultă documentația pentru mai multe detalii"
 
 #: templates/columns_definitions/column_attributes.twig:111
-#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:153
 #: templates/table/structure/display_structure.twig:161
 #: templates/table/structure/display_structure.twig:290
@@ -14014,7 +14001,7 @@ msgstr "Motor"
 
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
-#: templates/database/data_dictionary/index.twig:73
+#: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
@@ -14085,7 +14072,7 @@ msgstr ""
 #: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
-#: templates/database/data_dictionary/index.twig:71
+#: templates/database/data_dictionary/index.twig:79
 #: templates/database/operations/index.twig:193
 #: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
@@ -14427,25 +14414,33 @@ msgstr "Număr de coloane"
 msgid "Create"
 msgstr "Creează"
 
-#: templates/database/data_dictionary/index.twig:3
+#: templates/database/data_dictionary/index.twig:4
 #, fuzzy
 #| msgid "Database comment"
 msgid "Database comment:"
 msgstr "Comentariu bază de date"
 
-#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:8
+#: templates/database/data_dictionary/index.twig:124
+#: templates/database/structure/index.twig:19
+#: templates/display/results/table.twig:258
+#: templates/table/structure/display_structure.twig:367
+msgid "Print"
+msgstr "Imprimare"
+
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:452
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Împachetat"
 
-#: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Cardinalitate"
 
-#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:91
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:91
 #: templates/table/structure/display_structure.twig:532
 msgid "No index defined!"
 msgstr "Niciun index definit!"
@@ -15416,7 +15411,7 @@ msgid "Showing create queries"
 msgstr "Arăt creează interogări"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:292 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Creează vizualizarea"
@@ -15604,16 +15599,16 @@ msgstr "Binar Popular"
 msgid "Query results operations"
 msgstr "Operații rezultate interogări"
 
-#: templates/display/results/table.twig:265
+#: templates/display/results/table.twig:260
 msgid "Copy to clipboard"
 msgstr "Copiază în clipboard"
 
-#: templates/display/results/table.twig:281
+#: templates/display/results/table.twig:276
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Afișează diagrama"
 
-#: templates/display/results/table.twig:288
+#: templates/display/results/table.twig:283
 msgid "Visualize GIS data"
 msgstr "Vizualizează datelor GIS"
 
@@ -15948,11 +15943,11 @@ msgstr ""
 "Alege „GeomFromText” din coloana „Funcție” și plasează șirul mai jos în "
 "câmpul „Valoare”."
 
-#: templates/header.twig:39 templates/login/header.twig:13
+#: templates/header.twig:34 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript trebuie să fie activat peste acest punct!"
 
-#: templates/header.twig:50
+#: templates/header.twig:45
 msgid "Click on the bar to scroll to top of page"
 msgstr "Dă clic pe bară pentru a derula în partea de sus a paginii"
 
@@ -19194,6 +19189,9 @@ msgstr "Nume coloane"
 #: url.php:76
 msgid "Taking you to the target site."
 msgstr "Te duc la situl de destinație."
+
+#~ msgid "Print view"
+#~ msgstr "Vizualizare imprimare"
 
 #~ msgid "Could not load default configuration from: %1$s"
 #~ msgstr "Nu am putut încărca configurarea implicită de la: %1$s"

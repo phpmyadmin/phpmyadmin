@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-10-31 00:10+0000\n"
+"POT-Creation-Date: 2021-11-07 00:10+0000\n"
 "PO-Revision-Date: 2021-11-01 22:37+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1402,7 +1402,7 @@ msgstr "Izvedi"
 
 #: libraries/classes/BrowseForeigners.php:220
 #: libraries/classes/BrowseForeigners.php:224
-#: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
 #: templates/table/structure/display_structure.twig:449
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -3326,7 +3326,7 @@ msgstr "Vključi ime tabele"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
 #: templates/columns_definitions/table_fields_definitions.twig:54
-#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:29
 #: templates/table/structure/display_structure.twig:29
 msgid "Comments"
 msgstr "Pripombe"
@@ -3354,7 +3354,7 @@ msgstr "Označi ključ"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:394
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
 #: templates/columns_definitions/table_fields_definitions.twig:71
-#: templates/database/data_dictionary/index.twig:25
+#: templates/database/data_dictionary/index.twig:31
 msgid "Media type"
 msgstr "Vrsta predstavnosti"
 
@@ -3811,7 +3811,7 @@ msgid "Navigation panel width"
 msgstr "Širina navigacijske plošče"
 
 #: libraries/classes/Config/Descriptions.php:804
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 #: libraries/classes/Navigation/NavigationTree.php:1352
 msgid "Link with main panel"
 msgstr "Poveži z glavno ploščo"
@@ -4572,7 +4572,7 @@ msgstr "Po meri"
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 #: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
@@ -4641,7 +4641,7 @@ msgstr "Besedilo OpenDocument"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:275 templates/export.twig:8
+#: templates/display/results/table.twig:270 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4972,7 +4972,7 @@ msgstr "Prikazujem vrstice %1$s–%2$s."
 #: libraries/classes/Controllers/Database/TrackingController.php:130
 #: libraries/classes/Controllers/Export/ExportController.php:451
 #: libraries/classes/Database/Qbe.php:353
-#: templates/database/structure/index.twig:27
+#: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "V zbirki podatkov ni mogoče najti tabel."
@@ -5104,8 +5104,8 @@ msgstr "neznano"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:19
@@ -6372,7 +6372,7 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
-#: templates/header.twig:48
+#: templates/header.twig:43
 msgid "Page-related settings"
 msgstr "Nastavitve, povezane s stranjo"
 
@@ -6472,8 +6472,8 @@ msgstr "Spreminjanje nabora znakov"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
-#: templates/database/data_dictionary/index.twig:39
-#: templates/database/data_dictionary/index.twig:83
+#: templates/database/data_dictionary/index.twig:47
+#: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
@@ -6707,7 +6707,6 @@ msgid "No partial dependencies selected!"
 msgstr "Ni izbranih delnih odvisnosti!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 #: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:1005
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:302
 #: templates/import_status.twig:2 templates/user_password.twig:2
@@ -6839,7 +6838,7 @@ msgid "Data point content"
 msgstr "Vsebina kazalca podatkov"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 #: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
@@ -7159,61 +7158,53 @@ msgstr "Spustite datoteke tukaj"
 msgid "Select database first"
 msgstr "Najprej izberite zbirko podatkov"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-#: templates/database/data_dictionary/index.twig:117
-#: templates/database/structure/index.twig:20
-#: templates/display/results/table.twig:258
-#: templates/table/structure/display_structure.twig:367
-msgid "Print"
-msgstr "Natisni"
-
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr "Večino vrednosti lahko urejate<br>neposredno z dvojnim klikom na njih."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr "Večino vrednosti lahko urejate<br>neposredno s klikom na njih."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Go to link:"
 msgstr "Pojdi na povezavo:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Generate password"
 msgstr "Ustvari geslo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Ustvari"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 #: libraries/classes/Controllers/UserPasswordController.php:84
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Spremeni geslo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Več"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "Show panel"
 msgstr "Pokaži ploščo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Hide panel"
 msgstr "Skrij ploščo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 #: libraries/classes/Navigation/NavigationTree.php:1355
 msgid "Unlink from main panel"
 msgstr "Ne poveži z glavno ploščo"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 #: libraries/classes/Setup/Index.php:177
 #, php-format
 msgid ""
@@ -7224,30 +7215,30 @@ msgstr ""
 "Najnovejša različica je %s, izdana %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 msgid ", latest stable version:"
 msgstr ", zadnja ustaljena različica:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 msgid "up to date"
 msgstr "posodobljeno"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Prišlo je do usodne napake v JavaScriptu. Želite poslati poročilo o napaki?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Change report settings"
 msgstr "Spremeni nastavitve poročila"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Show report details"
 msgstr "Pokaži podrobnosti poročila"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7255,7 +7246,7 @@ msgstr ""
 "Vaš izvoz ni popoln zaradi nizke časovne omejitve izvršitve na stopnji PHP-"
 "ja!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7264,79 +7255,79 @@ msgstr ""
 "Opozorilo: obrazec na strani vsebuje več kot %d polj. Od potrditvi bodo "
 "nekatera polja morda prezrta zaradi PHP-jeve nastavitve max_input_vars."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Some errors have been detected on the server!"
 msgstr "Na strežniku smo zaznali nekatere napake!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 msgid "Please look at the bottom of this window."
 msgstr "Prosimo, poglejte na dno okna."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
 #: libraries/classes/ErrorHandler.php:425
 msgid "Ignore All"
 msgstr "Prezri vse"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:645
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "V skladu z vašimi nastavitvami jih trenutno pošiljamo; prosimo, bodite "
 "potrpežljivi."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:651
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
 msgstr "Ime stolpca smo uspešno skopirali v odložišče!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
 msgstr "Kopiranje imena stolpca v odložišče je spodletelo!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
 msgstr "Uspešno kopirano!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Copying failed!"
 msgstr "Kopiranje je spodletelo!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:653
 msgid "Execute this query again?"
 msgstr "Ponovno izvedem poizvedbo?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ali res želite izbrisati zaznamek?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:655
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 "Med pridobivanjem informacij za odpravljanje napak SQL je prišlo do napake."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s poizvedb izvedenih %s-krat v %s sekundah."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "podanih %s argumentov"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Show arguments"
 msgstr "Prikaži argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:663
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 msgid "Hide arguments"
 msgstr "Skrij argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Time taken:"
 msgstr "Porabljen čas:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:666
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7351,93 +7342,93 @@ msgstr ""
 "čiščenje vaših \"Podatkov pri delu brez povezave\". V Safariju je za težavo "
 "pogosto krivo \"Brskanje v zasebnem načinu\"."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:673
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Copy tables to"
 msgstr "Kopiraj tabele v"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:674
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid "Add table prefix"
 msgstr "Dodaj predpono tabele"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Replace table with prefix"
 msgstr "Zamenjaj tabelo s predpono"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Kopiraj tabelo s predpono"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:675
 msgid "Extremely weak"
 msgstr "Izredno šibko"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
 msgid "Very weak"
 msgstr "Zelo šibko"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Weak"
 msgstr "Šibko"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Good"
 msgstr "Dobro"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Strong"
 msgstr "Močno"
 
 #. l10n: error code 5 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Čas za čakanje na aktivacijo varnostnega ključa je potekel."
 
 #. l10n: error code 2 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Varnostnemu ključu je bila poslana neveljavna zahteva."
 
 #. l10n: unknown error code (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Neznana napaka varnostnega ključa."
 
 #. l10n: error code 3 (from U2F API)
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Klient ne podpira varnostnega ključa."
 
 #. l10n: error code 4 (from U2F API) on register
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:695
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Aktivacija varnostnega ključa je spodletela."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Neveljaven varnostni ključ."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabela %s že obstaja!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 #: libraries/classes/InsertEdit.php:336
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Skrij"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 #: libraries/classes/Controllers/Table/ChangeController.php:188
 #: templates/database/multi_table_query/form.twig:49
 #: templates/database/tracking/tables.twig:19
@@ -7497,7 +7488,7 @@ msgstr "Vrstic"
 #: libraries/classes/Controllers/Server/DatabasesController.php:326
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
-#: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:436
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
@@ -8494,7 +8485,7 @@ msgstr "Pridobivanje opisa stolpca %s je spodletelo!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:232
 #: templates/columns_definitions/column_attributes.twig:107
-#: templates/database/data_dictionary/index.twig:33
+#: templates/database/data_dictionary/index.twig:41
 #: templates/table/structure/display_structure.twig:138
 #: templates/table/structure/display_structure.twig:146
 #: templates/table/structure/display_structure.twig:287
@@ -9626,10 +9617,6 @@ msgstr ""
 msgid "Session not found."
 msgstr "Seje nismo našli."
 
-#: libraries/classes/Header.php:354
-msgid "Print view"
-msgstr "Pogled za tiskanje"
-
 #: libraries/classes/Html/Generator.php:150
 #, php-format
 msgid "Jump to database “%s”."
@@ -9826,8 +9813,8 @@ msgstr "Funkcija"
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
-#: templates/database/data_dictionary/index.twig:17
-#: templates/database/data_dictionary/index.twig:66
+#: templates/database/data_dictionary/index.twig:23
+#: templates/database/data_dictionary/index.twig:74
 #: templates/database/events/index.twig:45
 #: templates/database/privileges/index.twig:19
 #: templates/database/routines/editor_form.twig:26
@@ -10139,8 +10126,8 @@ msgstr "Nov"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
 #: templates/columns_definitions/column_name.twig:16
-#: templates/database/data_dictionary/index.twig:16
-#: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:22
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
 #: templates/table/index_form.twig:138
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
@@ -10857,8 +10844,8 @@ msgstr "Odloži podatke za tabelo"
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
-#: templates/database/data_dictionary/index.twig:18
-#: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:24
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:26
 #: templates/table/structure/display_structure.twig:456
@@ -10882,7 +10869,7 @@ msgstr "Null"
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
-#: templates/database/data_dictionary/index.twig:19
+#: templates/database/data_dictionary/index.twig:25
 #: templates/database/structure/body_for_table_summary.twig:52
 #: templates/server/replication/slave_configuration.twig:9
 #: templates/table/structure/display_structure.twig:27
@@ -10897,7 +10884,7 @@ msgstr "Privzeto"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:707
-#: templates/database/data_dictionary/index.twig:21
+#: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "Povezave z"
 
@@ -11542,7 +11529,7 @@ msgstr "Vsebina"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
 #: templates/columns_definitions/column_definitions_form.twig:72
-#: templates/database/data_dictionary/index.twig:11
+#: templates/database/data_dictionary/index.twig:16
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "Pripombe tabele:"
@@ -11599,7 +11586,7 @@ msgid "Show grid"
 msgstr "Pokaži mrežo"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
-#: templates/database/structure/index.twig:23
+#: templates/database/structure/index.twig:21
 msgid "Data dictionary"
 msgstr "Slovar podatkov"
 
@@ -12883,7 +12870,7 @@ msgstr "Privzete teme %s nismo našli!"
 msgid "Theme %s not found!"
 msgstr "Tema %s ni bila najdena!"
 
-#: libraries/classes/Theme.php:211
+#: libraries/classes/Theme.php:194
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr "Za temo %s ni bila najdena veljavna pot slik!"
@@ -13658,7 +13645,7 @@ msgstr ""
 "za več podrobnosti"
 
 #: templates/columns_definitions/column_attributes.twig:111
-#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:153
 #: templates/table/structure/display_structure.twig:161
 #: templates/table/structure/display_structure.twig:290
@@ -13816,7 +13803,7 @@ msgstr "Pogon"
 
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
-#: templates/database/data_dictionary/index.twig:73
+#: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
@@ -13881,7 +13868,7 @@ msgstr ""
 #: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
-#: templates/database/data_dictionary/index.twig:71
+#: templates/database/data_dictionary/index.twig:79
 #: templates/database/operations/index.twig:193
 #: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
@@ -14213,23 +14200,31 @@ msgstr "Število stolpcev"
 msgid "Create"
 msgstr "Ustvari"
 
-#: templates/database/data_dictionary/index.twig:3
+#: templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
 msgstr "Pripomba zbirke podatkov:"
 
-#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:8
+#: templates/database/data_dictionary/index.twig:124
+#: templates/database/structure/index.twig:19
+#: templates/display/results/table.twig:258
+#: templates/table/structure/display_structure.twig:367
+msgid "Print"
+msgstr "Natisni"
+
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:452
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Stisnjen"
 
-#: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Kardinalnost"
 
-#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:91
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:91
 #: templates/table/structure/display_structure.twig:532
 msgid "No index defined!"
 msgstr "Ni definiranega indeksa!"
@@ -15170,7 +15165,7 @@ msgid "Showing create queries"
 msgstr "Pokaži poizvedbe create"
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:297 templates/modals/create_view.twig:5
+#: templates/display/results/table.twig:292 templates/modals/create_view.twig:5
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Ustvari pogled"
@@ -15352,16 +15347,16 @@ msgstr "Dobro poznana dvojiška datoteka"
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: templates/display/results/table.twig:265
+#: templates/display/results/table.twig:260
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
-#: templates/display/results/table.twig:281
+#: templates/display/results/table.twig:276
 #: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
-#: templates/display/results/table.twig:288
+#: templates/display/results/table.twig:283
 msgid "Visualize GIS data"
 msgstr "Predstavi podatke GIS"
 
@@ -15685,11 +15680,11 @@ msgstr ""
 "Izberite \"GeomFromText\" v stolpcu \"Funkcija\" in prilepite niz v spodnje "
 "polje \"Vrednost\"."
 
-#: templates/header.twig:39 templates/login/header.twig:13
+#: templates/header.twig:34 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Po tej točki mora biti JavaScript omogočen!"
 
-#: templates/header.twig:50
+#: templates/header.twig:45
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknite na prečko, da se vrnete na vrh strani"
 
@@ -18762,6 +18757,9 @@ msgstr "Imena stolpcev"
 #: url.php:76
 msgid "Taking you to the target site."
 msgstr "Prestavili vas bomo na naslednjo ciljno stran."
+
+#~ msgid "Print view"
+#~ msgstr "Pogled za tiskanje"
 
 #~ msgid "Could not load default configuration from: %1$s"
 #~ msgstr "Ne morem naložiti privzete konfiguracije iz: %1$s"
