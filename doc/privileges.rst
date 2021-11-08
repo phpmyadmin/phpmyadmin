@@ -43,7 +43,7 @@ Assigning privileges to user for a specific database
 ----------------------------------------------------
 
 Users are assigned to databases by editing the user record (from the
-:guilabel:`User accounts` tab on the home page).
+:guilabel:`User accounts` link on the home page).
 If you are creating a user specifically for a given table
 you will have to create the user first (with no global privileges) and then go
 back and edit that user to add the table and privileges for the individual
