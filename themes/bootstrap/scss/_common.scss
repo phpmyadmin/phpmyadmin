@@ -1177,31 +1177,6 @@ input#input_import_file {
   overflow: hidden;
 }
 
-/**
- * Table structure styles
- */
-#fieldsForm ul.table-structure-actions {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  li {
-    float: left;
-    // same as padding of "table td"
-    margin-right: 0.3em;
-  }
-
-  .submenu li {
-    padding: 0;
-    margin: 0;
-
-    span {
-      padding: 0.3em;
-      margin: 0.1em;
-    }
-  }
-}
-
 #tablestructure tbody label {
   margin: 0.3rem 0;
 }
