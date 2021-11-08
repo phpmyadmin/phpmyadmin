@@ -6,6 +6,61 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
+			message: "#^Cannot access property \\$settings on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method checkErrors\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method checkPermissions\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method checkServers\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method getLoginCookieValidityFromCache\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method loadUserPreferences\\(\\) on object\\|null\\.$#"
+			count: 2
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method selectServer\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Cannot call method setCookie\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Parameter \\#1 \\$config of static method PhpMyAdmin\\\\Session\\:\\:setUp\\(\\) expects PhpMyAdmin\\\\Config, object\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Parameter \\#2 \\$config of static method PhpMyAdmin\\\\Common\\:\\:setGotoAndBackGlobals\\(\\) expects PhpMyAdmin\\\\Config, object\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
+			message: "#^Parameter \\#2 \\$errorHandler of static method PhpMyAdmin\\\\Session\\:\\:setUp\\(\\) expects PhpMyAdmin\\\\ErrorHandler, object\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Common.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getUploadTempDir\\(\\) should return string\\|null but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
@@ -86,11 +141,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#2 \\$export_sql_plugin of method PhpMyAdmin\\\\Operations\\:\\:getViewsAndCreateSqlViewStandIn\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
 			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
@@ -103,11 +153,6 @@ parameters:
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 4
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
-			message: "#^Comparison operation \"\\>\" between \\(array\\|float\\|int\\) and 0 results in an error\\.$#"
-			count: 3
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -181,7 +226,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
-			message: "#^Offset mixed does not exist on array\\|null\\.$#"
+			message: "#^Offset string does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
@@ -206,11 +251,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 7
-			path: libraries/classes/Controllers/Server/Status/StatusController.php
-
-		-
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Server/Variables/GetVariableController.php
@@ -219,11 +259,6 @@ parameters:
 			message: "#^Offset 1 does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Variables/SetVariableController.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
 			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, int\\|null given\\.$#"
@@ -236,7 +271,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
 
@@ -249,16 +284,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$callback of function uksort expects callable\\(int\\|string, int\\|string\\)\\: int, 'strnatcasecmp' given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:applyTransformation\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:getError\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
 			message: "#^Parameter \\#1 \\$messages of method PhpMyAdmin\\\\Message\\:\\:addMessagesString\\(\\) expects array\\<string\\>, array\\<int, PhpMyAdmin\\\\Message\\|string\\|null\\> given\\.$#"
@@ -304,6 +329,11 @@ parameters:
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$body \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\{scheme\\?\\: string, host\\: string, port\\?\\: int, user\\?\\: string, pass\\?\\: string, path\\?\\: string, query\\?\\: string, fragment\\?\\: string\\}\\.$#"
@@ -416,19 +446,19 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Offset int does not exist on array\\<PhpMyAdmin\\\\FieldMetadata\\>\\|null\\.$#"
-			count: 2
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\FieldMetadata\\>\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$length\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
 			message: "#^Left side of && is always true\\.$#"
@@ -491,22 +521,22 @@ parameters:
 			path: libraries/classes/ErrorReport.php
 
 		-
-			message: "#^Cannot call method exportSchema\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|false given\\.$#"
+			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Result of \\|\\| is always false\\.$#"
+			count: 1
+			path: libraries/classes/Export.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\Plugins\\\\SchemaPlugin and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -686,11 +716,6 @@ parameters:
 			path: libraries/classes/Image/ImageWrapper.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\{\\}\\|array\\{non\\-empty\\-string\\}\\.$#"
-			count: 2
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Offset int does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Import.php
@@ -709,11 +734,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statement, object given\\.$#"
 			count: 4
 			path: libraries/classes/Import.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:applyTransformation\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
@@ -804,21 +824,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\OpenDocument\\:\\:create\\(\\) should return string but returns bool\\|string\\.$#"
 			count: 1
 			path: libraries/classes/OpenDocument.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\StorageEngine\\:\\:getInnodbFileFormat\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\StorageEngine\\:\\:getInnodbPluginVersion\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\StorageEngine\\:\\:supportsFilePerTable\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Operations.php
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:query\\(\\) expects string, string\\|null given\\.$#"
@@ -1276,33 +1281,8 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:bind_param\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:close\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:execute\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:get_result\\(\\)\\.$#"
-			count: 3
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getUserPrivileges\\(\\) should return array\\<string, string\\|null\\>\\|null but returns array\\.$#"
-			count: 5
 			path: libraries/classes/Server/Privileges.php
 
 		-
@@ -1594,16 +1574,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Cannot call method activate\\(\\) on PhpMyAdmin\\\\Language\\|false\\.$#"
-			count: 1
-			path: test/classes/AbstractTestCase.php
 
 		-
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"

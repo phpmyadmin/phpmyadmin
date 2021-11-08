@@ -179,13 +179,7 @@ final class Collation
                 /* Next will be language */
                 $level = 1;
                 /* First should be charset */
-                $this->getNameForLevel0(
-                    $unicode, // By reference
-                    $unknown, // Same
-                    $part,
-                    $name, // By reference
-                    $variant// Same
-                );
+                [$name, $unicode, $unknown, $variant] = $this->getNameForLevel0($unicode, $unknown, $part, $variant);
                 continue;
             }
 
@@ -194,14 +188,7 @@ final class Collation
                 $level = 4;
                 /* Locale name or code */
                 $found = true;
-                $this->getNameForLevel1(
-                    $unicode,
-                    $unknown,
-                    $part,
-                    $name, // By reference, will be changed
-                    $level, // Also
-                    $found// Same
-                );
+                [$name, $level, $found] = $this->getNameForLevel1($unicode, $unknown, $part, $name, $level, $found);
                 if ($found) {
                     continue;
                 }
@@ -329,13 +316,16 @@ final class Collation
         return $suffixes;
     }
 
+    /**
+     * @return array<int, bool|string|null>
+     * @psalm-return array{string, bool, bool, string|null}
+     */
     private function getNameForLevel0(
-        bool &$unicode,
-        bool &$unknown,
+        bool $unicode,
+        bool $unknown,
         string $part,
-        ?string &$name,
-        ?string &$variant
-    ): void {
+        ?string $variant
+    ): array {
         switch ($part) {
             case 'binary':
                 $name = _pgettext('Collation', 'Binary');
@@ -441,16 +431,22 @@ final class Collation
                 $unknown = true;
                 break;
         }
+
+        return [$name, $unicode, $unknown, $variant];
     }
 
+    /**
+     * @return array<int, bool|int|string>
+     * @psalm-return array{string, int, bool}
+     */
     private function getNameForLevel1(
         bool $unicode,
         bool $unknown,
         string $part,
-        ?string &$name,
-        int &$level,
-        bool &$found
-    ): void {
+        string $name,
+        int $level,
+        bool $found
+    ): array {
         switch ($part) {
             case 'general':
                 break;
@@ -600,5 +596,7 @@ final class Collation
             default:
                 $found = false;
         }
+
+        return [$name, $level, $found];
     }
 }

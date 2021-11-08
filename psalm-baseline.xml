@@ -225,83 +225,6 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Charsets/Collation.php">
-    <ImpureByReferenceAssignment occurrences="75">
-      <code>$found</code>
-      <code>$found</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$level</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$name</code>
-      <code>$unicode</code>
-      <code>$unicode</code>
-      <code>$unknown</code>
-      <code>$variant</code>
-      <code>$variant</code>
-    </ImpureByReferenceAssignment>
     <MixedArgument occurrences="3">
       <code>$state['Charset'] ?? ''</code>
       <code>$state['Collation'] ?? ''</code>
@@ -310,9 +233,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$suffixes</code>
     </MixedArgumentTypeCoercion>
-    <PossiblyNullArgument occurrences="1">
-      <code>$name</code>
-    </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
     <MixedArgument occurrences="7">
