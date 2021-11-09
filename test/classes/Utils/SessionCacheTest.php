@@ -14,8 +14,10 @@ class SessionCacheTest extends TestCase
 {
     public function testGet(): void
     {
-        global $server;
+        global $cfg, $server;
 
+        $_SESSION = [];
+        $cfg['Server']['user'] = null;
         $server = 'server';
 
         SessionCache::set('test_data', 5);
@@ -28,8 +30,10 @@ class SessionCacheTest extends TestCase
 
     public function testRemove(): void
     {
-        global $server;
+        global $cfg, $server;
 
+        $_SESSION = [];
+        $cfg['Server']['user'] = null;
         $server = 'server';
 
         SessionCache::set('test_data', 25);
@@ -43,8 +47,10 @@ class SessionCacheTest extends TestCase
 
     public function testSet(): void
     {
-        global $server;
+        global $cfg, $server;
 
+        $_SESSION = [];
+        $cfg['Server']['user'] = null;
         $server = 'server';
 
         SessionCache::set('test_data', 25);
@@ -56,8 +62,10 @@ class SessionCacheTest extends TestCase
 
     public function testHas(): void
     {
-        global $server;
+        global $cfg, $server;
 
+        $_SESSION = [];
+        $cfg['Server']['user'] = null;
         $server = 'server';
 
         SessionCache::set('test_data', 5);
@@ -66,5 +74,39 @@ class SessionCacheTest extends TestCase
         $this->assertTrue(SessionCache::has('test_data'));
         $this->assertTrue(SessionCache::has('test_data_2'));
         $this->assertFalse(SessionCache::has('fake_data_2'));
+    }
+
+    public function testKeyWithoutUser(): void
+    {
+        global $cfg, $server;
+
+        $_SESSION = [];
+        $cfg['Server']['user'] = null;
+        $server = 123;
+
+        SessionCache::set('test_data', 5);
+        $this->assertArrayHasKey('cache', $_SESSION);
+        $this->assertIsArray($_SESSION['cache']);
+        $this->assertArrayHasKey('server_123', $_SESSION['cache']);
+        $this->assertIsArray($_SESSION['cache']['server_123']);
+        $this->assertArrayHasKey('test_data', $_SESSION['cache']['server_123']);
+        $this->assertSame(5, $_SESSION['cache']['server_123']['test_data']);
+    }
+
+    public function testKeyWithUser(): void
+    {
+        global $cfg, $server;
+
+        $_SESSION = [];
+        $cfg['Server']['user'] = 'test_user';
+        $server = 123;
+
+        SessionCache::set('test_data', 5);
+        $this->assertArrayHasKey('cache', $_SESSION);
+        $this->assertIsArray($_SESSION['cache']);
+        $this->assertArrayHasKey('server_123_test_user', $_SESSION['cache']);
+        $this->assertIsArray($_SESSION['cache']['server_123_test_user']);
+        $this->assertArrayHasKey('test_data', $_SESSION['cache']['server_123_test_user']);
+        $this->assertSame(5, $_SESSION['cache']['server_123_test_user']['test_data']);
     }
 }

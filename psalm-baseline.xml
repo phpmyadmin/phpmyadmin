@@ -19283,6 +19283,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Utils/SessionCacheTest.php">
+    <EmptyArrayAccess occurrences="4">
+      <code>$_SESSION['cache']</code>
+      <code>$_SESSION['cache']</code>
+      <code>$_SESSION['cache']</code>
+      <code>$_SESSION['cache']</code>
+    </EmptyArrayAccess>
     <MixedArgument occurrences="2">
       <code>$_SESSION['cache']['server_server']</code>
       <code>$_SESSION['cache']['server_server']</code>

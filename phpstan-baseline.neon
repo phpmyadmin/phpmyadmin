@@ -6,61 +6,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Cannot access property \\$settings on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method checkErrors\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method checkPermissions\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method checkServers\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method getLoginCookieValidityFromCache\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method loadUserPreferences\\(\\) on object\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method selectServer\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Cannot call method setCookie\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$config of static method PhpMyAdmin\\\\Session\\:\\:setUp\\(\\) expects PhpMyAdmin\\\\Config, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Parameter \\#2 \\$config of static method PhpMyAdmin\\\\Common\\:\\:setGotoAndBackGlobals\\(\\) expects PhpMyAdmin\\\\Config, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
-			message: "#^Parameter \\#2 \\$errorHandler of static method PhpMyAdmin\\\\Session\\:\\:setUp\\(\\) expects PhpMyAdmin\\\\ErrorHandler, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Common.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\:\\:getUploadTempDir\\(\\) should return string\\|null but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
@@ -449,16 +394,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$length\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
 			message: "#^Left side of && is always true\\.$#"
@@ -851,56 +786,6 @@ parameters:
 			path: libraries/classes/Pdf.php
 
 		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getLen\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getSize\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Call to an undefined method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem\\:\\:getValues\\(\\)\\.$#"
-			count: 2
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot call method getBasename\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot call method getExtension\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot call method getFilename\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot call method isFile\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Cannot call method isReadable\\(\\) on SplFileInfo\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\:\\:getAuthPlugin\\(\\) should return PhpMyAdmin\\\\Plugins\\\\AuthenticationPlugin but returns object\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, class\\-string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins.php
-
-		-
 			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, class\\-string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins.php
@@ -1236,11 +1121,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Relation\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept PhpMyAdmin\\\\DatabaseInterface\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -1436,28 +1316,8 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$altered\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$name\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$table\\.$#"
-			count: 3
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Cannot call method getTableDef\\(\\) on object\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
-			count: 1
 			path: libraries/classes/Table.php
 
 		-
@@ -1498,11 +1358,6 @@ parameters:
 		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|string\\.$#"
 			count: 3
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Cannot call method getTableDef\\(\\) on object\\|null\\.$#"
-			count: 1
 			path: libraries/classes/Tracker.php
 
 		-
