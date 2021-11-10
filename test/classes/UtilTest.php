@@ -1593,86 +1593,21 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
-     * backquote test with different param $do_it (true, false)
-     *
-     * @param string|array $a String
-     * @param string|array $b Expected output
-     *
-     * @dataProvider providerBackquote
+     * @dataProvider providerForTestBackquote
      */
-    public function testBackquote($a, $b): void
+    public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
-        $this->assertEquals($b, Util::backquote($a));
-    }
-
-    /**
-     * data provider for backquote test
-     *
-     * @return array
-     */
-    public function providerBackquote(): array
-    {
-        return [
-            [
-                '0',
-                '`0`',
-            ],
-            [
-                'test',
-                '`test`',
-            ],
-            [
-                'te`st',
-                '`te``st`',
-            ],
-            [
-                [
-                    'test',
-                    'te`st',
-                    '',
-                    '*',
-                ],
-                [
-                    '`test`',
-                    '`te``st`',
-                    '',
-                    '*',
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * backquoteCompat test with different param $compatibility (NONE, MSSQL)
-     *
-     * @param string|array $entry               String
-     * @param string|array $expectedNoneOutput  Expected none output
-     * @param string|array $expectedMssqlOutput Expected MSSQL output
-     *
-     * @dataProvider providerBackquoteCompat
-     */
-    public function testBackquoteCompat($entry, $expectedNoneOutput, $expectedMssqlOutput): void
-    {
-        // Test bypass quoting (used by dump functions)
+        $this->assertSame($expectedNoneOutput, Util::backquote($entry));
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
-
-        // Run tests in MSSQL compatibility mode
-        // Test bypass quoting (used by dump functions)
         $this->assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
-
-        // Test backquote
-        $this->assertEquals($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
-
-        // Test backquote
-        $this->assertEquals($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
+        $this->assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
+        $this->assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
     /**
-     * data provider for backquoteCompat test
-     *
-     * @return array
+     * @return array<int|string, string|null>[]
      */
-    public function providerBackquoteCompat(): array
+    public function providerForTestBackquote(): array
     {
         return [
             [
@@ -1691,24 +1626,24 @@ class UtilTest extends AbstractTestCase
                 '"te`st"',
             ],
             [
-                [
-                    'test',
-                    'te`st',
-                    '',
-                    '*',
-                ],
-                [
-                    '`test`',
-                    '`te``st`',
-                    '',
-                    '*',
-                ],
-                [
-                    '"test"',
-                    '"te`st"',
-                    '',
-                    '*',
-                ],
+                'te"st',
+                '`te"st`',
+                '"te\"st"',
+            ],
+            [
+                '',
+                '',
+                '',
+            ],
+            [
+                '*',
+                '*',
+                '*',
+            ],
+            [
+                null,
+                '',
+                '',
             ],
         ];
     }

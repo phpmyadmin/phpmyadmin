@@ -2873,7 +2873,7 @@ class Privileges
                 $returnDb = $dbname;
             }
 
-            if (isset($tablename)) {
+            if (isset($tablename) && ! is_array($dbAndTable)) {
                 $dbAndTable .= Util::backquote($tablename);
             } else {
                 if (is_array($dbAndTable)) {
