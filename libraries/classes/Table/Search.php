@@ -55,10 +55,13 @@ final class Search
         if (isset($_POST['zoom_submit']) || ! empty($_POST['displayAllColumns'])) {
             $sql_query .= '* ';
         } else {
-            $sql_query .= implode(
-                ', ',
-                Util::backquote($_POST['columnsToDisplay'])
-            );
+            $columnsToDisplay = $_POST['columnsToDisplay'];
+            $quotedColumns = [];
+            foreach ($columnsToDisplay as $column) {
+                $quotedColumns[] = Util::backquote($column);
+            }
+
+            $sql_query .= implode(', ', $quotedColumns);
         }
 
         $sql_query .= ' FROM '

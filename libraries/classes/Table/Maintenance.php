@@ -36,7 +36,7 @@ final class Maintenance
     {
         $backQuotedTables = [];
         foreach ($tables as $table) {
-            $backQuotedTables[] = (string) Util::backquote($table->getName());
+            $backQuotedTables[] = Util::backquote($table->getName());
         }
 
         $query = 'ANALYZE TABLE ' . implode(', ', $backQuotedTables) . ';';
@@ -64,7 +64,7 @@ final class Maintenance
     {
         $backQuotedTables = [];
         foreach ($tables as $table) {
-            $backQuotedTables[] = (string) Util::backquote($table->getName());
+            $backQuotedTables[] = Util::backquote($table->getName());
         }
 
         $query = 'CHECK TABLE ' . implode(', ', $backQuotedTables) . ';';
@@ -92,7 +92,7 @@ final class Maintenance
     {
         $backQuotedTables = [];
         foreach ($tables as $table) {
-            $backQuotedTables[] = (string) Util::backquote($table->getName());
+            $backQuotedTables[] = Util::backquote($table->getName());
         }
 
         $query = 'CHECKSUM TABLE ' . implode(', ', $backQuotedTables) . ';';
@@ -136,7 +136,7 @@ final class Maintenance
     {
         $backQuotedTables = [];
         foreach ($tables as $table) {
-            $backQuotedTables[] = (string) Util::backquote($table->getName());
+            $backQuotedTables[] = Util::backquote($table->getName());
         }
 
         $query = 'OPTIMIZE TABLE ' . implode(', ', $backQuotedTables) . ';';
@@ -164,7 +164,7 @@ final class Maintenance
     {
         $backQuotedTables = [];
         foreach ($tables as $table) {
-            $backQuotedTables[] = (string) Util::backquote($table->getName());
+            $backQuotedTables[] = Util::backquote($table->getName());
         }
 
         $query = 'REPAIR TABLE ' . implode(', ', $backQuotedTables) . ';';

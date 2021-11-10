@@ -554,11 +554,23 @@ class Normalization
         $this->dbi->selectDb($db);
         foreach ($partialDependencies as $key => $dependents) {
             if ($tablesName->$key != $table) {
-                $backquotedKey = implode(', ', Util::backquote(explode(', ', $key)));
+                $keys = explode(', ', $key);
+                $quotedKeys = [];
+                foreach ($keys as $eachKey) {
+                    $quotedKeys[] = Util::backquote($eachKey);
+                }
+
+                $backquotedKey = implode(', ', $quotedKeys);
+
+                $quotedDependents = [];
+                foreach ($dependents as $dependent) {
+                    $quotedDependents[] = Util::backquote($dependent);
+                }
+
                 $queries[] = 'CREATE TABLE ' . Util::backquote($tablesName->$key)
                     . ' SELECT DISTINCT ' . $backquotedKey
                     . (count($dependents) > 0 ? ', ' : '')
-                    . implode(',', Util::backquote($dependents))
+                    . implode(',', $quotedDependents)
                     . ' FROM ' . Util::backquote($table) . ';';
                 $queries[] = 'ALTER TABLE ' . Util::backquote($tablesName->$key)
                     . ' ADD PRIMARY KEY(' . $backquotedKey . ');';
@@ -704,14 +716,22 @@ class Normalization
         foreach ($newTables as $originalTable => $tablesList) {
             foreach ($tablesList as $table => $cols) {
                 if ($table != $originalTable) {
-                    $quotedPk = implode(
-                        ', ',
-                        Util::backquote(explode(', ', $cols['pk']))
-                    );
-                    $quotedNonpk = implode(
-                        ', ',
-                        Util::backquote(explode(', ', $cols['nonpk']))
-                    );
+                    $pkArray = explode(', ', $cols['pk']);
+                    $quotedPkArray = [];
+                    foreach ($pkArray as $pk) {
+                        $quotedPkArray[] = Util::backquote($pk);
+                    }
+
+                    $quotedPk = implode(', ', $quotedPkArray);
+
+                    $nonpkArray = explode(', ', $cols['nonpk']);
+                    $quotedNonpkArray = [];
+                    foreach ($nonpkArray as $nonpk) {
+                        $quotedNonpkArray[] = Util::backquote($nonpk);
+                    }
+
+                    $quotedNonpk = implode(', ', $quotedNonpkArray);
+
                     $queries[] = 'CREATE TABLE ' . Util::backquote($table)
                         . ' SELECT DISTINCT ' . $quotedPk
                         . ', ' . $quotedNonpk
@@ -791,13 +811,14 @@ class Normalization
         $table,
         $db
     ) {
-        $repeatingColumnsArr = (array) Util::backquote(
-            explode(', ', $repeatingColumns)
-        );
-        $primaryColumns = implode(
-            ',',
-            Util::backquote(explode(',', $primaryColumns))
-        );
+        $repeatingColumnsArr = explode(', ', $repeatingColumns);
+        $primaryColumnsArray = explode(',', $primaryColumns);
+        $columns = [];
+        foreach ($primaryColumnsArray as $column) {
+            $columns[] = Util::backquote($column);
+        }
+
+        $primaryColumns = implode(',', $columns);
         $query1 = 'CREATE TABLE ' . Util::backquote($newTable);
         $query2 = 'ALTER TABLE ' . Util::backquote($table);
         $message = Message::success(
@@ -814,10 +835,11 @@ class Normalization
             }
 
             $first = false;
-            $query1 .= ' SELECT ' . $primaryColumns . ',' . $repeatingColumn
+            $quotedRepeatingColumn = Util::backquote($repeatingColumn);
+            $query1 .= ' SELECT ' . $primaryColumns . ',' . $quotedRepeatingColumn
                 . ' as ' . Util::backquote($newColumn)
                 . ' FROM ' . Util::backquote($table);
-            $query2 .= ' DROP ' . $repeatingColumn . ',';
+            $query2 .= ' DROP ' . $quotedRepeatingColumn . ',';
         }
 
         $query2 = trim($query2, ',');
@@ -986,8 +1008,12 @@ class Normalization
     {
         $dependencyList = [];
         $this->dbi->selectDb($db);
-        $columns = (array) $this->dbi->getColumnNames($db, $table);
-        $columns = (array) Util::backquote($columns);
+        $columnNames = (array) $this->dbi->getColumnNames($db, $table);
+        $columns = [];
+        foreach ($columnNames as $column) {
+            $columns[] = Util::backquote($column);
+        }
+
         $totalRowsRes = $this->dbi->fetchResult(
             'SELECT COUNT(*) FROM (SELECT * FROM '
             . Util::backquote($table) . ' LIMIT 500) as dt;'

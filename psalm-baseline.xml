@@ -108,17 +108,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array|false</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="9">
-      <code>Util::backquote($cfgBookmark['db'])</code>
-      <code>Util::backquote($cfgBookmark['db'])</code>
-      <code>Util::backquote($cfgBookmark['db'])</code>
-      <code>Util::backquote($cfgBookmark['db'])</code>
-      <code>Util::backquote($cfgBookmark['table'])</code>
-      <code>Util::backquote($cfgBookmark['table'])</code>
-      <code>Util::backquote($cfgBookmark['table'])</code>
-      <code>Util::backquote($cfgBookmark['table'])</code>
-      <code>Util::backquote($id_field)</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>Cache::get($cacheKey)</code>
     </MixedReturnStatement>
@@ -235,8 +224,7 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
-    <MixedArgument occurrences="7">
-      <code>$dbNameToTest</code>
+    <MixedArgument occurrences="6">
       <code>$row[0]</code>
       <code>$showGrantsDbName</code>
       <code>$showGrantsResult</code>
@@ -244,7 +232,7 @@
       <code>$showGrantsString</code>
       <code>$showGrantsTableName</code>
     </MixedArgument>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="11">
       <code>$GLOBALS['col_priv']</code>
       <code>$GLOBALS['db_priv']</code>
       <code>$GLOBALS['db_to_create']</code>
@@ -255,7 +243,6 @@
       <code>$GLOBALS['is_reload_priv']</code>
       <code>$GLOBALS['proc_priv']</code>
       <code>$GLOBALS['table_priv']</code>
-      <code>$dbNameToTest</code>
       <code>$showGrantsResult</code>
     </MixedAssignment>
     <PossiblyFalseOperand occurrences="6">
@@ -1239,11 +1226,6 @@
       <code>$data</code>
       <code>$tableName</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($tableName)</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$_POST['db_collation']</code>
     </PossiblyNullArgument>
@@ -1277,9 +1259,6 @@
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($db)</code>
-    </MixedOperand>
     <RedundantCondition occurrences="11">
       <code>! $_error</code>
       <code>! $_error</code>
@@ -1410,10 +1389,8 @@
     <MixedAssignment occurrences="1">
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$_POST['add_prefix']</code>
-      <code>Util::backquote($newTableName)</code>
-      <code>Util::backquote($selected[$i])</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php">
@@ -1523,10 +1500,6 @@
       <code>$urlParams['selected'][]</code>
       <code>$urlParams['views'][]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote(htmlspecialchars($current))</code>
-      <code>Util::backquote(htmlspecialchars($current))</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/DropTableController.php">
     <MixedArgument occurrences="5">
@@ -1549,10 +1522,6 @@
       <code>$result</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($current)</code>
-      <code>Util::backquote($current)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/EmptyFormController.php">
     <MixedArgument occurrences="1">
@@ -1562,9 +1531,6 @@
       <code>$selected</code>
       <code>$selectedValue</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote(htmlspecialchars($selectedValue))</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/EmptyTableController.php">
     <MixedArgument occurrences="6">
@@ -1582,9 +1548,6 @@
       <code>$multBtn</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($selected[$i])</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
     <MixedArgument occurrences="5">
@@ -1654,10 +1617,8 @@
       <code>$selected</code>
       <code>$toPrefix</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$toPrefix</code>
-      <code>Util::backquote($newTableName)</code>
-      <code>Util::backquote($selected[$i])</code>
     </MixedOperand>
     <RedundantCast occurrences="1">
       <code>(string) $fromPrefix</code>
@@ -1677,7 +1638,7 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="38">
+    <MixedArgument occurrences="37">
       <code>$_POST['master_connection'] ?? null</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
@@ -1777,14 +1738,13 @@
     <MixedMethodCall occurrences="1">
       <code>getCharset</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="6">
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>Util::backquote($currentTable['TABLE_NAME'])</code>
     </MixedOperand>
     <PossiblyNullArrayAccess occurrences="8">
       <code>$formattedOverhead</code>
@@ -2423,9 +2383,6 @@
       <code>$db</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($params['new_db'])</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
     <MixedArgument occurrences="4">
@@ -2445,9 +2402,6 @@
     <MixedMethodCall occurrences="1">
       <code>build</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($selected[$i])</code>
-    </MixedOperand>
     <MixedPropertyFetch occurrences="1">
       <code>$dblist-&gt;databases</code>
     </MixedPropertyFetch>
@@ -2800,12 +2754,6 @@
       <code>$userGroup</code>
       <code>$username</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-    </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
@@ -3168,7 +3116,7 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/DeleteRowsController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="10">
       <code>$_REQUEST['pos']</code>
       <code>$db</code>
       <code>$db</code>
@@ -3179,7 +3127,6 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>Util::backquote($table)</code>
     </MixedArgument>
     <MixedAssignment occurrences="5">
       <code>$mult_btn</code>
@@ -3210,10 +3157,6 @@
       <code>getMessage</code>
       <code>isError</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/ExportController.php">
     <MixedArgument occurrences="7">
@@ -3300,29 +3243,6 @@
       <code>$row</code>
       <code>$this-&gt;connectionCharSet</code>
     </MixedAssignment>
-    <MixedOperand occurrences="21">
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-    </MixedOperand>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_array($result)</code>
     </RedundantConditionGivenDocblockType>
@@ -3341,11 +3261,9 @@
     <MixedAssignment occurrences="1">
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="2">
       <code>$_GET['transform_key']</code>
       <code>$_GET['where_clause']</code>
-      <code>Util::backquote($_GET['transform_key'])</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
@@ -3489,9 +3407,6 @@
     <MixedMethodCall occurrences="1">
       <code>getList</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Partition/AnalyzeController.php">
     <MixedArgument occurrences="1">
@@ -3583,10 +3498,6 @@
       <code>$tables_rs</code>
       <code>$tables_rs</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($_POST['foreignDb'])</code>
-      <code>Util::backquote($_POST['foreignDb'])</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="2">
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_name</code>
@@ -3733,12 +3644,11 @@
     <MixedMethodCall occurrences="1">
       <code>new $classname()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="5">
+    <MixedOperand occurrences="4">
       <code>$mime_map[$column_name]['input_transformation']</code>
       <code>$relation_field_value</code>
       <code>$where_clause</code>
       <code>$where_clause</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="7">
       <code>$current_value</code>
@@ -3790,14 +3700,8 @@
       <code>$type</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="1">
       <code>$_POST['where_clause']</code>
-      <code>Util::backquote($_POST['db'])</code>
-      <code>Util::backquote($_POST['table'])</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($column)</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $fields_meta[$i]-&gt;length</code>
@@ -3826,23 +3730,13 @@
       <code>$result</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="2">
       <code>$analyzed_sql_results ?? ''</code>
       <code>$sval</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$fields</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$fields[]</code>
+    <MixedAssignment occurrences="1">
       <code>$sval</code>
     </MixedAssignment>
     <PossiblyInvalidArgument occurrences="1">
@@ -3891,13 +3785,9 @@
       <code>$result</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/MoveColumnsController.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -3912,7 +3802,6 @@
       <code>$extracted_columnspec['spec_in_brackets']</code>
       <code>$extracted_columnspec['type']</code>
       <code>$i === 0 ? '-first' : $column_names[$i - 1]</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="9">
       <code>$data['Collation']</code>
@@ -3958,9 +3847,6 @@
       <code>$createTable</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($this-&gt;table)</code>
-    </MixedOperand>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>$stmt-&gt;partitionsNum</code>
       <code>$stmt-&gt;subpartitionsNum</code>
@@ -3987,11 +3873,8 @@
       <code>$selected</code>
       <code>$selected_fld</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="1">
       <code>$row['Column_name']</code>
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
     <TypeDoesNotContainType occurrences="1">
       <code>! is_array($row)</code>
@@ -4007,7 +3890,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SaveController.php">
-    <MixedArgument occurrences="44">
+    <MixedArgument occurrences="42">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_attribute_orig'][$i]</code>
       <code>$_POST['field_default_type'][$i]</code>
@@ -4034,8 +3917,6 @@
       <code>$fieldcontent</code>
       <code>$mimetype</code>
       <code>$newCol</code>
-      <code>Util::backquote($_POST['field_orig'][$i])</code>
-      <code>Util::backquote('columns_priv')</code>
       <code>Util::getValueByKey($_POST, "field_collation.${i}", '')</code>
       <code>Util::getValueByKey($_POST, "field_collation_orig.${i}", '')</code>
       <code>Util::getValueByKey($_POST, "field_comments.${i}", '')</code>
@@ -4101,15 +3982,9 @@
       <code>$result</code>
       <code>$sorted_col</code>
     </MixedAssignment>
-    <MixedOperand occurrences="8">
+    <MixedOperand occurrences="2">
       <code>$_POST['field_expression'][$i]</code>
       <code>$_POST['field_virtuality'][$i]</code>
-      <code>Util::backquote($_POST['field_orig'][$i])</code>
-      <code>Util::backquote($_POST['field_orig'][$i])</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
-      <code>Util::backquote($this-&gt;table)</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/SpatialController.php">
@@ -4124,10 +3999,6 @@
       <code>$result</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/UniqueController.php">
     <MixedArgument occurrences="4">
@@ -4141,10 +4012,6 @@
       <code>$result</code>
       <code>$selected</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($field)</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <MixedArgument occurrences="13">
@@ -4340,11 +4207,9 @@
       <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="2">
       <code>$_POST['maxPlotLimit']</code>
       <code>$_POST['where_clause']</code>
-      <code>Util::backquote($_POST['db'])</code>
-      <code>Util::backquote($_POST['table'])</code>
     </MixedOperand>
     <PossiblyFalseArgument occurrences="3">
       <code>$dataLabel</code>
@@ -4433,15 +4298,13 @@
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="8">
+    <MixedOperand occurrences="6">
       <code>$_REQUEST['newHeight']</code>
       <code>$_REQUEST['newWidth']</code>
       <code>$mime_options['charset'] ?? ''</code>
       <code>$ratioHeight</code>
       <code>$ratioWidth</code>
       <code>$where_clause</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <UnusedVariable occurrences="1">
       <code>$key</code>
@@ -4523,16 +4386,12 @@
       <code>$view['sql_security']</code>
       <code>$view['with']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="5">
       <code>$_POST['view']['algorithm']</code>
       <code>$_POST['view']['as']</code>
       <code>$_POST['view']['column_names']</code>
       <code>$_POST['view']['sql_security']</code>
       <code>$_POST['view']['with']</code>
-      <code>Util::backquote($_POST['view']['definer'])</code>
-      <code>Util::backquote($_POST['view']['name'])</code>
-      <code>Util::backquote($arr[0])</code>
-      <code>Util::backquote($arr[1])</code>
     </MixedOperand>
     <RedundantCondition occurrences="2">
       <code>empty($view['as']) &amp;&amp; is_string($createView)</code>
@@ -4614,10 +4473,9 @@
       <code>addError</code>
       <code>get</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="2">
       <code>$secret</code>
       <code>$secret</code>
-      <code>Util::backquote($db)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$direct_ip</code>
@@ -4677,9 +4535,8 @@
       <code>$partition</code>
       <code>$subpartition</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
+    <MixedArgumentTypeCoercion occurrences="1">
       <code>$definitions</code>
-      <code>$indexFields</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="13">
       <code>$_POST['field_attribute'][$i]</code>
@@ -4701,7 +4558,7 @@
       <code>$indexFields[$key]</code>
       <code>$indexFields[$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="15">
+    <MixedAssignment occurrences="14">
       <code>$column</code>
       <code>$comment</code>
       <code>$fieldFullText</code>
@@ -4710,7 +4567,6 @@
       <code>$fieldSpatial</code>
       <code>$fieldUnique</code>
       <code>$index</code>
-      <code>$indexFields[$key]</code>
       <code>$key</code>
       <code>$keyBlockSizes</code>
       <code>$parser</code>
@@ -4718,7 +4574,7 @@
       <code>$subpartition</code>
       <code>$type</code>
     </MixedAssignment>
-    <MixedOperand occurrences="27">
+    <MixedOperand occurrences="19">
       <code>$_POST['partition_by']</code>
       <code>$_POST['partition_count']</code>
       <code>$_POST['partition_expr']</code>
@@ -4726,7 +4582,6 @@
       <code>$_POST['subpartition_count']</code>
       <code>$_POST['subpartition_expr']</code>
       <code>$column['size']</code>
-      <code>$indexFields[$key]</code>
       <code>$partition['comment']</code>
       <code>$partition['data_directory']</code>
       <code>$partition['engine']</code>
@@ -4739,13 +4594,6 @@
       <code>$partition['value']</code>
       <code>$partition['value_type']</code>
       <code>$type</code>
-      <code>Util::backquote($_POST['after_field'])</code>
-      <code>Util::backquote($_POST['field_name'][$previousField])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($index['Key_name'])</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote(trim($table))</code>
     </MixedOperand>
     <PossiblyFalseArgument occurrences="1">
       <code>$_POST['field_extra'][$i] ?? false</code>
@@ -4922,26 +4770,13 @@
     <MixedInferredReturnType occurrences="1">
       <code>array|bool</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="19">
+    <MixedOperand occurrences="6">
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column['col_attribute']</code>
       <code>$column['col_extra']</code>
       <code>$column['col_length']</code>
-      <code>Util::backquote($centralTable)</code>
-      <code>Util::backquote($centralTable)</code>
-      <code>Util::backquote($centralTable)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($central_list_table)</code>
-      <code>Util::backquote($column['col_name'])</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$cfgCentralColumns</code>
@@ -5035,14 +4870,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="2">
       <code>$tabColumn[$tableName]['COLUMN_NAME'][$j]</code>
       <code>$tab_column[$table_name]['COLUMN_NAME'][$j]</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['designer_settings'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote('username')</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$params</code>
@@ -5146,58 +4976,13 @@
     <MixedInferredReturnType occurrences="1">
       <code>string|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="51">
+    <MixedOperand occurrences="6">
       <code>$one_key['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$one_key['ref_table_name']</code>
       <code>$val[0]</code>
       <code>$val[0]</code>
       <code>$value['foreign_db']</code>
       <code>$value['foreign_table']</code>
-      <code>Util::backquote($DB1)</code>
-      <code>Util::backquote($DB1)</code>
-      <code>Util::backquote($DB2)</code>
-      <code>Util::backquote($DB2)</code>
-      <code>Util::backquote($DB2)</code>
-      <code>Util::backquote($F1)</code>
-      <code>Util::backquote($F2)</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['relation'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['relation'])</code>
-      <code>Util::backquote($GLOBALS['db'])</code>
-      <code>Util::backquote($T1)</code>
-      <code>Util::backquote($T1)</code>
-      <code>Util::backquote($T2)</code>
-      <code>Util::backquote($T2)</code>
-      <code>Util::backquote($T2)</code>
-      <code>Util::backquote($cfgDesigner['db'])</code>
-      <code>Util::backquote($cfgDesigner['db'])</code>
-      <code>Util::backquote($cfgDesigner['db'])</code>
-      <code>Util::backquote($cfgDesigner['table'])</code>
-      <code>Util::backquote($cfgDesigner['table'])</code>
-      <code>Util::backquote($cfgDesigner['table'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($foreigner['constraint'])</code>
-      <code>Util::backquote('page_nr')</code>
-      <code>Util::backquote('page_nr')</code>
-      <code>Util::backquote('pdf_page_number')</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>is_array($page_name) &amp;&amp; isset($page_name[0]) ? $page_name[0] : null</code>
@@ -5219,7 +5004,7 @@
     </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Database/Events.php">
-    <MixedArgument occurrences="33">
+    <MixedArgument occurrences="28">
       <code>$_POST['item_comment']</code>
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_definer']</code>
@@ -5248,11 +5033,6 @@
       <code>$itemName</code>
       <code>$message</code>
       <code>$result</code>
-      <code>Util::backquote($_REQUEST['item_name'])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($event['name'])</code>
-      <code>Util::backquote($itemName)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="1">
       <code>$event['name']</code>
@@ -5293,14 +5073,10 @@
     <MixedMethodCall occurrences="1">
       <code>isSuccess</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="3">
       <code>$_POST['item_definition']</code>
       <code>$_POST['item_interval_field']</code>
       <code>$string</code>
-      <code>Util::backquote($_POST['item_name'])</code>
-      <code>Util::backquote($_POST['item_original_name'])</code>
-      <code>Util::backquote($arr[0])</code>
-      <code>Util::backquote($arr[1])</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$create_item</code>
@@ -5365,12 +5141,10 @@
       <code>$whereClauseColumns</code>
       <code>$whereClauseTables</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$selectClauses</code>
       <code>$table</code>
       <code>$table</code>
-      <code>array_map([Util::class, 'backquote'], $searchTables)</code>
-      <code>array_map([Util::class, 'backquote'], $unfinalized)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="21">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
@@ -5419,7 +5193,7 @@
       <code>$tsize[$table]</code>
       <code>$tsize[$table]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="54">
+    <MixedAssignment occurrences="53">
       <code>$GLOBALS[${'cur' . $or}][$newColumnCount]</code>
       <code>$allTables</code>
       <code>$clause</code>
@@ -5427,7 +5201,6 @@
       <code>$column</code>
       <code>$columnReferences</code>
       <code>$eachColumn</code>
-      <code>$eachTable</code>
       <code>$eachTable</code>
       <code>$finalized[$foreignTable]</code>
       <code>$finalized[$masterTable]</code>
@@ -5479,12 +5252,10 @@
       <code>array</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="27">
+    <MixedOperand occurrences="12">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
       <code>$clause</code>
       <code>$columns[$columnIndex]</code>
-      <code>$eachTable</code>
-      <code>$eachTable</code>
       <code>$index['Column_name']</code>
       <code>$select</code>
       <code>$selected['and'] ?? ''</code>
@@ -5494,19 +5265,6 @@
       <code>$this-&gt;formColumns[$columnIndex]</code>
       <code>$this-&gt;formColumns[$columnIndex]</code>
       <code>$this-&gt;formCriterions[$columnIndex]</code>
-      <code>Util::backquote($eachColumn['Field'])</code>
-      <code>Util::backquote($foreigner['foreign_field'])</code>
-      <code>Util::backquote($foreigner['foreign_table'])</code>
-      <code>Util::backquote($oneField)</code>
-      <code>Util::backquote($oneKey['ref_index_list'][$index])</code>
-      <code>Util::backquote($oneKey['ref_table_name'])</code>
-      <code>Util::backquote($oneTable)</code>
-      <code>Util::backquote($oneTable)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($this-&gt;db)</code>
-      <code>Util::backquote($this-&gt;formAliases[$columnIndex])</code>
-      <code>Util::backquote((string) $field)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="3">
       <code>$candidateColumns</code>
@@ -5554,7 +5312,7 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <MixedArgument occurrences="94">
+    <MixedArgument occurrences="84">
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5636,16 +5394,6 @@
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
-      <code>Util::backquote($_GET['item_name'])</code>
-      <code>Util::backquote($_GET['item_name'])</code>
-      <code>Util::backquote($_POST['item_name'])</code>
-      <code>Util::backquote($_REQUEST['item_name'])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($routine['name'])</code>
-      <code>Util::backquote(htmlspecialchars($routine['item_name']))</code>
       <code>Util::getSupportedDatatypes()</code>
       <code>Util::getSupportedDatatypes()</code>
       <code>Util::getSupportedDatatypes()</code>
@@ -5791,7 +5539,7 @@
     <MixedMethodCall occurrences="1">
       <code>isSuccess</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="43">
+    <MixedOperand occurrences="28">
       <code>$_POST['funcs'][$routine['item_param_name'][$i]]</code>
       <code>$_POST['item_name']</code>
       <code>$_POST['item_original_name']</code>
@@ -5820,20 +5568,6 @@
       <code>$routine['item_num_params']</code>
       <code>$routine['item_num_params']</code>
       <code>$string</code>
-      <code>Util::backquote($_POST['item_original_name'])</code>
-      <code>Util::backquote($itemName)</code>
-      <code>Util::backquote($itemParamName[$i])</code>
-      <code>Util::backquote($itemParamName[$i])</code>
-      <code>Util::backquote($routine['item_name'])</code>
-      <code>Util::backquote($routine['item_name'])</code>
-      <code>Util::backquote($routine['item_name'])</code>
-      <code>Util::backquote($routine['item_param_name'][$i])</code>
-      <code>Util::backquote('mysql')</code>
-      <code>Util::backquote('mysql')</code>
-      <code>Util::backquote('procs_priv')</code>
-      <code>Util::backquote('procs_priv')</code>
-      <code>Util::backquoteCompat($arr[0], 'NONE', $do_backquote)</code>
-      <code>Util::backquoteCompat($arr[1], 'NONE', $do_backquote)</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="7">
       <code>$create_routine</code>
@@ -5870,11 +5604,6 @@
       <code>$eachTable</code>
       <code>$this-&gt;searchTypeDescription</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>Util::backquote($GLOBALS['db'])</code>
-      <code>Util::backquote($column['Field'])</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
     <PropertyNotSetInConstructor occurrences="2">
       <code>$criteriaColumnName</code>
       <code>$searchTypeDescription</code>
@@ -5888,7 +5617,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Triggers.php">
-    <MixedArgument occurrences="38">
+    <MixedArgument occurrences="33">
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_name']</code>
@@ -5922,11 +5651,6 @@
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
-      <code>Util::backquote($_REQUEST['item_name'])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($itemName)</code>
-      <code>Util::backquote($itemName)</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="13">
       <code>$temp['action_timing']</code>
@@ -5983,16 +5707,12 @@
     <MixedMethodCall occurrences="1">
       <code>isSuccess</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="5">
       <code>$_POST['item_definition']</code>
       <code>$_POST['item_event']</code>
       <code>$_POST['item_timing']</code>
       <code>$string</code>
       <code>$trigger['drop']</code>
-      <code>Util::backquote($_POST['item_name'])</code>
-      <code>Util::backquote($_POST['item_table'])</code>
-      <code>Util::backquote($arr[0])</code>
-      <code>Util::backquote($arr[1])</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$create_item</code>
@@ -6170,7 +5890,7 @@
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="77">
+    <MixedAssignment occurrences="76">
       <code>$aLength</code>
       <code>$bLength</code>
       <code>$current_value</code>
@@ -6201,7 +5921,6 @@
       <code>$one_result['definer']</code>
       <code>$one_result['definition']</code>
       <code>$one_result['event_manipulation']</code>
-      <code>$one_result['full_trigger_name']</code>
       <code>$one_result['name']</code>
       <code>$one_result['name']</code>
       <code>$one_result['returns']</code>
@@ -6257,11 +5976,9 @@
       <code>string</code>
       <code>string|bool</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="26">
+    <MixedOperand occurrences="12">
       <code>$a['Data_length']</code>
       <code>$b['Data_length']</code>
-      <code>$one_result['full_trigger_name']</code>
-      <code>$one_result['full_trigger_name']</code>
       <code>$row['Data_free']</code>
       <code>$row['Data_length']</code>
       <code>$row['Data_length']</code>
@@ -6272,18 +5989,6 @@
       <code>$trigger['ACTION_STATEMENT']</code>
       <code>$trigger['ACTION_TIMING']</code>
       <code>$trigger['EVENT_MANIPULATION']</code>
-      <code>Util::backquote($database)</code>
-      <code>Util::backquote($database)</code>
-      <code>Util::backquote($database_name)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($each_database)</code>
-      <code>Util::backquote($each_database)</code>
-      <code>Util::backquote($name)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($trigger['EVENT_OBJECT_TABLE'])</code>
-      <code>Util::backquote('time_zone')</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="1">
       <code>$this-&gt;links[$link]-&gt;warning_count</code>
@@ -6347,9 +6052,6 @@
       <code>$urlParams['show_as_php']</code>
       <code>$urlParams['sql_query']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
     <MixedArgument occurrences="10">
@@ -6654,7 +6356,7 @@
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
       <code>$whereClauseMap[$rowNumber][$this-&gt;properties['table']]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="22">
+    <MixedArrayOffset occurrences="20">
       <code>$displayParams['data'][$rowNumber][$i]</code>
       <code>$displayParams['data'][$rowNumber][$i]</code>
       <code>$displayParams['data'][$rowNumber][$i]</code>
@@ -6666,8 +6368,6 @@
       <code>$fieldsMeta[$i]</code>
       <code>$fieldsMeta[$m]</code>
       <code>$highlightColumns[$identifier]</code>
-      <code>$highlightColumns[Util::backquote($meta-&gt;name)]</code>
-      <code>$highlightColumns[Util::backquote($name)]</code>
       <code>$map[$oneField]</code>
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$ret[$field-&gt;table]</code>
@@ -6689,7 +6389,7 @@
       <code>$row[$i]</code>
       <code>$row[$m]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="66">
+    <MixedAssignment occurrences="65">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6746,7 +6446,6 @@
       <code>$rowInfo[mb_strtolower($fieldsMeta[$m]-&gt;orgname)]</code>
       <code>$sessionMaxRows</code>
       <code>$sessionMaxRows</code>
-      <code>$sortExpressionNoDirection[$specialIndex]</code>
       <code>$sqlQuery</code>
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
@@ -6764,7 +6463,7 @@
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="35">
+    <MixedOperand occurrences="23">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -6788,18 +6487,6 @@
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortOrder</code>
       <code>$val</code>
-      <code>Util::backquote($currentName)</code>
-      <code>Util::backquote($currentName)</code>
-      <code>Util::backquote($fieldsMeta-&gt;table)</code>
-      <code>Util::backquote($map[$meta-&gt;name][0])</code>
-      <code>Util::backquote($map[$meta-&gt;name][0])</code>
-      <code>Util::backquote($map[$meta-&gt;name][1])</code>
-      <code>Util::backquote($map[$meta-&gt;name][1])</code>
-      <code>Util::backquote($map[$meta-&gt;name][2])</code>
-      <code>Util::backquote($map[$meta-&gt;name][3])</code>
-      <code>Util::backquote($map[$meta-&gt;name][3])</code>
-      <code>Util::backquote($nameToUseInSort)</code>
-      <code>Util::backquote($this-&gt;properties['table'])</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="16">
       <code>$analyzedSqlResults['parser']-&gt;list</code>
@@ -7164,7 +6851,7 @@
       <code>$view</code>
       <code>$views[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="7">
       <code>$currentDb</code>
       <code>$table</code>
       <code>$table</code>
@@ -7172,12 +6859,6 @@
       <code>$this-&gt;dumpBufferObjects[$objectName]</code>
       <code>$tmpSelect</code>
       <code>$view</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="3">
       <code>$GLOBALS['file_handle']</code>
@@ -7217,21 +6898,11 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Export/TemplateModel.php">
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="4">
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedArgument>
     <MixedAssignment occurrences="5">
       <code>$result</code>
@@ -8101,7 +7772,7 @@
     <MixedMethodCall occurrences="1">
       <code>Output</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="21">
+    <MixedOperand occurrences="15">
       <code>$border / $scale</code>
       <code>$border / $scale</code>
       <code>$min_max['maxX'] + $min_max['minX'] - $plot_width / $scale</code>
@@ -8117,12 +7788,6 @@
       <code>$this-&gt;prepareDataSet($this-&gt;data, $scale_data, 'svg', '')</code>
       <code>$this-&gt;settings['height']</code>
       <code>$this-&gt;settings['width']</code>
-      <code>Util::backquote($this-&gt;userSpecifiedSettings['labelColumn'])</code>
-      <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
-      <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
-      <code>Util::backquote($this-&gt;userSpecifiedSettings['spatialColumn'])</code>
-      <code>Util::backquote('srid')</code>
-      <code>Util::backquote('temp_gis')</code>
     </MixedOperand>
     <NullArgument occurrences="3">
       <code>null</code>
@@ -8358,7 +8023,7 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="67">
+    <MixedArgument occurrences="61">
       <code>$active</code>
       <code>$additionalSql[$i]</code>
       <code>$additionalSql[$i]</code>
@@ -8420,12 +8085,6 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$n][self::TBL_NAME]</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($table[self::TBL_NAME])</code>
-      <code>Util::backquote($table[self::TBL_NAME])</code>
-      <code>Util::backquote($table[self::TBL_NAME])</code>
-      <code>Util::backquote($table[self::TBL_NAME])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="3">
       <code>$columns</code>
@@ -8517,7 +8176,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="34">
+    <MixedOperand occurrences="25">
       <code>$charset</code>
       <code>$charset</code>
       <code>$collation</code>
@@ -8543,15 +8202,6 @@
       <code>$sql_query</code>
       <code>$sql_query</code>
       <code>$timestamp</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($tables[$i][self::COL_NAMES][$j])</code>
-      <code>Util::backquote($tables[$i][self::COL_NAMES][$m])</code>
-      <code>Util::backquote($tables[$i][self::TBL_NAME])</code>
-      <code>Util::backquote($tables[$i][self::TBL_NAME])</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="9">
       <code>$analyzedSqlResults['parser']-&gt;list</code>
@@ -8883,7 +8533,7 @@
       <code>$repopulate[$column['Field_md5']]</code>
       <code>$repopulate[$column['Field_md5']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="61">
+    <MixedAssignment occurrences="60">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
@@ -8918,7 +8568,6 @@
       <code>$maxlength</code>
       <code>$newValue</code>
       <code>$oneType</code>
-      <code>$queryFields[]</code>
       <code>$res</code>
       <code>$result</code>
       <code>$result</code>
@@ -8956,7 +8605,7 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="34">
+    <MixedOperand occurrences="13">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['Field_html']</code>
       <code>$column['Field_md5']</code>
@@ -8970,27 +8619,6 @@
       <code>$multiEditFuncs[$key]</code>
       <code>$uuid</code>
       <code>$whereClause</code>
-      <code>Util::backquote($GLOBALS['db'])</code>
-      <code>Util::backquote($GLOBALS['table'])</code>
-      <code>Util::backquote($GLOBALS['table'])</code>
-      <code>Util::backquote($columnName)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($displayField)</code>
-      <code>Util::backquote($foreigner['foreign_db'])</code>
-      <code>Util::backquote($foreigner['foreign_db'])</code>
-      <code>Util::backquote($foreigner['foreign_field'])</code>
-      <code>Util::backquote($foreigner['foreign_field'])</code>
-      <code>Util::backquote($foreigner['foreign_table'])</code>
-      <code>Util::backquote($foreigner['foreign_table'])</code>
-      <code>Util::backquote($multiEditColumnsName[$key])</code>
-      <code>Util::backquote($multiEditColumnsName[$key])</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="4">
       <code>$_POST['err_url']</code>
@@ -9194,12 +8822,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="4">
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>SessionCache::get($cacheKey)</code>
     </MixedReturnStatement>
@@ -9292,14 +8914,6 @@
       <code>$result</code>
       <code>$type</code>
     </MixedAssignment>
-    <MixedOperand occurrences="6">
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
-    </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
@@ -9532,17 +9146,12 @@
       <code>$retval[]</code>
       <code>$retval[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="10">
+    <MixedOperand occurrences="5">
       <code>$GLOBALS['cfg']['Server']['hide_db']</code>
       <code>$arr[0]</code>
       <code>$db</code>
       <code>$db</code>
       <code>$prefix</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
-      <code>Util::backquote($columnName)</code>
-      <code>Util::backquote($columnName)</code>
-      <code>Util::backquote($columnName)</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$databases</code>
@@ -9616,9 +9225,7 @@
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedAssignment occurrences="11">
-      <code>$db</code>
-      <code>$escdDb</code>
+    <MixedAssignment occurrences="9">
       <code>$handle</code>
       <code>$handle</code>
       <code>$handle</code>
@@ -9629,17 +9236,6 @@
       <code>$retval[]</code>
       <code>$retval[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="9">
-      <code>$db</code>
-      <code>$escdDb</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
-      <code>Util::backquote($columnName)</code>
-      <code>Util::backquote($columnName)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote('Tables_in_' . $db)</code>
-    </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
@@ -9742,35 +9338,13 @@
       <code>$handle</code>
       <code>$handle</code>
     </MixedArgument>
-    <MixedAssignment occurrences="15">
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
+    <MixedAssignment occurrences="5">
       <code>$handle</code>
       <code>$handle</code>
       <code>$handle</code>
       <code>$retval[]</code>
       <code>$retval[]</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
     </MixedAssignment>
-    <MixedOperand occurrences="10">
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$db</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>$table</code>
-    </MixedOperand>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
@@ -9816,7 +9390,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Normalization.php">
-    <MixedArgument occurrences="39">
+    <MixedArgument occurrences="34">
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$col</code>
@@ -9829,7 +9403,7 @@
       <code>$def['Type']</code>
       <code>$def['Type']</code>
       <code>$def['Type']</code>
-      <code>$dependents</code>
+      <code>$dependent</code>
       <code>$dependents</code>
       <code>$dependents</code>
       <code>$dependents</code>
@@ -9851,14 +9425,8 @@
       <code>$tablesName-&gt;$key</code>
       <code>$totalRows</code>
       <code>$type</code>
-      <code>Util::backquote($dependents)</code>
-      <code>Util::backquote(explode(', ', $cols['nonpk']))</code>
-      <code>Util::backquote(explode(', ', $cols['pk']))</code>
-      <code>Util::backquote(explode(', ', $key))</code>
-      <code>Util::backquote(explode(',', $primaryColumns))</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="17">
-      <code>$colList</code>
+    <MixedArgumentTypeCoercion occurrences="16">
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -9886,13 +9454,12 @@
       <code>$dropCols['pk']</code>
       <code>$res[0][$column . '_cnt']</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="4">
+    <MixedArrayOffset occurrences="3">
       <code>$dependencyList[$partialKey]</code>
-      <code>$distinctValCount[$column]</code>
       <code>$distinctValCount[$partialKey]</code>
       <code>$result[$column]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="29">
+    <MixedAssignment occurrences="27">
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$col</code>
@@ -9905,7 +9472,7 @@
       <code>$column</code>
       <code>$columnTypeList</code>
       <code>$def</code>
-      <code>$dependencyList[$partialKey][]</code>
+      <code>$dependent</code>
       <code>$dependents</code>
       <code>$dependents</code>
       <code>$dependents</code>
@@ -9914,8 +9481,6 @@
       <code>$key</code>
       <code>$partialKey</code>
       <code>$pkColCnt</code>
-      <code>$pk[]</code>
-      <code>$repeatingColumn</code>
       <code>$result[$column]</code>
       <code>$table</code>
       <code>$table</code>
@@ -9923,32 +9488,11 @@
       <code>$totalRows</code>
       <code>$type</code>
     </MixedAssignment>
-    <MixedOperand occurrences="25">
+    <MixedOperand occurrences="4">
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$element</code>
-      <code>$repeatingColumn</code>
-      <code>$repeatingColumn</code>
-      <code>Util::backquote($col)</code>
-      <code>Util::backquote($col)</code>
-      <code>Util::backquote($newColumn)</code>
-      <code>Util::backquote($newTable)</code>
-      <code>Util::backquote($originalTable)</code>
-      <code>Util::backquote($originalTable)</code>
-      <code>Util::backquote($originalTable)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($tablesName-&gt;$key)</code>
-      <code>Util::backquote($tablesName-&gt;$key)</code>
     </MixedOperand>
     <RedundantCast occurrences="1">
       <code>(array) $partialDependencies</code>
@@ -10091,7 +9635,7 @@
     <MixedMethodCall occurrences="1">
       <code>build</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="77">
+    <MixedOperand occurrences="36">
       <code>$_POST['new_pack_keys']</code>
       <code>$old_priv[$i]</code>
       <code>$old_priv[0]</code>
@@ -10128,44 +9672,6 @@
       <code>$old_priv[7]</code>
       <code>$table</code>
       <code>$trigger['create']</code>
-      <code>Util::backquote($_POST['newname'])</code>
-      <code>Util::backquote($_POST['newname'])</code>
-      <code>Util::backquote($arr['foreign_db'])</code>
-      <code>Util::backquote($arr['foreign_db'])</code>
-      <code>Util::backquote($arr['foreign_db'])</code>
-      <code>Util::backquote($arr['foreign_field'])</code>
-      <code>Util::backquote($arr['foreign_field'])</code>
-      <code>Util::backquote($arr['foreign_table'])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($each_table)</code>
-      <code>Util::backquote($foreignTable)</code>
-      <code>Util::backquote($foreignTable)</code>
-      <code>Util::backquote($foreignTable)</code>
-      <code>Util::backquote($master)</code>
-      <code>Util::backquote($master)</code>
-      <code>Util::backquote($new_name)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($targetDb)</code>
-      <code>Util::backquote('columns_priv')</code>
-      <code>Util::backquote('columns_priv')</code>
-      <code>Util::backquote('columns_priv')</code>
-      <code>Util::backquote('columns_priv')</code>
-      <code>Util::backquote('columns_priv')</code>
-      <code>Util::backquote('db')</code>
-      <code>Util::backquote('db')</code>
-      <code>Util::backquote('db')</code>
-      <code>Util::backquote('procs_priv')</code>
-      <code>Util::backquote('procs_priv')</code>
-      <code>Util::backquote('tables_priv')</code>
-      <code>Util::backquote('tables_priv')</code>
-      <code>Util::backquote('tables_priv')</code>
-      <code>Util::backquote('tables_priv')</code>
-      <code>Util::backquote('tables_priv')</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$tmp_query</code>
@@ -10204,22 +9710,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Partitioning/Maintenance.php">
-    <MixedArgument occurrences="14">
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($partition)</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-      <code>Util::backquote($table-&gt;getName())</code>
-    </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$row['Table']</code>
       <code>$row['Table']</code>
@@ -10617,17 +10107,13 @@
     </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="6">
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$row[0]</code>
       <code>$row[0]</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$result</code>
@@ -10904,7 +10390,7 @@
       <code>$column</code>
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="7">
       <code>$col_as</code>
       <code>$column</code>
       <code>$columns[$i]['Default']</code>
@@ -10912,18 +10398,12 @@
       <code>$columns[$i]['Null']</code>
       <code>$columns[$i]['Type']</code>
       <code>$row[$i]</code>
-      <code>Util::backquote($table_alias)</code>
-      <code>Util::backquote($table_alias)</code>
     </MixedOperand>
     <ParamNameMismatch occurrences="3">
       <code>$do_comments</code>
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PossiblyNullArgument occurrences="2">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="2">
       <code>$table_alias</code>
       <code>$table_alias</code>
@@ -11072,15 +10552,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="5">
       <code>$col_as</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>Util::backquote($dbAlias)</code>
-      <code>Util::backquote($db_alias)</code>
-      <code>Util::backquote($table_alias)</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$col_as</code>
@@ -11099,7 +10576,7 @@
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['sql_if_not_exists']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="78">
+    <MixedArgument occurrences="76">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_header_comment']</code>
       <code>$GLOBALS['sql_indexes']</code>
@@ -11121,7 +10598,6 @@
       <code>$engine</code>
       <code>$eventName</code>
       <code>$eventName</code>
-      <code>$formattedTableName</code>
       <code>$mimeField</code>
       <code>$mimeMap</code>
       <code>$mime['mimetype']</code>
@@ -11177,13 +10653,11 @@
       <code>$tmpres['Update_time']</code>
       <code>$token-&gt;value</code>
       <code>$trigger['create']</code>
-      <code>Util::backquote($db)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="9">
+    <MixedArgumentTypeCoercion occurrences="8">
       <code>$autoIncrement</code>
       <code>$constraints</code>
       <code>$dropped</code>
-      <code>$fieldSet</code>
       <code>$indexes</code>
       <code>$indexesFulltext</code>
       <code>$values</code>
@@ -11231,7 +10705,7 @@
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="44">
+    <MixedAssignment occurrences="41">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
@@ -11248,9 +10722,6 @@
       <code>$field</code>
       <code>$field-&gt;name</code>
       <code>$field-&gt;references-&gt;table-&gt;table</code>
-      <code>$fieldSet[$j]</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
       <code>$index</code>
       <code>$mime</code>
       <code>$mimeField</code>
@@ -11277,7 +10748,7 @@
       <code>$values[$val]</code>
       <code>$values[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="97">
+    <MixedOperand occurrences="41">
       <code>$column['Collation']</code>
       <code>$column['Type']</code>
       <code>$crlf</code>
@@ -11313,55 +10784,12 @@
       <code>$crlf</code>
       <code>$crlf</code>
       <code>$definition['Type']</code>
-      <code>$fieldSet[$i]</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
-      <code>$formattedTableName</code>
       <code>$setNames</code>
       <code>$statement-&gt;entityOptions-&gt;has('AUTO_INCREMENT')</code>
       <code>$tmpUniqueCondition</code>
       <code>$tmpres['Auto_increment']</code>
       <code>$trigger['drop']</code>
       <code>$values[$i]</code>
-      <code>Util::backquote($cfgRelation[$type])</code>
-      <code>Util::backquote($cfgRelation[$type])</code>
-      <code>Util::backquote($cfgRelation[$type])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($colAlias)</code>
-      <code>Util::backquote($colAlias)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($dbNameColumn)</code>
-      <code>Util::backquote($dbNameColumn)</code>
-      <code>Util::backquote($dbNameColumn)</code>
-      <code>Util::backquote($eventName)</code>
-      <code>Util::backquote($routine)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($tableAlias)</code>
-      <code>Util::backquote($tableAlias)</code>
-      <code>Util::backquote($viewAlias)</code>
-      <code>Util::backquote($viewAlias)</code>
-      <code>Util::backquote($viewAlias)</code>
-      <code>Util::backquoteCompat($dbAlias, $compat, isset($GLOBALS['sql_backquotes']))</code>
-      <code>Util::backquoteCompat($mimeField, 'NONE', $sql_backquotes)</code>
-      <code>Util::backquoteCompat($table, 'NONE', $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, $compat, $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
-      <code>Util::backquoteCompat($tableAlias, 'NONE', $sql_backquotes)</code>
     </MixedOperand>
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($field-&gt;name)</code>
@@ -11369,28 +10797,11 @@
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument occurrences="21">
+    <PossiblyNullArgument occurrences="4">
       <code>$dbi-&gt;getDefinition($db, $type, $routine)</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
       <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$tableAlias</code>
-      <code>$viewAlias</code>
-      <code>$viewAlias</code>
-      <code>$viewAlias</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
       <code>$dbi-&gt;getDefinition($db, 'EVENT', $eventName)</code>
@@ -11407,11 +10818,10 @@
       <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
-    <UnnecessaryVarAnnotation occurrences="7">
+    <UnnecessaryVarAnnotation occurrences="6">
       <code>CreateDefinition</code>
       <code>Parser</code>
       <code>Parser</code>
-      <code>string</code>
       <code>string</code>
       <code>string</code>
       <code>string</code>
@@ -11562,7 +10972,7 @@
       <code>$table</code>
       <code>$trigger</code>
     </MixedAssignment>
-    <MixedOperand occurrences="37">
+    <MixedOperand occurrences="35">
       <code>$crlf</code>
       <code>$crlf</code>
       <code>$crlf</code>
@@ -11598,8 +11008,6 @@
       <code>$crlf</code>
       <code>$crlf</code>
       <code>$crlf</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <PossiblyNullArgument occurrences="2">
       <code>$sql</code>
@@ -12025,12 +11433,11 @@
     <MixedArrayOffset occurrences="1">
       <code>$columnNames[$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="12">
+    <MixedAssignment occurrences="11">
       <code>$col_name</code>
       <code>$columnNames</code>
       <code>$field</code>
       <code>$field</code>
-      <code>$fieldName</code>
       <code>$fields[]</code>
       <code>$key</code>
       <code>$max_lines</code>
@@ -12046,17 +11453,13 @@
     <MixedMethodCall occurrences="1">
       <code>getMessage</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="10">
-      <code>$fieldName</code>
-      <code>$fieldName</code>
+    <MixedOperand occurrences="6">
       <code>$max_lines</code>
       <code>$max_lines_constraint</code>
       <code>$sql</code>
       <code>$sql</code>
       <code>$sql</code>
       <code>$sql</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($val)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
       <code>$_REQUEST['csv_new_tbl_name']</code>
@@ -12086,11 +11489,10 @@
     <MixedAssignment occurrences="1">
       <code>$result</code>
     </MixedAssignment>
-    <MixedOperand occurrences="5">
+    <MixedOperand occurrences="3">
       <code>$ldi_new_line</code>
       <code>$ldi_terminated</code>
       <code>$skip_queries</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$tmp[0]</code>
@@ -12270,9 +11672,6 @@
       <code>$db_attr</code>
       <code>$db_name</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>Util::backquote((string) $attrs['name'])</code>
-    </MixedOperand>
     <MixedPropertyFetch occurrences="1"/>
     <PossiblyInvalidArgument occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
@@ -12622,10 +12021,8 @@
     <MixedAssignment occurrences="1">
       <code>$table</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
+    <MixedOperand occurrences="1">
       <code>$_name_row[0]</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])</code>
     </MixedOperand>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$_name_row[0]</code>
@@ -12663,7 +12060,7 @@
       <code>$w</code>
       <code>$wmax</code>
     </MixedAssignment>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="7">
       <code>$cw[mb_ord($c)] ?? 0</code>
       <code>$il</code>
       <code>$il</code>
@@ -12671,8 +12068,6 @@
       <code>$w</code>
       <code>$w</code>
       <code>($w - 2 * $this-&gt;cMargin) * 1000</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])</code>
     </MixedOperand>
     <PropertyNotSetInConstructor occurrences="2">
       <code>Pdf</code>
@@ -13170,10 +12565,6 @@
       <code>$result</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
-      <code>Util::backquote($this-&gt;tableName)</code>
-      <code>Util::backquote($this-&gt;tableName)</code>
-    </MixedOperand>
     <UnusedForeachValue occurrences="1">
       <code>$value</code>
     </UnusedForeachValue>
@@ -13581,25 +12972,9 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Query/Generator.php">
-    <MixedArgument occurrences="4">
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($newIndexName)</code>
-      <code>Util::backquote($oldIndexName)</code>
-      <code>Util::backquote($tableName)</code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$escapedTableOrTables</code>
     </MixedArgumentTypeCoercion>
-    <MixedOperand occurrences="8">
-      <code>Util::backquote($database)</code>
-      <code>Util::backquote($database)</code>
-      <code>Util::backquote($orderField)</code>
-      <code>Util::backquote($sortBy)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Query/Utilities.php">
     <MixedArgument occurrences="4">
@@ -13656,11 +13031,9 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="4">
+    <MixedOperand occurrences="2">
       <code>$table['db']</code>
       <code>$table['table']</code>
-      <code>Util::backquote($cfgRelation[$this-&gt;tableType])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$return</code>
@@ -13735,7 +13108,7 @@
       <code>$tableRes</code>
       <code>$tablesRows</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="5">
+    <MixedArgumentTypeCoercion occurrences="4">
       <code>$bottom</code>
       <code>$top</code>
       <code>uksort($foreign, 'strnatcasecmp')</code>
@@ -13851,61 +13224,11 @@
       <code>string[]</code>
       <code>string|false</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="54">
+    <MixedOperand occurrences="4">
       <code>$max_time</code>
       <code>$messages['disabled']</code>
       <code>$messages['enabled']</code>
       <code>$messages['ok']</code>
-      <code>Util::backquote($GLOBALS['cfg']['Server']['column_info'])</code>
-      <code>Util::backquote($GLOBALS['cfg']['Server']['pmadb'])</code>
-      <code>Util::backquote($GLOBALS['cfg']['Server']['pmadb'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['navigationhiding'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['history'])</code>
-      <code>Util::backquote($cfgRelation['history'])</code>
-      <code>Util::backquote($cfgRelation['history'])</code>
-      <code>Util::backquote($cfgRelation['history'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($columns['table_name'])</code>
-      <code>Util::backquote($columns['table_schema'])</code>
-      <code>Util::backquote($configurationStorageDbName)</code>
-      <code>Util::backquote($foreignDb)</code>
-      <code>Util::backquote($foreign_db)</code>
-      <code>Util::backquote($foreign_display)</code>
-      <code>Util::backquote($foreign_display)</code>
-      <code>Util::backquote($foreign_display)</code>
-      <code>Util::backquote($foreign_field)</code>
-      <code>Util::backquote($foreign_field)</code>
-      <code>Util::backquote($foreign_table)</code>
-      <code>Util::backquote($foreign_table)</code>
-      <code>Util::backquote($tableDbName)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="5">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
@@ -13968,74 +13291,6 @@
     <UnusedVariable occurrences="1">
       <code>$single_disp_row</code>
     </UnusedVariable>
-  </file>
-  <file src="libraries/classes/RelationCleanup.php">
-    <MixedOperand occurrences="64">
-      <code>Util::backquote($cfgRelation['bookmark'])</code>
-      <code>Util::backquote($cfgRelation['bookmark'])</code>
-      <code>Util::backquote($cfgRelation['central_columns'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['designer_settings'])</code>
-      <code>Util::backquote($cfgRelation['favorite'])</code>
-      <code>Util::backquote($cfgRelation['history'])</code>
-      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
-      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
-      <code>Util::backquote($cfgRelation['navigationhiding'])</code>
-      <code>Util::backquote($cfgRelation['pdf_pages'])</code>
-      <code>Util::backquote($cfgRelation['recent'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['savedsearches'])</code>
-      <code>Util::backquote($cfgRelation['savedsearches'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['table_coords'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
-      <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
-      <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
-      <code>Util::backquote($cfgRelation['userconfig'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-    </MixedOperand>
   </file>
   <file src="libraries/classes/Replication.php">
     <LessSpecificReturnStatement occurrences="1">
@@ -14203,8 +13458,7 @@
       <code>$url</code>
       <code>$val</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>string</code>
+    <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
     <MixedMethodCall occurrences="1">
@@ -14215,7 +13469,7 @@
       <code>$url</code>
       <code>$value</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="3">
+    <MixedReturnStatement occurrences="2">
       <code>$found[0]</code>
       <code>$found[0]</code>
     </MixedReturnStatement>
@@ -14270,16 +13524,6 @@
       <code>$resList</code>
       <code>$this-&gt;criterias</code>
     </MixedAssignment>
-    <MixedOperand occurrences="8">
-      <code>Util::backquote($this-&gt;config['cfgRelation']['db'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['db'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['db'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['db'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['savedsearches'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['savedsearches'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['savedsearches'])</code>
-      <code>Util::backquote($this-&gt;config['cfgRelation']['savedsearches'])</code>
-    </MixedOperand>
     <PossiblyFalseArgument occurrences="1">
       <code>$dbi-&gt;insertId()</code>
     </PossiblyFalseArgument>
@@ -14690,13 +13934,12 @@
       <code>$val</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="4">
-      <code>string</code>
+    <MixedInferredReturnType occurrences="3">
       <code>string</code>
       <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="47">
+    <MixedOperand occurrences="22">
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['old_hostname']</code>
@@ -14719,32 +13962,11 @@
       <code>$privilege['Host']</code>
       <code>$privilege['User']</code>
       <code>$sqlQuery</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-      <code>Util::backquote($dbname)</code>
-      <code>Util::backquote($dbname)</code>
-      <code>Util::backquote($dbname)</code>
-      <code>Util::backquote($row['Db'])</code>
-      <code>Util::backquote($row['Db'])</code>
-      <code>Util::backquote($row['Table_name'])</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($tableSearchIn)</code>
-      <code>Util::backquote($tablename)</code>
-      <code>Util::backquote($tablename)</code>
-      <code>Util::backquote($thisUser)</code>
-      <code>Util::backquote($unescapedDb)</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="4">
+    <MixedReturnStatement occurrences="3">
       <code>$authenticationPlugin</code>
       <code>$result['password']</code>
       <code>$routine['type']</code>
-      <code>Util::backquote($val)</code>
     </MixedReturnStatement>
     <NullArgument occurrences="2">
       <code>null</code>
@@ -14772,6 +13994,9 @@
       <code>$_REQUEST['dbname']</code>
       <code>$dbname</code>
     </PossiblyInvalidCast>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$dbAndTable</code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="6">
       <code>$dbname</code>
       <code>$oldUserGroup</code>
@@ -15008,9 +14233,8 @@
       <code>$urlParams['showExecuting']</code>
       <code>$urlParams['sort_order']</code>
     </MixedAssignment>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>$params['sort_order']</code>
-      <code>Util::backquote($params['order_by_field'])</code>
     </MixedOperand>
   </file>
   <file src="libraries/classes/Server/SysInfo/WindowsNt.php">
@@ -15114,23 +14338,11 @@
       <code>$user['user']</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="16">
+    <MixedOperand occurrences="4">
       <code>$tab</code>
       <code>$tab</code>
       <code>$tab</code>
       <code>$tabGroupName</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['usergroups'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
-      <code>Util::backquote($cfgRelation['users'])</code>
     </MixedOperand>
     <PossiblyInvalidArgument occurrences="3">
       <code>$result</code>
@@ -15379,7 +14591,7 @@
       <code>int|numeric-string</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="12">
+    <MixedOperand occurrences="8">
       <code>$GLOBALS['cfg']['TablePrimaryKeyOrder']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -15388,10 +14600,6 @@
       <code>$maxRows</code>
       <code>$oneResult['Duration']</code>
       <code>$profiling['chart'][$status]</code>
-      <code>Util::backquote($primaryKey)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="9">
       <code>$analyzedSqlResults['parser']-&gt;errors</code>
@@ -15546,16 +14754,12 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/SystemDatabase.php">
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="5">
       <code>$column['real_column'] ?? $column['refering_column']</code>
       <code>$dataRow['comment']</code>
       <code>$dataRow['mimetype']</code>
       <code>$dataRow['transformation']</code>
       <code>$dataRow['transformation_options']</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="4">
       <code>$column['real_column']</code>
@@ -15584,7 +14788,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="93">
+    <MixedArgument occurrences="85">
       <code>$GLOBALS['cfgRelation'][$table]</code>
       <code>$GLOBALS['cfgRelation'][$table]</code>
       <code>$GLOBALS['cfgRelation']['column_info']</code>
@@ -15670,26 +14874,14 @@
       <code>$trigger['name']</code>
       <code>$val</code>
       <code>$value</code>
-      <code>Util::backquote($oldIndex)</code>
-      <code>Util::backquote($this-&gt;dbName)</code>
-      <code>Util::backquote($this-&gt;dbName)</code>
-      <code>Util::backquote($this-&gt;dbName)</code>
-      <code>Util::backquote($this-&gt;name)</code>
-      <code>Util::backquote($this-&gt;name)</code>
-      <code>Util::backquote($this-&gt;name)</code>
-      <code>Util::backquote('row_count')</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="13">
+    <MixedArgumentTypeCoercion occurrences="9">
       <code>$field</code>
       <code>$foreignField</code>
-      <code>$indexFields</code>
       <code>$indexedCols</code>
       <code>$masterField</code>
-      <code>$newParts</code>
       <code>$nonGeneratedCols</code>
       <code>$nonGeneratedCols</code>
-      <code>$selectParts</code>
-      <code>$selectParts</code>
       <code>$uniqueFields</code>
       <code>$where</code>
       <code>$where</code>
@@ -15758,7 +14950,7 @@
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? '']</code>
       <code>$optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? '']</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="63">
+    <MixedAssignment occurrences="57">
       <code>$GLOBALS['sql_auto_increment']</code>
       <code>$cachedResult</code>
       <code>$cachedResult</code>
@@ -15772,21 +14964,17 @@
       <code>$currCreateTime</code>
       <code>$e</code>
       <code>$eachCol</code>
-      <code>$field[$key]</code>
       <code>$foreignDb</code>
       <code>$foreignDb</code>
       <code>$foreignField</code>
       <code>$foreignField</code>
-      <code>$foreignField[$key]</code>
       <code>$foreignTable</code>
       <code>$foreignTable</code>
       <code>$getField</code>
       <code>$index</code>
-      <code>$indexFields[$key]</code>
       <code>$key</code>
       <code>$masterField</code>
       <code>$masterField</code>
-      <code>$newParts[]</code>
       <code>$oldIndex</code>
       <code>$onDelete</code>
       <code>$onUpdate</code>
@@ -15801,7 +14989,6 @@
       <code>$row</code>
       <code>$rowCount</code>
       <code>$rowCount</code>
-      <code>$selectParts[]</code>
       <code>$success</code>
       <code>$success</code>
       <code>$tableAutoIncrement</code>
@@ -15821,14 +15008,11 @@
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
-      <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="10">
+    <MixedInferredReturnType occurrences="8">
       <code>array</code>
       <code>int</code>
       <code>int</code>
-      <code>string</code>
-      <code>string</code>
       <code>string</code>
       <code>string</code>
       <code>string</code>
@@ -15841,74 +15025,22 @@
       <code>exists</code>
       <code>exists</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="51">
+    <MixedOperand occurrences="2">
       <code>$backquoted ? Util::backquote($column) : $column</code>
-      <code>$indexFields[$key]</code>
       <code>$index[0]</code>
-      <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation'][$table])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['column_info'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['column_info'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($GLOBALS['cfgRelation']['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['relation'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_info'])</code>
-      <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
-      <code>Util::backquote($cfgRelation['table_uiprefs'])</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($db)</code>
-      <code>Util::backquote($existrelForeign[$masterFieldMd5]['constraint'])</code>
-      <code>Util::backquote($foreignDb)</code>
-      <code>Util::backquote($foreignTable)</code>
-      <code>Util::backquote($index-&gt;getName())</code>
-      <code>Util::backquote($index[0])</code>
-      <code>Util::backquote($moveTo)</code>
-      <code>Util::backquote($name)</code>
-      <code>Util::backquote($name)</code>
-      <code>Util::backquote($name)</code>
-      <code>Util::backquote($name)</code>
-      <code>Util::backquote($oldcol)</code>
-      <code>Util::backquote($sourceDb)</code>
-      <code>Util::backquote($sourceTable)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($table)</code>
-      <code>Util::backquote($targetDb)</code>
-      <code>Util::backquote($targetTable)</code>
-      <code>Util::backquote($this-&gt;dbName)</code>
-      <code>Util::backquote($this-&gt;getDbName())</code>
-      <code>Util::backquote($this-&gt;name)</code>
-      <code>Util::backquote($trigger['name'])</code>
-      <code>Util::backquote($where)</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="10">
+    <MixedReturnStatement occurrences="8">
       <code>$tableAutoIncrement ?? ''</code>
       <code>$tableCollation</code>
       <code>$tableComment</code>
       <code>$tableNumRowInfo ?: 0</code>
       <code>$tableRowFormat</code>
-      <code>Util::backquote($this-&gt;dbName)</code>
-      <code>Util::backquote($this-&gt;name)</code>
       <code>end($this-&gt;errors)</code>
       <code>end($this-&gt;messages)</code>
       <code>json_decode($row[0], true)</code>
     </MixedReturnStatement>
-    <PossiblyNullArgument occurrences="5">
+    <PossiblyNullArgument occurrences="4">
       <code>$GLOBALS['showtable']['Name']</code>
-      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
@@ -15968,12 +15100,10 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
-    <UnnecessaryVarAnnotation occurrences="6">
+    <UnnecessaryVarAnnotation occurrences="4">
       <code>DropStatement</code>
       <code>Expression</code>
       <code>Parser</code>
-      <code>string</code>
-      <code>string</code>
       <code>string</code>
     </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
@@ -16110,13 +15240,13 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/Search.php">
-    <MixedArgument occurrences="20">
-      <code>$_POST['columnsToDisplay']</code>
+    <MixedArgument occurrences="19">
       <code>$_POST['criteriaColumnNames'][$column_index]</code>
       <code>$_POST['criteriaColumnTypes'][$column_index]</code>
       <code>$_POST['customWhereClause']</code>
       <code>$_POST['orderByColumn']</code>
       <code>$_POST['table']</code>
+      <code>$column</code>
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
@@ -16130,7 +15260,6 @@
       <code>$operator</code>
       <code>$tmp_geom_func</code>
       <code>$value</code>
-      <code>Util::backquote($_POST['columnsToDisplay'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$values</code>
@@ -16149,32 +15278,21 @@
       <code>$_POST['geom_func'][$column_index]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="6">
-      <code>$backquoted_name</code>
+      <code>$column</code>
       <code>$column_index</code>
+      <code>$columnsToDisplay</code>
       <code>$operator</code>
       <code>$tmp_geom_func</code>
       <code>$value</code>
-      <code>$where</code>
     </MixedAssignment>
-    <MixedOperand occurrences="18">
+    <MixedOperand occurrences="7">
       <code>$_POST['customWhereClause']</code>
       <code>$_POST['order']</code>
-      <code>$backquoted_name</code>
-      <code>$backquoted_name</code>
-      <code>$backquoted_name</code>
-      <code>$backquoted_name</code>
-      <code>$backquoted_name</code>
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
       <code>$criteriaValues</code>
       <code>$values[0] ?? ''</code>
       <code>$values[1] ?? ''</code>
-      <code>$where</code>
-      <code>Util::backquote($_POST['orderByColumn'])</code>
-      <code>Util::backquote($_POST['table'])</code>
-      <code>Util::backquote($names)</code>
-      <code>Util::backquote($names)</code>
-      <code>Util::backquote($names)</code>
     </MixedOperand>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$geom_funcs</code>
@@ -16281,16 +15399,9 @@
       <code>int</code>
       <code>int</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="2">
       <code>$data['username']</code>
       <code>$result['identifier']</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['tracking'])</code>
-      <code>Util::backquote($dbName)</code>
-      <code>Util::backquote($saveTo)</code>
-      <code>Util::backquote($saveTo)</code>
-      <code>Util::backquote($tableName)</code>
-      <code>Util::backquote($tableName)</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="2">
       <code>$tokens[0]-&gt;value</code>
@@ -16338,7 +15449,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Tracking.php">
-    <MixedArgument occurrences="55">
+    <MixedArgument occurrences="53">
       <code>$_POST['date_from']</code>
       <code>$_POST['date_to']</code>
       <code>$_POST['db']</code>
@@ -16392,8 +15503,6 @@
       <code>$tableName</code>
       <code>$tableResult</code>
       <code>$value['Name']</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['tracking'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedArrayAccess occurrences="22">
@@ -16459,19 +15568,13 @@
       <code>object|false</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="12">
+    <MixedOperand occurrences="6">
       <code>$drop_create_statements</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$entry['statement']</code>
       <code>$temp</code>
       <code>$versionNumber</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['tracking'])</code>
-      <code>Util::backquote($cfgRelation['tracking'])</code>
-      <code>Util::backquote($cfgRelation['tracking'])</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="3">
       <code>$html</code>
@@ -16520,20 +15623,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="12">
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['column_info'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$stack</code>
     </MixedReturnStatement>
@@ -16675,12 +15764,6 @@
       <code>$prefs['config_data'][$path]</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['db'])</code>
-      <code>Util::backquote($cfgRelation['userconfig'])</code>
-      <code>Util::backquote($cfgRelation['userconfig'])</code>
-    </MixedOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
     </PossiblyInvalidArgument>
@@ -16702,8 +15785,7 @@
       <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="18">
-      <code>$data</code>
+    <MixedArgument occurrences="17">
       <code>$dbInfoResult</code>
       <code>$dbInfoResult</code>
       <code>$dbInfoResult</code>
@@ -16777,13 +15859,11 @@
     <MixedArrayTypeCoercion occurrences="1">
       <code>$array[$p]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="47">
+    <MixedAssignment occurrences="44">
       <code>$array</code>
       <code>$column</code>
       <code>$columnNames[]</code>
       <code>$columnNames[]</code>
-      <code>$data</code>
-      <code>$data</code>
       <code>$dbInfoResult</code>
       <code>$dbInfoResult</code>
       <code>$escapeMethod</code>
@@ -16801,7 +15881,6 @@
       <code>$p</code>
       <code>$p</code>
       <code>$pos</code>
-      <code>$replace[$key]</code>
       <code>$replace[$key]</code>
       <code>$replace[$key]</code>
       <code>$requestedSort</code>
@@ -16833,20 +15912,12 @@
       <code>$escapeMethod</code>
       <code>new $escape[1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="5">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$row['Column_name']</code>
       <code>$tableGroup</code>
       <code>$unit</code>
       <code>$unit</code>
-      <code>self::backquote($db)</code>
-      <code>self::backquote($db)</code>
-      <code>self::backquote($meta-&gt;orgname)</code>
-      <code>self::backquote($meta-&gt;orgname)</code>
-      <code>self::backquote($meta-&gt;table)</code>
-      <code>self::backquote($meta-&gt;table)</code>
-      <code>self::backquote('Tables_in_' . $db)</code>
-      <code>self::backquote('Tables_in_' . $db)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$rowCount</code>
@@ -16902,24 +15973,21 @@
       <code>$maxSize</code>
       <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="2">
+    <PossiblyNullOperand occurrences="1">
       <code>$condition</code>
-      <code>Context::isKeyword($aName)</code>
     </PossiblyNullOperand>
     <RedundantCast occurrences="3">
       <code>(int) $GLOBALS['cfg']['ExecTimeLimit']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
       <code>(string) @strftime($string)</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="8">
+    <RedundantCastGivenDocblockType occurrences="6">
       <code>(int) $meta-&gt;length</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
-      <code>(string) $aName</code>
-      <code>(string) $aName</code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition occurrences="2">
       <code>$columnsList !== null</code>
@@ -19201,9 +18269,7 @@
     <MixedAssignment occurrences="1">
       <code>$type</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="21">
-      <code>array</code>
-      <code>array</code>
+    <MixedInferredReturnType occurrences="19">
       <code>array</code>
       <code>array</code>
       <code>array</code>
@@ -19227,7 +18293,8 @@
     <MixedOperand occurrences="1">
       <code>$type</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="2">
+      <code>testBackquote</code>
       <code>testGetScriptNameForOption</code>
     </PossiblyInvalidArgument>
     <RedundantCastGivenDocblockType occurrences="1"/>

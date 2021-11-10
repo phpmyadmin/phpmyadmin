@@ -394,15 +394,11 @@ class Util
      *
      * </code>
      *
-     * @param array|string $aName the database, table or field name to "backquote" or array of it
-     *
-     * @return mixed the "backquoted" database, table or field name
-     *
-     * @access public
+     * @param string|null $identifier the database, table or field name to "backquote"
      */
-    public static function backquote($aName)
+    public static function backquote($identifier): string
     {
-        return static::backquoteCompat($aName, 'NONE', true);
+        return static::backquoteCompat($identifier, 'NONE', true);
     }
 
     /**
@@ -415,51 +411,32 @@ class Util
      *
      * </code>
      *
-     * @param array|string $aName         the database, table or field name to "backquote" or array of it
-     * @param string       $compatibility string compatibility mode (used by dump functions)
-     * @param bool         $doIt          a flag to bypass this function (used by dump functions)
-     *
-     * @return mixed the "backquoted" database, table or field name
-     *
-     * @access public
+     * @param string|null $identifier    the database, table or field name to "backquote"
+     * @param string      $compatibility string compatibility mode (used by dump functions)
+     * @param bool|null   $doIt          a flag to bypass this function (used by dump functions)
      */
     public static function backquoteCompat(
-        $aName,
+        $identifier,
         string $compatibility = 'MSSQL',
         $doIt = true
-    ) {
-        if (is_array($aName)) {
-            foreach ($aName as &$data) {
-                $data = self::backquoteCompat($data, $compatibility, $doIt);
-            }
-
-            return $aName;
+    ): string {
+        $identifier = (string) $identifier;
+        if ($identifier === '' || $identifier === '*') {
+            return $identifier;
         }
 
-        if (! $doIt) {
-            if (! (Context::isKeyword($aName) & Token::FLAG_KEYWORD_RESERVED)) {
-                return $aName;
-            }
+        if (! $doIt && ! ((int) Context::isKeyword($identifier) & Token::FLAG_KEYWORD_RESERVED)) {
+            return $identifier;
         }
 
-        // @todo add more compatibility cases (ORACLE for example)
-        switch ($compatibility) {
-            case 'MSSQL':
-                $quote = '"';
-                $escapeChar = '\\';
-                break;
-            default:
-                $quote = '`';
-                $escapeChar = '`';
-                break;
+        $quote = '`';
+        $escapeChar = '`';
+        if ($compatibility === 'MSSQL') {
+            $quote = '"';
+            $escapeChar = '\\';
         }
 
-        // '0' is also empty for php :-(
-        if (strlen((string) $aName) > 0 && $aName !== '*') {
-            return $quote . str_replace($quote, $escapeChar . $quote, (string) $aName) . $quote;
-        }
-
-        return $aName;
+        return $quote . str_replace($quote, $escapeChar . $quote, $identifier) . $quote;
     }
 
     /**
