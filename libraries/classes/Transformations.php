@@ -287,9 +287,9 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
 
-        if (! $cfgRelation['mimework']) {
+        if (! $relationParameters->mimework) {
             return null;
         }
 
@@ -305,8 +305,8 @@ class Transformations
                     . '`transformation_options`, '
                     . '`input_transformation`, '
                     . '`input_transformation_options`'
-            . ' FROM ' . Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['column_info'])
+            . ' FROM ' . Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->columnInfo)
             . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . '\''
             . ' AND `table_name` = \'' . $dbi->escapeString($table) . '\''
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
@@ -368,9 +368,9 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
 
-        if (! $cfgRelation['mimework']) {
+        if (! $relationParameters->mimework) {
             return false;
         }
 
@@ -390,8 +390,8 @@ class Transformations
         $test_qry = '
              SELECT `mimetype`,
                     `comment`
-               FROM ' . Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['column_info']) . '
+               FROM ' . Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->columnInfo) . '
               WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
                 AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
                 AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
@@ -404,8 +404,8 @@ class Transformations
 
             if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE '
-                    . Util::backquote($cfgRelation['db']) . '.'
-                    . Util::backquote($cfgRelation['column_info'])
+                    . Util::backquote($relationParameters->db) . '.'
+                    . Util::backquote($relationParameters->columnInfo)
                     . ' SET '
                     . '`mimetype` = \''
                     . $dbi->escapeString($mimetype) . '\', '
@@ -419,8 +419,8 @@ class Transformations
                     . $dbi->escapeString($inputTransformOpts) . '\'';
             } else {
                 $upd_query = 'DELETE FROM '
-                    . Util::backquote($cfgRelation['db'])
-                    . '.' . Util::backquote($cfgRelation['column_info']);
+                    . Util::backquote($relationParameters->db)
+                    . '.' . Util::backquote($relationParameters->columnInfo);
             }
 
             $upd_query .= '
@@ -431,8 +431,8 @@ class Transformations
                     . '\'';
         } elseif ($has_value) {
             $upd_query = 'INSERT INTO '
-                . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['column_info'])
+                . Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->columnInfo)
                 . ' (db_name, table_name, column_name, mimetype, '
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
@@ -471,15 +471,15 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
 
-        if (! isset($cfgRelation['column_info'])) {
+        if (! isset($relationParameters->columnInfo)) {
             return false;
         }
 
         $delete_sql = 'DELETE FROM '
-            . Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['column_info'])
+            . Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->columnInfo)
             . ' WHERE ';
 
         if (($column != '') && ($table != '')) {

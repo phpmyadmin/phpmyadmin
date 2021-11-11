@@ -324,56 +324,56 @@ class Results
             ],
         ];
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['db']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->db) {
             return;
         }
 
         $relDb = [];
-        if (! empty($cfgRelation['history'])) {
-            $relDb[$cfgRelation['history']] = ['sqlquery' => $sqlHighlightingData];
+        if (! empty($relationParameters->history)) {
+            $relDb[$relationParameters->history] = ['sqlquery' => $sqlHighlightingData];
         }
 
-        if (! empty($cfgRelation['bookmark'])) {
-            $relDb[$cfgRelation['bookmark']] = ['query' => $sqlHighlightingData];
+        if (! empty($relationParameters->bookmark)) {
+            $relDb[$relationParameters->bookmark] = ['query' => $sqlHighlightingData];
         }
 
-        if (! empty($cfgRelation['tracking'])) {
-            $relDb[$cfgRelation['tracking']] = [
+        if (! empty($relationParameters->tracking)) {
+            $relDb[$relationParameters->tracking] = [
                 'schema_sql' => $sqlHighlightingData,
                 'data_sql' => $sqlHighlightingData,
             ];
         }
 
-        if (! empty($cfgRelation['favorite'])) {
-            $relDb[$cfgRelation['favorite']] = ['tables' => $jsonHighlightingData];
+        if (! empty($relationParameters->favorite)) {
+            $relDb[$relationParameters->favorite] = ['tables' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['recent'])) {
-            $relDb[$cfgRelation['recent']] = ['tables' => $jsonHighlightingData];
+        if (! empty($relationParameters->recent)) {
+            $relDb[$relationParameters->recent] = ['tables' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['savedsearches'])) {
-            $relDb[$cfgRelation['savedsearches']] = ['search_data' => $jsonHighlightingData];
+        if (! empty($relationParameters->savedsearches)) {
+            $relDb[$relationParameters->savedsearches] = ['search_data' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['designer_settings'])) {
-            $relDb[$cfgRelation['designer_settings']] = ['settings_data' => $jsonHighlightingData];
+        if (! empty($relationParameters->designerSettings)) {
+            $relDb[$relationParameters->designerSettings] = ['settings_data' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['table_uiprefs'])) {
-            $relDb[$cfgRelation['table_uiprefs']] = ['prefs' => $jsonHighlightingData];
+        if (! empty($relationParameters->tableUiprefs)) {
+            $relDb[$relationParameters->tableUiprefs] = ['prefs' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['userconfig'])) {
-            $relDb[$cfgRelation['userconfig']] = ['config_data' => $jsonHighlightingData];
+        if (! empty($relationParameters->userconfig)) {
+            $relDb[$relationParameters->userconfig] = ['config_data' => $jsonHighlightingData];
         }
 
-        if (! empty($cfgRelation['export_templates'])) {
-            $relDb[$cfgRelation['export_templates']] = ['template_data' => $jsonHighlightingData];
+        if (! empty($relationParameters->exportTemplates)) {
+            $relDb[$relationParameters->exportTemplates] = ['template_data' => $jsonHighlightingData];
         }
 
-        $this->transformationInfo[$cfgRelation['db']] = $relDb;
+        $this->transformationInfo[$relationParameters->db] = $relDb;
     }
 
     /**
@@ -2541,14 +2541,15 @@ class Results
         $fieldsMeta = $this->properties['fields_meta'];
         $mediaTypeMap = [];
         $added = [];
+        $relationParameters = $this->relation->getRelationParameters();
 
         for ($currentColumn = 0; $currentColumn < $this->properties['fields_cnt']; ++$currentColumn) {
             $meta = $fieldsMeta[$currentColumn];
             $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;
 
             if (
-                ! $GLOBALS['cfgRelation']['commwork']
-                || ! $GLOBALS['cfgRelation']['mimework']
+                ! $relationParameters->commwork
+                || ! $relationParameters->mimework
                 || ! $GLOBALS['cfg']['BrowseMIME']
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
@@ -2650,6 +2651,7 @@ class Results
 
         // Load SpecialSchemaLinks for all rows
         $specialSchemaLinks = SpecialSchemaLinks::get();
+        $relationParameters = $this->relation->getRelationParameters();
 
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
@@ -2682,7 +2684,7 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($GLOBALS['cfgRelation']['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
                 if (
                     isset($mediaTypeMap[$orgFullColName]['mimetype'])
                     && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
@@ -3961,6 +3963,8 @@ class Results
             $operations = $this->getResultsOperations($displayParts, $analyzedSqlResults);
         }
 
+        $relationParameters = $this->relation->getRelationParameters();
+
         return $this->template->render('display/results/table', [
             'sql_query_message' => $sqlQueryMessage,
             'navigation' => $navigation,
@@ -3974,8 +3978,8 @@ class Results
             'sql_query' => $this->properties['sql_query'],
             'goto' => $this->properties['goto'],
             'unlim_num_rows' => $this->properties['unlim_num_rows'],
-            'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
-            'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'displaywork' => $relationParameters->displaywork,
+            'relwork' => $relationParameters->relwork,
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'text_dir' => $this->properties['text_dir'],

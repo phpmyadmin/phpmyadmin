@@ -77,7 +77,7 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        $relParams = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         // common params for both, php & js exceptions
         $report = [
             'pma_version' => Version::VERSION,
@@ -87,7 +87,7 @@ class ErrorReport
             'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? null,
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $this->config->getCookie('pma_lang'),
-            'configuration_storage' => $relParams['db'] === null ? 'disabled' : 'enabled',
+            'configuration_storage' => $relationParameters->db === null ? 'disabled' : 'enabled',
             'php_version' => PHP_VERSION,
         ];
 

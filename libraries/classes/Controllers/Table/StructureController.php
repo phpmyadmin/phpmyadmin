@@ -19,6 +19,7 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
@@ -114,7 +115,7 @@ class StructureController extends AbstractController
 
         $this->addScriptFiles(['table/structure.js', 'indexes.js']);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         Util::checkParameters(['db', 'table']);
 
@@ -136,7 +137,7 @@ class StructureController extends AbstractController
         $fields = (array) $this->dbi->getColumns($this->db, $this->table, null, true);
 
         $this->response->addHTML($this->displayStructure(
-            $cfgRelation,
+            $relationParameters,
             $columns_with_unique_index,
             $primary,
             $fields,
@@ -148,7 +149,6 @@ class StructureController extends AbstractController
     /**
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
-     * @param array       $cfgRelation               current relation parameters
      * @param array       $columns_with_unique_index Columns with unique index
      * @param Index|false $primary_index             primary index or false if
      *                                               no one exists
@@ -158,7 +158,7 @@ class StructureController extends AbstractController
      * @return string
      */
     protected function displayStructure(
-        array $cfgRelation,
+        RelationParameters $relationParameters,
         array $columns_with_unique_index,
         $primary_index,
         array $fields,
@@ -173,7 +173,7 @@ class StructureController extends AbstractController
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($this->db, $this->table);
-            if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
                 $mime_map = $this->transformations->getMime($this->db, $this->table, true);
             }
         }
@@ -247,13 +247,14 @@ class StructureController extends AbstractController
         }
 
         $engine = $this->tableObj->getStorageEngine();
+        $relationParameters = $this->relation->getRelationParameters();
 
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'indexes' => Index::getFromTable($this->table, $this->db),
             'indexes_duplicates' => Index::findDuplicates($this->table, $this->db),
-            'cfg_relation' => $this->relation->getRelationsParam(),
+            'cfg_relation' => $relationParameters->toArray(),
             'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
             'db' => $this->db,
             'table' => $this->table,
@@ -273,9 +274,9 @@ class StructureController extends AbstractController
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
             'show_stats' => $GLOBALS['cfg']['ShowStats'],
-            'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
-            'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
-            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            'relation_commwork' => $relationParameters->commwork,
+            'relation_mimework' => $relationParameters->mimework,
+            'central_columns_work' => $relationParameters->centralcolumnswork,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
             'text_dir' => $GLOBALS['text_dir'],
@@ -381,11 +382,13 @@ class StructureController extends AbstractController
             ];
         }
 
+        $relationParameters = $this->relation->getRelationParameters();
+
         return $this->template->render('table/structure/display_table_stats', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'cfg_relation' => $this->relation->getRelationsParam(),
+            'cfg_relation' => $relationParameters->toArray(),
             'showtable' => $showtable,
             'table_info_num_rows' => $table_info_num_rows,
             'tbl_is_view' => $tbl_is_view,

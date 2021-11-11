@@ -643,10 +643,10 @@ class Node
     {
         global $dbi;
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
-            $navTable = Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['navigationhiding']);
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navwork) {
+            $navTable = Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->navigationhiding);
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable
                 . " WHERE `username`='"
                 . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"

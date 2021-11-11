@@ -492,9 +492,7 @@ class Pdf extends PdfLib
     ): void {
         global $dbi;
 
-        // set $cfgRelation here, because there is a chance that it's modified
-        // since the class initialization
-        global $cfgRelation;
+        $relationParameters = $this->relation->getRelationParameters();
 
         unset(
             $this->tablewidths,
@@ -550,7 +548,7 @@ class Pdf extends PdfLib
             $columns_cnt++;
         }
 
-        if ($do_comments /*&& $cfgRelation['commwork']*/) {
+        if ($do_comments) {
             $this->colTitles[$columns_cnt] = __('Comments');
             $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
@@ -558,7 +556,7 @@ class Pdf extends PdfLib
             $columns_cnt++;
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $this->colTitles[$columns_cnt] = __('Media type');
             $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
@@ -578,7 +576,7 @@ class Pdf extends PdfLib
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
 

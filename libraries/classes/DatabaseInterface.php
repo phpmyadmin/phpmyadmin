@@ -1153,8 +1153,8 @@ class DatabaseInterface implements DbalInterface
     public function initRelationParamsCache(): void
     {
         if (strlen($GLOBALS['db'])) {
-            $cfgRelation = $this->relation->getRelationsParam();
-            if (empty($cfgRelation['db'])) {
+            $relationParameters = $this->relation->getRelationParameters();
+            if (empty($relationParameters->db)) {
                 $this->relation->fixPmaTables($GLOBALS['db'], false);
             }
         }

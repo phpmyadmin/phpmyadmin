@@ -133,13 +133,13 @@ class Menu
         }
 
         $allowedTabs = Util::getMenuTabList($level);
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['menuswork']) {
-            $groupTable = Util::backquote($cfgRelation['db'])
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->menuswork) {
+            $groupTable = Util::backquote($relationParameters->db)
                 . '.'
-                . Util::backquote($cfgRelation['usergroups']);
-            $userTable = Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['users']);
+                . Util::backquote($relationParameters->usergroups);
+            $userTable = Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->users);
 
             $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
@@ -207,11 +207,11 @@ class Menu
                 }
             } else {
                 // no table selected, display database comment if present
-                $cfgRelation = $this->relation->getRelationsParam();
+                $relationParameters = $this->relation->getRelationParameters();
 
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
-                if ($cfgRelation['commwork']) {
+                if ($relationParameters->commwork) {
                     $database['comment'] = $this->relation->getDbComment($this->db);
                 }
             }
@@ -360,10 +360,7 @@ class Menu
         $isSuperUser = $dbi->isSuperUser();
         $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
 
-        /**
-         * Gets the relation settings
-         */
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $tabs = [];
 
@@ -456,7 +453,7 @@ class Menu
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
-        if (! $isSystemSchema && $cfgRelation['centralcolumnswork']) {
+        if (! $isSystemSchema && $relationParameters->centralcolumnswork) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
             $tabs['central_columns']['route'] = '/database/central-columns';

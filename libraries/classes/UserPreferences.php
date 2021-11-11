@@ -71,8 +71,8 @@ class UserPreferences
     {
         global $dbi;
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['userconfigwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->userconfigwork) {
             // no pmadb table, use session storage
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
@@ -89,12 +89,12 @@ class UserPreferences
         }
 
         // load configuration from pmadb
-        $query_table = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['userconfig']);
+        $query_table = Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->userconfig);
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $dbi->escapeString($cfgRelation['user'])
+            . $dbi->escapeString((string) $relationParameters->user)
             . '\'';
         $row = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
 
@@ -116,10 +116,10 @@ class UserPreferences
     {
         global $dbi;
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
-        if (! $cfgRelation['userconfigwork']) {
+        if (! $relationParameters->userconfigwork || $relationParameters->user === null) {
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
@@ -133,11 +133,11 @@ class UserPreferences
         }
 
         // save configuration to pmadb
-        $query_table = Util::backquote($cfgRelation['db']) . '.'
-            . Util::backquote($cfgRelation['userconfig']);
+        $query_table = Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->userconfig);
         $query = 'SELECT `username` FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $dbi->escapeString($cfgRelation['user'])
+            . $dbi->escapeString($relationParameters->user)
             . '\'';
 
         $has_config = $dbi->fetchValue($query, 0, 0, DatabaseInterface::CONNECT_CONTROL);
@@ -148,13 +148,13 @@ class UserPreferences
                 . $dbi->escapeString($config_data)
                 . '\''
                 . ' WHERE `username` = \''
-                . $dbi->escapeString($cfgRelation['user'])
+                . $dbi->escapeString($relationParameters->user)
                 . '\'';
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
                 . 'VALUES (\''
-                . $dbi->escapeString($cfgRelation['user']) . '\', NOW(), '
+                . $dbi->escapeString($relationParameters->user) . '\', NOW(), '
                 . '\'' . $dbi->escapeString($config_data) . '\')';
         }
 

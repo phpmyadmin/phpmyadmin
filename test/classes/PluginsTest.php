@@ -15,6 +15,7 @@ class PluginsTest extends AbstractTestCase
     {
         global $plugin_param;
 
+        $GLOBALS['server'] = 1;
         $plugins = Plugins::getExport('database', false);
         $this->assertEquals(['export_type' => 'database', 'single_table' => false], $plugin_param);
         $this->assertIsArray($plugins);
@@ -103,6 +104,7 @@ class PluginsTest extends AbstractTestCase
     {
         global $plugin_param;
 
+        $GLOBALS['server'] = 1;
         $plugin_param = ['export_type' => 'database', 'single_table' => false];
         $exportList = [
             new Plugins\Export\ExportJson(),

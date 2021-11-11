@@ -305,7 +305,6 @@
                 ZeroConf: bool,
                 ZipDump: bool
             },
-            cfgRelation: array,
             charset: string,
             charset_connection: string,
             codegen_format: 0|1,

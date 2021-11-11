@@ -38,7 +38,6 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['crlf'] = "\n";
-        $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';

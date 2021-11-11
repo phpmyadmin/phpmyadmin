@@ -62,8 +62,8 @@ class NavigationController extends AbstractController
             SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navwork) {
             if (isset($_POST['hideNavItem'])) {
                 if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->hideNavigationItem(

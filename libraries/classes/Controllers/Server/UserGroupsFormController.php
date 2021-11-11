@@ -8,6 +8,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -52,9 +53,9 @@ final class UserGroupsFormController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $cfgRelation['menuswork']) {
+        if (! $relationParameters->menuswork) {
             $this->response->setRequestStatus(false);
             $this->response->setHttpResponseCode(400);
             $this->response->addJSON('message', __('User groups management is not enabled.'));
@@ -62,20 +63,18 @@ final class UserGroupsFormController extends AbstractController
             return;
         }
 
-        $form = $this->getHtmlToChooseUserGroup($username, $cfgRelation);
+        $form = $this->getHtmlToChooseUserGroup($username, $relationParameters);
 
         $this->response->addJSON('message', $form);
     }
 
     /**
      * Displays a dropdown to select the user group with menu items configured to each of them.
-     *
-     * @param array<string, mixed> $cfgRelation
      */
-    private function getHtmlToChooseUserGroup(string $username, array $cfgRelation): string
+    private function getHtmlToChooseUserGroup(string $username, RelationParameters $relationParameters): string
     {
-        $groupTable = Util::backquote($cfgRelation['db']) . '.' . Util::backquote($cfgRelation['usergroups']);
-        $userTable = Util::backquote($cfgRelation['db']) . '.' . Util::backquote($cfgRelation['users']);
+        $groupTable = Util::backquote($relationParameters->db) . '.' . Util::backquote($relationParameters->usergroups);
+        $userTable = Util::backquote($relationParameters->db) . '.' . Util::backquote($relationParameters->users);
 
         $sqlQuery = sprintf(
             'SELECT `usergroup` FROM %s WHERE `username` = \'%s\'',

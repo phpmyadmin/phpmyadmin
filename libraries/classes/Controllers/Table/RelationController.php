@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -69,10 +70,10 @@ final class RelationController extends AbstractController
         $table = $this->dbi->getTable($this->db, $this->table);
         $storageEngine = mb_strtoupper((string) $table->getStatusInfo('Engine'));
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
-        if ($cfgRelation['relwork']) {
+        if ($relationParameters->relwork) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -100,20 +101,20 @@ final class RelationController extends AbstractController
         $this->dbi->selectDb($this->db);
 
         // updates for Internal relations
-        if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
-            $this->updateForInternalRelation($table, $cfgRelation, $relations);
+        if (isset($_POST['destination_db']) && $relationParameters->relwork) {
+            $this->updateForInternalRelation($table, $relationParameters, $relations);
         }
 
         // updates for foreign keys
         $this->updateForForeignKeys($table, $options, $relationsForeign);
 
         // Updates for display field
-        if ($cfgRelation['displaywork'] && isset($_POST['display_field'])) {
-            $this->updateForDisplayField($table, $cfgRelation);
+        if ($relationParameters->displaywork && isset($_POST['display_field'])) {
+            $this->updateForDisplayField($table, $relationParameters);
         }
 
         // If we did an update, refresh our data
-        if (isset($_POST['destination_db']) && $cfgRelation['relwork']) {
+        if (isset($_POST['destination_db']) && $relationParameters->relwork) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -151,7 +152,7 @@ final class RelationController extends AbstractController
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'db' => $this->db,
             'table' => $this->table,
-            'cfg_relation' => $cfgRelation,
+            'cfg_relation' => $relationParameters->toArray(),
             'tbl_storage_engine' => $storageEngine,
             'existrel' => $relations,
             'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)
@@ -171,13 +172,10 @@ final class RelationController extends AbstractController
 
     /**
      * Update for display field
-     *
-     * @param Table $table       table
-     * @param array $cfgRelation relation parameters
      */
-    private function updateForDisplayField(Table $table, array $cfgRelation): void
+    private function updateForDisplayField(Table $table, RelationParameters $relationParameters): void
     {
-        if (! $table->updateDisplayField($_POST['display_field'], $cfgRelation)) {
+        if (! $table->updateDisplayField($_POST['display_field'], $relationParameters)) {
             return;
         }
 
@@ -252,12 +250,13 @@ final class RelationController extends AbstractController
     /**
      * Update for internal relation
      *
-     * @param Table $table       Table
-     * @param array $cfgRelation Relation parameters
-     * @param array $relations   Relations
+     * @param array $relations Relations
      */
-    private function updateForInternalRelation(Table $table, array $cfgRelation, array $relations): void
-    {
+    private function updateForInternalRelation(
+        Table $table,
+        RelationParameters $relationParameters,
+        array $relations
+    ): void {
         $multi_edit_columns_name = $_POST['fields_name'] ?? null;
 
         if (
@@ -266,7 +265,7 @@ final class RelationController extends AbstractController
                 $_POST['destination_db'],
                 $_POST['destination_table'],
                 $_POST['destination_column'],
-                $cfgRelation,
+                $relationParameters,
                 $relations
             )
         ) {

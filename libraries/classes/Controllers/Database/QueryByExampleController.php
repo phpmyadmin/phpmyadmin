@@ -45,16 +45,15 @@ class QueryByExampleController extends AbstractController
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $tooltip_truename, $tooltip_aliasname, $pos, $urlParams, $cfg, $errorUrl;
 
-        // Gets the relation settings
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $savedSearchList = [];
         $savedSearch = null;
         $currentSearchId = null;
         $this->addScriptFiles(['database/qbe.js']);
-        if ($cfgRelation['savedsearcheswork']) {
+        if ($relationParameters->savedsearcheswork) {
             //Get saved search list.
-            $savedSearch = new SavedSearches($GLOBALS, $this->relation);
+            $savedSearch = new SavedSearches($this->relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($db);
 
@@ -75,14 +74,14 @@ class QueryByExampleController extends AbstractController
                 } elseif ($_POST['action'] === 'delete') {
                     $savedSearch->delete();
                     //After deletion, reset search.
-                    $savedSearch = new SavedSearches($GLOBALS, $this->relation);
+                    $savedSearch = new SavedSearches($this->relation);
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                         ->setDbname($db);
                     $_POST = [];
                 } elseif ($_POST['action'] === 'load') {
                     if (empty($_POST['searchId'])) {
                         //when not loading a search, reset the object.
-                        $savedSearch = new SavedSearches($GLOBALS, $this->relation);
+                        $savedSearch = new SavedSearches($this->relation);
                         $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                             ->setDbname($db);
                         $_POST = [];

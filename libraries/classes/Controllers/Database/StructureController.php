@@ -468,6 +468,8 @@ class StructureController extends AbstractController
             $databaseCharset = $collation->getCharset();
         }
 
+        $relationParameters = $this->relation->getRelationParameters();
+
         return $html . $this->template->render('database/structure/table_header', [
             'db' => $this->db,
             'db_is_system_schema' => $this->dbIsSystemSchema,
@@ -511,7 +513,7 @@ class StructureController extends AbstractController
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
                 'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'] ?? null,
+                'central_columns_work' => $relationParameters->centralcolumnswork,
             ],
         ]);
     }

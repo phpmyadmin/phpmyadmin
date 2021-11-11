@@ -95,10 +95,7 @@ class OperationsController extends AbstractController
 
         $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/table/operations');
 
-        /**
-         * Gets relation settings
-         */
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         // reselect current db (needed in some cases probably due to
         // the calling of PhpMyAdmin\Relation)
@@ -464,7 +461,7 @@ class OperationsController extends AbstractController
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
             $urlParams,
-            (bool) $cfgRelation['relwork']
+            $relationParameters->relwork
         );
 
         $this->render('table/operations/index', [

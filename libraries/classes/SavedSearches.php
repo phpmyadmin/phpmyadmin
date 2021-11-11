@@ -22,13 +22,6 @@ use function min;
 class SavedSearches
 {
     /**
-     * Global configuration
-     *
-     * @var array
-     */
-    private $config = null;
-
-    /**
      * Id
      *
      * @var int|null
@@ -66,13 +59,8 @@ class SavedSearches
     /** @var Relation */
     private $relation;
 
-    /**
-     * @param array    $config   Global configuration
-     * @param Relation $relation Relation instance
-     */
-    public function __construct(array $config, Relation $relation)
+    public function __construct(Relation $relation)
     {
-        $this->setConfig($config);
         $this->relation = $relation;
     }
 
@@ -127,30 +115,6 @@ class SavedSearches
     public function getSearchName()
     {
         return $this->searchName;
-    }
-
-    /**
-     * Setter of config
-     *
-     * @param array $config Global configuration
-     *
-     * @return static
-     */
-    public function setConfig(array $config)
-    {
-        $this->config = $config;
-
-        return $this;
-    }
-
-    /**
-     * Getter of config
-     *
-     * @return array
-     */
-    public function getConfig()
-    {
-        return $this->config;
     }
 
     /**
@@ -302,8 +266,10 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
-            . Util::backquote($this->config['cfgRelation']['savedsearches']);
+        $relationParameters = $this->relation->getRelationParameters();
+
+        $savedSearchesTbl = Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->savedsearches);
 
         //If it's an insert.
         if ($this->getId() === null) {
@@ -389,8 +355,10 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
-            . Util::backquote($this->config['cfgRelation']['savedsearches']);
+        $relationParameters = $this->relation->getRelationParameters();
+
+        $savedSearchesTbl = Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->savedsearches);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
@@ -416,9 +384,11 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db'])
+        $relationParameters = $this->relation->getRelationParameters();
+
+        $savedSearchesTbl = Util::backquote($relationParameters->db)
             . '.'
-            . Util::backquote($this->config['cfgRelation']['savedsearches']);
+            . Util::backquote($relationParameters->savedsearches);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
@@ -456,9 +426,11 @@ class SavedSearches
             return [];
         }
 
-        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db'])
+        $relationParameters = $this->relation->getRelationParameters();
+
+        $savedSearchesTbl = Util::backquote($relationParameters->db)
             . '.'
-            . Util::backquote($this->config['cfgRelation']['savedsearches']);
+            . Util::backquote($relationParameters->savedsearches);
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '

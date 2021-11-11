@@ -226,10 +226,7 @@ class OperationsController extends AbstractController
             }
         }
 
-        /**
-         * Settings for relations stuff
-         */
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         /**
          * Check if comments were updated
@@ -278,7 +275,7 @@ class OperationsController extends AbstractController
         }
 
         $databaseComment = '';
-        if ($cfgRelation['commwork']) {
+        if ($relationParameters->commwork) {
             $databaseComment = $this->relation->getDbComment($db);
         }
 
@@ -293,7 +290,7 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+        if (! $relationParameters->allworks && $cfg['PmaNoRelation_DisableWarning'] == false) {
             $message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
@@ -313,7 +310,7 @@ class OperationsController extends AbstractController
         $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
-            'has_comment' => $cfgRelation['commwork'],
+            'has_comment' => $relationParameters->commwork,
             'db_comment' => $databaseComment,
             'db_collation' => $db_collation,
             'has_adjust_privileges' => $hasAdjustPrivileges,

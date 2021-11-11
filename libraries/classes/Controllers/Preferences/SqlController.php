@@ -82,12 +82,12 @@ class SqlController extends AbstractController
 
         $this->addScriptFiles(['config.js']);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $this->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $cfgRelation['userconfigwork'],
+            'has_config_storage' => $relationParameters->userconfigwork,
         ]);
 
         if ($formDisplay->hasErrors()) {

@@ -140,11 +140,11 @@ class Normalization
         $table,
         array $columnMeta = []
     ) {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
-        if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
+        if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMimeTypes = $this->transformations->getAvailableMimeTypes();
             if ($availableMimeTypes !== null) {
@@ -152,6 +152,7 @@ class Normalization
             }
         }
 
+        $relationParams = $relationParameters->toArray();
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
@@ -166,7 +167,7 @@ class Normalization
                 'fields_meta' => null,
                 'is_backup' => true,
                 'move_columns' => [],
-                'cfg_relation' => $cfgRelation,
+                'cfg_relation' => $relationParams,
                 'available_mime' => $availableMime,
                 'mime_map' => $mimeMap,
             ];
@@ -196,7 +197,7 @@ class Normalization
         return $this->template->render('columns_definitions/table_fields_definitions', [
             'is_backup' => true,
             'fields_meta' => null,
-            'mimework' => $cfgRelation['mimework'],
+            'mimework' => $relationParameters->mimework,
             'content_cells' => $contentCells,
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),

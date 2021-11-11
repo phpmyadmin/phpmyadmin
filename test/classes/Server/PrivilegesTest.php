@@ -46,8 +46,6 @@ class PrivilegesTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::setTheme();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['cfgRelation'] = [];
-        $GLOBALS['cfgRelation']['menuswork'] = false;
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -1250,7 +1248,6 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetUserGroupForUser(): void
     {
         $username = 'pma_username';
-        $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1283,7 +1280,6 @@ class PrivilegesTest extends AbstractTestCase
         $result = [];
         $db_rights = [];
         $text_dir = 'text_dir';
-        $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $html = $this->serverPrivileges->getUsersOverview($result, $db_rights, $text_dir);
 

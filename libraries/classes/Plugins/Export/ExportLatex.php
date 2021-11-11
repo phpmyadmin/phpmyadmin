@@ -126,7 +126,8 @@ class ExportLatex extends ExportPlugin
             );
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
-            if (! empty($GLOBALS['cfgRelation']['relation'])) {
+            $relationParameters = $this->relation->getRelationParameters();
+            if (! empty($relationParameters->relation)) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -139,7 +140,7 @@ class ExportLatex extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if (! empty($GLOBALS['cfgRelation']['mimework'])) {
+            if (! empty($relationParameters->mimework)) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -480,7 +481,7 @@ class ExportLatex extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        global $cfgRelation;
+        $relationParameters = $this->relation->getRelationParameters();
 
         /* We do not export triggers */
         if ($exportMode === 'triggers') {
@@ -507,7 +508,7 @@ class ExportLatex extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($cfgRelation['relation']),
+            $do_relation && ! empty($relationParameters->relation),
             $db,
             $table
         );
@@ -529,7 +530,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $alignment .= 'l|';
         }
 
@@ -549,7 +550,7 @@ class ExportLatex extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -634,14 +635,14 @@ class ExportLatex extends ExportPlugin
                 $local_buffer .= $this->getRelationString($res_rel, $field_name, $db, $aliases);
             }
 
-            if ($do_comments && $cfgRelation['commwork']) {
+            if ($do_comments && $relationParameters->commwork) {
                 $local_buffer .= "\000";
                 if (isset($comments[$field_name])) {
                     $local_buffer .= $comments[$field_name];
                 }
             }
 
-            if ($do_mime && $cfgRelation['mimework']) {
+            if ($do_mime && $relationParameters->mimework) {
                 $local_buffer .= "\000";
                 if (isset($mime_map[$field_name])) {
                     $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);

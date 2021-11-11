@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -44,14 +43,10 @@ final class ExportController extends AbstractController
     /** @var Export */
     private $export;
 
-    /** @var Relation */
-    private $relation;
-
-    public function __construct(ResponseRenderer $response, Template $template, Export $export, Relation $relation)
+    public function __construct(ResponseRenderer $response, Template $template, Export $export)
     {
         parent::__construct($response, $template);
         $this->export = $export;
-        $this->relation = $relation;
     }
 
     public function __invoke(ServerRequest $request): void
@@ -483,9 +478,6 @@ final class ExportController extends AbstractController
             $do_comments = isset($GLOBALS[$what . '_include_comments'])
                 || isset($GLOBALS[$what . '_comments']);
             $do_mime = isset($GLOBALS[$what . '_mime']);
-            if ($do_relation || $do_comments || $do_mime) {
-                $this->relation->getRelationsParam();
-            }
 
             // Include dates in export?
             $do_dates = isset($GLOBALS[$what . '_dates']);
