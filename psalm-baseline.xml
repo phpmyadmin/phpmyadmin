@@ -13994,9 +13994,6 @@
       <code>$_REQUEST['dbname']</code>
       <code>$dbname</code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand occurrences="1">
-      <code>$dbAndTable</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="6">
       <code>$dbname</code>
       <code>$oldUserGroup</code>

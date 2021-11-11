@@ -788,8 +788,10 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        /** @var FieldMetadata[] $meta */
         $meta = $this->getFieldsMeta($result);
+        if ($meta === null) {
+            return [];
+        }
 
         $nbFields = count($meta);
         if ($nbFields <= 0) {

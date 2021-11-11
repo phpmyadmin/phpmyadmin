@@ -807,11 +807,11 @@ class Relation
             $show_create_table = $tableObj->showCreate();
             if ($show_create_table) {
                 $parser = new Parser($show_create_table);
-                /**
-                 * @var CreateStatement $stmt
-                 */
                 $stmt = $parser->statements[0];
-                $foreign['foreign_keys_data'] = TableUtils::getForeignKeys($stmt);
+                $foreign['foreign_keys_data'] = [];
+                if ($stmt instanceof CreateStatement) {
+                    $foreign['foreign_keys_data'] = TableUtils::getForeignKeys($stmt);
+                }
             }
         }
 
