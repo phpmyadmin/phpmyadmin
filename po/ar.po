@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-07 00:10+0000\n"
+"POT-Creation-Date: 2021-11-14 00:10+0000\n"
 "PO-Revision-Date: 2021-05-01 18:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1229,7 +1229,7 @@ msgstr "إبحث:"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: libraries/classes/Controllers/Server/PrivilegesController.php:329
 #: libraries/classes/Normalization.php:262
-#: libraries/classes/Normalization.php:969 libraries/classes/Tracking.php:327
+#: libraries/classes/Normalization.php:991 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/designer/main.twig:1102
@@ -1275,9 +1275,9 @@ msgstr "إبحث:"
 #: templates/table/operations/view.twig:20
 #: templates/table/search/index.twig:172 templates/table/search/index.twig:196
 #: templates/table/start_and_number_of_rows_fieldset.twig:15
-#: templates/table/structure/display_structure.twig:335
-#: templates/table/structure/display_structure.twig:428
-#: templates/table/structure/display_structure.twig:545
+#: templates/table/structure/display_structure.twig:343
+#: templates/table/structure/display_structure.twig:436
+#: templates/table/structure/display_structure.twig:553
 #: templates/table/zoom_search/index.twig:152 templates/view_create.twig:116
 msgid "Go"
 msgstr "إنطلق"
@@ -1285,7 +1285,7 @@ msgstr "إنطلق"
 #: libraries/classes/BrowseForeigners.php:220
 #: libraries/classes/BrowseForeigners.php:224
 #: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
-#: templates/table/structure/display_structure.twig:449
+#: templates/table/structure/display_structure.twig:457
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "اسم المفتاح"
@@ -1319,293 +1319,293 @@ msgstr "عرض الكل"
 msgid "Unknown"
 msgstr "غير معروف"
 
-#: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:497
+#: libraries/classes/Charsets/Collation.php:203
+#: libraries/classes/Charsets/Collation.php:493
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "الألمانية (ترتيب دفتر الهاتف)"
 
-#: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:494
+#: libraries/classes/Charsets/Collation.php:207
+#: libraries/classes/Charsets/Collation.php:490
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "الألمانية (ترتيب القاموس)"
 
-#: libraries/classes/Charsets/Collation.php:229
-#: libraries/classes/Charsets/Collation.php:572
+#: libraries/classes/Charsets/Collation.php:216
+#: libraries/classes/Charsets/Collation.php:568
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "الإسبانية (التقليدية)"
 
-#: libraries/classes/Charsets/Collation.php:233
-#: libraries/classes/Charsets/Collation.php:565
+#: libraries/classes/Charsets/Collation.php:220
+#: libraries/classes/Charsets/Collation.php:561
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "الإسبانية (الحديثة)"
 
-#: libraries/classes/Charsets/Collation.php:303
+#: libraries/classes/Charsets/Collation.php:290
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "غير حساس لحالة الأحرف"
 
-#: libraries/classes/Charsets/Collation.php:306
+#: libraries/classes/Charsets/Collation.php:293
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "حساس لحالة الأحرف"
 
-#: libraries/classes/Charsets/Collation.php:309
+#: libraries/classes/Charsets/Collation.php:296
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "غير حساس لحالة اللهجة"
 
-#: libraries/classes/Charsets/Collation.php:312
+#: libraries/classes/Charsets/Collation.php:299
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "حساس لحالة اللهجة"
 
-#: libraries/classes/Charsets/Collation.php:315
+#: libraries/classes/Charsets/Collation.php:302
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "حساسة للكانا"
 
-#: libraries/classes/Charsets/Collation.php:319
+#: libraries/classes/Charsets/Collation.php:306
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "متعدد المستويات"
 
-#: libraries/classes/Charsets/Collation.php:322
+#: libraries/classes/Charsets/Collation.php:309
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ثنائي"
 
-#: libraries/classes/Charsets/Collation.php:325
+#: libraries/classes/Charsets/Collation.php:312
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:341
+#: libraries/classes/Charsets/Collation.php:331
 msgctxt "Collation"
 msgid "Binary"
 msgstr "ثنائي"
 
-#: libraries/classes/Charsets/Collation.php:353
-#: libraries/classes/Charsets/Collation.php:596
+#: libraries/classes/Charsets/Collation.php:343
+#: libraries/classes/Charsets/Collation.php:592
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "يونيكود"
 
-#: libraries/classes/Charsets/Collation.php:363
-#: libraries/classes/Charsets/Collation.php:543
+#: libraries/classes/Charsets/Collation.php:353
+#: libraries/classes/Charsets/Collation.php:539
 msgctxt "Collation"
 msgid "West European"
 msgstr "أوروبا الغربية"
 
-#: libraries/classes/Charsets/Collation.php:370
+#: libraries/classes/Charsets/Collation.php:360
 msgctxt "Collation"
 msgid "Central European"
 msgstr "أوروبا الوسطى"
 
-#: libraries/classes/Charsets/Collation.php:375
-#: libraries/classes/Charsets/Collation.php:550
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:546
 msgctxt "Collation"
 msgid "Russian"
 msgstr "الروسية"
 
-#: libraries/classes/Charsets/Collation.php:380
+#: libraries/classes/Charsets/Collation.php:370
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "الصينية المبسطة"
 
-#: libraries/classes/Charsets/Collation.php:383
+#: libraries/classes/Charsets/Collation.php:373
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "الصينية التقليدية"
 
-#: libraries/classes/Charsets/Collation.php:386
-#: libraries/classes/Charsets/Collation.php:465
+#: libraries/classes/Charsets/Collation.php:376
+#: libraries/classes/Charsets/Collation.php:461
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "الصينية"
 
-#: libraries/classes/Charsets/Collation.php:394
-#: libraries/classes/Charsets/Collation.php:514
+#: libraries/classes/Charsets/Collation.php:384
+#: libraries/classes/Charsets/Collation.php:510
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "اليابانية"
 
-#: libraries/classes/Charsets/Collation.php:399
+#: libraries/classes/Charsets/Collation.php:389
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "البلطيق"
 
-#: libraries/classes/Charsets/Collation.php:404
+#: libraries/classes/Charsets/Collation.php:394
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "الأرمنية"
 
-#: libraries/classes/Charsets/Collation.php:407
+#: libraries/classes/Charsets/Collation.php:397
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "السيريلية"
 
-#: libraries/classes/Charsets/Collation.php:410
+#: libraries/classes/Charsets/Collation.php:400
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "العربية"
 
-#: libraries/classes/Charsets/Collation.php:413
-#: libraries/classes/Charsets/Collation.php:529
+#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Korean"
 msgstr "الكورية"
 
-#: libraries/classes/Charsets/Collation.php:416
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "العبرية"
 
-#: libraries/classes/Charsets/Collation.php:419
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "الجورجية"
 
-#: libraries/classes/Charsets/Collation.php:422
+#: libraries/classes/Charsets/Collation.php:412
 msgctxt "Collation"
 msgid "Greek"
 msgstr "اليونانية"
 
-#: libraries/classes/Charsets/Collation.php:425
+#: libraries/classes/Charsets/Collation.php:415
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "السلوفاكية"
 
-#: libraries/classes/Charsets/Collation.php:428
-#: libraries/classes/Charsets/Collation.php:588
+#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "الأكرانية"
 
-#: libraries/classes/Charsets/Collation.php:431
-#: libraries/classes/Charsets/Collation.php:584
+#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "التركية"
 
-#: libraries/classes/Charsets/Collation.php:434
-#: libraries/classes/Charsets/Collation.php:576
+#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:572
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "السويدية"
 
-#: libraries/classes/Charsets/Collation.php:437
-#: libraries/classes/Charsets/Collation.php:580
+#: libraries/classes/Charsets/Collation.php:427
+#: libraries/classes/Charsets/Collation.php:576
 msgctxt "Collation"
 msgid "Thai"
 msgstr "التايلندية"
 
-#: libraries/classes/Charsets/Collation.php:440
+#: libraries/classes/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "غير معروف"
 
-#: libraries/classes/Charsets/Collation.php:459
+#: libraries/classes/Charsets/Collation.php:455
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "البلغارية"
 
-#: libraries/classes/Charsets/Collation.php:471
+#: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "الكرواتية"
 
-#: libraries/classes/Charsets/Collation.php:475
+#: libraries/classes/Charsets/Collation.php:471
 msgctxt "Collation"
 msgid "Czech"
 msgstr "التشيكية"
 
-#: libraries/classes/Charsets/Collation.php:479
+#: libraries/classes/Charsets/Collation.php:475
 msgctxt "Collation"
 msgid "Danish"
 msgstr "الدنمركية"
 
-#: libraries/classes/Charsets/Collation.php:483
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "English"
 msgstr "الإنجليزية"
 
-#: libraries/classes/Charsets/Collation.php:487
+#: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "إسبرانتو"
 
-#: libraries/classes/Charsets/Collation.php:491
+#: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "الإستونية"
 
-#: libraries/classes/Charsets/Collation.php:506
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "الهنجارية"
 
-#: libraries/classes/Charsets/Collation.php:510
+#: libraries/classes/Charsets/Collation.php:506
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "الأيسلندية"
 
-#: libraries/classes/Charsets/Collation.php:517
+#: libraries/classes/Charsets/Collation.php:513
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "اللاتينية الكلاسيكية"
 
-#: libraries/classes/Charsets/Collation.php:521
+#: libraries/classes/Charsets/Collation.php:517
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "اللاتفية"
 
-#: libraries/classes/Charsets/Collation.php:525
+#: libraries/classes/Charsets/Collation.php:521
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "الليتوانية"
 
-#: libraries/classes/Charsets/Collation.php:533
+#: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "البورمية"
 
-#: libraries/classes/Charsets/Collation.php:536
+#: libraries/classes/Charsets/Collation.php:532
 msgctxt "Collation"
 msgid "Persian"
 msgstr "فارسية"
 
-#: libraries/classes/Charsets/Collation.php:540
+#: libraries/classes/Charsets/Collation.php:536
 msgctxt "Collation"
 msgid "Polish"
 msgstr "البولندية"
 
-#: libraries/classes/Charsets/Collation.php:547
+#: libraries/classes/Charsets/Collation.php:543
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "الرومانية"
 
-#: libraries/classes/Charsets/Collation.php:554
+#: libraries/classes/Charsets/Collation.php:550
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "السنهالية"
 
-#: libraries/classes/Charsets/Collation.php:558
+#: libraries/classes/Charsets/Collation.php:554
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "السلوفاكية"
 
-#: libraries/classes/Charsets/Collation.php:562
+#: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "السلوفينية"
 
-#: libraries/classes/Charsets/Collation.php:592
+#: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "الفيتنامية"
@@ -3083,7 +3083,7 @@ msgstr "أضف عنواناً للجدول"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
 #: templates/columns_definitions/table_fields_definitions.twig:54
 #: templates/database/data_dictionary/index.twig:29
-#: templates/table/structure/display_structure.twig:29
+#: templates/table/structure/display_structure.twig:28
 msgid "Comments"
 msgstr "التعليقات"
 
@@ -3262,7 +3262,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:497
-#: libraries/classes/Util.php:1986 libraries/config.values.php:155
+#: libraries/classes/Util.php:1963 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:3
 #: templates/server/privileges/user_properties.twig:20
@@ -3380,8 +3380,8 @@ msgstr "تعقب التغيرات"
 #: libraries/classes/Config/Descriptions.php:748 libraries/classes/Menu.php:266
 #: libraries/classes/Menu.php:376 libraries/classes/Menu.php:502
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1520 libraries/classes/Util.php:1987
-#: libraries/classes/Util.php:2002 libraries/classes/Util.php:2019
+#: libraries/classes/Util.php:1497 libraries/classes/Util.php:1964
+#: libraries/classes/Util.php:1979 libraries/classes/Util.php:1996
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4084,7 +4084,7 @@ msgstr ""
 #: templates/display/results/table.twig:228 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
-#: templates/table/structure/display_structure.twig:471
+#: templates/table/structure/display_structure.twig:479
 msgid "Edit"
 msgstr "تعديل"
 
@@ -4392,8 +4392,8 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1519 libraries/classes/Util.php:2001
-#: libraries/classes/Util.php:2018 libraries/config.values.php:60
+#: libraries/classes/Util.php:1496 libraries/classes/Util.php:1978
+#: libraries/classes/Util.php:1995 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4441,8 +4441,8 @@ msgstr "مستند مفتوح"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
 #: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
-#: libraries/classes/Util.php:1990 libraries/classes/Util.php:2005
-#: libraries/classes/Util.php:2022 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:1967 libraries/classes/Util.php:1982
+#: libraries/classes/Util.php:1999 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4485,8 +4485,8 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 #: libraries/classes/Menu.php:297 libraries/classes/Menu.php:406
-#: libraries/classes/Menu.php:535 libraries/classes/Util.php:1991
-#: libraries/classes/Util.php:2006 libraries/classes/Util.php:2023
+#: libraries/classes/Menu.php:535 libraries/classes/Util.php:1968
+#: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
 #: templates/import.twig:32 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4907,8 +4907,8 @@ msgstr "غير معروفة"
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:28
 #: templates/table/privileges/index.twig:73
-#: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:505
+#: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:513
 #: templates/table/structure/drop_confirm.twig:19
 #: templates/table/structure/primary.twig:22
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -5416,7 +5416,7 @@ msgstr "أضف s% عمود/ اعمدة إلى الفهرس ."
 #: templates/table/index_rename_form.twig:28
 #: templates/table/insert/actions_panel.twig:35
 #: templates/table/relation/common_form.twig:224
-#: templates/table/structure/display_structure.twig:336
+#: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
 msgstr "استعراض SQL"
 
@@ -5501,9 +5501,9 @@ msgstr "حذف المستخدمين المحددين"
 #: templates/table/relation/common_form.twig:234
 #: templates/table/relation/common_form.twig:239
 #: templates/table/search/index.twig:182
-#: templates/table/structure/display_structure.twig:321
-#: templates/table/structure/display_structure.twig:337
-#: templates/table/structure/display_structure.twig:348
+#: templates/table/structure/display_structure.twig:329
+#: templates/table/structure/display_structure.twig:345
+#: templates/table/structure/display_structure.twig:356
 #: templates/table/zoom_search/result_form.twig:27
 #: templates/table/zoom_search/result_form.twig:79
 #: templates/table/zoom_search/result_form.twig:96
@@ -5561,13 +5561,13 @@ msgstr "آخر"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Util.php:582 libraries/classes/Util.php:614
+#: libraries/classes/Util.php:559 libraries/classes/Util.php:591
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Util.php:580 libraries/classes/Util.php:612
+#: libraries/classes/Util.php:557 libraries/classes/Util.php:589
 msgid "."
 msgstr "."
 
@@ -5676,45 +5676,45 @@ msgstr "عمليات"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
-#: libraries/classes/Util.php:488
+#: libraries/classes/Util.php:465
 msgid "B"
 msgstr "بايت"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Util.php:490
+#: libraries/classes/Util.php:467
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "كيلوبايت"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
-#: libraries/classes/Util.php:492
+#: libraries/classes/Util.php:469
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "ميجابايت"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Util.php:494
+#: libraries/classes/Util.php:471
 msgid "GiB"
 msgstr "جيجا بايت"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:496
+#: libraries/classes/Util.php:473
 msgid "TiB"
 msgstr "تيرا بايت"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:498
+#: libraries/classes/Util.php:475
 msgid "PiB"
 msgstr "بيتا بايت"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#: libraries/classes/Util.php:500
+#: libraries/classes/Util.php:477
 msgid "EiB"
 msgstr "إكسابايت"
 
@@ -5734,7 +5734,7 @@ msgid "Traffic"
 msgstr "بيانات سير"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:1992
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:1969
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "الإعدادات"
@@ -5964,7 +5964,7 @@ msgstr "إشرح الخرج"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 #: libraries/classes/Menu.php:507
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1988 libraries/config.values.php:157
+#: libraries/classes/Util.php:1965 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6256,8 +6256,8 @@ msgstr "تغيير مجموعة الأحرف"
 #: templates/server/privileges/users_overview.twig:65
 #: templates/table/delete/confirm.twig:29
 #: templates/table/privileges/index.twig:73
-#: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:505
+#: templates/table/structure/display_structure.twig:80
+#: templates/table/structure/display_structure.twig:513
 #: templates/table/structure/drop_confirm.twig:20
 #: templates/table/structure/primary.twig:23
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -6389,7 +6389,7 @@ msgid "Variable %d:"
 msgstr "المتغير %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
-#: libraries/classes/Normalization.php:1038
+#: libraries/classes/Normalization.php:1064
 msgid "Pick"
 msgstr "اختيار"
 
@@ -6434,9 +6434,9 @@ msgstr "الخطوة الاولي في التطبيع هي اكمال الجدو
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 #: libraries/classes/Normalization.php:547
-#: libraries/classes/Normalization.php:599
-#: libraries/classes/Normalization.php:696
-#: libraries/classes/Normalization.php:766
+#: libraries/classes/Normalization.php:611
+#: libraries/classes/Normalization.php:708
+#: libraries/classes/Normalization.php:786
 msgid "End of step"
 msgstr "نهاية الخطوة"
 
@@ -6947,7 +6947,7 @@ msgid "Change password"
 msgstr "تغيير كلمة السر"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
-#: templates/table/structure/display_structure.twig:132
+#: templates/table/structure/display_structure.twig:130
 msgid "More"
 msgstr "أكثر"
 
@@ -7246,7 +7246,7 @@ msgstr "اسلوب مصادقة غير صحيح في الإعدادات:"
 #: libraries/classes/Import.php:149
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/display_structure.twig:231
+#: templates/table/structure/display_structure.twig:230
 #: templates/table/structure/display_table_stats.twig:119
 msgid "Rows"
 msgstr "صفوف"
@@ -7255,7 +7255,7 @@ msgstr "صفوف"
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
-#: templates/table/structure/display_structure.twig:436
+#: templates/table/structure/display_structure.twig:444
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "فهارس"
@@ -7928,7 +7928,7 @@ msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
-#: libraries/classes/Util.php:873
+#: libraries/classes/Util.php:850
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
 
@@ -8121,7 +8121,7 @@ msgstr "عرض"
 #: libraries/classes/Html/Generator.php:881 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
-#: templates/table/structure/display_structure.twig:347
+#: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "خطأ"
 
@@ -8146,23 +8146,23 @@ msgstr ""
 msgid "Failed to get description of column %s!"
 msgstr "أخفق الحصول على عدد الصفوف الحقيقية."
 
-#: libraries/classes/Controllers/Table/StructureController.php:232
+#: libraries/classes/Controllers/Table/StructureController.php:227
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:41
-#: templates/table/structure/display_structure.twig:138
-#: templates/table/structure/display_structure.twig:146
-#: templates/table/structure/display_structure.twig:287
+#: templates/table/structure/display_structure.twig:137
+#: templates/table/structure/display_structure.twig:145
+#: templates/table/structure/display_structure.twig:295
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "أساسي"
 
-#: libraries/classes/Controllers/Table/StructureController.php:236
+#: libraries/classes/Controllers/Table/StructureController.php:231
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/structure/display_structure.twig:168
-#: templates/table/structure/display_structure.twig:176
-#: templates/table/structure/display_structure.twig:293
+#: templates/table/structure/display_structure.twig:167
+#: templates/table/structure/display_structure.twig:175
+#: templates/table/structure/display_structure.twig:301
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
@@ -8479,7 +8479,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "لا توجد جداول متوفره في قاعدة البيانات هذه!."
 
-#: libraries/classes/DatabaseInterface.php:1090
+#: libraries/classes/DatabaseInterface.php:1092
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8487,21 +8487,21 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1137
+#: libraries/classes/DatabaseInterface.php:1139
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "فشل قراءة ملف الإعدادات"
 
-#: libraries/classes/DatabaseInterface.php:1911
+#: libraries/classes/DatabaseInterface.php:1913
 msgid "Missing connection parameters!"
 msgstr "معلمات اتصال مفقودة!"
 
-#: libraries/classes/DatabaseInterface.php:1936
+#: libraries/classes/DatabaseInterface.php:1938
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف في التهيئة."
 
-#: libraries/classes/DatabaseInterface.php:2414
+#: libraries/classes/DatabaseInterface.php:2416
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8808,8 +8808,8 @@ msgid "Full texts"
 msgstr "نصوص كاملة"
 
 #: libraries/classes/Display/Results.php:1907
-#: libraries/classes/Display/Results.php:1933 libraries/classes/Util.php:2635
-#: libraries/classes/Util.php:2658 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1933 libraries/classes/Util.php:2612
+#: libraries/classes/Util.php:2635 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -8822,8 +8822,8 @@ msgid "Descending"
 msgstr "تنازليا"
 
 #: libraries/classes/Display/Results.php:1915
-#: libraries/classes/Display/Results.php:1925 libraries/classes/Util.php:2627
-#: libraries/classes/Util.php:2650 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1925 libraries/classes/Util.php:2604
+#: libraries/classes/Util.php:2627 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9497,8 +9497,8 @@ msgstr "دالة"
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:17
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
-#: templates/table/structure/display_structure.twig:23
-#: templates/table/structure/display_structure.twig:450
+#: templates/table/structure/display_structure.twig:22
+#: templates/table/structure/display_structure.twig:458
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:37
@@ -9551,18 +9551,18 @@ msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:251
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1523 libraries/classes/Util.php:2017
+#: libraries/classes/Util.php:1500 libraries/classes/Util.php:1994
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
-#: templates/table/structure/display_structure.twig:274
+#: templates/table/structure/display_structure.twig:282
 msgid "Browse"
 msgstr "استعراض"
 
 #: libraries/classes/Menu.php:270 libraries/classes/Menu.php:380
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1521 libraries/classes/Util.php:2003
-#: libraries/classes/Util.php:2020 libraries/config.values.php:64
+#: libraries/classes/Util.php:1498 libraries/classes/Util.php:1980
+#: libraries/classes/Util.php:1997 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -9574,7 +9574,7 @@ msgstr "إبحث"
 
 #: libraries/classes/Menu.php:281
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1522 libraries/classes/Util.php:2021
+#: libraries/classes/Util.php:1499 libraries/classes/Util.php:1998
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9584,8 +9584,8 @@ msgid "Insert"
 msgstr "إدخال"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:420
-#: libraries/classes/Server/Privileges.php:2922 libraries/classes/Util.php:2008
-#: libraries/classes/Util.php:2024 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2922 libraries/classes/Util.php:1985
+#: libraries/classes/Util.php:2001 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9594,15 +9594,15 @@ msgid "Privileges"
 msgstr "الإمتيازات"
 
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:328
-#: libraries/classes/Menu.php:411 libraries/classes/Util.php:1524
-#: libraries/classes/Util.php:2007 libraries/classes/Util.php:2025
+#: libraries/classes/Menu.php:411 libraries/classes/Util.php:1501
+#: libraries/classes/Util.php:1984 libraries/classes/Util.php:2002
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "عمليات"
 
 #: libraries/classes/Menu.php:334 libraries/classes/Menu.php:446
-#: libraries/classes/Relation.php:296 libraries/classes/Util.php:2012
-#: libraries/classes/Util.php:2026
+#: libraries/classes/Relation.php:296 libraries/classes/Util.php:1989
+#: libraries/classes/Util.php:2003
 msgid "Tracking"
 msgstr "تتبع"
 
@@ -9615,7 +9615,7 @@ msgstr "تتبع"
 #: libraries/classes/Plugins/Export/ExportSql.php:2095
 #: libraries/classes/Plugins/Export/ExportTexytext.php:542
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:2011 libraries/classes/Util.php:2027
+#: libraries/classes/Util.php:1988 libraries/classes/Util.php:2004
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "القوادح"
@@ -9625,11 +9625,11 @@ msgstr "القوادح"
 msgid "Database seems to be empty!"
 msgstr "قاعدة البيانات فارغة!"
 
-#: libraries/classes/Menu.php:388 libraries/classes/Util.php:2004
+#: libraries/classes/Menu.php:388 libraries/classes/Util.php:1981
 msgid "Query"
 msgstr "استعلام بواسطة مثال"
 
-#: libraries/classes/Menu.php:426 libraries/classes/Util.php:2009
+#: libraries/classes/Menu.php:426 libraries/classes/Util.php:1986
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "روتينات"
@@ -9639,15 +9639,15 @@ msgstr "روتينات"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1004
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:2010 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1987 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "أحداث"
 
-#: libraries/classes/Menu.php:453 libraries/classes/Util.php:2013
+#: libraries/classes/Menu.php:453 libraries/classes/Util.php:1990
 msgid "Designer"
 msgstr "المصمم"
 
-#: libraries/classes/Menu.php:460 libraries/classes/Util.php:2014
+#: libraries/classes/Menu.php:460 libraries/classes/Util.php:1991
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "الأعمدة المركزية"
@@ -9657,12 +9657,12 @@ msgid "User accounts"
 msgstr "حسابات المستخدمين"
 
 #: libraries/classes/Menu.php:555 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1993 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1970 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "سجل ثنائي"
 
 #: libraries/classes/Menu.php:562 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1994
+#: libraries/classes/Util.php:1971
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -9670,21 +9670,21 @@ msgid "Replication"
 msgstr "إستنساخ"
 
 #: libraries/classes/Menu.php:568 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1995 libraries/config.values.php:159
+#: libraries/classes/Util.php:1972 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "متغيرات"
 
-#: libraries/classes/Menu.php:573 libraries/classes/Util.php:1996
+#: libraries/classes/Menu.php:573 libraries/classes/Util.php:1973
 msgid "Charsets"
 msgstr "مجموعات المحارف"
 
-#: libraries/classes/Menu.php:578 libraries/classes/Util.php:1998
+#: libraries/classes/Menu.php:578 libraries/classes/Util.php:1975
 msgid "Engines"
 msgstr "محركات"
 
-#: libraries/classes/Menu.php:583 libraries/classes/Util.php:1997
+#: libraries/classes/Menu.php:583 libraries/classes/Util.php:1974
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "القوابس"
@@ -9824,7 +9824,7 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.twig:121
 #: templates/table/relation/foreign_key_row.twig:131
 #: templates/table/search/index.twig:38
-#: templates/table/structure/display_structure.twig:453
+#: templates/table/structure/display_structure.twig:461
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/zoom_search/index.twig:36
@@ -9932,7 +9932,7 @@ msgid "Make all columns atomic"
 msgstr ""
 
 #: libraries/classes/Normalization.php:232
-#: libraries/classes/Normalization.php:952
+#: libraries/classes/Normalization.php:974
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -10078,7 +10078,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:447
-#: libraries/classes/Normalization.php:861
+#: libraries/classes/Normalization.php:883
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -10096,7 +10096,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:465
-#: libraries/classes/Normalization.php:903
+#: libraries/classes/Normalization.php:925
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
@@ -10120,41 +10120,41 @@ msgstr ""
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/classes/Normalization.php:586
-#: libraries/classes/Normalization.php:753
-#: libraries/classes/Normalization.php:831
+#: libraries/classes/Normalization.php:598
+#: libraries/classes/Normalization.php:773
+#: libraries/classes/Normalization.php:853
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing!"
 msgstr "خطأ في معالجة الطلب"
 
-#: libraries/classes/Normalization.php:635
+#: libraries/classes/Normalization.php:647
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:692
+#: libraries/classes/Normalization.php:704
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/classes/Normalization.php:805
+#: libraries/classes/Normalization.php:826
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:859
+#: libraries/classes/Normalization.php:881
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "سبتمبر"
 
-#: libraries/classes/Normalization.php:859
+#: libraries/classes/Normalization.php:881
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:863
+#: libraries/classes/Normalization.php:885
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10162,47 +10162,47 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: libraries/classes/Normalization.php:917
+#: libraries/classes/Normalization.php:939
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/classes/Normalization.php:920
+#: libraries/classes/Normalization.php:942
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/classes/Normalization.php:946
+#: libraries/classes/Normalization.php:968
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
 msgstr "اقترح بناء الجدول"
 
-#: libraries/classes/Normalization.php:947
+#: libraries/classes/Normalization.php:969
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/classes/Normalization.php:957
+#: libraries/classes/Normalization.php:979
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:962
+#: libraries/classes/Normalization.php:984
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:967
+#: libraries/classes/Normalization.php:989
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/classes/Normalization.php:1034
+#: libraries/classes/Normalization.php:1060
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:1049
+#: libraries/classes/Normalization.php:1075
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -10256,9 +10256,9 @@ msgstr ""
 #: templates/server/databases/index.twig:324
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_partitions.twig:145
-#: templates/table/structure/display_structure.twig:121
-#: templates/table/structure/display_structure.twig:282
-#: templates/table/structure/display_structure.twig:498
+#: templates/table/structure/display_structure.twig:120
+#: templates/table/structure/display_structure.twig:290
+#: templates/table/structure/display_structure.twig:506
 msgid "Drop"
 msgstr "سقّط"
 
@@ -10524,8 +10524,8 @@ msgstr "إرجاع أو استيراد بيانات الجدول"
 #: templates/database/data_dictionary/index.twig:24
 #: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
-#: templates/table/structure/display_structure.twig:26
-#: templates/table/structure/display_structure.twig:456
+#: templates/table/structure/display_structure.twig:25
+#: templates/table/structure/display_structure.twig:464
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
@@ -10549,7 +10549,7 @@ msgstr "خالي"
 #: templates/database/data_dictionary/index.twig:25
 #: templates/database/structure/body_for_table_summary.twig:52
 #: templates/server/replication/slave_configuration.twig:9
-#: templates/table/structure/display_structure.twig:27
+#: templates/table/structure/display_structure.twig:26
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "إفتراضي"
@@ -10578,7 +10578,7 @@ msgstr "مرتبط بـ"
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:49
 #: templates/database/triggers/list.twig:43 templates/setup/home/index.twig:49
-#: templates/table/structure/display_structure.twig:22
+#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "الاسم"
 
@@ -11269,13 +11269,13 @@ msgstr "تعليقات الجدول:"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:703
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/database/central_columns/edit.twig:13
-#: templates/table/structure/display_structure.twig:25
+#: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "الخواص"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:672
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:706
-#: templates/table/structure/display_structure.twig:31
+#: templates/table/structure/display_structure.twig:30
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "إضافي"
@@ -11363,7 +11363,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:743
+#: libraries/classes/Util.php:720
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y الساعة %H:%M"
 
@@ -13047,78 +13047,78 @@ msgstr "كبير: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:700 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:677 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "يناير"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:702 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:679 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "فبراير"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:704 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:681 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "مارس"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:706 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:683 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "أبريل"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:708
+#: libraries/classes/Util.php:685
 msgctxt "Short month name"
 msgid "May"
 msgstr "مايو"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:710 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:687 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "يونيو"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:712 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:689 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "يوليو"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:714 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:691 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "أغسطس"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:716 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:693 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "سبتمبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:718 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:695 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "أكتوبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:720 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:697 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "نوفمبر"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:722 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:699 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "ديسمبر"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:726
+#: libraries/classes/Util.php:703
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -13126,55 +13126,55 @@ msgid "Sun"
 msgstr "الأحد"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:728 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:705 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "الإثنين"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:730 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:707 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "الثلاثاء"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:732 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:709 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "الأربعاء"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:734 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:711 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "الخميس"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:736 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:713 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "الجمعة"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:738 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:715 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "السبت"
 
-#: libraries/classes/Util.php:764
+#: libraries/classes/Util.php:741
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "مساء"
 
-#: libraries/classes/Util.php:766
+#: libraries/classes/Util.php:743
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "صباحا"
 
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:814
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s يوم، %s ساعة، %s دقيقة و%s ثانية"
 
-#: libraries/classes/Util.php:1989
+#: libraries/classes/Util.php:1966
 msgid "Users"
 msgstr "المستخدمون"
 
-#: libraries/classes/Util.php:2619
+#: libraries/classes/Util.php:2596
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "ترتيب"
@@ -13374,25 +13374,25 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 
 #: templates/columns_definitions/column_attributes.twig:111
 #: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
-#: templates/table/structure/display_structure.twig:153
-#: templates/table/structure/display_structure.twig:161
-#: templates/table/structure/display_structure.twig:290
-#: templates/table/structure/display_structure.twig:451
+#: templates/table/structure/display_structure.twig:152
+#: templates/table/structure/display_structure.twig:160
+#: templates/table/structure/display_structure.twig:298
+#: templates/table/structure/display_structure.twig:459
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "فريد"
 
 #: templates/columns_definitions/column_attributes.twig:119
-#: templates/table/structure/display_structure.twig:220
-#: templates/table/structure/display_structure.twig:223
-#: templates/table/structure/display_structure.twig:299
+#: templates/table/structure/display_structure.twig:219
+#: templates/table/structure/display_structure.twig:222
+#: templates/table/structure/display_structure.twig:307
 msgid "Fulltext"
 msgstr "النص كاملا"
 
 #: templates/columns_definitions/column_attributes.twig:123
-#: templates/table/structure/display_structure.twig:193
-#: templates/table/structure/display_structure.twig:201
-#: templates/table/structure/display_structure.twig:296
+#: templates/table/structure/display_structure.twig:192
+#: templates/table/structure/display_structure.twig:200
+#: templates/table/structure/display_structure.twig:304
 msgid "Spatial"
 msgstr ""
 
@@ -13408,7 +13408,7 @@ msgid "first"
 msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:182
-#: templates/table/structure/display_structure.twig:424
+#: templates/table/structure/display_structure.twig:432
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
@@ -13574,7 +13574,7 @@ msgstr "محركات"
 #: templates/database/routines/editor_form.twig:163
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:31
-#: templates/table/structure/display_structure.twig:457
+#: templates/table/structure/display_structure.twig:465
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
@@ -13662,8 +13662,8 @@ msgstr ""
 #: templates/server/databases/index.twig:123
 #: templates/table/operations/index.twig:151
 #: templates/table/search/index.twig:40
-#: templates/table/structure/display_structure.twig:24
-#: templates/table/structure/display_structure.twig:455
+#: templates/table/structure/display_structure.twig:23
+#: templates/table/structure/display_structure.twig:463
 #: templates/table/structure/display_table_stats.twig:108
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
@@ -14003,7 +14003,7 @@ msgid "Search this table"
 msgstr "ابحث في هذا الجدول"
 
 #: templates/database/central_columns/main.twig:180
-#: templates/table/structure/display_structure.twig:409
+#: templates/table/structure/display_structure.twig:417
 msgid "Add column"
 msgstr "إضافة عمود"
 
@@ -14031,8 +14031,8 @@ msgstr "اضغط للترتيب."
 #: templates/server/variables/index.twig:30
 #: templates/table/privileges/index.twig:24
 #: templates/table/structure/display_partitions.twig:33
-#: templates/table/structure/display_structure.twig:35
-#: templates/table/structure/display_structure.twig:448
+#: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_structure.twig:456
 #: templates/table/tracking/main.twig:32
 #: templates/table/tracking/report_table.twig:8
 msgid "Action"
@@ -14066,24 +14066,24 @@ msgstr "ملاحظة قاعدة البيانات"
 #: templates/database/data_dictionary/index.twig:124
 #: templates/database/structure/index.twig:19
 #: templates/display/results/table.twig:258
-#: templates/table/structure/display_structure.twig:367
+#: templates/table/structure/display_structure.twig:375
 msgid "Print"
 msgstr "طباعة"
 
 #: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
-#: templates/table/structure/display_structure.twig:452
+#: templates/table/structure/display_structure.twig:460
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "محزم"
 
 #: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
-#: templates/table/structure/display_structure.twig:454
+#: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr ""
 
 #: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:91
-#: templates/table/structure/display_structure.twig:532
+#: templates/table/structure/display_structure.twig:540
 msgid "No index defined!"
 msgstr "لم يتم تعريف الفهرس!"
 
@@ -15285,7 +15285,7 @@ msgstr "الجداول الغير متتبعة"
 #: templates/database/tracking/tables.twig:176
 #: templates/database/tracking/tables.twig:188
 #: templates/database/tracking/tables.twig:189
-#: templates/table/structure/display_structure.twig:387
+#: templates/table/structure/display_structure.twig:395
 msgid "Track table"
 msgstr "تتبع الجدول"
 
@@ -16029,19 +16029,19 @@ msgid "Other options:"
 msgstr "خيارات اخري :"
 
 #: templates/indexes.twig:39
-#: templates/table/structure/display_structure.twig:480
+#: templates/table/structure/display_structure.twig:488
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Rename"
 msgstr "تغيير اسم جدول إلى"
 
 #: templates/indexes.twig:45
-#: templates/table/structure/display_structure.twig:486
+#: templates/table/structure/display_structure.twig:494
 msgid "The primary key has been dropped."
 msgstr "لقد تم حذف المفتاح الأساسي."
 
 #: templates/indexes.twig:50
-#: templates/table/structure/display_structure.twig:491
+#: templates/table/structure/display_structure.twig:499
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "تم حذف الفهرس %s."
@@ -16364,7 +16364,7 @@ msgid "View:"
 msgstr "عرض :"
 
 #: templates/modals/preview_sql_confirmation.twig:14
-#: templates/table/structure/display_structure.twig:353
+#: templates/table/structure/display_structure.twig:361
 msgid "Ok"
 msgstr ""
 
@@ -18802,7 +18802,7 @@ msgid "Start row:"
 msgstr "صف البداية"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:570
+#: templates/table/structure/display_structure.twig:578
 #, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions"
@@ -18851,105 +18851,105 @@ msgstr "مقسم"
 msgid "Edit partitioning"
 msgstr "إزالة التقسيم"
 
-#: templates/table/structure/display_structure.twig:71
+#: templates/table/structure/display_structure.twig:70
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type:"
 msgstr "نوع MIME"
 
-#: templates/table/structure/display_structure.twig:92
+#: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 msgctxt "None for default"
 msgid "None"
 msgstr "لا شيء"
 
-#: templates/table/structure/display_structure.twig:109
-#: templates/table/structure/display_structure.twig:279
+#: templates/table/structure/display_structure.twig:108
+#: templates/table/structure/display_structure.twig:287
 msgid "Change"
 msgstr "تغيير"
 
-#: templates/table/structure/display_structure.twig:117
+#: templates/table/structure/display_structure.twig:116
 #, php-format
 msgid "Column %s has been dropped."
 msgstr "تم حذف العمود %s."
 
-#: templates/table/structure/display_structure.twig:143
+#: templates/table/structure/display_structure.twig:142
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "تم إضافة المفتاح الأساسي في %s."
 
-#: templates/table/structure/display_structure.twig:158
-#: templates/table/structure/display_structure.twig:173
-#: templates/table/structure/display_structure.twig:198
-#: templates/table/structure/display_structure.twig:217
+#: templates/table/structure/display_structure.twig:157
+#: templates/table/structure/display_structure.twig:172
+#: templates/table/structure/display_structure.twig:197
+#: templates/table/structure/display_structure.twig:216
 #, php-format
 msgid "An index has been added on %s."
 msgstr "تم إضافة الفهرس في %s."
 
-#: templates/table/structure/display_structure.twig:239
+#: templates/table/structure/display_structure.twig:238
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
 msgstr "إستعرض القيم المميزة"
 
-#: templates/table/structure/display_structure.twig:246
-#: templates/table/structure/display_structure.twig:307
+#: templates/table/structure/display_structure.twig:249
+#: templates/table/structure/display_structure.twig:315
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from central columns"
 msgstr "حذف الرسم البياني"
 
-#: templates/table/structure/display_structure.twig:250
-#: templates/table/structure/display_structure.twig:304
+#: templates/table/structure/display_structure.twig:257
+#: templates/table/structure/display_structure.twig:312
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Add to central columns"
 msgstr "أعمدة مربع النص لـ CHAR"
 
-#: templates/table/structure/display_structure.twig:320
-#: templates/table/structure/display_structure.twig:324
-#: templates/table/structure/display_structure.twig:391
+#: templates/table/structure/display_structure.twig:328
+#: templates/table/structure/display_structure.twig:332
+#: templates/table/structure/display_structure.twig:399
 #, fuzzy
 #| msgid "Add columns"
 msgid "Move columns"
 msgstr "إضافة أعمدة"
 
-#: templates/table/structure/display_structure.twig:325
+#: templates/table/structure/display_structure.twig:333
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:371
 #: templates/view_create.twig:13
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
 msgstr "عرض نسخة للطباعة"
 
-#: templates/table/structure/display_structure.twig:377
+#: templates/table/structure/display_structure.twig:385
 msgid "Propose table structure"
 msgstr "اقترح بناء الجدول"
 
-#: templates/table/structure/display_structure.twig:394
+#: templates/table/structure/display_structure.twig:402
 msgid "Normalize"
 msgstr ""
 
-#: templates/table/structure/display_structure.twig:400
+#: templates/table/structure/display_structure.twig:408
 msgid "Track view"
 msgstr "تتبع الجدول"
 
-#: templates/table/structure/display_structure.twig:414
+#: templates/table/structure/display_structure.twig:422
 #, fuzzy, php-format
 #| msgid "Add into comments"
 msgid "Add %s column(s)"
 msgstr "أضف إلى الملاحظات"
 
-#: templates/table/structure/display_structure.twig:419
+#: templates/table/structure/display_structure.twig:427
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "at beginning of table"
 msgstr "في بداية الجدول"
 
-#: templates/table/structure/display_structure.twig:542
+#: templates/table/structure/display_structure.twig:550
 #, fuzzy, php-format
 #| msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgid "Create an index on %s columns"
