@@ -355,9 +355,9 @@ class RecentFavoriteTable
             return '';
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         // Not to show this once list is synchronized.
-        if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
+        if ($relationParameters->favoritework && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
             $url = Url::getFromRoute('/database/structure/favorite-table', [
                 'ajax_request' => true,
                 'favorite_table' => true,
@@ -390,14 +390,20 @@ class RecentFavoriteTable
      */
     private function getPmaTable(): ?string
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['recentwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->recentwork) {
             return null;
         }
 
-        if (! empty($cfgRelation['db']) && ! empty($cfgRelation[$this->tableType])) {
-            return Util::backquote($cfgRelation['db']) . '.'
-                . Util::backquote($cfgRelation[$this->tableType]);
+        if ($this->tableType === 'recent') {
+            $type = $relationParameters->recent;
+        } else {
+            $type = $relationParameters->favorite;
+        }
+
+        if (! empty($relationParameters->db) && ! empty($type)) {
+            return Util::backquote($relationParameters->db) . '.'
+                . Util::backquote($type);
         }
 
         return null;

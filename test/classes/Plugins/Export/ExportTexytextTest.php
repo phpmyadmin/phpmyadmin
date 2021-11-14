@@ -45,7 +45,6 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['lang'] = 'en';
@@ -308,7 +307,6 @@ class ExportTexytextTest extends AbstractTestCase
             ->with(['Field' => 'fname', 'Comment' => 'comm'], ['cname'])
             ->will($this->returnValue(1));
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => true,

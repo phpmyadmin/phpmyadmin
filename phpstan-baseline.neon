@@ -121,11 +121,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relation is never read, only written\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:\\$relationCleanup is never read, only written\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -449,11 +444,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\{\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\} given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\Encoding\\:\\:kanjiStrConv\\(\\) expects string, string\\|null given\\.$#"
@@ -1097,16 +1087,6 @@ parameters:
 
 		-
 			message: "#^Do\\-while loop condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkRelationsParam\\(\\) should return array\\<string\\> but returns array\\<string, bool\\|string\\|null\\>\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 

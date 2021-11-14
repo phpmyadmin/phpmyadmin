@@ -40,9 +40,13 @@ final class UpdateController extends AbstractController
         $templateId = (int) $request->getParsedBodyParam('templateId');
         /** @var string $templateData */
         $templateData = $request->getParsedBodyParam('templateData', '');
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $cfgRelation['exporttemplateswork']) {
+        if (
+            ! $relationParameters->exporttemplateswork
+            || $relationParameters->db === null
+            || $relationParameters->exportTemplates === null
+        ) {
             return;
         }
 
@@ -51,7 +55,7 @@ final class UpdateController extends AbstractController
             'username' => $cfg['Server']['user'],
             'data' => $templateData,
         ]);
-        $result = $this->model->update($cfgRelation['db'], $cfgRelation['export_templates'], $template);
+        $result = $this->model->update($relationParameters->db, $relationParameters->exportTemplates, $template);
 
         if (is_string($result)) {
             $this->response->setRequestStatus(false);

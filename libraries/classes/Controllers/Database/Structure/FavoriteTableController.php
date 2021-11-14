@@ -61,8 +61,8 @@ final class FavoriteTableController extends AbstractController
 
         // Request for Synchronization of favorite tables.
         if (isset($parameters['sync_favorite_tables'])) {
-            $cfgRelation = $this->relation->getRelationsParam();
-            if ($cfgRelation['favoritework']) {
+            $relationParameters = $this->relation->getRelationParameters();
+            if ($relationParameters->favoritework) {
                 $this->response->addJSON($this->synchronizeFavoriteTables(
                     $favoriteInstance,
                     $user,

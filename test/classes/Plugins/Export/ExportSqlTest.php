@@ -17,6 +17,7 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
@@ -64,7 +65,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['relation'] = true;
         $this->object = new ExportSql();
     }
 
@@ -85,7 +85,6 @@ class ExportSqlTest extends AbstractTestCase
         // test with hide structure and hide sql as true
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['mimework'] = true;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $method->setAccessible(true);
@@ -116,8 +115,9 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['mimework'] = true;
-        $GLOBALS['cfgRelation']['relation'] = true;
+
+        $relationParameters = RelationParameters::fromArray(['relation' => 'relation', 'mimework' => true]);
+        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $method->setAccessible(true);

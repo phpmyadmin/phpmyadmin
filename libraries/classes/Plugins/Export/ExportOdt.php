@@ -88,8 +88,9 @@ class ExportOdt extends ExportPlugin
                 __('Object creation options')
             );
             $structureOptions->setForce('data');
+            $relationParameters = $this->relation->getRelationParameters();
             // create primary items and add them to the group
-            if (! empty($GLOBALS['cfgRelation']['relation'])) {
+            if (! empty($relationParameters->relation)) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -102,7 +103,7 @@ class ExportOdt extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if (! empty($GLOBALS['cfgRelation']['mimework'])) {
+            if (! empty($relationParameters->mimework)) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -427,11 +428,14 @@ class ExportOdt extends ExportPlugin
         $view = false,
         array $aliases = []
     ): bool {
-        global $cfgRelation, $dbi;
+        global $dbi;
 
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
+
+        $relationParameters = $this->relation->getRelationParameters();
+
         /**
          * Gets fields properties
          */
@@ -439,7 +443,7 @@ class ExportOdt extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($cfgRelation['relation']),
+            $do_relation && ! empty($relationParameters->relation),
             $db,
             $table
         );
@@ -457,7 +461,7 @@ class ExportOdt extends ExportPlugin
             $columns_cnt++;
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $columns_cnt++;
         }
 
@@ -490,7 +494,7 @@ class ExportOdt extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
@@ -543,7 +547,7 @@ class ExportOdt extends ExportPlugin
                 }
             }
 
-            if ($do_mime && $cfgRelation['mimework']) {
+            if ($do_mime && $relationParameters->mimework) {
                 if (isset($mime_map[$field_name])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'

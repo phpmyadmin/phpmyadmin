@@ -344,9 +344,7 @@ class ExportHtmlword extends ExportPlugin
     ) {
         global $dbi;
 
-        // set $cfgRelation here, because there is a chance that it's modified
-        // since the class initialization
-        global $cfgRelation;
+        $relationParameters = $this->relation->getRelationParameters();
 
         $schema_insert = '';
 
@@ -357,7 +355,7 @@ class ExportHtmlword extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($cfgRelation['relation']),
+            $do_relation && ! empty($relationParameters->relation),
             $db,
             $table
         );
@@ -393,7 +391,7 @@ class ExportHtmlword extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $cfgRelation['mimework']) {
+        if ($do_mime && $relationParameters->mimework) {
             $schema_insert .= '<td class="print"><strong>'
                 . __('Media type')
                 . '</strong></td>';
@@ -437,14 +435,14 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             }
 
-            if ($do_comments && $cfgRelation['commwork']) {
+            if ($do_comments && $relationParameters->commwork) {
                 $schema_insert .= '<td class="print">'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '') . '</td>';
             }
 
-            if ($do_mime && $cfgRelation['mimework']) {
+            if ($do_mime && $relationParameters->mimework) {
                 $schema_insert .= '<td class="print">'
                     . (isset($mime_map[$field_name]) ?
                         htmlspecialchars(

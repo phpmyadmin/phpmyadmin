@@ -500,7 +500,6 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$export' => '@export',
-                '$relation' => '@relation',
             ],
         ],
         Export\TablesController::class => [
@@ -717,10 +716,7 @@ return [
         ],
         SchemaExportController::class => [
             'class' => SchemaExportController::class,
-            'arguments' => [
-                '$export' => '@export',
-                '$relation' => '@relation',
-            ],
+            'arguments' => ['$export' => '@export'],
         ],
         Server\BinlogController::class => [
             'class' => Server\BinlogController::class,

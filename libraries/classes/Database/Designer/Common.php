@@ -271,8 +271,8 @@ class Common
      */
     public function getTablePositions($pg): ?array
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return [];
         }
 
@@ -283,8 +283,8 @@ class Common
                 `y` AS `Y`,
                 1 AS `V`,
                 1 AS `H`
-            FROM " . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['table_coords']) . '
+            FROM " . Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->tableCoords) . '
             WHERE pdf_page_number = ' . intval($pg);
 
         return $this->dbi->fetchResult(
@@ -305,14 +305,14 @@ class Common
      */
     public function getPageName($pg)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return null;
         }
 
         $query = 'SELECT `page_descr`'
-            . ' FROM ' . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . ' FROM ' . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
         $page_name = $this->dbi->fetchResult(
             $query,
@@ -332,19 +332,19 @@ class Common
      */
     public function deletePage($pg): bool
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return false;
         }
 
-        $query = 'DELETE FROM ' . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['table_coords'])
+        $query = 'DELETE FROM ' . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->tableCoords)
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
         $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
         if ($success) {
-            $query = 'DELETE FROM ' . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            $query = 'DELETE FROM ' . Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->pdfPages)
                 . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
             $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
         }
@@ -362,14 +362,14 @@ class Common
      */
     public function getDefaultPage($db): ?int
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return -1;
         }
 
         $query = 'SELECT `page_nr`'
-            . ' FROM ' . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . ' FROM ' . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
@@ -396,14 +396,14 @@ class Common
      */
     public function getPageExists(string $pg): bool
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return false;
         }
 
         $query = 'SELECT `page_nr`'
-            . ' FROM ' . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['pdf_pages'])
+            . ' FROM ' . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->pdfPages)
             . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
         $pageNos = $this->dbi->fetchResult(
             $query,
@@ -426,8 +426,8 @@ class Common
      */
     public function getLoadingPage($db)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return -1;
         }
 
@@ -438,8 +438,8 @@ class Common
             $page_no = $default_page_no;
         } else {
             $query = 'SELECT MIN(`page_nr`)'
-                . ' FROM ' . Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['pdf_pages'])
+                . ' FROM ' . Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->pdfPages)
                 . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
             $min_page_no = $this->dbi->fetchResult(
@@ -467,9 +467,9 @@ class Common
      */
     public function createNewPage($pageName, $db)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['pdfwork']) {
-            $page = $this->relation->createPage($pageName, $cfgRelation, $db);
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->pdfwork) {
+            $page = $this->relation->createPage($pageName, $relationParameters, $db);
 
             return $page !== false ? $page : null;
         }
@@ -486,14 +486,14 @@ class Common
     {
         $pageId = $this->dbi->escapeString((string) $pg);
 
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['pdfwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->pdfwork) {
             return false;
         }
 
         $query = 'DELETE FROM '
-            . Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['table_coords'])
+            . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->tableCoords)
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
         $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
@@ -510,8 +510,8 @@ class Common
             }
 
             $query = 'INSERT INTO '
-                . Util::backquote($cfgRelation['db']) . '.'
-                . Util::backquote($cfgRelation['table_coords'])
+                . Util::backquote($relationParameters->db) . '.'
+                . Util::backquote($relationParameters->tableCoords)
                 . ' (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)'
                 . ' VALUES ('
                 . "'" . $this->dbi->escapeString($DB) . "', "
@@ -538,8 +538,8 @@ class Common
      */
     public function saveDisplayField($db, $table, $field): array
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['displaywork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->displaywork) {
             return [
                 false,
                 _pgettext(
@@ -551,7 +551,7 @@ class Common
         }
 
         $upd_query = new Table($table, $db, $this->dbi);
-        $upd_query->updateDisplayField($field, $cfgRelation);
+        $upd_query->updateDisplayField($field, $relationParameters);
 
         return [
             true,
@@ -663,8 +663,8 @@ class Common
             ];
         }
 
-        // internal (pmadb) relation
-        if ($GLOBALS['cfgRelation']['relwork'] == false) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->relwork == false) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -675,9 +675,9 @@ class Common
         // this was checked on the interface part
 
         $q = 'INSERT INTO '
-            . Util::backquote($GLOBALS['cfgRelation']['db'])
+            . Util::backquote($relationParameters->db)
             . '.'
-            . Util::backquote($GLOBALS['cfgRelation']['relation'])
+            . Util::backquote($relationParameters->relation)
             . '(master_db, master_table, master_field, '
             . 'foreign_db, foreign_table, foreign_field)'
             . ' values('
@@ -750,8 +750,8 @@ class Common
             }
         }
 
-        // internal (pmadb) relation is not working, skip delete
-        if ($GLOBALS['cfgRelation']['relwork'] == false) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->relwork == false) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -760,8 +760,8 @@ class Common
 
         // internal relations
         $delete_query = 'DELETE FROM '
-            . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . Util::backquote($GLOBALS['cfgRelation']['relation']) . ' WHERE '
+            . Util::backquote($relationParameters->db) . '.'
+            . Util::backquote($relationParameters->relation) . ' WHERE '
             . "master_db = '" . $this->dbi->escapeString($DB2) . "'"
             . " AND master_table = '" . $this->dbi->escapeString($T2) . "'"
             . " AND master_field = '" . $this->dbi->escapeString($F2) . "'"
@@ -794,13 +794,13 @@ class Common
      */
     public function saveSetting($index, $value): bool
     {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         $success = true;
-        if ($cfgRelation['designersettingswork']) {
+        if ($relationParameters->designersettingswork) {
             $cfgDesigner = [
                 'user' => $GLOBALS['cfg']['Server']['user'],
-                'db' => $cfgRelation['db'],
-                'table' => $cfgRelation['designer_settings'],
+                'db' => $relationParameters->db,
+                'table' => $relationParameters->designerSettings,
             ];
 
             $orig_data_query = 'SELECT settings_data'

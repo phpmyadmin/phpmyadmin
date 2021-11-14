@@ -51,7 +51,6 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $relation = new Relation($GLOBALS['dbi']);
-        $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

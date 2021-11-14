@@ -13,6 +13,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
@@ -46,7 +47,6 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param'] = [];
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $this->object = new ExportLatex();
@@ -65,7 +65,9 @@ class ExportLatexTest extends AbstractTestCase
     {
         $GLOBALS['plugin_param']['export_type'] = '';
         $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['cfgRelation']['mimework'] = true;
+
+        $relationParameters = RelationParameters::fromArray(['relation' => 'relation', 'mimework' => true]);
+        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
         $method->setAccessible(true);
@@ -601,7 +603,6 @@ class ExportLatexTest extends AbstractTestCase
             unset($GLOBALS['latex_caption']);
         }
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => true,
@@ -708,7 +709,6 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => true,
@@ -779,7 +779,6 @@ class ExportLatexTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['latex_caption'] = true;
         $GLOBALS['latex_structure_caption'] = 'latexstructure';
         $GLOBALS['latex_structure_label'] = 'latexlabel';

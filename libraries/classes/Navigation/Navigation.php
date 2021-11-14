@@ -159,8 +159,9 @@ class Navigation
         $dbName,
         $tableName = null
     ): void {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $relationParameters = $this->relation->getRelationParameters();
+        $navTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->navigationhiding);
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
@@ -188,8 +189,9 @@ class Navigation
         $dbName,
         $tableName = null
     ): void {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $relationParameters = $this->relation->getRelationParameters();
+        $navTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->navigationhiding);
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . " `username`='"
@@ -243,8 +245,9 @@ class Navigation
      */
     private function getHiddenItems(string $database, ?string $table): array
     {
-        $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $relationParameters = $this->relation->getRelationParameters();
+        $navTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->navigationhiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . " WHERE `username`='"
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"

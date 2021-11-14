@@ -66,7 +66,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     {
         $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
 
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
+        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = false;
         unset($_SESSION['userconfig']);
 
         $result = $this->userPreferences->load();
@@ -88,7 +88,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $this->assertEquals('session', $result['type']);
 
         // case 2
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
+        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pma'db";
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
         $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
@@ -139,7 +139,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     {
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['version'] = Version::VERSION;
-        $_SESSION['relation'][2]['userconfigwork'] = null;
+        $_SESSION['relation'][2]['userconfigwork'] = false;
         unset($_SESSION['userconfig']);
 
         $result = $this->userPreferences->save([1]);
@@ -170,7 +170,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $this->assertTrue($assert);
 
         // case 2
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = 1;
+        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
         $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
@@ -296,7 +296,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testPersistOption(): void
     {
         $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
+        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = false;
         $_SESSION['userconfig'] = [];
         $_SESSION['userconfig']['ts'] = '123';
         $_SESSION['userconfig']['db'] = [
@@ -305,7 +305,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         ];
 
         $GLOBALS['server'] = 2;
-        $_SESSION['relation'][2]['userconfigwork'] = null;
+        $_SESSION['relation'][2]['userconfigwork'] = false;
 
         $this->assertTrue(
             $this->userPreferences->persistOption('Server/hide_db', 'val', 'val')

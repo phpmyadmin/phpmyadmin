@@ -106,11 +106,11 @@ class Tracking
      */
     public function getListOfVersionsOfTable(string $db, string $table)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE db_name = \'%s\' AND table_name = \'%s\' ORDER BY version DESC',
-            Util::backquote($cfgRelation['db']),
-            Util::backquote($cfgRelation['tracking']),
+            Util::backquote($relationParameters->db),
+            Util::backquote($relationParameters->tracking),
             $this->dbi->escapeString($db),
             $this->dbi->escapeString($table)
         );
@@ -197,11 +197,11 @@ class Tracking
     public function getSqlResultForSelectableTables(string $db)
     {
         $relation = $this->relation;
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
-            Util::backquote($cfgRelation['db']) . '.' .
-            Util::backquote($cfgRelation['tracking']) .
+            Util::backquote($relationParameters->db) . '.' .
+            Util::backquote($relationParameters->tracking) .
             " WHERE db_name = '" . $this->dbi->escapeString($db) .
             "' " .
             ' ORDER BY db_name, table_name';
@@ -1111,12 +1111,12 @@ class Tracking
         string $textDir
     ) {
         $relation = $this->relation;
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         // Prepare statement to get HEAD version
         $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
-            Util::backquote($cfgRelation['db']) . '.' .
-            Util::backquote($cfgRelation['tracking']) .
+            Util::backquote($relationParameters->db) . '.' .
+            Util::backquote($relationParameters->tracking) .
             ' WHERE db_name = \'' . $this->dbi->escapeString($db) .
             '\' ' .
             ' GROUP BY table_name' .
@@ -1133,8 +1133,8 @@ class Tracking
             while ($oneResult = $this->dbi->fetchArray($allTablesResult)) {
                 [$tableName, $versionNumber] = $oneResult;
                 $tableQuery = ' SELECT * FROM ' .
-                     Util::backquote($cfgRelation['db']) . '.' .
-                     Util::backquote($cfgRelation['tracking']) .
+                     Util::backquote($relationParameters->db) . '.' .
+                     Util::backquote($relationParameters->tracking) .
                      ' WHERE `db_name` = \''
                      . $this->dbi->escapeString($db)
                      . '\' AND `table_name`  = \''

@@ -44,7 +44,7 @@ class DataDictionaryController extends AbstractController
     {
         Util::checkParameters(['db'], true);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $comment = $this->relation->getDbComment($this->db);
 
@@ -60,7 +60,7 @@ class DataDictionaryController extends AbstractController
             );
 
             [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
-                ! empty($cfgRelation['relation']),
+                ! empty($relationParameters->relation),
                 $this->db,
                 $tableName
             );
@@ -83,7 +83,7 @@ class DataDictionaryController extends AbstractController
                 }
 
                 $mime = '';
-                if ($cfgRelation['mimework']) {
+                if ($relationParameters->mimework) {
                     $mimeMap = $this->transformations->getMime($this->db, $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
                         $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
@@ -107,7 +107,7 @@ class DataDictionaryController extends AbstractController
                 'name' => $tableName,
                 'comment' => $showComment,
                 'has_relation' => $hasRelation,
-                'has_mime' => $cfgRelation['mimework'],
+                'has_mime' => $relationParameters->mimework,
                 'columns' => $rows,
                 'indexes' => Index::getFromTable($tableName, $this->db),
             ];

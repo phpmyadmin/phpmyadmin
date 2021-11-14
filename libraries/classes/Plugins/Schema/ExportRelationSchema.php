@@ -259,12 +259,14 @@ class ExportRelationSchema
     {
         global $dbi;
 
+        $relationParameters = $this->relation->getRelationParameters();
+
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && ! $this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
-                . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                . Util::backquote($relationParameters->db) . '.'
+                . Util::backquote($relationParameters->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
             $_name_rs = $this->relation->queryAsControlUser($_name_sql);
             $_name_row = $dbi->fetchRow($_name_rs);

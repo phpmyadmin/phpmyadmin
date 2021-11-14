@@ -60,7 +60,7 @@ class WrapperController extends AbstractController
 
         define('IS_TRANSFORMATION_WRAPPER', true);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         DbTableExists::check();
 
@@ -128,7 +128,7 @@ class WrapperController extends AbstractController
 
         $default_ct = 'application/octet-stream';
 
-        if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
+        if ($relationParameters->commwork && $relationParameters->mimework) {
             $mime_map = $this->transformations->getMime($db, $table);
 
             if ($mime_map === null) {

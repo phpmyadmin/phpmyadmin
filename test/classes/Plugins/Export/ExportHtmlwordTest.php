@@ -437,7 +437,6 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with($columns, ['name1'])
             ->will($this->returnValue(1));
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => true,
@@ -521,7 +520,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => true,
@@ -578,7 +576,6 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'relwork' => false,

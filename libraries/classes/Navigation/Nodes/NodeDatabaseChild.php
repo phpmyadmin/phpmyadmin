@@ -34,8 +34,8 @@ abstract class NodeDatabaseChild extends Node
     public function getHtmlForControlButtons(): string
     {
         $ret = '';
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navwork) {
             $db = $this->realParent()->realName;
             $item = $this->realName;
 

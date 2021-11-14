@@ -143,7 +143,8 @@ class ExportSql extends ExportPlugin
             )
         );
         $subgroup->addProperty($leaf);
-        if (! empty($GLOBALS['cfgRelation']['relation'])) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! empty($relationParameters->relation)) {
             $leaf = new BoolPropertyItem(
                 'relation',
                 __('Display foreign key relationships')
@@ -151,7 +152,7 @@ class ExportSql extends ExportPlugin
             $subgroup->addProperty($leaf);
         }
 
-        if (! empty($GLOBALS['cfgRelation']['mimework'])) {
+        if (! empty($relationParameters->mimework)) {
             $leaf = new BoolPropertyItem(
                 'mime',
                 __('Display media types')
@@ -1037,8 +1038,8 @@ class ExportSql extends ExportPlugin
         $tables,
         array $metadataTypes
     ): bool {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! isset($cfgRelation['db'])) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! isset($relationParameters->db)) {
             return true;
         }
 
@@ -1051,7 +1052,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        if (! $this->exportUseStatement($cfgRelation['db'], $GLOBALS['sql_compatibility'])) {
+        if (! $this->exportUseStatement($relationParameters->db, $GLOBALS['sql_compatibility'])) {
             return false;
         }
 
@@ -1086,7 +1087,8 @@ class ExportSql extends ExportPlugin
     ): bool {
         global $dbi;
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
+        $relationParams = $relationParameters->toArray();
 
         if (isset($table)) {
             $types = [
@@ -1132,15 +1134,15 @@ class ExportSql extends ExportPlugin
         }
 
         foreach ($types as $type => $dbNameColumn) {
-            if (! in_array($type, $metadataTypes) || ! isset($cfgRelation[$type])) {
+            if (! in_array($type, $metadataTypes) || ! isset($relationParams[$type])) {
                 continue;
             }
 
             // special case, designer pages and their coordinates
             if ($type === 'pdf_pages') {
                 $sqlQuery = 'SELECT `page_nr`, `page_descr` FROM '
-                    . Util::backquote($cfgRelation['db'])
-                    . '.' . Util::backquote($cfgRelation[$type])
+                    . Util::backquote($relationParameters->db)
+                    . '.' . Util::backquote((string) $relationParams[$type])
                     . ' WHERE ' . Util::backquote($dbNameColumn)
                     . " = '" . $dbi->escapeString($db) . "'";
 
@@ -1149,16 +1151,16 @@ class ExportSql extends ExportPlugin
                 foreach ($result as $page => $name) {
                     // insert row for pdf_page
                     $sqlQueryRow = 'SELECT `db_name`, `page_descr` FROM '
-                        . Util::backquote($cfgRelation['db'])
-                        . '.' . Util::backquote($cfgRelation[$type])
+                        . Util::backquote($relationParameters->db)
+                        . '.' . Util::backquote((string) $relationParams[$type])
                         . ' WHERE ' . Util::backquote($dbNameColumn)
                         . " = '" . $dbi->escapeString($db) . "'"
                         . " AND `page_nr` = '" . intval($page) . "'";
 
                     if (
                         ! $this->exportData(
-                            $cfgRelation['db'],
-                            $cfgRelation[$type],
+                            (string) $relationParameters->db,
+                            (string) $relationParams[$type],
                             $GLOBALS['crlf'],
                             '',
                             $sqlQueryRow,
@@ -1177,15 +1179,15 @@ class ExportSql extends ExportPlugin
 
                     $sqlQueryCoords = 'SELECT `db_name`, `table_name`, '
                         . "'@LAST_PAGE' AS `pdf_page_number`, `x`, `y` FROM "
-                        . Util::backquote($cfgRelation['db'])
-                        . '.' . Util::backquote($cfgRelation['table_coords'])
+                        . Util::backquote($relationParameters->db)
+                        . '.' . Util::backquote($relationParameters->tableCoords)
                         . " WHERE `pdf_page_number` = '" . $page . "'";
 
                     $GLOBALS['exporting_metadata'] = true;
                     if (
                         ! $this->exportData(
-                            $cfgRelation['db'],
-                            $cfgRelation['table_coords'],
+                            (string) $relationParameters->db,
+                            (string) $relationParameters->tableCoords,
                             $GLOBALS['crlf'],
                             '',
                             $sqlQueryCoords,
@@ -1217,8 +1219,8 @@ class ExportSql extends ExportPlugin
                 $sqlQuery = 'SELECT * FROM ';
             }
 
-            $sqlQuery .= Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation[$type])
+            $sqlQuery .= Util::backquote($relationParameters->db)
+                . '.' . Util::backquote((string) $relationParams[$type])
                 . ' WHERE ' . Util::backquote($dbNameColumn)
                 . " = '" . $dbi->escapeString($db) . "'";
             if (isset($table)) {
@@ -1228,8 +1230,8 @@ class ExportSql extends ExportPlugin
 
             if (
                 ! $this->exportData(
-                    $cfgRelation['db'],
-                    $cfgRelation[$type],
+                    (string) $relationParameters->db,
+                    (string) $relationParams[$type],
                     $GLOBALS['crlf'],
                     '',
                     $sqlQuery,
@@ -1888,22 +1890,24 @@ class ExportSql extends ExportPlugin
         $doMime = false,
         array $aliases = []
     ) {
-        global $cfgRelation, $sql_backquotes;
+        global $sql_backquotes;
 
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
+        $relationParameters = $this->relation->getRelationParameters();
+
         $schemaCreate = '';
 
         // Check if we can use Relations
         [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
-            $doRelation && ! empty($cfgRelation['relation']),
+            $doRelation && ! empty($relationParameters->relation),
             $db,
             $table
         );
 
-        if ($doMime && $cfgRelation['mimework']) {
+        if ($doMime && $relationParameters->mimework) {
             $mimeMap = $this->transformations->getMime($db, $table, true);
             if ($mimeMap === null) {
                 unset($mimeMap);

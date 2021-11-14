@@ -114,7 +114,7 @@ final class ColumnsDefinition
         $is_backup = ($action != Url::getFromRoute('/table/create')
             && $action != Url::getFromRoute('/table/add-field'));
 
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
 
         $comments_map = $relation->getComments($db, $table);
 
@@ -124,7 +124,7 @@ final class ColumnsDefinition
         }
 
         $available_mime = [];
-        if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
+        if ($relationParameters->mimework && $cfg['BrowseMIME']) {
             $mime_map = $transformations->getMime($db, $table);
             $available_mime = $transformations->getAvailableMimeTypes();
         }
@@ -472,7 +472,7 @@ final class ColumnsDefinition
                 'fields_meta' => $fields_meta ?? null,
                 'is_backup' => $is_backup,
                 'move_columns' => $move_columns,
-                'cfg_relation' => $cfgRelation,
+                'cfg_relation' => $relationParameters->toArray(),
                 'available_mime' => $available_mime,
                 'mime_map' => $mime_map ?? [],
             ];
@@ -507,7 +507,7 @@ final class ColumnsDefinition
         return [
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta ?? null,
-            'mimework' => $cfgRelation['mimework'],
+            'mimework' => $relationParameters->mimework,
             'action' => $action,
             'form_params' => $form_params,
             'content_cells' => $content_cells,

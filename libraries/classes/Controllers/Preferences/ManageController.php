@@ -166,12 +166,12 @@ class ManageController extends AbstractController
 
                 if (! $all_ok) {
                     // mimic original form and post json in a hidden field
-                    $cfgRelation = $this->relation->getRelationsParam();
+                    $relationParameters = $this->relation->getRelationParameters();
 
                     echo $this->template->render('preferences/header', [
                         'route' => $route,
                         'is_saved' => ! empty($_GET['saved']),
-                        'has_config_storage' => $cfgRelation['userconfigwork'],
+                        'has_config_storage' => $relationParameters->userconfigwork,
                     ]);
 
                     echo $this->template->render('preferences/manage/error', [
@@ -247,12 +247,12 @@ class ManageController extends AbstractController
 
         $this->addScriptFiles(['config.js']);
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         echo $this->template->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $cfgRelation['userconfigwork'],
+            'has_config_storage' => $relationParameters->userconfigwork,
         ]);
 
         if ($error) {

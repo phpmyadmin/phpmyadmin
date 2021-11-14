@@ -74,15 +74,14 @@ class Tracker
         }
 
         /**
-         * We need to avoid attempt to track any queries
-         * from Relation::getRelationsParam
+         * We need to avoid attempt to track any queries from {@link Relation::getRelationParameters()}
          */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $cfgRelation['trackingwork']) {
+        if (! $relationParameters->trackingwork) {
             return false;
         }
 
@@ -140,15 +139,14 @@ class Tracker
         }
 
         /**
-         * We need to avoid attempt to track any queries
-         * from Relation::getRelationsParam
+         * We need to avoid attempt to track any queries from {@link Relation::getRelationParameters()}
          */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $cfgRelation['trackingwork']) {
+        if (! $relationParameters->trackingwork) {
             return false;
         }
 
@@ -950,9 +948,9 @@ class Tracker
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $relationParameters = $relation->getRelationParameters();
 
-        return Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['tracking']);
+        return Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->tracking);
     }
 }

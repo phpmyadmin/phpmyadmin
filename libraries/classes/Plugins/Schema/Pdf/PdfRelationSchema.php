@@ -571,9 +571,9 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetFont($this->ff, '', 8);
             $this->diagram->Ln();
 
-            $cfgRelation = $this->relation->getRelationsParam();
+            $relationParameters = $this->relation->getRelationParameters();
             $comments = $this->relation->getComments($this->db, $table);
-            if ($cfgRelation['mimework']) {
+            if ($relationParameters->mimework) {
                 $mime_map = $this->transformations->getMime($this->db, $table, true);
             }
 

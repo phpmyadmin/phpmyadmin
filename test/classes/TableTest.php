@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Cache;
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use stdClass;
@@ -36,9 +36,6 @@ class TableTest extends AbstractTestCase
         $GLOBALS['sql_if_not_exists'] = true;
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
-
-        $relation = new Relation($GLOBALS['dbi']);
-        $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['dblist'] = new stdClass();
         $GLOBALS['dblist']->databases = new class
         {
@@ -887,8 +884,6 @@ class TableTest extends AbstractTestCase
      */
     public function testDuplicateInfo(): void
     {
-        $work = 'PMA_work';
-        $pma_table = 'pma_table';
         $get_fields = [
             'filed0',
             'field6',
@@ -901,11 +896,15 @@ class TableTest extends AbstractTestCase
             'field3',
             'filed4',
         ];
-        $GLOBALS['cfgRelation'][$work] = true;
-        $GLOBALS['cfgRelation']['db'] = 'PMA_db';
-        $GLOBALS['cfgRelation'][$pma_table] = 'pma_table';
 
-        $ret = Table::duplicateInfo($work, $pma_table, $get_fields, $where_fields, $new_fields);
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'PMA_db',
+            'relwork' => true,
+            'relation' => 'relation',
+        ]);
+        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
+
+        $ret = Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
         $this->assertSame(-1, $ret);
     }
 

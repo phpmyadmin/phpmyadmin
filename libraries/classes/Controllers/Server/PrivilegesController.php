@@ -64,7 +64,7 @@ class PrivilegesController extends AbstractController
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
@@ -97,7 +97,7 @@ class PrivilegesController extends AbstractController
         if (
             (isset($_GET['viewing_mode'])
                 && $_GET['viewing_mode'] === 'server')
-            && $GLOBALS['cfgRelation']['menuswork']
+            && $relationParameters->menuswork
         ) {
             $this->response->addHTML('<div class="container-fluid">');
             $this->render('server/privileges/subnav', [
@@ -204,7 +204,7 @@ class PrivilegesController extends AbstractController
             $username ?? null,
             $hostname ?? null,
             $password ?? null,
-            (bool) $cfgRelation['menuswork']
+            $relationParameters->menuswork
         );
         //update the old variables
         if (isset($ret_queries)) {
@@ -260,7 +260,7 @@ class PrivilegesController extends AbstractController
          * Assign users to user groups
          */
         if (
-            ! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
+            ! empty($_POST['changeUserGroup']) && $relationParameters->menuswork
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
             $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
@@ -462,7 +462,7 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if ((! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server') || ! $cfgRelation['menuswork']) {
+        if (! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server' || ! $relationParameters->menuswork) {
             return;
         }
 

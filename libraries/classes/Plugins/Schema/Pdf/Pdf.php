@@ -275,9 +275,10 @@ class Pdf extends PdfLib
         if ($this->offline || $this->pageNumber == -1) {
             $pg_name = __('PDF export page');
         } else {
+            $relationParameters = $this->relation->getRelationParameters();
             $test_query = 'SELECT * FROM '
-                . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                . Util::backquote($relationParameters->db) . '.'
+                . Util::backquote($relationParameters->pdfPages)
                 . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $this->relation->queryAsControlUser($test_query);

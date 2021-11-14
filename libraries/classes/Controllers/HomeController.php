@@ -193,8 +193,8 @@ class HomeController extends AbstractController
 
         $relation = new Relation($this->dbi);
         if ($server > 0) {
-            $cfgRelation = $relation->getRelationsParam();
-            if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+            $relationParameters = $relation->getRelationParameters();
+            if (! $relationParameters->allworks && $cfg['PmaNoRelation_DisableWarning'] == false) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '

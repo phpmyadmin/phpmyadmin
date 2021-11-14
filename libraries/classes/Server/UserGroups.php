@@ -41,9 +41,9 @@ class UserGroups
         $relation = new Relation($dbi);
 
         $userGroupSpecialChars = htmlspecialchars($userGroup);
-        $cfgRelation = $relation->getRelationsParam();
-        $usersTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['users']);
+        $relationParameters = $relation->getRelationParameters();
+        $usersTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->users);
         $sql_query = 'SELECT `username` FROM ' . $usersTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
@@ -82,9 +82,9 @@ class UserGroups
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
-        $groupTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['usergroups']);
+        $relationParameters = $relation->getRelationParameters();
+        $groupTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->usergroups);
         $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
         $result = $relation->queryAsControlUser($sql_query, false);
         $numRows = $dbi->numRows($result);
@@ -181,11 +181,11 @@ class UserGroups
         global $dbi;
 
         $relation = new Relation($dbi);
-        $cfgRelation = $relation->getRelationsParam();
-        $userTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['users']);
-        $groupTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['usergroups']);
+        $relationParameters = $relation->getRelationParameters();
+        $userTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->users);
+        $groupTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->usergroups);
         $sql_query = 'DELETE FROM ' . $userTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
@@ -228,9 +228,9 @@ class UserGroups
             'table' => [],
         ];
         if ($userGroup !== null) {
-            $cfgRelation = $relation->getRelationsParam();
-            $groupTable = Util::backquote($cfgRelation['db'])
-                . '.' . Util::backquote($cfgRelation['usergroups']);
+            $relationParameters = $relation->getRelationParameters();
+            $groupTable = Util::backquote($relationParameters->db)
+                . '.' . Util::backquote($relationParameters->usergroups);
             $sql_query = 'SELECT * FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "'";
@@ -322,9 +322,9 @@ class UserGroups
 
         $relation = new Relation($dbi);
         $tabs = Util::getMenuTabList();
-        $cfgRelation = $relation->getRelationsParam();
-        $groupTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['usergroups']);
+        $relationParameters = $relation->getRelationParameters();
+        $groupTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->usergroups);
 
         if (! $new) {
             $sql_query = 'DELETE FROM ' . $groupTable

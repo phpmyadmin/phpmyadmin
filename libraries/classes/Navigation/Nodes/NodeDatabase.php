@@ -364,8 +364,8 @@ class NodeDatabase extends Node
         }
 
         // Remove hidden items so that they are not displayed in navigation tree
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navwork) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
                 if (! in_array($item, $hiddenItems)) {
@@ -392,15 +392,15 @@ class NodeDatabase extends Node
         global $dbi;
 
         $db = $this->realName;
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->navwork || $relationParameters->user === null) {
             return [];
         }
 
-        $navTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['navigationhiding']);
+        $navTable = Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->navigationhiding);
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
-            . " WHERE `username`='" . $cfgRelation['user'] . "'"
+            . " WHERE `username`='" . $relationParameters->user . "'"
             . " AND `item_type`='" . $type
             . "' AND `db_name`='" . $dbi->escapeString($db)
             . "'";
@@ -661,8 +661,8 @@ class NodeDatabase extends Node
     public function getHtmlForControlButtons(): string
     {
         $ret = '';
-        $cfgRelation = $this->relation->getRelationsParam();
-        if ($cfgRelation['navwork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if ($relationParameters->navwork) {
             if ($this->hiddenCount > 0) {
                 $params = [
                     'showUnhideDialog' => true,

@@ -46,13 +46,13 @@ class SystemDatabaseTest extends AbstractTestCase
         $_SESSION['relation'][$GLOBALS['server']] = [
             'version' => Version::VERSION,
             'table_coords' => 'table_name',
-            'displaywork' => 'displaywork',
+            'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
-            'relwork' => 'relwork',
-            'commwork' => 'commwork',
-            'pdfwork' => 'pdfwork',
-            'mimework' => 'mimework',
+            'relwork' => true,
+            'commwork' => true,
+            'pdfwork' => true,
+            'mimework' => true,
             'column_info' => 'column_info',
             'relation' => 'relation',
         ];

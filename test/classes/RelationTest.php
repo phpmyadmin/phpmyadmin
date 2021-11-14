@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 
 use function __;
 use function implode;
@@ -74,21 +75,18 @@ class RelationTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getRelationsParam & getRelationsParamDiagnostic
-     */
-    public function testPMAGetRelationsParam(): void
+    public function testGetRelationParameters(): void
     {
         $this->dummyDbi->addSelectDb('phpmyadmin');
-        $relationsPara = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
         $this->assertAllSelectsConsumed();
 
-        $this->assertFalse($relationsPara['relwork']);
-        $this->assertFalse($relationsPara['bookmarkwork']);
-        $this->assertEquals('root', $relationsPara['user']);
-        $this->assertEquals('phpmyadmin', $relationsPara['db']);
+        $this->assertFalse($relationParameters->relwork);
+        $this->assertFalse($relationParameters->bookmarkwork);
+        $this->assertEquals('root', $relationParameters->user);
+        $this->assertEquals('phpmyadmin', $relationParameters->db);
 
-        $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
+        $retval = $this->relation->getRelationsParamDiagnostic($relationParameters);
         //check $cfg['Servers'][$i]['pmadb']
         $this->assertStringContainsString("\$cfg['Servers'][\$i]['pmadb']", $retval);
         $this->assertStringContainsString('<strong>OK</strong>', $retval);
@@ -113,8 +111,10 @@ class RelationTest extends AbstractTestCase
         $result = 'Display Features: <span class="text-danger">Disabled</span>';
         $this->assertStringContainsString($result, $retval);
 
-        $relationsPara['db'] = false;
-        $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
+        $params = $relationParameters->toArray();
+        $params['db'] = null;
+        $relationParameters = RelationParameters::fromArray($params);
+        $retval = $this->relation->getRelationsParamDiagnostic($relationParameters);
 
         $result = __('General relation features');
         $this->assertStringContainsString($result, $retval);

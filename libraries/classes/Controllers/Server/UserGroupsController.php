@@ -38,8 +38,8 @@ class UserGroupsController extends AbstractController
 
     public function __invoke(): void
     {
-        $cfgRelation = $this->relation->getRelationsParam();
-        if (! $cfgRelation['menuswork']) {
+        $relationParameters = $this->relation->getRelationParameters();
+        if (! $relationParameters->menuswork) {
             return;
         }
 

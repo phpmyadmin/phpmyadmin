@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
@@ -31,19 +32,21 @@ class NavigationTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
-        $GLOBALS['cfgRelation']['db'] = 'pmadb';
-        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navigationhiding' => 'navigationhiding',
+        ]);
+        $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $this->object = new Navigation(
             new Template(),
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
-        $GLOBALS['cfgRelation']['db'] = 'pmadb';
-        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
     }
 
     /**

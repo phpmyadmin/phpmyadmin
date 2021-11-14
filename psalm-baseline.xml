@@ -2733,18 +2733,11 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Server/UserGroupsFormController.php">
-    <MixedArgument occurrences="7">
-      <code>$cfgRelation['db']</code>
-      <code>$cfgRelation['db']</code>
-      <code>$cfgRelation['usergroups']</code>
-      <code>$cfgRelation['users']</code>
+    <MixedArgument occurrences="3">
       <code>$result</code>
       <code>$result</code>
       <code>$username</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$cfgRelation</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="1">
       <code>$allUserGroups[$row[0]]</code>
     </MixedArrayOffset>
@@ -4883,12 +4876,8 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
-    <MixedArgument occurrences="29">
+    <MixedArgument occurrences="25">
       <code>$DB</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['relation']</code>
-      <code>$GLOBALS['cfgRelation']['relation']</code>
       <code>$TAB</code>
       <code>$_POST['t_x'][$key]</code>
       <code>$_POST['t_y'][$key]</code>
@@ -5146,10 +5135,9 @@
       <code>$table</code>
       <code>$table</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="21">
+    <MixedArrayAccess occurrences="20">
       <code>$_POST['Or' . $rowIndex][$columnIndex]</code>
       <code>$_POST['criteriaColumn'][$columnIndex]</code>
-      <code>$cfgRelation['savedsearcheswork']</code>
       <code>$eachColumn['Field']</code>
       <code>$foreigner['foreign_field']</code>
       <code>$foreigner['foreign_table']</code>
@@ -6738,9 +6726,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/ErrorReport.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$relParams['db'] === null</code>
-    </DocblockTypeContradiction>
     <MixedArgument occurrences="6">
       <code>$_POST['url']</code>
       <code>$exception['stack']</code>
@@ -6778,9 +6763,6 @@
       <code>$report['script_name']</code>
       <code>$report['steps']</code>
     </MixedAssignment>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>'enabled'</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Export.php">
     <DocblockTypeContradiction occurrences="2">
@@ -8894,13 +8876,7 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Navigation/Navigation.php">
-    <MixedArgument occurrences="8">
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
-      <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
-      <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
+    <MixedArgument occurrences="2">
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
@@ -9857,6 +9833,9 @@
     </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins.php">
+    <InvalidArgument occurrences="1">
+      <code>$GLOBALS[$match]</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$GLOBALS[$name] ?? $name ?? ''</code>
     </InvalidReturnStatement>
@@ -9879,9 +9858,6 @@
       <code>$val</code>
       <code>$val</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$GLOBALS[$match]</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="4">
       <code>$doc[0]</code>
       <code>$doc[1]</code>
@@ -10204,10 +10180,7 @@
       <code>$trigger['event_manipulation']</code>
       <code>$trigger['name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="15">
-      <code>$cfgRelation['commwork']</code>
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
+    <MixedArrayAccess occurrences="12">
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$comments[$field_name]</code>
@@ -10305,11 +10278,7 @@
       <code>$result</code>
       <code>$row['Type']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="15">
-      <code>$cfgRelation['commwork']</code>
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
+    <MixedArrayAccess occurrences="11">
       <code>$key['Column_name']</code>
       <code>$key['Non_unique']</code>
       <code>$mime_map[$field_name]['mimetype']</code>
@@ -10474,10 +10443,7 @@
       <code>$trigger['event_manipulation']</code>
       <code>$trigger['name']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="12">
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
+    <MixedArrayAccess occurrences="9">
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$mime_map[$field_name]['mimetype']</code>
@@ -10664,9 +10630,8 @@
       <code>$values</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="26">
+    <MixedArrayAccess occurrences="25">
       <code>$aliases[$oldDatabase]['tables']</code>
-      <code>$cfgRelation['mimework']</code>
       <code>$columnAliases[$column['name']]</code>
       <code>$column['Collation']</code>
       <code>$column['Comment']</code>
@@ -10859,10 +10824,7 @@
       <code>$type</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="16">
-      <code>$cfgRelation['commwork']</code>
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
+    <MixedArrayAccess occurrences="13">
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
@@ -11128,9 +11090,7 @@
       <code>$txt</code>
       <code>$y</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="20">
-      <code>$cfgRelation['mimework']</code>
-      <code>$cfgRelation['mimework']</code>
+    <MixedArrayAccess occurrences="18">
       <code>$column['Default']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
@@ -12012,9 +11972,7 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Schema/ExportRelationSchema.php">
-    <MixedArgument occurrences="4">
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['pdf_pages']</code>
+    <MixedArgument occurrences="2">
       <code>$_name_rs</code>
       <code>$table</code>
     </MixedArgument>
@@ -12029,9 +11987,7 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/Pdf.php">
-    <MixedArgument occurrences="15">
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['pdf_pages']</code>
+    <MixedArgument occurrences="13">
       <code>$data[$i]</code>
       <code>$data[$i]</code>
       <code>$h</code>
@@ -13048,34 +13004,11 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Relation.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>! $cfgRelation['historywork']</code>
-      <code>$cfgRelation['historywork']</code>
-    </DocblockTypeContradiction>
-    <InvalidReturnStatement occurrences="2">
-      <code>$cfgRelation</code>
-      <code>$cfgRelation</code>
-    </InvalidReturnStatement>
-    <MixedArgument occurrences="50">
-      <code>$GLOBALS['cfgRelation'][$table]</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['navigationhiding']</code>
-      <code>$GLOBALS['cfgRelation']['table_coords']</code>
+    <MixedArgument occurrences="35">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
-      <code>$cfgRelation[$setingName]</code>
-      <code>$cfgRelation['column_info']</code>
-      <code>$cfgRelation['db']</code>
-      <code>$cfgRelation['pdf_pages']</code>
-      <code>$cfgRelation['pdf_pages']</code>
-      <code>$cfgRelation['table_coords']</code>
-      <code>$cfgRelation['table_info']</code>
-      <code>$cfgRelation['usergroups']</code>
-      <code>$cfgRelation['users']</code>
       <code>$child_references</code>
       <code>$child_references</code>
       <code>$column['DATA_TYPE']</code>
@@ -13114,8 +13047,7 @@
       <code>uksort($foreign, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="18">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    <MixedArrayAccess occurrences="17">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$column['COLUMN_NAME']</code>
@@ -13150,27 +13082,7 @@
       <code>$foreign[$key]</code>
       <code>$one_key['ref_index_list'][$column_index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="66">
-      <code>$GLOBALS['cfgRelation']</code>
-      <code>$cfgRelation['bookmark']</code>
-      <code>$cfgRelation['central_columns']</code>
-      <code>$cfgRelation['column_info']</code>
-      <code>$cfgRelation['designer_settings']</code>
-      <code>$cfgRelation['export_templates']</code>
-      <code>$cfgRelation['favorite']</code>
-      <code>$cfgRelation['history']</code>
-      <code>$cfgRelation['navigationhiding']</code>
-      <code>$cfgRelation['pdf_pages']</code>
-      <code>$cfgRelation['recent']</code>
-      <code>$cfgRelation['relation']</code>
-      <code>$cfgRelation['savedsearches']</code>
-      <code>$cfgRelation['table_coords']</code>
-      <code>$cfgRelation['table_info']</code>
-      <code>$cfgRelation['table_uiprefs']</code>
-      <code>$cfgRelation['tracking']</code>
-      <code>$cfgRelation['userconfig']</code>
-      <code>$cfgRelation['usergroups']</code>
-      <code>$cfgRelation['users']</code>
+    <MixedAssignment occurrences="46">
       <code>$child_references</code>
       <code>$column</code>
       <code>$column</code>
@@ -13218,10 +13130,9 @@
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="4">
+    <MixedInferredReturnType occurrences="3">
       <code>array|false</code>
       <code>string</code>
-      <code>string[]</code>
       <code>string|false</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="4">
@@ -13230,17 +13141,12 @@
       <code>$messages['enabled']</code>
       <code>$messages['ok']</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="5">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    <MixedReturnStatement occurrences="4">
       <code>$column['COLUMN_NAME']</code>
       <code>$comment</code>
       <code>$foreigners[$column]</code>
       <code>$row['display_field']</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$cfgRelation</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="1">
       <code>$comment</code>
     </NullableReturnStatement>
@@ -13488,31 +13394,13 @@
     </RedundantCondition>
   </file>
   <file src="libraries/classes/SavedSearches.php">
-    <MixedArgument occurrences="13">
+    <MixedArgument occurrences="5">
       <code>$criterias['criteriaColumn']</code>
       <code>$oneResult['search_data']</code>
       <code>$oneResult['search_name']</code>
       <code>$resList</code>
       <code>$resList</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="8">
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['db']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-      <code>$this-&gt;config['cfgRelation']['savedsearches']</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="1">
       <code>$list[$oneResult['id']]</code>
     </MixedArrayOffset>
@@ -13543,8 +13431,7 @@
       <code>$this-&gt;getId()</code>
       <code>$this-&gt;getId()</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="5">
-      <code>null</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
       <code>null</code>
       <code>null</code>
       <code>null</code>
@@ -14785,30 +14672,12 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="85">
-      <code>$GLOBALS['cfgRelation'][$table]</code>
-      <code>$GLOBALS['cfgRelation'][$table]</code>
-      <code>$GLOBALS['cfgRelation']['column_info']</code>
-      <code>$GLOBALS['cfgRelation']['column_info']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
-      <code>$GLOBALS['cfgRelation']['db']</code>
+    <MixedArgument occurrences="67">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
       <code>$cachedResult</code>
       <code>$cachedResult</code>
-      <code>$cfgRelation['relation']</code>
-      <code>$cfgRelation['relation']</code>
-      <code>$cfgRelation['relation']</code>
-      <code>$cfgRelation['table_info']</code>
-      <code>$cfgRelation['table_info']</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column['Extra']</code>
@@ -17804,9 +17673,7 @@
     </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/RelationTest.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>assertFalse</code>
-      <code>assertFalse</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="8">

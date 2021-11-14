@@ -102,13 +102,13 @@ class CentralColumns
             return $cfgCentralColumns;
         }
 
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
-        if ($cfgRelation['centralcolumnswork']) {
+        if ($relationParameters->centralcolumnswork) {
             $cfgCentralColumns = [
                 'user' => $this->user,
-                'db' => $cfgRelation['db'],
-                'table' => $cfgRelation['central_columns'],
+                'db' => $relationParameters->db,
+                'table' => $relationParameters->centralColumns,
             ];
         } else {
             $cfgCentralColumns = false;

@@ -38,9 +38,9 @@ class SystemDatabase
      */
     public function getExistingTransformationData($db)
     {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $cfgRelation['mimework']) {
+        if (! $relationParameters->mimework) {
             return false;
         }
 
@@ -48,8 +48,8 @@ class SystemDatabase
         // from pma__column_info table
         $transformationSql = sprintf(
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
-            Util::backquote($cfgRelation['db']),
-            Util::backquote($cfgRelation['column_info']),
+            Util::backquote($relationParameters->db),
+            Util::backquote($relationParameters->columnInfo),
             $this->dbi->escapeString($db)
         );
 
@@ -72,7 +72,7 @@ class SystemDatabase
         $viewName,
         $db
     ) {
-        $cfgRelation = $this->relation->getRelationsParam();
+        $relationParameters = $this->relation->getRelationParameters();
 
         // Need to store new transformation details for VIEW
         $newTransformationsSql = sprintf(
@@ -80,8 +80,8 @@ class SystemDatabase
             . '`db_name`, `table_name`, `column_name`, '
             . '`comment`, `mimetype`, `transformation`, '
             . '`transformation_options`) VALUES',
-            Util::backquote($cfgRelation['db']),
-            Util::backquote($cfgRelation['column_info'])
+            Util::backquote($relationParameters->db),
+            Util::backquote($relationParameters->columnInfo)
         );
 
         $columnCount = 0;
