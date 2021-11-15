@@ -238,6 +238,7 @@ class ImportXml extends ImportPlugin
              * Process all database content
              */
             foreach ($xml as $v1) {
+                /** @psalm-suppress PossiblyNullReference */
                 $tbl_attr = $v1->attributes();
 
                 $isInTables = false;
@@ -254,6 +255,7 @@ class ImportXml extends ImportPlugin
                 }
 
                 foreach ($v1 as $v2) {
+                    /** @psalm-suppress PossiblyNullReference */
                     $row_attr = $v2->attributes();
                     if (! in_array((string) $row_attr['name'], $tempRow)) {
                         $tempRow[] = (string) $row_attr['name'];
