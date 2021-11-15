@@ -2628,11 +2628,12 @@ class Table implements Stringable
         }
 
         $parser = new Parser($createTable);
-        /**
-         * @var CreateStatement $stmt
-        */
         $stmt = $parser->statements[0];
-        $fields = TableUtils::getFields($stmt);
+        $fields = [];
+        if ($stmt instanceof CreateStatement) {
+            $fields = TableUtils::getFields($stmt);
+        }
+
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';
