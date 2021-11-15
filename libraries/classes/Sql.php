@@ -644,13 +644,15 @@ class Sql
      */
     private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
     {
-        if (! $isAffected) {
-            $numRows = $result ? @$this->dbi->numRows($result) : 0;
-        } else {
-            $numRows = @$this->dbi->affectedRows();
+        if ($isAffected) {
+            return @$this->dbi->affectedRows();
         }
 
-        return $numRows;
+        if (isset($result)) {
+            return @$this->dbi->numRows($result);
+        }
+
+        return 0;
     }
 
     /**
@@ -1410,7 +1412,7 @@ class Sql
         }
 
         // Gets the list of fields properties
-        if (isset($result) && is_object($result)) {
+        if (isset($result) && ! is_bool($result)) {
             $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
         } else {
             $fieldsMeta = [];
