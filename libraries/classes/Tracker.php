@@ -185,8 +185,6 @@ class Tracker
      * @param string $trackingSet set of tracking statements
      * @param bool   $isView      if table is a view
      *
-     * @return int result of version insertion
-     *
      * @static
      */
     public static function createVersion(
@@ -195,7 +193,7 @@ class Tracker
         $version,
         $trackingSet = '',
         bool $isView = false
-    ) {
+    ): bool {
         global $sql_backquotes, $export_type, $dbi;
 
         $relation = new Relation($dbi);
@@ -204,15 +202,13 @@ class Tracker
             $trackingSet = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
-        /**
-         * get Export SQL instance
-         *
-         * @var ExportSql $exportSqlPlugin
-         */
         $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
             'export_type' => (string) $export_type,
             'single_table' => false,
         ]);
+        if (! $exportSqlPlugin instanceof ExportSql) {
+            return false;
+        }
 
         $sql_backquotes = true;
 
@@ -280,7 +276,7 @@ class Tracker
         '" . $dbi->escapeString($trackingSet)
         . "' )";
 
-        $result = $relation->queryAsControlUser($sqlQuery);
+        $result = (bool) $relation->queryAsControlUser($sqlQuery);
 
         if ($result) {
             // Deactivate previous version

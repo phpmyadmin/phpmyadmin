@@ -285,10 +285,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertEquals(
-            'executed',
-            Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
-        );
+        $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
     }
 
     /**

@@ -1247,17 +1247,14 @@ class Table implements Stringable
             // -----------------------------------------------------------------
             // Phase 5: Adding AUTO_INCREMENT.
 
-            if (! empty($GLOBALS['sql_auto_increments'])) {
-                if ($mode === 'one_table' || $mode === 'db_copy') {
-                    $parser = new Parser($GLOBALS['sql_auto_increments']);
+            if (! empty($GLOBALS['sql_auto_increments']) && ($mode === 'one_table' || $mode === 'db_copy')) {
+                $parser = new Parser($GLOBALS['sql_auto_increments']);
 
-                    /**
-                     * The ALTER statement that alters the AUTO_INCREMENT value.
-                     *
-                     * @var AlterStatement $statement
-                     */
-                    $statement = $parser->statements[0];
-
+                /**
+                 * The ALTER statement that alters the AUTO_INCREMENT value.
+                 */
+                $statement = $parser->statements[0];
+                if ($statement instanceof AlterStatement) {
                     // Changing the altered table to the destination.
                     $statement->table = $destination;
 
@@ -1267,8 +1264,9 @@ class Table implements Stringable
                     // Executing it.
                     $dbi->query($GLOBALS['sql_auto_increments']);
                     $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
-                    unset($GLOBALS['sql_auto_increments']);
                 }
+
+                unset($GLOBALS['sql_auto_increments']);
             }
         } else {
             $GLOBALS['sql_query'] = '';

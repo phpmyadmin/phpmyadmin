@@ -8,7 +8,6 @@ use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -224,8 +223,11 @@ abstract class AbstractTestCase extends TestCase
 
         $lang = $code;
         /* Ensure default language is active */
-        /** @var Language $languageEn */
         $languageEn = LanguageManager::getInstance()->getLanguage($code);
+        if ($languageEn === false) {
+            return;
+        }
+
         $languageEn->activate();
         Translator::load();
     }

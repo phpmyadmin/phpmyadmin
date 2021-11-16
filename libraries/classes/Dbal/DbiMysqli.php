@@ -13,17 +13,18 @@ use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Query\Utilities;
-use stdClass;
 
 use function __;
 use function defined;
 use function is_array;
 use function is_bool;
+use function is_object;
 use function mysqli_connect_errno;
 use function mysqli_connect_error;
 use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
+use function property_exists;
 use function stripos;
 use function trigger_error;
 
@@ -453,10 +454,9 @@ class DbiMysqli implements DbiExtension
             return false;
         }
 
-        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
-        if ($fieldDefinition !== false) {
-            return $fieldDefinition->length;
+        if (is_object($fieldDefinition) && property_exists($fieldDefinition, 'length')) {
+            return (int) $fieldDefinition->length;
         }
 
         return false;
@@ -476,10 +476,9 @@ class DbiMysqli implements DbiExtension
             return '';
         }
 
-        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
-        if ($fieldDefinition !== false) {
-            return $fieldDefinition->name;
+        if (is_object($fieldDefinition) && property_exists($fieldDefinition, 'name')) {
+            return (string) $fieldDefinition->name;
         }
 
         return '';

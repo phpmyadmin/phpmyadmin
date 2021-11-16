@@ -6059,10 +6059,6 @@
       <code>$host</code>
       <code>$server['host']</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>int|bool</code>
-      <code>string</code>
-    </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$server['host']</code>
     </MixedOperand>
@@ -6070,10 +6066,6 @@
       <code>$field-&gt;flags</code>
       <code>$field-&gt;type</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="2">
-      <code>$fieldDefinition-&gt;length</code>
-      <code>$fieldDefinition-&gt;name</code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion occurrences="2">
       <code>$fields</code>
       <code>FieldMetadata[]|null</code>
@@ -15245,21 +15237,19 @@
     <MixedArrayAssignment occurrences="1">
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['db']</code>
       <code>$data</code>
       <code>$data['schema_snapshot']</code>
       <code>$data['tracking']</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$result</code>
       <code>$result['tablename']</code>
       <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="6">
+    <MixedInferredReturnType occurrences="5">
       <code>bool</code>
-      <code>int</code>
       <code>int</code>
       <code>int</code>
       <code>int</code>
@@ -15273,11 +15263,10 @@
       <code>$tokens[0]-&gt;value</code>
       <code>$tokens[2]-&gt;value</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="6">
+    <MixedReturnStatement occurrences="5">
       <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
       <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
       <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
-      <code>$result</code>
       <code>$row[0] ?? -1</code>
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedReturnStatement>
