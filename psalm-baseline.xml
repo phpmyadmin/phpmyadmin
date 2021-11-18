@@ -13382,21 +13382,6 @@
       <code>$oneResult === false</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Scripts.php">
-    <MixedArgument occurrences="2">
-      <code>$file['filename']</code>
-      <code>$filename</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$file['filename']</code>
-      <code>$file['filename']</code>
-      <code>$file['has_onload']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$file</code>
-      <code>$filename</code>
-    </MixedAssignment>
-  </file>
   <file src="libraries/classes/Server/Plugin.php">
     <MixedArgument occurrences="13">
       <code>$state['authVersion'] ?? null</code>

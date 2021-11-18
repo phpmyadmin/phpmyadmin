@@ -109,7 +109,7 @@ class Console
     /**
      * Returns the list of JS scripts required by console
      *
-     * @return array list of scripts
+     * @return string[] list of scripts
      */
     public function getScripts(): array
     {
