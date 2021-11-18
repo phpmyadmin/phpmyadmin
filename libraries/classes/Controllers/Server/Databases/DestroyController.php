@@ -50,8 +50,6 @@ final class DestroyController extends AbstractController
             'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
             'selected_dbs' => $_POST['selected_dbs'] ?? null,
         ];
-        /** @var Message|int $message */
-        $message = -1;
 
         if (
             ! isset($params['drop_selected_dbs'])
@@ -96,23 +94,16 @@ final class DestroyController extends AbstractController
             $dblist->databases->build();
         }
 
-        if ($message === -1) { // no error message
-            $message = Message::success(
-                _ngettext(
-                    '%1$d database has been dropped successfully.',
-                    '%1$d databases have been dropped successfully.',
-                    $numberOfDatabases
-                )
-            );
-            $message->addParam($numberOfDatabases);
-        }
-
-        $json = [];
-        if ($message instanceof Message) {
-            $json = ['message' => $message];
-            $this->response->setRequestStatus($message->isSuccess());
-        }
-
+        $message = Message::success(
+            _ngettext(
+                '%1$d database has been dropped successfully.',
+                '%1$d databases have been dropped successfully.',
+                $numberOfDatabases
+            )
+        );
+        $message->addParam($numberOfDatabases);
+        $json = ['message' => $message];
+        $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);
     }
 }
