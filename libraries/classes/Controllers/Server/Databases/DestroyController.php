@@ -76,7 +76,6 @@ final class DestroyController extends AbstractController
         $errorUrl = Url::getFromRoute('/server/databases');
         $selected = $_POST['selected_dbs'];
         $rebuildDatabaseList = false;
-        $sqlQuery = '';
         $numberOfDatabases = count($selected);
 
         for ($i = 0; $i < $numberOfDatabases; $i++) {
@@ -85,7 +84,6 @@ final class DestroyController extends AbstractController
             $reload = true;
             $rebuildDatabaseList = true;
 
-            $sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
             $this->transformations->clear($selected[$i]);
         }
