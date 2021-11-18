@@ -64,7 +64,8 @@ final class DestroyController extends AbstractController
             return;
         }
 
-        if (! isset($params['selected_dbs'])) {
+        if (! isset($params['selected_dbs'])
+            || !is_array($params['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());
@@ -74,18 +75,18 @@ final class DestroyController extends AbstractController
         }
 
         $errorUrl = Url::getFromRoute('/server/databases');
-        $selected = $_POST['selected_dbs'];
+        $selected = $params['selected_dbs'];
         $rebuildDatabaseList = false;
         $numberOfDatabases = count($selected);
 
-        for ($i = 0; $i < $numberOfDatabases; $i++) {
-            $this->relationCleanup->database($selected[$i]);
-            $aQuery = 'DROP DATABASE ' . Util::backquote($selected[$i]);
+        foreach ($selected as $database) {
+            $this->relationCleanup->database($database);
+            $aQuery = 'DROP DATABASE ' . Util::backquote($database);
             $reload = true;
             $rebuildDatabaseList = true;
 
             $this->dbi->query($aQuery);
-            $this->transformations->clear($selected[$i]);
+            $this->transformations->clear($database);
         }
 
         if ($rebuildDatabaseList) {
