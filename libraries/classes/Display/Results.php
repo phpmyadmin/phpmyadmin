@@ -556,7 +556,6 @@ class Results
         // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
         // $displayParts['text_btn'] (keeps other default values)
 
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $previousTable = '';
         $displayParts['text_btn'] = '1';
@@ -1027,7 +1026,6 @@ class Results
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in the for loop
         $highlightColumns = $this->properties['highlight_columns'];
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
 
         // Prepare Display column comments if enabled
@@ -2537,7 +2535,6 @@ class Results
      */
     private function setMimeMap(): void
     {
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $mediaTypeMap = [];
         $added = [];
@@ -2638,7 +2635,6 @@ class Results
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
         $sqlQuery = $this->properties['sql_query'];
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $highlightColumns = $this->properties['highlight_columns'];
         $mediaTypeMap = $this->properties['mime_map'];
@@ -2943,7 +2939,6 @@ class Results
     private function getRowInfoForSpecialLinks(array $row, $colOrder)
     {
         $rowInfo = [];
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
 
         for ($n = 0; $n < $this->properties['fields_cnt']; ++$n) {
@@ -3795,7 +3790,6 @@ class Results
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta'];
         $showTable = $this->properties['showtable'];
         $printView = $this->properties['printview'];
@@ -4035,7 +4029,6 @@ class Results
     ) {
         global $dbi;
 
-        /** @var FieldMetadata[] $fieldsMeta */
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sortExpressionNoDirection)) {
@@ -4426,7 +4419,6 @@ class Results
                 $urlParams['table'] = (string) $dbi->fetchValue('SHOW TABLES');
             }
 
-            /** @var FieldMetadata[] $fieldsMeta */
             $fieldsMeta = $this->properties['fields_meta'];
             foreach ($fieldsMeta as $meta) {
                 if ($meta->isMappedTypeGeometry) {

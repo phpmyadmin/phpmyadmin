@@ -456,9 +456,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$tmanager-&gt;theme !== null</code>
     </RedundantConditionGivenDocblockType>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>ThemeManager</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
     <InvalidIterator occurrences="1">
@@ -735,11 +732,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$userprefsDisallow</code>
     </PropertyNotSetInConstructor>
-    <UnnecessaryVarAnnotation occurrences="3">
-      <code>Form</code>
-      <code>Form</code>
-      <code>Form</code>
-    </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$v</code>
     </UnusedForeachValue>
@@ -6013,9 +6005,6 @@
       <code>$databases[$database_name]['SCHEMA_TABLES']</code>
       <code>$databases[$database_name]['SCHEMA_TABLE_ROWS']</code>
     </PossiblyUndefinedArrayOffset>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>Index</code>
-    </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$tmp</code>
     </UnusedForeachValue>
@@ -6541,16 +6530,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($map)</code>
     </TypeDoesNotContainType>
-    <UnnecessaryVarAnnotation occurrences="8">
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-      <code>FieldMetadata[]</code>
-    </UnnecessaryVarAnnotation>
     <UnusedParam occurrences="1">
       <code>$columnIndex</code>
     </UnusedParam>
@@ -7979,11 +7958,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $database</code>
     </RedundantCastGivenDocblockType>
-    <UnnecessaryVarAnnotation occurrences="3">
-      <code>Lexer</code>
-      <code>Parser</code>
-      <code>array</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Image/ImageWrapper.php">
     <TooFewArguments occurrences="1">
@@ -8626,9 +8600,6 @@
       <code>$inputType === 'time'</code>
       <code>$inputType === 'time'</code>
     </TypeDoesNotContainType>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>FieldMetadata</code>
-    </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$dummy</code>
     </UnusedForeachValue>
@@ -8732,12 +8703,6 @@
       <code>$error[3]</code>
       <code>$lines[$line]</code>
     </MixedOperand>
-    <UnnecessaryVarAnnotation occurrences="4">
-      <code>Lexer</code>
-      <code>Parser</code>
-      <code>array</code>
-      <code>array</code>
-    </UnnecessaryVarAnnotation>
     <UnusedVariable occurrences="1">
       <code>$idx</code>
     </UnusedVariable>
@@ -8816,9 +8781,6 @@
       <code>(string) $this-&gt;table</code>
       <code>(string) $this-&gt;table</code>
     </RedundantCastGivenDocblockType>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>Table</code>
-    </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$value</code>
     </UnusedForeachValue>
@@ -10775,13 +10737,8 @@
       <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
-    <UnnecessaryVarAnnotation occurrences="6">
+    <UnnecessaryVarAnnotation occurrences="1">
       <code>CreateDefinition</code>
-      <code>Parser</code>
-      <code>Parser</code>
-      <code>string</code>
-      <code>string</code>
-      <code>string</code>
     </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$name</code>
@@ -11540,10 +11497,6 @@
     <MixedPropertyFetch occurrences="1">
       <code>$xml-&gt;children('office', true)-&gt;{'body'}-&gt;{'spreadsheet'}</code>
     </MixedPropertyFetch>
-    <UnnecessaryVarAnnotation occurrences="2">
-      <code>SimpleXMLElement</code>
-      <code>SimpleXMLElement</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportShp.php">
     <MixedArgument occurrences="9">
@@ -11635,10 +11588,6 @@
       <code>$xml</code>
       <code>$xml</code>
     </RedundantConditionGivenDocblockType>
-    <UnnecessaryVarAnnotation occurrences="2">
-      <code>SimpleXMLElement</code>
-      <code>SimpleXMLElement</code>
-    </UnnecessaryVarAnnotation>
     <UnusedVariable occurrences="1">
       <code>$val3</code>
     </UnusedVariable>
@@ -14958,12 +14907,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
-    <UnnecessaryVarAnnotation occurrences="4">
-      <code>DropStatement</code>
-      <code>Expression</code>
-      <code>Parser</code>
-      <code>string</code>
-    </UnnecessaryVarAnnotation>
     <UnusedForeachValue occurrences="1">
       <code>$dummy</code>
     </UnusedForeachValue>

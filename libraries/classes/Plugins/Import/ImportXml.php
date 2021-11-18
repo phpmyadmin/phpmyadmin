@@ -194,9 +194,7 @@ class ImportXml extends ImportPlugin
 
             $create = [];
 
-            /** @var SimpleXMLElement $val1 */
             foreach ($struct as $val1) {
-                /** @var SimpleXMLElement $val2 */
                 foreach ($val1 as $val2) {
                     // Need to select the correct database for the creation of
                     // tables, views, triggers, etc.

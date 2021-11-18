@@ -1066,8 +1066,6 @@ class Table implements Stringable
 
             /**
              * The old structure of the table..
-             *
-             * @var string $sqlStructure
              */
             $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, "\n", $errorUrl, false, false);
 
@@ -1078,8 +1076,6 @@ class Table implements Stringable
 
             /**
              * The destination where the table is moved or copied to.
-             *
-             * @var Expression
              */
             $destination = new Expression($targetDb, $targetTable, '');
 
@@ -1095,8 +1091,6 @@ class Table implements Stringable
             if ($addDropIfExists) {
                 /**
                  * Drop statement used for building the query.
-                 *
-                 * @var DropStatement $statement
                  */
                 $statement = new DropStatement();
 
@@ -1128,8 +1122,6 @@ class Table implements Stringable
 
             /**
              * The parser responsible for parsing the old queries.
-             *
-             * @var Parser $parser
              */
             $parser = new Parser($sqlStructure);
 

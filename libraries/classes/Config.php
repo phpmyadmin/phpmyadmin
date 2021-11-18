@@ -476,7 +476,6 @@ class Config
         // in frames
 
         // save theme
-        /** @var ThemeManager $tmanager */
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if (

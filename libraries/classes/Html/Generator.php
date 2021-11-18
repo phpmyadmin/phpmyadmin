@@ -846,22 +846,16 @@ class Generator
 
         /**
          * The lexer used for analysis.
-         *
-         * @var Lexer $lexer
          */
         $lexer = new Lexer($sqlQuery);
 
         /**
          * The parser used for analysis.
-         *
-         * @var Parser $parser
          */
         $parser = new Parser($lexer->list);
 
         /**
          * The errors found by the lexer and the parser.
-         *
-         * @var array $errors
          */
         $errors = ParserError::get(
             [

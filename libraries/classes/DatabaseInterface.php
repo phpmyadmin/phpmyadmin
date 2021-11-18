@@ -916,7 +916,6 @@ class DatabaseInterface implements DbalInterface
             }
 
             foreach ($indexes as $index) {
-                /** @var Index $index */
                 if (! $index->hasColumn($field)) {
                     continue;
                 }

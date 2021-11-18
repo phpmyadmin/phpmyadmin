@@ -1903,7 +1903,6 @@ class InsertEdit
 
         $result = $this->dbi->tryQuery($sqlForRealValue);
         $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
-        /** @var FieldMetadata $meta */
         $meta = $fieldsMeta[0];
         $row = $this->dbi->fetchRow($result);
 

@@ -1639,8 +1639,6 @@ class ExportSql extends ExportPlugin
 
             /**
              * Parser used for analysis.
-             *
-             * @var Parser
              */
             $parser = new Parser($createQuery);
 
@@ -2633,8 +2631,6 @@ class ExportSql extends ExportPlugin
 
         /**
          * The parser of this query.
-         *
-         * @var Parser $parser
          */
         $parser = new Parser($sqlQuery);
 
@@ -2651,8 +2647,6 @@ class ExportSql extends ExportPlugin
 
         /**
          * Old database name.
-         *
-         * @var string $oldDatabase
          */
         $oldDatabase = $db;
 
@@ -2666,8 +2660,6 @@ class ExportSql extends ExportPlugin
 
             /**
              * Old table name.
-             *
-             * @var string $oldTable
              */
             $oldTable = $statement->name->table;
 
@@ -2756,8 +2748,6 @@ class ExportSql extends ExportPlugin
 
             /**
              * Old table name.
-             *
-             * @var string $oldTable
              */
             $oldTable = $statement->table->table;
 

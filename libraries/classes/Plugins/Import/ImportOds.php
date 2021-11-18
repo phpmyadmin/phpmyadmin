@@ -273,7 +273,6 @@ class ImportOds extends ImportPlugin
     ): array {
         $cellCount = $row->count();
         $a = 0;
-        /** @var SimpleXMLElement $cell */
         foreach ($row as $cell) {
             $a++;
             $text = $cell->children('text', true);
@@ -343,7 +342,6 @@ class ImportOds extends ImportPlugin
         int $max_cols,
         array $tempRows
     ): array {
-        /** @var SimpleXMLElement $row */
         foreach ($sheet as $row) {
             $type = $row->getName();
             if (strcmp('table-row', $type)) {

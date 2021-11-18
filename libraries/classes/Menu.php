@@ -194,7 +194,6 @@ class Menu
             if (strlen((string) $this->table) > 0) {
                 $table['name'] = $this->table;
                 $table['url'] = Util::getUrlForOption($cfg['DefaultTabTable'], 'table');
-                /** @var Table $tableObj */
                 $tableObj = $dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';
