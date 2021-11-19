@@ -2377,19 +2377,13 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Server/Databases/DestroyController.php">
-    <MixedArgument occurrences="4">
-      <code>$selected</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
+    <MixedArgument occurrences="3">
+      <code>$database</code>
+      <code>$database</code>
+      <code>$database</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-      <code>$selected[$i]</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="1">
-      <code>$selected</code>
+      <code>$database</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
       <code>build</code>
@@ -2397,10 +2391,6 @@
     <MixedPropertyFetch occurrences="1">
       <code>$dblist-&gt;databases</code>
     </MixedPropertyFetch>
-    <UnusedVariable occurrences="2">
-      <code>$sqlQuery</code>
-      <code>$sqlQuery</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
     <MixedArgument occurrences="12">

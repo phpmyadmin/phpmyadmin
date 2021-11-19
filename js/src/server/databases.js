@@ -59,8 +59,7 @@ AJAX.registerOnload('server/databases.js', function () {
         modal.find('.modal-body').html(question);
         modal.modal('show');
 
-        const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize()
-            + CommonParams.get('arg_separator') + 'drop_selected_dbs=1';
+        const url = 'index.php?route=/server/databases/destroy&' + $(this).serialize();
 
         $('#dropDatabaseModalDropButton').on('click', function () {
             Functions.ajaxShowMessage(Messages.strProcessingRequest, false);
