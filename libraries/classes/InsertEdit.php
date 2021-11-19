@@ -2170,7 +2170,6 @@ class InsertEdit
 
         // Prepares the field value
         $realNullValue = false;
-        $specialCharsEncoded = '';
         if (! empty($currentRow)) {
             // (we are editing)
             [
@@ -2208,9 +2207,6 @@ class InsertEdit
 
         $idindex = ($oRows * $columnsCnt) + $columnNumber + 1;
         $tabindex = $idindex;
-
-        // Get a list of data types that are not yet supported.
-        $noSupportTypes = Util::unsupportedDatatypes();
 
         // The function column
         // -------------------
