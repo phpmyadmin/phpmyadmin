@@ -1212,22 +1212,20 @@ class InsertEdit
             . str_replace('` =', '` >', $oneWhereClause) . ' LIMIT 1;';
 
         $res = $this->dbi->query($localQuery);
-        $row = $this->dbi->fetchRow($res);
+        $row = $this->dbi->fetchRow($res) ?? [];
         $meta = $this->dbi->getFieldsMeta($res) ?? [];
         // must find a unique condition based on unique key,
         // not a combination of all fields
-        [$uniqueCondition, $clauseIsUnique] = Util::getUniqueCondition(
+        [$uniqueCondition] = Util::getUniqueCondition(
             $res,
             count($meta),
             $meta,
-            $row ?? [],
+            $row,
             true
         );
         if ($uniqueCondition) {
             $_SESSION['edit_next'] = $uniqueCondition;
         }
-
-        unset($uniqueCondition, $clauseIsUnique);
     }
 
     /**
