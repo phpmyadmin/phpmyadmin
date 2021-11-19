@@ -1497,7 +1497,7 @@ class InsertEdit
         if ($_SESSION['tmpval']['relational_display'] === 'K') {
             // user chose "relational key" in the display options, so
             // the title contains the display field
-            $title = ! empty($dispval)
+            $title = $dispval
                 ? ' title="' . htmlspecialchars($dispval) . '"'
                 : '';
         } else {
@@ -1521,7 +1521,7 @@ class InsertEdit
         if ($_SESSION['tmpval']['relational_display'] === 'D') {
             // user chose "relational display field" in the
             // display options, so show display field in the cell
-            $output .= ! empty($dispval) ? htmlspecialchars($dispval) : '';
+            $output .= htmlspecialchars($dispval);
         } else {
             // otherwise display data in the cell
             $output .= htmlspecialchars($relationFieldValue);
