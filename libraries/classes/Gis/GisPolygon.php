@@ -105,6 +105,8 @@ class GisPolygon extends GisGeometry
         $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
         $color = $image->colorAllocate($red, $green, $blue);
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
@@ -130,12 +132,12 @@ class GisPolygon extends GisGeometry
         // draw polygon
         $image->filledPolygon($points_arr, $color);
         // print label if applicable
-        if (isset($label) && trim($label) != '') {
+        if ($label !== '') {
             $image->string(
                 1,
                 (int) round($points_arr[2]),
                 (int) round($points_arr[3]),
-                trim($label),
+                $label,
                 $black
             );
         }
@@ -168,6 +170,8 @@ class GisPolygon extends GisGeometry
             $blue,
         ];
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
 
@@ -193,10 +197,10 @@ class GisPolygon extends GisGeometry
         // draw polygon
         $pdf->Polygon($points_arr, 'F*', [], $color, true);
         // print label if applicable
-        if (isset($label) && trim($label) != '') {
+        if ($label !== '') {
             $pdf->SetXY($points_arr[2], $points_arr[3]);
             $pdf->SetFontSize(5);
-            $pdf->Cell(0, 0, trim($label));
+            $pdf->Cell(0, 0, $label);
         }
 
         return $pdf;

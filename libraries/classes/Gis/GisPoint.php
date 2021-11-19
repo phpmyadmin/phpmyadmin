@@ -88,6 +88,8 @@ class GisPoint extends GisGeometry
         $blue = (int) hexdec(mb_substr($point_color, 4, 2));
         $color = $image->colorAllocate($red, $green, $blue);
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, $scale_data);
@@ -104,12 +106,12 @@ class GisPoint extends GisGeometry
                 $color
             );
             // print label if applicable
-            if (isset($label) && trim($label) != '') {
+            if ($label !== '') {
                 $image->string(
                     1,
                     (int) round($points_arr[0][0]),
                     (int) round($points_arr[0][1]),
-                    trim($label),
+                    $label,
                     $black
                 );
             }
@@ -151,6 +153,8 @@ class GisPoint extends GisGeometry
             ],
         ];
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'POINT(' and trailing ')'
         $point = mb_substr($spatial, 6, -1);
         $points_arr = $this->extractPoints($point, $scale_data);
@@ -159,10 +163,10 @@ class GisPoint extends GisGeometry
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
             $pdf->Circle($points_arr[0][0], $points_arr[0][1], 2, 0, 360, 'D', $line);
             // print label if applicable
-            if (isset($label) && trim($label) != '') {
+            if ($label !== '') {
                 $pdf->SetXY($points_arr[0][0], $points_arr[0][1]);
                 $pdf->SetFontSize(5);
-                $pdf->Cell(0, 0, trim($label));
+                $pdf->Cell(0, 0, $label);
             }
         }
 

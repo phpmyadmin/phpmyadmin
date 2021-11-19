@@ -110,6 +110,8 @@ class GisMultiPolygon extends GisGeometry
         $blue = (int) hexdec(mb_substr($fill_color, 4, 2));
         $color = $image->colorAllocate($red, $green, $blue);
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
@@ -139,7 +141,7 @@ class GisMultiPolygon extends GisGeometry
             // draw polygon
             $image->filledPolygon($points_arr, $color);
             // mark label point if applicable
-            if (isset($label) && trim($label) != '' && $first_poly) {
+            if ($label !== '' && $first_poly) {
                 $label_point = [
                     $points_arr[2],
                     $points_arr[3],
@@ -155,7 +157,7 @@ class GisMultiPolygon extends GisGeometry
                 1,
                 (int) round($label_point[0]),
                 (int) round($label_point[1]),
-                trim((string) $label),
+                $label,
                 $black
             );
         }
@@ -188,6 +190,8 @@ class GisMultiPolygon extends GisGeometry
             $blue,
         ];
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
@@ -217,7 +221,7 @@ class GisMultiPolygon extends GisGeometry
             // draw polygon
             $pdf->Polygon($points_arr, 'F*', [], $color, true);
             // mark label point if applicable
-            if (isset($label) && trim($label) != '' && $first_poly) {
+            if ($label !== '' && $first_poly) {
                 $label_point = [
                     $points_arr[2],
                     $points_arr[3],
@@ -231,7 +235,7 @@ class GisMultiPolygon extends GisGeometry
         if (isset($label_point)) {
             $pdf->SetXY($label_point[0], $label_point[1]);
             $pdf->SetFontSize(5);
-            $pdf->Cell(0, 0, trim((string) $label));
+            $pdf->Cell(0, 0, $label);
         }
 
         return $pdf;
