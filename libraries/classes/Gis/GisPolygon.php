@@ -11,7 +11,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
 use function array_merge;
-use function array_push;
 use function array_slice;
 use function count;
 use function explode;
@@ -275,8 +274,7 @@ class GisPolygon extends GisGeometry
      */
     public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
     {
-        $fill_opacity = 0.8;
-        array_push($fill_color, $fill_opacity);
+        $fill_color[] = 0.8;
         $fill_style = ['color' => $fill_color];
         $stroke_style = [
             'color' => [0,0,0],
