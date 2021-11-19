@@ -669,10 +669,6 @@ class InsertEdit
         $dataType,
         $readOnly
     ) {
-        $inputType = 'text';
-        // do not use the 'date' or 'time' types here; they have no effect on some
-        // browsers and create side effects (see bug #4218)
-
         $theClass = 'textfield';
         // verify True_Type which does not contain the parentheses and length
         if (! $readOnly) {
@@ -695,7 +691,9 @@ class InsertEdit
             $dataType = 'INT';
         }
 
-        return '<input type="' . $inputType . '"'
+        // do not use the 'date' or 'time' types here; they have no effect on some
+        // browsers and create side effects (see bug #4218)
+        return '<input type="text"'
             . ' name="fields' . $columnNameAppendix . '"'
             . ' value="' . $specialChars . '" size="' . $fieldsize . '"'
             . (isset($column['is_char']) && $column['is_char']
@@ -704,7 +702,6 @@ class InsertEdit
             . ($readOnly ? ' readonly="readonly"' : '')
             . ($inputMinMax !== false ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
-            . ($inputType === 'time' ? ' step="1"' : '')
             . ' class="' . $theClass . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
             . ' id="field_' . $idindex . '_3">';
