@@ -60,8 +60,7 @@ final class DestroyController extends AbstractController
             return;
         }
 
-        if (! isset($selected_dbs)
-            || !is_array($selected_dbs)
+        if (!is_array($selected_dbs)
             || [] === $selected_dbs) {
             $message = Message::error(__('No databases selected.'));
             $json = ['message' => $message];
