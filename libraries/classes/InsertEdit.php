@@ -13,6 +13,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_fill;
+use function array_keys;
 use function array_merge;
 use function array_values;
 use function bin2hex;
@@ -1177,9 +1178,7 @@ class InsertEdit
             // new row => use indexes
             $loopArray = [];
             if (! empty($_POST['fields'])) {
-                foreach ($_POST['fields']['multi_edit'] as $key => $dummy) {
-                    $loopArray[] = $key;
-                }
+                $loopArray = array_keys($_POST['fields']['multi_edit']);
             }
 
             $usingKey = false;
