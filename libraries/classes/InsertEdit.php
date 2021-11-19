@@ -1807,11 +1807,7 @@ class InsertEdit
         }
 
         // c o l u m n    v a l u e    i n    t h e    f o r m
-        if (isset($multiEditColumnsType[$key])) {
-            $type = $multiEditColumnsType[$key];
-        } else {
-            $type = '';
-        }
+        $type = $multiEditColumnsType[$key] ?? '';
 
         if ($type !== 'protected' && $type !== 'set' && strlen($currentValue) === 0) {
             // best way to avoid problems in strict mode
