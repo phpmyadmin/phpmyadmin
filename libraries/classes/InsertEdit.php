@@ -1799,80 +1799,81 @@ class InsertEdit
         }
 
         if ($possiblyUploadedVal !== false) {
-            $currentValue = $possiblyUploadedVal;
-        } elseif (! empty($multiEditFuncs[$key])) {
-            $currentValue = "'" . $this->dbi->escapeString($currentValue)
-                . "'";
+            return $possiblyUploadedVal;
+        }
+
+        if (! empty($multiEditFuncs[$key])) {
+            return "'" . $this->dbi->escapeString($currentValue) . "'";
+        }
+
+        // c o l u m n    v a l u e    i n    t h e    f o r m
+        if (isset($multiEditColumnsType[$key])) {
+            $type = $multiEditColumnsType[$key];
         } else {
-            // c o l u m n    v a l u e    i n    t h e    f o r m
-            if (isset($multiEditColumnsType[$key])) {
-                $type = $multiEditColumnsType[$key];
-            } else {
-                $type = '';
-            }
+            $type = '';
+        }
 
-            if ($type !== 'protected' && $type !== 'set' && strlen($currentValue) === 0) {
-                // best way to avoid problems in strict mode
-                // (works also in non-strict mode)
-                if (isset($multiEditAutoIncrement, $multiEditAutoIncrement[$key])) {
-                    $currentValue = 'NULL';
-                } else {
-                    $currentValue = "''";
-                }
-            } elseif ($type === 'set') {
-                if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
-                    $currentValue = implode(',', $_POST['fields']['multi_edit'][$rownumber][$key]);
-                    $currentValue = "'"
-                        . $this->dbi->escapeString($currentValue) . "'";
-                } else {
-                    $currentValue = "''";
-                }
-            } elseif ($type === 'protected') {
-                // here we are in protected mode (asked in the config)
-                // so tbl_change has put this special value in the
-                // columns array, so we do not change the column value
-                // but we can still handle column upload
-
-                // when in UPDATE mode, do not alter field's contents. When in INSERT
-                // mode, insert empty field because no values were submitted.
-                // If protected blobs where set, insert original fields content.
-                if (! empty($protectedRow[$multiEditColumnsName[$key]])) {
-                    $currentValue = '0x'
-                        . bin2hex($protectedRow[$multiEditColumnsName[$key]]);
-                } else {
-                    $currentValue = '';
-                }
-            } elseif ($type === 'hex') {
-                if (substr($currentValue, 0, 2) != '0x') {
-                    $currentValue = '0x' . $currentValue;
-                }
-            } elseif ($type === 'bit') {
-                $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
-                $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
-            } elseif (
-                ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
-                || ($currentValue !== 'CURRENT_TIMESTAMP'
-                    && $currentValue !== 'current_timestamp()')
-            ) {
-                $currentValue = "'" . $this->dbi->escapeString($currentValue)
-                    . "'";
-            }
-
-            // Was the Null checkbox checked for this field?
-            // (if there is a value, we ignore the Null checkbox: this could
-            // be possible if Javascript is disabled in the browser)
-            if (! empty($multiEditColumnsNull[$key]) && ($currentValue == "''" || $currentValue == '')) {
+        if ($type !== 'protected' && $type !== 'set' && strlen($currentValue) === 0) {
+            // best way to avoid problems in strict mode
+            // (works also in non-strict mode)
+            if (isset($multiEditAutoIncrement, $multiEditAutoIncrement[$key])) {
                 $currentValue = 'NULL';
-            }
-
-            // The Null checkbox was unchecked for this field
-            if (
-                empty($currentValue)
-                && ! empty($multiEditColumnsNullPrev[$key])
-                && ! isset($multiEditColumnsNull[$key])
-            ) {
+            } else {
                 $currentValue = "''";
             }
+        } elseif ($type === 'set') {
+            if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
+                $currentValue = implode(',', $_POST['fields']['multi_edit'][$rownumber][$key]);
+                $currentValue = "'"
+                    . $this->dbi->escapeString($currentValue) . "'";
+            } else {
+                $currentValue = "''";
+            }
+        } elseif ($type === 'protected') {
+            // here we are in protected mode (asked in the config)
+            // so tbl_change has put this special value in the
+            // columns array, so we do not change the column value
+            // but we can still handle column upload
+
+            // when in UPDATE mode, do not alter field's contents. When in INSERT
+            // mode, insert empty field because no values were submitted.
+            // If protected blobs where set, insert original fields content.
+            if (! empty($protectedRow[$multiEditColumnsName[$key]])) {
+                $currentValue = '0x'
+                    . bin2hex($protectedRow[$multiEditColumnsName[$key]]);
+            } else {
+                $currentValue = '';
+            }
+        } elseif ($type === 'hex') {
+            if (substr($currentValue, 0, 2) != '0x') {
+                $currentValue = '0x' . $currentValue;
+            }
+        } elseif ($type === 'bit') {
+            $currentValue = (string) preg_replace('/[^01]/', '0', $currentValue);
+            $currentValue = "b'" . $this->dbi->escapeString($currentValue) . "'";
+        } elseif (
+            ! ($type === 'datetime' || $type === 'timestamp' || $type === 'date')
+            || ($currentValue !== 'CURRENT_TIMESTAMP'
+                && $currentValue !== 'current_timestamp()')
+        ) {
+            $currentValue = "'" . $this->dbi->escapeString($currentValue)
+                . "'";
+        }
+
+        // Was the Null checkbox checked for this field?
+        // (if there is a value, we ignore the Null checkbox: this could
+        // be possible if Javascript is disabled in the browser)
+        if (! empty($multiEditColumnsNull[$key]) && ($currentValue == "''" || $currentValue == '')) {
+            $currentValue = 'NULL';
+        }
+
+        // The Null checkbox was unchecked for this field
+        if (
+            empty($currentValue)
+            && ! empty($multiEditColumnsNullPrev[$key])
+            && ! isset($multiEditColumnsNull[$key])
+        ) {
+            $currentValue = "''";
         }
 
         return $currentValue;
