@@ -17,6 +17,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function _ngettext;
 use function count;
+use function is_array;
 
 final class DestroyController extends AbstractController
 {
@@ -60,8 +61,10 @@ final class DestroyController extends AbstractController
             return;
         }
 
-        if (!is_array($selected_dbs)
-            || [] === $selected_dbs) {
+        if (
+            ! is_array($selected_dbs)
+            || $selected_dbs === []
+        ) {
             $message = Message::error(__('No databases selected.'));
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());
