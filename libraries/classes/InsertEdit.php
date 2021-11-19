@@ -1770,18 +1770,6 @@ class InsertEdit
         $table,
         $multiEditFuncs
     ) {
-        // Fetch the current values of a row to use in case we have a protected field
-        if (
-            $isInsert
-            && $usingKey
-            && is_array($multiEditColumnsType) && $whereClause
-        ) {
-            $protectedRow = $this->dbi->fetchSingleRow(
-                'SELECT * FROM ' . Util::backquote($table)
-                . ' WHERE ' . $whereClause . ';'
-            );
-        }
-
         if ($possiblyUploadedVal !== false) {
             return $possiblyUploadedVal;
         }
@@ -1810,6 +1798,17 @@ class InsertEdit
                 $currentValue = "''";
             }
         } elseif ($type === 'protected') {
+            // Fetch the current values of a row to use in case we have a protected field
+            if (
+                $isInsert
+                && $usingKey
+                && is_array($multiEditColumnsType) && $whereClause
+            ) {
+                $protectedRow = $this->dbi->fetchSingleRow(
+                    'SELECT * FROM ' . Util::backquote($table)
+                    . ' WHERE ' . $whereClause . ';'
+                );
+            }
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
