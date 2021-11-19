@@ -239,7 +239,7 @@ class InsertEdit
                 true
             );
 
-            if (! empty($uniqueCondition)) {
+            if ($uniqueCondition) {
                 $hasUniqueCondition = true;
             }
 
@@ -512,10 +512,10 @@ class InsertEdit
             }
         } elseif (mb_strstr($column['True_Type'], 'set')) {
             $nullifyCode = '3';
-        } elseif (! empty($foreigners) && ! empty($foreigner) && $foreignData['foreign_link'] == false) {
+        } elseif ($foreigners && $foreigner && $foreignData['foreign_link'] == false) {
             // foreign key in a drop-down
             $nullifyCode = '4';
-        } elseif (! empty($foreigners) && ! empty($foreigner) && $foreignData['foreign_link'] == true) {
+        } elseif ($foreigners && $foreigner && $foreignData['foreign_link'] == true) {
             // foreign key with a browsing icon
             $nullifyCode = '6';
         } else {
@@ -584,7 +584,7 @@ class InsertEdit
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $textDir . '"'
             . ' id="field_' . $idindex . '_3"'
-            . (! empty($onChangeClause) ? ' ' . $onChangeClause : '')
+            . ($onChangeClause ? ' ' . $onChangeClause : '')
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
             . ' data-type="' . $dataType . '">'
             . $specialCharsEncoded
@@ -734,7 +734,7 @@ class InsertEdit
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         }
 
-        if (! empty($files)) {
+        if ($files) {
             return "<br>\n"
                 . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
@@ -1228,7 +1228,7 @@ class InsertEdit
             $row ?? [],
             true
         );
-        if (! empty($uniqueCondition)) {
+        if ($uniqueCondition) {
             $_SESSION['edit_next'] = $uniqueCondition;
         }
 
@@ -1733,7 +1733,7 @@ class InsertEdit
                 && isset($multiEditColumnsPrev[$key])
                 && (($currentValue === "'" . $this->dbi->escapeString($multiEditColumnsPrev[$key]) . "'")
                     || ($currentValue === '0x' . $multiEditColumnsPrev[$key])))
-            && ! empty($currentValue)
+            && $currentValue
         ) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
@@ -2135,7 +2135,7 @@ class InsertEdit
         }
 
         $asIs = false;
-        if (! empty($repopulate) && ! empty($currentRow)) {
+        if ($repopulate && $currentRow) {
             $currentRow[$column['Field']] = $repopulate[$column['Field_md5']];
             $asIs = true;
         }
@@ -2170,7 +2170,7 @@ class InsertEdit
 
         // Prepares the field value
         $realNullValue = false;
-        if (! empty($currentRow)) {
+        if ($currentRow) {
             // (we are editing)
             [
                 $realNullValue,
