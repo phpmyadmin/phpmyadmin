@@ -49,15 +49,18 @@
                   {% endif %}
 
                   <li id="li_select_mysql_collation" class="list-group-item">
-                    <form class="disableAjax" method="post" action="{{ url('/collation-connection') }}">
+                    <form method="post" action="{{ url('/collation-connection') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
                       {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
-                      <label for="select_collation_connection">
-                        {{ get_image('s_asci') }}
-                        {% trans 'Server connection collation:' %}
-                        {{ show_mysql_docu('charset-connection') }}
-                      </label>
+                      <div class="col-12">
+                        <label for="collationConnectionSelect" class="col-form-label">
+                          {{ get_image('s_asci') }}
+                          {% trans 'Server connection collation:' %}
+                          {{ show_mysql_docu('charset-connection') }}
+                        </label>
+                      </div>
                       {% if charsets is not empty %}
-                        <select lang="en" dir="ltr" name="collation_connection" id="select_collation_connection" class="autosubmit">
+                      <div class="col-12">
+                        <select lang="en" dir="ltr" name="collation_connection" id="collationConnectionSelect" class="form-select autosubmit">
                           <option value="">{% trans 'Collation' %}</option>
                           <option value=""></option>
                           {% for charset in charsets %}
@@ -70,6 +73,7 @@
                             </optgroup>
                           {% endfor %}
                         </select>
+                      </div>
                       {% endif %}
                     </form>
                   </li>
