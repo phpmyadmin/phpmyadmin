@@ -47,13 +47,11 @@ final class DestroyController extends AbstractController
         global $selected, $errorUrl, $cfg, $dblist, $reload;
 
         $params = [
-            'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
             'selected_dbs' => $_POST['selected_dbs'] ?? null,
         ];
 
         if (
-            ! isset($params['drop_selected_dbs'])
-            || ! $this->response->isAjax()
+            ! $this->response->isAjax()
             || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
         ) {
             $message = Message::error();

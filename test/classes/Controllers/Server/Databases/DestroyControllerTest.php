@@ -46,8 +46,6 @@ class DestroyControllerTest extends AbstractTestCase
             new RelationCleanup($dbi, new Relation($dbi, $template))
         );
 
-        $_POST['drop_selected_dbs'] = '1';
-
         $controller();
         $actual = $response->getJSONResult();
 
