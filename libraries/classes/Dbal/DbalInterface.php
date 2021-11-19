@@ -667,7 +667,7 @@ interface DbalInterface
      *
      * @return int|bool length of field
      */
-    public function fieldLen($result, int $i);
+    public function fieldLen(object $result, int $i);
 
     /**
      * returns name of $i. field in $result

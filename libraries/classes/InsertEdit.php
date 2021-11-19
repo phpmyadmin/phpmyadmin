@@ -2063,7 +2063,7 @@ class InsertEdit
      * @param int    $columnNumber       column index in table_columns
      * @param array  $commentsMap        comments map
      * @param bool   $timestampSeen      whether timestamp seen
-     * @param array  $currentResult      current result
+     * @param object $currentResult      current result
      * @param string $chgEvtHandler      javascript change event handler
      * @param string $jsvkey             javascript validation key
      * @param string $vkey               validation key
@@ -2092,7 +2092,7 @@ class InsertEdit
         $columnNumber,
         array $commentsMap,
         $timestampSeen,
-        $currentResult,
+        object $currentResult,
         $chgEvtHandler,
         $jsvkey,
         $vkey,
@@ -2448,7 +2448,7 @@ class InsertEdit
      * @param array  $tableColumns       table columns
      * @param array  $commentsMap        comments map
      * @param bool   $timestampSeen      whether timestamp seen
-     * @param array  $currentResult      current result
+     * @param object $currentResult      current result
      * @param string $chgEvtHandler      javascript change event handler
      * @param string $jsvkey             javascript validation key
      * @param string $vkey               validation key
@@ -2475,7 +2475,7 @@ class InsertEdit
         array $tableColumns,
         array $commentsMap,
         $timestampSeen,
-        $currentResult,
+        object $currentResult,
         $chgEvtHandler,
         $jsvkey,
         $vkey,

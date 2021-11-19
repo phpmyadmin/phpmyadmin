@@ -2231,7 +2231,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return int|bool length of field
      */
-    public function fieldLen($result, int $i)
+    public function fieldLen(object $result, int $i)
     {
         return $this->extension->fieldLen($result, $i);
     }
