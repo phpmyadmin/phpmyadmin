@@ -213,7 +213,6 @@ class InsertEdit
         $localQuery,
         array $result
     ): bool {
-        $hasUniqueCondition = false;
 
         // No row returned
         if (! $rows[$keyId]) {
@@ -228,25 +227,21 @@ class InsertEdit
              * @todo not sure what should be done at this point, but we must not
              * exit if we want the message to be displayed
              */
-        } else {// end if (no row returned)
-            $meta = $this->dbi->getFieldsMeta($result[$keyId]) ?? [];
 
-            [$uniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(
-                $result[$keyId],
-                count($meta),
-                $meta,
-                $rows[$keyId],
-                true
-            );
-
-            if ($uniqueCondition) {
-                $hasUniqueCondition = true;
-            }
-
-            unset($uniqueCondition, $tmpClauseIsUnique);
+            return false;
         }
 
-        return $hasUniqueCondition;
+        $meta = $this->dbi->getFieldsMeta($result[$keyId]) ?? [];
+
+        [$uniqueCondition] = Util::getUniqueCondition(
+            $result[$keyId],
+            count($meta),
+            $meta,
+            $rows[$keyId],
+            true
+        );
+
+        return (bool) $uniqueCondition;
     }
 
     /**
