@@ -120,20 +120,24 @@
 
                 {% if has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
-                    <form method="post" action="{{ url('/themes/set') }}" class="disableAjax">
+                    <form method="post" action="{{ url('/themes/set') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
                       {{ get_hidden_inputs() }}
                       <div class="col-12">
-                        <label for="themeSelect" class="col-form-label text-nowrap">
-                          {{ get_image('s_theme') }}
-                          {% trans 'Theme' %}
+                        <label for="themeSelect" class="col-form-label">
+                          {{ get_icon('s_theme', 'Theme'|trans) }}
                         </label>
                       </div>
                       <div class="col-12">
-                        <select name="set_theme" class="form-select autosubmit w-auto" lang="en" dir="ltr" id="themeSelect">
-                          {% for theme in themes %}
-                            <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
-                          {% endfor %}
-                        </select>
+                        <div class="input-group">
+                          <select name="set_theme" class="form-select autosubmit" lang="en" dir="ltr" id="themeSelect">
+                            {% for theme in themes %}
+                              <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                            {% endfor %}
+                          </select>
+                          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#themesModal">
+                            {% trans %}View all{% context %}View all themes{% endtrans %}
+                          </button>
+                        </div>
                       </div>
                     </form>
                   </li>
