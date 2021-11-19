@@ -1359,13 +1359,7 @@ class InsertEdit
             if (! $result) {
                 $errorMessages[] = $this->dbi->getError();
             } else {
-                $tmp = @$this->dbi->affectedRows();
-
-                if ($tmp) {
-                    $totalAffectedRows += $tmp;
-                }
-
-                unset($tmp);
+                $totalAffectedRows += $this->dbi->affectedRows();
 
                 $insertId = $this->dbi->insertId();
                 if ($insertId !== false && $insertId != 0) {
