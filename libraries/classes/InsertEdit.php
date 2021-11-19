@@ -1789,8 +1789,8 @@ class InsertEdit
         // Fetch the current values of a row to use in case we have a protected field
         if (
             $isInsert
-            && $usingKey && isset($multiEditColumnsType)
-            && is_array($multiEditColumnsType) && ! empty($whereClause)
+            && $usingKey
+            && is_array($multiEditColumnsType) && $whereClause
         ) {
             $protectedRow = $this->dbi->fetchSingleRow(
                 'SELECT * FROM ' . Util::backquote($table)
