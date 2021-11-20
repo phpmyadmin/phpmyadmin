@@ -965,8 +965,6 @@ class InsertEdit
             return false;
         }
 
-        $isNumeric = false;
-
         if (! is_array($whereClause)) {
             $whereClause = [$whereClause];
         }
@@ -976,12 +974,12 @@ class InsertEdit
         foreach ($whereClause as $clause) {
             // preg_match() returns 1 if there is a match
             $isNumeric = preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $clause) === 1;
-            if ($isNumeric === true) {
-                break;
+            if ($isNumeric) {
+                return true;
             }
         }
 
-        return $isNumeric;
+        return false;
     }
 
     /**
