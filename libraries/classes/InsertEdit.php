@@ -27,6 +27,7 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_file;
+use function is_null;
 use function is_string;
 use function max;
 use function mb_stripos;
@@ -134,7 +135,7 @@ class InsertEdit
      */
     private function getWhereClauseArray($whereClause)
     {
-        if (! isset($whereClause)) {
+        if (is_null($whereClause)) {
             return [];
         }
 
@@ -960,7 +961,7 @@ class InsertEdit
      */
     public static function isWhereClauseNumeric($whereClause): bool
     {
-        if (! isset($whereClause)) {
+        if (is_null($whereClause)) {
             return false;
         }
 
