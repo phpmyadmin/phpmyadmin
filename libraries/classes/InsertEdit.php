@@ -610,19 +610,17 @@ class InsertEdit
      * Retrieve column 'set' value and select size
      *
      * @param array $column              description of column in given table
-     * @param array $extractedColumnspec associative array containing type,
-     *                                    spec_in_brackets and possibly enum_set_values
-     *                                    (another array)
+     * @param string[] $enum_set_values
      *
      * @return array $column['values'], $column['select_size']
      */
     private function getColumnSetValueAndSelectSize(
         array $column,
-        array $extractedColumnspec
-    ) {
+        array $enum_set_values
+    ): array {
         if (! isset($column['values'])) {
             $column['values'] = [];
-            foreach ($extractedColumnspec['enum_set_values'] as $val) {
+            foreach ($enum_set_values as $val) {
                 $column['values'][] = [
                     'plain' => $val,
                     'html' => htmlspecialchars($val),
@@ -2317,7 +2315,7 @@ class InsertEdit
             } elseif ($column['pma_type'] === 'set') {
                 [$columnSetValues, $setSelectSize] = $this->getColumnSetValueAndSelectSize(
                     $column,
-                    $extractedColumnspec
+                    $extractedColumnspec['enum_set_values']
                 );
             } elseif ($column['is_binary'] || $column['is_blob']) {
                 $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])

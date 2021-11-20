@@ -866,8 +866,8 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnSetValueAndSelectSize(): void
     {
-        $extracted_columnspec = $column = [];
-        $extracted_columnspec['enum_set_values'] = [
+        $column = [];
+        $enum_set_values = [
             'a',
             '<',
         ];
@@ -877,7 +877,7 @@ class InsertEditTest extends AbstractTestCase
             'getColumnSetValueAndSelectSize',
             [
                 [],
-                $extracted_columnspec,
+                $enum_set_values,
             ]
         );
 
@@ -909,7 +909,7 @@ class InsertEditTest extends AbstractTestCase
             'getColumnSetValueAndSelectSize',
             [
                 $column,
-                $extracted_columnspec,
+                $enum_set_values,
             ]
         );
 
