@@ -19,6 +19,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use const E_USER_WARNING;
 use function array_key_exists;
 use function array_keys;
@@ -1351,12 +1352,15 @@ class NavigationTree
             }
         }
 
+        $databaseUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
             'list_navigator' => $listNavigator,
             'server' => $GLOBALS['server'],
             'options' => $options,
             'nodes' => $nodes,
+            'database_url' => $databaseUrl,
         ]);
     }
 
