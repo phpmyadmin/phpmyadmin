@@ -1017,14 +1017,13 @@ class InsertEditTest extends AbstractTestCase
     public function testGetMaxUploadSize(): void
     {
         $GLOBALS['config']->set('max_upload_size', 257);
-        $column = [];
-        $column['pma_type'] = 'tinyblob';
+        $pma_type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
             [
-                $column,
+                $pma_type,
                 256,
             ]
         );
@@ -1039,13 +1038,13 @@ class InsertEditTest extends AbstractTestCase
 
         // case 2
         $GLOBALS['config']->set('max_upload_size', 250);
-        $column['pma_type'] = 'tinyblob';
+        $pma_type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
             [
-                $column,
+                $pma_type,
                 20,
             ]
         );

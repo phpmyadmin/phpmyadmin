@@ -738,12 +738,13 @@ class InsertEdit
     /**
      * Retrieve the maximum upload file size
      *
-     * @param array $column             description of column in given table
-     * @param int   $biggestMaxFileSize biggest max file size for uploading
+     * @param string $pma_type           column type
+     * @param int    $biggestMaxFileSize biggest max file size for uploading
      *
      * @return array an html snippet and $biggest_max_file_size
+     * @psalm-return array{non-empty-string, int}
      */
-    private function getMaxUploadSize(array $column, $biggestMaxFileSize)
+    private function getMaxUploadSize(string $pma_type, $biggestMaxFileSize): array
     {
         // find maximum upload size, based on field type
         /**
@@ -751,15 +752,15 @@ class InsertEdit
          * process any data with function like MD5
          */
         $maxFieldSizes = [
-            'tinyblob' => '256',
-            'blob' => '65536',
-            'mediumblob' => '16777216',
-            'longblob' => '4294967296',// yeah, really
+            'tinyblob' => 256,
+            'blob' => 65536,
+            'mediumblob' => 16777216,
+            'longblob' => 4294967296,// yeah, really
         ];
 
-        $thisFieldMaxSize = $GLOBALS['config']->get('max_upload_size'); // from PHP max
-        if ($thisFieldMaxSize > $maxFieldSizes[$column['pma_type']]) {
-            $thisFieldMaxSize = $maxFieldSizes[$column['pma_type']];
+        $thisFieldMaxSize = (int) $GLOBALS['config']->get('max_upload_size'); // from PHP max
+        if ($thisFieldMaxSize > $maxFieldSizes[$pma_type]) {
+            $thisFieldMaxSize = $maxFieldSizes[$pma_type];
         }
 
         $htmlOutput = Util::getFormattedMaximumUploadSize($thisFieldMaxSize) . "\n";
@@ -2329,7 +2330,7 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column['is_blob']) {
-                    [$maxUploadSize] = $this->getMaxUploadSize($column, $biggestMaxFileSize);
+                    [$maxUploadSize] = $this->getMaxUploadSize($column['pma_type'], $biggestMaxFileSize);
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
