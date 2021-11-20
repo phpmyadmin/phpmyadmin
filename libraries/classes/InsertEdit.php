@@ -706,11 +706,11 @@ class InsertEdit
      * Get HTML select option for upload
      *
      * @param string $vkey   [multi_edit]['row_id']
-     * @param array  $column description of column in given table
+     * @param string $field_MD5 array index as an MD5 to avoid having special characters
      *
-     * @return string|null an html snippet
+     * @return string an HTML snippet
      */
-    private function getSelectOptionForUpload($vkey, array $column)
+    private function getSelectOptionForUpload(string $vkey, string $field_MD5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
             Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
@@ -726,13 +726,13 @@ class InsertEdit
                 . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
-                . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
+                . $vkey . '[' . $field_MD5 . ']">' . "\n"
                 . '<option value="" selected="selected"></option>' . "\n"
                 . $files
                 . '</select>' . "\n";
         }
 
-        return null;
+        return '';
     }
 
     /**
@@ -2333,7 +2333,7 @@ class InsertEdit
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
-                    $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $column);
+                    $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $column['Field_md5']);
                 }
 
                 if (
