@@ -1986,15 +1986,13 @@ class InsertEdit
      *
      * @return array comments for columns
      */
-    public function getCommentsMap($db, $table)
+    public function getCommentsMap($db, $table): array
     {
-        $commentsMap = [];
-
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $commentsMap = $this->relation->getComments($db, $table);
+            return $this->relation->getComments($db, $table);
         }
 
-        return $commentsMap;
+        return [];
     }
 
     /**
