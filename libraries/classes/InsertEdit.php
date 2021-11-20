@@ -1671,7 +1671,7 @@ class InsertEdit
      * @param array  $multiEditColumnsNullPrev array of multiple edit columns
      *                                              null previous
      *
-     * @return array ($query_values, $query_fields)
+     * @return array[] ($query_values, $query_fields)
      */
     public function getQueryValuesForInsertAndUpdateInMultipleEdit(
         $multiEditColumnsName,
