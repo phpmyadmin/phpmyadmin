@@ -1150,6 +1150,7 @@ class InsertEdit
      * Prepares the update/insert of a row
      *
      * @return array $loop_array, $using_key, $is_insert, $is_insertignore
+     * @psalm-return array{array, bool, bool, bool}
      */
     public function getParamsForUpdateOrInsert()
     {
