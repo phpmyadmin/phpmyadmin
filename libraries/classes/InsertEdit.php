@@ -588,24 +588,22 @@ class InsertEdit
     /**
      * Get column values
      *
-     * @param array $column              description of column in given table
-     * @param array $extractedColumnspec associative array containing type,
-     *                                    spec_in_brackets and possibly enum_set_values
-     *                                    (another array)
+     * @param string[] $enum_set_values
      *
      * @return array column values as an associative array
+     * @psalm-return list<array{html: string, plain: string}>
      */
-    private function getColumnEnumValues(array $column, array $extractedColumnspec)
+    private function getColumnEnumValues(array $enum_set_values): array
     {
-        $column['values'] = [];
-        foreach ($extractedColumnspec['enum_set_values'] as $val) {
-            $column['values'][] = [
+        $values = [];
+        foreach ($enum_set_values as $val) {
+            $values[] = [
                 'plain' => $val,
                 'html' => htmlspecialchars($val),
             ];
         }
 
-        return $column['values'];
+        return $values;
     }
 
     /**
@@ -2303,7 +2301,7 @@ class InsertEdit
 
             if ($column['pma_type'] === 'enum') {
                 if (! isset($column['values'])) {
-                    $column['values'] = $this->getColumnEnumValues($column, $extractedColumnspec);
+                    $column['values'] = $this->getColumnEnumValues($extractedColumnspec['enum_set_values']);
                 }
 
                 foreach ($column['values'] as $enumValue) {

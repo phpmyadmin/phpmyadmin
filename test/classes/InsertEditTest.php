@@ -833,21 +833,17 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnEnumValues(): void
     {
-        $extracted_columnspec = $column = [];
-        $extracted_columnspec['enum_set_values'] = [
+        $enum_set_values = [
             '<abc>',
             '"foo"',
         ];
-
-        $column['values'] = 'abc';
 
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getColumnEnumValues',
             [
-                $column,
-                $extracted_columnspec,
+                $enum_set_values,
             ]
         );
         $this->assertEquals(
