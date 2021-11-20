@@ -105,7 +105,7 @@ class InsertEdit
         ?array $whereClauses,
         array $whereClauseArray,
         $errorUrl
-    ) {
+    ): array {
         $formParams = [
             'db' => $db,
             'table' => $table,
@@ -133,7 +133,7 @@ class InsertEdit
      *
      * @return array whereClauseArray array of where clauses
      */
-    private function getWhereClauseArray($whereClause)
+    private function getWhereClauseArray($whereClause): array
     {
         if (is_null($whereClause)) {
             return [];
@@ -159,7 +159,7 @@ class InsertEdit
         array $whereClauseArray,
         $table,
         $db
-    ) {
+    ): array {
         $rows = [];
         $result = [];
         $whereClauses = [];
@@ -303,7 +303,7 @@ class InsertEdit
      *
      * @return string an HTML snippet
      */
-    public function showTypeOrFunction($which, array $urlParams, $isShow)
+    public function showTypeOrFunction($which, array $urlParams, $isShow): string
     {
         $params = [];
 
@@ -340,9 +340,9 @@ class InsertEdit
      *
      * @param string $which function|type
      *
-     * @return string|null an HTML snippet
+     * @return string an HTML snippet
      */
-    private function showTypeOrFunctionLabel($which)
+    private function showTypeOrFunctionLabel($which): string
     {
         switch ($which) {
             case 'function':
@@ -352,7 +352,7 @@ class InsertEdit
                 return __('Type');
         }
 
-        return null;
+        return '';
     }
 
     /**
@@ -416,7 +416,7 @@ class InsertEdit
      *
      * @return string              column title
      */
-    private function getColumnTitle(array $column, array $commentsMap)
+    private function getColumnTitle(array $column, array $commentsMap): string
     {
         if (isset($commentsMap[$column['Field']])) {
             return '<span style="border-bottom: 1px dashed black;" title="'
@@ -433,7 +433,7 @@ class InsertEdit
      * or "enum('one','two','varbinary',..)" are not categorized as binary
      *
      * @param array $column description of column in given table
-     * @param array $types  the types to verify
+     * @param string[] $types  the types to verify
      */
     public function isColumn(array $column, array $types): bool
     {
@@ -552,7 +552,7 @@ class InsertEdit
         $specialCharsEncoded,
         $dataType,
         $readOnly
-    ) {
+    ): string {
         $theClass = '';
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
         $textareaCols = $GLOBALS['cfg']['TextareaCols'];
@@ -670,7 +670,7 @@ class InsertEdit
         $idindex,
         $dataType,
         $readOnly
-    ) {
+    ): string {
         $theClass = 'textfield';
         // verify True_Type which does not contain the parentheses and length
         if (! $readOnly) {
@@ -822,7 +822,7 @@ class InsertEdit
         $data,
         array $extractedColumnspec,
         $readOnly
-    ) {
+    ): string {
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
         $fieldsize = $this->getColumnSize($column, $extractedColumnspec);
@@ -941,7 +941,7 @@ class InsertEdit
         $db,
         array $whereClauseArray,
         $errorUrl
-    ) {
+    ): string {
         return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
             'table' => $table,
@@ -989,7 +989,7 @@ class InsertEdit
      *
      * @return string           an html snippet
      */
-    private function getHeadAndFootOfInsertRowTable(array $urlParams)
+    private function getHeadAndFootOfInsertRowTable(array $urlParams): string
     {
         $type = '';
         $function = '';
@@ -1295,8 +1295,9 @@ class InsertEdit
      * @param array $valueSets      array of query values
      *
      * @return array of query
+     * @psalm-return array{string}
      */
-    public function buildSqlQuery($isInsertIgnore, array $queryFields, array $valueSets)
+    public function buildSqlQuery(bool $isInsertIgnore, array $queryFields, array $valueSets)
     {
         if ($isInsertIgnore) {
             $insertCommand = 'INSERT IGNORE ';
@@ -1469,7 +1470,7 @@ class InsertEdit
         $whereComparison,
         $dispval,
         $relationFieldValue
-    ) {
+    ): string {
         $foreigner = $this->relation->searchColumnInForeigners($map, $relationField);
 
         if (! is_array($foreigner)) {
@@ -1598,7 +1599,7 @@ class InsertEdit
         $funcOptionalParam,
         $funcNoParam,
         $key
-    ) {
+    ): string {
         if (empty($multiEditFuncs[$key])) {
             return $currentValue;
         }
@@ -1767,7 +1768,7 @@ class InsertEdit
         $whereClause,
         $table,
         $multiEditFuncs
-    ) {
+    ): string {
         if ($possiblyUploadedVal !== false) {
             return $possiblyUploadedVal;
         }
@@ -2008,7 +2009,7 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForGisEditor()
+    public function getHtmlForGisEditor(): string
     {
         return '<div id="gis_editor"></div><div id="popup_background"></div><br>';
     }
@@ -2021,7 +2022,7 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForIgnoreOption($rowId, $checked = true)
+    public function getHtmlForIgnoreOption($rowId, $checked = true): string
     {
         return '<input type="checkbox"'
             . ($checked ? ' checked="checked"' : '')
@@ -2040,7 +2041,7 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForInsertEditFormHeader($hasBlobField, $isUpload)
+    public function getHtmlForInsertEditFormHeader($hasBlobField, $isUpload): string
     {
         $template = new Template();
 
