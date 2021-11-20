@@ -506,10 +506,10 @@ class InsertEdit
             }
         } elseif (mb_strstr($column['True_Type'], 'set')) {
             $nullifyCode = '3';
-        } elseif ($foreigners && $foreigner && $foreignData['foreign_link'] == false) {
+        } elseif ($foreigner && $foreignData['foreign_link'] == false) {
             // foreign key in a drop-down
             $nullifyCode = '4';
-        } elseif ($foreigners && $foreigner && $foreignData['foreign_link'] == true) {
+        } elseif ($foreigner && $foreignData['foreign_link'] == true) {
             // foreign key with a browsing icon
             $nullifyCode = '6';
         } else {
