@@ -2560,13 +2560,11 @@ class InsertEditTest extends AbstractTestCase
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
-        $table_columns = [
-            [
-                'Field' => 'col',
-                'Type' => 'varchar(20)',
-                'Null' => 'Yes',
-                'Privileges' => 'insert,update,select',
-            ],
+        $table_column = [
+            'Field' => 'col',
+            'Type' => 'varchar(20)',
+            'Null' => 'Yes',
+            'Privileges' => 'insert,update,select',
         ];
         $repopulate = [md5('col') => 'val'];
         $column_mime = [
@@ -2580,7 +2578,7 @@ class InsertEditTest extends AbstractTestCase
             InsertEdit::class,
             'getHtmlForInsertEditFormColumn',
             [
-                $table_columns,
+                $table_column,
                 0,
                 [],
                 false,
@@ -2624,16 +2622,14 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test w/o input_transformation
-        $table_columns = [
-            [
-                'Field' => 'qwerty',
-                'Type' => 'datetime',
-                'Null' => 'Yes',
-                'Key' => '',
-                'Extra' => '',
-                'Default' => null,
-                'Privileges' => 'insert,update,select',
-            ],
+        $table_column = [
+            'Field' => 'qwerty',
+            'Type' => 'datetime',
+            'Null' => 'Yes',
+            'Key' => '',
+            'Extra' => '',
+            'Default' => null,
+            'Privileges' => 'insert,update,select',
         ];
         $repopulate = [md5('qwerty') => '12-10-14'];
         $actual = $this->callFunction(
@@ -2641,7 +2637,7 @@ class InsertEditTest extends AbstractTestCase
             InsertEdit::class,
             'getHtmlForInsertEditFormColumn',
             [
-                $table_columns,
+                $table_column,
                 0,
                 [],
                 false,

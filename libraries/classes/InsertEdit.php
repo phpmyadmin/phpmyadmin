@@ -2045,7 +2045,7 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param array  $tableColumns       table columns
+     * @param array  $column             column
      * @param int    $columnNumber       column index in table_columns
      * @param array  $commentsMap        comments map
      * @param bool   $timestampSeen      whether timestamp seen
@@ -2074,8 +2074,8 @@ class InsertEdit
      * @return string
      */
     private function getHtmlForInsertEditFormColumn(
-        array $tableColumns,
-        $columnNumber,
+        array $column,
+        int $columnNumber,
         array $commentsMap,
         $timestampSeen,
         object $currentResult,
@@ -2100,7 +2100,6 @@ class InsertEdit
         array $columnMime,
         $whereClause
     ) {
-        $column = $tableColumns[$columnNumber];
         $readOnly = false;
 
         if (! isset($column['processed'])) {
@@ -2429,7 +2428,7 @@ class InsertEdit
      * Function to get html for each insert/edit row
      *
      * @param array  $urlParams          url parameters
-     * @param array  $tableColumns       table columns
+     * @param array[] $tableColumns      table columns
      * @param array  $commentsMap        comments map
      * @param bool   $timestampSeen      whether timestamp seen
      * @param object $currentResult      current result
@@ -2508,7 +2507,7 @@ class InsertEdit
             }
 
             $htmlOutput .= $this->getHtmlForInsertEditFormColumn(
-                $tableColumns,
+                $tableColumn,
                 $columnNumber,
                 $commentsMap,
                 $timestampSeen,
