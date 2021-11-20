@@ -1079,7 +1079,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $extracted_columnspec = [];
-        $extracted_columnspec['spec_in_brackets'] = 25;
+        $extracted_columnspec['spec_in_brackets'] = '25';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -1205,9 +1205,9 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnSize(): void
     {
-        $column = $extracted_columnspec = [];
+        $column = [];
         $column['is_char'] = true;
-        $extracted_columnspec['spec_in_brackets'] = 45;
+        $spec_in_brackets = '45';
         $GLOBALS['cfg']['MinSizeForInputField'] = 30;
         $GLOBALS['cfg']['MaxSizeForInputField'] = 40;
 
@@ -1219,7 +1219,7 @@ class InsertEditTest extends AbstractTestCase
                 'getColumnSize',
                 [
                     $column,
-                    $extracted_columnspec,
+                    $spec_in_brackets,
                 ]
             )
         );
@@ -1237,7 +1237,7 @@ class InsertEditTest extends AbstractTestCase
                 'getColumnSize',
                 [
                     $column,
-                    $extracted_columnspec,
+                    $spec_in_brackets,
                 ]
             )
         );
@@ -1353,7 +1353,7 @@ class InsertEditTest extends AbstractTestCase
         unset($_POST['default_action']);
 
         $current_row['f'] = '123';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'bit';
 
         $result = $this->callFunction(
@@ -1418,7 +1418,7 @@ class InsertEditTest extends AbstractTestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $current_row['f'] = '123';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'int';
 
         $result = $this->callFunction(
@@ -1452,7 +1452,7 @@ class InsertEditTest extends AbstractTestCase
         $column['is_blob'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $current_row['f'] = '11001';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'char';
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 

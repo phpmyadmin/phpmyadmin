@@ -819,7 +819,7 @@ class InsertEdit
     ): string {
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
-        $fieldsize = $this->getColumnSize($column, $extractedColumnspec);
+        $fieldsize = $this->getColumnSize($column, $extractedColumnspec['spec_in_brackets']);
         $htmlOutput = $backupField . "\n";
         if ($column['is_char'] && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"))) {
             $htmlOutput .= "\n";
@@ -887,17 +887,15 @@ class InsertEdit
     /**
      * Get the field size
      *
-     * @param array $column              description of column in given table
-     * @param array $extractedColumnspec associative array containing type,
-     *                                    spec_in_brackets and possibly enum_set_values
-     *                                    (another array)
+     * @param array  $column           description of column in given table
+     * @param string $spec_in_brackets
      *
      * @return int field size
      */
-    private function getColumnSize(array $column, array $extractedColumnspec)
+    private function getColumnSize(array $column, string $spec_in_brackets): int
     {
         if ($column['is_char']) {
-            $fieldsize = $extractedColumnspec['spec_in_brackets'];
+            $fieldsize = (int) $spec_in_brackets;
             if ($fieldsize > $GLOBALS['cfg']['MaxSizeForInputField']) {
                 /**
                  * This case happens for CHAR or VARCHAR columns which have
