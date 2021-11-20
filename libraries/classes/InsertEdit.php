@@ -453,39 +453,36 @@ class InsertEdit
      * @param bool  $timestampSeen whether a timestamp has been seen
      *
      * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
+     * @psalm-return array{0: mixed, 1: string, 2: bool}
      */
     private function getEnumSetAndTimestampColumns(array $column, $timestampSeen)
     {
-        $column['first_timestamp'] = false;
         switch ($column['True_Type']) {
             case 'set':
-                $column['pma_type'] = 'set';
-                $column['wrap'] = '';
-                break;
+                return [
+                    'set',
+                    '',
+                    false,
+                ];
             case 'enum':
-                $column['pma_type'] = 'enum';
-                $column['wrap'] = '';
-                break;
+                return [
+                    'enum',
+                    '',
+                    false,
+                ];
             case 'timestamp':
-                if (! $timestampSeen) { // can only occur once per table
-                    $column['first_timestamp'] = true;
-                }
-
-                $column['pma_type'] = $column['Type'];
-                $column['wrap'] = ' text-nowrap';
-                break;
-
+                return [
+                    $column['Type'],
+                    ' text-nowrap',
+                    ! $timestampSeen, // can only occur once per table
+                ];
             default:
-                $column['pma_type'] = $column['Type'];
-                $column['wrap'] = ' text-nowrap';
-                break;
+                return [
+                    $column['Type'],
+                    ' text-nowrap',
+                    false,
+                ];
         }
-
-        return [
-            $column['pma_type'],
-            $column['wrap'],
-            $column['first_timestamp'],
-        ];
     }
 
     /**
