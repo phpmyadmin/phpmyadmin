@@ -1222,9 +1222,9 @@ class InsertEdit
      * @param string|false $gotoInclude store some script for include, otherwise it is
      *                                   boolean false
      *
-     * @return string|false
+     * @return string
      */
-    public function getGotoInclude($gotoInclude)
+    public function getGotoInclude($gotoInclude): string
     {
         $validOptions = [
             'new_insert',
@@ -1232,8 +1232,10 @@ class InsertEdit
             'edit_next',
         ];
         if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions)) {
-            $gotoInclude = '/table/change';
-        } elseif (! empty($GLOBALS['goto'])) {
+            return '/table/change';
+        }
+
+        if (! empty($GLOBALS['goto'])) {
             if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
                 // this should NOT happen
                 //$GLOBALS['goto'] = false;
