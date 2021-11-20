@@ -1331,7 +1331,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 [],
-                false,
                 [],
                 'a',
                 false,
@@ -1364,7 +1363,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 [],
                 'a',
                 false,
@@ -1391,7 +1389,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 [],
                 'a',
                 true,
@@ -1429,7 +1426,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1464,7 +1460,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1493,7 +1488,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1530,7 +1524,6 @@ class InsertEditTest extends AbstractTestCase
             'getSpecialCharsAndBackupFieldForInsertingMode',
             [
                 $column,
-                false,
             ]
         );
 
@@ -1555,7 +1548,6 @@ class InsertEditTest extends AbstractTestCase
             'getSpecialCharsAndBackupFieldForInsertingMode',
             [
                 $column,
-                false,
             ]
         );
 

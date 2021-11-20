@@ -1010,7 +1010,6 @@ class InsertEdit
      * @param array  $extractedColumnspec associative array containing type,
      *                                      spec_in_brackets and possibly
      *                                      enum_set_values (another array)
-     * @param bool   $realNullValue       whether column value null or not null
      * @param array  $gisDataTypes        list of GIS data types
      * @param string $columnNameAppendix  string to append to column name in input
      * @param bool   $asIs                use the data as is, used in repopulating
@@ -1022,13 +1021,13 @@ class InsertEdit
         array $currentRow,
         array $column,
         array $extractedColumnspec,
-        $realNullValue,
         array $gisDataTypes,
         $columnNameAppendix,
         $asIs
     ) {
         $specialCharsEncoded = '';
         $data = null;
+        $realNullValue = false;
         // (we are editing)
         if (! isset($currentRow[$column['Field']])) {
             $realNullValue = true;
@@ -1104,20 +1103,20 @@ class InsertEdit
      * display default values
      *
      * @param array $column        description of column in given table
-     * @param bool  $realNullValue whether column value null or not null
      *
      * @return array $real_null_value, $data, $special_chars,
      *               $backup_field, $special_chars_encoded
+     * @psalm-return array{bool, mixed, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
-        array $column,
-        $realNullValue
+        array $column
     ) {
         if (! isset($column['Default'])) {
             $column['Default'] = '';
             $realNullValue = true;
             $data = '';
         } else {
+            $realNullValue = false;
             $data = $column['Default'];
         }
 
@@ -1136,14 +1135,13 @@ class InsertEdit
             $specialChars = htmlspecialchars($column['Default']);
         }
 
-        $backupField = '';
         $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
         return [
             $realNullValue,
             $data,
             $specialChars,
-            $backupField,
+            '',
             $specialCharsEncoded,
         ];
     }
@@ -2143,7 +2141,6 @@ class InsertEdit
         $gisDataTypes = Gis::getDataTypes();
 
         // Prepares the field value
-        $realNullValue = false;
         if ($currentRow) {
             // (we are editing)
             [
@@ -2156,7 +2153,6 @@ class InsertEdit
                 $currentRow,
                 $column,
                 $extractedColumnspec,
-                $realNullValue,
                 $gisDataTypes,
                 $columnNameAppendix,
                 $asIs
@@ -2175,7 +2171,7 @@ class InsertEdit
                 $specialChars,
                 $backupField,
                 $specialCharsEncoded,
-            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp, $realNullValue);
+            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp);
             unset($tmp);
         }
 
