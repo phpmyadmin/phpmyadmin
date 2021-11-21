@@ -19,6 +19,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
@@ -1255,12 +1256,15 @@ class NavigationTree
 
         $nodes = $this->renderNodes($children);
 
+        $databaseUrl = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database');
+
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,
             'list_navigator' => $listNavigator,
             'server' => $GLOBALS['server'],
             'options' => $options,
             'nodes' => $nodes,
+            'database_url' => $databaseUrl,
         ]);
     }
 

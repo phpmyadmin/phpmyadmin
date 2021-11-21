@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
+<files psalm-version="4.13.0@cd489407a0219b93cadd04d5aff9845a942f7e5d">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -574,12 +574,15 @@
       <code>$path</code>
       <code>$path</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$keys</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="6">
+      <code>$keys[]</code>
       <code>$path</code>
       <code>$path</code>
       <code>$type</code>
       <code>$v</code>
-      <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="2">
@@ -604,7 +607,8 @@
       <code>$fieldsTypes</code>
       <code>$name</code>
     </PropertyNotSetInConstructor>
-    <UnevaluatedCode occurrences="1">
+    <UnevaluatedCode occurrences="2">
+      <code>return [];</code>
       <code>return [];</code>
     </UnevaluatedCode>
   </file>
@@ -11574,10 +11578,6 @@
     <PossiblyInvalidCast occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidCast>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$xml</code>
-      <code>$xml</code>
-    </RedundantConditionGivenDocblockType>
     <UnusedVariable occurrences="1">
       <code>$val3</code>
     </UnusedVariable>
@@ -15110,13 +15110,20 @@
     <MixedReturnStatement occurrences="1">
       <code>$config-&gt;getCookie($name)</code>
     </MixedReturnStatement>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$this-&gt;themes</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$theme</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCastGivenDocblockType occurrences="2">
       <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$configThemeExists</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;theme !== null</code>
     </RedundantConditionGivenDocblockType>
