@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-05-30 21:32+0000\n"
+"PO-Revision-Date: 2021-11-22 06:50+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6781,8 +6781,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Veri satırını mümkün olduğunca düzenlemek ve görmek için veri noktasına "
-"tıklayın."
+"Veri satırını mümkün olduğunca düzenlemek ve görüntülemek için veri "
+"noktasına tıklayın."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -10023,7 +10023,7 @@ msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
 
 #: libraries/classes/Import.php:1341
 msgid "View a structure's contents by clicking on its name."
-msgstr "Adına tıklayarak yapının içeriklerini görün."
+msgstr "Adına tıklayarak yapının içeriklerini görüntüleyin."
 
 #: libraries/classes/Import.php:1344
 msgid ""
@@ -11346,7 +11346,7 @@ msgstr "Sorgu sonucu verileri"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
-msgstr "Yapıyı göster"
+msgstr "Yapıyı görüntüle"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:313
 msgid "Stand in"
@@ -12911,7 +12911,7 @@ msgstr "Sorgu önbelleğini temizle"
 
 #: libraries/classes/Server/UserGroups.php:116
 msgid "View users"
-msgstr "Kullanıcıları göster"
+msgstr "Kullanıcıları görüntüle"
 
 #: libraries/classes/Server/UserGroups.php:260
 msgid "Server-level tabs"
@@ -15587,7 +15587,7 @@ msgstr "Tabloları ayrı dosyalar olarak dışa aktar"
 
 #: templates/export.twig:394
 msgid "View output as text"
-msgstr "Çıktıyı metin olarak göster"
+msgstr "Çıktıyı metin olarak görüntüle"
 
 #: templates/export.twig:400
 #, php-format
@@ -17909,7 +17909,7 @@ msgstr "paylaşılmış"
 
 #: templates/sql/query.twig:169
 msgid "View only"
-msgstr "Sadece göster"
+msgstr "Sadece görüntüle"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
