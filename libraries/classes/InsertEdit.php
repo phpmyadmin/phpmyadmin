@@ -2285,7 +2285,6 @@ class InsertEdit
             if ($column['is_char']) {
                 $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
                 $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-                $extractedColumnspec = Util::extractColumnSpec($column['Type']);
                 $maxlength = $extractedColumnspec['spec_in_brackets'];
             } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && mb_strstr($column['pma_type'], 'longtext')) {
                 $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
