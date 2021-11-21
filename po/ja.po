@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-14 00:10+0000\n"
+"POT-Creation-Date: 2021-11-21 00:11+0000\n"
 "PO-Revision-Date: 2021-11-03 05:57+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1362,8 +1362,8 @@ msgstr "検索："
 #: libraries/classes/BrowseForeigners.php:205
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: libraries/classes/Controllers/Server/PrivilegesController.php:329
-#: libraries/classes/Normalization.php:262
-#: libraries/classes/Normalization.php:991 libraries/classes/Tracking.php:327
+#: libraries/classes/Normalization.php:263
+#: libraries/classes/Normalization.php:992 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/designer/main.twig:1102
@@ -1433,7 +1433,7 @@ msgid "Description"
 msgstr "説明"
 
 #: libraries/classes/BrowseForeigners.php:320
-#: libraries/classes/Html/Generator.php:1198 libraries/classes/Language.php:204
+#: libraries/classes/Html/Generator.php:1192 libraries/classes/Language.php:204
 #: libraries/classes/Pdf.php:84
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:496
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:530
@@ -1951,7 +1951,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:165
 #: libraries/classes/Config/Descriptions.php:701
-#: libraries/classes/Plugins/Export/ExportSql.php:343
+#: libraries/classes/Plugins/Export/ExportSql.php:344
 msgid "Exclude definition of current user"
 msgstr "現在のユーザの定義を除外する"
 
@@ -3212,7 +3212,7 @@ msgstr "圧縮"
 #: libraries/classes/Plugins/Export/ExportExcel.php:61
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:85
 #: libraries/classes/Plugins/Export/ExportOds.php:70
-#: libraries/classes/Plugins/Export/ExportOdt.php:126
+#: libraries/classes/Plugins/Export/ExportOdt.php:127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:79
 msgid "Put columns names in the first row"
 msgstr "1 行目にカラム名を追加する"
@@ -3286,7 +3286,7 @@ msgstr "テーブル名のテンプレート"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:61
 #: libraries/classes/Plugins/Export/ExportOdt.php:69
 #: libraries/classes/Plugins/Export/ExportPdf.php:86
-#: libraries/classes/Plugins/Export/ExportSql.php:235
+#: libraries/classes/Plugins/Export/ExportSql.php:236
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
 msgstr "ダンプするテーブル"
@@ -3299,11 +3299,11 @@ msgstr "テーブルのキャプションを含める"
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Config/Descriptions.php:669
 #: libraries/classes/Config/Descriptions.php:704
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:391
-#: libraries/classes/Plugins/Export/ExportLatex.php:548
-#: libraries/classes/Plugins/Export/ExportOdt.php:488
-#: libraries/classes/Plugins/Export/ExportTexytext.php:389
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:554
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:389
+#: libraries/classes/Plugins/Export/ExportLatex.php:549
+#: libraries/classes/Plugins/Export/ExportOdt.php:492
+#: libraries/classes/Plugins/Export/ExportTexytext.php:391
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:552
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
 #: templates/columns_definitions/table_fields_definitions.twig:54
@@ -3330,10 +3330,10 @@ msgstr "ラベルキー"
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:670
 #: libraries/classes/Config/Descriptions.php:707
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:398
-#: libraries/classes/Plugins/Export/ExportOdt.php:495
-#: libraries/classes/Plugins/Export/ExportTexytext.php:394
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:396
+#: libraries/classes/Plugins/Export/ExportOdt.php:499
+#: libraries/classes/Plugins/Export/ExportTexytext.php:396
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:560
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 msgid "Media type"
@@ -3393,12 +3393,12 @@ msgid "Use delayed inserts"
 msgstr "遅延インサートを使用する"
 
 #: libraries/classes/Config/Descriptions.php:685
-#: libraries/classes/Plugins/Export/ExportSql.php:181
+#: libraries/classes/Plugins/Export/ExportSql.php:182
 msgid "Disable foreign key checks"
 msgstr "外部キーのチェックを無効にする"
 
 #: libraries/classes/Config/Descriptions.php:686
-#: libraries/classes/Plugins/Export/ExportSql.php:195
+#: libraries/classes/Plugins/Export/ExportSql.php:196
 msgid "Export views as tables"
 msgstr "ビューをテーブルとしてエクスポートする"
 
@@ -3432,7 +3432,7 @@ msgstr ""
 "い）"
 
 #: libraries/classes/Config/Descriptions.php:702
-#: libraries/classes/Plugins/Export/ExportSql.php:349
+#: libraries/classes/Plugins/Export/ExportSql.php:350
 #, php-format
 msgid "%s view"
 msgstr "%s ビュー"
@@ -3446,7 +3446,7 @@ msgid "Syntax to use when inserting data"
 msgstr "データを挿入するときに使う構文"
 
 #: libraries/classes/Config/Descriptions.php:706
-#: libraries/classes/Plugins/Export/ExportSql.php:486
+#: libraries/classes/Plugins/Export/ExportSql.php:487
 msgid "Maximal length of created query"
 msgstr "作成するクエリの最大長"
 
@@ -3455,7 +3455,7 @@ msgid "Export type"
 msgstr "エクスポート形式"
 
 #: libraries/classes/Config/Descriptions.php:712
-#: libraries/classes/Plugins/Export/ExportSql.php:167
+#: libraries/classes/Plugins/Export/ExportSql.php:168
 msgid "Enclose export in a transaction"
 msgstr "エクスポートをトランザクションで囲む"
 
@@ -3480,7 +3480,7 @@ msgid "First day of calendar"
 msgstr "カレンダーの最初の曜日"
 
 #: libraries/classes/Config/Descriptions.php:721
-#: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:497
+#: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:3
@@ -3594,8 +3594,8 @@ msgstr "環境保管領域"
 msgid "Changes tracking"
 msgstr "変更追跡機能"
 
-#: libraries/classes/Config/Descriptions.php:748 libraries/classes/Menu.php:266
-#: libraries/classes/Menu.php:376 libraries/classes/Menu.php:502
+#: libraries/classes/Config/Descriptions.php:748 libraries/classes/Menu.php:265
+#: libraries/classes/Menu.php:372 libraries/classes/Menu.php:498
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
 #: libraries/classes/Util.php:1497 libraries/classes/Util.php:1964
 #: libraries/classes/Util.php:1979 libraries/classes/Util.php:1996
@@ -4248,9 +4248,9 @@ msgstr "ロックされているテーブルをスキップする"
 
 #: libraries/classes/Config/Descriptions.php:919
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Display/Results.php:3107
+#: libraries/classes/Display/Results.php:3104
 #: libraries/classes/Html/Generator.php:670
-#: libraries/classes/Html/Generator.php:933
+#: libraries/classes/Html/Generator.php:927
 #: libraries/classes/Server/UserGroups.php:129
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4309,10 +4309,10 @@ msgstr "textarea の行数"
 
 #: libraries/classes/Config/Descriptions.php:927
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
-#: libraries/classes/Plugins/Export/ExportOdt.php:184
+#: libraries/classes/Plugins/Export/ExportOdt.php:185
 #: libraries/classes/Plugins/Export/ExportTexytext.php:125
-#: libraries/classes/Server/Privileges.php:1855
-#: libraries/classes/Server/Privileges.php:1857
+#: libraries/classes/Server/Privileges.php:1860
+#: libraries/classes/Server/Privileges.php:1862
 #: libraries/classes/Server/Status/Processes.php:126
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
@@ -4341,8 +4341,8 @@ msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:930
 #: libraries/classes/Plugins/Export/ExportXml.php:468
-#: libraries/classes/Server/Privileges.php:1861
-#: libraries/classes/Server/Privileges.php:1863
+#: libraries/classes/Server/Privileges.php:1866
+#: libraries/classes/Server/Privileges.php:1868
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4491,39 +4491,39 @@ msgstr "並び順"
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: libraries/classes/Config/FormDisplay.php:608
+#: libraries/classes/Config/FormDisplay.php:605
 #, php-format
 msgid "Missing data for %s"
 msgstr "%s ためのデータがありません"
 
-#: libraries/classes/Config/FormDisplay.php:649
+#: libraries/classes/Config/FormDisplay.php:646
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
 msgstr "不正な値です!"
 
-#: libraries/classes/Config/FormDisplay.php:800
-#: libraries/classes/Config/FormDisplay.php:809
+#: libraries/classes/Config/FormDisplay.php:797
+#: libraries/classes/Config/FormDisplay.php:806
 msgid "unavailable"
 msgstr "使えません"
 
-#: libraries/classes/Config/FormDisplay.php:802
-#: libraries/classes/Config/FormDisplay.php:811
+#: libraries/classes/Config/FormDisplay.php:799
+#: libraries/classes/Config/FormDisplay.php:808
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" には %s 拡張が必要です"
 
-#: libraries/classes/Config/FormDisplay.php:842
+#: libraries/classes/Config/FormDisplay.php:839
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "圧縮されたインポートが行えません。関数 %s がありません。"
 
-#: libraries/classes/Config/FormDisplay.php:851
+#: libraries/classes/Config/FormDisplay.php:848
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "圧縮エクスポートが行えません。関数 %s がありません。"
 
-#: libraries/classes/Config/FormDisplay.php:870
+#: libraries/classes/Config/FormDisplay.php:867
 #, php-format
 msgid "maximum %s"
 msgstr "最大 %s"
@@ -4552,8 +4552,8 @@ msgstr "詳細"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
-#: libraries/classes/Import.php:1339 libraries/classes/Menu.php:258
-#: libraries/classes/Menu.php:371
+#: libraries/classes/Import.php:1339 libraries/classes/Menu.php:257
+#: libraries/classes/Menu.php:367
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
@@ -4600,8 +4600,8 @@ msgstr "OpenDocument テキスト"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
-#: libraries/classes/Menu.php:288 libraries/classes/Menu.php:396
-#: libraries/classes/Menu.php:530 libraries/classes/Server/Privileges.php:1539
+#: libraries/classes/Menu.php:287 libraries/classes/Menu.php:392
+#: libraries/classes/Menu.php:526 libraries/classes/Server/Privileges.php:1543
 #: libraries/classes/Util.php:1967 libraries/classes/Util.php:1982
 #: libraries/classes/Util.php:1999 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4645,8 +4645,8 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:310
-#: libraries/classes/Menu.php:297 libraries/classes/Menu.php:406
-#: libraries/classes/Menu.php:535 libraries/classes/Util.php:1968
+#: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
+#: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
 #: templates/import.twig:32 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -4663,22 +4663,22 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "設定を保存することはできません。送信された設定にエラーが含まれています!"
 
-#: libraries/classes/Config.php:647
+#: libraries/classes/Config.php:646
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "設定ファイル (%s) は存在しますが、読み込むことができません。"
 
-#: libraries/classes/Config.php:685
+#: libraries/classes/Config.php:684
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "設定ファイルのパーミッションが正しくありません。誰でも書き込み可能になってい"
 "ます！"
 
-#: libraries/classes/Config.php:700
+#: libraries/classes/Config.php:699
 msgid "Failed to read configuration file!"
 msgstr "設定ファイルの読み込みに失敗しました！"
 
-#: libraries/classes/Config.php:702
+#: libraries/classes/Config.php:701
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4686,12 +4686,12 @@ msgstr ""
 "通常、これは構文エラーがあることを意味します。以下に示す全てのエラーを確認し"
 "てください。"
 
-#: libraries/classes/Config.php:1228
+#: libraries/classes/Config.php:1227
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
-#: libraries/classes/Config.php:1241
+#: libraries/classes/Config.php:1240
 #, php-format
 msgid "Server %d"
 msgstr "サーバ %d"
@@ -4920,7 +4920,7 @@ msgstr "SQL クエリコンソール"
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:70
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "データベースが選択されていません。"
@@ -4942,7 +4942,7 @@ msgstr "%1$s から %2$s の行の表示。"
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
-#: libraries/classes/Controllers/Export/ExportController.php:451
+#: libraries/classes/Controllers/Export/ExportController.php:446
 #: libraries/classes/Database/Qbe.php:353
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4967,7 +4967,7 @@ msgstr ""
 "ください！"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
-#: libraries/classes/Controllers/Table/OperationsController.php:264
+#: libraries/classes/Controllers/Table/OperationsController.php:261
 msgid "No collation provided."
 msgstr "照合順序が提供されていません。"
 
@@ -4992,7 +4992,7 @@ msgstr "データベース %1$s の名称を %2$s に変更しました。"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "データベース %1$s を %2$s にコピーしました。"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:299
+#: libraries/classes/Controllers/Database/OperationsController.php:296
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5053,15 +5053,15 @@ msgstr "テーブル %s を削除しました。"
 msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:4179
+#: libraries/classes/Controllers/Database/StructureController.php:577
+#: libraries/classes/Display/Results.php:4176
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: libraries/classes/Controllers/Database/StructureController.php:764
+#: libraries/classes/Controllers/Database/StructureController.php:766
 msgid "unknown"
 msgstr "不明"
 
@@ -5073,10 +5073,10 @@ msgstr "不明"
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:59
 #: libraries/classes/Controllers/Table/Structure/PrimaryController.php:83
 #: libraries/classes/IndexColumn.php:164 libraries/classes/Index.php:525
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:638
-#: libraries/classes/Plugins/Export/ExportLatex.php:629
-#: libraries/classes/Plugins/Export/ExportOdt.php:781
-#: libraries/classes/Plugins/Export/ExportTexytext.php:620
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:636
+#: libraries/classes/Plugins/Export/ExportLatex.php:630
+#: libraries/classes/Plugins/Export/ExportOdt.php:785
+#: libraries/classes/Plugins/Export/ExportTexytext.php:622
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -5110,7 +5110,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
-#: libraries/classes/Controllers/Table/OperationsController.php:324
+#: libraries/classes/Controllers/Table/OperationsController.php:321
 #: libraries/classes/Controllers/Table/ReplaceController.php:418
 #: libraries/classes/Core.php:726 templates/preview_sql.twig:3
 msgid "No change"
@@ -5165,12 +5165,12 @@ msgstr "問題が発生する場合は、バグ報告を手動で送信してく
 msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
-#: libraries/classes/Controllers/Export/ExportController.php:244
+#: libraries/classes/Controllers/Export/ExportController.php:239
 #: libraries/classes/Export.php:1336
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
-#: libraries/classes/Controllers/Export/ExportController.php:342
+#: libraries/classes/Controllers/Export/ExportController.php:337
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -5332,7 +5332,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:621
 #: libraries/classes/Controllers/Sql/SqlController.php:239
-#: libraries/classes/Sql.php:1167
+#: libraries/classes/Sql.php:1169
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -5622,7 +5622,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:905 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -5644,13 +5644,13 @@ msgid "The user name is empty!"
 msgstr "ユーザ名が空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:951
+#: libraries/classes/Server/Privileges.php:955
 #: libraries/classes/UserPassword.php:42
 msgid "The password is empty!"
 msgstr "パスワードが空です!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:135
-#: libraries/classes/Server/Privileges.php:949
+#: libraries/classes/Server/Privileges.php:953
 #: libraries/classes/UserPassword.php:46
 msgid "The passwords aren't the same!"
 msgstr "パスワードが異なっています!"
@@ -5666,7 +5666,7 @@ msgstr "選択したユーザを削除する"
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
 #: templates/export_modal.twig:10 templates/export.twig:64
 #: templates/export.twig:74 templates/export.twig:184
-#: templates/home/index.twig:277 templates/home/index.twig:285
+#: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
@@ -5921,7 +5921,7 @@ msgid "Traffic"
 msgstr "トラフィック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:1969
+#: libraries/classes/Menu.php:536 libraries/classes/Util.php:1969
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
@@ -5936,8 +5936,8 @@ msgid "Please add at least one variable to the series!"
 msgstr "少なくとも１つの系列を追加してください!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:208
-#: libraries/classes/Display/Results.php:1311
-#: libraries/classes/Plugins/Export/ExportSql.php:2224
+#: libraries/classes/Display/Results.php:1309
+#: libraries/classes/Plugins/Export/ExportSql.php:2226
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
@@ -6151,7 +6151,7 @@ msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Menu.php:507
+#: libraries/classes/Menu.php:503
 #: libraries/classes/Server/Status/Processes.php:138
 #: libraries/classes/Util.php:1965 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
@@ -6162,9 +6162,9 @@ msgid "Status"
 msgstr "状態"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:479
-#: libraries/classes/Plugins/Export/ExportOdt.php:595
-#: libraries/classes/Plugins/Export/ExportTexytext.php:456
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:477
+#: libraries/classes/Plugins/Export/ExportOdt.php:599
+#: libraries/classes/Plugins/Export/ExportTexytext.php:458
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:365
 #: libraries/classes/Server/Status/Processes.php:134
 #: templates/database/triggers/list.twig:47
@@ -6341,7 +6341,7 @@ msgid "Apply"
 msgstr "適用"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#: templates/home/index.twig:281 templates/navigation/main.twig:58
+#: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
@@ -6424,10 +6424,10 @@ msgstr "文字セットを変更しています"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:355
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:637
-#: libraries/classes/Plugins/Export/ExportLatex.php:629
-#: libraries/classes/Plugins/Export/ExportOdt.php:780
-#: libraries/classes/Plugins/Export/ExportTexytext.php:620
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:635
+#: libraries/classes/Plugins/Export/ExportLatex.php:630
+#: libraries/classes/Plugins/Export/ExportOdt.php:784
+#: libraries/classes/Plugins/Export/ExportTexytext.php:622
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
 #: templates/database/central_columns/main.twig:360
@@ -6538,7 +6538,7 @@ msgid "Show query box"
 msgstr "クエリボックスを表示"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3178
+#: libraries/classes/Display/Results.php:3175
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
@@ -6584,7 +6584,7 @@ msgid "Variable %d:"
 msgstr "変数 %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
-#: libraries/classes/Normalization.php:1064
+#: libraries/classes/Normalization.php:1065
 msgid "Pick"
 msgstr "選択"
 
@@ -6618,7 +6618,7 @@ msgid "Primary key added."
 msgstr "主キーを追加しました。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
-#: libraries/classes/Normalization.php:289
+#: libraries/classes/Normalization.php:290
 msgid "Taking you to next step…"
 msgstr "次のステップに進みます…"
 
@@ -6628,10 +6628,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "テーブル「%s」の第１正規形は完了しました。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#: libraries/classes/Normalization.php:547
-#: libraries/classes/Normalization.php:611
-#: libraries/classes/Normalization.php:708
-#: libraries/classes/Normalization.php:786
+#: libraries/classes/Normalization.php:548
+#: libraries/classes/Normalization.php:612
+#: libraries/classes/Normalization.php:709
+#: libraries/classes/Normalization.php:787
 msgid "End of step"
 msgstr "最後のステップ"
 
@@ -6641,7 +6641,7 @@ msgstr "第２正規化 (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:382
+#: libraries/classes/Normalization.php:383
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "決定"
@@ -6667,8 +6667,8 @@ msgid "No partial dependencies selected!"
 msgstr "部分的な依存が選択されていません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
-#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:1005
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:302
+#: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:999
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:304
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "戻る"
@@ -6798,13 +6798,13 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2054
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
-#: libraries/classes/Display/Results.php:3111
+#: libraries/classes/Display/Results.php:3108
 #: libraries/classes/Html/Generator.php:78
 #: templates/display/results/table.twig:231
 #: templates/display/results/table.twig:232
@@ -7388,17 +7388,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
 
 #: libraries/classes/Controllers/NormalizationController.php:40
-#: libraries/classes/Normalization.php:252
+#: libraries/classes/Normalization.php:253
 msgid "Select one…"
 msgstr "カラムを １つ選択してください…"
 
 #: libraries/classes/Controllers/NormalizationController.php:41
-#: libraries/classes/Normalization.php:253
+#: libraries/classes/Normalization.php:254
 msgid "No such column"
 msgstr "カラムはありません"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:257 libraries/classes/Types.php:798
+#: libraries/classes/Normalization.php:258 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
 msgstr "文字列"
@@ -7459,7 +7459,7 @@ msgstr "オーバーヘッド"
 msgid "Database %1$s has been created."
 msgstr "データベース %1$s を作成しました。"
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:102
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -8188,12 +8188,12 @@ msgstr "スレッドキャッシュのヒット割合 (計算値)"
 msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数。"
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:45
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
 #: libraries/classes/Util.php:850
 msgid "Missing parameter:"
 msgstr "パラメータがありません："
 
-#: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
+#: libraries/classes/Controllers/Server/UserGroupsFormController.php:61
 msgid "User groups management is not enabled."
 msgstr "ユーザグループ管理が有効になっていません。"
 
@@ -8309,10 +8309,10 @@ msgstr "テーブル %s は既に存在します!"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:60
 #: libraries/classes/Controllers/Table/Partition/RepairController.php:59
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:60
-#: libraries/classes/Controllers/Table/RelationController.php:245
+#: libraries/classes/Controllers/Table/RelationController.php:243
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1225
-#: libraries/classes/Display/Results.php:3881 libraries/classes/Message.php:180
+#: libraries/classes/Display/Results.php:3877 libraries/classes/Message.php:180
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
@@ -8350,7 +8350,7 @@ msgstr "リクエストに問題があります。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1244
 #: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:223
-#: libraries/classes/Sql.php:980
+#: libraries/classes/Sql.php:982
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -8362,9 +8362,9 @@ msgstr "返り値が空でした (行数 0)。"
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "複数テーブルの管理の操作は無効です。"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:111
-#: libraries/classes/Controllers/Table/OperationsController.php:304
-#: libraries/classes/Controllers/Table/StructureController.php:99
+#: libraries/classes/Controllers/Table/OperationsController.php:108
+#: libraries/classes/Controllers/Table/OperationsController.php:301
+#: libraries/classes/Controllers/Table/StructureController.php:100
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8376,18 +8376,18 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/Partition/RebuildController.php:66
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
-#: libraries/classes/Html/Generator.php:881 libraries/classes/Import.php:138
+#: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
 #: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
 msgstr "エラー"
 
-#: libraries/classes/Controllers/Table/RelationController.php:186
+#: libraries/classes/Controllers/Table/RelationController.php:184
 msgid "Display column was successfully updated."
 msgstr "表示カラムは正常に更新されました。"
 
-#: libraries/classes/Controllers/Table/RelationController.php:278
+#: libraries/classes/Controllers/Table/RelationController.php:277
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
@@ -8596,7 +8596,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:130
 #: libraries/classes/Database/Triggers.php:155
 #: libraries/classes/Database/Triggers.php:440
-#: libraries/classes/Html/Generator.php:949
+#: libraries/classes/Html/Generator.php:943
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -8686,7 +8686,7 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のイベントはありません。"
 
-#: libraries/classes/DatabaseInterface.php:1092
+#: libraries/classes/DatabaseInterface.php:1091
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8697,20 +8697,20 @@ msgstr ""
 "['SessionTimeZone'][/em]の設定を確認してください。phpMyAdminは現在データベー"
 "スサーバのデフォルトのタイムゾーンを使用しています。"
 
-#: libraries/classes/DatabaseInterface.php:1139
+#: libraries/classes/DatabaseInterface.php:1138
 msgid "Failed to set configured collation connection!"
 msgstr "照合順序接続の設定に失敗しました!"
 
-#: libraries/classes/DatabaseInterface.php:1913
+#: libraries/classes/DatabaseInterface.php:1912
 msgid "Missing connection parameters!"
 msgstr "接続パラメータが不足しています！"
 
-#: libraries/classes/DatabaseInterface.php:1938
+#: libraries/classes/DatabaseInterface.php:1937
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "設定ファイルに定義されている管理ユーザ(controluser)での接続に失敗しました。"
 
-#: libraries/classes/DatabaseInterface.php:2416
+#: libraries/classes/DatabaseInterface.php:2415
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "詳しくは%sドキュメント%sを参照してください。"
@@ -8733,23 +8733,23 @@ msgstr "挿入"
 msgid "Del"
 msgstr "削除"
 
-#: libraries/classes/Database/Qbe.php:1706
+#: libraries/classes/Database/Qbe.php:1705
 msgid "Saved bookmarked search:"
 msgstr "保存された条件での検索:"
 
-#: libraries/classes/Database/Qbe.php:1708
+#: libraries/classes/Database/Qbe.php:1707
 msgid "New bookmark"
 msgstr "新しいブックマーク"
 
-#: libraries/classes/Database/Qbe.php:1735
+#: libraries/classes/Database/Qbe.php:1734
 msgid "Create bookmark"
 msgstr "ブックマークの作成"
 
-#: libraries/classes/Database/Qbe.php:1738
+#: libraries/classes/Database/Qbe.php:1737
 msgid "Update bookmark"
 msgstr "ブックマークの編集"
 
-#: libraries/classes/Database/Qbe.php:1740
+#: libraries/classes/Database/Qbe.php:1739
 msgid "Delete bookmark"
 msgstr "ブックマークの削除"
 
@@ -8950,52 +8950,52 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のトリガはありません。"
 
-#: libraries/classes/Dbal/DbiMysqli.php:146
+#: libraries/classes/Dbal/DbiMysqli.php:147
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
-#: libraries/classes/Display/Results.php:917
-#: libraries/classes/Html/Generator.php:1211
-#: libraries/classes/Html/Generator.php:1215
+#: libraries/classes/Display/Results.php:916
+#: libraries/classes/Html/Generator.php:1205
+#: libraries/classes/Html/Generator.php:1209
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
-#: libraries/classes/Display/Results.php:924
-#: libraries/classes/Html/Generator.php:1212
-#: libraries/classes/Html/Generator.php:1216
+#: libraries/classes/Display/Results.php:923
+#: libraries/classes/Html/Generator.php:1206
+#: libraries/classes/Html/Generator.php:1210
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
-#: libraries/classes/Display/Results.php:952
-#: libraries/classes/Html/Generator.php:1245
-#: libraries/classes/Html/Generator.php:1254
+#: libraries/classes/Display/Results.php:951
+#: libraries/classes/Html/Generator.php:1239
+#: libraries/classes/Html/Generator.php:1248
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
-#: libraries/classes/Display/Results.php:979
-#: libraries/classes/Html/Generator.php:1246
-#: libraries/classes/Html/Generator.php:1255
+#: libraries/classes/Display/Results.php:978
+#: libraries/classes/Html/Generator.php:1240
+#: libraries/classes/Html/Generator.php:1249
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
 
-#: libraries/classes/Display/Results.php:1534
+#: libraries/classes/Display/Results.php:1532
 #: templates/display/results/table.twig:129
 msgid "Partial texts"
 msgstr "部分テキスト"
 
-#: libraries/classes/Display/Results.php:1538
+#: libraries/classes/Display/Results.php:1536
 #: templates/display/results/table.twig:133
 msgid "Full texts"
 msgstr "全文"
 
-#: libraries/classes/Display/Results.php:1907
-#: libraries/classes/Display/Results.php:1933 libraries/classes/Util.php:2612
+#: libraries/classes/Display/Results.php:1905
+#: libraries/classes/Display/Results.php:1931 libraries/classes/Util.php:2612
 #: libraries/classes/Util.php:2635 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9008,8 +9008,8 @@ msgstr "全文"
 msgid "Descending"
 msgstr "降順"
 
-#: libraries/classes/Display/Results.php:1915
-#: libraries/classes/Display/Results.php:1925 libraries/classes/Util.php:2604
+#: libraries/classes/Display/Results.php:1913
+#: libraries/classes/Display/Results.php:1923 libraries/classes/Util.php:2604
 #: libraries/classes/Util.php:2627 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9022,41 +9022,41 @@ msgstr "降順"
 msgid "Ascending"
 msgstr "昇順"
 
-#: libraries/classes/Display/Results.php:3154
-#: libraries/classes/Display/Results.php:3169
+#: libraries/classes/Display/Results.php:3151
+#: libraries/classes/Display/Results.php:3166
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: libraries/classes/Display/Results.php:3201
+#: libraries/classes/Display/Results.php:3198
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "停止"
 
-#: libraries/classes/Display/Results.php:3812
+#: libraries/classes/Display/Results.php:3808
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] をご覧ください。"
 
-#: libraries/classes/Display/Results.php:4190
+#: libraries/classes/Display/Results.php:4187
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: libraries/classes/Display/Results.php:4204
+#: libraries/classes/Display/Results.php:4201
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "合計 %1$d, クエリで %2$d"
 
-#: libraries/classes/Display/Results.php:4209
+#: libraries/classes/Display/Results.php:4206
 #, php-format
 msgid "%d total"
 msgstr "合計 %d"
 
-#: libraries/classes/Display/Results.php:4222 libraries/classes/Sql.php:986
+#: libraries/classes/Display/Results.php:4219 libraries/classes/Sql.php:988
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4577
+#: libraries/classes/Display/Results.php:4573
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -9395,7 +9395,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:798
 #: libraries/classes/Html/MySQLDocumentation.php:52
 #: libraries/classes/Sanitize.php:203
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:236
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:244
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -9588,16 +9588,16 @@ msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:888
+#: libraries/classes/Html/Generator.php:882
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:891
+#: libraries/classes/Html/Generator.php:885
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
 
-#: libraries/classes/Import.php:294 libraries/classes/Sql.php:994
+#: libraries/classes/Import.php:294 libraries/classes/Sql.php:996
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -9707,13 +9707,13 @@ msgstr "関数"
 
 #: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:375
-#: libraries/classes/Plugins/Export/ExportLatex.php:540
-#: libraries/classes/Plugins/Export/ExportOdt.php:371
-#: libraries/classes/Plugins/Export/ExportOdt.php:472
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:373
+#: libraries/classes/Plugins/Export/ExportLatex.php:541
+#: libraries/classes/Plugins/Export/ExportOdt.php:372
+#: libraries/classes/Plugins/Export/ExportOdt.php:476
 #: libraries/classes/Plugins/Export/ExportTexytext.php:291
-#: libraries/classes/Plugins/Export/ExportTexytext.php:381
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:533
+#: libraries/classes/Plugins/Export/ExportTexytext.php:383
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:531
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:668
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: templates/columns_definitions/table_fields_definitions.twig:12
@@ -9758,11 +9758,11 @@ msgstr "または"
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:977
+#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:957
+#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -9778,12 +9778,12 @@ msgstr ""
 "文字列の長さが最大値を超えているため、このクエリに対する構文チェックは無効に"
 "なっています。"
 
-#: libraries/classes/Linter.php:170
+#: libraries/classes/Linter.php:162
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s （もしかして <code>%2$s</code>）"
 
-#: libraries/classes/Menu.php:251
+#: libraries/classes/Menu.php:250
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
 #: libraries/classes/Util.php:1500 libraries/classes/Util.php:1994
 #: libraries/config.values.php:68 libraries/config.values.php:82
@@ -9793,7 +9793,7 @@ msgstr "%1$s （もしかして <code>%2$s</code>）"
 msgid "Browse"
 msgstr "表示"
 
-#: libraries/classes/Menu.php:270 libraries/classes/Menu.php:380
+#: libraries/classes/Menu.php:269 libraries/classes/Menu.php:376
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
 #: libraries/classes/Util.php:1498 libraries/classes/Util.php:1980
 #: libraries/classes/Util.php:1997 libraries/config.values.php:64
@@ -9806,7 +9806,7 @@ msgstr "表示"
 msgid "Search"
 msgstr "検索"
 
-#: libraries/classes/Menu.php:281
+#: libraries/classes/Menu.php:280
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
 #: libraries/classes/Util.php:1499 libraries/classes/Util.php:1998
 #: libraries/config.values.php:66 libraries/config.values.php:80
@@ -9817,8 +9817,8 @@ msgstr "検索"
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/classes/Menu.php:307 libraries/classes/Menu.php:420
-#: libraries/classes/Server/Privileges.php:2922 libraries/classes/Util.php:1985
+#: libraries/classes/Menu.php:306 libraries/classes/Menu.php:416
+#: libraries/classes/Server/Privileges.php:2927 libraries/classes/Util.php:1985
 #: libraries/classes/Util.php:2001 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -9827,75 +9827,75 @@ msgstr "挿入"
 msgid "Privileges"
 msgstr "権限"
 
-#: libraries/classes/Menu.php:318 libraries/classes/Menu.php:328
-#: libraries/classes/Menu.php:411 libraries/classes/Util.php:1501
+#: libraries/classes/Menu.php:317 libraries/classes/Menu.php:327
+#: libraries/classes/Menu.php:407 libraries/classes/Util.php:1501
 #: libraries/classes/Util.php:1984 libraries/classes/Util.php:2002
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/classes/Menu.php:334 libraries/classes/Menu.php:446
-#: libraries/classes/Relation.php:296 libraries/classes/Util.php:1989
+#: libraries/classes/Menu.php:333 libraries/classes/Menu.php:442
+#: libraries/classes/Relation.php:295 libraries/classes/Util.php:1989
 #: libraries/classes/Util.php:2003
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
-#: libraries/classes/Menu.php:341 libraries/classes/Menu.php:439
+#: libraries/classes/Menu.php:340 libraries/classes/Menu.php:435
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:563
-#: libraries/classes/Plugins/Export/ExportOdt.php:701
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:561
+#: libraries/classes/Plugins/Export/ExportOdt.php:705
 #: libraries/classes/Plugins/Export/ExportPdf.php:261
-#: libraries/classes/Plugins/Export/ExportSql.php:2095
-#: libraries/classes/Plugins/Export/ExportTexytext.php:542
+#: libraries/classes/Plugins/Export/ExportSql.php:2097
+#: libraries/classes/Plugins/Export/ExportTexytext.php:544
 #: libraries/classes/Plugins/Export/ExportXml.php:120
 #: libraries/classes/Util.php:1988 libraries/classes/Util.php:2004
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "トリガ"
 
-#: libraries/classes/Menu.php:385 libraries/classes/Menu.php:393
-#: libraries/classes/Menu.php:401
+#: libraries/classes/Menu.php:381 libraries/classes/Menu.php:389
+#: libraries/classes/Menu.php:397
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/classes/Menu.php:388 libraries/classes/Util.php:1981
+#: libraries/classes/Menu.php:384 libraries/classes/Util.php:1981
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/classes/Menu.php:426 libraries/classes/Util.php:1986
+#: libraries/classes/Menu.php:422 libraries/classes/Util.php:1986
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "ルーチン"
 
-#: libraries/classes/Menu.php:432
+#: libraries/classes/Menu.php:428
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:1004
+#: libraries/classes/Plugins/Export/ExportSql.php:1005
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 #: libraries/classes/Util.php:1987 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/classes/Menu.php:453 libraries/classes/Util.php:1990
+#: libraries/classes/Menu.php:449 libraries/classes/Util.php:1990
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/classes/Menu.php:460 libraries/classes/Util.php:1991
+#: libraries/classes/Menu.php:456 libraries/classes/Util.php:1991
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "主要カラム"
 
-#: libraries/classes/Menu.php:520
+#: libraries/classes/Menu.php:516
 msgid "User accounts"
 msgstr "ユーザアカウント"
 
-#: libraries/classes/Menu.php:555 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:1970 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "バイナリログ"
 
-#: libraries/classes/Menu.php:562 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Menu.php:558 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:1971
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -9903,22 +9903,22 @@ msgstr "バイナリログ"
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: libraries/classes/Menu.php:568 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Menu.php:564 libraries/classes/Server/Status/Data.php:229
 #: libraries/classes/Util.php:1972 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/classes/Menu.php:573 libraries/classes/Util.php:1973
+#: libraries/classes/Menu.php:569 libraries/classes/Util.php:1973
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/classes/Menu.php:578 libraries/classes/Util.php:1975
+#: libraries/classes/Menu.php:574 libraries/classes/Util.php:1975
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/classes/Menu.php:583 libraries/classes/Util.php:1974
+#: libraries/classes/Menu.php:579 libraries/classes/Util.php:1974
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "プラグイン"
@@ -9941,28 +9941,28 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d 行挿入しました。"
 
-#: libraries/classes/Navigation/Navigation.php:221
+#: libraries/classes/Navigation/Navigation.php:223
 msgid "Groups:"
 msgstr "グループ:"
 
-#: libraries/classes/Navigation/Navigation.php:222
+#: libraries/classes/Navigation/Navigation.php:224
 msgid "Events:"
 msgstr "イベント:"
 
-#: libraries/classes/Navigation/Navigation.php:223
+#: libraries/classes/Navigation/Navigation.php:225
 msgid "Functions:"
 msgstr "関数:"
 
-#: libraries/classes/Navigation/Navigation.php:224
+#: libraries/classes/Navigation/Navigation.php:226
 msgid "Procedures:"
 msgstr "プロシージャ："
 
-#: libraries/classes/Navigation/Navigation.php:225
+#: libraries/classes/Navigation/Navigation.php:227
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "テーブル："
 
-#: libraries/classes/Navigation/Navigation.php:226
+#: libraries/classes/Navigation/Navigation.php:228
 msgid "Views:"
 msgstr "ビュー："
 
@@ -10013,13 +10013,13 @@ msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:372
-#: libraries/classes/Plugins/Export/ExportLatex.php:539
-#: libraries/classes/Plugins/Export/ExportOdt.php:368
-#: libraries/classes/Plugins/Export/ExportOdt.php:469
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:370
+#: libraries/classes/Plugins/Export/ExportLatex.php:540
+#: libraries/classes/Plugins/Export/ExportOdt.php:369
+#: libraries/classes/Plugins/Export/ExportOdt.php:473
 #: libraries/classes/Plugins/Export/ExportTexytext.php:290
-#: libraries/classes/Plugins/Export/ExportTexytext.php:380
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:531
+#: libraries/classes/Plugins/Export/ExportTexytext.php:382
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:529
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:667
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
 #: templates/columns_definitions/column_name.twig:16
@@ -10063,9 +10063,9 @@ msgid "New"
 msgstr "新規作成"
 
 #: libraries/classes/Navigation/Nodes/NodeEvent.php:28
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:480
-#: libraries/classes/Plugins/Export/ExportOdt.php:598
-#: libraries/classes/Plugins/Export/ExportTexytext.php:457
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:478
+#: libraries/classes/Plugins/Export/ExportOdt.php:602
+#: libraries/classes/Plugins/Export/ExportTexytext.php:459
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:367
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:48
@@ -10074,7 +10074,7 @@ msgstr "イベント"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:624
+#: libraries/classes/Plugins/Export/ExportSql.php:625
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
 msgstr "関数"
@@ -10095,7 +10095,7 @@ msgstr "展開/折りたたみ"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
-#: libraries/classes/Plugins/Export/ExportSql.php:613
+#: libraries/classes/Plugins/Export/ExportSql.php:614
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
 msgstr "プロシージャ"
@@ -10135,23 +10135,23 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Normalization.php:230
+#: libraries/classes/Normalization.php:231
 msgid "Make all columns atomic"
 msgstr "すべてのカラムをアトミックにする"
 
-#: libraries/classes/Normalization.php:232
-#: libraries/classes/Normalization.php:974
+#: libraries/classes/Normalization.php:233
+#: libraries/classes/Normalization.php:975
 msgid "First step of normalization (1NF)"
 msgstr "第1正規化(1NF)"
 
-#: libraries/classes/Normalization.php:235
-#: libraries/classes/Normalization.php:285
-#: libraries/classes/Normalization.php:331
-#: libraries/classes/Normalization.php:368
+#: libraries/classes/Normalization.php:236
+#: libraries/classes/Normalization.php:286
+#: libraries/classes/Normalization.php:332
+#: libraries/classes/Normalization.php:369
 msgid "Step 1."
 msgstr "ステップ １."
 
-#: libraries/classes/Normalization.php:237
+#: libraries/classes/Normalization.php:238
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -10159,11 +10159,11 @@ msgstr ""
 "複数に分割できるカラムはありませんか？ 例えば、「住所」は「番地」、「市区町"
 "村」、「都道府県」、「郵便番号」、「国」などに分割できます。"
 
-#: libraries/classes/Normalization.php:243
+#: libraries/classes/Normalization.php:244
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "このテーブルに存在しない主要カラムのリストを表示します"
 
-#: libraries/classes/Normalization.php:245
+#: libraries/classes/Normalization.php:246
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -10171,19 +10171,19 @@ msgstr ""
 "分割可能なカラムを選択（もしくは ’カラムがありません’ を選択）し、次のステッ"
 "プに進みます。"
 
-#: libraries/classes/Normalization.php:260
+#: libraries/classes/Normalization.php:261
 msgid "split into "
 msgstr "分割します "
 
-#: libraries/classes/Normalization.php:282
+#: libraries/classes/Normalization.php:283
 msgid "Have a primary key"
 msgstr "主キーが存在します"
 
-#: libraries/classes/Normalization.php:288
+#: libraries/classes/Normalization.php:289
 msgid "Primary key already exists."
 msgstr "主キーは既に存在しています。"
 
-#: libraries/classes/Normalization.php:293
+#: libraries/classes/Normalization.php:294
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -10191,25 +10191,25 @@ msgstr ""
 "主キーがありません。１つ追加してください。<br>ヒント：主キーはすべての行を個"
 "別に識別できるカラム（や、カラムの組み合わせ）に指定します。"
 
-#: libraries/classes/Normalization.php:301
+#: libraries/classes/Normalization.php:302
 msgid "Add a primary key on existing column(s)"
 msgstr "既存のカラムにプライマリーキーを設定します"
 
-#: libraries/classes/Normalization.php:305
+#: libraries/classes/Normalization.php:306
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
 
-#: libraries/classes/Normalization.php:307
+#: libraries/classes/Normalization.php:308
 msgid "+ Add a new primary key column"
 msgstr "+ 主キーカラムを追加"
 
-#: libraries/classes/Normalization.php:330
+#: libraries/classes/Normalization.php:331
 msgid "Remove redundant columns"
 msgstr "不要なカラムを削除"
 
-#: libraries/classes/Normalization.php:333
+#: libraries/classes/Normalization.php:334
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -10218,7 +10218,7 @@ msgstr ""
 "複数のカラムを統合して既に存在しているカラムの値になりますか？例：３つのカラ"
 "ムがあります：「姓」、「名」、「氏名」。この場合、「氏名」は不要です。"
 
-#: libraries/classes/Normalization.php:339
+#: libraries/classes/Normalization.php:340
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -10226,19 +10226,19 @@ msgstr ""
 "不要なカラムにチェックを入れて「削除」をクリック。不要なカラムがない場合、"
 "「不要カラムなし」をクリック"
 
-#: libraries/classes/Normalization.php:344
+#: libraries/classes/Normalization.php:345
 msgid "Remove selected"
 msgstr "選択項目を削除"
 
-#: libraries/classes/Normalization.php:345
+#: libraries/classes/Normalization.php:346
 msgid "No redundant column"
 msgstr "不要カラムなし"
 
-#: libraries/classes/Normalization.php:367
+#: libraries/classes/Normalization.php:368
 msgid "Move repeating groups"
 msgstr "連続グループを移動"
 
-#: libraries/classes/Normalization.php:370
+#: libraries/classes/Normalization.php:371
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -10251,7 +10251,7 @@ msgstr ""
 "「author3」、等々で「繰り返しグループ」が作られています。この場合、新しいテー"
 "ブルを作成すべきです。"
 
-#: libraries/classes/Normalization.php:378
+#: libraries/classes/Normalization.php:379
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -10259,19 +10259,19 @@ msgstr ""
 "繰り返しグループのカラムを選択してください。存在していない場合、「繰り返しグ"
 "ループ無し」をクリック"
 
-#: libraries/classes/Normalization.php:383
+#: libraries/classes/Normalization.php:384
 msgid "No repeating group"
 msgstr "繰り返しグループ無し"
 
-#: libraries/classes/Normalization.php:411
+#: libraries/classes/Normalization.php:412
 msgid "Step 2."
 msgstr "ステップ 2."
 
-#: libraries/classes/Normalization.php:411
+#: libraries/classes/Normalization.php:412
 msgid "Find partial dependencies"
 msgstr "部分的な依存を見つける"
 
-#: libraries/classes/Normalization.php:432
+#: libraries/classes/Normalization.php:433
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -10280,12 +10280,12 @@ msgstr ""
 "部分依存関係は不可能。理由：主キーのないカラムが存在しない。主キー「%1$s」は"
 "テーブルの全てのカラムになっている。"
 
-#: libraries/classes/Normalization.php:438
-#: libraries/classes/Normalization.php:480
+#: libraries/classes/Normalization.php:439
+#: libraries/classes/Normalization.php:481
 msgid "Table is already in second normal form."
 msgstr "テーブルは既に第2正規形になっている。"
 
-#: libraries/classes/Normalization.php:443
+#: libraries/classes/Normalization.php:444
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -10294,18 +10294,18 @@ msgstr ""
 "主キー「%1$s」は複数カラムで作成されています。部分依存関係カラムを確認する必"
 "要があります。"
 
-#: libraries/classes/Normalization.php:447
-#: libraries/classes/Normalization.php:883
+#: libraries/classes/Normalization.php:448
+#: libraries/classes/Normalization.php:884
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr "正しい正規化を得るために慎重に次の質問に答えてください。"
 
-#: libraries/classes/Normalization.php:449
+#: libraries/classes/Normalization.php:450
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
-#: libraries/classes/Normalization.php:452
+#: libraries/classes/Normalization.php:453
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10314,20 +10314,20 @@ msgstr ""
 "以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを"
 "指定してください。"
 
-#: libraries/classes/Normalization.php:465
-#: libraries/classes/Normalization.php:925
+#: libraries/classes/Normalization.php:466
+#: libraries/classes/Normalization.php:926
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s'が次に依存します:"
 
-#: libraries/classes/Normalization.php:476
+#: libraries/classes/Normalization.php:477
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr "部分依存関係は不可能。理由：主キー「%1$s」は１つのカラムしかない。"
 
-#: libraries/classes/Normalization.php:504
+#: libraries/classes/Normalization.php:505
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -10335,18 +10335,18 @@ msgid ""
 msgstr ""
 "元テーブル「%1$s」を第2正規形になる為、次のテーブルを作成する必要があります："
 
-#: libraries/classes/Normalization.php:542
+#: libraries/classes/Normalization.php:543
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 
-#: libraries/classes/Normalization.php:598
-#: libraries/classes/Normalization.php:773
-#: libraries/classes/Normalization.php:853
+#: libraries/classes/Normalization.php:599
+#: libraries/classes/Normalization.php:774
+#: libraries/classes/Normalization.php:854
 msgid "Error in processing!"
 msgstr "処理中にエラーが発生しました!"
 
-#: libraries/classes/Normalization.php:647
+#: libraries/classes/Normalization.php:648
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -10355,24 +10355,24 @@ msgstr ""
 "元のテーブル「%1$s」を第３正規形になる為、次のテーブルを作成する必要がありま"
 "す："
 
-#: libraries/classes/Normalization.php:704
+#: libraries/classes/Normalization.php:705
 msgid "The third step of normalization is complete."
 msgstr "第３正規化が完了しました。"
 
-#: libraries/classes/Normalization.php:826
+#: libraries/classes/Normalization.php:827
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
-#: libraries/classes/Normalization.php:881
+#: libraries/classes/Normalization.php:882
 msgid "Step 3."
 msgstr "ステップ 3."
 
-#: libraries/classes/Normalization.php:881
+#: libraries/classes/Normalization.php:882
 msgid "Find transitive dependencies"
 msgstr "過渡的依存性を検知"
 
-#: libraries/classes/Normalization.php:885
+#: libraries/classes/Normalization.php:886
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10383,39 +10383,39 @@ msgstr ""
 "指定してください。<br />※カラムは過渡的依存がない場合、選択する必要がありませ"
 "ん。"
 
-#: libraries/classes/Normalization.php:939
+#: libraries/classes/Normalization.php:940
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr "テーブルには主キーカラムがないので、過渡的依存性は不可能"
 
-#: libraries/classes/Normalization.php:942
+#: libraries/classes/Normalization.php:943
 msgid "Table is already in Third normal form!"
 msgstr "テーブルは既に第3正規形になっている!"
 
-#: libraries/classes/Normalization.php:968
+#: libraries/classes/Normalization.php:969
 msgid "Improve table structure (Normalization):"
 msgstr "テーブル構造(正規化)を改善します:"
 
-#: libraries/classes/Normalization.php:969
+#: libraries/classes/Normalization.php:970
 msgid "Select up to what step you want to normalize"
 msgstr "どのステップまでに正規化するかを選択してください"
 
-#: libraries/classes/Normalization.php:979
+#: libraries/classes/Normalization.php:980
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "第２正規化(1NF+2NF)"
 
-#: libraries/classes/Normalization.php:984
+#: libraries/classes/Normalization.php:985
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "第３正規化(1NF+2NF+3NF)"
 
-#: libraries/classes/Normalization.php:989
+#: libraries/classes/Normalization.php:990
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr "ヒント：正しい正規化を得るために慎重に手順に従ってください"
 
-#: libraries/classes/Normalization.php:1060
+#: libraries/classes/Normalization.php:1061
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -10423,7 +10423,7 @@ msgstr ""
 "この一覧はテーブルのデータサブセットの元で作成されたので、必ずしも正確ではあ"
 "りません。 "
 
-#: libraries/classes/Normalization.php:1075
+#: libraries/classes/Normalization.php:1076
 msgid "No partial dependencies found!"
 msgstr "部分的な依存が見つかりませんでした!"
 
@@ -10649,9 +10649,9 @@ msgstr "行の終端記号:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:78
 #: libraries/classes/Plugins/Export/ExportExcel.php:51
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:80
-#: libraries/classes/Plugins/Export/ExportLatex.php:186
+#: libraries/classes/Plugins/Export/ExportLatex.php:187
 #: libraries/classes/Plugins/Export/ExportOds.php:65
-#: libraries/classes/Plugins/Export/ExportOdt.php:131
+#: libraries/classes/Plugins/Export/ExportOdt.php:132
 #: libraries/classes/Plugins/Export/ExportTexytext.php:84
 msgid "Replace NULL with:"
 msgstr "NULL の代替文字列:"
@@ -10670,7 +10670,7 @@ msgstr "Excel のエディション:"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:66
 #: libraries/classes/Plugins/Export/ExportOdt.php:75
 #: libraries/classes/Plugins/Export/ExportPdf.php:91
-#: libraries/classes/Plugins/Export/ExportSql.php:240
+#: libraries/classes/Plugins/Export/ExportSql.php:241
 #: libraries/classes/Plugins/Export/ExportTexytext.php:61
 #: libraries/config.values.php:254 libraries/config.values.php:318
 #: libraries/config.values.php:334 libraries/config.values.php:342
@@ -10683,7 +10683,7 @@ msgstr "構造"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:76
 #: libraries/classes/Plugins/Export/ExportPdf.php:92
-#: libraries/classes/Plugins/Export/ExportSql.php:241
+#: libraries/classes/Plugins/Export/ExportSql.php:242
 #: libraries/classes/Plugins/Export/ExportTexytext.php:62
 #: libraries/config.values.php:255 libraries/config.values.php:319
 #: libraries/config.values.php:335 libraries/config.values.php:343
@@ -10696,7 +10696,7 @@ msgstr "データ"
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:68
 #: libraries/classes/Plugins/Export/ExportOdt.php:77
 #: libraries/classes/Plugins/Export/ExportPdf.php:93
-#: libraries/classes/Plugins/Export/ExportSql.php:242
+#: libraries/classes/Plugins/Export/ExportSql.php:243
 #: libraries/classes/Plugins/Export/ExportTexytext.php:63
 #: libraries/config.values.php:256 libraries/config.values.php:320
 #: libraries/config.values.php:336 libraries/config.values.php:344
@@ -10705,28 +10705,28 @@ msgid "structure and data"
 msgstr "構造とデータ"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:74
-#: libraries/classes/Plugins/Export/ExportLatex.php:157
-#: libraries/classes/Plugins/Export/ExportOdt.php:120
+#: libraries/classes/Plugins/Export/ExportLatex.php:158
+#: libraries/classes/Plugins/Export/ExportOdt.php:121
 #: libraries/classes/Plugins/Export/ExportTexytext.php:73
 #: libraries/classes/Plugins/Export/ExportXml.php:133
 msgid "Data dump options"
 msgstr "データのダンプオプション"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
-#: libraries/classes/Plugins/Export/ExportOdt.php:244
-#: libraries/classes/Plugins/Export/ExportSql.php:2347
+#: libraries/classes/Plugins/Export/ExportOdt.php:245
+#: libraries/classes/Plugins/Export/ExportSql.php:2349
 #: libraries/classes/Plugins/Export/ExportTexytext.php:178
 msgid "Dumping data for table"
 msgstr "テーブルのデータのダンプ"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:281
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:378
-#: libraries/classes/Plugins/Export/ExportLatex.php:541
-#: libraries/classes/Plugins/Export/ExportOdt.php:374
-#: libraries/classes/Plugins/Export/ExportOdt.php:475
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:376
+#: libraries/classes/Plugins/Export/ExportLatex.php:542
+#: libraries/classes/Plugins/Export/ExportOdt.php:375
+#: libraries/classes/Plugins/Export/ExportOdt.php:479
 #: libraries/classes/Plugins/Export/ExportTexytext.php:292
-#: libraries/classes/Plugins/Export/ExportTexytext.php:382
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
+#: libraries/classes/Plugins/Export/ExportTexytext.php:384
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:533
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:704
 #: templates/columns_definitions/table_fields_definitions.twig:30
@@ -10745,13 +10745,13 @@ msgid "Null"
 msgstr "NULL"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:284
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:381
-#: libraries/classes/Plugins/Export/ExportLatex.php:542
-#: libraries/classes/Plugins/Export/ExportOdt.php:377
-#: libraries/classes/Plugins/Export/ExportOdt.php:478
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:379
+#: libraries/classes/Plugins/Export/ExportLatex.php:543
+#: libraries/classes/Plugins/Export/ExportOdt.php:378
+#: libraries/classes/Plugins/Export/ExportOdt.php:482
 #: libraries/classes/Plugins/Export/ExportTexytext.php:293
-#: libraries/classes/Plugins/Export/ExportTexytext.php:383
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:537
+#: libraries/classes/Plugins/Export/ExportTexytext.php:385
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:535
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:671
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:705
 #: templates/columns_definitions/table_fields_definitions.twig:20
@@ -10766,20 +10766,20 @@ msgstr "NULL"
 msgid "Default"
 msgstr "デフォルト値"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:385
-#: libraries/classes/Plugins/Export/ExportLatex.php:544
-#: libraries/classes/Plugins/Export/ExportOdt.php:482
-#: libraries/classes/Plugins/Export/ExportTexytext.php:385
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:546
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:383
+#: libraries/classes/Plugins/Export/ExportLatex.php:545
+#: libraries/classes/Plugins/Export/ExportOdt.php:486
+#: libraries/classes/Plugins/Export/ExportTexytext.php:387
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:544
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:673
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:707
 #: templates/database/data_dictionary/index.twig:27
 msgid "Links to"
 msgstr "リンク先"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:478
-#: libraries/classes/Plugins/Export/ExportOdt.php:592
-#: libraries/classes/Plugins/Export/ExportTexytext.php:455
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:476
+#: libraries/classes/Plugins/Export/ExportOdt.php:596
+#: libraries/classes/Plugins/Export/ExportTexytext.php:457
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:363
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
@@ -10794,9 +10794,9 @@ msgstr "リンク先"
 msgid "Name"
 msgstr "名前"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:481
-#: libraries/classes/Plugins/Export/ExportOdt.php:601
-#: libraries/classes/Plugins/Export/ExportTexytext.php:458
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:479
+#: libraries/classes/Plugins/Export/ExportOdt.php:605
+#: libraries/classes/Plugins/Export/ExportTexytext.php:460
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:369
 #: templates/database/events/editor_form.twig:82
 #: templates/database/routines/editor_form.twig:109
@@ -10804,24 +10804,24 @@ msgstr "名前"
 msgid "Definition"
 msgstr "定義"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:553
-#: libraries/classes/Plugins/Export/ExportOdt.php:679
-#: libraries/classes/Plugins/Export/ExportSql.php:2081
-#: libraries/classes/Plugins/Export/ExportTexytext.php:522
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:551
+#: libraries/classes/Plugins/Export/ExportOdt.php:683
+#: libraries/classes/Plugins/Export/ExportSql.php:2083
+#: libraries/classes/Plugins/Export/ExportTexytext.php:524
 msgid "Table structure for table"
 msgstr "テーブルの構造"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:571
-#: libraries/classes/Plugins/Export/ExportOdt.php:711
-#: libraries/classes/Plugins/Export/ExportSql.php:2132
-#: libraries/classes/Plugins/Export/ExportTexytext.php:548
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:569
+#: libraries/classes/Plugins/Export/ExportOdt.php:715
+#: libraries/classes/Plugins/Export/ExportSql.php:2134
+#: libraries/classes/Plugins/Export/ExportTexytext.php:550
 msgid "Structure for view"
 msgstr "ビュー用の構造"
 
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:577
-#: libraries/classes/Plugins/Export/ExportOdt.php:731
-#: libraries/classes/Plugins/Export/ExportSql.php:2164
-#: libraries/classes/Plugins/Export/ExportTexytext.php:564
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:575
+#: libraries/classes/Plugins/Export/ExportOdt.php:735
+#: libraries/classes/Plugins/Export/ExportSql.php:2166
+#: libraries/classes/Plugins/Export/ExportTexytext.php:566
 msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
 
@@ -10847,75 +10847,75 @@ msgstr "テーブル @TABLE@ の構造"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:107
 #: libraries/classes/Plugins/Export/ExportOdt.php:88
-#: libraries/classes/Plugins/Export/ExportSql.php:255
+#: libraries/classes/Plugins/Export/ExportSql.php:256
 msgid "Object creation options"
 msgstr "生成オプション"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:113
-#: libraries/classes/Plugins/Export/ExportLatex.php:168
+#: libraries/classes/Plugins/Export/ExportLatex.php:169
 msgid "Table caption:"
 msgstr "テーブルのキャプション:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:119
-#: libraries/classes/Plugins/Export/ExportLatex.php:174
+#: libraries/classes/Plugins/Export/ExportLatex.php:175
 msgid "Table caption (continued):"
 msgstr "テーブルのキャプション (続き):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
-#: libraries/classes/Plugins/Export/ExportLatex.php:180
+#: libraries/classes/Plugins/Export/ExportLatex.php:181
 msgid "Label key:"
 msgstr "ラベルキー:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:132
-#: libraries/classes/Plugins/Export/ExportOdt.php:95
-#: libraries/classes/Plugins/Export/ExportSql.php:149
+#: libraries/classes/Plugins/Export/ExportLatex.php:133
+#: libraries/classes/Plugins/Export/ExportOdt.php:96
+#: libraries/classes/Plugins/Export/ExportSql.php:150
 msgid "Display foreign key relationships"
 msgstr "外部キーリレーションシップを表示する"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:139
-#: libraries/classes/Plugins/Export/ExportOdt.php:102
+#: libraries/classes/Plugins/Export/ExportLatex.php:140
+#: libraries/classes/Plugins/Export/ExportOdt.php:103
 msgid "Display comments"
 msgstr "コメントを表示する"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:145
-#: libraries/classes/Plugins/Export/ExportOdt.php:108
-#: libraries/classes/Plugins/Export/ExportSql.php:157
+#: libraries/classes/Plugins/Export/ExportLatex.php:146
+#: libraries/classes/Plugins/Export/ExportOdt.php:109
+#: libraries/classes/Plugins/Export/ExportSql.php:158
 msgid "Display media types"
 msgstr "メディア タイプを表示する"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:163
+#: libraries/classes/Plugins/Export/ExportLatex.php:164
 msgid "Put columns names in the first row:"
 msgstr "1 行目にカラム名を追加する:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:209
-#: libraries/classes/Plugins/Export/ExportSql.php:744
+#: libraries/classes/Plugins/Export/ExportLatex.php:210
+#: libraries/classes/Plugins/Export/ExportSql.php:745
 #: libraries/classes/Plugins/Export/ExportXml.php:232
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
 msgstr "ホスト:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:215
-#: libraries/classes/Plugins/Export/ExportSql.php:751
+#: libraries/classes/Plugins/Export/ExportLatex.php:216
+#: libraries/classes/Plugins/Export/ExportSql.php:752
 #: libraries/classes/Plugins/Export/ExportXml.php:238
 msgid "Generation Time:"
 msgstr "生成日時:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:217
-#: libraries/classes/Plugins/Export/ExportSql.php:755
+#: libraries/classes/Plugins/Export/ExportLatex.php:218
+#: libraries/classes/Plugins/Export/ExportSql.php:756
 #: libraries/classes/Plugins/Export/ExportXml.php:240
-#: templates/home/index.twig:165
+#: templates/home/index.twig:173
 msgid "Server version:"
 msgstr "サーバのバージョン："
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:218
-#: libraries/classes/Plugins/Export/ExportSql.php:757
+#: libraries/classes/Plugins/Export/ExportLatex.php:219
+#: libraries/classes/Plugins/Export/ExportSql.php:758
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 msgid "PHP Version:"
 msgstr "PHP のバージョン:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:245
-#: libraries/classes/Plugins/Export/ExportSql.php:937
+#: libraries/classes/Plugins/Export/ExportLatex.php:246
+#: libraries/classes/Plugins/Export/ExportSql.php:938
 #: libraries/classes/Plugins/Export/ExportXml.php:390
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 #: templates/database/structure/copy_form.twig:5
@@ -10923,12 +10923,12 @@ msgstr "PHP のバージョン:"
 msgid "Database:"
 msgstr "データベース:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:311
-#: libraries/classes/Plugins/Export/ExportSql.php:2224
+#: libraries/classes/Plugins/Export/ExportLatex.php:312
+#: libraries/classes/Plugins/Export/ExportSql.php:2226
 msgid "Data:"
 msgstr "データ:"
 
-#: libraries/classes/Plugins/Export/ExportLatex.php:517
+#: libraries/classes/Plugins/Export/ExportLatex.php:518
 msgid "Structure:"
 msgstr "構造:"
 
@@ -10940,7 +10940,7 @@ msgstr "テーブル名をエクスポートする"
 msgid "Export table headers"
 msgstr "カラム名をエクスポートする"
 
-#: libraries/classes/Plugins/Export/ExportOdt.php:245
+#: libraries/classes/Plugins/Export/ExportOdt.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
 msgid "Dumping data for query result"
 msgstr "クエリ結果のデータのダンプ"
@@ -10983,45 +10983,45 @@ msgid ""
 "checked"
 msgstr "データベースの作成日時、最終更新日時、最終検査日時を含める"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:202
+#: libraries/classes/Plugins/Export/ExportSql.php:203
 msgid "Export metadata"
 msgstr "メタデータのエクスポート"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:217
+#: libraries/classes/Plugins/Export/ExportSql.php:218
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "他のデータベースシステムまたは古い MySQL サーバとの互換性:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:263
+#: libraries/classes/Plugins/Export/ExportSql.php:264
 msgid "Add statements:"
 msgstr "追加コマンド："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:271
-#: libraries/classes/Plugins/Export/ExportSql.php:280
-#: libraries/classes/Plugins/Export/ExportSql.php:297
-#: libraries/classes/Plugins/Export/ExportSql.php:306
-#: libraries/classes/Plugins/Export/ExportSql.php:330
-#: libraries/classes/Plugins/Export/ExportSql.php:358
-#: libraries/classes/Plugins/Export/ExportSql.php:367
+#: libraries/classes/Plugins/Export/ExportSql.php:272
+#: libraries/classes/Plugins/Export/ExportSql.php:281
+#: libraries/classes/Plugins/Export/ExportSql.php:298
+#: libraries/classes/Plugins/Export/ExportSql.php:307
+#: libraries/classes/Plugins/Export/ExportSql.php:331
+#: libraries/classes/Plugins/Export/ExportSql.php:359
+#: libraries/classes/Plugins/Export/ExportSql.php:368
 #, php-format
 msgid "Add %s statement"
 msgstr "%s コマンドを追加する"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:313
+#: libraries/classes/Plugins/Export/ExportSql.php:314
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "（テーブル作成中にインデックスが生成されるので、効率が悪い）"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:320
+#: libraries/classes/Plugins/Export/ExportSql.php:321
 #, php-format
 msgid "%s value"
 msgstr "%s 値"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: libraries/classes/Plugins/Export/ExportSql.php:337
+#: libraries/classes/Plugins/Export/ExportSql.php:338
 msgid "Use simple view export"
 msgstr "簡易ビュー エクスポートの使用"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:376
+#: libraries/classes/Plugins/Export/ExportSql.php:377
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -11029,37 +11029,37 @@ msgstr ""
 "逆クォートでテーブルやカラムの名前を囲む <i>(特殊な文字やキーワードを含むカラ"
 "ム名やテーブル名を保護します)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:391
+#: libraries/classes/Plugins/Export/ExportSql.php:392
 msgid "Data creation options"
 msgstr "データ作成オプション"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:396
-#: libraries/classes/Plugins/Export/ExportSql.php:2304
+#: libraries/classes/Plugins/Export/ExportSql.php:397
+#: libraries/classes/Plugins/Export/ExportSql.php:2306
 msgid "Truncate table before insert"
 msgstr "挿入前にテーブルを空にする"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:403
+#: libraries/classes/Plugins/Export/ExportSql.php:404
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> 文の代わりに以下を使う："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:409
+#: libraries/classes/Plugins/Export/ExportSql.php:410
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> 文"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:421
-#: libraries/classes/Plugins/Export/ExportSql.php:455
+#: libraries/classes/Plugins/Export/ExportSql.php:422
+#: libraries/classes/Plugins/Export/ExportSql.php:456
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> 文"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:435
+#: libraries/classes/Plugins/Export/ExportSql.php:436
 msgid "Function to use when dumping data:"
 msgstr "データをダンプするときに使うコマンド:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:450
+#: libraries/classes/Plugins/Export/ExportSql.php:451
 msgid "Syntax to use when inserting data:"
 msgstr "データを挿入するときに使う構文："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:460
+#: libraries/classes/Plugins/Export/ExportSql.php:461
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -11068,7 +11068,7 @@ msgstr ""
 "すべての <code>INSERT</code> 文にカラム名を含める <br> &nbsp; &nbsp; &nbsp; "
 "例: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:465
+#: libraries/classes/Plugins/Export/ExportSql.php:466
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -11077,7 +11077,7 @@ msgstr ""
 "すべての <code>INSERT</code> 文を複数行挿入で行う<br> &nbsp; &nbsp; &nbsp; "
 "例: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:470
+#: libraries/classes/Plugins/Export/ExportSql.php:471
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -11085,7 +11085,7 @@ msgstr ""
 "上の両方を行う<br> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:475
+#: libraries/classes/Plugins/Export/ExportSql.php:476
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -11093,13 +11093,13 @@ msgstr ""
 "上のどちらでもない<br> &nbsp; &nbsp; &nbsp; 例: <code>INSERT INTO tbl_name "
 "VALUES (1,2,3)</code>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:494
+#: libraries/classes/Plugins/Export/ExportSql.php:495
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr "16 進表記でバイナリカラムをダンプする <i>(例：\"abc\" を 0x616263)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:503
+#: libraries/classes/Plugins/Export/ExportSql.php:504
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -11107,51 +11107,51 @@ msgstr ""
 "TIMESTAMP のカラムを UTC (協定世界時) でダンプする <i>(ダンプするサーバと読み"
 "込ませるサーバのタイムゾーンが異なる場合に有効です)</i>"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:572
+#: libraries/classes/Plugins/Export/ExportSql.php:573
 msgid "It appears your database uses routines;"
 msgstr "データベースはルーチンを利用しているようです;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:575
-#: libraries/classes/Plugins/Export/ExportSql.php:1608
-#: libraries/classes/Plugins/Export/ExportSql.php:2120
+#: libraries/classes/Plugins/Export/ExportSql.php:576
+#: libraries/classes/Plugins/Export/ExportSql.php:1610
+#: libraries/classes/Plugins/Export/ExportSql.php:2122
 msgid "alias export may not work reliably in all cases."
 msgstr "エイリアスエクスポートは確実に動作しない場合があります。"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1048
+#: libraries/classes/Plugins/Export/ExportSql.php:1049
 msgid "Metadata"
 msgstr "メタデータ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1115
+#: libraries/classes/Plugins/Export/ExportSql.php:1117
 #, php-format
 msgid "Metadata for table %s"
 msgstr "テーブル %s のメタデータ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1122
+#: libraries/classes/Plugins/Export/ExportSql.php:1124
 #, php-format
 msgid "Metadata for database %s"
 msgstr "データベース %s のメタデータ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1450
+#: libraries/classes/Plugins/Export/ExportSql.php:1452
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 msgid "Creation:"
 msgstr "作成日時："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1460
+#: libraries/classes/Plugins/Export/ExportSql.php:1462
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:642
 msgid "Last update:"
 msgstr "最終更新："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1470
+#: libraries/classes/Plugins/Export/ExportSql.php:1472
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:653
 msgid "Last check:"
 msgstr "最終検査："
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1523
+#: libraries/classes/Plugins/Export/ExportSql.php:1525
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "テーブル %s の構造の読み取りエラー:"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1605
+#: libraries/classes/Plugins/Export/ExportSql.php:1607
 msgid "It appears your database uses views;"
 msgstr "データベースはビューを利用しているようです;"
 
@@ -11179,28 +11179,28 @@ msgstr "ダンプしたテーブルの AUTO_INCREMENT"
 msgid "AUTO_INCREMENT for table"
 msgstr "テーブルの AUTO_INCREMENT"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1917
+#: libraries/classes/Plugins/Export/ExportSql.php:1919
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "テーブルに含まれているメディアタイプ"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:1942
+#: libraries/classes/Plugins/Export/ExportSql.php:1944
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "テーブルのリレーション"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2117
+#: libraries/classes/Plugins/Export/ExportSql.php:2119
 msgid "It appears your table uses triggers;"
 msgstr "データベースはトリガを利用しているようです;"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2147
+#: libraries/classes/Plugins/Export/ExportSql.php:2149
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "ビュー %s の構造をテーブルとしてエクスポート"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2167
+#: libraries/classes/Plugins/Export/ExportSql.php:2169
 msgid "(See below for the actual view)"
 msgstr "(実際のビューを参照するには下にあります)"
 
-#: libraries/classes/Plugins/Export/ExportSql.php:2235
+#: libraries/classes/Plugins/Export/ExportSql.php:2237
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "テーブル %s のデータ読み取りエラー:"
@@ -11385,7 +11385,7 @@ msgstr "%s テーブルは存在しません!"
 msgid "Schema of the %s database - Page %s"
 msgstr "データベース %s のスキーマ - ページ %s"
 
-#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:288
+#: libraries/classes/Plugins/Schema/ExportRelationSchema.php:290
 msgid "SCHEMA ERROR: "
 msgstr "スキーマエラー: "
 
@@ -11811,108 +11811,108 @@ msgstr "最近"
 msgid "Favorites"
 msgstr "お気に入り"
 
-#: libraries/classes/Relation.php:136
+#: libraries/classes/Relation.php:125
 msgid "not OK"
 msgstr "NG"
 
-#: libraries/classes/Relation.php:140
+#: libraries/classes/Relation.php:129
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Relation.php:143
+#: libraries/classes/Relation.php:132
 msgid "Enabled"
 msgstr "有効"
 
-#: libraries/classes/Relation.php:144 libraries/classes/Relation.php:152
+#: libraries/classes/Relation.php:133 libraries/classes/Relation.php:141
 #: libraries/config.values.php:145 libraries/config.values.php:188
 #: templates/config/form_display/input.twig:16
 msgid "Disabled"
 msgstr "無効"
 
-#: libraries/classes/Relation.php:147
+#: libraries/classes/Relation.php:136
 msgid "Configuration of pmadb…"
 msgstr "pmadbの設定…"
 
-#: libraries/classes/Relation.php:151 libraries/classes/Relation.php:183
+#: libraries/classes/Relation.php:140 libraries/classes/Relation.php:177
 msgid "General relation features"
 msgstr "一般的なリレーション機能"
 
-#: libraries/classes/Relation.php:194
+#: libraries/classes/Relation.php:188
 msgid "Display Features"
 msgstr "表示機能"
 
-#: libraries/classes/Relation.php:211
+#: libraries/classes/Relation.php:205
 msgid "Designer and creation of PDFs"
 msgstr "デザイナとPDFの作成"
 
-#: libraries/classes/Relation.php:222
+#: libraries/classes/Relation.php:216
 msgid "Displaying Column Comments"
 msgstr "カラムコメント表示機能"
 
-#: libraries/classes/Relation.php:228
+#: libraries/classes/Relation.php:222
 msgid "Browser transformation"
 msgstr "ブラウザ変換機能"
 
-#: libraries/classes/Relation.php:234
+#: libraries/classes/Relation.php:228
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
 "column_info テーブルの更新方法についてはドキュメンテーションを参照してくださ"
 "い。"
 
-#: libraries/classes/Relation.php:246 templates/sql/query.twig:156
+#: libraries/classes/Relation.php:240 templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
 msgstr "ブックマークされている SQL"
 
-#: libraries/classes/Relation.php:257
+#: libraries/classes/Relation.php:251
 msgid "SQL history"
 msgstr "SQL 履歴"
 
-#: libraries/classes/Relation.php:263
+#: libraries/classes/Relation.php:262
 msgid "Persistent recently used tables"
 msgstr "最近使用したテーブルの保存"
 
-#: libraries/classes/Relation.php:274
+#: libraries/classes/Relation.php:273
 msgid "Persistent favorite tables"
 msgstr "お気に入りのテーブルの保存"
 
-#: libraries/classes/Relation.php:285
+#: libraries/classes/Relation.php:284
 msgid "Persistent tables' UI preferences"
 msgstr "テーブルに対する環境設定の保存"
 
-#: libraries/classes/Relation.php:307
+#: libraries/classes/Relation.php:306
 msgid "User preferences"
 msgstr "ユーザ環境設定"
 
-#: libraries/classes/Relation.php:319
+#: libraries/classes/Relation.php:323
 msgid "Configurable menus"
 msgstr "ユーザメニュー設定"
 
-#: libraries/classes/Relation.php:330
+#: libraries/classes/Relation.php:334
 msgid "Hide/show navigation items"
 msgstr "ナビゲーション項目を表示/非表示"
 
-#: libraries/classes/Relation.php:341
+#: libraries/classes/Relation.php:345
 msgid "Saving Query-By-Example searches"
 msgstr "定型問い合わせ検索の保存"
 
-#: libraries/classes/Relation.php:352
+#: libraries/classes/Relation.php:356
 msgid "Managing Central list of columns"
 msgstr "主要カラムのリストを管理"
 
-#: libraries/classes/Relation.php:363
+#: libraries/classes/Relation.php:367
 msgid "Remembering Designer Settings"
 msgstr "デザイナーの設定を記憶"
 
-#: libraries/classes/Relation.php:374
+#: libraries/classes/Relation.php:378
 msgid "Saving export templates"
 msgstr "エクスポートテンプレートの保存"
 
-#: libraries/classes/Relation.php:1757
+#: libraries/classes/Relation.php:1770
 msgid "no description"
 msgstr "説明がありません"
 
-#: libraries/classes/Relation.php:1968
+#: libraries/classes/Relation.php:1981
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11922,7 +11922,7 @@ msgstr ""
 "「%s」という名前のデータベースを作成するのに必要な権限はありません。任意の"
 "データベースの「操作」タブで、phpMyAdmin環境保管領域を設定が出来ます。"
 
-#: libraries/classes/Relation.php:2122
+#: libraries/classes/Relation.php:2135
 #, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
@@ -11930,13 +11930,13 @@ msgid ""
 msgstr ""
 "「%s」データベースを%s作成%s し、phpMyAdmin 環境保管領域をセットアップ。"
 
-#: libraries/classes/Relation.php:2129
+#: libraries/classes/Relation.php:2142
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "現在のデータベースでphpMyAdmin環境保管領域を%s作成%s。"
 
-#: libraries/classes/Relation.php:2136
+#: libraries/classes/Relation.php:2149
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "不足している環境保管領域のテーブルを%s作成%sします。"
@@ -12023,34 +12023,34 @@ msgstr "エラー 404!　ページ 「%s」が見つかりませんでした。"
 msgid "Error 405! Request method not allowed."
 msgstr "エラー 405!　要求メソッドは許可されていません。"
 
-#: libraries/classes/SavedSearches.php:281
+#: libraries/classes/SavedSearches.php:245
 msgid "Please provide a name for this bookmarked search."
 msgstr "このブックマークされた検索に名前を付けてください。"
 
-#: libraries/classes/SavedSearches.php:297
+#: libraries/classes/SavedSearches.php:261
 msgid "Missing information to save the bookmarked search."
 msgstr "ブックマーク検索を保存するための情報がありません。"
 
-#: libraries/classes/SavedSearches.php:318
-#: libraries/classes/SavedSearches.php:355
+#: libraries/classes/SavedSearches.php:284
+#: libraries/classes/SavedSearches.php:321
 msgid "An entry with this name already exists."
 msgstr "この名前のある項目は既に存在しています。"
 
-#: libraries/classes/SavedSearches.php:383
+#: libraries/classes/SavedSearches.php:349
 msgid "Missing information to delete the search."
 msgstr "この検索を削除する為、情報に誤りがあります。"
 
-#: libraries/classes/SavedSearches.php:410
+#: libraries/classes/SavedSearches.php:378
 msgid "Missing information to load the search."
 msgstr "この検索を呼び出すための情報に誤りがあります。"
 
-#: libraries/classes/SavedSearches.php:430
+#: libraries/classes/SavedSearches.php:400
 msgid "Error while loading the search."
 msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Plugins.php:70
-#: libraries/classes/Server/Privileges.php:796
-#: libraries/classes/Server/Privileges.php:3813
+#: libraries/classes/Server/Privileges.php:800
+#: libraries/classes/Server/Privileges.php:3818
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
@@ -12300,23 +12300,23 @@ msgstr "ユーザアカウントの作成・削除・名前の変更を許可す
 msgid "Allows executing stored routines."
 msgstr "ストアドルーチンの実行を許可する。"
 
-#: libraries/classes/Server/Privileges.php:1084
+#: libraries/classes/Server/Privileges.php:1088
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s のパスワードは正しく変更されました。"
 
-#: libraries/classes/Server/Privileges.php:1132
+#: libraries/classes/Server/Privileges.php:1136
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s の権限を取り消しました。"
 
-#: libraries/classes/Server/Privileges.php:1469
+#: libraries/classes/Server/Privileges.php:1473
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "ユーザを表示するために十分な権限がありません。"
 
-#: libraries/classes/Server/Privileges.php:1531
+#: libraries/classes/Server/Privileges.php:1535
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
@@ -12324,84 +12324,84 @@ msgstr "ユーザを表示するために十分な権限がありません。"
 msgid "Edit privileges"
 msgstr "権限を編集"
 
-#: libraries/classes/Server/Privileges.php:1535
+#: libraries/classes/Server/Privileges.php:1539
 msgid "Revoke"
 msgstr "取り消し"
 
-#: libraries/classes/Server/Privileges.php:1856
+#: libraries/classes/Server/Privileges.php:1861
 #: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
 msgstr "データベース固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1862
+#: libraries/classes/Server/Privileges.php:1867
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
 msgstr "テーブル固有の権限"
 
-#: libraries/classes/Server/Privileges.php:1867
-#: libraries/classes/Server/Privileges.php:1869
+#: libraries/classes/Server/Privileges.php:1872
+#: libraries/classes/Server/Privileges.php:1874
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "ルーチン"
 
-#: libraries/classes/Server/Privileges.php:1868
+#: libraries/classes/Server/Privileges.php:1873
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "ルーチン固有の権限"
 
-#: libraries/classes/Server/Privileges.php:2222
+#: libraries/classes/Server/Privileges.php:2227
 msgid "No users selected for deleting!"
 msgstr "削除するユーザが選択されていません!"
 
-#: libraries/classes/Server/Privileges.php:2225
+#: libraries/classes/Server/Privileges.php:2230
 msgid "Reloading the privileges"
 msgstr "権限を再読み込みしています"
 
-#: libraries/classes/Server/Privileges.php:2250
+#: libraries/classes/Server/Privileges.php:2255
 msgid "The selected users have been deleted successfully."
 msgstr "選択されたユーザは正常に削除されました。"
 
-#: libraries/classes/Server/Privileges.php:2327
+#: libraries/classes/Server/Privileges.php:2332
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s の権限を更新しました。"
 
-#: libraries/classes/Server/Privileges.php:2414
+#: libraries/classes/Server/Privileges.php:2419
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "ユーザが存在しません。"
 
-#: libraries/classes/Server/Privileges.php:2501
+#: libraries/classes/Server/Privileges.php:2506
 #, php-format
 msgid "Deleting %s"
 msgstr "%s を削除中です"
 
-#: libraries/classes/Server/Privileges.php:2532
+#: libraries/classes/Server/Privileges.php:2537
 msgid "The privileges were reloaded successfully."
 msgstr "権限を正常に再読み込みしました。"
 
-#: libraries/classes/Server/Privileges.php:2636
+#: libraries/classes/Server/Privileges.php:2641
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ユーザ %s は既に存在します!"
 
-#: libraries/classes/Server/Privileges.php:2939
+#: libraries/classes/Server/Privileges.php:2944
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s に対する権限"
 
-#: libraries/classes/Server/Privileges.php:2948
+#: libraries/classes/Server/Privileges.php:2953
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "ユーザ"
 
-#: libraries/classes/Server/Privileges.php:3063
+#: libraries/classes/Server/Privileges.php:3068
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12411,7 +12411,7 @@ msgstr ""
 "のアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他"
 "のユーザは接続できなくなります。"
 
-#: libraries/classes/Server/Privileges.php:3097
+#: libraries/classes/Server/Privileges.php:3102
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12424,7 +12424,7 @@ msgstr ""
 "限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込"
 "み%s をしてください。"
 
-#: libraries/classes/Server/Privileges.php:3113
+#: libraries/classes/Server/Privileges.php:3118
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12437,7 +12437,7 @@ msgstr ""
 "致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、"
 "あなたは RELOAD 権限を持っていません。"
 
-#: libraries/classes/Server/Privileges.php:3435
+#: libraries/classes/Server/Privileges.php:3440
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
@@ -12582,11 +12582,11 @@ msgstr "入手可能な新しい安定バージョンはありません"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/classes/Sql.php:974
+#: libraries/classes/Sql.php:976
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/classes/Sql.php:1340
+#: libraries/classes/Sql.php:1342
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12595,7 +12595,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: libraries/classes/Sql.php:1354
+#: libraries/classes/Sql.php:1356
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12645,7 +12645,7 @@ msgstr "%s は無効になっています。"
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "この MySQL サーバは %s ストレージエンジンをサポートしていません。"
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2151
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "主キーの名前は PRIMARY でなければなりません!"
 
@@ -12658,39 +12658,39 @@ msgstr "テーブル `%s` のインデックスに問題があります"
 msgid "Unknown table status:"
 msgstr "不明なテーブルステータス:"
 
-#: libraries/classes/Table.php:1002
+#: libraries/classes/Table.php:1004
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "元にするデータベース `%s` が見つかりません！"
 
-#: libraries/classes/Table.php:1011
+#: libraries/classes/Table.php:1013
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: libraries/classes/Table.php:1519
+#: libraries/classes/Table.php:1511
 msgid "Invalid database:"
 msgstr "不正なデータベースです:"
 
-#: libraries/classes/Table.php:1537
+#: libraries/classes/Table.php:1529
 msgid "Invalid table name:"
 msgstr "不正なテーブル名:"
 
-#: libraries/classes/Table.php:1576
+#: libraries/classes/Table.php:1568
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "テーブル 「%1$s」 を 「%2$s」 に名前変更に失敗しました!"
 
-#: libraries/classes/Table.php:1593
+#: libraries/classes/Table.php:1585
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: libraries/classes/Table.php:1837
+#: libraries/classes/Table.php:1829
 msgid "Could not save table UI preferences!"
 msgstr "テーブルに対する環境設定が保存できません!"
 
-#: libraries/classes/Table.php:1865
+#: libraries/classes/Table.php:1857
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12699,7 +12699,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:2002
+#: libraries/classes/Table.php:1994
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12709,15 +12709,15 @@ msgstr ""
 "環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
 "とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
-#: libraries/classes/Table.php:2163
+#: libraries/classes/Table.php:2155
 msgid "Can't rename index to PRIMARY!"
 msgstr "インデックス名を PRIMARY に変更することはできません!"
 
-#: libraries/classes/Table.php:2189
+#: libraries/classes/Table.php:2181
 msgid "No index parts defined!"
 msgstr "インデックス部分が定義されていません!"
 
-#: libraries/classes/Table.php:2488
+#: libraries/classes/Table.php:2478
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13736,7 +13736,7 @@ msgstr ""
 #: templates/database/operations/index.twig:193
 #: templates/database/operations/index.twig:197
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:61 templates/indexes.twig:22
+#: templates/home/index.twig:64 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -15573,106 +15573,113 @@ msgstr ""
 msgid "General settings"
 msgstr "一般設定"
 
-#: templates/home/index.twig:56
+#: templates/home/index.twig:57
 msgid "Server connection collation:"
 msgstr "サーバ接続の照合順序:"
 
-#: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
 msgid "More settings"
 msgstr "詳細設定"
 
-#: templates/home/index.twig:89
+#: templates/home/index.twig:93
 msgid "Appearance settings"
 msgstr "外観の設定"
 
-#: templates/home/index.twig:99 templates/home/index.twig:100
+#: templates/home/index.twig:103 templates/home/index.twig:104
 #: templates/login/form.twig:23 templates/login/form.twig:24
 #: templates/setup/home/index.twig:8 templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "言語"
 
-#: templates/home/index.twig:128
+#: templates/home/index.twig:131
 msgid "Theme"
 msgstr "テーマ"
 
-#: templates/home/index.twig:149
+#: templates/home/index.twig:142
+#, fuzzy
+#| msgid "View only"
+msgctxt "View all themes"
+msgid "View all"
+msgstr "表示のみ"
+
+#: templates/home/index.twig:157
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: templates/home/index.twig:153 templates/login/form.twig:65
+#: templates/home/index.twig:161 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "サーバ："
 
-#: templates/home/index.twig:157
+#: templates/home/index.twig:165
 msgid "Server type:"
 msgstr "サーバの種類："
 
-#: templates/home/index.twig:161
+#: templates/home/index.twig:169
 msgid "Server connection:"
 msgstr "サーバの接続："
 
-#: templates/home/index.twig:169
+#: templates/home/index.twig:177
 msgid "Protocol version:"
 msgstr "プロトコル バージョン:"
 
-#: templates/home/index.twig:173
+#: templates/home/index.twig:181
 msgid "User:"
 msgstr "ユーザ："
 
-#: templates/home/index.twig:177
+#: templates/home/index.twig:185
 msgid "Server charset:"
 msgstr "サーバの文字セット:"
 
-#: templates/home/index.twig:189
+#: templates/home/index.twig:197
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: templates/home/index.twig:199
+#: templates/home/index.twig:207
 msgid "Database client version:"
 msgstr "データベースクライアントのバージョン："
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:211
 msgid "PHP extension:"
 msgstr "PHP 拡張:"
 
-#: templates/home/index.twig:210
+#: templates/home/index.twig:218
 msgid "PHP version:"
 msgstr "PHP のバージョン:"
 
-#: templates/home/index.twig:217
+#: templates/home/index.twig:225
 msgid "Show PHP information"
 msgstr "PHP情報を表示する"
 
-#: templates/home/index.twig:231
+#: templates/home/index.twig:239
 msgid "Version information:"
 msgstr "バージョン情報："
 
-#: templates/home/index.twig:241
+#: templates/home/index.twig:249
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: templates/home/index.twig:246
+#: templates/home/index.twig:254
 msgid "Contribute"
 msgstr "phpMyAdmin に協力するには"
 
-#: templates/home/index.twig:251
+#: templates/home/index.twig:259
 msgid "Get support"
 msgstr "サポート"
 
-#: templates/home/index.twig:256
+#: templates/home/index.twig:264
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: templates/home/index.twig:261 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:269 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "ライセンス"
 
-#: templates/home/index.twig:276
+#: templates/home/index.twig:284
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin のテーマ"
 
-#: templates/home/index.twig:287
+#: templates/home/index.twig:295
 msgid "Get more themes!"
 msgstr "他のテーマを入手する！"
 
