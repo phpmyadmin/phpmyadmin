@@ -842,9 +842,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getColumnEnumValues',
-            [
-                $enum_set_values,
-            ]
+            [$enum_set_values]
         );
         $this->assertEquals(
             [
@@ -1522,9 +1520,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
-            [
-                $column,
-            ]
+            [$column]
         );
 
         $this->assertEquals(
@@ -1546,9 +1542,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
-            [
-                $column,
-            ]
+            [$column]
         );
 
         $this->assertEquals(

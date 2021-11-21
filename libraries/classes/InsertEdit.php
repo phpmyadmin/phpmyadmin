@@ -27,7 +27,6 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_file;
-use function is_null;
 use function is_string;
 use function max;
 use function mb_stripos;
@@ -135,7 +134,7 @@ class InsertEdit
      */
     private function getWhereClauseArray($whereClause): array
     {
-        if (is_null($whereClause)) {
+        if ($whereClause === null) {
             return [];
         }
 
@@ -215,7 +214,6 @@ class InsertEdit
         $localQuery,
         array $result
     ): bool {
-
         // No row returned
         if (! $rows[$keyId]) {
             unset($rows[$keyId], $whereClauseArray[$keyId]);
@@ -432,7 +430,7 @@ class InsertEdit
      * the goal is to ensure that types such as "enum('one','two','binary',..)"
      * or "enum('one','two','varbinary',..)" are not categorized as binary
      *
-     * @param array $column description of column in given table
+     * @param array    $column description of column in given table
      * @param string[] $types  the types to verify
      */
     public function isColumn(array $column, array $types): bool
@@ -464,18 +462,21 @@ class InsertEdit
                     '',
                     false,
                 ];
+
             case 'enum':
                 return [
                     'enum',
                     '',
                     false,
                 ];
+
             case 'timestamp':
                 return [
                     $column['Type'],
                     ' text-nowrap',
                     ! $timestampSeen, // can only occur once per table
                 ];
+
             default:
                 return [
                     $column['Type'],
@@ -609,7 +610,7 @@ class InsertEdit
     /**
      * Retrieve column 'set' value and select size
      *
-     * @param array $column              description of column in given table
+     * @param array    $column          description of column in given table
      * @param string[] $enum_set_values
      *
      * @return array $column['values'], $column['select_size']
@@ -705,7 +706,7 @@ class InsertEdit
     /**
      * Get HTML select option for upload
      *
-     * @param string $vkey   [multi_edit]['row_id']
+     * @param string $vkey      [multi_edit]['row_id']
      * @param string $field_MD5 array index as an MD5 to avoid having special characters
      *
      * @return string an HTML snippet
@@ -888,7 +889,7 @@ class InsertEdit
      * Get the field size
      *
      * @param array  $column           description of column in given table
-     * @param string $spec_in_brackets
+     * @param string $spec_in_brackets text in brackets inside column definition
      *
      * @return int field size
      */
@@ -953,7 +954,7 @@ class InsertEdit
      */
     public static function isWhereClauseNumeric($whereClause): bool
     {
-        if (is_null($whereClause)) {
+        if ($whereClause === null) {
             return false;
         }
 
@@ -1102,7 +1103,7 @@ class InsertEdit
     /**
      * display default values
      *
-     * @param array $column        description of column in given table
+     * @param array $column description of column in given table
      *
      * @return array $real_null_value, $data, $special_chars,
      *               $backup_field, $special_chars_encoded
@@ -1221,8 +1222,6 @@ class InsertEdit
      *
      * @param string|false $gotoInclude store some script for include, otherwise it is
      *                                   boolean false
-     *
-     * @return string
      */
     public function getGotoInclude($gotoInclude): string
     {
@@ -1580,8 +1579,6 @@ class InsertEdit
      * @param array  $funcOptionalParam    array('RAND','UNIX_TIMESTAMP')
      * @param array  $funcNoParam          array of set of string
      * @param string $key                  an md5 of the column name
-     *
-     * @return string
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
         $multiEditFuncs,
@@ -1801,6 +1798,7 @@ class InsertEdit
                     . ' WHERE ' . $whereClause . ';'
                 );
             }
+
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
@@ -1997,8 +1995,6 @@ class InsertEdit
 
     /**
      * Function to get html for the gis editor div
-     *
-     * @return string
      */
     public function getHtmlForGisEditor(): string
     {
@@ -2010,8 +2006,6 @@ class InsertEdit
      *
      * @param int  $rowId   row id
      * @param bool $checked ignore option is checked or not
-     *
-     * @return string
      */
     public function getHtmlForIgnoreOption($rowId, $checked = true): string
     {
@@ -2029,8 +2023,6 @@ class InsertEdit
      *
      * @param bool $hasBlobField whether has blob field
      * @param bool $isUpload     whether is upload
-     *
-     * @return string
      */
     public function getHtmlForInsertEditFormHeader($hasBlobField, $isUpload): string
     {
@@ -2426,29 +2418,29 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param array  $urlParams          url parameters
-     * @param array[] $tableColumns      table columns
-     * @param array  $commentsMap        comments map
-     * @param bool   $timestampSeen      whether timestamp seen
-     * @param object $currentResult      current result
-     * @param string $chgEvtHandler      javascript change event handler
-     * @param string $jsvkey             javascript validation key
-     * @param string $vkey               validation key
-     * @param bool   $insertMode         whether insert mode
-     * @param array  $currentRow         current row
-     * @param int    $oRows              row offset
-     * @param int    $tabindex           tab index
-     * @param int    $columnsCnt         columns count
-     * @param bool   $isUpload           whether upload
-     * @param array  $foreigners         foreigners
-     * @param int    $tabindexForValue   tab index offset for value
-     * @param string $table              table
-     * @param string $db                 database
-     * @param int    $rowId              row id
-     * @param int    $biggestMaxFileSize biggest max file size
-     * @param string $textDir            text direction
-     * @param array  $repopulate         the data to be repopulated
-     * @param array  $whereClauseArray   the array of where clauses
+     * @param array   $urlParams          url parameters
+     * @param array[] $tableColumns       table columns
+     * @param array   $commentsMap        comments map
+     * @param bool    $timestampSeen      whether timestamp seen
+     * @param object  $currentResult      current result
+     * @param string  $chgEvtHandler      javascript change event handler
+     * @param string  $jsvkey             javascript validation key
+     * @param string  $vkey               validation key
+     * @param bool    $insertMode         whether insert mode
+     * @param array   $currentRow         current row
+     * @param int     $oRows              row offset
+     * @param int     $tabindex           tab index
+     * @param int     $columnsCnt         columns count
+     * @param bool    $isUpload           whether upload
+     * @param array   $foreigners         foreigners
+     * @param int     $tabindexForValue   tab index offset for value
+     * @param string  $table              table
+     * @param string  $db                 database
+     * @param int     $rowId              row id
+     * @param int     $biggestMaxFileSize biggest max file size
+     * @param string  $textDir            text direction
+     * @param array   $repopulate         the data to be repopulated
+     * @param array   $whereClauseArray   the array of where clauses
      *
      * @return string
      */
