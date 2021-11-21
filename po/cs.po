@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-11-21 00:11+0000\n"
-"PO-Revision-Date: 2021-10-15 01:55+0000\n"
+"PO-Revision-Date: 2021-11-23 18:44+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14087,10 +14087,8 @@ msgstr "Operace"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Vytvořit tabulku"
+msgstr "Vytvořit novou tabulku"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
@@ -15644,11 +15642,9 @@ msgid "Theme"
 msgstr "Vzhled"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Zobrazit"
+msgstr "Zobrazit vše"
 
 #: templates/home/index.twig:157
 msgid "Database server"
