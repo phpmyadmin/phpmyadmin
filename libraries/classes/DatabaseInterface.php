@@ -2322,7 +2322,7 @@ class DatabaseInterface implements DbalInterface
 
         $sql = 'SELECT @@basedir';
         $result = (string) $this->fetchValue($sql);
-        $rds = (substr($result, 0, 10) === '/rdsdbbin/');
+        $rds = str_starts_with($result, '/rdsdbbin/');
         SessionCache::set('is_amazon_rds', $rds);
 
         return $rds;
