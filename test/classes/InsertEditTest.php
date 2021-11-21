@@ -2391,7 +2391,10 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue(['a' => 'b', 'c' => 'd']));
+            ->will($this->returnValue([
+                ['a' => 'b', 'c' => 'd'],
+                ['e' => 'f', 'g' => 'h'],
+            ]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2400,8 +2403,8 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             [
-                'b',
-                'd',
+                ['a' => 'b', 'c' => 'd'],
+                ['e' => 'f', 'g' => 'h'],
             ],
             $result
         );

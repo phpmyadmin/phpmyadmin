@@ -1899,7 +1899,7 @@ class InsertEdit
      * @param string $db    current db
      * @param string $table current table
      *
-     * @return array
+     * @return array[]
      */
     public function getTableColumns($db, $table)
     {
