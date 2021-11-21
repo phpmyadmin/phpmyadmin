@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-04-11 10:26+0000\n"
+"PO-Revision-Date: 2021-11-22 06:54+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2190,8 +2190,8 @@ msgstr ""
 #: js/messages.php:507
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Veri satırını mümkün olduğunca düzenlemek ve görmek için veri noktasına "
-"tıklayın."
+"Veri satırını mümkün olduğunca düzenlemek ve görüntülemek için veri "
+"noktasına tıklayın."
 
 #: js/messages.php:509
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -7884,7 +7884,7 @@ msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
 
 #: libraries/classes/Import.php:1216
 msgid "View a structure's contents by clicking on its name."
-msgstr "Adına tıklayarak yapının içeriklerini görün."
+msgstr "Adına tıklayarak yapının içeriklerini görüntüleyin."
 
 #: libraries/classes/Import.php:1219
 msgid ""
@@ -9452,7 +9452,7 @@ msgstr "Veri dökümleniyor"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
 msgid "View structure"
-msgstr "Yapıyı göster"
+msgstr "Yapıyı görüntüle"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
 msgid "Stand in"
@@ -12998,7 +12998,7 @@ msgstr "Tablo seviyesi sekmeler"
 
 #: libraries/classes/Server/UserGroups.php:121
 msgid "View users"
-msgstr "Kullanıcıları göster"
+msgstr "Kullanıcıları görüntüle"
 
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
@@ -13165,7 +13165,7 @@ msgstr "paylaşılmış"
 
 #: libraries/classes/SqlQueryForm.php:423
 msgid "View only"
-msgstr "Sadece göster"
+msgstr "Sadece görüntüle"
 
 #: libraries/classes/StorageEngine.php:280
 msgid ""
@@ -15054,7 +15054,7 @@ msgstr "Tabloyu izle"
 
 #: templates/display/export/options_output_radio.twig:5
 msgid "View output as text"
-msgstr "Çıktıyı metin olarak göster"
+msgstr "Çıktıyı metin olarak görüntüle"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
