@@ -682,7 +682,7 @@ class InsertEdit
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
             $isUnsigned = $extractedColumnspec['unsigned'];
             $minMaxValues = $this->dbi->types->getIntegerRange($column['True_Type'], ! $isUnsigned);
-            $inputMinMax = ' min="' . $minMaxValues[0] . '" '
+            $inputMinMax = 'min="' . $minMaxValues[0] . '" '
                 . 'max="' . $minMaxValues[1] . '"';
             $dataType = 'INT';
         }
@@ -696,7 +696,7 @@ class InsertEdit
                 ? ' data-maxlength="' . $fieldsize . '"'
                 : '')
             . ($readOnly ? ' readonly="readonly"' : '')
-            . $inputMinMax
+            . ($inputMinMax ? ' ' . $inputMinMax : '')
             . ' data-type="' . $dataType . '"'
             . ' class="' . $theClass . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
