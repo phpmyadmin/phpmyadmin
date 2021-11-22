@@ -460,7 +460,7 @@ class DatabaseInterface implements DbalInterface
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables)) {
             foreach ($databases as $each_database) {
-                if ($table || ($tbl_is_group === true) || ! empty($table_type)) {
+                if ($table || ($tbl_is_group === true) || $table_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . Util::backquote($each_database)
                         . ' WHERE';
@@ -490,7 +490,7 @@ class DatabaseInterface implements DbalInterface
                         $needAnd = true;
                     }
 
-                    if (! empty($table_type)) {
+                    if ($table_type) {
                         if ($needAnd) {
                             $sql .= ' AND';
                         }
@@ -665,7 +665,7 @@ class DatabaseInterface implements DbalInterface
 
             // get table information from information_schema
             $sqlWhereSchema = '';
-            if (! empty($database)) {
+            if ($database) {
                 $sqlWhereSchema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . $this->escapeString($database, $link) . '\'';
             }
@@ -1119,7 +1119,7 @@ class DatabaseInterface implements DbalInterface
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
-        if (! empty($locale)) {
+        if ($locale) {
             $this->query("SET lc_messages = '" . $locale . "';", self::CONNECT_USER, self::QUERY_STORE);
         }
 
@@ -1594,20 +1594,20 @@ class DatabaseInterface implements DbalInterface
                 empty($name) ? null : $this->escapeString($name)
             );
             $result = $this->fetchResult($query);
-            if (! empty($result)) {
+            if ($result) {
                 $routines = $result;
             }
         } else {
             if ($which === 'FUNCTION' || $which == null) {
                 $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if (! empty($name)) {
+                if ($name) {
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
 
                 $result = $this->fetchResult($query);
-                if (! empty($result)) {
+                if ($result) {
                     $routines = array_merge($routines, $result);
                 }
             }
@@ -1615,13 +1615,13 @@ class DatabaseInterface implements DbalInterface
             if ($which === 'PROCEDURE' || $which == null) {
                 $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
-                if (! empty($name)) {
+                if ($name) {
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
 
                 $result = $this->fetchResult($query);
-                if (! empty($result)) {
+                if ($result) {
                     $routines = array_merge($routines, $result);
                 }
             }
@@ -1666,7 +1666,7 @@ class DatabaseInterface implements DbalInterface
             );
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
-            if (! empty($name)) {
+            if ($name) {
                 $query .= " WHERE `Name` = '"
                     . $this->escapeString($name) . "'";
             }
@@ -1713,7 +1713,7 @@ class DatabaseInterface implements DbalInterface
             );
         } else {
             $query = 'SHOW TRIGGERS FROM ' . Util::backquote($db);
-            if (! empty($table)) {
+            if ($table) {
                 $query .= " LIKE '" . $this->escapeString($table) . "';";
             }
         }
