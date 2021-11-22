@@ -1438,29 +1438,27 @@ class DatabaseInterface implements DbalInterface
             while ($row = $this->$fetch_function($result)) {
                 $resultrows[] = $this->fetchValueOrValueByIndex($row, $value);
             }
-        } else {
-            if (is_array($key)) {
-                while ($row = $this->$fetch_function($result)) {
-                    $result_target =& $resultrows;
-                    foreach ($key as $key_index) {
-                        if ($key_index === null) {
-                            $result_target =& $result_target[];
-                            continue;
-                        }
-
-                        if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = [];
-                        }
-
-                        $result_target =& $result_target[$row[$key_index]];
+        } elseif (is_array($key)) {
+            while ($row = $this->$fetch_function($result)) {
+                $result_target =& $resultrows;
+                foreach ($key as $key_index) {
+                    if ($key_index === null) {
+                        $result_target =& $result_target[];
+                        continue;
                     }
 
-                    $result_target = $this->fetchValueOrValueByIndex($row, $value);
+                    if (! isset($result_target[$row[$key_index]])) {
+                        $result_target[$row[$key_index]] = [];
+                    }
+
+                    $result_target =& $result_target[$row[$key_index]];
                 }
-            } else {
-                while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
-                }
+
+                $result_target = $this->fetchValueOrValueByIndex($row, $value);
+            }
+        } else {
+            while ($row = $this->$fetch_function($result)) {
+                $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
             }
         }
 
