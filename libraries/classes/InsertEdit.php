@@ -1773,18 +1773,16 @@ class InsertEdit
         if ($type !== 'protected' && $type !== 'set' && strlen($currentValue) === 0) {
             // best way to avoid problems in strict mode
             // (works also in non-strict mode)
+            $currentValue = "''";
             if (isset($multiEditAutoIncrement, $multiEditAutoIncrement[$key])) {
                 $currentValue = 'NULL';
-            } else {
-                $currentValue = "''";
             }
         } elseif ($type === 'set') {
+            $currentValue = "''";
             if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
                 $currentValue = implode(',', $_POST['fields']['multi_edit'][$rownumber][$key]);
                 $currentValue = "'"
                     . $this->dbi->escapeString($currentValue) . "'";
-            } else {
-                $currentValue = "''";
             }
         } elseif ($type === 'protected') {
             // Fetch the current values of a row to use in case we have a protected field
@@ -1807,11 +1805,10 @@ class InsertEdit
             // when in UPDATE mode, do not alter field's contents. When in INSERT
             // mode, insert empty field because no values were submitted.
             // If protected blobs where set, insert original fields content.
+            $currentValue = '';
             if (! empty($protectedRow[$multiEditColumnsName[$key]])) {
                 $currentValue = '0x'
                     . bin2hex($protectedRow[$multiEditColumnsName[$key]]);
-            } else {
-                $currentValue = '';
             }
         } elseif ($type === 'hex') {
             if (substr($currentValue, 0, 2) != '0x') {
