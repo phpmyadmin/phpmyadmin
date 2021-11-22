@@ -102,7 +102,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
-            ->with($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL)
+            ->with($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL)
             ->will(
                 $this->returnValue(
                     [

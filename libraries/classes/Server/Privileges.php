@@ -150,7 +150,7 @@ class Privileges
      */
     public function fillInTablePrivileges(array &$row): void
     {
-        $row1 = $this->dbi->fetchSingleRow('SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';', 'ASSOC');
+        $row1 = $this->dbi->fetchSingleRow('SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';');
         // note: in MySQL 5.0.3 we get "Create View', 'Show view';
         // the View for Create is spelled with uppercase V
         // the view for Show is spelled with lowercase v

@@ -809,7 +809,11 @@ class Common
                 . " WHERE username = '"
                 . $this->dbi->escapeString($cfgDesigner['user']) . "';";
 
-            $orig_data = $this->dbi->fetchSingleRow($orig_data_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+            $orig_data = $this->dbi->fetchSingleRow(
+                $orig_data_query,
+                DatabaseInterface::FETCH_ASSOC,
+                DatabaseInterface::CONNECT_CONTROL
+            );
 
             if (! empty($orig_data)) {
                 $orig_data = json_decode($orig_data['settings_data'], true);

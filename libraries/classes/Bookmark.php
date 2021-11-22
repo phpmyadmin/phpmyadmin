@@ -387,7 +387,7 @@ class Bookmark
         $query .= ' AND ' . Util::backquote($id_field)
             . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 
-        $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+        $result = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {
             return self::createFromRow($dbi, $user, $result);
         }

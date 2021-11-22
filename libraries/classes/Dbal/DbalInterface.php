@@ -14,6 +14,10 @@ use PhpMyAdmin\Table;
  */
 interface DbalInterface
 {
+    public const FETCH_NUM = 'NUM';
+    public const FETCH_ASSOC = 'ASSOC';
+    public const FETCH_BOTH = 'BOTH';
+
     /**
      * runs a query
      *
@@ -330,10 +334,11 @@ interface DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
+     * @psalm-param  self::FETCH_NUM|self::FETCH_ASSOC|self::FETCH_BOTH $type
      */
     public function fetchSingleRow(
         string $query,
-        string $type = 'ASSOC',
+        string $type = DbalInterface::FETCH_ASSOC,
         $link = DatabaseInterface::CONNECT_USER
     ): ?array;
 

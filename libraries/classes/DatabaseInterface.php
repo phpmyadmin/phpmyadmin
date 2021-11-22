@@ -1087,7 +1087,11 @@ class DatabaseInterface implements DbalInterface
      */
     public function postConnect(): void
     {
-        $version = $this->fetchSingleRow('SELECT @@version, @@version_comment', 'ASSOC', self::CONNECT_USER);
+        $version = $this->fetchSingleRow(
+            'SELECT @@version, @@version_comment',
+            DbalInterface::FETCH_ASSOC,
+            self::CONNECT_USER
+        );
 
         if (is_array($version)) {
             $this->versionString = $version['@@version'] ?? '';
@@ -1306,10 +1310,11 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
+     * @psalm-param  DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC|DatabaseInterface::FETCH_BOTH $type
      */
     public function fetchSingleRow(
         string $query,
-        string $type = 'ASSOC',
+        string $type = DbalInterface::FETCH_ASSOC,
         $link = self::CONNECT_USER
     ): ?array {
         $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
@@ -1317,26 +1322,7 @@ class DatabaseInterface implements DbalInterface
             return null;
         }
 
-        if (! $this->numRows($result)) {
-            return null;
-        }
-
-        switch ($type) {
-            case 'NUM':
-                $row = $this->fetchRow($result);
-                break;
-            case 'ASSOC':
-                $row = $this->fetchAssoc($result);
-                break;
-            case 'BOTH':
-            default:
-                $row = $this->fetchArray($result);
-                break;
-        }
-
-        $this->freeResult($result);
-
-        return $row;
+        return $this->fetchByMode($result, $type);
     }
 
     /**
@@ -1350,6 +1336,26 @@ class DatabaseInterface implements DbalInterface
     private function fetchValueOrValueByIndex($row, $value)
     {
         return $value === null ? $row : $row[$value];
+    }
+
+    /**
+     * returns array of rows with numeric or associative keys
+     *
+     * @param object $result result set identifier
+     * @param string $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
+     * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC|self::FETCH_BOTH $mode
+     */
+    private function fetchByMode($result, string $mode): ?array
+    {
+        if ($mode === self::FETCH_NUM) {
+            return $this->extension->fetchRow($result);
+        }
+
+        if ($mode === self::FETCH_ASSOC) {
+            return $this->extension->fetchAssoc($result);
+        }
+
+        return $this->extension->fetchArray($result);
     }
 
     /**
@@ -1421,25 +1427,25 @@ class DatabaseInterface implements DbalInterface
             return $resultrows;
         }
 
-        $fetch_function = 'fetchAssoc';
+        $fetch_function = self::FETCH_ASSOC;
 
         // no nested array if only one field is in result
         if ($key === null && $this->numFields($result) === 1) {
             $value = 0;
-            $fetch_function = 'fetchRow';
+            $fetch_function = self::FETCH_NUM;
         }
 
         // if $key is an integer use non associative mysql fetch function
         if (is_int($key)) {
-            $fetch_function = 'fetchRow';
+            $fetch_function = self::FETCH_NUM;
         }
 
         if ($key === null) {
-            while ($row = $this->$fetch_function($result)) {
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $resultrows[] = $this->fetchValueOrValueByIndex($row, $value);
             }
         } elseif (is_array($key)) {
-            while ($row = $this->$fetch_function($result)) {
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $result_target =& $resultrows;
                 foreach ($key as $key_index) {
                     if ($key_index === null) {
@@ -1457,7 +1463,7 @@ class DatabaseInterface implements DbalInterface
                 $result_target = $this->fetchValueOrValueByIndex($row, $value);
             }
         } else {
-            while ($row = $this->$fetch_function($result)) {
+            while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
             }
         }
