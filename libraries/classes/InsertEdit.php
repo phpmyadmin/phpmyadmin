@@ -722,18 +722,18 @@ class InsertEdit
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         }
 
-        if ($files) {
-            return "<br>\n"
-                . '<i>' . __('Or') . '</i> '
-                . __('web server upload directory:') . '<br>' . "\n"
-                . '<select size="1" name="fields_uploadlocal'
-                . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
-                . '<option value="" selected="selected"></option>' . "\n"
-                . $files
-                . '</select>' . "\n";
+        if ($files === '') {
+            return '';
         }
 
-        return '';
+        return "<br>\n"
+            . '<i>' . __('Or') . '</i> '
+            . __('web server upload directory:') . '<br>' . "\n"
+            . '<select size="1" name="fields_uploadlocal'
+            . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
+            . '<option value="" selected="selected"></option>' . "\n"
+            . $files
+            . '</select>' . "\n";
     }
 
     /**
