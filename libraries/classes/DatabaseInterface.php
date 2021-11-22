@@ -1429,18 +1429,13 @@ class DatabaseInterface implements DbalInterface
 
         $fetch_function = self::FETCH_ASSOC;
 
-        // no nested array if only one field is in result
-        if ($key === null && $this->numFields($result) === 1) {
-            $value = 0;
-            $fetch_function = self::FETCH_NUM;
-        }
-
-        // if $key is an integer use non associative mysql fetch function
-        if (is_int($key)) {
-            $fetch_function = self::FETCH_NUM;
-        }
-
         if ($key === null) {
+            // no nested array if only one field is in result
+            if ($this->numFields($result) === 1) {
+                $value = 0;
+                $fetch_function = self::FETCH_NUM;
+            }
+
             while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $resultrows[] = $this->fetchValueOrValueByIndex($row, $value);
             }
@@ -1463,6 +1458,11 @@ class DatabaseInterface implements DbalInterface
                 $result_target = $this->fetchValueOrValueByIndex($row, $value);
             }
         } else {
+            // if $key is an integer use non associative mysql fetch function
+            if (is_int($key)) {
+                $fetch_function = self::FETCH_NUM;
+            }
+
             while ($row = $this->fetchByMode($result, $fetch_function)) {
                 $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
             }
