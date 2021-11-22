@@ -1630,13 +1630,13 @@ class DatabaseInterface implements DbalInterface
 
         $ret = [];
         foreach ($routines as $routine) {
-            $one_result = [];
-            $one_result['db'] = $routine['Db'];
-            $one_result['name'] = $routine['Name'];
-            $one_result['type'] = $routine['Type'];
-            $one_result['definer'] = $routine['Definer'];
-            $one_result['returns'] = $routine['DTD_IDENTIFIER'] ?? '';
-            $ret[] = $one_result;
+            $ret[] = [
+                'db' => $routine['Db'],
+                'name' => $routine['Name'],
+                'type' => $routine['Type'],
+                'definer' => $routine['Definer'],
+                'returns' => $routine['DTD_IDENTIFIER'] ?? '',
+            ];
         }
 
         // Sort results by name
