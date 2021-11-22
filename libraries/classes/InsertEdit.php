@@ -888,15 +888,15 @@ class InsertEdit
     /**
      * Get the field size
      *
-     * @param array  $column           description of column in given table
-     * @param string $spec_in_brackets text in brackets inside column definition
+     * @param array  $column         description of column in given table
+     * @param string $specInBrackets text in brackets inside column definition
      *
      * @return int field size
      */
-    private function getColumnSize(array $column, string $spec_in_brackets): int
+    private function getColumnSize(array $column, string $specInBrackets): int
     {
         if ($column['is_char']) {
-            $fieldsize = (int) $spec_in_brackets;
+            $fieldsize = (int) $specInBrackets;
             if ($fieldsize > $GLOBALS['cfg']['MaxSizeForInputField']) {
                 /**
                  * This case happens for CHAR or VARCHAR columns which have
