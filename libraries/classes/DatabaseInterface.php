@@ -22,6 +22,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
+use function array_column;
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -1639,11 +1640,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($ret as $value) {
-            $name[] = $value['name'];
-        }
-
+        $name = array_column($ret, 'name');
         array_multisort($name, SORT_ASC, $ret);
 
         return $ret;
@@ -1684,11 +1681,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($result as $value) {
-            $name[] = $value['name'];
-        }
-
+        $name = array_column($result, 'name');
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
@@ -1755,11 +1748,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Sort results by name
-        $name = [];
-        foreach ($result as $value) {
-            $name[] = $value['name'];
-        }
-
+        $name = array_column($result, 'name');
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
