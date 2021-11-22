@@ -1400,14 +1400,14 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string           $query   query to execute
-     * @param string|int|array $key     field-name or offset
-     *                                  used as key for array
-     *                                  or array of those
-     * @param string|int       $value   value-name or offset
-     *                                  used as value for array
-     * @param int              $link    link type
-     * @param int              $options query options
+     * @param string                $query   query to execute
+     * @param string|int|array|null $key     field-name or offset
+     *                                       used as key for array
+     *                                       or array of those
+     * @param string|int|null       $value   value-name or offset
+     *                                       used as value for array
+     * @param int                   $link    link type
+     * @param int                   $options query options
      *
      * @return array resultrows or values indexed by $key
      */
