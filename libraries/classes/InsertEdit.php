@@ -706,12 +706,12 @@ class InsertEdit
     /**
      * Get HTML select option for upload
      *
-     * @param string $vkey      [multi_edit]['row_id']
-     * @param string $field_MD5 array index as an MD5 to avoid having special characters
+     * @param string $vkey         [multi_edit]['row_id']
+     * @param string $fieldHashMd5 array index as an MD5 to avoid having special characters
      *
      * @return string an HTML snippet
      */
-    private function getSelectOptionForUpload(string $vkey, string $field_MD5): string
+    private function getSelectOptionForUpload(string $vkey, string $fieldHashMd5): string
     {
         $files = $this->fileListing->getFileSelectOptions(
             Util::userDir((string) ($GLOBALS['cfg']['UploadDir'] ?? ''))
@@ -727,7 +727,7 @@ class InsertEdit
                 . '<i>' . __('Or') . '</i> '
                 . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
-                . $vkey . '[' . $field_MD5 . ']">' . "\n"
+                . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
                 . '<option value="" selected="selected"></option>' . "\n"
                 . $files
                 . '</select>' . "\n";
