@@ -1587,18 +1587,16 @@ class DatabaseInterface implements DbalInterface
         ?string $which = null,
         string $name = ''
     ): array {
-        $routines = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = QueryGenerator::getInformationSchemaRoutinesRequest(
                 $this->escapeString($db),
                 isset($which) && in_array($which, ['FUNCTION', 'PROCEDURE']) ? $which : null,
                 empty($name) ? null : $this->escapeString($name)
             );
-            $result = $this->fetchResult($query);
-            if ($result) {
-                $routines = $result;
-            }
+            $routines = $this->fetchResult($query);
         } else {
+            $routines = [];
+
             if ($which === 'FUNCTION' || $which == null) {
                 $query = 'SHOW FUNCTION STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
@@ -1607,10 +1605,7 @@ class DatabaseInterface implements DbalInterface
                         . $this->escapeString($name) . "'";
                 }
 
-                $result = $this->fetchResult($query);
-                if ($result) {
-                    $routines = array_merge($routines, $result);
-                }
+                $routines = $this->fetchResult($query);
             }
 
             if ($which === 'PROCEDURE' || $which == null) {
@@ -1621,10 +1616,7 @@ class DatabaseInterface implements DbalInterface
                         . $this->escapeString($name) . "'";
                 }
 
-                $result = $this->fetchResult($query);
-                if ($result) {
-                    $routines = array_merge($routines, $result);
-                }
+                $routines = array_merge($routines, $this->fetchResult($query));
             }
         }
 
