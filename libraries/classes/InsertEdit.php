@@ -13,6 +13,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_fill;
+use function array_key_exists;
 use function array_keys;
 use function array_merge;
 use function array_values;
@@ -2096,8 +2097,10 @@ class InsertEdit
         }
 
         $asIs = false;
-        if ($repopulate && $currentRow) {
-            $currentRow[$column['Field']] = $repopulate[$column['Field_md5']];
+        /** @var string $fieldHashMd5 */
+        $fieldHashMd5 = $column['Field_md5'];
+        if ($repopulate && array_key_exists($fieldHashMd5, $currentRow)) {
+            $currentRow[$column['Field']] = $repopulate[$fieldHashMd5];
             $asIs = true;
         }
 
@@ -2115,12 +2118,12 @@ class InsertEdit
         //Call validation when the form submitted...
         $onChangeClause = $chgEvtHandler
             . "=\"return verificationsAfterFieldChange('"
-            . Sanitize::escapeJsString($column['Field_md5']) . "', '"
+            . Sanitize::escapeJsString($fieldHashMd5) . "', '"
             . Sanitize::escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters
         // in the name attribute (see bug #1746964 )
-        $columnNameAppendix = $vkey . '[' . $column['Field_md5'] . ']';
+        $columnNameAppendix = $vkey . '[' . $fieldHashMd5 . ']';
 
         if ($column['Type'] === 'datetime' && $column['Null'] !== 'YES' && ! isset($column['Default']) && $insertMode) {
             $column['Default'] = date('Y-m-d H:i:s', time());
@@ -2150,8 +2153,8 @@ class InsertEdit
             // (we are inserting)
             // display default values
             $tmp = $column;
-            if (isset($repopulate[$column['Field_md5']])) {
-                $tmp['Default'] = $repopulate[$column['Field_md5']];
+            if (isset($repopulate[$fieldHashMd5])) {
+                $tmp['Default'] = $repopulate[$fieldHashMd5];
             }
 
             [
@@ -2316,7 +2319,7 @@ class InsertEdit
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
-                    $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $column['Field_md5']);
+                    $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $fieldHashMd5);
                 }
 
                 if (

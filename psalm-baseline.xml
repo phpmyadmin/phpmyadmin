@@ -8264,7 +8264,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <MixedArgument occurrences="103">
+    <MixedArgument occurrences="101">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
@@ -8282,8 +8282,6 @@
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
-      <code>$column['Field_md5']</code>
-      <code>$column['Field_md5']</code>
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
@@ -8393,7 +8391,7 @@
       <code>$editedValues[$cellIndex][$columnName]</code>
       <code>$extraData['transformations'][$cellIndex]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="31">
+    <MixedArrayOffset occurrences="28">
       <code>$commentsMap[$column['Field']]</code>
       <code>$commentsMap[$column['Field']]</code>
       <code>$currentRow[$column['Field']]</code>
@@ -8422,9 +8420,6 @@
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="48">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
@@ -8486,10 +8481,9 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="12">
+    <MixedOperand occurrences="11">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['Field_html']</code>
-      <code>$column['Field_md5']</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
       <code>$maxlength</code>
