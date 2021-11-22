@@ -1476,20 +1476,20 @@ class DatabaseInterface implements DbalInterface
      */
     public function getCompatibilities(): array
     {
-        $compats = ['NONE'];
-        $compats[] = 'ANSI';
-        $compats[] = 'DB2';
-        $compats[] = 'MAXDB';
-        $compats[] = 'MYSQL323';
-        $compats[] = 'MYSQL40';
-        $compats[] = 'MSSQL';
-        $compats[] = 'ORACLE';
-        // removed; in MySQL 5.0.33, this produces exports that
-        // can't be read by POSTGRESQL (see our bug #1596328)
-        //$compats[] = 'POSTGRESQL';
-        $compats[] = 'TRADITIONAL';
-
-        return $compats;
+        return [
+            'NONE',
+            'ANSI',
+            'DB2',
+            'MAXDB',
+            'MYSQL323',
+            'MYSQL40',
+            'MSSQL',
+            'ORACLE',
+            // removed; in MySQL 5.0.33, this produces exports that
+            // can't be read by POSTGRESQL (see our bug #1596328)
+            // 'POSTGRESQL',
+            'TRADITIONAL',
+        ];
     }
 
     /**
