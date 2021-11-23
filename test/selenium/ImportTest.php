@@ -101,7 +101,7 @@ class ImportTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'input_import_file');
 
-        $this->waitForElement('cssSelector', 'label[for=radio_local_import_file]')->click();
+        $this->waitForElement('id', 'localFileTab')->click();
 
         $this->selectByValue(
             $this->byName('local_import_file'),
@@ -119,6 +119,9 @@ class ImportTest extends TestBase
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
 
+        $this->scrollToBottom();
+        sleep(1);
+        $this->scrollToBottom();
         $this->byId('buttonGo')->click();
         sleep(2);
         $this->waitUntilElementIsVisible(
