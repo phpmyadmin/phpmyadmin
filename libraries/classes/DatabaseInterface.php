@@ -1210,9 +1210,7 @@ class DatabaseInterface implements DbalInterface
 
         $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $storageDbName = empty($storageDbName) ? 'phpmyadmin' : $storageDbName;
-
-        $this->relation->fixPmaTables($storageDbName, false);
+        $this->relation->fixPmaTables($storageDbName ?: 'phpmyadmin', false);
     }
 
     /**
