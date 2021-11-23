@@ -1262,8 +1262,6 @@ class DatabaseInterface implements DbalInterface
         $field = 0,
         $link = self::CONNECT_USER
     ) {
-        $value = false;
-
         $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
         if ($result === false) {
             return false;
@@ -1272,7 +1270,7 @@ class DatabaseInterface implements DbalInterface
         // return false if result is empty or false
         // or requested row is larger than rows in result
         if ($this->numRows($result) < $row_number + 1) {
-            return $value;
+            return false;
         }
 
         // get requested row
@@ -1289,11 +1287,7 @@ class DatabaseInterface implements DbalInterface
         $this->freeResult($result);
 
         // return requested field
-        if (isset($row[$field])) {
-            $value = $row[$field];
-        }
-
-        return $value;
+        return $row[$field] ?? false;
     }
 
     /**
