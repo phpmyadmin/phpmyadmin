@@ -1274,15 +1274,8 @@ class DatabaseInterface implements DbalInterface
         }
 
         // get requested row
-        for ($i = 0; $i <= $row_number; $i++) {
-            // if $field is an integer use non associative mysql fetch function
-            if (is_int($field)) {
-                $row = $this->fetchRow($result);
-                continue;
-            }
-
-            $row = $this->fetchAssoc($result);
-        }
+        $this->dataSeek($result, $row_number);
+        $row = $this->fetchByMode($result, is_int($field) ? self::FETCH_NUM : self::FETCH_ASSOC);
 
         $this->freeResult($result);
 
