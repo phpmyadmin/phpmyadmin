@@ -4532,7 +4532,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="61">
+    <MixedArgument occurrences="60">
       <code>$centralTable</code>
       <code>$centralTable</code>
       <code>$centralTable</code>
@@ -4638,7 +4638,7 @@
       <code>$fields[$table]</code>
       <code>$fields[$table]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="51">
+    <MixedAssignment occurrences="47">
       <code>$attribute</code>
       <code>$centralTable</code>
       <code>$centralTable</code>
@@ -4662,7 +4662,6 @@
       <code>$columnDefault</code>
       <code>$columnDefault[$i]</code>
       <code>$columnExtra[$i]</code>
-      <code>$columns[]</code>
       <code>$db</code>
       <code>$default</code>
       <code>$defaultValue</code>
@@ -4694,7 +4693,7 @@
     <MixedInferredReturnType occurrences="1">
       <code>array|bool</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="6">
+    <MixedOperand occurrences="5">
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
@@ -4705,11 +4704,7 @@
     <MixedReturnStatement occurrences="1">
       <code>$cfgCentralColumns</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$columns</code>
-      <code>string[]</code>
-    </MixedReturnTypeCoercion>
-    <RedundantCast occurrences="3">
+    <RedundantCast occurrences="5">
       <code>(array) $has_list</code>
       <code>(bool) $GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>(int) $GLOBALS['cfg']['MaxRows']</code>
@@ -5636,7 +5631,7 @@
     </UnusedParam>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="2">
       <code>! is_array($fields)</code>
       <code>! is_array($indexes)</code>
       <code>$this-&gt;extension === null</code>
@@ -9175,16 +9170,12 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="libraries/classes/Normalization.php">
-    <MixedArgument occurrences="34">
+    <MixedArgument occurrences="29">
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$col</code>
       <code>$cols['nonpk']</code>
       <code>$cols['pk']</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$def['Type']</code>
       <code>$def['Type']</code>
       <code>$def['Type']</code>
@@ -9237,7 +9228,7 @@
       <code>$distinctValCount[$partialKey]</code>
       <code>$result[$column]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="26">
+    <MixedAssignment occurrences="22">
       <code>$arrDependson</code>
       <code>$col</code>
       <code>$col</code>
@@ -10133,11 +10124,17 @@
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayOffset occurrences="2">
+    <MixedArrayAccess occurrences="5">
+      <code>$columns[$i]['Default']</code>
+      <code>$columns[$i]['Extra']</code>
+      <code>$columns[$i]['Field']</code>
+      <code>$columns[$i]['Null']</code>
+      <code>$columns[$i]['Type']</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="1">
       <code>$aliases[$db]['tables'][$table]['columns'][$col_as]</code>
-      <code>$aliases[$db]['tables'][$table]['columns'][$column]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$column</code>

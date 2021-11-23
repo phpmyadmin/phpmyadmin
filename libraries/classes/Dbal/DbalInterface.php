@@ -220,13 +220,13 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return array|null
+     * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
         $link = DatabaseInterface::CONNECT_USER
-    ): ?array;
+    ): array;
 
     /**
      * Returns indexes of a table

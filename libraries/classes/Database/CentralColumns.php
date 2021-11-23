@@ -14,7 +14,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_diff;
 use function array_unique;
+use function array_values;
 use function bin2hex;
 use function ceil;
 use function count;
@@ -411,7 +413,7 @@ class CentralColumns
         if ($isTable) {
             $cols = '';
             foreach ($field_select as $table) {
-                $fields[$table] = (array) $this->dbi->getColumnNames($database, $table);
+                $fields[$table] = $this->dbi->getColumnNames($database, $table);
                 foreach ($fields[$table] as $col_select) {
                     $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
                 }
@@ -568,10 +570,10 @@ class CentralColumns
         }
 
         $this->dbi->selectDb($db);
-        $fields = (array) $this->dbi->getColumnNames($db, $table);
+        $fields = $this->dbi->getColumnNames($db, $table);
         $cols = '';
         foreach ($fields as $col_select) {
-            $cols .= '\'' . $this->dbi->escapeString((string) $col_select) . '\',';
+            $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
         }
 
         $cols = trim($cols, ',');
@@ -776,7 +778,7 @@ class CentralColumns
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\';';
         } else {
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames($db, $table);
+            $columns = $this->dbi->getColumnNames($db, $table);
             $cols = '';
             foreach ($columns as $col_select) {
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
@@ -900,18 +902,10 @@ class CentralColumns
     {
         $existingColumns = $this->getFromTable($db, $table);
         $this->dbi->selectDb($db);
-        $columnNames = (array) $this->dbi->getColumnNames($db, $table);
-        $columns = [];
+        $columnNames = $this->dbi->getColumnNames($db, $table);
 
-        foreach ($columnNames as $column) {
-            if (in_array($column, $existingColumns)) {
-                continue;
-            }
-
-            $columns[] = $column;
-        }
-
-        return $columns;
+        // returns a list of column names less the ones from $existingColumns
+        return array_values(array_diff($columnNames, $existingColumns));
     }
 
     /**

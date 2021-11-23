@@ -989,22 +989,17 @@ class DatabaseInterface implements DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return array|null
+     * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
         $link = self::CONNECT_USER
-    ): ?array {
+    ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table);
+
         // We only need the 'Field' column which contains the table's column names
-        $fields = array_keys($this->fetchResult($sql, 'Field', null, $link));
-
-        if (! is_array($fields) || count($fields) === 0) {
-            return null;
-        }
-
-        return $fields;
+        return $this->fetchResult($sql, null, 'Field', $link);
     }
 
     /**
