@@ -1322,7 +1322,7 @@ class ExportSql extends ExportPlugin
 
         $createQuery .= Util::backquote($viewAlias) . '(' . $crlf;
 
-        $columns = $dbi->getColumns($db, $view, null, true);
+        $columns = $dbi->getColumns($db, $view, true);
 
         $firstCol = true;
         foreach ($columns as $column) {

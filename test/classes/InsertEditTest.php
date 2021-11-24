@@ -2507,7 +2507,7 @@ class InsertEditTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getColumns')
-            ->with('db', 'table', null, true)
+            ->with('db', 'table', true)
             ->will(
                 $this->returnValue(
                     [

@@ -1933,7 +1933,7 @@ class InsertEdit
     {
         $this->dbi->selectDb($db);
 
-        return array_values($this->dbi->getColumns($db, $table, null, true));
+        return array_values($this->dbi->getColumns($db, $table, true));
     }
 
     /**

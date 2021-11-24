@@ -174,7 +174,7 @@ class ZoomSearchController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($this->db, $this->table, null, true);
+        $columns = $this->dbi->getColumns($this->db, $this->table, true);
         // Get details about the geometry functions
         $geom_types = Gis::getDataTypes();
 

@@ -172,7 +172,7 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columns_list = $dbi->getColumns($db, $GLOBALS['table'], null, true);
+            $columns_list = $dbi->getColumns($db, $GLOBALS['table'], true);
 
             $scriptName = Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabTable'], 'table');
             $tmp_tbl_link = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';

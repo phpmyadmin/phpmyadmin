@@ -134,7 +134,7 @@ class StructureController extends AbstractController
             ->getTable($this->db, $this->table)
             ->getColumnsWithIndex(Index::UNIQUE);
 
-        $fields = (array) $this->dbi->getColumns($this->db, $this->table, null, true);
+        $fields = $this->dbi->getColumns($this->db, $this->table, true);
 
         $this->response->addHTML($this->displayStructure(
             $relationParameters,

@@ -93,7 +93,7 @@ class FindReplaceController extends AbstractController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns($this->db, $this->table, null, true);
+        $columns = $this->dbi->getColumns($this->db, $this->table, true);
 
         foreach ($columns as $row) {
             // set column name
