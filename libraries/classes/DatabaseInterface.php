@@ -597,14 +597,14 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $db Database name to look in
      *
-     * @return array Set of VIEWs inside the database
+     * @return Table[] Set of VIEWs inside the database
      */
     public function getVirtualTables(string $db): array
     {
-        $tables_full = $this->getTablesFull($db);
+        $tables_full = array_keys($this->getTablesFull($db));
         $views = [];
 
-        foreach ($tables_full as $table => $tmp) {
+        foreach ($tables_full as $table) {
             $table = $this->getTable($db, (string) $table);
             if (! $table->isView()) {
                 continue;
