@@ -777,6 +777,7 @@ class DatabaseInterface implements DbalInterface
      * @param array  $view_columns alias for columns
      *
      * @return array
+     * @psalm-return list<array<string, mixed>>
      */
     public function getColumnMapFromSql(string $sql_query, array $view_columns = []): array
     {
@@ -791,20 +792,16 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        $nbFields = count($meta);
-        if ($nbFields <= 0) {
-            return [];
-        }
-
         $column_map = [];
         $nbColumns = count($view_columns);
 
-        for ($i = 0; $i < $nbFields; $i++) {
-            $map = [];
-            $map['table_name'] = $meta[$i]->table;
-            $map['refering_column'] = $meta[$i]->name;
+        foreach ($meta as $i => $field) {
+            $map = [
+                'table_name' => $field->table,
+                'refering_column' => $field->name,
+            ];
 
-            if ($nbColumns > 1) {
+            if ($nbColumns >= $i) {
                 $map['real_column'] = $view_columns[$i];
             }
 
