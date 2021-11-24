@@ -349,8 +349,6 @@ class DatabaseInterface implements DbalInterface
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
         }
 
-        $databases = [$database];
-
         $tables = [];
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -373,15 +371,8 @@ class DatabaseInterface implements DbalInterface
             // added BINARY in the WHERE clause to force a case sensitive
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
-            $this_databases = array_map(
-                [
-                    $this,
-                    'escapeString',
-                ],
-                $databases
-            );
 
-            $sql = QueryGenerator::getSqlForTablesFull($this_databases, $sql_where_table);
+            $sql = QueryGenerator::getSqlForTablesFull([$this->escapeString($database)], $sql_where_table);
 
             // Sort the tables
             $sql .= ' ORDER BY ' . $sort_by . ' ' . $sort_order;
@@ -460,116 +451,114 @@ class DatabaseInterface implements DbalInterface
         // information_schema does not return any table info for any database
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
         if (empty($tables)) {
-            foreach ($databases as $each_database) {
-                if ($table || ($tbl_is_group === true) || $table_type) {
-                    $sql = 'SHOW TABLE STATUS FROM '
-                        . Util::backquote($each_database)
-                        . ' WHERE';
-                    $needAnd = false;
-                    if ($table || ($tbl_is_group === true)) {
-                        if (is_array($table)) {
-                            $sql .= ' `Name` IN (\''
-                                . implode(
-                                    '\', \'',
-                                    array_map(
-                                        [
-                                            $this,
-                                            'escapeString',
-                                        ],
-                                        $table,
-                                        $link
-                                    )
-                                ) . '\')';
-                        } else {
-                            $sql .= " `Name` LIKE '"
-                                . Util::escapeMysqlWildcards(
-                                    $this->escapeString($table, $link)
+            if ($table || ($tbl_is_group === true) || $table_type) {
+                $sql = 'SHOW TABLE STATUS FROM '
+                    . Util::backquote($database)
+                    . ' WHERE';
+                $needAnd = false;
+                if ($table || ($tbl_is_group === true)) {
+                    if (is_array($table)) {
+                        $sql .= ' `Name` IN (\''
+                            . implode(
+                                '\', \'',
+                                array_map(
+                                    [
+                                        $this,
+                                        'escapeString',
+                                    ],
+                                    $table,
+                                    $link
                                 )
-                                . "%'";
-                        }
-
-                        $needAnd = true;
-                    }
-
-                    if ($table_type) {
-                        if ($needAnd) {
-                            $sql .= ' AND';
-                        }
-
-                        if ($table_type === 'view') {
-                            $sql .= " `Comment` = 'VIEW'";
-                        } elseif ($table_type === 'table') {
-                            $sql .= " `Comment` != 'VIEW'";
-                        }
-                    }
-                } else {
-                    $sql = 'SHOW TABLE STATUS FROM '
-                        . Util::backquote($each_database);
-                }
-
-                $each_tables = $this->fetchResult($sql, 'Name', null, $link);
-
-                // here, we check for Mroonga engine and compute the good data_length and index_length
-                // in the StructureController only we need to sum the two values as the other engines
-                foreach ($each_tables as $table_name => $table_data) {
-                    if ($table_data['Engine'] !== 'Mroonga') {
-                        continue;
-                    }
-
-                    if (! StorageEngine::hasMroongaEngine()) {
-                        continue;
-                    }
-
-                    [
-                        $each_tables[$table_name]['Data_length'],
-                        $each_tables[$table_name]['Index_length'],
-                    ] = StorageEngine::getMroongaLengths($each_database, $table_name);
-                }
-
-                // Sort naturally if the config allows it and we're sorting
-                // the Name column.
-                if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
-                    uksort($each_tables, 'strnatcasecmp');
-
-                    if ($sort_order === 'DESC') {
-                        $each_tables = array_reverse($each_tables);
-                    }
-                } else {
-                    // Prepare to sort by creating array of the selected sort
-                    // value to pass to array_multisort
-
-                    // Size = Data_length + Index_length
-                    if ($sort_by === 'Data_length') {
-                        foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name] = strtolower(
-                                (string) ($table_data['Data_length']
-                                + $table_data['Index_length'])
-                            );
-                        }
+                            ) . '\')';
                     } else {
-                        foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name] = strtolower($table_data[$sort_by] ?? '');
-                        }
+                        $sql .= " `Name` LIKE '"
+                            . Util::escapeMysqlWildcards(
+                                $this->escapeString($table, $link)
+                            )
+                            . "%'";
                     }
 
-                    if (! empty(${$sort_by})) {
-                        if ($sort_order === 'DESC') {
-                            array_multisort(${$sort_by}, SORT_DESC, $each_tables);
-                        } else {
-                            array_multisort(${$sort_by}, SORT_ASC, $each_tables);
-                        }
+                    $needAnd = true;
+                }
+
+                if ($table_type) {
+                    if ($needAnd) {
+                        $sql .= ' AND';
                     }
 
-                    // cleanup the temporary sort array
-                    unset(${$sort_by});
+                    if ($table_type === 'view') {
+                        $sql .= " `Comment` = 'VIEW'";
+                    } elseif ($table_type === 'table') {
+                        $sql .= " `Comment` != 'VIEW'";
+                    }
                 }
-
-                if ($limit_count) {
-                    $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
-                }
-
-                $tables[$each_database] = Compatibility::getISCompatForGetTablesFull($each_tables, $each_database);
+            } else {
+                $sql = 'SHOW TABLE STATUS FROM '
+                    . Util::backquote($database);
             }
+
+            $each_tables = $this->fetchResult($sql, 'Name', null, $link);
+
+            // here, we check for Mroonga engine and compute the good data_length and index_length
+            // in the StructureController only we need to sum the two values as the other engines
+            foreach ($each_tables as $table_name => $table_data) {
+                if ($table_data['Engine'] !== 'Mroonga') {
+                    continue;
+                }
+
+                if (! StorageEngine::hasMroongaEngine()) {
+                    continue;
+                }
+
+                [
+                    $each_tables[$table_name]['Data_length'],
+                    $each_tables[$table_name]['Index_length'],
+                ] = StorageEngine::getMroongaLengths($database, $table_name);
+            }
+
+            // Sort naturally if the config allows it and we're sorting
+            // the Name column.
+            if ($sort_by === 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
+                uksort($each_tables, 'strnatcasecmp');
+
+                if ($sort_order === 'DESC') {
+                    $each_tables = array_reverse($each_tables);
+                }
+            } else {
+                // Prepare to sort by creating array of the selected sort
+                // value to pass to array_multisort
+
+                // Size = Data_length + Index_length
+                if ($sort_by === 'Data_length') {
+                    foreach ($each_tables as $table_name => $table_data) {
+                        ${$sort_by}[$table_name] = strtolower(
+                            (string) ($table_data['Data_length']
+                            + $table_data['Index_length'])
+                        );
+                    }
+                } else {
+                    foreach ($each_tables as $table_name => $table_data) {
+                        ${$sort_by}[$table_name] = strtolower($table_data[$sort_by] ?? '');
+                    }
+                }
+
+                if (! empty(${$sort_by})) {
+                    if ($sort_order === 'DESC') {
+                        array_multisort(${$sort_by}, SORT_DESC, $each_tables);
+                    } else {
+                        array_multisort(${$sort_by}, SORT_ASC, $each_tables);
+                    }
+                }
+
+                // cleanup the temporary sort array
+                unset(${$sort_by});
+            }
+
+            if ($limit_count) {
+                $each_tables = array_slice($each_tables, $limit_offset, $limit_count);
+            }
+
+            $tables[$database] = Compatibility::getISCompatForGetTablesFull($each_tables, $database);
         }
 
         // cache table data
