@@ -731,7 +731,6 @@ class DatabaseInterface implements DbalInterface
                     $databases[$database_name]['SCHEMA_LENGTH'] += $row['Data_length'] + $row['Index_length'];
                 }
 
-                $this->freeResult($res);
                 unset($res);
             }
         }
@@ -1251,8 +1250,6 @@ class DatabaseInterface implements DbalInterface
         $this->dataSeek($result, $row_number);
         $row = $this->fetchByMode($result, is_int($field) ? self::FETCH_NUM : self::FETCH_ASSOC);
 
-        $this->freeResult($result);
-
         // return requested field
         return $row[$field] ?? false;
     }
@@ -1428,8 +1425,6 @@ class DatabaseInterface implements DbalInterface
                 $resultrows[$row[$key]] = $this->fetchValueOrValueByIndex($row, $value);
             }
         }
-
-        $this->freeResult($result);
 
         return $resultrows;
     }
@@ -1749,7 +1744,6 @@ class DatabaseInterface implements DbalInterface
             $isSuperUser = (bool) $this->numRows($result);
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_superuser', $isSuperUser);
 
         return $isSuperUser;
@@ -1792,7 +1786,6 @@ class DatabaseInterface implements DbalInterface
             $hasGrantPrivilege = (bool) $this->numRows($result);
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
         return $hasGrantPrivilege;
@@ -1835,7 +1828,6 @@ class DatabaseInterface implements DbalInterface
             $hasCreatePrivilege = (bool) $this->numRows($result);
         }
 
-        $this->freeResult($result);
         SessionCache::set('is_createuser', $hasCreatePrivilege);
 
         return $hasCreatePrivilege;
