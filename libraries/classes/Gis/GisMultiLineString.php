@@ -98,6 +98,8 @@ class GisMultiLineString extends GisGeometry
         $blue = (int) hexdec(mb_substr($line_color, 4, 2));
         $color = $image->colorAllocate($red, $green, $blue);
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
         // Separate each linestring
@@ -123,12 +125,12 @@ class GisMultiLineString extends GisGeometry
 
             unset($temp_point);
             // print label if applicable
-            if (isset($label) && trim($label) != '' && $first_line) {
+            if ($label !== '' && $first_line) {
                 $image->string(
                     1,
                     (int) round($points_arr[1][0]),
                     (int) round($points_arr[1][1]),
-                    trim($label),
+                    $label,
                     $black
                 );
             }
@@ -167,6 +169,8 @@ class GisMultiLineString extends GisGeometry
             ],
         ];
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng = mb_substr($spatial, 17, -2);
         // Separate each linestring
@@ -186,10 +190,10 @@ class GisMultiLineString extends GisGeometry
 
             unset($temp_point);
             // print label
-            if (isset($label) && trim($label) != '' && $first_line) {
+            if ($label !== '' && $first_line) {
                 $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
                 $pdf->SetFontSize(5);
-                $pdf->Cell(0, 0, trim($label));
+                $pdf->Cell(0, 0, $label);
             }
 
             $first_line = false;

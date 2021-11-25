@@ -89,6 +89,8 @@ class GisLineString extends GisGeometry
         $blue = (int) hexdec(mb_substr($line_color, 4, 2));
         $color = $image->colorAllocate($red, $green, $blue);
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $lineString = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($lineString, $scale_data);
@@ -109,12 +111,12 @@ class GisLineString extends GisGeometry
         }
 
         // print label if applicable
-        if (isset($label) && trim($label) != '') {
+        if ($label !== '') {
             $image->string(
                 1,
                 (int) round($points_arr[1][0]),
                 (int) round($points_arr[1][1]),
-                trim($label),
+                $label,
                 $black
             );
         }
@@ -150,6 +152,8 @@ class GisLineString extends GisGeometry
             ],
         ];
 
+        $label = trim($label ?? '');
+
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = mb_substr($spatial, 11, -1);
         $points_arr = $this->extractPoints($linesrting, $scale_data);
@@ -164,10 +168,10 @@ class GisLineString extends GisGeometry
         }
 
         // print label
-        if (isset($label) && trim($label) != '') {
+        if ($label !== '') {
             $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
             $pdf->SetFontSize(5);
-            $pdf->Cell(0, 0, trim($label));
+            $pdf->Cell(0, 0, $label);
         }
 
         return $pdf;
