@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use mysqli_result;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
@@ -266,17 +265,15 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Run multi query statement and return results
+     * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
      * @param int    $linkIndex  index of the opened database link
-     *
-     * @return mysqli_result[]|bool (false)
      */
     public function tryMultiQuery(
         string $multiQuery = '',
         $linkIndex = self::CONNECT_USER
-    ) {
+    ): bool {
         if (! isset($this->links[$linkIndex])) {
             return false;
         }

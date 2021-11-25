@@ -240,7 +240,7 @@ class DbiDummy implements DbiExtension
      * @param object $link  connection object
      * @param string $query multi query statement to execute
      *
-     * @return array|bool
+     * @return bool
      */
     public function realMultiQuery($link, $query)
     {

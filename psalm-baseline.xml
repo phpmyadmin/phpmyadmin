@@ -5977,10 +5977,6 @@
       <code>SessionCache::get('mysql_cur_user')</code>
       <code>reset($columns)</code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$this-&gt;extension-&gt;realMultiQuery($this-&gt;links[$linkIndex], $multiQuery)</code>
-      <code>mysqli_result[]|bool</code>
-    </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="1">
       <code>SessionCache::get('mysql_cur_user')</code>
     </NullableReturnStatement>
