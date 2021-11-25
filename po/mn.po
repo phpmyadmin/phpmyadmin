@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/mn/>\n"
+"PO-Revision-Date: 2021-11-26 08:53+0000\n"
+"Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
+"Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Ажиллах хугацаа нэг хоногоос бага"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -32,7 +32,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Ажиллах хугацаа нь зөвхөн %s"
 
 #: libraries/advisory_rules_generic.php:22
 #, fuzzy
@@ -3402,7 +3402,7 @@ msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:761
 msgid "Developer"
-msgstr ""
+msgstr "Хөгжүүлэгч"
 
 #: libraries/classes/Config/Descriptions.php:762
 msgid "Edit mode"
@@ -3484,7 +3484,7 @@ msgstr "Хуудасны дугаар:"
 
 #: libraries/classes/Config/Descriptions.php:778
 msgid "Security"
-msgstr ""
+msgstr "Нууцлал Хамгаалалт"
 
 #: libraries/classes/Config/Descriptions.php:779
 msgid "Basic settings"
@@ -3530,7 +3530,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "Startup"
-msgstr ""
+msgstr "Эхлэл"
 
 #: libraries/classes/Config/Descriptions.php:788
 #, fuzzy
@@ -3548,7 +3548,7 @@ msgstr "Хэрэглэгчийн өгөгдлийн сан"
 
 #: libraries/classes/Config/Descriptions.php:790
 msgid "Tabs"
-msgstr ""
+msgstr "Табууд"
 
 #: libraries/classes/Config/Descriptions.php:791
 #, fuzzy
@@ -3568,12 +3568,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:794
 msgid "Warnings"
-msgstr ""
+msgstr "Анхааруулгууд"
 
 #: libraries/classes/Config/Descriptions.php:795
 #: templates/console/display.twig:4
+#, fuzzy
 msgid "Console"
-msgstr ""
+msgstr "Консол"
 
 #: libraries/classes/Config/Descriptions.php:796
 msgid "GZip"
@@ -4417,7 +4418,7 @@ msgstr "Нууц үг"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
-msgstr ""
+msgstr "ЗИП"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
@@ -4509,7 +4510,7 @@ msgstr "Бүтэн асуулт харуулах"
 #: libraries/classes/Config/Descriptions.php:994
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
-msgstr ""
+msgstr "Захиалга"
 
 #: libraries/classes/Config/Descriptions.php:995
 msgid "Order by"
@@ -4706,7 +4707,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
-msgstr ""
+msgstr "Хурдан"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:27
 msgid "Custom"
@@ -4805,7 +4806,7 @@ msgstr "Гаргах"
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:88
 #: templates/preferences/header.twig:18
 msgid "Features"
-msgstr ""
+msgstr "Онцлогууд"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:41
 msgid "CSV using LOAD DATA"
@@ -5193,7 +5194,7 @@ msgstr "үлмэдэх"
 #: libraries/classes/Controllers/Database/StructureController.php:1280
 #: libraries/classes/Controllers/Database/StructureController.php:1303
 msgid "Success!"
-msgstr ""
+msgstr "Амжилттай!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1454
 #: libraries/classes/Controllers/Database/StructureController.php:1537
@@ -5364,7 +5365,7 @@ msgstr "Хандах эрхгүй!"
 #: libraries/classes/Controllers/ImportController.php:138
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
-msgstr ""
+msgstr "Алдаа"
 
 #: libraries/classes/Controllers/ImportController.php:244
 #, php-format
@@ -5432,7 +5433,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Баталгаажуулах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:36
 #, fuzzy, php-format
@@ -5771,7 +5772,7 @@ msgstr "Сонгогдсон хэрэглэгчдийг хасах"
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:47
 msgid "Close"
-msgstr ""
+msgstr "Хаах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 #, fuzzy
@@ -5800,7 +5801,7 @@ msgstr "Мөр устгагдсан"
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:98
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
-msgstr ""
+msgstr "Бусад"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:145
@@ -6154,7 +6155,7 @@ msgstr "Тайлангийн гарчиг"
 #. l10n: As in differential values
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Differential"
-msgstr ""
+msgstr "Дифференциал"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 #, php-format
@@ -6163,7 +6164,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "Unit"
-msgstr ""
+msgstr "Нэгж"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "From slow log"
@@ -6229,7 +6230,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:270
 msgid "Analyzing…"
-msgstr ""
+msgstr "Шинжилгээ хийж байна…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 #, fuzzy
