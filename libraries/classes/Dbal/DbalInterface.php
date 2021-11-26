@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
-use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\SystemDatabase;
@@ -50,14 +49,15 @@ interface DbalInterface
     );
 
     /**
-     * Run multi query statement and return results
+     * Send multiple SQL queries to the database server and execute the first one
      *
      * @param string $multiQuery multi query statement to execute
      * @param int    $linkIndex  index of the opened database link
-     *
-     * @return mysqli_result[]|bool (false)
      */
-    public function tryMultiQuery(string $multiQuery = '', $linkIndex = DatabaseInterface::CONNECT_USER);
+    public function tryMultiQuery(
+        string $multiQuery = '',
+        $linkIndex = DatabaseInterface::CONNECT_USER
+    ): bool;
 
     /**
      * returns array with table names for given db
