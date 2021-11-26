@@ -174,21 +174,37 @@ interface DbalInterface
     ): array;
 
     /**
-     * Returns descriptions of columns in given table (all or given by $column)
+     * Returns description of a $column in given table
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
+     * @param string $column   name of column
      * @param bool   $full     whether to return full info or only column names
      * @param int    $link     link type
      *
-     * @return array array indexed by column names or,
-     *               if $column is given, flat array description
+     * @return array flat array description
+     */
+    public function getColumn(
+        string $database,
+        string $table,
+        string $column,
+        bool $full = false,
+        $link = DatabaseInterface::CONNECT_USER
+    ): array;
+
+    /**
+     * Returns descriptions of columns in given table
+     *
+     * @param string $database name of database
+     * @param string $table    name of table to retrieve columns from
+     * @param bool   $full     whether to return full info or only column names
+     * @param int    $link     link type
+     *
+     * @return array<string, array> array indexed by column names
      */
     public function getColumns(
         string $database,
         string $table,
-        ?string $column = null,
         bool $full = false,
         $link = DatabaseInterface::CONNECT_USER
     ): array;

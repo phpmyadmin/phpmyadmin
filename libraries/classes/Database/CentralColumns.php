@@ -305,7 +305,7 @@ class CentralColumns
         $message = true;
         if ($isTable) {
             foreach ($field_select as $table) {
-                $fields[$table] = (array) $this->dbi->getColumns($db, $table, null, true);
+                $fields[$table] = $this->dbi->getColumns($db, $table, true);
                 foreach ($fields[$table] as $field => $def) {
                     $cols .= "'" . $this->dbi->escapeString($field) . "',";
                 }
@@ -335,7 +335,7 @@ class CentralColumns
             foreach ($field_select as $column) {
                 if (! in_array($column, $has_list)) {
                     $has_list[] = $column;
-                    $field = (array) $this->dbi->getColumns($db, $table, $column, true);
+                    $field = $this->dbi->getColumn($db, $table, $column, true);
                     $insQuery[] = $this->getInsertQuery($column, $field, $db, $central_list_table);
                 } else {
                     $existingCols[] = "'" . $column . "'";

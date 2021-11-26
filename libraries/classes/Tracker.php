@@ -216,7 +216,7 @@ class Tracker
 
         // Get data definition snapshot of table
 
-        $columns = $dbi->getColumns($dbName, $tableName, null, true);
+        $columns = $dbi->getColumns($dbName, $tableName, true);
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size

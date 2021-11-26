@@ -879,32 +879,80 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Returns descriptions of columns in given table (all or given by $column)
+     * Returns description of a $column in given table
      *
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of column, null to show all columns
+     * @param string $column   name of column
      * @param bool   $full     whether to return full info or only column names
      * @param int    $link     link type
      *
-     * @return array array indexed by column names or,
-     *               if $column is given, flat array description
+     * @return array flat array description
      */
-    public function getColumns(
+    public function getColumn(
         string $database,
         string $table,
-        ?string $column = null,
+        string $column,
         bool $full = false,
         $link = self::CONNECT_USER
     ): array {
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            $column === null ? null : Util::escapeMysqlWildcards($this->escapeString($column)),
+            Util::escapeMysqlWildcards($this->escapeString($column)),
             $full
         );
+        /** @var array<string, array> $fields */
         $fields = $this->fetchResult($sql, 'Field', null, $link);
-        if (! is_array($fields) || count($fields) === 0) {
+
+        $columns = $this->attachIndexInfoToColumns($database, $table, $fields);
+
+        return array_shift($columns) ?? [];
+    }
+
+    /**
+     * Returns descriptions of columns in given table
+     *
+     * @param string $database name of database
+     * @param string $table    name of table to retrieve columns from
+     * @param bool   $full     whether to return full info or only column names
+     * @param int    $link     link type
+     *
+     * @return array<string, array> array indexed by column names
+     */
+    public function getColumns(
+        string $database,
+        string $table,
+        bool $full = false,
+        $link = self::CONNECT_USER
+    ): array {
+        $sql = QueryGenerator::getColumnsSql(
+            $database,
+            $table,
+            null,
+            $full
+        );
+        /** @var array<string, array> $fields */
+        $fields = $this->fetchResult($sql, 'Field', null, $link);
+
+        return $this->attachIndexInfoToColumns($database, $table, $fields);
+    }
+
+    /**
+     * Attach index information to the column definition
+     *
+     * @param string               $database name of database
+     * @param string               $table    name of table to retrieve columns from
+     * @param array<string, array> $fields   column array indexed by their names
+     *
+     * @return array<string, array> Column defintions with index information
+     */
+    private function attachIndexInfoToColumns(
+        string $database,
+        string $table,
+        array $fields
+    ): array {
+        if (! $fields) {
             return [];
         }
 
@@ -933,7 +981,7 @@ class DatabaseInterface implements DbalInterface
             }
         }
 
-        return $column != null ? array_shift($fields) : $fields;
+        return $fields;
     }
 
     /**

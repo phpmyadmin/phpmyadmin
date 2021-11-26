@@ -934,7 +934,7 @@ class Relation
 
         if ($table != '') {
             // MySQL native column comments
-            $columns = $this->dbi->getColumns($db, $table, null, true);
+            $columns = $this->dbi->getColumns($db, $table, true);
             if ($columns) {
                 foreach ($columns as $column) {
                     if (empty($column['Comment'])) {
