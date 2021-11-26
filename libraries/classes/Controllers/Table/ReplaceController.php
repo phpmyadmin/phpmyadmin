@@ -456,7 +456,7 @@ final class ReplaceController extends AbstractController
             }
 
             /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . Core::securePath((string) $goto_include);
+            include ROOT_PATH . Core::securePath($goto_include);
 
             return;
         }
@@ -667,6 +667,6 @@ final class ReplaceController extends AbstractController
          * Load target page.
          */
         /** @psalm-suppress UnresolvableInclude */
-        require ROOT_PATH . Core::securePath((string) $goto_include);
+        require ROOT_PATH . Core::securePath($goto_include);
     }
 }

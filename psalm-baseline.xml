@@ -2936,8 +2936,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <MixedArgument occurrences="34">
-      <code>$column</code>
+    <MixedArgument occurrences="33">
       <code>$current_result</code>
       <code>$current_row</code>
       <code>$db</code>
@@ -2984,8 +2983,7 @@
       <code>$unsaved_values[$row_id]</code>
       <code>$unsaved_values[$row_id]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="10">
-      <code>$column</code>
+    <MixedAssignment occurrences="9">
       <code>$current_result</code>
       <code>$current_row</code>
       <code>$isUpload</code>
@@ -3486,7 +3484,7 @@
     <InvalidArgument occurrences="1">
       <code>$insert_errors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="63">
+    <MixedArgument occurrences="51">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
@@ -3503,9 +3501,6 @@
       <code>$db</code>
       <code>$error_messages</code>
       <code>$extra_data</code>
-      <code>$is_insert</code>
-      <code>$is_insert</code>
-      <code>$is_insertignore</code>
       <code>$key</code>
       <code>$key</code>
       <code>$key</code>
@@ -3525,17 +3520,9 @@
       <code>$multi_edit_funcs</code>
       <code>$multi_edit_salt</code>
       <code>$one_where_clause</code>
-      <code>$query_fields</code>
-      <code>$query_fields</code>
-      <code>$query_values</code>
-      <code>$query_values</code>
-      <code>$query_values</code>
-      <code>$query_values</code>
       <code>$relation_field</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
-      <code>$rownumber</code>
-      <code>$rownumber</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -3547,10 +3534,14 @@
       <code>$transformation</code>
       <code>$transformation[$type]</code>
       <code>$urlParams</code>
-      <code>$using_key</code>
       <code>$warning_messages</code>
       <code>$where_clause</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$query_values</code>
+      <code>$query_values</code>
+      <code>$rownumber</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="6">
       <code>$_POST['fields_name']['multi_edit']</code>
       <code>$extra_data['relations']</code>
@@ -3566,17 +3557,7 @@
       <code>$urlParams['after_insert']</code>
       <code>$urlParams['where_clause']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="18">
-      <code>$_POST['auto_increment']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields_name']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields_null']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields_null_prev']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields_prev']['multi_edit'][$rownumber]</code>
-      <code>$_POST['fields_type']['multi_edit'][$rownumber]</code>
-      <code>$_POST['funcs']['multi_edit'][$rownumber]</code>
-      <code>$_POST['salt']['multi_edit'][$rownumber]</code>
-      <code>$_POST['virtual']['multi_edit'][$rownumber]</code>
+    <MixedArrayOffset occurrences="7">
       <code>$mime_map[$column_name]</code>
       <code>$multi_edit_columns[$key]</code>
       <code>$multi_edit_columns[$key]</code>
@@ -3584,9 +3565,8 @@
       <code>$multi_edit_columns[$key]</code>
       <code>$multi_edit_columns_null[$key]</code>
       <code>$multi_edit_virtual[$key]</code>
-      <code>$unsaved_values[$rownumber]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="32">
+    <MixedAssignment occurrences="31">
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$clauseIsUnique</code>
@@ -3612,7 +3592,6 @@
       <code>$one_where_clause</code>
       <code>$relation_field</code>
       <code>$relation_field_value</code>
-      <code>$rownumber</code>
       <code>$transformation</code>
       <code>$unsaved_values[$rownumber]</code>
       <code>$urlParams['after_insert']</code>
@@ -8289,15 +8268,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <InvalidArgument occurrences="1">
-      <code>$currentResult</code>
-    </InvalidArgument>
-    <MixedArgument occurrences="106">
+    <MixedArgument occurrences="101">
+      <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
-      <code>$column</code>
-      <code>$column</code>
-      <code>$column</code>
       <code>$columnMime</code>
       <code>$columnMime['input_transformation_options']</code>
       <code>$column['Default']</code>
@@ -8312,7 +8286,6 @@
       <code>$column['Field']</code>
       <code>$column['Field']</code>
       <code>$column['Field']</code>
-      <code>$column['Field_md5']</code>
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
@@ -8325,7 +8298,7 @@
       <code>$column['Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
-      <code>$column['Type']</code>
+      <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
@@ -8349,6 +8322,9 @@
       <code>$dispresult</code>
       <code>$dispresult</code>
       <code>$dispresult</code>
+      <code>$extractedColumnspec['enum_set_values']</code>
+      <code>$extractedColumnspec['enum_set_values']</code>
+      <code>$extractedColumnspec['spec_in_brackets']</code>
       <code>$foreignData['foreign_display']</code>
       <code>$foreignData['foreign_field']</code>
       <code>$foreigner['foreign_db']</code>
@@ -8366,7 +8342,6 @@
       <code>$multiEditSalt[$key]</code>
       <code>$newValue</code>
       <code>$newValue</code>
-      <code>$oneType</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$res</code>
       <code>$res</code>
@@ -8385,13 +8360,9 @@
       <code>$specialChars</code>
       <code>$specialCharsEncoded</code>
       <code>$textDefault !== false ? $textDefault : $column['Default']</code>
-      <code>$thisFieldMaxSize</code>
-      <code>$tmp</code>
       <code>$transformationPlugin-&gt;getScripts()</code>
       <code>$transformation[$type . '_options'] ?? ''</code>
       <code>$trueType</code>
-      <code>$val</code>
-      <code>$val</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8410,37 +8381,21 @@
       <code>$urlParams</code>
       <code>$valueSets</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="20">
+    <MixedArrayAccess occurrences="8">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['where_clause'][0]</code>
       <code>$_SESSION['tmpval']['relational_display']</code>
-      <code>$column['Field']</code>
-      <code>$column['Field']</code>
-      <code>$column['Field_md5']</code>
-      <code>$column['Field_md5']</code>
-      <code>$column['Field_md5']</code>
-      <code>$column['Null']</code>
-      <code>$column['Type']</code>
-      <code>$column['Type']</code>
-      <code>$column['len']</code>
-      <code>$column['pma_type']</code>
       <code>$currCellEditedValues[$columnName]</code>
       <code>$enumValue['plain']</code>
       <code>$enumValue['plain']</code>
       <code>$enumValue['plain']</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
-      <code>$tableColumn['Extra']</code>
-      <code>$tableColumn['Field']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$column['Default']</code>
-      <code>$column['len']</code>
-      <code>$column['len']</code>
+    <MixedArrayAssignment occurrences="2">
       <code>$editedValues[$cellIndex][$columnName]</code>
       <code>$extraData['transformations'][$cellIndex]</code>
-      <code>$tmp['Default']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="33">
+    <MixedArrayOffset occurrences="28">
       <code>$commentsMap[$column['Field']]</code>
       <code>$commentsMap[$column['Field']]</code>
       <code>$currentRow[$column['Field']]</code>
@@ -8466,24 +8421,16 @@
       <code>$currentRow[$column['Field']]</code>
       <code>$currentRow[$column['Field']]</code>
       <code>$currentRow[$column['Field']]</code>
-      <code>$maxFieldSizes[$column['pma_type']]</code>
-      <code>$maxFieldSizes[$column['pma_type']]</code>
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$mimeMap[$tableColumn['Field']]</code>
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
-      <code>$repopulate[$column['Field_md5']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="60">
+    <MixedAssignment occurrences="48">
       <code>$GLOBALS['cfg']['ShowFieldTypesInDataEditView']</code>
       <code>$GLOBALS['cfg']['ShowFunctionFields']</code>
       <code>$_SESSION['edit_next']</code>
       <code>$afterInsert</code>
-      <code>$biggestMaxFileSize</code>
-      <code>$column</code>
       <code>$columnMime</code>
-      <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
       <code>$currCellEditedValues</code>
       <code>$currentRow[$column['Field']]</code>
@@ -8494,22 +8441,18 @@
       <code>$data</code>
       <code>$data</code>
       <code>$data</code>
+      <code>$data</code>
       <code>$dispresult</code>
-      <code>$dummy</code>
       <code>$enumSelectedValue</code>
       <code>$enumValue</code>
       <code>$extraData['truncatableFieldValue']</code>
       <code>$fieldsize</code>
-      <code>$fieldsize</code>
       <code>$file</code>
       <code>$formParams['clause_is_unique']</code>
       <code>$isUnsigned</code>
-      <code>$key</code>
-      <code>$loopArray[]</code>
       <code>$maxlength</code>
       <code>$maxlength</code>
       <code>$newValue</code>
-      <code>$oneType</code>
       <code>$res</code>
       <code>$result</code>
       <code>$result</code>
@@ -8518,17 +8461,12 @@
       <code>$result[$keyId]</code>
       <code>$singleQuery</code>
       <code>$specialChars</code>
-      <code>$tableColumn</code>
-      <code>$thisFieldMaxSize</code>
-      <code>$tmp</code>
       <code>$tmp['Default']</code>
       <code>$transformedHtml</code>
       <code>$trueType</code>
       <code>$type</code>
       <code>$urlParams['sql_query']</code>
       <code>$uuid</code>
-      <code>$val</code>
-      <code>$val</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
@@ -8547,11 +8485,9 @@
       <code>new $className()</code>
       <code>new $className()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="11">
       <code>$_POST['where_clause'][0]</code>
       <code>$column['Field_html']</code>
-      <code>$column['Field_md5']</code>
-      <code>$column['Field_md5']</code>
       <code>$column['pma_type']</code>
       <code>$file</code>
       <code>$maxlength</code>
@@ -8567,40 +8503,22 @@
       <code>$column['Field_html']</code>
       <code>$dispval</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array[]</code>
+      <code>array_values($this-&gt;dbi-&gt;getColumns($db, $table, null, true))</code>
+    </MixedReturnTypeCoercion>
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
-    <PossiblyNullArgument occurrences="1">
-      <code>$thisFieldMaxSize</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="2">
-      <code>$this-&gt;showTypeOrFunctionLabel($which)</code>
-      <code>$this-&gt;showTypeOrFunctionLabel($which)</code>
-    </PossiblyNullOperand>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$protectedRow</code>
     </PossiblyUndefinedVariable>
     <RedundantCast occurrences="1">
       <code>(int) $GLOBALS['cfg']['InsertRows']</code>
     </RedundantCast>
-    <RedundantCondition occurrences="3">
-      <code>''</code>
-      <code>is_array($multiEditColumnsType)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType occurrences="2">
-      <code>$inputType === 'time'</code>
-      <code>$inputType === 'time'</code>
-    </TypeDoesNotContainType>
-    <UnusedForeachValue occurrences="1">
-      <code>$dummy</code>
-    </UnusedForeachValue>
-    <UnusedVariable occurrences="2">
-      <code>$noSupportTypes</code>
-      <code>$specialCharsEncoded</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
     <InvalidOperand occurrences="1">

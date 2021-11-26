@@ -833,22 +833,16 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnEnumValues(): void
     {
-        $extracted_columnspec = $column = [];
-        $extracted_columnspec['enum_set_values'] = [
+        $enum_set_values = [
             '<abc>',
             '"foo"',
         ];
-
-        $column['values'] = 'abc';
 
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getColumnEnumValues',
-            [
-                $column,
-                $extracted_columnspec,
-            ]
+            [$enum_set_values]
         );
         $this->assertEquals(
             [
@@ -870,8 +864,8 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnSetValueAndSelectSize(): void
     {
-        $extracted_columnspec = $column = [];
-        $extracted_columnspec['enum_set_values'] = [
+        $column = [];
+        $enum_set_values = [
             'a',
             '<',
         ];
@@ -881,7 +875,7 @@ class InsertEditTest extends AbstractTestCase
             'getColumnSetValueAndSelectSize',
             [
                 [],
-                $extracted_columnspec,
+                $enum_set_values,
             ]
         );
 
@@ -913,7 +907,7 @@ class InsertEditTest extends AbstractTestCase
             'getColumnSetValueAndSelectSize',
             [
                 $column,
-                $extracted_columnspec,
+                $enum_set_values,
             ]
         );
 
@@ -1021,14 +1015,13 @@ class InsertEditTest extends AbstractTestCase
     public function testGetMaxUploadSize(): void
     {
         $GLOBALS['config']->set('max_upload_size', 257);
-        $column = [];
-        $column['pma_type'] = 'tinyblob';
+        $pma_type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
             [
-                $column,
+                $pma_type,
                 256,
             ]
         );
@@ -1043,13 +1036,13 @@ class InsertEditTest extends AbstractTestCase
 
         // case 2
         $GLOBALS['config']->set('max_upload_size', 250);
-        $column['pma_type'] = 'tinyblob';
+        $pma_type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
             [
-                $column,
+                $pma_type,
                 20,
             ]
         );
@@ -1084,7 +1077,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $extracted_columnspec = [];
-        $extracted_columnspec['spec_in_brackets'] = 25;
+        $extracted_columnspec['spec_in_brackets'] = '25';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -1210,9 +1203,9 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetColumnSize(): void
     {
-        $column = $extracted_columnspec = [];
+        $column = [];
         $column['is_char'] = true;
-        $extracted_columnspec['spec_in_brackets'] = 45;
+        $spec_in_brackets = '45';
         $GLOBALS['cfg']['MinSizeForInputField'] = 30;
         $GLOBALS['cfg']['MaxSizeForInputField'] = 40;
 
@@ -1224,7 +1217,7 @@ class InsertEditTest extends AbstractTestCase
                 'getColumnSize',
                 [
                     $column,
-                    $extracted_columnspec,
+                    $spec_in_brackets,
                 ]
             )
         );
@@ -1242,7 +1235,7 @@ class InsertEditTest extends AbstractTestCase
                 'getColumnSize',
                 [
                     $column,
-                    $extracted_columnspec,
+                    $spec_in_brackets,
                 ]
             )
         );
@@ -1336,7 +1329,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 [],
-                false,
                 [],
                 'a',
                 false,
@@ -1358,7 +1350,7 @@ class InsertEditTest extends AbstractTestCase
         unset($_POST['default_action']);
 
         $current_row['f'] = '123';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'bit';
 
         $result = $this->callFunction(
@@ -1369,7 +1361,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 [],
                 'a',
                 false,
@@ -1396,7 +1387,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 [],
                 'a',
                 true,
@@ -1423,7 +1413,7 @@ class InsertEditTest extends AbstractTestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $current_row['f'] = '123';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'int';
 
         $result = $this->callFunction(
@@ -1434,7 +1424,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1457,7 +1446,7 @@ class InsertEditTest extends AbstractTestCase
         $column['is_blob'] = true;
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $current_row['f'] = '11001';
-        $extracted_columnspec['spec_in_brackets'] = 20;
+        $extracted_columnspec['spec_in_brackets'] = '20';
         $column['True_Type'] = 'char';
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
@@ -1469,7 +1458,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1498,7 +1486,6 @@ class InsertEditTest extends AbstractTestCase
                 $current_row,
                 $column,
                 $extracted_columnspec,
-                false,
                 ['int'],
                 'a',
                 false,
@@ -1533,10 +1520,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
-            [
-                $column,
-                false,
-            ]
+            [$column]
         );
 
         $this->assertEquals(
@@ -1558,10 +1542,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForInsertingMode',
-            [
-                $column,
-                false,
-            ]
+            [$column]
         );
 
         $this->assertEquals(
@@ -2404,7 +2385,10 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue(['a' => 'b', 'c' => 'd']));
+            ->will($this->returnValue([
+                ['a' => 'b', 'c' => 'd'],
+                ['e' => 'f', 'g' => 'h'],
+            ]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2413,8 +2397,8 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             [
-                'b',
-                'd',
+                ['a' => 'b', 'c' => 'd'],
+                ['e' => 'f', 'g' => 'h'],
             ],
             $result
         );
@@ -2573,13 +2557,11 @@ class InsertEditTest extends AbstractTestCase
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
         $foreigners = ['foreign_keys_data' => []];
-        $table_columns = [
-            [
-                'Field' => 'col',
-                'Type' => 'varchar(20)',
-                'Null' => 'Yes',
-                'Privileges' => 'insert,update,select',
-            ],
+        $table_column = [
+            'Field' => 'col',
+            'Type' => 'varchar(20)',
+            'Null' => 'Yes',
+            'Privileges' => 'insert,update,select',
         ];
         $repopulate = [md5('col') => 'val'];
         $column_mime = [
@@ -2593,11 +2575,11 @@ class InsertEditTest extends AbstractTestCase
             InsertEdit::class,
             'getHtmlForInsertEditFormColumn',
             [
-                $table_columns,
+                $table_column,
                 0,
                 [],
                 false,
-                [],
+                (object) [],
                 '',
                 '',
                 '',
@@ -2637,16 +2619,14 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Test w/o input_transformation
-        $table_columns = [
-            [
-                'Field' => 'qwerty',
-                'Type' => 'datetime',
-                'Null' => 'Yes',
-                'Key' => '',
-                'Extra' => '',
-                'Default' => null,
-                'Privileges' => 'insert,update,select',
-            ],
+        $table_column = [
+            'Field' => 'qwerty',
+            'Type' => 'datetime',
+            'Null' => 'Yes',
+            'Key' => '',
+            'Extra' => '',
+            'Default' => null,
+            'Privileges' => 'insert,update,select',
         ];
         $repopulate = [md5('qwerty') => '12-10-14'];
         $actual = $this->callFunction(
@@ -2654,11 +2634,11 @@ class InsertEditTest extends AbstractTestCase
             InsertEdit::class,
             'getHtmlForInsertEditFormColumn',
             [
-                $table_columns,
+                $table_column,
                 0,
                 [],
                 false,
-                [],
+                (object) [],
                 '',
                 '',
                 '[a][0]',
@@ -2758,7 +2738,7 @@ class InsertEditTest extends AbstractTestCase
             $table_columns,
             [],
             false,
-            [],
+            (object) [],
             '',
             '',
             '',
@@ -2828,7 +2808,7 @@ class InsertEditTest extends AbstractTestCase
             $table_columns,
             [],
             false,
-            [],
+            (object) [],
             '',
             '',
             '',
@@ -2889,7 +2869,7 @@ class InsertEditTest extends AbstractTestCase
             $table_columns,
             [],
             false,
-            [],
+            (object) [],
             '',
             '',
             '',
