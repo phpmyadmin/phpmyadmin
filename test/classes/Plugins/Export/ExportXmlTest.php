@@ -196,7 +196,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result, $result, false);
+            ->willReturnOnConsecutiveCalls($result, $result, []);
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -305,7 +305,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
-            ->willReturnOnConsecutiveCalls($result_1, $result_2, true, $result_3, false);
+            ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
 
         $dbi->expects($this->any())
             ->method('getTable')

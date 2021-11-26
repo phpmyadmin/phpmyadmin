@@ -42,7 +42,7 @@ final class GetVariableController extends AbstractController
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
             . $this->dbi->escapeString($params['name']) . '\';',
-            'NUM'
+            DatabaseInterface::FETCH_NUM
         );
 
         $json = [

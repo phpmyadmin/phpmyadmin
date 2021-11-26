@@ -81,7 +81,7 @@ final class SetVariableController extends AbstractController
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . $this->dbi->escapeString($variableName)
                 . '";',
-                'NUM'
+                DatabaseInterface::FETCH_NUM
             );
             [$formattedValue, $isHtmlFormatted] = $this->formatVariable($variableName, $varValue[1]);
 

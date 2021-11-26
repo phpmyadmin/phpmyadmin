@@ -77,8 +77,8 @@ class TableTest extends AbstractTestCase
 
         $sql_copy_data = 'SELECT TABLE_NAME'
             . ' FROM information_schema.VIEWS'
-            . ' WHERE TABLE_SCHEMA = \'db_data\''
-            . ' AND TABLE_NAME = \'table_data\'';
+            . ' WHERE TABLE_SCHEMA = \'PMA_new\''
+            . ' AND TABLE_NAME = \'PMA_BookMark_new\'';
 
         $getUniqueColumns_sql = 'SHOW INDEXES FROM `PMA`.`PMA_BookMark`';
 
@@ -89,7 +89,7 @@ class TableTest extends AbstractTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                true,
+                ['PMA_BookMark'],
             ],
             [
                 $sql_copy_data,
@@ -97,7 +97,7 @@ class TableTest extends AbstractTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false,
+                [],
             ],
             [
                 $sql_isView_false,
@@ -105,7 +105,7 @@ class TableTest extends AbstractTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false,
+                [],
             ],
             [
                 $sql_isUpdatableView_true,
@@ -113,7 +113,7 @@ class TableTest extends AbstractTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                true,
+                ['PMA_BookMark'],
             ],
             [
                 $sql_isUpdatableView_false,
@@ -121,7 +121,7 @@ class TableTest extends AbstractTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false,
+                [],
             ],
             [
                 $sql_analyzeStructure_true,

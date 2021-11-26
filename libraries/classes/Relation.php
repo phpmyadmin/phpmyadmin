@@ -884,7 +884,11 @@ class Relation
                     . ' WHERE `db_name` = \'' . $this->dbi->escapeString((string) $db) . '\''
                     . ' AND `table_name` = \'' . $this->dbi->escapeString((string) $table) . '\'';
 
-            $row = $this->dbi->fetchSingleRow($disp_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+            $row = $this->dbi->fetchSingleRow(
+                $disp_query,
+                DatabaseInterface::FETCH_ASSOC,
+                DatabaseInterface::CONNECT_CONTROL
+            );
             if (isset($row['display_field'])) {
                 return $row['display_field'];
             }

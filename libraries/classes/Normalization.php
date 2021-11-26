@@ -426,7 +426,7 @@ class Normalization
         $key = implode(', ', $pk);
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames($db, $table);
+            $columns = $this->dbi->getColumnNames($db, $table);
             if (count($pk) == count($columns)) {
                 $headText = sprintf(
                     __(
@@ -745,7 +745,7 @@ class Normalization
             }
 
             if ($dropCols) {
-                $columns = (array) $this->dbi->getColumnNames($db, $originalTable);
+                $columns = $this->dbi->getColumnNames($db, $originalTable);
                 $colPresent = array_merge(
                     explode(', ', $dropCols['pk']),
                     explode(', ', $dropCols['nonpk'])
@@ -901,7 +901,7 @@ class Normalization
             }
 
             $this->dbi->selectDb($db);
-            $columns = (array) $this->dbi->getColumnNames($db, $table);
+            $columns = $this->dbi->getColumnNames($db, $table);
             if (count($columns) - count($pk) <= 1) {
                 continue;
             }
@@ -1009,7 +1009,7 @@ class Normalization
     {
         $dependencyList = [];
         $this->dbi->selectDb($db);
-        $columnNames = (array) $this->dbi->getColumnNames($db, $table);
+        $columnNames = $this->dbi->getColumnNames($db, $table);
         $columns = [];
         foreach ($columnNames as $column) {
             $columns[] = Util::backquote($column);

@@ -566,7 +566,7 @@ class Routines
                  . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($type) . "'";
         $query = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
 
-        $routine = $this->dbi->fetchSingleRow($query, 'ASSOC');
+        $routine = $this->dbi->fetchSingleRow($query);
 
         if (! $routine) {
             return null;

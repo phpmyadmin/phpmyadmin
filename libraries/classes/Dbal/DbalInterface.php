@@ -14,6 +14,10 @@ use PhpMyAdmin\Table;
  */
 interface DbalInterface
 {
+    public const FETCH_NUM = 'NUM';
+    public const FETCH_ASSOC = 'ASSOC';
+    public const FETCH_BOTH = 'BOTH';
+
     /**
      * runs a query
      *
@@ -114,7 +118,7 @@ interface DbalInterface
      *
      * @param string $db Database name to look in
      *
-     * @return array Set of VIEWs inside the database
+     * @return Table[] Set of VIEWs inside the database
      */
     public function getVirtualTables(string $db): array;
 
@@ -216,13 +220,13 @@ interface DbalInterface
      * @param string $table    name of table to retrieve columns from
      * @param mixed  $link     mysql link resource
      *
-     * @return array|null
+     * @return string[]
      */
     public function getColumnNames(
         string $database,
         string $table,
         $link = DatabaseInterface::CONNECT_USER
-    ): ?array;
+    ): array;
 
     /**
      * Returns indexes of a table
@@ -330,10 +334,11 @@ interface DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
+     * @psalm-param  self::FETCH_NUM|self::FETCH_ASSOC|self::FETCH_BOTH $type
      */
     public function fetchSingleRow(
         string $query,
-        string $type = 'ASSOC',
+        string $type = DbalInterface::FETCH_ASSOC,
         $link = DatabaseInterface::CONNECT_USER
     ): ?array;
 
@@ -398,7 +403,7 @@ interface DbalInterface
         $value = null,
         $link = DatabaseInterface::CONNECT_USER,
         int $options = 0
-    );
+    ): array;
 
     /**
      * Get supported SQL compatibility modes

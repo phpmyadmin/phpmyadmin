@@ -96,7 +96,7 @@ class UserPreferences
             . ' WHERE `username` = \''
             . $dbi->escapeString((string) $relationParameters->user)
             . '\'';
-        $row = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+        $row = $dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL);
 
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],

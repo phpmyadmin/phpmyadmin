@@ -322,7 +322,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        return is_array($page_name) && isset($page_name[0]) ? $page_name[0] : null;
+        return $page_name[0] ?? null;
     }
 
     /**
@@ -381,7 +381,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        if (is_array($default_page_no) && isset($default_page_no[0])) {
+        if (isset($default_page_no[0])) {
             return intval($default_page_no[0]);
         }
 
@@ -413,7 +413,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        return is_array($pageNos) && count($pageNos) > 0;
+        return count($pageNos) > 0;
     }
 
     /**
@@ -431,28 +431,24 @@ class Common
             return -1;
         }
 
-        $page_no = -1;
-
         $default_page_no = $this->getDefaultPage($db);
         if ($default_page_no != -1) {
-            $page_no = $default_page_no;
-        } else {
-            $query = 'SELECT MIN(`page_nr`)'
-                . ' FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->pdfPages)
-                . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
-
-            $min_page_no = $this->dbi->fetchResult(
-                $query,
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE
-            );
-            if (is_array($min_page_no) && isset($min_page_no[0])) {
-                $page_no = $min_page_no[0];
-            }
+            return intval($default_page_no);
         }
+
+        $query = 'SELECT MIN(`page_nr`)'
+            . ' FROM ' . Util::backquote($relationParameters->db)
+            . '.' . Util::backquote($relationParameters->pdfPages)
+            . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
+
+        $min_page_no = $this->dbi->fetchResult(
+            $query,
+            null,
+            null,
+            DatabaseInterface::CONNECT_CONTROL,
+            DatabaseInterface::QUERY_STORE
+        );
+        $page_no = $min_page_no[0] ?? -1;
 
         return intval($page_no);
     }
@@ -809,7 +805,11 @@ class Common
                 . " WHERE username = '"
                 . $this->dbi->escapeString($cfgDesigner['user']) . "';";
 
-            $orig_data = $this->dbi->fetchSingleRow($orig_data_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+            $orig_data = $this->dbi->fetchSingleRow(
+                $orig_data_query,
+                DatabaseInterface::FETCH_ASSOC,
+                DatabaseInterface::CONNECT_CONTROL
+            );
 
             if (! empty($orig_data)) {
                 $orig_data = json_decode($orig_data['settings_data'], true);
