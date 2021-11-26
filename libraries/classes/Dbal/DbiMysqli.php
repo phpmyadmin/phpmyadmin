@@ -16,7 +16,6 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
-use function is_array;
 use function is_bool;
 use function is_object;
 use function mysqli_connect_errno;
@@ -182,12 +181,9 @@ class DbiMysqli implements DbiExtension
      */
     public function realQuery($query, $link, $options)
     {
-        if ($options == ($options | DatabaseInterface::QUERY_STORE)) {
-            $method = MYSQLI_STORE_RESULT;
-        } elseif ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
+        $method = MYSQLI_STORE_RESULT;
+        if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
-        } else {
-            $method = 0;
         }
 
         return $link->query($query, $method);
@@ -416,9 +412,6 @@ class DbiMysqli implements DbiExtension
         }
 
         $fields = $result->fetch_fields();
-        if (! is_array($fields)) {
-            return null;
-        }
 
         foreach ($fields as $k => $field) {
             $fields[$k] = new FieldMetadata($field->type, $field->flags, $field);
