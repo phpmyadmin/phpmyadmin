@@ -656,7 +656,7 @@ class DatabaseInterface implements DbalInterface
 
             // get table information from information_schema
             $sqlWhereSchema = '';
-            if ($database) {
+            if ($database !== null) {
                 $sqlWhereSchema = 'WHERE `SCHEMA_NAME` LIKE \''
                     . $this->escapeString($database, $link) . '\'';
             }
