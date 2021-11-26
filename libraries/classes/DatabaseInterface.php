@@ -1376,7 +1376,7 @@ class DatabaseInterface implements DbalInterface
         $value = null,
         $link = self::CONNECT_USER,
         int $options = 0
-    ) {
+    ): array {
         $resultrows = [];
 
         $result = $this->tryQuery($query, $link, $options, false);

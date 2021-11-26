@@ -6,8 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\SessionCache;
 
-use function is_array;
-
 /**
  * Statement resource usage.
  */
@@ -51,13 +49,7 @@ final class Profiling
             return null;
         }
 
-        $result = $dbi->fetchResult('SHOW PROFILE;');
-
-        if (! is_array($result)) {
-            return null;
-        }
-
-        return $result;
+        return $dbi->fetchResult('SHOW PROFILE;');
     }
 
     /**

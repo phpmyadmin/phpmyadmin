@@ -3211,9 +3211,6 @@
       <code>$row</code>
       <code>$this-&gt;connectionCharSet</code>
     </MixedAssignment>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>is_array($result)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/GetFieldController.php">
     <MixedArgument occurrences="8">
@@ -4701,13 +4698,6 @@
       <code>(bool) $GLOBALS['cfg']['Server']['DisableIS']</code>
       <code>(int) $GLOBALS['cfg']['MaxRows']</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="5">
-      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
-      <code>(array) $this-&gt;dbi-&gt;fetchResult($query, null, null, DatabaseInterface::CONNECT_CONTROL)</code>
-    </RedundantCastGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$table == ''</code>
     </TypeDoesNotContainType>
@@ -4890,7 +4880,7 @@
       <code>$value['foreign_table']</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
-      <code>is_array($page_name) &amp;&amp; isset($page_name[0]) ? $page_name[0] : null</code>
+      <code>$page_name[0] ?? null</code>
     </MixedReturnStatement>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>$con['DCN']</code>
@@ -4898,12 +4888,6 @@
       <code>$con['SCN']</code>
       <code>$con['STN']</code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>is_array($default_page_no)</code>
-      <code>is_array($min_page_no)</code>
-      <code>is_array($pageNos)</code>
-      <code>is_array($page_name)</code>
-    </RedundantConditionGivenDocblockType>
     <UnusedForeachValue occurrences="1">
       <code>$dummy</code>
     </UnusedForeachValue>
@@ -11052,10 +11036,9 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="2">
       <code>$nameArray === false</code>
       <code>$nameArray === false</code>
-      <code>is_array($result)</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="17">
       <code>$_REQUEST['csv_new_db_name']</code>
@@ -12453,11 +12436,8 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Profiling.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>is_array($result)</code>
-    </DocblockTypeContradiction>
     <MixedReturnTypeCoercion occurrences="2">
-      <code>$result</code>
+      <code>$dbi-&gt;fetchResult('SHOW PROFILE;')</code>
       <code>array&lt;string, string&gt;|null</code>
     </MixedReturnTypeCoercion>
   </file>
@@ -14609,10 +14589,6 @@
       <code>(string) $table</code>
       <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$columnsMetaQueryResult !== false</code>
-      <code>$columnsMetaQueryResult &amp;&amp; $columnsMetaQueryResult !== false</code>
-    </RedundantConditionGivenDocblockType>
     <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>

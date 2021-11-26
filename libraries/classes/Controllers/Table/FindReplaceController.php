@@ -271,36 +271,34 @@ class FindReplaceController extends AbstractController
 
         $result = $this->dbi->fetchResult($sql_query, 0);
 
-        if (is_array($result)) {
-            /* Iterate over possible delimiters to get one */
-            $delimiters = [
-                '/',
-                '@',
-                '#',
-                '~',
-                '!',
-                '$',
-                '%',
-                '^',
-                '&',
-                '_',
-            ];
-            $found = false;
-            for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
-                if (! str_contains($find, $delimiters[$i])) {
-                    $found = true;
-                    break;
-                }
+        /* Iterate over possible delimiters to get one */
+        $delimiters = [
+            '/',
+            '@',
+            '#',
+            '~',
+            '!',
+            '$',
+            '%',
+            '^',
+            '&',
+            '_',
+        ];
+        $found = false;
+        for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
+            if (! str_contains($find, $delimiters[$i])) {
+                $found = true;
+                break;
             }
+        }
 
-            if (! $found) {
-                return false;
-            }
+        if (! $found) {
+            return false;
+        }
 
-            $find = $delimiters[$i] . $find . $delimiters[$i];
-            foreach ($result as $index => $row) {
-                $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
-            }
+        $find = $delimiters[$i] . $find . $delimiters[$i];
+        foreach ($result as $index => $row) {
+            $result[$index][1] = preg_replace($find, $replaceWith, $row[0]);
         }
 
         return $result;

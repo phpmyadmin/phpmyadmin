@@ -24,7 +24,6 @@ use function array_shift;
 use function array_splice;
 use function basename;
 use function count;
-use function is_array;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
@@ -606,9 +605,6 @@ class ImportCsv extends AbstractImportCsv
                 $newDb = $_REQUEST['csv_new_db_name'];
             } else {
                 $result = $dbi->fetchResult('SHOW DATABASES');
-                if (! is_array($result)) {
-                    $result = [];
-                }
 
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }

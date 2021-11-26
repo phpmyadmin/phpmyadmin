@@ -1753,25 +1753,23 @@ class Table implements Stringable
 
         $columnsMetaQueryResult = $this->dbi->fetchResult($columnsMetaQuery);
 
-        if ($columnsMetaQueryResult && $columnsMetaQueryResult !== false) {
-            foreach ($columnsMetaQueryResult as $column) {
-                $value = $column['Field'];
-                if ($backquoted === true) {
-                    $value = Util::backquote($value);
-                }
-
-                // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
-                if (
-                    (
-                    str_contains($column['Extra'], 'GENERATED')
-                    || str_contains($column['Extra'], 'VIRTUAL')
-                    ) && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
-                ) {
-                    continue;
-                }
-
-                $ret[] = $value;
+        foreach ($columnsMetaQueryResult as $column) {
+            $value = $column['Field'];
+            if ($backquoted === true) {
+                $value = Util::backquote($value);
             }
+
+            // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
+            if (
+                (
+                str_contains($column['Extra'], 'GENERATED')
+                || str_contains($column['Extra'], 'VIRTUAL')
+                ) && ! str_contains($column['Extra'], 'DEFAULT_GENERATED')
+            ) {
+                continue;
+            }
+
+            $ret[] = $value;
         }
 
         return $ret;

@@ -403,7 +403,7 @@ interface DbalInterface
         $value = null,
         $link = DatabaseInterface::CONNECT_USER,
         int $options = 0
-    );
+    ): array;
 
     /**
      * Get supported SQL compatibility modes
