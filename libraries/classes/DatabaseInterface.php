@@ -1022,13 +1022,8 @@ class DatabaseInterface implements DbalInterface
         $link = self::CONNECT_USER
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
-        $indexes = $this->fetchResult($sql, null, null, $link);
 
-        if (! is_array($indexes) || count($indexes) < 1) {
-            return [];
-        }
-
-        return $indexes;
+        return $this->fetchResult($sql, null, null, $link);
     }
 
     /**
