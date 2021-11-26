@@ -529,29 +529,30 @@ class DatabaseInterface implements DbalInterface
                 // value to pass to array_multisort
 
                 // Size = Data_length + Index_length
+                $sortValues = [];
                 if ($sort_by === 'Data_length') {
                     foreach ($each_tables as $table_name => $table_data) {
-                        ${$sort_by}[$table_name] = strtolower(
+                        $sortValues[$table_name] = strtolower(
                             (string) ($table_data['Data_length']
                             + $table_data['Index_length'])
                         );
                     }
                 } else {
                     foreach ($each_tables as $table_name => $table_data) {
-                        ${$sort_by}[$table_name] = strtolower($table_data[$sort_by] ?? '');
+                        $sortValues[$table_name] = strtolower($table_data[$sort_by] ?? '');
                     }
                 }
 
-                if (! empty(${$sort_by})) {
+                if ($sortValues) {
                     if ($sort_order === 'DESC') {
-                        array_multisort(${$sort_by}, SORT_DESC, $each_tables);
+                        array_multisort($sortValues, SORT_DESC, $each_tables);
                     } else {
-                        array_multisort(${$sort_by}, SORT_ASC, $each_tables);
+                        array_multisort($sortValues, SORT_ASC, $each_tables);
                     }
                 }
 
                 // cleanup the temporary sort array
-                unset(${$sort_by});
+                unset($sortValues);
             }
 
             if ($limit_count) {
