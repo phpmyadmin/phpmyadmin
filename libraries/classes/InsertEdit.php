@@ -1211,9 +1211,11 @@ class InsertEdit
             $row,
             true
         );
-        if ($uniqueCondition) {
-            $_SESSION['edit_next'] = $uniqueCondition;
+        if (! $uniqueCondition) {
+            return;
         }
+
+        $_SESSION['edit_next'] = $uniqueCondition;
     }
 
     /**

@@ -49,7 +49,7 @@
                   {% endif %}
 
                   <li id="li_select_mysql_collation" class="list-group-item">
-                    <form method="post" action="{{ url('/collation-connection') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
+                    <form method="post" action="{{ url('/collation-connection') }}" class="row row-cols-lg-auto align-items-center disableAjax">
                       {{ get_hidden_inputs(null, null, 4, 'collation_connection') }}
                       <div class="col-12">
                         <label for="collationConnectionSelect" class="col-form-label">
@@ -95,7 +95,7 @@
               <ul class="list-group list-group-flush">
                 {% if available_languages is not empty %}
                   <li id="li_select_lang" class="list-group-item">
-                    <form method="get" action="{{ url('/') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
+                    <form method="get" action="{{ url('/') }}" class="row row-cols-lg-auto align-items-center disableAjax">
                       {{ get_hidden_inputs({'db': db, 'table': table}) }}
                       <div class="col-12">
                         <label for="languageSelect" class="col-form-label text-nowrap">
@@ -124,7 +124,7 @@
 
                 {% if has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
-                    <form method="post" action="{{ url('/themes/set') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
+                    <form method="post" action="{{ url('/themes/set') }}" class="row row-cols-lg-auto align-items-center disableAjax">
                       {{ get_hidden_inputs() }}
                       <div class="col-12">
                         <label for="themeSelect" class="col-form-label">

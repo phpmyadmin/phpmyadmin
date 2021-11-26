@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.13.0@cd489407a0219b93cadd04d5aff9845a942f7e5d">
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -2998,6 +2998,9 @@
       <code>$biggest_max_file_size</code>
       <code>$jsvkey</code>
     </MixedOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$current_result</code>
+    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$isUpload</code>
     </PossiblyNullArgument>
@@ -7396,9 +7399,6 @@
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset(self::$instance)</code>
     </RedundantPropertyInitializationCheck>
-    <UnusedVariable occurrences="1">
-      <code>$points_arr</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
     <MixedArgument occurrences="10">
