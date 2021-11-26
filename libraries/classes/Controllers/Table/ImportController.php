@@ -105,6 +105,7 @@ final class ImportController extends AbstractController
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
+        $maxUploadSize = (int) $GLOBALS['config']->get('max_upload_size');
 
         $this->render('table/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
@@ -114,7 +115,8 @@ final class ImportController extends AbstractController
             'hidden_inputs' => $hiddenInputs,
             'db' => $db,
             'table' => $table,
-            'max_upload_size' => $GLOBALS['config']->get('max_upload_size'),
+            'max_upload_size' => $maxUploadSize,
+            'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
             'plugins_choice' => $choice,
             'options' => $options,
             'skip_queries_default' => $skipQueriesDefault,

@@ -284,8 +284,7 @@ class Plugins
                 $properties = [$propertyGroup];
             } else {
                 // for main groups
-                $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
-                    . $propertyGroup->getName() . '">';
+                $ret .= '<div id="' . $plugin_name . '_' . $propertyGroup->getName() . '">';
 
                 $text = null;
                 if (method_exists($propertyGroup, 'getText')) {
@@ -293,10 +292,10 @@ class Plugins
                 }
 
                 if ($text != null) {
-                    $ret .= '<h4>' . self::getString($text) . '</h4>';
+                    $ret .= '<h5 class="card-title mt-4 mb-2">' . self::getString($text) . '</h5>';
                 }
 
-                $ret .= '<ul>';
+                $ret .= '<ul class="list-group">';
             }
         }
 
@@ -322,7 +321,7 @@ class Plugins
                         $ret .= self::getOneOption($section, $plugin_name, $subgroup_header);
                     }
 
-                    $ret .= '<li class="subgroup"><ul';
+                    $ret .= '<li class="list-group-item"><ul class="list-group"';
                     if ($subgroup_header !== null) {
                         $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
                     } else {
@@ -396,8 +395,9 @@ class Plugins
         $property_class = get_class($propertyItem);
         switch ($property_class) {
             case BoolPropertyItem::class:
-                $ret .= '<li>' . "\n";
-                $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
+                $ret .= '<li class="list-group-item">' . "\n";
+                $ret .= '<div class="form-check form-switch">' . "\n";
+                $ret .= '<input class="form-check-input" type="checkbox" role="switch" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
                 . ' value="something" id="checkbox_' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
@@ -419,15 +419,15 @@ class Plugins
                 }
 
                 $ret .= '>';
-                $ret .= '<label for="checkbox_' . $plugin_name . '_'
+                $ret .= '<label class="form-check-label" for="checkbox_' . $plugin_name . '_'
                 . $propertyItem->getName() . '">'
-                . self::getString($propertyItem->getText()) . '</label>';
+                . self::getString($propertyItem->getText()) . '</label></div>';
                 break;
             case DocPropertyItem::class:
                 echo DocPropertyItem::class;
                 break;
             case HiddenPropertyItem::class:
-                $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
+                $ret .= '<li class="list-group-item"><input type="hidden" name="' . $plugin_name . '_'
                 . $propertyItem->getName() . '"'
                 . ' value="' . self::getDefault(
                     $section,
@@ -436,8 +436,8 @@ class Plugins
                     . '"></li>';
                 break;
             case MessageOnlyPropertyItem::class:
-                $ret .= '<li>' . "\n";
-                $ret .= '<p>' . self::getString($propertyItem->getText()) . '</p>';
+                $ret .= '<li class="list-group-item">' . "\n";
+                $ret .= self::getString($propertyItem->getText());
                 break;
             case RadioPropertyItem::class:
                 /**
@@ -450,19 +450,23 @@ class Plugins
                     $plugin_name . '_' . $pitem->getName()
                 );
 
+                $ret .= '<li class="list-group-item">';
+
                 foreach ($pitem->getValues() as $key => $val) {
-                    $ret .= '<li><input type="radio" name="' . $plugin_name
-                        . '_' . $pitem->getName() . '" value="' . $key
+                    $ret .= '<div class="form-check"><input type="radio" name="' . $plugin_name
+                        . '_' . $pitem->getName() . '" class="form-check-input" value="' . $key
                         . '" id="radio_' . $plugin_name . '_'
                         . $pitem->getName() . '_' . $key . '"';
                     if ($key == $default) {
-                        $ret .= ' checked="checked"';
+                        $ret .= ' checked';
                     }
 
-                    $ret .= '><label for="radio_' . $plugin_name . '_'
+                    $ret .= '><label class="form-check-label" for="radio_' . $plugin_name . '_'
                     . $pitem->getName() . '_' . $key . '">'
-                    . self::getString($val) . '</label></li>';
+                    . self::getString($val) . '</label></div>';
                 }
+
+                $ret .= '</li>';
 
                 break;
             case SelectPropertyItem::class:
@@ -470,11 +474,11 @@ class Plugins
                  * @var SelectPropertyItem $pitem
                  */
                 $pitem = $propertyItem;
-                $ret .= '<li>' . "\n";
+                $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="select_' . $plugin_name . '_'
-                . $pitem->getName() . '" class="desc">'
+                . $pitem->getName() . '" class="form-label">'
                 . self::getString($pitem->getText()) . '</label>';
-                $ret .= '<select name="' . $plugin_name . '_'
+                $ret .= '<select class="form-select" name="' . $plugin_name . '_'
                 . $pitem->getName() . '"'
                 . ' id="select_' . $plugin_name . '_'
                 . $pitem->getName() . '">';
@@ -485,7 +489,7 @@ class Plugins
                 foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<option value="' . $key . '"';
                     if ($key == $default) {
-                        $ret .= ' selected="selected"';
+                        $ret .= ' selected';
                     }
 
                     $ret .= '>' . self::getString($val) . '</option>';
@@ -498,11 +502,11 @@ class Plugins
                  * @var TextPropertyItem $pitem
                  */
                 $pitem = $propertyItem;
-                $ret .= '<li>' . "\n";
+                $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'
-                . $pitem->getName() . '" class="desc">'
+                . $pitem->getName() . '" class="form-label">'
                 . self::getString($pitem->getText()) . '</label>';
-                $ret .= '<input type="text" name="' . $plugin_name . '_'
+                $ret .= '<input class="form-control" type="text" name="' . $plugin_name . '_'
                 . $pitem->getName() . '"'
                 . ' value="' . self::getDefault(
                     $section,
@@ -519,11 +523,11 @@ class Plugins
                     . '>';
                 break;
             case NumberPropertyItem::class:
-                $ret .= '<li>' . "\n";
+                $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="number_' . $plugin_name . '_'
-                    . $propertyItem->getName() . '" class="desc">'
+                    . $propertyItem->getName() . '" class="form-label">'
                     . self::getString($propertyItem->getText()) . '</label>';
-                $ret .= '<input type="number" name="' . $plugin_name . '_'
+                $ret .= '<input class="form-control" type="number" name="' . $plugin_name . '_'
                     . $propertyItem->getName() . '"'
                     . ' value="' . self::getDefault(
                         $section,
@@ -586,7 +590,7 @@ class Plugins
             }
 
             if ($no_options) {
-                $ret .= '<p>' . __('This format has no options') . '</p>';
+                $ret .= '<p class="card-text">' . __('This format has no options') . '</p>';
             }
 
             $ret .= '</div>';

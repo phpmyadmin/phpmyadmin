@@ -549,7 +549,7 @@ class Export
          * Displays a back button with all the $_POST data in the URL
          * (store in a variable to also display after the textarea)
          */
-        $backButton = '<p id="export_back_button">[ <a href="';
+        $backButton = '<p>[ <a href="';
         if ($exportType === 'server') {
             $backButton .= Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '');
         } elseif ($exportType === 'database') {

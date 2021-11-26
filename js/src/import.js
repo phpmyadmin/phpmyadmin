@@ -14,10 +14,11 @@ function changePluginOpts () {
     });
     var selectedPluginName = $('#plugins').find('option:selected').val();
     $('#' + selectedPluginName + '_options').fadeIn('slow');
+
+    const importNotification = document.getElementById('import_notification');
+    importNotification.innerText = '';
     if (selectedPluginName === 'csv') {
-        $('#import_notification').text(Messages.strImportCSV);
-    } else {
-        $('#import_notification').text('');
+        importNotification.innerHTML = '<div class="alert alert-info mb-0 mt-3" role="alert">' + Messages.strImportCSV + '</div>';
     }
 }
 
@@ -58,8 +59,8 @@ AJAX.registerTeardown('import.js', function () {
 AJAX.registerOnload('import.js', function () {
     // import_file_form validation.
     $(document).on('submit', '#import_file_form', function () {
-        var radioLocalImport = $('#radio_local_import_file');
-        var radioImport = $('#radio_import_file');
+        var radioLocalImport = $('#localFileTab');
+        var radioImport = $('#uploadFileTab');
         var fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strImportDialogMessage + '</div>';
         var wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strTableNameDialogMessage + '</div>';
         var wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + Messages.strDBNameDialogMessage + '</div>';
@@ -67,13 +68,13 @@ AJAX.registerOnload('import.js', function () {
         if (radioLocalImport.length !== 0) {
             // remote upload.
 
-            if (radioImport.is(':checked') && $('#input_import_file').val() === '') {
+            if (radioImport.hasClass('active') && $('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
                 Functions.ajaxShowMessage(fileMsg, false);
                 return false;
             }
 
-            if (radioLocalImport.is(':checked')) {
+            if (radioLocalImport.hasClass('active')) {
                 if ($('#select_local_import_file').length === 0) {
                     Functions.ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + Messages.strNoImportFile + ' </div>', false);
                     return false;
@@ -129,30 +130,11 @@ AJAX.registerOnload('import.js', function () {
         matchFile($(this).val());
     });
 
-    /*
-     * When the "Browse the server" form is clicked or the "Select from the web server upload directory"
-     * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
-     */
-    $('#input_import_file').on('focus change', function () {
-        $('#radio_import_file').prop('checked', true);
-        $('#radio_local_import_file').prop('checked', false);
-    });
-    $('#select_local_import_file').on('focus', function () {
-        $('#radio_local_import_file').prop('checked', true);
-        $('#radio_import_file').prop('checked', false);
-    });
-
     /**
      * Set up the interface for Javascript-enabled browsers since the default is for
      *  Javascript-disabled browsers
      */
-    $('#scroll_to_options_msg').hide();
     $('#format_specific_opts').find('div.format_specific_options')
-        .css({
-            'border': 0,
-            'margin': 0,
-            'padding': 0
-        })
         .find('h3')
         .remove();
     // $("form[name=import] *").unwrap();

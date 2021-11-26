@@ -36,10 +36,6 @@ class UtilExtension extends AbstractExtension
                 [Util::class, 'formatByteDown']
             ),
             new TwigFunction(
-                'get_formatted_maximum_upload_size',
-                [Util::class, 'getFormattedMaximumUploadSize']
-            ),
-            new TwigFunction(
                 'format_number',
                 [Util::class, 'formatNumber']
             ),

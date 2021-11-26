@@ -141,7 +141,7 @@ class ExportTest extends TestBase
             $this->scrollIntoView('databases_and_tables', 200);
             sleep(1);
             $this->scrollIntoView('databases_and_tables', 200);
-            $this->byPartialLinkText('Unselect all')->click();
+            $this->byId('db_unselect_all')->click();
 
             $this->byCssSelector('option[value="' . $this->databaseName . '"]')->click();
         }

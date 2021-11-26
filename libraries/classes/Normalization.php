@@ -1072,7 +1072,7 @@ class Normalization
         }
 
         if (empty($dependencyList)) {
-            $html .= '<p class="d-block desc">'
+            $html .= '<p class="d-block m-1">'
                 . __('No partial dependencies found!') . '</p>';
         }
 
