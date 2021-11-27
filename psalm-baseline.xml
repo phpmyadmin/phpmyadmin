@@ -12832,9 +12832,6 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
-    <UnusedForeachValue occurrences="1">
-      <code>$table</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Replication.php">
     <LessSpecificReturnStatement occurrences="1">

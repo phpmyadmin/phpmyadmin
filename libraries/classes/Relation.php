@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
 use function __;
 use function _pgettext;
+use function array_keys;
 use function array_reverse;
 use function array_search;
 use function array_shift;
@@ -628,7 +629,7 @@ class Relation
             'exporttemplateswork' => 'export_templates',
         ];
 
-        foreach ($workToTable as $work => $table) {
+        foreach (array_keys($workToTable) as $work) {
             $relationParams[$work] = false;
         }
 
