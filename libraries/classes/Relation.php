@@ -1307,7 +1307,7 @@ class Relation
     public function foreignDropdown(
         array $disp_row,
         $foreign_field,
-        $foreign_display,
+        string $foreign_display,
         $data,
         $max = null
     ): string {
@@ -1405,7 +1405,7 @@ class Relation
      * @psalm-return array{
      *     foreign_link: bool,
      *     the_total: mixed,
-     *     foreign_display: string|false|null,
+     *     foreign_display: string,
      *     disp_row: ?list<non-empty-array>,
      *     foreign_field: mixed
      * }
@@ -1522,7 +1522,7 @@ class Relation
         return [
             'foreign_link' => $foreign_link,
             'the_total' => $the_total,
-            'foreign_display' => $foreign_display,
+            'foreign_display' => $foreign_display ?: '',
             'disp_row' => $disp_row,
             'foreign_field' => $foreign_field,
         ];

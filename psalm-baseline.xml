@@ -8397,12 +8397,6 @@
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
-    <PossiblyFalseArgument occurrences="1">
-      <code>$foreignData['foreign_display']</code>
-    </PossiblyFalseArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$foreignData['foreign_display']</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
@@ -14109,9 +14103,6 @@
       <code>$profiling</code>
       <code>array&lt;string, int|array&gt;</code>
     </MixedReturnTypeCoercion>
-    <PossiblyFalseArgument occurrences="1">
-      <code>$foreignData['foreign_display']</code>
-    </PossiblyFalseArgument>
     <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
@@ -14119,12 +14110,11 @@
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="13">
+    <PossiblyNullArgument occurrences="12">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
       <code>$extraData ?? null</code>
-      <code>$foreignData['foreign_display']</code>
       <code>$messageToShow ?? null</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
