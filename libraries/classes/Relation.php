@@ -1404,7 +1404,14 @@ class Relation
      *                                   in $foreignData['the_total;]
      *                                   (has an effect of performance)
      *
-     * @return array    data about the foreign keys
+     * @return array<string, mixed>    data about the foreign keys
+     * @psalm-return array{
+     *     foreign_link: bool,
+     *     the_total: mixed,
+     *     foreign_display: string|false|null,
+     *     disp_row: ?list<non-empty-array>,
+     *     foreign_field: mixed
+     * }
      *
      * @access public
      */
@@ -1415,10 +1422,11 @@ class Relation
         $foreign_filter,
         $foreign_limit,
         $get_total = false
-    ) {
+    ): array {
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
         $foreign_link = false;
+        $disp_row = $foreign_display = $the_total = $foreign_field = null;
         do {
             if (! $foreigners) {
                 break;
@@ -1514,16 +1522,13 @@ class Relation
                 ->countRecords(true);
         }
 
-        $foreignData = [];
-        $foreignData['foreign_link'] = $foreign_link;
-        $foreignData['the_total'] = $the_total ?? null;
-        $foreignData['foreign_display'] = (
-            $foreign_display ?? null
-        );
-        $foreignData['disp_row'] = $disp_row ?? null;
-        $foreignData['foreign_field'] = $foreign_field ?? null;
-
-        return $foreignData;
+        return [
+            'foreign_link' => $foreign_link,
+            'the_total' => $the_total,
+            'foreign_display' => $foreign_display,
+            'disp_row' => $disp_row,
+            'foreign_field' => $foreign_field,
+        ];
     }
 
     /**
