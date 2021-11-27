@@ -1762,17 +1762,13 @@ class Relation
      */
     public function createPage(?string $newpage, RelationParameters $relationParameters, $db)
     {
-        if (! isset($newpage) || $newpage == '') {
-            $newpage = __('no description');
-        }
-
         $ins_query = 'INSERT INTO '
             . Util::backquote($relationParameters->db) . '.'
             . Util::backquote($relationParameters->pdfPages)
             . ' (db_name, page_descr)'
             . ' VALUES (\''
             . $this->dbi->escapeString($db) . '\', \''
-            . $this->dbi->escapeString($newpage) . '\')';
+            . $this->dbi->escapeString($newpage ?: __('no description')) . '\')';
         $this->queryAsControlUser($ins_query, false);
 
         return $this->dbi->insertId(DatabaseInterface::CONNECT_CONTROL);
