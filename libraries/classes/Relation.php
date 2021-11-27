@@ -1205,11 +1205,11 @@ class Relation
      * @param string $data    the current data of the dropdown
      * @param string $mode    the needed mode
      *
-     * @return array   the <option value=""><option>s
+     * @return string[] the <option value=""><option>s
      *
      * @access protected
      */
-    public function buildForeignDropdown(array $foreign, $data, $mode)
+    public function buildForeignDropdown(array $foreign, $data, $mode): array
     {
         $reloptions = [];
 
@@ -1294,11 +1294,11 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array  $disp_row        array of the displayed row
-     * @param string $foreign_field   the foreign field
-     * @param string $foreign_display the foreign field to display
-     * @param string $data            the current data of the dropdown (field in row)
-     * @param int    $max             maximum number of items in the dropdown
+     * @param array[] $disp_row        array of the displayed row
+     * @param string  $foreign_field   the foreign field
+     * @param string  $foreign_display the foreign field to display
+     * @param string  $data            the current data of the dropdown (field in row)
+     * @param int     $max             maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
      *
@@ -1310,7 +1310,7 @@ class Relation
         $foreign_display,
         $data,
         $max = null
-    ) {
+    ): string {
         if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
         }

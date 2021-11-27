@@ -12692,13 +12692,11 @@
       <code>$tableRes</code>
       <code>$tablesRows</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
-      <code>$bottom</code>
-      <code>$top</code>
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>uksort($foreign, 'strnatcasecmp')</code>
       <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="15">
+    <MixedArrayAccess occurrences="13">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$column['COLUMN_NAME']</code>
@@ -12712,8 +12710,6 @@
       <code>$one_key['ref_db_name']</code>
       <code>$one_key['ref_index_list']</code>
       <code>$one_key['ref_table_name']</code>
-      <code>$relrow[$foreign_display]</code>
-      <code>$relrow[$foreign_field]</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="6">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
@@ -12731,7 +12727,7 @@
       <code>$foreign[$key]</code>
       <code>$one_key['ref_index_list'][$column_index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="40">
+    <MixedAssignment occurrences="39">
       <code>$child_references</code>
       <code>$column</code>
       <code>$column_index</code>
@@ -12759,7 +12755,6 @@
       <code>$max_time</code>
       <code>$one_key</code>
       <code>$relations</code>
-      <code>$relrow</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
