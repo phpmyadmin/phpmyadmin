@@ -355,7 +355,6 @@ class ZoomSearchController extends AbstractController
 
             //Get unique condition on each row (will be needed for row update)
             $uniqueCondition = Util::getUniqueCondition(
-                $result,
                 count($this->columnNames),
                 $fields_meta,
                 $tmpRow,

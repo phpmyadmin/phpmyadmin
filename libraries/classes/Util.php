@@ -935,7 +935,6 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource|int    $handle          current query result
      * @param int             $fieldsCount     number of fields
      * @param FieldMetadata[] $fieldsMeta      meta information about fields
      * @param array           $row             current row
@@ -946,7 +945,6 @@ class Util
      * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle,
         $fieldsCount,
         array $fieldsMeta,
         array $row,

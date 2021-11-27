@@ -2446,7 +2446,6 @@ class ExportSql extends ExportPlugin
                 }
 
                 [$tmpUniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(
-                    $result,
                     $fieldsCnt,
                     $fieldsMeta,
                     $row
