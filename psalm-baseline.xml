@@ -12826,9 +12826,8 @@
       <code>(string) $db</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="7">
+    <RedundantCondition occurrences="6">
       <code>is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])</code>
-      <code>is_array($table)</code>
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>

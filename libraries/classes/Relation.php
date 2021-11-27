@@ -681,7 +681,7 @@ class Relation
                     $allWorks = false;
                     break;
                 }
-            } elseif (is_array($table)) {
+            } else {
                 $oneNull = false;
                 foreach ($table as $t) {
                     if (isset($GLOBALS['cfg']['Server'][$t]) && $GLOBALS['cfg']['Server'][$t] === false) {
@@ -911,11 +911,9 @@ class Relation
          * Pick first char field
          */
         $columns = $this->dbi->getColumnsFull($db, $table);
-        if ($columns) {
-            foreach ($columns as $column) {
-                if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
-                    return $column['COLUMN_NAME'];
-                }
+        foreach ($columns as $column) {
+            if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
+                return $column['COLUMN_NAME'];
             }
         }
 
@@ -1474,9 +1472,9 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = ! empty($foreign_limit) ? $foreign_limit : '';
+                $f_query_limit = $foreign_limit ?: '';
 
-                if (! empty($foreign_filter)) {
+                if ($foreign_filter) {
                     $the_total = $this->dbi->fetchValue('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                     if ($the_total === false) {
                         $the_total = 0;
@@ -1938,6 +1936,7 @@ class Relation
                 continue;
             }
 
+            // The following redundant cast is needed for PHPStan
             $tableName = (string) $table[1];
 
             // Replace the table name with another one
