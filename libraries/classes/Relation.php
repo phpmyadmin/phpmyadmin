@@ -1231,7 +1231,6 @@ class Relation
         }
 
         foreach ($foreign as $key => $value) {
-            $vtitle = '';
             $key = (string) $key;
             $value = (string) $value;
             $data = (string) $data;
@@ -1271,9 +1270,6 @@ class Relation
             }
 
             $reloption = '<option value="' . $key . '"';
-            if ($vtitle != '') {
-                $reloption .= ' title="' . $vtitle . '"';
-            }
 
             if ($selected) {
                 $reloption .= ' selected="selected"';

@@ -12832,9 +12832,6 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$vtitle != ''</code>
-    </TypeDoesNotContainType>
     <UnusedForeachValue occurrences="1">
       <code>$table</code>
     </UnusedForeachValue>
