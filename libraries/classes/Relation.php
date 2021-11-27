@@ -1783,12 +1783,9 @@ class Relation
      * @param string $db     name of master table db.
      * @param string $table  name of master table.
      * @param string $column name of master table column.
-     *
-     * @return array
      */
-    public function getChildReferences($db, $table, $column = '')
+    public function getChildReferences($db, $table, $column = ''): array
     {
-        $child_references = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $rel_query = 'SELECT `column_name`, `table_name`,'
                 . ' `table_schema`, `referenced_column_name`'
@@ -1802,7 +1799,7 @@ class Relation
                     . $this->dbi->escapeString($column) . "'";
             }
 
-            $child_references = $this->dbi->fetchResult(
+            return $this->dbi->fetchResult(
                 $rel_query,
                 [
                     'referenced_column_name',
@@ -1811,7 +1808,7 @@ class Relation
             );
         }
 
-        return $child_references;
+        return [];
     }
 
     /**
