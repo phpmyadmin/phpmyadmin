@@ -932,24 +932,22 @@ class Relation
      *
      * @access public
      */
-    public function getComments($db, $table = '')
+    public function getComments($db, $table = ''): array
     {
+        if ($table === '') {
+            return [$this->getDbComment($db)];
+        }
+
         $comments = [];
 
-        if ($table != '') {
-            // MySQL native column comments
-            $columns = $this->dbi->getColumns($db, $table, true);
-            if ($columns) {
-                foreach ($columns as $column) {
-                    if (empty($column['Comment'])) {
-                        continue;
-                    }
-
-                    $comments[$column['Field']] = $column['Comment'];
-                }
+        // MySQL native column comments
+        $columns = $this->dbi->getColumns($db, $table, true);
+        foreach ($columns as $column) {
+            if (empty($column['Comment'])) {
+                continue;
             }
-        } else {
-            $comments[] = $this->getDbComment($db);
+
+            $comments[$column['Field']] = $column['Comment'];
         }
 
         return $comments;
