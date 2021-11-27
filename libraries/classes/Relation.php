@@ -958,14 +958,11 @@ class Relation
      *
      * @param string $db the name of the db to check for
      *
-     * @return string   comment
-     *
      * @access public
      */
-    public function getDbComment($db)
+    public function getDbComment(string $db): string
     {
         $relationParameters = $this->getRelationParameters();
-        $comment = '';
 
         if ($relationParameters->commwork) {
             // pmadb internal db comment
@@ -979,13 +976,12 @@ class Relation
 
             if ($com_rs && $this->dbi->numRows($com_rs) > 0) {
                 $row = $this->dbi->fetchAssoc($com_rs);
-                $comment = $row['comment'];
-            }
 
-            $this->dbi->freeResult($com_rs);
+                return (string) $row['comment'];
+            }
         }
 
-        return $comment;
+        return '';
     }
 
     /**
