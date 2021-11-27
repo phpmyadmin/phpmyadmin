@@ -1931,7 +1931,7 @@ class Util
                 $values[] = $buffer;
                 $buffer = '';
             } elseif ($inString) {
-                 $buffer .= $curr;
+                $buffer .= $curr;
             }
         }
 
