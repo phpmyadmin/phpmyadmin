@@ -968,7 +968,7 @@ class Util
             $meta = $fieldsMeta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
+            if ($meta->orgname === '') {
                 $meta->orgname = $meta->name;
 
                 foreach ($expressions as $expression) {
@@ -995,8 +995,7 @@ class Util
             // (The isView() verification should not be costly in most cases
             // because there is some caching in the function).
             if (
-                isset($meta->orgtable)
-                && ($meta->table != $meta->orgtable)
+                $meta->table !== $meta->orgtable
                 && ! $dbi->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;

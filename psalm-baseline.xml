@@ -15264,9 +15264,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Util.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! isset($meta-&gt;orgname)</code>
-    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
@@ -15482,9 +15479,6 @@
       <code>$columnsList !== null</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>isset($meta-&gt;orgtable)</code>
-    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>
