@@ -1823,7 +1823,8 @@ class Relation
      * @param array|null $foreigners_full       foreigners array for the whole table.
      * @param array|null $child_references_full child references for the whole table.
      *
-     * @return array telling about references if foreign key.
+     * @return array<string, mixed> telling about references if foreign key.
+     * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
      */
     public function checkChildForeignReferences(
         $db,
@@ -1831,12 +1832,13 @@ class Relation
         $column,
         $foreigners_full = null,
         $child_references_full = null
-    ) {
-        $column_status = [];
-        $column_status['isEditable'] = false;
-        $column_status['isReferenced'] = false;
-        $column_status['isForeignKey'] = false;
-        $column_status['references'] = [];
+    ): array {
+        $column_status = [
+            'isEditable' => true,
+            'isReferenced' => false,
+            'isForeignKey' => false,
+            'references' => [],
+        ];
 
         $foreigners = [];
         if ($foreigners_full !== null) {
@@ -1863,6 +1865,7 @@ class Relation
         }
 
         if (count($child_references) > 0 || $foreigner) {
+            $column_status['isEditable'] = false;
             if (count($child_references) > 0) {
                 $column_status['isReferenced'] = true;
                 foreach ($child_references as $columns) {
@@ -1874,8 +1877,6 @@ class Relation
             if ($foreigner) {
                 $column_status['isForeignKey'] = true;
             }
-        } else {
-            $column_status['isEditable'] = true;
         }
 
         return $column_status;
