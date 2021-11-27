@@ -834,7 +834,7 @@ class Relation
          * Emulating relations for some information_schema tables
          */
         $isInformationSchema = mb_strtolower($db) === 'information_schema';
-            $isMysql = mb_strtolower($db) === 'mysql';
+        $isMysql = mb_strtolower($db) === 'mysql';
         if (($isInformationSchema || $isMysql) && ($source === 'internal' || $source === 'both')) {
             if ($isInformationSchema) {
                 $internalRelations = InternalRelations::getInformationSchema();
@@ -1468,7 +1468,7 @@ class Relation
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
-                    $foreign_display === false
+                        $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
