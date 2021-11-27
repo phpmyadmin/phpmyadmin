@@ -998,8 +998,7 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Controllers/Database/DataDictionaryController.php">
-    <MixedArgument occurrences="5">
-      <code>$foreigners</code>
+    <MixedArgument occurrences="4">
       <code>$mimeMap[$row['Field']]['mimetype']</code>
       <code>$row['Field']</code>
       <code>$row['Type']</code>
@@ -9906,7 +9905,7 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportHtmlword.php">
-    <MixedArgument occurrences="19">
+    <MixedArgument occurrences="18">
       <code>$col_alias</code>
       <code>$col_as</code>
       <code>$col_as</code>
@@ -9917,7 +9916,6 @@
       <code>$extracted_columnspec['print_type']</code>
       <code>$field_name</code>
       <code>$mime_map[$field_name]['mimetype']</code>
-      <code>$res_rel</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -10009,12 +10007,11 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportLatex.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$columns_alias[$i]</code>
       <code>$field_name</code>
       <code>$mime_map[$field_name]['mimetype']</code>
       <code>$record[$columns[$i]]</code>
-      <code>$res_rel</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -10140,7 +10137,7 @@
     <InvalidArgument occurrences="1">
       <code>$GLOBALS[$what . '_null']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="23">
+    <MixedArgument occurrences="22">
       <code>$col_as</code>
       <code>$col_as</code>
       <code>$col_as</code>
@@ -10151,7 +10148,6 @@
       <code>$extracted_columnspec['print_type']</code>
       <code>$field_name</code>
       <code>$mime_map[$field_name]['mimetype']</code>
-      <code>$res_rel</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -10370,9 +10366,8 @@
     <MixedArrayAssignment occurrences="1">
       <code>$field-&gt;key-&gt;columns[$key]['name']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="8">
+    <MixedArrayOffset occurrences="7">
       <code>$aliases[$db]['tables'][$table]['columns'][$field]</code>
-      <code>$aliases[$db]['tables'][$table]['columns'][$relField]</code>
       <code>$aliases[$db]['tables'][$view]['columns'][$colAlias]</code>
       <code>$aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']]</code>
       <code>$aliases[$oldDatabase]['tables'][$refTable]['columns'][$column]</code>
@@ -10380,7 +10375,7 @@
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="40">
+    <MixedAssignment occurrences="39">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
@@ -10404,7 +10399,6 @@
       <code>$newTable</code>
       <code>$oneKey</code>
       <code>$rel</code>
-      <code>$relField</code>
       <code>$relFieldAlias</code>
       <code>$relFieldAlias</code>
       <code>$result</code>
@@ -10507,7 +10501,7 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$col_alias</code>
       <code>$col_as</code>
       <code>$col_as</code>
@@ -10517,7 +10511,6 @@
       <code>$comments[$field_name]</code>
       <code>$field_name</code>
       <code>$mime_map[$field_name]['mimetype']</code>
-      <code>$res_rel</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>

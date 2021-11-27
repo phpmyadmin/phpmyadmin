@@ -2167,22 +2167,18 @@ class Relation
      * @param string $table     table name
      *
      * @return array ($res_rel, $have_rel)
+     * @psalm-return array{array, bool}
      */
-    public function getRelationsAndStatus($condition, $db, $table)
+    public function getRelationsAndStatus(bool $condition, $db, $table)
     {
+        $have_rel = false;
+        $res_rel = [];
         if ($condition) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = $this->getForeigners($db, $table);
 
-            if (count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-            $have_rel = false;
-            $res_rel = [];
+            $have_rel = count($res_rel) > 0;
         }
 
         return [
