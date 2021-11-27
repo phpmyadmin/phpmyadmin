@@ -15459,9 +15459,6 @@
       <code>$maxSize</code>
       <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="1">
-      <code>$condition</code>
-    </PossiblyNullOperand>
     <RedundantCast occurrences="3">
       <code>(int) $GLOBALS['cfg']['ExecTimeLimit']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>

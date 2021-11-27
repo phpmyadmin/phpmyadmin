@@ -871,6 +871,7 @@ class Util
      * @param string                $condition    The condition
      *
      * @return array<int,string|null>
+     * @psalm-return array{string|null, string}
      */
     private static function getConditionValue(
         $row,
