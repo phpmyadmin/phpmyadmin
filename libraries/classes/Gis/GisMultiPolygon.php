@@ -75,14 +75,14 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        string|null $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -90,8 +90,6 @@ class GisMultiPolygon extends GisGeometry
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $fill_color = $image->colorAllocate(...$color);
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
@@ -138,18 +136,16 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS MULTIPOLYGON object
-     * @param string|null $label      Label for the GIS MULTIPOLYGON object
-     * @param int[]       $color      Color for the GIS MULTIPOLYGON object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf
+     * @param string $spatial    GIS MULTIPOLYGON object
+     * @param string $label      Label for the GIS MULTIPOLYGON object
+     * @param int[]  $color      Color for the GIS MULTIPOLYGON object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string|null $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
     {
-        $label = trim($label ?? '');
-
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
@@ -197,7 +193,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $polygon_options = [
             'name' => $label,
@@ -227,7 +223,7 @@ class GisMultiPolygon extends GisGeometry
             $polygon_options['id'] = $label . $this->getRandomId();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+                $row .= ' ' . $option . '="' . $val . '"';
             }
 
             $row .= '/>';
@@ -248,7 +244,7 @@ class GisMultiPolygon extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
     {
         $color[] = 0.8;
         $fill_style = ['color' => $color];
@@ -260,8 +256,8 @@ class GisMultiPolygon extends GisGeometry
             . 'fill: new ol.style.Fill(' . json_encode($fill_style) . '),'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
 
-        if (trim($label) !== '') {
-            $text_style = ['text' => trim($label)];
+        if ($label !== '') {
+            $text_style = ['text' => $label];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

@@ -64,14 +64,14 @@ class GisLineString extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS POLYGON object
-     * @param string|null $label      Label for the GIS POLYGON object
-     * @param int[]       $color      Color for the GIS POLYGON object
-     * @param array       $scale_data Array containing data related to scaling
+     * @param string $spatial    GIS POLYGON object
+     * @param string $label      Label for the GIS POLYGON object
+     * @param int[]  $color      Color for the GIS POLYGON object
+     * @param array  $scale_data Array containing data related to scaling
      */
     public function prepareRowAsPng(
         $spatial,
-        string|null $label,
+        string $label,
         array $color,
         array $scale_data,
         ImageWrapper $image
@@ -79,8 +79,6 @@ class GisLineString extends GisGeometry
         // allocate colors
         $black = $image->colorAllocate(0, 0, 0);
         $line_color = $image->colorAllocate(...$color);
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $lineString = mb_substr($spatial, 11, -1);
@@ -118,22 +116,20 @@ class GisLineString extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial    GIS LINESTRING object
-     * @param string|null $label      Label for the GIS LINESTRING object
-     * @param int[]       $color      Color for the GIS LINESTRING object
-     * @param array       $scale_data Array containing data related to scaling
-     * @param TCPDF       $pdf
+     * @param string $spatial    GIS LINESTRING object
+     * @param string $label      Label for the GIS LINESTRING object
+     * @param int[]  $color      Color for the GIS LINESTRING object
+     * @param array  $scale_data Array containing data related to scaling
+     * @param TCPDF  $pdf
      *
      * @return TCPDF the modified TCPDF instance
      */
-    public function prepareRowAsPdf($spatial, string|null $label, array $color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, string $label, array $color, array $scale_data, $pdf)
     {
         $line = [
             'width' => 1.5,
             'color' => $color,
         ];
-
-        $label = trim($label ?? '');
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting = mb_substr($spatial, 11, -1);
@@ -168,7 +164,7 @@ class GisLineString extends GisGeometry
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg($spatial, $label, array $color, array $scale_data)
+    public function prepareRowAsSvg($spatial, string $label, array $color, array $scale_data)
     {
         $line_options = [
             'name' => $label,
@@ -190,7 +186,7 @@ class GisLineString extends GisGeometry
 
         $row .= '"';
         foreach ($line_options as $option => $val) {
-            $row .= ' ' . $option . '="' . trim((string) $val) . '"';
+            $row .= ' ' . $option . '="' . $val . '"';
         }
 
         $row .= '/>';
@@ -210,7 +206,7 @@ class GisLineString extends GisGeometry
      *
      * @return string JavaScript related to a row in the GIS dataset
      */
-    public function prepareRowAsOl($spatial, int $srid, $label, array $color, array $scale_data)
+    public function prepareRowAsOl($spatial, int $srid, string $label, array $color, array $scale_data)
     {
         $stroke_style = [
             'color' => $color,
@@ -219,8 +215,8 @@ class GisLineString extends GisGeometry
 
         $result = 'var style = new ol.style.Style({'
             . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
-        if (trim($label) !== '') {
-            $text_style = ['text' => trim($label)];
+        if ($label !== '') {
+            $text_style = ['text' => $label];
             $result .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 

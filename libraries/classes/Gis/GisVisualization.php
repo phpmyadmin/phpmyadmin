@@ -26,6 +26,7 @@ use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
 use function rtrim;
+use function trim;
 
 use const PNG_ALL_FILTERS;
 
@@ -619,10 +620,7 @@ class GisVisualization
             }
 
             $color = $colors[$color_index];
-            $label = '';
-            if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
-                $label = $row[$this->settings['labelColumn']];
-            }
+            $label = trim((string) ($row[$this->settings['labelColumn']] ?? ''));
 
             if ($format === 'svg') {
                 $results .= $gis_obj->prepareRowAsSvg(
