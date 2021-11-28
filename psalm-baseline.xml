@@ -8577,9 +8577,6 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$allowedTabs[$tabName]</code>
     </PossiblyNullArrayAccess>
-    <RedundantCastGivenDocblockType occurrences="1">
-      <code>(string) $this-&gt;table</code>
-    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Message.php">
     <DocblockTypeContradiction occurrences="1">

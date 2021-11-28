@@ -18,7 +18,6 @@ use function mb_strpos;
 use function mb_strstr;
 use function mb_substr;
 use function preg_replace;
-use function strlen;
 
 /**
  * Class for generating the top menu
@@ -67,10 +66,8 @@ class Menu
 
     /**
      * Returns the menu and the breadcrumbs as a string
-     *
-     * @return string
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
         $retval = $this->getBreadcrumbs();
         $retval .= $this->getMenu();
@@ -182,10 +179,10 @@ class Menu
             ? '' : ':' . $cfg['Server']['port'];
         $server['url'] = Util::getUrlForOption($cfg['DefaultTabServer'], 'server');
 
-        if (strlen($this->db) > 0) {
+        if ($this->db !== '') {
             $database['name'] = $this->db;
             $database['url'] = Util::getUrlForOption($cfg['DefaultTabDatabase'], 'database');
-            if (strlen((string) $this->table) > 0) {
+            if ($this->table !== '') {
                 $table['name'] = $this->table;
                 $table['url'] = Util::getUrlForOption($cfg['DefaultTabTable'], 'table');
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
@@ -222,7 +219,7 @@ class Menu
      *
      * @return array Data for generating table tabs
      */
-    private function getTableTabs()
+    private function getTableTabs(): array
     {
         global $route;
 
@@ -344,7 +341,7 @@ class Menu
      *
      * @return array Data for generating db tabs
      */
-    private function getDbTabs()
+    private function getDbTabs(): array
     {
         global $route;
 
@@ -461,7 +458,7 @@ class Menu
      *
      * @return array Data for generating server tabs
      */
-    private function getServerTabs()
+    private function getServerTabs(): array
     {
         global $route;
 
@@ -583,7 +580,7 @@ class Menu
      *
      * @return Menu
      */
-    public function setTable($table)
+    public function setTable(string $table)
     {
         $this->table = $table;
 

@@ -1231,11 +1231,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Menu\\:\\:setTable\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php

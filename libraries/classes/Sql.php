@@ -821,7 +821,7 @@ class Sql
         $extraData
     ) {
         $response = ResponseRenderer::getInstance();
-        $response->getHeader()->getMenu()->setTable($table);
+        $response->getHeader()->getMenu()->setTable($table ?? '');
 
         // Only if we ask to see the php code
         if (isset($GLOBALS['show_as_php'])) {
