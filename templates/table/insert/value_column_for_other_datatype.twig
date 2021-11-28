@@ -1,0 +1,27 @@
+{{ backup_field|raw }}
+{% if is_char %}
+
+{{ text_area|raw -}}
+{% else %}
+  {{ html_input|raw }}
+  {% if default_generated %}
+    <input type="hidden" name="virtual{{ columnNameAppendix }}" value="1">
+  {% endif %} 
+  {% if column.Extra == 'auto_increment' %}
+    <input type="hidden" name="auto_increment{{ columnNameAppendix }}" value="1">
+  {% endif %}
+  {% if column.pma_type|slice(0, 9) == 'timestamp' %}
+    <input type="hidden" name="fields_type-{{ columnNameAppendix }}" value="timestamp">
+  {% endif %}
+  {% if column.pma_type|slice(0, 4) == 'date' %}
+    {% if column.pma_type|slice(0, 8) == 'datetime' %}
+      <input type="hidden" name="auto_increment{{ columnNameAppendix }}" value="datetime">
+    {% else %}
+      <input type="hidden" name="auto_increment{{ columnNameAppendix }}" value="date">
+    {% endif %}
+  {% endif %}
+  {% if column.True_Type == 'bit' %}
+    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="bit">
+  {% endif %}
+  {{- html|raw -}}
+{% endif %}
