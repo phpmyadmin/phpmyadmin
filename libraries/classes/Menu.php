@@ -142,9 +142,10 @@ class Menu
             $result = $this->relation->queryAsControlUser($sqlQuery, false);
             if ($result) {
                 while ($row = $this->dbi->fetchAssoc($result)) {
+                    $tab = (string) $row['tab'];
                     $tabName = mb_substr(
-                        $row['tab'],
-                        mb_strpos($row['tab'], '_') + 1
+                        $tab,
+                        mb_strpos($tab, '_') + 1
                     );
                     unset($allowedTabs[$tabName]);
                 }

@@ -8549,10 +8549,8 @@
     </UnusedFunctionCall>
   </file>
   <file src="libraries/classes/Menu.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$result</code>
-      <code>$row['tab']</code>
-      <code>$row['tab']</code>
     </MixedArgument>
     <MixedAssignment occurrences="2">
       <code>$binaryLogs</code>
@@ -8568,7 +8566,7 @@
       <code>SessionCache::get($cacheKey)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
-      <code>mb_strpos($row['tab'], '_')</code>
+      <code>mb_strpos($tab, '_')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
