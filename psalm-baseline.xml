@@ -8554,10 +8554,9 @@
       <code>$row['tab']</code>
       <code>$row['tab']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$binaryLogs</code>
       <code>$result</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -8578,13 +8577,9 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$allowedTabs[$tabName]</code>
     </PossiblyNullArrayAccess>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $this-&gt;table</code>
+    <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $this-&gt;table</code>
     </RedundantCastGivenDocblockType>
-    <UnusedForeachValue occurrences="1">
-      <code>$value</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Message.php">
     <DocblockTypeContradiction occurrences="1">

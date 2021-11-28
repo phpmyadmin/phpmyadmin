@@ -11,7 +11,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
 use function __;
-use function array_key_exists;
+use function array_intersect_key;
 use function count;
 use function in_array;
 use function mb_strpos;
@@ -84,15 +84,13 @@ class Menu
     {
         $urlParams = [];
 
-        $hasDbArg = strlen($this->db) > 0;
-
         // The URL will not work if the table is defined without a database
-        if (strlen((string) $this->table) > 0 && $hasDbArg) {
+        if ($this->table !== '' && $this->db !== '') {
             $tabs = $this->getTableTabs();
             $urlParams['db'] = $this->db;
             $urlParams['table'] = $this->table;
             $level = 'table';
-        } elseif ($hasDbArg) {
+        } elseif ($this->db !== '') {
             $tabs = $this->getDbTabs();
             $urlParams['db'] = $this->db;
             $level = 'db';
@@ -102,13 +100,8 @@ class Menu
         }
 
         $allowedTabs = $this->getAllowedTabs($level);
-        foreach ($tabs as $key => $value) {
-            if (array_key_exists($key, $allowedTabs)) {
-                continue;
-            }
-
-            unset($tabs[$key]);
-        }
+        // Filter out any tabs that are not allowed
+        $tabs = array_intersect_key($tabs, $allowedTabs);
 
         return $this->template->render('top_menu', [
             'tabs' => $tabs,
