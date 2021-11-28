@@ -1416,7 +1416,7 @@ class Relation
         $foreigners,
         $field,
         $override_total,
-        $foreign_filter,
+        string $foreign_filter,
         $foreign_limit,
         $get_total = false
     ): array {
@@ -1463,7 +1463,7 @@ class Relation
                     );
                 $f_query_from = ' FROM ' . Util::backquote($foreign_db)
                     . '.' . Util::backquote($foreign_table);
-                $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
+                $f_query_filter = $foreign_filter === '' ? '' : ' WHERE '
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
@@ -1479,7 +1479,7 @@ class Relation
 
                 $f_query_limit = $foreign_limit ?: '';
 
-                if ($foreign_filter) {
+                if ($foreign_filter !== '') {
                     $the_total = $this->dbi->fetchValue('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                     if ($the_total === false) {
                         $the_total = 0;
