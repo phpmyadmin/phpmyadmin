@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-11-28 00:11+0000\n"
-"PO-Revision-Date: 2021-11-23 18:45+0000\n"
+"PO-Revision-Date: 2021-11-28 19:05+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -14748,16 +14748,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Tabellen exporteren uit de database \"%s\""
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Maakt het mogelijk de structuur van bestaande tabellen aan te passen."
+msgstr "Exporteer de structuur van alle tabellen."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Views exporteren als tabellen"
+msgstr "Exporteer de data van alle tabellen."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15618,10 +15614,8 @@ msgid "Custom - display all possible options"
 msgstr "Uitgebreid - toon alle mogelijke opties"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Te importeren bestand:"
+msgstr "Bestandsformaat voor exporteren"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15710,10 +15704,8 @@ msgstr ""
 "voor details."
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
-msgstr "gebruik dit voor toekomstige exports"
+msgstr "Gebruik dit voor toekomstige exports"
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
@@ -15740,14 +15732,12 @@ msgid "Export tables as separate files"
 msgstr "Exporteer tabellen als afzonderlijke bestanden"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Sla tabellen over groter dan %s MiB"
+msgstr "Sla tabellen over groter dan:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "De grootte wordt gemeten in MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -16088,10 +16078,8 @@ msgstr ""
 "[compression]</strong>. Voorbeeld: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "Download bestand"
+msgstr "Upload een bestand"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -16112,10 +16100,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Selecteer uit de webserver uploadmap [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Er zijn geen bestanden om te uploaden!"
+msgstr "Er zijn geen bestanden om te importeren!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -16134,42 +16120,28 @@ msgstr ""
 "hervat worden vanaf positie %d."
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
 "Sta het onderbreken van het importeren toe wanneer het script herkent dat de "
-"PHP-tijdslimiet nadert. <em>(Dit kan nodig zijn bij het importeren van grote "
-"bestanden, maar het kan transacties verstoren.)</em>"
+"PHP-tijdslimiet nadert."
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Sta het onderbreken van de import toe wanneer het script herkent dat de "
-"tijdslimiet nadert. Dit kan nuttig zijn bij het importeren van grote "
-"bestanden, maar kan transacties verstoren."
+"Dit kan nuttig zijn bij het importeren van grote bestanden, maar kan "
+"transacties verstoren."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Sla dit aantal query's (voor SQL) over, beginnend bij de eerste :"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Andere opties:"
+msgstr "Andere opties"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:488
