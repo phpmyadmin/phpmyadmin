@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-11-28 00:11+0000\n"
-"PO-Revision-Date: 2021-11-23 18:45+0000\n"
+"PO-Revision-Date: 2021-11-28 19:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14584,16 +14584,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Izvažanje tabel iz zbirke podatkov \"%s\""
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Omogoča spreminjanje strukture obstoječih tabel."
+msgstr "Izvozi strukture vseh tabel."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Izvozi poglede kot tabele"
+msgstr "Izvozi podatke vseh tabel."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15459,10 +15455,8 @@ msgid "Custom - display all possible options"
 msgstr "Po meri - prikaži vse mogoče možnosti"
 
 #: templates/export.twig:121
-#, fuzzy
-#| msgid "File to import:"
 msgid "File format to export"
-msgstr "Datoteka za uvoz:"
+msgstr "Datotečna oblika izvoza"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15550,10 +15544,8 @@ msgstr ""
 "%s Ostalo besedilo ne bo spremenjeno. Za podrobnosti si oglejte PZV 6.27."
 
 #: templates/export.twig:398
-#, fuzzy
-#| msgid "use this for future exports"
 msgid "Use this for future exports"
-msgstr "uporabi to za prihodnje izvoze"
+msgstr "Uporabi to za prihodnje izvoze"
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
@@ -15580,14 +15572,12 @@ msgid "Export tables as separate files"
 msgstr "Izvozi tabele v ločenih datotekah"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Preskoči tabele, večje od %s MiB"
+msgstr "Preskoči tabele, večje od:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Velikost je merjena v MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15926,10 +15916,8 @@ msgstr ""
 "strong>. Primer: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
-msgstr "Prenesi datoteko"
+msgstr "Naloži datoteko"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -15951,10 +15939,8 @@ msgstr ""
 "Izberite iz mape za nalaganje na spletnem strežniku [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
-msgstr "Nobene datoteke ni za naložiti!"
+msgstr "Nobene datoteke ni za uvoziti!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15973,42 +15959,28 @@ msgstr ""
 "položaja %d."
 
 #: templates/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <em>(This might be a good way to import "
-#| "large files, however it can break transactions.)</em>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
 "Dovoli prekinitev uvoza v primeru, ko skript zazna, da je blizu časovne "
-"omejitve PHP. <em>(To je morda dober način za uvoz velikih datotek, čeprav "
-"lahko prekine transakcije.)</em>"
+"omejitve PHP."
 
 #: templates/import.twig:140
-#, fuzzy
-#| msgid ""
-#| "Allow interrupt of import in case script detects it is close to time "
-#| "limit. This might be a good way to import large files, however it can "
-#| "break transactions."
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Dovoli prekinitev uvoza v primeru, ko skript zazna, da je blizu časovne "
-"omejitve. To je morda dober način za uvoz velikih datotek, čeprav lahko "
-"prekine transakcije."
+"To je morda dober način za uvoz velikih datotek, čeprav lahko prekine "
+"transakcije."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Preskoči toliko poizvedb (za SQL), začenši s prvo:"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Druge možnosti:"
+msgstr "Druge možnosti"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:488
