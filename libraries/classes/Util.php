@@ -941,6 +941,7 @@ class Util
      * @param bool            $forceUnique     generate condition only on pk or unique
      * @param string|bool     $restrictToTable restrict the unique condition to this table or false if none
      * @param Expression[]    $expressions     An array of Expression instances.
+     * @psalm-param array<int, mixed> $row
      *
      * @return array the calculated condition and whether condition is unique
      */
