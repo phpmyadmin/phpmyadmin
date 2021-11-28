@@ -8564,8 +8564,7 @@
     <MixedReturnStatement occurrences="1">
       <code>SessionCache::get($cacheKey)</code>
     </MixedReturnStatement>
-    <NullableReturnStatement occurrences="2">
-      <code>$allowedTabs</code>
+    <NullableReturnStatement occurrences="1">
       <code>SessionCache::get($cacheKey)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
@@ -8574,9 +8573,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$allowedTabs[$tabName]</code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Message.php">
     <DocblockTypeContradiction occurrences="1">

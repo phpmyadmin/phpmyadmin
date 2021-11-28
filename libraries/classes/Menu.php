@@ -123,7 +123,7 @@ class Menu
             return SessionCache::get($cacheKey);
         }
 
-        $allowedTabs = Util::getMenuTabList($level);
+        $allowedTabs = Util::getMenuTabList($level) ?? [];
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->menuswork) {
             $groupTable = Util::backquote($relationParameters->db)
