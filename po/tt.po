@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-21 00:11+0000\n"
+"POT-Creation-Date: 2021-11-28 00:11+0000\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1264,9 +1264,9 @@ msgstr "Ezläw"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:459
+#: templates/display/results/table.twig:190
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
@@ -3060,7 +3060,7 @@ msgstr "Tüşämä eşkärtü"
 msgid "Maximum execution time"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:330
+#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:347
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Use %s statement"
@@ -3077,7 +3077,8 @@ msgid "Character set of the file"
 msgstr "Şul biremneñ bilgelämäse:"
 
 #: libraries/classes/Config/Descriptions.php:632
-#: libraries/classes/Config/Descriptions.php:648 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:648 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Tözeleş"
@@ -3107,7 +3108,7 @@ msgstr "Berençe yulda alannarnıñ iseme çığarası"
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:767
 #: libraries/classes/Config/Descriptions.php:773
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
@@ -3116,7 +3117,7 @@ msgstr "Alan yaptıruçı bilge"
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Config/Descriptions.php:768
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:677
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
@@ -3142,7 +3143,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Config/Descriptions.php:778
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
@@ -3150,7 +3151,7 @@ msgstr "Yul ara bilgese"
 
 #: libraries/classes/Config/Descriptions.php:640
 #: libraries/classes/Config/Descriptions.php:766
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
@@ -3265,8 +3266,8 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:675
-#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:172
-#: templates/export.twig:353
+#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "Birem bar bulsa, östän yazdırası"
 
@@ -3402,8 +3403,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:3
+#: templates/navigation/tree/database_select.twig:10
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
+#: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
 msgstr "Biremleklär"
@@ -3472,7 +3474,7 @@ msgstr "Serverlär"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
+#: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Tüşämä"
@@ -3618,7 +3620,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Descriptions.php:775
-#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr ""
@@ -3750,7 +3752,7 @@ msgstr "Biremlek saqlaw köyläneşe"
 
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1356
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Biremlek saqlaw köyläneşe"
@@ -4627,7 +4629,7 @@ msgstr ""
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
-#: templates/database/export/index.twig:24
+#: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -4639,7 +4641,7 @@ msgstr "Tözeleş"
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:321
-#: templates/database/export/index.twig:25
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -4688,8 +4690,8 @@ msgstr "Qullanma"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:270 templates/export.twig:8
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:270 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4716,7 +4718,8 @@ msgstr "LOAD DATA qullanıp CSV"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
 #: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
-#: templates/import.twig:32 templates/preferences/header.twig:48
+#: templates/import.twig:3 templates/import.twig:199
+#: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -5573,7 +5576,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: templates/export.twig:308
+#: templates/export.twig:324
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
@@ -5689,7 +5692,7 @@ msgid "Matched rows:"
 msgstr "Berketelgän bit"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:67
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -5739,8 +5742,8 @@ msgstr "Saylanğan qullanuçı beterü"
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:184
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
 #: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6051,7 +6054,7 @@ msgstr ""
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:392
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -6311,7 +6314,7 @@ msgid "Chart"
 msgstr "Bilgelämä"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: templates/export.twig:200
+#: templates/export.twig:210
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -6319,7 +6322,7 @@ msgid "Database"
 msgstr "Biremlek"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:283
-#: templates/export.twig:214
+#: templates/export.twig:224
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -6327,7 +6330,7 @@ msgid "Table"
 msgstr "Tüşämä"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
-#: templates/export.twig:227
+#: templates/export.twig:237
 #, fuzzy
 #| msgid "Column names"
 msgctxt "Alias"
@@ -6618,7 +6621,7 @@ msgstr "Yuq"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 #, fuzzy
 #| msgid "Disable foreign key checks"
@@ -6715,7 +6718,7 @@ msgstr "SQL-soraw"
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:38
+#: templates/display/results/table.twig:236 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -6988,7 +6991,7 @@ msgstr "Data pointer olılığı"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2017
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Qarama"
@@ -7373,7 +7376,7 @@ msgid "Hide panel"
 msgstr "Tezeşlär"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1359
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Biremlek saqlaw köyläneşe"
@@ -7607,7 +7610,7 @@ msgid "Table %s already exists!"
 msgstr "%s atlı tüşämä bar inde!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:336
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr ""
@@ -8561,7 +8564,7 @@ msgstr "Qaraş"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8671,46 +8674,46 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:401
-#: libraries/classes/Database/CentralColumns.php:617
+#: libraries/classes/Database/CentralColumns.php:295
+#: libraries/classes/Database/CentralColumns.php:403
+#: libraries/classes/Database/CentralColumns.php:619
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:353
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:369
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not add columns!"
 msgstr "Töp köyläneşen yökläp bulmadı: \"%1$s\""
 
-#: libraries/classes/Database/CentralColumns.php:453
+#: libraries/classes/Database/CentralColumns.php:455
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:466
+#: libraries/classes/Database/CentralColumns.php:468
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not remove columns!"
 msgstr "Töp köyläneşen yökläp bulmadı: \"%1$s\""
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "YES"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:548
+#: libraries/classes/Database/Designer/Common.php:544
 #, fuzzy
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -8724,63 +8727,63 @@ msgstr ""
 "Bäyläneştä torğan tüşämä belän eşläp bulmas, östämä eşli-alu sünek tora. Anı "
 "qabızu öçen, %sbonda çirtäse%s."
 
-#: libraries/classes/Database/Designer/Common.php:593
+#: libraries/classes/Database/Designer/Common.php:589
 #, fuzzy
 #| msgid "Table %s already exists!"
 msgid "Error: relationship already exists."
 msgstr "%s atlı tüşämä bar inde!"
 
-#: libraries/classes/Database/Designer/Common.php:647
+#: libraries/classes/Database/Designer/Common.php:643
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Üzgärtülär saqlandı"
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:651
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Birem uqıp bulmadı"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:670
-#: libraries/classes/Database/Designer/Common.php:757
+#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:753
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:694
+#: libraries/classes/Database/Designer/Common.php:690
 #, fuzzy
 msgid "Internal relationship has been added."
 msgstr "Eçke bäyläneş"
 
-#: libraries/classes/Database/Designer/Common.php:702
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Birem uqıp bulmadı"
 
-#: libraries/classes/Database/Designer/Common.php:739
+#: libraries/classes/Database/Designer/Common.php:735
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Üzgärtülär saqlandı"
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:743
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Birem uqıp bulmadı"
 
-#: libraries/classes/Database/Designer/Common.php:779
+#: libraries/classes/Database/Designer/Common.php:775
 #, fuzzy
 #| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Birem uqıp bulmadı"
 
-#: libraries/classes/Database/Designer/Common.php:785
+#: libraries/classes/Database/Designer/Common.php:781
 #, fuzzy
 msgid "Internal relationship has been removed."
 msgstr "Eçke bäyläneş"
@@ -8915,7 +8918,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Bu biremlektä ber genä dä tüşämä yuq."
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1117
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8923,23 +8926,23 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1164
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Töp köyläneşen yökläp bulmadı: \"%1$s\""
 
-#: libraries/classes/DatabaseInterface.php:1912
+#: libraries/classes/DatabaseInterface.php:1896
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Missing connection parameters!"
 msgstr "MySQL-totaşunıñ tezü cayı"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2415
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9211,7 +9214,7 @@ msgid ""
 "%2$s."
 msgstr "Bu biremlektä ber genä dä tüşämä yuq."
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9896,7 +9899,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
-#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
@@ -9955,7 +9958,7 @@ msgid ""
 "removed."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:352
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9963,7 +9966,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funksí"
 
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -9997,12 +10000,12 @@ msgstr "Funksí"
 msgid "Type"
 msgstr "Töre"
 
-#: libraries/classes/InsertEdit.php:734 templates/import.twig:77
-#: templates/import.twig:107
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
+#: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí."
 
-#: libraries/classes/InsertEdit.php:739
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10012,18 +10015,18 @@ msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí."
 msgid "Or"
 msgstr "Yä"
 
-#: libraries/classes/InsertEdit.php:740
+#: libraries/classes/InsertEdit.php:732
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "web-server'neñ yökläw törgäge"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1340 libraries/classes/Sql.php:979
 #, fuzzy
 msgid "Showing SQL query"
 msgstr "Tulı Sorawlar Kürsät"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1364 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -10244,25 +10247,25 @@ msgstr "Tüşämä"
 msgid "Views:"
 msgstr "Qaraş"
 
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:761
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:834
+#: libraries/classes/Navigation/NavigationTree.php:835
 #, fuzzy
 #| msgid "Column names"
 msgid "Groups"
 msgstr "Alan iseme"
 
-#: libraries/classes/Navigation/NavigationTree.php:947
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Collapse all"
 msgstr ""
 
@@ -10900,7 +10903,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
-#: templates/export.twig:108 templates/import.twig:196
+#: templates/export.twig:119
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -11594,59 +11597,59 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:102
-#: libraries/classes/Plugins/Import/ImportCsv.php:120
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:127
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:135
+#: libraries/classes/Plugins/Import/ImportCsv.php:134
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names:"
 msgstr "Alan iseme"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:273
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:272
+#: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:491
+#: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:686
+#: libraries/classes/Plugins/Import/ImportCsv.php:649
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:675
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV yökläweneñ yaraqsız köyläneşe: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:817
+#: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11728,13 +11731,13 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:593
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Bu tözeleşeneñ köyläneşe yuq"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:611
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
@@ -12317,11 +12320,11 @@ msgstr "Tüşämä adın üzgärtü"
 msgid "Saving export templates"
 msgstr "Çığaru ısulı"
 
-#: libraries/classes/Relation.php:1770
+#: libraries/classes/Relation.php:1774
 msgid "no description"
 msgstr "Açıqlamasız"
 
-#: libraries/classes/Relation.php:1981
+#: libraries/classes/Relation.php:1985
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12329,20 +12332,20 @@ msgid ""
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2135
+#: libraries/classes/Relation.php:2139
 #, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2142
+#: libraries/classes/Relation.php:2146
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2149
+#: libraries/classes/Relation.php:2153
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -13064,33 +13067,33 @@ msgstr "%s biremlegendä eşlätäse SQL-soraw"
 msgid "Run SQL query/queries on table %s"
 msgstr "%s biremlegendä eşlätäse SQL-soraw"
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:369
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Bu saqlaw engine öçen xälät turında centekle belem yuq."
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:473
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "Bu MySQL-serverdä %s digän saqlaw ısulı töp bularaq saylanğan."
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "Bu MySQL serverdä %s bar."
 
-#: libraries/classes/StorageEngine.php:476
+#: libraries/classes/StorageEngine.php:479
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "Bu MySQL serverdä %s sünderelgän bulğan."
 
-#: libraries/classes/StorageEngine.php:480
+#: libraries/classes/StorageEngine.php:483
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bu MySQL server %s saqlaw enginen totmí."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2141
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Bu töp açqıçnıñ adı \"PRIMARY\" bulırğa tieş!"
 
@@ -13140,20 +13143,20 @@ msgstr "%1$s atlı tüşämä adın %2$s itep üzgärtep bulmadı"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "\"%s\" tüşämäse \"%s\" itep ataldı"
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1827
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Töp köyläneşen yökläp bulmadı: \"%1$s\""
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1855
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1992
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13161,15 +13164,15 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2153
 msgid "Can't rename index to PRIMARY!"
 msgstr "Açqıçnı \"PRIMARY\" itep atap bulmí!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2179
 msgid "No index parts defined!"
 msgstr ""
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2476
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -14007,8 +14010,8 @@ msgstr "tüşämä adı"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:273
-#: templates/export.twig:287 templates/export.twig:301
+#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -14066,7 +14069,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:63 templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -14635,7 +14638,7 @@ msgid "Number of columns"
 msgstr "Alannar sanı"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Yarat"
@@ -14672,8 +14675,8 @@ msgid "No index defined!"
 msgstr "Açqıç bilgelänmäde!"
 
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/export/index.twig:29
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/database/export/index.twig:28
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -15071,7 +15074,7 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-#: templates/database/export/index.twig:62
+#: templates/database/export/index.twig:61
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
@@ -15087,6 +15090,18 @@ msgstr "Tulı Sorawlar Kürsät"
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
+msgstr "%s biremlegendä yaña tüşämä yaratu"
+
+#: templates/database/export/index.twig:30
+#, fuzzy
+#| msgid "Allows altering the structure of existing tables."
+msgid "Export the structure of all tables."
+msgstr "Biredä bulğan tüşämä tözeleşen üzgärtü xoquqı."
+
+#: templates/database/export/index.twig:33
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export the data of all tables."
 msgstr "%s biremlegendä yaña tüşämä yaratu"
 
 #: templates/database/import/index.twig:3
@@ -15196,7 +15211,7 @@ msgstr "Biremlek açıqlaması"
 msgid "Rename database to"
 msgstr "Biremlekne bolay atap quy"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 #, fuzzy
 #| msgid "database name"
 msgid "New database name"
@@ -15576,7 +15591,7 @@ msgstr "Süzlärne buşlıq bilgese belän ayırası (\" \")."
 msgid "Inside tables:"
 msgstr "Kiläse tüşämä eçendä:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 #, fuzzy
 #| msgid "Unselect All"
@@ -15934,7 +15949,7 @@ msgstr "Biremnär törgäge"
 msgid "Restore column order"
 msgstr "Add/Delete Field Columns"
 
-#: templates/display/results/table.twig:49 templates/export.twig:132
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 #, fuzzy
 #| msgid "Number of fields"
@@ -16049,154 +16064,166 @@ msgstr "Server ID'e"
 msgid "Send error report"
 msgstr "Server ID'e"
 
-#: templates/export/template_options.twig:1 templates/export.twig:30
+#: templates/export/template_options.twig:1 templates/export.twig:42
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "Tüşämä Saylaw"
 
-#: templates/export.twig:15
+#: templates/export.twig:14
 #, fuzzy
 msgid "Export templates:"
 msgstr "Çığaru ısulı"
 
-#: templates/export.twig:19
+#: templates/export.twig:18
 #, fuzzy
 #| msgid "File name template"
 msgid "New template:"
 msgstr "Birem adınıñ tözeleşe"
 
-#: templates/export.twig:20
+#: templates/export.twig:21 templates/export.twig:24
 #, fuzzy
 msgid "Template name"
 msgstr "tüşämä adı"
 
-#: templates/export.twig:27
+#: templates/export.twig:35
 #, fuzzy
 #| msgid "File name template"
 msgid "Existing templates:"
 msgstr "Birem adınıñ tözeleşe"
 
-#: templates/export.twig:28
+#: templates/export.twig:38
 #, fuzzy
 #| msgid "%s table(s)"
 msgid "Template:"
 msgstr "%s tüşämä"
 
-#: templates/export.twig:37
+#: templates/export.twig:51
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update"
 msgstr "Sorawnı Yañart"
 
-#: templates/export.twig:53
+#: templates/export.twig:72
 #, fuzzy
 msgid "Show SQL query"
 msgstr "Tulı Sorawlar Kürsät"
 
-#: templates/export.twig:86
+#: templates/export.twig:104
 #, fuzzy
 #| msgid "Export type"
 msgid "Export method:"
 msgstr "Çığaru ısulı"
 
-#: templates/export.twig:92
+#: templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr ""
 
-#: templates/export.twig:100
+#: templates/export.twig:112
 #, fuzzy
 msgid "Custom - display all possible options"
 msgstr "Biremlek saqlaw köyläneşe"
 
-#: templates/export.twig:124
+#: templates/export.twig:121
+#, fuzzy
+#| msgid "File to import"
+msgid "File format to export"
+msgstr "Yöklise birem"
+
+#: templates/export.twig:137
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "Kerem"
 
-#: templates/export.twig:129
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/export.twig:143
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/export.twig:152
+#: templates/export.twig:141
 msgid "Dump all rows"
 msgstr ""
 
-#: templates/export.twig:160 templates/export.twig:316
+#: templates/export.twig:145
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/export.twig:160
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr ""
 
-#: templates/export.twig:165 templates/export.twig:346
+#: templates/export.twig:175 templates/export.twig:370
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Serverneñ \"%s\" törgägendä saqla"
 
-#: templates/export.twig:183 templates/export.twig:321
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: templates/export.twig:191
+#: templates/export.twig:201
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:206 templates/export.twig:220
-#: templates/export.twig:233 templates/export.twig:250
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
 msgstr ""
 
-#: templates/export.twig:259
+#: templates/export.twig:269
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:264
+#: templates/export.twig:274
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "Tüşämä Saylaw"
 
-#: templates/export.twig:278
+#: templates/export.twig:290
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select table:"
 msgstr "Tüşämä Saylaw"
 
-#: templates/export.twig:284
+#: templates/export.twig:298
 #, fuzzy
 #| msgid "New table"
 msgid "New table name"
 msgstr "Berär genä dä tüşämä yuq"
 
-#: templates/export.twig:292
+#: templates/export.twig:306
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select column:"
 msgstr "Add/Delete Field Columns"
 
-#: templates/export.twig:298
+#: templates/export.twig:314
 #, fuzzy
 #| msgid "Column names"
 msgid "New column name"
 msgstr "Alan iseme"
 
-#: templates/export.twig:339
+#: templates/export.twig:356
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "Biremgä saqlıysı"
+
+#: templates/export.twig:360
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Biremgä saqlıysı"
 
-#: templates/export.twig:360
+#: templates/export.twig:387
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "Birem adınıñ tözeleşe"
 
-#: templates/export.twig:361
+#: templates/export.twig:388
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -16204,68 +16231,59 @@ msgid ""
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 
-#: templates/export.twig:366
-msgid "use this for future exports"
+#: templates/export.twig:398
+msgid "Use this for future exports"
 msgstr ""
 
-#: templates/export.twig:373 templates/import.twig:123
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "Şul biremneñ bilgelämäse:"
 
-#: templates/export.twig:389
+#: templates/export.twig:429
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "Qısu"
 
-#: templates/export.twig:396
+#: templates/export.twig:437
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "\"ziple\""
 
-#: templates/export.twig:402
+#: templates/export.twig:443
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "\"gziple\""
 
-#: templates/export.twig:417
+#: templates/export.twig:461
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export databases as separate files"
 msgstr "%s biremlegendä yaña tüşämä yaratu"
 
-#: templates/export.twig:419
+#: templates/export.twig:463
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
 msgstr "yatqırıp (başlıqlar almaşıp)"
 
-#: templates/export.twig:431
-#, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "Biremgä saqlıysı"
-
-#: templates/export.twig:437
-#, php-format
-msgid "Skip tables larger than %s MiB"
+#: templates/export.twig:474
+msgid "Skip tables larger than:"
 msgstr ""
 
-#: templates/export.twig:443 templates/import.twig:211
+#: templates/export.twig:476
+msgid "The size is measured in MiB."
+msgstr ""
+
+#: templates/export.twig:482 templates/import.twig:182
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Transformation options"
 
-#: templates/export.twig:445 templates/import.twig:213
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/export.twig:453 templates/import.twig:222
+#: templates/export.twig:491 templates/import.twig:191
 #, fuzzy
 msgid "Encoding Conversion:"
 msgstr "MySQL belän totaştırğıç söreme"
@@ -16621,85 +16639,92 @@ msgid ""
 "not available."
 msgstr ""
 
-#: templates/import.twig:38
+#: templates/import.twig:26
 #, fuzzy
 #| msgid "File to import"
 msgid "File to import:"
 msgstr "Yöklise birem"
 
-#: templates/import.twig:44
+#: templates/import.twig:31
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: templates/import.twig:46
+#: templates/import.twig:32
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
 
-#: templates/import.twig:56 templates/import.twig:89
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr ""
+#: templates/import.twig:40
+#, fuzzy
+#| msgid "Save as file"
+msgid "Upload a file"
+msgstr "Biremgä saqlıysı"
 
-#: templates/import.twig:61
-msgid "Browse your computer"
-msgstr ""
-
-#: templates/import.twig:67 templates/import.twig:100
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/import.twig:73 templates/import.twig:103
-#, fuzzy, php-format
-#| msgid "web server upload directory"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "web-server'neñ yökläw törgäge"
-
-#: templates/import.twig:79
+#: templates/import.twig:43
 #, fuzzy
 #| msgid "File to import"
 msgid "Select file to import"
 msgstr "Yöklise birem"
 
-#: templates/import.twig:84 templates/import.twig:114
+#: templates/import.twig:50 templates/import.twig:77
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr ""
+
+#: templates/import.twig:55 templates/import.twig:82
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/import.twig:62 templates/import.twig:88
+#, fuzzy, php-format
+#| msgid "web server upload directory"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "web-server'neñ yökläw törgäge"
+
+#: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
-msgid "There are no files to upload!"
+msgid "There are no files to import!"
 msgstr "Tüşämä tikşerü"
 
-#: templates/import.twig:117
+#: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: templates/import.twig:151
+#: templates/import.twig:126
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial import:"
 msgstr "Öleşçä yökläw"
 
-#: templates/import.twig:156
+#: templates/import.twig:131
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: templates/import.twig:163
+#: templates/import.twig:138
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+"to the PHP timeout limit."
 msgstr ""
 
-#: templates/import.twig:170
+#: templates/import.twig:140
+msgid ""
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+
+#: templates/import.twig:144
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Baştan ütep kitäse yazma sanı"
 
-#: templates/import.twig:187
+#: templates/import.twig:154
 #, fuzzy
-msgid "Other options:"
+msgid "Other options"
 msgstr "Eşkärtü"
 
 #: templates/indexes.twig:39
@@ -17519,7 +17544,7 @@ msgstr "Saqlaw Isulı"
 msgid "Unknown storage engine."
 msgstr "Saqlaw Isulı"
 
-#: templates/server/export/index.twig:32
+#: templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
 msgstr ""
 
@@ -17528,12 +17553,6 @@ msgstr ""
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Allows locking tables for the current thread."
-
-#: templates/server/export/index.twig:7
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "Biremleklär"
 
 #: templates/server/import/index.twig:3
 #, fuzzy
@@ -19859,6 +19878,11 @@ msgstr "Alan iseme"
 #| msgid "Change"
 msgid "Taking you to the target site."
 msgstr "Üzgärt"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Databases:"
+#~ msgstr "Biremleklär"
 
 #~ msgid "Print view"
 #~ msgstr "Bastıru küreneşe"

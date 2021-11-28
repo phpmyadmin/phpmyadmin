@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-21 00:11+0000\n"
+"POT-Creation-Date: 2021-11-28 00:11+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1438,9 +1438,9 @@ msgstr "Keresés:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:459
+#: templates/display/results/table.twig:190
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
@@ -3357,7 +3357,7 @@ msgstr "Többtáblás karbantartás letiltása"
 msgid "Maximum execution time"
 msgstr "Végrehajtási idő legfeljebb"
 
-#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:330
+#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:347
 #, php-format
 msgid "Use %s statement"
 msgstr "%s utasítás használata"
@@ -3372,7 +3372,8 @@ msgid "Character set of the file"
 msgstr "A fájl karakterkészlete"
 
 #: libraries/classes/Config/Descriptions.php:632
-#: libraries/classes/Config/Descriptions.php:648 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:648 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Formátum"
@@ -3400,14 +3401,14 @@ msgstr "A mezőneveket tegye az első sorba"
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:767
 #: libraries/classes/Config/Descriptions.php:773
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns enclosed with"
 msgstr "Oszlopok körbezárása ezzel"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Config/Descriptions.php:768
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
 msgstr "Oszlopok escape-elése ezzel"
 
@@ -3429,13 +3430,13 @@ msgstr "A mezőkben lévő CRLF karakterek eltávolítása"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Config/Descriptions.php:778
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
 msgid "Columns terminated with"
 msgstr "Oszlopok végződése ezzel"
 
 #: libraries/classes/Config/Descriptions.php:640
 #: libraries/classes/Config/Descriptions.php:766
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
 msgstr "Sorok végződése ezzel"
 
@@ -3537,8 +3538,8 @@ msgid "Save on server"
 msgstr "Mentés a kiszolgálón"
 
 #: libraries/classes/Config/Descriptions.php:675
-#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:172
-#: templates/export.twig:353
+#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "A létező fájl(ok) felülírása"
 
@@ -3667,8 +3668,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:3
+#: templates/navigation/tree/database_select.twig:10
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
+#: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
 msgstr "Adatbázisok"
@@ -3732,7 +3734,7 @@ msgstr "Kiszolgálók"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
+#: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Tábla"
@@ -3860,7 +3862,7 @@ msgstr "Részleges importálás: a megszakítás engedélyezése"
 
 #: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Descriptions.php:775
-#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "Ne legyen megszakítás INSERT hiba esetén"
@@ -3981,7 +3983,7 @@ msgstr "Navigációs keret"
 
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1356
 msgid "Link with main panel"
 msgstr "Hozzákapcsolás a fő panelhez"
 
@@ -4771,7 +4773,7 @@ msgstr "Egyedi"
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
-#: templates/database/export/index.twig:24
+#: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -4783,7 +4785,7 @@ msgstr "Szerkezet"
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:321
-#: templates/database/export/index.twig:25
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -4828,8 +4830,8 @@ msgstr "Open Document szöveges dokumentum"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:270 templates/export.twig:8
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:270 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4856,7 +4858,8 @@ msgstr "CSV a LOAD DATA használatával"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
 #: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
-#: templates/import.twig:32 templates/preferences/header.twig:48
+#: templates/import.twig:3 templates/import.twig:199
+#: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -5792,7 +5795,7 @@ msgstr ""
 "alakítani az adatokat?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: templates/export.twig:308
+#: templates/export.twig:324
 msgid "Save & close"
 msgstr "Mentés és bezárás"
 
@@ -5882,7 +5885,7 @@ msgid "Matched rows:"
 msgstr "Illeszkedő sorok:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL lekérdezés:"
 
@@ -5926,8 +5929,8 @@ msgstr "A kijelölt felhasználók törlése"
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:184
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
 #: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6210,7 +6213,7 @@ msgstr "Legalább egy változót adjon meg a sorozathoz!"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:392
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -6460,19 +6463,19 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: templates/export.twig:200
+#: templates/export.twig:210
 msgctxt "Alias"
 msgid "Database"
 msgstr "Adatbázis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:283
-#: templates/export.twig:214
+#: templates/export.twig:224
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tábla"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
-#: templates/export.twig:227
+#: templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
 msgstr "Oszlop"
@@ -6736,7 +6739,7 @@ msgstr "Nem"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Idegen kulcsok ellenőrzésének engedélyezése"
@@ -6822,7 +6825,7 @@ msgstr "Lekérdezési doboz megjelenítése"
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:38
+#: templates/display/results/table.twig:236 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -7078,7 +7081,7 @@ msgstr "Adatmutató tartalma"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2017
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Kihagyás"
@@ -7440,7 +7443,7 @@ msgid "Hide panel"
 msgstr "Panel elrejtése"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1359
 msgid "Unlink from main panel"
 msgstr "Eltávolítás a fő panelről"
 
@@ -7670,7 +7673,7 @@ msgid "Table %s already exists!"
 msgstr "Már létezik %s nevű tábla!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:336
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Elrejtés"
@@ -8728,7 +8731,7 @@ msgstr "Nézet"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8829,9 +8832,9 @@ msgstr "A nézet neve nem lehet üres!"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "A %s kiterjesztés hiányzik. Kérem ellenőrizze a PHP beállításokat."
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:401
-#: libraries/classes/Database/CentralColumns.php:617
+#: libraries/classes/Database/CentralColumns.php:295
+#: libraries/classes/Database/CentralColumns.php:403
+#: libraries/classes/Database/CentralColumns.php:619
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -8839,17 +8842,17 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:353
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 "Nem sikerült a(z) %1$s hozzáadása, mivel már léteznek a központi listában!"
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:369
 msgid "Could not add columns!"
 msgstr "Nem sikerült oszlopokat hozzáadni!"
 
-#: libraries/classes/Database/CentralColumns.php:453
+#: libraries/classes/Database/CentralColumns.php:455
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -8857,19 +8860,19 @@ msgstr ""
 "Nem sikerült a(z) %1$s oszlopok eltávolítása, mivel nem léteznek a központi "
 "oszlopok listájában!"
 
-#: libraries/classes/Database/CentralColumns.php:466
+#: libraries/classes/Database/CentralColumns.php:468
 msgid "Could not remove columns!"
 msgstr "Nem sikerült oszlopokat eltávolítani!"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "YES"
 msgstr "IGEN"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "NO"
 msgstr "NEM"
 
-#: libraries/classes/Database/Designer/Common.php:548
+#: libraries/classes/Database/Designer/Common.php:544
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -8883,48 +8886,48 @@ msgstr ""
 "A beállítástároló nem áll készen az oszlopok központi listája "
 "szolgáltatáshoz."
 
-#: libraries/classes/Database/Designer/Common.php:593
+#: libraries/classes/Database/Designer/Common.php:589
 msgid "Error: relationship already exists."
 msgstr "Hiba: a kapcsolat már létezik."
 
-#: libraries/classes/Database/Designer/Common.php:647
+#: libraries/classes/Database/Designer/Common.php:643
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Az IDEGEN KULCS kapcsolat hozzáadása megtörtént."
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:651
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni az IDEGEN KULCS kapcsolatot!"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr "Hiba: hiányzó index az oszlopokról."
 
-#: libraries/classes/Database/Designer/Common.php:670
-#: libraries/classes/Database/Designer/Common.php:757
+#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:753
 msgid "Error: Relational features are disabled!"
 msgstr "Hiba: a relációs szolgáltatások le vannak tiltva!"
 
-#: libraries/classes/Database/Designer/Common.php:694
+#: libraries/classes/Database/Designer/Common.php:690
 msgid "Internal relationship has been added."
 msgstr "A belső kapcsolat hozzáadása megtörtént."
 
-#: libraries/classes/Database/Designer/Common.php:702
+#: libraries/classes/Database/Designer/Common.php:698
 msgid "Error: Internal relationship could not be added!"
 msgstr "Hiba: nem sikerült hozzáadni a belső kapcsolatot!"
 
-#: libraries/classes/Database/Designer/Common.php:739
+#: libraries/classes/Database/Designer/Common.php:735
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Az IDEGEN KULCS kapcsolat eltávolítása megtörtént."
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:743
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani az IDEGEN KULCS kapcsolatot!"
 
-#: libraries/classes/Database/Designer/Common.php:779
+#: libraries/classes/Database/Designer/Common.php:775
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Hiba: nem sikerült eltávolítani a belső kapcsolatot!"
 
-#: libraries/classes/Database/Designer/Common.php:785
+#: libraries/classes/Database/Designer/Common.php:781
 msgid "Internal relationship has been removed."
 msgstr "A belső kapcsolat eltávolítása megtörtént."
 
@@ -9048,7 +9051,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban."
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1117
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9065,21 +9068,21 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1164
 msgid "Failed to set configured collation connection!"
 msgstr "Nem sikerült beállítani a beállított egyeztetés kapcsolatot!"
 
-#: libraries/classes/DatabaseInterface.php:1912
+#: libraries/classes/DatabaseInterface.php:1896
 msgid "Missing connection parameters!"
 msgstr "Hiányzó kapcsolat paraméterek!"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: libraries/classes/DatabaseInterface.php:2415
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "További információkért nézze meg a %sdokumentációnkat%s."
@@ -9315,7 +9318,7 @@ msgid ""
 "%2$s."
 msgstr "Nem található %1$s nevű eseményindító a(z) %2$s adatbázisban."
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "A szerver kényszerít az SSL kapcsolódásra, automatikusan engedélyezem."
 
@@ -10010,7 +10013,7 @@ msgstr "Szerkezet szerkesztése a „Szerkezet” hivatkozást követve."
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
-#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
@@ -10070,7 +10073,7 @@ msgstr ""
 "A(z) %1$s és a(z) %2$s egyenlőnek tűnik, és egyikük valószínűleg "
 "eltávolítható."
 
-#: libraries/classes/InsertEdit.php:352
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10078,7 +10081,7 @@ msgstr ""
 msgid "Function"
 msgstr "Függvény"
 
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -10112,12 +10115,12 @@ msgstr "Függvény"
 msgid "Type"
 msgstr "Típus"
 
-#: libraries/classes/InsertEdit.php:734 templates/import.twig:77
-#: templates/import.twig:107
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
+#: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Nem elérhető a feltöltésekhez megadott könyvtár."
 
-#: libraries/classes/InsertEdit.php:739
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10127,15 +10130,15 @@ msgstr "Nem elérhető a feltöltésekhez megadott könyvtár."
 msgid "Or"
 msgstr "Vagy"
 
-#: libraries/classes/InsertEdit.php:740
+#: libraries/classes/InsertEdit.php:732
 msgid "web server upload directory:"
 msgstr "webszerver feltöltési könyvtár:"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1340 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1364 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -10342,7 +10345,7 @@ msgstr "Tábla:"
 msgid "Views:"
 msgstr "Nézetek:"
 
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:761
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10351,20 +10354,20 @@ msgstr ""
 "teljesítményre. Fontolja meg az elemcsoportosítás letiltását a navigációs "
 "panelen."
 
-#: libraries/classes/Navigation/NavigationTree.php:834
+#: libraries/classes/Navigation/NavigationTree.php:835
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Csoportok:"
 
-#: libraries/classes/Navigation/NavigationTree.php:947
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s eredmény található"
 msgstr[1] "%s eredmény található"
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Collapse all"
 msgstr "Összes összecsukása"
 
@@ -11024,7 +11027,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
-#: templates/export.twig:108 templates/import.twig:196
+#: templates/export.twig:119
 msgid "Format:"
 msgstr "Formátum:"
 
@@ -11650,20 +11653,20 @@ msgstr ""
 "Adatok frissítése, ha kettőzött kulcsok találhatók importáláskor (ON "
 "DUPLICATE KEY UPDATE hozzáadása)"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:102
-#: libraries/classes/Plugins/Import/ImportCsv.php:120
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -11672,7 +11675,7 @@ msgstr ""
 "A fájl első sora tartalmazza a tábla oszlopneveit <i>(ha ez nincs "
 "kiválasztva, az első sor az adat része lesz)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:127
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11682,32 +11685,32 @@ msgstr ""
 "mint az adatbázisban, a megfelelő oszlopneveket listázza itt. Az "
 "oszlopneveket vesszővel kell elválasztani, nem idézőjellel."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:135
+#: libraries/classes/Plugins/Import/ImportCsv.php:134
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "Oszlopnevek: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:273
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:272
+#: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "A CSV bevitel %d. sorában a formázás érvénytelen."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:491
+#: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Érvénytelen oszlopszám a CSV bemenet %d. sorában."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:686
+#: libraries/classes/Plugins/Import/ImportCsv.php:649
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:675
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "A CSV importálás paramétere érvénytelen: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:817
+#: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11788,11 +11791,11 @@ msgstr "Ne használja az <code>AUTO_INCREMENT</code>-et nulla értékekhez"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:593
 msgid "This format has no options"
 msgstr "Ennek a formátumnak nincsenek beállításai"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:611
 msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
@@ -12360,11 +12363,11 @@ msgstr "Emlékezzen a tervező beállításaira"
 msgid "Saving export templates"
 msgstr "Exportsablonok mentése"
 
-#: libraries/classes/Relation.php:1770
+#: libraries/classes/Relation.php:1774
 msgid "no description"
 msgstr "nincs leírás"
 
-#: libraries/classes/Relation.php:1981
+#: libraries/classes/Relation.php:1985
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12375,7 +12378,7 @@ msgstr ""
 "létrehozásához. El kellene mennie bármelyik adatbázis „Műveletek” lapjára, "
 "hogy ott beállítsa a phpMyAdmin beállítástárolóját."
 
-#: libraries/classes/Relation.php:2135
+#: libraries/classes/Relation.php:2139
 #, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
@@ -12384,13 +12387,13 @@ msgstr ""
 "%sHozzon létre%s egy „%s” nevű adatbázist, és állítsa be ott a phpMyAdmin "
 "beállítástárolóját."
 
-#: libraries/classes/Relation.php:2142
+#: libraries/classes/Relation.php:2146
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "A phpMyAdmin beállítástároló %slétrehozása%s a jelenlegi adatbázisban."
 
-#: libraries/classes/Relation.php:2149
+#: libraries/classes/Relation.php:2153
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "Hiányzó phpMyAdmin beállítástároló táblák %slétrehozása%s."
@@ -13088,34 +13091,34 @@ msgstr "SQL lekérdezés(ek) futtatása a(z) %s adatbázison"
 msgid "Run SQL query/queries on table %s"
 msgstr "SQL lekérdezés(ek) futtatása a(z) %s táblán"
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:369
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Erről a tárolómotorról részletes állapot-információ nem áll rendelkezésre."
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:473
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "Ezen a MySQL kiszolgálón a(z) %s az alapértelmezett tárolómotor."
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "A(z) %s elérhető ezen a MySQL kiszolgálón."
 
-#: libraries/classes/StorageEngine.php:476
+#: libraries/classes/StorageEngine.php:479
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "A(z) %s le lett tiltva ezen a MySQL kiszolgálón."
 
-#: libraries/classes/StorageEngine.php:480
+#: libraries/classes/StorageEngine.php:483
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ez a MySQL kiszolgáló nem támogatja a(z) %s tárolómotort."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2141
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Az elsődleges kulcs nevének \"PRIMARY\"-nak kell lennie!"
 
@@ -13156,11 +13159,11 @@ msgstr "Hiba történt a(z) %1$s tábla %2$s névre történő átnevezésekor!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A(z) %1$s tábla átnevezése %2$s névre megtörtént."
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1827
 msgid "Could not save table UI preferences!"
 msgstr "Nem sikerült elmenteni a tábla UI beállításait!"
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1855
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13169,7 +13172,7 @@ msgstr ""
 "Tábla UI beállításainak tisztítása sikertelen (lásd $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1992
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13179,15 +13182,15 @@ msgstr ""
 "\"%s\" UI érték mentése sikertelen. A változtatás az oldal frissítése után "
 "nem jelenik meg. Ellenőrizze, hogy a tábla struktúrája megváltozott-e."
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2153
 msgid "Can't rename index to PRIMARY!"
 msgstr "Nem nevezhető át PRIMARY-re az index!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2179
 msgid "No index parts defined!"
 msgstr "Nincs meghatározott indexrész!"
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2476
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -14027,8 +14030,8 @@ msgstr "Tábla neve"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:273
-#: templates/export.twig:287 templates/export.twig:301
+#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Hozzáadás"
 
@@ -14076,7 +14079,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:63 templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -14547,7 +14550,7 @@ msgid "Number of columns"
 msgstr "Oszlopok száma"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Létrehozás"
@@ -14584,8 +14587,8 @@ msgid "No index defined!"
 msgstr "Nincs meghatározott index!"
 
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/export/index.twig:29
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/database/export/index.twig:28
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -14921,7 +14924,7 @@ msgstr "BE"
 msgid "OFF"
 msgstr "KI"
 
-#: templates/database/export/index.twig:62
+#: templates/database/export/index.twig:61
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -14940,6 +14943,18 @@ msgstr "Megjelenítés SQL lekérdezésként"
 #, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr "Táblák exportálása a \"%s\" adatbázisból"
+
+#: templates/database/export/index.twig:30
+#, fuzzy
+#| msgid "Allows altering the structure of existing tables."
+msgid "Export the structure of all tables."
+msgstr "Engedélyezi a létező táblák szerkezetének megváltoztatását."
+
+#: templates/database/export/index.twig:33
+#, fuzzy
+#| msgid "Export views as tables"
+msgid "Export the data of all tables."
+msgstr "Nézetek exportálása táblaként"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15046,7 +15061,7 @@ msgstr "Adatbázis megjegyzés"
 msgid "Rename database to"
 msgstr "Adatbázis átnevezése"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 msgid "New database name"
 msgstr "Új adatbázis neve"
 
@@ -15390,7 +15405,7 @@ msgstr "A szavak elválasztása szóköz karakterrel (\" \")."
 msgid "Inside tables:"
 msgstr "Belső táblák:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Összes kijelölésének megszüntetése"
@@ -15704,7 +15719,7 @@ msgstr "A módosított adatok mentése"
 msgid "Restore column order"
 msgstr "Oszlopsorrend visszaállítása"
 
-#: templates/display/results/table.twig:49 templates/export.twig:132
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Sorok száma:"
@@ -15811,132 +15826,142 @@ msgstr "Hibajelentés beküldése"
 msgid "Send error report"
 msgstr "Hibajelentés küldése"
 
-#: templates/export/template_options.twig:1 templates/export.twig:30
+#: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
 msgstr "Válasszon egy sablont"
 
-#: templates/export.twig:15
+#: templates/export.twig:14
 msgid "Export templates:"
 msgstr "Sablonok exportálása:"
 
-#: templates/export.twig:19
+#: templates/export.twig:18
 msgid "New template:"
 msgstr "Új sablon:"
 
-#: templates/export.twig:20
+#: templates/export.twig:21 templates/export.twig:24
 msgid "Template name"
 msgstr "Sablon neve"
 
-#: templates/export.twig:27
+#: templates/export.twig:35
 msgid "Existing templates:"
 msgstr "Meglévő sablonok:"
 
-#: templates/export.twig:28
+#: templates/export.twig:38
 msgid "Template:"
 msgstr "Sablon:"
 
-#: templates/export.twig:37
+#: templates/export.twig:51
 msgid "Update"
 msgstr "Frissítés"
 
-#: templates/export.twig:53
+#: templates/export.twig:72
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: templates/export.twig:86
+#: templates/export.twig:104
 msgid "Export method:"
 msgstr "Exportálás módja:"
 
-#: templates/export.twig:92
+#: templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr "Gyors - csak minimális opció megjelenítése"
 
-#: templates/export.twig:100
+#: templates/export.twig:112
 msgid "Custom - display all possible options"
 msgstr "Egyedi - minden lehetséges opció megjelenítése"
 
-#: templates/export.twig:124
+#: templates/export.twig:121
+#, fuzzy
+#| msgid "File to import:"
+msgid "File format to export"
+msgstr "Az importálandó fájl:"
+
+#: templates/export.twig:137
 msgid "Rows:"
 msgstr "Sorok:"
 
-#: templates/export.twig:129
-msgid "Dump some row(s)"
-msgstr "Néhány sor kiírása"
-
-#: templates/export.twig:143
-msgid "Row to begin at:"
-msgstr "Ettől a sortól kezdve:"
-
-#: templates/export.twig:152
+#: templates/export.twig:141
 msgid "Dump all rows"
 msgstr "Összes sor kiírása"
 
-#: templates/export.twig:160 templates/export.twig:316
+#: templates/export.twig:145
+msgid "Dump some row(s)"
+msgstr "Néhány sor kiírása"
+
+#: templates/export.twig:160
+msgid "Row to begin at:"
+msgstr "Ettől a sortól kezdve:"
+
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "Kimenet:"
 
-#: templates/export.twig:165 templates/export.twig:346
+#: templates/export.twig:175 templates/export.twig:370
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Mentés a kiszolgáló <b>%s</b> könyvtárába"
 
-#: templates/export.twig:183 templates/export.twig:321
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr "Az exportált adatbázisok / táblák / oszlopok átnevezése"
 
-#: templates/export.twig:191
+#: templates/export.twig:201
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:206 templates/export.twig:220
-#: templates/export.twig:233 templates/export.twig:250
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "Távoli szerver"
 
-#: templates/export.twig:259
+#: templates/export.twig:269
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:264
+#: templates/export.twig:274
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "Adatbázis kiválasztása"
 
-#: templates/export.twig:278
+#: templates/export.twig:290
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "Tábla kiválasztása"
 
-#: templates/export.twig:284
+#: templates/export.twig:298
 msgid "New table name"
 msgstr "Új tábla neve"
 
-#: templates/export.twig:292
+#: templates/export.twig:306
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "Válasszon egy oszlopot."
 
-#: templates/export.twig:298
+#: templates/export.twig:314
 msgid "New column name"
 msgstr "Új oszlopnév"
 
-#: templates/export.twig:339
+#: templates/export.twig:356
+msgid "View output as text"
+msgstr "A kimenet megtekintése szövegként"
+
+#: templates/export.twig:360
 msgid "Save output to a file"
 msgstr "A kimenet mentése fájlként"
 
-#: templates/export.twig:360
+#: templates/export.twig:387
 msgid "File name template:"
 msgstr "Fájlnévsablon:"
 
-#: templates/export.twig:361
+#: templates/export.twig:388
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -15953,57 +15978,51 @@ msgstr ""
 "átalakításokra kerül sor: %3$s. Más szöveg eredeti állapotában kerül "
 "megtartásra. Tekintse meg a %4$sFAQ%5$s oldalt a részletekért."
 
-#: templates/export.twig:366
-msgid "use this for future exports"
+#: templates/export.twig:398
+#, fuzzy
+#| msgid "use this for future exports"
+msgid "Use this for future exports"
 msgstr "használja ezt a későbbi exportálásokhoz"
 
-#: templates/export.twig:373 templates/import.twig:123
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "A fájl karakterkészlete:"
 
-#: templates/export.twig:389
+#: templates/export.twig:429
 msgid "Compression:"
 msgstr "Tömörítés:"
 
-#: templates/export.twig:396
+#: templates/export.twig:437
 msgid "zipped"
 msgstr "zip-elve"
 
-#: templates/export.twig:402
+#: templates/export.twig:443
 msgid "gzipped"
 msgstr "gzip-elve"
 
-#: templates/export.twig:417
+#: templates/export.twig:461
 msgid "Export databases as separate files"
 msgstr "Adatbázisok exportálása különálló fájlokként"
 
-#: templates/export.twig:419
+#: templates/export.twig:463
 msgid "Export tables as separate files"
 msgstr "Táblák exportálása különálló fájlokként"
 
-#: templates/export.twig:431
-msgid "View output as text"
-msgstr "A kimenet megtekintése szövegként"
-
-#: templates/export.twig:437
-#, fuzzy, php-format
+#: templates/export.twig:474
+#, fuzzy
 #| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
+msgid "Skip tables larger than:"
 msgstr "Táblák kihagyása, amelyek nagyobbak mint"
 
-#: templates/export.twig:443 templates/import.twig:211
+#: templates/export.twig:476
+msgid "The size is measured in MiB."
+msgstr ""
+
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr "Formátum specifikus opciók:"
 
-#: templates/export.twig:445 templates/import.twig:213
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Görgessen lefelé, hogy kitöltse a kijelölt formátumhoz tartozó beállításokat "
-"és hogy figyelmen kívül hagyja a más formátumokhoz tartozó beállításokat."
-
-#: templates/export.twig:453 templates/import.twig:222
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr "Karakterkódolás-átalakítás:"
 
@@ -16332,16 +16351,16 @@ msgstr ""
 "Kis türelmet kérünk, a fájl feltöltése folyamatban van. A feltöltés "
 "részletei nem elérhetők."
 
-#: templates/import.twig:38
+#: templates/import.twig:26
 msgid "File to import:"
 msgstr "Az importálandó fájl:"
 
-#: templates/import.twig:44
+#: templates/import.twig:31
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "A fájl lehet tömörített (%s) vagy tömörítetlen."
 
-#: templates/import.twig:46
+#: templates/import.twig:32
 #, fuzzy
 #| msgid ""
 #| "A compressed file's name must end in <b>.[format].[compression]</b>. "
@@ -16353,46 +16372,48 @@ msgstr ""
 "A tömörített fájl nevének <b>.[formátum].[tömörítés]</b> végződésűnek kell "
 "lennie. Például: <b>.sql.zip</b>"
 
-#: templates/import.twig:56 templates/import.twig:89
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "Számítógép tallózása:"
-
-#: templates/import.twig:61
+#: templates/import.twig:40
 #, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "Számítógép tallózása:"
+#| msgid "Download file"
+msgid "Upload a file"
+msgstr "Fájl letöltése"
 
-#: templates/import.twig:67 templates/import.twig:100
-msgid "You may also drag and drop a file on any page."
-msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
-
-#: templates/import.twig:73 templates/import.twig:103
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Válasszon a webkiszolgáló feltöltési könyvtárából <b> %s </b>:"
-
-#: templates/import.twig:79
+#: templates/import.twig:43
 #, fuzzy
 #| msgid "File to import:"
 msgid "Select file to import"
 msgstr "Az importálandó fájl:"
 
-#: templates/import.twig:84 templates/import.twig:114
-msgid "There are no files to upload!"
+#: templates/import.twig:50 templates/import.twig:77
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "Számítógép tallózása:"
+
+#: templates/import.twig:55 templates/import.twig:82
+msgid "You may also drag and drop a file on any page."
+msgstr "Továbbá behúzhat és beejthet egy fájlt bármely oldalra."
+
+#: templates/import.twig:62 templates/import.twig:88
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "Válasszon a webkiszolgáló feltöltési könyvtárából <b> %s </b>:"
+
+#: templates/import.twig:69 templates/import.twig:96
+#, fuzzy
+#| msgid "There are no files to upload!"
+msgid "There are no files to import!"
 msgstr "Nincsenek feltöltendő fájlok!"
 
-#: templates/import.twig:117
+#: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
 msgstr "A fájlfeltöltések nem engedélyezettek ezen a kiszolgálón."
 
-#: templates/import.twig:151
+#: templates/import.twig:126
 msgid "Partial import:"
 msgstr "Részleges importálás:"
 
-#: templates/import.twig:156
+#: templates/import.twig:131
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -16400,7 +16421,7 @@ msgstr ""
 "Az előző importálás időtúllépés miatt leállt, újraküldés után a(z) %d "
 "pozíciótól folytatódik."
 
-#: templates/import.twig:163
+#: templates/import.twig:138
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -16408,19 +16429,34 @@ msgstr ""
 #| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+"to the PHP timeout limit."
 msgstr ""
 "Az importálás megszakításának engedélyezése, ha a parancsfájl észleli, hogy "
 "közel van a PHP időkorlát leteltéhez. <i>(Nagy fájlok importálásakor jól "
 "jöhet, azonban meg tudja szakítani a tranzakciót.)</i>"
 
-#: templates/import.twig:170
+#: templates/import.twig:140
+#, fuzzy
+#| msgid ""
+#| "Allow interrupt of import in case script detects it is close to time "
+#| "limit. This might be a good way to import large files, however it can "
+#| "break transactions."
+msgid ""
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+"Az importálás megszakításának engedélyezése, ha a parancsfájl megállapítása "
+"szerint közel van az időkorláthoz. Ez a nagy fájlok importálásának lehet jó "
+"módja, azonban megszakíthatja a tranzakciókat."
+
+#: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Ennyi számú lekérdezés (SQL esetén) kihagyása az elsőtől kezdve:"
 
-#: templates/import.twig:187
-msgid "Other options:"
+#: templates/import.twig:154
+#, fuzzy
+#| msgid "Other options:"
+msgid "Other options"
 msgstr "Egyéb beállítások:"
 
 #: templates/indexes.twig:39
@@ -17174,7 +17210,7 @@ msgstr "Tárolómotor"
 msgid "Unknown storage engine."
 msgstr "Tárolómotorok"
 
-#: templates/server/export/index.twig:32
+#: templates/server/export/index.twig:26
 #, fuzzy
 #| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
@@ -17183,10 +17219,6 @@ msgstr "@SERVER@ lesz a kiszolgáló neve"
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
 msgstr "Adatbázisok exportálása a jelenlegi kiszolgálóról"
-
-#: templates/server/export/index.twig:7
-msgid "Databases:"
-msgstr "Adatbázisok:"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -19382,6 +19414,22 @@ msgstr "Oszlopnevek"
 msgid "Taking you to the target site."
 msgstr "Átvitel a céloldalra."
 
+#~ msgid ""
+#~ "Scroll down to fill in the options for the selected format and ignore the "
+#~ "options for other formats."
+#~ msgstr ""
+#~ "Görgessen lefelé, hogy kitöltse a kijelölt formátumhoz tartozó "
+#~ "beállításokat és hogy figyelmen kívül hagyja a más formátumokhoz tartozó "
+#~ "beállításokat."
+
+#, fuzzy
+#~| msgid "Browse your computer:"
+#~ msgid "Browse your computer"
+#~ msgstr "Számítógép tallózása:"
+
+#~ msgid "Databases:"
+#~ msgstr "Adatbázisok:"
+
 #~ msgid "Print view"
 #~ msgstr "Nyomtatási nézet"
 
@@ -21270,9 +21318,6 @@ msgstr "Átvitel a céloldalra."
 
 #~ msgid "View video"
 #~ msgstr "Videó megtekintése"
-
-#~ msgid "Download file"
-#~ msgstr "Fájl letöltése"
 
 #~ msgid "Could not open file: %s"
 #~ msgstr "Nem lehetett megnyitni a %s fájlt"

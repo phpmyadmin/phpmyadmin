@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-21 00:11+0000\n"
+"POT-Creation-Date: 2021-11-28 00:11+0000\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1277,9 +1277,9 @@ msgstr "Търсене:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:459
+#: templates/display/results/table.twig:190
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
@@ -3154,7 +3154,7 @@ msgstr "Забрана на избора на много таблици за п�
 msgid "Maximum execution time"
 msgstr "Максимално време за изпълнение"
 
-#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:330
+#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:347
 #, php-format
 msgid "Use %s statement"
 msgstr "Използване на израз %s"
@@ -3169,7 +3169,8 @@ msgid "Character set of the file"
 msgstr "Знаков набор на файла"
 
 #: libraries/classes/Config/Descriptions.php:632
-#: libraries/classes/Config/Descriptions.php:648 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:648 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Формат"
@@ -3197,14 +3198,14 @@ msgstr "Поставяне имената на полетата в първи р
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:767
 #: libraries/classes/Config/Descriptions.php:773
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns enclosed with"
 msgstr "Колоните са оградени от"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Config/Descriptions.php:768
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
 msgstr "Колоните са избегнати с"
 
@@ -3226,13 +3227,13 @@ msgstr "Премахване CRLF знаци от колони"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Config/Descriptions.php:778
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
 msgid "Columns terminated with"
 msgstr "Колоните завършват с"
 
 #: libraries/classes/Config/Descriptions.php:640
 #: libraries/classes/Config/Descriptions.php:766
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
 msgstr "Редовете завършват с"
 
@@ -3336,8 +3337,8 @@ msgid "Save on server"
 msgstr "Запазване на сървъра"
 
 #: libraries/classes/Config/Descriptions.php:675
-#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:172
-#: templates/export.twig:353
+#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "Презаписване на съществуващите файл(ове)"
 
@@ -3467,8 +3468,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:3
+#: templates/navigation/tree/database_select.twig:10
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
+#: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
 msgstr "БД"
@@ -3532,7 +3534,7 @@ msgstr "Сървъри"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
+#: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Таблици"
@@ -3660,7 +3662,7 @@ msgstr "Частичен импорт: позволява прекъсване"
 
 #: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Descriptions.php:775
-#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr ""
@@ -3779,7 +3781,7 @@ msgstr "Ширина на навигационния панел"
 
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1356
 msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
@@ -4613,7 +4615,7 @@ msgstr "Потребителски"
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
-#: templates/database/export/index.twig:24
+#: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -4625,7 +4627,7 @@ msgstr "Структура"
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:321
-#: templates/database/export/index.twig:25
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -4674,8 +4676,8 @@ msgstr "Open Document Text"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:270 templates/export.twig:8
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:270 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4702,7 +4704,8 @@ msgstr "CSV с LOAD DATA"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
 #: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
-#: templates/import.twig:32 templates/preferences/header.twig:48
+#: templates/import.twig:3 templates/import.twig:199
+#: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -5576,7 +5579,7 @@ msgstr ""
 "преобразувате данните?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: templates/export.twig:308
+#: templates/export.twig:324
 msgid "Save & close"
 msgstr "Запис & Затваряне"
 
@@ -5666,7 +5669,7 @@ msgid "Matched rows:"
 msgstr "Съвпадащи редове:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL заявка:"
 
@@ -5708,8 +5711,8 @@ msgstr "Изтриване на маркираните потребители"
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:184
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
 #: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -5992,7 +5995,7 @@ msgstr "Моля добавете поне една променлива към 
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:392
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -6239,19 +6242,19 @@ msgid "Chart"
 msgstr "Диаграма"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: templates/export.twig:200
+#: templates/export.twig:210
 msgctxt "Alias"
 msgid "Database"
 msgstr "База Данни"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:283
-#: templates/export.twig:214
+#: templates/export.twig:224
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблица"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
-#: templates/export.twig:227
+#: templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
 msgstr "Колона"
@@ -6510,7 +6513,7 @@ msgstr "Не"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Включване на проверките за външен ключ"
@@ -6593,7 +6596,7 @@ msgstr "Показване формата за заявки"
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:38
+#: templates/display/results/table.twig:236 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -6850,7 +6853,7 @@ msgstr "Съдържание на точката с данни"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2017
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Игнориране"
@@ -7208,7 +7211,7 @@ msgid "Hide panel"
 msgstr "Скриване на панела"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1359
 msgid "Unlink from main panel"
 msgstr "Премахване от главния панел"
 
@@ -7437,7 +7440,7 @@ msgid "Table %s already exists!"
 msgstr "Таблица %s вече съществува!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:336
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Скриване"
@@ -8373,7 +8376,7 @@ msgstr "Изглед"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8481,25 +8484,25 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Разширението %s липсва. Проверете конфигурацията на PHP."
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:401
-#: libraries/classes/Database/CentralColumns.php:617
+#: libraries/classes/Database/CentralColumns.php:295
+#: libraries/classes/Database/CentralColumns.php:403
+#: libraries/classes/Database/CentralColumns.php:619
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr "Конфигурационното хранилище не е готово за централен списък на колони."
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:353
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 "%1$s не може да се добави, тъй като вече съществува в централния списък!"
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:369
 msgid "Could not add columns!"
 msgstr "Колона неможе да бъде добавена!"
 
-#: libraries/classes/Database/CentralColumns.php:453
+#: libraries/classes/Database/CentralColumns.php:455
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -8507,19 +8510,19 @@ msgstr ""
 "Колона(ите) %1$s не можаха да бъдат премахнати, тъй като те не съществуват в "
 "списъка с централни колони!"
 
-#: libraries/classes/Database/CentralColumns.php:466
+#: libraries/classes/Database/CentralColumns.php:468
 msgid "Could not remove columns!"
 msgstr "Колоните немога да бъдат изтрити!"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "YES"
 msgstr "Да"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "NO"
 msgstr "НЕ"
 
-#: libraries/classes/Database/Designer/Common.php:548
+#: libraries/classes/Database/Designer/Common.php:544
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -8529,56 +8532,56 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
-#: libraries/classes/Database/Designer/Common.php:593
+#: libraries/classes/Database/Designer/Common.php:589
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Грешка: Релацията вече съществува."
 
-#: libraries/classes/Database/Designer/Common.php:647
+#: libraries/classes/Database/Designer/Common.php:643
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:651
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Грешка: Не може да бъде добавена релация FOREIGN KEY !"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:670
-#: libraries/classes/Database/Designer/Common.php:757
+#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:753
 msgid "Error: Relational features are disabled!"
 msgstr "Грешка: Релацията е изключена!"
 
-#: libraries/classes/Database/Designer/Common.php:694
+#: libraries/classes/Database/Designer/Common.php:690
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Добавена е вътрешна релация"
 
-#: libraries/classes/Database/Designer/Common.php:702
+#: libraries/classes/Database/Designer/Common.php:698
 msgid "Error: Internal relationship could not be added!"
 msgstr "Грешка: Вътрешната релация не може да бъде добавена!"
 
-#: libraries/classes/Database/Designer/Common.php:739
+#: libraries/classes/Database/Designer/Common.php:735
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY релация е добавена"
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:743
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Грешка: Не може да бъде премахната връзката FOREIGN KEY!"
 
-#: libraries/classes/Database/Designer/Common.php:779
+#: libraries/classes/Database/Designer/Common.php:775
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Грешка: Вътрешната релация не можа да бъде премахната!"
 
-#: libraries/classes/Database/Designer/Common.php:785
+#: libraries/classes/Database/Designer/Common.php:781
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -8709,7 +8712,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Няма събитие с име %1$s в БД %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1117
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8717,20 +8720,20 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1164
 msgid "Failed to set configured collation connection!"
 msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
-#: libraries/classes/DatabaseInterface.php:1912
+#: libraries/classes/DatabaseInterface.php:1896
 msgid "Missing connection parameters!"
 msgstr "Липсват свързващи параметри!"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1921
 #, fuzzy
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Грешка при указване на свръзка за controluser в конфигурацията."
 
-#: libraries/classes/DatabaseInterface.php:2415
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -8976,7 +8979,7 @@ msgid ""
 "%2$s."
 msgstr "Няма тригер с име %1$s в БД %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -9618,7 +9621,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
-#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
@@ -9676,7 +9679,7 @@ msgstr ""
 "Индексите %1$s и %2$s изглеждат равнозначни и един от двата вероятно може да "
 "бъде премахнат."
 
-#: libraries/classes/InsertEdit.php:352
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9684,7 +9687,7 @@ msgstr ""
 msgid "Function"
 msgstr "Функция"
 
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -9718,12 +9721,12 @@ msgstr "Функция"
 msgid "Type"
 msgstr "Тип"
 
-#: libraries/classes/InsertEdit.php:734 templates/import.twig:77
-#: templates/import.twig:107
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
+#: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Папката, която сте указали за качване е недостъпна."
 
-#: libraries/classes/InsertEdit.php:739
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -9733,15 +9736,15 @@ msgstr "Папката, която сте указали за качване е 
 msgid "Or"
 msgstr "Или"
 
-#: libraries/classes/InsertEdit.php:740
+#: libraries/classes/InsertEdit.php:732
 msgid "web server upload directory:"
 msgstr "директория за качване на уеб сървър:"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1340 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "Показване на SQL заявкa"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1364 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -9947,26 +9950,26 @@ msgstr "Таблици:"
 msgid "Views:"
 msgstr "Изгледи:"
 
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:761
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:834
+#: libraries/classes/Navigation/NavigationTree.php:835
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups"
 msgstr "Имена на колони: "
 
-#: libraries/classes/Navigation/NavigationTree.php:947
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Collapse all"
 msgstr ""
 
@@ -10609,7 +10612,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
-#: templates/export.twig:108 templates/import.twig:196
+#: templates/export.twig:119
 msgid "Format:"
 msgstr "Формат:"
 
@@ -11244,57 +11247,57 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:102
-#: libraries/classes/Plugins/Import/ImportCsv.php:120
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:127
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:135
+#: libraries/classes/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
 msgstr "Имена на колони:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:273
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:272
+#: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:491
+#: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:686
+#: libraries/classes/Plugins/Import/ImportCsv.php:649
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:675
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:817
+#: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11370,11 +11373,11 @@ msgstr "Да не се използва <code>AUTO_INCREMENT</code> за нул�
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:593
 msgid "This format has no options"
 msgstr "Този формат няма опции"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:611
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
@@ -11945,11 +11948,11 @@ msgstr "Запомняне сортирането на таблици"
 msgid "Saving export templates"
 msgstr "Невалиден тип експорт"
 
-#: libraries/classes/Relation.php:1770
+#: libraries/classes/Relation.php:1774
 msgid "no description"
 msgstr "няма описание"
 
-#: libraries/classes/Relation.php:1981
+#: libraries/classes/Relation.php:1985
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11957,7 +11960,7 @@ msgid ""
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2135
+#: libraries/classes/Relation.php:2139
 #, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
@@ -11966,14 +11969,14 @@ msgstr ""
 "%sСъздаване%s на база данни с име \"%s\" и настройване на конфигурацията на "
 "phpMyAdmin да бъде запазена там."
 
-#: libraries/classes/Relation.php:2142
+#: libraries/classes/Relation.php:2146
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 "%sСъздаване%s на phpMyAdmin конфигурационно хранилище в текущата база данни."
 
-#: libraries/classes/Relation.php:2149
+#: libraries/classes/Relation.php:2153
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -12709,33 +12712,33 @@ msgstr "Изпълнение на SQL заявка/заявки към БД %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Изпълнение на SQL заявка/заявки към БД %s"
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:369
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Няма детайлна информация за състоянието на това хранилище на данни."
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:473
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s е хранилището на данни по подразбиране на този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s е разрешен на този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:476
+#: libraries/classes/StorageEngine.php:479
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s е забранено за този MySQL сървър."
 
-#: libraries/classes/StorageEngine.php:480
+#: libraries/classes/StorageEngine.php:483
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Този MySQL сървър не поддържа хранилището на данни %s."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2141
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Името на първичния ключ трябва да е \"PRIMARY\"!"
 
@@ -12776,11 +12779,11 @@ msgstr "Грешка при преименуване на таблица %1$s в
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1827
 msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена!"
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1855
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12789,7 +12792,7 @@ msgstr ""
 "Неуспех при почистването на предпочитанията за потребителския интерфейс на "
 "таблицата (вижте $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1992
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12800,15 +12803,15 @@ msgstr ""
 "Извършените промени няма да бъдат устойчиви, след като опресните тази "
 "страница. Моля, проверете дали структурата на таблицата е променена."
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2153
 msgid "Can't rename index to PRIMARY!"
 msgstr "Индексът не може да бъде преименуван на PRIMARY!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2179
 msgid "No index parts defined!"
 msgstr "Не са дефинирани части на индекс!"
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2476
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13603,8 +13606,8 @@ msgstr "Име на таблица"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:273
-#: templates/export.twig:287 templates/export.twig:301
+#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Добави"
 
@@ -13654,7 +13657,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:63 templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -14153,7 +14156,7 @@ msgid "Number of columns"
 msgstr "Брой колони"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Създаване"
@@ -14188,8 +14191,8 @@ msgid "No index defined!"
 msgstr "Не е избран индекс!"
 
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/export/index.twig:29
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/database/export/index.twig:28
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -14556,7 +14559,7 @@ msgstr "Вкл."
 msgid "OFF"
 msgstr "Изкл."
 
-#: templates/database/export/index.twig:62
+#: templates/database/export/index.twig:61
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -14573,6 +14576,18 @@ msgstr ""
 #, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr "Експорт на таблици от БД \"%s\""
+
+#: templates/database/export/index.twig:30
+#, fuzzy
+#| msgid "Allows altering the structure of existing tables."
+msgid "Export the structure of all tables."
+msgstr "Позволява промяна на структурата на съществуващи таблици."
+
+#: templates/database/export/index.twig:33
+#, fuzzy
+#| msgid "Export views as tables"
+msgid "Export the data of all tables."
+msgstr "Експортиране на изгледи (views) като таблици"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14677,7 +14692,7 @@ msgstr "Коментар към БД"
 msgid "Rename database to"
 msgstr "Преименуване БД на"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 msgid "New database name"
 msgstr "Ново име на БД"
 
@@ -15013,7 +15028,7 @@ msgstr "Думите трябва да се разделят с интервал
 msgid "Inside tables:"
 msgstr "В таблици:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Размаркиране всички"
@@ -15341,7 +15356,7 @@ msgstr "Съхраняване на редактираните данни"
 msgid "Restore column order"
 msgstr "Възстановяване на подредбата на колоните"
 
-#: templates/display/results/table.twig:49 templates/export.twig:132
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Брой редове:"
@@ -15443,140 +15458,150 @@ msgstr "Представи доклад за грешка"
 msgid "Send error report"
 msgstr "Изпрати доклад за грешка"
 
-#: templates/export/template_options.twig:1 templates/export.twig:30
+#: templates/export/template_options.twig:1 templates/export.twig:42
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "Избор на таблици"
 
-#: templates/export.twig:15
+#: templates/export.twig:14
 msgid "Export templates:"
 msgstr "Експортиране на шаблони:"
 
-#: templates/export.twig:19
+#: templates/export.twig:18
 #, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
 msgstr "Шаблон на файловото име:"
 
-#: templates/export.twig:20
+#: templates/export.twig:21 templates/export.twig:24
 #, fuzzy
 #| msgid "Table name"
 msgid "Template name"
 msgstr "Име на таблица"
 
-#: templates/export.twig:27
+#: templates/export.twig:35
 #, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
 msgstr "Шаблон на файловото име:"
 
-#: templates/export.twig:28
+#: templates/export.twig:38
 msgid "Template:"
 msgstr ""
 
-#: templates/export.twig:37
+#: templates/export.twig:51
 #, fuzzy
 #| msgid "Updated"
 msgid "Update"
 msgstr "Актуализиран"
 
-#: templates/export.twig:53
+#: templates/export.twig:72
 #, fuzzy
 #| msgid "Show SQL queries"
 msgid "Show SQL query"
 msgstr "Показване на SQL заявките"
 
-#: templates/export.twig:86
+#: templates/export.twig:104
 msgid "Export method:"
 msgstr "Метод за експортиране:"
 
-#: templates/export.twig:92
+#: templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr "Бързо - минимум настройки"
 
-#: templates/export.twig:100
+#: templates/export.twig:112
 msgid "Custom - display all possible options"
 msgstr "Потребителско - всички настройки"
 
-#: templates/export.twig:124
+#: templates/export.twig:121
+#, fuzzy
+#| msgid "File to Import:"
+msgid "File format to export"
+msgstr "Файл за импортиране:"
+
+#: templates/export.twig:137
 msgid "Rows:"
 msgstr "Редове:"
 
-#: templates/export.twig:129
-msgid "Dump some row(s)"
-msgstr "Схема на ред(ове)"
-
-#: templates/export.twig:143
-msgid "Row to begin at:"
-msgstr "Ред започва от:"
-
-#: templates/export.twig:152
+#: templates/export.twig:141
 msgid "Dump all rows"
 msgstr "Схема на всички редове"
 
-#: templates/export.twig:160 templates/export.twig:316
+#: templates/export.twig:145
+msgid "Dump some row(s)"
+msgstr "Схема на ред(ове)"
+
+#: templates/export.twig:160
+msgid "Row to begin at:"
+msgstr "Ред започва от:"
+
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "Изход:"
 
-#: templates/export.twig:165 templates/export.twig:346
+#: templates/export.twig:175 templates/export.twig:370
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Записване на сървъра в директория <b>%s</b>"
 
-#: templates/export.twig:183 templates/export.twig:321
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: templates/export.twig:191
+#: templates/export.twig:201
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:206 templates/export.twig:220
-#: templates/export.twig:233 templates/export.twig:250
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "Отдалечен сървър"
 
-#: templates/export.twig:259
+#: templates/export.twig:269
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:264
+#: templates/export.twig:274
 msgid "Select database:"
 msgstr "Изберете база данни:"
 
-#: templates/export.twig:278
+#: templates/export.twig:290
 msgid "Select table:"
 msgstr "Изберете таблица:"
 
-#: templates/export.twig:284
+#: templates/export.twig:298
 #, fuzzy
 #| msgid "New page name: "
 msgid "New table name"
 msgstr "Име: "
 
-#: templates/export.twig:292
+#: templates/export.twig:306
 msgid "Select column:"
 msgstr "Изберете колона:"
 
-#: templates/export.twig:298
+#: templates/export.twig:314
 #, fuzzy
 #| msgid "Copy column name"
 msgid "New column name"
 msgstr "Копиране името на колоната"
 
-#: templates/export.twig:339
+#: templates/export.twig:356
+msgid "View output as text"
+msgstr "Показване на изхода като текст"
+
+#: templates/export.twig:360
 msgid "Save output to a file"
 msgstr "Запазване на изхода във файл"
 
-#: templates/export.twig:360
+#: templates/export.twig:387
 msgid "File name template:"
 msgstr "Шаблон на файловото име:"
 
-#: templates/export.twig:361
+#: templates/export.twig:388
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -15584,58 +15609,53 @@ msgid ""
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 
-#: templates/export.twig:366
-msgid "use this for future exports"
+#: templates/export.twig:398
+#, fuzzy
+#| msgid "use this for future exports"
+msgid "Use this for future exports"
 msgstr "прилагане и към бъдещи експорти"
 
-#: templates/export.twig:373 templates/import.twig:123
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "Знаков набор на файла:"
 
-#: templates/export.twig:389
+#: templates/export.twig:429
 msgid "Compression:"
 msgstr "Компресия:"
 
-#: templates/export.twig:396
+#: templates/export.twig:437
 msgid "zipped"
 msgstr "zip-нато"
 
-#: templates/export.twig:402
+#: templates/export.twig:443
 msgid "gzipped"
 msgstr "gzip-нато"
 
-#: templates/export.twig:417
+#: templates/export.twig:461
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export databases as separate files"
 msgstr "Експортиране на редове от таблица \"%s\""
 
-#: templates/export.twig:419
+#: templates/export.twig:463
 #, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "Експортиране заглавки на таблици"
 
-#: templates/export.twig:431
-msgid "View output as text"
-msgstr "Показване на изхода като текст"
-
-#: templates/export.twig:437
-#, php-format
-msgid "Skip tables larger than %s MiB"
+#: templates/export.twig:474
+msgid "Skip tables larger than:"
 msgstr ""
 
-#: templates/export.twig:443 templates/import.twig:211
+#: templates/export.twig:476
+msgid "The size is measured in MiB."
+msgstr ""
+
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr "Специфични настройки:"
 
-#: templates/export.twig:445 templates/import.twig:213
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/export.twig:453 templates/import.twig:222
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr ""
 
@@ -15956,18 +15976,18 @@ msgid ""
 "not available."
 msgstr "Файлът се качва, бъдете търпеливи. Не са налични повече подробности."
 
-#: templates/import.twig:38
+#: templates/import.twig:26
 #, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "Файл за импортиране:"
 
-#: templates/import.twig:44
+#: templates/import.twig:31
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "Файлът може да е компресиран (%s) или некомпресиран."
 
-#: templates/import.twig:46
+#: templates/import.twig:32
 #, fuzzy
 #| msgid ""
 #| "A compressed file's name must end in <b>.[format].[compression]</b>. "
@@ -15979,64 +15999,75 @@ msgstr ""
 "Компресираният файл трябва да завършва на <b>.[format].[compression]</b>. "
 "Например: <b>.sql.zip</b>"
 
-#: templates/import.twig:56 templates/import.twig:89
+#: templates/import.twig:40
+#, fuzzy
+#| msgid "Download file"
+msgid "Upload a file"
+msgstr "Изтегляне файл"
+
+#: templates/import.twig:43
+msgid "Select file to import"
+msgstr "Изберете файл за импорт"
+
+#: templates/import.twig:50 templates/import.twig:77
 #: templates/preferences/manage/main.twig:22
 msgid "Browse your computer:"
 msgstr "Разглеждане на компютъра:"
 
-#: templates/import.twig:61
-msgid "Browse your computer"
-msgstr "Във вашия компютър"
-
-#: templates/import.twig:67 templates/import.twig:100
+#: templates/import.twig:55 templates/import.twig:82
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: templates/import.twig:73 templates/import.twig:103
+#: templates/import.twig:62 templates/import.twig:88
 #, fuzzy, php-format
 #| msgid "Select from the web server upload directory <b>%s</b>:"
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Избор от директорията за качване <b>%s</b>:"
 
-#: templates/import.twig:79
-msgid "Select file to import"
-msgstr "Изберете файл за импорт"
-
-#: templates/import.twig:84 templates/import.twig:114
-msgid "There are no files to upload!"
+#: templates/import.twig:69 templates/import.twig:96
+#, fuzzy
+#| msgid "There are no files to upload!"
+msgid "There are no files to import!"
 msgstr "Няма файлве за качване!"
 
-#: templates/import.twig:117
+#: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
 msgstr "На този сървър не е позволени качване на файлове."
 
-#: templates/import.twig:151
+#: templates/import.twig:126
 #, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "Частично импортиране:"
 
-#: templates/import.twig:156
+#: templates/import.twig:131
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: templates/import.twig:163
+#: templates/import.twig:138
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+"to the PHP timeout limit."
 msgstr ""
 
-#: templates/import.twig:170
+#: templates/import.twig:140
+msgid ""
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+
+#: templates/import.twig:144
 #, fuzzy
 #| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Брой редове, които да бъдат пропуснати от началото:"
 
-#: templates/import.twig:187
-msgid "Other options:"
+#: templates/import.twig:154
+#, fuzzy
+#| msgid "Other options:"
+msgid "Other options"
 msgstr "Други опции:"
 
 #: templates/indexes.twig:39
@@ -16796,7 +16827,7 @@ msgstr "Хранилище"
 msgid "Unknown storage engine."
 msgstr "Хранилища на данни"
 
-#: templates/server/export/index.twig:32
+#: templates/server/export/index.twig:26
 #, fuzzy
 #| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
@@ -16805,10 +16836,6 @@ msgstr "@SERVER@ ще стане името на сървъра"
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
 msgstr "Експорт на БД от текущия сървър"
-
-#: templates/server/export/index.twig:7
-msgid "Databases:"
-msgstr "Бази данни:"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -19070,6 +19097,12 @@ msgstr "Име на колона"
 msgid "Taking you to the target site."
 msgstr "Към следващата стъпка…"
 
+#~ msgid "Browse your computer"
+#~ msgstr "Във вашия компютър"
+
+#~ msgid "Databases:"
+#~ msgstr "Бази данни:"
+
 #~ msgid "Print view"
 #~ msgstr "Преглед за печат"
 
@@ -20680,9 +20713,6 @@ msgstr "Към следващата стъпка…"
 
 #~ msgid "View video"
 #~ msgstr "Преглеждане видео"
-
-#~ msgid "Download file"
-#~ msgstr "Изтегляне файл"
 
 #~ msgid "Could not open file: %s"
 #~ msgstr "Файлът %s не може да бъде отворен"

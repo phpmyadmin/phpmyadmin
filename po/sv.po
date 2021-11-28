@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-21 00:11+0000\n"
+"POT-Creation-Date: 2021-11-28 00:11+0000\n"
 "PO-Revision-Date: 2021-09-24 12:38+0000\n"
 "Last-Translator: Edward wahnström <edward.wahnstrom@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1420,9 +1420,9 @@ msgstr "Sök:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:459
+#: templates/display/results/table.twig:190
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
@@ -3394,7 +3394,7 @@ msgstr "Inaktivera underhåll av multipla tabeller"
 msgid "Maximum execution time"
 msgstr "Maximal exekveringstid"
 
-#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:330
+#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:347
 #, php-format
 msgid "Use %s statement"
 msgstr "Använd %s uttalande"
@@ -3409,7 +3409,8 @@ msgid "Character set of the file"
 msgstr "Filens teckenuppsättning"
 
 #: libraries/classes/Config/Descriptions.php:632
-#: libraries/classes/Config/Descriptions.php:648 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:648 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Format"
@@ -3437,14 +3438,14 @@ msgstr "Sätt kolumnnamn på första raden"
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:767
 #: libraries/classes/Config/Descriptions.php:773
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns enclosed with"
 msgstr "Kolumner omges av"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Config/Descriptions.php:768
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
 msgstr "Specialtecken i fält föregås av"
 
@@ -3466,13 +3467,13 @@ msgstr "Ta bort CRLF-tecken i kolumner"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Config/Descriptions.php:778
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
 msgid "Columns terminated with"
 msgstr "Kolumner avslutas med"
 
 #: libraries/classes/Config/Descriptions.php:640
 #: libraries/classes/Config/Descriptions.php:766
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
 msgstr "Rader avslutas med"
 
@@ -3576,8 +3577,8 @@ msgid "Save on server"
 msgstr "Spara på server"
 
 #: libraries/classes/Config/Descriptions.php:675
-#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:172
-#: templates/export.twig:353
+#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "Skriv över befintlig(a) fil(er)"
 
@@ -3706,8 +3707,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:3
+#: templates/navigation/tree/database_select.twig:10
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
+#: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
 msgstr "Databaser"
@@ -3771,7 +3773,7 @@ msgstr "Servrar"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
+#: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "Tabeller"
@@ -3899,7 +3901,7 @@ msgstr "Partiell import: tillåt avbrott"
 
 #: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Descriptions.php:775
-#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "Avbryt inte vid INSERT-fel"
@@ -4019,7 +4021,7 @@ msgstr "Navigationspanel"
 
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1356
 msgid "Link with main panel"
 msgstr "Länka med huvudpanelen"
 
@@ -4811,7 +4813,7 @@ msgstr "Anpassad"
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
-#: templates/database/export/index.twig:24
+#: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -4823,7 +4825,7 @@ msgstr "Struktur"
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:321
-#: templates/database/export/index.twig:25
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -4868,8 +4870,8 @@ msgstr "OpenDocument-text"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:270 templates/export.twig:8
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:270 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4896,7 +4898,8 @@ msgstr "CSV med LOAD DATA"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
 #: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
-#: templates/import.twig:32 templates/preferences/header.twig:48
+#: templates/import.twig:3 templates/import.twig:199
+#: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -5806,7 +5809,7 @@ msgstr ""
 "data?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: templates/export.twig:308
+#: templates/export.twig:324
 msgid "Save & close"
 msgstr "Avsluta och Spara"
 
@@ -5896,7 +5899,7 @@ msgid "Matched rows:"
 msgstr "Matchande rader:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL-fråga:"
 
@@ -5938,8 +5941,8 @@ msgstr "Tar bort valda användare"
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:184
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
 #: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6222,7 +6225,7 @@ msgstr "Lägg till minst en variabel till serien!"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:392
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -6468,7 +6471,7 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: templates/export.twig:200
+#: templates/export.twig:210
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -6476,7 +6479,7 @@ msgid "Database"
 msgstr "Databas"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:283
-#: templates/export.twig:214
+#: templates/export.twig:224
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -6484,7 +6487,7 @@ msgid "Table"
 msgstr "Tabell"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
-#: templates/export.twig:227
+#: templates/export.twig:237
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -6742,7 +6745,7 @@ msgstr "Nej"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Aktivera kontroll av främmande nycklar"
@@ -6826,7 +6829,7 @@ msgstr "Visa frågerutan"
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:38
+#: templates/display/results/table.twig:236 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -7076,7 +7079,7 @@ msgstr "Innehåll för datapunkt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2017
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ignorera"
@@ -7439,7 +7442,7 @@ msgid "Hide panel"
 msgstr "Dölj Panel"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1359
 msgid "Unlink from main panel"
 msgstr "Avlänka från huvudpanelen"
 
@@ -7668,7 +7671,7 @@ msgid "Table %s already exists!"
 msgstr "Tabell %s finns redan!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:336
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Dölj"
@@ -8721,7 +8724,7 @@ msgstr "Vy"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8823,9 +8826,9 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Tillägget %s saknas. Vänligen kontrollera din PHP-konfiguration."
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:401
-#: libraries/classes/Database/CentralColumns.php:617
+#: libraries/classes/Database/CentralColumns.php:295
+#: libraries/classes/Database/CentralColumns.php:403
+#: libraries/classes/Database/CentralColumns.php:619
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -8833,17 +8836,17 @@ msgstr ""
 "Konfigurationen lagring är inte redo för den centrala listan över kolumner "
 "funktionen."
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:353
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 "Det gick inte att lägga till %1$s eftersom de redan finns i centrala lista!"
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:369
 msgid "Could not add columns!"
 msgstr "Kunde inte lägga till kolumner!"
 
-#: libraries/classes/Database/CentralColumns.php:453
+#: libraries/classes/Database/CentralColumns.php:455
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -8851,19 +8854,19 @@ msgstr ""
 "Det gick inte att ta bort kolumn/er %1$s eftersom de inte finns i "
 "huvudförteckning kolumner!"
 
-#: libraries/classes/Database/CentralColumns.php:466
+#: libraries/classes/Database/CentralColumns.php:468
 msgid "Could not remove columns!"
 msgstr "Kunde inte ta bort kolumner!"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "YES"
 msgstr "JA"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "NO"
 msgstr "NEJ"
 
-#: libraries/classes/Database/Designer/Common.php:548
+#: libraries/classes/Database/Designer/Common.php:544
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -8877,56 +8880,56 @@ msgstr ""
 "Konfigurationen lagring är inte redo för den centrala listan över kolumner "
 "funktionen."
 
-#: libraries/classes/Database/Designer/Common.php:593
+#: libraries/classes/Database/Designer/Common.php:589
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Fel: Relation finns redan."
 
-#: libraries/classes/Database/Designer/Common.php:647
+#: libraries/classes/Database/Designer/Common.php:643
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Främmande nyckel-relation har lagts till."
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:651
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Fel: Främmande nyckel-relation kunde inte läggas till!"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr "Fel: Saknade index på kolumn/erna."
 
-#: libraries/classes/Database/Designer/Common.php:670
-#: libraries/classes/Database/Designer/Common.php:757
+#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:753
 msgid "Error: Relational features are disabled!"
 msgstr "Fel: Relationella funktioner är inaktiverade!"
 
-#: libraries/classes/Database/Designer/Common.php:694
+#: libraries/classes/Database/Designer/Common.php:690
 #, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Intern relation har lagts till."
 
-#: libraries/classes/Database/Designer/Common.php:702
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Fel: Interna relationen kunde inte läggas till!"
 
-#: libraries/classes/Database/Designer/Common.php:739
+#: libraries/classes/Database/Designer/Common.php:735
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Främmande nyckel-relation har tagits bort."
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:743
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Fel: Främmande nyckel-relation kunde inte tas bort!"
 
-#: libraries/classes/Database/Designer/Common.php:779
+#: libraries/classes/Database/Designer/Common.php:775
 #, fuzzy
 #| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Fel: Intern relationen kunde inte läggas till!"
 
-#: libraries/classes/Database/Designer/Common.php:785
+#: libraries/classes/Database/Designer/Common.php:781
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
@@ -9053,7 +9056,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Ingen händelse med namnet %1$s hittades i databasen %2$s"
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1117
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9070,22 +9073,22 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin för närvarande används "
 "standardtidszonen på databasservern."
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1164
 msgid "Failed to set configured collation connection!"
 msgstr "Kunde inte applicera den konfigurerade sorteringsanslutningen!"
 
-#: libraries/classes/DatabaseInterface.php:1912
+#: libraries/classes/DatabaseInterface.php:1896
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "Saknade parametrar:"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Uppkoppling för kontrollanvändare enligt din konfiguration misslyckades."
 
-#: libraries/classes/DatabaseInterface.php:2415
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Se %sdokumentationen%s för mer information."
@@ -9328,7 +9331,7 @@ msgid ""
 "%2$s."
 msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -10015,7 +10018,7 @@ msgstr "Redigera strukturen genom att följa länken \"Struktur\"."
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
-#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
@@ -10075,7 +10078,7 @@ msgstr ""
 "Index %1$s och %2$s verkar vara identiska och ett av dem kan möjligen tas "
 "bort."
 
-#: libraries/classes/InsertEdit.php:352
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10083,7 +10086,7 @@ msgstr ""
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -10117,12 +10120,12 @@ msgstr "Funktion"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/InsertEdit.php:734 templates/import.twig:77
-#: templates/import.twig:107
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
+#: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
-#: libraries/classes/InsertEdit.php:739
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10132,15 +10135,15 @@ msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 msgid "Or"
 msgstr "Eller"
 
-#: libraries/classes/InsertEdit.php:740
+#: libraries/classes/InsertEdit.php:732
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1340 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1364 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -10345,7 +10348,7 @@ msgstr "Tabeller:"
 msgid "Views:"
 msgstr "Vyer:"
 
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:761
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10353,20 +10356,20 @@ msgstr ""
 "Det finns stora artikelgrupper i navigeringspanelen som kan påverka "
 "prestanda. Överväga att inaktivera objektgruppering i navigeringspanelen."
 
-#: libraries/classes/Navigation/NavigationTree.php:834
+#: libraries/classes/Navigation/NavigationTree.php:835
 #, fuzzy
 #| msgid "Groups:"
 msgid "Groups"
 msgstr "Grupper:"
 
-#: libraries/classes/Navigation/NavigationTree.php:947
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s resultat hittat"
 msgstr[1] "%s resultat hittade"
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Collapse all"
 msgstr "Dölj alla"
 
@@ -11011,7 +11014,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
-#: templates/export.twig:108 templates/import.twig:196
+#: templates/export.twig:119
 msgid "Format:"
 msgstr "Format:"
 
@@ -11642,20 +11645,20 @@ msgstr ""
 "Uppdatera data när dublettnyckel hittas vid import (tillägg 'ON DUPLICATE "
 "KEY UPDATE')"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:102
-#: libraries/classes/Plugins/Import/ImportCsv.php:120
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -11664,7 +11667,7 @@ msgstr ""
 "Den första raden i filen innehåller tabellens kolumnnamn <i>(om detta inte "
 "är markerat, kommer den första raden bli en del av uppgifterna)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:127
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11674,32 +11677,32 @@ msgstr ""
 "lista motsvarande kolumnnamn här. Kolumnnamn måste vara åtskilda med "
 "kommatecken och inte inneslutna i citattecken."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:135
+#: libraries/classes/Plugins/Import/ImportCsv.php:134
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "Kolumnnamn: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:273
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:272
+#: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ogiltigt format i CSV-indata på rad %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:491
+#: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:686
+#: libraries/classes/Plugins/Import/ImportCsv.php:649
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:675
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Ogiltig parameter för CSV-import: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:817
+#: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11779,11 +11782,11 @@ msgstr "Använd inte <code>AUTO_INCREMENT</code> för nollvärden"
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:593
 msgid "This format has no options"
 msgstr "Detta format har inga alternativ"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:611
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
 
@@ -12338,11 +12341,11 @@ msgstr "Komma ihåg inställningar för Design"
 msgid "Saving export templates"
 msgstr "Spara exportmallar"
 
-#: libraries/classes/Relation.php:1770
+#: libraries/classes/Relation.php:1774
 msgid "no description"
 msgstr "ingen beskrivning"
 
-#: libraries/classes/Relation.php:1981
+#: libraries/classes/Relation.php:1985
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12353,7 +12356,7 @@ msgstr ""
 "\". Du kan gå till \"Drift\" fliken i någon databas, och ställa in "
 "phpMyAdmin konfigurationslagring där."
 
-#: libraries/classes/Relation.php:2135
+#: libraries/classes/Relation.php:2139
 #, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
@@ -12362,13 +12365,13 @@ msgstr ""
 "%sCreate%s en databas heter \"%s\" och installera phpMyAdmin konfiguration "
 "lagring där."
 
-#: libraries/classes/Relation.php:2142
+#: libraries/classes/Relation.php:2146
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sCreate%s phpMyAdmin konfiguration lagring i den aktuella databasen."
 
-#: libraries/classes/Relation.php:2149
+#: libraries/classes/Relation.php:2153
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sCreate%s saknade phpMyAdmin konfiguration lagringstabeller."
@@ -13077,35 +13080,35 @@ msgstr "Kör SQL-fråga/frågor i databasen %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Kör SQL-fråga/frågor i tabellen %s"
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:369
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Det finns ingen detaljerad statusinformation tillgänglig för denna "
 "lagringsmotor."
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:473
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s är standardmotorn för denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s är tillgänglig på denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:476
+#: libraries/classes/StorageEngine.php:479
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s har inaktiverats på denna MySQL-server."
 
-#: libraries/classes/StorageEngine.php:480
+#: libraries/classes/StorageEngine.php:483
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2141
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Primärnyckelns namn måste vara \"PRIMARY\"!"
 
@@ -13146,11 +13149,11 @@ msgstr "Kunde inte byta namn på tabell %1$s till %2$s!"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabell %1$s har döpts om till %2$s."
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1827
 msgid "Could not save table UI preferences!"
 msgstr "Kunde inte spara gränssnittsinställningarna för tabellen!"
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1855
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13159,7 +13162,7 @@ msgstr ""
 "Misslyckades med att rensa gränssnittsinställningar för tabell (se "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1992
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13170,15 +13173,15 @@ msgstr ""
 "beständiga efter att du uppdaterar denna sida. Kontrollera om tabellens "
 "struktur har förändrats."
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2153
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan inte byta namn på index till \"PRIMARY\"!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2179
 msgid "No index parts defined!"
 msgstr "Inga delar av index är definierade!"
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2476
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
@@ -14020,8 +14023,8 @@ msgstr "Tabellnamn"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:273
-#: templates/export.twig:287 templates/export.twig:301
+#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Lägg till"
 
@@ -14071,7 +14074,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:63 templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -14573,7 +14576,7 @@ msgid "Number of columns"
 msgstr "Antal kolumner"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Skapa"
@@ -14610,8 +14613,8 @@ msgid "No index defined!"
 msgstr "Inga index är definierade!"
 
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/export/index.twig:29
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/database/export/index.twig:28
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -14955,7 +14958,7 @@ msgstr "ON"
 msgid "OFF"
 msgstr "OFF"
 
-#: templates/database/export/index.twig:62
+#: templates/database/export/index.twig:61
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -14974,6 +14977,18 @@ msgstr "Visar SQL-fråga"
 #, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr "Exportera tabeller från databasen \"%s\""
+
+#: templates/database/export/index.twig:30
+#, fuzzy
+#| msgid "Allows altering the structure of existing tables."
+msgid "Export the structure of all tables."
+msgstr "Tillåter ändring av befintliga tabellers struktur."
+
+#: templates/database/export/index.twig:33
+#, fuzzy
+#| msgid "Export views as tables"
+msgid "Export the data of all tables."
+msgstr "Exportera vyer som tabeller"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15080,7 +15095,7 @@ msgstr "Databaskommentar"
 msgid "Rename database to"
 msgstr "Byt namn på databasen till"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 msgid "New database name"
 msgstr "Nytt Databasnamn"
 
@@ -15424,7 +15439,7 @@ msgstr "Ord separeras av ett mellanslag (\" \")."
 msgid "Inside tables:"
 msgstr "Inuti tabeller:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Avmarkera alla"
@@ -15740,7 +15755,7 @@ msgstr "Spara editerade data"
 msgid "Restore column order"
 msgstr "Återställ ordningen på kolumner"
 
-#: templates/display/results/table.twig:49 templates/export.twig:132
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "Antal rader:"
@@ -15852,132 +15867,142 @@ msgstr "Skicka felrapport"
 msgid "Send error report"
 msgstr "Skicka felrapport"
 
-#: templates/export/template_options.twig:1 templates/export.twig:30
+#: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
 msgstr "Välj Mall"
 
-#: templates/export.twig:15
+#: templates/export.twig:14
 msgid "Export templates:"
 msgstr "Exportera mallar:"
 
-#: templates/export.twig:19
+#: templates/export.twig:18
 msgid "New template:"
 msgstr "Ny mall:"
 
-#: templates/export.twig:20
+#: templates/export.twig:21 templates/export.twig:24
 msgid "Template name"
 msgstr "Mallens namn"
 
-#: templates/export.twig:27
+#: templates/export.twig:35
 msgid "Existing templates:"
 msgstr "Befintliga mallar:"
 
-#: templates/export.twig:28
+#: templates/export.twig:38
 msgid "Template:"
 msgstr "Mall:"
 
-#: templates/export.twig:37
+#: templates/export.twig:51
 msgid "Update"
 msgstr "Uppdatera"
 
-#: templates/export.twig:53
+#: templates/export.twig:72
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "Visar SQL-fråga"
 
-#: templates/export.twig:86
+#: templates/export.twig:104
 msgid "Export method:"
 msgstr "Exportmetod:"
 
-#: templates/export.twig:92
+#: templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr "Snabb - visa endast minimala alternativ"
 
-#: templates/export.twig:100
+#: templates/export.twig:112
 msgid "Custom - display all possible options"
 msgstr "Anpassad - visa alla möjliga alternativ"
 
-#: templates/export.twig:124
+#: templates/export.twig:121
+#, fuzzy
+#| msgid "File to import:"
+msgid "File format to export"
+msgstr "Fil att importera:"
+
+#: templates/export.twig:137
 msgid "Rows:"
 msgstr "Rader:"
 
-#: templates/export.twig:129
-msgid "Dump some row(s)"
-msgstr "Skippa några rader"
-
-#: templates/export.twig:143
-msgid "Row to begin at:"
-msgstr "Rad att börja på:"
-
-#: templates/export.twig:152
+#: templates/export.twig:141
 msgid "Dump all rows"
 msgstr "Ta bort alla rader"
 
-#: templates/export.twig:160 templates/export.twig:316
+#: templates/export.twig:145
+msgid "Dump some row(s)"
+msgstr "Skippa några rader"
+
+#: templates/export.twig:160
+msgid "Row to begin at:"
+msgstr "Rad att börja på:"
+
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "Utdata:"
 
-#: templates/export.twig:165 templates/export.twig:346
+#: templates/export.twig:175 templates/export.twig:370
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "Spara på servern i katalogen <b>%s</b>"
 
-#: templates/export.twig:183 templates/export.twig:321
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr "Byt namn på exporterade databaser/tabeller/kolumner"
 
-#: templates/export.twig:191
+#: templates/export.twig:201
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:206 templates/export.twig:220
-#: templates/export.twig:233 templates/export.twig:250
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
 msgstr "Fjärrserver"
 
-#: templates/export.twig:259
+#: templates/export.twig:269
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:264
+#: templates/export.twig:274
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
 msgstr "Välj databas"
 
-#: templates/export.twig:278
+#: templates/export.twig:290
 #, fuzzy
 #| msgid "Select table"
 msgid "Select table:"
 msgstr "Välj tabell"
 
-#: templates/export.twig:284
+#: templates/export.twig:298
 msgid "New table name"
 msgstr "Nytt tabellnamn"
 
-#: templates/export.twig:292
+#: templates/export.twig:306
 #, fuzzy
 #| msgid "Select a column."
 msgid "Select column:"
 msgstr "Välj en kolumn."
 
-#: templates/export.twig:298
+#: templates/export.twig:314
 msgid "New column name"
 msgstr "Nytt kolumnnamn"
 
-#: templates/export.twig:339
+#: templates/export.twig:356
+msgid "View output as text"
+msgstr "Visa utdata som text"
+
+#: templates/export.twig:360
 msgid "Save output to a file"
 msgstr "Spara utdata till en fil"
 
-#: templates/export.twig:360
+#: templates/export.twig:387
 msgid "File name template:"
 msgstr "Filnamnsmall:"
 
-#: templates/export.twig:361
+#: templates/export.twig:388
 #, fuzzy, php-format
 #| msgid ""
 #| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -15993,57 +16018,51 @@ msgstr ""
 "tidsformatering. Dessutom kommer följande omvandlingar att ske: %3$s. Övrig "
 "text behålls som den är.Se %4$sFAQ%5$s för detaljer."
 
-#: templates/export.twig:366
-msgid "use this for future exports"
+#: templates/export.twig:398
+#, fuzzy
+#| msgid "use this for future exports"
+msgid "Use this for future exports"
 msgstr "använd detta för framtida exporter"
 
-#: templates/export.twig:373 templates/import.twig:123
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "Teckenuppsättning för filen:"
 
-#: templates/export.twig:389
+#: templates/export.twig:429
 msgid "Compression:"
 msgstr "Komprimering:"
 
-#: templates/export.twig:396
+#: templates/export.twig:437
 msgid "zipped"
 msgstr "zippad"
 
-#: templates/export.twig:402
+#: templates/export.twig:443
 msgid "gzipped"
 msgstr "gzippad"
 
-#: templates/export.twig:417
+#: templates/export.twig:461
 msgid "Export databases as separate files"
 msgstr "Exportera databaser som separata filer"
 
-#: templates/export.twig:419
+#: templates/export.twig:463
 msgid "Export tables as separate files"
 msgstr "Exportera tabeller som separata filer"
 
-#: templates/export.twig:431
-msgid "View output as text"
-msgstr "Visa utdata som text"
-
-#: templates/export.twig:437
-#, fuzzy, php-format
+#: templates/export.twig:474
+#, fuzzy
 #| msgid "Skip tables larger than"
-msgid "Skip tables larger than %s MiB"
+msgid "Skip tables larger than:"
 msgstr "Hoppa över tabeller större än"
 
-#: templates/export.twig:443 templates/import.twig:211
+#: templates/export.twig:476
+msgid "The size is measured in MiB."
+msgstr ""
+
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr "Format-specifika alternativ:"
 
-#: templates/export.twig:445 templates/import.twig:213
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"Bläddra nedåt för att fylla i alternativen för det valda formatet och "
-"ignorera alternativ för andra format."
-
-#: templates/export.twig:453 templates/import.twig:222
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr "Omkodning:"
 
@@ -16375,16 +16394,16 @@ msgstr ""
 "Vänligen vänta, filen laddas upp. Detaljer om denna uppladdning är inte "
 "tillgängliga."
 
-#: templates/import.twig:38
+#: templates/import.twig:26
 msgid "File to import:"
 msgstr "Fil att importera:"
 
-#: templates/import.twig:44
+#: templates/import.twig:31
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "Filen kan vara komprimerad (%s) eller okomprimerad."
 
-#: templates/import.twig:46
+#: templates/import.twig:32
 #, fuzzy
 #| msgid ""
 #| "A compressed file's name must end in <b>.[format].[compression]</b>. "
@@ -16396,45 +16415,47 @@ msgstr ""
 "En komprimerad fils namn måste sluta med <b>.[format].[komprimering]</b>. "
 "Exempel: <b>.sql.zip</b>"
 
-#: templates/import.twig:56 templates/import.twig:89
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "Gå igenom din dator:"
-
-#: templates/import.twig:61
+#: templates/import.twig:40
 #, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "Gå igenom din dator:"
+#| msgid "Download file"
+msgid "Upload a file"
+msgstr "Ladda ner fil"
 
-#: templates/import.twig:67 templates/import.twig:100
-msgid "You may also drag and drop a file on any page."
-msgstr "Du kan också dra och släppa en fil på valfri sida."
-
-#: templates/import.twig:73 templates/import.twig:103
-#, php-format
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Välj från webbserverns uppladdningskatalog [strong]%s[/strong]:"
-
-#: templates/import.twig:79
+#: templates/import.twig:43
 #, fuzzy
 #| msgid "File to import:"
 msgid "Select file to import"
 msgstr "Fil att importera:"
 
-#: templates/import.twig:84 templates/import.twig:114
-msgid "There are no files to upload!"
+#: templates/import.twig:50 templates/import.twig:77
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "Gå igenom din dator:"
+
+#: templates/import.twig:55 templates/import.twig:82
+msgid "You may also drag and drop a file on any page."
+msgstr "Du kan också dra och släppa en fil på valfri sida."
+
+#: templates/import.twig:62 templates/import.twig:88
+#, php-format
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "Välj från webbserverns uppladdningskatalog [strong]%s[/strong]:"
+
+#: templates/import.twig:69 templates/import.twig:96
+#, fuzzy
+#| msgid "There are no files to upload!"
+msgid "There are no files to import!"
 msgstr "Det finns inga filer att ladda upp!"
 
-#: templates/import.twig:117
+#: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
 msgstr "Uppladdning är inte tillåten på denna server."
 
-#: templates/import.twig:151
+#: templates/import.twig:126
 msgid "Partial import:"
 msgstr "Partiell import:"
 
-#: templates/import.twig:156
+#: templates/import.twig:131
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
@@ -16442,7 +16463,7 @@ msgstr ""
 "Föregående import fick timeout. Efter återupptagning av importen kommer den "
 "fortsätta från position %d."
 
-#: templates/import.twig:163
+#: templates/import.twig:138
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -16450,19 +16471,34 @@ msgstr ""
 #| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+"to the PHP timeout limit."
 msgstr ""
 "Tillåt avbrytande av import ifall skriptet upptäcker att det är nära till "
 "PHP timeout. <i>(Detta kan vara bra sätt att importera stora filer, men det "
 "kan bryta transaktioner.)</i>"
 
-#: templates/import.twig:170
+#: templates/import.twig:140
+#, fuzzy
+#| msgid ""
+#| "Allow interrupt of import in case script detects it is close to time "
+#| "limit. This might be a good way to import large files, however it can "
+#| "break transactions."
+msgid ""
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+"Tillåt avbrott av import ifall skriptet upptäcker att det är nära "
+"tidsbegränsningen. Detta kan vara ett bra sätt att importera stora filer, "
+"men det kan bryta transaktioner."
+
+#: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Hoppa över detta antal frågor (för SQL) räknat från den första:"
 
-#: templates/import.twig:187
-msgid "Other options:"
+#: templates/import.twig:154
+#, fuzzy
+#| msgid "Other options:"
+msgid "Other options"
 msgstr "Andra alternativ:"
 
 #: templates/indexes.twig:39
@@ -17216,7 +17252,7 @@ msgstr "Lagringsmotor"
 msgid "Unknown storage engine."
 msgstr "Lagringsmotorer"
 
-#: templates/server/export/index.twig:32
+#: templates/server/export/index.twig:26
 #, fuzzy
 #| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
@@ -17225,10 +17261,6 @@ msgstr "@Server@ kommer bli servernamnet"
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
 msgstr "Exportera databaser från den aktuella servern"
-
-#: templates/server/export/index.twig:7
-msgid "Databases:"
-msgstr "Databaser:"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -19425,6 +19457,21 @@ msgstr "Kolumnnamn"
 msgid "Taking you to the target site."
 msgstr "Tar dig till målwebbplatsen."
 
+#~ msgid ""
+#~ "Scroll down to fill in the options for the selected format and ignore the "
+#~ "options for other formats."
+#~ msgstr ""
+#~ "Bläddra nedåt för att fylla i alternativen för det valda formatet och "
+#~ "ignorera alternativ för andra format."
+
+#, fuzzy
+#~| msgid "Browse your computer:"
+#~ msgid "Browse your computer"
+#~ msgstr "Gå igenom din dator:"
+
+#~ msgid "Databases:"
+#~ msgstr "Databaser:"
+
 #~ msgid "Print view"
 #~ msgstr "Utskriftsvänlig visning"
 
@@ -21314,9 +21361,6 @@ msgstr "Tar dig till målwebbplatsen."
 
 #~ msgid "View video"
 #~ msgstr "Visa video"
-
-#~ msgid "Download file"
-#~ msgstr "Ladda ner fil"
 
 #~ msgid "Could not open file: %s"
 #~ msgstr "Kan inte öppna fil: %s"
