@@ -826,7 +826,7 @@ class InsertEdit
         $html_input = '';
         $text_area = '';
         $default_generated = false;
-        
+
         $if_is_char = $column['is_char'] && ($GLOBALS['cfg']['CharEditing'] === 'textarea' || str_contains($data, "\n"));
         if ($if_is_char) {
             $GLOBALS['cfg']['CharEditing'] = $defaultCharEditing;
@@ -843,8 +843,9 @@ class InsertEdit
                 $dataType,
                 $readOnly
             );
-        } 
-        if (!$if_is_char)  {
+        }
+
+        if (! $if_is_char) {
             $html_input = $this->getHtmlInput(
                 $column,
                 $columnNameAppendix,
