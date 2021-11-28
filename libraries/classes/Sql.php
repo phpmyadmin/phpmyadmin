@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
+use function array_keys;
 use function array_map;
 use function array_sum;
 use function bin2hex;
@@ -192,7 +193,7 @@ class Sql
 
             $indexColumns = $index->getColumns();
             $numberFound = 0;
-            foreach ($indexColumns as $indexColumnName => $dummy) {
+            foreach (array_keys($indexColumns) as $indexColumnName) {
                 if (in_array($indexColumnName, $resultSetColumnNames)) {
                     $numberFound++;
                 } elseif (! in_array($indexColumnName, $columns)) {

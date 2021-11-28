@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function array_diff;
+use function array_keys;
 use function array_unique;
 use function array_values;
 use function bin2hex;
@@ -308,7 +309,7 @@ class CentralColumns
         if ($isTable) {
             foreach ($field_select as $table) {
                 $fields[$table] = $this->dbi->getColumns($db, $table, true);
-                foreach ($fields[$table] as $field => $def) {
+                foreach (array_keys($fields[$table]) as $field) {
                     $cols .= "'" . $this->dbi->escapeString($field) . "',";
                 }
             }

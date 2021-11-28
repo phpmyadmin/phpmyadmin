@@ -14,6 +14,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_keys;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -337,8 +338,9 @@ class UserGroups
             . '(`usergroup`, `tab`, `allowed`)'
             . ' VALUES ';
         $first = true;
+        /** @var array<string, string> $tabGroup */
         foreach ($tabs as $tabGroupName => $tabGroup) {
-            foreach ($tabGroup as $tab => $tabName) {
+            foreach (array_keys($tabGroup) as $tab) {
                 if (! $first) {
                     $sql_query .= ', ';
                 }

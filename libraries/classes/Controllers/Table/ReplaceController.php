@@ -22,6 +22,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_keys;
 use function array_values;
 use function class_exists;
 use function count;
@@ -246,7 +247,7 @@ final class ReplaceController extends AbstractController
 
             // When a select field is nullified, it's not present in $_POST
             // so initialize it; this way, the foreach($multi_edit_columns) will process it
-            foreach ($multi_edit_columns_name as $key => $val) {
+            foreach (array_keys($multi_edit_columns_name) as $key) {
                 if (isset($multi_edit_columns[$key])) {
                     continue;
                 }

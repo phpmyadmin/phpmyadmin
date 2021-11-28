@@ -16,6 +16,7 @@ use PhpMyAdmin\Util;
 use function array_flip;
 use function array_keys;
 use function array_merge;
+use function is_array;
 use function rawurldecode;
 use function sprintf;
 
@@ -165,11 +166,11 @@ abstract class TableStats
      */
     protected function loadCoordinates(): void
     {
-        if (! isset($_POST['t_h'])) {
+        if (! isset($_POST['t_h']) || ! is_array($_POST['t_h'])) {
             return;
         }
 
-        foreach ($_POST['t_h'] as $key => $value) {
+        foreach (array_keys($_POST['t_h']) as $key) {
             $db = rawurldecode($_POST['t_db'][$key]);
             $tbl = rawurldecode($_POST['t_tbl'][$key]);
             if ($this->db . '.' . $this->tableName === $db . '.' . $tbl) {

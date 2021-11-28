@@ -23,6 +23,7 @@ use phpseclib3\Crypt\Random;
 use ReCaptcha;
 
 use function __;
+use function array_keys;
 use function base64_decode;
 use function base64_encode;
 use function class_exists;
@@ -896,7 +897,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
-            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+            foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
                 $config->removeCookie('pmaAuth-' . $key);
                 if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;

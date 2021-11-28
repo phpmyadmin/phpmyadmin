@@ -127,7 +127,7 @@ class ChartController extends AbstractController
 
         $keys = array_keys($data[0]);
         $numericColumnFound = false;
-        foreach ($keys as $idx => $key) {
+        foreach (array_keys($keys) as $idx) {
             if (
                 isset($fields_meta[$idx]) && (
                 $fields_meta[$idx]->isType(FieldMetadata::TYPE_INT)

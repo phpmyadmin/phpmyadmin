@@ -536,7 +536,7 @@ class FormDisplay
         $valueCmp = is_bool($value)
             ? (int) $value
             : $value;
-        foreach ($allowed as $vk => $v) {
+        foreach (array_keys($allowed) as $vk) {
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)

@@ -19,6 +19,7 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 
 use function __;
+use function array_keys;
 use function defined;
 use function htmlspecialchars;
 use function intval;
@@ -126,7 +127,7 @@ abstract class AuthenticationPlugin
          */
         $server = 0;
         if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie') {
-            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+            foreach (array_keys($GLOBALS['cfg']['Servers']) as $key) {
                 if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
