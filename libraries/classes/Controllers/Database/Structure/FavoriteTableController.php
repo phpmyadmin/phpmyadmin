@@ -147,22 +147,20 @@ final class FavoriteTableController extends AbstractController
         $favoriteInstanceTables = $favoriteInstance->getTables();
 
         if (empty($favoriteInstanceTables) && isset($favoriteTables[$user])) {
-            foreach ($favoriteTables[$user] as $key => $value) {
+            foreach ($favoriteTables[$user] as $value) {
                 $favoriteInstance->add($value['db'], $value['table']);
             }
         }
 
         $favoriteTables[$user] = $favoriteInstance->getTables();
 
-        $json = [
+        // Set flag when localStorage and pmadb(if present) are in sync.
+        $_SESSION['tmpval']['favorites_synced'][$GLOBALS['server']] = true;
+
+        return [
             'favoriteTables' => json_encode($favoriteTables),
             'list' => $favoriteInstance->getHtmlList(),
         ];
-        $serverId = $GLOBALS['server'];
-        // Set flag when localStorage and pmadb(if present) are in sync.
-        $_SESSION['tmpval']['favorites_synced'][$serverId] = true;
-
-        return $json;
     }
 
     /**

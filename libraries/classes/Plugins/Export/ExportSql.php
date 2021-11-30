@@ -1419,7 +1419,6 @@ class ExportSql extends ExportPlugin
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
         $schemaCreate = '';
-        $autoIncrement = '';
         $newCrlf = $crlf;
 
         if (isset($GLOBALS['sql_compatibility'])) {
@@ -1439,14 +1438,6 @@ class ExportSql extends ExportPlugin
         if ($result != false) {
             if ($dbi->numRows($result) > 0) {
                 $tmpres = $dbi->fetchAssoc($result);
-
-                // Here we optionally add the AUTO_INCREMENT next value,
-                // but starting with MySQL 5.0.24, the clause is already included
-                // in SHOW CREATE TABLE so we'll remove it below
-                if (isset($GLOBALS['sql_auto_increment']) && ! empty($tmpres['Auto_increment'])) {
-                    $autoIncrement .= ' AUTO_INCREMENT='
-                        . $tmpres['Auto_increment'] . ' ';
-                }
 
                 if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
                     $schemaCreate .= $this->exportComment(
@@ -1815,7 +1806,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if (! empty($autoIncrement) && $updateIndexesIncrements) {
+                if ($autoIncrement !== [] && $updateIndexesIncrements) {
                     $sqlAutoIncrementsQuery = $alterHeader . $crlf . '  MODIFY '
                         . implode(',' . $crlf . '  MODIFY ', $autoIncrement);
                     if (

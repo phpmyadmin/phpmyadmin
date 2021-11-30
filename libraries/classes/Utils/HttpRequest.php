@@ -75,14 +75,10 @@ class HttpRequest
             return;
         }
 
-        $proxyUrl = ($urlInfo['host'] ?? '')
+        $cfg['ProxyUrl'] = ($urlInfo['host'] ?? '')
             . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-        $proxyUser = $urlInfo['user'] ?? '';
-        $proxyPass = $urlInfo['pass'] ?? '';
-
-        $cfg['ProxyUrl'] = $proxyUrl;
-        $cfg['ProxyUser'] = $proxyUser;
-        $cfg['ProxyPass'] = $proxyPass;
+        $cfg['ProxyUser'] = $urlInfo['user'] ?? '';
+        $cfg['ProxyPass'] = $urlInfo['pass'] ?? '';
     }
 
     /**

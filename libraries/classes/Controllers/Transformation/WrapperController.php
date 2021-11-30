@@ -129,17 +129,13 @@ class WrapperController extends AbstractController
         $default_ct = 'application/octet-stream';
 
         if ($relationParameters->commwork && $relationParameters->mimework) {
-            $mime_map = $this->transformations->getMime($db, $table);
-
-            if ($mime_map === null) {
-                $mime_map = [];
-            }
+            $mime_map = $this->transformations->getMime($db, $table) ?? [];
 
             $mime_options = $this->transformations->getOptions(
                 $mime_map[$transform_key]['transformation_options'] ?? ''
             );
 
-            foreach ($mime_options as $key => $option) {
+            foreach ($mime_options as $option) {
                 if (substr($option, 0, 10) !== '; charset=') {
                     continue;
                 }

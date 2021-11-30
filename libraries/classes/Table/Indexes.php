@@ -47,7 +47,6 @@ final class Indexes
         global $containerBuilder;
 
         $error = false;
-        $sql_query = '';
         if ($renameMode && Compatibility::isCompatibleRenameIndex($this->dbi->getVersion())) {
             $oldIndexName = $_POST['old_index'];
 

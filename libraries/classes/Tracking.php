@@ -1173,14 +1173,12 @@ class Tracking
         $untracked_tables = [];
         $sep = $cfg['NavigationTreeTableSeparator'];
 
-        foreach ($table_list as $key => $value) {
+        foreach ($table_list as $value) {
             if (is_array($value) && array_key_exists('is' . $sep . 'group', $value) && $value['is' . $sep . 'group']) {
                 // Recursion step
                 $untracked_tables = array_merge($this->extractTableNames($value, $db, $testing), $untracked_tables);
-            } else {
-                if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
-                    $untracked_tables[] = $value['Name'];
-                }
+            } elseif (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
+                $untracked_tables[] = $value['Name'];
             }
         }
 

@@ -60,8 +60,7 @@ final class BrowseController extends AbstractController
         );
 
         // Parse and analyze the query
-        $db = &$this->db;
-        [$analyzed_sql_results, $db] = ParseAnalyze::sqlQuery($sql_query, $db);
+        [$analyzed_sql_results, $this->db] = ParseAnalyze::sqlQuery($sql_query, $this->db);
 
         $this->response->addHTML(
             $this->sql->executeQueryAndGetQueryResponse(

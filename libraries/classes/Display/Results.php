@@ -4259,7 +4259,7 @@ class Results
                     $rel['foreign_db'],
                 ];
             } else {
-                foreach ($rel as $key => $oneKey) {
+                foreach ($rel as $oneKey) {
                     foreach ($oneKey['index_list'] as $index => $oneField) {
                         $displayField = $this->relation->getDisplayField(
                             $oneKey['ref_db_name'] ?? $GLOBALS['db'],

@@ -242,7 +242,7 @@ class StructureController extends AbstractController
         $hiddenFields = [];
         $overallApproxRows = false;
         $structureTableRows = [];
-        foreach ($this->tables as $keyname => $currentTable) {
+        foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
             $dropQuery = '';

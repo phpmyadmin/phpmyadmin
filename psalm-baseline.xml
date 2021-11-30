@@ -1547,17 +1547,13 @@
       <code>$_SESSION['tmpval']['favorites_synced']</code>
       <code>$favoriteTables[$user]</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$favoriteTable</code>
       <code>$favoriteTables</code>
       <code>$favoriteTables</code>
-      <code>$key</code>
       <code>$value</code>
       <code>$value</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/RealRowCountController.php">
     <MixedArgument occurrences="1">
@@ -1743,9 +1739,6 @@
     <RedundantCondition occurrences="1">
       <code>$currentTable['Data_free'] &gt; 0</code>
     </RedundantCondition>
-    <UnusedVariable occurrences="1">
-      <code>$keyname</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Database/TrackingController.php">
     <MixedArgument occurrences="14">
@@ -1962,8 +1955,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="42">
-      <code>$_POST['bkm_label']</code>
+    <MixedArgument occurrences="41">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bookmark_variable']</code>
@@ -2034,7 +2026,7 @@
       <code>$_SESSION['Import_message']['message']</code>
       <code>$_SESSION['Import_message']['message']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="30">
+    <MixedAssignment occurrences="29">
       <code>$MAX_FILE_SIZE</code>
       <code>$_SESSION['Import_message']['go_back_url']</code>
       <code>$_SESSION['Import_message']['message']</code>
@@ -2049,7 +2041,6 @@
       <code>$import_text</code>
       <code>$import_type</code>
       <code>$is_js_confirmed</code>
-      <code>$key</code>
       <code>$local_import_file</code>
       <code>$message_to_show</code>
       <code>$noplugin</code>
@@ -2092,15 +2083,10 @@
     <RedundantCondition occurrences="1">
       <code>$offset == 0</code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="3">
-      <code>$bookmark_created</code>
+    <TypeDoesNotContainType occurrences="2">
       <code>$finished</code>
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="2">
-      <code>$key</code>
-      <code>$special_message</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/ImportStatusController.php">
     <MixedArgument occurrences="2">
@@ -2939,9 +2925,6 @@
       <code>$i_where_clause</code>
       <code>$where_clause[]</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$i</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/ChartController.php">
     <DocblockTypeContradiction occurrences="1">
@@ -2980,9 +2963,6 @@
       <code>$_REQUEST['pos']</code>
       <code>$_REQUEST['pos']</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$data_row_number</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/CreateController.php">
     <MixedArgument occurrences="9">
@@ -3082,9 +3062,6 @@
       <code>$i_where_clause</code>
       <code>$where_clause[]</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$i</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/FindReplaceController.php">
     <MixedArgument occurrences="26">
@@ -3578,9 +3555,10 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/BrowseController.php">
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="3">
       <code>$analyzed_sql_results ?? ''</code>
       <code>$sval</code>
+      <code>$this-&gt;db</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$sval</code>
@@ -3588,9 +3566,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
-    <UnusedVariable occurrences="1">
-      <code>$db</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/CentralColumnsAddController.php">
     <MixedArgument occurrences="1">
@@ -4142,9 +4117,6 @@
       <code>$ratioWidth</code>
       <code>$where_clause</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Controllers/UserPasswordController.php">
     <MixedArgument occurrences="6">
@@ -5097,9 +5069,6 @@
     <RedundantPropertyInitializationCheck occurrences="1">
       <code>isset($this-&gt;formAndOrRows)</code>
     </RedundantPropertyInitializationCheck>
-    <UnusedVariable occurrences="1">
-      <code>$column</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Database/Routines.php">
     <MixedArgument occurrences="84">
@@ -6128,7 +6097,7 @@
       <code>$row[$i]</code>
       <code>$row[$m]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="65">
+    <MixedAssignment occurrences="64">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6161,7 +6130,6 @@
       <code>$i</code>
       <code>$identifier</code>
       <code>$index</code>
-      <code>$key</code>
       <code>$lastShownRec</code>
       <code>$lastShownRec</code>
       <code>$linkingUrlParams[$urlParameterName]</code>
@@ -6303,9 +6271,6 @@
     <UnusedParam occurrences="1">
       <code>$columnIndex</code>
     </UnusedParam>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Encoding.php">
     <DocblockTypeContradiction occurrences="3">
@@ -8403,9 +8368,6 @@
       <code>$error[3]</code>
       <code>$lines[$line]</code>
     </MixedOperand>
-    <UnusedVariable occurrences="1">
-      <code>$idx</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/ListAbstract.php">
     <MixedInferredReturnType occurrences="1">
@@ -9555,9 +9517,6 @@
       <code>SelectPropertyItem</code>
       <code>TextPropertyItem</code>
     </UnnecessaryVarAnnotation>
-    <UnusedVariable occurrences="1">
-      <code>$not_subgroup_header</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <DocblockTypeContradiction occurrences="1">
@@ -9675,12 +9634,6 @@
     <RedundantCast occurrences="1">
       <code>(array) $GLOBALS['cfg']['Server']['SignonCookieParams']</code>
     </RedundantCast>
-    <RedundantCondition occurrences="1">
-      <code>$old_session !== null</code>
-    </RedundantCondition>
-    <UnusedVariable occurrences="1">
-      <code>$signon_url</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/AuthenticationPlugin.php">
     <MixedArgument occurrences="1">
@@ -10244,7 +10197,7 @@
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="39">
+    <MixedAssignment occurrences="38">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
@@ -10284,7 +10237,7 @@
       <code>$values[$val]</code>
       <code>$values[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="41">
+    <MixedOperand occurrences="40">
       <code>$column['Collation']</code>
       <code>$column['Type']</code>
       <code>$crlf</code>
@@ -10323,7 +10276,6 @@
       <code>$setNames</code>
       <code>$statement-&gt;entityOptions-&gt;has('AUTO_INCREMENT')</code>
       <code>$tmpUniqueCondition</code>
-      <code>$tmpres['Auto_increment']</code>
       <code>$trigger['drop']</code>
       <code>$values[$i]</code>
     </MixedOperand>
@@ -10360,10 +10312,6 @@
     <UnusedParam occurrences="1">
       <code>$crlf</code>
     </UnusedParam>
-    <UnusedVariable occurrences="2">
-      <code>$autoIncrement</code>
-      <code>$autoIncrement</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
     <MixedArgument occurrences="16">
@@ -10551,9 +10499,6 @@
     <PossiblyNullOperand occurrences="1">
       <code>$table_alias</code>
     </PossiblyNullOperand>
-    <UnusedVariable occurrences="1">
-      <code>$buffer</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
     <MixedArgument occurrences="87">
@@ -10853,9 +10798,6 @@
       <code>Pdf</code>
       <code>Pdf</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="1">
-      <code>$columns_cnt</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/ExportPlugin.php">
     <MixedArrayAccess occurrences="5">
@@ -10973,9 +10915,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$analyze</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportLdi.php">
     <MixedArgument occurrences="8">
@@ -14383,9 +14322,7 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
-    <UnusedVariable occurrences="3">
-      <code>$idx</code>
-      <code>$idx</code>
+    <UnusedVariable occurrences="1">
       <code>$maintainRelations</code>
     </UnusedVariable>
   </file>
@@ -14491,9 +14428,6 @@
       <code>isset($field_fulltext) &amp;&amp; is_array($field_fulltext)</code>
       <code>isset($selected) &amp;&amp; is_array($selected)</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable occurrences="1">
-      <code>$fulltext_nr</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/Indexes.php">
     <MixedArgument occurrences="1">
@@ -14502,9 +14436,6 @@
     <MixedAssignment occurrences="1">
       <code>$oldIndexName</code>
     </MixedAssignment>
-    <UnusedVariable occurrences="1">
-      <code>$sql_query</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Table/Search.php">
     <MixedArgument occurrences="19">
@@ -14859,9 +14790,6 @@
       <code>$sep</code>
       <code>$sep</code>
     </PossiblyInvalidOperand>
-    <UnusedVariable occurrences="1">
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Transformations.php">
     <MixedArgument occurrences="8">
@@ -15334,11 +15262,6 @@
     <TypeDoesNotContainNull occurrences="1">
       <code>isset($http_response_header)</code>
     </TypeDoesNotContainNull>
-    <UnusedVariable occurrences="3">
-      <code>$proxyPass</code>
-      <code>$proxyUrl</code>
-      <code>$proxyUser</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Utils/SessionCache.php">
     <MixedArrayAccess occurrences="2">
