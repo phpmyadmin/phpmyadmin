@@ -2487,61 +2487,25 @@
     </MixedMethodCall>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <MixedArgument occurrences="54">
+    <MixedArgument occurrences="18">
       <code>$_GET['checkprivsdb']</code>
       <code>$_GET['checkprivsdb']</code>
       <code>$_POST['userGroup']</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db_name ?? ''</code>
-      <code>$dbname</code>
-      <code>$dbname</code>
-      <code>$dbname</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? null</code>
-      <code>$dbname_is_wildcard</code>
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? ''</code>
-      <code>$hostname ?? null</code>
       <code>$password ?? ''</code>
       <code>$password ?? null</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queries</code>
       <code>$queries_for_display</code>
-      <code>$routinename</code>
-      <code>$routinename</code>
       <code>$sql_query</code>
       <code>$sql_query ?? ''</code>
       <code>$table</code>
-      <code>$tablename ?? ''</code>
-      <code>$tablename ?? ($routinename ?? '')</code>
-      <code>$tablename ?? ($routinename ?? '')</code>
-      <code>$tablename ?? ($routinename ?? '')</code>
       <code>$text_dir</code>
       <code>$url_dbname ?? ''</code>
       <code>$url_dbname ?? ''</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username ?? ''</code>
-      <code>$username ?? ''</code>
-      <code>$username ?? ''</code>
-      <code>$username ?? ''</code>
-      <code>$username ?? null</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$queries</code>
@@ -2557,14 +2521,19 @@
       <code>$export</code>
       <code>$title</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="4">
       <code>$dbname</code>
+      <code>$dbname</code>
+      <code>$dbname ?? ''</code>
+      <code>$dbname ?? ''</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
+    <PossiblyInvalidCast occurrences="4">
       <code>$dbname</code>
+      <code>$dbname</code>
+      <code>$dbname ?? ''</code>
+      <code>$dbname ?? ''</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="10">
-      <code>$dbname</code>
+    <PossiblyNullArgument occurrences="9">
       <code>$hostname</code>
       <code>$hostname</code>
       <code>$hostname</code>
@@ -13127,7 +13096,7 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <MixedArgument occurrences="120">
+    <MixedArgument occurrences="117">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
       <code>$_GET['initial']</code>
@@ -13167,9 +13136,6 @@
       <code>$dbRightsResult</code>
       <code>$dbRightsResult</code>
       <code>$dbRightsRow['Db']</code>
-      <code>$dbname</code>
-      <code>$dbname</code>
-      <code>$dbname ?? ''</code>
       <code>$eachUser</code>
       <code>$exportUser</code>
       <code>$exportUser</code>
@@ -13267,7 +13233,7 @@
       <code>$tmpPrivs2['Update']</code>
       <code>uksort($arrayInitials, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="50">
+    <MixedArrayAccess occurrences="49">
       <code>$account['Host']</code>
       <code>$columns[$row1[0]]</code>
       <code>$currentGrant[0]</code>
@@ -13282,7 +13248,6 @@
       <code>$currentGrant[1]</code>
       <code>$currentGrant[2]</code>
       <code>$currentGrant[2]</code>
-      <code>$dbname[0]</code>
       <code>$grant[0]</code>
       <code>$grant[0]</code>
       <code>$grant[0]</code>
@@ -13352,7 +13317,7 @@
       <code>$specificPrivileges[$grant[0]]</code>
       <code>$specificPrivileges[$grant[0]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="98">
+    <MixedAssignment occurrences="90">
       <code>$GLOBALS[$key]</code>
       <code>$account</code>
       <code>$authenticationPlugin</code>
@@ -13364,14 +13329,8 @@
       <code>$currentUser</code>
       <code>$currentUserName</code>
       <code>$databases[]</code>
-      <code>$dbName</code>
-      <code>$dbName</code>
-      <code>$dbName</code>
-      <code>$dbName</code>
       <code>$dbRightsResult</code>
       <code>$dbRightsResult</code>
-      <code>$dbname</code>
-      <code>$dbname</code>
       <code>$eachUser</code>
       <code>$exportUser</code>
       <code>$extraData['db_wildcard_privs']</code>
@@ -13382,7 +13341,6 @@
       <code>$host</code>
       <code>$hostnameLength</code>
       <code>$initials</code>
-      <code>$key</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
@@ -13427,7 +13385,6 @@
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$returnDb</code>
       <code>$right</code>
       <code>$routine</code>
       <code>$routine</code>
@@ -13457,7 +13414,7 @@
       <code>string</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="22">
+    <MixedOperand occurrences="21">
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['authentication_plugin']</code>
       <code>$_POST['old_hostname']</code>
@@ -13473,7 +13430,6 @@
       <code>$currentGrant[1]</code>
       <code>$currentGrant[2]</code>
       <code>$currentGrant[2]</code>
-      <code>$dbAndTable[$key]</code>
       <code>$dbAndTable[$key]</code>
       <code>$oneGrant</code>
       <code>$origValue</code>
@@ -13508,12 +13464,10 @@
       <code>$dbname</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$_REQUEST['dbname']</code>
+    <PossiblyInvalidCast occurrences="1">
       <code>$dbname</code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="6">
-      <code>$dbname</code>
+    <PossiblyNullArgument occurrences="5">
       <code>$oldUserGroup</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
@@ -13534,10 +13488,6 @@
       <code>$alterUserQuery</code>
       <code>$alterUserQuery</code>
     </PossiblyNullOperand>
-    <PossiblyUndefinedArrayOffset occurrences="2">
-      <code>$_POST['pred_dbname']</code>
-      <code>$_REQUEST['dbname']</code>
-    </PossiblyUndefinedArrayOffset>
     <RedundantCastGivenDocblockType occurrences="2">
       <code>(bool) ! $this-&gt;dbi-&gt;fetchValue($sql)</code>
       <code>(string) $privs</code>
@@ -13548,14 +13498,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$userGroup</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedForeachValue occurrences="2">
-      <code>$dbName</code>
-      <code>$dbName</code>
-    </UnusedForeachValue>
-    <UnusedVariable occurrences="2">
-      <code>$key</code>
-      <code>$key</code>
-    </UnusedVariable>
   </file>
   <file src="libraries/classes/Server/Select.php">
     <MixedArgumentTypeCoercion occurrences="1">
