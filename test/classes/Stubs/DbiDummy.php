@@ -37,6 +37,8 @@ use const MYSQLI_TYPE_STRING;
 use const PHP_EOL;
 use const STDERR;
 
+// phpcs:disable Generic.Files.LineLength.TooLong
+
 /**
  * Fake database driver for testing purposes
  *
@@ -2535,7 +2537,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SHOW CREATE TABLE `test_db`.`test_table`',
                 'columns' => ['Table', 'Create Table'],
-                'result' => [['test_table', 'CREATE TABLE `test_table`']],
+                'result' => [['test_table', 'CREATE TABLE `test_table` (' . "\n" . '  `id` int(11) NOT NULL AUTO_INCREMENT,' . "\n" . '  `name` varchar(20) NOT NULL,' . "\n" . '  `datetimefield` datetime NOT NULL,' . "\n" . '  PRIMARY KEY (`id`)' . "\n" . ') ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4']],
             ],
             [
                 'query' => 'SHOW COLUMNS FROM `test_db`.`test_table`',
