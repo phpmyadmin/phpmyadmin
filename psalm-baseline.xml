@@ -12902,10 +12902,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>''</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
     <MixedArgument occurrences="118">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
@@ -15254,9 +15250,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Utils/HttpRequest.php">
-    <InvalidArrayOffset occurrences="1">
-      <code>$context['http']['header']</code>
-    </InvalidArrayOffset>
     <MixedArgument occurrences="1">
       <code>$httpStatus</code>
     </MixedArgument>
@@ -15267,9 +15260,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>string|bool|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$context['http']['header']</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$response</code>
     </MixedReturnStatement>

@@ -1305,7 +1305,7 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetUsersOverview(): void
     {
-        $result = [];
+        $result = (object) [];
         $db_rights = [];
         $text_dir = 'text_dir';
 
