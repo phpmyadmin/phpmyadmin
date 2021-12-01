@@ -5854,7 +5854,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="89">
+    <MixedArgument occurrences="88">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5894,7 +5894,6 @@
       <code>$expr-&gt;alias</code>
       <code>$field-&gt;table</code>
       <code>$geometryText</code>
-      <code>$i</code>
       <code>$isFieldTruncated</code>
       <code>$isFieldTruncated</code>
       <code>$isFieldTruncated</code>
@@ -6275,9 +6274,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($map)</code>
     </TypeDoesNotContainType>
-    <UnusedParam occurrences="1">
-      <code>$columnIndex</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Encoding.php">
     <DocblockTypeContradiction occurrences="3">

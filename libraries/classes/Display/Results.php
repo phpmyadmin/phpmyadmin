@@ -1061,7 +1061,6 @@ class Results
                     $fieldsMeta[$i],
                     $sortExpression,
                     $sortExpressionNoDirection,
-                    $i,
                     $unsortedSqlQuery,
                     $sessionMaxRows,
                     $comments,
@@ -1575,7 +1574,6 @@ class Results
      * @param FieldMetadata $fieldsMeta                set of field properties
      * @param array         $sortExpression            sort expression
      * @param array         $sortExpressionNoDirection sort expression without direction
-     * @param int           $columnIndex               the index of the column
      * @param string        $unsortedSqlQuery          the unsorted sql query
      * @param int           $sessionMaxRows            maximum rows resulted by sql
      * @param string        $comments                  comment for row
@@ -1591,7 +1589,6 @@ class Results
         FieldMetadata $fieldsMeta,
         array $sortExpression,
         array $sortExpressionNoDirection,
-        $columnIndex,
         $unsortedSqlQuery,
         $sessionMaxRows,
         $comments,
