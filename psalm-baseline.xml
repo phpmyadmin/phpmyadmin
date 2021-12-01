@@ -17932,16 +17932,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="url.php">
-    <InvalidGlobal occurrences="1">
-      <code>global $containerBuilder, $dbi;</code>
-    </InvalidGlobal>
-    <MixedArgument occurrences="1"/>
-    <MixedMethodCall occurrences="1">
-      <code>render</code>
-    </MixedMethodCall>
-    <PossiblyNullReference occurrences="1">
-      <code>render</code>
-    </PossiblyNullReference>
     <UnusedVariable occurrences="1">
       <code>$isMinimumCommon</code>
     </UnusedVariable>
