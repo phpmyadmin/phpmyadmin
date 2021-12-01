@@ -1907,9 +1907,6 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </PossiblyInvalidCast>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$onserver</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <MixedArgument occurrences="1">
