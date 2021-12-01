@@ -4866,8 +4866,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Database/Qbe.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>$this-&gt;currentSearch === null</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;currentSearch-&gt;getCriterias() === null</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="39">
@@ -5051,9 +5050,7 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$table</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>$currentSearch</code>
-      <code>null</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="6">
@@ -5067,8 +5064,7 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $master</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$currentSearch != null</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($lastWhere, $this-&gt;formAndOrCols)</code>
     </RedundantConditionGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="1">

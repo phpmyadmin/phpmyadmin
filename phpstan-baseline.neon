@@ -311,11 +311,6 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$currentSearch \\(PhpMyAdmin\\\\SavedSearches\\) does not accept PhpMyAdmin\\\\SavedSearches\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\Qbe\\:\\:\\$formAndOrCols \\(array\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
