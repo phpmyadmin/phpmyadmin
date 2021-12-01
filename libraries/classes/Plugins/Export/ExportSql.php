@@ -1865,7 +1865,6 @@ class ExportSql extends ExportPlugin
      *
      * @param string $db         database name
      * @param string $table      table name
-     * @param string $crlf       end of line sequence
      * @param bool   $doRelation whether to include relation comments
      * @param bool   $doMime     whether to include mime comments
      * @param array  $aliases    Aliases of db/table/columns
@@ -1875,7 +1874,6 @@ class ExportSql extends ExportPlugin
     private function getTableComments(
         $db,
         $table,
-        $crlf,
         $doRelation = false,
         $doMime = false,
         array $aliases = []
@@ -2076,7 +2074,7 @@ class ExportSql extends ExportPlugin
                 );
                 $dump .= $this->exportComment();
                 $dump .= $this->getTableDef($db, $table, $crlf, $errorUrl, $dates, true, false, true, $aliases);
-                $dump .= $this->getTableComments($db, $table, $crlf, $relation, $mime, $aliases);
+                $dump .= $this->getTableComments($db, $table, $relation, $mime, $aliases);
                 break;
             case 'triggers':
                 $dump = '';

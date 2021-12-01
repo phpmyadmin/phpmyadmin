@@ -10307,9 +10307,6 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>CreateDefinition</code>
     </UnnecessaryVarAnnotation>
-    <UnusedParam occurrences="1">
-      <code>$crlf</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
     <MixedArgument occurrences="16">
