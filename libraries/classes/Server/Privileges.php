@@ -515,7 +515,7 @@ class Privileges
      *
      * @return string sql query
      */
-    public function getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
+    public function getSqlQueryForDisplayPrivTable(string $db, string $table, string $username, string $hostname)
     {
         if ($db === '*') {
             return 'SELECT * FROM `mysql`.`user`'
@@ -721,10 +721,10 @@ class Privileges
      * @return string
      */
     public function getHtmlForRoutineSpecificPrivileges(
-        $username,
-        $hostname,
-        $db,
-        $routine,
+        string $username,
+        string $hostname,
+        string $db,
+        string $routine,
         $urlDbname
     ) {
         $privileges = $this->getRoutinePrivileges($username, $hostname, $db, $routine);
@@ -1111,8 +1111,8 @@ class Privileges
     public function getMessageAndSqlQueryForPrivilegesRevoke(
         string $dbname,
         string $tablename,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
         $itemType
     ) {
         $dbAndTable = $this->wildcardEscapeForGrant($dbname, $tablename);
@@ -2587,8 +2587,8 @@ class Privileges
      */
     public function addUser(
         $dbname,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
         ?string $password,
         $isMenuwork
     ) {
@@ -2888,7 +2888,7 @@ class Privileges
      *
      * @return array ($title, $export)
      */
-    public function getListForExportUserDefinition($username, $hostname)
+    public function getListForExportUserDefinition(string $username, string $hostname)
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
@@ -3349,8 +3349,8 @@ class Privileges
      */
     public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
         array $queries,
-        $username,
-        $hostname
+        string $username,
+        string $hostname
     ) {
         $userHostCondition = ' WHERE `User`'
             . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
@@ -3369,9 +3369,7 @@ class Privileges
 
         $this->dbi->freeResult($res);
 
-        $queries = $this->getTablePrivsQueriesForChangeOrCopyUser($userHostCondition, $queries, $username, $hostname);
-
-        return $queries;
+        return $this->getTablePrivsQueriesForChangeOrCopyUser($userHostCondition, $queries, $username, $hostname);
     }
 
     /**
@@ -3732,7 +3730,7 @@ class Privileges
      *
      * @return string type
      */
-    public function getRoutineType($dbname, $routineName)
+    public function getRoutineType(string $dbname, string $routineName)
     {
         $routineData = $this->dbi->getRoutines($dbname);
 

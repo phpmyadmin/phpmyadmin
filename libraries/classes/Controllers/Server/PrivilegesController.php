@@ -25,6 +25,7 @@ use function __;
 use function header;
 use function implode;
 use function is_array;
+use function is_string;
 use function ob_get_clean;
 use function ob_start;
 use function str_replace;
@@ -201,8 +202,8 @@ class PrivilegesController extends AbstractController
             $_add_user_error,
         ] = $serverPrivileges->addUser(
             $dbname ?? null,
-            $username ?? null,
-            $hostname ?? null,
+            $username ?? '',
+            $hostname ?? '',
             $password ?? null,
             $relationParameters->menuswork
         );
@@ -220,12 +221,12 @@ class PrivilegesController extends AbstractController
         /**
          * Changes / copies a user, part III
          */
-        if (isset($_POST['change_copy'])) {
+        if (isset($_POST['change_copy']) && $username !== null && $hostname !== null) {
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $hostname);
         }
 
         $itemType = '';
-        if (! empty($routinename)) {
+        if (! empty($routinename) && is_string($dbname)) {
             $itemType = $serverPrivileges->getRoutineType($dbname, $routinename);
         }
 
@@ -263,7 +264,7 @@ class PrivilegesController extends AbstractController
             ! empty($_POST['changeUserGroup']) && $relationParameters->menuswork
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
-            $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
+            $serverPrivileges->setUserGroup($username ?? '', $_POST['userGroup']);
             $message = Message::success();
         }
 
@@ -272,10 +273,10 @@ class PrivilegesController extends AbstractController
          */
         if (isset($_POST['revokeall'])) {
             [$message, $sql_query] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
-                ($dbname ?? ''),
+                (is_string($dbname) ? $dbname : ''),
                 ($tablename ?? ($routinename ?? '')),
-                $username,
-                $hostname,
+                $username ?? '',
+                $hostname ?? '',
                 $itemType
             );
         }
@@ -284,7 +285,7 @@ class PrivilegesController extends AbstractController
          * Updates the password
          */
         if (isset($_POST['change_pw'])) {
-            $message = $serverPrivileges->updatePassword($errorUrl, $username, $hostname);
+            $message = $serverPrivileges->updatePassword($errorUrl, $username ?? '', $hostname ?? '');
         }
 
         /**
@@ -392,7 +393,7 @@ class PrivilegesController extends AbstractController
         if (isset($_GET['adduser']) || $_add_user_error === true) {
             // Add user
             $this->response->addHTML(
-                $serverPrivileges->getHtmlForAddUser(Util::escapeMysqlWildcards($dbname ?? ''))
+                $serverPrivileges->getHtmlForAddUser(Util::escapeMysqlWildcards(is_string($dbname) ? $dbname : ''))
             );
         } elseif (isset($_GET['checkprivsdb'])) {
             if (isset($_GET['checkprivstable'])) {
@@ -437,7 +438,7 @@ class PrivilegesController extends AbstractController
                     $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                         $username,
                         $hostname ?? '',
-                        $dbname,
+                        is_string($dbname) ? $dbname : '',
                         $routinename,
                         Util::escapeMysqlWildcards($url_dbname ?? '')
                     )

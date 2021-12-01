@@ -2521,29 +2521,6 @@
       <code>$export</code>
       <code>$title</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$dbname</code>
-      <code>$dbname</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? ''</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$dbname</code>
-      <code>$dbname</code>
-      <code>$dbname ?? ''</code>
-      <code>$dbname ?? ''</code>
-    </PossiblyInvalidCast>
-    <PossiblyNullArgument occurrences="9">
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$hostname</code>
-      <code>$hostname ?? null</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username</code>
-      <code>$username ?? null</code>
-    </PossiblyNullArgument>
     <RedundantCondition occurrences="1">
       <code>$sub_part</code>
     </RedundantCondition>
