@@ -3733,9 +3733,10 @@ class Privileges
     public function getRoutineType(string $dbname, string $routineName)
     {
         $routineData = $this->dbi->getRoutines($dbname);
+        $routineName = mb_strtolower($routineName);
 
         foreach ($routineData as $routine) {
-            if ($routine['name'] === $routineName) {
+            if (mb_strtolower($routine['name']) === $routineName) {
                 return $routine['type'];
             }
         }

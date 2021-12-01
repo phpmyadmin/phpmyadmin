@@ -13073,7 +13073,7 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <MixedArgument occurrences="117">
+    <MixedArgument occurrences="118">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
       <code>$_GET['initial']</code>
@@ -13159,6 +13159,7 @@
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
+      <code>$routine['name']</code>
       <code>$row</code>
       <code>$row</code>
       <code>$row1['Type']</code>
