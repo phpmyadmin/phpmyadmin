@@ -8538,15 +8538,12 @@
     </UnusedFunctionCall>
   </file>
   <file src="libraries/classes/Menu.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$result</code>
-      <code>$row['tab']</code>
-      <code>$row['tab']</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$binaryLogs</code>
       <code>$result</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
@@ -8554,26 +8551,15 @@
     <MixedReturnStatement occurrences="1">
       <code>SessionCache::get($cacheKey)</code>
     </MixedReturnStatement>
-    <NullableReturnStatement occurrences="2">
-      <code>$allowedTabs</code>
+    <NullableReturnStatement occurrences="1">
       <code>SessionCache::get($cacheKey)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
-      <code>mb_strpos($row['tab'], '_')</code>
+      <code>mb_strpos($tab, '_')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$allowedTabs[$tabName]</code>
-    </PossiblyNullArrayAccess>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $this-&gt;table</code>
-      <code>(string) $this-&gt;table</code>
-    </RedundantCastGivenDocblockType>
-    <UnusedForeachValue occurrences="1">
-      <code>$value</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Message.php">
     <DocblockTypeContradiction occurrences="1">

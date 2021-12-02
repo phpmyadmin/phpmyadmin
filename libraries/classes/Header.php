@@ -118,7 +118,7 @@ class Header
      */
     public function __construct()
     {
-        global $db, $table;
+        global $db, $table, $dbi;
 
         $this->template = new Template();
 
@@ -127,7 +127,7 @@ class Header
         $this->bodyId = '';
         $this->title = '';
         $this->console = new Console();
-        $this->menu = new Menu($db ?? '', $table ?? '');
+        $this->menu = new Menu($dbi, $db ?? '', $table ?? '');
         $this->menuEnabled = true;
         $this->warningsEnabled = true;
         $this->scripts = new Scripts();
