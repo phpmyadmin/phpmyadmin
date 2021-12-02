@@ -180,6 +180,34 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertEquals('PMA_pred__tablename', $tablename);
         $this->assertEquals('`PMA_pred_dbname`.`PMA_pred__tablename`', $db_and_table);
         $this->assertEquals(false, $dbname_is_wildcard);
+
+        // Multiselect database - pred
+        unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_REQUEST['dbname']);
+        $_POST['pred_dbname'] = ['PMA\_pred\_dbname', 'PMADbname2'];
+        [,,
+            $dbname,
+            $tablename,,
+            $db_and_table,
+            $dbname_is_wildcard,
+        ] = $this->serverPrivileges->getDataForDBInfo();
+        $this->assertEquals(['PMA\_pred\_dbname', 'PMADbname2'], $dbname);
+        $this->assertEquals(null, $tablename);
+        $this->assertEquals(['PMA\_pred\_dbname.*', 'PMADbname2.*'], $db_and_table);
+        $this->assertEquals(false, $dbname_is_wildcard);
+
+        // Multiselect database
+        unset($_POST['pred_tablename'], $_REQUEST['tablename'], $_POST['pred_dbname']);
+        $_REQUEST['dbname'] = ['PMA\_dbname', 'PMADbname2'];
+        [,,
+            $dbname,
+            $tablename,,
+            $db_and_table,
+            $dbname_is_wildcard,
+        ] = $this->serverPrivileges->getDataForDBInfo();
+        $this->assertEquals(['PMA\_dbname', 'PMADbname2'], $dbname);
+        $this->assertEquals(null, $tablename);
+        $this->assertEquals(['PMA\_dbname.*', 'PMADbname2.*'], $db_and_table);
+        $this->assertEquals(false, $dbname_is_wildcard);
     }
 
     /**

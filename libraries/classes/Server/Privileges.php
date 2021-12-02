@@ -21,6 +21,8 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_filter;
+use function array_keys;
 use function array_map;
 use function array_merge;
 use function array_unique;
@@ -30,7 +32,6 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_scalar;
 use function is_string;
 use function json_decode;
 use function ksort;
@@ -514,7 +515,7 @@ class Privileges
      *
      * @return string sql query
      */
-    public function getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
+    public function getSqlQueryForDisplayPrivTable(string $db, string $table, string $username, string $hostname)
     {
         if ($db === '*') {
             return 'SELECT * FROM `mysql`.`user`'
@@ -720,10 +721,10 @@ class Privileges
      * @return string
      */
     public function getHtmlForRoutineSpecificPrivileges(
-        $username,
-        $hostname,
-        $db,
-        $routine,
+        string $username,
+        string $hostname,
+        string $db,
+        string $routine,
         $urlDbname
     ) {
         $privileges = $this->getRoutinePrivileges($username, $hostname, $db, $routine);
@@ -1110,8 +1111,8 @@ class Privileges
     public function getMessageAndSqlQueryForPrivilegesRevoke(
         string $dbname,
         string $tablename,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
         $itemType
     ) {
         $dbAndTable = $this->wildcardEscapeForGrant($dbname, $tablename);
@@ -2586,8 +2587,8 @@ class Privileges
      */
     public function addUser(
         $dbname,
-        $username,
-        $hostname,
+        string $username,
+        string $hostname,
         ?string $password,
         $isMenuwork
     ) {
@@ -2770,6 +2771,7 @@ class Privileges
      * Update DB information: DB, Table, isWildcard
      *
      * @return array
+     * @psalm-return array{?string, ?string, array|string|null, ?string, ?string, array|string, bool}
      */
     public function getDataForDBInfo()
     {
@@ -2778,7 +2780,6 @@ class Privileges
         $dbname = null;
         $tablename = null;
         $routinename = null;
-        $returnDb = null;
 
         if (isset($_REQUEST['username'])) {
             $username = (string) $_REQUEST['username'];
@@ -2793,115 +2794,87 @@ class Privileges
          */
         if (
             isset($_POST['pred_tablename'])
-            && is_scalar($_POST['pred_tablename'])
-            && strlen((string) $_POST['pred_tablename']) > 0
+            && is_string($_POST['pred_tablename'])
+            && $_POST['pred_tablename'] !== ''
         ) {
-            $tablename = (string) $_POST['pred_tablename'];
+            $tablename = $_POST['pred_tablename'];
         } elseif (
             isset($_REQUEST['tablename'])
-            && is_scalar($_REQUEST['tablename'])
-            && strlen((string) $_REQUEST['tablename']) > 0
+            && is_string($_REQUEST['tablename'])
+            && $_REQUEST['tablename'] !== ''
         ) {
-            $tablename = (string) $_REQUEST['tablename'];
-        } else {
-            unset($tablename);
+            $tablename = $_REQUEST['tablename'];
         }
 
         if (
             isset($_POST['pred_routinename'])
-            && is_scalar($_POST['pred_routinename'])
-            && strlen((string) $_POST['pred_routinename']) > 0
+            && is_string($_POST['pred_routinename'])
+            && $_POST['pred_routinename'] !== ''
         ) {
-            $routinename = (string) $_POST['pred_routinename'];
+            $routinename = $_POST['pred_routinename'];
         } elseif (
             isset($_REQUEST['routinename'])
-            && is_scalar($_REQUEST['routinename'])
-            && strlen((string) $_REQUEST['routinename']) > 0
+            && is_string($_REQUEST['routinename'])
+            && $_REQUEST['routinename'] !== ''
         ) {
-            $routinename = (string) $_REQUEST['routinename'];
-        } else {
-            unset($routinename);
+            $routinename = $_REQUEST['routinename'];
         }
 
-        if (isset($_POST['pred_dbname'])) {
-            $isValidPredDbname = true;
-            foreach ($_POST['pred_dbname'] as $key => $dbName) {
-                if (! isset($dbName) || ! is_scalar($dbName) || strlen((string) $dbName) === 0) {
-                    $isValidPredDbname = false;
-                    break;
+        if (isset($_POST['pred_dbname']) && is_array($_POST['pred_dbname'])) {
+            // Accept only array of non-empty strings
+            if ($_POST['pred_dbname'] === array_filter($_POST['pred_dbname'])) {
+                $dbname = $_POST['pred_dbname'];
+                // If dbname contains only one database.
+                if (count($dbname) === 1) {
+                    $dbname = (string) $dbname[0];
                 }
             }
         }
 
-        if (isset($_REQUEST['dbname'])) {
-            $isValidDbname = true;
+        if ($dbname === null && isset($_REQUEST['dbname'])) {
             if (is_array($_REQUEST['dbname'])) {
-                foreach ($_REQUEST['dbname'] as $key => $dbName) {
-                    if (! isset($dbName) || ! is_scalar($dbName) || strlen((string) $dbName) === 0) {
-                        $isValidDbname = false;
-                        break;
-                    }
+                // Accept only array of non-empty strings
+                if ($_REQUEST['dbname'] === array_filter($_REQUEST['dbname'])) {
+                    $dbname = $_REQUEST['dbname'];
                 }
-            } else {
-                if (
-                    ! isset($_REQUEST['dbname'])
-                    || ! is_scalar($_REQUEST['dbname'])
-                    || strlen((string) $_REQUEST['dbname']) === 0
-                ) {
-                    $isValidDbname = false;
-                }
+            } elseif (
+                is_string($_REQUEST['dbname'])
+                && $_REQUEST['dbname'] !== ''
+            ) {
+                $dbname = $_REQUEST['dbname'];
             }
         }
 
-        if (isset($isValidPredDbname) && $isValidPredDbname) {
-            $dbname = $_POST['pred_dbname'];
-            // If dbname contains only one database.
-            if (count($dbname) === 1) {
-                $dbname = $dbname[0];
-            }
-        } elseif (isset($isValidDbname) && $isValidDbname) {
-            $dbname = (string) $_REQUEST['dbname'];
+        $dbAndTable = '*.*';
+        if ($dbname === null) {
+            $tablename = null;
         } else {
-            unset($dbname, $tablename);
-        }
-
-        if (isset($dbname)) {
             if (is_array($dbname)) {
                 $dbAndTable = $dbname;
-                $returnDb = $dbname;
-                foreach ($dbAndTable as $key => $dbName) {
-                    $dbAndTable[$key] .= '.';
+                foreach (array_keys($dbAndTable) as $key) {
+                    $dbAndTable[$key] .= '.*';
                 }
             } else {
                 $unescapedDb = Util::unescapeMysqlWildcards($dbname);
                 $dbAndTable = Util::backquote($unescapedDb) . '.';
-                $returnDb = $dbname;
-            }
 
-            if (isset($tablename) && ! is_array($dbAndTable)) {
-                $dbAndTable .= Util::backquote($tablename);
-            } else {
-                if (is_array($dbAndTable)) {
-                    foreach ($dbAndTable as $key => $dbName) {
-                        $dbAndTable[$key] .= '*';
-                    }
+                if ($tablename !== null) {
+                    $dbAndTable .= Util::backquote($tablename);
                 } else {
                     $dbAndTable .= '*';
                 }
             }
-        } else {
-            $dbAndTable = '*.*';
         }
 
         // check if given $dbname is a wildcard or not
-        $databaseNameIsWildcard = ! is_array($dbname ?? '') && preg_match('/(?<!\\\\)(?:_|%)/', $dbname ?? '');
+        $databaseNameIsWildcard = is_string($dbname) && preg_match('/(?<!\\\\)(?:_|%)/', $dbname);
 
         return [
             $username,
             $hostname,
-            $returnDb,
-            $tablename ?? null,
-            $routinename ?? null,
+            $dbname,
+            $tablename,
+            $routinename,
             $dbAndTable,
             $databaseNameIsWildcard,
         ];
@@ -2915,7 +2888,7 @@ class Privileges
      *
      * @return array ($title, $export)
      */
-    public function getListForExportUserDefinition($username, $hostname)
+    public function getListForExportUserDefinition(string $username, string $hostname)
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
@@ -3376,8 +3349,8 @@ class Privileges
      */
     public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
         array $queries,
-        $username,
-        $hostname
+        string $username,
+        string $hostname
     ) {
         $userHostCondition = ' WHERE `User`'
             . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
@@ -3396,9 +3369,7 @@ class Privileges
 
         $this->dbi->freeResult($res);
 
-        $queries = $this->getTablePrivsQueriesForChangeOrCopyUser($userHostCondition, $queries, $username, $hostname);
-
-        return $queries;
+        return $this->getTablePrivsQueriesForChangeOrCopyUser($userHostCondition, $queries, $username, $hostname);
     }
 
     /**
@@ -3759,12 +3730,13 @@ class Privileges
      *
      * @return string type
      */
-    public function getRoutineType($dbname, $routineName)
+    public function getRoutineType(string $dbname, string $routineName)
     {
         $routineData = $this->dbi->getRoutines($dbname);
+        $routineName = mb_strtolower($routineName);
 
         foreach ($routineData as $routine) {
-            if ($routine['name'] === $routineName) {
+            if (mb_strtolower($routine['name']) === $routineName) {
                 return $routine['type'];
             }
         }
