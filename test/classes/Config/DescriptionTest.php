@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
+use function array_keys;
 use function in_array;
 
 /**
@@ -107,7 +108,7 @@ class DescriptionTest extends AbstractTestCase
                 }
             } elseif (in_array($key, $nested)) {
                 $this->assertIsArray($value);
-                foreach ($value as $item => $val) {
+                foreach (array_keys($value) as $item) {
                     $this->assertGet($key . '/' . $item);
                 }
             }

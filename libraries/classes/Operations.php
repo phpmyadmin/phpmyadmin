@@ -9,6 +9,7 @@ use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 
 use function __;
+use function array_keys;
 use function array_merge;
 use function count;
 use function explode;
@@ -134,7 +135,7 @@ class Operations
         $db
     ) {
         $views = [];
-        foreach ($tables_full as $each_table => $tmp) {
+        foreach (array_keys($tables_full) as $each_table) {
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
             // the real views are created after the tables
@@ -175,7 +176,7 @@ class Operations
     public function copyTables(array $tables_full, $move, $db)
     {
         $sqlContraints = [];
-        foreach ($tables_full as $each_table => $tmp) {
+        foreach (array_keys($tables_full) as $each_table) {
             // skip the views; we have created stand-in definitions
             if ($this->dbi->getTable($db, (string) $each_table)->isView()) {
                 continue;

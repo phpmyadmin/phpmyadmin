@@ -21,7 +21,9 @@ use Stringable;
 
 use function __;
 use function array_key_exists;
+use function array_keys;
 use function array_map;
+use function array_merge;
 use function count;
 use function end;
 use function explode;
@@ -2692,9 +2694,7 @@ class Table implements Stringable
             Index::getFromTableByChoice($this->name, $this->dbName, $types) as $index
         ) {
             $columns = $index->getColumns();
-            foreach ($columns as $columnName => $dummy) {
-                $columnsWithIndex[] = $columnName;
-            }
+            $columnsWithIndex = array_merge($columnsWithIndex, array_keys($columns));
         }
 
         return $columnsWithIndex;

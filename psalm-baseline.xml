@@ -140,7 +140,7 @@
       <code>$relrow[$foreignData['foreign_display']]</code>
       <code>$relrow[$foreignData['foreign_field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="7">
       <code>$descriptions[]</code>
       <code>$keys[]</code>
       <code>$leftKeyname</code>
@@ -148,7 +148,6 @@
       <code>$pos</code>
       <code>$relrow</code>
       <code>$rightKeyname</code>
-      <code>$value</code>
     </MixedAssignment>
     <MixedOperand occurrences="4">
       <code>$foreignData['the_total']</code>
@@ -162,9 +161,6 @@
       <code>(int) $cfg['MaxRows']</code>
       <code>(int) $cfg['RepeatCells']</code>
     </RedundantCast>
-    <UnusedForeachValue occurrences="1">
-      <code>$value</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Cache.php">
     <MixedAssignment occurrences="1">
@@ -675,7 +671,7 @@
       <code>$values[$path]</code>
       <code>$values[$systemPath]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="30">
+    <MixedAssignment occurrences="29">
       <code>$canonicalPath</code>
       <code>$errorList</code>
       <code>$errorList</code>
@@ -694,7 +690,6 @@
       <code>$toSave[$workPath]</code>
       <code>$translatedPath</code>
       <code>$userPrefsDisallow</code>
-      <code>$v</code>
       <code>$v</code>
       <code>$v</code>
       <code>$val</code>
@@ -736,9 +731,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$userprefsDisallow</code>
     </PropertyNotSetInConstructor>
-    <UnusedForeachValue occurrences="1">
-      <code>$v</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Config/FormDisplayTemplate.php">
     <MixedArgument occurrences="1">
@@ -2784,12 +2776,6 @@
       <code>$id</code>
       <code>$id</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="1">
-      <code>$server</code>
-    </MixedAssignment>
-    <UnusedForeachValue occurrences="1">
-      <code>$server</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Setup/ServersController.php">
     <PossiblyNullArgument occurrences="1">
@@ -3048,9 +3034,6 @@
       <code>$_REQUEST['pos']</code>
       <code>$_REQUEST['pos']</code>
     </MixedOperand>
-    <UnusedForeachValue occurrences="1">
-      <code>$key</code>
-    </UnusedForeachValue>
     <UnusedVariable occurrences="1">
       <code>$data_row_number</code>
     </UnusedVariable>
@@ -3462,7 +3445,7 @@
     <InvalidArgument occurrences="1">
       <code>$insert_errors</code>
     </InvalidArgument>
-    <MixedArgument occurrences="51">
+    <MixedArgument occurrences="47">
       <code>$_POST['db']</code>
       <code>$_POST['rel_fields_list']</code>
       <code>$_POST['table']</code>
@@ -3479,13 +3462,9 @@
       <code>$db</code>
       <code>$error_messages</code>
       <code>$extra_data</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
       <code>$last_messages</code>
       <code>$mime_map[$column_name]['input_transformation_options']</code>
       <code>$multi_edit_auto_increment</code>
-      <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_null</code>
       <code>$multi_edit_columns_null</code>
@@ -3515,7 +3494,10 @@
       <code>$warning_messages</code>
       <code>$where_clause</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
+    <MixedArgumentTypeCoercion occurrences="6">
+      <code>$key</code>
+      <code>$key</code>
+      <code>$key</code>
       <code>$query_values</code>
       <code>$query_values</code>
       <code>$rownumber</code>
@@ -3535,16 +3517,10 @@
       <code>$urlParams['after_insert']</code>
       <code>$urlParams['where_clause']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="7">
+    <MixedArrayOffset occurrences="1">
       <code>$mime_map[$column_name]</code>
-      <code>$multi_edit_columns[$key]</code>
-      <code>$multi_edit_columns[$key]</code>
-      <code>$multi_edit_columns[$key]</code>
-      <code>$multi_edit_columns[$key]</code>
-      <code>$multi_edit_columns_null[$key]</code>
-      <code>$multi_edit_virtual[$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="31">
+    <MixedAssignment occurrences="28">
       <code>$GLOBALS['cfg']['InsertRows']</code>
       <code>$GLOBALS['sql_query']</code>
       <code>$clauseIsUnique</code>
@@ -3555,8 +3531,6 @@
       <code>$current_value</code>
       <code>$extra_data['row_count']</code>
       <code>$insertRows</code>
-      <code>$key</code>
-      <code>$key</code>
       <code>$multi_edit_auto_increment</code>
       <code>$multi_edit_columns</code>
       <code>$multi_edit_columns_name</code>
@@ -3574,7 +3548,6 @@
       <code>$unsaved_values[$rownumber]</code>
       <code>$urlParams['after_insert']</code>
       <code>$urlParams['where_clause'][]</code>
-      <code>$val</code>
       <code>$where_clause</code>
     </MixedAssignment>
     <MixedMethodCall occurrences="1">
@@ -3598,9 +3571,6 @@
     <PossiblyUndefinedVariable occurrences="1">
       <code>$extra_data</code>
     </PossiblyUndefinedVariable>
-    <UnusedForeachValue occurrences="1">
-      <code>$val</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Controllers/Table/SearchController.php">
     <MixedArgument occurrences="13">
@@ -4695,9 +4665,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$table == ''</code>
     </TypeDoesNotContainType>
-    <UnusedForeachValue occurrences="1">
-      <code>$def</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Database/DatabaseList.php">
     <DocblockTypeContradiction occurrences="1">
@@ -4882,9 +4849,6 @@
       <code>$con['SCN']</code>
       <code>$con['STN']</code>
     </PossiblyUndefinedArrayOffset>
-    <UnusedForeachValue occurrences="1">
-      <code>$dummy</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Database/Events.php">
     <MixedArgument occurrences="28">
@@ -9307,7 +9271,7 @@
       <code>$trigger['create']</code>
       <code>$trigger['create']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="16">
       <code>$arr</code>
       <code>$event_name</code>
       <code>$foreignTable</code>
@@ -9322,8 +9286,6 @@
       <code>$one_query</code>
       <code>$procedure_name</code>
       <code>$this_what</code>
-      <code>$tmp</code>
-      <code>$tmp</code>
       <code>$trigger</code>
       <code>$view</code>
     </MixedAssignment>
@@ -9377,10 +9339,6 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $pack_keys</code>
     </RedundantCastGivenDocblockType>
-    <UnusedForeachValue occurrences="2">
-      <code>$tmp</code>
-      <code>$tmp</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/OutputBuffering.php">
     <DocblockTypeContradiction occurrences="1">
@@ -9722,9 +9680,6 @@
       <code>(int) $GLOBALS['cfg']['LoginCookieStore']</code>
       <code>(string) $conn_error</code>
     </RedundantCast>
-    <UnusedForeachValue occurrences="1">
-      <code>$val</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <MixedArgument occurrences="3">
@@ -9797,9 +9752,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$dbi_error</code>
     </PossiblyInvalidArgument>
-    <UnusedForeachValue occurrences="1">
-      <code>$val</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
     <MixedArgument occurrences="6">
@@ -10365,7 +10317,6 @@
       <code>$index</code>
       <code>$mime</code>
       <code>$mimeField</code>
-      <code>$name</code>
       <code>$newDatabase</code>
       <code>$newTable</code>
       <code>$oneKey</code>
@@ -10460,9 +10411,6 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>CreateDefinition</code>
     </UnnecessaryVarAnnotation>
-    <UnusedForeachValue occurrences="1">
-      <code>$name</code>
-    </UnusedForeachValue>
     <UnusedParam occurrences="1">
       <code>$crlf</code>
     </UnusedParam>
@@ -12135,21 +12083,10 @@
       <code>$_POST['t_x'][$key]</code>
       <code>$_POST['t_y'][$key]</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="4">
-      <code>$_POST['t_db'][$key]</code>
-      <code>$_POST['t_tbl'][$key]</code>
-      <code>$_POST['t_x'][$key]</code>
-      <code>$_POST['t_y'][$key]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="4">
-      <code>$key</code>
+    <MixedAssignment occurrences="2">
       <code>$result</code>
       <code>$result</code>
-      <code>$value</code>
     </MixedAssignment>
-    <UnusedForeachValue occurrences="1">
-      <code>$value</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -13775,7 +13712,7 @@
       <code>$userGroups[$groupName]</code>
       <code>$userGroups[$groupName]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="19">
+    <MixedAssignment occurrences="16">
       <code>$groupName</code>
       <code>$key</code>
       <code>$result</code>
@@ -13783,12 +13720,9 @@
       <code>$result</code>
       <code>$tab</code>
       <code>$tab</code>
-      <code>$tab</code>
       <code>$tabDetail['tab']</code>
       <code>$tabDetail['tab_name']</code>
-      <code>$tabGroup</code>
       <code>$tabGroupName</code>
-      <code>$tabName</code>
       <code>$tabName</code>
       <code>$tabName</code>
       <code>$tabNames[]</code>
@@ -13796,8 +13730,7 @@
       <code>$user['user']</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>$tab</code>
+    <MixedOperand occurrences="3">
       <code>$tab</code>
       <code>$tab</code>
       <code>$tabGroupName</code>
@@ -13812,9 +13745,6 @@
       <code>$tabs</code>
       <code>$tabs</code>
     </PossiblyNullIterator>
-    <UnusedForeachValue occurrences="1">
-      <code>$tabName</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="4">
@@ -14120,9 +14050,6 @@
       <code>''</code>
       <code>''</code>
     </TypeDoesNotContainNull>
-    <UnusedForeachValue occurrences="1">
-      <code>$dummy</code>
-    </UnusedForeachValue>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <MixedArgument occurrences="2">
@@ -14536,9 +14463,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
-    <UnusedForeachValue occurrences="1">
-      <code>$dummy</code>
-    </UnusedForeachValue>
     <UnusedVariable occurrences="3">
       <code>$idx</code>
       <code>$idx</code>
@@ -14606,16 +14530,14 @@
       <code>$mime_map[$columnMeta['Field']]</code>
       <code>$submit_fulltext[$fulltext_indexkey]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="7">
-      <code>$available_mime[$mime_type . '_file'][$mimekey]</code>
-      <code>$available_mime[$mime_type . '_file_quoted'][$mimekey]</code>
+    <MixedArrayOffset occurrences="5">
       <code>$comments_map[$columnMeta['Field']]</code>
       <code>$expressions[$columnMeta['Field']]</code>
       <code>$mime_map[$columnMeta['Field']]</code>
       <code>$mime_map[$columnMeta['Field']]</code>
       <code>$submit_fulltext[$fulltext_indexkey]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="25">
+    <MixedAssignment occurrences="23">
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
@@ -14634,12 +14556,10 @@
       <code>$fulltext_indexkey</code>
       <code>$length</code>
       <code>$length</code>
-      <code>$mimekey</code>
       <code>$move_columns</code>
       <code>$o_fld_val</code>
       <code>$submit_attribute</code>
       <code>$submit_fulltext[$fulltext_indexkey]</code>
-      <code>$transform</code>
       <code>$type</code>
     </MixedAssignment>
     <PossiblyUndefinedVariable occurrences="1">
@@ -14651,9 +14571,6 @@
       <code>isset($field_fulltext) &amp;&amp; is_array($field_fulltext)</code>
       <code>isset($selected) &amp;&amp; is_array($selected)</code>
     </RedundantConditionGivenDocblockType>
-    <UnusedForeachValue occurrences="1">
-      <code>$transform</code>
-    </UnusedForeachValue>
     <UnusedVariable occurrences="1">
       <code>$fulltext_nr</code>
     </UnusedVariable>
@@ -15628,12 +15545,6 @@
       <code>$http_response_code_param</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/AbstractTestCase.php">
-    <UnusedForeachValue occurrences="2">
-      <code>$val</code>
-      <code>$val</code>
-    </UnusedForeachValue>
-  </file>
   <file src="test/classes/AdvisorTest.php">
     <MixedInferredReturnType occurrences="2">
       <code>array</code>
@@ -15758,9 +15669,8 @@
     </MixedOperand>
   </file>
   <file src="test/classes/Config/DescriptionTest.php">
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$second</code>
-      <code>$val</code>
       <code>$val</code>
       <code>$val2</code>
     </MixedAssignment>
@@ -15770,9 +15680,6 @@
     <MixedOperand occurrences="1">
       <code>$second</code>
     </MixedOperand>
-    <UnusedForeachValue occurrences="1">
-      <code>$val</code>
-    </UnusedForeachValue>
   </file>
   <file src="test/classes/Config/FormDisplayTest.php">
     <MixedArrayAccess occurrences="10">

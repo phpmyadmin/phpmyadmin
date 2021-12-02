@@ -14,6 +14,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function _pgettext;
+use function array_keys;
 use function count;
 use function explode;
 use function in_array;
@@ -230,7 +231,7 @@ class Common
                 }
 
                 $columns = $index->getColumns();
-                foreach ($columns as $column_name => $dummy) {
+                foreach (array_keys($columns) as $column_name) {
                     $keys[$schema . '.' . $designerTable->getTableName() . '.' . $column_name] = 1;
                 }
             }

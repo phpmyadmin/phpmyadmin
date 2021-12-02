@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function __;
+use function array_keys;
 use function asort;
 use function ceil;
 use function floor;
@@ -245,7 +246,7 @@ class BrowseForeigners
         $horizontalCount = 0;
         $indexByDescription = 0;
 
-        foreach ($keys as $indexByKeyname => $value) {
+        foreach (array_keys($keys) as $indexByKeyname) {
             [
                 $html,
                 $horizontalCount,

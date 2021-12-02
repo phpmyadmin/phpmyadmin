@@ -18,6 +18,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+use function array_keys;
 use function array_merge;
 use function bin2hex;
 use function count;
@@ -25,7 +26,6 @@ use function explode;
 use function in_array;
 use function intval;
 use function is_array;
-use function is_iterable;
 use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
@@ -134,11 +134,11 @@ final class ColumnsDefinition
             'transformation',
         ];
         foreach ($mime_types as $mime_type) {
-            if (! isset($available_mime[$mime_type]) || ! is_iterable($available_mime[$mime_type])) {
+            if (! isset($available_mime[$mime_type]) || ! is_array($available_mime[$mime_type])) {
                 continue;
             }
 
-            foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+            foreach (array_keys($available_mime[$mime_type]) as $mimekey) {
                 $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
                     $available_mime[$mime_type . '_file'][$mimekey],
                     '@'

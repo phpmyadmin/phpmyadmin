@@ -18,6 +18,7 @@ use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
+use function array_keys;
 use function in_array;
 
 use const DIRECTORY_SEPARATOR;
@@ -62,7 +63,7 @@ abstract class AbstractTestCase extends TestCase
      */
     protected function setUp(): void
     {
-        foreach ($GLOBALS as $key => $val) {
+        foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
@@ -238,12 +239,12 @@ abstract class AbstractTestCase extends TestCase
     }
 
     /**
-     * Desctroys the environment built for the test.
+     * Destroys the environment built for the test.
      * Clean all variables
      */
     protected function tearDown(): void
     {
-        foreach ($GLOBALS as $key => $val) {
+        foreach (array_keys($GLOBALS) as $key) {
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }

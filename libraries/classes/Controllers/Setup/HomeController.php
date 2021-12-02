@@ -10,6 +10,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
 
 use function __;
+use function array_keys;
 use function is_scalar;
 use function preg_replace;
 use function uniqid;
@@ -107,7 +108,7 @@ class HomeController extends AbstractController
         }
 
         $servers = [];
-        foreach ($this->config->getServers() as $id => $server) {
+        foreach (array_keys($this->config->getServers()) as $id) {
             $servers[$id] = [
                 'id' => $id,
                 'name' => $this->config->getServerName($id),

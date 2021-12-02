@@ -30,6 +30,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
 use function __;
+use function array_keys;
 use function bin2hex;
 use function count;
 use function defined;
@@ -1148,7 +1149,7 @@ class ExportSql extends ExportPlugin
 
                 $result = $dbi->fetchResult($sqlQuery, 'page_nr', 'page_descr');
 
-                foreach ($result as $page => $name) {
+                foreach (array_keys($result) as $page) {
                     // insert row for pdf_page
                     $sqlQueryRow = 'SELECT `db_name`, `page_descr` FROM '
                         . Util::backquote($relationParameters->db)
