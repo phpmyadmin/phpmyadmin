@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 
 use function __;
 use function _pgettext;
+use function array_keys;
 use function array_reverse;
 use function array_search;
 use function array_shift;
@@ -628,7 +629,7 @@ class Relation
             'exporttemplateswork' => 'export_templates',
         ];
 
-        foreach ($workToTable as $work => $table) {
+        foreach (array_keys($workToTable) as $work) {
             $relationParams[$work] = false;
         }
 
@@ -681,7 +682,7 @@ class Relation
                     $allWorks = false;
                     break;
                 }
-            } elseif (is_array($table)) {
+            } else {
                 $oneNull = false;
                 foreach ($table as $t) {
                     if (isset($GLOBALS['cfg']['Server'][$t]) && $GLOBALS['cfg']['Server'][$t] === false) {
@@ -834,7 +835,7 @@ class Relation
          * Emulating relations for some information_schema tables
          */
         $isInformationSchema = mb_strtolower($db) === 'information_schema';
-            $isMysql = mb_strtolower($db) === 'mysql';
+        $isMysql = mb_strtolower($db) === 'mysql';
         if (($isInformationSchema || $isMysql) && ($source === 'internal' || $source === 'both')) {
             if ($isInformationSchema) {
                 $internalRelations = InternalRelations::getInformationSchema();
@@ -911,11 +912,9 @@ class Relation
          * Pick first char field
          */
         $columns = $this->dbi->getColumnsFull($db, $table);
-        if ($columns) {
-            foreach ($columns as $column) {
-                if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
-                    return $column['COLUMN_NAME'];
-                }
+        foreach ($columns as $column) {
+            if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
+                return $column['COLUMN_NAME'];
             }
         }
 
@@ -932,24 +931,22 @@ class Relation
      *
      * @access public
      */
-    public function getComments($db, $table = '')
+    public function getComments($db, $table = ''): array
     {
+        if ($table === '') {
+            return [$this->getDbComment($db)];
+        }
+
         $comments = [];
 
-        if ($table != '') {
-            // MySQL native column comments
-            $columns = $this->dbi->getColumns($db, $table, true);
-            if ($columns) {
-                foreach ($columns as $column) {
-                    if (empty($column['Comment'])) {
-                        continue;
-                    }
-
-                    $comments[$column['Field']] = $column['Comment'];
-                }
+        // MySQL native column comments
+        $columns = $this->dbi->getColumns($db, $table, true);
+        foreach ($columns as $column) {
+            if (empty($column['Comment'])) {
+                continue;
             }
-        } else {
-            $comments[] = $this->getDbComment($db);
+
+            $comments[$column['Field']] = $column['Comment'];
         }
 
         return $comments;
@@ -960,14 +957,11 @@ class Relation
      *
      * @param string $db the name of the db to check for
      *
-     * @return string   comment
-     *
      * @access public
      */
-    public function getDbComment($db)
+    public function getDbComment(string $db): string
     {
         $relationParameters = $this->getRelationParameters();
-        $comment = '';
 
         if ($relationParameters->commwork) {
             // pmadb internal db comment
@@ -981,13 +975,12 @@ class Relation
 
             if ($com_rs && $this->dbi->numRows($com_rs) > 0) {
                 $row = $this->dbi->fetchAssoc($com_rs);
-                $comment = $row['comment'];
-            }
 
-            $this->dbi->freeResult($com_rs);
+                return (string) $row['comment'];
+            }
         }
 
-        return $comment;
+        return '';
     }
 
     /**
@@ -1212,11 +1205,11 @@ class Relation
      * @param string $data    the current data of the dropdown
      * @param string $mode    the needed mode
      *
-     * @return array   the <option value=""><option>s
+     * @return string[] the <option value=""><option>s
      *
      * @access protected
      */
-    public function buildForeignDropdown(array $foreign, $data, $mode)
+    public function buildForeignDropdown(array $foreign, $data, $mode): array
     {
         $reloptions = [];
 
@@ -1239,7 +1232,6 @@ class Relation
         }
 
         foreach ($foreign as $key => $value) {
-            $vtitle = '';
             $key = (string) $key;
             $value = (string) $value;
             $data = (string) $data;
@@ -1279,9 +1271,6 @@ class Relation
             }
 
             $reloption = '<option value="' . $key . '"';
-            if ($vtitle != '') {
-                $reloption .= ' title="' . $vtitle . '"';
-            }
 
             if ($selected) {
                 $reloption .= ' selected="selected"';
@@ -1305,11 +1294,11 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array  $disp_row        array of the displayed row
-     * @param string $foreign_field   the foreign field
-     * @param string $foreign_display the foreign field to display
-     * @param string $data            the current data of the dropdown (field in row)
-     * @param int    $max             maximum number of items in the dropdown
+     * @param array[] $disp_row        array of the displayed row
+     * @param string  $foreign_field   the foreign field
+     * @param string  $foreign_display the foreign field to display
+     * @param string  $data            the current data of the dropdown (field in row)
+     * @param int     $max             maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
      *
@@ -1318,10 +1307,10 @@ class Relation
     public function foreignDropdown(
         array $disp_row,
         $foreign_field,
-        $foreign_display,
+        string $foreign_display,
         $data,
         $max = null
-    ) {
+    ): string {
         if ($max === null) {
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
         }
@@ -1412,7 +1401,14 @@ class Relation
      *                                   in $foreignData['the_total;]
      *                                   (has an effect of performance)
      *
-     * @return array    data about the foreign keys
+     * @return array<string, mixed>    data about the foreign keys
+     * @psalm-return array{
+     *     foreign_link: bool,
+     *     the_total: mixed,
+     *     foreign_display: string,
+     *     disp_row: ?list<non-empty-array>,
+     *     foreign_field: mixed
+     * }
      *
      * @access public
      */
@@ -1420,13 +1416,14 @@ class Relation
         $foreigners,
         $field,
         $override_total,
-        $foreign_filter,
+        string $foreign_filter,
         $foreign_limit,
         $get_total = false
-    ) {
+    ): array {
         // we always show the foreign field in the drop-down; if a display
         // field is defined, we show it besides the foreign field
         $foreign_link = false;
+        $disp_row = $foreign_display = $the_total = $foreign_field = null;
         do {
             if (! $foreigners) {
                 break;
@@ -1466,11 +1463,11 @@ class Relation
                     );
                 $f_query_from = ' FROM ' . Util::backquote($foreign_db)
                     . '.' . Util::backquote($foreign_table);
-                $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
+                $f_query_filter = $foreign_filter === '' ? '' : ' WHERE '
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
-                    $foreign_display === false
+                        $foreign_display === false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
@@ -1480,9 +1477,9 @@ class Relation
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = ! empty($foreign_limit) ? $foreign_limit : '';
+                $f_query_limit = $foreign_limit ?: '';
 
-                if (! empty($foreign_filter)) {
+                if ($foreign_filter !== '') {
                     $the_total = $this->dbi->fetchValue('SELECT COUNT(*)' . $f_query_from . $f_query_filter);
                     if ($the_total === false) {
                         $the_total = 0;
@@ -1522,16 +1519,13 @@ class Relation
                 ->countRecords(true);
         }
 
-        $foreignData = [];
-        $foreignData['foreign_link'] = $foreign_link;
-        $foreignData['the_total'] = $the_total ?? null;
-        $foreignData['foreign_display'] = (
-            $foreign_display ?? null
-        );
-        $foreignData['disp_row'] = $disp_row ?? null;
-        $foreignData['foreign_field'] = $foreign_field ?? null;
-
-        return $foreignData;
+        return [
+            'foreign_link' => $foreign_link,
+            'the_total' => $the_total,
+            'foreign_display' => $foreign_display ?: '',
+            'disp_row' => $disp_row,
+            'foreign_field' => $foreign_field,
+        ];
     }
 
     /**
@@ -1770,17 +1764,13 @@ class Relation
      */
     public function createPage(?string $newpage, RelationParameters $relationParameters, $db)
     {
-        if (! isset($newpage) || $newpage == '') {
-            $newpage = __('no description');
-        }
-
         $ins_query = 'INSERT INTO '
             . Util::backquote($relationParameters->db) . '.'
             . Util::backquote($relationParameters->pdfPages)
             . ' (db_name, page_descr)'
             . ' VALUES (\''
             . $this->dbi->escapeString($db) . '\', \''
-            . $this->dbi->escapeString($newpage) . '\')';
+            . $this->dbi->escapeString($newpage ?: __('no description')) . '\')';
         $this->queryAsControlUser($ins_query, false);
 
         return $this->dbi->insertId(DatabaseInterface::CONNECT_CONTROL);
@@ -1793,12 +1783,9 @@ class Relation
      * @param string $db     name of master table db.
      * @param string $table  name of master table.
      * @param string $column name of master table column.
-     *
-     * @return array
      */
-    public function getChildReferences($db, $table, $column = '')
+    public function getChildReferences($db, $table, $column = ''): array
     {
-        $child_references = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $rel_query = 'SELECT `column_name`, `table_name`,'
                 . ' `table_schema`, `referenced_column_name`'
@@ -1812,7 +1799,7 @@ class Relation
                     . $this->dbi->escapeString($column) . "'";
             }
 
-            $child_references = $this->dbi->fetchResult(
+            return $this->dbi->fetchResult(
                 $rel_query,
                 [
                     'referenced_column_name',
@@ -1821,7 +1808,7 @@ class Relation
             );
         }
 
-        return $child_references;
+        return [];
     }
 
     /**
@@ -1833,7 +1820,8 @@ class Relation
      * @param array|null $foreigners_full       foreigners array for the whole table.
      * @param array|null $child_references_full child references for the whole table.
      *
-     * @return array telling about references if foreign key.
+     * @return array<string, mixed> telling about references if foreign key.
+     * @psalm-return array{isEditable: bool, isForeignKey: bool, isReferenced: bool, references: string[]}
      */
     public function checkChildForeignReferences(
         $db,
@@ -1841,12 +1829,13 @@ class Relation
         $column,
         $foreigners_full = null,
         $child_references_full = null
-    ) {
-        $column_status = [];
-        $column_status['isEditable'] = false;
-        $column_status['isReferenced'] = false;
-        $column_status['isForeignKey'] = false;
-        $column_status['references'] = [];
+    ): array {
+        $column_status = [
+            'isEditable' => true,
+            'isReferenced' => false,
+            'isForeignKey' => false,
+            'references' => [],
+        ];
 
         $foreigners = [];
         if ($foreigners_full !== null) {
@@ -1873,6 +1862,7 @@ class Relation
         }
 
         if (count($child_references) > 0 || $foreigner) {
+            $column_status['isEditable'] = false;
             if (count($child_references) > 0) {
                 $column_status['isReferenced'] = true;
                 foreach ($child_references as $columns) {
@@ -1884,8 +1874,6 @@ class Relation
             if ($foreigner) {
                 $column_status['isForeignKey'] = true;
             }
-        } else {
-            $column_status['isEditable'] = true;
         }
 
         return $column_status;
@@ -1944,6 +1932,7 @@ class Relation
                 continue;
             }
 
+            // The following redundant cast is needed for PHPStan
             $tableName = (string) $table[1];
 
             // Replace the table name with another one
@@ -2176,22 +2165,18 @@ class Relation
      * @param string $table     table name
      *
      * @return array ($res_rel, $have_rel)
+     * @psalm-return array{array, bool}
      */
-    public function getRelationsAndStatus($condition, $db, $table)
+    public function getRelationsAndStatus(bool $condition, $db, $table)
     {
+        $have_rel = false;
+        $res_rel = [];
         if ($condition) {
             // Find which tables are related with the current one and write it in
             // an array
             $res_rel = $this->getForeigners($db, $table);
 
-            if (count($res_rel) > 0) {
-                $have_rel = true;
-            } else {
-                $have_rel = false;
-            }
-        } else {
-            $have_rel = false;
-            $res_rel = [];
+            $have_rel = count($res_rel) > 0;
         }
 
         return [
