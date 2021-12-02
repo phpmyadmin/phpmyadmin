@@ -2414,7 +2414,6 @@ class Results
                  *       avoid to display the delete and edit links
                  */
                 [$whereClause, $clauseIsUnique, $conditionArray] = Util::getUniqueCondition(
-                    $dtResult,
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
                     $row,
@@ -2483,7 +2482,6 @@ class Results
             }
 
             $tableBodyHtml .= $this->getRowValues(
-                $dtResult,
                 $row,
                 $rowNumber,
                 $colOrder,
@@ -2599,8 +2597,6 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param int               $dtResult           the link id associated to the query
-     *                                               which results have to be displayed
      * @param array             $row                current row data
      * @param int               $rowNumber          the index of current row
      * @param array|false       $colOrder           the column order false when
@@ -2620,7 +2616,6 @@ class Results
      * @access private
      */
     private function getRowValues(
-        &$dtResult,
         array $row,
         $rowNumber,
         $colOrder,
@@ -2775,7 +2770,6 @@ class Results
              */
             if (! isset($whereClauseMap[$rowNumber][$meta->orgtable])) {
                 $uniqueConditions = Util::getUniqueCondition(
-                    $dtResult,
                     $this->properties['fields_cnt'],
                     $this->properties['fields_meta'],
                     $row,
@@ -4327,7 +4321,6 @@ class Results
          * in the multi-edit and multi-delete form
          */
         [, $clauseIsUnique] = Util::getUniqueCondition(
-            $dtResult,
             $this->properties['fields_cnt'],
             $this->properties['fields_meta'],
             $row,

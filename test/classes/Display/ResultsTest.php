@@ -989,7 +989,6 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['cfg']['BrowseMIME'] = true;
 
         // Basic data
-        $result = 0;
         $query = 'SELECT 1';
         $this->object->properties['db'] = 'db';
         $this->object->properties['fields_cnt'] = 2;
@@ -1046,7 +1045,6 @@ class ResultsTest extends AbstractTestCase
             DisplayResults::class,
             'getRowValues',
             [
-                &$result,
                 [
                     3600,
                     true,

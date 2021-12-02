@@ -1371,16 +1371,6 @@ parameters:
 			path: libraries/classes/Util.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgname \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$orgtable \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Offset 'header' does not exist on array\\{proxy\\: non\\-empty\\-string, request_fulluri\\: true\\}\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php

@@ -79,10 +79,10 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $actual = Util::getUniqueCondition(0, 0, [], []);
+        $actual = Util::getUniqueCondition(0, [], []);
         $this->assertEquals(['', false, []], $actual);
 
-        $actual = Util::getUniqueCondition(0, 0, [], [], true);
+        $actual = Util::getUniqueCondition(0, [], [], true);
         $this->assertEquals(['', true, []], $actual);
     }
 
@@ -163,7 +163,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(0, count($meta), $meta, [
+        $actual = Util::getUniqueCondition(count($meta), $meta, [
             null,
             'value\'s',
             123456,
@@ -214,7 +214,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(0, 1, $meta, [str_repeat('*', 1001)]);
+        $actual = Util::getUniqueCondition(1, $meta, [str_repeat('*', 1001)]);
         $this->assertEquals(
             ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
             $actual
@@ -236,7 +236,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(0, count($meta), $meta, [1, 'value']);
+        $actual = Util::getUniqueCondition(count($meta), $meta, [1, 'value']);
         $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
     }
 
@@ -255,7 +255,7 @@ class UtilTest extends AbstractTestCase
             ]),
         ];
 
-        $actual = Util::getUniqueCondition(0, count($meta), $meta, ['unique', 'value']);
+        $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
         $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
     }
 

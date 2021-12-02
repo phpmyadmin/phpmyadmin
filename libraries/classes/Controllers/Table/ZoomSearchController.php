@@ -16,6 +16,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function array_search;
+use function array_values;
 use function count;
 use function htmlspecialchars;
 use function in_array;
@@ -348,14 +349,10 @@ class ZoomSearchController extends AbstractController
         while ($row = $this->dbi->fetchAssoc($result)) {
             //Need a row with indexes as 0,1,2 for the getUniqueCondition
             // hence using a temporary array
-            $tmpRow = [];
-            foreach ($row as $val) {
-                $tmpRow[] = $val;
-            }
+            $tmpRow = array_values($row);
 
             //Get unique condition on each row (will be needed for row update)
             $uniqueCondition = Util::getUniqueCondition(
-                $result,
                 count($this->columnNames),
                 $fields_meta,
                 $tmpRow,

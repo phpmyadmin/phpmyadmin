@@ -4070,7 +4070,7 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
-    <MixedArgument occurrences="22">
+    <MixedArgument occurrences="21">
       <code>$_POST['db']</code>
       <code>$_POST['table']</code>
       <code>$_POST['where_clause']</code>
@@ -4080,7 +4080,6 @@
       <code>$dataLabel</code>
       <code>$goto</code>
       <code>$properties['type']</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -4112,7 +4111,7 @@
       <code>$row[$_POST['criteriaColumnNames'][0]]</code>
       <code>$row[$_POST['criteriaColumnNames'][1]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="14">
       <code>$collation</code>
       <code>$columnName</code>
       <code>$criteria_column_names</code>
@@ -4125,9 +4124,7 @@
       <code>$row['where_clause']</code>
       <code>$selected_operator</code>
       <code>$tmpData[$dataLabel]</code>
-      <code>$tmpRow[]</code>
       <code>$type</code>
-      <code>$val</code>
       <code>$val</code>
     </MixedAssignment>
     <MixedOperand occurrences="2">
@@ -6061,11 +6058,14 @@
       <code>$wkbval</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="6">
+    <MixedArgumentTypeCoercion occurrences="9">
       <code>$analyzedSqlResults</code>
       <code>$index</code>
       <code>$index</code>
       <code>$linkingUrlParams</code>
+      <code>$row</code>
+      <code>$row</code>
+      <code>$row</code>
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
@@ -8152,7 +8152,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/InsertEdit.php">
-    <MixedArgument occurrences="100">
+    <MixedArgument occurrences="98">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
@@ -8228,12 +8228,10 @@
       <code>$protectedRow[$multiEditColumnsName[$key]]</code>
       <code>$res</code>
       <code>$res</code>
-      <code>$res</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$result[$keyId]</code>
       <code>$result[$keyId]</code>
       <code>$result[$keyId]</code>
       <code>$rows[$keyId]</code>
@@ -8254,10 +8252,11 @@
       <code>$whereClause</code>
       <code>min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars'])</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="8">
+    <MixedArgumentTypeCoercion occurrences="9">
       <code>$keyId</code>
       <code>$query</code>
       <code>$queryFields</code>
+      <code>$row</code>
       <code>$thisUrlParams</code>
       <code>$thisUrlParams</code>
       <code>$urlParams</code>
@@ -10242,7 +10241,7 @@
       <code>$GLOBALS['asfile']</code>
       <code>$GLOBALS['sql_if_not_exists']</code>
     </InvalidArgument>
-    <MixedArgument occurrences="76">
+    <MixedArgument occurrences="75">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_header_comment']</code>
       <code>$GLOBALS['sql_indexes']</code>
@@ -10273,7 +10272,6 @@
       <code>$relFieldAlias</code>
       <code>$rel['foreign_field']</code>
       <code>$rel['foreign_table']</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -10320,12 +10318,13 @@
       <code>$token-&gt;value</code>
       <code>$trigger['create']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="8">
+    <MixedArgumentTypeCoercion occurrences="9">
       <code>$autoIncrement</code>
       <code>$constraints</code>
       <code>$dropped</code>
       <code>$indexes</code>
       <code>$indexesFulltext</code>
+      <code>$row</code>
       <code>$values</code>
       <code>$values</code>
       <code>$values</code>
@@ -15220,9 +15219,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="libraries/classes/Util.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>! isset($meta-&gt;orgname)</code>
-    </DocblockTypeContradiction>
     <EmptyArrayAccess occurrences="1">
       <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
@@ -15418,9 +15414,6 @@
       <code>$maxSize</code>
       <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="1">
-      <code>$condition</code>
-    </PossiblyNullOperand>
     <RedundantCast occurrences="3">
       <code>(int) $GLOBALS['cfg']['ExecTimeLimit']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
@@ -15438,9 +15431,6 @@
       <code>$columnsList !== null</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>isset($meta-&gt;orgtable)</code>
-    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>

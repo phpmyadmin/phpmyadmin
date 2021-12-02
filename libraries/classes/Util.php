@@ -871,6 +871,7 @@ class Util
      * @param string                $condition    The condition
      *
      * @return array<int,string|null>
+     * @psalm-return array{string|null, string}
      */
     private static function getConditionValue(
         $row,
@@ -934,18 +935,17 @@ class Util
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param resource|int    $handle          current query result
      * @param int             $fieldsCount     number of fields
      * @param FieldMetadata[] $fieldsMeta      meta information about fields
      * @param array           $row             current row
      * @param bool            $forceUnique     generate condition only on pk or unique
      * @param string|bool     $restrictToTable restrict the unique condition to this table or false if none
      * @param Expression[]    $expressions     An array of Expression instances.
+     * @psalm-param array<int, mixed> $row
      *
      * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle,
         $fieldsCount,
         array $fieldsMeta,
         array $row,
@@ -968,7 +968,7 @@ class Util
             $meta = $fieldsMeta[$i];
 
             // do not use a column alias in a condition
-            if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
+            if ($meta->orgname === '') {
                 $meta->orgname = $meta->name;
 
                 foreach ($expressions as $expression) {
@@ -995,8 +995,7 @@ class Util
             // (The isView() verification should not be costly in most cases
             // because there is some caching in the function).
             if (
-                isset($meta->orgtable)
-                && ($meta->table != $meta->orgtable)
+                $meta->table !== $meta->orgtable
                 && ! $dbi->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
@@ -1931,7 +1930,7 @@ class Util
                 $values[] = $buffer;
                 $buffer = '';
             } elseif ($inString) {
-                 $buffer .= $curr;
+                $buffer .= $curr;
             }
         }
 

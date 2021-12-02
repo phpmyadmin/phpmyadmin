@@ -235,7 +235,6 @@ class InsertEdit
         $meta = $this->dbi->getFieldsMeta($result[$keyId]) ?? [];
 
         [$uniqueCondition] = Util::getUniqueCondition(
-            $result[$keyId],
             count($meta),
             $meta,
             $rows[$keyId],
@@ -1205,7 +1204,6 @@ class InsertEdit
         // must find a unique condition based on unique key,
         // not a combination of all fields
         [$uniqueCondition] = Util::getUniqueCondition(
-            $res,
             count($meta),
             $meta,
             $row,
