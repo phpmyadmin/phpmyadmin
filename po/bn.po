@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-11-21 00:11+0000\n"
+"POT-Creation-Date: 2021-11-28 00:11+0000\n"
 "PO-Revision-Date: 2021-11-05 03:35+0000\n"
 "Last-Translator: Istiak Ferdous <hello@istiakferdous.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1302,9 +1302,9 @@ msgstr "খুঁজ:"
 #: templates/database/routines/execute_form.twig:55
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
-#: templates/display/results/table.twig:190 templates/export.twig:459
+#: templates/display/results/table.twig:190
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/import.twig:228 templates/modals/create_view.twig:10
+#: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
 #: templates/preferences/manage/main.twig:46
@@ -3227,7 +3227,7 @@ msgstr "অনেকগুলো টেবল এক সাথে রক্ষ�
 msgid "Maximum execution time"
 msgstr "সম্পাদনের সর্বোচ্চ সময়"
 
-#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:330
+#: libraries/classes/Config/Descriptions.php:627 templates/export.twig:347
 #, fuzzy, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
@@ -3243,7 +3243,8 @@ msgid "Character set of the file"
 msgstr "ফাইলের বর্ণরাশি"
 
 #: libraries/classes/Config/Descriptions.php:632
-#: libraries/classes/Config/Descriptions.php:648 templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:648 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "গঠন"
@@ -3271,14 +3272,14 @@ msgstr "স্তম্ভের নাম প্রথম রোতে দা�
 #: libraries/classes/Config/Descriptions.php:635
 #: libraries/classes/Config/Descriptions.php:767
 #: libraries/classes/Config/Descriptions.php:773
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#: libraries/classes/Plugins/Import/ImportCsv.php:666
 msgid "Columns enclosed with"
 msgstr "স্তম্ভ ঘেরার জন্য"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Config/Descriptions.php:768
 #: libraries/classes/Config/Descriptions.php:774
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
 msgstr "স্তম্ভ এস্কেপডের উপকরণ"
 
@@ -3300,13 +3301,13 @@ msgstr "স্তম্ভের CRLF বর্ণ মুছ"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Config/Descriptions.php:778
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#: libraries/classes/Plugins/Import/ImportCsv.php:651
 msgid "Columns terminated with"
 msgstr "স্তম্ভ শেষ হবে"
 
 #: libraries/classes/Config/Descriptions.php:640
 #: libraries/classes/Config/Descriptions.php:766
-#: libraries/classes/Plugins/Import/ImportCsv.php:688
+#: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
 msgstr "লাইন শেষ হবে"
 
@@ -3410,8 +3411,8 @@ msgid "Save on server"
 msgstr "সার্ভারে সংরক্ষন কর"
 
 #: libraries/classes/Config/Descriptions.php:675
-#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:172
-#: templates/export.twig:353
+#: libraries/classes/Config/Descriptions.php:678 templates/export.twig:182
+#: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr "পূর্বের ফাইলটিতে রাখ"
 
@@ -3543,8 +3544,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Config/Descriptions.php:732 libraries/classes/Menu.php:493
 #: libraries/classes/Util.php:1963 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:3
+#: templates/navigation/tree/database_select.twig:10
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
+#: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
 msgstr "ডাটাবেইজ"
@@ -3610,7 +3612,7 @@ msgstr "সার্ভার"
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
+#: templates/database/export/index.twig:22
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
 msgstr "টেবল"
@@ -3738,7 +3740,7 @@ msgstr "আংশিক আমদানি: বাধা অনুমোদি�
 
 #: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Descriptions.php:775
-#: libraries/classes/Plugins/Import/ImportCsv.php:142
+#: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
 msgstr "ভুল হলেও ইনর্সাট বাতিল করবে না"
@@ -3864,7 +3866,7 @@ msgstr "চলাচলের ফ্রেম"
 
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#: libraries/classes/Navigation/NavigationTree.php:1352
+#: libraries/classes/Navigation/NavigationTree.php:1356
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
@@ -4701,7 +4703,7 @@ msgstr "পরিবর্তন"
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit.twig:3
-#: templates/database/export/index.twig:24
+#: templates/database/export/index.twig:23
 #: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:352
 #: templates/table/tracking/structure_snapshot_columns.twig:1
@@ -4713,7 +4715,7 @@ msgstr "গঠন"
 #: libraries/classes/Config/Forms/User/ExportForm.php:133
 #: libraries/classes/Config/Forms/User/ExportForm.php:139
 #: libraries/classes/Controllers/Server/DatabasesController.php:321
-#: templates/database/export/index.twig:25
+#: templates/database/export/index.twig:24
 #: templates/server/privileges/privileges_table.twig:278
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
@@ -4758,8 +4760,8 @@ msgstr "ওপেন অফিস টেক্সট"
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:240
 #: templates/display/results/table.twig:241
-#: templates/display/results/table.twig:270 templates/export.twig:8
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:270 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4786,7 +4788,8 @@ msgstr "CSV LOAD DATA ব্যবহার করছে"
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:402
 #: libraries/classes/Menu.php:531 libraries/classes/Util.php:1968
 #: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
-#: templates/import.twig:32 templates/preferences/header.twig:48
+#: templates/import.twig:3 templates/import.twig:199
+#: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -5736,7 +5739,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
-#: templates/export.twig:308
+#: templates/export.twig:324
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save & close"
@@ -5846,7 +5849,7 @@ msgid "Matched rows:"
 msgstr "প্রভাবিত রোসমুহ:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:122
-#: libraries/classes/Html/Generator.php:899 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:899 templates/export.twig:67
 msgid "SQL query:"
 msgstr "SQL অনুসন্ধান:"
 
@@ -5892,8 +5895,8 @@ msgstr "নির্বাচিত ব্যবহারকারীদের �
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
-#: templates/export_modal.twig:10 templates/export.twig:64
-#: templates/export.twig:74 templates/export.twig:184
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
 #: templates/home/index.twig:285 templates/home/index.twig:293
 #: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
 #: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
@@ -6193,7 +6196,7 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:588 templates/export.twig:392
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:54
@@ -6439,7 +6442,7 @@ msgid "Chart"
 msgstr "চিত্র"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
-#: templates/export.twig:200
+#: templates/export.twig:210
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -6447,7 +6450,7 @@ msgid "Database"
 msgstr "ডাটাবেইজ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:283
-#: templates/export.twig:214
+#: templates/export.twig:224
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -6455,7 +6458,7 @@ msgid "Table"
 msgstr "টেবল"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:284
-#: templates/export.twig:227
+#: templates/export.twig:237
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -6741,7 +6744,7 @@ msgstr "না"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:358
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16 templates/import.twig:191
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 #, fuzzy
 #| msgid "Disable foreign key checks"
@@ -6828,7 +6831,7 @@ msgstr "অনুসন্ধান বক্সটি দেখাও"
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:235
-#: templates/display/results/table.twig:236 templates/export.twig:38
+#: templates/display/results/table.twig:236 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
 #: templates/setup/home/index.twig:68 templates/sql/query.twig:186
@@ -7095,7 +7098,7 @@ msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2053
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2017
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "উপেক্ষা"
@@ -7498,7 +7501,7 @@ msgid "Hide panel"
 msgstr "ইনডেক্স প্যানেল"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
-#: libraries/classes/Navigation/NavigationTree.php:1355
+#: libraries/classes/Navigation/NavigationTree.php:1359
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -7736,7 +7739,7 @@ msgid "Table %s already exists!"
 msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:336
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "লুকাও"
@@ -8759,7 +8762,7 @@ msgstr "দেখা"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:733 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8869,46 +8872,46 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s সংযোজনক পাওয়া যাচ্ছে না। পিএইছপি কনফিগারেশন দেখুন।"
 
-#: libraries/classes/Database/CentralColumns.php:293
-#: libraries/classes/Database/CentralColumns.php:401
-#: libraries/classes/Database/CentralColumns.php:617
+#: libraries/classes/Database/CentralColumns.php:295
+#: libraries/classes/Database/CentralColumns.php:403
+#: libraries/classes/Database/CentralColumns.php:619
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:351
+#: libraries/classes/Database/CentralColumns.php:353
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:367
+#: libraries/classes/Database/CentralColumns.php:369
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not add columns!"
 msgstr "কনফিগারেশন সংরক্ষন করা যায়নি।"
 
-#: libraries/classes/Database/CentralColumns.php:453
+#: libraries/classes/Database/CentralColumns.php:455
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:466
+#: libraries/classes/Database/CentralColumns.php:468
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "সাম্প্রতিক টেবিল সংরক্ষন করা হয় নাই"
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "YES"
 msgstr ""
 
-#: libraries/classes/Database/CentralColumns.php:631
+#: libraries/classes/Database/CentralColumns.php:633
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:548
+#: libraries/classes/Database/Designer/Common.php:544
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgctxt ""
@@ -8918,64 +8921,64 @@ msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Database/Designer/Common.php:593
+#: libraries/classes/Database/Designer/Common.php:589
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: libraries/classes/Database/Designer/Common.php:647
+#: libraries/classes/Database/Designer/Common.php:643
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:655
+#: libraries/classes/Database/Designer/Common.php:651
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:662
+#: libraries/classes/Database/Designer/Common.php:658
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/classes/Database/Designer/Common.php:670
-#: libraries/classes/Database/Designer/Common.php:757
+#: libraries/classes/Database/Designer/Common.php:666
+#: libraries/classes/Database/Designer/Common.php:753
 msgid "Error: Relational features are disabled!"
 msgstr "ভুল: সর্ম্পক তৈরী অকার্যকর করা আছে!"
 
-#: libraries/classes/Database/Designer/Common.php:694
+#: libraries/classes/Database/Designer/Common.php:690
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:702
+#: libraries/classes/Database/Designer/Common.php:698
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:739
+#: libraries/classes/Database/Designer/Common.php:735
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
-#: libraries/classes/Database/Designer/Common.php:747
+#: libraries/classes/Database/Designer/Common.php:743
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:779
+#: libraries/classes/Database/Designer/Common.php:775
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
-#: libraries/classes/Database/Designer/Common.php:785
+#: libraries/classes/Database/Designer/Common.php:781
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
@@ -9109,7 +9112,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: libraries/classes/DatabaseInterface.php:1091
+#: libraries/classes/DatabaseInterface.php:1117
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9117,23 +9120,23 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1138
+#: libraries/classes/DatabaseInterface.php:1164
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/DatabaseInterface.php:1912
+#: libraries/classes/DatabaseInterface.php:1896
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "parameter নাই:"
 
-#: libraries/classes/DatabaseInterface.php:1937
+#: libraries/classes/DatabaseInterface.php:1921
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
-#: libraries/classes/DatabaseInterface.php:2415
+#: libraries/classes/DatabaseInterface.php:2399
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9399,7 +9402,7 @@ msgid ""
 "%2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামে কোন ট্রিগার পাওয়া যায়নি"
 
-#: libraries/classes/Dbal/DbiMysqli.php:147
+#: libraries/classes/Dbal/DbiMysqli.php:146
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -10091,7 +10094,7 @@ msgstr "আকৃতি সম্পাদনা কর এই \"Structure\" স
 #: libraries/classes/Plugins/Export/ExportTexytext.php:45
 #: libraries/classes/Plugins/Export/ExportXml.php:76
 #: libraries/classes/Plugins/Export/ExportYaml.php:44
-#: libraries/classes/Plugins/Import/ImportCsv.php:71
+#: libraries/classes/Plugins/Import/ImportCsv.php:70
 #: libraries/classes/Plugins/Import/ImportLdi.php:51
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:59
 #: libraries/classes/Plugins/Import/ImportOds.php:53
@@ -10147,7 +10150,7 @@ msgid ""
 "removed."
 msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন।"
 
-#: libraries/classes/InsertEdit.php:352
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -10155,7 +10158,7 @@ msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে 
 msgid "Function"
 msgstr "ফাংশন"
 
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -10189,12 +10192,12 @@ msgstr "ফাংশন"
 msgid "Type"
 msgstr "ধরণ"
 
-#: libraries/classes/InsertEdit.php:734 templates/import.twig:77
-#: templates/import.twig:107
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
+#: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "আপলোড করার জন্য নির্ধারিত ডিরেক্টরীটি পাওয়া যাচ্ছে না।"
 
-#: libraries/classes/InsertEdit.php:739
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10204,15 +10207,15 @@ msgstr "আপলোড করার জন্য নির্ধারিত �
 msgid "Or"
 msgstr "অথবা"
 
-#: libraries/classes/InsertEdit.php:740
+#: libraries/classes/InsertEdit.php:732
 msgid "web server upload directory:"
 msgstr "ওয়েব সার্ভারের আপলোড ডিরেক্টরি:"
 
-#: libraries/classes/InsertEdit.php:1356 libraries/classes/Sql.php:979
+#: libraries/classes/InsertEdit.php:1340 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/classes/InsertEdit.php:1386 libraries/classes/Sql.php:959
+#: libraries/classes/InsertEdit.php:1364 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
@@ -10423,19 +10426,19 @@ msgstr "টেবলসমুহ:"
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
-#: libraries/classes/Navigation/NavigationTree.php:760
+#: libraries/classes/Navigation/NavigationTree.php:761
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Navigation/NavigationTree.php:834
+#: libraries/classes/Navigation/NavigationTree.php:835
 #, fuzzy
 #| msgid "Group name:"
 msgid "Groups"
 msgstr "দলের নাম:"
 
-#: libraries/classes/Navigation/NavigationTree.php:947
+#: libraries/classes/Navigation/NavigationTree.php:948
 #, fuzzy, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
@@ -10444,7 +10447,7 @@ msgid_plural "%s results found"
 msgstr[0] "%s টি অন্যান্য ফলাফল পাওয়াগেছে"
 msgstr[1] "%s গুলো অন্যান্য ফলাফল পাওয়াগেছে"
 
-#: libraries/classes/Navigation/NavigationTree.php:1346
+#: libraries/classes/Navigation/NavigationTree.php:1350
 msgid "Collapse all"
 msgstr ""
 
@@ -11070,7 +11073,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
-#: templates/export.twig:108 templates/import.twig:196
+#: templates/export.twig:119
 msgid "Format:"
 msgstr "গঠন:"
 
@@ -11712,20 +11715,20 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:84
+#: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:102
-#: libraries/classes/Plugins/Import/ImportCsv.php:120
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
@@ -11734,7 +11737,7 @@ msgstr ""
 "প্রথম লাইনে টেবলের স্তম্ভের নাম আছে। <i>(এটি যদি চিহ্নিত না হয় তবে প্রথম লাইনটিও "
 "তথ্য পরিনত হবে)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:127
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11743,30 +11746,30 @@ msgstr ""
 "যদি ফাইলের সব রো'র তথ্য ডাটাবেইজ অনুযায়ী গুছানো না হয়, এখানে ঐ স্তম্ভের নামের "
 "তালিকা কর। স্তম্ভের নাম অবশ্যই কমা দ্ধারা পৃথক হবে এবং কৌটেশন দ্ধারা বন্ধ হবে না।"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:135
+#: libraries/classes/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
 msgstr "স্তম্ভের নাম:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:273
-#: libraries/classes/Plugins/Import/ImportCsv.php:635
+#: libraries/classes/Plugins/Import/ImportCsv.php:272
+#: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ফাইলের গঠন অযোগ্য %d লাইনে।"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:491
+#: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "অযোগ্য স্তম্ভ্ সংখ্যা CSV ফাইলের %d লাইনে।"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:653
-#: libraries/classes/Plugins/Import/ImportCsv.php:668
-#: libraries/classes/Plugins/Import/ImportCsv.php:679
-#: libraries/classes/Plugins/Import/ImportCsv.php:686
+#: libraries/classes/Plugins/Import/ImportCsv.php:649
+#: libraries/classes/Plugins/Import/ImportCsv.php:664
+#: libraries/classes/Plugins/Import/ImportCsv.php:675
+#: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV আমদানীর প্যারামিটার ঠিক নাই:%s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:817
+#: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11848,11 +11851,11 @@ msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code>
 msgid "XML"
 msgstr "এক্সএমএল"
 
-#: libraries/classes/Plugins.php:589
+#: libraries/classes/Plugins.php:593
 msgid "This format has no options"
 msgstr "এই গঠনের কোন অপশন নাই"
 
-#: libraries/classes/Plugins.php:607
+#: libraries/classes/Plugins.php:611
 msgid "Invalid authentication method set in configuration:"
 msgstr "কনফিগারেশনে অকার্যকর প্রমাণীকরন পদ্ধতি:"
 
@@ -12435,11 +12438,11 @@ msgstr "টেবলের সজ্জা মনে রাখবে"
 msgid "Saving export templates"
 msgstr "রফতানীর ধরন সঠিক নয়"
 
-#: libraries/classes/Relation.php:1770
+#: libraries/classes/Relation.php:1774
 msgid "no description"
 msgstr "বণর্না নাই"
 
-#: libraries/classes/Relation.php:1981
+#: libraries/classes/Relation.php:1985
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12447,7 +12450,7 @@ msgid ""
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2135
+#: libraries/classes/Relation.php:2139
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -12455,14 +12458,14 @@ msgid ""
 "storage there."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2142
+#: libraries/classes/Relation.php:2146
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2149
+#: libraries/classes/Relation.php:2153
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -13189,33 +13192,33 @@ msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অন�
 msgid "Run SQL query/queries on table %s"
 msgstr "ডাটাবেইজ %s এ SQL অনুসন্ধান/অনুসন্ধানসমূহ চালাও"
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:369
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "মজুদ ব্যবস্থার অবস্থা সর্ম্পকে বিশদ তথ্য নাই।"
 
-#: libraries/classes/StorageEngine.php:470
+#: libraries/classes/StorageEngine.php:473
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s এই মাইএসকিউএল সার্ভার এর স্বাভাবিক মজুদ ব্যবস্থা।"
 
-#: libraries/classes/StorageEngine.php:473
+#: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s এই সার্ভারে আছে।"
 
-#: libraries/classes/StorageEngine.php:476
+#: libraries/classes/StorageEngine.php:479
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s এই সার্ভারে অকার্যকর।"
 
-#: libraries/classes/StorageEngine.php:480
+#: libraries/classes/StorageEngine.php:483
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "এই MySQL সার্ভারটি %s মজুদ ব্যবস্থা সমর্থন করে না।"
 
-#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:59 libraries/classes/Table.php:2141
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "প্রাথমিক কী'র নাম অবশ্যই \"PRIMARY\" হতে হবে!"
 
@@ -13256,13 +13259,13 @@ msgstr "টেবিল %1$s টি %2$s নাম করনে ব্যাথ�
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "টেবিল %1$s থেকে %2$s এ নামকরন করা হয়েছে।"
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1827
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "টেবলের UI পছন্দ সংরক্ষন করা যায়নি"
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1855
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13271,7 +13274,7 @@ msgstr ""
 "টেবলের UI পছন্দ পরিস্কার করতে ব্যার্থ হয়েছি ($cfg['Servers'][$i] "
 "['MaxTableUiprefs'] %s দেখুন)"
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1992
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13281,15 +13284,15 @@ msgstr ""
 "UI পছন্দের তথ্য \"%s\" সংরক্ষন করা যায়নি। পরিবর্তন গুলো এই পাতাটি রিফ্রেশ করলে "
 "থাকবে না। টেবলের গঠন পরিবর্তীত হয়েছে কিনা পরীক্ষা করে দেখুন।"
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2153
 msgid "Can't rename index to PRIMARY!"
 msgstr "ইনডেক্সটি PRIMARY হিসাবে নাম করন করা যাবে না!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2179
 msgid "No index parts defined!"
 msgstr "ইনডেক্সের অংশ দেওয়া হয়নি!"
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2476
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s এ ফরেন কী তৈরী করতে সমস্যা হচ্ছে (তথ্যের ধরন পরীক্ষা করুন)"
@@ -14127,8 +14130,8 @@ msgstr "টেবিলের নাম"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:273
-#: templates/export.twig:287 templates/export.twig:301
+#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -14184,7 +14187,7 @@ msgstr ""
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
 #: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
-#: templates/export.twig:63 templates/modals/build_query.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -14751,7 +14754,7 @@ msgid "Number of columns"
 msgstr "স্তম্ভের সংখ্যা"
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39 templates/export.twig:21
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "তৈরী"
@@ -14788,8 +14791,8 @@ msgid "No index defined!"
 msgstr "কোন ইনডেক্স তৈরী করা হয়নি!"
 
 #: templates/database/designer/database_tables.twig:31
-#: templates/database/export/index.twig:29
-#: templates/database/search/main.twig:43 templates/server/export/index.twig:12
+#: templates/database/export/index.twig:28
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -15157,7 +15160,7 @@ msgstr "খোলা"
 msgid "OFF"
 msgstr "বন্ধ"
 
-#: templates/database/export/index.twig:62
+#: templates/database/export/index.twig:61
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -15176,6 +15179,18 @@ msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছ�
 #, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr "ডাটাবেইজ থেকে \"%s\" টেবিল রফতানী করা হচ্ছে"
+
+#: templates/database/export/index.twig:30
+#, fuzzy
+#| msgid "Allows altering the structure of existing tables."
+msgid "Export the structure of all tables."
+msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্তনের অনুমোদন।"
+
+#: templates/database/export/index.twig:33
+#, fuzzy
+#| msgid "Export views as tables"
+msgid "Export the data of all tables."
+msgstr "ভিউ টেবিলের মত রফতানী করা হচ্ছে"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15284,7 +15299,7 @@ msgstr "ডাটাবেইজের মন্তব্য"
 msgid "Rename database to"
 msgstr "ডাটাবেজ পুনঃনামকরন"
 
-#: templates/database/operations/index.twig:58 templates/export.twig:270
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 #, fuzzy
 #| msgid "Database name"
 msgid "New database name"
@@ -15626,7 +15641,7 @@ msgstr "শব্দগুলো ফাকা (\" \") বর্ণ দিয়ে 
 msgid "Inside tables:"
 msgstr "টেবিলের ভিতরে:"
 
-#: templates/database/search/main.twig:46 templates/server/export/index.twig:16
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 #, fuzzy
 #| msgid "Unselect All"
@@ -15964,7 +15979,7 @@ msgstr "সম্পাদিত তথ্য সংরক্ষন কর"
 msgid "Restore column order"
 msgstr "স্থম্ভের বিন্যাস ফিরিয়ে আনা"
 
-#: templates/display/results/table.twig:49 templates/export.twig:132
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "রো সংখ্যা:"
@@ -16072,148 +16087,158 @@ msgstr "ভুলের প্রতিবেদন দাখিল"
 msgid "Send error report"
 msgstr "ভুল সর্ম্পকিত প্রতিবেদন দাখিল কর"
 
-#: templates/export/template_options.twig:1 templates/export.twig:30
+#: templates/export/template_options.twig:1 templates/export.twig:42
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "টেবল নির্বাচন"
 
-#: templates/export.twig:15
+#: templates/export.twig:14
 #, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
 msgstr "রফাতানীর ধরন"
 
-#: templates/export.twig:19
+#: templates/export.twig:18
 #, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
 msgstr "ফাইলের নামের নকশা:"
 
-#: templates/export.twig:20
+#: templates/export.twig:21 templates/export.twig:24
 #, fuzzy
 #| msgid "Table name"
 msgid "Template name"
 msgstr "টেবিলের নাম"
 
-#: templates/export.twig:27
+#: templates/export.twig:35
 #, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
 msgstr "ফাইলের নামের নকশা:"
 
-#: templates/export.twig:28
+#: templates/export.twig:38
 #, fuzzy
 #| msgid "Temp disk rate"
 msgid "Template:"
 msgstr "সাময়িক ডিস্ক হার"
 
-#: templates/export.twig:37
+#: templates/export.twig:51
 #, fuzzy
 #| msgid "Updated"
 msgid "Update"
 msgstr "আধুনিকায়ন হয়েছে"
 
-#: templates/export.twig:53
+#: templates/export.twig:72
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: templates/export.twig:86
+#: templates/export.twig:104
 #, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
 msgstr "রফতানী পদ্ধতী"
 
-#: templates/export.twig:92
+#: templates/export.twig:108
 msgid "Quick - display only the minimal options"
 msgstr "দ্রুত - সাম্ভাব্য কম অপশনগুলো দেখাও"
 
-#: templates/export.twig:100
+#: templates/export.twig:112
 msgid "Custom - display all possible options"
 msgstr "কাষ্টম - সাম্ভাব্য সবগুলো অপশন দেখাও"
 
-#: templates/export.twig:124
+#: templates/export.twig:121
+#, fuzzy
+#| msgid "File to Import:"
+msgid "File format to export"
+msgstr "আমদানির জন্য ফাইল:"
+
+#: templates/export.twig:137
 msgid "Rows:"
 msgstr "সারি:"
 
-#: templates/export.twig:129
-msgid "Dump some row(s)"
-msgstr "কিছু রো স্তুপ কর"
-
-#: templates/export.twig:143
-msgid "Row to begin at:"
-msgstr "শুরুর রো:"
-
-#: templates/export.twig:152
+#: templates/export.twig:141
 msgid "Dump all rows"
 msgstr "সব রো স্তুপ কর"
 
-#: templates/export.twig:160 templates/export.twig:316
+#: templates/export.twig:145
+msgid "Dump some row(s)"
+msgstr "কিছু রো স্তুপ কর"
+
+#: templates/export.twig:160
+msgid "Row to begin at:"
+msgstr "শুরুর রো:"
+
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr "আউটপুট:"
 
-#: templates/export.twig:165 templates/export.twig:346
+#: templates/export.twig:175 templates/export.twig:370
 #, fuzzy, php-format
 #| msgid "Save on server in the directory <b>%s</b>"
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "সার্ভারের <b>%s</b> ডিরেক্টরিতে রাখ"
 
-#: templates/export.twig:183 templates/export.twig:321
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: templates/export.twig:191
+#: templates/export.twig:201
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:206 templates/export.twig:220
-#: templates/export.twig:233 templates/export.twig:250
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
 msgstr "বাদ দিন"
 
-#: templates/export.twig:259
+#: templates/export.twig:269
 msgid "Define new aliases"
 msgstr ""
 
-#: templates/export.twig:264
+#: templates/export.twig:274
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database:"
 msgstr "টেবল নির্বাচন"
 
-#: templates/export.twig:278
+#: templates/export.twig:290
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select table:"
 msgstr "টেবল নির্বাচন"
 
-#: templates/export.twig:284
+#: templates/export.twig:298
 msgid "New table name"
 msgstr "নতুন টেবিলের নাম:"
 
-#: templates/export.twig:292
+#: templates/export.twig:306
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select column:"
 msgstr "দুইটি স্তম্ভ নির্বাচন করুন"
 
-#: templates/export.twig:298
+#: templates/export.twig:314
 #, fuzzy
 #| msgid "Copy column name"
 msgid "New column name"
 msgstr "স্তম্ভের নাম প্রতিলিপি"
 
-#: templates/export.twig:339
+#: templates/export.twig:356
+msgid "View output as text"
+msgstr "লেখার মত আউটপুট দেখা"
+
+#: templates/export.twig:360
 msgid "Save output to a file"
 msgstr "আউটপুট একটি ফাইলে রাখ"
 
-#: templates/export.twig:360
+#: templates/export.twig:387
 msgid "File name template:"
 msgstr "ফাইলের নামের নকশা:"
 
-#: templates/export.twig:361
+#: templates/export.twig:388
 #, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
@@ -16224,58 +16249,53 @@ msgstr ""
 "পারেন। এখন এই রুপান্তরটি হবে:%s। অন্যান্য লেখা ঠিকই থাকবে। FAQ 6.27 এ বিশদ পাওয়া "
 "যাবে।"
 
-#: templates/export.twig:366
-msgid "use this for future exports"
+#: templates/export.twig:398
+#, fuzzy
+#| msgid "use this for future exports"
+msgid "Use this for future exports"
 msgstr "ভবিষৎ রফতানীতে ইহা ব্যবহার করবে"
 
-#: templates/export.twig:373 templates/import.twig:123
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr "ফাইলের বর্ণ রাশি:"
 
-#: templates/export.twig:389
+#: templates/export.twig:429
 msgid "Compression:"
 msgstr "সংকোচন:"
 
-#: templates/export.twig:396
+#: templates/export.twig:437
 msgid "zipped"
 msgstr "জিপ্ড"
 
-#: templates/export.twig:402
+#: templates/export.twig:443
 msgid "gzipped"
 msgstr "জিজিপ্ড"
 
-#: templates/export.twig:417
+#: templates/export.twig:461
 #, fuzzy
 #| msgid "Export views as tables"
 msgid "Export databases as separate files"
 msgstr "ভিউ টেবিলের মত রফতানী করা হচ্ছে"
 
-#: templates/export.twig:419
+#: templates/export.twig:463
 #, fuzzy
 #| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "সমান্তরাল (rotated headers)"
 
-#: templates/export.twig:431
-msgid "View output as text"
-msgstr "লেখার মত আউটপুট দেখা"
-
-#: templates/export.twig:437
-#, php-format
-msgid "Skip tables larger than %s MiB"
+#: templates/export.twig:474
+msgid "Skip tables larger than:"
 msgstr ""
 
-#: templates/export.twig:443 templates/import.twig:211
+#: templates/export.twig:476
+msgid "The size is measured in MiB."
+msgstr ""
+
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr "গঠন নির্দিষ্ট অপশনসমূহ:"
 
-#: templates/export.twig:445 templates/import.twig:213
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr "এই গঠনের অপশনগুলো পূর্ণ করার জন্য নীচে যান এবং অন্য গঠনের অপশনগুলো বাদ দিন।"
-
-#: templates/export.twig:453 templates/import.twig:222
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr "এনকোডিং কনভারশন:"
 
@@ -16609,18 +16629,18 @@ msgid ""
 "not available."
 msgstr "ধৈয্য ধরুন, ফাইলটি আপলোড হচ্ছে। আপলোডের বিশদ জানা যায়নি।"
 
-#: templates/import.twig:38
+#: templates/import.twig:26
 #, fuzzy
 #| msgid "File to Import:"
 msgid "File to import:"
 msgstr "আমদানির জন্য ফাইল:"
 
-#: templates/import.twig:44
+#: templates/import.twig:31
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr "ফাইল সংকুচিত (%s) বা অসংকুচিত।"
 
-#: templates/import.twig:46
+#: templates/import.twig:32
 #, fuzzy
 #| msgid ""
 #| "A compressed file's name must end in <b>.[format].[compression]</b>. "
@@ -16632,57 +16652,57 @@ msgstr ""
 "একটি সংকোচিত ফাইল অবশ্যই <b>.[format].[compression]</b> ভাবে শেষ হবে। উদাহরণ:"
 "<b>.sql.zip</b>"
 
-#: templates/import.twig:56 templates/import.twig:89
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "আপনার কম্পিউটারে দেখুন:"
-
-#: templates/import.twig:61
+#: templates/import.twig:40
 #, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "আপনার কম্পিউটারে দেখুন:"
+#| msgid "Save as file"
+msgid "Upload a file"
+msgstr "ফাইল এর মত সংরক্ষন"
 
-#: templates/import.twig:67 templates/import.twig:100
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/import.twig:73 templates/import.twig:103
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "ওয়েভ সার্ভারের আপলোড ডিরেক্টরি থেকে নির্বাচন করুন <b>%s</b>:"
-
-#: templates/import.twig:79
+#: templates/import.twig:43
 #, fuzzy
 #| msgid "File to Import:"
 msgid "Select file to import"
 msgstr "আমদানির জন্য ফাইল:"
 
-#: templates/import.twig:84 templates/import.twig:114
+#: templates/import.twig:50 templates/import.twig:77
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "আপনার কম্পিউটারে দেখুন:"
+
+#: templates/import.twig:55 templates/import.twig:82
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/import.twig:62 templates/import.twig:88
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "ওয়েভ সার্ভারের আপলোড ডিরেক্টরি থেকে নির্বাচন করুন <b>%s</b>:"
+
+#: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
 #| msgid "There are no files to upload"
-msgid "There are no files to upload!"
+msgid "There are no files to import!"
 msgstr "আপলোড করার জন্য কোন ফাইল নাই"
 
-#: templates/import.twig:117
+#: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
 msgstr "এই সার্ভরে আপলোড করা যায় না।"
 
-#: templates/import.twig:151
+#: templates/import.twig:126
 #, fuzzy
 #| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "আংশিক আমদানি:"
 
-#: templates/import.twig:156
+#: templates/import.twig:131
 #, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 "পূর্বের আমদানি কাজটি শেষ করার সময় শেষ হয়ে গিয়েছে, পুন দাখিল %d থেকে কাজ শুরু করবে।"
 
-#: templates/import.twig:163
+#: templates/import.twig:138
 #, fuzzy
 #| msgid ""
 #| "Allow the interruption of an import in case the script detects it is "
@@ -16690,23 +16710,35 @@ msgstr ""
 #| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+"to the PHP timeout limit."
 msgstr ""
 "পিএইছপি নির্ধারিত শেষ হওয়ার সময়ের কাছাকাছি এলে আমদানি বন্ধ করার অনুমোদন। "
 "<i>(এটা অনেক বড় ফাইল আমদানীর একটি ভাল উপায়, যদিও এটা কাজ বন্ধ করে দিতে "
 "পারে।)</i>"
 
-#: templates/import.twig:170
+#: templates/import.twig:140
+#, fuzzy
+#| msgid ""
+#| "Allow interrupt of import in case script detects it is close to time "
+#| "limit. This might be a good way to import large files, however it can "
+#| "break transactions."
+msgid ""
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+"নিধারিত শেষ হয়ে এলে আমদানি বন্ধ করার অনুমোদন। এটা বড় ফাইল আমদানির একটি ভাল "
+"উপায়, যদিও এটি কাজ বন্ধ রাখতে পারে।"
+
+#: templates/import.twig:144
 #, fuzzy
 #| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "এড়িয়ে যাওয়ার রো'র সংখ্যা, আরম্ভের রো:"
 
-#: templates/import.twig:187
+#: templates/import.twig:154
 #, fuzzy
 #| msgid "Options"
-msgid "Other options:"
+msgid "Other options"
 msgstr "অপশনস"
 
 #: templates/indexes.twig:39
@@ -17510,7 +17542,7 @@ msgstr "মজুদ ব্যবস্থা"
 msgid "Unknown storage engine."
 msgstr "মজুদ ব্যবস্থা"
 
-#: templates/server/export/index.twig:32
+#: templates/server/export/index.twig:26
 #, fuzzy
 #| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
@@ -17519,12 +17551,6 @@ msgstr "সার্ভারের নাম হবে @SERVER@"
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
 msgstr "সার্ভার থেকে ডাটাবেইজ রফতানী করা হচ্ছে"
-
-#: templates/server/export/index.twig:7
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "ডাটাবেইজ"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -19776,6 +19802,22 @@ msgstr "স্তম্ভের নাম"
 #| msgid "Tracking report"
 msgid "Taking you to the target site."
 msgstr "ট্রেকিং প্রতিবেদন"
+
+#~ msgid ""
+#~ "Scroll down to fill in the options for the selected format and ignore the "
+#~ "options for other formats."
+#~ msgstr ""
+#~ "এই গঠনের অপশনগুলো পূর্ণ করার জন্য নীচে যান এবং অন্য গঠনের অপশনগুলো বাদ দিন।"
+
+#, fuzzy
+#~| msgid "Browse your computer:"
+#~ msgid "Browse your computer"
+#~ msgstr "আপনার কম্পিউটারে দেখুন:"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Databases:"
+#~ msgstr "ডাটাবেইজ"
 
 #~ msgid "Print view"
 #~ msgstr "মুদ্রনের দেখা"
