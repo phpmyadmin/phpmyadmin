@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-11-28 00:11+0000\n"
-"PO-Revision-Date: 2021-02-06 17:50+0000\n"
-"Last-Translator: Markus Staab <maggus.staab@googlemail.com>\n"
+"PO-Revision-Date: 2021-12-04 18:51+0000\n"
+"Last-Translator: Kris <git@k118.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1856,11 +1856,8 @@ msgstr ""
 "aktivieren."
 
 #: libraries/classes/Config/Descriptions.php:86
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr ""
-"Geben Sie Ihren privaten Schlüssel für Ihren Domain-ReCaptcha-Service ein."
+msgstr "Geben Sie die URL für die reCAPTCHA v1 kompatible API ein."
 
 #: libraries/classes/Config/Descriptions.php:87
 #, fuzzy
@@ -1869,7 +1866,8 @@ msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
-"Geben Sie Ihren privaten Schlüssel für Ihren Domain-ReCaptcha-Service ein."
+"Geben Sie das Content-Security-Policy-Snippet für die reCAPTCHA v2 "
+"kompatible API ein."
 
 #: libraries/classes/Config/Descriptions.php:88
 #, fuzzy
@@ -7570,37 +7568,31 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Ungültige Anfrage an den Sicherheitsschlüssel gesendet."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Unbekannter Fehler"
+msgstr "Unbekannter Sicherheitsschlüssel-Fehler."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "Der Client unterstützt keinen Sicherheitsschlüssel."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Aktivierung des Sicherheitsschlüssels fehlgeschlagen (%s)."
+msgstr "Aktivierung des Sicherheitsschlüssels fehlgeschlagen."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Ungültiger Typ für Export"
+msgstr "Ungültiger Sicherheitsschlüssel."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 #, php-format
@@ -7709,16 +7701,14 @@ msgstr[0] "%1$d Datenbank wurde erfolgreich gelöscht."
 msgstr[1] "%1$d Datenbanken wurden erfolgreich gelöscht."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "Die Spalten wurden erfolgreich verschoben."
+msgstr "Der Account %s@%s wurde erfolgreich gesperrt."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "Die Spalten wurden erfolgreich verschoben."
+msgstr "Der Account %s@%s wurde erfolgreich entsperrt."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8275,15 +8265,11 @@ msgstr ""
 "geschrieben zu werden."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:437
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Anzahl der Tabellen, die geöffnet wurden. Wenn Opened_tables hoch ist, ist "
+"Anzahl der Tabellen, die geöffnet wurden. Wenn opened_tables hoch ist, ist "
 "Ihre table_open_cache-Variable wahrscheinlich zu niedrig."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:440
@@ -8502,10 +8488,8 @@ msgid "Missing parameter:"
 msgstr "Fehlende(r) Parameter:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:61
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Der Abfragen-Zwischenspeicher ist nicht aktiviert."
+msgstr "Die Verwaltung von Benutzergruppen ist nicht aktiviert."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:95
 msgid "Setting variable failed"
@@ -8643,13 +8627,11 @@ msgid "No column selected."
 msgstr "Es wurden keine Datensätze ausgewählt."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d Datenbank wurde erfolgreich gelöscht."
-msgstr[1] "%1$d Datenbanken wurden erfolgreich gelöscht."
+msgstr[0] "%1$d Spalte wurde erfolgreich gelöscht."
+msgstr[1] "%1$d Spalten wurden erfolgreich gelöscht."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8674,7 +8656,7 @@ msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:77
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:77
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Wartungsarbeiten an mehreren Tabellen sind deaktiviert."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:301
@@ -9006,11 +8988,12 @@ msgid "Export of event %s"
 msgstr "Export des Ereignisses %s"
 
 #: libraries/classes/Database/Events.php:592
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "Es wurde kein Ereignis mit dem Namen %1$s in Datenbank %2$s gefunden."
+msgstr ""
+"Fehler bei der Bearbeitung der Anfrage: Es wurde kein Ereignis mit dem Namen "
+"%1$s in Datenbank %2$s gefunden."
 
 #: libraries/classes/DatabaseInterface.php:1117
 #, php-format
