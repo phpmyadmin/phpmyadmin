@@ -73,7 +73,7 @@ final class ExportController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
-        ] = Util::getDbInfo($db, $sub_part ?? '');
+        ] = Util::getDbInfo($db, $sub_part);
 
         // exit if no tables in db found
         if ($num_tables < 1) {

@@ -1138,12 +1138,6 @@
       <code>$each_table</code>
       <code>$table_select</code>
     </MixedAssignment>
-    <RedundantCondition occurrences="1">
-      <code>$sub_part</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
     <MixedArgument occurrences="2">
@@ -1237,7 +1231,7 @@
       <code>$db</code>
       <code>$db</code>
     </MixedAssignment>
-    <RedundantCondition occurrences="11">
+    <RedundantCondition occurrences="10">
       <code>! $_error</code>
       <code>! $_error</code>
       <code>! $_error</code>
@@ -1248,11 +1242,7 @@
       <code>! $_error</code>
       <code>! $_error</code>
       <code>$_error</code>
-      <code>$sub_part</code>
     </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/PrivilegesController.php">
     <MixedArgument occurrences="1">
@@ -1278,12 +1268,6 @@
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
-    <RedundantCondition occurrences="1">
-      <code>$sub_part</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/RoutinesController.php">
     <MixedArgument occurrences="8">
@@ -1782,12 +1766,6 @@
       <code>$entry['statement']</code>
       <code>$entry['username']</code>
     </MixedOperand>
-    <RedundantCondition occurrences="1">
-      <code>$sub_part</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/TriggersController.php">
     <MixedArgument occurrences="4">
@@ -2494,12 +2472,6 @@
       <code>$export</code>
       <code>$title</code>
     </MixedOperand>
-    <RedundantCondition occurrences="1">
-      <code>$sub_part</code>
-    </RedundantCondition>
-    <TypeDoesNotContainNull occurrences="1">
-      <code>''</code>
-    </TypeDoesNotContainNull>
     <UnusedVariable occurrences="1">
       <code>$key</code>
     </UnusedVariable>
