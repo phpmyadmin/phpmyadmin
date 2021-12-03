@@ -231,7 +231,7 @@ class Qbe
      * Current search
      *
      * @access private
-     * @var SavedSearches
+     * @var SavedSearches|null
      */
     private $currentSearch = null;
 
@@ -245,12 +245,12 @@ class Qbe
     public $template;
 
     /**
-     * @param Relation          $relation        Relation object
-     * @param Template          $template        Template object
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param string            $dbname          Database name
-     * @param array             $savedSearchList List of saved searches
-     * @param SavedSearches     $currentSearch   Current search id
+     * @param Relation           $relation        Relation object
+     * @param Template           $template        Template object
+     * @param DatabaseInterface  $dbi             DatabaseInterface object
+     * @param string             $dbname          Database name
+     * @param array              $savedSearchList List of saved searches
+     * @param SavedSearches|null $currentSearch   Current search id
      */
     public function __construct(
         Relation $relation,
@@ -293,7 +293,7 @@ class Qbe
     /**
      * Getter for current search
      *
-     * @return SavedSearches
+     * @return SavedSearches|null
      */
     private function getCurrentSearch()
     {
@@ -1709,7 +1709,7 @@ class Qbe
         $currentSearch = $this->getCurrentSearch();
         $currentSearchId = null;
         $currentSearchName = null;
-        if ($currentSearch != null) {
+        if ($currentSearch !== null) {
             $currentSearchId = $currentSearch->getId();
             $currentSearchName = $currentSearch->getSearchName();
         }

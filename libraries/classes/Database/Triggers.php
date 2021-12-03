@@ -267,7 +267,7 @@ class Triggers
             $mode = 'edit';
         }
 
-        $this->sendEditor($mode, $item, $title, $db);
+        $this->sendEditor($mode, $item, $title, $db, $table);
     }
 
     /**
@@ -449,11 +449,10 @@ class Triggers
      * @param array|null $item  Data necessary to create the editor
      * @param string     $title Title of the editor
      * @param string     $db    Database
+     * @param string     $table Table
      */
-    private function sendEditor($mode, ?array $item, $title, $db): void
+    private function sendEditor($mode, ?array $item, $title, $db, $table): void
     {
-        global $db, $table;
-
         if ($item !== null) {
             $editor = $this->getEditorForm($db, $table, $mode, $item);
             if ($this->response->isAjax()) {

@@ -286,7 +286,7 @@ final class ExportController extends AbstractController
                 $buffer_needed = true;
             }
 
-            if (($quick_export && ! empty($quickExportOnServer)) || (! $quick_export && ! empty($onServerParam))) {
+            if (($quick_export && $quickExportOnServer) || (! $quick_export && $onServerParam)) {
                 if ($quick_export) {
                     $onserver = $quickExportOnServer;
                 } else {
@@ -294,7 +294,7 @@ final class ExportController extends AbstractController
                 }
 
                 // Will we save dump on server?
-                $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
+                $save_on_server = ! empty($cfg['SaveDir']);
             }
         }
 

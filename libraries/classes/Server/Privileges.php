@@ -2038,7 +2038,7 @@ class Privileges
      * Get HTML for display the users overview
      * (if less than 50 users, display them immediately)
      *
-     * @param array  $result   ran sql query
+     * @param object $result   ran sql query
      * @param array  $dbRights user's database rights array
      * @param string $textDir  text directory
      *

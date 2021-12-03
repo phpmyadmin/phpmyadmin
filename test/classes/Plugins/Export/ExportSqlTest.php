@@ -995,7 +995,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
         $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'db', '', "\n", true, true);
+        $result = $method->invoke($this->object, 'db', '', true, true);
 
         $this->assertStringContainsString(
             "-- MEDIA TYPES FOR TABLE :\n" .

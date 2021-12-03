@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
+  <file src="config.inc.php">
+    <MixedAssignment occurrences="2">
+      <code>$cfg['Servers'][$i]['port']</code>
+      <code>$cfg['Servers'][$i]['port']</code>
+    </MixedAssignment>
+  </file>
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -220,11 +226,12 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="7">
       <code>$row[0]</code>
       <code>$showGrantsDbName</code>
       <code>$showGrantsResult</code>
       <code>$showGrantsResult</code>
+      <code>$showGrantsString</code>
       <code>$showGrantsString</code>
       <code>$showGrantsTableName</code>
     </MixedArgument>
@@ -1900,9 +1907,6 @@
       <code>$whatStrucOrData</code>
       <code>$whatStrucOrData</code>
     </PossiblyInvalidCast>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$onserver</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
     <MixedArgument occurrences="1">
@@ -2907,7 +2911,8 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$current_result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="2">
+      <code>$GLOBALS['goto']</code>
       <code>$isUpload</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
@@ -4861,8 +4866,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Database/Qbe.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>$this-&gt;currentSearch === null</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;currentSearch-&gt;getCriterias() === null</code>
     </DocblockTypeContradiction>
     <MixedArgument occurrences="39">
@@ -5046,9 +5050,7 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$table</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>$currentSearch</code>
-      <code>null</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="6">
@@ -5062,8 +5064,7 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) $master</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$currentSearch != null</code>
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($lastWhere, $this-&gt;formAndOrCols)</code>
     </RedundantConditionGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="1">
@@ -5071,7 +5072,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <MixedArgument occurrences="84">
+    <MixedArgument occurrences="85">
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5105,6 +5106,7 @@
       <code>$db</code>
       <code>$db</code>
       <code>$errors</code>
+      <code>$itemDefiner</code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemParamOpsNum[$i]</code>
@@ -5371,7 +5373,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Triggers.php">
-    <MixedArgument occurrences="33">
+    <MixedArgument occurrences="31">
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_definer']</code>
       <code>$_POST['item_name']</code>
@@ -5383,8 +5385,6 @@
       <code>$_REQUEST['item_name']</code>
       <code>$_REQUEST['item_name']</code>
       <code>$create_item</code>
-      <code>$db</code>
-      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -5475,9 +5475,6 @@
       <code>$trigger['create']</code>
       <code>$trigger['drop']</code>
     </PossiblyNullArrayAccess>
-    <UnusedParam occurrences="1">
-      <code>$db</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/DatabaseInterface.php">
     <DocblockTypeContradiction occurrences="1">
@@ -5496,13 +5493,14 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="65">
+    <MixedArgument occurrences="66">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
       <code>$b</code>
       <code>$database</code>
       <code>$database_name</code>
+      <code>$grant</code>
       <code>$grant</code>
       <code>$grant</code>
       <code>$host</code>
@@ -5851,7 +5849,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="85">
+    <MixedArgument occurrences="88">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5864,6 +5862,8 @@
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']-&gt;from</code>
+      <code>$clause</code>
+      <code>$clause</code>
       <code>$clause</code>
       <code>$clauseIsUnique</code>
       <code>$clauseIsUnique</code>
@@ -5889,7 +5889,6 @@
       <code>$expr-&gt;alias</code>
       <code>$field-&gt;table</code>
       <code>$geometryText</code>
-      <code>$i</code>
       <code>$isFieldTruncated</code>
       <code>$isFieldTruncated</code>
       <code>$isFieldTruncated</code>
@@ -5906,6 +5905,8 @@
       <code>$mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''</code>
       <code>$multipleUrlParams['sql_query']</code>
       <code>$multipleUrlParams['sql_query']</code>
+      <code>$nameToUseInSort</code>
+      <code>$nameToUseInSort</code>
       <code>$nameToUseInSort</code>
       <code>$newSortExpressionNoDirection</code>
       <code>$oneKey['ref_db_name'] ?? $GLOBALS['db']</code>
@@ -6268,9 +6269,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>is_array($map)</code>
     </TypeDoesNotContainType>
-    <UnusedParam occurrences="1">
-      <code>$columnIndex</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Encoding.php">
     <DocblockTypeContradiction occurrences="3">
@@ -10309,9 +10307,6 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>CreateDefinition</code>
     </UnnecessaryVarAnnotation>
-    <UnusedParam occurrences="1">
-      <code>$crlf</code>
-    </UnusedParam>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportTexytext.php">
     <MixedArgument occurrences="16">
@@ -12888,10 +12883,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>''</code>
     </DocblockTypeContradiction>
-    <InvalidArgument occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
     <MixedArgument occurrences="118">
       <code>$GLOBALS['dbname']</code>
       <code>$_GET['initial']</code>
@@ -15240,9 +15231,6 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Utils/HttpRequest.php">
-    <InvalidArrayOffset occurrences="1">
-      <code>$context['http']['header']</code>
-    </InvalidArrayOffset>
     <MixedArgument occurrences="1">
       <code>$httpStatus</code>
     </MixedArgument>
@@ -15253,9 +15241,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>string|bool|null</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$context['http']['header']</code>
-    </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$response</code>
     </MixedReturnStatement>
