@@ -500,7 +500,7 @@ class ImportCsv extends AbstractImportCsv
 
                     $first = true;
                     $sql = $sql_template;
-                    foreach ($values as $key => $val) {
+                    foreach ($values as $val) {
                         if (! $first) {
                             $sql .= ', ';
                         }

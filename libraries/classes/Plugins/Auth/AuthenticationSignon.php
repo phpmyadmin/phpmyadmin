@@ -133,9 +133,6 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Session name */
         $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
 
-        /* Login URL */
-        $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
-
         /* Current host */
         $single_signon_host = $GLOBALS['cfg']['Server']['host'];
 
@@ -146,7 +143,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
-        if (! empty($script_name)) {
+        if ($script_name !== '') {
             if (! @file_exists($script_name)) {
                 Core::fatalError(
                     __('Can not find signon authentication script:')
@@ -217,7 +214,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restart phpMyAdmin session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams($oldCookieParams);
-                if ($old_session !== null && $old_session !== false) {
+                if ($old_session !== false) {
                     session_name($old_session);
                 }
 

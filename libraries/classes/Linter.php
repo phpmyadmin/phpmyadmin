@@ -146,7 +146,7 @@ class Linter
         $lines = static::getLines($query);
 
         // Building the response.
-        foreach ($errors as $idx => $error) {
+        foreach ($errors as $error) {
             // Starting position of the string that caused the error.
             [$fromLine, $fromColumn] = static::findLineNumberAndColumn($lines, $error[3]);
 

@@ -545,23 +545,22 @@ class Pdf extends PdfLib
             $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
-            $columns_cnt++;
         }
 
         if ($do_comments) {
+            $columns_cnt++;
             $this->colTitles[$columns_cnt] = __('Comments');
             $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
-            $columns_cnt++;
         }
 
         if ($do_mime && $relationParameters->mimework) {
+            $columns_cnt++;
             $this->colTitles[$columns_cnt] = __('Media type');
             $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
-            $columns_cnt++;
         }
 
         // Starting to fill table with required info

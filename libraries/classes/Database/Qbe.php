@@ -1477,7 +1477,7 @@ class Qbe
             // having relationships with unfinalized tables
             foreach ($unfinalized as $oneTable) {
                 $references = $this->relation->getChildReferences($this->db, $oneTable);
-                foreach ($references as $column => $columnReferences) {
+                foreach ($references as $columnReferences) {
                     foreach ($columnReferences as $reference) {
                         // Only from this schema
                         if ($reference['table_schema'] != $this->db) {

@@ -150,7 +150,7 @@ final class ColumnsDefinition
         //  the index as a value, not a key. Inserted here for easier maintenance
         //  and less code to change in existing files.
         if (isset($field_fulltext) && is_array($field_fulltext)) {
-            foreach ($field_fulltext as $fulltext_nr => $fulltext_indexkey) {
+            foreach ($field_fulltext as $fulltext_indexkey) {
                 $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
             }
         }

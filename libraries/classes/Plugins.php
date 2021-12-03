@@ -299,6 +299,7 @@ class Plugins
             }
         }
 
+        $not_subgroup_header = false;
         if (! isset($properties)) {
             $not_subgroup_header = true;
             if (method_exists($propertyGroup, 'getProperties')) {
@@ -340,11 +341,9 @@ class Plugins
         if ($is_subgroup) {
             // end subgroup
             $ret .= '</ul></li>';
-        } else {
+        } elseif ($not_subgroup_header) {
             // end main group
-            if (! empty($not_subgroup_header)) {
-                $ret .= '</ul></div>';
-            }
+            $ret .= '</ul></div>';
         }
 
         if (method_exists($propertyGroup, 'getDoc')) {

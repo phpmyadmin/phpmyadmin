@@ -1171,7 +1171,7 @@ class Table implements Stringable
                 $statement->table = $destination;
 
                 // Removing the name of the constraints.
-                foreach ($statement->altered as $idx => $altered) {
+                foreach ($statement->altered as $altered) {
                     // All constraint names are removed because they must be unique.
                     if (! $altered->options->has('CONSTRAINT')) {
                         continue;
@@ -1212,7 +1212,7 @@ class Table implements Stringable
                     $statement->table = $destination;
 
                     // Removing the name of the constraints.
-                    foreach ($statement->altered as $idx => $altered) {
+                    foreach ($statement->altered as $altered) {
                         // All constraint names are removed because they must be unique.
                         if (! $altered->options->has('CONSTRAINT')) {
                             continue;

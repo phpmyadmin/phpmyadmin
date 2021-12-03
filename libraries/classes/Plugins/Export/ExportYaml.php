@@ -153,7 +153,6 @@ class ExportYaml extends ExportPlugin
             $columns[$i] = stripslashes($col_as);
         }
 
-        $buffer = '';
         $record_cnt = 0;
         while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;

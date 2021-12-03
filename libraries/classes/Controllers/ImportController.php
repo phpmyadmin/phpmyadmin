@@ -26,7 +26,6 @@ use Throwable;
 
 use function __;
 use function _ngettext;
-use function htmlspecialchars;
 use function in_array;
 use function ini_get;
 use function ini_set;
@@ -40,7 +39,6 @@ use function mb_strtolower;
 use function preg_match;
 use function preg_quote;
 use function preg_replace;
-use function sprintf;
 use function strlen;
 use function substr;
 use function time;
@@ -76,7 +74,7 @@ final class ImportController extends AbstractController
         global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $errorUrl, $urlParams;
         global $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
-        global $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
+        global $sql_query_disabled, $executed_queries, $run_query, $reset_charset;
         global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die, $active_page;
         global $show_as_php, $reload, $charset_connection, $is_js_confirmed, $MAX_FILE_SIZE, $message_to_show;
         global $noplugin, $skip_queries;
@@ -334,7 +332,6 @@ final class ImportController extends AbstractController
         $run_query = true;
         $charset_conversion = false;
         $reset_charset = false;
-        $bookmark_created = false;
         $msg = 'Sorry an unexpected error happened!';
 
         /** @var mixed|bool $result */
@@ -616,11 +613,6 @@ final class ImportController extends AbstractController
             $error = false; // unset error marker, it was used just to skip processing
         } elseif (! empty($id_bookmark) && $_POST['action_bookmark'] == 1) {
             $message = Message::notice(__('Showing bookmark'));
-        } elseif ($bookmark_created) {
-            $special_message = '[br]' . sprintf(
-                __('Bookmark %s has been created.'),
-                htmlspecialchars($_POST['bkm_label'])
-            );
         } elseif ($finished && ! $error) {
             // Do not display the query with message, we do it separately
             $display_query = ';';
@@ -706,7 +698,7 @@ final class ImportController extends AbstractController
 
         // There was an error?
         if (isset($my_die)) {
-            foreach ($my_die as $key => $die) {
+            foreach ($my_die as $die) {
                 Generator::mysqlDie($die['error'], $die['sql'], false, $errorUrl, $error);
             }
         }

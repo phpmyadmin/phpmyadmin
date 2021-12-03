@@ -136,11 +136,6 @@ parameters:
 			path: libraries/classes/Controllers/Export/ExportController.php
 
 		-
-			message: "#^Elseif condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ImportController.php
-
-		-
 			message: "#^If condition is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php
