@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
-  <file src="config.inc.php">
-    <MixedAssignment occurrences="2">
-      <code>$cfg['Servers'][$i]['port']</code>
-      <code>$cfg['Servers'][$i]['port']</code>
-    </MixedAssignment>
-  </file>
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -226,12 +220,11 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
-    <MixedArgument occurrences="7">
+    <MixedArgument occurrences="6">
       <code>$row[0]</code>
       <code>$showGrantsDbName</code>
       <code>$showGrantsResult</code>
       <code>$showGrantsResult</code>
-      <code>$showGrantsString</code>
       <code>$showGrantsString</code>
       <code>$showGrantsTableName</code>
     </MixedArgument>
@@ -2911,8 +2904,7 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$current_result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$GLOBALS['goto']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$isUpload</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
@@ -5072,7 +5064,7 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <MixedArgument occurrences="85">
+    <MixedArgument occurrences="84">
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
       <code>$_GET['item_name']</code>
@@ -5106,7 +5098,6 @@
       <code>$db</code>
       <code>$db</code>
       <code>$errors</code>
-      <code>$itemDefiner</code>
       <code>$itemDefiner</code>
       <code>$itemName</code>
       <code>$itemParamOpsNum[$i]</code>
@@ -5493,14 +5484,13 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="66">
+    <MixedArgument occurrences="65">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
       <code>$b</code>
       <code>$database</code>
       <code>$database_name</code>
-      <code>$grant</code>
       <code>$grant</code>
       <code>$grant</code>
       <code>$host</code>
@@ -5849,7 +5839,7 @@
     <InvalidScalarArgument occurrences="1">
       <code>$originalLength</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="88">
+    <MixedArgument occurrences="84">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5862,8 +5852,6 @@
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']</code>
       <code>$analyzedSqlResults['statement']-&gt;from</code>
-      <code>$clause</code>
-      <code>$clause</code>
       <code>$clause</code>
       <code>$clauseIsUnique</code>
       <code>$clauseIsUnique</code>
@@ -5905,8 +5893,6 @@
       <code>$mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''</code>
       <code>$multipleUrlParams['sql_query']</code>
       <code>$multipleUrlParams['sql_query']</code>
-      <code>$nameToUseInSort</code>
-      <code>$nameToUseInSort</code>
       <code>$nameToUseInSort</code>
       <code>$newSortExpressionNoDirection</code>
       <code>$oneKey['ref_db_name'] ?? $GLOBALS['db']</code>
