@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-06-17 22:46+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-12-05 08:51+0000\n"
+"Last-Translator: Arief Hidayat <kekesed97@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7\n"
+"X-Generator: Weblate 4.10-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
@@ -541,15 +541,11 @@ msgid "Output"
 msgstr "Keluaran"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string dibawahnya "
+"Pilih \"ST_GeomFromText\" dari kolom \"Fungsi\" dan tempel string dibawahnya "
 "ke dalam isian \"Nilai\"."
 
 #: import.php:73
@@ -2372,8 +2368,6 @@ msgid "%d object(s) created."
 msgstr "%d objek dibuat."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Nama kolom"
 
@@ -2727,8 +2721,7 @@ msgid "Failed security key activation (%s)."
 msgstr "Gagal mengaktivasi kunci keamanan (%s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3557,12 +3550,9 @@ msgid "accent-sensitive"
 msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "tidak peka aksen"
+msgstr "kana-sensitif"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3577,7 +3567,7 @@ msgstr "biner"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "tanpa pad"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -5476,10 +5466,6 @@ msgid "Server port"
 msgstr "Porta server"
 
 #: libraries/classes/Config/Descriptions.php:1119
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -5492,16 +5478,12 @@ msgid "Recently used table"
 msgstr "Tabel yang baru digunakan"
 
 #: libraries/classes/Config/Descriptions.php:1126
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"saran: [kbd]pma_userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1130
 msgid "Favorites table"
