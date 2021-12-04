@@ -5755,12 +5755,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$fields</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>FieldMetadata[]|null</code>
-    </InvalidReturnType>
     <MixedArgument occurrences="9">
       <code>$field-&gt;flags</code>
       <code>$field-&gt;type</code>
@@ -16068,11 +16062,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/classes/FileListingTest.php">
-    <RedundantCast occurrences="1">
-      <code>array_values</code>
-    </RedundantCast>
   </file>
   <file src="test/classes/FileTest.php">
     <MixedInferredReturnType occurrences="1">

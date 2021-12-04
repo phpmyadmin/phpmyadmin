@@ -187,7 +187,7 @@ class ZipExtension
      * @param string $file  path to zip file
      * @param string $entry file in the archive that should be extracted
      *
-     * @return string|bool data on success, false otherwise
+     * @return string|false data on success, false otherwise
      */
     public function extract($file, $entry)
     {
