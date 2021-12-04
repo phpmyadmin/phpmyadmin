@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
+<files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -360,9 +360,6 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Config.php">
-    <InvalidArgument occurrences="1">
-      <code>$optionalParams</code>
-    </InvalidArgument>
     <MixedArgument occurrences="17">
       <code>$collation_connection</code>
       <code>$config_data</code>
@@ -5755,8 +5752,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <MixedArgument occurrences="10">
-      <code>$field</code>
+    <MixedArgument occurrences="9">
       <code>$field-&gt;flags</code>
       <code>$field-&gt;type</code>
       <code>$host</code>
@@ -5767,22 +5763,13 @@
       <code>$server['ssl_ciphers'] ?? ''</code>
       <code>$server['ssl_key'] ?? ''</code>
     </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$field</code>
+    <MixedAssignment occurrences="2">
       <code>$host</code>
       <code>$server['host']</code>
     </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$server['host']</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="2">
-      <code>$field-&gt;flags</code>
-      <code>$field-&gt;type</code>
-    </MixedPropertyFetch>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>$fields</code>
-      <code>FieldMetadata[]|null</code>
-    </MixedReturnTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="22">
       <code>$link</code>
       <code>$link</code>
@@ -9600,6 +9587,9 @@
       <code>$sessionCookieParams['secure']</code>
       <code>$single_signon_cfgupdate</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$sessionCookieParams</code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="13">
       <code>$GLOBALS['cfg']['Server']['host']</code>
       <code>$GLOBALS['cfg']['Server']['port']</code>
@@ -11012,11 +11002,12 @@
     </MixedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportShp.php">
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="10">
       <code>$buffer</code>
       <code>$dbf_file_name</code>
       <code>$dbf_file_path</code>
       <code>$dbf_file_path</code>
+      <code>$extracted</code>
       <code>$importHandle</code>
       <code>$import_file</code>
       <code>$import_file</code>
@@ -15142,10 +15133,9 @@
       <code>$maxSize</code>
       <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
-    <RedundantCast occurrences="3">
+    <RedundantCast occurrences="2">
       <code>(int) $GLOBALS['cfg']['ExecTimeLimit']</code>
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
-      <code>(string) @strftime($string)</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="6">
       <code>(int) $meta-&gt;length</code>
@@ -15159,9 +15149,6 @@
       <code>$columnsList !== null</code>
       <code>isset($dbi)</code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$ret === false</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Utils/ForeignKey.php">
     <MixedArgument occurrences="1">
@@ -15303,20 +15290,11 @@
       <code>$name</code>
       <code>$table</code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$dump</code>
       <code>$newData[$newName]</code>
-      <code>$time</code>
       <code>$value</code>
     </MixedAssignment>
-    <MixedOperand occurrences="6">
-      <code>$timearray['hours']</code>
-      <code>$timearray['mday']</code>
-      <code>$timearray['minutes']</code>
-      <code>$timearray['mon']</code>
-      <code>$timearray['seconds']</code>
-      <code>$timearray['year']</code>
-    </MixedOperand>
   </file>
   <file src="libraries/services_loader.php">
     <MixedArgument occurrences="7">
