@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2021-12-05 08:51+0000\n"
-"Last-Translator: Arief Hidayat <kekesed97@gmail.com>\n"
+"Last-Translator: Hammam Afiq Murtadho <hammam.afiq277@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
 "Language: id\n"
@@ -2711,9 +2711,8 @@ msgid "Strong"
 msgstr "Kuat"
 
 #: js/messages.php:751
-#, fuzzy
 msgid "Timed out waiting for security key activation."
-msgstr "Waktu tunggu untuk aktivasi kunci keamanan."
+msgstr "Waktu tunggu untuk menunggu aktivasi kunci keamanan sudah habis"
 
 #: js/messages.php:752
 #, php-format
