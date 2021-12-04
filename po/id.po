@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-09-18 18:00+0000\n"
+"PO-Revision-Date: 2021-12-05 08:51+0000\n"
 "Last-Translator: Arief Hidayat <kekesed97@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/id/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -1594,7 +1594,7 @@ msgstr "tidak peka aksen"
 #: libraries/classes/Charsets/Collation.php:300
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "sensitif terhadap aksen"
+msgstr "kana-sensitif"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
@@ -1609,7 +1609,7 @@ msgstr "biner"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr "tanpa-pad"
+msgstr "tanpa pad"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -2563,7 +2563,7 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]."
+"saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:408
 msgid ""
@@ -7227,8 +7227,6 @@ msgid "%d object(s) created."
 msgstr "%d objek dibuat."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Nama kolom"
 
@@ -7633,8 +7631,7 @@ msgid "Invalid security key."
 msgstr "Jenis ekspor invalid."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
