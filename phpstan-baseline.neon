@@ -7691,16 +7691,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getDiagMessageForFeature\\(\\) has parameter \\$messages with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getDiagMessageForParameter\\(\\) has parameter \\$messages with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getForeignData\\(\\) has parameter \\$foreigners with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php

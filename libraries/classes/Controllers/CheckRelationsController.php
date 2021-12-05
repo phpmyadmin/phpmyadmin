@@ -1,7 +1,4 @@
 <?php
-/**
- * Displays status of phpMyAdmin configuration storage
- */
 
 declare(strict_types=1);
 
@@ -12,6 +9,11 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use const SQL_DIR;
+
+/**
+ * Displays status of phpMyAdmin configuration storage
+ */
 class CheckRelationsController extends AbstractController
 {
     /** @var Relation */
@@ -25,7 +27,7 @@ class CheckRelationsController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        global $db;
+        global $db, $cfg;
 
         /** @var string|null $createPmaDb */
         $createPmaDb = $request->getParsedBodyParam('create_pmadb');
@@ -54,6 +56,14 @@ class CheckRelationsController extends AbstractController
 
         // Do not use any previous $relationParameters value as it could have changed after a successful fixPmaTables()
         $relationParameters = $this->relation->getRelationParameters();
-        $this->response->addHTML($this->relation->getRelationsParamDiagnostic($relationParameters));
+
+        $this->render('relation/check_relations', [
+            'db' => $db,
+            'zero_conf' => $cfg['ZeroConf'],
+            'relation_parameters' => $relationParameters,
+            'sql_dir' => SQL_DIR,
+            'config_storage_database_name' => $cfgStorageDbName,
+            'are_config_storage_tables_defined' => $this->relation->arePmadbTablesDefined(),
+        ]);
     }
 }

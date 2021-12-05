@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationParameters;
 
-use function __;
 use function implode;
 
 /**
@@ -73,55 +71,6 @@ class RelationTest extends AbstractTestCase
             'executeResult2',
             $this->relation->queryAsControlUser($sql, false)
         );
-    }
-
-    public function testGetRelationParameters(): void
-    {
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $relationParameters = $this->relation->getRelationParameters();
-        $this->assertAllSelectsConsumed();
-
-        $this->assertFalse($relationParameters->relwork);
-        $this->assertFalse($relationParameters->bookmarkwork);
-        $this->assertEquals('root', $relationParameters->user);
-        $this->assertEquals('phpmyadmin', $relationParameters->db);
-
-        $retval = $this->relation->getRelationsParamDiagnostic($relationParameters);
-        //check $cfg['Servers'][$i]['pmadb']
-        $this->assertStringContainsString("\$cfg['Servers'][\$i]['pmadb']", $retval);
-        $this->assertStringContainsString('<strong>OK</strong>', $retval);
-
-        //$cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"text-end\">"
-            . '<span class="text-success"><strong>OK</strong></span>';
-        $this->assertStringContainsString($result, $retval);
-        // $cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"text-end\">"
-            . '<span class="text-danger"><strong>not OK</strong></span>';
-        $this->assertStringContainsString($result, $retval);
-        // General relation features
-        $result = 'General relation features: <span class="text-danger">Disabled</span>';
-        $this->assertStringContainsString($result, $retval);
-        // $cfg['Servers'][$i]['table_info']
-        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
-            . '<td class="text-end">'
-            . '<span class="text-danger"><strong>not OK</strong></span>';
-        $this->assertStringContainsString($result, $retval);
-        // Display Features:
-        $result = 'Display Features: <span class="text-danger">Disabled</span>';
-        $this->assertStringContainsString($result, $retval);
-
-        $params = $relationParameters->toArray();
-        $params['db'] = null;
-        $relationParameters = RelationParameters::fromArray($params);
-        $retval = $this->relation->getRelationsParamDiagnostic($relationParameters);
-
-        $result = __('General relation features');
-        $this->assertStringContainsString($result, $retval);
-        $result = 'Configuration of pmadb… ';
-        $this->assertStringContainsString($result, $retval);
-        $result = '<strong>not OK</strong>';
-        $this->assertStringContainsString($result, $retval);
     }
 
     /**
