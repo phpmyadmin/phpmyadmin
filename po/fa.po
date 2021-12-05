@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-10-29 18:36+0000\n"
-"Last-Translator: Alireza Ivaz <info@alirezaivaz.ir>\n"
+"PO-Revision-Date: 2021-12-06 17:51+0000\n"
+"Last-Translator: BahmanMD <bahman.mehrdad@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fa/>\n"
 "Language: fa\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -76,11 +76,13 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"ممکن است بخواهید {long_query_time} را افزایش دهید یا جستارهای فهرست شده در "
+"گزارش جستجوی کُند را بهینه کنید"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "نرخ پرس و جو کُند باید کمتر از 5% باشد، مقدار شما %s%% می‌باشد."
 
 #: libraries/advisory_rules_generic.php:51
 #, fuzzy
