@@ -110,7 +110,7 @@ class Transformations
      * @staticvar array $stack
      * @access public
      */
-    public function getAvailableMimeTypes()
+    public function getAvailableMimeTypes(): array
     {
         static $stack = null;
 

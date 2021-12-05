@@ -4236,9 +4236,8 @@
     <RedundantCast occurrences="1">
       <code>(string) gmdate(DATE_RFC1123)</code>
     </RedundantCast>
-    <RedundantCondition occurrences="4">
+    <RedundantCondition occurrences="2">
       <code>$GLOBALS['config'] !== null</code>
-      <code>$dbi !== null</code>
       <code>isset($dbi, $GLOBALS['config'])</code>
     </RedundantCondition>
     <TypeDoesNotContainType occurrences="1">
@@ -6175,17 +6174,11 @@
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>$bIsProcessList</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="9">
+    <RedundantConditionGivenDocblockType occurrences="6">
       <code>$fieldsMeta-&gt;name</code>
       <code>$firstStatement-&gt;order</code>
       <code>$meta-&gt;decimals</code>
       <code>$meta-&gt;decimals</code>
-      <code>$posNext !== null</code>
-      <code>$sortedColumnMessage !== null</code>
-      <code>($displayParts['nav_bar'] == '1') &amp;&amp; $posNext !== null</code>
       <code>isset($fieldsMeta-&gt;table)</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
@@ -8985,9 +8978,6 @@
     <RedundantCast occurrences="1">
       <code>(array) $partialDependencies</code>
     </RedundantCast>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$availableMimeTypes !== null</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/OpenDocument.php">
     <InvalidReturnStatement occurrences="1">
@@ -13200,9 +13190,6 @@
       <code>(bool) ! $this-&gt;dbi-&gt;fetchValue($sql)</code>
       <code>(string) $privs</code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="1">
-      <code>$table === '*'</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$userGroup</code>
     </RedundantConditionGivenDocblockType>
@@ -14549,10 +14536,9 @@
     <RedundantCondition occurrences="1">
       <code>$dbname</code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="5">
+    <RedundantConditionGivenDocblockType occurrences="4">
       <code>$statement-&gt;name !== null</code>
       <code>$statement-&gt;name !== null</code>
-      <code>$table !== null</code>
       <code>$version</code>
       <code>isset($statement-&gt;options)</code>
     </RedundantConditionGivenDocblockType>

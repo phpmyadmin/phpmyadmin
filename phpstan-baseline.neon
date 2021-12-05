@@ -3166,11 +3166,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getBulkLinks\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -8557,11 +8552,6 @@ parameters:
 
 		-
 			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Left side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

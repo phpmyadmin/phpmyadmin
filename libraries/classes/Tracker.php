@@ -81,13 +81,8 @@ class Tracker
         $relationParameters = $relation->getRelationParameters();
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $relationParameters->trackingwork) {
-            return false;
-        }
 
-        $table = self::getTrackingTable();
-
-        return $table !== null;
+        return $relationParameters->trackingwork;
     }
 
     /**
@@ -936,10 +931,8 @@ class Tracker
 
     /**
      * Returns the tracking table
-     *
-     * @return string tracking table
      */
-    private static function getTrackingTable()
+    private static function getTrackingTable(): string
     {
         global $dbi;
 

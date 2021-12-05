@@ -483,8 +483,7 @@ class Results
         $bIsProcessList = isset($which[1]);
         if ($bIsProcessList) {
             $str = ' ' . strtoupper($which[1]);
-            $bIsProcessList = $bIsProcessList
-                && strpos($str, 'PROCESSLIST') > 0;
+            $bIsProcessList = strpos($str, 'PROCESSLIST') > 0;
         }
 
         if ($bIsProcessList) {
@@ -3852,7 +3851,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if (($displayParts['nav_bar'] == '1') && $posNext !== null) {
+        if (($displayParts['nav_bar'] == '1')) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,
@@ -4134,7 +4133,7 @@ class Results
      * @access private
      */
     private function setMessageInformation(
-        $sortedColumnMessage,
+        string $sortedColumnMessage,
         array $analyzedSqlResults,
         $total,
         $posNext,
@@ -4211,9 +4210,7 @@ class Results
         $messageQueryTime->addParam($this->properties['querytime']);
 
         $message->addMessage($messageQueryTime, '');
-        if ($sortedColumnMessage !== null) {
-            $message->addHtml($sortedColumnMessage, '');
-        }
+        $message->addHtml($sortedColumnMessage, '');
 
         return $message;
     }

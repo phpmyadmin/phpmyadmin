@@ -1024,23 +1024,9 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        if (isset($options['db_collation']) && $options['db_collation'] !== null) {
-            $collation = $options['db_collation'];
-        } else {
-            $collation = 'utf8_general_ci';
-        }
-
-        if (isset($options['db_charset']) && $options['db_charset'] !== null) {
-            $charset = $options['db_charset'];
-        } else {
-            $charset = 'utf8';
-        }
-
-        if (isset($options['create_db'])) {
-            $createDb = $options['create_db'];
-        } else {
-            $createDb = true;
-        }
+        $collation = $options['db_collation'] ?? 'utf8_general_ci';
+        $charset = $options['db_charset'] ?? 'utf8';
+        $createDb = $options['create_db'] ?? true;
 
         /**
          * Create SQL code to handle the database

@@ -146,10 +146,7 @@ class Normalization
         $mimeMap = [];
         if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
-            $availableMimeTypes = $this->transformations->getAvailableMimeTypes();
-            if ($availableMimeTypes !== null) {
-                $availableMime = $availableMimeTypes;
-            }
+            $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
         $relationParams = $relationParameters->toArray();

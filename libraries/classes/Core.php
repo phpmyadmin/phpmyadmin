@@ -101,7 +101,7 @@ class Core
          * (this can happen on early fatal error)
          */
         if (
-            isset($dbi, $GLOBALS['config']) && $dbi !== null
+            isset($dbi, $GLOBALS['config'])
             && $GLOBALS['config']->get('is_setup') === false
             && ResponseRenderer::getInstance()->isAjax()
         ) {
@@ -494,8 +494,7 @@ class Core
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
         $notChromeOrLessThan43 = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') !== 'CHROME' // see bug #4942
-            || ($GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') === 'CHROME'
-                && $GLOBALS['config']->get('PMA_USR_BROWSER_VER') < 43);
+            || $GLOBALS['config']->get('PMA_USR_BROWSER_VER') < 43;
 
         if (str_contains($mimetype, 'gzip') && $notChromeOrLessThan43) {
             $headers['Content-Encoding'] = 'gzip';

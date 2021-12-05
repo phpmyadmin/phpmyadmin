@@ -602,8 +602,6 @@ class Privileges
         $table = '*',
         $submit = true
     ) {
-        $sqlQuery = '';
-
         if ($db === '*') {
             $table = '*';
         }
@@ -621,11 +619,7 @@ class Privileges
         if (empty($row)) {
             if ($table === '*' && $this->dbi->isSuperUser()) {
                 $row = [];
-                if ($db === '*') {
-                    $sqlQuery = 'SHOW COLUMNS FROM `mysql`.`user`;';
-                } elseif ($table === '*') {
-                    $sqlQuery = 'SHOW COLUMNS FROM `mysql`.`db`;';
-                }
+                $sqlQuery = 'SHOW COLUMNS FROM `mysql`.' . ($db === '*' ? '`user`' : '`db`') . ';';
 
                 $res = $this->dbi->query($sqlQuery);
                 while ($row1 = $this->dbi->fetchRow($res)) {
