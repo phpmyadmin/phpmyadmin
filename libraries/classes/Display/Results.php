@@ -2305,10 +2305,6 @@ class Results
 
         $displayParams = $this->properties['display_params'];
 
-        if (! is_array($map)) {
-            $map = [];
-        }
-
         $rowNumber = 0;
         $displayParams['edit'] = [];
         $displayParams['copy'] = [];

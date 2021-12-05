@@ -869,10 +869,6 @@ class Core
      */
     public static function safeUnserialize(string $data)
     {
-        if (! is_string($data)) {
-            return null;
-        }
-
         /* validate serialized data */
         $length = strlen($data);
         $depth = 0;

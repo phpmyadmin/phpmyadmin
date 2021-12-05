@@ -12,7 +12,6 @@ use PhpMyAdmin\Query\Utilities;
 use function __;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function mb_strrpos;
 use function mb_strtolower;
 use function mb_substr;
@@ -281,7 +280,7 @@ class ReplicationGui
 
         $variables = [];
         foreach ($replicationVariables as $variable) {
-            $serverReplicationVariable = is_array($serverReplication) && isset($serverReplication[0])
+            $serverReplicationVariable = isset($serverReplication[0])
                 ? $serverReplication[0][$variable]
                 : '';
 

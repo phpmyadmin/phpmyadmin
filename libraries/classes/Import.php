@@ -930,8 +930,7 @@ class Import
 
         /* If the passed array is not of the correct form, do not process it */
         if (
-            ! is_array($table)
-            || is_array($table[self::TBL_NAME])
+            is_array($table[self::TBL_NAME])
             || ! is_array($table[self::COL_NAMES])
             || ! is_array($table[self::ROWS])
         ) {

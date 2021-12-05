@@ -31,7 +31,6 @@ use function ini_get;
 use function is_array;
 use function is_file;
 use function is_numeric;
-use function is_object;
 use function is_string;
 use function is_writable;
 use function mb_strlen;
@@ -1332,7 +1331,7 @@ class Export
         $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
-        if ($exportPlugin === null || ! is_object($exportPlugin)) {
+        if ($exportPlugin === null) {
             Core::fatalError(__('Bad type!'));
         }
 

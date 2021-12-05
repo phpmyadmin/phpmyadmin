@@ -16,7 +16,6 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
-use function is_array;
 
 final class PrimaryController extends AbstractController
 {
@@ -124,7 +123,7 @@ final class PrimaryController extends AbstractController
         $primary = '';
         while ($row = $this->dbi->fetchAssoc($result)) {
             // Backups the list of primary keys
-            if (! is_array($row) || $row['Key_name'] !== 'PRIMARY') {
+            if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
             }
 

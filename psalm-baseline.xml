@@ -3641,9 +3641,6 @@
     <MixedOperand occurrences="1">
       <code>$row['Column_name']</code>
     </MixedOperand>
-    <TypeDoesNotContainType occurrences="1">
-      <code>! is_array($row)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php">
     <MixedArgument occurrences="1">
@@ -4240,9 +4237,6 @@
       <code>$GLOBALS['config'] !== null</code>
       <code>isset($dbi, $GLOBALS['config'])</code>
     </RedundantCondition>
-    <TypeDoesNotContainType occurrences="1">
-      <code>is_string($data)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/CreateAddField.php">
     <MixedArgument occurrences="39">
@@ -6182,9 +6176,6 @@
       <code>isset($fieldsMeta-&gt;table)</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType occurrences="1">
-      <code>is_array($map)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Encoding.php">
     <DocblockTypeContradiction occurrences="3">
@@ -6385,8 +6376,7 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Export.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>! is_object($exportPlugin)</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>$exportPlugin === null</code>
     </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
@@ -7835,9 +7825,6 @@
       <code>(string) $cell</code>
       <code>(string) $cell</code>
     </RedundantCast>
-    <TypeDoesNotContainType occurrences="1">
-      <code>! is_array($table)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Import/Ajax.php">
     <MixedArrayAccess occurrences="1">
@@ -12626,9 +12613,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>is_array($serverReplication)</code>
-    </RedundantConditionGivenDocblockType>
     <UnusedFunctionCall occurrences="2">
       <code>strtok</code>
       <code>strtok</code>
@@ -14267,7 +14251,7 @@
       <code>$columnMeta['column_status']['isEditable']</code>
       <code>$mime_map[$columnMeta['Field']]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="16">
+    <MixedArrayAssignment occurrences="15">
       <code>$available_mime[$mime_type . '_file_quoted'][$mimekey]</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['DefaultType']</code>
@@ -14283,16 +14267,14 @@
       <code>$columnMeta['Expression']</code>
       <code>$columnMeta['Type']</code>
       <code>$mime_map[$columnMeta['Field']]</code>
-      <code>$submit_fulltext[$fulltext_indexkey]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="5">
+    <MixedArrayOffset occurrences="4">
       <code>$comments_map[$columnMeta['Field']]</code>
       <code>$expressions[$columnMeta['Field']]</code>
       <code>$mime_map[$columnMeta['Field']]</code>
       <code>$mime_map[$columnMeta['Field']]</code>
-      <code>$submit_fulltext[$fulltext_indexkey]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="23">
+    <MixedAssignment occurrences="21">
       <code>$columnMeta</code>
       <code>$columnMeta['Default']</code>
       <code>$columnMeta['Default']</code>
@@ -14308,24 +14290,13 @@
       <code>$form_params['field_orig[' . $columnNumber . ']']</code>
       <code>$form_params['selected[' . $o_fld_nr . ']']</code>
       <code>$form_params['table']</code>
-      <code>$fulltext_indexkey</code>
       <code>$length</code>
       <code>$length</code>
       <code>$move_columns</code>
       <code>$o_fld_val</code>
       <code>$submit_attribute</code>
-      <code>$submit_fulltext[$fulltext_indexkey]</code>
       <code>$type</code>
     </MixedAssignment>
-    <PossiblyUndefinedVariable occurrences="1">
-      <code>$submit_fulltext</code>
-    </PossiblyUndefinedVariable>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>is_array($field_fulltext)</code>
-      <code>is_array($selected)</code>
-      <code>isset($field_fulltext) &amp;&amp; is_array($field_fulltext)</code>
-      <code>isset($selected) &amp;&amp; is_array($selected)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Table/Indexes.php">
     <MixedArgument occurrences="1">
