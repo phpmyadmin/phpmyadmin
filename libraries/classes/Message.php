@@ -16,7 +16,6 @@ use function is_float;
 use function is_int;
 use function md5;
 use function sprintf;
-use function strlen;
 
 use const ENT_COMPAT;
 
@@ -665,13 +664,8 @@ class Message implements Stringable
     {
         $message = $this->message;
 
-        if (strlen($message) === 0) {
-            $string = $this->getString();
-            if (strlen($string) === 0) {
-                $message = '';
-            } else {
-                $message = $string;
-            }
+        if ($message === '') {
+            $message = $this->getString();
         }
 
         if ($this->isDisplayed()) {
@@ -787,8 +781,6 @@ class Message implements Stringable
             $image = 's_notice';
         }
 
-        $message = self::notice(Html\Generator::getImage($image)) . ' ' . $message;
-
-        return $message;
+        return self::notice(Html\Generator::getImage($image)) . ' ' . $message;
     }
 }
