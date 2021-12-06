@@ -2003,10 +2003,8 @@ class Table implements Stringable
      * Get index with index name
      *
      * @param string $index Index name
-     *
-     * @return Index
      */
-    public function getIndex($index)
+    public function getIndex(string $index): Index
     {
         return Index::singleton($this->dbi, $this->dbName, $this->name, $index);
     }
