@@ -491,12 +491,10 @@ class Core
         }
 
         $headers['Content-Type'] = $mimetype;
+
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
-        $notChromeOrLessThan43 = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') !== 'CHROME' // see bug #4942
-            || $GLOBALS['config']->get('PMA_USR_BROWSER_VER') < 43;
-
-        if (str_contains($mimetype, 'gzip') && $notChromeOrLessThan43) {
+        if (str_contains($mimetype, 'gzip') && $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') !== 'CHROME') {
             $headers['Content-Encoding'] = 'gzip';
         }
 
