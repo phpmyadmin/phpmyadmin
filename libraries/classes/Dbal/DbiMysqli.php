@@ -411,9 +411,8 @@ class DbiMysqli implements DbiExtension
             return null;
         }
 
-        $fields = $result->fetch_fields();
-
-        foreach ($fields as $k => $field) {
+        $fields = [];
+        foreach ($result->fetch_fields() as $k => $field) {
             $fields[$k] = new FieldMetadata($field->type, $field->flags, $field);
         }
 
