@@ -52,7 +52,6 @@ use function sprintf;
 use function str_contains;
 use function str_replace;
 use function stripos;
-use function strlen;
 use function strtolower;
 use function substr;
 use function sys_get_temp_dir;
@@ -712,11 +711,7 @@ class Config
      */
     public function get(string $setting)
     {
-        if (isset($this->settings[$setting])) {
-            return $this->settings[$setting];
-        }
-
-        return null;
+        return $this->settings[$setting] ?? null;
     }
 
     /**
@@ -926,7 +921,7 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
-        if (strlen($value) > 0 && $default !== null && $value === $default) {
+        if ($value !== '' && $value === $default) {
             // default value is used
             if ($this->issetCookie($cookie)) {
                 // remove cookie
@@ -936,7 +931,7 @@ class Config
             return false;
         }
 
-        if (strlen($value) === 0 && $this->issetCookie($cookie)) {
+        if ($value === '' && $this->issetCookie($cookie)) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -1002,11 +997,7 @@ class Config
      */
     public function getCookie(string $cookieName)
     {
-        if (isset($_COOKIE[$this->getCookieName($cookieName)])) {
-            return $_COOKIE[$this->getCookieName($cookieName)];
-        }
-
-        return null;
+        return $_COOKIE[$this->getCookieName($cookieName)] ?? null;
     }
 
     /**
