@@ -73,13 +73,11 @@ final class FieldMetadata
      */
     public $isMultipleKey;
 
-
     /**
      * @var bool
      * @readonly
      */
     public $isPrimaryKey;
-
 
     /**
      * @var bool
@@ -87,13 +85,11 @@ final class FieldMetadata
      */
     public $isUniqueKey;
 
-
     /**
      * @var bool
      * @readonly
      */
     public $isNotNull;
-
 
     /**
      * @var bool
@@ -101,13 +97,11 @@ final class FieldMetadata
      */
     public $isUnsigned;
 
-
     /**
      * @var bool
      * @readonly
      */
     public $isZerofill;
-
 
     /**
      * @var bool
@@ -115,13 +109,11 @@ final class FieldMetadata
      */
     public $isNumeric;
 
-
     /**
      * @var bool
      * @readonly
      */
     public $isBlob;
-
 
     /**
      * @var bool
@@ -129,13 +121,11 @@ final class FieldMetadata
      */
     public $isBinary;
 
-
     /**
      * @var bool
      * @readonly
      */
     public $isEnum;
-
 
     /**
      * @var bool
@@ -145,7 +135,6 @@ final class FieldMetadata
 
     /** @var int|null */
     private $mappedType;
-
 
     /**
      * @var bool
