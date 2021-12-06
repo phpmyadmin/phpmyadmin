@@ -254,9 +254,8 @@ class Sanitize
         }
 
         $pattern .= '-]/';
-        $filename = preg_replace($pattern, '_', $filename);
 
-        return $filename;
+        return preg_replace($pattern, '_', $filename);
     }
 
     /**
