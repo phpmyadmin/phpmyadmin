@@ -39,7 +39,6 @@ use function session_write_close;
 use function sprintf;
 use function str_contains;
 use function str_replace;
-use function strlen;
 use function ucwords;
 
 /**
@@ -645,7 +644,7 @@ class Sql
     private function getNumberOfRowsAffectedOrChanged($isAffected, $result)
     {
         if ($isAffected) {
-            return @$this->dbi->affectedRows();
+            return $this->dbi->affectedRows();
         }
 
         if ($result) {
@@ -663,16 +662,16 @@ class Sql
      *
      * @return bool whether to reload the navigation(1) or not(0)
      */
-    private function hasCurrentDbChanged($db): bool
+    private function hasCurrentDbChanged(string $db): bool
     {
-        if (strlen($db) > 0) {
-            $currentDb = $this->dbi->fetchValue('SELECT DATABASE()');
-
-            // $current_db is false, except when a USE statement was sent
-            return ($currentDb != false) && ($db !== $currentDb);
+        if ($db === '') {
+            return false;
         }
 
-        return false;
+        $currentDb = $this->dbi->fetchValue('SELECT DATABASE()');
+
+        // $current_db is false, except when a USE statement was sent
+        return ($currentDb != false) && ($db !== $currentDb);
     }
 
     /**
@@ -683,14 +682,14 @@ class Sql
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
      */
-    private function cleanupRelations($db, $table, ?string $column, $purge): void
+    private function cleanupRelations(string $db, string $table, ?string $column, $purge): void
     {
-        if (empty($purge) || strlen($db) <= 0) {
+        if (empty($purge) || $db === '') {
             return;
         }
 
-        if (strlen($table) > 0) {
-            if (isset($column) && strlen($column) > 0) {
+        if ($table !== '') {
+            if ($column !== null && $column !== '') {
                 $this->relationCleanup->column($db, $table, $column);
             } else {
                 $this->relationCleanup->table($db, $table);
@@ -802,7 +801,7 @@ class Sql
      * @param array       $analyzedSqlResults  analyzed sql results
      * @param string      $fullSqlQuery        full sql query
      * @param bool        $isGotoFile          whether to go to a file
-     * @param string|null $db                  current database
+     * @param string      $db                  current database
      * @param string|null $table               current table
      * @param bool|null   $findRealEnd         whether to find the real end
      * @param string      $sqlQueryForBookmark sql query to be stored as bookmark
@@ -814,8 +813,8 @@ class Sql
         array $analyzedSqlResults,
         $fullSqlQuery,
         $isGotoFile,
-        $db,
-        $table,
+        string $db,
+        ?string $table,
         ?bool $findRealEnd,
         $sqlQueryForBookmark,
         $extraData
@@ -869,12 +868,11 @@ class Sql
 
             $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table, $analyzedSqlResults);
 
-            $this->cleanupRelations($db ?? '', $table ?? '', $_POST['dropped_column'] ?? null, $_POST['purge'] ?? null);
+            $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, $_POST['purge'] ?? null);
 
             if (
                 isset($_POST['dropped_column'])
-                && isset($db) && strlen($db) > 0
-                && isset($table) && strlen($table) > 0
+                && $db !== '' && $table !== null && $table !== ''
             ) {
                 // to refresh the list of indexes (Ajax mode)
 
@@ -1417,7 +1415,7 @@ class Sql
 
         // Gets the list of fields properties
         $fieldsMeta = [];
-        if (isset($result) && ! is_bool($result)) {
+        if ($result !== null && ! is_bool($result)) {
             $fieldsMeta = $this->dbi->getFieldsMeta($result);
         }
 
@@ -1680,7 +1678,7 @@ class Sql
         // Handling is also not required if we came from the "Sort by key"
         // drop-down.
         if (
-            ! empty($analyzedSqlResults)
+            $analyzedSqlResults !== []
             && $this->isRememberSortingOrder($analyzedSqlResults)
             && empty($analyzedSqlResults['union'])
             && ! isset($_POST['sort_by_key'])
@@ -1711,7 +1709,7 @@ class Sql
         }
 
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
-        $this->dbi->selectDb($db ?? '');
+        $this->dbi->selectDb($db);
 
         [
             $result,
@@ -1756,7 +1754,7 @@ class Sql
             $htmlOutput = $this->getQueryResponseForResultsReturned(
                 $result,
                 $analyzedSqlResults,
-                $db ?? '',
+                $db,
                 $table,
                 $sqlData ?? null,
                 $displayResultsObject,
