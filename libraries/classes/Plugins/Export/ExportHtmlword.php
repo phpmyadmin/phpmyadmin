@@ -391,7 +391,7 @@ class ExportHtmlword extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $schema_insert .= '<td class="print"><strong>'
                 . __('Media type')
                 . '</strong></td>';
@@ -435,14 +435,14 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             }
 
-            if ($do_comments && $relationParameters->commwork) {
+            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
                 $schema_insert .= '<td class="print">'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '') . '</td>';
             }
 
-            if ($do_mime && $relationParameters->mimework) {
+            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
                 $schema_insert .= '<td class="print">'
                     . (isset($mime_map[$field_name]) ?
                         htmlspecialchars(

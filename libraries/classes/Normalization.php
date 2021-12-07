@@ -142,12 +142,11 @@ class Normalization
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
-        if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
+        if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
-        $relationParams = $relationParameters->toArray();
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
@@ -162,7 +161,6 @@ class Normalization
                 'fields_meta' => null,
                 'is_backup' => true,
                 'move_columns' => [],
-                'cfg_relation' => $relationParams,
                 'available_mime' => $availableMime,
                 'mime_map' => $mimeMap,
             ];
@@ -190,7 +188,7 @@ class Normalization
         return $this->template->render('columns_definitions/table_fields_definitions', [
             'is_backup' => true,
             'fields_meta' => null,
-            'mimework' => $relationParameters->mimework,
+            'relation_parameters' => $relationParameters,
             'content_cells' => $contentCells,
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($this->dbi->getVersion()),

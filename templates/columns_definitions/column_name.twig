@@ -29,7 +29,7 @@
     size="10"
     value="{{ column_meta['Field'] is defined ? column_meta['Field'] }}">
 
-{% if cfg_relation['centralcolumnswork']
+{% if has_central_columns_feature
     and not (column_meta['column_status'] is defined
         and not column_meta['column_status']['isEditable']) %}
     <p class="column_name" id="central_columns_{{ column_number }}_{{ ci - ci_offset }}">

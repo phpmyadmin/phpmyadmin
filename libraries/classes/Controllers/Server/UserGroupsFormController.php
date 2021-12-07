@@ -55,7 +55,7 @@ final class UserGroupsFormController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $relationParameters->menuswork) {
+        if (! $relationParameters->hasConfigurableMenusFeature()) {
             $this->response->setRequestStatus(false);
             $this->response->setHttpResponseCode(400);
             $this->response->addJSON('message', __('User groups management is not enabled.'));

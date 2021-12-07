@@ -83,7 +83,7 @@ class DataDictionaryController extends AbstractController
                 }
 
                 $mime = '';
-                if ($relationParameters->mimework) {
+                if ($relationParameters->hasBrowserTransformationFeature()) {
                     $mimeMap = $this->transformations->getMime($this->db, $tableName, true);
                     if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
                         $mime = str_replace('_', '/', $mimeMap[$row['Field']]['mimetype']);
@@ -107,7 +107,7 @@ class DataDictionaryController extends AbstractController
                 'name' => $tableName,
                 'comment' => $showComment,
                 'has_relation' => $hasRelation,
-                'has_mime' => $relationParameters->mimework,
+                'has_mime' => $relationParameters->hasBrowserTransformationFeature(),
                 'columns' => $rows,
                 'indexes' => Index::getFromTable($tableName, $this->db),
             ];

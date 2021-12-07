@@ -513,7 +513,7 @@ class StructureController extends AbstractController
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
                 'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
-                'central_columns_work' => $relationParameters->centralcolumnswork,
+                'central_columns_work' => $relationParameters->hasCentralColumnsFeature(),
             ],
         ]);
     }

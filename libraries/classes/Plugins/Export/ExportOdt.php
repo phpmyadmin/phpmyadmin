@@ -103,7 +103,7 @@ class ExportOdt extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if (! empty($relationParameters->mimework)) {
+            if ($relationParameters->hasBrowserTransformationFeature()) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -461,7 +461,7 @@ class ExportOdt extends ExportPlugin
             $columns_cnt++;
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $columns_cnt++;
         }
 
@@ -494,7 +494,7 @@ class ExportOdt extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
@@ -547,7 +547,7 @@ class ExportOdt extends ExportPlugin
                 }
             }
 
-            if ($do_mime && $relationParameters->mimework) {
+            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
                 if (isset($mime_map[$field_name])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'

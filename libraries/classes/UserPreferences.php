@@ -72,7 +72,7 @@ class UserPreferences
         global $dbi;
 
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->userconfigwork) {
+        if (! $relationParameters->hasUserPreferencesFeature()) {
             // no pmadb table, use session storage
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
@@ -119,7 +119,7 @@ class UserPreferences
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
-        if (! $relationParameters->userconfigwork || $relationParameters->user === null) {
+        if (! $relationParameters->hasUserPreferencesFeature() || $relationParameters->user === null) {
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,

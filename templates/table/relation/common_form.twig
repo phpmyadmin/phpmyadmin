@@ -99,7 +99,7 @@
         </fieldset>
     {% endif %}
 
-    {% if cfg_relation['relwork'] %}
+    {% if relation_parameters.hasRelationFeature() %}
         {% if default_sliders_state != 'disabled' and is_foreign_key_supported(tbl_storage_engine) %}
         <div class="mb-3">
           <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#internalRelationships" aria-expanded="{{ default_sliders_state == 'open' ? 'true' : 'false' }}" aria-controls="internalRelationships">
@@ -202,7 +202,7 @@
         {% endif %}
     {% endif %}
 
-    {% if cfg_relation['displaywork'] %}
+    {% if relation_parameters.hasDisplayFeature() %}
         {% set disp = get_display_field(db, table) %}
         <fieldset class="pma-fieldset">
             <label>{% trans 'Choose column to display:' %}</label>

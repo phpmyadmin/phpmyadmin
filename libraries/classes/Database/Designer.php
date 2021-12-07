@@ -62,7 +62,7 @@ class Designer
         return $this->template->render('database/designer/edit_delete_pages', [
             'db' => $db,
             'operation' => $operation,
-            'pdfwork' => $relationParameters->pdfwork,
+            'pdfwork' => $relationParameters->hasPdfFeature(),
             'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
@@ -80,7 +80,7 @@ class Designer
 
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
-            'pdfwork' => $relationParameters->pdfwork,
+            'pdfwork' => $relationParameters->hasPdfFeature(),
             'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
@@ -96,7 +96,7 @@ class Designer
     {
         $result = [];
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return $result;
         }
 
@@ -160,7 +160,7 @@ class Designer
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->designersettingswork) {
+        if ($relationParameters->hasDatabaseDesignerSettingsFeature()) {
             $query = 'SELECT `settings_data` FROM '
                 . Util::backquote($relationParameters->db) . '.'
                 . Util::backquote($relationParameters->designerSettings)
@@ -386,7 +386,7 @@ class Designer
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $displayedFields;
         $designerConfig->displayPage = (int) $displayPage;
-        $designerConfig->tablesEnabled = $relationParameters->pdfwork;
+        $designerConfig->tablesEnabled = $relationParameters->hasPdfFeature();
 
         return $this->template->render('database/designer/main', [
             'db' => $db,

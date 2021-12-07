@@ -603,15 +603,14 @@ class ExportLatexTest extends AbstractTestCase
             unset($GLOBALS['latex_caption']);
         }
 
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'][0] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
         ob_start();
         $this->assertTrue(

@@ -1318,11 +1318,11 @@ class Table implements Stringable
             return true;
         }
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             // Get all comments and MIME-Types for current table
             $commentsCopyRs = $relation->queryAsControlUser(
                 'SELECT column_name, comment'
-                . ($relationParameters->mimework
+                . ($relationParameters->hasBrowserTransformationFeature()
                 ? ', mimetype, transformation, transformation_options'
                 : '')
                 . ' FROM '
@@ -1343,7 +1343,7 @@ class Table implements Stringable
                     . Util::backquote($relationParameters->db)
                     . '.' . Util::backquote($relationParameters->columnInfo)
                     . ' (db_name, table_name, column_name, comment'
-                    . ($relationParameters->mimework
+                    . ($relationParameters->hasBrowserTransformationFeature()
                         ? ', mimetype, transformation, transformation_options'
                         : '')
                     . ') VALUES(\'' . $dbi->escapeString($targetDb)
@@ -1352,7 +1352,7 @@ class Table implements Stringable
                     . '\',\''
                     . $dbi->escapeString($commentsCopyRow['comment'])
                     . '\''
-                    . ($relationParameters->mimework
+                    . ($relationParameters->hasBrowserTransformationFeature()
                         ? ',\'' . $dbi->escapeString($commentsCopyRow['mimetype'])
                         . '\',\'' . $dbi->escapeString($commentsCopyRow['transformation'])
                         . '\',\'' . $dbi->escapeString($commentsCopyRow['transformation_options'])
@@ -1414,45 +1414,6 @@ class Table implements Stringable
             'foreign_table' => $targetTable,
         ];
         self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
-
-        /**
-         * @todo Can't get duplicating PDFs the right way. The
-         * page numbers always get screwed up independently from
-         * duplication because the numbers do not seem to be stored on a
-         * per-database basis. Would the author of pdf support please
-         * have a look at it?
-         *
-        $get_fields = array('page_descr');
-        $where_fields = array('db_name' => $source_db);
-        $new_fields = array('db_name' => $target_db);
-        $last_id = self::duplicateInfo(
-            'pdfwork',
-            'pdf_pages',
-            $get_fields,
-            $where_fields,
-            $new_fields
-        );
-
-        if (isset($last_id) && $last_id >= 0) {
-            $get_fields = array('x', 'y');
-            $where_fields = array(
-                'db_name' => $source_db,
-                'table_name' => $source_table
-            );
-            $new_fields = array(
-                'db_name' => $target_db,
-                'table_name' => $target_table,
-                'pdf_page_number' => $last_id
-            );
-            self::duplicateInfo(
-                'pdfwork',
-                'table_coords',
-                $get_fields,
-                $where_fields,
-                $new_fields
-            );
-        }
-         */
 
         return true;
     }
@@ -1886,7 +1847,7 @@ class Table implements Stringable
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {
             // check whether we can get from pmadb
-            $uiPrefs = $relationParameters->uiprefswork ? $this->getUiPrefsFromDb() : [];
+            $uiPrefs = $relationParameters->hasUiPreferencesFeature() ? $this->getUiPrefsFromDb() : [];
             $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPrefs;
         }
 
@@ -2008,7 +1969,7 @@ class Table implements Stringable
 
         // check if pmadb is set
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->uiprefswork) {
+        if ($relationParameters->hasUiPreferencesFeature()) {
             return $this->saveUiPrefsToDb();
         }
 
@@ -2033,7 +1994,7 @@ class Table implements Stringable
 
             // check if pmadb is set
             $relationParameters = $this->relation->getRelationParameters();
-            if ($relationParameters->uiprefswork) {
+            if ($relationParameters->hasUiPreferencesFeature()) {
                 return $this->saveUiPrefsToDb();
             }
         }

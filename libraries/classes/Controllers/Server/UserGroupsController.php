@@ -39,7 +39,7 @@ class UserGroupsController extends AbstractController
     public function __invoke(): void
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->menuswork) {
+        if (! $relationParameters->hasConfigurableMenusFeature()) {
             return;
         }
 

@@ -73,7 +73,7 @@ final class RelationController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
-        if ($relationParameters->relwork) {
+        if ($relationParameters->hasRelationFeature()) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -101,7 +101,7 @@ final class RelationController extends AbstractController
         $this->dbi->selectDb($this->db);
 
         // updates for Internal relations
-        if (isset($_POST['destination_db']) && $relationParameters->relwork) {
+        if (isset($_POST['destination_db']) && $relationParameters->hasRelationFeature()) {
             $this->updateForInternalRelation($table, $relationParameters, $relations);
         }
 
@@ -109,12 +109,12 @@ final class RelationController extends AbstractController
         $this->updateForForeignKeys($table, $options, $relationsForeign);
 
         // Updates for display field
-        if ($relationParameters->displaywork && isset($_POST['display_field'])) {
+        if ($relationParameters->hasDisplayFeature() && isset($_POST['display_field'])) {
             $this->updateForDisplayField($table, $relationParameters);
         }
 
         // If we did an update, refresh our data
-        if (isset($_POST['destination_db']) && $relationParameters->relwork) {
+        if (isset($_POST['destination_db']) && $relationParameters->hasRelationFeature()) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -152,7 +152,7 @@ final class RelationController extends AbstractController
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'db' => $this->db,
             'table' => $this->table,
-            'cfg_relation' => $relationParameters->toArray(),
+            'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
             'existrel' => $relations,
             'existrel_foreign' => array_key_exists('foreign_keys_data', $relationsForeign)

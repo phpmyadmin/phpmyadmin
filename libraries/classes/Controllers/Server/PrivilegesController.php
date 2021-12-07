@@ -98,7 +98,7 @@ class PrivilegesController extends AbstractController
         if (
             (isset($_GET['viewing_mode'])
                 && $_GET['viewing_mode'] === 'server')
-            && $relationParameters->menuswork
+            && $relationParameters->hasConfigurableMenusFeature()
         ) {
             $this->response->addHTML('<div class="container-fluid">');
             $this->render('server/privileges/subnav', [
@@ -205,7 +205,7 @@ class PrivilegesController extends AbstractController
             $username ?? '',
             $hostname ?? '',
             $password ?? null,
-            $relationParameters->menuswork
+            $relationParameters->hasConfigurableMenusFeature()
         );
         //update the old variables
         if (isset($ret_queries)) {
@@ -261,7 +261,7 @@ class PrivilegesController extends AbstractController
          * Assign users to user groups
          */
         if (
-            ! empty($_POST['changeUserGroup']) && $relationParameters->menuswork
+            ! empty($_POST['changeUserGroup']) && $relationParameters->hasConfigurableMenusFeature()
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
             $serverPrivileges->setUserGroup($username ?? '', $_POST['userGroup']);
@@ -463,7 +463,11 @@ class PrivilegesController extends AbstractController
             }
         }
 
-        if (! isset($_GET['viewing_mode']) || $_GET['viewing_mode'] !== 'server' || ! $relationParameters->menuswork) {
+        if (
+            ! isset($_GET['viewing_mode'])
+            || $_GET['viewing_mode'] !== 'server'
+            || ! $relationParameters->hasConfigurableMenusFeature()
+        ) {
             return;
         }
 

@@ -173,7 +173,7 @@ class StructureController extends AbstractController
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($this->db, $this->table);
-            if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
                 $mime_map = $this->transformations->getMime($this->db, $this->table, true);
             }
         }
@@ -254,7 +254,7 @@ class StructureController extends AbstractController
             'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'indexes' => Index::getFromTable($this->table, $this->db),
             'indexes_duplicates' => Index::findDuplicates($this->table, $this->db),
-            'cfg_relation' => $relationParameters->toArray(),
+            'relation_parameters' => $relationParameters,
             'hide_structure_actions' => $GLOBALS['cfg']['HideStructureActions'] === true,
             'db' => $this->db,
             'table' => $this->table,
@@ -274,9 +274,6 @@ class StructureController extends AbstractController
             'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
             'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
             'show_stats' => $GLOBALS['cfg']['ShowStats'],
-            'relation_commwork' => $relationParameters->commwork,
-            'relation_mimework' => $relationParameters->mimework,
-            'central_columns_work' => $relationParameters->centralcolumnswork,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
             'text_dir' => $GLOBALS['text_dir'],
@@ -371,8 +368,6 @@ class StructureController extends AbstractController
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
         $innodb_file_per_table = $innodbEnginePlugin->supportsFilePerTable();
 
-        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
-
         $tableCollation = [];
         $collation = Charsets::findCollationByName($this->dbi, $GLOBALS['cfg']['Server']['DisableIS'], $tbl_collation);
         if ($collation !== null) {
@@ -382,13 +377,9 @@ class StructureController extends AbstractController
             ];
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
         return $this->template->render('table/structure/display_table_stats', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
-            'cfg_relation' => $relationParameters->toArray(),
             'showtable' => $showtable,
             'table_info_num_rows' => $table_info_num_rows,
             'tbl_is_view' => $tbl_is_view,

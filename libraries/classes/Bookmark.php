@@ -218,7 +218,7 @@ class Bookmark
 
         $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
-        if ($relationParameters->bookmarkwork) {
+        if ($relationParameters->hasBookmarkFeature()) {
             $cfgBookmark = [
                 'user' => $user,
                 'db' => $relationParameters->db,

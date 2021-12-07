@@ -392,7 +392,7 @@ class ExportTexytext extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $text_output .= '|' . __('Media type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -419,14 +419,14 @@ class ExportTexytext extends ExportPlugin
                 );
             }
 
-            if ($do_comments && $relationParameters->commwork) {
+            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
                 $text_output .= '|'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '');
             }
 
-            if ($do_mime && $relationParameters->mimework) {
+            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
                 $text_output .= '|'
                     . (isset($mime_map[$field_name])
                         ? htmlspecialchars(

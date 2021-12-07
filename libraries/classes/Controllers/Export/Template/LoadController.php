@@ -39,7 +39,7 @@ final class LoadController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         if (
-            ! $relationParameters->exporttemplateswork
+            ! $relationParameters->hasExportTemplatesFeature()
             || $relationParameters->db === null
             || $relationParameters->exportTemplates === null
         ) {

@@ -289,7 +289,7 @@ class Transformations
         $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
 
-        if (! $relationParameters->mimework) {
+        if (! $relationParameters->hasBrowserTransformationFeature()) {
             return null;
         }
 
@@ -370,7 +370,7 @@ class Transformations
         $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
 
-        if (! $relationParameters->mimework) {
+        if (! $relationParameters->hasBrowserTransformationFeature()) {
             return false;
         }
 

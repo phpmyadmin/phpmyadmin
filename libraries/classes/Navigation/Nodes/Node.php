@@ -644,7 +644,7 @@ class Node
         global $dbi;
 
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             $navTable = Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->navigationhiding);
             $sqlQuery = 'SELECT `db_name`, COUNT(*) AS `count` FROM ' . $navTable

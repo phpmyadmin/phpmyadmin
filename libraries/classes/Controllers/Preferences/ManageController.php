@@ -171,7 +171,7 @@ class ManageController extends AbstractController
                     echo $this->template->render('preferences/header', [
                         'route' => $route,
                         'is_saved' => ! empty($_GET['saved']),
-                        'has_config_storage' => $relationParameters->userconfigwork,
+                        'has_config_storage' => $relationParameters->hasUserPreferencesFeature(),
                     ]);
 
                     echo $this->template->render('preferences/manage/error', [
@@ -252,7 +252,7 @@ class ManageController extends AbstractController
         echo $this->template->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $relationParameters->userconfigwork,
+            'has_config_storage' => $relationParameters->hasUserPreferencesFeature(),
         ]);
 
         if ($error) {

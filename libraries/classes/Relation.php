@@ -457,7 +457,7 @@ class Relation
         $relationParameters = $this->getRelationParameters();
         $foreign = [];
 
-        if ($relationParameters->relwork && ($source === 'both' || $source === 'internal')) {
+        if ($relationParameters->hasRelationFeature() && ($source === 'both' || $source === 'internal')) {
             $rel_query = 'SELECT `master_field`, `foreign_db`, '
                 . '`foreign_table`, `foreign_field`'
                 . ' FROM ' . Util::backquote($relationParameters->db)
@@ -532,7 +532,7 @@ class Relation
         /**
          * Try to fetch the display field from DB.
          */
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $disp_query = 'SELECT `display_field`'
                     . ' FROM ' . Util::backquote($relationParameters->db)
                     . '.' . Util::backquote($relationParameters->tableInfo)
@@ -617,7 +617,7 @@ class Relation
     {
         $relationParameters = $this->getRelationParameters();
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             // pmadb internal db comment
             $com_qry = 'SELECT `comment`'
                     . ' FROM ' . Util::backquote($relationParameters->db)
@@ -649,7 +649,7 @@ class Relation
         $relationParameters = $this->getRelationParameters();
         $comments = [];
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             // pmadb internal db comment
             $com_qry = 'SELECT `db_name`, `comment`'
                     . ' FROM ' . Util::backquote($relationParameters->db)
@@ -681,7 +681,7 @@ class Relation
     {
         $relationParameters = $this->getRelationParameters();
 
-        if (! $relationParameters->commwork) {
+        if (! $relationParameters->hasColumnCommentsFeature()) {
             return false;
         }
 
@@ -745,7 +745,7 @@ class Relation
             array_shift($_SESSION['sql_history']);
         }
 
-        if (! $relationParameters->historywork || ! $GLOBALS['cfg']['QueryHistoryDB']) {
+        if (! $relationParameters->hasSqlHistoryFeature() || ! $GLOBALS['cfg']['QueryHistoryDB']) {
             return;
         }
 
@@ -782,7 +782,7 @@ class Relation
     {
         $relationParameters = $this->getRelationParameters();
 
-        if (! $relationParameters->historywork) {
+        if (! $relationParameters->hasSqlHistoryFeature()) {
             return false;
         }
 
@@ -824,7 +824,7 @@ class Relation
     public function purgeHistory($username): void
     {
         $relationParameters = $this->getRelationParameters();
-        if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $relationParameters->historywork) {
+        if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $relationParameters->hasSqlHistoryFeature()) {
             return;
         }
 
@@ -1196,7 +1196,7 @@ class Relation
     {
         $relationParameters = $this->getRelationParameters();
 
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $table_query = 'UPDATE '
                 . Util::backquote($relationParameters->db) . '.'
                 . Util::backquote($relationParameters->tableInfo)
@@ -1210,7 +1210,7 @@ class Relation
             $this->queryAsControlUser($table_query);
         }
 
-        if (! $relationParameters->relwork) {
+        if (! $relationParameters->hasRelationFeature()) {
             return;
         }
 
@@ -1291,7 +1291,7 @@ class Relation
         $relationParameters = $this->getRelationParameters();
 
         // Move old entries from PMA-DBs to new table
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             $this->renameSingleTable(
                 'columnInfo',
                 $source_db,
@@ -1306,7 +1306,7 @@ class Relation
         // updating bookmarks is not possible since only a single table is
         // moved, and not the whole DB.
 
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $this->renameSingleTable(
                 'tableInfo',
                 $source_db,
@@ -1318,7 +1318,7 @@ class Relation
             );
         }
 
-        if ($relationParameters->relwork) {
+        if ($relationParameters->hasRelationFeature()) {
             $this->renameSingleTable(
                 'relation',
                 $source_db,
@@ -1340,7 +1340,7 @@ class Relation
             );
         }
 
-        if ($relationParameters->pdfwork) {
+        if ($relationParameters->hasPdfFeature()) {
             if ($source_db == $target_db) {
                 // rename within the database can be handled
                 $this->renameSingleTable(
@@ -1365,7 +1365,7 @@ class Relation
             }
         }
 
-        if ($relationParameters->uiprefswork) {
+        if ($relationParameters->hasUiPreferencesFeature()) {
             $this->renameSingleTable(
                 'tableUiprefs',
                 $source_db,
@@ -1377,7 +1377,7 @@ class Relation
             );
         }
 
-        if (! $relationParameters->navwork) {
+        if (! $relationParameters->hasNavigationItemsHidingFeature()) {
             return;
         }
 
@@ -1736,19 +1736,21 @@ class Relation
         $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
 
         $relationParameters = $this->getRelationParameters();
-        if (! $relationParameters->recentwork && ! $relationParameters->favoritework) {
+        if (
+            ! $relationParameters->hasRecentlyUsedTablesFeature() && ! $relationParameters->hasFavoriteTablesFeature()
+        ) {
             return;
         }
 
         // Since configuration storage is updated, we need to
         // re-initialize the favorite and recent tables stored in the
         // session from the current configuration storage.
-        if ($relationParameters->favoritework) {
+        if ($relationParameters->hasFavoriteTablesFeature()) {
             $fav_tables = RecentFavoriteTable::getInstance('favorite');
             $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $fav_tables->getFromDb();
         }
 
-        if ($relationParameters->recentwork) {
+        if ($relationParameters->hasRecentlyUsedTablesFeature()) {
             $recent_tables = RecentFavoriteTable::getInstance('recent');
             $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recent_tables->getFromDb();
         }

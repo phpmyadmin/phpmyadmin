@@ -57,10 +57,10 @@ class SqlQueryFormTest extends AbstractTestCase
         $_SESSION['relation'][0] = [
             'version' => Version::VERSION,
             'table_coords' => 'table_name',
-            'displaywork' => 'displaywork',
+            'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
-            'relwork' => 'relwork',
+            'relwork' => true,
             'relation' => 'relation',
             'trackingwork' => false,
             'bookmarkwork' => false,

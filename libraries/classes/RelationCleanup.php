@@ -39,7 +39,7 @@ class RelationCleanup
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->columnInfo)
@@ -51,7 +51,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableInfo)
@@ -63,7 +63,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if (! $relationParameters->relwork) {
+        if (! $relationParameters->hasRelationFeature()) {
             return;
         }
 
@@ -100,7 +100,7 @@ class RelationCleanup
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->columnInfo)
@@ -110,7 +110,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableInfo)
@@ -120,7 +120,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->pdfwork) {
+        if ($relationParameters->hasPdfFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableCoords)
@@ -130,7 +130,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->relwork) {
+        if ($relationParameters->hasRelationFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->relation)
@@ -150,7 +150,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->uiprefswork) {
+        if ($relationParameters->hasUiPreferencesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableUiprefs)
@@ -160,7 +160,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if (! $relationParameters->navwork) {
+        if (! $relationParameters->hasNavigationItemsHidingFeature()) {
             return;
         }
 
@@ -185,7 +185,7 @@ class RelationCleanup
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->columnInfo)
@@ -193,7 +193,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->bookmarkwork) {
+        if ($relationParameters->hasBookmarkFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->bookmark)
@@ -201,7 +201,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->displaywork) {
+        if ($relationParameters->hasDisplayFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableInfo)
@@ -209,7 +209,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->pdfwork) {
+        if ($relationParameters->hasPdfFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->pdfPages)
@@ -223,7 +223,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->relwork) {
+        if ($relationParameters->hasRelationFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->relation)
@@ -239,7 +239,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->uiprefswork) {
+        if ($relationParameters->hasUiPreferencesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableUiprefs)
@@ -247,7 +247,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->navigationhiding)
@@ -255,7 +255,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->savedsearcheswork) {
+        if ($relationParameters->hasSavedQueryByExampleSearchesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->savedsearches)
@@ -263,7 +263,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if (! $relationParameters->centralcolumnswork) {
+        if (! $relationParameters->hasCentralColumnsFeature()) {
             return;
         }
 
@@ -283,7 +283,7 @@ class RelationCleanup
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->bookmarkwork) {
+        if ($relationParameters->hasBookmarkFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->bookmark)
@@ -292,7 +292,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->historywork) {
+        if ($relationParameters->hasSqlHistoryFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->history)
@@ -301,7 +301,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->recentwork) {
+        if ($relationParameters->hasRecentlyUsedTablesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->recent)
@@ -310,7 +310,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->favoritework) {
+        if ($relationParameters->hasFavoriteTablesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->favorite)
@@ -319,7 +319,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->uiprefswork) {
+        if ($relationParameters->hasUiPreferencesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->tableUiprefs)
@@ -328,7 +328,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->userconfigwork) {
+        if ($relationParameters->hasUserPreferencesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->userconfig)
@@ -337,7 +337,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->menuswork) {
+        if ($relationParameters->hasConfigurableMenusFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->users)
@@ -346,7 +346,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->navigationhiding)
@@ -355,7 +355,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if ($relationParameters->savedsearcheswork) {
+        if ($relationParameters->hasSavedQueryByExampleSearchesFeature()) {
             $remove_query = 'DELETE FROM '
                 . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->savedsearches)
@@ -364,7 +364,7 @@ class RelationCleanup
             $this->relation->queryAsControlUser($remove_query);
         }
 
-        if (! $relationParameters->designersettingswork) {
+        if (! $relationParameters->hasDatabaseDesignerSettingsFeature()) {
             return;
         }
 

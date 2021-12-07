@@ -153,7 +153,7 @@ class ExportSql extends ExportPlugin
             $subgroup->addProperty($leaf);
         }
 
-        if (! empty($relationParameters->mimework)) {
+        if ($relationParameters->hasBrowserTransformationFeature()) {
             $leaf = new BoolPropertyItem(
                 'mime',
                 __('Display media types')
@@ -1895,7 +1895,7 @@ class ExportSql extends ExportPlugin
             $table
         );
 
-        if ($doMime && $relationParameters->mimework) {
+        if ($doMime && $relationParameters->hasBrowserTransformationFeature()) {
             $mimeMap = $this->transformations->getMime($db, $table, true);
             if ($mimeMap === null) {
                 unset($mimeMap);
