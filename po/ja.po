@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-05 00:12+0000\n"
-"PO-Revision-Date: 2021-11-03 05:57+0000\n"
+"PO-Revision-Date: 2021-12-08 14:53+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14447,14 +14447,12 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "データベース \"%s\" からテーブルをエクスポート"
 
 #: templates/database/export/index.twig:30
-#, fuzzy
 msgid "Export the structure of all tables."
-msgstr "既存のテーブル構造の変更を許可する。"
+msgstr "すべてのテーブルの構造をエクスポートする。"
 
 #: templates/database/export/index.twig:33
-#, fuzzy
 msgid "Export the data of all tables."
-msgstr "ビューをテーブルとしてエクスポートする"
+msgstr "すべてのテーブルのデータをエクスポートする。"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -15307,9 +15305,8 @@ msgid "Custom - display all possible options"
 msgstr "詳細 - 可能なオプションをすべて表示"
 
 #: templates/export.twig:121
-#, fuzzy
 msgid "File format to export"
-msgstr "インポートするファイル:"
+msgstr "エクスポートするファイル形式"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15397,7 +15394,6 @@ msgstr ""
 "す。詳細については、FAQ 6.27 を参照してください。"
 
 #: templates/export.twig:398
-#, fuzzy
 msgid "Use this for future exports"
 msgstr "今後のエクスポートでこれを使用する"
 
@@ -15426,13 +15422,12 @@ msgid "Export tables as separate files"
 msgstr "テーブルを別々のファイルとしてエクスポートする"
 
 #: templates/export.twig:474
-#, fuzzy
 msgid "Skip tables larger than:"
-msgstr "「%s」MiB より大きいテーブルをスキップ"
+msgstr "これより大きなテーブルをスキップ:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "大きさは MiB 単位です。"
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15771,9 +15766,8 @@ msgstr ""
 "こと。例：<strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
-#, fuzzy
 msgid "Upload a file"
-msgstr "ダウンロードファイル"
+msgstr "ファイルをアップロード"
 
 #: templates/import.twig:43
 msgid "Select file to import"
@@ -15795,9 +15789,8 @@ msgstr ""
 "ウェブサーバ上のアップロード ディレクトリ [strong]%s[/strong] から選択："
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "アップロードファイルがありません!"
+msgstr "インポートするファイルがありません。"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15816,33 +15809,24 @@ msgstr ""
 "す。"
 
 #: templates/import.twig:138
-#, fuzzy
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
-msgstr ""
-"制限時間が近くなったときに、スクリプト側でインポートを中断できるようにする "
-"<em>(大きなファイルをインポートする場合には便利ですが、トランザクションが壊れ"
-"ることもあります)</em>"
+msgstr "PHP タイムアウト制限に近づいたことをスクリプトが検出した場合にインポートを中断できるようにします。"
 
 #: templates/import.twig:140
-#, fuzzy
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
-msgstr ""
-"制限時間が近くなったときにスクリプト側でインポートを中断できるようにします。"
-"大きなファイルをインポートする場合には便利ですが、トランザクションが壊れるこ"
-"ともあります。"
+msgstr "これは、大きなファイルをインポートするのに適した方法かもしれませんが、トランザクションが壊れる可能性があります。"
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "先頭から数えたスキップするSQLクエリの数:"
 
 #: templates/import.twig:154
-#, fuzzy
 msgid "Other options"
-msgstr "その他のオプション:"
+msgstr "その他のオプション"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:488
