@@ -281,11 +281,6 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Empty array passed to foreach\\.$#"
-			count: 1
-			path: libraries/classes/Config/ConfigFile.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:__construct\\(\\) has parameter \\$baseConfig with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
@@ -302,6 +297,16 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getConfigArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getFlatArray\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Config/ConfigFile.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getFlatArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
 
@@ -372,11 +377,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:\\$defaultCfg type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/ConfigFile.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:\\$flattenArrayResult type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Config/ConfigFile.php
 

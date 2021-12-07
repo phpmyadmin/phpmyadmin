@@ -12,7 +12,6 @@ use PhpMyAdmin\Core;
 use function array_diff;
 use function array_flip;
 use function array_keys;
-use function array_walk;
 use function count;
 use function is_array;
 use function preg_replace;
@@ -82,13 +81,6 @@ class ConfigFile
      * @var string
      */
     private $id;
-
-    /**
-     * Result for {@link flattenArray()}
-     *
-     * @var array|null
-     */
-    private $flattenArrayResult;
 
     /**
      * @param array|null $baseConfig base configuration read from
@@ -247,48 +239,30 @@ class ConfigFile
     /**
      * Flattens multidimensional array, changes indices to paths
      * (eg. 'key/subkey').
-     * Used as array_walk() callback.
      *
-     * @param mixed $value  Value
-     * @param mixed $key    Key
-     * @param mixed $prefix Prefix
+     * @param array  $array  Multidimensional array
+     * @param string $prefix Prefix
      */
-    private function flattenArray($value, $key, $prefix): void
+    private function getFlatArray(array $array, string $prefix = ''): array
     {
-        // no recursion for numeric arrays
-        if (is_array($value) && ! isset($value[0])) {
-            $prefix .= $key . '/';
-            array_walk(
-                $value,
-                function ($value, $key, $prefix): void {
-                    $this->flattenArray($value, $key, $prefix);
-                },
-                $prefix
-            );
-        } else {
-            $this->flattenArrayResult[$prefix . $key] = $value;
+        $result = [];
+        foreach ($array as $key => $value) {
+            if (is_array($value) && ! isset($value[0])) {
+                $result += $this->getFlatArray($value, $prefix . $key . '/');
+            } else {
+                $result[$prefix . $key] = $value;
+            }
         }
+
+        return $result;
     }
 
     /**
      * Returns default config in a flattened array
-     *
-     * @return array
      */
-    public function getFlatDefaultConfig()
+    public function getFlatDefaultConfig(): array
     {
-        $this->flattenArrayResult = [];
-        array_walk(
-            $this->defaultCfg,
-            function ($value, $key, $prefix): void {
-                $this->flattenArray($value, $key, $prefix);
-            },
-            ''
-        );
-        $flatConfig = $this->flattenArrayResult;
-        $this->flattenArrayResult = null;
-
-        return $flatConfig;
+        return $this->getFlatArray($this->defaultCfg);
     }
 
     /**
@@ -300,16 +274,7 @@ class ConfigFile
     public function updateWithGlobalConfig(array $cfg): void
     {
         // load config array and flatten it
-        $this->flattenArrayResult = [];
-        array_walk(
-            $cfg,
-            function ($value, $key, $prefix): void {
-                $this->flattenArray($value, $key, $prefix);
-            },
-            ''
-        );
-        $flatConfig = $this->flattenArrayResult;
-        $this->flattenArrayResult = null;
+        $flatConfig = $this->getFlatArray($cfg);
 
         // save values map for translating a few user preferences paths,
         // should be complemented by code reading from generated config
@@ -533,16 +498,7 @@ class ConfigFile
      */
     public function getConfigArray()
     {
-        $this->flattenArrayResult = [];
-        array_walk(
-            $_SESSION[$this->id],
-            function ($value, $key, $prefix): void {
-                $this->flattenArray($value, $key, $prefix);
-            },
-            ''
-        );
-        $c = $this->flattenArrayResult;
-        $this->flattenArrayResult = null;
+        $c = $this->getFlatArray($_SESSION[$this->id]);
 
         $persistKeys = array_diff(
             array_keys($this->persistKeys),
