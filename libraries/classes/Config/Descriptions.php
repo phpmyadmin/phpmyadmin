@@ -54,18 +54,38 @@ class Descriptions
         return Sanitize::sanitizeMessage($value);
     }
 
+    /**
+     * @return array<string, string>
+     */
     private static function getComments(): array
     {
-        return [
+        /** @var array<string, string> $commentsMap */
+        static $commentsMap = [];
+
+        if ($commentsMap !== []) {
+            return $commentsMap;
+        }
+
+        return $commentsMap = [
             'MaxDbList_cmt' => __('Users cannot set a higher value'),
             'MaxTableList_cmt' => __('Users cannot set a higher value'),
             'QueryHistoryMax_cmt' => __('Users cannot set a higher value'),
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     private static function getDescriptions(): array
     {
-        return [
+        /** @var array<string, string> $descriptionsMap */
+        static $descriptionsMap = [];
+
+        if ($descriptionsMap !== []) {
+            return $descriptionsMap;
+        }
+
+        return $descriptionsMap = [
             'AllowArbitraryServer_desc' => __(
                 'If enabled, user can enter any MySQL server in login form for cookie auth.'
             ),
@@ -582,9 +602,19 @@ class Descriptions
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     private static function getNames(): array
     {
-        return [
+        /** @var array<string, string> $namesMap */
+        static $namesMap = [];
+
+        if ($namesMap !== []) {
+            return $namesMap;
+        }
+
+        return $namesMap = [
             'AllowArbitraryServer_name' => __('Allow login to any MySQL server'),
             'ArbitraryServerRegexp_name' => __('Restrict login to MySQL server'),
             'AllowThirdPartyFraming_name' => __('Allow third party framing'),

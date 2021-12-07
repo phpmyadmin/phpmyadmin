@@ -391,21 +391,6 @@ parameters:
 			path: libraries/classes/Config/ConfigFile.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Descriptions\\:\\:getComments\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/Descriptions.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Descriptions\\:\\:getDescriptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/Descriptions.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Config\\\\Descriptions\\:\\:getNames\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Config/Descriptions.php
-
-		-
 			message: "#^Empty array passed to foreach\\.$#"
 			count: 1
 			path: libraries/classes/Config/Form.php
