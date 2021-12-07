@@ -457,20 +457,6 @@
     <InvalidIterator occurrences="1">
       <code>$this-&gt;cfgDb['_overrides']</code>
     </InvalidIterator>
-    <MissingClosureParamType occurrences="12">
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$key</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-    </MissingClosureParamType>
     <MixedArgument occurrences="12">
       <code>$_SESSION[$this-&gt;id]</code>
       <code>$_SESSION[$this-&gt;id]</code>
@@ -497,11 +483,10 @@
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION[$this-&gt;id]['Servers'][$i]</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="2">
+    <MixedArrayOffset occurrences="1">
       <code>$c[$mapFrom]</code>
-      <code>$this-&gt;cfgUpdateReadMapping[$path]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="17">
       <code>$_SESSION[$this-&gt;id]['Servers'][$i]</code>
       <code>$c</code>
       <code>$c[$k]</code>
@@ -513,8 +498,9 @@
       <code>$mapFrom</code>
       <code>$path</code>
       <code>$path</code>
-      <code>$path</code>
       <code>$port</code>
+      <code>$result[$prefix . $key]</code>
+      <code>$value</code>
       <code>$value</code>
       <code>$value</code>
       <code>$verbose</code>
@@ -524,11 +510,8 @@
       <code>array</code>
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="7">
-      <code>$key</code>
+    <MixedOperand occurrences="4">
       <code>$port</code>
-      <code>$prefix</code>
-      <code>$prefix</code>
       <code>$this-&gt;getValue($path . '/host')</code>
       <code>$this-&gt;getValue($path . '/socket')</code>
       <code>$this-&gt;getValue($path . '/user')</code>
@@ -546,14 +529,6 @@
       <code>count($this-&gt;cfgDb['_overrides'])</code>
       <code>count($this-&gt;cfgDb['_overrides'])</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Config/Descriptions.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>string|null</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>$descriptions[$key] ?? null</code>
-    </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Config/Form.php">
     <MissingClosureParamType occurrences="6">
