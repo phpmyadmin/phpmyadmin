@@ -155,7 +155,7 @@ class QueryByExampleController extends AbstractController
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
-        ] = Util::getDbInfo($db, $sub_part ?? '');
+        ] = Util::getDbInfo($db, $sub_part);
 
         $databaseQbe = new Qbe($this->relation, $this->template, $this->dbi, $db, $savedSearchList, $savedSearch);
 

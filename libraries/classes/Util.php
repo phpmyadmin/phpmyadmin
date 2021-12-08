@@ -2161,12 +2161,12 @@ class Util
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
-     * @param string      $db      database name
-     * @param string|null $subPart part of script name
+     * @param string $db      database name
+     * @param string $subPart part of script name
      *
      * @return array
      */
-    public static function getDbInfo($db, ?string $subPart)
+    public static function getDbInfo($db, string $subPart)
     {
         global $cfg, $dbi;
 
@@ -2285,7 +2285,7 @@ class Util
                 //  (needed for proper working of the MaxTableList feature)
                 $tables = $dbi->getTables($db);
                 $totalNumTables = count($tables);
-                if (! (isset($subPart) && $subPart === '_export')) {
+                if ($subPart !== '_export') {
                     // fetch the details for a possible limited subset
                     $limitOffset = $pos;
                     $limitCount = true;
@@ -2317,7 +2317,7 @@ class Util
          * If coming from a Show MySQL link on the home page,
          * put something in $sub_part
          */
-        if (empty($subPart)) {
+        if ($subPart === '') {
             $subPart = '_structure';
         }
 

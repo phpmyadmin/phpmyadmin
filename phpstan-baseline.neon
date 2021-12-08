@@ -971,29 +971,14 @@ parameters:
 			path: libraries/classes/Controllers/Database/DesignerController.php
 
 		-
-			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ExportController.php
-
-		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 6
-			path: libraries/classes/Controllers/Database/OperationsController.php
-
-		-
-			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\PrivilegesController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/PrivilegesController.php
-
-		-
-			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/QueryByExampleController.php
 
 		-
 			message: "#^Cannot access offset string on mixed\\.$#"
@@ -1153,11 +1138,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
 			count: 2
-			path: libraries/classes/Controllers/Database/TrackingController.php
-
-		-
-			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
 			path: libraries/classes/Controllers/Database/TrackingController.php
 
 		-
@@ -1364,11 +1344,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\DatabasesController\\:\\:\\$transformations is never read, only written\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
-			message: "#^Variable \\$sub_part on left side of \\?\\? always exists and is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\Processes\\\\KillController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
