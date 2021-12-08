@@ -118,30 +118,29 @@ class CreateAddField
         bool $isCreateTable = true
     ): string {
         // no suffix is needed if request is a table creation
-        $sqlSuffix = ' ';
         if ($isCreateTable) {
-            return $sqlSuffix;
+            return ' ';
         }
 
         if ((string) $_POST['field_where'] === 'last') {
-            return $sqlSuffix;
+            return ' ';
         }
 
         // Only the first field can be added somewhere other than at the end
-        if ($previousField == -1) {
+        if ($previousField === -1) {
             if ((string) $_POST['field_where'] === 'first') {
-                $sqlSuffix .= ' FIRST';
-            } elseif (! empty($_POST['after_field'])) {
-                $sqlSuffix .= ' AFTER '
+                return ' FIRST';
+            }
+
+            if (! empty($_POST['after_field'])) {
+                return ' AFTER '
                         . Util::backquote($_POST['after_field']);
             }
 
-            return $sqlSuffix;
+            return ' ';
         }
 
-        return $sqlSuffix
-                . ' AFTER '
-                . Util::backquote($_POST['field_name'][$previousField]);
+        return ' AFTER ' . Util::backquote($_POST['field_name'][$previousField]);
     }
 
     /**
