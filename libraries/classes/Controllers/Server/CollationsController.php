@@ -18,18 +18,18 @@ use PhpMyAdmin\Url;
  */
 class CollationsController extends AbstractController
 {
-    /** @var array|null */
+    /** @var array<string, Charset> */
     private $charsets;
 
-    /** @var array|null */
+    /** @var array<string, array<string, Collation>> */
     private $collations;
 
     /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * @param array|null $charsets
-     * @param array|null $collations
+     * @param array<string, Charset>|null                  $charsets
+     * @param array<string, array<string, Collation>>|null $collations
      */
     public function __construct(
         ResponseRenderer $response,
@@ -58,10 +58,8 @@ class CollationsController extends AbstractController
         }
 
         $charsets = [];
-        /** @var Charset $charset */
         foreach ($this->charsets as $charset) {
             $charsetCollations = [];
-            /** @var Collation $collation */
             foreach ($this->collations[$charset->getName()] as $collation) {
                 $charsetCollations[] = [
                     'name' => $collation->getName(),

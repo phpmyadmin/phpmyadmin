@@ -103,7 +103,7 @@ final class Collation
     }
 
     /**
-     * @param array $state State obtained from the database server
+     * @param string[] $state State obtained from the database server
      */
     public static function fromServer(array $state): self
     {
@@ -250,6 +250,9 @@ final class Collation
         return $this->buildName($name, $variant, $suffixes);
     }
 
+    /**
+     * @param string[] $suffixes
+     */
     private function buildName(string $result, ?string $variant, array $suffixes): string
     {
         if ($variant !== null) {
@@ -283,6 +286,11 @@ final class Collation
         }
     }
 
+    /**
+     * @param string[] $suffixes
+     *
+     * @return string[]
+     */
     private function addSuffixes(array $suffixes, string $part): array
     {
         switch ($part) {

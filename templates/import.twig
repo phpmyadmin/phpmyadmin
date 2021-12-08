@@ -113,8 +113,8 @@
             <select class="form-select" lang="en" dir="ltr" name="charset_of_file" id="charset_of_file">
               <option value=""></option>
               {% for charset in charsets %}
-                <option value="{{ charset.name }}" title="{{ charset.description }}"{{ charset.name == 'utf8' ? ' selected' }}>
-                  {{- charset.name -}}
+                <option value="{{ charset.getName() }}" title="{{ charset.getDescription() }}"{{ charset.getName() == 'utf8' ? ' selected' }}>
+                  {{- charset.getName() -}}
                 </option>
               {% endfor %}
             </select>

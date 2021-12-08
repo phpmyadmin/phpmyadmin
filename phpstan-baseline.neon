@@ -111,16 +111,6 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\:\\:getCharsets\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\:\\:getCollations\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Charsets.php
@@ -129,41 +119,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Charsets\\:\\:\\$mysqlCharsetMap type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between non\\-empty\\-array\\<int, string\\> and false will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Charsets.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) has parameter \\$state with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets/Charset.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:addSuffixes\\(\\) has parameter \\$suffixes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets/Collation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:addSuffixes\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets/Collation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:buildName\\(\\) has parameter \\$suffixes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets/Collation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:fromServer\\(\\) has parameter \\$state with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Charsets/Collation.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -1274,36 +1229,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
-
-		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\CollationsController\\:\\:__construct\\(\\) has parameter \\$charsets with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\CollationsController\\:\\:__construct\\(\\) has parameter \\$collations with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Offset string does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\CollationsController\\:\\:\\$charsets type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\CollationsController\\:\\:\\$collations type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
 			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"

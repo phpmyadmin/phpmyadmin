@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Charsets\Charset;
-use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
@@ -135,10 +133,8 @@ class DatabasesController extends AbstractController
             $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
             $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
-            /** @var Charset $charset */
             foreach ($charsets as $charset) {
                 $collationsList = [];
-                /** @var Collation $collation */
                 foreach ($collations[$charset->getName()] as $collation) {
                     $collationsList[] = [
                         'name' => $collation->getName(),

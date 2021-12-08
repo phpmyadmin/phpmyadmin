@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -694,7 +693,6 @@ class Routines
 
         $allCharsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $charsets = [];
-        /** @var Charset $charset */
         foreach ($allCharsets as $charset) {
             $charsets[] = [
                 'name' => $charset->getName(),
