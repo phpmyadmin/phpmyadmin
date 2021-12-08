@@ -477,14 +477,12 @@ class CreateAddField
      * @param string $db       current database
      * @param string $sqlQuery the query to run
      * @param string $errorUrl error page url
-     *
-     * @return array
      */
     public function tryColumnCreationQuery(
         string $db,
         string $sqlQuery,
         string $errorUrl
-    ): array {
+    ): bool {
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (! $this->dbi->selectDb($db)) {
@@ -496,9 +494,6 @@ class CreateAddField
             );
         }
 
-        return [
-            $this->dbi->tryQuery($sqlQuery),
-            $sqlQuery,
-        ];
+        return (bool) $this->dbi->tryQuery($sqlQuery);
     }
 }

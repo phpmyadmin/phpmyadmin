@@ -2756,7 +2756,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Controllers/Table/AddFieldController.php">
-    <MixedArgument occurrences="12">
+    <MixedArgument occurrences="11">
       <code>$_POST['field_input_transformation'][$fieldindex]</code>
       <code>$_POST['field_input_transformation_options'][$fieldindex]</code>
       <code>$_POST['field_name'][$fieldindex]</code>
@@ -2767,7 +2767,6 @@
       <code>$db</code>
       <code>$mimetype</code>
       <code>$regenerate</code>
-      <code>$sql_query</code>
       <code>$table</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">

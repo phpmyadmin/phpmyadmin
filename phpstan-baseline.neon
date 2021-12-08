@@ -1891,11 +1891,6 @@ parameters:
 			path: libraries/classes/CreateAddField.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:tryColumnCreationQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\CentralColumns\\:\\:deleteColumnsFromList\\(\\) has parameter \\$field_select with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
