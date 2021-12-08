@@ -1871,37 +1871,22 @@ parameters:
 			path: libraries/classes/CreateAddField.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:buildIndexStatements\\(\\) has parameter \\$index with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:buildIndexStatements\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:buildIndexStatement\\(\\) has parameter \\$index with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getIndexedColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 5
+			path: libraries/classes/CreateAddField.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getIndexedColumns\\(\\) should return array\\{int, array, array, array, array, array\\} but returns array\\{int\\<0, max\\>, mixed, mixed, mixed, mixed, mixed\\}\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getPartitionDefinition\\(\\) has parameter \\$partition with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:mergeIndexStatements\\(\\) has parameter \\$definitions with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:mergeIndexStatements\\(\\) has parameter \\$indexedColumns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:mergeIndexStatements\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
 

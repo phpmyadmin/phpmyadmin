@@ -4246,7 +4246,8 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/CreateAddField.php">
-    <MixedArgument occurrences="39">
+    <LessSpecificReturnStatement occurrences="1"/>
+    <MixedArgument occurrences="37">
       <code>$_POST['after_field']</code>
       <code>$_POST['comment']</code>
       <code>$_POST['connection']</code>
@@ -4273,24 +4274,22 @@
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['tbl_storage_engine']</code>
       <code>$_POST['unique_indexes']</code>
-      <code>$comment</code>
-      <code>$fieldCount</code>
-      <code>$fieldFullText</code>
-      <code>$fieldIndex</code>
-      <code>$fieldPrimary[0] ?? []</code>
-      <code>$fieldSpatial</code>
-      <code>$fieldUnique</code>
+      <code>$fieldPrimary[0]</code>
       <code>$index</code>
+      <code>$index</code>
+      <code>$index</code>
+      <code>$index</code>
+      <code>$index['Index_comment']</code>
+      <code>$index['Key_block_size']</code>
       <code>$index['Key_name']</code>
-      <code>$keyBlockSizes</code>
-      <code>$parser</code>
+      <code>$index['Parser']</code>
       <code>$partition</code>
       <code>$subpartition</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$definitions</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="13">
+    <MixedArrayAccess occurrences="12">
       <code>$_POST['field_attribute'][$i]</code>
       <code>$_POST['field_default_type'][$i]</code>
       <code>$_POST['field_default_value'][$i]</code>
@@ -4303,28 +4302,26 @@
       <code>$column['col_index']</code>
       <code>$column['size']</code>
       <code>$column['size']</code>
-      <code>$fieldPrimary[0]</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="3">
       <code>$_POST['field_name'][$column['col_index']]</code>
       <code>$indexFields[$key]</code>
       <code>$indexFields[$key]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="14">
+    <MixedAssignment occurrences="13">
       <code>$column</code>
-      <code>$comment</code>
       <code>$fieldFullText</code>
       <code>$fieldIndex</code>
       <code>$fieldPrimary</code>
       <code>$fieldSpatial</code>
       <code>$fieldUnique</code>
       <code>$index</code>
+      <code>$index</code>
+      <code>$index</code>
+      <code>$index</code>
       <code>$key</code>
-      <code>$keyBlockSizes</code>
-      <code>$parser</code>
       <code>$partition</code>
       <code>$subpartition</code>
-      <code>$type</code>
     </MixedAssignment>
     <MixedOperand occurrences="19">
       <code>$_POST['partition_by']</code>
@@ -4334,6 +4331,7 @@
       <code>$_POST['subpartition_count']</code>
       <code>$_POST['subpartition_expr']</code>
       <code>$column['size']</code>
+      <code>$index['Index_type']</code>
       <code>$partition['comment']</code>
       <code>$partition['data_directory']</code>
       <code>$partition['engine']</code>
@@ -4345,8 +4343,10 @@
       <code>$partition['tablespace']</code>
       <code>$partition['value']</code>
       <code>$partition['value_type']</code>
-      <code>$type</code>
     </MixedOperand>
+    <MoreSpecificReturnType occurrences="1">
+      <code>array{int, array, array, array, array, array}</code>
+    </MoreSpecificReturnType>
     <PossiblyFalseArgument occurrences="1">
       <code>$_POST['field_extra'][$i] ?? false</code>
     </PossiblyFalseArgument>
