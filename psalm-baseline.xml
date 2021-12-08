@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
+<files psalm-version="v4.15.0@a1b5e489e6fcebe40cb804793d964e99fc347820">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -15905,6 +15905,10 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <TypeDoesNotContainType occurrences="2">
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
     <MixedArgument occurrences="1">
@@ -16179,7 +16183,8 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/ImportTest.php">
-    <DocblockTypeContradiction occurrences="6">
+    <DocblockTypeContradiction occurrences="7">
+      <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -16873,6 +16878,11 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
+    <EmptyArrayAccess occurrences="3">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </EmptyArrayAccess>
     <InvalidScalarArgument occurrences="8">
       <code>$_SESSION</code>
       <code>$_SESSION</code>
