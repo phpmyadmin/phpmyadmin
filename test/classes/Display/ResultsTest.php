@@ -59,16 +59,10 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $this->object = new DisplayResults('as', '', 0, '', '');
+        $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -1241,7 +1235,7 @@ class ResultsTest extends AbstractTestCase
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable();
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
@@ -1457,17 +1451,15 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        global $db, $table, $dbi;
+        global $db, $table;
 
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-
-        $dbi = $this->dbi;
 
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);

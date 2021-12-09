@@ -1693,6 +1693,7 @@ class Sql
         }
 
         $displayResultsObject = new DisplayResults(
+            $GLOBALS['dbi'],
             $GLOBALS['db'],
             $GLOBALS['table'],
             $GLOBALS['server'],

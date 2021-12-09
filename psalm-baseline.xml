@@ -5922,16 +5922,8 @@
     <FalseOperand occurrences="1">
       <code>! $rowNumber</code>
     </FalseOperand>
-    <InvalidArgument occurrences="9">
+    <InvalidArgument occurrences="1">
       <code>$added[$orgFullTableName]</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
     </InvalidArgument>
     <InvalidOperand occurrences="1">
       <code>$index</code>
