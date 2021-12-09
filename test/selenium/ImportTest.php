@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use function sleep;
-
 /**
  * @coversNothing
  */
@@ -99,32 +97,18 @@ class ImportTest extends TestBase
     {
         $this->waitForElement('partialLinkText', 'Import')->click();
         $this->waitAjax();
-        $this->waitForElement('id', 'input_import_file');
 
         $this->waitForElement('id', 'localFileTab')->click();
-
-        $this->selectByValue(
-            $this->byName('local_import_file'),
-            $type . '_import.sql'
-        );
-
-        $this->webDriver->wait(5);
-
-        $this->webDriver->executeScript(
-            'window.scrollTo(0,' .
-            $this->byId('buttonGo')->getLocation()->getY()
-            . ')'
-        );
-        $this->webDriver->wait(5);
+        $this->waitForElement('id', 'input_import_file');
+        $this->selectByValue($this->byName('local_import_file'), $type . '_import.sql');
 
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'sql_options', 30);
-        $this->scrollToBottom();
-        sleep(2);
+
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
         $this->byId('buttonGo')->click();
-        sleep(2);
+
         $this->waitUntilElementIsVisible(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Import has been successfully')]",
