@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-use function sleep;
 use function trim;
 
 /**
@@ -116,9 +115,7 @@ class QueryByExampleTest extends TestBase
 
         /* Submit the query */
         $submitButton = $this->waitForElement('cssSelector', '#tblQbeFooters > input[type=submit]');
-        sleep(1);
         $this->scrollToElement($submitButton);
-        sleep(1);
         $submitButton->click();
         $this->waitAjax();
 

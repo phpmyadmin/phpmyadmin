@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use function sleep;
-
 /**
  * @coversNothing
  */
@@ -132,14 +130,9 @@ class ExportTest extends TestBase
         $this->waitForElement('id', 'quick_or_custom');
         $this->byCssSelector('label[for=radio_custom_export]')->click();
 
-        $this->selectByLabel(
-            $this->byId('plugins'),
-            $plugin
-        );
+        $this->selectByLabel($this->byId('plugins'), $plugin);
 
         if ($type === 'server') {
-            $this->scrollIntoView('databases_and_tables', 200);
-            sleep(1);
             $this->scrollIntoView('databases_and_tables', 200);
             $this->byId('db_unselect_all')->click();
 
@@ -155,20 +148,14 @@ class ExportTest extends TestBase
         }
 
         $this->scrollIntoView('radio_view_as_text');
-        sleep(1);
-        $this->scrollIntoView('radio_view_as_text');
         $this->byCssSelector('label[for=radio_view_as_text]')->click();
 
         if ($plugin === 'SQL') {
             if ($type !== 'db') {
                 $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
-                sleep(1);
-                $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
                 $this->byCssSelector('label[for=radio_sql_structure_or_data_structure_and_data]')->click();
             }
 
-            $this->scrollIntoView('checkbox_sql_if_not_exists');
-            sleep(1);
             $this->scrollIntoView('checkbox_sql_if_not_exists');
             $ele = $this->byId('checkbox_sql_if_not_exists');
             if (! $ele->isSelected()) {
@@ -177,13 +164,9 @@ class ExportTest extends TestBase
         }
 
         $this->scrollToBottom();
-        sleep(1);
-        $this->scrollToBottom();
 
         $this->byId('buttonGo')->click();
         $this->waitAjax();
-
-        sleep(1);
 
         return $this->waitForElement('id', 'textSQLDUMP')->getText();
     }

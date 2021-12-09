@@ -113,8 +113,6 @@ class EventsTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        sleep(1);
-
         $this->waitForElement(
             'xpath',
             '//div[@class=\'alert alert-success\' and contains(., \'Event `test_event` has been created\')]'

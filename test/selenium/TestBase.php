@@ -672,8 +672,6 @@ abstract class TestBase extends TestCase
             }
         }
 
-        // echo PHP_EOL . 'Query: ' . $query . ', out: ' . (($didSucceed) ? 'yes' : 'no') . PHP_EOL;
-
         reset($handles);
         $lastWindow = current($handles);
         $this->webDriver->switchTo()->window($lastWindow);
@@ -1015,17 +1013,19 @@ abstract class TestBase extends TestCase
     /**
      * Scrolls to a coordinate such that the element with given id is visible
      *
-     * @param string $element_id Id of the element
-     * @param int    $y_offset   Offset from Y-coordinate of element
+     * @param string $elementId Id of the element
+     * @param int    $yOffset   Offset from Y-coordinate of element
      */
-    public function scrollIntoView(string $element_id, int $y_offset = 70): void
+    public function scrollIntoView(string $elementId, int $yOffset = 70): void
     {
         // 70pt offset by-default so that the topmenu does not cover the element
-        $this->webDriver->executeScript(
-            'var position = document.getElementById("'
-            . $element_id . '").getBoundingClientRect();'
-            . 'window.scrollBy(0, position.top-(' . $y_offset . '));'
-        );
+        $script = <<<'JS'
+const elementId = arguments[0];
+const yOffset = arguments[1];
+const position = document.getElementById(elementId).getBoundingClientRect();
+window.scrollBy({left: 0, top: position.top - yOffset, behavior: 'instant'});
+JS;
+        $this->webDriver->executeScript($script, [$elementId, $yOffset]);
     }
 
     /**
@@ -1037,10 +1037,15 @@ abstract class TestBase extends TestCase
      */
     public function scrollToElement(WebDriverElement $element, int $xOffset = 0, int $yOffset = 0): void
     {
-        $this->webDriver->executeScript(
-            'window.scrollBy(' . ($element->getLocation()->getX() + $xOffset)
-            . ', ' . ($element->getLocation()->getY() + $yOffset) . ');'
-        );
+        $script = <<<'JS'
+const leftValue = arguments[0];
+const topValue = arguments[1];
+window.scrollBy({left: leftValue, top: topValue, behavior: 'instant'});
+JS;
+        $this->webDriver->executeScript($script, [
+            $element->getLocation()->getX() + $xOffset,
+            $element->getLocation()->getY() + $yOffset,
+        ]);
     }
 
     /**
@@ -1048,7 +1053,10 @@ abstract class TestBase extends TestCase
      */
     public function scrollToBottom(): void
     {
-        $this->webDriver->executeScript('window.scrollTo(0,document.body.scrollHeight);');
+        $script = <<<'JS'
+window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'instant'});
+JS;
+        $this->webDriver->executeScript($script);
     }
 
     /**

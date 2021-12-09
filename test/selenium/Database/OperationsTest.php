@@ -6,8 +6,6 @@ namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
 
-use function sleep;
-
 /**
  * @coversNothing
  */
@@ -110,8 +108,6 @@ class OperationsTest extends TestBase
         $this->byCssSelector('form#copy_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
-        $this->scrollIntoView('copy_db_form', -150);
-        sleep(1);
         $this->scrollIntoView('copy_db_form', -150);
         $this->byCssSelector('form#copy_db_form input[name="submit_copy"]')->click();
 

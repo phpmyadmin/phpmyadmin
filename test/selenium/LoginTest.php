@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use function sleep;
-
 /**
  * @coversNothing
  */
@@ -45,7 +43,6 @@ class LoginTest extends TestBase
     public function testLoginWithWrongPassword(): void
     {
         $this->login('Admin', 'Admin');
-        sleep(1);
         $this->waitForElement('xpath', '//*[@class="alert alert-danger" and contains(.,\'Access denied for\')]');
         $this->assertTrue($this->isUnsuccessLogin());
     }
