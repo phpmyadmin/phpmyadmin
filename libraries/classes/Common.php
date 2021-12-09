@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use InvalidArgumentException;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -13,6 +12,7 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\SqlParser\Lexer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Webmozart\Assert\Assert;
+use Webmozart\Assert\InvalidArgumentException;
 
 use function __;
 use function array_pop;

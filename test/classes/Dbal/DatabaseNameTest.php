@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Dbal;
 
-use InvalidArgumentException;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PHPUnit\Framework\TestCase;
+use Webmozart\Assert\InvalidArgumentException;
 
 use function str_repeat;
 
