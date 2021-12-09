@@ -10064,10 +10064,9 @@
       <code>$values</code>
       <code>$values</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="17">
+    <MixedArrayAccess occurrences="16">
       <code>$aliases[$oldDatabase]['tables']</code>
       <code>$columnAliases[$column['name']]</code>
-      <code>$column['name']</code>
       <code>$definition['Type']</code>
       <code>$mime['mimetype']</code>
       <code>$oneKey['index_list']</code>
@@ -10083,25 +10082,19 @@
       <code>$trigger['create']</code>
       <code>$trigger['drop']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$field-&gt;key-&gt;columns[$key]['name']</code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="7">
+    <MixedArrayOffset occurrences="5">
       <code>$aliases[$db]['tables'][$table]['columns'][$field]</code>
       <code>$aliases[$db]['tables'][$view]['columns'][$colAlias]</code>
-      <code>$aliases[$oldDatabase]['tables'][$oldTable]['columns'][$column['name']]</code>
       <code>$aliases[$oldDatabase]['tables'][$refTable]['columns'][$column]</code>
-      <code>$columnAliases[$column['name']]</code>
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="38">
+    <MixedAssignment occurrences="37">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
       <code>$colAs</code>
-      <code>$column</code>
       <code>$column</code>
       <code>$columnAliases</code>
       <code>$createQuery</code>
@@ -10192,6 +10185,9 @@
     <PossiblyNullOperand occurrences="1">
       <code>$dbi-&gt;getDefinition($db, 'EVENT', $eventName)</code>
     </PossiblyNullOperand>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$field-&gt;key-&gt;columns</code>
+    </PropertyTypeCoercion>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(int) $fieldsMeta[$j]-&gt;length</code>
       <code>(string) $createQuery</code>
