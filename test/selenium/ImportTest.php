@@ -119,7 +119,8 @@ class ImportTest extends TestBase
 
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'sql_options', 30);
-        sleep(1);
+        $this->scrollToBottom();
+        sleep(2);
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'buttonGo', 30);
         $this->byId('buttonGo')->click();
