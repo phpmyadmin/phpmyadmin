@@ -32,9 +32,7 @@ for x in po/*.po  ; do
     compile $x
     ret=$?
     if [ $ret != 0 ] ; then
-        tput setf 4 >&2
         echo Error when compiling $x  >&2
-        tput sgr0 >&2
         result=$ret
     fi
 done
