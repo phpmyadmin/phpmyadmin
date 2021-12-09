@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
+<files psalm-version="v4.15.0@a1b5e489e6fcebe40cb804793d964e99fc347820">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -721,6 +721,10 @@
       <code>array|bool</code>
       <code>string|false</code>
     </ImplementedReturnTypeMismatch>
+    <InvalidArgument occurrences="2">
+      <code>false</code>
+      <code>true</code>
+    </InvalidArgument>
     <InvalidPropertyFetch occurrences="2">
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
@@ -777,6 +781,9 @@
       <code>$return_value === false || $return_value === null</code>
       <code>$return_value === null</code>
     </TypeDoesNotContainNull>
+    <TypeDoesNotContainType occurrences="1">
+      <code>is_array($fields)</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <FalseOperand occurrences="1">
@@ -1512,7 +1519,9 @@
     </ParamNameMismatch>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPhparray.php">
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="3">
+      <code>$table_alias</code>
+      <code>$table_alias</code>
       <code>$table_alias</code>
     </PossiblyNullArgument>
   </file>
@@ -1552,6 +1561,9 @@
       <code>$view_alias</code>
       <code>$view_alias</code>
     </PossiblyNullArgument>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$field-&gt;key-&gt;columns</code>
+    </PropertyTypeCoercion>
     <RedundantCastGivenDocblockType occurrences="2">
       <code>(string) $create_query</code>
       <code>(string) $table</code>
@@ -2797,9 +2809,6 @@
       <code>$max_size</code>
       <code>$max_unit</code>
     </PossiblyNullArrayAccess>
-    <RedundantCast occurrences="1">
-      <code>(string) @strftime($string)</code>
-    </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="8">
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
@@ -2810,9 +2819,6 @@
       <code>(string) $a_name</code>
       <code>(string) $engine</code>
     </RedundantCastGivenDocblockType>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$ret === false</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Utils/FormatConverter.php">
     <RedundantCast occurrences="1">
