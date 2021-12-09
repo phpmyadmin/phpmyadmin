@@ -31,7 +31,6 @@ use function ini_get;
 use function is_array;
 use function is_file;
 use function is_numeric;
-use function is_object;
 use function is_string;
 use function is_writable;
 use function mb_strlen;
@@ -111,14 +110,11 @@ class Export
          * and gz compression was not asked via $cfg['OBGzip']
          * but transparent compression does not apply when saving to server
          */
-        $chromeAndGreaterThan43 = $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') == 'CHROME'
-            && $GLOBALS['config']->get('PMA_USR_BROWSER_VER') >= 43; // see bug #4942
-
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
                 || $GLOBALS['save_on_server']
-                || $chromeAndGreaterThan43);
+                || $GLOBALS['config']->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
     }
 
     /**
@@ -1332,7 +1328,7 @@ class Export
         $exportPlugin = Plugins::getPlugin('schema', $exportType);
 
         // Check schema export type
-        if ($exportPlugin === null || ! is_object($exportPlugin)) {
+        if ($exportPlugin === null) {
             Core::fatalError(__('Bad type!'));
         }
 

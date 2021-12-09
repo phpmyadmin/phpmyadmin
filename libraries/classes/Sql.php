@@ -732,7 +732,7 @@ class Sql
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
             $unlimNumRows = $numRows;
-        } elseif ($this->isAppendLimitClause($analyzedSqlResults) && $_SESSION['tmpval']['max_rows'] > $numRows) {
+        } elseif ($_SESSION['tmpval']['max_rows'] > $numRows) {
             // When user has not defined a limit in query and total rows in
             // result are less than max_rows to display, there is no need
             // to count total rows for that query again

@@ -69,7 +69,7 @@ final class ChangeController extends AbstractController
      *
      * @param array|null $selected the selected columns
      */
-    private function displayHtmlForColumnChange($selected): void
+    private function displayHtmlForColumnChange(?array $selected): void
     {
         global $action, $num_fields;
 

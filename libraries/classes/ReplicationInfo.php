@@ -103,10 +103,7 @@ final class ReplicationInfo
         $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
     }
 
-    /**
-     * @return array
-     */
-    public function getPrimaryStatus()
+    public function getPrimaryStatus(): array
     {
         return $this->primaryStatus;
     }
@@ -116,10 +113,7 @@ final class ReplicationInfo
         $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
     }
 
-    /**
-     * @return array
-     */
-    public function getReplicaStatus()
+    public function getReplicaStatus(): array
     {
         return $this->replicaStatus;
     }

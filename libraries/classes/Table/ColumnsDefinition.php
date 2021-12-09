@@ -48,7 +48,6 @@ final class ColumnsDefinition
      * @param string|null       $regenerate      Use regeneration
      * @param array|null        $selected        Selected
      * @param array|null        $fields_meta     Fields meta
-     * @param array|null        $field_fulltext  Fields full text
      *
      * @return array<string, mixed>
      */
@@ -59,9 +58,8 @@ final class ColumnsDefinition
         string $action,
         $num_fields = 0,
         $regenerate = null,
-        $selected = null,
-        $fields_meta = null,
-        $field_fulltext = null
+        ?array $selected = null,
+        $fields_meta = null
     ): array {
         global $db, $table, $cfg, $col_priv, $is_reload_priv, $mime_map;
 
@@ -105,7 +103,7 @@ final class ColumnsDefinition
             ]
         );
 
-        if (isset($selected) && is_array($selected)) {
+        if (is_array($selected)) {
             foreach ($selected as $o_fld_nr => $o_fld_val) {
                 $form_params['selected[' . $o_fld_nr . ']'] = $o_fld_val;
             }
@@ -143,15 +141,6 @@ final class ColumnsDefinition
                     $available_mime[$mime_type . '_file'][$mimekey],
                     '@'
                 );
-            }
-        }
-
-        //  workaround for field_fulltext, because its submitted indices contain
-        //  the index as a value, not a key. Inserted here for easier maintenance
-        //  and less code to change in existing files.
-        if (isset($field_fulltext) && is_array($field_fulltext)) {
-            foreach ($field_fulltext as $fulltext_indexkey) {
-                $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
             }
         }
 
@@ -247,9 +236,7 @@ final class ColumnsDefinition
                     );
                 }
 
-                $columnMeta['Comment'] = isset($submit_fulltext[$columnNumber])
-                && ($submit_fulltext[$columnNumber] == $columnNumber)
-                    ? 'FULLTEXT' : false;
+                $columnMeta['Comment'] = false;
 
                 switch ($columnMeta['DefaultType']) {
                     case 'NONE':

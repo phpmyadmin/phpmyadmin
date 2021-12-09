@@ -3166,11 +3166,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getBulkLinks\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3957,11 +3952,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Export\\:\\:\\$dumpBufferObjects type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Result of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -8561,11 +8551,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Left side of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -9169,11 +9154,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Table\\:\\:\\$uiprefs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$field_fulltext with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Table/ColumnsDefinition.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Table\\\\ColumnsDefinition\\:\\:displayForm\\(\\) has parameter \\$fields_meta with no value type specified in iterable type array\\.$#"
