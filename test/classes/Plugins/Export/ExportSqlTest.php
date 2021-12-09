@@ -275,10 +275,10 @@ class ExportSqlTest extends AbstractTestCase
 
         $this->expectOutputString(
             '##DELIMITER $$##DROP PROCEDURE IF EXISTS `test_proc1`$$##CREATE PROCEDURE'
-                . ' `test_proc1` (`p` INT)  BEGIN END$$####DROP PROCEDURE IF EXISTS'
-                . ' `test_proc2`$$##CREATE PROCEDURE `test_proc2` (`p` INT)  BEGIN END$$####DROP'
+                . ' `test_proc1` (`p` INT)   BEGIN END$$####DROP PROCEDURE IF EXISTS'
+                . ' `test_proc2`$$##CREATE PROCEDURE `test_proc2` (`p` INT)   BEGIN END$$####DROP'
                 . ' FUNCTION IF EXISTS `test_func`$$##CREATE FUNCTION'
-                . ' `test_func` (`p` INT) RETURNS INT(11) BEGIN END$$####DELIMITER ;##'
+                . ' `test_func` (`p` INT) RETURNS INT(11)  BEGIN END$$####DELIMITER ;##'
         );
 
         $this->object->exportRoutines('test_db');
