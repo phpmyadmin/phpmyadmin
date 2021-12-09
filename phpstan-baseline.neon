@@ -1556,11 +1556,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
-			message: "#^Function uploadprogress_get_info not found\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
-
-		-
 			message: "#^Used function uploadprogress_get_info not found\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/Upload/UploadProgress.php
