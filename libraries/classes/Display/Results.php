@@ -2295,8 +2295,8 @@ class Results
         while ($row = $this->dbi->fetchRow($dtResult)) {
             // add repeating headers
             if (
-                ($rowNumber != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && ! $rowNumber % $_SESSION['tmpval']['repeat_cells']
+                ($rowNumber !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
+                && ($rowNumber % $_SESSION['tmpval']['repeat_cells']) === 0
             ) {
                 $tableBodyHtml .= $this->getRepeatingHeaders($displayParams);
             }

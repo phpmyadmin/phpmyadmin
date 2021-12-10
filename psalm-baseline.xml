@@ -5919,9 +5919,6 @@
       <code>-1</code>
       <code>[]</code>
     </DocblockTypeContradiction>
-    <FalseOperand occurrences="1">
-      <code>! $rowNumber</code>
-    </FalseOperand>
     <InvalidArgument occurrences="1">
       <code>$added[$orgFullTableName]</code>
     </InvalidArgument>
