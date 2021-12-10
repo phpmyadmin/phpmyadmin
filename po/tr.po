@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-04-11 10:26+0000\n"
+"PO-Revision-Date: 2021-12-11 22:51+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1705,8 +1705,8 @@ msgstr ""
 #: js/messages.php:516
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"Veri satırını mümkün olduğunca düzenlemek ve görmek için veri noktasına "
-"tıklayın."
+"Veri satırını mümkün olduğunca düzenlemek ve görüntülemek için veri "
+"noktasına tıklayın."
 
 #: js/messages.php:518
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -8438,7 +8438,7 @@ msgstr "Aşağıdaki yapılar ya oluşturuldu ya da değiştirildi. Buyurun:"
 
 #: libraries/classes/Import.php:1264
 msgid "View a structure's contents by clicking on its name."
-msgstr "Adına tıklayarak yapının içeriklerini görün."
+msgstr "Adına tıklayarak yapının içeriklerini görüntüleyin."
 
 #: libraries/classes/Import.php:1267
 msgid ""
@@ -10065,7 +10065,7 @@ msgstr "Veri dökümleniyor"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:293
 msgid "View structure"
-msgstr "Yapıyı göster"
+msgstr "Yapıyı görüntüle"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:296
 msgid "Stand in"
@@ -12328,7 +12328,7 @@ msgstr "Tablo seviyesi sekmeler"
 
 #: libraries/classes/Server/UserGroups.php:124
 msgid "View users"
-msgstr "Kullanıcıları göster"
+msgstr "Kullanıcıları görüntüle"
 
 #: libraries/classes/Server/UserGroups.php:164
 #: libraries/classes/Server/UserGroups.php:230
@@ -12483,7 +12483,7 @@ msgstr "paylaşılmış"
 
 #: libraries/classes/SqlQueryForm.php:437
 msgid "View only"
-msgstr "Sadece göster"
+msgstr "Sadece görüntüle"
 
 #: libraries/classes/StorageEngine.php:284
 msgid ""
@@ -14376,7 +14376,7 @@ msgstr "ileriki dışa aktarımlar için bunu kullan"
 
 #: templates/display/export/options_output_radio.twig:5
 msgid "View output as text"
-msgstr "Çıktıyı metin olarak göster"
+msgstr "Çıktıyı metin olarak görüntüle"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
