@@ -174,6 +174,10 @@
       <code>$res</code>
       <code>$res</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$row</code>
+      <code>$row</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="3">
       <code>self::$charsets[$row['Charset']]</code>
       <code>self::$charsets[$serverCharset]</code>
@@ -188,36 +192,10 @@
       <code>$serverCharset</code>
       <code>$serverCharset</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>?Collation</code>
-    </MixedInferredReturnType>
     <MixedPropertyTypeCoercion occurrences="2">
       <code>self::$charsets</code>
       <code>self::$collations</code>
     </MixedPropertyTypeCoercion>
-    <MixedReturnStatement occurrences="1">
-      <code>$collations[$charset][$name] ?? null</code>
-    </MixedReturnStatement>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$pieces === false</code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Charsets/Charset.php">
-    <MixedArgument occurrences="3">
-      <code>$state['Charset'] ?? ''</code>
-      <code>$state['Default collation'] ?? ''</code>
-      <code>$state['Description'] ?? ''</code>
-    </MixedArgument>
-  </file>
-  <file src="libraries/classes/Charsets/Collation.php">
-    <MixedArgument occurrences="3">
-      <code>$state['Charset'] ?? ''</code>
-      <code>$state['Collation'] ?? ''</code>
-      <code>$state['Pad_attribute'] ?? ''</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$suffixes</code>
-    </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
     <MixedArgument occurrences="6">
@@ -2269,18 +2247,8 @@
       <code>(int) $cfg['MaxRows']</code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Controllers/Server/CollationsController.php">
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullIterator occurrences="2">
-      <code>$this-&gt;charsets</code>
-      <code>$this-&gt;collations[$charset-&gt;getName()]</code>
-    </PossiblyNullIterator>
-  </file>
   <file src="libraries/classes/Controllers/Server/Databases/CreateController.php">
-    <MixedArgument occurrences="7">
-      <code>$collations[$databaseCharset]</code>
+    <MixedArgument occurrences="6">
       <code>$params['db_collation']</code>
       <code>$params['db_collation']</code>
       <code>$params['db_collation']</code>
@@ -10088,7 +10056,7 @@
       <code>$oneKey['ref_index_list'][$index]</code>
       <code>$values[$val]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="37">
+    <MixedAssignment occurrences="35">
       <code>$GLOBALS['old_tz']</code>
       <code>$colAlias</code>
       <code>$colAlias</code>
@@ -10116,8 +10084,6 @@
       <code>$result</code>
       <code>$result</code>
       <code>$routine</code>
-      <code>$setNames</code>
-      <code>$setNames</code>
       <code>$statement-&gt;name-&gt;database</code>
       <code>$statement-&gt;name-&gt;table</code>
       <code>$statement-&gt;table-&gt;table</code>
@@ -10127,7 +10093,7 @@
       <code>$values[$val]</code>
       <code>$values[]</code>
     </MixedAssignment>
-    <MixedOperand occurrences="40">
+    <MixedOperand occurrences="39">
       <code>$column['Collation']</code>
       <code>$column['Type']</code>
       <code>$crlf</code>
@@ -10163,7 +10129,6 @@
       <code>$crlf</code>
       <code>$crlf</code>
       <code>$definition['Type']</code>
-      <code>$setNames</code>
       <code>$statement-&gt;entityOptions-&gt;has('AUTO_INCREMENT')</code>
       <code>$tmpUniqueCondition</code>
       <code>$trigger['drop']</code>

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -85,15 +84,7 @@ final class ImportController extends AbstractController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $allCharsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
-        $charsets = [];
-        /** @var Charset $charset */
-        foreach ($allCharsets as $charset) {
-            $charsets[] = [
-                'name' => $charset->getName(),
-                'description' => $charset->getDescription(),
-            ];
-        }
+        $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
 
         $idKey = $_SESSION[$SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [
