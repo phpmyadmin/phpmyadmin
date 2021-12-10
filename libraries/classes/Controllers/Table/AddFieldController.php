@@ -107,16 +107,16 @@ class AddFieldController extends AbstractController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            $sqlQuery = $createAddField->getColumnCreationQuery($table);
+            $sql_query = $createAddField->getColumnCreationQuery($table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL($sqlQuery);
+                Core::previewSQL($sql_query);
 
                 return;
             }
 
-            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $errorUrl);
+            $result = $createAddField->tryColumnCreationQuery($db, $sql_query, $errorUrl);
 
             if ($result !== true) {
                 $error_message_html = Generator::mysqlDie('', '', false, $errorUrl, false);

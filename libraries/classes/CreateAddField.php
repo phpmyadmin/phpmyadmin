@@ -6,7 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 
-use function array_merge;
 use function count;
 use function implode;
 use function in_array;
@@ -37,6 +36,7 @@ class CreateAddField
      * Transforms the radio button field_key into 4 arrays
      *
      * @return array An array of arrays which represents column keys for each index type
+     * @psalm-return array{int, array, array, array, array, array}
      */
     private function getIndexedColumns(): array
     {
@@ -118,30 +118,29 @@ class CreateAddField
         bool $isCreateTable = true
     ): string {
         // no suffix is needed if request is a table creation
-        $sqlSuffix = ' ';
         if ($isCreateTable) {
-            return $sqlSuffix;
+            return ' ';
         }
 
         if ((string) $_POST['field_where'] === 'last') {
-            return $sqlSuffix;
+            return ' ';
         }
 
         // Only the first field can be added somewhere other than at the end
-        if ($previousField == -1) {
+        if ($previousField === -1) {
             if ((string) $_POST['field_where'] === 'first') {
-                $sqlSuffix .= ' FIRST';
-            } elseif (! empty($_POST['after_field'])) {
-                $sqlSuffix .= ' AFTER '
+                return ' FIRST';
+            }
+
+            if (! empty($_POST['after_field'])) {
+                return ' AFTER '
                         . Util::backquote($_POST['after_field']);
             }
 
-            return $sqlSuffix;
+            return ' ';
         }
 
-        return $sqlSuffix
-                . ' AFTER '
-                . Util::backquote($_POST['field_name'][$previousField]);
+        return ' AFTER ' . Util::backquote($_POST['field_name'][$previousField]);
     }
 
     /**
@@ -153,20 +152,18 @@ class CreateAddField
      * @param bool   $isCreateTable true if requirement is to get the statement
      *                              for table creation
      *
-     * @return array an array of sql statements for indexes
+     * @return string sql statement for indexes
      */
-    private function buildIndexStatements(
+    private function buildIndexStatement(
         array $index,
         string $indexChoice,
         bool $isCreateTable = true
-    ): array {
-        $statement = [];
-        if (! count($index)) {
-            return $statement;
+    ): string {
+        if ($index === []) {
+            return '';
         }
 
-        $sqlQuery = $this->getStatementPrefix($isCreateTable)
-            . ' ' . $indexChoice;
+        $sqlQuery = $this->getStatementPrefix($isCreateTable) . $indexChoice;
 
         if (! empty($index['Key_name']) && $index['Key_name'] !== 'PRIMARY') {
             $sqlQuery .= ' ' . Util::backquote($index['Key_name']);
@@ -184,36 +181,29 @@ class CreateAddField
 
         $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';
 
-        $keyBlockSizes = $index['Key_block_size'];
-        if (! empty($keyBlockSizes)) {
+        if ($index['Key_block_size']) {
             $sqlQuery .= ' KEY_BLOCK_SIZE = '
-                 . $this->dbi->escapeString($keyBlockSizes);
+                 . $this->dbi->escapeString($index['Key_block_size']);
         }
 
         // specifying index type is allowed only for primary, unique and index only
-        $type = $index['Index_type'];
         if (
             $index['Index_choice'] !== 'SPATIAL'
             && $index['Index_choice'] !== 'FULLTEXT'
-            && in_array($type, Index::getIndexTypes())
+            && in_array($index['Index_type'], Index::getIndexTypes())
         ) {
-            $sqlQuery .= ' USING ' . $type;
+            $sqlQuery .= ' USING ' . $index['Index_type'];
         }
 
-        $parser = $index['Parser'];
-        if ($index['Index_choice'] === 'FULLTEXT' && ! empty($parser)) {
-            $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($parser);
+        if ($index['Index_choice'] === 'FULLTEXT' && $index['Parser']) {
+            $sqlQuery .= ' WITH PARSER ' . $this->dbi->escapeString($index['Parser']);
         }
 
-        $comment = $index['Index_comment'];
-        if (! empty($comment)) {
-            $sqlQuery .= " COMMENT '" . $this->dbi->escapeString($comment)
-                . "'";
+        if ($index['Index_comment']) {
+            $sqlQuery .= " COMMENT '" . $this->dbi->escapeString($index['Index_comment']) . "'";
         }
 
-        $statement[] = $sqlQuery;
-
-        return $statement;
+        return $sqlQuery;
     }
 
     /**
@@ -226,37 +216,7 @@ class CreateAddField
      */
     private function getStatementPrefix(bool $isCreateTable = true): string
     {
-        $sqlPrefix = ' ';
-        if (! $isCreateTable) {
-            $sqlPrefix = ' ADD ';
-        }
-
-        return $sqlPrefix;
-    }
-
-    /**
-     * Merge index definitions for one type of index
-     *
-     * @param array  $definitions    the index definitions to merge to
-     * @param bool   $isCreateTable  true if requirement is to get the statement
-     *                               for table creation
-     * @param array  $indexedColumns the columns for one type of index
-     * @param string $indexKeyword   the index keyword to use in the definition
-     *
-     * @return array
-     */
-    private function mergeIndexStatements(
-        array $definitions,
-        bool $isCreateTable,
-        array $indexedColumns,
-        string $indexKeyword
-    ): array {
-        foreach ($indexedColumns as $index) {
-            $statements = $this->buildIndexStatements($index, ' ' . $indexKeyword . ' ', $isCreateTable);
-            $definitions = array_merge($definitions, $statements);
-        }
-
-        return $definitions;
+        return $isCreateTable ? '' : 'ADD ';
     }
 
     /**
@@ -282,30 +242,35 @@ class CreateAddField
         $definitions = $this->buildColumnCreationStatement($fieldCount, $isCreateTable);
 
         // Builds the PRIMARY KEY statements
-        $primaryKeyStatements = $this->buildIndexStatements(
-            $fieldPrimary[0] ?? [],
-            ' PRIMARY KEY ',
-            $isCreateTable
-        );
-        $definitions = array_merge($definitions, $primaryKeyStatements);
+        if (isset($fieldPrimary[0])) {
+            $definitions[] = $this->buildIndexStatement($fieldPrimary[0], 'PRIMARY KEY', $isCreateTable);
+        }
 
         // Builds the INDEX statements
-        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldIndex, 'INDEX');
+        foreach ($fieldIndex as $index) {
+            $definitions[] = $this->buildIndexStatement($index, 'INDEX', $isCreateTable);
+        }
 
         // Builds the UNIQUE statements
-        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldUnique, 'UNIQUE');
+        foreach ($fieldUnique as $index) {
+            $definitions[] = $this->buildIndexStatement($index, 'UNIQUE', $isCreateTable);
+        }
 
         // Builds the FULLTEXT statements
-        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldFullText, 'FULLTEXT');
+        foreach ($fieldFullText as $index) {
+            $definitions[] = $this->buildIndexStatement($index, 'FULLTEXT', $isCreateTable);
+        }
 
         // Builds the SPATIAL statements
-        $definitions = $this->mergeIndexStatements($definitions, $isCreateTable, $fieldSpatial, 'SPATIAL');
+        foreach ($fieldSpatial as $index) {
+            $definitions[] = $this->buildIndexStatement($index, 'SPATIAL', $isCreateTable);
+        }
 
-        if (count($definitions)) {
+        if ($definitions !== []) {
             $sqlStatement = implode(', ', $definitions);
         }
 
-        return (string) preg_replace('@, $@', '', $sqlStatement);
+        return preg_replace('@, $@', '', $sqlStatement) ?? '';
     }
 
     /**
@@ -511,14 +476,12 @@ class CreateAddField
      * @param string $db       current database
      * @param string $sqlQuery the query to run
      * @param string $errorUrl error page url
-     *
-     * @return array
      */
     public function tryColumnCreationQuery(
         string $db,
         string $sqlQuery,
         string $errorUrl
-    ): array {
+    ): bool {
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (! $this->dbi->selectDb($db)) {
@@ -530,9 +493,6 @@ class CreateAddField
             );
         }
 
-        return [
-            $this->dbi->tryQuery($sqlQuery),
-            $sqlQuery,
-        ];
+        return (bool) $this->dbi->tryQuery($sqlQuery);
     }
 }

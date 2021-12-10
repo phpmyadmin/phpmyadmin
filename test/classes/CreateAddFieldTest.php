@@ -321,7 +321,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         return [
             [
-                'ALTER TABLE `my_table`  ADD `dd` INT NOT NULL  AFTER `d`;',
+                'ALTER TABLE `my_table` ADD `dd` INT NOT NULL AFTER `d`;',
                 [
                     'db' => '2fa',
                     'field_where' => 'after',
@@ -358,7 +358,7 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'ALTER TABLE `my_table`  ADD `dd` INT NOT NULL  AFTER `d`, ALGORITHM=INPLACE, LOCK=NONE;',
+                'ALTER TABLE `my_table` ADD `dd` INT NOT NULL AFTER `d`, ALGORITHM=INPLACE, LOCK=NONE;',
                 [
                     'db' => '2fa',
                     'field_where' => 'after',
@@ -396,10 +396,10 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'ALTER TABLE `my_table`  ADD `dd` INT NOT NULL  AFTER `d`, '
-                . ' ADD   UNIQUE  `un1` (`dd`(12), `dd`),  ADD   UNIQUE  `un3` (`dd`(12)) USING '
-                . 'BTREE COMMENT \'Unique 3\',  ADD   UNIQUE  `un3.1` (`dd`(12)) WITH '
-                . 'PARSER Parser 1 COMMENT \'Unique 3.1\',  ADD   UNIQUE  `un2` (`dd`(12)) '
+                'ALTER TABLE `my_table` ADD `dd` INT NOT NULL AFTER `d`, '
+                . 'ADD UNIQUE `un1` (`dd`(12), `dd`), ADD UNIQUE `un3` (`dd`(12)) USING '
+                . 'BTREE COMMENT \'Unique 3\', ADD UNIQUE `un3.1` (`dd`(12)) WITH '
+                . 'PARSER Parser 1 COMMENT \'Unique 3.1\', ADD UNIQUE `un2` (`dd`(12)) '
                 . 'KEY_BLOCK_SIZE = 32 USING BTREE COMMENT \'Unique 2\', ALGORITHM=INPLACE, LOCK=NONE;',
                 [
                     'db' => '2fa',
