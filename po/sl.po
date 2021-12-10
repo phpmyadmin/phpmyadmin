@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-10 10:38-0300\n"
-"PO-Revision-Date: 2021-11-28 19:05+0000\n"
+"PO-Revision-Date: 2021-12-11 22:51+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -16469,10 +16469,8 @@ msgid "There are no favorite tables."
 msgstr "Ni nobenih priljubljenih tabel."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "Izsek konfiguracije phpMyAdmin"
+msgstr "Shramba konfiguracije phpMyAdmin"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16577,108 +16575,76 @@ msgid "Enabled"
 msgstr "Omogočeno"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Lastnosti prikaza"
+msgstr "Lastnosti prikaza:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Designer in ustvarjanje datotek PDF"
+msgstr "Designer in ustvarjanje datotek PDF:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Prikazovanje pripomb stolpcev"
+msgstr "Prikazovanje pripomb stolpcev:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Pretvorba z brskalnikom"
+msgstr "Pretvorba z brskalnikom:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "Navodila za posodobitev tabele column_info najdete v dokumentaciji."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Označena poizvedba SQL"
+msgstr "Označena poizvedba SQL:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "Zgodovina SQL:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Vztrajno nedavno uporabljene tabele"
+msgstr "Vztrajno nedavno uporabljene tabele:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Vztrajne priljubljene tabele"
+msgstr "Vztrajne priljubljene tabele:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Vztrajne nastavitve uporabniškega vmesnika tabel"
+msgstr "Vztrajne nastavitve uporabniškega vmesnika tabel:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Sledenje"
+msgstr "Sledenje:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Uporabniške nastavitve"
+msgstr "Uporabniške nastavitve:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Nastavljivi meniji"
+msgstr "Nastavljivi meniji:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Skrij/prikaži navigacijske predmete"
+msgstr "Skrij/prikaži navigacijske predmete:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Shranjevanje iskanj \"query by example\""
+msgstr "Shranjevanje iskanj \"query by example\":"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Upravljanje osrednjega seznama stolpcev"
+msgstr "Upravljanje osrednjega seznama stolpcev:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Pomnjenje nastavitev Designerja"
+msgstr "Pomnjenje nastavitev Designerja:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Shranjevanje predlog izvoza"
+msgstr "Shranjevanje predlog izvoza:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
