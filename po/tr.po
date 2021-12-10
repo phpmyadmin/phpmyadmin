@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-10 10:38-0300\n"
-"PO-Revision-Date: 2021-11-28 19:05+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2021-12-11 22:51+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -16502,10 +16502,8 @@ msgid "There are no favorite tables."
 msgstr "Sık kullanılan tablolar yok."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin yapılandırma parçacığı"
+msgstr "phpMyAdmin yapılandırma depolaması"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16609,28 +16607,20 @@ msgid "Enabled"
 msgstr "Etkinleştirildi"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Özellikleri görüntüleme"
+msgstr "Özellikleri görüntüleme:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "PDF'lerin tasarımcısı ve oluşturulması"
+msgstr "PDF'lerin tasarımcısı ve oluşturulması:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Sütun Açıklamalarını görüntüleme"
+msgstr "Sütun açıklamalarını görüntüleme:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Tarayıcı dönüşümü"
+msgstr "Tarayıcı dönüşümü:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16639,80 +16629,56 @@ msgstr ""
 "bakın."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Yer işaretli SQL sorgusu"
+msgstr "Yer işaretli SQL sorgusu:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "SQL geçmişi:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Sürekli son kullanılan tablolar"
+msgstr "Sürekli son kullanılan tablolar:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Sürekli sık kullanılan tablolar"
+msgstr "Sürekli sık kullanılan tablolar:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Sürekli tabloların KA tercihleri"
+msgstr "Sürekli tabloların KA tercihleri:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "İzleme"
+msgstr "İzleme:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Kullanıcı tercihleri"
+msgstr "Kullanıcı tercihleri:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Yapılandırılabilir menüler"
+msgstr "Yapılandırılabilir menüler:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Gezinti öğelerini gizle/göster"
+msgstr "Gezinti öğelerini gizle/göster:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Örnekle Sorgulama aramalarını kaydetme"
+msgstr "Örnekle Sorgulama aramalarını kaydetme:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Sütunların Merkezi listesi yönetimi"
+msgstr "Sütunların merkezi listesi yönetimi:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Tasarımcı Ayarlarını Hatırlama"
+msgstr "Tasarımcı ayarlarını hatırlama:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Dışa aktarma şablonlarını kaydetme"
+msgstr "Dışa aktarma şablonlarını kaydetme:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
