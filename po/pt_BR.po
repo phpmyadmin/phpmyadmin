@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-05 00:12+0000\n"
-"PO-Revision-Date: 2021-08-24 16:33+0000\n"
+"PO-Revision-Date: 2021-12-10 13:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5495,10 +5495,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Você está prestes à TRUNCAR uma tabela completamente!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Você está prestes à DESTRUIR uma tabela completamente!"
+msgstr "Você está prestes a excluir (DELETE) todas as linhas da tabela!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -14331,10 +14329,8 @@ msgstr "Ação"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Criar tabela"
+msgstr "Criar nova tabela"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
@@ -15722,14 +15718,12 @@ msgid "Export tables as separate files"
 msgstr "Exportar tabelas em arquivo separado"
 
 #: templates/export.twig:474
-#, fuzzy
-#| msgid "Skip tables larger than %s MiB"
 msgid "Skip tables larger than:"
-msgstr "Pular tabelas maiores que %s MiB"
+msgstr "Pular tabelas maiores que:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "O tamanho é medido em MiB."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15911,11 +15905,9 @@ msgid "Theme"
 msgstr "Tema"
 
 #: templates/home/index.twig:142
-#, fuzzy
-#| msgid "View only"
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Apenas visualizar"
+msgstr "Ver todos"
 
 #: templates/home/index.twig:157
 msgid "Database server"
@@ -16149,10 +16141,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Pular este número de consultas (para SQL), iniciando da primeira:"
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Other options:"
 msgid "Other options"
-msgstr "Outras opções:"
+msgstr "Outras opções"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:488
@@ -18536,10 +18526,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Esvaziar a tabela (TRUNCATE)"
 
 #: templates/table/operations/index.twig:429
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
-msgstr "Esvaziar a tabela (TRUNCATE)"
+msgstr "Esvaziar a tabela (DELETE FROM)"
 
 #: templates/table/operations/index.twig:449
 msgid "Delete the table (DROP)"
