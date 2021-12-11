@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\TestCase;
@@ -65,7 +66,10 @@ class RelationParametersTest extends TestCase
         $this->assertSame($expected['allworks'], $relationParametersArray['allworks']);
         $this->assertSame($expected['user'], $relationParameters->user);
         $this->assertSame($expected['user'], $relationParametersArray['user']);
-        $this->assertSame($expected['db'], $relationParameters->db);
+        $this->assertSame(
+            $expected['db'],
+            $relationParameters->db instanceof DatabaseName ? $relationParameters->db->getName() : null
+        );
         $this->assertSame($expected['db'], $relationParametersArray['db']);
         $this->assertSame($expected['bookmark'], $relationParameters->bookmark);
         $this->assertSame($expected['bookmark'], $relationParametersArray['bookmark']);
@@ -337,9 +341,6 @@ class RelationParametersTest extends TestCase
             ],
             'valid values 2' => [
                 [
-                    'version' => '',
-                    'user' => '',
-                    'db' => '',
                     'bookmark' => '',
                     'central_columns' => '',
                     'column_info' => '',
@@ -361,7 +362,7 @@ class RelationParametersTest extends TestCase
                     'users' => '',
                 ],
                 [
-                    'version' => '',
+                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -381,8 +382,8 @@ class RelationParametersTest extends TestCase
                     'designersettingswork' => false,
                     'exporttemplateswork' => false,
                     'allworks' => false,
-                    'user' => '',
-                    'db' => '',
+                    'user' => null,
+                    'db' => null,
                     'bookmark' => '',
                     'central_columns' => '',
                     'column_info' => '',
@@ -447,6 +448,56 @@ class RelationParametersTest extends TestCase
                     'userconfig' => 1,
                     'usergroups' => 1,
                     'users' => 1,
+                ],
+                [
+                    'version' => Version::VERSION,
+                    'relwork' => false,
+                    'displaywork' => false,
+                    'bookmarkwork' => false,
+                    'pdfwork' => false,
+                    'commwork' => false,
+                    'mimework' => false,
+                    'historywork' => false,
+                    'recentwork' => false,
+                    'favoritework' => false,
+                    'uiprefswork' => false,
+                    'trackingwork' => false,
+                    'userconfigwork' => false,
+                    'menuswork' => false,
+                    'navwork' => false,
+                    'savedsearcheswork' => false,
+                    'centralcolumnswork' => false,
+                    'designersettingswork' => false,
+                    'exporttemplateswork' => false,
+                    'allworks' => false,
+                    'user' => null,
+                    'db' => null,
+                    'bookmark' => null,
+                    'central_columns' => null,
+                    'column_info' => null,
+                    'designer_settings' => null,
+                    'export_templates' => null,
+                    'favorite' => null,
+                    'history' => null,
+                    'navigationhiding' => null,
+                    'pdf_pages' => null,
+                    'recent' => null,
+                    'relation' => null,
+                    'savedsearches' => null,
+                    'table_coords' => null,
+                    'table_info' => null,
+                    'table_uiprefs' => null,
+                    'tracking' => null,
+                    'userconfig' => null,
+                    'usergroups' => null,
+                    'users' => null,
+                ],
+            ],
+            'invalid values 2' => [
+                [
+                    'version' => '',
+                    'user' => '',
+                    'db' => '',
                 ],
                 [
                     'version' => Version::VERSION,

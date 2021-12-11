@@ -549,7 +549,7 @@ class Privileges
         $userGroup = $userGroup ?? '';
         $relationParameters = $this->relation->getRelationParameters();
         if (
-            empty($relationParameters->db)
+            $relationParameters->db === null
             || empty($relationParameters->users)
             || empty($relationParameters->usergroups)
         ) {
@@ -1571,7 +1571,7 @@ class Privileges
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (empty($relationParameters->db) || empty($relationParameters->users)) {
+        if ($relationParameters->db === null || empty($relationParameters->users)) {
             return null;
         }
 

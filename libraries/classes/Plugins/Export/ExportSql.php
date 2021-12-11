@@ -1040,7 +1040,7 @@ class ExportSql extends ExportPlugin
         array $metadataTypes
     ): bool {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! isset($relationParameters->db)) {
+        if ($relationParameters->db === null) {
             return true;
         }
 
@@ -1053,7 +1053,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        if (! $this->exportUseStatement($relationParameters->db, $GLOBALS['sql_compatibility'])) {
+        if (! $this->exportUseStatement((string) $relationParameters->db, $GLOBALS['sql_compatibility'])) {
             return false;
         }
 

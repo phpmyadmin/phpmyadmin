@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseName;
+use Webmozart\Assert\Assert;
+use Webmozart\Assert\InvalidArgumentException;
+
 use function is_bool;
 use function is_string;
 
@@ -12,7 +16,10 @@ use function is_string;
  */
 final class RelationParameters
 {
-    /** @var string */
+    /**
+     * @var string
+     * @psalm-var non-empty-string
+     */
     public $version;
     /** @var bool */
     public $relwork;
@@ -54,7 +61,7 @@ final class RelationParameters
     public $allworks;
     /** @var string|null */
     public $user;
-    /** @var string|null */
+    /** @var DatabaseName|null */
     public $db;
     /** @var string|null */
     public $bookmark;
@@ -95,6 +102,9 @@ final class RelationParameters
     /** @var string|null */
     public $users;
 
+    /**
+     * @psalm-param non-empty-string $version
+     */
     public function __construct(
         string $version,
         bool $relwork,
@@ -117,7 +127,7 @@ final class RelationParameters
         bool $exporttemplateswork,
         bool $allworks,
         ?string $user,
-        ?string $db,
+        ?DatabaseName $db,
         ?string $bookmark,
         ?string $centralColumns,
         ?string $columnInfo,
@@ -187,8 +197,21 @@ final class RelationParameters
     public static function fromArray(array $params): self
     {
         $version = Version::VERSION;
-        if (isset($params['version']) && is_string($params['version'])) {
+        if (isset($params['version']) && is_string($params['version']) && $params['version'] !== '') {
             $version = $params['version'];
+        }
+
+        $user = null;
+        if (isset($params['user']) && is_string($params['user']) && $params['user'] !== '') {
+            $user = $params['user'];
+        }
+
+        try {
+            Assert::keyExists($params, 'db');
+            Assert::string($params['db']);
+            $db = DatabaseName::fromString($params['db']);
+        } catch (InvalidArgumentException $exception) {
+            $db = null;
         }
 
         $relwork = false;
@@ -284,16 +307,6 @@ final class RelationParameters
         $allworks = false;
         if (isset($params['allworks']) && is_bool($params['allworks'])) {
             $allworks = $params['allworks'];
-        }
-
-        $user = null;
-        if (isset($params['user']) && is_string($params['user'])) {
-            $user = $params['user'];
-        }
-
-        $db = null;
-        if (isset($params['db']) && is_string($params['db'])) {
-            $db = $params['db'];
         }
 
         $bookmark = null;
@@ -506,7 +519,7 @@ final class RelationParameters
             'exporttemplateswork' => $this->hasExportTemplatesFeature(),
             'allworks' => $this->hasAllFeatures(),
             'user' => $this->user,
-            'db' => $this->db,
+            'db' => $this->db !== null ? $this->db->getName() : null,
             'bookmark' => $this->bookmark,
             'central_columns' => $this->centralColumns,
             'column_info' => $this->columnInfo,

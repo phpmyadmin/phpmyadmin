@@ -325,7 +325,7 @@ class Results
         ];
 
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->db) {
+        if ($relationParameters->db === null) {
             return;
         }
 
@@ -373,7 +373,7 @@ class Results
             $relDb[$relationParameters->exportTemplates] = ['template_data' => $jsonHighlightingData];
         }
 
-        $this->transformationInfo[$relationParameters->db] = $relDb;
+        $this->transformationInfo[$relationParameters->db->getName()] = $relDb;
     }
 
     /**

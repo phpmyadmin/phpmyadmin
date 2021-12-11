@@ -793,10 +793,10 @@ class Common
     {
         $relationParameters = $this->relation->getRelationParameters();
         $success = true;
-        if ($relationParameters->hasDatabaseDesignerSettingsFeature()) {
+        if ($relationParameters->hasDatabaseDesignerSettingsFeature() && $relationParameters->db !== null) {
             $cfgDesigner = [
                 'user' => $GLOBALS['cfg']['Server']['user'],
-                'db' => $relationParameters->db,
+                'db' => $relationParameters->db->getName(),
                 'table' => $relationParameters->designerSettings,
             ];
 

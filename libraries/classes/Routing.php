@@ -180,7 +180,9 @@ class Routing
         /** @var array<string, string> $vars */
         $vars = $routeInfo[2];
 
-        /** @psalm-var callable(ServerRequest=, array=):void $controller */
+        /**
+         * @psalm-var callable(ServerRequest=, array<string, string>=):void $controller
+         */
         $controller = $container->get($controllerName);
         $controller($request, $vars);
     }

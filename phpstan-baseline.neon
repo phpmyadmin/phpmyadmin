@@ -7711,11 +7711,6 @@ parameters:
 			path: libraries/classes/ResponseRenderer.php
 
 		-
-			message: "#^PHPDoc tag @var for variable \\$controller has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Routing.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
