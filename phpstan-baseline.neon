@@ -7346,16 +7346,6 @@ parameters:
 			path: libraries/classes/Plugins/TwoFactor/Key.php
 
 		-
-			message: "#^Parameter \\#2 \\$response of static method Samyoul\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:register\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactor/Key.php
-
-		-
-			message: "#^Parameter \\#3 \\$response of static method Samyoul\\\\U2F\\\\U2FServer\\\\U2FServer\\:\\:authenticate\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/TwoFactor/Key.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\UploadInterface\\:\\:getUploadStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/UploadInterface.php

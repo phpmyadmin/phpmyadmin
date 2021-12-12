@@ -12039,14 +12039,17 @@
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Plugins/TwoFactor/Key.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="4">
       <code>$_POST['u2f_authentication_response']</code>
       <code>$_POST['u2f_registration_response']</code>
       <code>$_SESSION['authenticationRequest']</code>
       <code>$_SESSION['registrationRequest']</code>
-      <code>$response</code>
-      <code>$response</code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+      <code>$this-&gt;getRegistrations()</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$data['certificate']</code>
       <code>$data['counter']</code>
@@ -12062,12 +12065,9 @@
     <MixedArrayOffset occurrences="1">
       <code>$this-&gt;twofactor-&gt;config['settings']['registrations'][$auth-&gt;index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="5">
-      <code>$_SESSION['registrationRequest']</code>
+    <MixedAssignment occurrences="2">
       <code>$data</code>
       <code>$index</code>
-      <code>$response</code>
-      <code>$response</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Plugins/TwoFactorPlugin.php">
