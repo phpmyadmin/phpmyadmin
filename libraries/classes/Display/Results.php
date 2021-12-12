@@ -1052,13 +1052,14 @@ class Results
                     . '">' . "\n" . $orderLink . $comments . '    </th>' . "\n";
             } else {
                 // Results can't be sorted
-                $columns[] = $this->getDraggableClassForNonSortableColumns(
-                    $colVisib,
-                    $colVisibCurrent,
-                    $conditionField,
-                    $fieldsMeta[$i],
-                    $comments
-                );
+                // Prepare columns to draggable effect for non sortable columns
+                $columns[] = [
+                    'column_name' => $fieldsMeta[$i]->name,
+                    'comments' => $comments,
+                    'is_column_hidden' => $colVisib && ! $colVisibCurrent,
+                    'is_column_numeric' => $this->isColumnNumeric($fieldsMeta[$i]),
+                    'has_condition' => $conditionField,
+                ];
 
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1101,7 +1102,7 @@ class Results
      * }
      */
     private function getTableHeaders(
-        array &$displayParts,
+        array $displayParts,
         array $analyzedSqlResults,
         $unsortedSqlQuery,
         array $sortExpression = [],
@@ -1135,7 +1136,9 @@ class Results
 
         // 1. Set $colspan and generate html with full/partial
         // text button or link
-        [$colspan, $buttonHtml] = $this->getFieldVisibilityParams($displayParts, $fullOrPartialTextLink);
+        $colspan = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
+            && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE ? ' colspan="4"' : '';
+        $buttonHtml = $this->getFieldVisibilityParams($displayParts, $fullOrPartialTextLink, $colspan);
 
         // 2. Displays the fields' name
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
@@ -1301,23 +1304,22 @@ class Results
      *
      * @param array  $displayParts          which elements to display
      * @param string $fullOrPartialTextLink full/partial link or text button
+     * @param string $colspan               column span of table header
      *
-     * @return string[] 2 element array - $colspan, $button_html
+     * @return string html with full/partial text button or link
      */
     private function getFieldVisibilityParams(
-        array &$displayParts,
-        $fullOrPartialTextLink
+        array $displayParts,
+        string $fullOrPartialTextLink,
+        string $colspan
     ) {
-        $buttonHtml = '';
         $displayParams = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
-        $buttonHtml .= '<thead class="table-light"><tr>' . "\n";
+        $buttonHtml = '<thead class="table-light"><tr>' . "\n";
 
         $emptyPreCondition = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
                            && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE;
-
-        $colspan = $emptyPreCondition ? ' colspan="4"' : '';
 
         $leftOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT
                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
@@ -1335,7 +1337,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<th class="column_action sticky d-print-none" ' . $colspan
+            $buttonHtml .= '<th class="column_action sticky d-print-none"' . $colspan
                 . '>' . $fullOrPartialTextLink . '</th>';
         } elseif (
             $leftOrBoth
@@ -1346,7 +1348,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<td ' . $colspan . '></td>';
+            $buttonHtml .= '<td' . $colspan . '></td>';
         } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
@@ -1355,10 +1357,7 @@ class Results
 
         $this->properties['display_params'] = $displayParams;
 
-        return [
-            $colspan,
-            $buttonHtml,
-        ];
+        return $buttonHtml;
     }
 
     /**
@@ -1483,7 +1482,7 @@ class Results
      *
      * @return string html content
      */
-    private function getFullOrPartialTextButtonOrLink()
+    private function getFullOrPartialTextButtonOrLink(): string
     {
         global $theme;
 
@@ -1634,9 +1633,6 @@ class Results
 
         $orderLink .= $this->getSortOrderHiddenInputs($multiUrlParams, $fieldsMeta->name);
 
-        $thClass = [];
-        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-
         return [
             'column_name' => $fieldsMeta->name,
             'order_link' => $orderLink,
@@ -1644,7 +1640,7 @@ class Results
             'is_browse_pointer_enabled' => $GLOBALS['cfg']['BrowsePointerEnable'] === true,
             'is_browse_marker_enabled' => $GLOBALS['cfg']['BrowseMarkerEnable'] === true,
             'is_column_hidden' => $colVisib && ! $colVisibElement,
-            'is_column_numeric' => $thClass !== [],
+            'is_column_numeric' => $this->isColumnNumeric($fieldsMeta),
         ];
     }
 
@@ -1958,65 +1954,17 @@ class Results
     }
 
     /**
-     * Check if the column contains numeric data. If yes, then set the
-     * column header's alignment right
+     * Check if the column contains numeric data
      *
      * @param FieldMetadata $fieldsMeta set of field properties
-     * @param array         $thClass    array containing classes
      */
-    private function getClassForNumericColumnType(FieldMetadata $fieldsMeta, array &$thClass): void
+    private function isColumnNumeric(FieldMetadata $fieldsMeta): bool
     {
         // This was defined in commit b661cd7c9b31f8bc564d2f9a1b8527e0eb966de8
         // For issue https://github.com/phpmyadmin/phpmyadmin/issues/4746
-        if (
-            ! $fieldsMeta->isType(FieldMetadata::TYPE_REAL)
-            && ! $fieldsMeta->isMappedTypeBit
-            && ! $fieldsMeta->isType(FieldMetadata::TYPE_INT)
-        ) {
-            return;
-        }
-
-        $thClass[] = 'text-end';
-    }
-
-    /**
-     * Prepare columns to draggable effect for non sortable columns
-     *
-     * @see getTableHeaders()
-     *
-     * @param bool          $colVisib        the column is visible (false)
-     *                                        array                    the column is not visible (string array)
-     * @param string        $colVisibElement element of $col_visib array
-     * @param bool          $conditionField  whether to add CSS class condition
-     * @param FieldMetadata $fieldsMeta      set of field properties
-     * @param string        $comments        the comment for the column
-     *
-     * @return array<string, string>
-     * @psalm-return array{
-     *   column_name: string,
-     *   comments:string,
-     *   is_column_hidden:bool,
-     *   is_column_numeric:bool,
-     *   has_condition:bool
-     * }
-     */
-    private function getDraggableClassForNonSortableColumns(
-        $colVisib,
-        $colVisibElement,
-        $conditionField,
-        FieldMetadata $fieldsMeta,
-        $comments
-    ): array {
-        $thClass = [];
-        $this->getClassForNumericColumnType($fieldsMeta, $thClass);
-
-        return [
-            'column_name' => $fieldsMeta->name,
-            'comments' => $comments,
-            'is_column_hidden' => $colVisib && ! $colVisibElement,
-            'is_column_numeric' => $thClass !== [],
-            'has_condition' => $conditionField,
-        ];
+        return $fieldsMeta->isType(FieldMetadata::TYPE_REAL)
+            || $fieldsMeta->isMappedTypeBit
+            || $fieldsMeta->isType(FieldMetadata::TYPE_INT);
     }
 
     /**
@@ -2031,9 +1979,9 @@ class Results
      * @return string  html content
      */
     private function getColumnAtRightSide(
-        array &$displayParts,
-        $fullOrPartialTextLink,
-        $colspan
+        array $displayParts,
+        string $fullOrPartialTextLink,
+        string $colspan
     ) {
         $rightColumnHtml = '';
         $displayParams = $this->properties['display_params'];
@@ -2051,7 +1999,7 @@ class Results
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
             $rightColumnHtml .= "\n"
-                . '<th class="column_action d-print-none" ' . $colspan . '>'
+                . '<th class="column_action d-print-none"' . $colspan . '>'
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
@@ -2067,7 +2015,7 @@ class Results
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
-            $rightColumnHtml .= "\n" . '<td class="d-print-none" ' . $colspan
+            $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
                 . '></td>';
         }
 
@@ -2107,16 +2055,14 @@ class Results
      * @param string        $class          class of table cell
      * @param bool          $conditionField whether to add CSS class condition
      * @param FieldMetadata $meta           the meta-information about this field
-     * @param string        $align          cell alignment
      *
      * @return string  the td
      */
-    private function buildNullDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
+    private function buildNullDisplay(string $class, bool $conditionField, FieldMetadata $meta): string
     {
         $classes = $this->addClass($class, $conditionField, $meta, '');
 
         return $this->template->render('display/results/null_display', [
-            'align' => $align,
             'data_decimals' => $meta->decimals,
             'data_type' => $meta->getMappedType(),
             'classes' => $classes,
@@ -2133,18 +2079,14 @@ class Results
      * @param string        $class          class of table cell
      * @param bool          $conditionField whether to add CSS class condition
      * @param FieldMetadata $meta           the meta-information about this field
-     * @param string        $align          cell alignment
      *
      * @return string  the td
      */
-    private function buildEmptyDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
+    private function buildEmptyDisplay(string $class, bool $conditionField, FieldMetadata $meta): string
     {
         $classes = $this->addClass($class, $conditionField, $meta, 'text-nowrap');
 
-        return $this->template->render('display/results/empty_display', [
-            'align' => $align,
-            'classes' => $classes,
-        ]);
+        return $this->template->render('display/results/empty_display', ['classes' => $classes]);
     }
 
     /**
@@ -2161,17 +2103,17 @@ class Results
      * @return string the list of classes
      */
     private function addClass(
-        $class,
-        $conditionField,
+        string $class,
+        bool $conditionField,
         FieldMetadata $meta,
-        $nowrap,
-        $isFieldTruncated = false,
+        string $nowrap,
+        bool $isFieldTruncated = false,
         bool $hasTransformationPlugin = false
-    ) {
-        $classes = [
+    ): string {
+        $classes = array_filter([
             $class,
             $nowrap,
-        ];
+        ]);
 
         if (isset($meta->internalMediaType)) {
             $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
@@ -2231,7 +2173,7 @@ class Results
      */
     private function getTableBody(
         $dtResult,
-        array &$displayParts,
+        array $displayParts,
         array $map,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
@@ -2315,7 +2257,7 @@ class Results
             }
 
             // pointer code part
-            $tableBodyHtml .= '<tr ' . ($trClass === [] ? ' ' : 'class="' . implode(' ', $trClass) . '"') . ' >';
+            $tableBodyHtml .= '<tr' . ($trClass === [] ? '' : ' class="' . implode(' ', $trClass) . '"') . '>';
 
             // 1. Prepares the row
 
@@ -2596,9 +2538,15 @@ class Results
             // handle datetime-related class, for grid editing
             $fieldTypeClass = $this->getClassForDateTimeRelatedFields($meta);
 
-            $isFieldTruncated = false;
             // combine all the classes applicable to this column's value
-            $class = $this->getClassesForColumn($gridEdit, $notNullClass, $relationClass, $hideClass, $fieldTypeClass);
+            $class = implode(' ', array_filter([
+                'data',
+                $gridEdit,
+                $notNullClass,
+                $relationClass,
+                $hideClass,
+                $fieldTypeClass,
+            ]));
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -2746,11 +2694,10 @@ class Results
 
                 $displayParams['data'][$rowNumber][$i] = $this->getDataCellForNumericColumns(
                     $row[$i] === null ? null : (string) $row[$i],
-                    $class,
+                    'text-end ' . $class,
                     $conditionField,
                     $meta,
                     $map,
-                    $isFieldTruncated,
                     $analyzedSqlResults,
                     $transformationPlugin,
                     $transformOptions
@@ -2785,7 +2732,6 @@ class Results
                     $conditionField,
                     $transformationPlugin,
                     $transformOptions,
-                    $isFieldTruncated,
                     $analyzedSqlResults
                 );
             }
@@ -3158,30 +3104,6 @@ class Results
     }
 
     /**
-     * Get the combined classes for a column
-     *
-     * @see     getTableBody()
-     *
-     * @param string $gridEditClass  the class for all editable columns
-     * @param string $notNullClass   the class for not null columns
-     * @param string $relationClass  the class for relations in a column
-     * @param string $hideClass      the class for visibility of a column
-     * @param string $fieldTypeClass the class related to type of the field
-     *
-     * @return string the combined classes
-     */
-    private function getClassesForColumn(
-        string $gridEditClass,
-        string $notNullClass,
-        string $relationClass,
-        string $hideClass,
-        string $fieldTypeClass
-    ) {
-        return 'data ' . $gridEditClass . ' ' . $notNullClass . ' '
-            . $relationClass . ' ' . $hideClass . ' ' . $fieldTypeClass;
-    }
-
-    /**
      * Get class for datetime related fields
      *
      * @see    getTableBody()
@@ -3217,7 +3139,6 @@ class Results
      * @param bool                    $conditionField     the column should highlighted or not
      * @param FieldMetadata           $meta               the meta-information about this field
      * @param array<string, string[]> $map                the list of relations
-     * @param bool                    $isFieldTruncated   the condition for blob data replacements
      * @param array                   $analyzedSqlResults the analyzed query
      * @param array                   $transformOptions   the transformation parameters
      *
@@ -3225,41 +3146,37 @@ class Results
      */
     private function getDataCellForNumericColumns(
         ?string $column,
-        $class,
-        $conditionField,
+        string $class,
+        bool $conditionField,
         FieldMetadata $meta,
         array $map,
-        $isFieldTruncated,
         array $analyzedSqlResults,
         ?TransformationsPlugin $transformationPlugin,
         array $transformOptions
     ) {
-        if (! isset($column)) {
-            $cell = $this->buildNullDisplay('text-end ' . $class, $conditionField, $meta, '');
-        } elseif ($column != '') {
-            $nowrap = ' text-nowrap';
-            $whereComparison = ' = ' . $column;
-
-            $cell = $this->getRowData(
-                'text-end ' . $class,
-                $conditionField,
-                $analyzedSqlResults,
-                $meta,
-                $map,
-                $column,
-                $column,
-                $transformationPlugin,
-                $nowrap,
-                $whereComparison,
-                $transformOptions,
-                $isFieldTruncated,
-                ''
-            );
-        } else {
-            $cell = $this->buildEmptyDisplay('text-end ' . $class, $conditionField, $meta, '');
+        if ($column === null) {
+            return $this->buildNullDisplay($class, $conditionField, $meta);
         }
 
-        return $cell;
+        if ($column === '') {
+            return $this->buildEmptyDisplay($class, $conditionField, $meta);
+        }
+
+        $whereComparison = ' = ' . $column;
+
+        return $this->getRowData(
+            $class,
+            $conditionField,
+            $analyzedSqlResults,
+            $meta,
+            $map,
+            $column,
+            $column,
+            $transformationPlugin,
+            'text-nowrap',
+            $whereComparison,
+            $transformOptions
+        );
     }
 
     /**
@@ -3280,11 +3197,11 @@ class Results
      */
     private function getDataCellForGeometryColumns(
         ?string $column,
-        $class,
+        string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
-        $conditionField,
+        bool $conditionField,
         ?TransformationsPlugin $transformationPlugin,
         $transformOptions,
         array $analyzedSqlResults
@@ -3335,8 +3252,7 @@ class Results
                 '',
                 $whereComparison,
                 $transformOptions,
-                $isFieldTruncated,
-                ''
+                $isFieldTruncated
             );
         }
 
@@ -3364,8 +3280,7 @@ class Results
                 '',
                 $whereComparison,
                 $transformOptions,
-                $isFieldTruncated,
-                ''
+                $isFieldTruncated
             );
         }
 
@@ -3393,28 +3308,26 @@ class Results
      * @param array                   $urlParams          the parameters for generate url
      * @param bool                    $conditionField     the column should highlighted or not
      * @param array                   $transformOptions   the transformation parameters
-     * @param bool                    $isFieldTruncated   is data truncated due to LimitChars
      * @param array                   $analyzedSqlResults the analyzed query
      *
      * @return string the prepared data cell, html content
      */
     private function getDataCellForNonNumericColumns(
         ?string $column,
-        $class,
+        string $class,
         FieldMetadata $meta,
         array $map,
         array $urlParams,
-        $conditionField,
+        bool $conditionField,
         ?TransformationsPlugin $transformationPlugin,
         $transformOptions,
-        $isFieldTruncated,
         array $analyzedSqlResults
     ) {
         $originalLength = 0;
 
         $isAnalyse = $this->properties['is_analyse'];
 
-        $bIsText = isset($transformationPlugin) && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
+        $bIsText = $transformationPlugin !== null && ! str_contains($transformationPlugin->getMIMEType(), 'Text');
 
         // disable inline grid editing
         // if binary fields are protected
@@ -3446,8 +3359,9 @@ class Results
         // (unless it's a link-type transformation or binary)
         $originalDataForWhereClause = $column;
         $displayedColumn = $column;
+        $isFieldTruncated = false;
         if (
-            ! (isset($transformationPlugin)
+            ! ($transformationPlugin !== null
             && str_contains($transformationPlugin->getName(), 'Link'))
             && ! $meta->isBinary()
         ) {
@@ -3487,7 +3401,7 @@ class Results
                 $meta,
                 '',
                 $isFieldTruncated,
-                isset($transformationPlugin)
+                $transformationPlugin !== null
             );
             $result = strip_tags($column);
             // disable inline grid editing
@@ -3500,7 +3414,7 @@ class Results
         }
 
         // transform functions may enable no-wrapping:
-        $boolNoWrap = isset($transformationPlugin)
+        $boolNoWrap = $transformationPlugin !== null
             && $transformationPlugin->applyTransformationNoWrap($transformOptions);
 
         // do not wrap if date field type or if no-wrapping enabled by transform functions
@@ -3772,7 +3686,7 @@ class Results
             );
 
             $sqlQueryMessage = Generator::getMessage($message, $this->properties['sql_query'], 'success');
-        } elseif ((! isset($printView) || ($printView != '1')) && ! $isLimitedDisplay) {
+        } elseif (($printView === null || $printView != '1') && ! $isLimitedDisplay) {
             $sqlQueryMessage = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->properties['sql_query'],
@@ -4324,7 +4238,7 @@ class Results
         array $transformOptions,
         FieldMetadata $meta,
         array $urlParams = [],
-        &$isTruncated = null
+        &$isTruncated = false
     ): string {
         $isTruncated = false;
         $result = '[' . $category;
@@ -4344,7 +4258,7 @@ class Results
         $result .= ']';
 
         // if we want to use a text transformation on a BLOB column
-        if (isset($transformationPlugin)) {
+        if ($transformationPlugin !== null) {
             $posMimeOctetstream = strpos(
                 $transformationPlugin->getMIMESubtype(),
                 'Octetstream'
@@ -4361,7 +4275,7 @@ class Results
             return $result;
         }
 
-        if (isset($transformationPlugin)) {
+        if ($transformationPlugin !== null) {
             return $transformationPlugin->applyTransformation($result, $transformOptions, $meta);
         }
 
@@ -4454,19 +4368,19 @@ class Results
      * @return string  formatted data
      */
     private function getRowData(
-        $class,
-        $conditionField,
+        string $class,
+        bool $conditionField,
         array $analyzedSqlResults,
         FieldMetadata $meta,
         array $map,
         $data,
         $displayedData,
         ?TransformationsPlugin $transformationPlugin,
-        $nowrap,
-        $whereComparison,
+        string $nowrap,
+        string $whereComparison,
         array $transformOptions,
-        $isFieldTruncated,
-        $originalLength = ''
+        bool $isFieldTruncated = false,
+        string $originalLength = ''
     ) {
         $relationalDisplay = $_SESSION['tmpval']['relational_display'];
         $printView = $this->properties['printview'];
@@ -4477,7 +4391,7 @@ class Results
             $meta,
             $nowrap,
             $isFieldTruncated,
-            isset($transformationPlugin)
+            $transformationPlugin !== null
         );
 
         if (! empty($analyzedSqlResults['statement']->expr)) {

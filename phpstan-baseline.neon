@@ -3216,11 +3216,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getClassForNumericColumnType\\(\\) has parameter \\$thClass with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getColumnAtRightSide\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3567,16 +3562,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setParamForLinkForeignKeyRelatedTables\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int\\|string, array\\>\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#1 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDraggableClassForNonSortableColumns\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#2 \\$colVisibElement of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDraggableClassForNonSortableColumns\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -10289,11 +10274,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Dbal\\\\DbiDummyTest\\:\\:schemaData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Dbal/DbiDummyTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetClassesForColumn\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetDataCellForNonNumericColumns\\(\\) return type has no value type specified in iterable type array\\.$#"

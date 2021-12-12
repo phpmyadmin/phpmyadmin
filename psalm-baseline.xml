@@ -5919,7 +5919,7 @@
     <InvalidArgument occurrences="1">
       <code>$added[$orgFullTableName]</code>
     </InvalidArgument>
-    <MixedArgument occurrences="57">
+    <MixedArgument occurrences="55">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5938,8 +5938,6 @@
       <code>$colOrder</code>
       <code>$colVisib</code>
       <code>$colVisib</code>
-      <code>$colVisib</code>
-      <code>$colVisibCurrent</code>
       <code>$colVisibCurrent</code>
       <code>$displayParams['desc']</code>
       <code>$displayParams['emptyafter']</code>
@@ -6229,10 +6227,8 @@
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
-      <code>$colVisibCurrent</code>
-      <code>$isFieldTruncated</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="2">
       <code>$dispval</code>
@@ -15781,8 +15777,7 @@
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="8">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="7">
       <code>array</code>
       <code>array</code>
       <code>array</code>
