@@ -1177,60 +1177,28 @@ class Results
     }
 
     /**
-     * Prepare unsorted sql query and sort by key drop down
-     *
-     * @see getTableHeaders()
-     *
-     * @param array      $analyzedSqlResults analyzed sql results
-     * @param array|null $sortExpression     sort expression
-     *
-     * @return array     two element array - $unsorted_sql_query, $drop_down_html
-     * @psalm-return array{string, array{hidden_fields?: array, options?: array}}
-     */
-    private function getUnsortedSqlAndSortByKeyDropDown(
-        array $analyzedSqlResults,
-        ?array $sortExpression
-    ) {
-        $dropDownData = [];
-
-        $unsortedSqlQuery = Query::replaceClause(
-            $analyzedSqlResults['statement'],
-            $analyzedSqlResults['parser']->list,
-            'ORDER BY',
-            ''
-        );
-
-        // Data is sorted by indexes only if it there is only one table.
-        if ($this->isSelect($analyzedSqlResults)) {
-            // grab indexes data:
-            $indexes = Index::getFromTable($this->properties['table'], $this->properties['db']);
-
-            // do we have any index?
-            if ($indexes !== []) {
-                $dropDownData = $this->getSortByKeyDropDown($indexes, $sortExpression, $unsortedSqlQuery);
-            }
-        }
-
-        return [$unsortedSqlQuery, $dropDownData];
-    }
-
-    /**
      * Prepare sort by key dropdown - html code segment
      *
      * @see getTableHeaders()
      *
-     * @param Index[]    $indexes          the indexes of the table for sort criteria
      * @param array|null $sortExpression   the sort expression
      * @param string     $unsortedSqlQuery the unsorted sql query
      *
      * @return array[]
-     * @psalm-return array{hidden_fields:array, options:array}
+     * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
-        $indexes,
         ?array $sortExpression,
-        $unsortedSqlQuery
+        string $unsortedSqlQuery
     ): array {
+        // grab indexes data:
+        $indexes = Index::getFromTable($this->properties['table'], $this->properties['db']);
+
+        // do we have any index?
+        if ($indexes === []) {
+            return [];
+        }
+
         $hiddenFields = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -3706,11 +3674,20 @@ class Results
         $sortByKeyData = [];
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && isset($analyzedSqlResults['statement'])) {
-            // At this point, $sort_expression is an array
-            [$unsortedSqlQuery, $sortByKeyData] = $this->getUnsortedSqlAndSortByKeyDropDown(
-                $analyzedSqlResults,
-                $sortExpression
+            $unsortedSqlQuery = Query::replaceClause(
+                $analyzedSqlResults['statement'],
+                $analyzedSqlResults['parser']->list,
+                'ORDER BY',
+                ''
             );
+
+            // Data is sorted by indexes only if there is only one table.
+            if ($this->isSelect($analyzedSqlResults)) {
+                $sortByKeyData = $this->getSortByKeyDropDown(
+                    $sortExpression,
+                    $unsortedSqlQuery
+                );
+            }
         }
 
         $navigation = [];
