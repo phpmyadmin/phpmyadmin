@@ -171,6 +171,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
+        vendor/code-lts/u2f-php-server/phpunit.xml \
+        vendor/code-lts/u2f-php-server/test/ \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
@@ -272,7 +274,7 @@ security_checkup() {
         echo 'TCPDF should be installed, detection failed !'
         exit 1;
     fi
-    if [ ! -f vendor/samyoul/u2f-php-server/src/U2FServer.php ]; then
+    if [ ! -f vendor/code-lts/u2f-php-server/src/U2FServer.php ]; then
         echo 'U2F-server should be installed, detection failed !'
         exit 1;
     fi
@@ -440,7 +442,7 @@ composer update --no-interaction --no-dev --optimize-autoloader
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code samyoul/u2f-php-server'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server'
 
 for PACKAGES in $PACKAGE_LIST
 do

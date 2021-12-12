@@ -135,6 +135,8 @@ phpMyAdmin - ChangeLog
 - issue        Fix a PHP notice when logging out
 - issue #17090 Fix bbcode not rendered for error messages on setup
 - issue #17198 Fix the database selection when the navigation tree is disabled
+- issue #17228 Fixed copy to clipboard with NULL values gives non usable text
+- issue #16746 Replace samyoul/u2f-php-server by code-lts/u2f-php-server
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
