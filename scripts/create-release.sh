@@ -168,6 +168,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
+        vendor/code-lts/u2f-php-server/phpunit.xml \
+        vendor/code-lts/u2f-php-server/test/ \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
