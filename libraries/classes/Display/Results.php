@@ -4243,8 +4243,6 @@ class Results
         string $printLink,
         array $analyzedSqlResults
     ): array {
-        global $printview;
-
         $urlParams = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -4262,7 +4260,6 @@ class Results
         // display the Export link).
         if (
             ($analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT)
-            && ! isset($printview)
             && empty($analyzedSqlResults['procedure'])
         ) {
             if (count($analyzedSqlResults['select_tables']) === 1) {
@@ -4302,7 +4299,7 @@ class Results
             'has_procedure' => ! empty($analyzedSqlResults['procedure']),
             'has_geometry' => $geometryFound,
             'has_print_link' => $printLink == '1',
-            'has_export_link' => $analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT && ! isset($printview),
+            'has_export_link' => $analyzedSqlResults['querytype'] === self::QUERY_TYPE_SELECT,
             'url_params' => $urlParams,
         ];
     }
