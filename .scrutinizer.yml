@@ -27,7 +27,7 @@ build:
       dependencies:
         before:
           - composer install
-          - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
+          - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode code-lts/u2f-php-server
       tests:
         override:
           - php-scrutinizer-run
