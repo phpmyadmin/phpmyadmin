@@ -376,7 +376,9 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value += '\n';
         $('.table_results tbody tr').each(function () {
             $(this).find('.data span').each(function () {
-                textArea.value += $(this).text() + '\t';
+                // Extract <em> tag for NULL values before converting to string to not mess up formatting
+                var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
+                textArea.value += $(data).text() + '\t';
             });
             textArea.value += '\n';
         });
