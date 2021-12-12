@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-10-15 01:55+0000\n"
+"PO-Revision-Date: 2021-12-12 20:03+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7167,9 +7167,7 @@ msgstr "エラーレポートの詳細を表示"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
-"PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しません"
-"でした。"
+msgstr "PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しませんでした！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
 #, php-format
