@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-11-26 08:53+0000\n"
+"PO-Revision-Date: 2021-12-12 20:03+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "mn/>\n"
@@ -1499,7 +1499,7 @@ msgstr "Уламжлалт хятд"
 #: libraries/classes/Charsets/Collation.php:450
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Хятад"
 
 #: libraries/classes/Charsets/Collation.php:379
 #: libraries/classes/Charsets/Collation.php:498
@@ -6318,7 +6318,7 @@ msgstr "Хүснэгтийн сонголтууд"
 #. l10n: Filter as in "Start Filtering"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Filter"
-msgstr ""
+msgstr "Шүүлтүүх"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Filter queries by word/regexp:"
@@ -6691,7 +6691,7 @@ msgstr "Хувьсагч"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Normalization.php:1046
 msgid "Pick"
-msgstr ""
+msgstr "Сонгох"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #, fuzzy
@@ -6821,7 +6821,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Step"
-msgstr ""
+msgstr "Алхам"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "The following actions will be performed:"
@@ -7153,7 +7153,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "Гарчиггүй"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #, fuzzy
@@ -7275,7 +7275,7 @@ msgstr "Таслагдсан"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
-msgstr ""
+msgstr "Амжилттай"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
@@ -7567,15 +7567,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Weak"
-msgstr ""
+msgstr "Сул"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Good"
-msgstr ""
+msgstr "Сайн"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 msgid "Strong"
-msgstr ""
+msgstr "Хүчтэй"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
@@ -8744,7 +8744,7 @@ msgstr ""
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
 msgid "Theme"
-msgstr ""
+msgstr "Загвар"
 
 #: libraries/classes/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
@@ -8821,11 +8821,11 @@ msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "YES"
-msgstr ""
+msgstr "ТИЙМ"
 
 #: libraries/classes/Database/CentralColumns.php:665
 msgid "NO"
-msgstr ""
+msgstr "ҮГҮЙ"
 
 #: libraries/classes/Database/Designer/Common.php:568
 #, fuzzy
@@ -9377,7 +9377,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
-msgstr ""
+msgstr "Сэтгэгдэл"
 
 #: libraries/classes/Database/Routines.php:1076
 msgid "You must provide a name and a type for each routine parameter."
@@ -10756,12 +10756,12 @@ msgstr "Баганын нэрс"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 #, fuzzy
