@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-12 00:11+0000\n"
-"PO-Revision-Date: 2021-12-08 14:53+0000\n"
+"PO-Revision-Date: 2021-12-12 20:03+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -7188,9 +7188,7 @@ msgstr "エラーレポートの詳細を表示"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
-"PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しません"
-"でした。"
+msgstr "PHP レベルで設定された実行時間制限が短すぎるため、エクスポートが完了しませんでした！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #, php-format
@@ -7223,11 +7221,11 @@ msgstr "設定に従って現在これらを送信しています。気長にお
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:647
 msgid "Column name successfully copied to clipboard!"
-msgstr "カラム名をクリップボードにコピーしました。"
+msgstr "カラム名をクリップボードにコピーしました！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 msgid "Column name copying to clipboard failed!"
-msgstr "カラム名をクリップボードへコピーできませんでした。"
+msgstr "カラム名をクリップボードへコピーできませんでした！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Successfully copied!"
@@ -15699,7 +15697,7 @@ msgstr ""
 
 #: templates/import.twig:69 templates/import.twig:96
 msgid "There are no files to import!"
-msgstr "インポートするファイルがありません。"
+msgstr "インポートするファイルがありません！"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -16320,10 +16318,8 @@ msgid "There are no favorite tables."
 msgstr "お気に入りのテーブルはありません。"
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin設定スニペット"
+msgstr "phpMyAdmin 環境保管領域"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16400,9 +16396,8 @@ msgid "OK"
 msgstr "OK"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
 msgid "General relation features:"
-msgstr "一般的なリレーション機能"
+msgstr "全般的なリレーション機能:"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16426,28 +16421,20 @@ msgid "Enabled"
 msgstr "有効"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "表示機能"
+msgstr "表示機能:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "デザイナとPDFの作成"
+msgstr "デザイナとPDFの作成:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "カラムコメント表示機能"
+msgstr "カラムコメント表示機能:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "ブラウザ変換機能"
+msgstr "ブラウザ変換機能:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16456,81 +16443,56 @@ msgstr ""
 "い。"
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "ブックマークされている SQL"
+msgstr "ブックマークされている SQL:"
 
 #: templates/relation/check_relations.twig:220
-#, fuzzy
 msgid "SQL history:"
-msgstr "SQL 履歴"
+msgstr "SQL の履歴:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "最近使用したテーブルの保存"
+msgstr "最近使用したテーブルの保存:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "お気に入りのテーブルの保存"
+msgstr "お気に入りテーブルの保存:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "テーブルに対する環境設定の保存"
+msgstr "テーブルの UI 設定の保存:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "SQL コマンドの追跡"
+msgstr "SQL コマンドの追跡:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "ユーザ環境設定"
+msgstr "ユーザ環境設定:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "ユーザメニュー設定"
+msgstr "ユーザメニュー設定:"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "ナビゲーション項目を表示/非表示"
+msgstr "ナビゲーション項目を表示/非表示:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "定型問い合わせ検索の保存"
+msgstr "定型問い合わせ検索の保存:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "主要カラムのリストを管理"
+msgstr "主要カラムのリストを管理:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "デザイナーの設定を記憶"
+msgstr "デザイナの設定を記憶:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "エクスポートテンプレートの保存"
+msgstr "エクスポートテンプレートの保存:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
