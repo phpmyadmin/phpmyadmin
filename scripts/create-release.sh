@@ -260,7 +260,7 @@ security_checkup() {
         echo 'TCPDF should be installed, detection failed !'
         exit 1;
     fi
-    if [ ! -f vendor/samyoul/u2f-php-server/src/U2FServer.php ]; then
+    if [ ! -f vendor/code-lts/u2f-php-server/src/U2FServer.php ]; then
         echo 'U2F-server should be installed, detection failed !'
         exit 1;
     fi
@@ -428,7 +428,7 @@ composer update --no-interaction --no-dev --optimize-autoloader
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode code-lts/u2f-php-server'
 
 for PACKAGES in $PACKAGE_LIST
 do

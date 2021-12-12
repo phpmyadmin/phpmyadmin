@@ -64,8 +64,7 @@
         "phpseclib/phpseclib": "2.0.8",
         "tecnickcom/tcpdf": "<6.2",
         "pragmarx/google2fa": "<6.1.0 || >8.0",
-        "pragmarx/google2fa-qrcode": "<1.0.1",
-        "samyoul/u2f-php-server": "<1.1"
+        "pragmarx/google2fa-qrcode": "<1.0.1"
     },
     "suggest": {
         "ext-openssl": "Cookie encryption",
@@ -78,7 +77,7 @@
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa-qrcode": "For 2FA authentication",
-        "samyoul/u2f-php-server": "For FIDO U2F authentication"
+        "code-lts/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
         "php-webdriver/webdriver": "^1.11",
@@ -88,7 +87,7 @@
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": "^7.5 || ^8.0 || ^9.0",
         "pragmarx/google2fa-qrcode": "^1.0.1",
-        "samyoul/u2f-php-server": "^1.1",
+        "code-lts/u2f-php-server": "^1.2",
         "symfony/console": "^4.4",
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",

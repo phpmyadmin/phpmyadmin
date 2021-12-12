@@ -21,7 +21,7 @@ Or when using a hardware security key with FIDO U2F:
 
 .. code-block:: sh
 
-    composer require samyoul/u2f-php-server
+    composer require code-lts/u2f-php-server
 
 Authentication Application (2FA)
 --------------------------------
