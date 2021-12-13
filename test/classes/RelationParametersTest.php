@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\TestCase;
@@ -25,47 +26,50 @@ class RelationParametersTest extends TestCase
         $relationParametersArray = $relationParameters->toArray();
         $this->assertSame($expected['version'], $relationParameters->version);
         $this->assertSame($expected['version'], $relationParametersArray['version']);
-        $this->assertSame($expected['relwork'], $relationParameters->relwork);
+        $this->assertSame($expected['relwork'], $relationParameters->hasRelationFeature());
         $this->assertSame($expected['relwork'], $relationParametersArray['relwork']);
-        $this->assertSame($expected['displaywork'], $relationParameters->displaywork);
+        $this->assertSame($expected['displaywork'], $relationParameters->hasDisplayFeature());
         $this->assertSame($expected['displaywork'], $relationParametersArray['displaywork']);
-        $this->assertSame($expected['bookmarkwork'], $relationParameters->bookmarkwork);
+        $this->assertSame($expected['bookmarkwork'], $relationParameters->hasBookmarkFeature());
         $this->assertSame($expected['bookmarkwork'], $relationParametersArray['bookmarkwork']);
-        $this->assertSame($expected['pdfwork'], $relationParameters->pdfwork);
+        $this->assertSame($expected['pdfwork'], $relationParameters->hasPdfFeature());
         $this->assertSame($expected['pdfwork'], $relationParametersArray['pdfwork']);
-        $this->assertSame($expected['commwork'], $relationParameters->commwork);
+        $this->assertSame($expected['commwork'], $relationParameters->hasColumnCommentsFeature());
         $this->assertSame($expected['commwork'], $relationParametersArray['commwork']);
-        $this->assertSame($expected['mimework'], $relationParameters->mimework);
+        $this->assertSame($expected['mimework'], $relationParameters->hasBrowserTransformationFeature());
         $this->assertSame($expected['mimework'], $relationParametersArray['mimework']);
-        $this->assertSame($expected['historywork'], $relationParameters->historywork);
+        $this->assertSame($expected['historywork'], $relationParameters->hasSqlHistoryFeature());
         $this->assertSame($expected['historywork'], $relationParametersArray['historywork']);
-        $this->assertSame($expected['recentwork'], $relationParameters->recentwork);
+        $this->assertSame($expected['recentwork'], $relationParameters->hasRecentlyUsedTablesFeature());
         $this->assertSame($expected['recentwork'], $relationParametersArray['recentwork']);
-        $this->assertSame($expected['favoritework'], $relationParameters->favoritework);
+        $this->assertSame($expected['favoritework'], $relationParameters->hasFavoriteTablesFeature());
         $this->assertSame($expected['favoritework'], $relationParametersArray['favoritework']);
-        $this->assertSame($expected['uiprefswork'], $relationParameters->uiprefswork);
+        $this->assertSame($expected['uiprefswork'], $relationParameters->hasUiPreferencesFeature());
         $this->assertSame($expected['uiprefswork'], $relationParametersArray['uiprefswork']);
-        $this->assertSame($expected['trackingwork'], $relationParameters->trackingwork);
+        $this->assertSame($expected['trackingwork'], $relationParameters->hasTrackingFeature());
         $this->assertSame($expected['trackingwork'], $relationParametersArray['trackingwork']);
-        $this->assertSame($expected['userconfigwork'], $relationParameters->userconfigwork);
+        $this->assertSame($expected['userconfigwork'], $relationParameters->hasUserPreferencesFeature());
         $this->assertSame($expected['userconfigwork'], $relationParametersArray['userconfigwork']);
-        $this->assertSame($expected['menuswork'], $relationParameters->menuswork);
+        $this->assertSame($expected['menuswork'], $relationParameters->hasConfigurableMenusFeature());
         $this->assertSame($expected['menuswork'], $relationParametersArray['menuswork']);
-        $this->assertSame($expected['navwork'], $relationParameters->navwork);
+        $this->assertSame($expected['navwork'], $relationParameters->hasNavigationItemsHidingFeature());
         $this->assertSame($expected['navwork'], $relationParametersArray['navwork']);
-        $this->assertSame($expected['savedsearcheswork'], $relationParameters->savedsearcheswork);
+        $this->assertSame($expected['savedsearcheswork'], $relationParameters->hasSavedQueryByExampleSearchesFeature());
         $this->assertSame($expected['savedsearcheswork'], $relationParametersArray['savedsearcheswork']);
-        $this->assertSame($expected['centralcolumnswork'], $relationParameters->centralcolumnswork);
+        $this->assertSame($expected['centralcolumnswork'], $relationParameters->hasCentralColumnsFeature());
         $this->assertSame($expected['centralcolumnswork'], $relationParametersArray['centralcolumnswork']);
-        $this->assertSame($expected['designersettingswork'], $relationParameters->designersettingswork);
+        $this->assertSame($expected['designersettingswork'], $relationParameters->hasDatabaseDesignerSettingsFeature());
         $this->assertSame($expected['designersettingswork'], $relationParametersArray['designersettingswork']);
-        $this->assertSame($expected['exporttemplateswork'], $relationParameters->exporttemplateswork);
+        $this->assertSame($expected['exporttemplateswork'], $relationParameters->hasExportTemplatesFeature());
         $this->assertSame($expected['exporttemplateswork'], $relationParametersArray['exporttemplateswork']);
-        $this->assertSame($expected['allworks'], $relationParameters->allworks);
+        $this->assertSame($expected['allworks'], $relationParameters->hasAllFeatures());
         $this->assertSame($expected['allworks'], $relationParametersArray['allworks']);
         $this->assertSame($expected['user'], $relationParameters->user);
         $this->assertSame($expected['user'], $relationParametersArray['user']);
-        $this->assertSame($expected['db'], $relationParameters->db);
+        $this->assertSame(
+            $expected['db'],
+            $relationParameters->db instanceof DatabaseName ? $relationParameters->db->getName() : null
+        );
         $this->assertSame($expected['db'], $relationParametersArray['db']);
         $this->assertSame($expected['bookmark'], $relationParameters->bookmark);
         $this->assertSame($expected['bookmark'], $relationParametersArray['bookmark']);
@@ -337,9 +341,6 @@ class RelationParametersTest extends TestCase
             ],
             'valid values 2' => [
                 [
-                    'version' => '',
-                    'user' => '',
-                    'db' => '',
                     'bookmark' => '',
                     'central_columns' => '',
                     'column_info' => '',
@@ -361,7 +362,7 @@ class RelationParametersTest extends TestCase
                     'users' => '',
                 ],
                 [
-                    'version' => '',
+                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -381,8 +382,8 @@ class RelationParametersTest extends TestCase
                     'designersettingswork' => false,
                     'exporttemplateswork' => false,
                     'allworks' => false,
-                    'user' => '',
-                    'db' => '',
+                    'user' => null,
+                    'db' => null,
                     'bookmark' => '',
                     'central_columns' => '',
                     'column_info' => '',
@@ -447,6 +448,56 @@ class RelationParametersTest extends TestCase
                     'userconfig' => 1,
                     'usergroups' => 1,
                     'users' => 1,
+                ],
+                [
+                    'version' => Version::VERSION,
+                    'relwork' => false,
+                    'displaywork' => false,
+                    'bookmarkwork' => false,
+                    'pdfwork' => false,
+                    'commwork' => false,
+                    'mimework' => false,
+                    'historywork' => false,
+                    'recentwork' => false,
+                    'favoritework' => false,
+                    'uiprefswork' => false,
+                    'trackingwork' => false,
+                    'userconfigwork' => false,
+                    'menuswork' => false,
+                    'navwork' => false,
+                    'savedsearcheswork' => false,
+                    'centralcolumnswork' => false,
+                    'designersettingswork' => false,
+                    'exporttemplateswork' => false,
+                    'allworks' => false,
+                    'user' => null,
+                    'db' => null,
+                    'bookmark' => null,
+                    'central_columns' => null,
+                    'column_info' => null,
+                    'designer_settings' => null,
+                    'export_templates' => null,
+                    'favorite' => null,
+                    'history' => null,
+                    'navigationhiding' => null,
+                    'pdf_pages' => null,
+                    'recent' => null,
+                    'relation' => null,
+                    'savedsearches' => null,
+                    'table_coords' => null,
+                    'table_info' => null,
+                    'table_uiprefs' => null,
+                    'tracking' => null,
+                    'userconfig' => null,
+                    'usergroups' => null,
+                    'users' => null,
+                ],
+            ],
+            'invalid values 2' => [
+                [
+                    'version' => '',
+                    'user' => '',
+                    'db' => '',
                 ],
                 [
                     'version' => Version::VERSION,

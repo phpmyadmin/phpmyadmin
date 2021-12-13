@@ -218,10 +218,10 @@ class Bookmark
 
         $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
-        if ($relationParameters->bookmarkwork) {
+        if ($relationParameters->hasBookmarkFeature() && $relationParameters->db !== null) {
             $cfgBookmark = [
                 'user' => $user,
-                'db' => $relationParameters->db,
+                'db' => $relationParameters->db->getName(),
                 'table' => $relationParameters->bookmark,
             ];
             Cache::set($cacheKey, $cfgBookmark);

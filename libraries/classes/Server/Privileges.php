@@ -549,7 +549,7 @@ class Privileges
         $userGroup = $userGroup ?? '';
         $relationParameters = $this->relation->getRelationParameters();
         if (
-            empty($relationParameters->db)
+            $relationParameters->db === null
             || empty($relationParameters->users)
             || empty($relationParameters->usergroups)
         ) {
@@ -1571,7 +1571,7 @@ class Privileges
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (empty($relationParameters->db) || empty($relationParameters->users)) {
+        if ($relationParameters->db === null || empty($relationParameters->users)) {
             return null;
         }
 
@@ -1618,7 +1618,7 @@ class Privileges
         $relationParameters = $this->relation->getRelationParameters();
 
         $userGroupCount = 0;
-        if ($relationParameters->menuswork) {
+        if ($relationParameters->hasConfigurableMenusFeature()) {
             $userGroupCount = $this->getUserGroupCount();
         }
 
@@ -1634,7 +1634,7 @@ class Privileges
                 'has_password' => ! empty($password) || isset($_POST['pma_pw']),
                 'privileges' => implode(', ', $this->extractPrivInfo(null, true)),
                 'has_group' => ! empty($relationParameters->users) && ! empty($relationParameters->usergroups),
-                'has_group_edit' => $relationParameters->menuswork && $userGroupCount > 0,
+                'has_group_edit' => $relationParameters->hasConfigurableMenusFeature() && $userGroupCount > 0,
                 'has_grant' => isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y',
             ];
             $extraData['new_user_string'] = $this->template->render('server/privileges/new_user_ajax', [
@@ -2050,7 +2050,7 @@ class Privileges
         $this->dbi->freeResult($result);
 
         $userGroupCount = 0;
-        if ($relationParameters->menuswork) {
+        if ($relationParameters->hasConfigurableMenusFeature()) {
             $sqlQuery = 'SELECT * FROM ' . Util::backquote($relationParameters->db)
                 . '.' . Util::backquote($relationParameters->users);
             $result = $this->relation->queryAsControlUser($sqlQuery, false);
@@ -2097,7 +2097,7 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/users_overview', [
-            'menus_work' => $relationParameters->menuswork,
+            'menus_work' => $relationParameters->hasConfigurableMenusFeature(),
             'user_group_count' => $userGroupCount,
             'text_dir' => $textDir,
             'initial' => $_GET['initial'] ?? '',

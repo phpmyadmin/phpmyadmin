@@ -325,7 +325,7 @@ class Results
         ];
 
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->db) {
+        if ($relationParameters->db === null) {
             return;
         }
 
@@ -373,7 +373,7 @@ class Results
             $relDb[$relationParameters->exportTemplates] = ['template_data' => $jsonHighlightingData];
         }
 
-        $this->transformationInfo[$relationParameters->db] = $relDb;
+        $this->transformationInfo[$relationParameters->db->getName()] = $relDb;
     }
 
     /**
@@ -2535,8 +2535,8 @@ class Results
             $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;
 
             if (
-                ! $relationParameters->commwork
-                || ! $relationParameters->mimework
+                ! $relationParameters->hasColumnCommentsFeature()
+                || ! $relationParameters->hasBrowserTransformationFeature()
                 || ! $GLOBALS['cfg']['BrowseMIME']
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
@@ -2667,7 +2667,7 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($relationParameters->mimework && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
                 if (
                     isset($mediaTypeMap[$orgFullColName]['mimetype'])
                     && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
@@ -3958,8 +3958,8 @@ class Results
             'sql_query' => $this->properties['sql_query'],
             'goto' => $this->properties['goto'],
             'unlim_num_rows' => $this->properties['unlim_num_rows'],
-            'displaywork' => $relationParameters->displaywork,
-            'relwork' => $relationParameters->relwork,
+            'displaywork' => $relationParameters->hasDisplayFeature(),
+            'relwork' => $relationParameters->hasRelationFeature(),
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'text_dir' => $this->properties['text_dir'],

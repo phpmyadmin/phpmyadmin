@@ -120,9 +120,9 @@ final class Options
 
         $templates = [];
 
-        if ($relationParameters->exporttemplateswork) {
+        if ($relationParameters->hasExportTemplatesFeature() && $relationParameters->db !== null) {
             $templates = $this->templateModel->getAll(
-                (string) $relationParameters->db,
+                $relationParameters->db,
                 (string) $relationParameters->exportTemplates,
                 $GLOBALS['cfg']['Server']['user'],
                 $exportType
@@ -178,7 +178,7 @@ final class Options
             'db' => $db,
             'table' => $table,
             'templates' => [
-                'is_enabled' => $relationParameters->exporttemplateswork,
+                'is_enabled' => $relationParameters->hasExportTemplatesFeature(),
                 'templates' => $templates,
                 'selected' => $_POST['template_id'] ?? null,
             ],

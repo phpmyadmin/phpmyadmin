@@ -1654,7 +1654,9 @@ class Qbe
     public function getSelectionForm(): string
     {
         $relationParameters = $this->relation->getRelationParameters();
-        $savedSearchesField = $relationParameters->savedsearcheswork ? $this->getSavedSearchesField() : '';
+        $savedSearchesField = $relationParameters->hasSavedQueryByExampleSearchesFeature()
+            ? $this->getSavedSearchesField()
+            : '';
 
         $columnNamesRow = $this->getColumnNamesRow();
         $columnAliasRow = $this->getColumnAliasRow();

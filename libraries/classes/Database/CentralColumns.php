@@ -105,10 +105,10 @@ class CentralColumns
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->centralcolumnswork) {
+        if ($relationParameters->hasCentralColumnsFeature() && $relationParameters->db !== null) {
             $cfgCentralColumns = [
                 'user' => $this->user,
-                'db' => $relationParameters->db,
+                'db' => $relationParameters->db->getName(),
                 'table' => $relationParameters->centralColumns,
             ];
         } else {

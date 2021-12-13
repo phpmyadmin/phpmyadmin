@@ -365,7 +365,7 @@ class NodeDatabase extends Node
 
         // Remove hidden items so that they are not displayed in navigation tree
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
                 if (! in_array($item, $hiddenItems)) {
@@ -393,7 +393,7 @@ class NodeDatabase extends Node
 
         $db = $this->realName;
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->navwork || $relationParameters->user === null) {
+        if (! $relationParameters->hasNavigationItemsHidingFeature() || $relationParameters->user === null) {
             return [];
         }
 
@@ -662,7 +662,7 @@ class NodeDatabase extends Node
     {
         $ret = '';
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             if ($this->hiddenCount > 0) {
                 $params = [
                     'showUnhideDialog' => true,

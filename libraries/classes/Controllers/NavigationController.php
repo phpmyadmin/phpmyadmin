@@ -63,7 +63,7 @@ class NavigationController extends AbstractController
         }
 
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->navwork) {
+        if ($relationParameters->hasNavigationItemsHidingFeature()) {
             if (isset($_POST['hideNavItem'])) {
                 if (! empty($_POST['itemName']) && ! empty($_POST['itemType']) && ! empty($_POST['dbName'])) {
                     $this->navigation->hideNavigationItem(

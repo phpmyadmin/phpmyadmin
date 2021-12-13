@@ -40,7 +40,7 @@ class SystemDatabase
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if (! $relationParameters->mimework) {
+        if (! $relationParameters->hasBrowserTransformationFeature()) {
             return false;
         }
 

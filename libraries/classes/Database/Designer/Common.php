@@ -273,7 +273,7 @@ class Common
     public function getTablePositions($pg): ?array
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return [];
         }
 
@@ -307,7 +307,7 @@ class Common
     public function getPageName($pg)
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return null;
         }
 
@@ -334,7 +334,7 @@ class Common
     public function deletePage($pg): bool
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return false;
         }
 
@@ -364,7 +364,7 @@ class Common
     public function getDefaultPage($db): ?int
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return -1;
         }
 
@@ -398,7 +398,7 @@ class Common
     public function getPageExists(string $pg): bool
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return false;
         }
 
@@ -428,7 +428,7 @@ class Common
     public function getLoadingPage($db)
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return -1;
         }
 
@@ -465,7 +465,7 @@ class Common
     public function createNewPage($pageName, $db)
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->pdfwork) {
+        if ($relationParameters->hasPdfFeature()) {
             $page = $this->relation->createPage($pageName, $relationParameters, $db);
 
             return $page !== false ? $page : null;
@@ -484,7 +484,7 @@ class Common
         $pageId = $this->dbi->escapeString((string) $pg);
 
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->pdfwork) {
+        if (! $relationParameters->hasPdfFeature()) {
             return false;
         }
 
@@ -536,7 +536,7 @@ class Common
     public function saveDisplayField($db, $table, $field): array
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->displaywork) {
+        if (! $relationParameters->hasDisplayFeature()) {
             return [
                 false,
                 _pgettext(
@@ -661,7 +661,7 @@ class Common
         }
 
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->relwork == false) {
+        if (! $relationParameters->hasRelationFeature()) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -748,7 +748,7 @@ class Common
         }
 
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->relwork == false) {
+        if (! $relationParameters->hasRelationFeature()) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -793,10 +793,10 @@ class Common
     {
         $relationParameters = $this->relation->getRelationParameters();
         $success = true;
-        if ($relationParameters->designersettingswork) {
+        if ($relationParameters->hasDatabaseDesignerSettingsFeature() && $relationParameters->db !== null) {
             $cfgDesigner = [
                 'user' => $GLOBALS['cfg']['Server']['user'],
-                'db' => $relationParameters->db,
+                'db' => $relationParameters->db->getName(),
                 'table' => $relationParameters->designerSettings,
             ];
 

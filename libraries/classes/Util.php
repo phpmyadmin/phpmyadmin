@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
 use phpseclib3\Crypt\Random;
+use Stringable;
 
 use function __;
 use function _pgettext;
@@ -394,7 +395,7 @@ class Util
      *
      * </code>
      *
-     * @param string|null $identifier the database, table or field name to "backquote"
+     * @param Stringable|string|null $identifier the database, table or field name to "backquote"
      */
     public static function backquote($identifier): string
     {
@@ -411,9 +412,9 @@ class Util
      *
      * </code>
      *
-     * @param string|null $identifier    the database, table or field name to "backquote"
-     * @param string      $compatibility string compatibility mode (used by dump functions)
-     * @param bool|null   $doIt          a flag to bypass this function (used by dump functions)
+     * @param Stringable|string|null $identifier    the database, table or field name to "backquote"
+     * @param string                 $compatibility string compatibility mode (used by dump functions)
+     * @param bool|null              $doIt          a flag to bypass this function (used by dump functions)
      */
     public static function backquoteCompat(
         $identifier,

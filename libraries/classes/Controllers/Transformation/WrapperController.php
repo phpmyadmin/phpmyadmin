@@ -128,7 +128,7 @@ class WrapperController extends AbstractController
 
         $default_ct = 'application/octet-stream';
 
-        if ($relationParameters->commwork && $relationParameters->mimework) {
+        if ($relationParameters->hasColumnCommentsFeature() && $relationParameters->hasBrowserTransformationFeature()) {
             $mime_map = $this->transformations->getMime($db, $table) ?? [];
 
             $mime_options = $this->transformations->getOptions(

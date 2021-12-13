@@ -140,7 +140,7 @@ class ExportLatex extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if (! empty($relationParameters->mimework)) {
+            if ($relationParameters->hasBrowserTransformationFeature()) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -530,7 +530,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $alignment .= 'l|';
         }
 
@@ -550,7 +550,7 @@ class ExportLatex extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->mimework) {
+        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -635,14 +635,14 @@ class ExportLatex extends ExportPlugin
                 $local_buffer .= $this->getRelationString($res_rel, $field_name, $db, $aliases);
             }
 
-            if ($do_comments && $relationParameters->commwork) {
+            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
                 $local_buffer .= "\000";
                 if (isset($comments[$field_name])) {
                     $local_buffer .= $comments[$field_name];
                 }
             }
 
-            if ($do_mime && $relationParameters->mimework) {
+            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
                 $local_buffer .= "\000";
                 if (isset($mime_map[$field_name])) {
                     $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);

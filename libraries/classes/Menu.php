@@ -125,7 +125,7 @@ class Menu
 
         $allowedTabs = Util::getMenuTabList($level) ?? [];
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->menuswork) {
+        if ($relationParameters->hasConfigurableMenusFeature()) {
             $groupTable = Util::backquote($relationParameters->db)
                 . '.'
                 . Util::backquote($relationParameters->usergroups);
@@ -202,7 +202,7 @@ class Menu
 
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
-                if ($relationParameters->commwork) {
+                if ($relationParameters->hasColumnCommentsFeature()) {
                     $database['comment'] = $this->relation->getDbComment($this->db);
                 }
             }
@@ -444,7 +444,7 @@ class Menu
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
-        if (! $isSystemSchema && $relationParameters->centralcolumnswork) {
+        if (! $isSystemSchema && $relationParameters->hasCentralColumnsFeature()) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
             $tabs['central_columns']['route'] = '/database/central-columns';

@@ -275,7 +275,7 @@ class OperationsController extends AbstractController
         }
 
         $databaseComment = '';
-        if ($relationParameters->commwork) {
+        if ($relationParameters->hasColumnCommentsFeature()) {
             $databaseComment = $this->relation->getDbComment($db);
         }
 
@@ -290,7 +290,7 @@ class OperationsController extends AbstractController
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
 
-        if (! $relationParameters->allworks && $cfg['PmaNoRelation_DisableWarning'] == false) {
+        if (! $relationParameters->hasAllFeatures() && $cfg['PmaNoRelation_DisableWarning'] == false) {
             $message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.'
@@ -310,7 +310,7 @@ class OperationsController extends AbstractController
         $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
-            'has_comment' => $relationParameters->commwork,
+            'has_comment' => $relationParameters->hasColumnCommentsFeature(),
             'db_comment' => $databaseComment,
             'db_collation' => $db_collation,
             'has_adjust_privileges' => $hasAdjustPrivileges,

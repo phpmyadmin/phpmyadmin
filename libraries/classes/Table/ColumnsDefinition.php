@@ -120,7 +120,7 @@ final class ColumnsDefinition
         }
 
         $available_mime = [];
-        if ($relationParameters->mimework && $cfg['BrowseMIME']) {
+        if ($relationParameters->hasBrowserTransformationFeature() && $cfg['BrowseMIME']) {
             $mime_map = $transformations->getMime($db, $table);
             $available_mime = $transformations->getAvailableMimeTypes();
         }
@@ -457,7 +457,6 @@ final class ColumnsDefinition
                 'fields_meta' => $fields_meta ?? null,
                 'is_backup' => $is_backup,
                 'move_columns' => $move_columns,
-                'cfg_relation' => $relationParameters->toArray(),
                 'available_mime' => $available_mime,
                 'mime_map' => $mime_map ?? [],
             ];
@@ -490,7 +489,7 @@ final class ColumnsDefinition
         return [
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta ?? null,
-            'mimework' => $relationParameters->mimework,
+            'relation_parameters' => $relationParameters,
             'action' => $action,
             'form_params' => $form_params,
             'content_cells' => $content_cells,

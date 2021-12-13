@@ -1179,7 +1179,7 @@ class DatabaseInterface implements DbalInterface
     {
         if (strlen($GLOBALS['db'])) {
             $relationParameters = $this->relation->getRelationParameters();
-            if (empty($relationParameters->db)) {
+            if ($relationParameters->db === null) {
                 $this->relation->fixPmaTables($GLOBALS['db'], false);
             }
         }

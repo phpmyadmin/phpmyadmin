@@ -82,7 +82,7 @@ class Tracker
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
 
-        return $relationParameters->trackingwork;
+        return $relationParameters->hasTrackingFeature();
     }
 
     /**
@@ -141,7 +141,7 @@ class Tracker
         $relationParameters = $relation->getRelationParameters();
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $relationParameters->trackingwork) {
+        if (! $relationParameters->hasTrackingFeature()) {
             return false;
         }
 

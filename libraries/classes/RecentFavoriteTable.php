@@ -357,7 +357,10 @@ class RecentFavoriteTable
 
         $relationParameters = $this->relation->getRelationParameters();
         // Not to show this once list is synchronized.
-        if ($relationParameters->favoritework && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
+        if (
+            $relationParameters->hasFavoriteTablesFeature()
+            && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])
+        ) {
             $url = Url::getFromRoute('/database/structure/favorite-table', [
                 'ajax_request' => true,
                 'favorite_table' => true,
@@ -391,7 +394,7 @@ class RecentFavoriteTable
     private function getPmaTable(): ?string
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->recentwork) {
+        if (! $relationParameters->hasRecentlyUsedTablesFeature()) {
             return null;
         }
 
@@ -401,7 +404,7 @@ class RecentFavoriteTable
             $type = $relationParameters->favorite;
         }
 
-        if (! empty($relationParameters->db) && ! empty($type)) {
+        if ($relationParameters->db !== null && ! empty($type)) {
             return Util::backquote($relationParameters->db) . '.'
                 . Util::backquote($type);
         }

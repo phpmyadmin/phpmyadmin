@@ -461,7 +461,7 @@ class OperationsController extends AbstractController
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
             $urlParams,
-            $relationParameters->relwork
+            $relationParameters->hasRelationFeature()
         );
 
         $this->render('table/operations/index', [
