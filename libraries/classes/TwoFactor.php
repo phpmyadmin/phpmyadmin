@@ -8,12 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use BaconQrCode\Renderer\ImageRenderer;
+use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
-use CodeLts\U2F\U2FServer\U2FServer;
 
 use function array_merge;
 use function class_exists;

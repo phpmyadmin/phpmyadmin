@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Plugins\TwoFactor\Application;
-use PhpMyAdmin\TwoFactor;
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
+use PhpMyAdmin\Plugins\TwoFactor\Application;
+use PhpMyAdmin\TwoFactor;
 
 use function count;
 use function in_array;
