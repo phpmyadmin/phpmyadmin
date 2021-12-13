@@ -640,11 +640,9 @@ AJAX.registerOnload('indexes.js', function () {
             $rowsToHide = $rowsToHide.add($lastRow);
         }
 
-        var question = Functions.escapeHtml(
-            $currRow.children('td')
-                .children('.drop_primary_key_index_msg')
-                .val()
-        );
+        var question = $currRow.children('td')
+            .children('.drop_primary_key_index_msg')
+            .val();
 
         Functions.confirmPreviewSql(question, $anchor.attr('href'), function (url) {
             var $msg = Functions.ajaxShowMessage(Messages.strDroppingPrimaryKeyIndex, false);
