@@ -1860,4 +1860,22 @@ class Relation
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
     }
+
+    /**
+     * This function checks and initializes the phpMyAdmin configuration
+     * storage state before it is used into session cache.
+     */
+    public function initRelationParamsCache(): void
+    {
+        if (strlen($GLOBALS['db'])) {
+            $relationParameters = $this->getRelationParameters();
+            if ($relationParameters->db === null) {
+                $this->fixPmaTables($GLOBALS['db'], false);
+            }
+        }
+
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
+        $this->fixPmaTables($storageDbName ?: 'phpmyadmin', false);
+    }
 }

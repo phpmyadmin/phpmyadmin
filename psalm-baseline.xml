@@ -15443,7 +15443,11 @@
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
     </EmptyArrayAccess>
-    <InvalidScalarArgument occurrences="8">
+    <InvalidScalarArgument occurrences="12">
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
       <code>$_SESSION</code>
       <code>$_SESSION</code>
       <code>$_SESSION</code>
@@ -15453,7 +15457,13 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedArrayAccess occurrences="3">
+    <MixedArrayAccess occurrences="9">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
@@ -15470,7 +15480,9 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType occurrences="3">
+    <TypeDoesNotContainType occurrences="5">
+      <code>assertSame</code>
+      <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
       <code>assertSame</code>
@@ -15883,35 +15895,17 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/DatabaseInterfaceTest.php">
-    <InvalidScalarArgument occurrences="4">
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-    </InvalidScalarArgument>
     <MixedArgumentTypeCoercion occurrences="3">
       <code>$value</code>
       <code>$value</code>
       <code>$value</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="6">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAccess>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
-    <TypeDoesNotContainType occurrences="2">
-      <code>assertSame</code>
-      <code>assertSame</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Dbal/DbiDummyTest.php">
     <MixedArgument occurrences="1">
