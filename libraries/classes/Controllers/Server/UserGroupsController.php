@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Template;
 
 use function __;

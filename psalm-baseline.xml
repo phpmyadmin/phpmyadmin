@@ -1023,6 +1023,60 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
   </file>
+  <file src="libraries/classes/ConfigStorage/UserGroups.php">
+    <MixedArgument occurrences="9">
+      <code>$key</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$tabNames</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayOffset occurrences="3">
+      <code>$userGroups[$groupName]</code>
+      <code>$userGroups[$groupName]</code>
+      <code>$userGroups[$groupName]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="16">
+      <code>$groupName</code>
+      <code>$key</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tabDetail['tab']</code>
+      <code>$tabDetail['tab_name']</code>
+      <code>$tabGroupName</code>
+      <code>$tabName</code>
+      <code>$tabName</code>
+      <code>$tabNames[]</code>
+      <code>$userGroups[$groupName][$row['tab']]</code>
+      <code>$user['user']</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="3">
+      <code>$tab</code>
+      <code>$tab</code>
+      <code>$tabGroupName</code>
+    </MixedOperand>
+    <PossiblyInvalidArgument occurrences="3">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullIterator occurrences="3">
+      <code>$tabs</code>
+      <code>$tabs</code>
+      <code>$tabs</code>
+    </PossiblyNullIterator>
+  </file>
   <file src="libraries/classes/Console.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$isAjax</code>
@@ -13393,60 +13447,6 @@
       <code>COM|null</code>
     </UndefinedDocblockClass>
   </file>
-  <file src="libraries/classes/Server/UserGroups.php">
-    <MixedArgument occurrences="9">
-      <code>$key</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$tabNames</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayOffset occurrences="3">
-      <code>$userGroups[$groupName]</code>
-      <code>$userGroups[$groupName]</code>
-      <code>$userGroups[$groupName]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
-      <code>$groupName</code>
-      <code>$key</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$tab</code>
-      <code>$tab</code>
-      <code>$tabDetail['tab']</code>
-      <code>$tabDetail['tab_name']</code>
-      <code>$tabGroupName</code>
-      <code>$tabName</code>
-      <code>$tabName</code>
-      <code>$tabNames[]</code>
-      <code>$userGroups[$groupName][$row['tab']]</code>
-      <code>$user['user']</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>$tab</code>
-      <code>$tab</code>
-      <code>$tabGroupName</code>
-    </MixedOperand>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullIterator occurrences="3">
-      <code>$tabs</code>
-      <code>$tabs</code>
-      <code>$tabs</code>
-    </PossiblyNullIterator>
-  </file>
   <file src="libraries/classes/Session.php">
     <MixedArgument occurrences="4">
       <code>$config-&gt;get('CookieSameSite') ?? ''</code>
@@ -15488,6 +15488,11 @@
       <code>assertSame</code>
     </TypeDoesNotContainType>
   </file>
+  <file src="test/classes/ConfigStorage/UserGroupsTest.php">
+    <MixedArrayAssignment occurrences="1">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAssignment>
+  </file>
   <file src="test/classes/ConfigTest.php">
     <InvalidArgument occurrences="1">
       <code>$v</code>
@@ -16915,11 +16920,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-  </file>
-  <file src="test/classes/Server/UserGroupsTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/Setup/ConfigGeneratorTest.php">
     <MixedAssignment occurrences="2">

@@ -981,6 +981,21 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 3
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getAllowedTabNames\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/AbstractController.php
@@ -8369,21 +8384,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Server\\\\SysInfo\\\\WindowsNt\\:\\:memory\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 3
-			path: libraries/classes/Server/UserGroups.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\UserGroups\\:\\:getAllowedTabNames\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/UserGroups.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/UserGroups.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Session\\:\\:sessionFailed\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Server;
+namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Version;
@@ -13,7 +13,7 @@ use PhpMyAdmin\Version;
 use function htmlspecialchars;
 
 /**
- * @covers \PhpMyAdmin\Server\UserGroups
+ * @covers \PhpMyAdmin\ConfigStorage\UserGroups
  */
 class UserGroupsTest extends AbstractTestCase
 {
