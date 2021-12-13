@@ -3329,8 +3329,8 @@ class Results
             ];
             $del_url  = Url::getFromRoute('/sql', $_url_params);
 
-            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->properties['table'])
-                . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
+            $js_conf  = 'DELETE FROM ' . $this->properties['table']
+                . ' WHERE ' . $where_clause
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->getActionLinkContent('b_drop', __('Delete'));
