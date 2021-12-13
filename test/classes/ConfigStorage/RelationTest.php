@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function implode;
 
 /**
- * @covers \PhpMyAdmin\Relation
+ * @covers \PhpMyAdmin\ConfigStorage\Relation
  * @group medium
  */
 class RelationTest extends AbstractTestCase

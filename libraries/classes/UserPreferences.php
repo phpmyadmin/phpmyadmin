@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\ConfigStorage\Relation;
 
 use function __;
 use function array_flip;

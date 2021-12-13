@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseName;
-use PhpMyAdmin\RelationParameters;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpMyAdmin\RelationParameters
+ * @covers \PhpMyAdmin\ConfigStorage\RelationParameters
  */
 class RelationParametersTest extends TestCase
 {

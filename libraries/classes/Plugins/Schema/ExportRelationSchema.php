@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 use function array_flip;

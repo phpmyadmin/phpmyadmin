@@ -2,11 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\ConfigStorage;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\InternalRelations;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function __;
 use function array_keys;
@@ -948,11 +955,11 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array[] $disp_row        array of the displayed row
-     * @param string  $foreign_field   the foreign field
-     * @param string  $foreign_display the foreign field to display
-     * @param string  $data            the current data of the dropdown (field in row)
-     * @param int     $max             maximum number of items in the dropdown
+     * @param array[]  $disp_row        array of the displayed row
+     * @param string   $foreign_field   the foreign field
+     * @param string   $foreign_display the foreign field to display
+     * @param string   $data            the current data of the dropdown (field in row)
+     * @param int|null $max             maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
      *
@@ -1060,7 +1067,7 @@ class Relation
      *     foreign_link: bool,
      *     the_total: mixed,
      *     foreign_display: string,
-     *     disp_row: ?list<non-empty-array>,
+     *     disp_row: list<non-empty-array>|null,
      *     foreign_field: mixed
      * }
      *
@@ -1572,7 +1579,7 @@ class Relation
     /**
      * Returns default PMA table names and their create queries.
      *
-     * @return array<string,string> table name, create query
+     * @return array<string, string> table name, create query
      */
     public function getDefaultPmaTableNames(array $tableNameReplacements): array
     {
@@ -1668,7 +1675,7 @@ class Relation
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
-        /** @var array<string,string> $tableNameReplacements */
+        /** @var array<string, string> $tableNameReplacements */
         $tableNameReplacements = [];
 
         // Build a map of replacements between default table names and name built by the user

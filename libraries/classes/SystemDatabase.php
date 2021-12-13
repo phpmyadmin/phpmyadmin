@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use mysqli_result;
+use PhpMyAdmin\ConfigStorage\Relation;
 
 use function count;
 use function sprintf;

@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\ConfigStorage;
 
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function array_merge;
 
 /**
- * @covers \PhpMyAdmin\RelationCleanup
+ * @covers \PhpMyAdmin\ConfigStorage\RelationCleanup
  */
 class RelationCleanupTest extends AbstractTestCase
 {

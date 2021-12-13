@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -15,7 +16,6 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
@@ -97,8 +97,9 @@ class OperationsController extends AbstractController
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        // reselect current db (needed in some cases probably due to
-        // the calling of PhpMyAdmin\Relation)
+        /**
+         * Reselect current db (needed in some cases probably due to the calling of {@link Relation})
+         */
         $this->dbi->selectDb($db);
 
         $reread_info = $pma_table->getStatusInfo(null, false);

@@ -861,6 +861,168 @@
       <code>$uv[$i]</code>
     </PossiblyInvalidCast>
   </file>
+  <file src="libraries/classes/ConfigStorage/Relation.php">
+    <MixedArgument occurrences="33">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['sql_history']</code>
+      <code>$_SESSION['sql_history']</code>
+      <code>$_SESSION['sql_history']</code>
+      <code>$child_references</code>
+      <code>$child_references</code>
+      <code>$column['DATA_TYPE']</code>
+      <code>$columns['table_name']</code>
+      <code>$columns['table_schema']</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$disp</code>
+      <code>$disp</code>
+      <code>$disp</code>
+      <code>$foreign[$field]</code>
+      <code>$foreign_db</code>
+      <code>$foreign_db</code>
+      <code>$foreign_field</code>
+      <code>$foreign_field</code>
+      <code>$foreign_table</code>
+      <code>$foreign_table</code>
+      <code>$one_key['index_list']</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$row[1]</code>
+      <code>$show_create_table</code>
+      <code>$tableNameReplacements[$tableName]</code>
+      <code>$tableRes</code>
+      <code>$tableRes</code>
+      <code>$tablesRows</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>uksort($foreign, 'strnatcasecmp')</code>
+      <code>usort($tables, 'strnatcasecmp')</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="13">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$column['COLUMN_NAME']</code>
+      <code>$column['DATA_TYPE']</code>
+      <code>$columns['table_name']</code>
+      <code>$columns['table_schema']</code>
+      <code>$one_key['constraint']</code>
+      <code>$one_key['index_list']</code>
+      <code>$one_key['on_delete']</code>
+      <code>$one_key['on_update']</code>
+      <code>$one_key['ref_db_name']</code>
+      <code>$one_key['ref_index_list']</code>
+      <code>$one_key['ref_table_name']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="6">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['sql_history'][]</code>
+      <code>$_SESSION['tmpval']['favoriteTables']</code>
+      <code>$_SESSION['tmpval']['recentTables']</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="6">
+      <code>$comments[$column['Field']]</code>
+      <code>$comments[$row['db_name']]</code>
+      <code>$foreign[$field]</code>
+      <code>$foreign[$field]</code>
+      <code>$foreign[$key]</code>
+      <code>$one_key['ref_index_list'][$column_index]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="39">
+      <code>$child_references</code>
+      <code>$column</code>
+      <code>$column_index</code>
+      <code>$columns</code>
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$comments[$column['Field']]</code>
+      <code>$comments[$row['db_name']]</code>
+      <code>$disp</code>
+      <code>$field</code>
+      <code>$foreign[$field]</code>
+      <code>$foreign[$key]</code>
+      <code>$foreign_db</code>
+      <code>$foreign_field</code>
+      <code>$foreign_table</code>
+      <code>$foreigner['constraint']</code>
+      <code>$foreigner['foreign_db']</code>
+      <code>$foreigner['foreign_field']</code>
+      <code>$foreigner['foreign_table']</code>
+      <code>$foreigner['on_delete']</code>
+      <code>$foreigner['on_update']</code>
+      <code>$foreigners[$column]</code>
+      <code>$foreigners['foreign_keys_data']</code>
+      <code>$key</code>
+      <code>$max_time</code>
+      <code>$one_key</code>
+      <code>$relations</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$show_create_table</code>
+      <code>$tableRes</code>
+      <code>$tablesRows</code>
+      <code>$tables[]</code>
+      <code>$the_total</code>
+      <code>$the_total</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>array|false</code>
+      <code>string|false</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$max_time</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="3">
+      <code>$column['COLUMN_NAME']</code>
+      <code>$foreigners[$column]</code>
+      <code>$row['display_field']</code>
+    </MixedReturnStatement>
+    <PossiblyFalseArgument occurrences="5">
+      <code>$GLOBALS['cfg']['Server']['column_info']</code>
+      <code>$GLOBALS['cfg']['Server']['column_info']</code>
+      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
+      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
+      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="4">
+      <code>$com_rs</code>
+      <code>$com_rs</code>
+      <code>$foreigners</code>
+      <code>$result</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$row['comment']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$dbi</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantCast occurrences="6">
+      <code>(int) $GLOBALS['cfg']['LimitChars']</code>
+      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]</code>
+      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]</code>
+      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]</code>
+      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]</code>
+      <code>(string) $table[1]</code>
+    </RedundantCast>
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(string) $data</code>
+      <code>(string) $db</code>
+      <code>(string) $table</code>
+    </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="6">
+      <code>is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])</code>
+      <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
+      <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
+    </RedundantCondition>
+  </file>
   <file src="libraries/classes/Console.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>$isAjax</code>
@@ -12304,168 +12466,6 @@
       <code>$this-&gt;getPmaTable()</code>
     </PossiblyNullOperand>
   </file>
-  <file src="libraries/classes/Relation.php">
-    <MixedArgument occurrences="33">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['sql_history']</code>
-      <code>$_SESSION['sql_history']</code>
-      <code>$_SESSION['sql_history']</code>
-      <code>$child_references</code>
-      <code>$child_references</code>
-      <code>$column['DATA_TYPE']</code>
-      <code>$columns['table_name']</code>
-      <code>$columns['table_schema']</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$disp</code>
-      <code>$disp</code>
-      <code>$disp</code>
-      <code>$foreign[$field]</code>
-      <code>$foreign_db</code>
-      <code>$foreign_db</code>
-      <code>$foreign_field</code>
-      <code>$foreign_field</code>
-      <code>$foreign_table</code>
-      <code>$foreign_table</code>
-      <code>$one_key['index_list']</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$row[1]</code>
-      <code>$show_create_table</code>
-      <code>$tableNameReplacements[$tableName]</code>
-      <code>$tableRes</code>
-      <code>$tableRes</code>
-      <code>$tablesRows</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>uksort($foreign, 'strnatcasecmp')</code>
-      <code>usort($tables, 'strnatcasecmp')</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="13">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$column['COLUMN_NAME']</code>
-      <code>$column['DATA_TYPE']</code>
-      <code>$columns['table_name']</code>
-      <code>$columns['table_schema']</code>
-      <code>$one_key['constraint']</code>
-      <code>$one_key['index_list']</code>
-      <code>$one_key['on_delete']</code>
-      <code>$one_key['on_update']</code>
-      <code>$one_key['ref_db_name']</code>
-      <code>$one_key['ref_index_list']</code>
-      <code>$one_key['ref_table_name']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['sql_history'][]</code>
-      <code>$_SESSION['tmpval']['favoriteTables']</code>
-      <code>$_SESSION['tmpval']['recentTables']</code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="6">
-      <code>$comments[$column['Field']]</code>
-      <code>$comments[$row['db_name']]</code>
-      <code>$foreign[$field]</code>
-      <code>$foreign[$field]</code>
-      <code>$foreign[$key]</code>
-      <code>$one_key['ref_index_list'][$column_index]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="39">
-      <code>$child_references</code>
-      <code>$column</code>
-      <code>$column_index</code>
-      <code>$columns</code>
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$comments[$column['Field']]</code>
-      <code>$comments[$row['db_name']]</code>
-      <code>$disp</code>
-      <code>$field</code>
-      <code>$foreign[$field]</code>
-      <code>$foreign[$key]</code>
-      <code>$foreign_db</code>
-      <code>$foreign_field</code>
-      <code>$foreign_table</code>
-      <code>$foreigner['constraint']</code>
-      <code>$foreigner['foreign_db']</code>
-      <code>$foreigner['foreign_field']</code>
-      <code>$foreigner['foreign_table']</code>
-      <code>$foreigner['on_delete']</code>
-      <code>$foreigner['on_update']</code>
-      <code>$foreigners[$column]</code>
-      <code>$foreigners['foreign_keys_data']</code>
-      <code>$key</code>
-      <code>$max_time</code>
-      <code>$one_key</code>
-      <code>$relations</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
-      <code>$show_create_table</code>
-      <code>$tableRes</code>
-      <code>$tablesRows</code>
-      <code>$tables[]</code>
-      <code>$the_total</code>
-      <code>$the_total</code>
-      <code>$value</code>
-      <code>$value</code>
-    </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>array|false</code>
-      <code>string|false</code>
-    </MixedInferredReturnType>
-    <MixedOperand occurrences="1">
-      <code>$max_time</code>
-    </MixedOperand>
-    <MixedReturnStatement occurrences="3">
-      <code>$column['COLUMN_NAME']</code>
-      <code>$foreigners[$column]</code>
-      <code>$row['display_field']</code>
-    </MixedReturnStatement>
-    <PossiblyFalseArgument occurrences="5">
-      <code>$GLOBALS['cfg']['Server']['column_info']</code>
-      <code>$GLOBALS['cfg']['Server']['column_info']</code>
-      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
-      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
-      <code>$GLOBALS['cfg']['Server']['pmadb']</code>
-    </PossiblyFalseArgument>
-    <PossiblyInvalidArgument occurrences="4">
-      <code>$com_rs</code>
-      <code>$com_rs</code>
-      <code>$foreigners</code>
-      <code>$result</code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArrayAccess occurrences="1">
-      <code>$row['comment']</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$dbi</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCast occurrences="6">
-      <code>(int) $GLOBALS['cfg']['LimitChars']</code>
-      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]</code>
-      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]</code>
-      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]</code>
-      <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]</code>
-      <code>(string) $table[1]</code>
-    </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="3">
-      <code>(string) $data</code>
-      <code>(string) $db</code>
-      <code>(string) $table</code>
-    </RedundantCastGivenDocblockType>
-    <RedundantCondition occurrences="6">
-      <code>is_array($GLOBALS['cfg']['ForeignKeyDropdownOrder'])</code>
-      <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
-      <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
-    </RedundantCondition>
-  </file>
   <file src="libraries/classes/Replication.php">
     <LessSpecificReturnStatement occurrences="1">
       <code>$output</code>
@@ -15390,6 +15390,92 @@
       <code>$this-&gt;sessionID</code>
     </MixedAssignment>
   </file>
+  <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
+    <MixedArgument occurrences="4">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="4">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="4">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAssignment>
+    <MixedMethodCall occurrences="12">
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+      <code>withConsecutive</code>
+    </MixedMethodCall>
+    <PossiblyUndefinedMethod occurrences="8">
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+      <code>expects</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="test/classes/ConfigStorage/RelationTest.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>assertSame</code>
+    </DocblockTypeContradiction>
+    <EmptyArrayAccess occurrences="3">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </EmptyArrayAccess>
+    <InvalidScalarArgument occurrences="8">
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+      <code>$_SESSION</code>
+    </InvalidScalarArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
+      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="1">
+      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    </MixedArrayAssignment>
+    <RedundantCondition occurrences="3">
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType occurrences="3">
+      <code>assertSame</code>
+      <code>assertSame</code>
+      <code>assertSame</code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="test/classes/ConfigTest.php">
     <InvalidArgument occurrences="1">
       <code>$v</code>
@@ -16746,92 +16832,6 @@
     <PossiblyUndefinedMethod occurrences="1">
       <code>getGroup</code>
     </PossiblyUndefinedMethod>
-  </file>
-  <file src="test/classes/RelationCleanupTest.php">
-    <MixedArgument occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
-    <MixedMethodCall occurrences="12">
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-      <code>withConsecutive</code>
-    </MixedMethodCall>
-    <PossiblyUndefinedMethod occurrences="8">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-    </PossiblyUndefinedMethod>
-  </file>
-  <file src="test/classes/RelationTest.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>assertSame</code>
-    </DocblockTypeContradiction>
-    <EmptyArrayAccess occurrences="3">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </EmptyArrayAccess>
-    <InvalidScalarArgument occurrences="8">
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-    </InvalidScalarArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
-    <RedundantCondition occurrences="3">
-      <code>assertSame</code>
-      <code>assertSame</code>
-      <code>assertSame</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>assertSame</code>
-      <code>assertSame</code>
-    </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType occurrences="3">
-      <code>assertSame</code>
-      <code>assertSame</code>
-      <code>assertSame</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="test/classes/SanitizeTest.php">
     <MixedInferredReturnType occurrences="4">

@@ -1,14 +1,14 @@
 <?php
-/**
- * Set of functions used for cleaning up phpMyAdmin tables
- */
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\ConfigStorage;
+
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\RelationCleanup class
+ * Set of functions used for cleaning up phpMyAdmin tables
  */
 class RelationCleanup
 {
