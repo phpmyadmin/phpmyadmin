@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-12 00:11+0000\n"
-"PO-Revision-Date: 2021-11-28 19:05+0000\n"
+"PO-Revision-Date: 2021-12-14 01:09+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -16637,10 +16637,8 @@ msgid "There are no favorite tables."
 msgstr "Er zijn geen favoriete tabellen."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin configuration snippet"
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin configuratie fragment"
+msgstr "phpMyAdmin configuratie opslag"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16744,109 +16742,77 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
-msgstr "Toon Opties"
+msgstr "Toon opties:"
 
 #: templates/relation/check_relations.twig:125
-#, fuzzy
-#| msgid "Designer and creation of PDFs"
 msgid "Designer and creation of PDFs:"
-msgstr "Ontwerpen en aanmaken van PDF-bestanden"
+msgstr "Ontwerpen en aanmaken van PDF-bestanden:"
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Displaying column comments:"
-msgstr "Toon kolomopmerkingen"
+msgstr "Toon kolom opmerkingen:"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser transformation:"
-msgstr "Browsertransformaties"
+msgstr "Browsertransformaties:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr "Raadpleeg de documentatie over hoe u de tabel column_info bijwerkt."
 
 #: templates/relation/check_relations.twig:195
-#, fuzzy
-#| msgid "Bookmarked SQL query"
 msgid "Bookmarked SQL query:"
-msgstr "Opgeslagen SQL-query"
+msgstr "Opgeslagen SQL-query:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
 msgstr "SQL-geschiedenis:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "Persistent recently used tables"
 msgid "Persistent recently used tables:"
-msgstr "Persistente recent gebruikte tabellen"
+msgstr "Persistente recent gebruikte tabellen:"
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "Persistent favorite tables"
 msgid "Persistent favorite tables:"
-msgstr "Persistente veelgebruikte tabellen"
+msgstr "Persistente veelgebruikte tabellen:"
 
 #: templates/relation/check_relations.twig:295
-#, fuzzy
-#| msgid "Persistent tables' UI preferences"
 msgid "Persistent tables' UI preferences:"
-msgstr "Persistente interfacevoorkeuren voor tabellen"
+msgstr "Persistente interfacevoorkeuren voor tabellen:"
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking"
 msgid "Tracking:"
-msgstr "Traceren"
+msgstr "Traceren:"
 
 #: templates/relation/check_relations.twig:345
-#, fuzzy
-#| msgid "User preferences"
 msgid "User preferences:"
-msgstr "Gebruikersvoorkeuren"
+msgstr "Gebruikersvoorkeuren:"
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
-msgstr "Configureerbare menu's"
+msgstr "Configureerbare menu's:"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Hide/show navigation items"
 msgid "Hide/show navigation items:"
-msgstr "Navigatieonderdelen tonen/verbergen"
+msgstr "Navigatieonderdelen tonen/verbergen:"
 
 #: templates/relation/check_relations.twig:433
-#, fuzzy
-#| msgid "Saving Query-By-Example searches"
 msgid "Saving Query-By-Example searches:"
-msgstr "Query-door-voorbeeld opzoekingen wordt opgeslagen"
+msgstr "Query-door-voorbeeld opzoekingen wordt opgeslagen:"
 
 #: templates/relation/check_relations.twig:458
-#, fuzzy
-#| msgid "Managing Central list of columns"
 msgid "Managing central list of columns:"
-msgstr "Beheer van centrale lijst van kolommen"
+msgstr "Beheer van centrale lijst van kolommen:"
 
 #: templates/relation/check_relations.twig:483
-#, fuzzy
-#| msgid "Remembering Designer Settings"
 msgid "Remembering designer settings:"
-msgstr "Onthoud Ontwerper Instellingen"
+msgstr "Onthoud ontwerper instellingen:"
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Saving export templates"
 msgid "Saving export templates:"
-msgstr "Opslaan export templates"
+msgstr "Opslaan export templates:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
