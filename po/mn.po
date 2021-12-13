@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-12-12 20:03+0000\n"
+"PO-Revision-Date: 2021-12-14 01:09+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "mn/>\n"
@@ -5365,7 +5365,7 @@ msgstr "Хандах эрхгүй!"
 #: libraries/classes/Controllers/ImportController.php:138
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Failed"
-msgstr "Алдаа"
+msgstr "Амжилтгүй"
 
 #: libraries/classes/Controllers/ImportController.php:244
 #, php-format
@@ -6280,9 +6280,8 @@ msgid "Table"
 msgstr "Хүснэгт "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
-#, fuzzy
 msgid "Chart"
-msgstr "Кодлолууд"
+msgstr "График"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:171
@@ -6318,7 +6317,7 @@ msgstr "Хүснэгтийн сонголтууд"
 #. l10n: Filter as in "Start Filtering"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Filter"
-msgstr "Шүүлтүүх"
+msgstr "Шүүлтүүр"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Filter queries by word/regexp:"
@@ -6450,10 +6449,8 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 #: templates/navigation/main.twig:58
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
-#| msgid "Reload privileges"
 msgid "Loading…"
-msgstr "Онцгой эрхүүдийг дахин дуудах"
+msgstr "Уншиж байна…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
@@ -6559,10 +6556,8 @@ msgid "Failed to get real row count."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:362
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "Хайх"
+msgstr "Хайж байна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 #, fuzzy
@@ -6577,10 +6572,8 @@ msgid "Show search results"
 msgstr "SQL асуудал харуулах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:365
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
-msgstr "Хөтлөх"
+msgstr "Үзэж байна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 #, fuzzy
@@ -7271,7 +7264,7 @@ msgstr "Болих"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 #: libraries/classes/Controllers/Server/Status/StatusController.php:225
 msgid "Aborted"
-msgstr "Таслагдсан"
+msgstr "Цуцлагдсан"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 msgid "Success"
@@ -7346,10 +7339,8 @@ msgstr "Нууц үг солих"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 #: templates/table/structure/display_structure.twig:132
-#, fuzzy
-#| msgid "Mon"
 msgid "More"
-msgstr "Да"
+msgstr "Илүү"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #, fuzzy
@@ -7792,7 +7783,7 @@ msgstr "Команд"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:175
 msgid "Progress"
-msgstr ""
+msgstr "Үйл явц"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:179
 #: libraries/classes/Server/Status/Data.php:146
@@ -9355,7 +9346,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
-msgstr ""
+msgstr "Тодорхойлогч"
 
 #: libraries/classes/Database/Routines.php:1001
 #, fuzzy
@@ -10636,7 +10627,7 @@ msgstr "Хөдөлгүүрүүд"
 #: libraries/classes/Menu.php:616 libraries/classes/Util.php:2485
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
-msgstr ""
+msgstr "Нэмэлтүүд"
 
 #: libraries/classes/Message.php:255
 #, php-format
@@ -10779,7 +10770,7 @@ msgstr "Тор харуулах"
 #: templates/database/events/index.twig:104
 msgctxt "Create new event"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
@@ -11130,7 +11121,7 @@ msgstr ""
 #: libraries/classes/Operations.php:601
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
-msgstr ""
+msgstr "Шалгах"
 
 #: libraries/classes/Operations.php:602
 #: templates/table/structure/display_partitions.twig:104
@@ -11150,7 +11141,7 @@ msgstr ""
 #: libraries/classes/Operations.php:605
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
-msgstr ""
+msgstr "Таслах"
 
 #: libraries/classes/Operations.php:616 templates/database/events/index.twig:67
 #: templates/database/events/index.twig:73
@@ -11381,7 +11372,7 @@ msgstr "Excel-засвар"
 #: libraries/config.values.php:336 libraries/config.values.php:344
 #: libraries/config.values.php:349
 msgid "structure"
-msgstr ""
+msgstr "бүтэц"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:66
 #: libraries/classes/Plugins/Export/ExportLatex.php:102
@@ -11394,7 +11385,7 @@ msgstr ""
 #: libraries/config.values.php:337 libraries/config.values.php:345
 #: libraries/config.values.php:350
 msgid "data"
-msgstr ""
+msgstr "өгөгдөл"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:67
 #: libraries/classes/Plugins/Export/ExportLatex.php:103
@@ -11950,7 +11941,7 @@ msgstr "Хүснэгт"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:219
 msgid "Purpose:"
-msgstr ""
+msgstr "Зорилго:"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:47
 msgid ""
@@ -12540,7 +12531,7 @@ msgstr ""
 
 #: libraries/classes/Query/Utilities.php:118
 msgid "Details…"
-msgstr ""
+msgstr "Дэлгэрэнгүй…"
 
 #: libraries/classes/RecentFavoriteTable.php:158
 #, fuzzy
@@ -12766,7 +12757,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:472
 msgid "Success."
-msgstr ""
+msgstr "Амжилттай."
 
 #: libraries/classes/ReplicationGui.php:473
 #, fuzzy
@@ -13531,7 +13522,7 @@ msgstr "Сэдэв %s сэдвийн зам олдохгүй байна!"
 
 #: libraries/classes/ThemeManager.php:334
 msgid "Theme:"
-msgstr ""
+msgstr "Загвар:"
 
 #: libraries/classes/Theme.php:227
 #, php-format
@@ -13906,7 +13897,7 @@ msgstr ""
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Тоон"
 
 #: libraries/classes/Types.php:741
 #, fuzzy
@@ -14131,15 +14122,15 @@ msgstr ""
 
 #: libraries/config.values.php:106
 msgid "Left"
-msgstr ""
+msgstr "Зүүн"
 
 #: libraries/config.values.php:107
 msgid "Right"
-msgstr ""
+msgstr "Баруун"
 
 #: libraries/config.values.php:143
 msgid "Click"
-msgstr ""
+msgstr "Дарах"
 
 #: libraries/config.values.php:144
 msgid "Double click"
@@ -14147,7 +14138,7 @@ msgstr ""
 
 #: libraries/config.values.php:148
 msgid "key"
-msgstr ""
+msgstr "түлхүүр"
 
 #: libraries/config.values.php:149
 #, fuzzy
@@ -14163,7 +14154,7 @@ msgstr "%s-д тавтай морилно уу"
 
 #: libraries/config.values.php:186
 msgid "Open"
-msgstr ""
+msgstr "Нээх"
 
 #: libraries/config.values.php:187
 #, fuzzy
@@ -14185,11 +14176,11 @@ msgstr "Мя"
 
 #: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
-msgstr ""
+msgstr "Лхагва"
 
 #: libraries/config.values.php:194 templates/javascript/variables.twig:52
 msgid "Thursday"
-msgstr ""
+msgstr "Пүрэв"
 
 #: libraries/config.values.php:195 templates/javascript/variables.twig:53
 #, fuzzy
@@ -14199,7 +14190,7 @@ msgstr "Ба"
 
 #: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
-msgstr ""
+msgstr "Бямба"
 
 #: libraries/config.values.php:197 templates/javascript/variables.twig:48
 #, fuzzy
@@ -14349,7 +14340,7 @@ msgstr "Шахалт"
 
 #: templates/columns_definitions/column_attributes.twig:177
 msgid "first"
-msgstr ""
+msgstr "эхний"
 
 #: templates/columns_definitions/column_attributes.twig:182
 #: templates/table/structure/display_structure.twig:390
@@ -14655,7 +14646,7 @@ msgstr "асуултад"
 #: templates/console/display.twig:7 templates/setup/home/index.twig:106
 #: templates/sql/query.twig:39
 msgid "Clear"
-msgstr ""
+msgstr "Цэвэрлэх"
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -14721,7 +14712,7 @@ msgstr "Буурахаар"
 
 #: templates/console/display.twig:64
 msgid "Order:"
-msgstr ""
+msgstr "Эрэмбэ:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/find_replace/replace_preview.twig:17
@@ -15243,7 +15234,7 @@ msgstr "Тэмдэглэгдсэн асуулт ажиллуулах"
 #: templates/database/events/editor_form.twig:63
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr ""
+msgstr "Эхлэх"
 
 #: templates/database/events/editor_form.twig:69
 #, fuzzy
@@ -15322,11 +15313,11 @@ msgstr ""
 
 #: templates/database/events/index.twig:137
 msgid "ON"
-msgstr ""
+msgstr "НЭЭХ"
 
 #: templates/database/events/index.twig:148
 msgid "OFF"
-msgstr ""
+msgstr "ХААХ"
 
 #: templates/database/export/index.twig:62
 msgid ""
@@ -15590,7 +15581,7 @@ msgstr "Шинэ талбар нэмэх"
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
@@ -15626,7 +15617,7 @@ msgstr "БА"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
-msgstr ""
+msgstr "Уст:"
 
 #: templates/database/qbe/selection_form.twig:12
 #: templates/table/find_replace/index.twig:38
@@ -15697,7 +15688,7 @@ msgstr "ӨС <b>%s</b> дахь SQL-асуулт:"
 #: templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
 msgid "Filters"
-msgstr ""
+msgstr "Шүүлтүүр"
 
 #: templates/database/routines/index.twig:6 templates/filter.twig:6
 #: templates/server/status/variables/index.twig:15
@@ -15719,7 +15710,7 @@ msgstr "Хүснэгтийн сонголтууд"
 #: templates/database/routines/index.twig:62
 msgctxt "Create new routine"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
@@ -16244,7 +16235,7 @@ msgstr ""
 
 #: templates/export.twig:138 templates/export.twig:279
 msgid "Output:"
-msgstr ""
+msgstr "Гаралт:"
 
 #: templates/export.twig:143 templates/export.twig:309
 #, fuzzy, php-format
@@ -16263,7 +16254,7 @@ msgstr ""
 #: templates/export.twig:177 templates/export.twig:191
 #: templates/export.twig:204 templates/export.twig:221
 msgid "Remove"
-msgstr ""
+msgstr "Хасах"
 
 #: templates/export.twig:230
 msgid "Define new aliases"
@@ -16813,10 +16804,8 @@ msgstr "Цааш"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "Нийт"
+msgstr "Өнөөдөр"
 
 #: templates/javascript/variables.twig:20
 #, fuzzy
@@ -16826,61 +16815,49 @@ msgstr "Хоёртын "
 
 #: templates/javascript/variables.twig:21
 msgid "February"
-msgstr ""
+msgstr "2-р сар"
 
 #: templates/javascript/variables.twig:22
-#, fuzzy
-#| msgid "Mar"
 msgid "March"
-msgstr "3-р"
+msgstr "3-р сар"
 
 #: templates/javascript/variables.twig:23
-#, fuzzy
-#| msgid "Apr"
 msgid "April"
-msgstr "4-р"
+msgstr "4-р сар"
 
 #. l10n: Short month name for May
 #: templates/javascript/variables.twig:24
 #: templates/javascript/variables.twig:38
 msgid "May"
-msgstr "5-р"
+msgstr "5-р сар"
 
 #: templates/javascript/variables.twig:25
-#, fuzzy
-#| msgid "Jun"
 msgid "June"
-msgstr "6-р"
+msgstr "6-р сар"
 
 #: templates/javascript/variables.twig:26
-#, fuzzy
-#| msgid "Jul"
 msgid "July"
-msgstr "7-р"
+msgstr "7-р сар"
 
 #: templates/javascript/variables.twig:27
-#, fuzzy
-#| msgid "Aug"
 msgid "August"
-msgstr "8-р"
+msgstr "8-р сар"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
-msgstr ""
+msgstr "9-р сар"
 
 #: templates/javascript/variables.twig:29
-#, fuzzy
-#| msgid "Oct"
 msgid "October"
-msgstr "10р"
+msgstr "10-р сар"
 
 #: templates/javascript/variables.twig:30
 msgid "November"
-msgstr ""
+msgstr "11-р сар"
 
 #: templates/javascript/variables.twig:31
 msgid "December"
-msgstr ""
+msgstr "12-р сар"
 
 #. l10n: Short week day name for Sunday
 #: templates/javascript/variables.twig:57
@@ -16946,19 +16923,15 @@ msgstr ""
 
 #: templates/javascript/variables.twig:82
 msgid "Hour"
-msgstr ""
+msgstr "Цаг"
 
 #: templates/javascript/variables.twig:83
-#, fuzzy
-#| msgid "in use"
 msgid "Minute"
-msgstr "хэрэглэгдэж байна"
+msgstr "Минут"
 
 #: templates/javascript/variables.twig:84
-#, fuzzy
-#| msgid "per second"
 msgid "Second"
-msgstr "секундэд"
+msgstr "Секунд"
 
 #: templates/javascript/variables.twig:90
 msgid "This field is required"
@@ -17156,7 +17129,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Баталгаажуулах"
 
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
@@ -17579,11 +17552,11 @@ msgstr "MySQL руу нэвтэрч чадсангүй"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
-msgstr ""
+msgstr "Нэмэлт"
 
 #: templates/server/plugins/index.twig:28 templates/table/tracking/main.twig:28
 msgid "Version"
-msgstr ""
+msgstr "Хувилбар"
 
 #: templates/server/plugins/index.twig:29
 msgid "Author"
@@ -17639,7 +17612,7 @@ msgstr "Нууц үггүй"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr ""
+msgstr "Оруулах:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
@@ -18316,10 +18289,8 @@ msgid "Issue:"
 msgstr ""
 
 #: templates/server/status/advisor/index.twig:81
-#, fuzzy
-#| msgid "Documentation"
 msgid "Recommendation:"
-msgstr "Баримт"
+msgstr "Зөвлөмж:"
 
 #: templates/server/status/advisor/index.twig:84
 #, fuzzy
@@ -18333,7 +18304,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:90
 msgid "Test:"
-msgstr ""
+msgstr "Тэст:"
 
 #: templates/server/status/base.twig:16
 #, fuzzy
@@ -18347,7 +18318,7 @@ msgstr ""
 
 #: templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "Хяналт"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
@@ -18616,7 +18587,7 @@ msgstr "Баримтжуулал"
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
@@ -18766,7 +18737,7 @@ msgstr "Сервэрийн утгууд болон тохиргоонууд"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
-msgstr ""
+msgstr "Тойм"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
 msgid "Configuration file"
@@ -18774,11 +18745,11 @@ msgstr ""
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:105
 msgid "Download"
-msgstr ""
+msgstr "Татах"
 
 #: templates/setup/error.twig:2
 msgid "Warning"
-msgstr ""
+msgstr "Анхааруулга"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
@@ -18811,8 +18782,9 @@ msgid "New server"
 msgstr ""
 
 #: templates/setup/home/index.twig:104
+#, fuzzy
 msgid "Display"
-msgstr ""
+msgstr "Дэлгэц"
 
 #: templates/setup/home/index.twig:116
 msgid "phpMyAdmin homepage"
@@ -18820,7 +18792,7 @@ msgstr ""
 
 #: templates/setup/home/index.twig:117
 msgid "Donate"
-msgstr ""
+msgstr "Хандив"
 
 #: templates/setup/home/index.twig:118
 msgid "Check for latest version"
@@ -18951,16 +18923,14 @@ msgid "Bar"
 msgstr "3-р"
 
 #: templates/table/chart/tbl_chart.twig:16
-#, fuzzy
-#| msgid "Column names"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Баганын нэрс"
+msgstr "Багана"
 
 #: templates/table/chart/tbl_chart.twig:20
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Мөр"
 
 #: templates/table/chart/tbl_chart.twig:24
 #, fuzzy
@@ -18982,11 +18952,9 @@ msgid "Pie"
 msgstr "PB"
 
 #: templates/table/chart/tbl_chart.twig:36
-#, fuzzy
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Цаг"
+msgstr "Он цагийн хэлхээс"
 
 #: templates/table/chart/tbl_chart.twig:40
 msgctxt "Chart type"
@@ -19116,10 +19084,8 @@ msgid "Replaced string"
 msgstr "Хамаарал"
 
 #: templates/table/find_replace/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replication"
 msgid "Replace"
-msgstr "Олшруулалт"
+msgstr "Солих"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -19184,10 +19150,8 @@ msgid "Parser:"
 msgstr "Хэрэглэгч"
 
 #: templates/table/index_form.twig:109
-#, fuzzy
-#| msgid "Comments"
 msgid "Comment:"
-msgstr "Тайлбар"
+msgstr "Тайлбар:"
 
 #: templates/table/index_form.twig:152 templates/table/index_form.twig:189
 msgid "Drag to reorder"
@@ -19358,10 +19322,8 @@ msgid "Foreign key constraints"
 msgstr "Гадаад түлхүүр шалгалтыг хаах"
 
 #: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Үйлдэл"
+msgstr "Үйлдлүүд"
 
 #: templates/table/relation/common_form.twig:15
 #, fuzzy
