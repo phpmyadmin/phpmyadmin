@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-12 00:11+0000\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-12-14 01:09+0000\n"
+"Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mn/>\n"
 "Language: mn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5338,7 +5338,7 @@ msgstr "Хандах эрхгүй!"
 #: libraries/classes/Controllers/ImportController.php:137
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid "Failed"
-msgstr ""
+msgstr "Амжилтгүй"
 
 #: libraries/classes/Controllers/ImportController.php:228
 #, php-format
@@ -5399,7 +5399,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:39
 #: templates/server/databases/index.twig:318
 msgid "Confirm"
-msgstr ""
+msgstr "Баталгаажуулах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:40
 #, fuzzy, php-format
@@ -5784,7 +5784,7 @@ msgstr "Сонгогдсон хэрэглэгчдийг хасах"
 #: templates/table/zoom_search/result_form.twig:79
 #: templates/table/zoom_search/result_form.twig:96
 msgid "Close"
-msgstr ""
+msgstr "Хаах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:105
@@ -5839,7 +5839,7 @@ msgstr "Мөр устгагдсан"
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:95
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
-msgstr ""
+msgstr "Бусад"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
@@ -6203,7 +6203,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "Unit"
-msgstr ""
+msgstr "Нэгж"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "From slow log"
@@ -6319,9 +6319,8 @@ msgid "Table"
 msgstr "Хүснэгт "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
-#, fuzzy
 msgid "Chart"
-msgstr "Кодлолууд"
+msgstr "График"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: templates/export.twig:210
@@ -6357,7 +6356,7 @@ msgstr "Хүснэгтийн сонголтууд"
 #. l10n: Filter as in "Start Filtering"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 msgid "Filter"
-msgstr ""
+msgstr "Шүүлтүүр"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Filter queries by word/regexp:"
@@ -6502,10 +6501,8 @@ msgstr ""
 #: templates/home/index.twig:289 templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
-#, fuzzy
-#| msgid "Reload privileges"
 msgid "Loading…"
-msgstr "Онцгой эрхүүдийг дахин дуудах"
+msgstr "Уншиж байна…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Request aborted!!"
@@ -6650,10 +6647,8 @@ msgid "Failed to get real row count."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:364
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "Хайх"
+msgstr "Хайж байна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 #, fuzzy
@@ -6668,10 +6663,8 @@ msgid "Show search results"
 msgstr "SQL асуудал харуулах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
-msgstr "Хөтлөх"
+msgstr "Үзэж байна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 #, fuzzy
@@ -6778,7 +6771,7 @@ msgstr "Хувьсагч"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Normalization.php:1058
 msgid "Pick"
-msgstr ""
+msgstr "Сонгох"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #, fuzzy
@@ -6891,7 +6884,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Step"
-msgstr ""
+msgstr "Алхам"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "The following actions will be performed:"
@@ -7210,7 +7203,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr ""
+msgstr "Гарчиггүй"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #, fuzzy
@@ -7328,11 +7321,11 @@ msgstr "Болих"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 #: libraries/classes/Controllers/Server/Status/StatusController.php:193
 msgid "Aborted"
-msgstr "Таслагдсан"
+msgstr "Цуцлагдсан"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:576
 msgid "Success"
-msgstr ""
+msgstr "Амжилттай"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 #, fuzzy
@@ -7385,10 +7378,8 @@ msgstr "Нууц үг солих"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:596
 #: templates/table/structure/display_structure.twig:130
-#, fuzzy
-#| msgid "Mon"
 msgid "More"
-msgstr "Да"
+msgstr "Илүү"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 #, fuzzy
@@ -16810,10 +16801,8 @@ msgstr "Цааш"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "Нийт"
+msgstr "Өнөөдөр"
 
 #: templates/javascript/variables.twig:20
 #, fuzzy
