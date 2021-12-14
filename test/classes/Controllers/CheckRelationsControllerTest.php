@@ -30,8 +30,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        $template = new Template();
-        $controller = new CheckRelationsController($response, $template, new Relation($this->dbi, $template));
+        $controller = new CheckRelationsController($response, new Template(), new Relation($this->dbi));
         $controller($request);
 
         $actual = $response->getHTMLResult();

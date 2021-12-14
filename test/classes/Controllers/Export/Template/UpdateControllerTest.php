@@ -28,7 +28,6 @@ class UpdateControllerTest extends AbstractTestCase
         $cfg['Server']['user'] = 'user';
 
         $response = new ResponseRenderer();
-        $template = new Template();
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
             ['templateId', null, '1'],
@@ -37,9 +36,9 @@ class UpdateControllerTest extends AbstractTestCase
 
         (new UpdateController(
             $response,
-            $template,
+            new Template(),
             new TemplateModel($this->dbi),
-            new Relation($this->dbi, $template)
+            new Relation($this->dbi)
         ))($request);
 
         $this->assertTrue($response->hasSuccessState());

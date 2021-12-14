@@ -116,7 +116,7 @@ class SearchControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 

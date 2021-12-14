@@ -35,13 +35,12 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
-        $template = new Template();
 
         $controller = new FavoriteTableController(
             new ResponseStub(),
-            $template,
+            new Template(),
             'db',
-            new Relation($this->dbi, $template)
+            new Relation($this->dbi)
         );
 
         // The user hash for test

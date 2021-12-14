@@ -130,10 +130,7 @@ return [
         ],
         'relation' => [
             'class' => Relation::class,
-            'arguments' => [
-                '@dbi',
-                '@template',
-            ],
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'relation_cleanup' => [
             'class' => RelationCleanup::class,

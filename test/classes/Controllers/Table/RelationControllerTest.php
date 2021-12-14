@@ -95,7 +95,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 
@@ -130,7 +130,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 
@@ -171,7 +171,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 
@@ -213,7 +213,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 

@@ -28,7 +28,6 @@ class ChangeControllerTest extends AbstractTestCase
         $_REQUEST['field'] = '_id';
 
         $response = new ResponseStub();
-        $template = new Template();
 
         $class = new ReflectionClass(ChangeController::class);
         $method = $class->getMethod('displayHtmlForColumnChange');
@@ -36,10 +35,10 @@ class ChangeControllerTest extends AbstractTestCase
 
         $ctrl = new ChangeController(
             $response,
-            $template,
+            new Template(),
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($this->dbi, $template),
+            new Relation($this->dbi),
             new Transformations(),
             $this->dbi
         );

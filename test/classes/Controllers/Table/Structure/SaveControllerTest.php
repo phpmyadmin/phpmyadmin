@@ -30,13 +30,12 @@ class SaveControllerTest extends AbstractTestCase
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
-        $template = new Template();
         $ctrl = new SaveController(
             new ResponseStub(),
-            $template,
+            new Template(),
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($this->dbi, $template),
+            new Relation($this->dbi),
             new Transformations(),
             $this->dbi,
             $this->createStub(StructureController::class)

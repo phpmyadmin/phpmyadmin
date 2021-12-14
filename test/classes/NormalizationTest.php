@@ -113,8 +113,7 @@ class NormalizationTest extends AbstractTestCase
             ->method('fetchResult')
             ->will($this->returnValue([0]));
 
-        $template = new Template();
-        $this->normalization = new Normalization($dbi, new Relation($dbi, $template), new Transformations(), $template);
+        $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }
 
     /**
@@ -147,12 +146,11 @@ class NormalizationTest extends AbstractTestCase
         $db = 'testdb';
         $table = 'mytable';
         $numFields = 1;
-        $template = new Template();
         $normalization = new Normalization(
             $this->dbi,
-            new Relation($this->dbi, $template),
+            new Relation($this->dbi),
             new Transformations(),
-            $template
+            new Template()
         );
         $result = $normalization->getHtmlForCreateNewColumn($numFields, $db, $table);
         $this->assertStringContainsString('<table id="table_columns"', $result);

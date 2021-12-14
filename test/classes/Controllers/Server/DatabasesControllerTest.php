@@ -48,7 +48,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         $relationCleanup = new RelationCleanup(
             $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi'], $template)
+            new Relation($GLOBALS['dbi'])
         );
 
         $response = new ResponseRenderer();

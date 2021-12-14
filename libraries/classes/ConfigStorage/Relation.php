@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
@@ -58,17 +57,9 @@ class Relation
     /** @var DatabaseInterface */
     public $dbi;
 
-    /** @var Template */
-    public $template;
-
-    /**
-     * @param DatabaseInterface|null $dbi      Database interface
-     * @param Template|null          $template Template instance
-     */
-    public function __construct(?DatabaseInterface $dbi, ?Template $template = null)
+    public function __construct(?DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->template = $template ?? new Template();
     }
 
     /**

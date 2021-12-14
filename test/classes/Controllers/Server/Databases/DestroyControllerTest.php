@@ -37,13 +37,12 @@ class DestroyControllerTest extends AbstractTestCase
 
         $cfg['AllowUserDropDatabase'] = true;
 
-        $template = new Template();
         $controller = new DestroyController(
             $response,
-            $template,
+            new Template(),
             $dbi,
             new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi, $template))
+            new RelationCleanup($dbi, new Relation($dbi))
         );
 
         $controller();
