@@ -42,7 +42,7 @@ class ErrorReportTest extends AbstractTestCase
 
         $this->errorReport = new ErrorReport(
             new HttpRequest(),
-            new Relation(null),
+            new Relation($this->dbi),
             new Template(),
             $GLOBALS['config']
         );
@@ -124,7 +124,7 @@ class ErrorReportTest extends AbstractTestCase
 
         $this->errorReport = new ErrorReport(
             $httpRequest,
-            new Relation(null),
+            new Relation($this->dbi),
             new Template(),
             $GLOBALS['config']
         );

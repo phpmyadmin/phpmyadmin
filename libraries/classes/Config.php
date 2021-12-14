@@ -433,7 +433,6 @@ class Config
     {
         global $isMinimumCommon;
 
-        $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
         $server = $GLOBALS['server'] ?? (! empty($GLOBALS['cfg']['ServerDefault'])
@@ -446,6 +445,7 @@ class Config
                 ! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $this->sourceMtime
             ) {
+                $userPreferences = new UserPreferences();
                 $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];

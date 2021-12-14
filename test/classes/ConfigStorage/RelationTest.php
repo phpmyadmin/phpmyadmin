@@ -1089,7 +1089,7 @@ class RelationTest extends AbstractTestCase
 
     public function testGetDefaultPmaTableNames(): void
     {
-        $this->relation = new Relation(null);
+        $this->relation = new Relation($this->dbi);
 
         $data = [
             'pma__bookmark' => implode("\n", [

@@ -976,11 +976,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept PhpMyAdmin\\\\DatabaseInterface\\|null\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
@@ -9869,11 +9864,6 @@ parameters:
 			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
 			path: test/classes/Command/SetVersionCommandTest.php
-
-		-
-			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
-			count: 1
-			path: test/classes/Command/TwigLintCommandTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$array_arg of function sort expects array, mixed given\\.$#"

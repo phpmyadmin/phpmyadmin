@@ -1001,9 +1001,6 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$row['comment']</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$dbi</code>
-    </PossiblyNullPropertyAssignmentValue>
     <RedundantCast occurrences="6">
       <code>(int) $GLOBALS['cfg']['LimitChars']</code>
       <code>(string) $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]</code>
