@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
@@ -302,31 +303,12 @@ class RelationTest extends AbstractTestCase
 
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => true,// The only one than has a table and passes check
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
+            'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertAllQueriesConsumed();
         $this->assertAllSelectsConsumed();
@@ -600,31 +582,12 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => true,// The only one than has a table and passes check
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
+            'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertAllQueriesConsumed();
         $this->assertAllSelectsConsumed();
@@ -904,31 +867,12 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => true,// The only one than has a table and passes check
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
+            'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertAllQueriesConsumed();
         $this->assertAllSelectsConsumed();
@@ -1551,30 +1495,8 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
         // Should all be false for server = 0
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => false,
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => null,
-            'db' => null,
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        $relationParameters = RelationParameters::fromArray([]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertEquals([
             'userconfig' => 'pma__userconfig',
@@ -1645,31 +1567,12 @@ class RelationTest extends AbstractTestCase
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
         // Should all be false for server = 0
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => true,
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'phpmyadmin',
+            'userconfigwork' => true,
             'userconfig' => 'pma__userconfig',
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertSame([
             'user' => '',
@@ -1753,31 +1656,12 @@ class RelationTest extends AbstractTestCase
 
         $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
 
-        $this->assertSame([
-            'version' => $_SESSION['relation'][$GLOBALS['server']]['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => false,// Expected value for not working table
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'phpmyadmin',
+            'userconfigwork' => false,
             'userconfig' => 'pma__userconfig',
-        ], $_SESSION['relation'][$GLOBALS['server']]);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $_SESSION['relation'][$GLOBALS['server']]);
 
         $this->assertSame([
             'user' => '',
@@ -1901,34 +1785,16 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('PMA-storage');
-        $relationData = (new Relation($this->dbi))->checkRelationsParam();
+        unset($_SESSION['relation'][$GLOBALS['server']]);
+        $relationData = $relation->getRelationParameters();
         $this->assertAllSelectsConsumed();
 
-        $this->assertSame([
-            'version' => $relationData['version'],
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => true,
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => '',
+        $relationParameters = RelationParameters::fromArray([
             'db' => 'PMA-storage',
+            'userconfigwork' => true,
             'userconfig' => 'pma__userconfig_custom',
-        ], $relationData);
+        ]);
+        $this->assertSame($relationParameters->toArray(), $relationData->toArray());
 
         $this->assertSame([
             'user' => '',

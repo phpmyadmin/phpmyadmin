@@ -862,8 +862,7 @@
     </PossiblyInvalidCast>
   </file>
   <file src="libraries/classes/ConfigStorage/Relation.php">
-    <MixedArgument occurrences="33">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    <MixedArgument occurrences="32">
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
       <code>$_SESSION['sql_history']</code>
@@ -916,10 +915,7 @@
       <code>$one_key['ref_index_list']</code>
       <code>$one_key['ref_table_name']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="6">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    <MixedArrayAssignment occurrences="3">
       <code>$_SESSION['sql_history'][]</code>
       <code>$_SESSION['tmpval']['favoriteTables']</code>
       <code>$_SESSION['tmpval']['recentTables']</code>
@@ -15454,16 +15450,11 @@
       <code>$_SESSION</code>
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedArrayAccess occurrences="9">
+    <MixedArrayAccess occurrences="4">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]['version']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['relation'][$GLOBALS['server']]</code>

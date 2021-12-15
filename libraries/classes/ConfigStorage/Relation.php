@@ -96,15 +96,24 @@ class Relation
 
     public function getRelationParameters(): RelationParameters
     {
-        if (
-            empty($_SESSION['relation'][$GLOBALS['server']])
-            || empty($_SESSION['relation'][$GLOBALS['server']]['version'])
-            || $_SESSION['relation'][$GLOBALS['server']]['version'] !== Version::VERSION
-        ) {
-            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+        $server = $GLOBALS['server'];
+
+        if (! isset($_SESSION['relation']) || ! is_array($_SESSION['relation'])) {
+            $_SESSION['relation'] = [];
         }
 
-        return RelationParameters::fromArray($_SESSION['relation'][$GLOBALS['server']]);
+        if (
+            isset($_SESSION['relation'][$server]) && is_array($_SESSION['relation'][$server])
+            && isset($_SESSION['relation'][$server]['version'])
+            && $_SESSION['relation'][$server]['version'] === Version::VERSION
+        ) {
+            return RelationParameters::fromArray($_SESSION['relation'][$server]);
+        }
+
+        $relationParameters = RelationParameters::fromArray($this->checkRelationsParam());
+        $_SESSION['relation'][$server] = $relationParameters->toArray();
+
+        return $relationParameters;
     }
 
     /**
@@ -243,10 +252,8 @@ class Relation
      * but added some stuff to check what will work
      *
      * @return array<string, bool|string|null> the relation parameters for the current user
-     *
-     * @access protected
      */
-    public function checkRelationsParam(): array
+    private function checkRelationsParam(): array
     {
         $relationParams = [];
         $relationParams['version'] = Version::VERSION;
@@ -1613,7 +1620,8 @@ class Relation
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
-            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+            unset($_SESSION['relation'][$GLOBALS['server']]);
+            $this->getRelationParameters();
 
             return true;
         }
@@ -1731,7 +1739,7 @@ class Relation
         }
 
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
-        $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+        unset($_SESSION['relation'][$GLOBALS['server']]);
 
         $relationParameters = $this->getRelationParameters();
         if (
