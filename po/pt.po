@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-12 00:11+0000\n"
-"PO-Revision-Date: 2021-11-23 18:44+0000\n"
-"Last-Translator: SC <lalocas@protonmail.com>\n"
+"PO-Revision-Date: 2021-12-16 22:22+0000\n"
+"Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -29,7 +29,7 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Pra ter médias mais precisas é recomendado deixar o servidor rodando por "
+"Para ter médias mais precisas é recomendado deixar o servidor a correr por "
 "mais de um dia antes de utilizar esta ferramenta"
 
 #: libraries/advisory_rules_generic.php:17
@@ -77,8 +77,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Você pode querer aumentar o parâmetro {long_query_time} ou otimizar as "
-"queries listadas no log de consultas lentas"
+"Pode querer aumentar o parâmetro {long_query_time} ou otimizar as queries "
+"listadas no log de consultas lentas"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
@@ -179,7 +179,7 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Você deveria atualizar, uma vez que o MySQL 5.1 tem um desempenho melhor e o "
+"Deveria atualizar, uma vez que o MySQL 5.1 tem um desempenho melhor e o "
 "MySQL 5.5 melhor ainda."
 
 #: libraries/advisory_rules_generic.php:113
@@ -204,8 +204,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Você deveria atualizar, já que as versões recentes do MySQL 5.1 têm "
-"desempenho aprimorado e as do MySQL 5.5 ainda mais."
+"Deveria atualizar, já que as versões recentes do MySQL 5.1 têm um melhor "
+"desempenho e as do MySQL 5.5 ainda melhor."
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -214,7 +214,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:137
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Você deveria atualizar para uma versão estável do MySQL 5.5."
+msgstr "Deveria atualizar para uma versão estável do MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
@@ -233,10 +233,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"Se você não compilou a partir do código fonte, você pode estar usando um "
-"pacote modificado por uma distribuição. O manual do MySQL só é preciso com "
-"relação aos binários oficiais do MySQL, não com relação aos pacotes "
-"fornecidos com distribuições (como RedHat, Debian/Ubuntu etc.)."
+"Se não compilou a partir do código fonte, pode estar a utilizar um pacote "
+"modificado por uma distribuição. O manual do MySQL só é preciso para os "
+"binários oficiais do MySQL, e não para os dos pacotes fornecidos com "
+"distribuições (como RedHat, Debian/Ubuntu etc.)."
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
@@ -273,9 +273,9 @@ msgid ""
 "consider installing the 64-bit version of MySQL."
 msgstr ""
 "A quantidade de memória disponível é superior a 3GB (presumindo que o "
-"servidor esteja na máquina local), assim o MySQL pode não ser capaz de "
-"acessar toda a memória. Você deve considerar a instalação de uma versão 64-"
-"bit do MySQL."
+"servidor esteja na máquina local), assim, o MySQL pode não ser capaz de "
+"aceder a toda a memória. Deve considerar a instalação de uma versão 64-bit "
+"do MySQL."
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
@@ -365,10 +365,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Apesar de não haver nada errado em uma grande quantidade de ordenação de "
-"campos, você pode querer garantir que as consultas que exigem muita "
-"ordenação usem colunas indexadas na cláusula ORDER BY, pois isso resultará "
-"em uma ordenação muito mais rápida."
+"Apesar de não haver nada de errado numa grande quantidade de ordenação de "
+"campos, pode querer garantir que as consultas que exigem muita ordenação "
+"utilizem colunas indexadas na cláusula ORDER BY, pois assim resultará numa "
+"ordenação muito mais rápida."
 
 #: libraries/advisory_rules_generic.php:240
 #, php-format
@@ -495,10 +495,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
-"Se você mudou deliberadamente um deles: o servidor usa o valor mais baixo "
-"dos dois para determinar o tamanho máximo de tabelas em memória. Então, se "
-"você quiser aumentar o limite de tabela em memória, você terá que aumentar o "
-"outro valor também."
+"Se mudou deliberadamente um deles: o servidor utiliza o valor mais baixo dos "
+"dois para determinar o tamanho máximo de tabelas em memória. Então, se "
+"quiser aumentar o limite de tabela em memória, terá que aumentar o outro "
+"valor também."
 
 #: libraries/advisory_rules_generic.php:310
 #, php-format
@@ -528,13 +528,13 @@ msgid ""
 "mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
-"Aumentar o {max_heap_table_size} e {tmp_table_size} pode ajudar. Embora "
+"Aumentar o {max_heap_table_size} e {tmp_table_size} pode ajudar. Embora, "
 "algumas tabelas temporárias estejam sempre a ser escritas para o disco, "
-"independente do valor dessas variáveis. Para eliminá-las, terá que "
-"reescrever as suas consultas para evitar essas condições (dentro de uma "
-"tabela temporária: presença de um campo BLOB ou TEXTO ou presença de um "
-"campo maior que 512 bytes) como mencionado no começo de um <a href=\"https://"
-"www.facebook.com/note.php?note_id=10150111255065841&comments\">artigo do "
+"independentemente do valor dessas variáveis. Para eliminá-las, terá que "
+"reescrever as suas queries para evitar essas condições (dentro de uma tabela "
+"temporária: presença de um campo BLOB ou TEXTO ou presença de um campo maior "
+"do que 512 bytes) como mencionado na primeira parte de um <a href=\"https"
+"://www.facebook.com/note.php?note_id=10150111255065841&comments\">artigo do "
 "Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.php:331
@@ -616,9 +616,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
-"Pode precisar de diminuir o tamanho do {key_buffer_size}, re-examinar as "
-"suas tabelas para ver se os índices foram removidos, ou examinar as "
-"consultas e expectativas a respeito de quais índices estão a ser usados."
+"Pode precisar de diminuir o tamanho do {key_buffer_size}, reexaminar as suas "
+"tabelas para ver se os índices foram removidos, ou examinar as queries e as "
+"expectativas dos índices que estão a ser utilizados."
 
 #: libraries/advisory_rules_generic.php:382
 #, php-format
@@ -650,7 +650,7 @@ msgstr "A percentagem de índices que usam o buffer de chaves MyISAM é baixa."
 
 #: libraries/advisory_rules_generic.php:410
 msgid "You may need to increase {key_buffer_size}."
-msgstr "Você pode precisar aumentar o {key_buffer_size}."
+msgstr "Pode precisar de aumentar o {key_buffer_size}."
 
 #: libraries/advisory_rules_generic.php:411
 #, php-format
@@ -808,9 +808,9 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
-"Isso geralmente acontece em caso de sobrecarga geral do sistema já que isso "
-"é uma operação bem simples. Você poderá querer monitorar o carregamento do "
-"seu sistema com cuidado."
+"Normalmente isto acontece em caso de sobrecarga geral do sistema já que até "
+"é uma operação simples. Poderá querer monitorar o carregamento do seu "
+"sistema com cuidado."
 
 #: libraries/advisory_rules_generic.php:510
 #, php-format
@@ -1211,14 +1211,14 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"Espera-se que fragmentação severa aumente (ainda mais) Qcache_lowmem_prunes. "
-"Isso pode ser causado por vários cortes de baixa memória do cache de query "
-"por causa de {query_cache_size} ser pequeno demais. Para conserto imediato "
-"mas de curta duração você pode esvaziar o cache de query (pode travar o "
-"cache de query por um bom tempo). Cuidadosamente ajustar "
-"{query_cache_min_res_unit) para um valor mais baixo pode ajudar também, por "
-"exemplo, você pode defini-lo para o tamanho médio de suas queries no cache "
-"usando essa fórmula: (query_cache_size - qcache_free_memory) / "
+"Espera-se que a fragmentação severa aumente (ainda mais) "
+"Qcache_lowmem_prunes. Isto pode ser causado por vários cortes de baixa "
+"memória da cache de query devido a {query_cache_size} ser demasiado pequena. "
+"Para uma solução imediata, mas de curta duração, pode esvaziar a cache de "
+"query (poderá bloquear a cache de query por um bom tempo). O cuidadoso "
+"ajuste da {query_cache_min_res_unit) para um valor mais baixo poderá também "
+"ajudar, por exemplo, pode defini-lo para o tamanho médio das suas queries na "
+"cache ao utilizar esta fórmula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
 #: libraries/advisory_rules_mysql_before80003.php:66
@@ -1250,9 +1250,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
-"Você pode querer aumentar o {query_cache_size}, embora saiba que é de se "
-"esperar que o consumo geral de manter o cache vá aumentar com seu tamanho, "
-"então aumente ele de pouco em pouco e monitore os resultados."
+"Poderá querer aumentar a {query_cache_size}, embora saiba que, é de se "
+"esperar que o consumo geral para manter a cache vá aumentar com o seu "
+"tamanho, então, aumente-a pouco a pouco e monitore os resultados."
 
 #: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
@@ -2489,9 +2489,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Você pode usar meta-caracteres do MySQL (% e _), preceda-os de barra "
-"invertida se quiser usar suas instâncias literais, ou seja, use [kbd]'my"
-"\\_db'[/kbd] e não [kbd]'my_db'[/kbd]."
+"Pode utilizar metacaracteres do MySQL (% e _), anteceda-as com a barra "
+"invertida se quiser utilizar as suas instâncias literais, ou seja, utilize "
+"[kbd]'my\\_db'[/kbd] e não [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:392
 msgid ""
@@ -4796,12 +4796,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %sopção%s deveria ser desativata, pois ela permite que atacantes façam "
-"login por força bruta em qualquer servidor MySQL. Se julga que ela é "
-"necessária, use o %s login restrito para o servidor MySQL %s ou %s a lista "
-"de proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP "
-"podem não ser confiáveis se o seu endereço IP pertence a um PROVEDOR onde "
-"centenas de utilizadores, incluindo você, estão conectados."
+"Esta %sopção%s deveria ser desativada, pois permite que os atacantes iniciem "
+"sessão por força bruta em qualquer servidor MySQL. Se sente que seja "
+"necessária, utilize o %s início de sessão restrito para o servidor MySQL %s "
+"ou %s a lista de proxies confiáveis %s. Entretanto, as proteções baseadas no "
+"protocolo IP podem não ser fiáveis se o seu endereço IP pertence a um "
+"fornecedor onde milhares de utilizadores, incluindo-o a si, estão ligados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:92
 msgid ""
@@ -4815,7 +4815,7 @@ msgstr ""
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
-"Você deve utilizar conexões SSL, se o seu servidor de base de dados suportar."
+"Deve utilizar ligações SSL, se o seu servidor de base de dados suportar."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
 #, php-format
@@ -4825,11 +4825,11 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se achar necessário, pode usar as configurações de proteção adicional - as "
-"configurações %1$shost authentication%2$s e %3$strusted proxies list%4$s. No "
-"entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
-"pertence a um servidor do provedor onde milhares de utilizadores, incluindo "
-"você, estão conectados."
+"Se sentir que é necessário, pode utilizar as definições de proteção "
+"adicional - as definições de %1$sautenticação do servidor%2$s e da %3$slista "
+"de proxies fiáveis%4$s. No entanto, as proteções baseadas em IP podem não "
+"ser fiáveis se o seu IP pertence a um servidor de um fornecedor onde "
+"milhares de utilizadores, incluindo-o a si, estão ligados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
 #, php-format
@@ -4840,10 +4840,10 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Você definiu o tipo de autenticação por [kbd]config[/kbd] e incluiu o nome "
-"de utilizador e palavra-passe para o inicio de sessão automático, o que não "
-"é uma opção aconselhável para servidores de produção. Alguém que saiba ou "
-"adivinhe o URL do seu phpMyAdmin tem acesso ao painel de gestão do "
+"Definiu o tipo de autenticação por [kbd]config[/kbd] e incluiu o nome de "
+"utilizador e palavra-passe para o inicio de sessão automático, o que não é "
+"uma opção aconselhável para servidores de produção. Qualquer pessoa que "
+"saiba ou adivinhe o URL do seu phpMyAdmin tem acesso ao painel de gestão do "
 "phpMyAdmin. Defina o %1$stipo de autenticação%2$s para [kbd]cookie[/kbd] ou "
 "[kbd]http[/kbd]."
 
@@ -14824,7 +14824,7 @@ msgstr "Especifico da Base de Dados"
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
 msgid "wildcard"
-msgstr "curinga"
+msgstr "metacaracter"
 
 #: templates/database/privileges/index.twig:55
 #: templates/table/privileges/index.twig:59
@@ -17245,8 +17245,8 @@ msgstr "Adicionar privilégios no seguinte banco de dados:"
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"Coringas % e _ precisam ser precedidos com uma \\ para serem usados "
-"literalmente."
+"Os metacaracteres % e _ precisam de ser antecedidos com uma \\ para serem "
+"utilizados no seu sentido literal."
 
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
