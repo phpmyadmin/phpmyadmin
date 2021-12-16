@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-12-16 22:23+0000\n"
+"PO-Revision-Date: 2021-12-17 23:52+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -535,7 +535,7 @@ msgstr "Adicionar geometria"
 #: templates/server/binlog/log_selector.twig:27
 #: templates/table/index_form.twig:217 view_operations.php:115
 msgid "Go"
-msgstr "Executar"
+msgstr "Continuar"
 
 #: gis_data_editor.php:420
 msgid "Output"
@@ -644,9 +644,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Você foi desconectado de apenas um servidor, para se desconectar "
-"completamente do phpMyAdmin, você precisa desconectar-se de todos os "
-"servidores."
+"Apenas foi desconectado de um servidor, para se desconectar completamente do "
+"phpMyAdmin, precisa de se desconectar de todos os servidores."
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -1341,7 +1340,7 @@ msgstr "Tráfego"
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3995
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: js/messages.php:216
 msgid "Add chart to grid"
@@ -2335,7 +2334,7 @@ msgstr "Guardar página"
 #: js/messages.php:568 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 msgid "Save page as"
-msgstr "Salvar página como"
+msgstr "Guardar página como"
 
 #: js/messages.php:569 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
@@ -2396,8 +2395,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"Editou alguns dados e estes não foram salvos. Tem certeza que quer sair "
-"desta página antes de salvar os seus dados?"
+"Editou alguns dados que não foram guardados. Tem a certeza de que quer sair "
+"desta página antes de os guardar?"
 
 #: js/messages.php:591
 msgid "Drag to reorder."
@@ -2680,12 +2679,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Houve um erro ao acessar o armazenamento do seu browser. Algumas "
-"funcionalidades podem não funcionar corretamente para você. É provável que o "
-"browser não suporte armazenamento ou que a quota limite tenha sido "
-"alcançada. No Firefox, armazenamento corrompido também pode causar um "
-"problema. Limpar seus \"Dados offline de sites\" pode ajudar. No Safari, "
-"este problema é comumente causado pelo \"Modo de Navegação Privada\"."
+"Houve um erro ao aceder ao armazenamento do seu navegador. Algumas "
+"funcionalidades podem não funcionar corretamente para si. É provável que o "
+"navegador não suporte o armazenamento ou que a quota limite tenha sido "
+"alcançada. No Firefox, o armazenamento corrompido também pode causar um "
+"problema. Limpar os seus \"Dados offline de sites\" pode ajudar. No Safari, "
+"este problema é comummente causado pelo \"Modo de Navegação Privada\"."
 
 #: js/messages.php:738
 msgid "Copy tables to"
@@ -3363,7 +3362,7 @@ msgstr "Báltico"
 #: libraries/classes/Charsets.php:416
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "Armênio"
+msgstr "Arménio"
 
 #: libraries/classes/Charsets.php:419
 msgctxt "Collation"
@@ -6474,9 +6473,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Você não tinha o segredo blowfish configurado e ativou a autenticação por "
-"[kbd]cookies[/kbd], por isso uma chave foi gerada automaticamente. Esta é "
-"usada para encriptar cookies; você não precisa memorizá-la."
+"Não tinha o segredo blowfish definido e ativou a autenticação por "
+"[kbd]cookies[/kbd], foi então gerada uma chave automaticamente. Esta é "
+"utilizada para encriptar cookies; não a precisa de memorizar."
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
 msgid "Key is too short, it should have at least 32 characters."
@@ -7844,7 +7843,7 @@ msgstr "Pasta temporária não encontrada."
 
 #: libraries/classes/File.php:319
 msgid "Failed to write file to disk."
-msgstr "Falha ao salvar o ficheiro para o disco."
+msgstr "Não foi possível guardar o ficheiro no disco."
 
 #: libraries/classes/File.php:322
 msgid "File upload stopped by extension."
@@ -8098,7 +8097,7 @@ msgstr "e então"
 
 #: libraries/classes/InsertEdit.php:1808
 msgid "Insert as new row"
-msgstr "Insere como novo registo"
+msgstr "Inserir como uma nova linha"
 
 #: libraries/classes/InsertEdit.php:1811
 msgid "Insert as new row and ignore errors"
@@ -8218,7 +8217,7 @@ msgstr "Pesquisar"
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:119
 msgid "Insert"
-msgstr "Insere"
+msgstr "Inserir"
 
 #: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2584
@@ -12124,10 +12123,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
-"Você pode adicionar gráficos e alterar a taxa de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone da engrenagem "
-"em cada gráfico."
+"O seu navegador atualizará todos os gráficos exibidos em intervalo regular. "
+"Pode adicioná-los e alterar a taxa de atualização em 'Definições', ou "
+"remover qualquer um usando o ícone da engrenagem em cada gráfico."
 
 #: libraries/classes/Server/Status/Monitor.php:144
 msgid ""
@@ -12370,7 +12368,7 @@ msgid ""
 msgstr ""
 "A quantidade de tabelas temporárias no disco criadas automaticamente pelo "
 "servidor enquanto executava os enunciados. Se Created_tmp_disk_tables é "
-"grande, você pode aumentar o valor de tmp_table_size para fazer as tabelas "
+"grande, pode aumentar o valor de tmp_table_size para fazer as tabelas "
 "temporárias serem baseadas na memória em vez de serem baseadas em disco."
 
 #: libraries/classes/Server/Status/Variables.php:367
@@ -12453,8 +12451,8 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "A quantidade de requisições para ler a linha seguinte na ordem da chave. "
-"Isto é incrementado se você estiver consultando uma coluna do índice com uma "
-"restrição de escala ou se você estiver fazendo uma varredura do índice."
+"Isto é incrementado se estiver a consultar uma coluna do índice com uma "
+"restrição de escala ou se estiver a fazer uma leitura do índice."
 
 #: libraries/classes/Server/Status/Variables.php:417
 msgid ""
@@ -13314,9 +13312,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Não pode salvar a propriedade de interface \"%s\". As mudanças feitas não "
-"serão constantes quando recarregar esta página. Favor verifique se a "
-"estrutura da tabela foi alterada."
+"Não pode guardar a propriedade da interface \"%s\". As mudanças efetuadas "
+"não serão constantes quando recarregar esta página. Por favor, verifique se "
+"a estrutura da tabela foi alterada."
 
 #: libraries/classes/Table.php:2086
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -13811,7 +13809,7 @@ msgstr "Palavra-passe muito longa!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
-msgstr "Não foi possível salvar a configuração"
+msgstr "Não foi possível guardar a configuração"
 
 #: libraries/classes/Util.php:175
 #, php-format
@@ -14853,7 +14851,7 @@ msgstr "Adiciona uma opção para a coluna \"%s\"."
 #: templates/display/export/options_quick_export.twig:8
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salvar em servidor no diretório <strong>%s</strong>"
+msgstr "Guardar em servidor na diretoria <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -14945,7 +14943,7 @@ msgstr "Coluna de valor:"
 
 #: templates/table/chart/tbl_chart.twig:153
 msgid "Save chart as image"
-msgstr "Salvar gráfico como imagem"
+msgstr "Guardar gráfico como imagem"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
