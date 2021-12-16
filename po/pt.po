@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-12-16 22:23+0000\n"
+"PO-Revision-Date: 2021-12-17 23:52+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/pt/>\n"
@@ -758,7 +758,7 @@ msgstr "Tráfego"
 #: libraries/classes/Util.php:4217
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #: js/messages.php:220
 msgid "Add chart to grid"
@@ -1215,7 +1215,7 @@ msgstr "Parâmetros não encontrados!"
 #: templates/table/structure/display_structure.twig:439
 #: templates/view_create.twig:116
 msgid "Go"
-msgstr "Executar"
+msgstr "Continuar"
 
 #: js/messages.php:363 templates/database/designer/main.twig:341
 #: templates/database/designer/main.twig:392
@@ -1496,8 +1496,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
-"Você tem uma consulta salva anteriormente. Clique em Obter consulta salva "
-"automaticamente para carregar a consulta."
+"Tem uma query guardada anteriormente. Clique em Obter query guardada "
+"automaticamente para a carregar."
 
 #: js/messages.php:436
 #, php-format
@@ -1913,7 +1913,7 @@ msgstr "Guardar página"
 #: js/messages.php:577 templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
-msgstr "Salvar página como"
+msgstr "Guardar página como"
 
 #: js/messages.php:578 templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
@@ -1974,8 +1974,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"Editou alguns dados e estes não foram salvos. Tem certeza que quer sair "
-"desta página antes de salvar os seus dados?"
+"Editou alguns dados que não foram guardados. Tem a certeza de que quer sair "
+"desta página antes de os guardar?"
 
 #: js/messages.php:600
 msgid "Drag to reorder."
@@ -2077,14 +2077,13 @@ msgstr "Imprimir"
 #: js/messages.php:642
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Você também pode editar a maioria dos valores<br>clicando duas vezes sobre "
-"eles."
+"Pode editar também a maioria dos valores<br>ao fazer um duplo clique "
+"diretamente neles."
 
 #: js/messages.php:647
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Você também pode editar a maioria dos valores<br>clicando diretamente sobre "
-"eles."
+"Pode editar também a maioria dos valores<br>ao clicar diretamente neles."
 
 #: js/messages.php:653
 msgid "Go to link:"
@@ -2276,12 +2275,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Houve um erro ao acessar o armazenamento do seu browser. Algumas "
-"funcionalidades podem não funcionar corretamente para você. É provável que o "
-"browser não suporte armazenamento ou que a quota limite tenha sido "
-"alcançada. No Firefox, armazenamento corrompido também pode causar um "
-"problema. Limpar seus \"Dados offline de sites\" pode ajudar. No Safari, "
-"este problema é comumente causado pelo \"Modo de Navegação Privada\"."
+"Houve um erro ao aceder ao armazenamento do seu navegador. Algumas "
+"funcionalidades podem não funcionar corretamente para si. É provável que o "
+"navegador não suporte o armazenamento ou que a quota limite tenha sido "
+"alcançada. No Firefox, o armazenamento corrompido também pode causar um "
+"problema. Limpar os seus \"Dados offline de sites\" pode ajudar. No Safari, "
+"este problema é comummente causado pelo \"Modo de Navegação Privada\"."
 
 #: js/messages.php:749
 msgid "Copy tables to"
@@ -3008,7 +3007,7 @@ msgstr "Báltico"
 #: libraries/classes/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "Armênio"
+msgstr "Arménio"
 
 #: libraries/classes/Charsets/Collation.php:264
 msgctxt "Collation"
@@ -6187,9 +6186,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Você não tinha o segredo blowfish configurado e ativou a autenticação por "
-"[kbd]cookies[/kbd], por isso uma chave foi gerada automaticamente. Esta é "
-"usada para encriptar cookies; você não precisa memorizá-la."
+"Não tinha o segredo blowfish definido e ativou a autenticação por "
+"[kbd]cookies[/kbd], foi então gerada uma chave automaticamente. Esta é "
+"utilizada para encriptar cookies; não a precisa de memorizar."
 
 #: libraries/classes/Config/ServerConfigChecks.php:394
 msgid "Key is too short, it should have at least 32 characters."
@@ -6354,9 +6353,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Você foi desconectado de apenas um servidor, para se desconectar "
-"completamente do phpMyAdmin, você precisa desconectar-se de todos os "
-"servidores."
+"Apenas foi desconectado de um servidor, para se desconectar completamente do "
+"phpMyAdmin, precisa de se desconectar de todos os servidores."
 
 #: libraries/classes/Controllers/HomeController.php:142
 #: templates/preferences/manage/main.twig:49
@@ -6619,7 +6617,7 @@ msgid ""
 msgstr ""
 "A quantidade de tabelas temporárias no disco criadas automaticamente pelo "
 "servidor enquanto executava os enunciados. Se Created_tmp_disk_tables é "
-"grande, você pode aumentar o valor de tmp_table_size para fazer as tabelas "
+"grande, pode aumentar o valor de tmp_table_size para fazer as tabelas "
 "temporárias serem baseadas na memória em vez de serem baseadas em disco."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:230
@@ -6702,8 +6700,8 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "A quantidade de requisições para ler a linha seguinte na ordem da chave. "
-"Isto é incrementado se você estiver consultando uma coluna do índice com uma "
-"restrição de escala ou se você estiver fazendo uma varredura do índice."
+"Isto é incrementado se estiver a consultar uma coluna do índice com uma "
+"restrição de escala ou se estiver a fazer uma leitura do índice."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:280
 msgid ""
@@ -8418,7 +8416,7 @@ msgstr "Pasta temporária não encontrada."
 
 #: libraries/classes/File.php:324
 msgid "Failed to write file to disk."
-msgstr "Falha ao salvar o ficheiro para o disco."
+msgstr "Não foi possível guardar o ficheiro no disco."
 
 #: libraries/classes/File.php:327
 msgid "File upload stopped by extension."
@@ -8719,7 +8717,7 @@ msgstr "e então"
 
 #: libraries/classes/InsertEdit.php:1844
 msgid "Insert as new row"
-msgstr "Insere como novo registo"
+msgstr "Inserir como uma nova linha"
 
 #: libraries/classes/InsertEdit.php:1847
 msgid "Insert as new row and ignore errors"
@@ -8840,7 +8838,7 @@ msgstr "Pesquisar"
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183
 msgid "Insert"
-msgstr "Insere"
+msgstr "Inserir"
 
 #: libraries/classes/Menu.php:400 libraries/classes/Menu.php:511
 #: libraries/classes/Server/Privileges.php:2716
@@ -12636,9 +12634,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Não pode salvar a propriedade de interface \"%s\". As mudanças feitas não "
-"serão constantes quando recarregar esta página. Favor verifique se a "
-"estrutura da tabela foi alterada."
+"Não pode guardar a propriedade da interface \"%s\". As mudanças efetuadas "
+"não serão constantes quando recarregar esta página. Por favor, verifique se "
+"a estrutura da tabela foi alterada."
 
 #: libraries/classes/Table.php:2191
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -13139,7 +13137,7 @@ msgstr ""
 
 #: libraries/classes/UserPreferences.php:172
 msgid "Could not save configuration"
-msgstr "Não foi possível salvar a configuração"
+msgstr "Não foi possível guardar a configuração"
 
 #: libraries/classes/Util.php:173
 #, php-format
@@ -14458,7 +14456,7 @@ msgstr "Ver resultado como texto"
 #: templates/display/export/options_quick_export.twig:8
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salvar em servidor no diretório <strong>%s</strong>"
+msgstr "Guardar em servidor na diretoria <strong>%s</strong>"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -15752,10 +15750,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Seu navegador vai atualizar todos os gráficos exibidos em intervalo regular. "
-"Você pode adicionar gráficos e alterar a taxa de atualização em "
-"\"Configurações\", ou remover qualquer gráfico usando o ícone da engrenagem "
-"em cada gráfico."
+"O seu navegador atualizará todos os gráficos exibidos em intervalo regular. "
+"Pode adicioná-los e alterar a taxa de atualização em 'Definições', ou "
+"remover qualquer um usando o ícone da engrenagem em cada gráfico."
 
 #: templates/server/status/monitor/index.twig:108
 msgid ""
@@ -16188,7 +16185,7 @@ msgstr "Coluna de valor:"
 
 #: templates/table/chart/tbl_chart.twig:151
 msgid "Save chart as image"
-msgstr "Salvar gráfico como imagem"
+msgstr "Guardar gráfico como imagem"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
