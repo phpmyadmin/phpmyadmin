@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-12 00:11+0000\n"
-"PO-Revision-Date: 2021-12-14 01:09+0000\n"
+"PO-Revision-Date: 2021-12-18 06:51+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mn/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3616,7 +3616,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:789
 #: templates/console/display.twig:4
 msgid "Console"
-msgstr ""
+msgstr "Консол"
 
 #: libraries/classes/Config/Descriptions.php:790
 msgid "GZip"
@@ -4383,7 +4383,7 @@ msgstr ""
 #: templates/table/relation/common_form.twig:175
 #: templates/table/relation/foreign_key_row.twig:98
 msgid "Database"
-msgstr "ӨС"
+msgstr "Өгөгдлийн сан"
 
 #: libraries/classes/Config/Descriptions.php:958
 #, fuzzy
@@ -6269,7 +6269,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Analyzing…"
-msgstr ""
+msgstr "Шинжилгээ хийж байна…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #, fuzzy
@@ -9036,7 +9036,7 @@ msgstr "Эсвэл"
 #: libraries/classes/Database/Qbe.php:793
 #: templates/database/qbe/ins_del_and_or_cell.twig:9
 msgid "And:"
-msgstr ""
+msgstr "Бас:"
 
 #: libraries/classes/Database/Qbe.php:799
 msgid "Ins"
@@ -13818,11 +13818,11 @@ msgstr "Мя"
 
 #: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
-msgstr ""
+msgstr "Лхагва гараг"
 
 #: libraries/config.values.php:194 templates/javascript/variables.twig:52
 msgid "Thursday"
-msgstr ""
+msgstr "Пүрэв гараг"
 
 #: libraries/config.values.php:195 templates/javascript/variables.twig:53
 #, fuzzy
@@ -13832,7 +13832,7 @@ msgstr "Ба"
 
 #: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
-msgstr ""
+msgstr "Бямба гариг"
 
 #: libraries/config.values.php:197 templates/javascript/variables.twig:48
 #, fuzzy
@@ -14364,7 +14364,7 @@ msgstr "асуултад"
 #: templates/console/display.twig:7 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
 msgid "Clear"
-msgstr ""
+msgstr "Цэвэрлэх"
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -16812,7 +16812,7 @@ msgstr "Хоёртын "
 
 #: templates/javascript/variables.twig:21
 msgid "February"
-msgstr ""
+msgstr "Хоёрдугаар сар"
 
 #: templates/javascript/variables.twig:22
 #, fuzzy
@@ -16852,7 +16852,7 @@ msgstr "8-р"
 
 #: templates/javascript/variables.twig:28
 msgid "September"
-msgstr ""
+msgstr "Есдүгээр сар"
 
 #: templates/javascript/variables.twig:29
 #, fuzzy
@@ -16862,11 +16862,11 @@ msgstr "10р"
 
 #: templates/javascript/variables.twig:30
 msgid "November"
-msgstr ""
+msgstr "Арваннэгдүгээр сар"
 
 #: templates/javascript/variables.twig:31
 msgid "December"
-msgstr ""
+msgstr "Арванхоёрдугаар сар"
 
 #. l10n: Short week day name for Sunday
 #: templates/javascript/variables.twig:57
@@ -16932,7 +16932,7 @@ msgstr ""
 
 #: templates/javascript/variables.twig:82
 msgid "Hour"
-msgstr ""
+msgstr "Цаг"
 
 #: templates/javascript/variables.twig:83
 #, fuzzy
