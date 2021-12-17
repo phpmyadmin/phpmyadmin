@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Version;
 
 use function json_encode;
 use function time;
@@ -64,9 +64,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
      */
     public function testLoad(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = false;
         unset($_SESSION['userconfig']);
 
         $result = $this->userPreferences->load();
@@ -88,10 +88,13 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $this->assertEquals('session', $result['type']);
 
         // case 2
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pma'db";
-        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
-        $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => "pma'db",
+            'userconfig' => 'testconf',
+            'userconfigwork' => true,
+        ])->toArray();
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -138,8 +141,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testSave(): void
     {
         $GLOBALS['server'] = 2;
-        $_SESSION['relation'][2]['version'] = Version::VERSION;
-        $_SESSION['relation'][2]['userconfigwork'] = false;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
+
         unset($_SESSION['userconfig']);
 
         $result = $this->userPreferences->save([1]);
@@ -170,10 +174,13 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $this->assertTrue($assert);
 
         // case 2
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
-        $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = 'testconf';
-        $_SESSION['relation'][$GLOBALS['server']]['user'] = 'user';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'userconfigwork' => true,
+            'db' => 'pmadb',
+            'userconfig' => 'testconf',
+            'user' => 'user',
+        ])->toArray();
 
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` WHERE `username` = \'user\'';
 
@@ -295,8 +302,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
      */
     public function testPersistOption(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = false;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
+
         $_SESSION['userconfig'] = [];
         $_SESSION['userconfig']['ts'] = '123';
         $_SESSION['userconfig']['db'] = [
@@ -305,7 +313,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         ];
 
         $GLOBALS['server'] = 2;
-        $_SESSION['relation'][2]['userconfigwork'] = false;
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
         $this->assertTrue(
             $this->userPreferences->persistOption('Server/hide_db', 'val', 'val')

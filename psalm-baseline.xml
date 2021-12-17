@@ -15384,24 +15384,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/ConfigStorage/RelationCleanupTest.php">
-    <MixedArgument occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <MixedMethodCall occurrences="12">
       <code>method</code>
       <code>method</code>
@@ -15431,34 +15413,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <EmptyArrayAccess occurrences="3">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </EmptyArrayAccess>
-    <InvalidScalarArgument occurrences="12">
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
-      <code>$_SESSION</code>
+    <InvalidScalarArgument occurrences="1">
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <RedundantCondition occurrences="3">
       <code>assertSame</code>
       <code>assertSame</code>
@@ -15475,11 +15432,6 @@
       <code>assertSame</code>
       <code>assertSame</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="test/classes/ConfigStorage/UserGroupsTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/ConfigTest.php">
     <InvalidArgument occurrences="1">
@@ -15562,16 +15514,6 @@
       <code>[$currentTable, , , , , , $sumSize]</code>
       <code>[$currentTable]</code>
     </MixedAssignment>
-  </file>
-  <file src="test/classes/Controllers/Export/Template/CreateControllerTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
-  </file>
-  <file src="test/classes/Controllers/Export/Template/LoadControllerTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/Controllers/NavigationControllerTest.php">
     <MixedArgument occurrences="2">
@@ -15693,11 +15635,6 @@
       <code>expects</code>
     </UndefinedMethod>
   </file>
-  <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <MixedMethodCall occurrences="3">
       <code>method</code>
@@ -15765,9 +15702,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$list_detail_cols[0]</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][1]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$list_detail_cols</code>
     </MixedAssignment>
@@ -15815,14 +15749,6 @@
       <code>expects</code>
       <code>expects</code>
     </UndefinedMethod>
-  </file>
-  <file src="test/classes/Database/Designer/CommonTest.php">
-    <MixedArrayAssignment occurrences="4">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/Database/DesignerTest.php">
     <MixedAssignment occurrences="1">
@@ -15936,10 +15862,7 @@
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="13">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
+    <MixedArrayAssignment occurrences="10">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_blob']</code>
@@ -15997,9 +15920,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Export/OptionsTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
     </RedundantConditionGivenDocblockType>
@@ -16344,10 +16264,6 @@
     <MixedArgument occurrences="1">
       <code>$html</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$_SESSION['relation'][1]</code>
-      <code>$_SESSION['relation'][1]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$html</code>
     </MixedAssignment>
@@ -16530,11 +16446,6 @@
     <MixedArgument occurrences="1">
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="3">
-      <code>$_SESSION['relation'][0]</code>
-      <code>$_SESSION['relation'][0]</code>
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="4">
       <code>$generalOptions</code>
       <code>$property</code>
@@ -16543,11 +16454,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportLatexTest.php">
-    <MixedArrayAssignment occurrences="3">
-      <code>$_SESSION['relation'][0]</code>
-      <code>$_SESSION['relation'][0]</code>
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="15">
       <code>$generalOptions</code>
       <code>$generalOptions</code>
@@ -16597,10 +16503,6 @@
     <MixedArgument occurrences="1">
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="2">
-      <code>$_SESSION['relation'][0]</code>
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="8">
       <code>$generalOptions</code>
       <code>$generalOptions</code>
@@ -16636,9 +16538,6 @@
       <code>$properties[1]-&gt;getProperties()</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="21">
       <code>$leaf</code>
       <code>$leaf</code>
@@ -16673,9 +16572,6 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="test/classes/Plugins/Export/ExportTexytextTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="3">
       <code>$generalOptions</code>
       <code>$property</code>
@@ -16848,10 +16744,6 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAssignment occurrences="2">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][1]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="1">
       <code>$returned_userGroup</code>
     </MixedAssignment>
@@ -16919,11 +16811,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['messages']['type']</code>
     </MixedArrayAccess>
-  </file>
-  <file src="test/classes/SqlQueryFormTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][0]</code>
-    </MixedArrayAssignment>
   </file>
   <file src="test/classes/SqlTest.php">
     <MixedArgument occurrences="7">
@@ -17057,11 +16944,6 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="test/classes/SystemDatabaseTest.php">
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
-  </file>
   <file src="test/classes/Table/IndexesTest.php">
     <MixedArgument occurrences="1">
       <code>$jsonArray['sql_data']</code>
@@ -17119,14 +17001,6 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/TrackerTest.php">
-    <MixedArrayAssignment occurrences="6">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$result</code>
       <code>$result</code>
@@ -17148,25 +17022,12 @@
       <code>$ret[0]['statement']</code>
       <code>$ret[0]['username']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="1">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <MixedAssignment occurrences="2">
       <code>$ret</code>
       <code>$sql_result</code>
     </MixedAssignment>
   </file>
   <file src="test/classes/TransformationsTest.php">
-    <MixedArrayAssignment occurrences="8">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-    </MixedArrayAssignment>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
@@ -17202,23 +17063,6 @@
       <code>$_SESSION['userconfig']['db']</code>
       <code>$_SESSION['userconfig']['ts']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="15">
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][$GLOBALS['server']]</code>
-      <code>$_SESSION['relation'][2]</code>
-      <code>$_SESSION['relation'][2]</code>
-      <code>$_SESSION['relation'][2]</code>
-    </MixedArrayAssignment>
     <TypeDoesNotContainType occurrences="1">
       <code>assertTrue</code>
     </TypeDoesNotContainType>

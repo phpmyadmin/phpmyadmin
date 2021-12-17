@@ -20,7 +20,6 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Version;
 use ReflectionMethod;
 use stdClass;
 
@@ -953,15 +952,15 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableComments(): void
     {
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 

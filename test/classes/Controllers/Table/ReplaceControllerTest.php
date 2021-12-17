@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Version;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
@@ -31,9 +31,8 @@ class ReplaceControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
@@ -48,8 +47,7 @@ class ReplaceControllerTest extends AbstractTestCase
             'bookmark' => 'bookmark',
             'uiprefswork' => true,
             'table_uiprefs' => 'table_uiprefs',
-            'trackingwork' => false,
-        ];
+        ])->toArray();
     }
 
     public function testReplace(): void

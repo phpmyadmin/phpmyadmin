@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Version;
 
 /**
  * @covers \PhpMyAdmin\Transformations
@@ -37,8 +37,6 @@ class TransformationsTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['table_coords'] = '';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        // need to clear relation test cache
-        unset($_SESSION['relation']);
 
         $this->transformations = new Transformations();
     }
@@ -195,11 +193,13 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
-        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'mimework' => true,
+            'trackingwork' => true,
+            'column_info' => 'column_info',
+        ])->toArray();
         $this->assertEquals(
             [
                 'o' => [
@@ -241,9 +241,11 @@ class TransformationsTest extends AbstractTestCase
         $actual = $this->transformations->clear('db');
         $this->assertFalse($actual);
 
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
-        $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'column_info' => 'column_info',
+        ])->toArray();
 
         // Case 2 : database delete
         $actual = $this->transformations->clear('db');

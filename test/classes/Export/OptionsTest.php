@@ -34,9 +34,6 @@ class OptionsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'PMA';
 
-        //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = '';
-
         $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
             ->getMock();

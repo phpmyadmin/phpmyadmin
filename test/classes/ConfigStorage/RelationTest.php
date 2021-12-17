@@ -36,10 +36,8 @@ class RelationTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ZeroConf'] = true;
-        $_SESSION['relation'][$GLOBALS['server']] = 'PMA_relation';
-        $_SESSION['relation'] = [];
-
         $GLOBALS['cfg']['ServerDefault'] = 0;
+        $_SESSION['relation'] = [];
 
         $this->relation = new Relation($GLOBALS['dbi']);
     }
@@ -109,7 +107,6 @@ class RelationTest extends AbstractTestCase
     public function testPMAGetComments(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
-        $_SESSION['relation'] = [];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -296,12 +293,13 @@ class RelationTest extends AbstractTestCase
         );
         $this->dummyDbi->addSelectDb('db_pma');
 
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
-        $this->assertSame([], $_SESSION['relation']);
+        $_SESSION['relation'] = [];
 
         $this->relation->fixPmaTables('db_pma', false);
 
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db_pma',
@@ -574,12 +572,14 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
-        $this->assertSame([], $_SESSION['relation']);
+
+        $_SESSION['relation'] = [];
 
         $this->relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -857,14 +857,16 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
-        $this->assertSame([], $_SESSION['relation']);
+
+        $_SESSION['relation'] = [];
 
         $this->dummyDbi->addSelectDb('db_pma');
         $this->dummyDbi->addSelectDb('db_pma');
         $this->relation->fixPmaTables('db_pma', true);
         $this->assertArrayNotHasKey('message', $GLOBALS);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
         $this->assertSame('db_pma', $GLOBALS['cfg']['Server']['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -934,13 +936,12 @@ class RelationTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('db_pma');
 
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
-        $this->assertSame([], $_SESSION['relation']);
+
+        $_SESSION['relation'] = [];
 
         $this->relation->fixPmaTables('db_pma', true);
 
         $this->assertArrayHasKey('message', $GLOBALS);
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
         $this->assertSame('MYSQL_ERROR', $GLOBALS['message']);
         $this->assertSame('', $GLOBALS['cfg']['Server']['pmadb']);
 
@@ -1489,10 +1490,14 @@ class RelationTest extends AbstractTestCase
             ['Tables_in_phpmyadmin']
         );
 
+        $_SESSION['relation'] = [];
+
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();
 
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([]);
@@ -1559,12 +1564,16 @@ class RelationTest extends AbstractTestCase
             ['NULL']
         );
 
+        $_SESSION['relation'] = [];
+
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();
         $this->assertAllSelectsConsumed();
 
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         // Should all be false for server = 0
         $relationParameters = RelationParameters::fromArray([
@@ -1649,12 +1658,16 @@ class RelationTest extends AbstractTestCase
 
         $this->dummyDbi->addResult('SELECT NULL FROM `pma__userconfig` LIMIT 0', false);
 
+        $_SESSION['relation'] = [];
+
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();
         $this->assertAllSelectsConsumed();
 
-        $this->assertArrayHasKey('relation', $_SESSION, 'The cache is expected to be filled');
+        $this->assertArrayHasKey($GLOBALS['server'], $_SESSION['relation'], 'The cache is expected to be filled');
+        /** @psalm-suppress EmptyArrayAccess */
+        $this->assertIsArray($_SESSION['relation'][$GLOBALS['server']]);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'phpmyadmin',
@@ -1752,6 +1765,8 @@ class RelationTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('PMA-storage');
 
+        $_SESSION['relation'] = [];
+
         $relation = new Relation($this->dbi);
         $relation->initRelationParamsCache();
 
@@ -1785,6 +1800,7 @@ class RelationTest extends AbstractTestCase
         );
 
         $this->dummyDbi->addSelectDb('PMA-storage');
+        /** @psalm-suppress EmptyArrayAccess */
         unset($_SESSION['relation'][$GLOBALS['server']]);
         $relationData = $relation->getRelationParameters();
         $this->assertAllSelectsConsumed();

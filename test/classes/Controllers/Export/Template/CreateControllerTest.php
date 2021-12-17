@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Export\Template;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Export\Template\CreateController;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
@@ -12,7 +13,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Version;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\CreateController
@@ -27,13 +27,12 @@ class CreateControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'exporttemplateswork' => true,
-            'trackingwork' => false,
             'db' => 'db',
             'export_templates' => 'table',
-        ];
+        ])->toArray();
 
         $cfg['Server']['user'] = 'user';
 

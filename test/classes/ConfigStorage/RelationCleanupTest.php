@@ -6,11 +6,9 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Version;
 use PHPUnit\Framework\MockObject\MockObject;
-
-use function array_merge;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\RelationCleanup
@@ -30,50 +28,6 @@ class RelationCleanupTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
-            'relwork' => false,
-            'displaywork' => false,
-            'bookmarkwork' => false,
-            'pdfwork' => false,
-            'commwork' => false,
-            'mimework' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'trackingwork' => false,
-            'userconfigwork' => false,
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'centralcolumnswork' => false,
-            'designersettingswork' => false,
-            'exporttemplateswork' => false,
-            'allworks' => false,
-            'user' => 'user',
-            'db' => 'pmadb',
-            'bookmark' => 'bookmark',
-            'relation' => 'relation',
-            'table_info' => 'table_info',
-            'table_coords' => 'table_coords',
-            'column_info' => 'column_info',
-            'pdf_pages' => 'pdf_pages',
-            'history' => 'history',
-            'recent' => 'recent',
-            'favorite' => 'favorite',
-            'table_uiprefs' => 'table_uiprefs',
-            'tracking' => 'tracking',
-            'userconfig' => 'userconfig',
-            'users' => 'users',
-            'usergroups' => 'usergroups',
-            'navigationhiding' => 'navigationhiding',
-            'savedsearches' => 'savedsearches',
-            'central_columns' => 'central_columns',
-            'designer_settings' => 'designer_settings',
-            'export_templates' => 'export_templates',
-        ];
 
         $this->relation = $this->getMockBuilder(Relation::class)
             ->disableOriginalConstructor()
@@ -98,14 +52,17 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testColumnWithRelations(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
-            $_SESSION['relation'][$GLOBALS['server']],
-            [
-                'commwork' => true,
-                'displaywork' => true,
-                'relwork' => true,
-            ]
-        );
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => 'pmadb',
+            'commwork' => true,
+            'displaywork' => true,
+            'relwork' => true,
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'column_info' => 'column_info',
+        ])->toArray();
 
         $this->relation->expects($this->exactly(4))
             ->method('queryAsControlUser')
@@ -155,17 +112,24 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testTableWithRelations(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
-            $_SESSION['relation'][$GLOBALS['server']],
-            [
-                'commwork' => true,
-                'displaywork' => true,
-                'pdfwork' => true,
-                'relwork' => true,
-                'uiprefswork' => true,
-                'navwork' => true,
-            ]
-        );
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => 'pmadb',
+            'commwork' => true,
+            'displaywork' => true,
+            'pdfwork' => true,
+            'relwork' => true,
+            'uiprefswork' => true,
+            'navwork' => true,
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'table_coords' => 'table_coords',
+            'column_info' => 'column_info',
+            'pdf_pages' => 'pdf_pages',
+            'table_uiprefs' => 'table_uiprefs',
+            'navigationhiding' => 'navigationhiding',
+        ])->toArray();
 
         $this->relation->expects($this->exactly(7))
             ->method('queryAsControlUser')
@@ -227,20 +191,30 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testDatabaseWithRelations(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
-            $_SESSION['relation'][$GLOBALS['server']],
-            [
-                'commwork' => true,
-                'bookmarkwork' => true,
-                'displaywork' => true,
-                'pdfwork' => true,
-                'relwork' => true,
-                'uiprefswork' => true,
-                'navwork' => true,
-                'savedsearcheswork' => true,
-                'centralcolumnswork' => true,
-            ]
-        );
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => 'pmadb',
+            'commwork' => true,
+            'bookmarkwork' => true,
+            'displaywork' => true,
+            'pdfwork' => true,
+            'relwork' => true,
+            'uiprefswork' => true,
+            'navwork' => true,
+            'savedsearcheswork' => true,
+            'centralcolumnswork' => true,
+            'bookmark' => 'bookmark',
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'table_coords' => 'table_coords',
+            'column_info' => 'column_info',
+            'pdf_pages' => 'pdf_pages',
+            'table_uiprefs' => 'table_uiprefs',
+            'navigationhiding' => 'navigationhiding',
+            'savedsearches' => 'savedsearches',
+            'central_columns' => 'central_columns',
+        ])->toArray();
 
         $this->relation->expects($this->exactly(11))
             ->method('queryAsControlUser')
@@ -277,21 +251,32 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testUserWithRelations(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']] = array_merge(
-            $_SESSION['relation'][$GLOBALS['server']],
-            [
-                'bookmarkwork' => true,
-                'historywork' => true,
-                'recentwork' => true,
-                'favoritework' => true,
-                'uiprefswork' => true,
-                'userconfigwork' => true,
-                'menuswork' => true,
-                'navwork' => true,
-                'savedsearcheswork' => true,
-                'designersettingswork' => true,
-            ]
-        );
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'user' => 'user',
+            'db' => 'pmadb',
+            'bookmarkwork' => true,
+            'historywork' => true,
+            'recentwork' => true,
+            'favoritework' => true,
+            'uiprefswork' => true,
+            'userconfigwork' => true,
+            'menuswork' => true,
+            'navwork' => true,
+            'savedsearcheswork' => true,
+            'designersettingswork' => true,
+            'bookmark' => 'bookmark',
+            'history' => 'history',
+            'recent' => 'recent',
+            'favorite' => 'favorite',
+            'table_uiprefs' => 'table_uiprefs',
+            'userconfig' => 'userconfig',
+            'users' => 'users',
+            'usergroups' => 'usergroups',
+            'navigationhiding' => 'navigationhiding',
+            'savedsearches' => 'savedsearches',
+            'designer_settings' => 'designer_settings',
+        ])->toArray();
 
         $this->relation->expects($this->exactly(10))
             ->method('queryAsControlUser')

@@ -16,7 +16,6 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Version;
 use ReflectionMethod;
 use stdClass;
 
@@ -627,15 +626,16 @@ class ExportOdtTest extends AbstractTestCase
             ->with(['Field' => 'fieldname'])
             ->will($this->returnValue(1));
 
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
+
         $this->assertTrue(
             $this->object->getTableDef(
                 'database',
@@ -723,15 +723,15 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
         $GLOBALS['odt_buffer'] = '';
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
         $this->assertTrue(
             $this->object->getTableDef(

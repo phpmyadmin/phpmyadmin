@@ -15,7 +15,6 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Version;
 use ReflectionMethod;
 
 use function __;
@@ -603,7 +602,8 @@ class ExportLatexTest extends AbstractTestCase
             unset($GLOBALS['latex_caption']);
         }
 
-        $_SESSION['relation'][0] = RelationParameters::fromArray([
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -708,15 +708,15 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
         ob_start();
         $this->assertTrue(
@@ -785,15 +785,12 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
 
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
-            'relwork' => false,
-            'commwork' => false,
-            'mimework' => false,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col',
-        ];
+        ])->toArray();
 
         ob_start();
         $this->assertTrue(

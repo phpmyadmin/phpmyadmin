@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Version;
 
 use function __;
 use function htmlspecialchars;
@@ -53,19 +53,16 @@ class SqlQueryFormTest extends AbstractTestCase
         $GLOBALS['cfg']['CodemirrorEnable'] = true;
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
-        //_SESSION
-        $_SESSION['relation'][0] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][0] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => true,
             'relation' => 'relation',
-            'trackingwork' => false,
-            'bookmarkwork' => false,
-        ];
-        //$GLOBALS
+        ])->toArray();
+
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Version;
 
 use function htmlspecialchars;
 
@@ -27,12 +27,12 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['table'] = '';
 
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
-        ];
+        ])->toArray();
     }
 
     /**
