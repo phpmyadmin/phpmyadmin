@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Server;
 use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
@@ -19,7 +20,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Version;
 use ReflectionMethod;
 use stdClass;
 
@@ -61,18 +61,17 @@ class PrivilegesTest extends AbstractTestCase
             new Plugins($GLOBALS['dbi'])
         );
 
-        //$_POST
         $_POST['pred_password'] = 'none';
-        //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
             'menuswork' => true,
             'trackingwork' => true,
             'tracking' => 'tracking',
-        ];
+        ])->toArray();
 
         $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
@@ -1392,19 +1391,8 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['change_copy'] = 'change_copy';
         $_POST['old_hostname'] = 'old_hostname';
         $_POST['old_username'] = 'old_username';
-        $_SESSION['relation'][1] = [
-            'version' => Version::VERSION,
-            'bookmarkwork' => false,
-            'historywork' => false,
-            'recentwork' => false,
-            'favoritework' => false,
-            'uiprefswork' => false,
-            'userconfigwork' => false,
-            'menuswork' => false,
-            'navwork' => false,
-            'savedsearcheswork' => false,
-            'designersettingswork' => false,
-        ];
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
         $queries = [];
 

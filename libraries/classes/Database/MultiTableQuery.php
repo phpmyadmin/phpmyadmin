@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;

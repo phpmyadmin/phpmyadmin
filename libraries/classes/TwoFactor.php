@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
@@ -52,7 +53,7 @@ class TwoFactor
     {
         global $dbi;
 
-        $dbi->initRelationParamsCache();
+        (new Relation($dbi))->initRelationParamsCache();
 
         $this->userPreferences = new UserPreferences();
         $this->user = $user;

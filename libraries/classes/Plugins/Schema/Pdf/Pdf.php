@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Pdf as PdfLib;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 use function __;

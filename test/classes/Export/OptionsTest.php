@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 
@@ -33,9 +33,6 @@ class OptionsTest extends AbstractTestCase
 
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'PMA';
-
-        //$_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = '';
 
         $pmaconfig = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()

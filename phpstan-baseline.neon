@@ -856,6 +856,141 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
+			message: "#^Do\\-while loop condition is always false\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:buildForeignDropdown\\(\\) has parameter \\$foreign with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$child_references_full with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$foreigners_full with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) has parameter \\$disp_row with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getChildReferences\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getComments\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDbComments\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getDefaultPmaTableNames\\(\\) has parameter \\$tableNameReplacements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) has parameter \\$foreigners with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getHistory\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getRelationsAndStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) has parameter \\$foreigners with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
+			count: 3
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
+			count: 4
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
+			count: 4
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 3
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getAllowedTabNames\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
 			message: "#^Parameter \\#1 \\$params of static method PhpMyAdmin\\\\Url\\:\\:getCommonRaw\\(\\) expects array\\<int\\|string, bool\\|int\\|string\\>, array\\<string, mixed\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/AbstractController.php
@@ -5446,12 +5581,12 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#4 \\$data of method PhpMyAdmin\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$data of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -7491,131 +7626,6 @@ parameters:
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
-			message: "#^Do\\-while loop condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:buildForeignDropdown\\(\\) has parameter \\$foreign with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$child_references_full with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:checkChildForeignReferences\\(\\) has parameter \\$foreigners_full with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:foreignDropdown\\(\\) has parameter \\$disp_row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getChildReferences\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getComments\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getDbComments\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getDefaultPmaTableNames\\(\\) has parameter \\$tableNameReplacements with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getForeignData\\(\\) has parameter \\$foreigners with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getForeignData\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getForeigners\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getHistory\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getRelationsAndStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) has parameter \\$foreigners with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Relation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Relation\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept PhpMyAdmin\\\\DatabaseInterface\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Replication\\:\\:slaveChangeMaster\\(\\) has parameter \\$pos with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Replication.php
@@ -8371,21 +8381,6 @@ parameters:
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
 
 		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 3
-			path: libraries/classes/Server/UserGroups.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\UserGroups\\:\\:getAllowedTabNames\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/UserGroups.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Server\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/UserGroups.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Session\\:\\:sessionFailed\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Session.php
@@ -8666,7 +8661,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -9871,11 +9866,6 @@ parameters:
 			path: test/classes/Command/SetVersionCommandTest.php
 
 		-
-			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
-			count: 1
-			path: test/classes/Command/TwigLintCommandTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$array_arg of function sort expects array, mixed given\\.$#"
 			count: 2
 			path: test/classes/Command/TwigLintCommandTest.php
@@ -9914,6 +9904,21 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Tests\\\\Config\\\\SettingsTest\\:\\:\\$defaultValues type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Config/SettingsTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigStorage\\\\RelationParametersTest\\:\\:providerForTestRelationParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationParametersTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigStorage\\\\RelationParametersTest\\:\\:testRelationParameters\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationParametersTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigStorage\\\\RelationParametersTest\\:\\:testRelationParameters\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/ConfigStorage/RelationParametersTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\ConfigTest\\:\\:configPaths\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -11429,21 +11434,6 @@ parameters:
 			message: "#^PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ExportPluginProperties of property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ExportPluginPropertiesTest\\:\\:\\$object is not covariant with PHPDoc type PhpMyAdmin\\\\Properties\\\\Plugins\\\\ImportPluginProperties of overridden property PhpMyAdmin\\\\Tests\\\\Properties\\\\Plugins\\\\ImportPluginPropertiesTest\\:\\:\\$object\\.$#"
 			count: 1
 			path: test/classes/Properties/Plugins/ExportPluginPropertiesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\RelationParametersTest\\:\\:providerForTestRelationParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/RelationParametersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\RelationParametersTest\\:\\:testRelationParameters\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/RelationParametersTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\RelationParametersTest\\:\\:testRelationParameters\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/RelationParametersTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\SanitizeTest\\:\\:dataProviderCheckLinks\\(\\) return type has no value type specified in iterable type array\\.$#"

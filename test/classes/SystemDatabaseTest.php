@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Version;
 
 /**
  * @covers \PhpMyAdmin\SystemDatabase
@@ -42,9 +42,8 @@ class SystemDatabaseTest extends AbstractTestCase
             ->method('tryQuery')
             ->will($this->returnValue('executeResult2'));
 
-        //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
             'displaywork' => true,
             'db' => 'information_schema',
@@ -55,7 +54,7 @@ class SystemDatabaseTest extends AbstractTestCase
             'mimework' => true,
             'column_info' => 'column_info',
             'relation' => 'relation',
-        ];
+        ])->toArray();
 
         $dbi->expects($this->any())
             ->method('fetchAssoc')

@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
+
 return [
     'services' => [
         'advisor' => [
@@ -126,14 +129,11 @@ return [
             'arguments' => ['$dbi' => '@dbi'],
         ],
         'relation' => [
-            'class' => PhpMyAdmin\Relation::class,
-            'arguments' => [
-                '@dbi',
-                '@template',
-            ],
+            'class' => Relation::class,
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'relation_cleanup' => [
-            'class' => PhpMyAdmin\RelationCleanup::class,
+            'class' => RelationCleanup::class,
             'arguments' => [
                 '@dbi',
                 '@relation',

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Relation;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Version;
 
 use function __;
 use function _pgettext;
@@ -43,12 +43,12 @@ class TrackingTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'tracking' => 'tracking',
             'trackingwork' => true,
-        ];
+        ])->toArray();
 
         $template = new Template();
         $this->tracking = new Tracking(

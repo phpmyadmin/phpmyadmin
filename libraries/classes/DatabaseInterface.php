@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
@@ -134,9 +135,6 @@ class DatabaseInterface implements DbalInterface
     /** @var Types MySQL types data */
     public $types;
 
-    /** @var Relation */
-    private $relation;
-
     /** @var Cache */
     private $cache;
 
@@ -155,7 +153,6 @@ class DatabaseInterface implements DbalInterface
         $this->currentUser = [];
         $this->cache = new Cache();
         $this->types = new Types($this);
-        $this->relation = new Relation($this);
     }
 
     /**
@@ -1172,29 +1169,11 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * This function checks and initializes the phpMyAdmin configuration
-     * storage state before it is used into session cache.
-     */
-    public function initRelationParamsCache(): void
-    {
-        if (strlen($GLOBALS['db'])) {
-            $relationParameters = $this->relation->getRelationParameters();
-            if ($relationParameters->db === null) {
-                $this->relation->fixPmaTables($GLOBALS['db'], false);
-            }
-        }
-
-        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
-        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
-        $this->relation->fixPmaTables($storageDbName ?: 'phpmyadmin', false);
-    }
-
-    /**
      * Function called just after a connection to the MySQL database server has
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      */
-    public function postConnectControl(): void
+    public function postConnectControl(Relation $relation): void
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
         if ($GLOBALS['cfg']['ZeroConf'] != true) {
@@ -1206,7 +1185,7 @@ class DatabaseInterface implements DbalInterface
          */
         $GLOBALS['dblist'] = new DatabaseList();
 
-        $this->initRelationParamsCache();
+        $relation->initRelationParamsCache();
     }
 
     /**

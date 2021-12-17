@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 
 use function array_shift;

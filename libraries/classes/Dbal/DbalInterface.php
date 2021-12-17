@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\SystemDatabase;
@@ -287,7 +288,7 @@ interface DbalInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      */
-    public function postConnectControl(): void;
+    public function postConnectControl(Relation $relation): void;
 
     /**
      * returns a single value from the given result or query,

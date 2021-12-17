@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Config\SpecialSchemaLinks;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;

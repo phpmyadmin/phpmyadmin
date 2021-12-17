@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Export\Template;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Export\Template\DeleteController;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -28,15 +28,14 @@ class DeleteControllerTest extends AbstractTestCase
         $cfg['Server']['user'] = 'user';
 
         $response = new ResponseRenderer();
-        $template = new Template();
         $request = $this->createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturn('1');
 
         (new DeleteController(
             $response,
-            $template,
+            new Template(),
             new TemplateModel($this->dbi),
-            new Relation($this->dbi, $template)
+            new Relation($this->dbi)
         ))($request);
 
         $this->assertTrue($response->hasSuccessState());

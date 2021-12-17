@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\CheckRelationsController;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -30,8 +30,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
         ]);
 
         $response = new ResponseRenderer();
-        $template = new Template();
-        $controller = new CheckRelationsController($response, $template, new Relation($this->dbi, $template));
+        $controller = new CheckRelationsController($response, new Template(), new Relation($this->dbi));
         $controller($request);
 
         $actual = $response->getHTMLResult();

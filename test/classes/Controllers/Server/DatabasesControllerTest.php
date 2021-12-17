@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\DatabasesController;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -48,7 +48,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         $relationCleanup = new RelationCleanup(
             $GLOBALS['dbi'],
-            new Relation($GLOBALS['dbi'], $template)
+            new Relation($GLOBALS['dbi'])
         );
 
         $response = new ResponseRenderer();

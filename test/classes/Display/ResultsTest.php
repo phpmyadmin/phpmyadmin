@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Display;
 
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
@@ -18,7 +19,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Version;
 use stdClass;
 
 use function count;
@@ -983,9 +983,11 @@ class ResultsTest extends AbstractTestCase
     {
         // Fake relation settings
         $_SESSION['tmpval']['relational_display'] = 'K';
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
-        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'mimework' => true,
+            'column_info' => 'column_info',
+        ])->toArray();
         $GLOBALS['cfg']['BrowseMIME'] = true;
 
         // Basic data
@@ -1063,8 +1065,6 @@ class ResultsTest extends AbstractTestCase
         $this->assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
         // Bool2Text
         $this->assertStringContainsString('>T<', $output);
-        unset($_SESSION['tmpval']);
-        unset($_SESSION['relation']);
     }
 
     public function dataProviderGetSortOrderHiddenInputs(): array

@@ -34,7 +34,7 @@ class TwigLintCommandTest extends AbstractTestCase
             $this->markTestSkipped('The Symfony Console is missing');
         }
 
-        parent::loadContainerBuilder();
+        parent::setUp();
         $cfg['environment'] = 'development';
         $config = null;
 

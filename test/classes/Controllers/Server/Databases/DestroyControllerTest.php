@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Databases;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Server\Databases\DestroyController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -37,13 +37,12 @@ class DestroyControllerTest extends AbstractTestCase
 
         $cfg['AllowUserDropDatabase'] = true;
 
-        $template = new Template();
         $controller = new DestroyController(
             $response,
-            $template,
+            new Template(),
             $dbi,
             new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi, $template))
+            new RelationCleanup($dbi, new Relation($dbi))
         );
 
         $controller();

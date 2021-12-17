@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Cache;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Version;
 use ReflectionMethod;
 
 /**
@@ -35,11 +35,11 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'tracking' => 'tracking',
-        ];
+        ])->toArray();
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -77,21 +77,19 @@ class TrackerTest extends AbstractTestCase
 
         Tracker::enable();
 
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
-            'trackingwork' => false,
-        ];
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
         $this->assertFalse(
             Tracker::isActive()
         );
 
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'trackingwork' => true,
             'db' => 'pmadb',
             'tracking' => 'tracking',
-        ];
+        ])->toArray();
 
         $this->assertTrue(
             Tracker::isActive()
@@ -152,14 +150,19 @@ class TrackerTest extends AbstractTestCase
 
         Tracker::enable();
 
-        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
         $this->assertFalse(
             Tracker::isTracked('', '')
         );
 
-        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = true;
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'trackingwork' => true,
+            'db' => 'pmadb',
+            'tracking' => 'tracking',
+        ])->toArray();
 
         $this->assertTrue(
             Tracker::isTracked('pma_test_db', 'pma_test_table')

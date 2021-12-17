@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -116,7 +116,7 @@ class SearchControllerTest extends AbstractTestCase
             $GLOBALS['db'],
             $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template),
+            new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
 

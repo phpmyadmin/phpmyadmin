@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\SaveController;
 use PhpMyAdmin\Controllers\Table\StructureController;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
@@ -30,13 +30,12 @@ class SaveControllerTest extends AbstractTestCase
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
-        $template = new Template();
         $ctrl = new SaveController(
             new ResponseStub(),
-            $template,
+            new Template(),
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($this->dbi, $template),
+            new Relation($this->dbi),
             new Transformations(),
             $this->dbi,
             $this->createStub(StructureController::class)

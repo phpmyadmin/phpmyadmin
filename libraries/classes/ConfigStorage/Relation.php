@@ -2,11 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\ConfigStorage;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\InternalRelations;
+use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function __;
 use function array_keys;
@@ -51,17 +57,9 @@ class Relation
     /** @var DatabaseInterface */
     public $dbi;
 
-    /** @var Template */
-    public $template;
-
-    /**
-     * @param DatabaseInterface|null $dbi      Database interface
-     * @param Template|null          $template Template instance
-     */
-    public function __construct(?DatabaseInterface $dbi, ?Template $template = null)
+    public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->template = $template ?? new Template();
     }
 
     /**
@@ -98,15 +96,24 @@ class Relation
 
     public function getRelationParameters(): RelationParameters
     {
-        if (
-            empty($_SESSION['relation'][$GLOBALS['server']])
-            || empty($_SESSION['relation'][$GLOBALS['server']]['version'])
-            || $_SESSION['relation'][$GLOBALS['server']]['version'] !== Version::VERSION
-        ) {
-            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+        $server = $GLOBALS['server'];
+
+        if (! isset($_SESSION['relation']) || ! is_array($_SESSION['relation'])) {
+            $_SESSION['relation'] = [];
         }
 
-        return RelationParameters::fromArray($_SESSION['relation'][$GLOBALS['server']]);
+        if (
+            isset($_SESSION['relation'][$server]) && is_array($_SESSION['relation'][$server])
+            && isset($_SESSION['relation'][$server]['version'])
+            && $_SESSION['relation'][$server]['version'] === Version::VERSION
+        ) {
+            return RelationParameters::fromArray($_SESSION['relation'][$server]);
+        }
+
+        $relationParameters = RelationParameters::fromArray($this->checkRelationsParam());
+        $_SESSION['relation'][$server] = $relationParameters->toArray();
+
+        return $relationParameters;
     }
 
     /**
@@ -245,10 +252,8 @@ class Relation
      * but added some stuff to check what will work
      *
      * @return array<string, bool|string|null> the relation parameters for the current user
-     *
-     * @access protected
      */
-    public function checkRelationsParam(): array
+    private function checkRelationsParam(): array
     {
         $relationParams = [];
         $relationParams['version'] = Version::VERSION;
@@ -948,11 +953,11 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array[] $disp_row        array of the displayed row
-     * @param string  $foreign_field   the foreign field
-     * @param string  $foreign_display the foreign field to display
-     * @param string  $data            the current data of the dropdown (field in row)
-     * @param int     $max             maximum number of items in the dropdown
+     * @param array[]  $disp_row        array of the displayed row
+     * @param string   $foreign_field   the foreign field
+     * @param string   $foreign_display the foreign field to display
+     * @param string   $data            the current data of the dropdown (field in row)
+     * @param int|null $max             maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
      *
@@ -1060,7 +1065,7 @@ class Relation
      *     foreign_link: bool,
      *     the_total: mixed,
      *     foreign_display: string,
-     *     disp_row: ?list<non-empty-array>,
+     *     disp_row: list<non-empty-array>|null,
      *     foreign_field: mixed
      * }
      *
@@ -1572,7 +1577,7 @@ class Relation
     /**
      * Returns default PMA table names and their create queries.
      *
-     * @return array<string,string> table name, create query
+     * @return array<string, string> table name, create query
      */
     public function getDefaultPmaTableNames(array $tableNameReplacements): array
     {
@@ -1615,7 +1620,8 @@ class Relation
             // Re-build the cache to show the list of tables created or not
             // This is the case when the DB could be created but no tables just after
             // So just purge the cache and show the new configuration storage state
-            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+            unset($_SESSION['relation'][$GLOBALS['server']]);
+            $this->getRelationParameters();
 
             return true;
         }
@@ -1668,7 +1674,7 @@ class Relation
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
-        /** @var array<string,string> $tableNameReplacements */
+        /** @var array<string, string> $tableNameReplacements */
         $tableNameReplacements = [];
 
         // Build a map of replacements between default table names and name built by the user
@@ -1733,7 +1739,7 @@ class Relation
         }
 
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
-        $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
+        unset($_SESSION['relation'][$GLOBALS['server']]);
 
         $relationParameters = $this->getRelationParameters();
         if (
@@ -1852,5 +1858,23 @@ class Relation
 
         // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
         return empty($cfgStorageDbName) ? 'phpmyadmin' : $cfgStorageDbName;
+    }
+
+    /**
+     * This function checks and initializes the phpMyAdmin configuration
+     * storage state before it is used into session cache.
+     */
+    public function initRelationParamsCache(): void
+    {
+        if (strlen($GLOBALS['db'])) {
+            $relationParameters = $this->getRelationParameters();
+            if ($relationParameters->db === null) {
+                $this->fixPmaTables($GLOBALS['db'], false);
+            }
+        }
+
+        $storageDbName = $GLOBALS['cfg']['Server']['pmadb'] ?? '';
+        // Use "phpmyadmin" as a default database name to check to keep the behavior consistent
+        $this->fixPmaTables($storageDbName ?: 'phpmyadmin', false);
     }
 }

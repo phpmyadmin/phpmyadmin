@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorReport;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
@@ -40,11 +40,10 @@ class ErrorReportTest extends AbstractTestCase
         $_COOKIE['pma_lang'] = 'en';
         $GLOBALS['config']->set('is_https', false);
 
-        $template = new Template();
         $this->errorReport = new ErrorReport(
             new HttpRequest(),
-            new Relation(null, $template),
-            $template,
+            new Relation($this->dbi),
+            new Template(),
             $GLOBALS['config']
         );
         $this->errorReport->setSubmissionUrl('http://localhost');
@@ -123,11 +122,10 @@ class ErrorReportTest extends AbstractTestCase
             )
             ->willReturn($return);
 
-        $template = new Template();
         $this->errorReport = new ErrorReport(
             $httpRequest,
-            new Relation(null, $template),
-            $template,
+            new Relation($this->dbi),
+            new Template(),
             $GLOBALS['config']
         );
         $this->errorReport->setSubmissionUrl($submissionUrl);

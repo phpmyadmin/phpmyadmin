@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController;
 use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
@@ -35,13 +35,12 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
-        $template = new Template();
 
         $controller = new FavoriteTableController(
             new ResponseStub(),
-            $template,
+            new Template(),
             'db',
-            new Relation($this->dbi, $template)
+            new Relation($this->dbi)
         );
 
         // The user hash for test

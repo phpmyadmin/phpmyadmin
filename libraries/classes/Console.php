@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+
 use function __;
 use function _ngettext;
 use function count;

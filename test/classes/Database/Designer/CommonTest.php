@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database\Designer;
 
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
 
@@ -354,13 +355,12 @@ class CommonTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
-            'relwork' => false,
-            'trackingwork' => false,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
         $this->loadTestDataForRelationDeleteAddTests(
             'CREATE TABLE `table\'2` (`field\'1` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1'
@@ -378,13 +378,13 @@ class CommonTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
-            'trackingwork' => false,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
 
         $this->loadTestDataForRelationDeleteAddTests(
@@ -421,13 +421,12 @@ class CommonTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
-            'trackingwork' => false,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
 
         parent::setGlobalDbi();
 
@@ -485,13 +484,13 @@ class CommonTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $_SESSION['relation'][$GLOBALS['server']] = [
-            'version' => Version::VERSION,
+        $_SESSION['relation'] = [];
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
             'relwork' => true,
-            'trackingwork' => false,
             'relation' => 'rel db',
-        ];
+        ])->toArray();
+
         parent::setGlobalDbi();
 
         $this->loadTestDataForRelationDeleteAddTests(

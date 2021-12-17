@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Version;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -472,27 +473,27 @@ final class RelationParameters
      *   designersettingswork: bool,
      *   exporttemplateswork: bool,
      *   allworks: bool,
-     *   user: string|null,
-     *   db: string|null,
-     *   bookmark: string|null,
-     *   central_columns: string|null,
-     *   column_info: string|null,
-     *   designer_settings: string|null,
-     *   export_templates: string|null,
-     *   favorite: string|null,
-     *   history: string|null,
-     *   navigationhiding: string|null,
-     *   pdf_pages: string|null,
-     *   recent: string|null,
-     *   relation: string|null,
-     *   savedsearches: string|null,
-     *   table_coords: string|null,
-     *   table_info: string|null,
-     *   table_uiprefs: string|null,
-     *   tracking: string|null,
-     *   userconfig: string|null,
-     *   usergroups: string|null,
-     *   users: string|null
+     *   user: (string|null),
+     *   db: (string|null),
+     *   bookmark: (string|null),
+     *   central_columns: (string|null),
+     *   column_info: (string|null),
+     *   designer_settings: (string|null),
+     *   export_templates: (string|null),
+     *   favorite: (string|null),
+     *   history: (string|null),
+     *   navigationhiding: (string|null),
+     *   pdf_pages: (string|null),
+     *   recent: (string|null),
+     *   relation: (string|null),
+     *   savedsearches: (string|null),
+     *   table_coords: (string|null),
+     *   table_info: (string|null),
+     *   table_uiprefs: (string|null),
+     *   tracking: (string|null),
+     *   userconfig: (string|null),
+     *   usergroups: (string|null),
+     *   users: (string|null)
      * }
      */
     public function toArray(): array

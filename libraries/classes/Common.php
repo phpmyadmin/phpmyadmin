@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -291,7 +292,9 @@ final class Common
             return;
         }
 
-        $dbi->postConnectControl();
+        /** @var Relation $relation */
+        $relation = $containerBuilder->get('relation');
+        $dbi->postConnectControl($relation);
     }
 
     /**

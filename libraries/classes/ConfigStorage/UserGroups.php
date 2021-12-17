@@ -5,10 +5,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Server;
+namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -200,7 +199,7 @@ class UserGroups
     /**
      * Returns HTML for add/edit user group dialog
      *
-     * @param string $userGroup name of the user group in case of editing
+     * @param string|null $userGroup name of the user group in case of editing
      *
      * @return string HTML for add/edit user group dialog
      */

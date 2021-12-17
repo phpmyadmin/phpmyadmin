@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Export\Template;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 

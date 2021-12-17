@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 
 use function stripos;
