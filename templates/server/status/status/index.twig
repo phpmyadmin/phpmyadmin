@@ -53,14 +53,14 @@
   </table>
 </div>
 
-  {% if is_master or is_slave %}
+  {% if is_primary or is_replica %}
     <p class="alert alert-primary clearfloat" role="alert">
-      {% if is_master and is_slave %}
-        {% trans 'This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.' %}
-      {% elseif is_master %}
-        {% trans 'This MySQL server works as <b>master</b> in <b>replication</b> process.' %}
-      {% elseif is_slave %}
-        {% trans 'This MySQL server works as <b>slave</b> in <b>replication</b> process.' %}
+      {% if is_primary and is_replica %}
+        {% trans 'This MySQL server works as <b>primary</b> and <b>replica</b> in <b>replication</b> process.' %}
+      {% elseif is_primary %}
+        {% trans 'This MySQL server works as <b>primary</b> in <b>replication</b> process.' %}
+      {% elseif is_replica %}
+        {% trans 'This MySQL server works as <b>replica</b> in <b>replication</b> process.' %}
       {% endif %}
     </p>
 

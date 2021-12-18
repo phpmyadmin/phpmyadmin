@@ -36,15 +36,15 @@ function updateConfig () {
 AJAX.registerTeardown('replication.js', function () {
     $('#db_type').off('change');
     $('#db_select').off('change');
-    $('#master_status_href').off('click');
-    $('#master_slaves_href').off('click');
-    $('#slave_status_href').off('click');
-    $('#slave_control_href').off('click');
-    $('#slave_errormanagement_href').off('click');
-    $('#slave_synchronization_href').off('click');
+    $('#primary_status_href').off('click');
+    $('#primary_replicas_href').off('click');
+    $('#replica_status_href').off('click');
+    $('#replica_control_href').off('click');
+    $('#replica_errormanagement_href').off('click');
+    $('#replica_synchronization_href').off('click');
     $('#db_reset_href').off('click');
     $('#db_select_href').off('click');
-    $('#reset_slave').off('click');
+    $('#reset_replica').off('click');
 });
 
 AJAX.registerOnload('replication.js', function () {
@@ -52,23 +52,23 @@ AJAX.registerOnload('replication.js', function () {
     $('#db_type').on('change', updateConfig);
     $('#db_select').on('change', updateConfig);
 
-    $('#master_status_href').on('click', function () {
-        $('#replication_master_section').toggle();
+    $('#primary_status_href').on('click', function () {
+        $('#replication_primary_section').toggle();
     });
-    $('#master_slaves_href').on('click', function () {
-        $('#replication_slaves_section').toggle();
+    $('#primary_replicas_href').on('click', function () {
+        $('#replication_replicas_section').toggle();
     });
-    $('#slave_status_href').on('click', function () {
-        $('#replication_slave_section').toggle();
+    $('#replica_status_href').on('click', function () {
+        $('#replication_replica_section').toggle();
     });
-    $('#slave_control_href').on('click', function () {
-        $('#slave_control_gui').toggle();
+    $('#replica_control_href').on('click', function () {
+        $('#replica_control_gui').toggle();
     });
-    $('#slave_errormanagement_href').on('click', function () {
-        $('#slave_errormanagement_gui').toggle();
+    $('#replica_errormanagement_href').on('click', function () {
+        $('#replica_errormanagement_gui').toggle();
     });
-    $('#slave_synchronization_href').on('click', function () {
-        $('#slave_synchronization_gui').toggle();
+    $('#replica_synchronization_href').on('click', function () {
+        $('#replica_synchronization_gui').toggle();
     });
     $('#db_reset_href').on('click', function () {
         $('#db_select option:selected').prop('selected', false);
@@ -78,10 +78,10 @@ AJAX.registerOnload('replication.js', function () {
         $('#db_select option').prop('selected', true);
         $('#db_select').trigger('change');
     });
-    $('#reset_slave').on('click', function (e) {
+    $('#reset_replica').on('click', function (e) {
         e.preventDefault();
         var $anchor = $(this);
-        var question = Messages.strResetSlaveWarning;
+        var question = Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             Functions.ajaxShowMessage();
             AJAX.source = $anchor;

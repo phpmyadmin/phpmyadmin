@@ -94,7 +94,7 @@ class DatabasesController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['master_connection'] ?? null);
+        $replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
@@ -166,8 +166,8 @@ class DatabasesController extends AbstractController
             'pos' => $this->position,
             'url_params' => $urlParams,
             'max_db_list' => $cfg['MaxDbList'],
-            'has_master_replication' => $primaryInfo['status'],
-            'has_slave_replication' => $replicaInfo['status'],
+            'has_primary_replication' => $primaryInfo['status'],
+            'has_replica_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'],
             'text_dir' => $text_dir,
         ]);
@@ -222,32 +222,32 @@ class DatabasesController extends AbstractController
         $totalStatistics = $this->getStatisticsColumns();
         foreach ($this->databases as $database) {
             $replication = [
-                'master' => ['status' => $primaryInfo['status']],
-                'slave' => ['status' => $replicaInfo['status']],
+                'primary' => ['status' => $primaryInfo['status']],
+                'replica' => ['status' => $replicaInfo['status']],
             ];
 
             if ($primaryInfo['status']) {
                 $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Ignore_DB']);
-                $replication['master']['is_replicated'] = false;
+                $replication['primary']['is_replicated'] = false;
 
                 if (strlen((string) $key) === 0) {
                     $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Do_DB']);
 
                     if (strlen((string) $key) > 0 || count($primaryInfo['Do_DB']) === 0) {
-                        $replication['master']['is_replicated'] = true;
+                        $replication['primary']['is_replicated'] = true;
                     }
                 }
             }
 
             if ($replicaInfo['status']) {
                 $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Ignore_DB']);
-                $replication['slave']['is_replicated'] = false;
+                $replication['replica']['is_replicated'] = false;
 
                 if (strlen((string) $key) === 0) {
                     $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Do_DB']);
 
                     if (strlen((string) $key) > 0 || count($replicaInfo['Do_DB']) === 0) {
-                        $replication['slave']['is_replicated'] = true;
+                        $replication['replica']['is_replicated'] = true;
                     }
                 }
             }

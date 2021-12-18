@@ -167,7 +167,7 @@ class StructureController extends AbstractController
             ]);
         }
 
-        $this->replicationInfo->load($_POST['master_connection'] ?? null);
+        $this->replicationInfo->load($_POST['primary_connection'] ?? null);
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
         $pageSettings = new PageSettings('DbStructure');
@@ -418,7 +418,7 @@ class StructureController extends AbstractController
                     )
                 ),
                 'tracking_icon' => $this->getTrackingIcon($truename),
-                'server_slave_status' => $replicaInfo['status'],
+                'server_replica_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'drop_query' => $dropQuery,
@@ -485,7 +485,7 @@ class StructureController extends AbstractController
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
-                'server_slave_status' => $replicaInfo['status'],
+                'server_replica_status' => $replicaInfo['status'],
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'sum_entries' => $sumEntries,
                 'database_collation' => $databaseCollation,
@@ -602,14 +602,14 @@ class StructureController extends AbstractController
     {
         $do = $ignored = false;
         if ($replicaInfo['status']) {
-            $nbServSlaveDoDb = count($replicaInfo['Do_DB']);
-            $nbServSlaveIgnoreDb = count($replicaInfo['Ignore_DB']);
+            $nbServReplicaDoDb = count($replicaInfo['Do_DB']);
+            $nbServReplicaIgnoreDb = count($replicaInfo['Ignore_DB']);
             $searchDoDBInTruename = array_search($table, $replicaInfo['Do_DB']);
             $searchDoDBInDB = array_search($this->db, $replicaInfo['Do_DB']);
 
             $do = (is_string($searchDoDBInTruename) && strlen($searchDoDBInTruename) > 0)
                 || (is_string($searchDoDBInDB) && strlen($searchDoDBInDB) > 0)
-                || ($nbServSlaveDoDb == 0 && $nbServSlaveIgnoreDb == 0)
+                || ($nbServReplicaDoDb == 0 && $nbServReplicaIgnoreDb == 0)
                 || $this->hasTable($replicaInfo['Wild_Do_Table'], $table);
 
             $searchDb = array_search($this->db, $replicaInfo['Ignore_DB']);

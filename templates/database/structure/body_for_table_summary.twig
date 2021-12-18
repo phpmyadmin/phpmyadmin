@@ -7,7 +7,7 @@
         {%- endset %}
         {{ num_tables_trans|format(format_number(num_tables, 0)) }}
     </th>
-    {% if server_slave_status %}
+    {% if server_replica_status %}
         <th>{% trans 'Replication' %}</th>
     {% endif %}
     {% set sum_colspan = db_is_system_schema ? 4 : 7 %}

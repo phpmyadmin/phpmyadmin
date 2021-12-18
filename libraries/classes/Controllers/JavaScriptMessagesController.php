@@ -70,7 +70,7 @@ final class JavaScriptMessagesController
             ),
             'strTruncatePartitionWarning' => __('Do you really want to TRUNCATE the selected partition(s)?'),
             'strRemovePartitioningWarning' => __('Do you really want to remove partitioning?'),
-            'strResetSlaveWarning' => __('Do you really want to RESET SLAVE?'),
+            'strResetReplicaWarning' => __('Do you really want to reset the replica (RESET REPLICA)?'),
             'strChangeColumnCollation' => __(
                 'This operation will attempt to convert your data to the new collation. In '
                     . 'rare cases, especially where a character doesn\'t exist in the new '

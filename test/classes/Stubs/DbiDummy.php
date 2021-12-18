@@ -1578,7 +1578,7 @@ class DbiDummy implements DbiExtension
                 'query' => 'SHOW MASTER STATUS',
                 'result' => [
                     [
-                        'File' => 'master-bin.000030',
+                        'File' => 'primary-bin.000030',
                         'Position' => '107',
                         'Binlog_Do_DB' => 'Binlog_Do_DB',
                         'Binlog_Ignore_DB' => 'Binlog_Ignore_DB',

@@ -1,8 +1,8 @@
 <fieldset class="pma-fieldset">
-  <legend>{% trans 'Master configuration' %}</legend>
+  <legend>{% trans 'Primary configuration' %}</legend>
   <p>
     {% trans %}
-      This server is not configured as a master server in a replication process. You can choose from either replicating all databases and ignoring some of them (useful if you want to replicate a majority of the databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:
+      This server is not configured as a primary server in a replication process. You can choose from either replicating all databases and ignoring some of them (useful if you want to replicate a majority of the databases) or you can choose to ignore all databases by default and allow only certain databases to be replicated. Please select the mode:
     {% endtrans %}
   </p>
   <select name="db_type" id="db_type">
@@ -19,7 +19,7 @@
   <pre id="rep"></pre>
   <p>
     {% trans %}
-      Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <strong>is</strong> configured as master.
+      Once you restarted MySQL server, please click on Go button. Afterwards, you should see a message informing you, that this server <strong>is</strong> configured as primary.
     {% endtrans %}
   </p>
 </fieldset>

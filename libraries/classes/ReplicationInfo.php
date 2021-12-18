@@ -89,7 +89,7 @@ final class ReplicationInfo
 
             if ($this->multiPrimaryStatus) {
                 $this->setDefaultPrimaryConnection($connection);
-                $urlParams['master_connection'] = $connection;
+                $urlParams['primary_connection'] = $connection;
             }
         }
 

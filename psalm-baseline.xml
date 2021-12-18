@@ -1757,7 +1757,7 @@
       <code>$formattedSize</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="37">
-      <code>$_POST['master_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -2491,7 +2491,7 @@
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
     <MixedArgument occurrences="12">
-      <code>$_POST['master_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
       <code>$database['DEFAULT_COLLATION_NAME']</code>
       <code>$database['SCHEMA_NAME']</code>
       <code>$dblist-&gt;databases</code>
@@ -2630,7 +2630,7 @@
   </file>
   <file src="libraries/classes/Controllers/Server/ReplicationController.php">
     <MixedArgument occurrences="2">
-      <code>$_POST['master_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
       <code>$replicaInfo['status']</code>
     </MixedArgument>
   </file>
@@ -12547,9 +12547,9 @@
     <MixedArgument occurrences="16">
       <code>$_POST['hostname']</code>
       <code>$_POST['hostname']</code>
-      <code>$_POST['master_connection'] ?? null</code>
       <code>$_POST['pma_pw']</code>
-      <code>$_POST['sr_slave_action']</code>
+      <code>$_POST['primary_connection'] ?? null</code>
+      <code>$_POST['sr_replica_action']</code>
       <code>$_POST['text_port']</code>
       <code>$_POST['username']</code>
       <code>$_POST['username']</code>
@@ -12572,9 +12572,9 @@
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
+      <code>$serverReplicaReplication[0]['Slave_IO_Running']</code>
+      <code>$serverReplicaReplication[0]['Slave_SQL_Running']</code>
       <code>$serverReplication[0][$variable]</code>
-      <code>$serverSlaveReplication[0]['Slave_IO_Running']</code>
-      <code>$serverSlaveReplication[0]['Slave_SQL_Running']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="18">
       <code>$_SESSION['replication']['m_correct']</code>
@@ -12601,7 +12601,7 @@
       <code>$currentUser</code>
       <code>$database</code>
       <code>$errorMessage</code>
-      <code>$linkToMaster</code>
+      <code>$linkToPrimary</code>
       <code>$qControl</code>
       <code>$qReset</code>
       <code>$qSkip</code>
@@ -12630,7 +12630,7 @@
       <code>$status[0][$key]</code>
     </MixedArgument>
     <MixedArrayAssignment occurrences="1">
-      <code>$urlParams['master_connection']</code>
+      <code>$urlParams['primary_connection']</code>
     </MixedArrayAssignment>
   </file>
   <file src="libraries/classes/ResponseRenderer.php">
@@ -13208,7 +13208,7 @@
   </file>
   <file src="libraries/classes/Server/Status/Data.php">
     <MixedArgument occurrences="3">
-      <code>$_POST['master_connection'] ?? null</code>
+      <code>$_POST['primary_connection'] ?? null</code>
       <code>$server_status_result</code>
       <code>$server_status_result</code>
     </MixedArgument>

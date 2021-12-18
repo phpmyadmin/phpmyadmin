@@ -427,12 +427,12 @@ class Privileges
             [
                 'Repl_slave_priv',
                 'REPLICATION SLAVE',
-                __('Needed for the replication slaves.'),
+                __('Needed for the replication replicas.'),
             ],
             [
                 'Repl_client_priv',
                 'REPLICATION CLIENT',
-                __('Allows the user to ask where the slaves / masters are.'),
+                __('Allows the user to ask where the replicas / primaries are.'),
             ],
             [
                 'Create_view_priv',

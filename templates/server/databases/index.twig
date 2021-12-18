@@ -152,12 +152,12 @@
                 {% endfor %}
               {% endif %}
 
-              {% if has_master_replication %}
-                <th>{% trans 'Master replication' %}</th>
+              {% if has_primary_replication %}
+                <th>{% trans 'Primary replication' %}</th>
               {% endif %}
 
-              {% if has_slave_replication %}
-                <th>{% trans 'Slave replication' %}</th>
+              {% if has_replica_replication %}
+                <th>{% trans 'Replica replication' %}</th>
               {% endif %}
 
               <th>{% trans 'Action' %}</th>
@@ -209,8 +209,8 @@
                   {% endfor %}
                 {% endif %}
 
-                {% if database.replication.master.status %}
-                  {% if database.replication.master.is_replicated %}
+                {% if database.replication.primary.status %}
+                  {% if database.replication.primary.is_replicated %}
                     <td class="tool text-center">
                       {{ get_icon('s_success', 'Replicated'|trans) }}
                     </td>
@@ -221,8 +221,8 @@
                   {% endif %}
                 {% endif %}
 
-                {% if database.replication.slave.status %}
-                  {% if database.replication.slave.is_replicated %}
+                {% if database.replication.replica.status %}
+                  {% if database.replication.replica.is_replicated %}
                     <td class="tool text-center">
                       {{ get_icon('s_success', 'Replicated'|trans) }}
                     </td>
@@ -276,11 +276,11 @@
                 {% endfor %}
               {% endif %}
 
-              {% if has_master_replication %}
+              {% if has_primary_replication %}
                 <th></th>
               {% endif %}
 
-              {% if has_slave_replication %}
+              {% if has_replica_replication %}
                 <th></th>
               {% endif %}
 

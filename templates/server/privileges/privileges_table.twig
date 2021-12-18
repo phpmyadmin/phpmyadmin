@@ -678,10 +678,10 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_client_priv" id="checkbox_Repl_client_priv" value="Y" title="
-          {%- trans 'Allows the user to ask where the slaves / masters are.' %}"{{ row['Repl_client_priv'] == 'Y' ? ' checked' }}>
+          {%- trans 'Allows the user to ask where the replicas / primaries are.' %}"{{ row['Repl_client_priv'] == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_client_priv">
           <code>
-            <dfn title="{% trans 'Allows the user to ask where the slaves / masters are.' %}">
+            <dfn title="{% trans 'Allows the user to ask where the replicas / primaries are.' %}">
               REPLICATION CLIENT
             </dfn>
           </code>
@@ -691,10 +691,10 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y" title="
-          {%- trans 'Needed for the replication slaves.' %}"{{ row['Repl_slave_priv'] == 'Y' ? ' checked' }}>
+          {%- trans 'Needed for the replication replicas.' %}"{{ row['Repl_slave_priv'] == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_slave_priv">
           <code>
-            <dfn title="{% trans 'Needed for the replication slaves.' %}">
+            <dfn title="{% trans 'Needed for the replication replicas.' %}">
               REPLICATION SLAVE
             </dfn>
           </code>
