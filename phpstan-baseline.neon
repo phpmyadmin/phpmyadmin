@@ -7626,7 +7626,7 @@ parameters:
 			path: libraries/classes/RecentFavoriteTable.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Replication\\:\\:slaveChangeMaster\\(\\) has parameter \\$pos with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Replication\\:\\:replicaChangePrimary\\(\\) has parameter \\$pos with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Replication.php
 
@@ -7636,7 +7636,7 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForSlaveConfiguration\\(\\) has parameter \\$serverSlaveReplication with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\ReplicationGui\\:\\:getHtmlForReplicaConfiguration\\(\\) has parameter \\$serverReplicaReplication with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ReplicationGui.php
 

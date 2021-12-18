@@ -45,8 +45,8 @@ class ReplicationController extends AbstractController
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
-            'mr_configure' => $_POST['mr_configure'] ?? null,
-            'sl_configure' => $_POST['sl_configure'] ?? null,
+            'primary_configure' => $_POST['primary_configure'] ?? null,
+            'replica_configure' => $_POST['replica_configure'] ?? null,
             'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
         ];
         $errorUrl = Url::getFromRoute('/');
@@ -56,7 +56,7 @@ class ReplicationController extends AbstractController
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($_POST['master_connection'] ?? null);
+        $replicationInfo->load($_POST['primary_connection'] ?? null);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
@@ -74,21 +74,21 @@ class ReplicationController extends AbstractController
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            $masterReplicationHtml = $this->replicationGui->getHtmlForMasterReplication();
+            $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication();
         }
 
-        if (isset($params['mr_configure'])) {
-            $masterConfigurationHtml = $this->replicationGui->getHtmlForMasterConfiguration();
+        if (isset($params['primary_configure'])) {
+            $primaryConfigurationHtml = $this->replicationGui->getHtmlForPrimaryConfiguration();
         } else {
             if (! isset($params['repl_clear_scr'])) {
-                $slaveConfigurationHtml = $this->replicationGui->getHtmlForSlaveConfiguration(
+                $replicaConfigurationHtml = $this->replicationGui->getHtmlForReplicaConfiguration(
                     $replicaInfo['status'],
                     $replicationInfo->getReplicaStatus()
                 );
             }
 
-            if (isset($params['sl_configure'])) {
-                $changeMasterHtml = $this->replicationGui->getHtmlForReplicationChangeMaster('slave_changemaster');
+            if (isset($params['replica_configure'])) {
+                $changePrimaryHtml = $this->replicationGui->getHtmlForReplicationChangePrimary('replica_changeprimary');
             }
         }
 
@@ -96,14 +96,14 @@ class ReplicationController extends AbstractController
             'url_params' => $urlParams,
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
-            'is_master' => $primaryInfo['status'],
-            'master_configure' => $params['mr_configure'],
-            'slave_configure' => $params['sl_configure'],
+            'is_primary' => $primaryInfo['status'],
+            'primary_configure' => $params['primary_configure'],
+            'replica_configure' => $params['replica_configure'],
             'clear_screen' => $params['repl_clear_scr'],
-            'master_replication_html' => $masterReplicationHtml ?? '',
-            'master_configuration_html' => $masterConfigurationHtml ?? '',
-            'slave_configuration_html' => $slaveConfigurationHtml ?? '',
-            'change_master_html' => $changeMasterHtml ?? '',
+            'primary_replication_html' => $primaryReplicationHtml ?? '',
+            'primary_configuration_html' => $primaryConfigurationHtml ?? '',
+            'replica_configuration_html' => $replicaConfigurationHtml ?? '',
+            'change_primary_html' => $changePrimaryHtml ?? '',
         ]);
     }
 }

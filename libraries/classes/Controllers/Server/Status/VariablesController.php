@@ -476,11 +476,11 @@ class VariablesController extends AbstractController
                 . ' normally not critical even if this is big.)'
             ),
             'Select_scan' => __('The number of joins that did a full scan of the first table.'),
-            'Slave_open_temp_tables' => __('The number of temporary tables currently open by the slave SQL thread.'),
+            'Slave_open_temp_tables' => __('The number of temporary tables currently open by the replica SQL thread.'),
             'Slave_retried_transactions' => __(
-                'Total (since startup) number of times the replication slave SQL thread has retried transactions.'
+                'Total (since startup) number of times the replication replica SQL thread has retried transactions.'
             ),
-            'Slave_running' => __('This is ON if this server is a slave that is connected to a master.'),
+            'Slave_running' => __('This is ON if this server is a replica that is connected to a primary.'),
             'Slow_launch_threads' => __(
                 'The number of threads that have taken more than slow_launch_time seconds to create.'
             ),

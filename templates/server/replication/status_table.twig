@@ -2,10 +2,10 @@
   {% if has_title %}
     <h4>
       <a id="replication_{{ type }}"></a>
-      {% if type == 'master' %}
-        {% trans 'Master status' %}
+      {% if type == 'primary' %}
+        {% trans 'Primary status' %}
       {% else %}
-        {% trans 'Slave status' %}
+        {% trans 'Replica status' %}
       {% endif %}
     </h4>
   {% endif %}

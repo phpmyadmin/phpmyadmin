@@ -190,7 +190,7 @@ return [
             'You are using the MySQL Query cache with a fairly high traffic database.'
             . ' It might be worth considering to use '
             . '<a href="https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html">memcached</a>'
-            . ' instead of the MySQL Query cache, especially if you have multiple slaves.'
+            . ' instead of the MySQL Query cache, especially if you have multiple replicas.'
         ),
         'justification' => __(
             'The query cache is enabled and the server receives %d queries per second.'

@@ -74,9 +74,9 @@ class StatusControllerTest extends AbstractTestCase
         //updatetime
         $upTimeHtml = 'This MySQL server has been running for 0 days, 10 hours, 0 minutes and 0 seconds';
         $this->assertStringContainsString($upTimeHtml, $html);
-        //master state
-        $masterHtml = 'This MySQL server works as <b>master</b>';
-        $this->assertStringContainsString($masterHtml, $html);
+        //primary state
+        $primaryHtml = 'This MySQL server works as <b>primary</b>';
+        $this->assertStringContainsString($primaryHtml, $html);
 
         //validate 2: Status::getHtmlForServerStateTraffic
         $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5 w-auto">';

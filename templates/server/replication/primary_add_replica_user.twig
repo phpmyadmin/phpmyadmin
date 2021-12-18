@@ -1,13 +1,13 @@
-<div id="master_addslaveuser_gui">
+<div id="primary_addreplicauser_gui">
   <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm">
     {{ get_hidden_inputs('', '') }}
 
     <fieldset class="pma-fieldset" id="fieldset_add_user_login">
-      <legend>{% trans 'Add slave replication user' %}</legend>
+      <legend>{% trans 'Add replica replication user' %}</legend>
 
       <input type="hidden" name="grant_count" value="25">
       <input type="hidden" name="createdb" id="createdb_0" value="0">
-      {# Needed for the replication slaves. #}
+      {# Needed for the replication replicas. #}
       <input type="hidden" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y">
       <input type="hidden" name="sr_take_action" value="true">
 

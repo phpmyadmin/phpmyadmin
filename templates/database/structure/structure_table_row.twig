@@ -12,7 +12,7 @@
         </a>
         {{ tracking_icon|raw }}
     </th>
-    {% if server_slave_status %}
+    {% if server_replica_status %}
         <td class="text-center">
             {{ ignored ? get_image('s_cancel', 'Not replicated'|trans) }}
             {{ do ? get_image('s_success', 'Replicated'|trans) }}

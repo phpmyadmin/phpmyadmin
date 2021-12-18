@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - issue #17143 Require the openssl PHP extension
 - issue #17171 Remove the printview.css file from themes
 - issue #17203 Redesign the export and the import pages
+- issue #16197 Replace the master/slave terminology
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
