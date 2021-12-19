@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-05-13 19:34+0000\n"
-"Last-Translator: Michal Čihař <michal@weblate.org>\n"
+"PO-Revision-Date: 2021-12-19 15:27+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7042,6 +7042,7 @@ msgstr "Apagar página"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Algumas tabelas salvas nesta página podem ter sido renomeadas ou excluídas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7452,41 +7453,33 @@ msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Formato de exportação inválido"
+msgstr "Requisição inválida enviada para a chave de segurança."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
-#| msgid "Unknown error"
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Erro desconhecido"
+msgstr "Erro de chave de segurança desconhecido."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "O cliente não oferece suporte para chave de segurança."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Falha na ativação da chave de segurança (%s)."
+msgstr "Falha na ativação da chave de segurança."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr "Formato de exportação inválido"
+msgstr "Chave de segurança inválida."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:731
 #, php-format
@@ -9411,11 +9404,11 @@ msgstr "Você deve informar o nome do gatilho!"
 
 #: libraries/classes/Database/Triggers.php:503
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Você deve informar um tempo válido para o gatilho!"
+msgstr "Você deve informar um tempo válido para o acionador!"
 
 #: libraries/classes/Database/Triggers.php:510
 msgid "You must provide a valid event for the trigger!"
-msgstr "Você deve informar um evento válido para o gatilho!"
+msgstr "Você deve informar um evento válido para o acionador!"
 
 #: libraries/classes/Database/Triggers.php:518
 msgid "You must provide a valid table name!"
@@ -11695,7 +11688,7 @@ msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2191
 msgid "It appears your table uses triggers;"
-msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
+msgstr "Parece que sua tabela usa acionadores;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2228
 #, php-format
