@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-19 00:12+0000\n"
-"PO-Revision-Date: 2021-12-14 01:09+0000\n"
+"PO-Revision-Date: 2021-12-19 15:27+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -292,12 +292,6 @@ msgid "Suboptimal caching method."
 msgstr "Suboptimale cachingmethode."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -305,9 +299,9 @@ msgid ""
 "cache, especially if you have multiple replicas."
 msgstr ""
 "U gebruikt MySQL-querycache op een druk gebruikte database. U kan overwegen "
-"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html"
-"\">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als u "
-"verschillende slaves heeft."
+"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\""
+">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als u "
+"verschillende replica's heeft."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -5631,12 +5625,9 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Weet u zeker dat u de partitionering wilt verwijderen?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr ""
-"Weet u zeker dat u de rechten van de geselecteerde gebruiker(s) wil "
-"intrekken?"
+"Weet u zeker dat u de replica's op beginwaardes wil zetten (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -8308,34 +8299,25 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Het aantal joins dat een volledige scan van de eerste tabel uitvoerde."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"Het aantal momenteel openstaande tijdelijke tabellen voor de slave-SQL-"
+"Het aantal momenteel openstaande tijdelijke tabellen voor de replicatie SQL-"
 "thread."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Het totaal aantal transacties dat moest worden herhaald door de replicatie-"
-"slave-SQL-thread (sinds het opstarten van de server)."
+"Het totaal aantal nieuwe pogingen tot replicatie van de replicatie SQL-"
+"thread (sinds het opstarten van de server)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
-"Dit staat op 'ON' indien deze server als een replicatie-slave verbonden is "
-"met een masterserver."
+"Dit staat op 'ON' indien deze server als een replica verbonden is met een "
+"primaire server."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -12174,32 +12156,25 @@ msgid "Unknown error"
 msgstr "Onbekende fout"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Het verbinden met de master %s is mislukt."
+msgstr "Het verbinden met de primaire database %s is mislukt."
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Het lezen van de master-positie is mislukt. Mogelijk gaat het om een "
-"probleem met de rechten op de master."
+"Het lezen van de primaire log positie is mislukt. Mogelijk gaat het om een "
+"probleem met de rechten op de primaire database."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Wijzigen van master is mislukt!"
+msgstr "Wijzigen van primaire server is mislukt!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Masterserver succesvol gewijzigd in %s."
+msgstr "Primaire server succesvol gewijzigd in %s."
 
 #: libraries/classes/Routing.php:104
 #, php-format
@@ -12454,19 +12429,16 @@ msgstr "Maakt het mogelijk tabellen op slot te zetten voor de huidige thread."
 #: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Nodig om slaves te repliceren."
+msgstr "Nodig voor de replica's."
 
 #: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
-"Geeft het recht aan de gebruiker om te vragen waar de slaves / masters zijn."
+"Geeft het recht aan de gebruiker om te vragen waar de replica's / primaire "
+"databases zijn."
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:524
@@ -12709,23 +12681,17 @@ msgid "Show open tables"
 msgstr "Toon open tabellen"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Toon slave-hosts"
+msgstr "Toon replica hosts"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Toon masterstatus"
+msgstr "Toon status primaire database"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Toon slave-status"
+msgstr "Toon replica status"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -16941,17 +16907,13 @@ msgstr "Geen rechten om databases te maken"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Masterreplicatie"
+msgstr "Replicatie primaire database"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Slave-replicatie"
+msgstr "Replica replicatie"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17463,17 +17425,13 @@ msgid "Save changes"
 msgstr "Wijzigingen opslaan"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Slave-instellingen"
+msgstr "Replica instellingen"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Masterserver wijzigen"
+msgstr "Wijzigen of herconfigureren primaire server"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17489,16 +17447,13 @@ msgid "Port:"
 msgstr "Poort:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Deze server is niet ingesteld als master in een replicatieproces. Wilt u dit "
-"nu %sconfigure%s?"
+"Deze server is niet ingesteld als primair in een replicatieproces. Wilt u "
+"dit %sconfigure%s?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -17506,10 +17461,8 @@ msgstr "Geen rechten"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Gebruiker voor de slave-replicatie toevoegen"
+msgstr "Gebruiker voor replicatie toevoegen"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17522,19 +17475,10 @@ msgid "Generate password:"
 msgstr "Wachtwoord genereren:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Serverconfiguratie"
+msgstr "Server configuratie"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17542,7 +17486,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Deze server is niet ingesteld als master in een replicatieproces. U kunt "
+"Deze server is niet ingesteld als primair in een replicatieproces. U kunt "
 "kiezen om alle databases te repliceren en enkele te negeren (handig indien u "
 "de meerderheid van uw databases wil repliceren) of u kiest er voor om "
 "standaard alle databases te negeren en alleen enkele geselecteerde databases "
@@ -17569,11 +17513,6 @@ msgstr ""
 "herstart uw MySQL-server."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
@@ -17581,75 +17520,52 @@ msgid ""
 msgstr ""
 "Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
 "melding moeten krijgen dat de server geconfigureerd <strong>is</strong> als "
-"master."
+"primaire server."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "Deze server is ingesteld als master in een replicatieproces."
+msgstr "Deze server is ingesteld als primaire server in een replicatieproces."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Toon verbonden slaves"
+msgstr "Toon verbonden replica's"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Enkel slaves gestart met de optie --report-host=host_name zijn zichtbaar in "
-"deze lijst."
+"Enkel replica's gestart met de optie --report-host=host_name zijn zichtbaar "
+"in deze lijst."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Serververbinding:"
+msgstr "Primaire server verbinding:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Slave SQL Thread niet actief!"
+msgstr "Replicatie SQL-Thread niet actief!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Slave IO Thread niet actief!"
+msgstr "Replicatie IO Thread niet actief!"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
-msgstr "Server is ingesteld als slave in een replicatieproces. Wilt u:"
+msgstr "Server is ingesteld als replica in een replicatieproces. Wilt u:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Slave-statustabel bekijken"
+msgstr "Replica statustabel bekijken"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Beheer slave:"
+msgstr "Beheer replica:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Niet gerepliceerd"
+msgstr "Zet replica terug naar beginwaardes"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17674,12 +17590,10 @@ msgstr "Foutenbeheer:"
 # "errors" => "fouten"
 # master and slave _what_?
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Het overslaan van fouten kan leiden tot verschillen tussen de meester en "
-"slaaf!"
+"Het overslaan van fouten kan leiden tot verschillen tussen de primaire en "
+"replica database!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17691,28 +17605,21 @@ msgid "Skip next %s errors."
 msgstr "Sla de volgende %s fouten over."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Deze server is niet ingesteld als slave in een replicatieproces. Wilt u dit "
-"nu \"%sconfigure%s</a>?"
+"Deze server is niet ingesteld als replica in een replicatieproces. Wilt u "
+"dit \"%sconfigure%s</a>?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "Importstatus"
+msgstr "Status primaire database"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "Replicatiestatus"
+msgstr "Status replica"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -18099,36 +18006,26 @@ msgstr ""
 "kunnen de gerapporteerde statistieken afwijken."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"Deze MySQL-server is ingesteld als <b>master</b> en <b>slave</b> in een "
+"Deze MySQL-server is ingesteld als <b>primair</b> en <b>replica</b> in een "
 "<b>replicatie</b>proces."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Deze MySQL-server is ingesteld als <b>master</b> in een <b>replicatie</"
-"b>proces."
+"Deze MySQL-server is ingesteld als <b>primaire server</b> in een "
+"<b>replicatie</b>proces."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Deze MySQL-server is ingesteld als <b>slave</b> in een <b>replicatie</"
-"b>proces."
+"Deze MySQL-server is ingesteld als <b>replica</b> in een "
+"<b>replicatie</b>proces."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
