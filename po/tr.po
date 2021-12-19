@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-19 00:12+0000\n"
-"PO-Revision-Date: 2021-12-11 22:51+0000\n"
-"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"PO-Revision-Date: 2021-12-19 15:27+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -284,12 +284,6 @@ msgid "Suboptimal caching method."
 msgstr "Yetersiz önbellekleme yöntemi."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -299,7 +293,7 @@ msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
 "kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\"https://dev.mysql."
 "com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
-"değebilir, özellikle de çoklu bağımlı sunuculara sahipseniz."
+"değebilir, özellikle de çoklu kopya sunuculara sahipseniz."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -5575,10 +5569,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Bölümlemeyi gerçekten kaldırmak istiyor musunuz?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Seçilen kullanıcı(ları)yı geri almak istediğinize emin misiniz?"
+msgstr "Kopya sunucuyu gerçekten sıfırlamak istiyor musunuz (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -8195,7 +8187,7 @@ msgstr "Sorgu önbelleği içindeki toplam blok sayısıdır."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Arıza-güvenli kopya etme durumu (henüz tamamlanmadı)."
+msgstr "Arıza-güvenli kopyalama durumu (henüz tamamlanmadı)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -8231,32 +8223,23 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "İlk tablonun tam taramasının yapıldığı birleştirme sayısıdır."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"Bağımlı Sunucu SQL iş parçacığı tarafından şu anki açık geçici tablo "
-"sayısıdır."
+"Kopya sunucu SQL iş parçacığı tarafından şu anda açık olan geçici tabloların "
+"sayısı."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Kopya edilen bağımlı sunucu SQL iş parçacığının yeniden denediği işlemlerin "
-"toplam (başlangıçtan beri) süre sayısıdır."
+"Kopyalama kopya sunucu SQL iş parçacığının işlemleri yeniden denediği toplam "
+"(başlangıçtan beri) sayısı."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "Eğer sunucu asıl sunucuya bağlı bir bağımlı sunucu ise, bu AÇIKTIR."
+msgstr "Bu sunucu, birincil sunucuya bağlı bir kopya sunucuysa, bu AÇIK'tır."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -8307,7 +8290,7 @@ msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
 "uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
-"kopya etmeyi kullanın."
+"kopyalamayı kullanın."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:504
 msgid ""
@@ -10070,7 +10053,7 @@ msgstr "İkili değer günlüğü"
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
-msgstr "Kopya etme"
+msgstr "Kopyalama"
 
 #: libraries/classes/Menu.php:557 libraries/classes/Server/Status/Data.php:229
 #: libraries/classes/Util.php:1972 libraries/config.values.php:159
@@ -11978,7 +11961,7 @@ msgid ""
 "configured)."
 msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
-"yapılandırılmadı)."
+"yapılandırılmamış)."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid "The server is not responding."
@@ -12026,27 +12009,27 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:449
 msgid "Replication started successfully."
-msgstr "Çoğaltma başarılı olarak başlatıldı."
+msgstr "Kopyalama başarılı olarak başladı."
 
 #: libraries/classes/ReplicationGui.php:450
 msgid "Error starting replication."
-msgstr "Çoğaltmayı başlatma hatası."
+msgstr "Kopyalama başlatılırken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:453
 msgid "Replication stopped successfully."
-msgstr "Çoğaltma başarılı olarak durduruldu."
+msgstr "Kopyalama başarılı olarak durduruldu."
 
 #: libraries/classes/ReplicationGui.php:454
 msgid "Error stopping replication."
-msgstr "Çoğaltmayı durdurma hatası."
+msgstr "Kopyalama durdurulurken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:457
 msgid "Replication resetting successfully."
-msgstr "Çoğaltma başarılı olarak sıfırlandı."
+msgstr "Kopyalama başarılı olarak sıfırlandı."
 
 #: libraries/classes/ReplicationGui.php:458
 msgid "Error resetting replication."
-msgstr "Çoğaltmayı sıfırlama hatası."
+msgstr "Kopyalama sıfırlanırken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:461
 msgid "Success."
@@ -12061,31 +12044,25 @@ msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Asıl %s sunucusuna bağlanılamıyor."
+msgstr "Birincil %s sunucusuna bağlanılamıyor."
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Asıl sunucu günlük konumu okunamıyor. Asıl sunucuda olası yetki sorunu."
+"Birincil sunucu günlük konumu okunamıyor. Birincil sunucuda olası yetki "
+"sorunu."
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "Asıl sunucu değiştirilemiyor!"
+msgstr "Birincil sunucu değiştirilemiyor!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "Asıl sunucu, %s olarak başarılı olarak değiştirildi."
+msgstr "Birincil sunucu, %s olarak başarılı olarak değiştirildi."
 
 #: libraries/classes/Routing.php:104
 #, php-format
@@ -12337,19 +12314,15 @@ msgstr "Şu anki iş parçacığı için tabloların kilitlenmesine izin verir."
 #: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Kopya edilen bağımlı sunucular için gereklidir."
+msgstr "Kopyalama kopya sunucular için gerekli."
 
 #: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
-"Kullanıcılara bağımlı / asıl sunucuların nerede olduğunu sormasına izin "
+"Kullanıcının kopya / birincil sunucuların nerede olduğunu sormasına izin "
 "verir."
 
 #: libraries/classes/Server/Privileges.php:445
@@ -12591,23 +12564,17 @@ msgid "Show open tables"
 msgstr "Açık tabloları göster"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Bağımlı sunucu anamakinelerini göster"
+msgstr "Kopya anamakineleri göster"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Asıl sunucu durumunu göster"
+msgstr "Birincil sunucu durumunu göster"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Bağımlı sunucu durumunu göster"
+msgstr "Kopya sunucu durumunu göster"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -16803,17 +16770,13 @@ msgstr "Veritabanlarını oluşturmak için yetkiler yok"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "Asıl sunucu kopya etme"
+msgstr "Birincil sunucu kopyalama"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "Bağımlı sunucu kopya etme"
+msgstr "Kopya sunucu kopyalama"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17310,17 +17273,13 @@ msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Bağımlı sunucu yapılandırması"
+msgstr "Kopya sunucu yapılandırması"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Asıl sunucuyu değiştir veya yeniden yapılandır"
+msgstr "Birincil sunucuyu değiştir veya yeniden yapılandır"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17335,16 +17294,13 @@ msgid "Port:"
 msgstr "B.Noktası:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmaz. "
-"Bunu %syapılandırmak%s ister misiniz?"
+"Bu sunucu, kopyalama işlemi sırasında birincil sunucu olarak "
+"yapılandırılmadı. Bunu %syapılandırmak%s ister misiniz?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -17352,10 +17308,8 @@ msgstr "Yetkiler yok"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Bağımlı sunucu kopya etme kullanıcısı ekle"
+msgstr "Kopya sunucu kopyalama kullanıcısı ekle"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17368,19 +17322,10 @@ msgid "Generate password:"
 msgstr "Parola üret:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Sunucu yapılandırması"
+msgstr "Birincil sunucu yapılandırması"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17388,11 +17333,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmaz. "
-"Ya tüm veritabanlarının kopya etmeyi ve bazılarını yoksaymayı (eğer "
-"veritabanlarının çoğunluğunu kopya etmek isterseniz faydalıdır) "
+"Bu sunucu, kopyalama işlemi sırasında birincil sunucu olarak "
+"yapılandırılmadı. Ya tüm veritabanlarının kopya etmeyi ve bazılarını "
+"yoksaymayı (veritabanlarının çoğunluğunu kopyalamak isterseniz faydalıdır) "
 "seçebilirsiniz ya da varsayılan olarak tüm veritabanlarını yoksaymayı ve "
-"kopya etmek için sadece belirli veritabanlarına izin verebilirsiniz. Lütfen "
+"kopyalanması için sadece belirli veritabanlarına izin verebilirsiniz. Lütfen "
 "kipi seçin:"
 
 #: templates/server/replication/primary_configuration.twig:9
@@ -17416,91 +17361,63 @@ msgstr ""
 "sonuna ekleyin ve ondan sonra lütfen MySQL sunucusunu yeniden başlatın."
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
-"tıklayın. Ondan sonra bu sunucunun asıl sunucu olarak "
+"tıklayın. Ondan sonra bu sunucunun birincil sunucu olarak "
 "<strong>yapılandırıldığını</strong> gösteren, sizi uyaran bir ileti "
 "görmelisiniz."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılır."
+"Bu sunucu, kopyalama işlemi sırasında birincil sunucu olarak yapılandırıldı."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Bağlı bağımlı sunucuları göster"
+msgstr "Bağlı kopya sunucuları göster"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Sadece bağımlı sunucular, bu listede --report-host=host_name seçeneğiyle "
-"görünen bu şekilde başlar."
+"Bu listede sadece --report-host=host_name seçeneğiyle başlayan kopya "
+"sunucular görünürdür."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "Sunucu bağlantısı:"
+msgstr "Birincil sunucu bağlantısı:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Bağımlı Sunucu SQL İş Parçacığı çalışmıyor!"
+msgstr "Kopya Sunucu SQL İş Parçacığı çalışmıyor!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Bağımlı Sunucu G/Ç İş Parçacığı çalışmıyor!"
+msgstr "Kopya Sunucu G/Ç İş Parçacığı çalışmıyor!"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Sunucu, kopya etme işlemi sırasında bağımlı sunucu olarak yapılandırılır. "
-"Bunu ister misiniz:"
+"Sunucu, kopyalama işlemi sırasında kopya sunucu olarak yapılandırıldı. Bunu "
+"ister misiniz:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "Bağımlı sunucu durum tablosuna bak"
+msgstr "Kopya sunucu durum tablosuna bak"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Bağımlı sunucuyu denetle:"
+msgstr "Kopya sunucuyu denetle:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Kopya edilmedi"
+msgstr "Kopya sunucuyu sıfırla"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17523,10 +17440,9 @@ msgid "Error management:"
 msgstr "Hata yönetimi:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
-msgstr "Hataları atlamak eşitlenmemiş asıl ve bağımlı sunucuya neden olabilir!"
+msgstr ""
+"Hataları atlamak eşitlenmemiş birincil ve kopya sunucuya neden olabilir!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17538,28 +17454,21 @@ msgid "Skip next %s errors."
 msgstr "Sonraki %s hatayı atla."
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında bağımlı sunucu olarak "
-"yapılandırılmaz. Bunu %syapılandırmak%s ister misiniz?"
+"Bu sunucu, kopyalama işlemi sırasında kopya sunucu olarak yapılandırılmadı. "
+"Bunu %syapılandırmak%s ister misiniz?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "İçe aktarma durumu"
+msgstr "Birincil sunucu durumu"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "Kopya etme durumu"
+msgstr "Kopya sunucu durumu"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17943,40 +17852,30 @@ msgstr ""
 "sunucusu tarafından raporlanan istatistikler doğru olmayabilir."
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>asıl sunucu</b> ve "
-"<b>bağımlı sunucu</b> olarak çalışır."
+"Bu MySQL sunucusu <b>kopyalama</b> işlemi sırasında <b>birincil sunucu</b> "
+"ve <b>kopya sunucu</b> olarak çalışır."
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>asıl sunucu</b> "
+"Bu MySQL sunucusu <b>kopyalama</b> işlemi sırasında <b>birincil sunucu</b> "
 "olarak çalışır."
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>bağımlı sunucu</b> "
+"Bu MySQL sunucusu <b>kopyalama</b> işlemi sırasında <b>kopya sunucu</b> "
 "olarak çalışır."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
-msgstr "Kopya etme durumu"
+msgstr "Kopyalama durumu"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
