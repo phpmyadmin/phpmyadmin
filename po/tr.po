@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-11-22 06:54+0000\n"
+"PO-Revision-Date: 2021-12-19 06:53+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7092,7 +7092,7 @@ msgid ""
 "configured)."
 msgstr ""
 "Sunucu yanıt vermiyor (ya da yerel MySQL sunucusunun soketi doğru olarak "
-"yapılandırılmadı)."
+"yapılandırılmamış)."
 
 #: libraries/classes/DatabaseInterface.php:2182
 msgid "The server is not responding."
@@ -8259,7 +8259,7 @@ msgstr "İkili değer günlüğü"
 #: templates/server/sub_page_header.twig:2
 #: templates/database/structure/table_header.twig:10
 msgid "Replication"
-msgstr "Kopya etme"
+msgstr "Kopyalama"
 
 #: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:194
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3998
@@ -10730,7 +10730,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:927
 msgid "Replication started successfully."
-msgstr "Çoğaltma başarılı olarak başlatıldı."
+msgstr "Kopyalama başarılı olarak başladı."
 
 #: libraries/classes/ReplicationGui.php:928
 msgid "Error starting replication."
@@ -12832,7 +12832,7 @@ msgstr "Sorgu önbelleği içindeki toplam blok sayısıdır."
 
 #: libraries/classes/Server/Status/Variables.php:690
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Arıza-güvenli kopya etme durumu (henüz tamamlanmadı)."
+msgstr "Arıza-güvenli kopyalama durumu (henüz tamamlanmadı)."
 
 #: libraries/classes/Server/Status/Variables.php:693
 msgid ""
@@ -12934,7 +12934,7 @@ msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
 "uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
-"kopya etmeyi kullanın."
+"kopyalamayı kullanın."
 
 #: libraries/classes/Server/Status/Variables.php:754
 msgid ""
