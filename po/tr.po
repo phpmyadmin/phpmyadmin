@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-12-19 06:53+0000\n"
+"PO-Revision-Date: 2021-12-19 15:27+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -10734,23 +10734,23 @@ msgstr "Kopyalama başarılı olarak başladı."
 
 #: libraries/classes/ReplicationGui.php:928
 msgid "Error starting replication."
-msgstr "Çoğaltmayı başlatma hatası."
+msgstr "Kopyalama başlatılırken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:931
 msgid "Replication stopped successfully."
-msgstr "Çoğaltma başarılı olarak durduruldu."
+msgstr "Kopyalama başarılı olarak durduruldu."
 
 #: libraries/classes/ReplicationGui.php:932
 msgid "Error stopping replication."
-msgstr "Çoğaltmayı durdurma hatası."
+msgstr "Kopyalama durdurulurken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:935
 msgid "Replication resetting successfully."
-msgstr "Çoğaltma başarılı olarak sıfırlandı."
+msgstr "Kopyalama başarılı olarak sıfırlandı."
 
 #: libraries/classes/ReplicationGui.php:936
 msgid "Error resetting replication."
-msgstr "Çoğaltmayı sıfırlama hatası."
+msgstr "Kopyalama sıfırlanırken hata oldu."
 
 #: libraries/classes/ReplicationGui.php:939
 msgid "Success."
@@ -11853,7 +11853,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
-msgstr "Kopya etme durumu"
+msgstr "Kopyalama durumu"
 
 #: libraries/classes/Server/Status.php:154
 msgid ""
