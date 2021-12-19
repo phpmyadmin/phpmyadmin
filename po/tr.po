@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-11-22 06:50+0000\n"
+"PO-Revision-Date: 2021-12-19 06:51+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8149,7 +8149,7 @@ msgstr "Sorgu önbelleği içindeki toplam blok sayısıdır."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:593
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Arıza-güvenli kopya etme durumu (henüz tamamlanmadı)."
+msgstr "Arıza-güvenli kopyalama durumu (henüz tamamlanmadı)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:596
 msgid ""
@@ -8251,7 +8251,7 @@ msgstr ""
 "Tablo kilidinin hemen tanınamadığı ve beklemenin gerektiği süre sayısıdır. "
 "Eğer bu değer yüksekse ve performans sorununuz varsa, önce sorgularınızı "
 "uyarlamalısınız ve ondan sonra ya tablonuzu ya da tablolarınızı bölün veya "
-"kopya etmeyi kullanın."
+"kopyalamayı kullanın."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:657
 msgid ""
@@ -10356,7 +10356,7 @@ msgstr "İkili değer günlüğü"
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
-msgstr "Kopya etme"
+msgstr "Kopyalama"
 
 #: libraries/classes/Menu.php:601 libraries/classes/Server/Status/Data.php:228
 #: libraries/classes/Util.php:2483 libraries/config.values.php:159
