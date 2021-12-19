@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-12-12 00:11+0000\n"
+"POT-Creation-Date: 2021-12-19 00:12+0000\n"
 "PO-Revision-Date: 2021-11-05 03:35+0000\n"
 "Last-Translator: Tymofii Lytvynenko <till.svit@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -298,7 +298,7 @@ msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple slaves."
+"cache, especially if you have multiple replicas."
 msgstr ""
 "Ви використовуєте механізм кешування запитів MySQL з базою даних, що має "
 "досить високий трафік. Можливо замість механізму кешування запитів MySQL "
@@ -1409,9 +1409,9 @@ msgstr "Пошук:"
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: libraries/classes/Controllers/Server/PrivilegesController.php:330
-#: libraries/classes/Normalization.php:256
-#: libraries/classes/Normalization.php:985 libraries/classes/Tracking.php:327
-#: libraries/classes/Tracking.php:481
+#: libraries/classes/Normalization.php:255
+#: libraries/classes/Normalization.php:984 libraries/classes/Tracking.php:328
+#: libraries/classes/Tracking.php:482
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/designer/main.twig:1102
 #: templates/database/events/editor_form.twig:115
@@ -1438,11 +1438,11 @@ msgstr "Пошук:"
 #: templates/server/privileges/privileges_table.twig:858
 #: templates/server/privileges/user_properties.twig:149
 #: templates/server/privileges/users_overview.twig:159
-#: templates/server/replication/change_master.twig:33
-#: templates/server/replication/master_add_slave_user.twig:81
-#: templates/server/replication/master_configuration.twig:30
-#: templates/server/replication/slave_configuration.twig:16
-#: templates/server/replication/slave_configuration.twig:88
+#: templates/server/replication/change_primary.twig:33
+#: templates/server/replication/primary_add_replica_user.twig:81
+#: templates/server/replication/primary_configuration.twig:30
+#: templates/server/replication/replica_configuration.twig:16
+#: templates/server/replication/replica_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
@@ -1789,16 +1789,16 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "В'єтнамська"
 
-#: libraries/classes/Common.php:241
+#: libraries/classes/Common.php:242
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам необхідно оновити до %s %s або пізнішої."
 
-#: libraries/classes/Common.php:273
+#: libraries/classes/Common.php:274
 msgid "Error: Token mismatch"
 msgstr "Помилка: невідповідний токен"
 
-#: libraries/classes/Common.php:485
+#: libraries/classes/Common.php:488
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1806,7 +1806,7 @@ msgstr ""
 "Не вдалося встановити сеанс cookie. Можливо, ви використовуєте HTTP замість "
 "HTTPS для доступу phpMyAdmin."
 
-#: libraries/classes/Common.php:549
+#: libraries/classes/Common.php:552
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1815,7 +1815,7 @@ msgstr ""
 "У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр несумісний "
 "з phpMyAdmin і може викликати пошкодження деяких даних!"
 
-#: libraries/classes/Common.php:566
+#: libraries/classes/Common.php:569
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1823,11 +1823,11 @@ msgstr ""
 "Функції ini_get та/або ini_set відключені в php.ini. phpMyAdmin вимагає цих "
 "функцій!"
 
-#: libraries/classes/Common.php:577
+#: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
 msgstr "спроба перезапису GLOBALS"
 
-#: libraries/classes/Common.php:587
+#: libraries/classes/Common.php:590
 msgid "possible exploit"
 msgstr "можливе використання"
 
@@ -3603,8 +3603,8 @@ msgid "First day of calendar"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:751
-#: libraries/classes/Config/Descriptions.php:762 libraries/classes/Menu.php:485
-#: libraries/classes/Util.php:1962 libraries/config.values.php:155
+#: libraries/classes/Config/Descriptions.php:762 libraries/classes/Menu.php:486
+#: libraries/classes/Util.php:1963 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3718,11 +3718,11 @@ msgstr "Сховище конфігурації"
 msgid "Changes tracking"
 msgstr "Відстеження змін"
 
-#: libraries/classes/Config/Descriptions.php:778 libraries/classes/Menu.php:257
-#: libraries/classes/Menu.php:364 libraries/classes/Menu.php:490
+#: libraries/classes/Config/Descriptions.php:778 libraries/classes/Menu.php:258
+#: libraries/classes/Menu.php:365 libraries/classes/Menu.php:491
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1496 libraries/classes/Util.php:1963
-#: libraries/classes/Util.php:1978 libraries/classes/Util.php:1995
+#: libraries/classes/Util.php:1497 libraries/classes/Util.php:1964
+#: libraries/classes/Util.php:1979 libraries/classes/Util.php:1996
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4006,7 +4006,7 @@ msgid "Recently used tables"
 msgstr "Таблиці, що були недавно використані"
 
 #: libraries/classes/Config/Descriptions.php:858
-#: libraries/classes/RecentFavoriteTable.php:250
+#: libraries/classes/RecentFavoriteTable.php:252
 msgid "Favorite tables"
 msgstr "Улюблені таблиці"
 
@@ -4371,16 +4371,16 @@ msgid "Skip locked tables"
 msgstr "Пропускати заблоковані таблиці"
 
 #: libraries/classes/Config/Descriptions.php:949
+#: libraries/classes/ConfigStorage/UserGroups.php:129
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Display/Results.php:3090
 #: libraries/classes/Html/Generator.php:670
 #: libraries/classes/Html/Generator.php:927
-#: libraries/classes/Server/UserGroups.php:130
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
-#: templates/database/central_columns/main.twig:267
-#: templates/database/central_columns/main.twig:380
-#: templates/database/central_columns/main.twig:381
+#: templates/database/central_columns/main.twig:265
+#: templates/database/central_columns/main.twig:376
+#: templates/database/central_columns/main.twig:377
 #: templates/database/events/index.twig:74
 #: templates/database/events/index.twig:77
 #: templates/database/events/row.twig:23 templates/database/events/row.twig:26
@@ -4686,13 +4686,13 @@ msgstr "Звичайно"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:702
-#: libraries/classes/Import.php:1324 libraries/classes/Menu.php:249
-#: libraries/classes/Menu.php:359
+#: libraries/classes/Import.php:1324 libraries/classes/Menu.php:250
+#: libraries/classes/Menu.php:360
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:50
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1495 libraries/classes/Util.php:1977
-#: libraries/classes/Util.php:1994 libraries/config.values.php:60
+#: libraries/classes/Util.php:1496 libraries/classes/Util.php:1978
+#: libraries/classes/Util.php:1995 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4734,10 +4734,10 @@ msgstr "Текст OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
-#: libraries/classes/Menu.php:279 libraries/classes/Menu.php:384
-#: libraries/classes/Menu.php:518 libraries/classes/Server/Privileges.php:1538
-#: libraries/classes/Util.php:1966 libraries/classes/Util.php:1981
-#: libraries/classes/Util.php:1998 templates/database/events/index.twig:16
+#: libraries/classes/Menu.php:280 libraries/classes/Menu.php:385
+#: libraries/classes/Menu.php:519 libraries/classes/Server/Privileges.php:1538
+#: libraries/classes/Util.php:1967 libraries/classes/Util.php:1982
+#: libraries/classes/Util.php:1999 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4779,9 +4779,9 @@ msgstr "CSV, використовуючи LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:310
-#: libraries/classes/Menu.php:288 libraries/classes/Menu.php:394
-#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1967
-#: libraries/classes/Util.php:1982 libraries/classes/Util.php:1999
+#: libraries/classes/Menu.php:289 libraries/classes/Menu.php:395
+#: libraries/classes/Menu.php:524 libraries/classes/Util.php:1968
+#: libraries/classes/Util.php:1983 libraries/classes/Util.php:2000
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -4989,6 +4989,37 @@ msgstr ""
 "%1$sСтиснення і розпакування в форматі Gzip%2$s вимагає наявності функцій "
 "(%3$s), котрі в цій системі недоступні."
 
+#: libraries/classes/ConfigStorage/Relation.php:1432
+msgid "no description"
+msgstr "без опису"
+
+#: libraries/classes/ConfigStorage/Relation.php:1634
+#, php-format
+msgid ""
+"You do not have necessary privileges to create a database named '%s'. You "
+"may go to 'Operations' tab of any database to set up the phpMyAdmin "
+"configuration storage there."
+msgstr ""
+"У вас немає необхідних прав для створення бази даних з ім'ям '%s'. Ви можете "
+"перейти на вкладку 'Операції' з якої-небудь бази даних для настройки "
+"зберігання конфігурації PHPMYADMIN там."
+
+#: libraries/classes/ConfigStorage/UserGroups.php:120
+msgid "View users"
+msgstr "Переглянути користувачів"
+
+#: libraries/classes/ConfigStorage/UserGroups.php:256
+msgid "Server-level tabs"
+msgstr "Вкладки рівня сервера"
+
+#: libraries/classes/ConfigStorage/UserGroups.php:261
+msgid "Database-level tabs"
+msgstr "Вкладки рівня бази даних"
+
+#: libraries/classes/ConfigStorage/UserGroups.php:266
+msgid "Table-level tabs"
+msgstr "Вкладки рівня таблиці"
+
 #: libraries/classes/Config/Validator.php:243
 msgid "Could not connect to the database server!"
 msgstr "Не вдалося з'єднатися з сервером бази даних!"
@@ -5060,7 +5091,7 @@ msgstr "Не від'ємне число!"
 msgid "Value must be less than or equal to %s!"
 msgstr "Значення має дорівнювати або бути меншим ніж %s!"
 
-#: libraries/classes/Console.php:90
+#: libraries/classes/Console.php:92
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
@@ -5068,11 +5099,11 @@ msgstr[0] "Показати %1$d закладку (приватні та заг�
 msgstr[1] "Показати %1$d закладки (приватні та загальні)"
 msgstr[2] "Показати %1$d закладок (приватні та загальні)"
 
-#: libraries/classes/Console.php:97
+#: libraries/classes/Console.php:99
 msgid "No bookmarks"
 msgstr "Немає закладок"
 
-#: libraries/classes/Console.php:129
+#: libraries/classes/Console.php:131
 msgid "SQL Query Console"
 msgstr "Консоль SQL запитів"
 
@@ -5124,7 +5155,7 @@ msgstr ""
 "установку!"
 
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
-#: libraries/classes/Controllers/Table/OperationsController.php:261
+#: libraries/classes/Controllers/Table/OperationsController.php:262
 msgid "No collation provided."
 msgstr "Зіставлення не надано."
 
@@ -5238,7 +5269,7 @@ msgstr "невідоме"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:622
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:754
 #: templates/config/form_display/input.twig:42
-#: templates/database/central_columns/main.twig:360
+#: templates/database/central_columns/main.twig:356
 #: templates/database/data_dictionary/index.twig:47
 #: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1117
@@ -5269,7 +5300,7 @@ msgstr "Так"
 #: libraries/classes/Controllers/Database/Structure/DropTableController.php:57
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:73
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
-#: libraries/classes/Controllers/Table/OperationsController.php:321
+#: libraries/classes/Controllers/Table/OperationsController.php:322
 #: libraries/classes/Controllers/Table/ReplaceController.php:419
 #: libraries/classes/Core.php:723 templates/preview_sql.twig:3
 msgid "No change"
@@ -5644,8 +5675,10 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Ви дійсно хочете видалити розділи?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-msgid "Do you really want to RESET SLAVE?"
-msgstr "Ви дійсно бажаєте RESET SLAVE?"
+#, fuzzy
+#| msgid "Do you really want to revoke the selected user(s) ?"
+msgid "Do you really want to reset the replica (RESET REPLICA)?"
+msgstr "Ви дійсно бажаєте відкликати обраного(их) користувача(ів)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -5821,7 +5854,7 @@ msgid "Removing Selected Users"
 msgstr "Видалення вибраних користувачів"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:137
-#: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
+#: libraries/classes/Tracking.php:238 libraries/classes/Tracking.php:642
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
 #: templates/error/report_modal.twig:14 templates/export_modal.twig:6
@@ -5914,13 +5947,13 @@ msgstr "Інше"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:152
-#: libraries/classes/Util.php:559 libraries/classes/Util.php:591
+#: libraries/classes/Util.php:560 libraries/classes/Util.php:592
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:154
-#: libraries/classes/Util.php:557 libraries/classes/Util.php:589
+#: libraries/classes/Util.php:558 libraries/classes/Util.php:590
 msgid "."
 msgstr "."
 
@@ -6029,45 +6062,45 @@ msgstr "Процесів"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
-#: libraries/classes/Util.php:465
+#: libraries/classes/Util.php:466
 msgid "B"
 msgstr "Б"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Util.php:467
+#: libraries/classes/Util.php:468
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "КБ"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
-#: libraries/classes/Util.php:469
+#: libraries/classes/Util.php:470
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "МБ"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Util.php:471
+#: libraries/classes/Util.php:472
 msgid "GiB"
 msgstr "ГБ"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:473
+#: libraries/classes/Util.php:474
 msgid "TiB"
 msgstr "ТБ"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:475
+#: libraries/classes/Util.php:476
 msgid "PiB"
 msgstr "ПБ"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#: libraries/classes/Util.php:477
+#: libraries/classes/Util.php:478
 msgid "EiB"
 msgstr "ЕБ"
 
@@ -6087,7 +6120,7 @@ msgid "Traffic"
 msgstr "Трафік"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:205
-#: libraries/classes/Menu.php:528 libraries/classes/Util.php:1968
+#: libraries/classes/Menu.php:529 libraries/classes/Util.php:1969
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Налаштування"
@@ -6108,7 +6141,7 @@ msgstr "Будь ласка, додайте хоча б одну змінну в
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
-#: templates/database/central_columns/main.twig:309
+#: templates/database/central_columns/main.twig:305
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
@@ -6317,9 +6350,9 @@ msgid "Explain output"
 msgstr "Аналіз результатів"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:275
-#: libraries/classes/Menu.php:495
+#: libraries/classes/Menu.php:496
 #: libraries/classes/Server/Status/Processes.php:138
-#: libraries/classes/Util.php:1964 libraries/config.values.php:157
+#: libraries/classes/Util.php:1965 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
 #: templates/database/events/index.twig:44
 #: templates/database/tracking/tables.twig:17
@@ -6472,7 +6505,7 @@ msgid "No parameters found!"
 msgstr "Параметри не знайдені!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
-#: templates/database/central_columns/main.twig:271
+#: templates/database/central_columns/main.twig:269
 #: templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:390
 #: templates/database/designer/main.twig:668
@@ -6598,7 +6631,7 @@ msgstr "Змінити кодування"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:622
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:753
 #: templates/config/form_display/input.twig:42
-#: templates/database/central_columns/main.twig:360
+#: templates/database/central_columns/main.twig:356
 #: templates/database/data_dictionary/index.twig:47
 #: templates/database/data_dictionary/index.twig:91
 #: templates/database/designer/main.twig:1118
@@ -6704,10 +6737,10 @@ msgstr "Показати вікно запиту"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3161
-#: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
-#: templates/database/central_columns/main.twig:270
-#: templates/database/central_columns/main.twig:384
-#: templates/database/central_columns/main.twig:385
+#: libraries/classes/Tracking.php:261 templates/console/bookmark_content.twig:7
+#: templates/database/central_columns/main.twig:268
+#: templates/database/central_columns/main.twig:380
+#: templates/database/central_columns/main.twig:381
 #: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
@@ -6751,7 +6784,7 @@ msgid "Variable %d:"
 msgstr "Змінна %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
-#: libraries/classes/Normalization.php:1058
+#: libraries/classes/Normalization.php:1057
 msgid "Pick"
 msgstr "Підібрати"
 
@@ -6785,7 +6818,7 @@ msgid "Primary key added."
 msgstr "Додано первинний ключ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:411
-#: libraries/classes/Normalization.php:283
+#: libraries/classes/Normalization.php:282
 msgid "Taking you to next step…"
 msgstr "Перехід до наступного етапу…"
 
@@ -6795,10 +6828,10 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Перший етап нормалізації для таблиці '%s' завершений."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#: libraries/classes/Normalization.php:541
-#: libraries/classes/Normalization.php:605
-#: libraries/classes/Normalization.php:702
-#: libraries/classes/Normalization.php:780
+#: libraries/classes/Normalization.php:540
+#: libraries/classes/Normalization.php:604
+#: libraries/classes/Normalization.php:701
+#: libraries/classes/Normalization.php:779
 msgid "End of step"
 msgstr "Кінець етапу"
 
@@ -6808,7 +6841,7 @@ msgstr "Другий етап нормалізації (2NF)"
 
 #. l10n: Display text for calendar close link
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
-#: libraries/classes/Normalization.php:376
+#: libraries/classes/Normalization.php:375
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "Готово"
@@ -6893,8 +6926,8 @@ msgstr "Жодної залежності не обрано!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:22
-#: templates/database/central_columns/main.twig:121
-#: templates/database/central_columns/main.twig:274
+#: templates/database/central_columns/main.twig:119
+#: templates/database/central_columns/main.twig:272
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/insert/actions_panel.twig:7
@@ -6969,7 +7002,7 @@ msgstr "Вміст точки даних"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2015
+#: libraries/classes/ErrorHandler.php:420 libraries/classes/InsertEdit.php:2016
 #: templates/table/index_form.twig:164 templates/table/index_form.twig:200
 msgid "Ignore"
 msgstr "Ігнорувати"
@@ -7307,7 +7340,7 @@ msgid "Generate password"
 msgstr "Згенерувати пароль"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:592
-#: templates/server/replication/master_add_slave_user.twig:73
+#: templates/server/replication/primary_add_replica_user.twig:73
 msgid "Generate"
 msgstr "Згенерувати"
 
@@ -7561,7 +7594,7 @@ msgid "Table %s already exists!"
 msgstr "Таблиця %s вже існує!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:700
-#: libraries/classes/InsertEdit.php:331
+#: libraries/classes/InsertEdit.php:332
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
 msgstr "Приховати"
@@ -7580,17 +7613,17 @@ msgstr ""
 "Критична помилка: Навігація може бути доступна тільки за допомогою AJAX"
 
 #: libraries/classes/Controllers/NormalizationController.php:40
-#: libraries/classes/Normalization.php:246
+#: libraries/classes/Normalization.php:245
 msgid "Select one…"
 msgstr "Обрати одне…"
 
 #: libraries/classes/Controllers/NormalizationController.php:41
-#: libraries/classes/Normalization.php:247
+#: libraries/classes/Normalization.php:246
 msgid "No such column"
 msgstr "Немає такого стовпця"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:251 libraries/classes/Types.php:798
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:798
 msgctxt "string types"
 msgid "String"
 msgstr "Рядок"
@@ -8315,21 +8348,31 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Число запитів-об'єднань, які зробили повне сканування першої таблиці."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-msgid "The number of temporary tables currently open by the slave SQL thread."
+#, fuzzy
+#| msgid ""
+#| "The number of temporary tables currently open by the slave SQL thread."
+msgid ""
+"The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
 "Кількість тимчасових таблиць, відкритих в даний момент підпорядкованим SQL "
 "потоком."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
+#, fuzzy
+#| msgid ""
+#| "Total (since startup) number of times the replication slave SQL thread "
+#| "has retried transactions."
 msgid ""
-"Total (since startup) number of times the replication slave SQL thread has "
+"Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
 "Загальна кількість (з моменту запуску) повторних транзакцій реплікації "
 "підпорядкованим SQL потоком."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-msgid "This is ON if this server is a slave that is connected to a master."
+#, fuzzy
+#| msgid "This is ON if this server is a slave that is connected to a master."
+msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
 "Надається значення ON, якщо цей сервер підпорядкованим, що підключений "
 "керуючого сервера."
@@ -8419,7 +8462,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Кількість потоків в активному стані."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
-#: libraries/classes/Util.php:850
+#: libraries/classes/Util.php:851
 msgid "Missing parameter:"
 msgstr "Відсутній параметр:"
 
@@ -8486,7 +8529,7 @@ msgstr ""
 "завантажити, або переглянути його."
 
 #: libraries/classes/Controllers/Sql/SqlController.php:239
-#: libraries/classes/Sql.php:1170
+#: libraries/classes/Sql.php:1172
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Закладку %s створено."
@@ -8593,8 +8636,8 @@ msgstr "Забагато об'єднань без індексів."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1242
-#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:223
-#: libraries/classes/Sql.php:983
+#: libraries/classes/Import.php:154 libraries/classes/InsertEdit.php:224
+#: libraries/classes/Sql.php:985
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL повернула пустий результат (тобто нуль рядків)."
 
@@ -8606,8 +8649,8 @@ msgstr "MySQL повернула пустий результат (тобто н�
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:108
-#: libraries/classes/Controllers/Table/OperationsController.php:301
+#: libraries/classes/Controllers/Table/OperationsController.php:109
+#: libraries/classes/Controllers/Table/OperationsController.php:302
 #: libraries/classes/Controllers/Table/StructureController.php:100
 #: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
@@ -8621,7 +8664,7 @@ msgstr "Подання"
 #: libraries/classes/Controllers/Table/Partition/TruncateController.php:66
 #: libraries/classes/Controllers/View/OperationsController.php:90
 #: libraries/classes/Html/Generator.php:875 libraries/classes/Import.php:138
-#: libraries/classes/InsertEdit.php:721 libraries/classes/Message.php:200
+#: libraries/classes/InsertEdit.php:722 libraries/classes/Message.php:200
 #: templates/error/generic.twig:37
 #: templates/table/structure/display_structure.twig:355
 msgid "Error"
@@ -8673,7 +8716,7 @@ msgstr "Стовпці успішно переміщено."
 
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:267
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:273
-#: libraries/classes/Tracking.php:776
+#: libraries/classes/Tracking.php:777
 msgid "Query error"
 msgstr "Помилка запиту"
 
@@ -8935,7 +8978,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Немає події з ім'ям %1$s в базі даних %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1117
+#: libraries/classes/DatabaseInterface.php:1114
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8947,19 +8990,19 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin в даний час використовує стандартний "
 "часовий пояс сервера бази даних."
 
-#: libraries/classes/DatabaseInterface.php:1164
+#: libraries/classes/DatabaseInterface.php:1161
 msgid "Failed to set configured collation connection!"
 msgstr "Не вдалося встановити конфігурацію співставлення підключення!"
 
-#: libraries/classes/DatabaseInterface.php:1896
+#: libraries/classes/DatabaseInterface.php:1875
 msgid "Missing connection parameters!"
 msgstr "Відсутні параметри з'єднання!"
 
-#: libraries/classes/DatabaseInterface.php:1921
+#: libraries/classes/DatabaseInterface.php:1900
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Помилка при вказуванні з'єднання для controluser в конфігурації."
 
-#: libraries/classes/DatabaseInterface.php:2399
+#: libraries/classes/DatabaseInterface.php:2378
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Дивіться %sнашу документацію%s для отримання додаткової інформації."
@@ -8982,23 +9025,23 @@ msgstr "Вставити"
 msgid "Del"
 msgstr "Видалити"
 
-#: libraries/classes/Database/Qbe.php:1705
+#: libraries/classes/Database/Qbe.php:1707
 msgid "Saved bookmarked search:"
 msgstr "Закладка пошуку:"
 
-#: libraries/classes/Database/Qbe.php:1707
+#: libraries/classes/Database/Qbe.php:1709
 msgid "New bookmark"
 msgstr "Нова закладка"
 
-#: libraries/classes/Database/Qbe.php:1734
+#: libraries/classes/Database/Qbe.php:1736
 msgid "Create bookmark"
 msgstr "Створити закладку"
 
-#: libraries/classes/Database/Qbe.php:1737
+#: libraries/classes/Database/Qbe.php:1739
 msgid "Update bookmark"
 msgstr "Оновити закладку"
 
-#: libraries/classes/Database/Qbe.php:1739
+#: libraries/classes/Database/Qbe.php:1741
 msgid "Delete bookmark"
 msgstr "Видалити закладку"
 
@@ -9247,8 +9290,8 @@ msgid "Full texts"
 msgstr "Повні тексти"
 
 #: libraries/classes/Display/Results.php:1901
-#: libraries/classes/Display/Results.php:1927 libraries/classes/Util.php:2611
-#: libraries/classes/Util.php:2634 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1927 libraries/classes/Util.php:2612
+#: libraries/classes/Util.php:2635 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9261,8 +9304,8 @@ msgid "Descending"
 msgstr "За спаданням"
 
 #: libraries/classes/Display/Results.php:1909
-#: libraries/classes/Display/Results.php:1919 libraries/classes/Util.php:2603
-#: libraries/classes/Util.php:2626 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1919 libraries/classes/Util.php:2604
+#: libraries/classes/Util.php:2627 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9303,7 +9346,7 @@ msgstr "%1$d всього, %2$d в запиті"
 msgid "%d total"
 msgstr "всього %d"
 
-#: libraries/classes/Display/Results.php:4205 libraries/classes/Sql.php:989
+#: libraries/classes/Display/Results.php:4205 libraries/classes/Sql.php:991
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Запит виконувався %01.4f секунди."
@@ -9852,7 +9895,7 @@ msgstr "Статичний аналіз:"
 msgid "%d errors were found during analysis."
 msgstr "%d помилки знайдені під час аналізу."
 
-#: libraries/classes/Import.php:294 libraries/classes/Sql.php:997
+#: libraries/classes/Import.php:294 libraries/classes/Sql.php:999
 msgid "[ROLLBACK occurred.]"
 msgstr "[відбувся відкат]"
 
@@ -9952,7 +9995,7 @@ msgid ""
 msgstr ""
 "Схоже, що індекси %1$s та %2$s ідентичні, тому один із них можна видалити."
 
-#: libraries/classes/InsertEdit.php:347
+#: libraries/classes/InsertEdit.php:348
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:18
 #: templates/table/search/index.twig:36
@@ -9960,7 +10003,7 @@ msgstr ""
 msgid "Function"
 msgstr "Функція"
 
-#: libraries/classes/InsertEdit.php:350
+#: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:278
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:373
 #: libraries/classes/Plugins/Export/ExportLatex.php:541
@@ -9974,7 +10017,7 @@ msgstr "Функція"
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:9
 #: templates/database/central_columns/main.twig:20
-#: templates/database/central_columns/main.twig:226
+#: templates/database/central_columns/main.twig:224
 #: templates/database/data_dictionary/index.twig:23
 #: templates/database/data_dictionary/index.twig:74
 #: templates/database/events/index.twig:45
@@ -9994,12 +10037,12 @@ msgstr "Функція"
 msgid "Type"
 msgstr "Тип"
 
-#: libraries/classes/InsertEdit.php:722 templates/import.twig:60
+#: libraries/classes/InsertEdit.php:723 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Встановлений Вами каталог для завантаження файлів недоступний."
 
-#: libraries/classes/InsertEdit.php:730
+#: libraries/classes/InsertEdit.php:731
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:32
 #: templates/server/privileges/privileges_table.twig:59
@@ -10009,15 +10052,15 @@ msgstr "Встановлений Вами каталог для завантаж
 msgid "Or"
 msgstr "Або"
 
-#: libraries/classes/InsertEdit.php:731
+#: libraries/classes/InsertEdit.php:732
 msgid "web server upload directory:"
 msgstr "каталог завантаження веб-сервера:"
 
-#: libraries/classes/InsertEdit.php:1338 libraries/classes/Sql.php:980
+#: libraries/classes/InsertEdit.php:1339 libraries/classes/Sql.php:982
 msgid "Showing SQL query"
 msgstr "Показ SQL-запиту"
 
-#: libraries/classes/InsertEdit.php:1362 libraries/classes/Sql.php:960
+#: libraries/classes/InsertEdit.php:1363 libraries/classes/Sql.php:962
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ідентифікатор вставленого рядка: %1$d"
@@ -10038,9 +10081,9 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (приблизно <code>%2$s</code>)"
 
-#: libraries/classes/Menu.php:242
+#: libraries/classes/Menu.php:243
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1499 libraries/classes/Util.php:1993
+#: libraries/classes/Util.php:1500 libraries/classes/Util.php:1994
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10048,10 +10091,10 @@ msgstr "%1$s (приблизно <code>%2$s</code>)"
 msgid "Browse"
 msgstr "Переглянути"
 
-#: libraries/classes/Menu.php:261 libraries/classes/Menu.php:368
+#: libraries/classes/Menu.php:262 libraries/classes/Menu.php:369
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1497 libraries/classes/Util.php:1979
-#: libraries/classes/Util.php:1996 libraries/config.values.php:64
+#: libraries/classes/Util.php:1498 libraries/classes/Util.php:1980
+#: libraries/classes/Util.php:1997 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -10061,9 +10104,9 @@ msgstr "Переглянути"
 msgid "Search"
 msgstr "Пошук"
 
-#: libraries/classes/Menu.php:272
+#: libraries/classes/Menu.php:273
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1498 libraries/classes/Util.php:1997
+#: libraries/classes/Util.php:1499 libraries/classes/Util.php:1998
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10072,9 +10115,9 @@ msgstr "Пошук"
 msgid "Insert"
 msgstr "Вставити"
 
-#: libraries/classes/Menu.php:298 libraries/classes/Menu.php:408
-#: libraries/classes/Server/Privileges.php:2894 libraries/classes/Util.php:1984
-#: libraries/classes/Util.php:2000 libraries/config.values.php:161
+#: libraries/classes/Menu.php:299 libraries/classes/Menu.php:409
+#: libraries/classes/Server/Privileges.php:2894 libraries/classes/Util.php:1985
+#: libraries/classes/Util.php:2001 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10082,19 +10125,19 @@ msgstr "Вставити"
 msgid "Privileges"
 msgstr "Привілеї"
 
-#: libraries/classes/Menu.php:309 libraries/classes/Menu.php:319
-#: libraries/classes/Menu.php:399 libraries/classes/Util.php:1500
-#: libraries/classes/Util.php:1983 libraries/classes/Util.php:2001
+#: libraries/classes/Menu.php:310 libraries/classes/Menu.php:320
+#: libraries/classes/Menu.php:400 libraries/classes/Util.php:1501
+#: libraries/classes/Util.php:1984 libraries/classes/Util.php:2002
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Операції"
 
-#: libraries/classes/Menu.php:325 libraries/classes/Menu.php:434
-#: libraries/classes/Util.php:1988 libraries/classes/Util.php:2002
+#: libraries/classes/Menu.php:326 libraries/classes/Menu.php:435
+#: libraries/classes/Util.php:1989 libraries/classes/Util.php:2003
 msgid "Tracking"
 msgstr "Відстеження"
 
-#: libraries/classes/Menu.php:332 libraries/classes/Menu.php:427
+#: libraries/classes/Menu.php:333 libraries/classes/Menu.php:428
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:561
@@ -10103,76 +10146,76 @@ msgstr "Відстеження"
 #: libraries/classes/Plugins/Export/ExportSql.php:2087
 #: libraries/classes/Plugins/Export/ExportTexytext.php:544
 #: libraries/classes/Plugins/Export/ExportXml.php:120
-#: libraries/classes/Util.php:1987 libraries/classes/Util.php:2003
+#: libraries/classes/Util.php:1988 libraries/classes/Util.php:2004
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Тригери"
 
-#: libraries/classes/Menu.php:373 libraries/classes/Menu.php:381
-#: libraries/classes/Menu.php:389
+#: libraries/classes/Menu.php:374 libraries/classes/Menu.php:382
+#: libraries/classes/Menu.php:390
 msgid "Database seems to be empty!"
 msgstr "Порожня база даних!"
 
-#: libraries/classes/Menu.php:376 libraries/classes/Util.php:1980
+#: libraries/classes/Menu.php:377 libraries/classes/Util.php:1981
 msgid "Query"
 msgstr "Запит"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:1985
+#: libraries/classes/Menu.php:415 libraries/classes/Util.php:1986
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Процедури"
 
-#: libraries/classes/Menu.php:420
+#: libraries/classes/Menu.php:421
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1006
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1986 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1987 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Події"
 
-#: libraries/classes/Menu.php:441 libraries/classes/Util.php:1989
+#: libraries/classes/Menu.php:442 libraries/classes/Util.php:1990
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/classes/Menu.php:448 libraries/classes/Util.php:1990
+#: libraries/classes/Menu.php:449 libraries/classes/Util.php:1991
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Головні стовпці"
 
-#: libraries/classes/Menu.php:508
+#: libraries/classes/Menu.php:509
 msgid "User accounts"
 msgstr "Облікові записи"
 
-#: libraries/classes/Menu.php:543 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1969 templates/server/binlog/index.twig:3
+#: libraries/classes/Menu.php:544 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Util.php:1970 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Бінарний журнал"
 
-#: libraries/classes/Menu.php:550 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1970
+#: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Util.php:1971
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
 msgstr "Реплікація"
 
-#: libraries/classes/Menu.php:556 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1971 libraries/config.values.php:159
+#: libraries/classes/Menu.php:557 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Util.php:1972 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Змінні"
 
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1972
+#: libraries/classes/Menu.php:562 libraries/classes/Util.php:1973
 msgid "Charsets"
 msgstr "Кодування"
 
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1974
+#: libraries/classes/Menu.php:567 libraries/classes/Util.php:1975
 msgid "Engines"
 msgstr "Двигуни"
 
-#: libraries/classes/Menu.php:571 libraries/classes/Util.php:1973
+#: libraries/classes/Menu.php:572 libraries/classes/Util.php:1974
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Плагіни"
@@ -10402,23 +10445,23 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Нове"
 
-#: libraries/classes/Normalization.php:224
+#: libraries/classes/Normalization.php:223
 msgid "Make all columns atomic"
 msgstr "Зробити всі стовпці atomic"
 
-#: libraries/classes/Normalization.php:226
-#: libraries/classes/Normalization.php:968
+#: libraries/classes/Normalization.php:225
+#: libraries/classes/Normalization.php:967
 msgid "First step of normalization (1NF)"
 msgstr "Перший крок нормалізації (1NF)"
 
-#: libraries/classes/Normalization.php:229
-#: libraries/classes/Normalization.php:279
-#: libraries/classes/Normalization.php:325
-#: libraries/classes/Normalization.php:362
+#: libraries/classes/Normalization.php:228
+#: libraries/classes/Normalization.php:278
+#: libraries/classes/Normalization.php:324
+#: libraries/classes/Normalization.php:361
 msgid "Step 1."
 msgstr "Крок 1."
 
-#: libraries/classes/Normalization.php:231
+#: libraries/classes/Normalization.php:230
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -10427,11 +10470,11 @@ msgstr ""
 "Наприклад: адреса може бути розділена на вулицю, місто, країну і поштовий "
 "індекс."
 
-#: libraries/classes/Normalization.php:237
+#: libraries/classes/Normalization.php:236
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Показати стовпці основновного списку, які ще не в цій таблиці"
 
-#: libraries/classes/Normalization.php:239
+#: libraries/classes/Normalization.php:238
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -10439,19 +10482,19 @@ msgstr ""
 "Виберіть стовпець, який може бути розбитий на декілька стовпців (або "
 "виберіть 'немає такого стовпчика' для переходу до наступного кроку)."
 
-#: libraries/classes/Normalization.php:254
+#: libraries/classes/Normalization.php:253
 msgid "split into "
 msgstr "розділити на "
 
-#: libraries/classes/Normalization.php:276
+#: libraries/classes/Normalization.php:275
 msgid "Have a primary key"
 msgstr "Містить первинний ключ"
 
-#: libraries/classes/Normalization.php:282
+#: libraries/classes/Normalization.php:281
 msgid "Primary key already exists."
 msgstr "Первинний ключ вже існує."
 
-#: libraries/classes/Normalization.php:287
+#: libraries/classes/Normalization.php:286
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -10460,24 +10503,24 @@ msgstr ""
 "являє собою стовпець (або комбінацію стовпців) що однозначно ідентифікують "
 "всі рядки."
 
-#: libraries/classes/Normalization.php:295
+#: libraries/classes/Normalization.php:294
 msgid "Add a primary key on existing column(s)"
 msgstr "Додайте первинний ключ на існуючий стовпець(і)"
 
-#: libraries/classes/Normalization.php:299
+#: libraries/classes/Normalization.php:298
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr "Не можливо зробити наявний стовпець як первинний ключ"
 
-#: libraries/classes/Normalization.php:301
+#: libraries/classes/Normalization.php:300
 msgid "+ Add a new primary key column"
 msgstr "Додати новий стовпець, як первинний ключ"
 
-#: libraries/classes/Normalization.php:324
+#: libraries/classes/Normalization.php:323
 msgid "Remove redundant columns"
 msgstr "Видалити зайві стовпці"
 
-#: libraries/classes/Normalization.php:327
+#: libraries/classes/Normalization.php:326
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -10487,7 +10530,7 @@ msgstr ""
 "Наприклад, якщо у вас є first_name, last_name і full_name, то при об'єднані  "
 "first_name і last_name виходить, що  full_name являється зайвим."
 
-#: libraries/classes/Normalization.php:333
+#: libraries/classes/Normalization.php:332
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -10495,19 +10538,19 @@ msgstr ""
 "Перевірте стовпці, які є зайвими і натисніть на Видалити. Якщо немає зайвого "
 "стовпчика, натисніть на 'Немає зайвого стовпця'"
 
-#: libraries/classes/Normalization.php:338
+#: libraries/classes/Normalization.php:337
 msgid "Remove selected"
 msgstr "Видалити вибрані"
 
-#: libraries/classes/Normalization.php:339
+#: libraries/classes/Normalization.php:338
 msgid "No redundant column"
 msgstr "Немає зайвого стовпця"
 
-#: libraries/classes/Normalization.php:361
+#: libraries/classes/Normalization.php:360
 msgid "Move repeating groups"
 msgstr "Перемістити повторювані групи"
 
-#: libraries/classes/Normalization.php:364
+#: libraries/classes/Normalization.php:363
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -10521,7 +10564,7 @@ msgstr ""
 "повторювану групу. В цьому випадку повинна бути створена нова таблиця "
 "(book_id, author)."
 
-#: libraries/classes/Normalization.php:372
+#: libraries/classes/Normalization.php:371
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -10529,19 +10572,19 @@ msgstr ""
 "Перевірте стовпці, які утворюють повторювану групу. Якщо немає такої групи, "
 "натисніть на 'Немає повторюваної групи'"
 
-#: libraries/classes/Normalization.php:377
+#: libraries/classes/Normalization.php:376
 msgid "No repeating group"
 msgstr "Немає повторюваної групи"
 
-#: libraries/classes/Normalization.php:405
+#: libraries/classes/Normalization.php:404
 msgid "Step 2."
 msgstr "Крок 2."
 
-#: libraries/classes/Normalization.php:405
+#: libraries/classes/Normalization.php:404
 msgid "Find partial dependencies"
 msgstr "Знайти часткові залежності"
 
-#: libraries/classes/Normalization.php:426
+#: libraries/classes/Normalization.php:425
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -10550,12 +10593,12 @@ msgstr ""
 "Немає часткових залежностей, можливо немає стовпця поза первинним ключем "
 "( %1$s ) складається з усіх стовпців в таблиці."
 
-#: libraries/classes/Normalization.php:432
-#: libraries/classes/Normalization.php:474
+#: libraries/classes/Normalization.php:431
+#: libraries/classes/Normalization.php:473
 msgid "Table is already in second normal form."
 msgstr "Таблиця вже в другій нормальній формі."
 
-#: libraries/classes/Normalization.php:437
+#: libraries/classes/Normalization.php:436
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -10564,8 +10607,8 @@ msgstr ""
 "Первинний ключ (%1$s ) складається з кількох стовпців, тому потрібно знайти "
 "часткові залежності."
 
-#: libraries/classes/Normalization.php:441
-#: libraries/classes/Normalization.php:877
+#: libraries/classes/Normalization.php:440
+#: libraries/classes/Normalization.php:876
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -10573,11 +10616,11 @@ msgstr ""
 "Прохання відповісти ретельно на наступні питання, щоб отримати правильну "
 "нормалізацію."
 
-#: libraries/classes/Normalization.php:443
+#: libraries/classes/Normalization.php:442
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Покажіть можливі часткові залежності на основі даних в таблиці"
 
-#: libraries/classes/Normalization.php:446
+#: libraries/classes/Normalization.php:445
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10587,13 +10630,13 @@ msgstr ""
 "стовпців серед даного набору, значення яких об'єднані разом достатні, щоб "
 "визначити значення стовпця."
 
-#: libraries/classes/Normalization.php:459
-#: libraries/classes/Normalization.php:919
+#: libraries/classes/Normalization.php:458
+#: libraries/classes/Normalization.php:918
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' залежить від:"
 
-#: libraries/classes/Normalization.php:470
+#: libraries/classes/Normalization.php:469
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -10602,7 +10645,7 @@ msgstr ""
 "Немає можливих часткових залежностей, оскільки первинний ключ ( %1$s ) має "
 "тільки один стовпець."
 
-#: libraries/classes/Normalization.php:498
+#: libraries/classes/Normalization.php:497
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -10611,18 +10654,18 @@ msgstr ""
 "Для того, щоб привести вихідну таблицю '%1$s' до другої нормальної форми, "
 "потрібно створити такі таблиці:"
 
-#: libraries/classes/Normalization.php:536
+#: libraries/classes/Normalization.php:535
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Завершиться другий крок нормалізації  для таблиці '%1$s'."
 
-#: libraries/classes/Normalization.php:592
-#: libraries/classes/Normalization.php:767
-#: libraries/classes/Normalization.php:847
+#: libraries/classes/Normalization.php:591
+#: libraries/classes/Normalization.php:766
+#: libraries/classes/Normalization.php:846
 msgid "Error in processing!"
 msgstr "Помилка при обробці!"
 
-#: libraries/classes/Normalization.php:641
+#: libraries/classes/Normalization.php:640
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -10631,24 +10674,24 @@ msgstr ""
 "Для того, щоб привести вихідну таблицю '%1$s' до третьої нормальної форми, "
 "необхідно створити такі таблиці:"
 
-#: libraries/classes/Normalization.php:698
+#: libraries/classes/Normalization.php:697
 msgid "The third step of normalization is complete."
 msgstr "Завершено третій крок нормалізації."
 
-#: libraries/classes/Normalization.php:820
+#: libraries/classes/Normalization.php:819
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Вибрана повторювана група переміщена до таблиці '%s'"
 
-#: libraries/classes/Normalization.php:875
+#: libraries/classes/Normalization.php:874
 msgid "Step 3."
 msgstr "Крок 3."
 
-#: libraries/classes/Normalization.php:875
+#: libraries/classes/Normalization.php:874
 msgid "Find transitive dependencies"
 msgstr "Знайти транзитивні звязки"
 
-#: libraries/classes/Normalization.php:879
+#: libraries/classes/Normalization.php:878
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10660,7 +10703,7 @@ msgstr ""
 "визначити значення стовпця.<br>Примітка: стовпець може не мати перехідну "
 "залежність, в цьому випадку вам не потрібно, щоб вибрати будь-який."
 
-#: libraries/classes/Normalization.php:933
+#: libraries/classes/Normalization.php:932
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -10668,27 +10711,27 @@ msgstr ""
 "Транзитивні залежності неможливі, оскільки таблиця не має будь-яких стовпців "
 "поза первинним ключем"
 
-#: libraries/classes/Normalization.php:936
+#: libraries/classes/Normalization.php:935
 msgid "Table is already in Third normal form!"
 msgstr "Таблиця вже в третій нормальній формі!"
 
-#: libraries/classes/Normalization.php:962
+#: libraries/classes/Normalization.php:961
 msgid "Improve table structure (Normalization):"
 msgstr "Поліпшення структури таблиці (Нормалізація):"
 
-#: libraries/classes/Normalization.php:963
+#: libraries/classes/Normalization.php:962
 msgid "Select up to what step you want to normalize"
 msgstr "Виберіть до якого кроку ви хочете нормалізувати"
 
-#: libraries/classes/Normalization.php:973
+#: libraries/classes/Normalization.php:972
 msgid "Second step of normalization (1NF+2NF)"
 msgstr "Другий крок нормалізації (1NF+2NF)"
 
-#: libraries/classes/Normalization.php:978
+#: libraries/classes/Normalization.php:977
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Третій крок нормалізації (1NF+2NF+3NF)"
 
-#: libraries/classes/Normalization.php:983
+#: libraries/classes/Normalization.php:982
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
@@ -10696,47 +10739,47 @@ msgstr ""
 "Підказка: Будь ласка, дотримуйтесь ретельно процедури, щоб отримати "
 "правильну нормалізацю"
 
-#: libraries/classes/Normalization.php:1054
+#: libraries/classes/Normalization.php:1053
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr "Цей список заснований на підмножині даних таблиці і не завжди точний. "
 
-#: libraries/classes/Normalization.php:1069
+#: libraries/classes/Normalization.php:1068
 msgid "No partial dependencies found!"
 msgstr "Часткових зв'язків не знайдено!"
 
-#: libraries/classes/Operations.php:554
+#: libraries/classes/Operations.php:555
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "Аналізувати"
 
-#: libraries/classes/Operations.php:555
+#: libraries/classes/Operations.php:556
 #: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "Перевірити"
 
-#: libraries/classes/Operations.php:556
+#: libraries/classes/Operations.php:557
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "Оптимізувати"
 
-#: libraries/classes/Operations.php:557
+#: libraries/classes/Operations.php:558
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "Перебудувати"
 
-#: libraries/classes/Operations.php:558
+#: libraries/classes/Operations.php:559
 #: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "Відремонтувати"
 
-#: libraries/classes/Operations.php:559
+#: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr "Очистити"
 
-#: libraries/classes/Operations.php:571 templates/database/events/index.twig:19
+#: libraries/classes/Operations.php:572 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
 #: templates/database/events/index.twig:95
 #: templates/database/events/index.twig:101
@@ -10762,39 +10805,39 @@ msgstr "Очистити"
 msgid "Drop"
 msgstr "Знищити"
 
-#: libraries/classes/Operations.php:573
+#: libraries/classes/Operations.php:574
 msgid "Coalesce"
 msgstr "Об'єднати"
 
-#: libraries/classes/Operations.php:929
+#: libraries/classes/Operations.php:930
 msgid "Can't move table to same one!"
 msgstr "Не можу перенести таблицю саму в себе!"
 
-#: libraries/classes/Operations.php:931
+#: libraries/classes/Operations.php:932
 msgid "Can't copy table to same one!"
 msgstr "Не можу скопіювати таблицю саму в себе!"
 
-#: libraries/classes/Operations.php:955
+#: libraries/classes/Operations.php:956
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблицю %s було перенесено в %s. Привілеї були скориговані."
 
-#: libraries/classes/Operations.php:961
+#: libraries/classes/Operations.php:962
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблицю %s скопійовано в %s. Привілеї були скориговані."
 
-#: libraries/classes/Operations.php:968
+#: libraries/classes/Operations.php:969
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблицю %s було перенесено в %s."
 
-#: libraries/classes/Operations.php:972
+#: libraries/classes/Operations.php:973
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблицю %s було скопійовано в %s."
 
-#: libraries/classes/Operations.php:996
+#: libraries/classes/Operations.php:997
 msgid "The table name is empty!"
 msgstr "Порожня назва таблиці!"
 
@@ -11005,7 +11048,7 @@ msgstr "Дамп даних таблиці"
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:14
 #: templates/database/central_columns/main.twig:40
-#: templates/database/central_columns/main.twig:246
+#: templates/database/central_columns/main.twig:244
 #: templates/database/data_dictionary/index.twig:24
 #: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
@@ -11030,10 +11073,10 @@ msgstr "Нуль"
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:11
 #: templates/database/central_columns/main.twig:28
-#: templates/database/central_columns/main.twig:234
+#: templates/database/central_columns/main.twig:232
 #: templates/database/data_dictionary/index.twig:25
 #: templates/database/structure/body_for_table_summary.twig:52
-#: templates/server/replication/slave_configuration.twig:9
+#: templates/server/replication/replica_configuration.twig:9
 #: templates/table/structure/display_structure.twig:26
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
@@ -11057,7 +11100,7 @@ msgstr "Посилання на"
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
-#: templates/database/central_columns/main.twig:222
+#: templates/database/central_columns/main.twig:220
 #: templates/database/events/index.twig:43
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
@@ -11167,8 +11210,8 @@ msgstr "Помістити імена стовпців в перший рядо�
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
 #: libraries/classes/Plugins/Export/ExportSql.php:746
 #: libraries/classes/Plugins/Export/ExportXml.php:232
-#: templates/server/replication/change_master.twig:22
-#: templates/server/replication/master_add_slave_user.twig:29
+#: templates/server/replication/change_primary.twig:22
+#: templates/server/replication/primary_add_replica_user.twig:29
 msgid "Host:"
 msgstr "Хост:"
 
@@ -11803,7 +11846,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:720
+#: libraries/classes/Util.php:721
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d %Y р., %H:%M"
 
@@ -12035,11 +12078,11 @@ msgstr ""
 "Забезпечує автентифікацію за допомогою програм HOTP та TOTP, таких як "
 "FreeOTP, Google Authenticator або Authy."
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:203
+#: libraries/classes/Plugins/TwoFactor/Key.php:204
 msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Ключ безпеки устаткування (FIDO U2F)"
 
-#: libraries/classes/Plugins/TwoFactor/Key.php:213
+#: libraries/classes/Plugins/TwoFactor/Key.php:214
 #, fuzzy
 #| msgid ""
 #| "Provides authentication using hardware security tokens supporting FIDO "
@@ -12100,42 +12143,27 @@ msgstr "Будь ласка, перевірте привілеї каталог�
 msgid "Details…"
 msgstr "Деталі…"
 
-#: libraries/classes/RecentFavoriteTable.php:156
+#: libraries/classes/RecentFavoriteTable.php:158
 msgid "Could not save recent table!"
 msgstr "Не вдалося зберегти останню таблицю!"
 
-#: libraries/classes/RecentFavoriteTable.php:160
+#: libraries/classes/RecentFavoriteTable.php:162
 msgid "Could not save favorite table!"
 msgstr "Не вдалося зберегти улюблену таблицю!"
 
-#: libraries/classes/RecentFavoriteTable.php:246
+#: libraries/classes/RecentFavoriteTable.php:248
 msgid "Recent tables"
 msgstr "Нещодавні таблиці"
 
-#: libraries/classes/RecentFavoriteTable.php:248
+#: libraries/classes/RecentFavoriteTable.php:250
 msgid "Recent"
 msgstr "Нещодавнє"
 
-#: libraries/classes/RecentFavoriteTable.php:252
+#: libraries/classes/RecentFavoriteTable.php:254
 msgid "Favorites"
 msgstr "Уподобання"
 
-#: libraries/classes/Relation.php:1427
-msgid "no description"
-msgstr "без опису"
-
-#: libraries/classes/Relation.php:1628
-#, php-format
-msgid ""
-"You do not have necessary privileges to create a database named '%s'. You "
-"may go to 'Operations' tab of any database to set up the phpMyAdmin "
-"configuration storage there."
-msgstr ""
-"У вас немає необхідних прав для створення бази даних з ім'ям '%s'. Ви можете "
-"перейти на вкладку 'Операції' з якої-небудь бази даних для настройки "
-"зберігання конфігурації PHPMYADMIN там."
-
-#: libraries/classes/ReplicationGui.php:439
+#: libraries/classes/ReplicationGui.php:438
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -12143,61 +12171,68 @@ msgstr ""
 "Підключення до сервера відключене, будь ласка включіть "
 "$cfg['AllowArbitraryServer'] в конфігурації PhpMyAdmin."
 
-#: libraries/classes/ReplicationGui.php:450
+#: libraries/classes/ReplicationGui.php:449
 msgid "Replication started successfully."
 msgstr "Реплікація розпочалася вдало."
 
-#: libraries/classes/ReplicationGui.php:451
+#: libraries/classes/ReplicationGui.php:450
 msgid "Error starting replication."
 msgstr "Помилка початку реплікації."
 
-#: libraries/classes/ReplicationGui.php:454
+#: libraries/classes/ReplicationGui.php:453
 msgid "Replication stopped successfully."
 msgstr "Реплікація зупинена вдало."
 
-#: libraries/classes/ReplicationGui.php:455
+#: libraries/classes/ReplicationGui.php:454
 msgid "Error stopping replication."
 msgstr "Помилка переривання реплікації."
 
-#: libraries/classes/ReplicationGui.php:458
+#: libraries/classes/ReplicationGui.php:457
 msgid "Replication resetting successfully."
 msgstr "Реплікація скинута вдало."
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:458
 msgid "Error resetting replication."
 msgstr "Помилка скидання реплікації."
 
-#: libraries/classes/ReplicationGui.php:462
+#: libraries/classes/ReplicationGui.php:461
 msgid "Success."
 msgstr "Успішно."
 
-#: libraries/classes/ReplicationGui.php:463
+#: libraries/classes/ReplicationGui.php:462
 msgid "Error."
 msgstr "Помилка."
 
-#: libraries/classes/ReplicationGui.php:511
+#: libraries/classes/ReplicationGui.php:507
 msgid "Unknown error"
 msgstr "Невідома помилка"
 
-#: libraries/classes/ReplicationGui.php:524
-#, php-format
-msgid "Unable to connect to master %s."
+#: libraries/classes/ReplicationGui.php:520
+#, fuzzy, php-format
+#| msgid "Unable to connect to master %s."
+msgid "Unable to connect to primary %s."
 msgstr "Неможливо з'єднатися з головним сервером %s."
 
-#: libraries/classes/ReplicationGui.php:534
+#: libraries/classes/ReplicationGui.php:530
+#, fuzzy
+#| msgid ""
+#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
-"Unable to read master log position. Possible privilege problem on master."
+"Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "Неможливо прочитати позицію журналу в головного сервера. Ймовірно проблема в "
 "налаштуванні привілеїв головного сервера."
 
-#: libraries/classes/ReplicationGui.php:552
-msgid "Unable to change master!"
+#: libraries/classes/ReplicationGui.php:548
+#, fuzzy
+#| msgid "Unable to change master!"
+msgid "Unable to change primary!"
 msgstr "Неможливо змінити головний сервер!"
 
-#: libraries/classes/ReplicationGui.php:556
-#, php-format
-msgid "Master server changed successfully to %s."
+#: libraries/classes/ReplicationGui.php:552
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s."
+msgid "Primary server changed successfully to %s."
 msgstr "Головний сервер змінений на %s вдало."
 
 #: libraries/classes/Routing.php:104
@@ -12216,28 +12251,28 @@ msgstr "Помилка 404! Сторінку %s не знайдено."
 msgid "Error 405! Request method not allowed."
 msgstr "Помилка 405! Метод запиту не дозволений."
 
-#: libraries/classes/SavedSearches.php:245
+#: libraries/classes/SavedSearches.php:247
 msgid "Please provide a name for this bookmarked search."
 msgstr "Будь ласка вкажіть ім'я для цієї закладки пошуку."
 
-#: libraries/classes/SavedSearches.php:261
+#: libraries/classes/SavedSearches.php:263
 msgid "Missing information to save the bookmarked search."
 msgstr "Відсутня інформація для збереження пошуку в закладках."
 
-#: libraries/classes/SavedSearches.php:284
-#: libraries/classes/SavedSearches.php:321
+#: libraries/classes/SavedSearches.php:286
+#: libraries/classes/SavedSearches.php:323
 msgid "An entry with this name already exists."
 msgstr "Запис з таким іменем вже існує."
 
-#: libraries/classes/SavedSearches.php:349
+#: libraries/classes/SavedSearches.php:351
 msgid "Missing information to delete the search."
 msgstr "Відсутні відомості для видалення пошуку."
 
-#: libraries/classes/SavedSearches.php:378
+#: libraries/classes/SavedSearches.php:380
 msgid "Missing information to load the search."
 msgstr "Відсутні відомості для завантаження пошуку."
 
-#: libraries/classes/SavedSearches.php:400
+#: libraries/classes/SavedSearches.php:402
 msgid "Error while loading the search."
 msgstr "Помилка під час завантаження пошуку."
 
@@ -12452,13 +12487,17 @@ msgstr "Дозволити блокування таблиць для біжуч
 #: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-msgid "Needed for the replication slaves."
+#, fuzzy
+#| msgid "Needed for the replication slaves."
+msgid "Needed for the replication replicas."
 msgstr "Необхідно для реплікації slaves."
 
 #: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-msgid "Allows the user to ask where the slaves / masters are."
+#, fuzzy
+#| msgid "Allows the user to ask where the slaves / masters are."
+msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Надати користувачу право запитувати де є slaves / masters."
 
 #: libraries/classes/Server/Privileges.php:445
@@ -12701,16 +12740,22 @@ msgid "Show open tables"
 msgstr "Показати відкриті таблиці"
 
 #: libraries/classes/Server/Status/Data.php:193
-msgid "Show slave hosts"
+#, fuzzy
+#| msgid "Show slave hosts"
+msgid "Show replica hosts"
 msgstr "Показати підлеглі хости"
 
 #: libraries/classes/Server/Status/Data.php:200
-#: templates/server/replication/master_replication.twig:9
-msgid "Show master status"
+#: templates/server/replication/primary_replication.twig:9
+#, fuzzy
+#| msgid "Show master status"
+msgid "Show primary status"
 msgstr "Показати статус головного сервера"
 
 #: libraries/classes/Server/Status/Data.php:207
-msgid "Show slave status"
+#, fuzzy
+#| msgid "Show slave status"
+msgid "Show replica status"
 msgstr "Показати статус підлеглих"
 
 #: libraries/classes/Server/Status/Data.php:215
@@ -12722,9 +12767,9 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Server/Status/Processes.php:122
-#: templates/server/replication/master_add_slave_user.twig:32
-#: templates/server/replication/master_add_slave_user.twig:43
-#: templates/server/replication/master_replication.twig:25
+#: templates/server/replication/primary_add_replica_user.twig:32
+#: templates/server/replication/primary_add_replica_user.twig:43
+#: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Хост"
 
@@ -12735,22 +12780,6 @@ msgstr "Команда"
 #: libraries/classes/Server/Status/Processes.php:142
 msgid "Progress"
 msgstr "Прогрес"
-
-#: libraries/classes/Server/UserGroups.php:121
-msgid "View users"
-msgstr "Переглянути користувачів"
-
-#: libraries/classes/Server/UserGroups.php:257
-msgid "Server-level tabs"
-msgstr "Вкладки рівня сервера"
-
-#: libraries/classes/Server/UserGroups.php:262
-msgid "Database-level tabs"
-msgstr "Вкладки рівня бази даних"
-
-#: libraries/classes/Server/UserGroups.php:267
-msgid "Table-level tabs"
-msgstr "Вкладки рівня таблиці"
 
 #: libraries/classes/Setup/Index.php:130
 msgid ""
@@ -12781,16 +12810,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Нова стабільна версія відсутня"
 
-#: libraries/classes/Sql.php:500
+#: libraries/classes/Sql.php:502
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Як стандартний запит на огляд даних використовується закладка  \"%s\"."
 
-#: libraries/classes/Sql.php:977
+#: libraries/classes/Sql.php:979
 msgid "Showing as PHP code"
 msgstr "Показ у вигляді коду PHP"
 
-#: libraries/classes/Sql.php:1343
+#: libraries/classes/Sql.php:1345
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12799,7 +12828,7 @@ msgstr ""
 "Поточний вибір не містить унікального стовпця. Використання функцій "
 "редагування сітки, прапоців, Редагувати, Копіювати та Видалити недоступні. %s"
 
-#: libraries/classes/Sql.php:1357
+#: libraries/classes/Sql.php:1359
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12850,7 +12879,7 @@ msgstr "%s було вимкнене для цього MySQL серверу."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Цей MySQL сервер не підтримує %s кодування."
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2143
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2106
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Ім'я первинного ключа повинно бути PRIMARY!"
 
@@ -12859,43 +12888,43 @@ msgstr "Ім'я первинного ключа повинно бути PRIMARY!
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблеми з індексами таблиці `%s`"
 
-#: libraries/classes/Table.php:343
+#: libraries/classes/Table.php:345
 msgid "Unknown table status:"
 msgstr "Невідомий статус таблиці:"
 
-#: libraries/classes/Table.php:1006
+#: libraries/classes/Table.php:1008
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Вихідна база даних '%s' не знайдена!"
 
-#: libraries/classes/Table.php:1015
+#: libraries/classes/Table.php:1017
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Цільова база даних \"%s\" не знайдена!"
 
-#: libraries/classes/Table.php:1513
+#: libraries/classes/Table.php:1476
 msgid "Invalid database:"
 msgstr "Неприпустима база даних:"
 
-#: libraries/classes/Table.php:1531
+#: libraries/classes/Table.php:1494
 msgid "Invalid table name:"
 msgstr "Неприпустиме ім'я таблиці:"
 
-#: libraries/classes/Table.php:1570
+#: libraries/classes/Table.php:1533
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Помилка перейменування таблиці %1$s на %2$s!"
 
-#: libraries/classes/Table.php:1587
+#: libraries/classes/Table.php:1550
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблицю %1$s перейменовано в %2$s."
 
-#: libraries/classes/Table.php:1829
+#: libraries/classes/Table.php:1792
 msgid "Could not save table UI preferences!"
 msgstr "Неможливо зберегти табличні налаштування UI!"
 
-#: libraries/classes/Table.php:1857
+#: libraries/classes/Table.php:1820
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -12904,7 +12933,7 @@ msgstr ""
 "Помилка очищення табличних налаштувань UI (див. $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1994
+#: libraries/classes/Table.php:1957
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -12915,15 +12944,15 @@ msgstr ""
 "оновлення цієї сторінки. Будь ласка, перевірте чи не була змінена структура "
 "таблиці."
 
-#: libraries/classes/Table.php:2155
+#: libraries/classes/Table.php:2118
 msgid "Can't rename index to PRIMARY!"
 msgstr "Неможливо перейменувати індекс в PRIMARY!"
 
-#: libraries/classes/Table.php:2181
+#: libraries/classes/Table.php:2144
 msgid "No index parts defined!"
 msgstr "Не визначено частини індексу!"
 
-#: libraries/classes/Table.php:2478
+#: libraries/classes/Table.php:2441
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Помилка при створенні зовнішнього ключа на %1$s (перевірте типи даних)"
@@ -12948,99 +12977,99 @@ msgstr "Тема %s не знайдена!"
 msgid "No valid image path for theme %s found!"
 msgstr "Не знайдено правильного шляху до зображення для теми %s!"
 
-#: libraries/classes/Tracking.php:236
+#: libraries/classes/Tracking.php:237
 #: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Звіт відстеження"
 
-#: libraries/classes/Tracking.php:240
+#: libraries/classes/Tracking.php:241
 msgid "Tracking statements"
 msgstr "Вирази відстеження"
 
-#: libraries/classes/Tracking.php:255
+#: libraries/classes/Tracking.php:256
 msgid "Delete tracking data row from report"
 msgstr "Видалити рядки даних відстеження із звіту"
 
-#: libraries/classes/Tracking.php:267
+#: libraries/classes/Tracking.php:268
 msgid "No data"
 msgstr "Немає даних"
 
-#: libraries/classes/Tracking.php:312
+#: libraries/classes/Tracking.php:313
 #: templates/database/operations/index.twig:130
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:275
 msgid "Structure only"
 msgstr "Лише структуру"
 
-#: libraries/classes/Tracking.php:315
+#: libraries/classes/Tracking.php:316
 #: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:287
 msgid "Data only"
 msgstr "Лише дані"
 
-#: libraries/classes/Tracking.php:318
+#: libraries/classes/Tracking.php:319
 #: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:281
 msgid "Structure and data"
 msgstr "Структуру і дані"
 
-#: libraries/classes/Tracking.php:383 libraries/classes/Tracking.php:451
+#: libraries/classes/Tracking.php:384 libraries/classes/Tracking.php:452
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Показати %1$s з датою з %2$s до %3$s користувача %4$s %5$s"
 
-#: libraries/classes/Tracking.php:472
+#: libraries/classes/Tracking.php:473
 msgid "SQL dump (file download)"
 msgstr "SQL дамп (завантажити файл)"
 
-#: libraries/classes/Tracking.php:474
+#: libraries/classes/Tracking.php:475
 msgid "SQL dump"
 msgstr "SQL дамп"
 
-#: libraries/classes/Tracking.php:477
+#: libraries/classes/Tracking.php:478
 msgid "This option will replace your table and contained data."
 msgstr "Ця опція замінить вашу таблицю і дані в ній."
 
-#: libraries/classes/Tracking.php:479
+#: libraries/classes/Tracking.php:480
 msgid "SQL execution"
 msgstr "Виконання SQL"
 
-#: libraries/classes/Tracking.php:483
+#: libraries/classes/Tracking.php:484
 #, php-format
 msgid "Export as %s"
 msgstr "Експортувати як %s"
 
-#: libraries/classes/Tracking.php:521
+#: libraries/classes/Tracking.php:522
 msgid "Data manipulation statement"
 msgstr "Вираз маніпуляції з даними"
 
-#: libraries/classes/Tracking.php:557
+#: libraries/classes/Tracking.php:558
 msgid "Data definition statement"
 msgstr "Вираз визначення даних"
 
-#: libraries/classes/Tracking.php:640
+#: libraries/classes/Tracking.php:641
 #: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Знімок структури"
 
-#: libraries/classes/Tracking.php:658
+#: libraries/classes/Tracking.php:659
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Знімок версії %s (SQL код)"
 
-#: libraries/classes/Tracking.php:728
+#: libraries/classes/Tracking.php:729
 msgid "Tracking data definition successfully deleted"
 msgstr "Дані відстеження визначення успішно видалені"
 
-#: libraries/classes/Tracking.php:740
+#: libraries/classes/Tracking.php:741
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Дані відстеження маніпуляцій успішно видалено"
 
-#: libraries/classes/Tracking.php:797
+#: libraries/classes/Tracking.php:798
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -13048,36 +13077,36 @@ msgstr ""
 "Ви можете виконати дамп, створивши і використавши для цього тимчасову базу "
 "даних. Будь ласка, переконайтеся, що у вас є достатні привілеї."
 
-#: libraries/classes/Tracking.php:801
+#: libraries/classes/Tracking.php:802
 msgid "Comment out these two lines if you do not need them."
 msgstr "Закоментуйте ці два рядка, якщо вони не потрібні."
 
-#: libraries/classes/Tracking.php:812
+#: libraries/classes/Tracking.php:813
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL вирази експортовано. Будь ласка, скопіюйте дамп або виконайте його."
 
-#: libraries/classes/Tracking.php:850
+#: libraries/classes/Tracking.php:851
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Звіт про відстеження для таблиці `%s`"
 
-#: libraries/classes/Tracking.php:882
+#: libraries/classes/Tracking.php:883
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Відстеження за %1$s було активовано на версії %2$s."
 
-#: libraries/classes/Tracking.php:885
+#: libraries/classes/Tracking.php:886
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Відстеження за %1$s було деактивоване на версії %2$s."
 
-#: libraries/classes/Tracking.php:984
+#: libraries/classes/Tracking.php:985
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Версія %1$s з %2$s була видалена."
 
-#: libraries/classes/Tracking.php:1015
+#: libraries/classes/Tracking.php:1016
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Версія %1$s створена, для відстеження %2$s активована."
@@ -13394,89 +13423,89 @@ msgstr "Профіль було поновлено."
 msgid "Password is too long!"
 msgstr "Пароль занадто довгий!"
 
-#: libraries/classes/UserPreferences.php:166
+#: libraries/classes/UserPreferences.php:167
 msgid "Could not save configuration"
 msgstr "Не вдалось зберегти настройки"
 
-#: libraries/classes/Util.php:132
+#: libraries/classes/Util.php:133
 #, php-format
 msgid "Max: %s%s"
 msgstr "Максимум: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:677 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:678 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "Січ"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:679 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:680 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "Лют"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:681 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:682 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "Бер"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:683 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:684 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "Квт"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:685
+#: libraries/classes/Util.php:686
 msgctxt "Short month name"
 msgid "May"
 msgstr "Трв"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:687 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:688 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "Чрв"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:689 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:690 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "Лип"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:691 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:692 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "Сер"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:693 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:694 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "Вер"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:695 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:696 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "Жов"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:697 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:698 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "Лис"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:699 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:700 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "Гру"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:703
+#: libraries/classes/Util.php:704
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -13484,55 +13513,55 @@ msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:705 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:706 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:707 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:708 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Вт"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:709 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:710 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Сер"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:711 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:712 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Чт"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:713 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:714 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Пт"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:715 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:716 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Сб"
 
-#: libraries/classes/Util.php:741
+#: libraries/classes/Util.php:742
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "РМ"
 
-#: libraries/classes/Util.php:743
+#: libraries/classes/Util.php:744
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "АМ"
 
-#: libraries/classes/Util.php:814
+#: libraries/classes/Util.php:815
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s днів, %s годин, %s хвилин і %s секунд"
 
-#: libraries/classes/Util.php:1965
+#: libraries/classes/Util.php:1966
 msgid "Users"
 msgstr "Користувачі"
 
-#: libraries/classes/Util.php:2595
+#: libraries/classes/Util.php:2596
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Сортувати"
@@ -13720,23 +13749,23 @@ msgstr "Невірні чи не підтверджені дані для %s"
 
 #: templates/columns_definitions/column_attributes.twig:31
 #: templates/database/central_columns/edit_table_row.twig:23
-#: templates/database/central_columns/main.twig:73
-#: templates/database/central_columns/main.twig:302
+#: templates/database/central_columns/main.twig:71
+#: templates/database/central_columns/main.twig:298
 msgid "Edit ENUM/SET values"
 msgstr "Редагувати значення ENUM/SET"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
-#: templates/database/central_columns/main.twig:78
-#: templates/database/central_columns/main.twig:313
+#: templates/database/central_columns/main.twig:76
+#: templates/database/central_columns/main.twig:309
 msgctxt "for default"
 msgid "None"
 msgstr "Немає"
 
 #: templates/columns_definitions/column_attributes.twig:41
 #: templates/database/central_columns/edit_table_row.twig:33
-#: templates/database/central_columns/main.twig:79
-#: templates/database/central_columns/main.twig:316
+#: templates/database/central_columns/main.twig:77
+#: templates/database/central_columns/main.twig:312
 msgid "As defined:"
 msgstr "Як визначено:"
 
@@ -13795,7 +13824,7 @@ msgstr "Ім'я таблиці"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:198 templates/export.twig:285
+#: templates/database/central_columns/main.twig:196 templates/export.twig:285
 #: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr "Додати"
@@ -13975,7 +14004,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/edit.twig:12
 #: templates/database/central_columns/main.twig:32
-#: templates/database/central_columns/main.twig:238
+#: templates/database/central_columns/main.twig:236
 #: templates/database/data_dictionary/index.twig:79
 #: templates/database/operations/index.twig:193
 #: templates/database/operations/index.twig:197
@@ -14234,52 +14263,52 @@ msgid "Add new column"
 msgstr "Додати новий стовпець"
 
 #: templates/database/central_columns/main.twig:24
-#: templates/database/central_columns/main.twig:230
+#: templates/database/central_columns/main.twig:228
 msgid "Length/Value"
 msgstr "Довжина/Значення"
 
 #: templates/database/central_columns/main.twig:36
-#: templates/database/central_columns/main.twig:242
+#: templates/database/central_columns/main.twig:240
 msgid "Attribute"
 msgstr "Атрибут"
 
 #: templates/database/central_columns/main.twig:44
-#: templates/database/central_columns/main.twig:250
+#: templates/database/central_columns/main.twig:248
 msgid "A_I"
 msgstr "A_I"
 
-#: templates/database/central_columns/main.twig:131
+#: templates/database/central_columns/main.twig:129
 msgid "The central list of columns for the current database is empty"
 msgstr "Основний список стовпців для поточної бази даних порожній"
 
-#: templates/database/central_columns/main.twig:168
+#: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:62
 msgid "Filter rows"
 msgstr "Фільтрувати рядки"
 
-#: templates/database/central_columns/main.twig:169
+#: templates/database/central_columns/main.twig:167
 #: templates/display/results/table.twig:64
 msgid "Search this table"
 msgstr "Шукати в таблиці"
 
-#: templates/database/central_columns/main.twig:180
+#: templates/database/central_columns/main.twig:178
 #: templates/table/structure/display_structure.twig:417
 msgid "Add column"
 msgstr "Додати стовпець"
 
-#: templates/database/central_columns/main.twig:189
+#: templates/database/central_columns/main.twig:187
 msgid "Select a table"
 msgstr "Вибрати таблицю"
 
-#: templates/database/central_columns/main.twig:196
+#: templates/database/central_columns/main.twig:194
 msgid "Select a column."
 msgstr "Вибрати стовпець."
 
-#: templates/database/central_columns/main.twig:215
+#: templates/database/central_columns/main.twig:213
 msgid "Click to sort."
 msgstr "Натисніть для сортування."
 
-#: templates/database/central_columns/main.twig:220
+#: templates/database/central_columns/main.twig:218
 #: templates/database/privileges/index.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
@@ -14864,9 +14893,9 @@ msgstr "Користувачі, що мають доступ до \"%s\""
 #: templates/server/privileges/login_information_fields.twig:6
 #: templates/server/privileges/login_information_fields.twig:11
 #: templates/server/privileges/users_overview.twig:8
-#: templates/server/replication/change_master.twig:15
-#: templates/server/replication/master_add_slave_user.twig:19
-#: templates/server/replication/master_add_slave_user.twig:24
+#: templates/server/replication/change_primary.twig:15
+#: templates/server/replication/primary_add_replica_user.twig:19
+#: templates/server/replication/primary_add_replica_user.twig:24
 #: templates/table/privileges/index.twig:19
 msgid "User name"
 msgstr "Ім'я користувача"
@@ -16431,8 +16460,8 @@ msgstr "Ім'я користувача:"
 #: templates/login/form.twig:85
 #: templates/server/privileges/change_password.twig:21
 #: templates/server/privileges/login_information_fields.twig:43
-#: templates/server/replication/change_master.twig:18
-#: templates/server/replication/master_add_slave_user.twig:49
+#: templates/server/replication/change_primary.twig:18
+#: templates/server/replication/primary_add_replica_user.twig:49
 msgid "Password:"
 msgstr "Пароль:"
 
@@ -17035,7 +17064,7 @@ msgid "Position"
 msgstr "Позиція"
 
 #: templates/server/binlog/index.twig:87
-#: templates/server/replication/master_replication.twig:24
+#: templates/server/replication/primary_replication.twig:24
 msgid "Server ID"
 msgstr "ID сервера"
 
@@ -17073,13 +17102,17 @@ msgstr "Немає привілеїв для створення баз дани�
 
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
-#: templates/server/replication/master_replication.twig:3
-msgid "Master replication"
+#: templates/server/replication/primary_replication.twig:3
+#, fuzzy
+#| msgid "Master replication"
+msgid "Primary replication"
 msgstr "Головна реплікація"
 
 #: templates/server/databases/index.twig:160
-#: templates/server/replication/slave_configuration.twig:2
-msgid "Slave replication"
+#: templates/server/replication/replica_configuration.twig:2
+#, fuzzy
+#| msgid "Slave replication"
+msgid "Replica replication"
 msgstr "Похідна реплікація"
 
 #: templates/server/databases/index.twig:181
@@ -17206,7 +17239,7 @@ msgstr "Довжина даних"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
-#: templates/server/replication/master_add_slave_user.twig:62
+#: templates/server/replication/primary_add_replica_user.twig:62
 msgid "Re-type:"
 msgstr "Підтвердження:"
 
@@ -17286,13 +17319,13 @@ msgid "Login Information"
 msgstr "Інформація авторизації"
 
 #: templates/server/privileges/login_information_fields.twig:4
-#: templates/server/replication/change_master.twig:14
-#: templates/server/replication/master_add_slave_user.twig:16
+#: templates/server/replication/change_primary.twig:14
+#: templates/server/replication/primary_add_replica_user.twig:16
 msgid "User name:"
 msgstr "Ім'я користувача:"
 
 #: templates/server/privileges/login_information_fields.twig:7
-#: templates/server/replication/master_add_slave_user.twig:20
+#: templates/server/replication/primary_add_replica_user.twig:20
 msgid "Any user"
 msgstr "Довільний користувач"
 
@@ -17317,31 +17350,31 @@ msgid "Host name:"
 msgstr "Ім'я хоста:"
 
 #: templates/server/privileges/login_information_fields.twig:27
-#: templates/server/replication/master_add_slave_user.twig:34
+#: templates/server/replication/primary_add_replica_user.twig:34
 msgid "Any host"
 msgstr "Довільний хост"
 
 #: templates/server/privileges/login_information_fields.twig:28
-#: templates/server/replication/master_add_slave_user.twig:35
+#: templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
 msgstr "Локальний"
 
 #: templates/server/privileges/login_information_fields.twig:30
-#: templates/server/replication/master_add_slave_user.twig:37
+#: templates/server/replication/primary_add_replica_user.twig:37
 #, fuzzy
 #| msgid "This Host"
 msgid "This host"
 msgstr "Цей хост"
 
 #: templates/server/privileges/login_information_fields.twig:32
-#: templates/server/replication/master_add_slave_user.twig:39
+#: templates/server/replication/primary_add_replica_user.twig:39
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Використовувати Таблицю Хостів"
 
 #: templates/server/privileges/login_information_fields.twig:39
-#: templates/server/replication/master_add_slave_user.twig:44
+#: templates/server/replication/primary_add_replica_user.twig:44
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -17352,9 +17385,9 @@ msgstr ""
 #: templates/server/privileges/login_information_fields.twig:45
 #: templates/server/privileges/login_information_fields.twig:53
 #: templates/server/privileges/users_overview.twig:10
-#: templates/server/replication/change_master.twig:19
-#: templates/server/replication/master_add_slave_user.twig:52
-#: templates/server/replication/master_add_slave_user.twig:57
+#: templates/server/replication/change_primary.twig:19
+#: templates/server/replication/primary_add_replica_user.twig:52
+#: templates/server/replication/primary_add_replica_user.twig:57
 msgid "Password"
 msgstr "Пароль"
 
@@ -17363,14 +17396,14 @@ msgid "Do not change the password"
 msgstr "Не змінювати пароль"
 
 #: templates/server/privileges/login_information_fields.twig:49
-#: templates/server/replication/master_add_slave_user.twig:53
+#: templates/server/replication/primary_add_replica_user.twig:53
 #, fuzzy
 #| msgid "No Password"
 msgid "No password"
 msgstr "Без паролю"
 
 #: templates/server/privileges/login_information_fields.twig:62
-#: templates/server/replication/master_add_slave_user.twig:65
+#: templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
 msgstr "Підтвердження"
 
@@ -17619,16 +17652,20 @@ msgstr "Видалити бази даних, які мають такі ж на
 msgid "Save changes"
 msgstr "Зберегти сторінку"
 
-#: templates/server/replication/change_master.twig:5
-msgid "Slave configuration"
+#: templates/server/replication/change_primary.twig:5
+#, fuzzy
+#| msgid "Slave configuration"
+msgid "Replica configuration"
 msgstr "Налаштування підлеглого сервера"
 
-#: templates/server/replication/change_master.twig:6
-#: templates/server/replication/slave_configuration.twig:97
-msgid "Change or reconfigure master server"
+#: templates/server/replication/change_primary.twig:6
+#: templates/server/replication/replica_configuration.twig:97
+#, fuzzy
+#| msgid "Change or reconfigure master server"
+msgid "Change or reconfigure primary server"
 msgstr "Змінити або переконфігурувати головний сервер"
 
-#: templates/server/replication/change_master.twig:9
+#: templates/server/replication/change_primary.twig:9
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
@@ -17636,14 +17673,17 @@ msgstr ""
 "Переконайтеся, що в конфігураційному файлі (my.cnf) є унікальне значення "
 "server-id. При необхідності, додайте наступний рядок в розділ [mysqld]:"
 
-#: templates/server/replication/change_master.twig:26
+#: templates/server/replication/change_primary.twig:26
 msgid "Port:"
 msgstr "Порт:"
 
 #: templates/server/replication/index.twig:21
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "This server is not configured as master in a replication process. Would "
+#| "you like to %sconfigure%s it?"
 msgid ""
-"This server is not configured as master in a replication process. Would you "
+"This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Даний сервер не налаштований в якості головного для процесу реплікації. "
@@ -17655,28 +17695,39 @@ msgstr ""
 msgid "No privileges"
 msgstr "Немає прав."
 
-#: templates/server/replication/master_add_slave_user.twig:6
-#: templates/server/replication/master_replication.twig:44
-msgid "Add slave replication user"
+#: templates/server/replication/primary_add_replica_user.twig:6
+#: templates/server/replication/primary_replication.twig:44
+#, fuzzy
+#| msgid "Add slave replication user"
+msgid "Add replica replication user"
 msgstr "Додайте підлеглого користувача реплікації"
 
-#: templates/server/replication/master_add_slave_user.twig:21
-#: templates/server/replication/master_add_slave_user.twig:40
-#: templates/server/replication/master_add_slave_user.twig:54
+#: templates/server/replication/primary_add_replica_user.twig:21
+#: templates/server/replication/primary_add_replica_user.twig:40
+#: templates/server/replication/primary_add_replica_user.twig:54
 msgid "Use text field:"
 msgstr "Використовувати текстове поле:"
 
-#: templates/server/replication/master_add_slave_user.twig:70
+#: templates/server/replication/primary_add_replica_user.twig:70
 msgid "Generate password:"
 msgstr "Згенерувати пароль:"
 
-#: templates/server/replication/master_configuration.twig:2
-msgid "Master configuration"
-msgstr "Налаштування головного сервера"
+#: templates/server/replication/primary_configuration.twig:2
+#, fuzzy
+#| msgid "Server configuration"
+msgid "Primary configuration"
+msgstr "Конфігурація сервера"
 
-#: templates/server/replication/master_configuration.twig:4
+#: templates/server/replication/primary_configuration.twig:4
+#, fuzzy
+#| msgid ""
+#| "This server is not configured as a master server in a replication "
+#| "process. You can choose from either replicating all databases and "
+#| "ignoring some of them (useful if you want to replicate a majority of the "
+#| "databases) or you can choose to ignore all databases by default and allow "
+#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
-"This server is not configured as a master server in a replication process. "
+"This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
 "them (useful if you want to replicate a majority of the databases) or you "
 "can choose to ignore all databases by default and allow only certain "
@@ -17688,19 +17739,19 @@ msgstr ""
 "вибрати ігнорування всіх баз даних за замовчуванням і дозвіл для реплікації "
 "тільки певних. Будь ласка, виберіть бажаний режим:"
 
-#: templates/server/replication/master_configuration.twig:9
+#: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
 msgstr "Реплікація всіх баз даних; ігнорувати:"
 
-#: templates/server/replication/master_configuration.twig:10
+#: templates/server/replication/primary_configuration.twig:10
 msgid "Ignore all databases; Replicate:"
 msgstr "Ігнорувати всі бази даних; реплікація:"
 
-#: templates/server/replication/master_configuration.twig:12
+#: templates/server/replication/primary_configuration.twig:12
 msgid "Please select databases:"
 msgstr "Будь ласка, виберіть бази даних:"
 
-#: templates/server/replication/master_configuration.twig:15
+#: templates/server/replication/primary_configuration.twig:15
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
@@ -17708,7 +17759,7 @@ msgstr ""
 "Тепер додайте дані рядка в кінець розділу [mysqld] конфігураційного файлу my."
 "cnf, після чого перезапустіть сервер MySQL."
 
-#: templates/server/replication/master_configuration.twig:21
+#: templates/server/replication/primary_configuration.twig:21
 #, fuzzy
 #| msgid ""
 #| "Once you restarted MySQL server, please click on Go button. Afterwards, "
@@ -17717,109 +17768,141 @@ msgstr ""
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
-"configured as master."
+"configured as primary."
 msgstr ""
 "Відразу після перезапуску MySQL сервера, будь ласка, натисніть кнопку OK, "
 "після чого ви повинні побачити повідомлення, яке вказує, що даний сервер "
 "<b>налаштований</b> як головний."
 
-#: templates/server/replication/master_replication.twig:5
-msgid "This server is configured as master in a replication process."
+#: templates/server/replication/primary_replication.twig:5
+#, fuzzy
+#| msgid "This server is configured as master in a replication process."
+msgid "This server is configured as primary in a replication process."
 msgstr "Даний сервер налаштований головним в процесі реплікації."
 
-#: templates/server/replication/master_replication.twig:16
-msgid "Show connected slaves"
+#: templates/server/replication/primary_replication.twig:16
+#, fuzzy
+#| msgid "Show connected slaves"
+msgid "Show connected replicas"
 msgstr "Показати з'єднані підлеглі сервера"
 
-#: templates/server/replication/master_replication.twig:38
+#: templates/server/replication/primary_replication.twig:38
+#, fuzzy
+#| msgid ""
+#| "Only slaves started with the --report-host=host_name option are visible "
+#| "in this list."
 msgid ""
-"Only slaves started with the --report-host=host_name option are visible in "
+"Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
 "Тільки підлеглі сервера запущені з ключем --report-host=host_name видимі в "
 "даному списку."
 
-#: templates/server/replication/slave_configuration.twig:5
-msgid "Master connection:"
-msgstr "Майстер підключення:"
+#: templates/server/replication/replica_configuration.twig:5
+#, fuzzy
+#| msgid "Server connection:"
+msgid "Primary connection:"
+msgstr "Підключення сервера:"
 
-#: templates/server/replication/slave_configuration.twig:25
-msgid "Slave SQL Thread not running!"
+#: templates/server/replication/replica_configuration.twig:25
+#, fuzzy
+#| msgid "Slave SQL Thread not running!"
+msgid "Replica SQL Thread not running!"
 msgstr "Підлеглий SQL потік не запущений!"
 
-#: templates/server/replication/slave_configuration.twig:28
-msgid "Slave IO Thread not running!"
+#: templates/server/replication/replica_configuration.twig:28
+#, fuzzy
+#| msgid "Slave IO Thread not running!"
+msgid "Replica IO Thread not running!"
 msgstr "Підлеглий потік вводу-виводу не запущений!"
 
-#: templates/server/replication/slave_configuration.twig:31
+#: templates/server/replication/replica_configuration.twig:31
+#, fuzzy
+#| msgid ""
+#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
-"Server is configured as slave in a replication process. Would you like to:"
+"Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
 "Сервер налаштований в якості підлеглого для процесу реплікації. Провести дію:"
 
-#: templates/server/replication/slave_configuration.twig:34
-msgid "See slave status table"
+#: templates/server/replication/replica_configuration.twig:34
+#, fuzzy
+#| msgid "See slave status table"
+msgid "See replica status table"
 msgstr "Дивіться таблицю стану підлеглого сервера"
 
-#: templates/server/replication/slave_configuration.twig:38
-msgid "Control slave:"
+#: templates/server/replication/replica_configuration.twig:38
+#, fuzzy
+#| msgid "Control slave:"
+msgid "Control replica:"
 msgstr "Контролювати підлеглий сервер:"
 
-#: templates/server/replication/slave_configuration.twig:48
-msgid "Reset slave"
-msgstr "Скинути підлеглий сервер"
+#: templates/server/replication/replica_configuration.twig:48
+#, fuzzy
+#| msgid "Not replicated"
+msgid "Reset replica"
+msgstr "Не репліковані"
 
-#: templates/server/replication/slave_configuration.twig:54
+#: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
 msgstr "Запустити тільки SQL потік"
 
-#: templates/server/replication/slave_configuration.twig:56
+#: templates/server/replication/replica_configuration.twig:56
 msgid "Stop SQL Thread only"
 msgstr "Зупинити тільки SQL потік"
 
-#: templates/server/replication/slave_configuration.twig:63
+#: templates/server/replication/replica_configuration.twig:63
 msgid "Start IO Thread only"
 msgstr "Запустити тільки потік вводу-виводу"
 
-#: templates/server/replication/slave_configuration.twig:65
+#: templates/server/replication/replica_configuration.twig:65
 msgid "Stop IO Thread only"
 msgstr "Зупинити тільки потік вводу-виводу"
 
-#: templates/server/replication/slave_configuration.twig:74
+#: templates/server/replication/replica_configuration.twig:74
 msgid "Error management:"
 msgstr "Управління помилками:"
 
-#: templates/server/replication/slave_configuration.twig:77
-msgid "Skipping errors might lead into unsynchronized master and slave!"
+#: templates/server/replication/replica_configuration.twig:77
+#, fuzzy
+#| msgid "Skipping errors might lead into unsynchronized master and slave!"
+msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
 "Ігнорування помилок може призвести до розсинхронізації головного і "
 "підлеглого сервера!"
 
-#: templates/server/replication/slave_configuration.twig:81
+#: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
 msgstr "Ігнорувати поточну помилку"
 
-#: templates/server/replication/slave_configuration.twig:87
+#: templates/server/replication/replica_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
 msgstr "Ігнорувати наступні %s помилки."
 
-#: templates/server/replication/slave_configuration.twig:107
-#, php-format
+#: templates/server/replication/replica_configuration.twig:107
+#, fuzzy, php-format
+#| msgid ""
+#| "This server is not configured as slave in a replication process. Would "
+#| "you like to %sconfigure%s it?"
 msgid ""
-"This server is not configured as slave in a replication process. Would you "
+"This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Даний сервер не налаштований в якості підлеглого для процесу реплікації. "
 "Хочете справити %sнастройку%s?"
 
 #: templates/server/replication/status_table.twig:6
-msgid "Master status"
-msgstr "Статус Master"
+#, fuzzy
+#| msgid "Import status"
+msgid "Primary status"
+msgstr "Статус імпорту"
 
 #: templates/server/replication/status_table.twig:8
-msgid "Slave status"
-msgstr "Статус Slave"
+#, fuzzy
+#| msgid "Replication status"
+msgid "Replica status"
+msgstr "Стан реплікації"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -18222,21 +18305,33 @@ msgstr ""
 "статистичні дані сервера MySQL можуть бути хибними."
 
 #: templates/server/status/status/index.twig:59
+#, fuzzy
+#| msgid ""
+#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
+#| "<b>replication</b> process."
 msgid ""
-"This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
-"b> process."
+"This MySQL server works as <b>primary</b> and <b>replica</b> in "
+"<b>replication</b> process."
 msgstr ""
 "Цей сервер MySQL працює як <b>головний</b> і <b>підлеглий</b> для "
 "<b>асинхронізації</b> процесів."
 
 #: templates/server/status/status/index.twig:61
-msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
+#, fuzzy
+#| msgid ""
+#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
+msgid ""
+"This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
 "Цей сервер MySQL працює як <b>головний</b> для <b>асинхронізації</b> "
 "процесів ."
 
 #: templates/server/status/status/index.twig:63
-msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+#, fuzzy
+#| msgid ""
+#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
+msgid ""
+"This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
 "Цей сервер MySQL працює як <b>підлеглий</b> для <b>асинхронізації</b> "
 "процесів."
@@ -19316,6 +19411,24 @@ msgstr "Назва подання"
 #: templates/view_create.twig:79
 msgid "Column names"
 msgstr "Ім'я стовпців"
+
+#~ msgid "Do you really want to RESET SLAVE?"
+#~ msgstr "Ви дійсно бажаєте RESET SLAVE?"
+
+#~ msgid "Master configuration"
+#~ msgstr "Налаштування головного сервера"
+
+#~ msgid "Master connection:"
+#~ msgstr "Майстер підключення:"
+
+#~ msgid "Reset slave"
+#~ msgstr "Скинути підлеглий сервер"
+
+#~ msgid "Master status"
+#~ msgstr "Статус Master"
+
+#~ msgid "Slave status"
+#~ msgstr "Статус Slave"
 
 #~ msgid "SQL history"
 #~ msgstr "SQL історія"
