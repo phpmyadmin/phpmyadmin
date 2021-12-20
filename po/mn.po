@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-12-18 06:50+0000\n"
+"PO-Revision-Date: 2021-12-21 03:50+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "mn/>\n"
@@ -2890,7 +2890,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:630
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR columns editing"
@@ -3484,7 +3484,7 @@ msgstr "Хуудасны дугаар:"
 
 #: libraries/classes/Config/Descriptions.php:778
 msgid "Security"
-msgstr "Нууцлал Хамгаалалт"
+msgstr "Аюулгүй байдал"
 
 #: libraries/classes/Config/Descriptions.php:779
 msgid "Basic settings"
@@ -3577,7 +3577,7 @@ msgstr "Консол"
 
 #: libraries/classes/Config/Descriptions.php:796
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Extra parameters for iconv"
@@ -4417,7 +4417,7 @@ msgstr "Нууц үг"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
-msgstr "ЗИП"
+msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
@@ -10769,7 +10769,7 @@ msgstr "Тор харуулах"
 #: templates/database/events/index.twig:104
 msgctxt "Create new event"
 msgid "New"
-msgstr "Шинэ"
+msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
@@ -18321,7 +18321,7 @@ msgstr "Хяналт"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "Зөвлөх"
 
 #: templates/server/status/monitor/index.twig:8
 msgid "Start Monitor"
