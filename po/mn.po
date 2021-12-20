@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-19 00:12+0000\n"
-"PO-Revision-Date: 2021-12-18 06:51+0000\n"
+"PO-Revision-Date: 2021-12-21 03:50+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mn/>\n"
@@ -2929,7 +2929,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:625
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:626
 msgid "CHAR columns editing"
@@ -3445,7 +3445,7 @@ msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:755
 msgid "Developer"
-msgstr ""
+msgstr "Хөгжүүлэгч"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "Edit mode"
@@ -3527,7 +3527,7 @@ msgstr "Хуудасны дугаар:"
 
 #: libraries/classes/Config/Descriptions.php:772
 msgid "Security"
-msgstr ""
+msgstr "Аюулгүй байдал"
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "Basic settings"
@@ -3591,7 +3591,7 @@ msgstr "Хэрэглэгчийн өгөгдлийн сан"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "Tabs"
-msgstr ""
+msgstr "Табууд"
 
 #: libraries/classes/Config/Descriptions.php:785
 #, fuzzy
@@ -3611,7 +3611,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Warnings"
-msgstr ""
+msgstr "Анхааруулгууд"
 
 #: libraries/classes/Config/Descriptions.php:789
 #: templates/console/display.twig:4
@@ -3620,7 +3620,7 @@ msgstr "Консол"
 
 #: libraries/classes/Config/Descriptions.php:790
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/classes/Config/Descriptions.php:791
 msgid "Extra parameters for iconv"
@@ -4460,7 +4460,7 @@ msgstr "Нууц үг"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "URL for reCAPTCHA v2 API"
@@ -4617,7 +4617,7 @@ msgstr ""
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
 msgid "Quick"
-msgstr ""
+msgstr "Хурдан"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
 msgid "Custom"
@@ -4716,7 +4716,7 @@ msgstr "Гаргах"
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:90
 #: templates/preferences/header.twig:18
 msgid "Features"
-msgstr ""
+msgstr "Онцлогууд"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:43
 msgid "CSV using LOAD DATA"
@@ -5122,7 +5122,7 @@ msgstr "ӨС сонгогдоогүй."
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
 msgid "Success!"
-msgstr ""
+msgstr "Амжилттай!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:366
 #: templates/table/operations/index.twig:448
@@ -8823,11 +8823,11 @@ msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\
 
 #: libraries/classes/Database/CentralColumns.php:632
 msgid "YES"
-msgstr ""
+msgstr "ТИЙМ"
 
 #: libraries/classes/Database/CentralColumns.php:632
 msgid "NO"
-msgstr ""
+msgstr "ҮГҮЙ"
 
 #: libraries/classes/Database/Designer/Common.php:545
 #, fuzzy
@@ -10308,7 +10308,7 @@ msgstr "Хөдөлгүүрүүд"
 #: libraries/classes/Menu.php:572 libraries/classes/Util.php:1974
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
-msgstr ""
+msgstr "Нэмэлтүүд"
 
 #: libraries/classes/Message.php:260
 #, php-format
@@ -10416,7 +10416,7 @@ msgstr "Баганын нэрс"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:33
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:32
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:275
@@ -10454,7 +10454,7 @@ msgstr "Багана"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Шинэ"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
 #, fuzzy
@@ -11089,7 +11089,7 @@ msgstr "Excel-засвар"
 #: libraries/config.values.php:334 libraries/config.values.php:342
 #: libraries/config.values.php:347
 msgid "structure"
-msgstr ""
+msgstr "бүтэц"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:63
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
@@ -11102,7 +11102,7 @@ msgstr ""
 #: libraries/config.values.php:335 libraries/config.values.php:343
 #: libraries/config.values.php:348
 msgid "data"
-msgstr ""
+msgstr "өгөгдөл"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:64
 #: libraries/classes/Plugins/Export/ExportLatex.php:96
@@ -12303,7 +12303,7 @@ msgstr ""
 
 #: libraries/classes/Query/Utilities.php:115
 msgid "Details…"
-msgstr ""
+msgstr "Дэлгэрэнгүй…"
 
 #: libraries/classes/RecentFavoriteTable.php:158
 #, fuzzy
@@ -13540,7 +13540,7 @@ msgstr ""
 #: libraries/classes/Types.php:746
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Тоон"
 
 #: libraries/classes/Types.php:764
 #, fuzzy
@@ -13756,11 +13756,11 @@ msgstr ""
 
 #: libraries/config.values.php:106
 msgid "Left"
-msgstr ""
+msgstr "Зүүн"
 
 #: libraries/config.values.php:107
 msgid "Right"
-msgstr ""
+msgstr "Баруун"
 
 #: libraries/config.values.php:143
 msgid "Click"
@@ -13812,7 +13812,7 @@ msgstr "%s-д тавтай морилно уу"
 
 #: libraries/config.values.php:186
 msgid "Open"
-msgstr ""
+msgstr "Нээх"
 
 #: libraries/config.values.php:187
 #, fuzzy
@@ -14173,7 +14173,7 @@ msgstr "Хөдөлгүүрүүд"
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
-msgstr ""
+msgstr "Сэтгэгдэл"
 
 #: templates/columns_definitions/partitions.twig:86
 #, fuzzy
@@ -18625,11 +18625,11 @@ msgstr ""
 
 #: templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "Хяналт"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "Зөвлөх"
 
 #: templates/server/status/monitor/index.twig:8
 msgid "Start Monitor"
