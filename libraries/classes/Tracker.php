@@ -830,9 +830,6 @@ class Tracker
             $query .= ";\n";
         }
 
-        // Get some information about query
-        $result = self::parseQuery($query);
-
         // Get database name
         $dbname = trim($GLOBALS['db'] ?? '', '`');
         // $dbname can be empty, for example when coming from Synchronize
@@ -840,6 +837,9 @@ class Tracker
         if (empty($dbname)) {
             return;
         }
+
+        // Get some information about query
+        $result = self::parseQuery($query);
 
         // If we found a valid statement
         if (! isset($result['identifier'])) {

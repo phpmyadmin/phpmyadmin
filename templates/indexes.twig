@@ -52,7 +52,7 @@
                   } %}
                 {% endif %}
 
-                <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query|js_format(false) }}">
+                <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query }}">
                 {{ link_or_button(
                   url('/sql', url_params|merge(index_params)),
                   get_icon('b_drop', 'Drop'|trans),
