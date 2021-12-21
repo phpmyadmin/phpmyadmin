@@ -3437,7 +3437,7 @@
     </MixedArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/RelationController.php">
-    <MixedArgument occurrences="24">
+    <MixedArgument occurrences="21">
       <code>$_POST['destination_column']</code>
       <code>$_POST['destination_db']</code>
       <code>$_POST['destination_foreign_column']</code>
@@ -3449,7 +3449,6 @@
       <code>$_POST['foreignDb']</code>
       <code>$_POST['foreignDb']</code>
       <code>$_POST['foreignDb']</code>
-      <code>$column</code>
       <code>$column['Field']</code>
       <code>$foreignTable</code>
       <code>$html</code>
@@ -3457,25 +3456,26 @@
       <code>$multi_edit_columns_name</code>
       <code>$preview_sql_data</code>
       <code>$row['Engine']</code>
-      <code>$row['Name']</code>
-      <code>$row[0]</code>
       <code>$tables_rs</code>
       <code>$tables_rs</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>uksort($column_array, 'strnatcasecmp')</code>
+      <code>usort($columnList, 'strnatcasecmp')</code>
+      <code>usort($tables, 'strnatcasecmp')</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="2">
       <code>$column_array[$column['Field']]</code>
       <code>$column_hash_array[$column['Field']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="8">
+    <MixedAssignment occurrences="9">
       <code>$GLOBALS['display_query']</code>
-      <code>$column</code>
       <code>$column_array[$column['Field']]</code>
       <code>$foreignTable</code>
       <code>$multi_edit_columns_name</code>
       <code>$multi_edit_columns_name</code>
+      <code>$tables[]</code>
+      <code>$tables[]</code>
       <code>$tables_rs</code>
       <code>$tables_rs</code>
     </MixedAssignment>

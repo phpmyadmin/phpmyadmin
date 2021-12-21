@@ -294,6 +294,7 @@ final class RelationController extends AbstractController
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
         }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($columnList, 'strnatcasecmp');
         }

@@ -2332,8 +2332,8 @@ class ExportSql extends ExportPlugin
         }
 
         $isBinaryField = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $isBinaryField[$j] = stripos($field_flags[$j], 'BINARY') !== false;
+        for ($j = 0; $j < $fieldsCnt; $j++) {
+            $isBinaryField[$j] = $fieldsMeta[$j]->isBinary;
         }
 
         while ($row = $dbi->fetchRow($result)) {
