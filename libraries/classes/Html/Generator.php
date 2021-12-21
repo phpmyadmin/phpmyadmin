@@ -17,6 +17,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -31,7 +32,6 @@ use function array_key_exists;
 use function ceil;
 use function count;
 use function explode;
-use function floor;
 use function htmlentities;
 use function htmlspecialchars;
 use function implode;
@@ -1180,93 +1180,29 @@ class Generator
             $maxCount = 250;
         }
 
-        $class = $frame === 'frame_navigation' ? ' class="ajax"' : '';
-
-        $listNavigatorHtml = '';
-
+        $pageSelector = '';
         if ($maxCount < $count) {
             $classes[] = 'pageselector';
-            $listNavigatorHtml .= '<div class="' . implode(' ', $classes) . '">';
 
-            if ($frame !== 'frame_navigation') {
-                $listNavigatorHtml .= __('Page number:');
-            }
-
-            // Move to the beginning or to the previous page
-            if ($pos > 0) {
-                $caption1 = '';
-                $caption2 = '';
-                if (Util::showIcons('TableNavigationLinksMode')) {
-                    $caption1 .= '&lt;&lt; ';
-                    $caption2 .= '&lt; ';
-                }
-
-                if (Util::showText('TableNavigationLinksMode')) {
-                    $caption1 .= _pgettext('First page', 'Begin');
-                    $caption2 .= _pgettext('Previous page', 'Previous');
-                }
-
-                $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
-                $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
-
-                $urlParams[$name] = 0;
-                $listNavigatorHtml .= '<a' . $class . $title1 . ' href="' . $script
-                    . Url::getCommon($urlParams, '&') . '">' . $caption1
-                    . '</a>';
-
-                $urlParams[$name] = $pos - $maxCount;
-                $listNavigatorHtml .= ' <a' . $class . $title2
-                    . ' href="' . $script . Url::getCommon($urlParams, '&') . '">'
-                    . $caption2 . '</a>';
-            }
-
-            $listNavigatorHtml .= '<form action="' . $script
-                . '" method="post">';
-
-            $listNavigatorHtml .= Url::getHiddenInputs($urlParams);
-            $listNavigatorHtml .= Util::pageselector(
+            $pageSelector = Util::pageselector(
                 $name,
                 $maxCount,
                 Util::getPageFromPosition($pos, $maxCount),
                 (int) ceil($count / $maxCount)
             );
-            $listNavigatorHtml .= '</form>';
-
-            if ($pos + $maxCount < $count) {
-                $caption3 = '';
-                $caption4 = '';
-                if (Util::showText('TableNavigationLinksMode')) {
-                    $caption3 .= _pgettext('Next page', 'Next');
-                    $caption4 .= _pgettext('Last page', 'End');
-                }
-
-                if (Util::showIcons('TableNavigationLinksMode')) {
-                    $caption3 .= ' &gt;';
-                    $caption4 .= ' &gt;&gt;';
-                }
-
-                $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
-                $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
-
-                $urlParams[$name] = $pos + $maxCount;
-                $listNavigatorHtml .= '<a' . $class . $title3 . ' href="' . $script
-                    . Url::getCommon($urlParams, '&') . '" >' . $caption3
-                    . '</a>';
-
-                $urlParams[$name] = floor($count / $maxCount) * $maxCount;
-                if ($urlParams[$name] == $count) {
-                    $urlParams[$name] = $count - $maxCount;
-                }
-
-                $listNavigatorHtml .= ' <a' . $class . $title4
-                    . ' href="' . $script . Url::getCommon($urlParams, '&') . '" >'
-                    . $caption4 . '</a>';
-            }
-
-            $listNavigatorHtml .= '</div>' . "\n";
         }
 
-        return $listNavigatorHtml;
+        return (new Template())->render('list_navigator', [
+            'count' => $count,
+            'max_count' => $maxCount,
+            'classes' => $classes,
+            'frame' => $frame,
+            'position' => $pos,
+            'script' => $script,
+            'url_params' => $urlParams,
+            'param_name' => $name,
+            'page_selector' => $pageSelector,
+        ]);
     }
 
     /**
