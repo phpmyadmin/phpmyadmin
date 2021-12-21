@@ -2331,11 +2331,6 @@ class ExportSql extends ExportPlugin
             $separator = ';';
         }
 
-        $isBinaryField = [];
-        for ($j = 0; $j < $fieldsCnt; $j++) {
-            $isBinaryField[$j] = $fieldsMeta[$j]->isBinary;
-        }
-
         while ($row = $dbi->fetchRow($result)) {
             if ($current_row == 0) {
                 $head = $this->possibleCRLF()
@@ -2387,7 +2382,7 @@ class ExportSql extends ExportPlugin
                     // timestamp is numeric on some MySQL 4.1, BLOBs are
                     // sometimes numeric
                     $values[] = $row[$j];
-                } elseif ($isBinaryField[$j] && isset($GLOBALS['sql_hex_for_binary'])) {
+                } elseif ($fieldsMeta[$j]->isBinary && isset($GLOBALS['sql_hex_for_binary'])) {
                     // a true BLOB
                     // - mysqldump only generates hex data when the --hex-blob
                     //   option is used, for fields having the binary attribute
