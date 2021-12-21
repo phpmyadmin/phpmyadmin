@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-12-21 03:50+0000\n"
+"PO-Revision-Date: 2021-12-22 07:53+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "mn/>\n"
@@ -1258,7 +1258,7 @@ msgstr "цагт"
 
 #: libraries/classes/Advisor.php:421
 msgid "per day"
-msgstr ""
+msgstr "өдөр тутам"
 
 #: libraries/classes/BrowseForeigners.php:198
 #, fuzzy
@@ -1499,7 +1499,7 @@ msgstr "Уламжлалт хятд"
 #: libraries/classes/Charsets/Collation.php:450
 msgctxt "Collation"
 msgid "Chinese"
-msgstr "Хятад"
+msgstr "Хятад хэл"
 
 #: libraries/classes/Charsets/Collation.php:379
 #: libraries/classes/Charsets/Collation.php:498
@@ -3488,7 +3488,7 @@ msgstr "Аюулгүй байдал"
 
 #: libraries/classes/Config/Descriptions.php:779
 msgid "Basic settings"
-msgstr ""
+msgstr "Үндсэн тохиргоо"
 
 #: libraries/classes/Config/Descriptions.php:780
 #, fuzzy
@@ -3498,7 +3498,7 @@ msgstr "Баримт"
 
 #: libraries/classes/Config/Descriptions.php:781
 msgid "Server configuration"
-msgstr ""
+msgstr "Сервэрийн тохиргоо"
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Configuration storage"
@@ -3711,7 +3711,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:837
 msgid "Memory limit"
-msgstr ""
+msgstr "Санах ойн хязгаарлалт"
 
 #: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
@@ -4007,7 +4007,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:903
 msgid "Hide databases"
-msgstr ""
+msgstr "Өгөгдлийн сангууд нуух"
 
 #: libraries/classes/Config/Descriptions.php:904
 msgid "SQL query history table"
@@ -4063,7 +4063,7 @@ msgstr "өгөгдлийн сангийн нэр"
 
 #: libraries/classes/Config/Descriptions.php:915
 msgid "Server port"
-msgstr ""
+msgstr "Сервэр порт"
 
 #: libraries/classes/Config/Descriptions.php:916
 #, fuzzy
@@ -4079,7 +4079,7 @@ msgstr "Утгууд"
 
 #: libraries/classes/Config/Descriptions.php:918
 msgid "Relation table"
-msgstr ""
+msgstr "Хүснэгтийн холбоос"
 
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Signon session name"
@@ -4095,7 +4095,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:922
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL ашиглах"
 
 #: libraries/classes/Config/Descriptions.php:923
 msgid "Designer and PDF schema: table coordinates"
@@ -4397,7 +4397,7 @@ msgstr ""
 #: libraries/classes/Setup/Index.php:170 libraries/classes/Setup/Index.php:183
 #: libraries/classes/Setup/Index.php:192 libraries/classes/Setup/Index.php:200
 msgid "Version check"
-msgstr ""
+msgstr "ХувХувилбар шалгах"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Proxy url"
@@ -5706,7 +5706,7 @@ msgstr "%s талбар(ууд) нэмэх"
 #: templates/table/index_rename_form.twig:28
 #: templates/table/relation/common_form.twig:221
 msgid "Preview SQL"
-msgstr ""
+msgstr "SQL Харах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 #, fuzzy
@@ -6706,7 +6706,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid "See more"
-msgstr ""
+msgstr "Илүү харах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 msgid "Are you sure?"
@@ -6893,11 +6893,11 @@ msgstr "Баганын нэрс"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Minimum value:"
-msgstr ""
+msgstr "Хамгийн бага утга:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "Maximum value:"
-msgstr ""
+msgstr "Хамгийн их утга:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 #, fuzzy
@@ -15687,7 +15687,7 @@ msgstr "ӨС <b>%s</b> дахь SQL-асуулт:"
 #: templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
 msgid "Filters"
-msgstr "Шүүлтүүр"
+msgstr "Шүүлтүүрүүд"
 
 #: templates/database/routines/index.twig:6 templates/filter.twig:6
 #: templates/server/status/variables/index.twig:15
@@ -16574,7 +16574,7 @@ msgstr "Өгөгдлийн санг д.нэрлэх нь"
 
 #: templates/home/index.twig:153
 msgid "Web server"
-msgstr ""
+msgstr "Вэб сэрвэр"
 
 #: templates/home/index.twig:163
 #, fuzzy
@@ -18285,7 +18285,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:78
 msgid "Issue:"
-msgstr ""
+msgstr "Асуудал:"
 
 #: templates/server/status/advisor/index.twig:81
 msgid "Recommendation:"
@@ -18303,7 +18303,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:90
 msgid "Test:"
-msgstr "Тэст:"
+msgstr ""
 
 #: templates/server/status/base.twig:16
 #, fuzzy
@@ -18740,7 +18740,7 @@ msgstr "Тойм"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
 msgid "Configuration file"
-msgstr ""
+msgstr "Тохиргооны файл"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:105
 msgid "Download"
@@ -18898,7 +18898,7 @@ msgstr "Холбоог устгах"
 
 #: templates/sql/query.twig:156
 msgid "shared"
-msgstr ""
+msgstr "дундын"
 
 #: templates/sql/query.twig:169
 msgid "View only"
@@ -19581,7 +19581,7 @@ msgstr "Мөрийн статистик"
 
 #: templates/table/structure/display_table_stats.twig:86
 msgid "static"
-msgstr ""
+msgstr "тогтмол"
 
 #: templates/table/structure/display_table_stats.twig:88
 msgid "dynamic"
@@ -19632,7 +19632,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -19640,7 +19640,7 @@ msgstr ""
 
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr ""
+msgstr "Хэрэглэгчийн нэр"
 
 #: templates/table/zoom_search/index.twig:29
 #, fuzzy
