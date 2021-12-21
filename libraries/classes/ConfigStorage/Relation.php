@@ -841,7 +841,7 @@ class Relation
             ORDER BY `timevalue` DESC
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
-        $max_time = $this->dbi->fetchValue($search_query, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        $max_time = $this->dbi->fetchValue($search_query, 0, DatabaseInterface::CONNECT_CONTROL);
 
         if (! $max_time) {
             return;

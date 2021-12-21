@@ -5600,7 +5600,7 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="65">
+    <MixedArgument occurrences="63">
       <code>$_SERVER['SCRIPT_NAME']</code>
       <code>$a</code>
       <code>$arrayKeys</code>
@@ -5629,8 +5629,6 @@
       <code>$one_table_name</code>
       <code>$password</code>
       <code>$res</code>
-      <code>$result</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -5820,7 +5818,7 @@
     <MixedReturnStatement occurrences="7">
       <code>$tables[$database]</code>
       <code>$tables[mb_strtolower($database)]</code>
-      <code>$this-&gt;fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link)</code>
+      <code>$this-&gt;fetchValue('SELECT LAST_INSERT_ID();', 0, $link)</code>
       <code>$this-&gt;lowerCaseTableNames</code>
       <code>$user</code>
       <code>SessionCache::get('mysql_cur_user')</code>

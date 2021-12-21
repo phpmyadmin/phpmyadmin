@@ -44,7 +44,7 @@ class QbeTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('fetchValue')
-            ->with('SHOW CREATE TABLE `pma_test`.`table1`', 0, 1)
+            ->with('SHOW CREATE TABLE `pma_test`.`table1`', 1)
             ->will($this->returnValue($create_table));
 
         $dbi->expects($this->any())

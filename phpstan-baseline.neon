@@ -2906,11 +2906,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:dataSeek\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -2932,11 +2927,16 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 4
+			count: 3
 			path: libraries/classes/DatabaseInterface.php
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Parameter \\#3 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchValue\\(\\) expects int, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2953,11 +2953,6 @@ parameters:
 		-
 			message: "#^Parameter \\#4 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchResult\\(\\) expects int, mixed given\\.$#"
 			count: 7
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#4 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchValue\\(\\) expects int, mixed given\\.$#"
-			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
 		-

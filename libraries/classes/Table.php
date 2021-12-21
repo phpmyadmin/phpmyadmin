@@ -2616,7 +2616,6 @@ class Table implements Stringable
         return $this->dbi->fetchValue(
             'SHOW CREATE TABLE ' . Util::backquote($this->dbName) . '.'
             . Util::backquote($this->name),
-            0,
             1
         );
     }

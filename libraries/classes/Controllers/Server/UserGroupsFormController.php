@@ -81,7 +81,7 @@ final class UserGroupsFormController extends AbstractController
             $userTable,
             $this->dbi->escapeString($username)
         );
-        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        $userGroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
 
         $allUserGroups = [];
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;

@@ -561,7 +561,7 @@ class Privileges
 
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
             . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
-        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        $oldUserGroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
 
         if ($oldUserGroup === false) {
             $updQuery = 'INSERT INTO ' . $userTable . '(`username`, `usergroup`)'
@@ -1557,7 +1557,7 @@ class Privileges
             . '.' . Util::backquote($relationParameters->usergroups);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
-        return (int) $this->dbi->fetchValue($sqlQuery, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        return (int) $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
@@ -1581,7 +1581,7 @@ class Privileges
             . ' WHERE `username` = \'' . $username . '\''
             . ' LIMIT 1';
 
-        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        $usergroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
 
         if ($usergroup === false) {
             return null;
