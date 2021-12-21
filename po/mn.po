@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-19 00:12+0000\n"
-"PO-Revision-Date: 2021-12-21 03:50+0000\n"
+"PO-Revision-Date: 2021-12-23 02:53+0000\n"
 "Last-Translator: Turtuvshin Byambaa <toroo.byamba@gmail.com>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/mn/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1258,7 +1258,7 @@ msgstr "цагт"
 
 #: libraries/classes/Advisor.php:422
 msgid "per day"
-msgstr ""
+msgstr "өдөр тутам"
 
 #: libraries/classes/BrowseForeigners.php:200
 #, fuzzy
@@ -1500,7 +1500,7 @@ msgstr "Уламжлалт хятд"
 #: libraries/classes/Charsets/Collation.php:469
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Хятад хэл"
 
 #: libraries/classes/Charsets/Collation.php:392
 #: libraries/classes/Charsets/Collation.php:518
@@ -3531,7 +3531,7 @@ msgstr "Аюулгүй байдал"
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "Basic settings"
-msgstr ""
+msgstr "Үндсэн тохиргоо"
 
 #: libraries/classes/Config/Descriptions.php:774
 #, fuzzy
@@ -3541,7 +3541,7 @@ msgstr "Баримт"
 
 #: libraries/classes/Config/Descriptions.php:775
 msgid "Server configuration"
-msgstr ""
+msgstr "Сервэрийн тохиргоо"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Configuration storage"
@@ -3754,7 +3754,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Memory limit"
-msgstr ""
+msgstr "Санах ойн хязгаарлалт"
 
 #: libraries/classes/Config/Descriptions.php:832
 #, fuzzy
@@ -4050,7 +4050,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "Hide databases"
-msgstr ""
+msgstr "Өгөгдлийн сангууд нуух"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "SQL query history table"
@@ -4106,7 +4106,7 @@ msgstr "өгөгдлийн сангийн нэр"
 
 #: libraries/classes/Config/Descriptions.php:909
 msgid "Server port"
-msgstr ""
+msgstr "Сервэр порт"
 
 #: libraries/classes/Config/Descriptions.php:910
 #, fuzzy
@@ -4122,7 +4122,7 @@ msgstr "Утгууд"
 
 #: libraries/classes/Config/Descriptions.php:912
 msgid "Relation table"
-msgstr ""
+msgstr "Хүснэгтийн холбоос"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "Signon session name"
@@ -4138,7 +4138,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL ашиглах"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "Designer and PDF schema: table coordinates"
@@ -4440,7 +4440,7 @@ msgstr ""
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
-msgstr ""
+msgstr "ХувХувилбар шалгах"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Proxy URL"
@@ -5718,7 +5718,7 @@ msgstr "%s талбар(ууд) нэмэх"
 #: templates/table/relation/common_form.twig:224
 #: templates/table/structure/display_structure.twig:344
 msgid "Preview SQL"
-msgstr ""
+msgstr "SQL Харах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:120
 #: templates/sql/query.twig:218
@@ -6830,7 +6830,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:406
 msgid "See more"
-msgstr ""
+msgstr "Илүү харах"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:409
 msgid "Add primary key"
@@ -7616,11 +7616,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Good"
-msgstr ""
+msgstr "Сайн"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Strong"
-msgstr ""
+msgstr "Хүчтэй"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
@@ -10857,7 +10857,7 @@ msgstr ""
 #: libraries/classes/Operations.php:560
 #: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
-msgstr ""
+msgstr "Таслах"
 
 #: libraries/classes/Operations.php:572 templates/database/events/index.twig:19
 #: templates/database/events/index.twig:20
@@ -11712,7 +11712,7 @@ msgstr "Хүснэгт"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:205
 msgid "Purpose:"
-msgstr ""
+msgstr "Зорилго:"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
@@ -13796,7 +13796,7 @@ msgstr "Хаагдсан"
 
 #: libraries/config.values.php:148
 msgid "key"
-msgstr ""
+msgstr "түлхүүр"
 
 #: libraries/config.values.php:149
 #, fuzzy
@@ -13998,7 +13998,7 @@ msgstr "Шахалт"
 
 #: templates/columns_definitions/column_attributes.twig:177
 msgid "first"
-msgstr ""
+msgstr "эхний"
 
 #: templates/columns_definitions/column_attributes.twig:182
 #: templates/table/structure/display_structure.twig:432
@@ -15415,7 +15415,7 @@ msgstr "БА"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
-msgstr ""
+msgstr "Уст:"
 
 #: templates/database/qbe/selection_form.twig:12
 #: templates/table/find_replace/index.twig:41
@@ -16190,7 +16190,7 @@ msgstr ""
 #: templates/export.twig:216 templates/export.twig:230
 #: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
-msgstr ""
+msgstr "Хасах"
 
 #: templates/export.twig:269
 msgid "Define new aliases"
@@ -16318,7 +16318,7 @@ msgstr ""
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
 msgid "Filters"
-msgstr ""
+msgstr "Шүүлтүүрүүд"
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:12
 #, fuzzy
@@ -16504,7 +16504,7 @@ msgstr "Хэл"
 
 #: templates/home/index.twig:131
 msgid "Theme"
-msgstr ""
+msgstr "Загвар"
 
 #: templates/home/index.twig:142
 #, fuzzy
@@ -16556,7 +16556,7 @@ msgstr "Өгөгдлийн санг д.нэрлэх нь"
 
 #: templates/home/index.twig:197
 msgid "Web server"
-msgstr ""
+msgstr "Вэб сэрвэр"
 
 #: templates/home/index.twig:207
 #, fuzzy
@@ -17159,7 +17159,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:10
 msgid "Verify"
-msgstr ""
+msgstr "Баталгаажуулах"
 
 #: templates/menu/breadcrumbs.twig:27
 #, fuzzy
@@ -17885,7 +17885,7 @@ msgstr "Нууц үггүй"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr ""
+msgstr "Оруулах:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
@@ -18591,7 +18591,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Issue:"
-msgstr ""
+msgstr "Асуудал:"
 
 #: templates/server/status/advisor/index.twig:79
 #, fuzzy
@@ -19053,11 +19053,11 @@ msgstr "Сервэрийн утгууд болон тохиргоонууд"
 
 #: templates/setup/base.twig:29 templates/setup/home/index.twig:20
 msgid "Overview"
-msgstr ""
+msgstr "Тойм"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
 msgid "Configuration file"
-msgstr ""
+msgstr "Тохиргооны файл"
 
 #: templates/setup/config/index.twig:16
 #, fuzzy
@@ -19067,11 +19067,11 @@ msgstr "Анхдагч тохиргоо дуудагдсангүй нь: \"%1$s\
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
-msgstr ""
+msgstr "Татах"
 
 #: templates/setup/error.twig:2
 msgid "Warning"
-msgstr ""
+msgstr "Анхааруулга"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
@@ -19133,7 +19133,7 @@ msgstr ""
 
 #: templates/setup/home/index.twig:176
 msgid "Donate"
-msgstr ""
+msgstr "Хандив"
 
 #: templates/setup/home/index.twig:177
 msgid "Check for latest version"
@@ -19244,7 +19244,7 @@ msgstr "Холбоог устгах"
 
 #: templates/sql/query.twig:169
 msgid "shared"
-msgstr ""
+msgstr "дундын"
 
 #: templates/sql/query.twig:182
 msgid "View only"
@@ -19277,7 +19277,7 @@ msgstr "Баганын нэрс"
 #: templates/table/chart/tbl_chart.twig:21
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Мөр"
 
 #: templates/table/chart/tbl_chart.twig:25
 #, fuzzy
@@ -19850,11 +19850,11 @@ msgstr "Хайх"
 
 #: templates/table/search/index.twig:187
 msgid "Minimum value:"
-msgstr ""
+msgstr "Хамгийн бага утга:"
 
 #: templates/table/search/index.twig:190
 msgid "Maximum value:"
-msgstr ""
+msgstr "Хамгийн их утга:"
 
 #: templates/table/start_and_number_of_rows_fieldset.twig:3
 #, fuzzy
@@ -20033,7 +20033,7 @@ msgstr "Мөрийн статистик"
 
 #: templates/table/structure/display_table_stats.twig:86
 msgid "static"
-msgstr ""
+msgstr "тогтмол"
 
 #: templates/table/structure/display_table_stats.twig:88
 msgid "dynamic"
@@ -20084,7 +20084,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -20092,7 +20092,7 @@ msgstr ""
 
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr ""
+msgstr "Хэрэглэгчийн нэр"
 
 #: templates/table/zoom_search/index.twig:27
 #, fuzzy
