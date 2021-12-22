@@ -270,8 +270,6 @@ class Sanitize
      * @param bool   $add_backquotes whether to add backquotes to the string or not
      *
      * @return string   the formatted string
-     *
-     * @access public
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
@@ -375,8 +373,6 @@ class Sanitize
      * Removes all variables from request except allowed ones.
      *
      * @param string[] $allowList list of variables to allow
-     *
-     * @access public
      */
     public static function removeRequestVars(&$allowList): void
     {

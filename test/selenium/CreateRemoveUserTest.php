@@ -19,7 +19,6 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Username for the user
      *
-     * @access private
      * @var string
      */
     private $txtUsername;
@@ -27,7 +26,6 @@ class CreateRemoveUserTest extends TestBase
     /**
      * Password for the user
      *
-     * @access private
      * @var string
      */
     private $txtPassword;

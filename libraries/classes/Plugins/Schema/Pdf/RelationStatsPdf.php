@@ -50,8 +50,6 @@ class RelationStatsPdf extends RelationStats
      *
      * @param bool $showColor Whether to use one color per relation or not
      * @param int  $i         The id of the link to draw
-     *
-     * @access public
      */
     public function relationDraw($showColor, $i): void
     {

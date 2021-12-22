@@ -97,8 +97,6 @@ class GisVisualization
      * Returns the settings array
      *
      * @return array the settings array
-     *
-     * @access public
      */
     public function getSettings()
     {
@@ -114,8 +112,6 @@ class GisVisualization
      * @param int    $pos       start position
      *
      * @return GisVisualization
-     *
-     * @access public
      */
     public static function get($sql_query, array $options, $row, $pos)
     {
@@ -159,8 +155,6 @@ class GisVisualization
      * @param int        $pos       start position
      * @param array|null $data      raw data. If set, parameters other than $options
      *                              will be ignored
-     *
-     * @access public
      */
     private function __construct($sql_query, array $options, $row, $pos, $data = null)
     {
@@ -175,8 +169,6 @@ class GisVisualization
 
     /**
      * All the variable initialization, options handling has to be done here.
-     *
-     * @access protected
      */
     protected function init(): void
     {
@@ -270,8 +262,6 @@ class GisVisualization
     /**
      * A function which handles passed parameters. Useful if desired
      * chart needs to be a little bit different from the default one.
-     *
-     * @access private
      */
     private function handleOptions(): void
     {
@@ -289,8 +279,6 @@ class GisVisualization
      * @param string $ext       extension of the file
      *
      * @return string the sanitized file name
-     *
-     * @access private
      */
     private function sanitizeName($file_name, $ext)
     {
@@ -314,8 +302,6 @@ class GisVisualization
      * @param string $file_name file name
      * @param string $type      mime type
      * @param string $ext       extension of the file
-     *
-     * @access private
      */
     private function writeToFile($file_name, $type, $ext): void
     {
@@ -327,8 +313,6 @@ class GisVisualization
      * Generate the visualization in SVG format.
      *
      * @return string the generated image resource
-     *
-     * @access private
      */
     private function svg()
     {
@@ -354,8 +338,6 @@ class GisVisualization
      * Get the visualization as a SVG.
      *
      * @return string the visualization as a SVG
-     *
-     * @access public
      */
     public function asSVG()
     {
@@ -366,8 +348,6 @@ class GisVisualization
      * Saves as a SVG image to a file.
      *
      * @param string $file_name File name
-     *
-     * @access public
      */
     public function toFileAsSvg($file_name): void
     {
@@ -380,8 +360,6 @@ class GisVisualization
      * Generate the visualization in PNG format.
      *
      * @return ImageWrapper|null the generated image resource
-     *
-     * @access private
      */
     private function png(): ?ImageWrapper
     {
@@ -407,8 +385,6 @@ class GisVisualization
      * Get the visualization as a PNG.
      *
      * @return string the visualization as a PNG
-     *
-     * @access public
      */
     public function asPng()
     {
@@ -452,7 +428,6 @@ class GisVisualization
      * @return string the code for visualization with OpenLayers
      *
      * @todo Should return JSON to avoid eval() in gis_data_editor.js
-     * @access public
      */
     public function asOl()
     {
@@ -496,8 +471,6 @@ class GisVisualization
      * Saves as a PDF to a file.
      *
      * @param string $file_name File name
-     *
-     * @access public
      */
     public function toFileAsPdf($file_name): void
     {
@@ -571,8 +544,6 @@ class GisVisualization
      * @param array $data Row data
      *
      * @return array an array containing the scale, x and y offsets
-     *
-     * @access private
      */
     private function scaleDataSet(array $data)
     {
@@ -673,8 +644,6 @@ class GisVisualization
      *                                                    TCPDF object in the case of pdf
      *
      * @return mixed the formatted array of data
-     *
-     * @access private
      */
     private function prepareDataSet(array $data, array $scale_data, $format, $results)
     {

@@ -105,8 +105,6 @@ class Pdf extends PdfLib
      * @param bool   $diskcache   if true reduce the RAM memory usage by caching
      *                            temporary data on filesystem (slower).
      * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
-     *
-     * @access public
      */
     public function __construct(
         $orientation = 'P',

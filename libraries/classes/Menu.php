@@ -28,7 +28,6 @@ class Menu
     /**
      * Database name
      *
-     * @access private
      * @var string
      */
     private $db;
@@ -39,7 +38,6 @@ class Menu
     /**
      * Table name
      *
-     * @access private
      * @var string
      */
     private $table;

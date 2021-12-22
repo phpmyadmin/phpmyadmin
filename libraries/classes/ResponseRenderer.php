@@ -28,7 +28,6 @@ class ResponseRenderer
     /**
      * Response instance
      *
-     * @access private
      * @static
      * @var ResponseRenderer
      */
@@ -36,14 +35,12 @@ class ResponseRenderer
     /**
      * Header instance
      *
-     * @access private
      * @var Header
      */
     protected $header;
     /**
      * HTML data to be used in the response
      *
-     * @access private
      * @var string
      */
     private $HTML;
@@ -51,28 +48,24 @@ class ResponseRenderer
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
      *
-     * @access private
      * @var array
      */
     private $JSON;
     /**
      * PhpMyAdmin\Footer instance
      *
-     * @access private
      * @var Footer
      */
     protected $footer;
     /**
      * Whether we are servicing an ajax request.
      *
-     * @access private
      * @var bool
      */
     protected $isAjax = false;
     /**
      * Whether response object is disabled
      *
-     * @access private
      * @var bool
      */
     private $isDisabled;
@@ -80,7 +73,6 @@ class ResponseRenderer
      * Whether there were any errors during the processing of the request
      * Only used for ajax responses
      *
-     * @access private
      * @var bool
      */
     protected $isSuccess;

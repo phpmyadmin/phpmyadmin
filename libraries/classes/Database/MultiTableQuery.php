@@ -28,7 +28,6 @@ class MultiTableQuery
     /**
      * DatabaseInterface instance
      *
-     * @access private
      * @var DatabaseInterface
      */
     private $dbi;
@@ -36,7 +35,6 @@ class MultiTableQuery
     /**
      * Database name
      *
-     * @access private
      * @var string
      */
     private $db;
@@ -44,7 +42,6 @@ class MultiTableQuery
     /**
      * Default number of columns
      *
-     * @access private
      * @var int
      */
     private $defaultNoOfColumns;
@@ -52,7 +49,6 @@ class MultiTableQuery
     /**
      * Table names
      *
-     * @access private
      * @var array
      */
     private $tables;

@@ -41,49 +41,42 @@ class SearchController extends AbstractController
     /**
      * Names of columns
      *
-     * @access private
      * @var array
      */
     private $columnNames;
     /**
      * Types of columns
      *
-     * @access private
      * @var array
      */
     private $columnTypes;
     /**
      * Types of columns without any replacement
      *
-     * @access private
      * @var array
      */
     private $originalColumnTypes;
     /**
      * Collations of columns
      *
-     * @access private
      * @var array
      */
     private $columnCollations;
     /**
      * Null Flags of columns
      *
-     * @access private
      * @var array
      */
     private $columnNullFlags;
     /**
      * Whether a geometry column is present
      *
-     * @access private
      * @var bool
      */
     private $geomColumnFlag;
     /**
      * Foreign Keys
      *
-     * @access private
      * @var array
      */
     private $foreigners;

@@ -34,8 +34,6 @@ class GisPolygon extends GisGeometry
 
     /**
      * A private constructor; prevents direct creation of object.
-     *
-     * @access private
      */
     private function __construct()
     {
@@ -45,8 +43,6 @@ class GisPolygon extends GisGeometry
      * Returns the singleton.
      *
      * @return GisPolygon the singleton
-     *
-     * @access public
      */
     public static function singleton()
     {
@@ -63,8 +59,6 @@ class GisPolygon extends GisGeometry
      * @param string $spatial spatial data of a row
      *
      * @return array an array containing the min, max values for x and y coordinates
-     *
-     * @access public
      */
     public function scaleRow($spatial)
     {
@@ -155,8 +149,6 @@ class GisPolygon extends GisGeometry
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
-     *
-     * @access public
      */
     public function prepareRowAsPdf($spatial, ?string $label, $fill_color, array $scale_data, $pdf)
     {
@@ -215,8 +207,6 @@ class GisPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
-     *
-     * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
@@ -273,8 +263,6 @@ class GisPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
-     *
-     * @access public
      */
     public function prepareRowAsOl($spatial, int $srid, $label, $fill_color, array $scale_data)
     {
@@ -319,8 +307,6 @@ class GisPolygon extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code to draw the ring
-     *
-     * @access private
      */
     private function drawPath($polygon, array $scale_data)
     {
@@ -345,8 +331,6 @@ class GisPolygon extends GisGeometry
      * @param string|null $empty    Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
-     *
-     * @access public
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
@@ -388,7 +372,6 @@ class GisPolygon extends GisGeometry
      *
      * @return float the area of a closed simple polygon
      *
-     * @access public
      * @static
      */
     public static function area(array $ring)
@@ -423,7 +406,6 @@ class GisPolygon extends GisGeometry
      *
      * @param array $ring array of points forming the ring
      *
-     * @access public
      * @static
      */
     public static function isOuterRing(array $ring): bool
@@ -439,7 +421,6 @@ class GisPolygon extends GisGeometry
      * @param array $point   x, y coordinates of the point
      * @param array $polygon array of points forming the ring
      *
-     * @access public
      * @static
      */
     public static function isPointInsidePolygon(array $point, array $polygon): bool
@@ -561,8 +542,6 @@ class GisPolygon extends GisGeometry
      * @param int    $index Index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
-     *
-     * @access public
      */
     public function generateParams($value, $index = -1)
     {

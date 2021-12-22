@@ -150,8 +150,6 @@ class DiaRelationSchema extends ExportRelationSchema
 
     /**
      * Output Dia Document for download
-     *
-     * @access public
      */
     public function showOutput(): void
     {
@@ -168,8 +166,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * @param string $foreignTable The foreign table name
      * @param string $foreignField The relation field in the foreign table
      * @param bool   $showKeys     Whether to display ONLY keys or not
-     *
-     * @access private
      */
     private function addRelation(
         $masterTable,
@@ -215,8 +211,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * type Database - Reference
      *
      * @see    RelationStatsDia::relationDraw()
-     *
-     * @access private
      */
     private function drawRelations(): void
     {
@@ -232,8 +226,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * primary fields are underlined and bold in tables
      *
      * @see    TableStatsDia::tableDraw()
-     *
-     * @access private
      */
     private function drawTables(): void
     {

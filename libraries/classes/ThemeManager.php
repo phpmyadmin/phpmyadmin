@@ -27,16 +27,12 @@ class ThemeManager
     /**
      * ThemeManager instance
      *
-     * @access private
      * @static
      * @var ThemeManager
      */
     private static $instance;
 
-    /**
-     * @var string file-system path to the theme folder
-     * @access protected
-     */
+    /** @var string file-system path to the theme folder */
     private $themesPath;
 
     /** @var string path to theme folder as an URL */
@@ -127,8 +123,6 @@ class ThemeManager
      * sets if there are different themes per server
      *
      * @param bool $perServer Whether to enable per server flag
-     *
-     * @access public
      */
     public function setThemePerServer($perServer): void
     {
@@ -139,8 +133,6 @@ class ThemeManager
      * Sets active theme
      *
      * @param string|null $theme theme name
-     *
-     * @access public
      */
     public function setActiveTheme(?string $theme): bool
     {
@@ -169,8 +161,6 @@ class ThemeManager
      * Returns name for storing theme
      *
      * @return string cookie name
-     *
-     * @access public
      */
     public function getThemeCookieName()
     {
@@ -186,8 +176,6 @@ class ThemeManager
      * returns name of theme stored in the cookie
      *
      * @return string|false theme name from cookie or false
-     *
-     * @access public
      */
     public function getThemeCookie()
     {
@@ -205,8 +193,6 @@ class ThemeManager
      * save theme in cookie
      *
      * @return true
-     *
-     * @access public
      */
     public function setThemeCookie(): bool
     {
@@ -259,8 +245,6 @@ class ThemeManager
      * checks if given theme name is a known theme
      *
      * @param string|null $theme name fo theme to check for
-     *
-     * @access public
      */
     public function checkTheme(?string $theme): bool
     {

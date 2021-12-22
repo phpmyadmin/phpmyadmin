@@ -18,8 +18,6 @@ class NavigationTreeTest extends AbstractTestCase
 
     /**
      * Sets up the fixture.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -44,8 +42,6 @@ class NavigationTreeTest extends AbstractTestCase
 
     /**
      * Tears down the fixture.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {

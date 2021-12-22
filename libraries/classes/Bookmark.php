@@ -116,8 +116,6 @@ class Bookmark
 
     /**
      * Adds a bookmark
-     *
-     * @access public
      */
     public function save(): bool
     {
@@ -139,8 +137,6 @@ class Bookmark
 
     /**
      * Deletes a bookmark
-     *
-     * @access public
      */
     public function delete(): bool
     {
@@ -206,8 +202,6 @@ class Bookmark
      * @param string $user Current user
      *
      * @return array|false the bookmark parameters for the current user
-     *
-     * @access public
      */
     public static function getParams(string $user)
     {
@@ -300,8 +294,6 @@ class Bookmark
      * @param string|false      $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
-     *
-     * @access public
      */
     public static function getList(
         DatabaseInterface $dbi,
@@ -356,8 +348,6 @@ class Bookmark
      * @param bool              $exact_user_match    whether to ignore bookmarks with no user
      *
      * @return Bookmark|null the bookmark
-     *
-     * @access public
      */
     public static function get(
         DatabaseInterface $dbi,

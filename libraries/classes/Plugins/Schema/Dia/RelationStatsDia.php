@@ -90,8 +90,6 @@ class RelationStatsDia
      * @param string        $column The relation column name
      *
      * @return array Table right,left connection points and key position
-     *
-     * @access private
      */
     private function getXy($table, $column)
     {
@@ -131,8 +129,6 @@ class RelationStatsDia
      *                        this
      *
      * @return bool|void
-     *
-     * @access public
      */
     public function relationDraw($showColor)
     {

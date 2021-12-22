@@ -32,49 +32,28 @@ use const E_USER_ERROR;
  */
 class Theme
 {
-    /**
-     * @var string theme version
-     * @access protected
-     */
+    /** @var string theme version */
     public $version = '0.0.0.0';
 
-    /**
-     * @var string theme name
-     * @access protected
-     */
+    /** @var string theme name */
     public $name = '';
 
-    /**
-     * @var string theme id
-     * @access protected
-     */
+    /** @var string theme id */
     public $id = '';
 
-    /**
-     * @var string theme path
-     * @access protected
-     */
+    /** @var string theme path */
     public $path = '';
 
     /** @var string file system theme path */
     private $fsPath = '';
 
-    /**
-     * @var string image path as an URL
-     * @access protected
-     */
+    /** @var string image path as an URL */
     public $imgPath = '';
 
-    /**
-     * @var string image path on the file-system
-     * @access protected
-     */
+    /** @var string image path on the file-system */
     public $imgPathFs = '';
 
-    /**
-     * @var int last modification time for info file
-     * @access protected
-     */
+    /** @var int last modification time for info file */
     public $mtimeInfo = 0;
 
     /**
@@ -82,14 +61,11 @@ class Theme
      * is identical
      *
      * @var int filesize for info file
-     * @access protected
      */
     public $filesizeInfo = 0;
 
     /**
      * Loads theme information
-     *
-     * @access public
      */
     public function loadInfo(): bool
     {
@@ -163,8 +139,6 @@ class Theme
 
     /**
      * checks image path for existence - if not found use img from fallback theme
-     *
-     * @access public
      */
     public function checkImgPath(): bool
     {
@@ -204,8 +178,6 @@ class Theme
      * returns path to theme
      *
      * @return string path to theme
-     *
-     * @access public
      */
     public function getPath()
     {
@@ -226,8 +198,6 @@ class Theme
      * set path to theme
      *
      * @param string $path path to theme
-     *
-     * @access public
      */
     public function setPath($path): void
     {
@@ -248,8 +218,6 @@ class Theme
      * sets version
      *
      * @param string $version version to set
-     *
-     * @access public
      */
     public function setVersion($version): void
     {
@@ -260,8 +228,6 @@ class Theme
      * returns version
      *
      * @return string version
-     *
-     * @access public
      */
     public function getVersion()
     {
@@ -273,8 +239,6 @@ class Theme
      * returns true if theme version is equal or higher to $version
      *
      * @param string $version version to compare to
-     *
-     * @access public
      */
     public function checkVersion($version): bool
     {
@@ -285,8 +249,6 @@ class Theme
      * sets name
      *
      * @param string $name name to set
-     *
-     * @access public
      */
     public function setName($name): void
     {
@@ -297,8 +259,6 @@ class Theme
      * returns name
      *
      * @return string name
-     *
-     * @access public
      */
     public function getName()
     {
@@ -309,8 +269,6 @@ class Theme
      * sets id
      *
      * @param string $id new id
-     *
-     * @access public
      */
     public function setId($id): void
     {
@@ -321,8 +279,6 @@ class Theme
      * returns id
      *
      * @return string id
-     *
-     * @access public
      */
     public function getId()
     {
@@ -333,8 +289,6 @@ class Theme
      * Sets path to images for the theme
      *
      * @param string $path path to images for this theme as an URL path
-     *
-     * @access public
      */
     public function setImgPath($path): void
     {
@@ -360,8 +314,6 @@ class Theme
      * @param string $fallback fallback image
      *
      * @return string image path for this theme
-     *
-     * @access public
      */
     public function getImgPath($file = null, $fallback = null)
     {

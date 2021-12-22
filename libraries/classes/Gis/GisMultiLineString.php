@@ -28,8 +28,6 @@ class GisMultiLineString extends GisGeometry
 
     /**
      * A private constructor; prevents direct creation of object.
-     *
-     * @access private
      */
     private function __construct()
     {
@@ -39,8 +37,6 @@ class GisMultiLineString extends GisGeometry
      * Returns the singleton.
      *
      * @return GisMultiLineString the singleton
-     *
-     * @access public
      */
     public static function singleton()
     {
@@ -57,8 +53,6 @@ class GisMultiLineString extends GisGeometry
      * @param string $spatial spatial data of a row
      *
      * @return array an array containing the min, max values for x and y coordinates
-     *
-     * @access public
      */
     public function scaleRow($spatial)
     {
@@ -151,8 +145,6 @@ class GisMultiLineString extends GisGeometry
      * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
-     *
-     * @access public
      */
     public function prepareRowAsPdf($spatial, ?string $label, $line_color, array $scale_data, $pdf)
     {
@@ -211,8 +203,6 @@ class GisMultiLineString extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
-     *
-     * @access public
      */
     public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
@@ -261,8 +251,6 @@ class GisMultiLineString extends GisGeometry
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
-     *
-     * @access public
      */
     public function prepareRowAsOl($spatial, int $srid, $label, $line_color, array $scale_data)
     {
@@ -306,8 +294,6 @@ class GisMultiLineString extends GisGeometry
      * @param string|null $empty    Value for empty points
      *
      * @return string WKT with the set of parameters passed by the GIS editor
-     *
-     * @access public
      */
     public function generateWkt(array $gis_data, $index, $empty = '')
     {
@@ -350,8 +336,6 @@ class GisMultiLineString extends GisGeometry
      * @param array $row_data GIS data
      *
      * @return string the WKT for the data from ESRI shape files
-     *
-     * @access public
      */
     public function getShape(array $row_data)
     {
@@ -378,8 +362,6 @@ class GisMultiLineString extends GisGeometry
      * @param int    $index Index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
-     *
-     * @access public
      */
     public function generateParams($value, $index = -1)
     {

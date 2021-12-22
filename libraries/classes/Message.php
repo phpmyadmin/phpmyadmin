@@ -74,7 +74,6 @@ class Message implements Stringable
     /**
      * The message number
      *
-     * @access protected
      * @var int
      */
     protected $number = self::NOTICE;
@@ -82,7 +81,6 @@ class Message implements Stringable
     /**
      * The locale string identifier
      *
-     * @access protected
      * @var    string
      */
     protected $string = '';
@@ -90,7 +88,6 @@ class Message implements Stringable
     /**
      * The formatted message
      *
-     * @access protected
      * @var    string
      */
     protected $message = '';
@@ -98,7 +95,6 @@ class Message implements Stringable
     /**
      * Whether the message was already displayed
      *
-     * @access protected
      * @var bool
      */
     protected $isDisplayed = false;
@@ -106,7 +102,6 @@ class Message implements Stringable
     /**
      * Whether to use BB code when displaying.
      *
-     * @access protected
      * @var bool
      */
     protected $useBBCode = true;
@@ -114,7 +109,6 @@ class Message implements Stringable
     /**
      * Unique id
      *
-     * @access protected
      * @var string
      */
     protected $hash = null;
@@ -122,7 +116,6 @@ class Message implements Stringable
     /**
      * holds parameters
      *
-     * @access protected
      * @var    array
      */
     protected $params = [];
@@ -130,7 +123,6 @@ class Message implements Stringable
     /**
      * holds additional messages
      *
-     * @access protected
      * @var    array
      */
     protected $addedMessages = [];
@@ -599,7 +591,6 @@ class Message implements Stringable
      *
      * @return mixed  the sanitized message(s)
      *
-     * @access public
      * @static
      */
     public static function sanitize($message)
@@ -623,7 +614,6 @@ class Message implements Stringable
      *
      * @return string  the decoded message
      *
-     * @access public
      * @static
      */
     public static function decodeBB(string $message): string

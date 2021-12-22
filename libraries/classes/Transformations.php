@@ -109,7 +109,6 @@ class Transformations
      * @return array    array[mimetype], array[transformation]
      *
      * @staticvar array $stack
-     * @access public
      */
     public function getAvailableMimeTypes(): array
     {
@@ -280,8 +279,6 @@ class Transformations
      * @param bool   $fullName whether to use full column names as the key
      *
      * @return array|null [field_name][field_key] = field_value
-     *
-     * @access public
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
@@ -352,8 +349,6 @@ class Transformations
      * @param string $inputTransformOpts the input transformation options of the column
      * @param bool   $forcedelete        force delete, will erase any existing
      *                                   comments for this column
-     *
-     * @access public
      */
     public function setMime(
         $db,

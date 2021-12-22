@@ -21,8 +21,6 @@ use function strlen;
  * helps in developing structure of SVG Schema Export
  *
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
- *
- * @access  public
  */
 class Svg extends XMLWriter
 {

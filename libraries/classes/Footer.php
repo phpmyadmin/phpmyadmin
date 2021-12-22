@@ -28,14 +28,12 @@ class Footer
     /**
      * Scripts instance
      *
-     * @access private
      * @var Scripts
      */
     private $scripts;
     /**
      * Whether we are servicing an ajax request.
      *
-     * @access private
      * @var bool
      */
     private $isAjax;
@@ -43,14 +41,12 @@ class Footer
      * Whether to only close the BODY and HTML tags
      * or also include scripts, errors and links
      *
-     * @access private
      * @var bool
      */
     private $isMinimal;
     /**
      * Whether to display anything
      *
-     * @access private
      * @var bool
      */
     private $isEnabled;

@@ -36,8 +36,6 @@ if (getcwd() == __DIR__) {
  * in developing the structure of PDF Schema Export
  *
  * @see     TCPDF
- *
- * @access  public
  */
 class Pdf extends PdfLib
 {
@@ -92,8 +90,6 @@ class Pdf extends PdfLib
      * @param int    $pageNumber  schema page number that is being exported
      * @param bool   $withDoc     with document dictionary
      * @param string $db          the database name
-     *
-     * @access public
      */
     public function __construct(
         $orientation,
@@ -436,8 +432,6 @@ class Pdf extends PdfLib
      * Set whether the document is generated from client side DB
      *
      * @param bool $value whether offline
-     *
-     * @access private
      */
     public function setOffline($value): void
     {

@@ -79,8 +79,6 @@ class Import
 
     /**
      * Checks whether timeout is getting close
-     *
-     * @access public
      */
     public function checkTimeout(): bool
     {
@@ -111,8 +109,6 @@ class Import
      * @param string $sql     query to run
      * @param string $full    query to display, this might be commented
      * @param array  $sqlData SQL parse data storage
-     *
-     * @access public
      */
     public function executeQuery(string $sql, string $full, array &$sqlData): void
     {
@@ -189,8 +185,6 @@ class Import
      * @param string $sql     query to run
      * @param string $full    query to display, this might be commented
      * @param array  $sqlData SQL parse data storage
-     *
-     * @access public
      */
     public function runQuery(
         string $sql = '',
@@ -328,8 +322,6 @@ class Import
      * @param bool   $reload reload
      *
      * @return array (current or new db, whether to reload)
-     *
-     * @access public
      */
     public function lookForUse(?string $buffer, ?string $db, ?bool $reload): array
     {
@@ -476,8 +468,6 @@ class Import
      * @param int $num the column number
      *
      * @return string The column's "Excel" name
-     *
-     * @access public
      */
     public function getColumnAlphaName(int $num): string
     {
@@ -524,8 +514,6 @@ class Import
      * @param string $name column name(i.e. "A", or "BC", etc.)
      *
      * @return int The column number
-     *
-     * @access public
      */
     public function getColumnNumberFromName(string $name): int
     {
@@ -561,8 +549,6 @@ class Import
      * @param string $lastCumulativeSize Size of type decimal
      *
      * @return int Precision of the given decimal size notation
-     *
-     * @access public
      */
     public function getDecimalPrecision(string $lastCumulativeSize): int
     {
@@ -580,8 +566,6 @@ class Import
      * @param string $lastCumulativeSize Size of type decimal
      *
      * @return int Scale of the given decimal size notation
-     *
-     * @access public
      */
     public function getDecimalScale(string $lastCumulativeSize): int
     {
@@ -599,8 +583,6 @@ class Import
      *
      * @return array Contains the precision, scale, and full size
      *                representation of the given decimal cell
-     *
-     * @access public
      */
     public function getDecimalSize(string $cell): array
     {
@@ -628,7 +610,6 @@ class Import
      *
      * @return string|int Size of the given cell in the type-appropriate format
      *
-     * @access public
      * @todo    Handle the error cases more elegantly
      */
     public function detectSize(
@@ -855,8 +836,6 @@ class Import
      *
      * @return int  The MySQL type representation
      *               (VARCHAR or INT or BIGINT or DECIMAL or NONE)
-     *
-     * @access public
      */
     public function detectType(?int $lastCumulativeType, ?string $cell): int
     {
@@ -905,7 +884,6 @@ class Import
      *
      * @return array|bool array(array $types, array $sizes)
      *
-     * @access public
      * @todo    Handle the error case more elegantly
      */
     public function analyzeTable(array &$table)
@@ -1006,8 +984,6 @@ class Import
      * @param array|null $additionalSql Additional SQL statements to be executed
      * @param array|null $options       Associative array of options
      * @param array      $sqlData       2-element array with sql data
-     *
-     * @access public
      */
     public function buildSql(
         string $dbName,

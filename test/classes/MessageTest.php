@@ -13,17 +13,12 @@ use function md5;
  */
 class MessageTest extends AbstractTestCase
 {
-    /**
-     * @var Message
-     * @access protected
-     */
+    /** @var Message */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {

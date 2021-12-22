@@ -92,8 +92,6 @@ class CentralColumns
      * Defines the central_columns parameters for the current user
      *
      * @return array|bool the central_columns parameters for the current user
-     *
-     * @access public
      */
     public function getParams()
     {

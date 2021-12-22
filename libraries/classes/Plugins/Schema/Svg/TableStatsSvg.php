@@ -95,8 +95,6 @@ class TableStatsSvg extends TableStats
      *
      * @param string $font     The font size
      * @param int    $fontSize The font size
-     *
-     * @access private
      */
     private function setWidthTable($font, $fontSize): void
     {
@@ -135,8 +133,6 @@ class TableStatsSvg extends TableStats
      * @see Svg::printElement
      *
      * @param bool $showColor Whether to display color
-     *
-     * @access public
      */
     public function tableDraw($showColor): void
     {

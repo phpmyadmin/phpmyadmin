@@ -249,8 +249,6 @@ class Results
      * @param int    $server   the server id
      * @param string $goto     the URL to go back in case of errors
      * @param string $sqlQuery the SQL query
-     *
-     * @access public
      */
     public function __construct($db, $table, $server, $goto, $sqlQuery)
     {
@@ -444,8 +442,6 @@ class Results
      * @param array $displayParts the parts to display
      *
      * @return array the modified display parts
-     *
-     * @access private
      */
     private function setDisplayPartsForPrintView(array $displayParts)
     {
@@ -467,8 +463,6 @@ class Results
      * @param array $displayParts the parts to display
      *
      * @return array the modified display parts
-     *
-     * @access private
      */
     private function setDisplayPartsForShow(array $displayParts)
     {
@@ -515,8 +509,6 @@ class Results
      * @param array $displayParts the parts to display
      *
      * @return array the modified display parts
-     *
-     * @access private
      */
     private function setDisplayPartsForNonData(array $displayParts)
     {
@@ -546,8 +538,6 @@ class Results
      * @param array $displayParts the parts to display
      *
      * @return array the modified display parts
-     *
-     * @access private
      */
     private function setDisplayPartsForSelect(array $displayParts)
     {
@@ -617,8 +607,6 @@ class Results
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     *
-     * @access private
      */
     private function setDisplayPartsAndTotal(array $displayParts)
     {
@@ -693,8 +681,6 @@ class Results
      * @see getTableHeaders(), getColumnParams()
      *
      * @param array $analyzedSqlResults analyzed sql results
-     *
-     * @access private
      */
     private function isSelect(array $analyzedSqlResults): bool
     {
@@ -724,8 +710,6 @@ class Results
      * @param string $onclick         optional onclick clause
      *
      * @return string                     html content
-     *
-     * @access private
      */
     private function getTableNavigationButton(
         $caption,
@@ -775,8 +759,6 @@ class Results
      * Possibly return a page selector for table navigation
      *
      * @return array ($output, $nbTotalPage)
-     *
-     * @access private
      */
     private function getHtmlPageSelector(): array
     {
@@ -903,8 +885,6 @@ class Results
      * @param int    $posPrev      the offset for the "previous" page
      *
      * @return string                 html content
-     *
-     * @access private
      */
     private function getMoveBackwardButtonsForTableNavigation(
         $htmlSqlQuery,
@@ -936,8 +916,6 @@ class Results
      * @param bool   $isInnodb     whether it's InnoDB or not
      *
      * @return string   html content
-     *
-     * @access private
      */
     private function getMoveForwardButtonsForTableNavigation(
         $htmlSqlQuery,
@@ -1003,8 +981,6 @@ class Results
      * @param string $unsortedSqlQuery          query without the sort part
      *
      * @return string html content
-     *
-     * @access private
      */
     private function getTableHeadersForColumns(
         array $displayParts,
@@ -1200,8 +1176,6 @@ class Results
      * @param array|null $sortExpression     sort expression
      *
      * @return array     two element array - $unsorted_sql_query, $drop_down_html
-     *
-     * @access private
      */
     private function getUnsortedSqlAndSortByKeyDropDown(
         array $analyzedSqlResults,
@@ -1321,8 +1295,6 @@ class Results
      * @param string $fullOrPartialTextLink full/partial link or text button
      *
      * @return array 2 element array - $colspan, $button_html
-     *
-     * @access private
      */
     private function getFieldVisibilityParams(
         array &$displayParts,
@@ -1390,8 +1362,6 @@ class Results
      * @param array $analyzedSqlResults analyzed sql results
      *
      * @return array table comments
-     *
-     * @access private
      */
     private function getTableCommentsArray(array $analyzedSqlResults)
     {
@@ -1420,8 +1390,6 @@ class Results
      * @see getTableHeaders()
      *
      * @param array $analyzedSqlResults analyzed sql results
-     *
-     * @access private
      */
     private function setHighlightedColumnGlobalField(array $analyzedSqlResults): void
     {
@@ -1509,8 +1477,6 @@ class Results
      * @see getTableHeaders()
      *
      * @return string html content
-     *
-     * @access private
      */
     private function getFullOrPartialTextButtonOrLink()
     {
@@ -1552,8 +1518,6 @@ class Results
      * @param FieldMetadata $fieldsMeta  set of field properties
      *
      * @return string html content
-     *
-     * @access private
      */
     private function getCommentForRow(array $commentsMap, FieldMetadata $fieldsMeta)
     {
@@ -1581,8 +1545,6 @@ class Results
      * @param string        $colVisibElement           element of $col_visib array
      *
      * @return array   2 element array - $orderLink, $sortedHeaderHtml
-     *
-     * @access private
      */
     private function getOrderLinkAndSortedHeaderHtml(
         FieldMetadata $fieldsMeta,
@@ -1688,8 +1650,6 @@ class Results
      * @param FieldMetadata $fieldsMeta                set of field properties
      *
      * @return array   3 element array - $single_sort_order, $sort_order, $order_img
-     *
-     * @access private
      */
     private function getSingleAndMultiSortUrls(
         array $sortExpression,
@@ -1812,8 +1772,6 @@ class Results
      * @param array  $sortExpressionNoDirection sort expression without direction
      * @param string $sortTable                 the table name
      * @param string $nameToUseInSort           the sorting column name
-     *
-     * @access private
      */
     private function isInSorted(
         array $sortExpression,
@@ -1889,8 +1847,6 @@ class Results
      * @param int    $index         the index of sort direction array.
      *
      * @return array                  2 element array - $sort_order, $order_img
-     *
-     * @access private
      */
     private function getSortingUrlParams(array $sortDirection, $sortOrder, $index)
     {
@@ -1949,8 +1905,6 @@ class Results
      * @param string        $multiOrderUrl the url for sort
      *
      * @return string the sort order link
-     *
-     * @access private
      */
     private function getSortOrderLink(
         $orderImg,
@@ -2076,8 +2030,6 @@ class Results
      * @param string $colspan               column span of table header
      *
      * @return string  html content
-     *
-     * @access private
      */
     private function getColumnAtRightSide(
         array &$displayParts,
@@ -2136,8 +2088,6 @@ class Results
      * @param string $value          value to display
      *
      * @return string  the td
-     *
-     * @access private
      */
     private function buildValueDisplay($class, $conditionField, $value)
     {
@@ -2161,8 +2111,6 @@ class Results
      * @param string        $align          cell alignment
      *
      * @return string  the td
-     *
-     * @access private
      */
     private function buildNullDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
     {
@@ -2189,8 +2137,6 @@ class Results
      * @param string        $align          cell alignment
      *
      * @return string  the td
-     *
-     * @access private
      */
     private function buildEmptyDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
     {
@@ -2283,7 +2229,6 @@ class Results
      * @return string  html content
      *
      * @global array  $row                  current row data
-     * @access private
      */
     private function getTableBody(
         &$dtResult,
@@ -2604,8 +2549,6 @@ class Results
      * @param array             $analyzedSqlResults analyzed sql results
      *
      * @return string  html content
-     *
-     * @access private
      */
     private function getRowValues(
         array $row,
@@ -2943,8 +2886,6 @@ class Results
      * @param array $analyzedSqlResults analyzed sql results
      *
      * @return string analyzed sql query
-     *
-     * @access private
      */
     private function getUrlSqlQuery(array $analyzedSqlResults)
     {
@@ -2975,8 +2916,6 @@ class Results
      * @param array $analyzedSqlResults analyzed sql results
      *
      * @return array 2 element array - $col_order, $col_visib
-     *
-     * @access private
      */
     private function getColumnParams(array $analyzedSqlResults)
     {
@@ -3016,8 +2955,6 @@ class Results
      * @param array $displayParams holds various display info
      *
      * @return string html content
-     *
-     * @access private
      */
     private function getRepeatingHeaders(
         array $displayParams
@@ -3058,8 +2995,6 @@ class Results
      *
      * @return array<int,string>       5 element array - $edit_url, $copy_url,
      *                                                   $edit_str, $copy_str
-     *
-     * @access private
      */
     private function getModifiedLinks(
         $whereClause,
@@ -3115,8 +3050,6 @@ class Results
      *
      * @return array                    3 element array
      *                                  $del_url, $del_str, $js_conf
-     *
-     * @access private
      */
     private function getDeleteAndKillLinks(
         $whereClause,
@@ -3203,8 +3136,6 @@ class Results
      * @param string $displayText The text displaying after the image icon
      *
      * @return string
-     *
-     * @access private
      */
     private function getActionLinkContent($icon, $displayText)
     {
@@ -3241,8 +3172,6 @@ class Results
      * @param string $fieldTypeClass the class related to type of the field
      *
      * @return string the combined classes
-     *
-     * @access private
      */
     private function getClassesForColumn(
         string $gridEditClass,
@@ -3263,8 +3192,6 @@ class Results
      * @param FieldMetadata $meta the type of the column field
      *
      * @return string   the class for the column
-     *
-     * @access private
      */
     private function getClassForDateTimeRelatedFields(FieldMetadata $meta): string
     {
@@ -3619,7 +3546,6 @@ class Results
      * @todo    move/split into SQL class!?
      * @todo    currently this is called twice unnecessary
      * @todo    ignore LIMIT and ORDER in query!?
-     * @access public
      */
     public function setConfigParamsForDisplayTable(): void
     {
@@ -3757,8 +3683,6 @@ class Results
      * @param bool  $isLimitedDisplay   With limited operations or not
      *
      * @return string   Generated HTML content for resulted table
-     *
-     * @access public
      */
     public function getTable(
         &$dtResult,
@@ -3972,8 +3896,6 @@ class Results
      * @see    getTable()
      *
      * @return int[] array with two elements - $pos_next, $pos_prev
-     *
-     * @access private
      */
     private function getOffsets()
     {
@@ -4006,8 +3928,6 @@ class Results
      * @param string $sortExpressionNoDirection sort expression without direction
      *
      * @return string|null html content, null if not found sorted column
-     *
-     * @access private
      */
     private function getSortedColumnMessage(
         &$dtResult,
@@ -4125,8 +4045,6 @@ class Results
      * @param string $afterCount          the string renders after row count
      *
      * @return Message an object of Message
-     *
-     * @access private
      */
     private function setMessageInformation(
         string $sortedColumnMessage,
@@ -4217,8 +4135,6 @@ class Results
      * @see      getTable()
      *
      * @param array $map the list of relations
-     *
-     * @access private
      */
     private function setParamForLinkForeignKeyRelatedTables(array &$map): void
     {
@@ -4434,8 +4350,6 @@ class Results
      * @param bool          $isTruncated      the result is truncated or not
      *
      * @return mixed  string or float
-     *
-     * @access private
      */
     private function handleNonPrintableContents(
         $category,
@@ -4531,8 +4445,6 @@ class Results
      * @param string        $whereComparison data for the where clause
      *
      * @return string|null  formatted data
-     *
-     * @access private
      */
     private function getFromForeign(array $map, FieldMetadata $meta, $whereComparison)
     {
@@ -4582,8 +4494,6 @@ class Results
      * @param string        $originalLength     of a truncated column, or ''
      *
      * @return string  formatted data
-     *
-     * @access private
      */
     private function getRowData(
         $class,
@@ -4719,8 +4629,6 @@ class Results
      * @param string $str string to be truncated
      *
      * @return array
-     *
-     * @access private
      */
     private function getPartialText($str): array
     {

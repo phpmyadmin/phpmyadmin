@@ -153,8 +153,6 @@ class Core
      * @param string $target anchor in documentation
      *
      * @return string  the URL
-     *
-     * @access public
      */
     public static function getPHPDocLink(string $target): string
     {
@@ -784,8 +782,6 @@ class Core
      * Gets the "true" IP address of the current user
      *
      * @return string|bool the ip of the user
-     *
-     * @access private
      */
     public static function getIp()
     {

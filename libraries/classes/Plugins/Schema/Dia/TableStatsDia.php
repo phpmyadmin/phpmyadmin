@@ -84,8 +84,6 @@ class TableStatsDia extends TableStats
      *                        if showColor is true then an array of $listOfColors
      *                        will be used to choose the random colors for tables
      *                        text we can change/add more colors to this array
-     *
-     * @access public
      */
     public function tableDraw($showColor): void
     {

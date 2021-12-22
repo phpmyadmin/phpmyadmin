@@ -68,7 +68,6 @@ abstract class TestBase extends TestCase
     /**
      * Name of database for the test
      *
-     * @access public
      * @var string
      */
     public $databaseName;

@@ -2008,8 +2008,6 @@ class Table implements Stringable
      * Get all column names which are MySQL reserved words
      *
      * @return array
-     *
-     * @access public
      */
     public function getReservedColumnNames()
     {

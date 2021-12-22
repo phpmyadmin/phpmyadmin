@@ -149,8 +149,6 @@ class ExportRelationSchema
      * Set Show only keys
      *
      * @param bool $value show only keys or not
-     *
-     * @access public
      */
     public function setShowKeys(bool $value): void
     {
@@ -169,8 +167,6 @@ class ExportRelationSchema
      * Set Orientation
      *
      * @param string $value Orientation will be portrait or landscape
-     *
-     * @access public
      */
     public function setOrientation(string $value): void
     {
@@ -191,8 +187,6 @@ class ExportRelationSchema
      * Set type of paper
      *
      * @param string $value paper type can be A4 etc
-     *
-     * @access public
      */
     public function setPaper(string $value): void
     {
@@ -213,8 +207,6 @@ class ExportRelationSchema
      * Set whether the document is generated from client side DB
      *
      * @param bool $value offline or not
-     *
-     * @access public
      */
     public function setOffline(bool $value): void
     {
@@ -223,8 +215,6 @@ class ExportRelationSchema
 
     /**
      * Returns whether the client side database is used
-     *
-     * @access public
      */
     public function isOffline(): bool
     {
@@ -282,8 +272,6 @@ class ExportRelationSchema
      * @param int    $pageNumber    ID of the chosen page
      * @param string $type          Schema Type
      * @param string $error_message The error message
-     *
-     * @access public
      */
     public static function dieSchema($pageNumber, $type = '', $error_message = ''): void
     {

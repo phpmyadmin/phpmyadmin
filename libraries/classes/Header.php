@@ -32,70 +32,60 @@ class Header
     /**
      * Scripts instance
      *
-     * @access private
      * @var Scripts
      */
     private $scripts;
     /**
      * PhpMyAdmin\Console instance
      *
-     * @access private
      * @var Console
      */
     private $console;
     /**
      * Menu instance
      *
-     * @access private
      * @var Menu
      */
     private $menu;
     /**
      * Whether to offer the option of importing user settings
      *
-     * @access private
      * @var bool
      */
     private $userprefsOfferImport;
     /**
      * The page title
      *
-     * @access private
      * @var string
      */
     private $title;
     /**
      * The value for the id attribute for the body tag
      *
-     * @access private
      * @var string
      */
     private $bodyId;
     /**
      * Whether to show the top menu
      *
-     * @access private
      * @var bool
      */
     private $menuEnabled;
     /**
      * Whether to show the warnings
      *
-     * @access private
      * @var bool
      */
     private $warningsEnabled;
     /**
      * Whether we are servicing an ajax request.
      *
-     * @access private
      * @var bool
      */
     private $isAjax;
     /**
      * Whether to display anything
      *
-     * @access private
      * @var bool
      */
     private $isEnabled;
@@ -103,7 +93,6 @@ class Header
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      *
-     * @access private
      * @var bool
      */
     private $headerIsSent;

@@ -25,8 +25,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
     /**
      * Sets up the fixture.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -46,8 +44,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
     /**
      * Tears down the fixture.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {

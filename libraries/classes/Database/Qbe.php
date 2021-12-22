@@ -48,189 +48,162 @@ class Qbe
     /**
      * Database name
      *
-     * @access private
      * @var string
      */
     private $db;
     /**
      * Table Names (selected/non-selected)
      *
-     * @access private
      * @var array
      */
     private $criteriaTables;
     /**
      * Column Names
      *
-     * @access private
      * @var array
      */
     private $columnNames;
     /**
      * Number of columns
      *
-     * @access private
      * @var int
      */
     private $criteriaColumnCount;
     /**
      * Number of Rows
      *
-     * @access private
      * @var int
      */
     private $criteriaRowCount;
     /**
      * Whether to insert a new column
      *
-     * @access private
      * @var array|null
      */
     private $criteriaColumnInsert;
     /**
      * Whether to delete a column
      *
-     * @access private
      * @var array|null
      */
     private $criteriaColumnDelete;
     /**
      * Whether to insert a new row
      *
-     * @access private
      * @var array
      */
     private $criteriaRowInsert;
     /**
      * Whether to delete a row
      *
-     * @access private
      * @var array
      */
     private $criteriaRowDelete;
     /**
      * Already set criteria values
      *
-     * @access private
      * @var array
      */
     private $criteria;
     /**
      * Previously set criteria values
      *
-     * @access private
      * @var array
      */
     private $prevCriteria;
     /**
      * AND/OR relation b/w criteria columns
      *
-     * @access private
      * @var array
      */
     private $criteriaAndOrColumn;
     /**
      * AND/OR relation b/w criteria rows
      *
-     * @access private
      * @var array
      */
     private $criteriaAndOrRow;
     /**
      * Large width of a column
      *
-     * @access private
      * @var string
      */
     private $realwidth;
     /**
      * Minimum width of a column
      *
-     * @access private
      * @var int
      */
     private $formColumnWidth;
     /**
      * Selected columns in the form
      *
-     * @access private
      * @var array
      */
     private $formColumns;
     /**
      * Entered aliases in the form
      *
-     * @access private
      * @var array
      */
     private $formAliases;
     /**
      * Chosen sort options in the form
      *
-     * @access private
      * @var array
      */
     private $formSorts;
     /**
      * Chosen sort orders in the form
      *
-     * @access private
      * @var array
      */
     private $formSortOrders;
     /**
      * Show checkboxes in the form
      *
-     * @access private
      * @var array
      */
     private $formShows;
     /**
      * Entered criteria values in the form
      *
-     * @access private
      * @var array
      */
     private $formCriterions;
     /**
      * AND/OR column radio buttons in the form
      *
-     * @access private
      * @var array
      */
     private $formAndOrCols;
     /**
      * AND/OR row radio buttons in the form
      *
-     * @access private
      * @var array
      */
     private $formAndOrRows;
     /**
      * New column count in case of add/delete
      *
-     * @access private
      * @var int
      */
     private $newColumnCount;
     /**
      * New row count in case of add/delete
      *
-     * @access private
      * @var int
      */
     private $newRowCount;
     /**
      * List of saved searches
      *
-     * @access private
      * @var array
      */
     private $savedSearchList = null;
     /**
      * Current search
      *
-     * @access private
      * @var SavedSearches|null
      */
     private $currentSearch = null;

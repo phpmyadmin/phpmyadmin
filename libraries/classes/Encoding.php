@@ -171,8 +171,6 @@ class Encoding
      * @param string $what         what to convert
      *
      * @return string   converted text
-     *
-     * @access public
      */
     public static function convertString(
         string $src_charset,

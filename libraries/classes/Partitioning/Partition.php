@@ -141,8 +141,6 @@ class Partition extends SubPartition
      * @param string $table table name
      *
      * @return Partition[]
-     *
-     * @access public
      */
     public static function getPartitions($db, $table)
     {
@@ -190,8 +188,6 @@ class Partition extends SubPartition
      * @param string $table table name
      *
      * @return array   of partition names
-     *
-     * @access public
      */
     public static function getPartitionNames($db, $table)
     {
@@ -241,7 +237,6 @@ class Partition extends SubPartition
      * @static
      * @staticvar bool $have_partitioning
      * @staticvar bool $already_checked
-     * @access public
      */
     public static function havePartitioning(): bool
     {

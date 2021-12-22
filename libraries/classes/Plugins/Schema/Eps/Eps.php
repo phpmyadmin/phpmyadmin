@@ -17,8 +17,6 @@ use function strlen;
  * helps in developing structure of EPS Schema Export
  *
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
- *
- * @access  public
  */
 class Eps
 {

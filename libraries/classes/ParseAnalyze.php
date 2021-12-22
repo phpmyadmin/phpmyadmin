@@ -24,8 +24,6 @@ class ParseAnalyze
      * @param string $db       the current database
      *
      * @return array
-     *
-     * @access public
      */
     public static function sqlQuery($sqlQuery, $db)
     {

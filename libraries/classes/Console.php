@@ -22,7 +22,6 @@ class Console
     /**
      * Whether to display anything
      *
-     * @access private
      * @var bool
      */
     private $isEnabled;
@@ -30,7 +29,6 @@ class Console
     /**
      * Whether we are servicing an ajax request.
      *
-     * @access private
      * @var bool
      */
     private $isAjax;
@@ -74,8 +72,6 @@ class Console
 
     /**
      * Renders the bookmark content
-     *
-     * @access public
      */
     public static function getBookmarkContent(): string
     {
@@ -120,8 +116,6 @@ class Console
 
     /**
      * Renders the console
-     *
-     * @access public
      */
     public function getDisplay(): string
     {

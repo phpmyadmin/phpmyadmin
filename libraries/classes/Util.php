@@ -121,8 +121,6 @@ class Util
      * @param int|float|string $maxUploadSize the size
      *
      * @return string the message
-     *
-     * @access public
      */
     public static function getFormattedMaximumUploadSize($maxUploadSize): string
     {
@@ -141,8 +139,6 @@ class Util
      * @param string $name the string to escape
      *
      * @return string the escaped string
-     *
-     * @access public
      */
     public static function escapeMysqlWildcards($name): string
     {
@@ -156,8 +152,6 @@ class Util
      * @param string $name the string to escape
      *
      * @return string the escaped string
-     *
-     * @access public
      */
     public static function unescapeMysqlWildcards($name): string
     {
@@ -206,8 +200,6 @@ class Util
      * @param string $anchor anchor to page part
      *
      * @return string  the URL link
-     *
-     * @access public
      */
     public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
@@ -448,8 +440,6 @@ class Util
      * @param int                   $comma the number of decimals to retain
      *
      * @return array|null the formatted value and its unit
-     *
-     * @access public
      */
     public static function formatByteDown($value, $limes = 6, $comma = 0): ?array
     {
@@ -530,8 +520,6 @@ class Util
      * @param bool             $noTrailingZero removes trailing zeros right of the comma (default: true)
      *
      * @return string   the formatted value and its unit
-     *
-     * @access public
      */
     public static function formatNumber(
         $value,
@@ -668,8 +656,6 @@ class Util
      * @param string $format    format
      *
      * @return string   the formatted date
-     *
-     * @access public
      */
     public static function localisedDate($timestamp = -1, $format = '')
     {
@@ -828,8 +814,6 @@ class Util
      * @param string[] $params  The names of the parameters needed by the calling
      *                          script
      * @param bool     $request Check parameters in request
-     *
-     * @access public
      */
     public static function checkParameters($params, $request = false): void
     {
@@ -1105,8 +1089,6 @@ class Util
      * @param int    $range       Near the current page, how many pages should
      *                            be considered "nearby" and displayed as well?
      * @param string $prompt      The prompt to display (sometimes empty)
-     *
-     * @access public
      */
     public static function pageselector(
         $name,
@@ -1247,8 +1229,6 @@ class Util
      * @param int $maxCount number of items per page
      *
      * @return int $page_num
-     *
-     * @access public
      */
     public static function getPageFromPosition($pos, $maxCount)
     {

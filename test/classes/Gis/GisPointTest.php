@@ -13,17 +13,12 @@ use TCPDF;
  */
 class GisPointTest extends GisGeomTestCase
 {
-    /**
-     * @var    GisPoint
-     * @access protected
-     */
+    /** @var    GisPoint */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @access protected
      */
     protected function setUp(): void
     {
@@ -34,8 +29,6 @@ class GisPointTest extends GisGeomTestCase
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @access protected
      */
     protected function tearDown(): void
     {

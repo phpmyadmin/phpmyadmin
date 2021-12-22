@@ -69,8 +69,6 @@ class Generator
      * @param string $text Text to copy to clipboard
      *
      * @return string  the html link
-     *
-     * @access public
      */
     public static function showCopyToClipboard(string $text): string
     {
@@ -103,8 +101,6 @@ class Generator
      * Returns HTML code for a tooltip
      *
      * @param string $message the message for the tooltip
-     *
-     * @access public
      */
     public static function showHint(string $message): string
     {
@@ -510,8 +506,6 @@ class Generator
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     *
-     * @access public
      */
     public static function getMessage(
         $message,
@@ -769,8 +763,6 @@ class Generator
      * @param string $target anchor in documentation
      *
      * @return string  the html link
-     *
-     * @access public
      */
     public static function showPHPDocumentation($target): string
     {
@@ -785,8 +777,6 @@ class Generator
      * @param bool   $bbcode optional flag indicating whether to output bbcode
      *
      * @return string the html link
-     *
-     * @access public
      */
     public static function showDocumentationLink($link, $target = 'documentation', $bbcode = false): string
     {
@@ -813,8 +803,6 @@ class Generator
      *
      * @global string $table The current table.
      * @global string $db    The current database.
-     *
-     * @access public
      */
     public static function mysqlDie(
         $serverMessage = '',
@@ -1159,8 +1147,6 @@ class Generator
      *
      * @return string the  html content
      *
-     * @access public
-     *
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
@@ -1214,8 +1200,6 @@ class Generator
      * @return string the formatted sql
      *
      * @global array  $cfg the configuration array
-     *
-     * @access public
      */
     public static function formatSql($sqlQuery, $truncate = false): string
     {

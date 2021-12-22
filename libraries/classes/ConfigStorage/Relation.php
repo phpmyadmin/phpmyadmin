@@ -70,8 +70,6 @@ class Relation
      * @param int    $options    query options
      *
      * @return mixed|bool the result set, or false if no result set
-     *
-     * @access public
      */
     public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
@@ -381,8 +379,6 @@ class Relation
     /**
      * Check whether column_info table input transformation
      * upgrade is required and try to upgrade silently
-     *
-     * @access public
      */
     public function tryUpgradeTransformations(): bool
     {
@@ -454,8 +450,6 @@ class Relation
      * @param string $source the source for foreign key information
      *
      * @return array    db,table,column
-     *
-     * @access public
      */
     public function getForeigners($db, $table, $column = '', $source = 'both')
     {
@@ -527,8 +521,6 @@ class Relation
      * @param string $table the name of the table to check for
      *
      * @return string|false field name or false
-     *
-     * @access public
      */
     public function getDisplayField($db, $table)
     {
@@ -587,8 +579,6 @@ class Relation
      * @param string $table the name of the table to check for
      *
      * @return array    [column_name] = comment
-     *
-     * @access public
      */
     public function getComments($db, $table = ''): array
     {
@@ -615,8 +605,6 @@ class Relation
      * Gets the comment for a db
      *
      * @param string $db the name of the db to check for
-     *
-     * @access public
      */
     public function getDbComment(string $db): string
     {
@@ -646,8 +634,6 @@ class Relation
      * Gets the comment for a db
      *
      * @return array comments
-     *
-     * @access public
      */
     public function getDbComments()
     {
@@ -679,8 +665,6 @@ class Relation
      *
      * @param string $db      the name of the db
      * @param string $comment the value of the column
-     *
-     * @access public
      */
     public function setDbComment($db, $comment = ''): bool
     {
@@ -722,8 +706,6 @@ class Relation
      * @param string $table    the name of the table
      * @param string $username the username
      * @param string $sqlquery the sql query
-     *
-     * @access public
      */
     public function setHistory($db, $table, $username, $sqlquery): void
     {
@@ -780,8 +762,6 @@ class Relation
      * @param string $username the username
      *
      * @return array|bool list of history items
-     *
-     * @access public
      */
     public function getHistory($username)
     {
@@ -823,8 +803,6 @@ class Relation
      * given user
      *
      * @param string $username the username
-     *
-     * @access public
      */
     public function purgeHistory($username): void
     {
@@ -865,8 +843,6 @@ class Relation
      * @param string $mode    the needed mode
      *
      * @return string[] the <option value=""><option>s
-     *
-     * @access protected
      */
     public function buildForeignDropdown(array $foreign, $data, $mode): array
     {
@@ -960,8 +936,6 @@ class Relation
      * @param int|null $max             maximum number of items in the dropdown
      *
      * @return string   the <option value=""><option>s
-     *
-     * @access public
      */
     public function foreignDropdown(
         array $disp_row,
@@ -1068,8 +1042,6 @@ class Relation
      *     disp_row: list<non-empty-array>|null,
      *     foreign_field: mixed
      * }
-     *
-     * @access public
      */
     public function getForeignData(
         $foreigners,

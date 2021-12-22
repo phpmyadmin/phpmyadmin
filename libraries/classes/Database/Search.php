@@ -31,7 +31,6 @@ class Search
     /**
      * Database name
      *
-     * @access private
      * @var string
      */
     private $db;
@@ -39,7 +38,6 @@ class Search
     /**
      * Table Names
      *
-     * @access private
      * @var array
      */
     private $tablesNamesOnly;
@@ -47,7 +45,6 @@ class Search
     /**
      * Type of search
      *
-     * @access private
      * @var array
      */
     private $searchTypes;
@@ -55,7 +52,6 @@ class Search
     /**
      * Already set search type
      *
-     * @access private
      * @var int
      */
     private $criteriaSearchType;
@@ -63,7 +59,6 @@ class Search
     /**
      * Already set search type's description
      *
-     * @access private
      * @var string
      */
     private $searchTypeDescription;
@@ -71,7 +66,6 @@ class Search
     /**
      * Search string/regexp
      *
-     * @access private
      * @var string
      */
     private $criteriaSearchString;
@@ -79,7 +73,6 @@ class Search
     /**
      * Criteria Tables to search in
      *
-     * @access private
      * @var array
      */
     private $criteriaTables;
@@ -87,7 +80,6 @@ class Search
     /**
      * Restrict the search to this column
      *
-     * @access private
      * @var string
      */
     private $criteriaColumnName;

@@ -100,7 +100,6 @@ class StorageEngine
      *
      * @static
      * @staticvar array $storage_engines storage engines
-     * @access public
      */
     public static function getStorageEngines()
     {

@@ -113,8 +113,6 @@ abstract class RelationStats
      * @param string     $column The relation column name
      *
      * @return array Arrows coordinates
-     *
-     * @access private
      */
     private function getXy($table, $column)
     {

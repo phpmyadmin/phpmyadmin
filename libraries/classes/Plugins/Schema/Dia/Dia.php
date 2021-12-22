@@ -20,8 +20,6 @@ use function strlen;
  * helps in developing structure of DIA Schema Export
  *
  * @see     https://www.php.net/manual/en/book.xmlwriter.php
- *
- * @access  public
  */
 class Dia extends XMLWriter
 {
@@ -65,8 +63,6 @@ class Dia extends XMLWriter
      * @param float  $leftMargin   left margin of the paper/document in cm
      * @param float  $rightMargin  right margin of the paper/document in cm
      * @param string $orientation  orientation of the document, portrait or landscape
-     *
-     * @access public
      */
     public function startDiaDoc(
         $paper,
@@ -159,8 +155,6 @@ class Dia extends XMLWriter
      *
      * @see XMLWriter::endElement()
      * @see XMLWriter::endDocument()
-     *
-     * @access public
      */
     public function endDiaDoc(): void
     {
@@ -174,8 +168,6 @@ class Dia extends XMLWriter
      * @see    XMLWriter::flush()
      *
      * @param string $fileName name of the dia document
-     *
-     * @access public
      */
     public function showOutput($fileName): void
     {

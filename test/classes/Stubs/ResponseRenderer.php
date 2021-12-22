@@ -22,7 +22,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * HTML data to be used in the response
      *
-     * @access private
      * @var string
      */
     protected $htmlString;
@@ -31,7 +30,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      * An array of JSON key-value pairs
      * to be sent back for ajax requests
      *
-     * @access private
      * @var array
      */
     protected $json;

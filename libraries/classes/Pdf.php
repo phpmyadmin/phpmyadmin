@@ -45,8 +45,6 @@ class Pdf extends TCPDF
      * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
      *
      * @throws Exception
-     *
-     * @access public
      */
     public function __construct(
         $orientation = 'P',

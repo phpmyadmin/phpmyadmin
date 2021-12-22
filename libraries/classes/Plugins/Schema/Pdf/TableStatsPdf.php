@@ -113,8 +113,6 @@ class TableStatsPdf extends TableStats
      * @see    PMA_Schema_PDF
      *
      * @param int $fontSize The font size
-     *
-     * @access private
      */
     private function setWidth($fontSize): void
     {
@@ -137,8 +135,6 @@ class TableStatsPdf extends TableStats
 
     /**
      * Sets the height of the table
-     *
-     * @access private
      */
     private function setHeight(): void
     {
@@ -153,8 +149,6 @@ class TableStatsPdf extends TableStats
      * @param int|null $fontSize The font size or null to use the default value
      * @param bool     $withDoc  Whether to include links to documentation
      * @param bool     $setColor Whether to display color
-     *
-     * @access public
      */
     public function tableDraw(?int $fontSize, bool $withDoc, bool $setColor = false): void
     {
