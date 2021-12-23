@@ -25,8 +25,7 @@ class RelationParametersTest extends TestCase
     {
         $relationParameters = RelationParameters::fromArray($params);
         $relationParametersArray = $relationParameters->toArray();
-        $this->assertSame($expected['version'], $relationParameters->version);
-        $this->assertSame($expected['version'], $relationParametersArray['version']);
+        $this->assertSame(Version::VERSION, $relationParametersArray['version']);
         $this->assertSame($expected['relwork'], $relationParameters->hasRelationFeature());
         $this->assertSame($expected['relwork'], $relationParametersArray['relwork']);
         $this->assertSame($expected['displaywork'], $relationParameters->hasDisplayFeature());
@@ -188,7 +187,6 @@ class RelationParametersTest extends TestCase
             'default values' => [
                 [],
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -233,7 +231,6 @@ class RelationParametersTest extends TestCase
             ],
             'default values 2' => [
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -276,7 +273,6 @@ class RelationParametersTest extends TestCase
                     'users' => null,
                 ],
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -321,7 +317,6 @@ class RelationParametersTest extends TestCase
             ],
             'valid values' => [
                 [
-                    'version' => '5.2.0',
                     'relwork' => true,
                     'displaywork' => true,
                     'bookmarkwork' => true,
@@ -364,7 +359,6 @@ class RelationParametersTest extends TestCase
                     'users' => 'users',
                 ],
                 [
-                    'version' => '5.2.0',
                     'relwork' => true,
                     'displaywork' => true,
                     'bookmarkwork' => true,
@@ -409,7 +403,6 @@ class RelationParametersTest extends TestCase
             ],
             'invalid values' => [
                 [
-                    'version' => 1,
                     'relwork' => 1,
                     'displaywork' => 1,
                     'bookmarkwork' => 1,
@@ -452,7 +445,6 @@ class RelationParametersTest extends TestCase
                     'users' => 1,
                 ],
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -497,7 +489,6 @@ class RelationParametersTest extends TestCase
             ],
             'invalid values 2' => [
                 [
-                    'version' => '',
                     'user' => '',
                     'db' => '',
                     'bookmark' => '',
@@ -521,7 +512,6 @@ class RelationParametersTest extends TestCase
                     'users' => '',
                 ],
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,

@@ -18,11 +18,6 @@ use function is_string;
  */
 final class RelationParameters
 {
-    /**
-     * @var string
-     * @psalm-var non-empty-string
-     */
-    public $version;
     /** @var bool */
     public $relwork;
     /** @var bool */
@@ -104,11 +99,7 @@ final class RelationParameters
     /** @var TableName|null */
     public $users;
 
-    /**
-     * @psalm-param non-empty-string $version
-     */
     public function __construct(
-        string $version,
         bool $relwork,
         bool $displaywork,
         bool $bookmarkwork,
@@ -150,7 +141,6 @@ final class RelationParameters
         ?TableName $usergroups,
         ?TableName $users
     ) {
-        $this->version = $version;
         $this->relwork = $relwork;
         $this->displaywork = $displaywork;
         $this->bookmarkwork = $bookmarkwork;
@@ -198,11 +188,6 @@ final class RelationParameters
      */
     public static function fromArray(array $params): self
     {
-        $version = Version::VERSION;
-        if (isset($params['version']) && is_string($params['version']) && $params['version'] !== '') {
-            $version = $params['version'];
-        }
-
         $user = null;
         if (isset($params['user']) && is_string($params['user']) && $params['user'] !== '') {
             $user = $params['user'];
@@ -331,7 +316,6 @@ final class RelationParameters
         $users = self::getTableName($params, 'users');
 
         return new self(
-            $version,
             $relwork,
             $displaywork,
             $bookmarkwork,
@@ -378,7 +362,7 @@ final class RelationParameters
     /**
      * @return array<string, bool|string|null>
      * @psalm-return array{
-     *   version: string,
+     *   version: non-empty-string,
      *   relwork: bool,
      *   displaywork: bool,
      *   bookmarkwork: bool,
@@ -424,7 +408,7 @@ final class RelationParameters
     public function toArray(): array
     {
         return [
-            'version' => $this->version,
+            'version' => Version::VERSION,
             'relwork' => $this->hasRelationFeature(),
             'displaywork' => $this->hasDisplayFeature(),
             'bookmarkwork' => $this->hasBookmarkFeature(),
