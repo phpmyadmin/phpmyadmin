@@ -141,7 +141,7 @@ class UserPreferences
             . $dbi->escapeString($relationParameters->user)
             . '\'';
 
-        $has_config = $dbi->fetchValue($query, 0, 0, DatabaseInterface::CONNECT_CONTROL);
+        $has_config = $dbi->fetchValue($query, 0, DatabaseInterface::CONNECT_CONTROL);
         $config_data = json_encode($config_array);
         if ($has_config) {
             $query = 'UPDATE ' . $query_table

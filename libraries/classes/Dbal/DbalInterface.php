@@ -302,21 +302,17 @@ interface DbalInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string     $query      The query to execute
-     * @param int        $row_number row to fetch the value from,
-     *                               starting at 0, with 0 being
-     *                               default
-     * @param int|string $field      field to fetch the value from,
-     *                               starting at 0, with 0 being
-     *                               default
-     * @param int        $link       link type
+     * @param string     $query The query to execute
+     * @param int|string $field field to fetch the value from,
+     *                          starting at 0, with 0 being
+     *                          default
+     * @param int        $link  link type
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
      */
     public function fetchValue(
         string $query,
-        int $row_number = 0,
         $field = 0,
         $link = DatabaseInterface::CONNECT_USER
     );

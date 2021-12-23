@@ -151,7 +151,7 @@ class Tracker
         " AND table_name = '" . $dbi->escapeString($tableName) . "' " .
         ' ORDER BY version DESC LIMIT 1';
 
-        $result = $dbi->fetchValue($sqlQuery, 0, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
+        $result = $dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
 
         self::$trackingCache[$dbName][$tableName] = $result;
 

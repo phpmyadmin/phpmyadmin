@@ -1030,7 +1030,7 @@ class DatabaseInterface implements DbalInterface
                 $modifier = '';
         }
 
-        return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 0, 1, $link);
+        return $this->fetchValue('SHOW' . $modifier . ' VARIABLES LIKE \'' . $var . '\';', 1, $link);
     }
 
     /**
@@ -1200,18 +1200,15 @@ class DatabaseInterface implements DbalInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string     $query      The query to execute
-     * @param int        $row_number row to fetch the value from,
-     *                               starting at 0, with 0 being default
-     * @param int|string $field      field to fetch the value from,
-     *                               starting at 0, with 0 being default
-     * @param int        $link       link type
+     * @param string     $query The query to execute
+     * @param int|string $field field to fetch the value from,
+     *                          starting at 0, with 0 being default
+     * @param int        $link  link type
      *
      * @return mixed|false value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
-        int $row_number = 0,
         $field = 0,
         $link = self::CONNECT_USER
     ) {
@@ -1220,14 +1217,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        // return false if result is empty or false
-        // or requested row is larger than rows in result
-        if ($this->numRows($result) < $row_number + 1) {
-            return false;
-        }
-
         // get requested row
-        $this->dataSeek($result, $row_number);
         $row = $this->fetchByMode($result, is_int($field) ? self::FETCH_NUM : self::FETCH_ASSOC);
 
         // return requested field
@@ -1507,7 +1497,7 @@ class DatabaseInterface implements DbalInterface
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        $result = $this->fetchValue($query, 0, $returned_field[$which], $link);
+        $result = $this->fetchValue($query, $returned_field[$which], $link);
 
         return is_string($result) ? $result : null;
     }
@@ -2113,7 +2103,7 @@ class DatabaseInterface implements DbalInterface
         // When no controluser is defined, using mysqli_insert_id($link)
         // does not always return the last insert id due to a mixup with
         // the tracking mechanism, but this works:
-        return $this->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
+        return $this->fetchValue('SELECT LAST_INSERT_ID();', 0, $link);
     }
 
     /**

@@ -266,7 +266,6 @@ class Innodb extends StorageEngine
         return '<pre id="pre_innodb_status">' . "\n"
             . htmlspecialchars((string) $dbi->fetchValue(
                 'SHOW ENGINE INNODB STATUS;',
-                0,
                 'Status'
             )) . "\n" . '</pre>' . "\n";
     }
@@ -305,7 +304,7 @@ class Innodb extends StorageEngine
     {
         global $dbi;
 
-        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 0, 1);
+        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
 
         if ($value === false) {
             // This variable does not exist anymore on MariaDB >= 10.6.0
@@ -325,6 +324,6 @@ class Innodb extends StorageEngine
     {
         global $dbi;
 
-        return $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1) === 'ON';
+        return $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 1) === 'ON';
     }
 }
