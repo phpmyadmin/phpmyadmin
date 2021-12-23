@@ -406,7 +406,7 @@ class RecentFavoriteTable
             $type = $relationParameters->favorite;
         }
 
-        if ($relationParameters->db !== null && ! empty($type)) {
+        if ($relationParameters->db !== null && $type !== null) {
             return Util::backquote($relationParameters->db) . '.'
                 . Util::backquote($type);
         }

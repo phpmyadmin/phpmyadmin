@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Version;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
@@ -64,43 +65,43 @@ final class RelationParameters
     public $user;
     /** @var DatabaseName|null */
     public $db;
-    /** @var string|null */
+    /** @var TableName|null */
     public $bookmark;
-    /** @var string|null */
+    /** @var TableName|null */
     public $centralColumns;
-    /** @var string|null */
+    /** @var TableName|null */
     public $columnInfo;
-    /** @var string|null */
+    /** @var TableName|null */
     public $designerSettings;
-    /** @var string|null */
+    /** @var TableName|null */
     public $exportTemplates;
-    /** @var string|null */
+    /** @var TableName|null */
     public $favorite;
-    /** @var string|null */
+    /** @var TableName|null */
     public $history;
-    /** @var string|null */
+    /** @var TableName|null */
     public $navigationhiding;
-    /** @var string|null */
+    /** @var TableName|null */
     public $pdfPages;
-    /** @var string|null */
+    /** @var TableName|null */
     public $recent;
-    /** @var string|null */
+    /** @var TableName|null */
     public $relation;
-    /** @var string|null */
+    /** @var TableName|null */
     public $savedsearches;
-    /** @var string|null */
+    /** @var TableName|null */
     public $tableCoords;
-    /** @var string|null */
+    /** @var TableName|null */
     public $tableInfo;
-    /** @var string|null */
+    /** @var TableName|null */
     public $tableUiprefs;
-    /** @var string|null */
+    /** @var TableName|null */
     public $tracking;
-    /** @var string|null */
+    /** @var TableName|null */
     public $userconfig;
-    /** @var string|null */
+    /** @var TableName|null */
     public $usergroups;
-    /** @var string|null */
+    /** @var TableName|null */
     public $users;
 
     /**
@@ -129,25 +130,25 @@ final class RelationParameters
         bool $allworks,
         ?string $user,
         ?DatabaseName $db,
-        ?string $bookmark,
-        ?string $centralColumns,
-        ?string $columnInfo,
-        ?string $designerSettings,
-        ?string $exportTemplates,
-        ?string $favorite,
-        ?string $history,
-        ?string $navigationhiding,
-        ?string $pdfPages,
-        ?string $recent,
-        ?string $relation,
-        ?string $savedsearches,
-        ?string $tableCoords,
-        ?string $tableInfo,
-        ?string $tableUiprefs,
-        ?string $tracking,
-        ?string $userconfig,
-        ?string $usergroups,
-        ?string $users
+        ?TableName $bookmark,
+        ?TableName $centralColumns,
+        ?TableName $columnInfo,
+        ?TableName $designerSettings,
+        ?TableName $exportTemplates,
+        ?TableName $favorite,
+        ?TableName $history,
+        ?TableName $navigationhiding,
+        ?TableName $pdfPages,
+        ?TableName $recent,
+        ?TableName $relation,
+        ?TableName $savedsearches,
+        ?TableName $tableCoords,
+        ?TableName $tableInfo,
+        ?TableName $tableUiprefs,
+        ?TableName $tracking,
+        ?TableName $userconfig,
+        ?TableName $usergroups,
+        ?TableName $users
     ) {
         $this->version = $version;
         $this->relwork = $relwork;
@@ -309,100 +310,25 @@ final class RelationParameters
             $allworks = $params['allworks'];
         }
 
-        $bookmark = null;
-        if (isset($params['bookmark']) && is_string($params['bookmark'])) {
-            $bookmark = $params['bookmark'];
-        }
-
-        $centralColumns = null;
-        if (isset($params['central_columns']) && is_string($params['central_columns'])) {
-            $centralColumns = $params['central_columns'];
-        }
-
-        $columnInfo = null;
-        if (isset($params['column_info']) && is_string($params['column_info'])) {
-            $columnInfo = $params['column_info'];
-        }
-
-        $designerSettings = null;
-        if (isset($params['designer_settings']) && is_string($params['designer_settings'])) {
-            $designerSettings = $params['designer_settings'];
-        }
-
-        $exportTemplates = null;
-        if (isset($params['export_templates']) && is_string($params['export_templates'])) {
-            $exportTemplates = $params['export_templates'];
-        }
-
-        $favorite = null;
-        if (isset($params['favorite']) && is_string($params['favorite'])) {
-            $favorite = $params['favorite'];
-        }
-
-        $history = null;
-        if (isset($params['history']) && is_string($params['history'])) {
-            $history = $params['history'];
-        }
-
-        $navigationhiding = null;
-        if (isset($params['navigationhiding']) && is_string($params['navigationhiding'])) {
-            $navigationhiding = $params['navigationhiding'];
-        }
-
-        $pdfPages = null;
-        if (isset($params['pdf_pages']) && is_string($params['pdf_pages'])) {
-            $pdfPages = $params['pdf_pages'];
-        }
-
-        $recent = null;
-        if (isset($params['recent']) && is_string($params['recent'])) {
-            $recent = $params['recent'];
-        }
-
-        $relation = null;
-        if (isset($params['relation']) && is_string($params['relation'])) {
-            $relation = $params['relation'];
-        }
-
-        $savedsearches = null;
-        if (isset($params['savedsearches']) && is_string($params['savedsearches'])) {
-            $savedsearches = $params['savedsearches'];
-        }
-
-        $tableCoords = null;
-        if (isset($params['table_coords']) && is_string($params['table_coords'])) {
-            $tableCoords = $params['table_coords'];
-        }
-
-        $tableInfo = null;
-        if (isset($params['table_info']) && is_string($params['table_info'])) {
-            $tableInfo = $params['table_info'];
-        }
-
-        $tableUiprefs = null;
-        if (isset($params['table_uiprefs']) && is_string($params['table_uiprefs'])) {
-            $tableUiprefs = $params['table_uiprefs'];
-        }
-
-        $tracking = null;
-        if (isset($params['tracking']) && is_string($params['tracking'])) {
-            $tracking = $params['tracking'];
-        }
-
-        $userconfig = null;
-        if (isset($params['userconfig']) && is_string($params['userconfig'])) {
-            $userconfig = $params['userconfig'];
-        }
-
-        $usergroups = null;
-        if (isset($params['usergroups']) && is_string($params['usergroups'])) {
-            $usergroups = $params['usergroups'];
-        }
-
-        $users = null;
-        if (isset($params['users']) && is_string($params['users'])) {
-            $users = $params['users'];
-        }
+        $bookmark = self::getTableName($params, 'bookmark');
+        $centralColumns = self::getTableName($params, 'central_columns');
+        $columnInfo = self::getTableName($params, 'column_info');
+        $designerSettings = self::getTableName($params, 'designer_settings');
+        $exportTemplates = self::getTableName($params, 'export_templates');
+        $favorite = self::getTableName($params, 'favorite');
+        $history = self::getTableName($params, 'history');
+        $navigationHiding = self::getTableName($params, 'navigationhiding');
+        $pdfPages = self::getTableName($params, 'pdf_pages');
+        $recent = self::getTableName($params, 'recent');
+        $relation = self::getTableName($params, 'relation');
+        $savedSearches = self::getTableName($params, 'savedsearches');
+        $tableCoords = self::getTableName($params, 'table_coords');
+        $tableInfo = self::getTableName($params, 'table_info');
+        $tableUiPrefs = self::getTableName($params, 'table_uiprefs');
+        $tracking = self::getTableName($params, 'tracking');
+        $userConfig = self::getTableName($params, 'userconfig');
+        $userGroups = self::getTableName($params, 'usergroups');
+        $users = self::getTableName($params, 'users');
 
         return new self(
             $version,
@@ -434,17 +360,17 @@ final class RelationParameters
             $exportTemplates,
             $favorite,
             $history,
-            $navigationhiding,
+            $navigationHiding,
             $pdfPages,
             $recent,
             $relation,
-            $savedsearches,
+            $savedSearches,
             $tableCoords,
             $tableInfo,
-            $tableUiprefs,
+            $tableUiPrefs,
             $tracking,
-            $userconfig,
-            $usergroups,
+            $userConfig,
+            $userGroups,
             $users
         );
     }
@@ -520,25 +446,25 @@ final class RelationParameters
             'allworks' => $this->hasAllFeatures(),
             'user' => $this->user,
             'db' => $this->db !== null ? $this->db->getName() : null,
-            'bookmark' => $this->bookmark,
-            'central_columns' => $this->centralColumns,
-            'column_info' => $this->columnInfo,
-            'designer_settings' => $this->designerSettings,
-            'export_templates' => $this->exportTemplates,
-            'favorite' => $this->favorite,
-            'history' => $this->history,
-            'navigationhiding' => $this->navigationhiding,
-            'pdf_pages' => $this->pdfPages,
-            'recent' => $this->recent,
-            'relation' => $this->relation,
-            'savedsearches' => $this->savedsearches,
-            'table_coords' => $this->tableCoords,
-            'table_info' => $this->tableInfo,
-            'table_uiprefs' => $this->tableUiprefs,
-            'tracking' => $this->tracking,
-            'userconfig' => $this->userconfig,
-            'usergroups' => $this->usergroups,
-            'users' => $this->users,
+            'bookmark' => $this->bookmark !== null ? $this->bookmark->getName() : null,
+            'central_columns' => $this->centralColumns !== null ? $this->centralColumns->getName() : null,
+            'column_info' => $this->columnInfo !== null ? $this->columnInfo->getName() : null,
+            'designer_settings' => $this->designerSettings !== null ? $this->designerSettings->getName() : null,
+            'export_templates' => $this->exportTemplates !== null ? $this->exportTemplates->getName() : null,
+            'favorite' => $this->favorite !== null ? $this->favorite->getName() : null,
+            'history' => $this->history !== null ? $this->history->getName() : null,
+            'navigationhiding' => $this->navigationhiding !== null ? $this->navigationhiding->getName() : null,
+            'pdf_pages' => $this->pdfPages !== null ? $this->pdfPages->getName() : null,
+            'recent' => $this->recent !== null ? $this->recent->getName() : null,
+            'relation' => $this->relation !== null ? $this->relation->getName() : null,
+            'savedsearches' => $this->savedsearches !== null ? $this->savedsearches->getName() : null,
+            'table_coords' => $this->tableCoords !== null ? $this->tableCoords->getName() : null,
+            'table_info' => $this->tableInfo !== null ? $this->tableInfo->getName() : null,
+            'table_uiprefs' => $this->tableUiprefs !== null ? $this->tableUiprefs->getName() : null,
+            'tracking' => $this->tracking !== null ? $this->tracking->getName() : null,
+            'userconfig' => $this->userconfig !== null ? $this->userconfig->getName() : null,
+            'usergroups' => $this->usergroups !== null ? $this->usergroups->getName() : null,
+            'users' => $this->users !== null ? $this->users->getName() : null,
         ];
     }
 
@@ -635,5 +561,20 @@ final class RelationParameters
     public function hasAllFeatures(): bool
     {
         return $this->allworks;
+    }
+
+    /**
+     * @param mixed[] $params
+     * @psalm-param non-empty-string $key
+     */
+    private static function getTableName(array $params, string $key): ?TableName
+    {
+        try {
+            Assert::keyExists($params, $key);
+
+            return TableName::fromValue($params[$key]);
+        } catch (InvalidArgumentException $exception) {
+            return null;
+        }
     }
 }

@@ -145,7 +145,7 @@ class ExportSql extends ExportPlugin
         );
         $subgroup->addProperty($leaf);
         $relationParameters = $this->relation->getRelationParameters();
-        if (! empty($relationParameters->relation)) {
+        if ($relationParameters->relation !== null) {
             $leaf = new BoolPropertyItem(
                 'relation',
                 __('Display foreign key relationships')
@@ -1890,7 +1890,7 @@ class ExportSql extends ExportPlugin
 
         // Check if we can use Relations
         [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
-            $doRelation && ! empty($relationParameters->relation),
+            $doRelation && $relationParameters->relation !== null,
             $db,
             $table
         );

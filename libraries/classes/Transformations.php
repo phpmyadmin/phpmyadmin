@@ -469,7 +469,7 @@ class Transformations
         $relation = new Relation($dbi);
         $relationParameters = $relation->getRelationParameters();
 
-        if (! isset($relationParameters->columnInfo)) {
+        if ($relationParameters->columnInfo === null) {
             return false;
         }
 

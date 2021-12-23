@@ -90,7 +90,7 @@ class ExportOdt extends ExportPlugin
             $structureOptions->setForce('data');
             $relationParameters = $this->relation->getRelationParameters();
             // create primary items and add them to the group
-            if (! empty($relationParameters->relation)) {
+            if ($relationParameters->relation !== null) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -443,7 +443,7 @@ class ExportOdt extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($relationParameters->relation),
+            $do_relation && $relationParameters->relation !== null,
             $db,
             $table
         );

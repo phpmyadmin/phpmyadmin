@@ -60,7 +60,7 @@ class DataDictionaryController extends AbstractController
             );
 
             [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
-                ! empty($relationParameters->relation),
+                $relationParameters->relation !== null,
                 $this->db,
                 $tableName
             );

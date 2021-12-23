@@ -328,47 +328,47 @@ class Results
         }
 
         $relDb = [];
-        if (! empty($relationParameters->history)) {
-            $relDb[$relationParameters->history] = ['sqlquery' => $sqlHighlightingData];
+        if ($relationParameters->history !== null) {
+            $relDb[$relationParameters->history->getName()] = ['sqlquery' => $sqlHighlightingData];
         }
 
-        if (! empty($relationParameters->bookmark)) {
-            $relDb[$relationParameters->bookmark] = ['query' => $sqlHighlightingData];
+        if ($relationParameters->bookmark !== null) {
+            $relDb[$relationParameters->bookmark->getName()] = ['query' => $sqlHighlightingData];
         }
 
-        if (! empty($relationParameters->tracking)) {
-            $relDb[$relationParameters->tracking] = [
+        if ($relationParameters->tracking !== null) {
+            $relDb[$relationParameters->tracking->getName()] = [
                 'schema_sql' => $sqlHighlightingData,
                 'data_sql' => $sqlHighlightingData,
             ];
         }
 
-        if (! empty($relationParameters->favorite)) {
-            $relDb[$relationParameters->favorite] = ['tables' => $jsonHighlightingData];
+        if ($relationParameters->favorite !== null) {
+            $relDb[$relationParameters->favorite->getName()] = ['tables' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->recent)) {
-            $relDb[$relationParameters->recent] = ['tables' => $jsonHighlightingData];
+        if ($relationParameters->recent !== null) {
+            $relDb[$relationParameters->recent->getName()] = ['tables' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->savedsearches)) {
-            $relDb[$relationParameters->savedsearches] = ['search_data' => $jsonHighlightingData];
+        if ($relationParameters->savedsearches !== null) {
+            $relDb[$relationParameters->savedsearches->getName()] = ['search_data' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->designerSettings)) {
-            $relDb[$relationParameters->designerSettings] = ['settings_data' => $jsonHighlightingData];
+        if ($relationParameters->designerSettings !== null) {
+            $relDb[$relationParameters->designerSettings->getName()] = ['settings_data' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->tableUiprefs)) {
-            $relDb[$relationParameters->tableUiprefs] = ['prefs' => $jsonHighlightingData];
+        if ($relationParameters->tableUiprefs !== null) {
+            $relDb[$relationParameters->tableUiprefs->getName()] = ['prefs' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->userconfig)) {
-            $relDb[$relationParameters->userconfig] = ['config_data' => $jsonHighlightingData];
+        if ($relationParameters->userconfig !== null) {
+            $relDb[$relationParameters->userconfig->getName()] = ['config_data' => $jsonHighlightingData];
         }
 
-        if (! empty($relationParameters->exportTemplates)) {
-            $relDb[$relationParameters->exportTemplates] = ['template_data' => $jsonHighlightingData];
+        if ($relationParameters->exportTemplates !== null) {
+            $relDb[$relationParameters->exportTemplates->getName()] = ['template_data' => $jsonHighlightingData];
         }
 
         $this->transformationInfo[$relationParameters->db->getName()] = $relDb;

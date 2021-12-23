@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\TestCase;
 
@@ -71,43 +72,110 @@ class RelationParametersTest extends TestCase
             $relationParameters->db instanceof DatabaseName ? $relationParameters->db->getName() : null
         );
         $this->assertSame($expected['db'], $relationParametersArray['db']);
-        $this->assertSame($expected['bookmark'], $relationParameters->bookmark);
+        $this->assertSame(
+            $expected['bookmark'],
+            $relationParameters->bookmark instanceof TableName ? $relationParameters->bookmark->getName() : null
+        );
         $this->assertSame($expected['bookmark'], $relationParametersArray['bookmark']);
-        $this->assertSame($expected['central_columns'], $relationParameters->centralColumns);
+        $this->assertSame(
+            $expected['central_columns'],
+            $relationParameters->centralColumns instanceof TableName
+                ? $relationParameters->centralColumns->getName()
+                : null
+        );
         $this->assertSame($expected['central_columns'], $relationParametersArray['central_columns']);
-        $this->assertSame($expected['column_info'], $relationParameters->columnInfo);
+        $this->assertSame(
+            $expected['column_info'],
+            $relationParameters->columnInfo instanceof TableName ? $relationParameters->columnInfo->getName() : null
+        );
         $this->assertSame($expected['column_info'], $relationParametersArray['column_info']);
-        $this->assertSame($expected['designer_settings'], $relationParameters->designerSettings);
+        $this->assertSame(
+            $expected['designer_settings'],
+            $relationParameters->designerSettings instanceof TableName
+                ? $relationParameters->designerSettings->getName()
+                : null
+        );
         $this->assertSame($expected['designer_settings'], $relationParametersArray['designer_settings']);
-        $this->assertSame($expected['export_templates'], $relationParameters->exportTemplates);
+        $this->assertSame(
+            $expected['export_templates'],
+            $relationParameters->exportTemplates instanceof TableName
+                ? $relationParameters->exportTemplates->getName()
+                : null
+        );
         $this->assertSame($expected['export_templates'], $relationParametersArray['export_templates']);
-        $this->assertSame($expected['favorite'], $relationParameters->favorite);
+        $this->assertSame(
+            $expected['favorite'],
+            $relationParameters->favorite instanceof TableName ? $relationParameters->favorite->getName() : null
+        );
         $this->assertSame($expected['favorite'], $relationParametersArray['favorite']);
-        $this->assertSame($expected['history'], $relationParameters->history);
+        $this->assertSame(
+            $expected['history'],
+            $relationParameters->history instanceof TableName ? $relationParameters->history->getName() : null
+        );
         $this->assertSame($expected['history'], $relationParametersArray['history']);
-        $this->assertSame($expected['navigationhiding'], $relationParameters->navigationhiding);
+        $this->assertSame(
+            $expected['navigationhiding'],
+            $relationParameters->navigationhiding instanceof TableName
+                ? $relationParameters->navigationhiding->getName()
+                : null
+        );
         $this->assertSame($expected['navigationhiding'], $relationParametersArray['navigationhiding']);
-        $this->assertSame($expected['pdf_pages'], $relationParameters->pdfPages);
+        $this->assertSame(
+            $expected['pdf_pages'],
+            $relationParameters->pdfPages instanceof TableName ? $relationParameters->pdfPages->getName() : null
+        );
         $this->assertSame($expected['pdf_pages'], $relationParametersArray['pdf_pages']);
-        $this->assertSame($expected['recent'], $relationParameters->recent);
+        $this->assertSame(
+            $expected['recent'],
+            $relationParameters->recent instanceof TableName ? $relationParameters->recent->getName() : null
+        );
         $this->assertSame($expected['recent'], $relationParametersArray['recent']);
-        $this->assertSame($expected['relation'], $relationParameters->relation);
+        $this->assertSame(
+            $expected['relation'],
+            $relationParameters->relation instanceof TableName ? $relationParameters->relation->getName() : null
+        );
         $this->assertSame($expected['relation'], $relationParametersArray['relation']);
-        $this->assertSame($expected['savedsearches'], $relationParameters->savedsearches);
+        $this->assertSame(
+            $expected['savedsearches'],
+            $relationParameters->savedsearches instanceof TableName
+                ? $relationParameters->savedsearches->getName()
+                : null
+        );
         $this->assertSame($expected['savedsearches'], $relationParametersArray['savedsearches']);
-        $this->assertSame($expected['table_coords'], $relationParameters->tableCoords);
+        $this->assertSame(
+            $expected['table_coords'],
+            $relationParameters->tableCoords instanceof TableName ? $relationParameters->tableCoords->getName() : null
+        );
         $this->assertSame($expected['table_coords'], $relationParametersArray['table_coords']);
-        $this->assertSame($expected['table_info'], $relationParameters->tableInfo);
+        $this->assertSame(
+            $expected['table_info'],
+            $relationParameters->tableInfo instanceof TableName ? $relationParameters->tableInfo->getName() : null
+        );
         $this->assertSame($expected['table_info'], $relationParametersArray['table_info']);
-        $this->assertSame($expected['table_uiprefs'], $relationParameters->tableUiprefs);
+        $this->assertSame(
+            $expected['table_uiprefs'],
+            $relationParameters->tableUiprefs instanceof TableName ? $relationParameters->tableUiprefs->getName() : null
+        );
         $this->assertSame($expected['table_uiprefs'], $relationParametersArray['table_uiprefs']);
-        $this->assertSame($expected['tracking'], $relationParameters->tracking);
+        $this->assertSame(
+            $expected['tracking'],
+            $relationParameters->tracking instanceof TableName ? $relationParameters->tracking->getName() : null
+        );
         $this->assertSame($expected['tracking'], $relationParametersArray['tracking']);
-        $this->assertSame($expected['userconfig'], $relationParameters->userconfig);
+        $this->assertSame(
+            $expected['userconfig'],
+            $relationParameters->userconfig instanceof TableName ? $relationParameters->userconfig->getName() : null
+        );
         $this->assertSame($expected['userconfig'], $relationParametersArray['userconfig']);
-        $this->assertSame($expected['usergroups'], $relationParameters->usergroups);
+        $this->assertSame(
+            $expected['usergroups'],
+            $relationParameters->usergroups instanceof TableName ? $relationParameters->usergroups->getName() : null
+        );
         $this->assertSame($expected['usergroups'], $relationParametersArray['usergroups']);
-        $this->assertSame($expected['users'], $relationParameters->users);
+        $this->assertSame(
+            $expected['users'],
+            $relationParameters->users instanceof TableName ? $relationParameters->users->getName() : null
+        );
         $this->assertSame($expected['users'], $relationParametersArray['users']);
     }
 
@@ -339,72 +407,6 @@ class RelationParametersTest extends TestCase
                     'users' => 'users',
                 ],
             ],
-            'valid values 2' => [
-                [
-                    'bookmark' => '',
-                    'central_columns' => '',
-                    'column_info' => '',
-                    'designer_settings' => '',
-                    'export_templates' => '',
-                    'favorite' => '',
-                    'history' => '',
-                    'navigationhiding' => '',
-                    'pdf_pages' => '',
-                    'recent' => '',
-                    'relation' => '',
-                    'savedsearches' => '',
-                    'table_coords' => '',
-                    'table_info' => '',
-                    'table_uiprefs' => '',
-                    'tracking' => '',
-                    'userconfig' => '',
-                    'usergroups' => '',
-                    'users' => '',
-                ],
-                [
-                    'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
-                    'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
-                    'centralcolumnswork' => false,
-                    'designersettingswork' => false,
-                    'exporttemplateswork' => false,
-                    'allworks' => false,
-                    'user' => null,
-                    'db' => null,
-                    'bookmark' => '',
-                    'central_columns' => '',
-                    'column_info' => '',
-                    'designer_settings' => '',
-                    'export_templates' => '',
-                    'favorite' => '',
-                    'history' => '',
-                    'navigationhiding' => '',
-                    'pdf_pages' => '',
-                    'recent' => '',
-                    'relation' => '',
-                    'savedsearches' => '',
-                    'table_coords' => '',
-                    'table_info' => '',
-                    'table_uiprefs' => '',
-                    'tracking' => '',
-                    'userconfig' => '',
-                    'usergroups' => '',
-                    'users' => '',
-                ],
-            ],
             'invalid values' => [
                 [
                     'version' => 1,
@@ -498,6 +500,25 @@ class RelationParametersTest extends TestCase
                     'version' => '',
                     'user' => '',
                     'db' => '',
+                    'bookmark' => '',
+                    'central_columns' => '',
+                    'column_info' => '',
+                    'designer_settings' => '',
+                    'export_templates' => '',
+                    'favorite' => '',
+                    'history' => '',
+                    'navigationhiding' => '',
+                    'pdf_pages' => '',
+                    'recent' => '',
+                    'relation' => '',
+                    'savedsearches' => '',
+                    'table_coords' => '',
+                    'table_info' => '',
+                    'table_uiprefs' => '',
+                    'tracking' => '',
+                    'userconfig' => '',
+                    'usergroups' => '',
+                    'users' => '',
                 ],
                 [
                     'version' => Version::VERSION,

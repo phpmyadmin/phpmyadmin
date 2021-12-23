@@ -120,10 +120,14 @@ final class Options
 
         $templates = [];
 
-        if ($relationParameters->hasExportTemplatesFeature() && $relationParameters->db !== null) {
+        if (
+            $relationParameters->hasExportTemplatesFeature()
+            && $relationParameters->db !== null
+            && $relationParameters->exportTemplates !== null
+        ) {
             $templates = $this->templateModel->getAll(
                 $relationParameters->db,
-                (string) $relationParameters->exportTemplates,
+                $relationParameters->exportTemplates,
                 $GLOBALS['cfg']['Server']['user'],
                 $exportType
             );

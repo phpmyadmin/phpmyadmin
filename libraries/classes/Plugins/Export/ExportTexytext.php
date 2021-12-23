@@ -369,7 +369,7 @@ class ExportTexytext extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($relationParameters->relation),
+            $do_relation && $relationParameters->relation !== null,
             $db,
             $table
         );

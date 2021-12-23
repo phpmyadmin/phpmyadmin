@@ -550,8 +550,8 @@ class Privileges
         $relationParameters = $this->relation->getRelationParameters();
         if (
             $relationParameters->db === null
-            || empty($relationParameters->users)
-            || empty($relationParameters->usergroups)
+            || $relationParameters->users === null
+            || $relationParameters->usergroups === null
         ) {
             return;
         }
@@ -1571,7 +1571,7 @@ class Privileges
     {
         $relationParameters = $this->relation->getRelationParameters();
 
-        if ($relationParameters->db === null || empty($relationParameters->users)) {
+        if ($relationParameters->db === null || $relationParameters->users === null) {
             return null;
         }
 
@@ -1633,7 +1633,7 @@ class Privileges
                 'host' => $hostname,
                 'has_password' => ! empty($password) || isset($_POST['pma_pw']),
                 'privileges' => implode(', ', $this->extractPrivInfo(null, true)),
-                'has_group' => ! empty($relationParameters->users) && ! empty($relationParameters->usergroups),
+                'has_group' => $relationParameters->users !== null && $relationParameters->usergroups !== null,
                 'has_group_edit' => $relationParameters->hasConfigurableMenusFeature() && $userGroupCount > 0,
                 'has_grant' => isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y',
             ];

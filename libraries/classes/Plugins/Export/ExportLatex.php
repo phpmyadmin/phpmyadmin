@@ -127,7 +127,7 @@ class ExportLatex extends ExportPlugin
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $relationParameters = $this->relation->getRelationParameters();
-            if (! empty($relationParameters->relation)) {
+            if ($relationParameters->relation !== null) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -508,7 +508,7 @@ class ExportLatex extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($relationParameters->relation),
+            $do_relation && $relationParameters->relation !== null,
             $db,
             $table
         );
