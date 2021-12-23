@@ -7700,13 +7700,9 @@
       <code>$tmp</code>
       <code>$value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="7">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$classes</code>
       <code>$key</code>
-      <code>$urlParams</code>
-      <code>$urlParams</code>
-      <code>$urlParams</code>
-      <code>$urlParams</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">

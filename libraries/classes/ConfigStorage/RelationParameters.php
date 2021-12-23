@@ -209,8 +209,7 @@ final class RelationParameters
 
         try {
             Assert::keyExists($params, 'db');
-            Assert::string($params['db']);
-            $db = DatabaseName::fromString($params['db']);
+            $db = DatabaseName::fromValue($params['db']);
         } catch (InvalidArgumentException $exception) {
             $db = null;
         }

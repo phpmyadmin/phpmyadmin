@@ -43,7 +43,6 @@ final class OptimizeController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $dbParam = $request->getParam('db');
         $selectedTablesParam = $request->getParsedBodyParam('selected_tbl');
 
         try {
@@ -58,11 +57,10 @@ final class OptimizeController extends AbstractController
         }
 
         try {
-            Assert::string($dbParam);
-            $database = DatabaseName::fromString($dbParam);
+            $database = DatabaseName::fromValue($request->getParam('db'));
             $selectedTables = [];
             foreach ($selectedTablesParam as $table) {
-                $selectedTables[] = TableName::fromString($table);
+                $selectedTables[] = TableName::fromValue($table);
             }
         } catch (InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());

@@ -36,16 +36,12 @@ final class TruncateController extends AbstractController
 
     public function __invoke(ServerRequest $request): void
     {
-        $dbParam = $request->getParam('db');
-        $tableParam = $request->getParam('table');
         $partitionName = $request->getParsedBodyParam('partition_name');
 
         try {
-            Assert::string($dbParam);
-            Assert::string($tableParam);
             Assert::stringNotEmpty($partitionName);
-            $database = DatabaseName::fromString($dbParam);
-            $table = TableName::fromString($tableParam);
+            $database = DatabaseName::fromValue($request->getParam('db'));
+            $table = TableName::fromValue($request->getParam('table'));
         } catch (InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());

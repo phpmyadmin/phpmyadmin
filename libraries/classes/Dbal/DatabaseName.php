@@ -26,9 +26,11 @@ final class DatabaseName implements Stringable
     private $name;
 
     /**
+     * @param mixed $name
+     *
      * @throws InvalidArgumentException
      */
-    private function __construct(string $name)
+    private function __construct($name)
     {
         Assert::stringNotEmpty($name);
         Assert::maxLength($name, self::MAX_LENGTH);
@@ -37,9 +39,11 @@ final class DatabaseName implements Stringable
     }
 
     /**
+     * @param mixed $name
+     *
      * @throws InvalidArgumentException
      */
-    public static function fromString(string $name): self
+    public static function fromValue($name): self
     {
         return new self($name);
     }

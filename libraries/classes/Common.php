@@ -505,20 +505,15 @@ final class Common
     ): void {
         global $db, $table, $urlParams;
 
-        $databaseFromRequest = $request->getParam('db');
-        $tableFromRequest = $request->getParam('table');
-
         try {
-            Assert::string($databaseFromRequest);
-            $db = DatabaseName::fromString($databaseFromRequest)->getName();
+            $db = DatabaseName::fromValue($request->getParam('db'))->getName();
         } catch (InvalidArgumentException $exception) {
             $db = '';
         }
 
         try {
             Assert::stringNotEmpty($db);
-            Assert::string($tableFromRequest);
-            $table = TableName::fromString($tableFromRequest)->getName();
+            $table = TableName::fromValue($request->getParam('table'))->getName();
         } catch (InvalidArgumentException $exception) {
             $table = '';
         }

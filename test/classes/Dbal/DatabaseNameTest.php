@@ -19,14 +19,14 @@ class DatabaseNameTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a different value than "".');
-        DatabaseName::fromString('');
+        DatabaseName::fromValue('');
     }
 
     public function testNameWithTrailingWhitespace(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
-        DatabaseName::fromString('a ');
+        DatabaseName::fromValue('a ');
     }
 
     public function testLongName(): void
@@ -36,13 +36,38 @@ class DatabaseNameTest extends TestCase
             'Expected a value to contain at most 64 characters. Got: '
             . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
         );
-        DatabaseName::fromString(str_repeat('a', 65));
+        DatabaseName::fromValue(str_repeat('a', 65));
     }
 
     public function testValidName(): void
     {
-        $name = DatabaseName::fromString('name');
+        $name = DatabaseName::fromValue('name');
         $this->assertEquals('name', $name->getName());
         $this->assertEquals('name', (string) $name);
+    }
+
+    /**
+     * @param mixed $name
+     *
+     * @dataProvider providerForTestInvalidMixedNames
+     */
+    public function testInvalidMixedNames($name, string $exceptionMessage): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage($exceptionMessage);
+        DatabaseName::fromValue($name);
+    }
+
+    /**
+     * @return mixed[][]
+     * @psalm-return non-empty-list<array{mixed, string}>
+     */
+    public function providerForTestInvalidMixedNames(): array
+    {
+        return [
+            [null, 'Expected a string. Got: NULL'],
+            [1, 'Expected a string. Got: integer'],
+            [['db'], 'Expected a string. Got: array'],
+        ];
     }
 }
