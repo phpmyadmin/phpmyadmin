@@ -125,6 +125,7 @@ cleanup_composer_vendors() {
     rm -rf \
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpmyadmin/sql-parser/src/Tools/ \
         vendor/phpmyadmin/sql-parser/locale/sqlparser.pot \
         vendor/phpmyadmin/sql-parser/locale/*/LC_MESSAGES/sqlparser.po \
         vendor/phpmyadmin/sql-parser/bin/ \
