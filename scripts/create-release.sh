@@ -203,6 +203,7 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
     rm -rf \
+        vendor/google/recaptcha/ARCHITECTURE.md \
         vendor/google/recaptcha/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
