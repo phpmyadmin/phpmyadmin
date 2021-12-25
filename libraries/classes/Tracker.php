@@ -83,7 +83,7 @@ class Tracker
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
 
-        return $relationParameters->hasTrackingFeature();
+        return $relationParameters->trackingFeature !== null;
     }
 
     /**
@@ -139,10 +139,10 @@ class Tracker
          */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $relationParameters->hasTrackingFeature()) {
+        if ($trackingFeature === null) {
             return false;
         }
 
@@ -938,9 +938,12 @@ class Tracker
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return '';
+        }
 
-        return Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->tracking);
+        return Util::backquote($trackingFeature->database)
+            . '.' . Util::backquote($trackingFeature->tracking);
     }
 }

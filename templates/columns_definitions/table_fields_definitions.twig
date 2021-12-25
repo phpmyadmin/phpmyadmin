@@ -66,7 +66,7 @@
             </th>
         {% endif %}
 
-        {% if relation_parameters.hasBrowserTransformationFeature() and browse_mime %}
+        {% if relation_parameters.browserTransformationFeature is not null and browse_mime %}
             <th>
                 {% trans 'Media type' %}
             </th>

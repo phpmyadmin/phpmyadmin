@@ -369,7 +369,7 @@ class ExportTexytext extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relation !== null,
+            $do_relation && $relationParameters->relationFeature !== null,
             $db,
             $table
         );
@@ -392,7 +392,7 @@ class ExportTexytext extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $text_output .= '|' . __('Media type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -419,14 +419,14 @@ class ExportTexytext extends ExportPlugin
                 );
             }
 
-            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
+            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
                 $text_output .= '|'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '');
             }
 
-            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
                 $text_output .= '|'
                     . (isset($mime_map[$field_name])
                         ? htmlspecialchars(

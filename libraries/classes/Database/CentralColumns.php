@@ -101,21 +101,18 @@ class CentralColumns
             return $cfgCentralColumns;
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        if (
-            $relationParameters->hasCentralColumnsFeature()
-            && $relationParameters->db !== null
-            && $relationParameters->centralColumns !== null
-        ) {
-            $cfgCentralColumns = [
-                'user' => $this->user,
-                'db' => $relationParameters->db->getName(),
-                'table' => $relationParameters->centralColumns->getName(),
-            ];
-        } else {
+        $centralColumnsFeature = $this->relation->getRelationParameters()->centralColumnsFeature;
+        if ($centralColumnsFeature === null) {
             $cfgCentralColumns = false;
+
+            return $cfgCentralColumns;
         }
+
+        $cfgCentralColumns = [
+            'user' => $this->user,
+            'db' => $centralColumnsFeature->database->getName(),
+            'table' => $centralColumnsFeature->centralColumns->getName(),
+        ];
 
         return $cfgCentralColumns;
     }

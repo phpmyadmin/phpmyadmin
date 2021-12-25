@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
+use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
+use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -1320,17 +1322,17 @@ class Table implements Stringable
             return true;
         }
 
-        if ($relationParameters->hasColumnCommentsFeature()) {
+        if ($relationParameters->columnCommentsFeature !== null) {
             // Get all comments and MIME-Types for current table
             $commentsCopyRs = $relation->queryAsControlUser(
                 'SELECT column_name, comment'
-                . ($relationParameters->hasBrowserTransformationFeature()
+                . ($relationParameters->browserTransformationFeature !== null
                 ? ', mimetype, transformation, transformation_options'
                 : '')
                 . ' FROM '
-                . Util::backquote($relationParameters->db)
+                . Util::backquote($relationParameters->columnCommentsFeature->database)
                 . '.'
-                . Util::backquote($relationParameters->columnInfo)
+                . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                 . ' WHERE '
                 . ' db_name = \''
                 . $dbi->escapeString($sourceDb) . '\''
@@ -1342,10 +1344,10 @@ class Table implements Stringable
             // Write every comment as new copied entry. [MIME]
             while ($commentsCopyRow = $dbi->fetchAssoc($commentsCopyRs)) {
                 $newCommentQuery = 'REPLACE INTO '
-                    . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->columnInfo)
+                    . Util::backquote($relationParameters->columnCommentsFeature->database)
+                    . '.' . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
                     . ' (db_name, table_name, column_name, comment'
-                    . ($relationParameters->hasBrowserTransformationFeature()
+                    . ($relationParameters->browserTransformationFeature !== null
                         ? ', mimetype, transformation, transformation_options'
                         : '')
                     . ') VALUES(\'' . $dbi->escapeString($targetDb)
@@ -1354,7 +1356,7 @@ class Table implements Stringable
                     . '\',\''
                     . $dbi->escapeString($commentsCopyRow['comment'])
                     . '\''
-                    . ($relationParameters->hasBrowserTransformationFeature()
+                    . ($relationParameters->browserTransformationFeature !== null
                         ? ',\'' . $dbi->escapeString($commentsCopyRow['mimetype'])
                         . '\',\'' . $dbi->escapeString($commentsCopyRow['transformation'])
                         . '\',\'' . $dbi->escapeString($commentsCopyRow['transformation_options'])
@@ -1745,17 +1747,21 @@ class Table implements Stringable
      *
      * @return array
      */
-    protected function getUiPrefsFromDb()
+    protected function getUiPrefsFromDb(?UiPreferencesFeature $uiPreferencesFeature)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        $table = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->tableUiprefs);
+        if ($uiPreferencesFeature === null) {
+            return [];
+        }
 
         // Read from phpMyAdmin database
-        $sqlQuery = ' SELECT `prefs` FROM ' . $table
-            . " WHERE `username` = '" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name` = '" . $this->dbi->escapeString($this->dbName) . "'"
-            . " AND `table_name` = '" . $this->dbi->escapeString($this->name) . "'";
+        $sqlQuery = sprintf(
+            'SELECT `prefs` FROM %s.%s WHERE `username` = \'%s\' AND `db_name` = \'%s\' AND `table_name` = \'%s\'',
+            Util::backquote($uiPreferencesFeature->database),
+            Util::backquote($uiPreferencesFeature->tableUiPrefs),
+            $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']),
+            $this->dbi->escapeString($this->dbName),
+            $this->dbi->escapeString($this->name)
+        );
 
         $row = $this->dbi->fetchArray($this->relation->queryAsControlUser($sqlQuery));
         if (isset($row[0])) {
@@ -1770,11 +1776,10 @@ class Table implements Stringable
      *
      * @return true|Message
      */
-    protected function saveUiPrefsToDb()
+    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        $table = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->tableUiprefs);
+        $table = Util::backquote($uiPreferencesFeature->database) . '.'
+            . Util::backquote($uiPreferencesFeature->tableUiPrefs);
 
         $secureDbName = $this->dbi->escapeString($this->dbName);
 
@@ -1843,13 +1848,13 @@ class Table implements Stringable
      */
     protected function loadUiPrefs(): void
     {
-        $relationParameters = $this->relation->getRelationParameters();
+        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
         $serverId = $GLOBALS['server'];
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {
             // check whether we can get from pmadb
-            $uiPrefs = $relationParameters->hasUiPreferencesFeature() ? $this->getUiPrefsFromDb() : [];
+            $uiPrefs = $this->getUiPrefsFromDb($uiPreferencesFeature);
             $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPrefs;
         }
 
@@ -1970,9 +1975,9 @@ class Table implements Stringable
         $this->uiprefs[$property] = $value;
 
         // check if pmadb is set
-        $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasUiPreferencesFeature()) {
-            return $this->saveUiPrefsToDb();
+        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
+        if ($uiPreferencesFeature !== null) {
+            return $this->saveUiPrefsToDb($uiPreferencesFeature);
         }
 
         return true;
@@ -1995,9 +2000,9 @@ class Table implements Stringable
             unset($this->uiprefs[$property]);
 
             // check if pmadb is set
-            $relationParameters = $this->relation->getRelationParameters();
-            if ($relationParameters->hasUiPreferencesFeature()) {
-                return $this->saveUiPrefsToDb();
+            $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
+            if ($uiPreferencesFeature !== null) {
+                return $this->saveUiPrefsToDb($uiPreferencesFeature);
             }
         }
 
@@ -2188,20 +2193,20 @@ class Table implements Stringable
      *
      * @param string $displayField display field
      */
-    public function updateDisplayField($displayField, RelationParameters $relationParameters): bool
+    public function updateDisplayField($displayField, DisplayFeature $displayFeature): bool
     {
         if ($displayField == '') {
             $updQuery = 'DELETE FROM '
-                . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->tableInfo)
+                . Util::backquote($displayFeature->database)
+                . '.' . Util::backquote($displayFeature->tableInfo)
                 . ' WHERE db_name  = \''
                 . $this->dbi->escapeString($this->dbName) . '\''
                 . ' AND table_name = \''
                 . $this->dbi->escapeString($this->name) . '\'';
         } else {
             $updQuery = 'REPLACE INTO '
-                . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->tableInfo)
+                . Util::backquote($displayFeature->database)
+                . '.' . Util::backquote($displayFeature->tableInfo)
                 . '(db_name, table_name, display_field) VALUES('
                 . '\'' . $this->dbi->escapeString($this->dbName) . '\','
                 . '\'' . $this->dbi->escapeString($this->name) . '\','
@@ -2225,7 +2230,7 @@ class Table implements Stringable
         array $destinationDb,
         array $destinationTable,
         array $destinationColumn,
-        RelationParameters $relationParameters,
+        RelationFeature $relationFeature,
         $existrel
     ): bool {
         $updated = false;
@@ -2238,8 +2243,8 @@ class Table implements Stringable
             if (! empty($foreignDb) && ! empty($foreignTable) && ! empty($foreignField)) {
                 if (! isset($existrel[$masterField])) {
                     $updQuery = 'INSERT INTO '
-                        . Util::backquote($relationParameters->db)
-                        . '.' . Util::backquote($relationParameters->relation)
+                        . Util::backquote($relationFeature->database)
+                        . '.' . Util::backquote($relationFeature->relation)
                         . '(master_db, master_table, master_field, foreign_db,'
                         . ' foreign_table, foreign_field)'
                         . ' values('
@@ -2255,8 +2260,8 @@ class Table implements Stringable
                     || $existrel[$masterField]['foreign_field'] != $foreignField
                 ) {
                     $updQuery = 'UPDATE '
-                        . Util::backquote($relationParameters->db)
-                        . '.' . Util::backquote($relationParameters->relation)
+                        . Util::backquote($relationFeature->database)
+                        . '.' . Util::backquote($relationFeature->relation)
                         . ' SET foreign_db       = \''
                         . $this->dbi->escapeString($foreignDb) . '\', '
                         . ' foreign_table    = \''
@@ -2272,8 +2277,8 @@ class Table implements Stringable
                 }
             } elseif (isset($existrel[$masterField])) {
                 $updQuery = 'DELETE FROM '
-                    . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->relation)
+                    . Util::backquote($relationFeature->database)
+                    . '.' . Util::backquote($relationFeature->relation)
                     . ' WHERE master_db  = \''
                     . $this->dbi->escapeString($this->dbName) . '\''
                     . ' AND master_table = \''

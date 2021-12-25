@@ -65,7 +65,13 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = '';
         $GLOBALS['plugin_param']['single_table'] = false;
 
-        $relationParameters = RelationParameters::fromArray(['relation' => 'relation', 'mimework' => true]);
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'db',
+            'relation' => 'relation',
+            'column_info' => 'column_info',
+            'relwork' => true,
+            'mimework' => true,
+        ]);
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');

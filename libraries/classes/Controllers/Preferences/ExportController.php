@@ -87,7 +87,7 @@ class ExportController extends AbstractController
         $this->render('preferences/header', [
             'route' => $route,
             'is_saved' => ! empty($_GET['saved']),
-            'has_config_storage' => $relationParameters->hasUserPreferencesFeature(),
+            'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
         if ($formDisplay->hasErrors()) {

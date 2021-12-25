@@ -150,8 +150,7 @@ class StructureController extends AbstractController
      * Displays the table structure ('show table' works correct since 3.23.03)
      *
      * @param array       $columns_with_unique_index Columns with unique index
-     * @param Index|false $primary_index             primary index or false if
-     *                                               no one exists
+     * @param Index|false $primary_index             primary index or false if no one exists
      * @param array       $fields                    Fields
      * @param array       $columns_with_index        Columns with index
      *
@@ -173,7 +172,7 @@ class StructureController extends AbstractController
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($this->db, $this->table);
-            if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
                 $mime_map = $this->transformations->getMime($this->db, $this->table, true);
             }
         }
@@ -247,7 +246,6 @@ class StructureController extends AbstractController
         }
 
         $engine = $this->tableObj->getStorageEngine();
-        $relationParameters = $this->relation->getRelationParameters();
 
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,

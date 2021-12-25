@@ -123,13 +123,12 @@ class Menu
         }
 
         $allowedTabs = Util::getMenuTabList($level) ?? [];
-        $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasConfigurableMenusFeature()) {
-            $groupTable = Util::backquote($relationParameters->db)
-                . '.'
-                . Util::backquote($relationParameters->usergroups);
-            $userTable = Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->users);
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
+        if ($configurableMenusFeature !== null) {
+            $groupTable = Util::backquote($configurableMenusFeature->database)
+                . '.' . Util::backquote($configurableMenusFeature->userGroups);
+            $userTable = Util::backquote($configurableMenusFeature->database)
+                . '.' . Util::backquote($configurableMenusFeature->users);
 
             $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
@@ -201,7 +200,7 @@ class Menu
 
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
-                if ($relationParameters->hasColumnCommentsFeature()) {
+                if ($relationParameters->columnCommentsFeature !== null) {
                     $database['comment'] = $this->relation->getDbComment($this->db);
                 }
             }
@@ -443,7 +442,7 @@ class Menu
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
-        if (! $isSystemSchema && $relationParameters->hasCentralColumnsFeature()) {
+        if (! $isSystemSchema && $relationParameters->centralColumnsFeature !== null) {
             $tabs['central_columns']['text'] = __('Central columns');
             $tabs['central_columns']['icon'] = 'centralColumns';
             $tabs['central_columns']['route'] = '/database/central-columns';

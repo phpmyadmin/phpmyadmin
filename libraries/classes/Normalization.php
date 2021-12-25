@@ -143,7 +143,7 @@ class Normalization
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
-        if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
+        if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }

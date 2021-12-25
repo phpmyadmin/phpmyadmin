@@ -36,6 +36,7 @@ class TrackerTest extends AbstractTestCase
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
+            'trackingwork' => true,
             'tracking' => 'tracking',
         ])->toArray();
 

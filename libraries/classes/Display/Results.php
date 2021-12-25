@@ -328,47 +328,54 @@ class Results
         }
 
         $relDb = [];
-        if ($relationParameters->history !== null) {
-            $relDb[$relationParameters->history->getName()] = ['sqlquery' => $sqlHighlightingData];
+        if ($relationParameters->sqlHistoryFeature !== null) {
+            $relDb[$relationParameters->sqlHistoryFeature->history->getName()] = ['sqlquery' => $sqlHighlightingData];
         }
 
-        if ($relationParameters->bookmark !== null) {
-            $relDb[$relationParameters->bookmark->getName()] = ['query' => $sqlHighlightingData];
+        if ($relationParameters->bookmarkFeature !== null) {
+            $relDb[$relationParameters->bookmarkFeature->bookmark->getName()] = ['query' => $sqlHighlightingData];
         }
 
-        if ($relationParameters->tracking !== null) {
-            $relDb[$relationParameters->tracking->getName()] = [
+        if ($relationParameters->trackingFeature !== null) {
+            $relDb[$relationParameters->trackingFeature->tracking->getName()] = [
                 'schema_sql' => $sqlHighlightingData,
                 'data_sql' => $sqlHighlightingData,
             ];
         }
 
-        if ($relationParameters->favorite !== null) {
-            $relDb[$relationParameters->favorite->getName()] = ['tables' => $jsonHighlightingData];
+        if ($relationParameters->favoriteTablesFeature !== null) {
+            $table = $relationParameters->favoriteTablesFeature->favorite->getName();
+            $relDb[$table] = ['tables' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->recent !== null) {
-            $relDb[$relationParameters->recent->getName()] = ['tables' => $jsonHighlightingData];
+        if ($relationParameters->recentlyUsedTablesFeature !== null) {
+            $table = $relationParameters->recentlyUsedTablesFeature->recent->getName();
+            $relDb[$table] = ['tables' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->savedsearches !== null) {
-            $relDb[$relationParameters->savedsearches->getName()] = ['search_data' => $jsonHighlightingData];
+        if ($relationParameters->savedQueryByExampleSearchesFeature !== null) {
+            $table = $relationParameters->savedQueryByExampleSearchesFeature->savedSearches->getName();
+            $relDb[$table] = ['search_data' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->designerSettings !== null) {
-            $relDb[$relationParameters->designerSettings->getName()] = ['settings_data' => $jsonHighlightingData];
+        if ($relationParameters->databaseDesignerSettingsFeature !== null) {
+            $table = $relationParameters->databaseDesignerSettingsFeature->designerSettings->getName();
+            $relDb[$table] = ['settings_data' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->tableUiprefs !== null) {
-            $relDb[$relationParameters->tableUiprefs->getName()] = ['prefs' => $jsonHighlightingData];
+        if ($relationParameters->uiPreferencesFeature !== null) {
+            $table = $relationParameters->uiPreferencesFeature->tableUiPrefs->getName();
+            $relDb[$table] = ['prefs' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->userconfig !== null) {
-            $relDb[$relationParameters->userconfig->getName()] = ['config_data' => $jsonHighlightingData];
+        if ($relationParameters->userPreferencesFeature !== null) {
+            $table = $relationParameters->userPreferencesFeature->userConfig->getName();
+            $relDb[$table] = ['config_data' => $jsonHighlightingData];
         }
 
-        if ($relationParameters->exportTemplates !== null) {
-            $relDb[$relationParameters->exportTemplates->getName()] = ['template_data' => $jsonHighlightingData];
+        if ($relationParameters->exportTemplatesFeature !== null) {
+            $table = $relationParameters->exportTemplatesFeature->exportTemplates->getName();
+            $relDb[$table] = ['template_data' => $jsonHighlightingData];
         }
 
         $this->transformationInfo[$relationParameters->db->getName()] = $relDb;
@@ -2480,8 +2487,8 @@ class Results
             $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;
 
             if (
-                ! $relationParameters->hasColumnCommentsFeature()
-                || ! $relationParameters->hasBrowserTransformationFeature()
+                $relationParameters->columnCommentsFeature === null
+                || $relationParameters->browserTransformationFeature === null
                 || ! $GLOBALS['cfg']['BrowseMIME']
                 || $_SESSION['tmpval']['hide_transformation']
                 || ! empty($added[$orgFullTableName])
@@ -2610,7 +2617,7 @@ class Results
             $transformationPlugin = null;
             $transformOptions = [];
 
-            if ($relationParameters->hasBrowserTransformationFeature() && $GLOBALS['cfg']['BrowseMIME']) {
+            if ($relationParameters->browserTransformationFeature !== null && $GLOBALS['cfg']['BrowseMIME']) {
                 if (
                     isset($mediaTypeMap[$orgFullColName]['mimetype'])
                     && ! empty($mediaTypeMap[$orgFullColName]['transformation'])
@@ -3882,8 +3889,8 @@ class Results
             'sql_query' => $this->properties['sql_query'],
             'goto' => $this->properties['goto'],
             'unlim_num_rows' => $this->properties['unlim_num_rows'],
-            'displaywork' => $relationParameters->hasDisplayFeature(),
-            'relwork' => $relationParameters->hasRelationFeature(),
+            'displaywork' => $relationParameters->displayFeature !== null,
+            'relwork' => $relationParameters->relationFeature !== null,
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'text_dir' => $this->properties['text_dir'],

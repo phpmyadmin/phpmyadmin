@@ -365,7 +365,7 @@ class NodeDatabase extends Node
 
         // Remove hidden items so that they are not displayed in navigation tree
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasNavigationItemsHidingFeature()) {
+        if ($relationParameters->navigationItemsHidingFeature !== null) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
                 if (! in_array($item, $hiddenItems)) {
@@ -393,12 +393,12 @@ class NodeDatabase extends Node
 
         $db = $this->realName;
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasNavigationItemsHidingFeature() || $relationParameters->user === null) {
+        if ($relationParameters->navigationItemsHidingFeature === null || $relationParameters->user === null) {
             return [];
         }
 
-        $navTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->navigationhiding);
+        $navTable = Util::backquote($relationParameters->navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
             . " WHERE `username`='" . $relationParameters->user . "'"
             . " AND `item_type`='" . $type
@@ -662,7 +662,7 @@ class NodeDatabase extends Node
     {
         $ret = '';
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasNavigationItemsHidingFeature()) {
+        if ($relationParameters->navigationItemsHidingFeature !== null) {
             if ($this->hiddenCount > 0) {
                 $params = [
                     'showUnhideDialog' => true,

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -32,8 +33,10 @@ class UserGroups
      *
      * @return string HTML to list the users belonging to a given user group
      */
-    public static function getHtmlForListingUsersofAGroup(string $userGroup): string
-    {
+    public static function getHtmlForListingUsersofAGroup(
+        ConfigurableMenusFeature $configurableMenusFeature,
+        string $userGroup
+    ): string {
         global $dbi;
 
         $users = [];
@@ -41,9 +44,8 @@ class UserGroups
         $relation = new Relation($dbi);
 
         $userGroupSpecialChars = htmlspecialchars($userGroup);
-        $relationParameters = $relation->getRelationParameters();
-        $usersTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->users);
+        $usersTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->users);
         $sql_query = 'SELECT `username` FROM ' . $usersTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
@@ -77,14 +79,13 @@ class UserGroups
      *
      * @return string HTML for the 'user groups' table
      */
-    public static function getHtmlForUserGroupsTable(): string
+    public static function getHtmlForUserGroupsTable(ConfigurableMenusFeature $configurableMenusFeature): string
     {
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-        $groupTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->usergroups);
+        $groupTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
         $result = $relation->queryAsControlUser($sql_query, false);
         $numRows = $dbi->numRows($result);
@@ -176,16 +177,15 @@ class UserGroups
      *
      * @param string $userGroup user group name
      */
-    public static function delete(string $userGroup): void
+    public static function delete(ConfigurableMenusFeature $configurableMenusFeature, string $userGroup): void
     {
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-        $userTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->users);
-        $groupTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->usergroups);
+        $userTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->users);
+        $groupTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sql_query = 'DELETE FROM ' . $userTable
             . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
             . "'";
@@ -203,8 +203,10 @@ class UserGroups
      *
      * @return string HTML for add/edit user group dialog
      */
-    public static function getHtmlToEditUserGroup(?string $userGroup = null): string
-    {
+    public static function getHtmlToEditUserGroup(
+        ConfigurableMenusFeature $configurableMenusFeature,
+        ?string $userGroup = null
+    ): string {
         global $dbi;
 
         $relation = new Relation($dbi);
@@ -228,9 +230,8 @@ class UserGroups
             'table' => [],
         ];
         if ($userGroup !== null) {
-            $relationParameters = $relation->getRelationParameters();
-            $groupTable = Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->usergroups);
+            $groupTable = Util::backquote($configurableMenusFeature->database)
+                . '.' . Util::backquote($configurableMenusFeature->userGroups);
             $sql_query = 'SELECT * FROM ' . $groupTable
                 . " WHERE `usergroup`='" . $dbi->escapeString($userGroup)
                 . "'";
@@ -316,15 +317,17 @@ class UserGroups
      * @param string $userGroup user group name
      * @param bool   $new       whether this is a new user group
      */
-    public static function edit(string $userGroup, bool $new = false): void
-    {
+    public static function edit(
+        ConfigurableMenusFeature $configurableMenusFeature,
+        string $userGroup,
+        bool $new = false
+    ): void {
         global $dbi;
 
         $relation = new Relation($dbi);
         $tabs = Util::getMenuTabList();
-        $relationParameters = $relation->getRelationParameters();
-        $groupTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->usergroups);
+        $groupTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->userGroups);
 
         if (! $new) {
             $sql_query = 'DELETE FROM ' . $groupTable

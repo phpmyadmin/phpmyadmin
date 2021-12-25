@@ -553,7 +553,7 @@ class Pdf extends PdfLib
             $this->tablewidths[$columns_cnt] = 120;
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $columns_cnt++;
             $this->colTitles[$columns_cnt] = __('Media type');
             $this->displayColumn[$columns_cnt] = true;
@@ -573,7 +573,7 @@ class Pdf extends PdfLib
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
 

@@ -275,7 +275,7 @@ class OperationsController extends AbstractController
         }
 
         $databaseComment = '';
-        if ($relationParameters->hasColumnCommentsFeature()) {
+        if ($relationParameters->columnCommentsFeature !== null) {
             $databaseComment = $this->relation->getDbComment($db);
         }
 
@@ -310,7 +310,7 @@ class OperationsController extends AbstractController
         $this->render('database/operations/index', [
             'message' => $oldMessage,
             'db' => $db,
-            'has_comment' => $relationParameters->hasColumnCommentsFeature(),
+            'has_comment' => $relationParameters->columnCommentsFeature !== null,
             'db_comment' => $databaseComment,
             'db_collation' => $db_collation,
             'has_adjust_privileges' => $hasAdjustPrivileges,

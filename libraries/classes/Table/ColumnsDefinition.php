@@ -120,7 +120,7 @@ final class ColumnsDefinition
         }
 
         $available_mime = [];
-        if ($relationParameters->hasBrowserTransformationFeature() && $cfg['BrowseMIME']) {
+        if ($relationParameters->browserTransformationFeature !== null && $cfg['BrowseMIME']) {
             $mime_map = $transformations->getMime($db, $table);
             $available_mime = $transformations->getAvailableMimeTypes();
         }

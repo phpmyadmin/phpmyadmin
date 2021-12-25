@@ -90,7 +90,7 @@ class ExportOdt extends ExportPlugin
             $structureOptions->setForce('data');
             $relationParameters = $this->relation->getRelationParameters();
             // create primary items and add them to the group
-            if ($relationParameters->relation !== null) {
+            if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -103,7 +103,7 @@ class ExportOdt extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if ($relationParameters->hasBrowserTransformationFeature()) {
+            if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -443,7 +443,7 @@ class ExportOdt extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relation !== null,
+            $do_relation && $relationParameters->relationFeature !== null,
             $db,
             $table
         );
@@ -461,7 +461,7 @@ class ExportOdt extends ExportPlugin
             $columns_cnt++;
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $columns_cnt++;
         }
 
@@ -494,7 +494,7 @@ class ExportOdt extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
@@ -547,7 +547,7 @@ class ExportOdt extends ExportPlugin
                 }
             }
 
-            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
                 if (isset($mime_map[$field_name])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'

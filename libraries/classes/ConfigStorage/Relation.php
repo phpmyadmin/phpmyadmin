@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\ConfigStorage;
 
+use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\InternalRelations;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -453,14 +454,14 @@ class Relation
      */
     public function getForeigners($db, $table, $column = '', $source = 'both')
     {
-        $relationParameters = $this->getRelationParameters();
+        $relationFeature = $this->getRelationParameters()->relationFeature;
         $foreign = [];
 
-        if ($relationParameters->hasRelationFeature() && ($source === 'both' || $source === 'internal')) {
+        if ($relationFeature !== null && ($source === 'both' || $source === 'internal')) {
             $rel_query = 'SELECT `master_field`, `foreign_db`, '
                 . '`foreign_table`, `foreign_field`'
-                . ' FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->relation)
+                . ' FROM ' . Util::backquote($relationFeature->database)
+                . '.' . Util::backquote($relationFeature->relation)
                 . ' WHERE `master_db` = \'' . $this->dbi->escapeString($db) . '\''
                 . ' AND `master_table` = \'' . $this->dbi->escapeString($table) . '\'';
             if (strlen($column) > 0) {
@@ -524,15 +525,15 @@ class Relation
      */
     public function getDisplayField($db, $table)
     {
-        $relationParameters = $this->getRelationParameters();
+        $displayFeature = $this->getRelationParameters()->displayFeature;
 
         /**
          * Try to fetch the display field from DB.
          */
-        if ($relationParameters->hasDisplayFeature()) {
+        if ($displayFeature !== null) {
             $disp_query = 'SELECT `display_field`'
-                    . ' FROM ' . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->tableInfo)
+                    . ' FROM ' . Util::backquote($displayFeature->database)
+                    . '.' . Util::backquote($displayFeature->tableInfo)
                     . ' WHERE `db_name` = \'' . $this->dbi->escapeString((string) $db) . '\''
                     . ' AND `table_name` = \'' . $this->dbi->escapeString((string) $table) . '\'';
 
@@ -608,13 +609,12 @@ class Relation
      */
     public function getDbComment(string $db): string
     {
-        $relationParameters = $this->getRelationParameters();
-
-        if ($relationParameters->hasColumnCommentsFeature()) {
+        $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
+        if ($columnCommentsFeature !== null) {
             // pmadb internal db comment
             $com_qry = 'SELECT `comment`'
-                    . ' FROM ' . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->columnInfo)
+                    . ' FROM ' . Util::backquote($columnCommentsFeature->database)
+                    . '.' . Util::backquote($columnCommentsFeature->columnInfo)
                     . ' WHERE db_name = \'' . $this->dbi->escapeString($db) . '\''
                     . ' AND table_name  = \'\''
                     . ' AND column_name = \'(db_comment)\'';
@@ -637,14 +637,14 @@ class Relation
      */
     public function getDbComments()
     {
-        $relationParameters = $this->getRelationParameters();
+        $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
         $comments = [];
 
-        if ($relationParameters->hasColumnCommentsFeature()) {
+        if ($columnCommentsFeature !== null) {
             // pmadb internal db comment
             $com_qry = 'SELECT `db_name`, `comment`'
-                    . ' FROM ' . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->columnInfo)
+                    . ' FROM ' . Util::backquote($columnCommentsFeature->database)
+                    . '.' . Util::backquote($columnCommentsFeature->columnInfo)
                     . ' WHERE `column_name` = \'(db_comment)\'';
             $com_rs = $this->queryAsControlUser($com_qry, false, DatabaseInterface::QUERY_STORE);
 
@@ -668,16 +668,15 @@ class Relation
      */
     public function setDbComment($db, $comment = ''): bool
     {
-        $relationParameters = $this->getRelationParameters();
-
-        if (! $relationParameters->hasColumnCommentsFeature()) {
+        $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
+        if ($columnCommentsFeature === null) {
             return false;
         }
 
         if (strlen($comment) > 0) {
             $upd_query = 'INSERT INTO '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->columnInfo)
+                . Util::backquote($columnCommentsFeature->database) . '.'
+                . Util::backquote($columnCommentsFeature->columnInfo)
                 . ' (`db_name`, `table_name`, `column_name`, `comment`)'
                 . ' VALUES (\''
                 . $this->dbi->escapeString($db)
@@ -688,8 +687,8 @@ class Relation
                 . "`comment` = '" . $this->dbi->escapeString($comment) . "'";
         } else {
             $upd_query = 'DELETE FROM '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->columnInfo)
+                . Util::backquote($columnCommentsFeature->database) . '.'
+                . Util::backquote($columnCommentsFeature->columnInfo)
                 . ' WHERE `db_name`     = \'' . $this->dbi->escapeString($db)
                 . '\'
                     AND `table_name`  = \'\'
@@ -715,7 +714,7 @@ class Relation
             return;
         }
 
-        $relationParameters = $this->getRelationParameters();
+        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
 
         if (! isset($_SESSION['sql_history'])) {
             $_SESSION['sql_history'] = [];
@@ -732,14 +731,14 @@ class Relation
             array_shift($_SESSION['sql_history']);
         }
 
-        if (! $relationParameters->hasSqlHistoryFeature() || ! $GLOBALS['cfg']['QueryHistoryDB']) {
+        if ($sqlHistoryFeature === null || ! $GLOBALS['cfg']['QueryHistoryDB']) {
             return;
         }
 
         $this->queryAsControlUser(
             'INSERT INTO '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->history) . '
+            . Util::backquote($sqlHistoryFeature->database) . '.'
+            . Util::backquote($sqlHistoryFeature->history) . '
                   (`username`,
                     `db`,
                     `table`,
@@ -765,9 +764,8 @@ class Relation
      */
     public function getHistory($username)
     {
-        $relationParameters = $this->getRelationParameters();
-
-        if (! $relationParameters->hasSqlHistoryFeature()) {
+        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
+        if ($sqlHistoryFeature === null) {
             return false;
         }
 
@@ -788,8 +786,8 @@ class Relation
                     `table`,
                     `sqlquery`,
                     `timevalue`
-               FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->history) . '
+               FROM ' . Util::backquote($sqlHistoryFeature->database)
+                . '.' . Util::backquote($sqlHistoryFeature->history) . '
               WHERE `username` = \'' . $this->dbi->escapeString($username) . '\'
            ORDER BY `id` DESC';
 
@@ -806,15 +804,15 @@ class Relation
      */
     public function purgeHistory($username): void
     {
-        $relationParameters = $this->getRelationParameters();
-        if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $relationParameters->hasSqlHistoryFeature()) {
+        $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
+        if (! $GLOBALS['cfg']['QueryHistoryDB'] || $sqlHistoryFeature === null) {
             return;
         }
 
         $search_query = '
             SELECT `timevalue`
-            FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->history) . '
+            FROM ' . Util::backquote($sqlHistoryFeature->database)
+                . '.' . Util::backquote($sqlHistoryFeature->history) . '
             WHERE `username` = \'' . $this->dbi->escapeString($username) . '\'
             ORDER BY `timevalue` DESC
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
@@ -827,8 +825,8 @@ class Relation
 
         $this->queryAsControlUser(
             'DELETE FROM '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->history) . '
+            . Util::backquote($sqlHistoryFeature->database) . '.'
+            . Util::backquote($sqlHistoryFeature->history) . '
               WHERE `username` = \'' . $this->dbi->escapeString($username)
             . '\'
                 AND `timevalue` <= \'' . $max_time . '\''
@@ -1173,10 +1171,10 @@ class Relation
     {
         $relationParameters = $this->getRelationParameters();
 
-        if ($relationParameters->hasDisplayFeature()) {
+        if ($relationParameters->displayFeature !== null) {
             $table_query = 'UPDATE '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->tableInfo)
+                . Util::backquote($relationParameters->displayFeature->database) . '.'
+                . Util::backquote($relationParameters->displayFeature->tableInfo)
                 . '   SET display_field = \'' . $this->dbi->escapeString($new_name) . '\''
                 . ' WHERE db_name       = \'' . $this->dbi->escapeString($db)
                 . '\''
@@ -1187,13 +1185,13 @@ class Relation
             $this->queryAsControlUser($table_query);
         }
 
-        if (! $relationParameters->hasRelationFeature()) {
+        if ($relationParameters->relationFeature === null) {
             return;
         }
 
         $table_query = 'UPDATE '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->relation)
+            . Util::backquote($relationParameters->relationFeature->database) . '.'
+            . Util::backquote($relationParameters->relationFeature->relation)
             . '   SET master_field = \'' . $this->dbi->escapeString($new_name) . '\''
             . ' WHERE master_db    = \'' . $this->dbi->escapeString($db)
             . '\''
@@ -1204,8 +1202,8 @@ class Relation
         $this->queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->relation)
+            . Util::backquote($relationParameters->relationFeature->database) . '.'
+            . Util::backquote($relationParameters->relationFeature->relation)
             . '   SET foreign_field = \'' . $this->dbi->escapeString($new_name) . '\''
             . ' WHERE foreign_db    = \'' . $this->dbi->escapeString($db)
             . '\''
@@ -1268,7 +1266,7 @@ class Relation
         $relationParameters = $this->getRelationParameters();
 
         // Move old entries from PMA-DBs to new table
-        if ($relationParameters->hasColumnCommentsFeature()) {
+        if ($relationParameters->columnCommentsFeature !== null) {
             $this->renameSingleTable(
                 'columnInfo',
                 $source_db,
@@ -1283,7 +1281,7 @@ class Relation
         // updating bookmarks is not possible since only a single table is
         // moved, and not the whole DB.
 
-        if ($relationParameters->hasDisplayFeature()) {
+        if ($relationParameters->displayFeature !== null) {
             $this->renameSingleTable(
                 'tableInfo',
                 $source_db,
@@ -1295,7 +1293,7 @@ class Relation
             );
         }
 
-        if ($relationParameters->hasRelationFeature()) {
+        if ($relationParameters->relationFeature !== null) {
             $this->renameSingleTable(
                 'relation',
                 $source_db,
@@ -1317,7 +1315,7 @@ class Relation
             );
         }
 
-        if ($relationParameters->hasPdfFeature()) {
+        if ($relationParameters->pdfFeature !== null) {
             if ($source_db == $target_db) {
                 // rename within the database can be handled
                 $this->renameSingleTable(
@@ -1333,8 +1331,8 @@ class Relation
                 // if the table is moved out of the database we can no longer keep the
                 // record for table coordinate
                 $remove_query = 'DELETE FROM '
-                    . Util::backquote($relationParameters->db) . '.'
-                    . Util::backquote($relationParameters->tableCoords)
+                    . Util::backquote($relationParameters->pdfFeature->database) . '.'
+                    . Util::backquote($relationParameters->pdfFeature->tableCoords)
                     . " WHERE db_name  = '" . $this->dbi->escapeString($source_db) . "'"
                     . " AND table_name = '" . $this->dbi->escapeString($source_table)
                     . "'";
@@ -1342,7 +1340,7 @@ class Relation
             }
         }
 
-        if ($relationParameters->hasUiPreferencesFeature()) {
+        if ($relationParameters->uiPreferencesFeature !== null) {
             $this->renameSingleTable(
                 'tableUiprefs',
                 $source_db,
@@ -1354,7 +1352,7 @@ class Relation
             );
         }
 
-        if (! $relationParameters->hasNavigationItemsHidingFeature()) {
+        if ($relationParameters->navigationItemsHidingFeature === null) {
             return;
         }
 
@@ -1371,8 +1369,8 @@ class Relation
 
         // update data for hidden table
         $query = 'UPDATE '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->navigationhiding)
+            . Util::backquote($relationParameters->navigationItemsHidingFeature->database) . '.'
+            . Util::backquote($relationParameters->navigationItemsHidingFeature->navigationHiding)
             . " SET db_name = '" . $this->dbi->escapeString($target_db)
             . "',"
             . " item_name = '" . $this->dbi->escapeString($target_table)
@@ -1393,11 +1391,11 @@ class Relation
      *
      * @return int|false
      */
-    public function createPage(?string $newpage, RelationParameters $relationParameters, $db)
+    public function createPage(?string $newpage, PdfFeature $pdfFeature, $db)
     {
         $ins_query = 'INSERT INTO '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->pdfPages)
+            . Util::backquote($pdfFeature->database) . '.'
+            . Util::backquote($pdfFeature->pdfPages)
             . ' (db_name, page_descr)'
             . ' VALUES (\''
             . $this->dbi->escapeString($db) . '\', \''
@@ -1715,7 +1713,8 @@ class Relation
 
         $relationParameters = $this->getRelationParameters();
         if (
-            ! $relationParameters->hasRecentlyUsedTablesFeature() && ! $relationParameters->hasFavoriteTablesFeature()
+            $relationParameters->recentlyUsedTablesFeature === null
+            && $relationParameters->favoriteTablesFeature === null
         ) {
             return;
         }
@@ -1723,12 +1722,12 @@ class Relation
         // Since configuration storage is updated, we need to
         // re-initialize the favorite and recent tables stored in the
         // session from the current configuration storage.
-        if ($relationParameters->hasFavoriteTablesFeature()) {
+        if ($relationParameters->favoriteTablesFeature !== null) {
             $fav_tables = RecentFavoriteTable::getInstance('favorite');
             $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $fav_tables->getFromDb();
         }
 
-        if ($relationParameters->hasRecentlyUsedTablesFeature()) {
+        if ($relationParameters->recentlyUsedTablesFeature !== null) {
             $recent_tables = RecentFavoriteTable::getInstance('recent');
             $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recent_tables->getFromDb();
         }

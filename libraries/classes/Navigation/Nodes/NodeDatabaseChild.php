@@ -35,7 +35,7 @@ abstract class NodeDatabaseChild extends Node
     {
         $ret = '';
         $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasNavigationItemsHidingFeature()) {
+        if ($relationParameters->navigationItemsHidingFeature !== null) {
             $db = $this->realParent()->realName;
             $item = $this->realName;
 

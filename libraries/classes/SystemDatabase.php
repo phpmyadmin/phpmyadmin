@@ -39,9 +39,8 @@ class SystemDatabase
      */
     public function getExistingTransformationData($db)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-
-        if (! $relationParameters->hasBrowserTransformationFeature()) {
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
             return false;
         }
 
@@ -49,8 +48,8 @@ class SystemDatabase
         // from pma__column_info table
         $transformationSql = sprintf(
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
-            Util::backquote($relationParameters->db),
-            Util::backquote($relationParameters->columnInfo),
+            Util::backquote($browserTransformationFeature->database),
+            Util::backquote($browserTransformationFeature->columnInfo),
             $this->dbi->escapeString($db)
         );
 
@@ -73,7 +72,10 @@ class SystemDatabase
         $viewName,
         $db
     ) {
-        $relationParameters = $this->relation->getRelationParameters();
+        $browserTransformationFeature = $this->relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
+            return '';
+        }
 
         // Need to store new transformation details for VIEW
         $newTransformationsSql = sprintf(
@@ -81,8 +83,8 @@ class SystemDatabase
             . '`db_name`, `table_name`, `column_name`, '
             . '`comment`, `mimetype`, `transformation`, '
             . '`transformation_options`) VALUES',
-            Util::backquote($relationParameters->db),
-            Util::backquote($relationParameters->columnInfo)
+            Util::backquote($browserTransformationFeature->database),
+            Util::backquote($browserTransformationFeature->columnInfo)
         );
 
         $columnCount = 0;

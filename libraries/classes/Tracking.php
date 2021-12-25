@@ -107,11 +107,15 @@ class Tracking
      */
     public function getListOfVersionsOfTable(string $db, string $table)
     {
-        $relationParameters = $this->relation->getRelationParameters();
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE db_name = \'%s\' AND table_name = \'%s\' ORDER BY version DESC',
-            Util::backquote($relationParameters->db),
-            Util::backquote($relationParameters->tracking),
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
             $this->dbi->escapeString($db),
             $this->dbi->escapeString($table)
         );
@@ -197,17 +201,19 @@ class Tracking
      */
     public function getSqlResultForSelectableTables(string $db)
     {
-        $relation = $this->relation;
-        $relationParameters = $this->relation->getRelationParameters();
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
 
         $sql_query = ' SELECT DISTINCT db_name, table_name FROM ' .
-            Util::backquote($relationParameters->db) . '.' .
-            Util::backquote($relationParameters->tracking) .
+            Util::backquote($trackingFeature->database) . '.' .
+            Util::backquote($trackingFeature->tracking) .
             " WHERE db_name = '" . $this->dbi->escapeString($db) .
             "' " .
             ' ORDER BY db_name, table_name';
 
-        return $relation->queryAsControlUser($sql_query);
+        return $this->relation->queryAsControlUser($sql_query);
     }
 
     /**
@@ -1112,12 +1118,15 @@ class Tracking
         string $textDir
     ) {
         $relation = $this->relation;
-        $relationParameters = $this->relation->getRelationParameters();
+        $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return '';
+        }
 
         // Prepare statement to get HEAD version
         $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
-            Util::backquote($relationParameters->db) . '.' .
-            Util::backquote($relationParameters->tracking) .
+            Util::backquote($trackingFeature->database) . '.' .
+            Util::backquote($trackingFeature->tracking) .
             ' WHERE db_name = \'' . $this->dbi->escapeString($db) .
             '\' ' .
             ' GROUP BY table_name' .
@@ -1134,8 +1143,8 @@ class Tracking
             while ($oneResult = $this->dbi->fetchArray($allTablesResult)) {
                 [$tableName, $versionNumber] = $oneResult;
                 $tableQuery = ' SELECT * FROM ' .
-                     Util::backquote($relationParameters->db) . '.' .
-                     Util::backquote($relationParameters->tracking) .
+                     Util::backquote($trackingFeature->database) . '.' .
+                     Util::backquote($trackingFeature->tracking) .
                      ' WHERE `db_name` = \''
                      . $this->dbi->escapeString($db)
                      . '\' AND `table_name`  = \''

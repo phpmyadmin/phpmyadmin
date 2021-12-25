@@ -62,7 +62,7 @@ class Designer
         return $this->template->render('database/designer/edit_delete_pages', [
             'db' => $db,
             'operation' => $operation,
-            'pdfwork' => $relationParameters->hasPdfFeature(),
+            'pdfwork' => $relationParameters->pdfFeature !== null,
             'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
@@ -80,7 +80,7 @@ class Designer
 
         return $this->template->render('database/designer/page_save_as', [
             'db' => $db,
-            'pdfwork' => $relationParameters->hasPdfFeature(),
+            'pdfwork' => $relationParameters->pdfFeature !== null,
             'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
@@ -94,19 +94,19 @@ class Designer
      */
     private function getPageIdsAndNames($db)
     {
-        $result = [];
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
-            return $result;
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
+            return [];
         }
 
         $page_query = 'SELECT `page_nr`, `page_descr` FROM '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->pdfPages)
+            . Util::backquote($pdfFeature->database) . '.'
+            . Util::backquote($pdfFeature->pdfPages)
             . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
             . ' ORDER BY `page_descr`';
         $page_rs = $this->relation->queryAsControlUser($page_query, false, DatabaseInterface::QUERY_STORE);
 
+        $result = [];
         while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
@@ -158,12 +158,11 @@ class Designer
 
         $params = [];
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        if ($relationParameters->hasDatabaseDesignerSettingsFeature()) {
+        $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
+        if ($databaseDesignerSettingsFeature !== null) {
             $query = 'SELECT `settings_data` FROM '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->designerSettings)
+                . Util::backquote($databaseDesignerSettingsFeature->database) . '.'
+                . Util::backquote($databaseDesignerSettingsFeature->designerSettings)
                 . ' WHERE ' . Util::backquote('username') . ' = "'
                 . $dbi->escapeString($GLOBALS['cfg']['Server']['user'])
                 . '";';
@@ -386,7 +385,7 @@ class Designer
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $displayedFields;
         $designerConfig->displayPage = (int) $displayPage;
-        $designerConfig->tablesEnabled = $relationParameters->hasPdfFeature();
+        $designerConfig->tablesEnabled = $relationParameters->pdfFeature !== null;
 
         return $this->template->render('database/designer/main', [
             'db' => $db,

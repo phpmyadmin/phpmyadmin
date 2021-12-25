@@ -36,19 +36,15 @@ final class LoadController extends AbstractController
         global $cfg;
 
         $templateId = (int) $request->getParsedBodyParam('templateId');
-        $relationParameters = $this->relation->getRelationParameters();
 
-        if (
-            ! $relationParameters->hasExportTemplatesFeature()
-            || $relationParameters->db === null
-            || $relationParameters->exportTemplates === null
-        ) {
+        $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
+        if ($exportTemplatesFeature === null) {
             return;
         }
 
         $template = $this->model->load(
-            $relationParameters->db,
-            $relationParameters->exportTemplates,
+            $exportTemplatesFeature->database,
+            $exportTemplatesFeature->exportTemplates,
             $cfg['Server']['user'],
             $templateId
         );

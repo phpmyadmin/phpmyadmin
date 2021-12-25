@@ -285,9 +285,8 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-
-        if (! $relationParameters->hasBrowserTransformationFeature()) {
+        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
             return null;
         }
 
@@ -303,8 +302,8 @@ class Transformations
                     . '`transformation_options`, '
                     . '`input_transformation`, '
                     . '`input_transformation_options`'
-            . ' FROM ' . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->columnInfo)
+            . ' FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
+            . Util::backquote($browserTransformationFeature->columnInfo)
             . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . '\''
             . ' AND `table_name` = \'' . $dbi->escapeString($table) . '\''
             . ' AND ( `mimetype` != \'\'' . (! $strict ?
@@ -364,9 +363,8 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-
-        if (! $relationParameters->hasBrowserTransformationFeature()) {
+        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
             return false;
         }
 
@@ -386,8 +384,8 @@ class Transformations
         $test_qry = '
              SELECT `mimetype`,
                     `comment`
-               FROM ' . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->columnInfo) . '
+               FROM ' . Util::backquote($browserTransformationFeature->database) . '.'
+            . Util::backquote($browserTransformationFeature->columnInfo) . '
               WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
                 AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
                 AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
@@ -400,8 +398,8 @@ class Transformations
 
             if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE '
-                    . Util::backquote($relationParameters->db) . '.'
-                    . Util::backquote($relationParameters->columnInfo)
+                    . Util::backquote($browserTransformationFeature->database) . '.'
+                    . Util::backquote($browserTransformationFeature->columnInfo)
                     . ' SET '
                     . '`mimetype` = \''
                     . $dbi->escapeString($mimetype) . '\', '
@@ -415,8 +413,8 @@ class Transformations
                     . $dbi->escapeString($inputTransformOpts) . '\'';
             } else {
                 $upd_query = 'DELETE FROM '
-                    . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote($relationParameters->columnInfo);
+                    . Util::backquote($browserTransformationFeature->database)
+                    . '.' . Util::backquote($browserTransformationFeature->columnInfo);
             }
 
             $upd_query .= '
@@ -427,8 +425,8 @@ class Transformations
                     . '\'';
         } elseif ($has_value) {
             $upd_query = 'INSERT INTO '
-                . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->columnInfo)
+                . Util::backquote($browserTransformationFeature->database)
+                . '.' . Util::backquote($browserTransformationFeature->columnInfo)
                 . ' (db_name, table_name, column_name, mimetype, '
                 . 'transformation, transformation_options, '
                 . 'input_transformation, input_transformation_options) '
@@ -467,15 +465,14 @@ class Transformations
         global $dbi;
 
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-
-        if ($relationParameters->columnInfo === null) {
+        $browserTransformationFeature = $relation->getRelationParameters()->browserTransformationFeature;
+        if ($browserTransformationFeature === null) {
             return false;
         }
 
         $delete_sql = 'DELETE FROM '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->columnInfo)
+            . Util::backquote($browserTransformationFeature->database) . '.'
+            . Util::backquote($browserTransformationFeature->columnInfo)
             . ' WHERE ';
 
         if (($column != '') && ($table != '')) {

@@ -127,7 +127,7 @@ class ExportLatex extends ExportPlugin
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $relationParameters = $this->relation->getRelationParameters();
-            if ($relationParameters->relation !== null) {
+            if ($relationParameters->relationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'relation',
                     __('Display foreign key relationships')
@@ -140,7 +140,7 @@ class ExportLatex extends ExportPlugin
                 __('Display comments')
             );
             $structureOptions->addProperty($leaf);
-            if ($relationParameters->hasBrowserTransformationFeature()) {
+            if ($relationParameters->browserTransformationFeature !== null) {
                 $leaf = new BoolPropertyItem(
                     'mime',
                     __('Display media types')
@@ -508,7 +508,7 @@ class ExportLatex extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && $relationParameters->relation !== null,
+            $do_relation && $relationParameters->relationFeature !== null,
             $db,
             $table
         );
@@ -530,7 +530,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $alignment .= 'l|';
         }
 
@@ -550,7 +550,7 @@ class ExportLatex extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -635,14 +635,14 @@ class ExportLatex extends ExportPlugin
                 $local_buffer .= $this->getRelationString($res_rel, $field_name, $db, $aliases);
             }
 
-            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
+            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
                 $local_buffer .= "\000";
                 if (isset($comments[$field_name])) {
                     $local_buffer .= $comments[$field_name];
                 }
             }
 
-            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
                 $local_buffer .= "\000";
                 if (isset($mime_map[$field_name])) {
                     $local_buffer .= str_replace('_', '/', $mime_map[$field_name]['mimetype']);

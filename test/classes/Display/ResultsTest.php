@@ -981,6 +981,7 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['relational_display'] = 'K';
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'db',
             'mimework' => true,
             'column_info' => 'column_info',
         ])->toArray();
