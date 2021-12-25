@@ -797,6 +797,9 @@ class CoreTest extends AbstractNetworkTestCase
      */
     public function testMissingExtensionFatal(): void
     {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
+
         $ext = 'php_ext';
         $warn = 'The <a href="' . Core::getPHPDocLink('book.' . $ext . '.php')
             . '" target="Documentation"><em>' . $ext
