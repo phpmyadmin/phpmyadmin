@@ -9131,22 +9131,7 @@ parameters:
 			path: libraries/classes/Tracker.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTracking\\(\\) should return int but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:changeTrackingData\\(\\) has parameter \\$newData with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:createDatabaseVersion\\(\\) should return int but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracker\\:\\:deleteTracking\\(\\) should return int but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracker.php
 

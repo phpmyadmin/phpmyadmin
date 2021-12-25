@@ -14412,11 +14412,8 @@
       <code>$trackingEnabled</code>
       <code>$trackingEnabled</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="5">
+    <MixedInferredReturnType occurrences="2">
       <code>bool</code>
-      <code>int</code>
-      <code>int</code>
-      <code>int</code>
       <code>int</code>
     </MixedInferredReturnType>
     <MixedOperand occurrences="2">
@@ -14427,10 +14424,7 @@
       <code>$tokens[0]-&gt;value</code>
       <code>$tokens[2]-&gt;value</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="5">
-      <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
-      <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
-      <code>$relation-&gt;queryAsControlUser($sqlQuery)</code>
+    <MixedReturnStatement occurrences="2">
       <code>$row[0] ?? -1</code>
       <code>self::$trackingCache[$dbName][$tableName]</code>
     </MixedReturnStatement>
