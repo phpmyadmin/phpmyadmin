@@ -310,7 +310,7 @@ final class RelationParameters
     /**
      * @return array<string, bool|string|null>
      * @psalm-return array{
-     *   version: non-empty-string,
+     *   version: string,
      *   user: (string|null),
      *   db: (string|null),
      *   bookmark: (string|null),

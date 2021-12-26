@@ -1010,11 +1010,6 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
   </file>
-  <file src="libraries/classes/ConfigStorage/RelationParameters.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$version</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <MixedArgument occurrences="9">
       <code>$key</code>
