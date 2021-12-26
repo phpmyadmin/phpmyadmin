@@ -159,9 +159,13 @@ class Navigation
         $dbName,
         $tableName = null
     ): void {
-        $relationParameters = $this->relation->getRelationParameters();
-        $navTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->navigationhiding);
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return;
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'INSERT INTO ' . $navTable
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . ' VALUES ('
@@ -189,9 +193,13 @@ class Navigation
         $dbName,
         $tableName = null
     ): void {
-        $relationParameters = $this->relation->getRelationParameters();
-        $navTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->navigationhiding);
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return;
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'DELETE FROM ' . $navTable
             . ' WHERE'
             . " `username`='"
@@ -245,9 +253,13 @@ class Navigation
      */
     private function getHiddenItems(string $database, ?string $table): array
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        $navTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->navigationhiding);
+        $navigationItemsHidingFeature = $this->relation->getRelationParameters()->navigationItemsHidingFeature;
+        if ($navigationItemsHidingFeature === null) {
+            return [];
+        }
+
+        $navTable = Util::backquote($navigationItemsHidingFeature->database)
+            . '.' . Util::backquote($navigationItemsHidingFeature->navigationHiding);
         $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . " WHERE `username`='"
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"

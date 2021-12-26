@@ -573,7 +573,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
             $relationParameters = $this->relation->getRelationParameters();
             $comments = $this->relation->getComments($this->db, $table);
-            if ($relationParameters->hasBrowserTransformationFeature()) {
+            if ($relationParameters->browserTransformationFeature !== null) {
                 $mime_map = $this->transformations->getMime($this->db, $table, true);
             }
 

@@ -38,8 +38,8 @@ class UserGroupsController extends AbstractController
 
     public function __invoke(): void
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasConfigurableMenusFeature()) {
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
+        if ($configurableMenusFeature === null) {
             return;
         }
 
@@ -66,37 +66,43 @@ class UserGroupsController extends AbstractController
          * Delete user group
          */
         if (! empty($_POST['deleteUserGroup'])) {
-            UserGroups::delete($_POST['userGroup']);
+            UserGroups::delete($configurableMenusFeature, $_POST['userGroup']);
         }
 
         /**
          * Add a new user group
          */
         if (! empty($_POST['addUserGroupSubmit'])) {
-            UserGroups::edit($_POST['userGroup'], true);
+            UserGroups::edit($configurableMenusFeature, $_POST['userGroup'], true);
         }
 
         /**
          * Update a user group
          */
         if (! empty($_POST['editUserGroupSubmit'])) {
-            UserGroups::edit($_POST['userGroup']);
+            UserGroups::edit($configurableMenusFeature, $_POST['userGroup']);
         }
 
         if (isset($_POST['viewUsers'])) {
             // Display users belonging to a user group
-            $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup($_POST['userGroup']));
+            $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
+                $configurableMenusFeature,
+                $_POST['userGroup']
+            ));
         }
 
         if (isset($_GET['addUserGroup'])) {
             // Display add user group dialog
-            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup());
+            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($configurableMenusFeature));
         } elseif (isset($_POST['editUserGroup'])) {
             // Display edit user group dialog
-            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup($_POST['userGroup']));
+            $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
+                $configurableMenusFeature,
+                $_POST['userGroup']
+            ));
         } else {
             // Display user groups table
-            $this->response->addHTML(UserGroups::getHtmlForUserGroupsTable());
+            $this->response->addHTML(UserGroups::getHtmlForUserGroupsTable($configurableMenusFeature));
         }
 
         $this->response->addHTML('</div>');

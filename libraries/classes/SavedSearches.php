@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 
 use function __;
@@ -238,7 +239,7 @@ class SavedSearches
     /**
      * Save the search
      */
-    public function save(): bool
+    public function save(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         global $dbi;
 
@@ -268,10 +269,8 @@ class SavedSearches
             exit;
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        $savedSearchesTbl = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->savedsearches);
+        $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
+            . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
 
         //If it's an insert.
         if ($this->getId() === null) {
@@ -279,7 +278,7 @@ class SavedSearches
                 "search_name = '" . $dbi->escapeString($this->getSearchName())
                 . "'",
             ];
-            $existingSearches = $this->getList($wheres);
+            $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
             if (! empty($existingSearches)) {
                 $message = Message::error(
@@ -316,7 +315,7 @@ class SavedSearches
             'id != ' . $this->getId(),
             "search_name = '" . $dbi->escapeString($this->getSearchName()) . "'",
         ];
-        $existingSearches = $this->getList($wheres);
+        $existingSearches = $this->getList($savedQueryByExampleSearchesFeature, $wheres);
 
         if (! empty($existingSearches)) {
             $message = Message::error(
@@ -342,7 +341,7 @@ class SavedSearches
     /**
      * Delete the search
      */
-    public function delete(): bool
+    public function delete(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         global $dbi;
 
@@ -357,10 +356,8 @@ class SavedSearches
             exit;
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        $savedSearchesTbl = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->savedsearches);
+        $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database) . '.'
+            . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
@@ -371,7 +368,7 @@ class SavedSearches
     /**
      * Load the current search from an id.
      */
-    public function load(): bool
+    public function load(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature): bool
     {
         global $dbi;
 
@@ -386,11 +383,9 @@ class SavedSearches
             exit;
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        $savedSearchesTbl = Util::backquote($relationParameters->db)
+        $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database)
             . '.'
-            . Util::backquote($relationParameters->savedsearches);
+            . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
@@ -420,7 +415,7 @@ class SavedSearches
      *
      * @return array List of saved searches or empty array on failure
      */
-    public function getList(array $wheres = [])
+    public function getList(SavedQueryByExampleSearchesFeature $savedQueryByExampleSearchesFeature, array $wheres = [])
     {
         global $dbi;
 
@@ -428,11 +423,9 @@ class SavedSearches
             return [];
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        $savedSearchesTbl = Util::backquote($relationParameters->db)
+        $savedSearchesTbl = Util::backquote($savedQueryByExampleSearchesFeature->database)
             . '.'
-            . Util::backquote($relationParameters->savedsearches);
+            . Util::backquote($savedQueryByExampleSearchesFeature->savedSearches);
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '

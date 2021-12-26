@@ -73,7 +73,7 @@ class UserPreferences
         global $dbi;
 
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasUserPreferencesFeature()) {
+        if ($relationParameters->userPreferencesFeature === null) {
             // no pmadb table, use session storage
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
@@ -90,8 +90,8 @@ class UserPreferences
         }
 
         // load configuration from pmadb
-        $query_table = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->userconfig);
+        $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
+            . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
             . ' WHERE `username` = \''
@@ -120,7 +120,7 @@ class UserPreferences
         $relationParameters = $this->relation->getRelationParameters();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
-        if (! $relationParameters->hasUserPreferencesFeature() || $relationParameters->user === null) {
+        if ($relationParameters->userPreferencesFeature === null || $relationParameters->user === null) {
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
@@ -134,8 +134,8 @@ class UserPreferences
         }
 
         // save configuration to pmadb
-        $query_table = Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->userconfig);
+        $query_table = Util::backquote($relationParameters->userPreferencesFeature->database) . '.'
+            . Util::backquote($relationParameters->userPreferencesFeature->userConfig);
         $query = 'SELECT `username` FROM ' . $query_table
             . ' WHERE `username` = \''
             . $dbi->escapeString($relationParameters->user)

@@ -4,7 +4,7 @@
     {{ show_docu('setup', 'phpmyadmin-configuration-storage') }}
   </h1>
 
-  {% if relation_parameters.db is null or relation_parameters.db|length == 0 %}
+  {% if relation_parameters.db is null %}
     <p>
       {% trans 'Configuration of pmadb…' %}
       <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -26,7 +26,7 @@
       {% endif %}
     {% endif %}
   {% else %}
-    {% if not relation_parameters.hasAllFeatures() and zero_conf and are_config_storage_tables_defined %}
+    {% if not relation_parameters.allworks and zero_conf and are_config_storage_tables_defined %}
       {% apply format('<a href="' ~ url('/check-relations') ~ '" data-post="' ~ get_common({'db': db, 'fix_pmadb': true, 'goto': url('/database/operations')}) ~ '">', '</a>')|notice %}
         {% trans '%sCreate%s missing phpMyAdmin configuration storage tables.' %}
       {% endapply %}
@@ -60,7 +60,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'General relation features:' %}
-          {% if relation_parameters.hasRelationFeature() %}
+          {% if relation_parameters.relwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -75,7 +75,7 @@
           {{ show_docu('config', 'cfg_Servers_table_info') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.tableInfo is not null %}
+          {% if relation_parameters.table_info is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -85,7 +85,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Display features:' %}
-          {% if relation_parameters.hasDisplayFeature() %}
+          {% if relation_parameters.displaywork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -100,7 +100,7 @@
           {{ show_docu('config', 'cfg_Servers_table_coords') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.tableCoords is not null %}
+          {% if relation_parameters.table_coords is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -113,7 +113,7 @@
           {{ show_docu('config', 'cfg_Servers_pdf_pages') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.pdfPages is not null %}
+          {% if relation_parameters.pdf_pages is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -123,7 +123,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Designer and creation of PDFs:' %}
-          {% if relation_parameters.hasPdfFeature() %}
+          {% if relation_parameters.pdfwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -138,7 +138,7 @@
           {{ show_docu('config', 'cfg_Servers_column_info') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.columnInfo is not null %}
+          {% if relation_parameters.column_info is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -148,7 +148,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Displaying column comments:' %}
-          {% if relation_parameters.hasColumnCommentsFeature() %}
+          {% if relation_parameters.commwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -158,14 +158,14 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Browser transformation:' %}
-          {% if relation_parameters.hasBrowserTransformationFeature() %}
+          {% if relation_parameters.mimework %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
           {% endif %}
         </td>
       </tr>
-      {% if relation_parameters.hasColumnCommentsFeature() and not relation_parameters.hasBrowserTransformationFeature() %}
+      {% if relation_parameters.commwork and not relation_parameters.mimework %}
         <tr>
           <td colspan="2" class="text-end">
             <span class="text-danger">
@@ -193,7 +193,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Bookmarked SQL query:' %}
-          {% if relation_parameters.hasBookmarkFeature() %}
+          {% if relation_parameters.bookmarkwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -218,7 +218,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'SQL history:' %}
-          {% if relation_parameters.hasSqlHistoryFeature() %}
+          {% if relation_parameters.historywork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -243,7 +243,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Persistent recently used tables:' %}
-          {% if relation_parameters.hasRecentlyUsedTablesFeature() %}
+          {% if relation_parameters.recentwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -268,7 +268,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Persistent favorite tables:' %}
-          {% if relation_parameters.hasFavoriteTablesFeature() %}
+          {% if relation_parameters.favoritework %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -283,7 +283,7 @@
           {{ show_docu('config', 'cfg_Servers_table_uiprefs') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.tableUiprefs is not null %}
+          {% if relation_parameters.table_uiprefs is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -293,7 +293,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Persistent tables\' UI preferences:' %}
-          {% if relation_parameters.hasUiPreferencesFeature() %}
+          {% if relation_parameters.uiprefswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -318,7 +318,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Tracking:' %}
-          {% if relation_parameters.hasTrackingFeature() %}
+          {% if relation_parameters.trackingwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -343,7 +343,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'User preferences:' %}
-          {% if relation_parameters.hasUserPreferencesFeature() %}
+          {% if relation_parameters.userconfigwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -381,7 +381,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Configurable menus:' %}
-          {% if relation_parameters.hasConfigurableMenusFeature() %}
+          {% if relation_parameters.menuswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -406,7 +406,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Hide/show navigation items:' %}
-          {% if relation_parameters.hasNavigationItemsHidingFeature() %}
+          {% if relation_parameters.navwork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -431,7 +431,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Saving Query-By-Example searches:' %}
-          {% if relation_parameters.hasSavedQueryByExampleSearchesFeature() %}
+          {% if relation_parameters.savedsearcheswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -446,7 +446,7 @@
           {{ show_docu('config', 'cfg_Servers_central_columns') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.centralColumns is not null %}
+          {% if relation_parameters.central_columns is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -456,7 +456,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Managing central list of columns:' %}
-          {% if relation_parameters.hasCentralColumnsFeature() %}
+          {% if relation_parameters.centralcolumnswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -471,7 +471,7 @@
           {{ show_docu('config', 'cfg_Servers_designer_settings') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.designerSettings is not null %}
+          {% if relation_parameters.designer_settings is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -481,7 +481,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Remembering designer settings:' %}
-          {% if relation_parameters.hasDatabaseDesignerSettingsFeature() %}
+          {% if relation_parameters.designersettingswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -496,7 +496,7 @@
           {{ show_docu('config', 'cfg_Servers_export_templates') }}
         </th>
         <td class="text-end">
-          {% if relation_parameters.exportTemplates is not null %}
+          {% if relation_parameters.export_templates is not null %}
             <span class="text-success"><strong>{% trans %}OK{% context %}Correctly working{% endtrans %}</strong></span>
           {% else %}
             <span class="text-danger"><strong>{% trans 'not OK' %}</strong></span>
@@ -506,7 +506,7 @@
       <tr>
         <td colspan="2" class="text-end">
           {% trans 'Saving export templates:' %}
-          {% if relation_parameters.hasExportTemplatesFeature() %}
+          {% if relation_parameters.exporttemplateswork %}
             <span class="text-success">{% trans 'Enabled' %}</span>
           {% else %}
             <span class="text-danger">{% trans 'Disabled' %}</span>
@@ -515,7 +515,7 @@
       </tr>
     </table>
 
-    {% if not relation_parameters.hasAllFeatures() %}
+    {% if not relation_parameters.allworks %}
       <p>{% trans 'Quick steps to set up advanced features:' %}</p>
 
       <ul>

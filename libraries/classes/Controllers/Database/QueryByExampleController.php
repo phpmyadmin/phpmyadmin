@@ -45,13 +45,13 @@ class QueryByExampleController extends AbstractController
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $tooltip_truename, $tooltip_aliasname, $pos, $urlParams, $cfg, $errorUrl;
 
-        $relationParameters = $this->relation->getRelationParameters();
+        $savedQbeSearchesFeature = $this->relation->getRelationParameters()->savedQueryByExampleSearchesFeature;
 
         $savedSearchList = [];
         $savedSearch = null;
         $currentSearchId = null;
         $this->addScriptFiles(['database/qbe.js']);
-        if ($relationParameters->hasSavedQueryByExampleSearchesFeature()) {
+        if ($savedQbeSearchesFeature !== null) {
             //Get saved search list.
             $savedSearch = new SavedSearches($this->relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -67,12 +67,12 @@ class QueryByExampleController extends AbstractController
                 if ($_POST['action'] === 'create') {
                     $savedSearch->setId(null)
                         ->setCriterias($_POST)
-                        ->save();
+                        ->save($savedQbeSearchesFeature);
                 } elseif ($_POST['action'] === 'update') {
                     $savedSearch->setCriterias($_POST)
-                        ->save();
+                        ->save($savedQbeSearchesFeature);
                 } elseif ($_POST['action'] === 'delete') {
-                    $savedSearch->delete();
+                    $savedSearch->delete($savedQbeSearchesFeature);
                     //After deletion, reset search.
                     $savedSearch = new SavedSearches($this->relation);
                     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -86,13 +86,13 @@ class QueryByExampleController extends AbstractController
                             ->setDbname($db);
                         $_POST = [];
                     } else {
-                        $savedSearch->load();
+                        $savedSearch->load($savedQbeSearchesFeature);
                     }
                 }
                 //Else, it's an "update query"
             }
 
-            $savedSearchList = $savedSearch->getList();
+            $savedSearchList = $savedSearch->getList($savedQbeSearchesFeature);
             $currentSearchId = $savedSearch->getId();
         }
 

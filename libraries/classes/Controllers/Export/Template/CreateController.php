@@ -47,13 +47,8 @@ final class CreateController extends AbstractController
         /** @var string|null $templateId */
         $templateId = $request->getParsedBodyParam('template_id');
 
-        $relationParameters = $this->relation->getRelationParameters();
-
-        if (
-            ! $relationParameters->hasExportTemplatesFeature()
-            || $relationParameters->db === null
-            || $relationParameters->exportTemplates === null
-        ) {
+        $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
+        if ($exportTemplatesFeature === null) {
             return;
         }
 
@@ -63,7 +58,11 @@ final class CreateController extends AbstractController
             'name' => $templateName,
             'data' => $templateData,
         ]);
-        $result = $this->model->create($relationParameters->db, $relationParameters->exportTemplates, $template);
+        $result = $this->model->create(
+            $exportTemplatesFeature->database,
+            $exportTemplatesFeature->exportTemplates,
+            $template
+        );
 
         if (is_string($result)) {
             $this->response->setRequestStatus(false);
@@ -73,8 +72,8 @@ final class CreateController extends AbstractController
         }
 
         $templates = $this->model->getAll(
-            $relationParameters->db,
-            $relationParameters->exportTemplates,
+            $exportTemplatesFeature->database,
+            $exportTemplatesFeature->exportTemplates,
             $template->getUsername(),
             $template->getExportType()
         );

@@ -145,7 +145,7 @@ class ExportSql extends ExportPlugin
         );
         $subgroup->addProperty($leaf);
         $relationParameters = $this->relation->getRelationParameters();
-        if (! empty($relationParameters->relation)) {
+        if ($relationParameters->relationFeature !== null) {
             $leaf = new BoolPropertyItem(
                 'relation',
                 __('Display foreign key relationships')
@@ -153,7 +153,7 @@ class ExportSql extends ExportPlugin
             $subgroup->addProperty($leaf);
         }
 
-        if ($relationParameters->hasBrowserTransformationFeature()) {
+        if ($relationParameters->browserTransformationFeature !== null) {
             $leaf = new BoolPropertyItem(
                 'mime',
                 __('Display media types')
@@ -1141,27 +1141,29 @@ class ExportSql extends ExportPlugin
 
             // special case, designer pages and their coordinates
             if ($type === 'pdf_pages') {
+                if ($relationParameters->pdfFeature === null) {
+                    continue;
+                }
+
                 $sqlQuery = 'SELECT `page_nr`, `page_descr` FROM '
-                    . Util::backquote($relationParameters->db)
-                    . '.' . Util::backquote((string) $relationParams[$type])
-                    . ' WHERE ' . Util::backquote($dbNameColumn)
-                    . " = '" . $dbi->escapeString($db) . "'";
+                    . Util::backquote($relationParameters->pdfFeature->database)
+                    . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
+                    . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . "'";
 
                 $result = $dbi->fetchResult($sqlQuery, 'page_nr', 'page_descr');
 
                 foreach (array_keys($result) as $page) {
                     // insert row for pdf_page
                     $sqlQueryRow = 'SELECT `db_name`, `page_descr` FROM '
-                        . Util::backquote($relationParameters->db)
-                        . '.' . Util::backquote((string) $relationParams[$type])
-                        . ' WHERE ' . Util::backquote($dbNameColumn)
-                        . " = '" . $dbi->escapeString($db) . "'"
+                        . Util::backquote($relationParameters->pdfFeature->database)
+                        . '.' . Util::backquote($relationParameters->pdfFeature->pdfPages)
+                        . ' WHERE `db_name` = \'' . $dbi->escapeString($db) . "'"
                         . " AND `page_nr` = '" . intval($page) . "'";
 
                     if (
                         ! $this->exportData(
-                            (string) $relationParameters->db,
-                            (string) $relationParams[$type],
+                            $relationParameters->pdfFeature->database->getName(),
+                            $relationParameters->pdfFeature->pdfPages->getName(),
                             $GLOBALS['crlf'],
                             '',
                             $sqlQueryRow,
@@ -1180,15 +1182,15 @@ class ExportSql extends ExportPlugin
 
                     $sqlQueryCoords = 'SELECT `db_name`, `table_name`, '
                         . "'@LAST_PAGE' AS `pdf_page_number`, `x`, `y` FROM "
-                        . Util::backquote($relationParameters->db)
-                        . '.' . Util::backquote($relationParameters->tableCoords)
+                        . Util::backquote($relationParameters->pdfFeature->database)
+                        . '.' . Util::backquote($relationParameters->pdfFeature->tableCoords)
                         . " WHERE `pdf_page_number` = '" . $page . "'";
 
                     $GLOBALS['exporting_metadata'] = true;
                     if (
                         ! $this->exportData(
-                            (string) $relationParameters->db,
-                            (string) $relationParameters->tableCoords,
+                            $relationParameters->pdfFeature->database->getName(),
+                            $relationParameters->pdfFeature->tableCoords->getName(),
                             $GLOBALS['crlf'],
                             '',
                             $sqlQueryCoords,
@@ -1890,12 +1892,12 @@ class ExportSql extends ExportPlugin
 
         // Check if we can use Relations
         [$resRel, $haveRel] = $this->relation->getRelationsAndStatus(
-            $doRelation && ! empty($relationParameters->relation),
+            $doRelation && $relationParameters->relationFeature !== null,
             $db,
             $table
         );
 
-        if ($doMime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
             $mimeMap = $this->transformations->getMime($db, $table, true);
             if ($mimeMap === null) {
                 unset($mimeMap);

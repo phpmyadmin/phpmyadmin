@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\ConfigStorage\Features\DisplayFeature;
+use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -72,7 +73,7 @@ final class RelationController extends AbstractController
         $relationParameters = $this->relation->getRelationParameters();
 
         $relations = [];
-        if ($relationParameters->hasRelationFeature()) {
+        if ($relationParameters->relationFeature !== null) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -100,20 +101,20 @@ final class RelationController extends AbstractController
         $this->dbi->selectDb($this->db);
 
         // updates for Internal relations
-        if (isset($_POST['destination_db']) && $relationParameters->hasRelationFeature()) {
-            $this->updateForInternalRelation($table, $relationParameters, $relations);
+        if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
+            $this->updateForInternalRelation($table, $relationParameters->relationFeature, $relations);
         }
 
         // updates for foreign keys
         $this->updateForForeignKeys($table, $options, $relationsForeign);
 
         // Updates for display field
-        if ($relationParameters->hasDisplayFeature() && isset($_POST['display_field'])) {
-            $this->updateForDisplayField($table, $relationParameters);
+        if ($relationParameters->displayFeature !== null && isset($_POST['display_field'])) {
+            $this->updateForDisplayField($table, $relationParameters->displayFeature);
         }
 
         // If we did an update, refresh our data
-        if (isset($_POST['destination_db']) && $relationParameters->hasRelationFeature()) {
+        if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
             $relations = $this->relation->getForeigners($this->db, $this->table, '', 'internal');
         }
 
@@ -172,9 +173,9 @@ final class RelationController extends AbstractController
     /**
      * Update for display field
      */
-    private function updateForDisplayField(Table $table, RelationParameters $relationParameters): void
+    private function updateForDisplayField(Table $table, DisplayFeature $displayFeature): void
     {
-        if (! $table->updateDisplayField($_POST['display_field'], $relationParameters)) {
+        if (! $table->updateDisplayField($_POST['display_field'], $displayFeature)) {
             return;
         }
 
@@ -253,7 +254,7 @@ final class RelationController extends AbstractController
      */
     private function updateForInternalRelation(
         Table $table,
-        RelationParameters $relationParameters,
+        RelationFeature $relationFeature,
         array $relations
     ): void {
         $multi_edit_columns_name = $_POST['fields_name'] ?? null;
@@ -264,7 +265,7 @@ final class RelationController extends AbstractController
                 $_POST['destination_db'],
                 $_POST['destination_table'],
                 $_POST['destination_column'],
-                $relationParameters,
+                $relationFeature,
                 $relations
             )
         ) {

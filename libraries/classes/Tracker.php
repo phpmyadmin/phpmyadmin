@@ -30,6 +30,7 @@ use function preg_quote;
 use function preg_replace;
 use function rtrim;
 use function serialize;
+use function sprintf;
 use function str_replace;
 use function strtotime;
 use function substr;
@@ -83,7 +84,7 @@ class Tracker
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
 
-        return $relationParameters->hasTrackingFeature();
+        return $relationParameters->trackingFeature !== null;
     }
 
     /**
@@ -139,17 +140,21 @@ class Tracker
          */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, false);
         $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
         /* Restore original state */
         Cache::set(self::TRACKER_ENABLED_CACHE_KEY, true);
-        if (! $relationParameters->hasTrackingFeature()) {
+        if ($trackingFeature === null) {
             return false;
         }
 
-        $sqlQuery = ' SELECT tracking_active FROM ' . self::getTrackingTable() .
-        " WHERE db_name = '" . $dbi->escapeString($dbName) . "' " .
-        " AND table_name = '" . $dbi->escapeString($tableName) . "' " .
-        ' ORDER BY version DESC LIMIT 1';
+        $sqlQuery = sprintf(
+            'SELECT tracking_active FROM %s.%s WHERE db_name = \'%s\' AND table_name = \'%s\''
+                . ' ORDER BY version DESC LIMIT 1',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbName),
+            $dbi->escapeString($tableName)
+        );
 
         $result = $dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
 
@@ -247,30 +252,27 @@ class Tracker
             $exportSqlPlugin->getTableDef($dbName, $tableName, "\n", '');
 
         // Save version
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
 
-        $sqlQuery = "/*NOTRACK*/\n" .
-        'INSERT INTO ' . self::getTrackingTable() . ' (' .
-        'db_name, ' .
-        'table_name, ' .
-        'version, ' .
-        'date_created, ' .
-        'date_updated, ' .
-        'schema_snapshot, ' .
-        'schema_sql, ' .
-        'data_sql, ' .
-        'tracking ' .
-        ') ' .
-        "values (
-        '" . $dbi->escapeString($dbName) . "',
-        '" . $dbi->escapeString($tableName) . "',
-        '" . $dbi->escapeString($version) . "',
-        '" . $dbi->escapeString($date) . "',
-        '" . $dbi->escapeString($date) . "',
-        '" . $dbi->escapeString($snapshot) . "',
-        '" . $dbi->escapeString($createSql) . "',
-        '" . $dbi->escapeString("\n") . "',
-        '" . $dbi->escapeString($trackingSet)
-        . "' )";
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'INSERT INTO %s.%s (db_name, table_name, version,'
+                . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
+                . ' values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbName),
+            $dbi->escapeString($tableName),
+            $dbi->escapeString($version),
+            $dbi->escapeString($date),
+            $dbi->escapeString($date),
+            $dbi->escapeString($snapshot),
+            $dbi->escapeString($createSql),
+            $dbi->escapeString("\n"),
+            $dbi->escapeString($trackingSet)
+        );
 
         $result = (bool) $relation->queryAsControlUser($sqlQuery);
 
@@ -288,28 +290,29 @@ class Tracker
      * @param string $dbName    name of database
      * @param string $tableName name of table
      * @param string $version   version
-     *
-     * @return int result of version insertion
-     *
-     * @static
      */
-    public static function deleteTracking($dbName, $tableName, $version = '')
+    public static function deleteTracking($dbName, $tableName, $version = ''): bool
     {
         global $dbi;
 
         $relation = new Relation($dbi);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
 
-        $sqlQuery = "/*NOTRACK*/\n"
-            . 'DELETE FROM ' . self::getTrackingTable()
-            . " WHERE `db_name` = '"
-            . $dbi->escapeString($dbName) . "'"
-            . " AND `table_name` = '"
-            . $dbi->escapeString($tableName) . "'";
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'DELETE FROM %s.%s WHERE `db_name` = \'%s\' AND `table_name` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbName),
+            $dbi->escapeString($tableName)
+        );
         if ($version) {
             $sqlQuery .= " AND `version` = '" . $dbi->escapeString($version) . "'";
         }
 
-        return $relation->queryAsControlUser($sqlQuery);
+        return (bool) $relation->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -320,17 +323,13 @@ class Tracker
      * @param string $version     version
      * @param string $query       query
      * @param string $trackingSet set of tracking statements
-     *
-     * @return int result of version insertion
-     *
-     * @static
      */
     public static function createDatabaseVersion(
         $dbName,
         $version,
         $query,
         $trackingSet = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
-    ) {
+    ): bool {
         global $dbi;
 
         $relation = new Relation($dbi);
@@ -349,32 +348,30 @@ class Tracker
 
         $createSql .= self::getLogComment() . $query;
 
-        // Save version
-        $sqlQuery = "/*NOTRACK*/\n" .
-        'INSERT INTO ' . self::getTrackingTable() . ' (' .
-        'db_name, ' .
-        'table_name, ' .
-        'version, ' .
-        'date_created, ' .
-        'date_updated, ' .
-        'schema_snapshot, ' .
-        'schema_sql, ' .
-        'data_sql, ' .
-        'tracking ' .
-        ') ' .
-        "values (
-        '" . $dbi->escapeString($dbName) . "',
-        '" . $dbi->escapeString('') . "',
-        '" . $dbi->escapeString($version) . "',
-        '" . $dbi->escapeString($date) . "',
-        '" . $dbi->escapeString($date) . "',
-        '" . $dbi->escapeString('') . "',
-        '" . $dbi->escapeString($createSql) . "',
-        '" . $dbi->escapeString("\n") . "',
-        '" . $dbi->escapeString($trackingSet)
-        . "' )";
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
 
-        return $relation->queryAsControlUser($sqlQuery);
+        // Save version
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'INSERT INTO %s.%s (db_name, table_name, version,'
+                . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
+                . ' values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbName),
+            $dbi->escapeString(''),
+            $dbi->escapeString($version),
+            $dbi->escapeString($date),
+            $dbi->escapeString($date),
+            $dbi->escapeString(''),
+            $dbi->escapeString($createSql),
+            $dbi->escapeString("\n"),
+            $dbi->escapeString($trackingSet)
+        );
+
+        return (bool) $relation->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -384,28 +381,33 @@ class Tracker
      * @param string $tableName name of table
      * @param string $version   version
      * @param int    $newState  the new state of tracking
-     *
-     * @return int result of SQL query
-     *
-     * @static
      */
     private static function changeTracking(
         $dbName,
         $tableName,
         $version,
         $newState
-    ) {
+    ): bool {
         global $dbi;
 
         $relation = new Relation($dbi);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
 
-        $sqlQuery = ' UPDATE ' . self::getTrackingTable() .
-        " SET `tracking_active` = '" . $newState . "' " .
-        " WHERE `db_name` = '" . $dbi->escapeString($dbName) . "' " .
-        " AND `table_name` = '" . $dbi->escapeString($tableName) . "' " .
-        " AND `version` = '" . $dbi->escapeString((string) $version) . "' ";
+        $sqlQuery = sprintf(
+            'UPDATE %s.%s SET `tracking_active` = \'%d\''
+                . ' WHERE `db_name` = \'%s\' AND `table_name` = \'%s\' AND `version` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $newState,
+            $dbi->escapeString($dbName),
+            $dbi->escapeString($tableName),
+            $dbi->escapeString((string) $version)
+        );
 
-        return $relation->queryAsControlUser($sqlQuery);
+        return (bool) $relation->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -450,11 +452,21 @@ class Tracker
             $newDataProcessed = $newData;
         }
 
-        $sqlQuery = ' UPDATE ' . self::getTrackingTable() .
-        ' SET `' . $saveTo . "` = '" . $newDataProcessed . "' " .
-        " WHERE `db_name` = '" . $dbi->escapeString($dbName) . "' " .
-        " AND `table_name` = '" . $dbi->escapeString($tableName) . "' " .
-        " AND `version` = '" . $dbi->escapeString($version) . "' ";
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return false;
+        }
+
+        $sqlQuery = sprintf(
+            'UPDATE %s.%s SET `%s` = \'%s\' WHERE `db_name` = \'%s\' AND `table_name` = \'%s\' AND `version` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $saveTo,
+            $newDataProcessed,
+            $dbi->escapeString($dbName),
+            $dbi->escapeString($tableName),
+            $dbi->escapeString($version)
+        );
 
         $result = $relation->queryAsControlUser($sqlQuery);
 
@@ -467,12 +479,8 @@ class Tracker
      * @param string $dbname    name of database
      * @param string $tablename name of table
      * @param string $version   version
-     *
-     * @return int result of SQL query
-     *
-     * @static
      */
-    public static function activateTracking($dbname, $tablename, $version)
+    public static function activateTracking($dbname, $tablename, $version): bool
     {
         return self::changeTracking($dbname, $tablename, $version, 1);
     }
@@ -483,12 +491,8 @@ class Tracker
      * @param string $dbname    name of database
      * @param string $tablename name of table
      * @param string $version   version
-     *
-     * @return int result of SQL query
-     *
-     * @static
      */
-    public static function deactivateTracking($dbname, $tablename, $version)
+    public static function deactivateTracking($dbname, $tablename, $version): bool
     {
         return self::changeTracking($dbname, $tablename, $version, 0);
     }
@@ -510,10 +514,18 @@ class Tracker
         global $dbi;
 
         $relation = new Relation($dbi);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return -1;
+        }
 
-        $sqlQuery = ' SELECT MAX(version) FROM ' . self::getTrackingTable() .
-        " WHERE `db_name` = '" . $dbi->escapeString($dbname) . "' " .
-        " AND `table_name` = '" . $dbi->escapeString($tablename) . "' ";
+        $sqlQuery = sprintf(
+            'SELECT MAX(version) FROM %s.%s WHERE `db_name` = \'%s\' AND `table_name` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbname),
+            $dbi->escapeString($tablename)
+        );
 
         if ($statement != '') {
             $sqlQuery .= " AND FIND_IN_SET('" . $statement . "',tracking) > 0";
@@ -547,9 +559,17 @@ class Tracker
         global $dbi;
 
         $relation = new Relation($dbi);
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return [];
+        }
 
-        $sqlQuery = ' SELECT * FROM ' . self::getTrackingTable() .
-            " WHERE `db_name` = '" . $dbi->escapeString($dbname) . "' ";
+        $sqlQuery = sprintf(
+            'SELECT * FROM %s.%s WHERE `db_name` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            $dbi->escapeString($dbname)
+        );
         if (! empty($tablename)) {
             $sqlQuery .= " AND `table_name` = '"
                 . $dbi->escapeString($tablename) . "' ";
@@ -900,13 +920,21 @@ class Tracker
         // Add log information
         $query = self::getLogComment() . $query;
 
+        $trackingFeature = $relation->getRelationParameters()->trackingFeature;
+        if ($trackingFeature === null) {
+            return;
+        }
+
         // Mark it as untouchable
-        $sqlQuery = " /*NOTRACK*/\n"
-            . ' UPDATE ' . self::getTrackingTable()
-            . ' SET ' . Util::backquote($saveTo)
-            . ' = CONCAT( ' . Util::backquote($saveTo) . ",'\n"
-            . $dbi->escapeString($query) . "') ,"
-            . " `date_updated` = '" . $date . "' ";
+        $sqlQuery = sprintf(
+            '/*NOTRACK*/' . "\n" . 'UPDATE %s.%s SET %s = CONCAT(%s, \'' . "\n" . '%s\'), `date_updated` = \'%s\'',
+            Util::backquote($trackingFeature->database),
+            Util::backquote($trackingFeature->tracking),
+            Util::backquote($saveTo),
+            Util::backquote($saveTo),
+            $dbi->escapeString($query),
+            $date
+        );
 
         // If table was renamed we have to change
         // the tablename attribute in pma_tracking too
@@ -928,19 +956,5 @@ class Tracker
         " AND `version` = '" . $dbi->escapeString($version ?? '') . "' ";
 
         $relation->queryAsControlUser($sqlQuery);
-    }
-
-    /**
-     * Returns the tracking table
-     */
-    private static function getTrackingTable(): string
-    {
-        global $dbi;
-
-        $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-
-        return Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->tracking);
     }
 }

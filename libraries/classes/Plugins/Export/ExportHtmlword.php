@@ -355,7 +355,7 @@ class ExportHtmlword extends ExportPlugin
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
-            $do_relation && ! empty($relationParameters->relation),
+            $do_relation && $relationParameters->relationFeature !== null,
             $db,
             $table
         );
@@ -391,7 +391,7 @@ class ExportHtmlword extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+        if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
             $schema_insert .= '<td class="print"><strong>'
                 . __('Media type')
                 . '</strong></td>';
@@ -435,14 +435,14 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             }
 
-            if ($do_comments && $relationParameters->hasColumnCommentsFeature()) {
+            if ($do_comments && $relationParameters->columnCommentsFeature !== null) {
                 $schema_insert .= '<td class="print">'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '') . '</td>';
             }
 
-            if ($do_mime && $relationParameters->hasBrowserTransformationFeature()) {
+            if ($do_mime && $relationParameters->browserTransformationFeature !== null) {
                 $schema_insert .= '<td class="print">'
                     . (isset($mime_map[$field_name]) ?
                         htmlspecialchars(

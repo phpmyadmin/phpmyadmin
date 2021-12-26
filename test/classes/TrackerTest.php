@@ -36,6 +36,7 @@ class TrackerTest extends AbstractTestCase
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
+            'trackingwork' => true,
             'tracking' => 'tracking',
         ])->toArray();
 
@@ -242,30 +243,15 @@ class TrackerTest extends AbstractTestCase
 
         $date = Util::date('Y-m-d H:i:s');
 
-        $expectedMainQuery = '/*NOTRACK*/' .
-        "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
-        " schema_snapshot, schema_sql, data_sql, tracking ) values (
-        'pma_test',
-        'pma_tbl',
-        '1',
-        '" . $date . "',
-        '" . $date . "',
-        'a:2:{s:7:\"COLUMNS\";a:2:{" .
-        'i:0;a:3:{s:5:"Field";s:6:"field1";s:4:"Type";s:7:"int(11)";' .
-        's:3:"Key";s:3:"PRI";}' .
-        'i:1;a:3:{s:5:"Field";s:6:"field2";s:4:"Type";s:4:"text";' .
-        's:3:"Key";s:0:"";}}' .
-        's:7:"INDEXES";a:1:{' .
-        'i:0;a:3:{s:5:"Table";s:7:"pma_tbl";s:5:"Field";s:6:"field1";' .
-        "s:3:\"Key\";s:7:\"PRIMARY\";}}}',
-        '# log " . $date . ' pma_test_user' .
-        "\nDROP VIEW IF EXISTS `pma_tbl`;" .
-        "\n# log " . $date . ' pma_test_user' .
-        "\n\n;" .
-        "\n',
-        '" .
-        "\n',
-        '11' )";
+        $expectedMainQuery = '/*NOTRACK*/' . "\n" . 'INSERT INTO `pmadb`.`tracking` (db_name, table_name, version,'
+            . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
+            . ' values (\'pma_test\', \'pma_tbl\', \'1\', \'' . $date . '\', \'' . $date
+            . '\', \'a:2:{s:7:"COLUMNS";a:2:{i:0;a:3:{s:5:"Field";s:6:"field1";s:4:"Type";s:7:"int(11)";'
+            . 's:3:"Key";s:3:"PRI";}i:1;a:3:{s:5:"Field";s:6:"field2";s:4:"Type";s:4:"text";s:3:"Key";s:0:"";}}'
+            . 's:7:"INDEXES";a:1:{i:0;a:3:{s:5:"Table";s:7:"pma_tbl";s:5:"Field";s:6:"field1";'
+            . 's:3:"Key";s:7:"PRIMARY";}}}\', \'# log ' . $date . ' pma_test_user'
+            . "\n" . 'DROP VIEW IF EXISTS `pma_tbl`;' . "\n" . '# log ' . $date . ' pma_test_user'
+            . "\n\n" . ';' . "\n" . '\', \'' . "\n" . '\', \'11\')';
 
         $queryResults = [
             [
@@ -311,10 +297,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertEquals(
-            Tracker::deleteTracking('testdb', 'testtable'),
-            'executed'
-        );
+        $this->assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
     }
 
     /**
@@ -330,20 +313,11 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $expectedMainQuery = '/*NOTRACK*/' .
-        "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
-        " schema_snapshot, schema_sql, data_sql, tracking ) values (
-        'pma_test',
-        '',
-        '1',
-        '%d-%d-%d %d:%d:%d',
-        '%d-%d-%d %d:%d:%d',
-        '',
-        '# log %d-%d-%d %d:%d:%d pma_test_user" .
-        "\nSHOW DATABASES',
-        '" .
-        "\n',
-        'CREATE DATABASE,ALTER DATABASE,DROP DATABASE' )";
+        $expectedMainQuery = '/*NOTRACK*/' . "\n" . 'INSERT INTO `pmadb`.`tracking` (db_name, table_name, version,'
+            . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
+            . ' values (\'pma_test\', \'\', \'1\', \'%d-%d-%d %d:%d:%d\', \'%d-%d-%d %d:%d:%d\','
+            . ' \'\', \'# log %d-%d-%d %d:%d:%d pma_test_user' . "\n" . 'SHOW DATABASES\', \'' . "\n"
+            . '\', \'CREATE DATABASE,ALTER DATABASE,DROP DATABASE\')';
 
         $dbi->expects($this->exactly(1))
             ->method('query')
@@ -354,10 +328,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertEquals(
-            'executed',
-            Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
-        );
+        $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
     }
 
     /**
@@ -381,11 +352,11 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sql_query = ' UPDATE `pmadb`.`tracking` SET `tracking_active` = ' .
-        "'" . $new_state . "' " .
-        " WHERE `db_name` = '" . $dbname . "' " .
-        " AND `table_name` = '" . $tablename . "' " .
-        " AND `version` = '" . $version . "' ";
+        $sql_query = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' .
+        "'" . $new_state . "'" .
+        " WHERE `db_name` = '" . $dbname . "'" .
+        " AND `table_name` = '" . $tablename . "'" .
+        " AND `version` = '" . $version . "'";
 
         $dbi->expects($this->exactly(1))
             ->method('query')
@@ -409,7 +380,7 @@ class TrackerTest extends AbstractTestCase
             $result = Tracker::deactivateTracking($dbname, $tablename, $version);
         }
 
-        $this->assertEquals('executed', $result);
+        $this->assertTrue($result);
     }
 
     /**
@@ -425,11 +396,11 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sql_query_1 = ' UPDATE `pmadb`.`tracking`' .
-        " SET `schema_sql` = '# new_data_processed' " .
-        " WHERE `db_name` = 'pma_db' " .
-        " AND `table_name` = 'pma_table' " .
-        " AND `version` = '1.0' ";
+        $sql_query_1 = 'UPDATE `pmadb`.`tracking`' .
+        " SET `schema_sql` = '# new_data_processed'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
 
         $date = Util::date('Y-m-d H:i:s');
 
@@ -444,12 +415,12 @@ class TrackerTest extends AbstractTestCase
             ],
         ];
 
-        $sql_query_2 = ' UPDATE `pmadb`.`tracking`' .
+        $sql_query_2 = 'UPDATE `pmadb`.`tracking`' .
         " SET `data_sql` = '# log " . $date . " user1test_statement1\n" .
-        '# log ' . $date . " user2test_statement2\n' " .
-        " WHERE `db_name` = 'pma_db' " .
-        " AND `table_name` = 'pma_table' " .
-        " AND `version` = '1.0' ";
+        '# log ' . $date . " user2test_statement2\n'" .
+        " WHERE `db_name` = 'pma_db'" .
+        " AND `table_name` = 'pma_table'" .
+        " AND `version` = '1.0'";
 
         $dbi->method('query')
             ->will(

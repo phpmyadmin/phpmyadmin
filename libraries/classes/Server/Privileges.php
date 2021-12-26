@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server;
 
 use mysqli_stmt;
+use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
@@ -547,17 +548,13 @@ class Privileges
     public function setUserGroup($username, $userGroup): void
     {
         $userGroup = $userGroup ?? '';
-        $relationParameters = $this->relation->getRelationParameters();
-        if (
-            $relationParameters->db === null
-            || empty($relationParameters->users)
-            || empty($relationParameters->usergroups)
-        ) {
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
+        if ($configurableMenusFeature === null) {
             return;
         }
 
-        $userTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->users);
+        $userTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->users);
 
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
             . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
@@ -1550,11 +1547,10 @@ class Privileges
     /**
      * Returns number of defined user groups
      */
-    public function getUserGroupCount(): int
+    public function getUserGroupCount(ConfigurableMenusFeature $configurableMenusFeature): int
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        $userGroupTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->usergroups);
+        $userGroupTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sqlQuery = 'SELECT COUNT(*) FROM ' . $userGroupTable;
 
         return (int) $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
@@ -1569,14 +1565,13 @@ class Privileges
      */
     public function getUserGroupForUser($username)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-
-        if ($relationParameters->db === null || empty($relationParameters->users)) {
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
+        if ($configurableMenusFeature === null) {
             return null;
         }
 
-        $userTable = Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->users);
+        $userTable = Util::backquote($configurableMenusFeature->database)
+            . '.' . Util::backquote($configurableMenusFeature->users);
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
             . ' WHERE `username` = \'' . $username . '\''
             . ' LIMIT 1';
@@ -1615,11 +1610,11 @@ class Privileges
             }
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
 
         $userGroupCount = 0;
-        if ($relationParameters->hasConfigurableMenusFeature()) {
-            $userGroupCount = $this->getUserGroupCount();
+        if ($configurableMenusFeature !== null) {
+            $userGroupCount = $this->getUserGroupCount($configurableMenusFeature);
         }
 
         $extraData = [];
@@ -1633,8 +1628,8 @@ class Privileges
                 'host' => $hostname,
                 'has_password' => ! empty($password) || isset($_POST['pma_pw']),
                 'privileges' => implode(', ', $this->extractPrivInfo(null, true)),
-                'has_group' => ! empty($relationParameters->users) && ! empty($relationParameters->usergroups),
-                'has_group_edit' => $relationParameters->hasConfigurableMenusFeature() && $userGroupCount > 0,
+                'has_group' => $configurableMenusFeature !== null,
+                'has_group_edit' => $configurableMenusFeature !== null && $userGroupCount > 0,
                 'has_grant' => isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y',
             ];
             $extraData['new_user_string'] = $this->template->render('server/privileges/new_user_ajax', [
@@ -2040,7 +2035,7 @@ class Privileges
      */
     public function getUsersOverview($result, array $dbRights, $textDir)
     {
-        $relationParameters = $this->relation->getRelationParameters();
+        $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
 
         while ($row = $this->dbi->fetchAssoc($result)) {
             $row['privs'] = $this->extractPrivInfo($row, true);
@@ -2050,9 +2045,9 @@ class Privileges
         $this->dbi->freeResult($result);
 
         $userGroupCount = 0;
-        if ($relationParameters->hasConfigurableMenusFeature()) {
-            $sqlQuery = 'SELECT * FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->users);
+        if ($configurableMenusFeature !== null) {
+            $sqlQuery = 'SELECT * FROM ' . Util::backquote($configurableMenusFeature->database)
+                . '.' . Util::backquote($configurableMenusFeature->users);
             $result = $this->relation->queryAsControlUser($sqlQuery, false);
             $groupAssignment = [];
             if ($result) {
@@ -2063,7 +2058,7 @@ class Privileges
 
             $this->dbi->freeResult($result);
 
-            $userGroupCount = $this->getUserGroupCount();
+            $userGroupCount = $this->getUserGroupCount($configurableMenusFeature);
         }
 
         $hosts = [];
@@ -2097,7 +2092,7 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/users_overview', [
-            'menus_work' => $relationParameters->hasConfigurableMenusFeature(),
+            'menus_work' => $configurableMenusFeature !== null,
             'user_group_count' => $userGroupCount,
             'text_dir' => $textDir,
             'initial' => $_GET['initial'] ?? '',

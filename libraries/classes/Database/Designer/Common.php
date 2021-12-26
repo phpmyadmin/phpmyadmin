@@ -272,8 +272,8 @@ class Common
      */
     public function getTablePositions($pg): ?array
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return [];
         }
 
@@ -284,8 +284,8 @@ class Common
                 `y` AS `Y`,
                 1 AS `V`,
                 1 AS `H`
-            FROM " . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->tableCoords) . '
+            FROM " . Util::backquote($pdfFeature->database)
+                . '.' . Util::backquote($pdfFeature->tableCoords) . '
             WHERE pdf_page_number = ' . intval($pg);
 
         return $this->dbi->fetchResult(
@@ -306,14 +306,14 @@ class Common
      */
     public function getPageName($pg)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return null;
         }
 
         $query = 'SELECT `page_descr`'
-            . ' FROM ' . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->pdfPages)
+            . ' FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
         $page_name = $this->dbi->fetchResult(
             $query,
@@ -333,19 +333,19 @@ class Common
      */
     public function deletePage($pg): bool
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return false;
         }
 
-        $query = 'DELETE FROM ' . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->tableCoords)
+        $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->tableCoords)
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
         $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
         if ($success) {
-            $query = 'DELETE FROM ' . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote($relationParameters->pdfPages)
+            $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
+                . '.' . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
             $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
         }
@@ -363,14 +363,14 @@ class Common
      */
     public function getDefaultPage($db): ?int
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return -1;
         }
 
         $query = 'SELECT `page_nr`'
-            . ' FROM ' . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->pdfPages)
+            . ' FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
             . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
@@ -397,14 +397,14 @@ class Common
      */
     public function getPageExists(string $pg): bool
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return false;
         }
 
         $query = 'SELECT `page_nr`'
-            . ' FROM ' . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->pdfPages)
+            . ' FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `page_descr` = '" . $this->dbi->escapeString($pg) . "'";
         $pageNos = $this->dbi->fetchResult(
             $query,
@@ -427,8 +427,8 @@ class Common
      */
     public function getLoadingPage($db)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return -1;
         }
 
@@ -438,8 +438,8 @@ class Common
         }
 
         $query = 'SELECT MIN(`page_nr`)'
-            . ' FROM ' . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->pdfPages)
+            . ' FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->pdfPages)
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'";
 
         $min_page_no = $this->dbi->fetchResult(
@@ -464,14 +464,14 @@ class Common
      */
     public function createNewPage($pageName, $db)
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if ($relationParameters->hasPdfFeature()) {
-            $page = $this->relation->createPage($pageName, $relationParameters, $db);
-
-            return $page !== false ? $page : null;
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
+            return null;
         }
 
-        return null;
+        $page = $this->relation->createPage($pageName, $pdfFeature, $db);
+
+        return $page !== false ? $page : null;
     }
 
     /**
@@ -483,14 +483,14 @@ class Common
     {
         $pageId = $this->dbi->escapeString((string) $pg);
 
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasPdfFeature()) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($pdfFeature === null) {
             return false;
         }
 
         $query = 'DELETE FROM '
-            . Util::backquote($relationParameters->db)
-            . '.' . Util::backquote($relationParameters->tableCoords)
+            . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->tableCoords)
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
         $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
@@ -507,8 +507,8 @@ class Common
             }
 
             $query = 'INSERT INTO '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->tableCoords)
+                . Util::backquote($pdfFeature->database) . '.'
+                . Util::backquote($pdfFeature->tableCoords)
                 . ' (`db_name`, `table_name`, `pdf_page_number`, `x`, `y`)'
                 . ' VALUES ('
                 . "'" . $this->dbi->escapeString($DB) . "', "
@@ -535,8 +535,8 @@ class Common
      */
     public function saveDisplayField($db, $table, $field): array
     {
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasDisplayFeature()) {
+        $displayFeature = $this->relation->getRelationParameters()->displayFeature;
+        if ($displayFeature === null) {
             return [
                 false,
                 _pgettext(
@@ -548,7 +548,7 @@ class Common
         }
 
         $upd_query = new Table($table, $db, $this->dbi);
-        $upd_query->updateDisplayField($field, $relationParameters);
+        $upd_query->updateDisplayField($field, $displayFeature);
 
         return [
             true,
@@ -660,8 +660,8 @@ class Common
             ];
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasRelationFeature()) {
+        $relationFeature = $this->relation->getRelationParameters()->relationFeature;
+        if ($relationFeature === null) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -672,9 +672,9 @@ class Common
         // this was checked on the interface part
 
         $q = 'INSERT INTO '
-            . Util::backquote($relationParameters->db)
+            . Util::backquote($relationFeature->database)
             . '.'
-            . Util::backquote($relationParameters->relation)
+            . Util::backquote($relationFeature->relation)
             . '(master_db, master_table, master_field, '
             . 'foreign_db, foreign_table, foreign_field)'
             . ' values('
@@ -747,8 +747,8 @@ class Common
             }
         }
 
-        $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasRelationFeature()) {
+        $relationFeature = $this->relation->getRelationParameters()->relationFeature;
+        if ($relationFeature === null) {
             return [
                 false,
                 __('Error: Relational features are disabled!'),
@@ -757,8 +757,8 @@ class Common
 
         // internal relations
         $delete_query = 'DELETE FROM '
-            . Util::backquote($relationParameters->db) . '.'
-            . Util::backquote($relationParameters->relation) . ' WHERE '
+            . Util::backquote($relationFeature->database) . '.'
+            . Util::backquote($relationFeature->relation) . ' WHERE '
             . "master_db = '" . $this->dbi->escapeString($DB2) . "'"
             . " AND master_table = '" . $this->dbi->escapeString($T2) . "'"
             . " AND master_field = '" . $this->dbi->escapeString($F2) . "'"
@@ -791,13 +791,13 @@ class Common
      */
     public function saveSetting($index, $value): bool
     {
-        $relationParameters = $this->relation->getRelationParameters();
+        $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
         $success = true;
-        if ($relationParameters->hasDatabaseDesignerSettingsFeature() && $relationParameters->db !== null) {
+        if ($databaseDesignerSettingsFeature !== null) {
             $cfgDesigner = [
                 'user' => $GLOBALS['cfg']['Server']['user'],
-                'db' => $relationParameters->db->getName(),
-                'table' => $relationParameters->designerSettings,
+                'db' => $databaseDesignerSettingsFeature->database->getName(),
+                'table' => $databaseDesignerSettingsFeature->designerSettings->getName(),
             ];
 
             $orig_data_query = 'SELECT settings_data'

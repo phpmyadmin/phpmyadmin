@@ -36,6 +36,7 @@ class NavigationTest extends AbstractTestCase
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
+            'navwork' => true,
             'navigationhiding' => 'navigationhiding',
         ]);
         $_SESSION = ['relation' => [$GLOBALS['server'] => $relationParameters->toArray()]];

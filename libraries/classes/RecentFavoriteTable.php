@@ -87,6 +87,7 @@ class RecentFavoriteTable
      * Returns class instance.
      *
      * @param string $type the table type
+     * @psalm-param 'favorite'|'recent' $type
      */
     public static function getInstance(string $type): RecentFavoriteTable
     {
@@ -360,7 +361,7 @@ class RecentFavoriteTable
         $relationParameters = $this->relation->getRelationParameters();
         // Not to show this once list is synchronized.
         if (
-            $relationParameters->hasFavoriteTablesFeature()
+            $relationParameters->favoriteTablesFeature !== null
             && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])
         ) {
             $url = Url::getFromRoute('/database/structure/favorite-table', [
@@ -396,19 +397,14 @@ class RecentFavoriteTable
     private function getPmaTable(): ?string
     {
         $relationParameters = $this->relation->getRelationParameters();
-        if (! $relationParameters->hasRecentlyUsedTablesFeature()) {
-            return null;
+        if ($this->tableType === 'recent' && $relationParameters->recentlyUsedTablesFeature !== null) {
+            return Util::backquote($relationParameters->recentlyUsedTablesFeature->database)
+                . '.' . Util::backquote($relationParameters->recentlyUsedTablesFeature->recent);
         }
 
-        if ($this->tableType === 'recent') {
-            $type = $relationParameters->recent;
-        } else {
-            $type = $relationParameters->favorite;
-        }
-
-        if ($relationParameters->db !== null && ! empty($type)) {
-            return Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($type);
+        if ($this->tableType === 'favorite' && $relationParameters->favoriteTablesFeature !== null) {
+            return Util::backquote($relationParameters->favoriteTablesFeature->database)
+                . '.' . Util::backquote($relationParameters->favoriteTablesFeature->favorite);
         }
 
         return null;

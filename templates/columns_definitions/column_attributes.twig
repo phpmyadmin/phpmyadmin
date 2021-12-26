@@ -12,7 +12,7 @@
         'ci': ci,
         'ci_offset': ci_offset,
         'column_meta': column_meta,
-        'has_central_columns_feature': relation_parameters.hasCentralColumnsFeature(),
+        'has_central_columns_feature': relation_parameters.centralColumnsFeature is not null,
         'max_rows': max_rows
     } only %}
     {% set ci = ci + 1 %}
@@ -187,7 +187,7 @@
     </td>
 {% endif %}
 
-{% if relation_parameters.hasBrowserTransformationFeature() and relation_parameters.hasColumnCommentsFeature() and browse_mime %}
+{% if relation_parameters.browserTransformationFeature is not null and relation_parameters.columnCommentsFeature is not null and browse_mime %}
     <td class="text-center">
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_mimetype[{{ column_number }}]">
         <option value="">&nbsp;</option>

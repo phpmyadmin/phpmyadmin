@@ -244,6 +244,7 @@ class TransformationsTest extends AbstractTestCase
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'db' => 'pmadb',
+            'mimework' => true,
             'column_info' => 'column_info',
         ])->toArray();
 

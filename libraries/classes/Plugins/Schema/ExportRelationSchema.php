@@ -249,14 +249,14 @@ class ExportRelationSchema
     {
         global $dbi;
 
-        $relationParameters = $this->relation->getRelationParameters();
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
 
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
-        if ($this->pageNumber != -1 && ! $this->offline) {
+        if ($this->pageNumber != -1 && ! $this->offline && $pdfFeature !== null) {
             $_name_sql = 'SELECT page_descr FROM '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->pdfPages)
+                . Util::backquote($pdfFeature->database) . '.'
+                . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE page_nr = ' . $this->pageNumber;
             $_name_rs = $this->relation->queryAsControlUser($_name_sql);
             $_name_row = $dbi->fetchRow($_name_rs);

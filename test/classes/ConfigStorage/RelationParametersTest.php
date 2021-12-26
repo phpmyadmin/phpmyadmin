@@ -11,135 +11,259 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\RelationParameters
+ * @covers \PhpMyAdmin\ConfigStorage\Features\BookmarkFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\BrowserTransformationFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\CentralColumnsFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\ColumnCommentsFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\DatabaseDesignerSettingsFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\DisplayFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\ExportTemplatesFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\FavoriteTablesFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\PdfFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\RecentlyUsedTablesFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\RelationFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\TrackingFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature
+ * @covers \PhpMyAdmin\ConfigStorage\Features\UserPreferencesFeature
  */
 class RelationParametersTest extends TestCase
 {
-    /**
-     * @param array $params
-     * @param array $expected
-     *
-     * @dataProvider providerForTestRelationParameters
-     */
-    public function testRelationParameters(array $params, array $expected): void
+    public function testFeaturesWithTwoTables(): void
     {
-        $relationParameters = RelationParameters::fromArray($params);
-        $relationParametersArray = $relationParameters->toArray();
-        $this->assertSame($expected['version'], $relationParameters->version);
-        $this->assertSame($expected['version'], $relationParametersArray['version']);
-        $this->assertSame($expected['relwork'], $relationParameters->hasRelationFeature());
-        $this->assertSame($expected['relwork'], $relationParametersArray['relwork']);
-        $this->assertSame($expected['displaywork'], $relationParameters->hasDisplayFeature());
-        $this->assertSame($expected['displaywork'], $relationParametersArray['displaywork']);
-        $this->assertSame($expected['bookmarkwork'], $relationParameters->hasBookmarkFeature());
-        $this->assertSame($expected['bookmarkwork'], $relationParametersArray['bookmarkwork']);
-        $this->assertSame($expected['pdfwork'], $relationParameters->hasPdfFeature());
-        $this->assertSame($expected['pdfwork'], $relationParametersArray['pdfwork']);
-        $this->assertSame($expected['commwork'], $relationParameters->hasColumnCommentsFeature());
-        $this->assertSame($expected['commwork'], $relationParametersArray['commwork']);
-        $this->assertSame($expected['mimework'], $relationParameters->hasBrowserTransformationFeature());
-        $this->assertSame($expected['mimework'], $relationParametersArray['mimework']);
-        $this->assertSame($expected['historywork'], $relationParameters->hasSqlHistoryFeature());
-        $this->assertSame($expected['historywork'], $relationParametersArray['historywork']);
-        $this->assertSame($expected['recentwork'], $relationParameters->hasRecentlyUsedTablesFeature());
-        $this->assertSame($expected['recentwork'], $relationParametersArray['recentwork']);
-        $this->assertSame($expected['favoritework'], $relationParameters->hasFavoriteTablesFeature());
-        $this->assertSame($expected['favoritework'], $relationParametersArray['favoritework']);
-        $this->assertSame($expected['uiprefswork'], $relationParameters->hasUiPreferencesFeature());
-        $this->assertSame($expected['uiprefswork'], $relationParametersArray['uiprefswork']);
-        $this->assertSame($expected['trackingwork'], $relationParameters->hasTrackingFeature());
-        $this->assertSame($expected['trackingwork'], $relationParametersArray['trackingwork']);
-        $this->assertSame($expected['userconfigwork'], $relationParameters->hasUserPreferencesFeature());
-        $this->assertSame($expected['userconfigwork'], $relationParametersArray['userconfigwork']);
-        $this->assertSame($expected['menuswork'], $relationParameters->hasConfigurableMenusFeature());
-        $this->assertSame($expected['menuswork'], $relationParametersArray['menuswork']);
-        $this->assertSame($expected['navwork'], $relationParameters->hasNavigationItemsHidingFeature());
-        $this->assertSame($expected['navwork'], $relationParametersArray['navwork']);
-        $this->assertSame($expected['savedsearcheswork'], $relationParameters->hasSavedQueryByExampleSearchesFeature());
-        $this->assertSame($expected['savedsearcheswork'], $relationParametersArray['savedsearcheswork']);
-        $this->assertSame($expected['centralcolumnswork'], $relationParameters->hasCentralColumnsFeature());
-        $this->assertSame($expected['centralcolumnswork'], $relationParametersArray['centralcolumnswork']);
-        $this->assertSame($expected['designersettingswork'], $relationParameters->hasDatabaseDesignerSettingsFeature());
-        $this->assertSame($expected['designersettingswork'], $relationParametersArray['designersettingswork']);
-        $this->assertSame($expected['exporttemplateswork'], $relationParameters->hasExportTemplatesFeature());
-        $this->assertSame($expected['exporttemplateswork'], $relationParametersArray['exporttemplateswork']);
-        $this->assertSame($expected['allworks'], $relationParameters->hasAllFeatures());
-        $this->assertSame($expected['allworks'], $relationParametersArray['allworks']);
-        $this->assertSame($expected['user'], $relationParameters->user);
-        $this->assertSame($expected['user'], $relationParametersArray['user']);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'pdf_pages' => 'pdf_pages',
+            'table_coords' => ' invalid ',
+            'pdfwork' => true,
+        ])->pdfFeature);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'pdf_pages' => ' invalid ',
+            'table_coords' => 'table_coords',
+            'pdfwork' => true,
+        ])->pdfFeature);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'relation' => 'relation',
+            'table_info' => ' invalid ',
+            'displaywork' => true,
+        ])->displayFeature);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'relation' => ' invalid ',
+            'table_info' => 'table_info',
+            'displaywork' => true,
+        ])->displayFeature);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'usergroups' => 'usergroups',
+            'users' => ' invalid ',
+            'menuwork' => true,
+        ])->configurableMenusFeature);
+        $this->assertNull(RelationParameters::fromArray([
+            'db' => 'db',
+            'usergroups' => ' invalid ',
+            'users' => 'users',
+            'menuswork' => true,
+        ])->configurableMenusFeature);
+    }
+
+    public function testFeaturesWithSharedTable(): void
+    {
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'db',
+            'column_info' => 'column_info',
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'mimework' => true,
+            'commwork' => true,
+            'displaywork' => true,
+            'relwork' => true,
+        ]);
+        $this->assertNotNull($relationParameters->browserTransformationFeature);
+        $this->assertNotNull($relationParameters->columnCommentsFeature);
+        $this->assertNotNull($relationParameters->displayFeature);
+        $this->assertNotNull($relationParameters->relationFeature);
         $this->assertSame(
-            $expected['db'],
-            $relationParameters->db instanceof DatabaseName ? $relationParameters->db->getName() : null
+            $relationParameters->browserTransformationFeature->columnInfo,
+            $relationParameters->columnCommentsFeature->columnInfo
         );
-        $this->assertSame($expected['db'], $relationParametersArray['db']);
-        $this->assertSame($expected['bookmark'], $relationParameters->bookmark);
-        $this->assertSame($expected['bookmark'], $relationParametersArray['bookmark']);
-        $this->assertSame($expected['central_columns'], $relationParameters->centralColumns);
-        $this->assertSame($expected['central_columns'], $relationParametersArray['central_columns']);
-        $this->assertSame($expected['column_info'], $relationParameters->columnInfo);
-        $this->assertSame($expected['column_info'], $relationParametersArray['column_info']);
-        $this->assertSame($expected['designer_settings'], $relationParameters->designerSettings);
-        $this->assertSame($expected['designer_settings'], $relationParametersArray['designer_settings']);
-        $this->assertSame($expected['export_templates'], $relationParameters->exportTemplates);
-        $this->assertSame($expected['export_templates'], $relationParametersArray['export_templates']);
-        $this->assertSame($expected['favorite'], $relationParameters->favorite);
-        $this->assertSame($expected['favorite'], $relationParametersArray['favorite']);
-        $this->assertSame($expected['history'], $relationParameters->history);
-        $this->assertSame($expected['history'], $relationParametersArray['history']);
-        $this->assertSame($expected['navigationhiding'], $relationParameters->navigationhiding);
-        $this->assertSame($expected['navigationhiding'], $relationParametersArray['navigationhiding']);
-        $this->assertSame($expected['pdf_pages'], $relationParameters->pdfPages);
-        $this->assertSame($expected['pdf_pages'], $relationParametersArray['pdf_pages']);
-        $this->assertSame($expected['recent'], $relationParameters->recent);
-        $this->assertSame($expected['recent'], $relationParametersArray['recent']);
-        $this->assertSame($expected['relation'], $relationParameters->relation);
-        $this->assertSame($expected['relation'], $relationParametersArray['relation']);
-        $this->assertSame($expected['savedsearches'], $relationParameters->savedsearches);
-        $this->assertSame($expected['savedsearches'], $relationParametersArray['savedsearches']);
-        $this->assertSame($expected['table_coords'], $relationParameters->tableCoords);
-        $this->assertSame($expected['table_coords'], $relationParametersArray['table_coords']);
-        $this->assertSame($expected['table_info'], $relationParameters->tableInfo);
-        $this->assertSame($expected['table_info'], $relationParametersArray['table_info']);
-        $this->assertSame($expected['table_uiprefs'], $relationParameters->tableUiprefs);
-        $this->assertSame($expected['table_uiprefs'], $relationParametersArray['table_uiprefs']);
-        $this->assertSame($expected['tracking'], $relationParameters->tracking);
-        $this->assertSame($expected['tracking'], $relationParametersArray['tracking']);
-        $this->assertSame($expected['userconfig'], $relationParameters->userconfig);
-        $this->assertSame($expected['userconfig'], $relationParametersArray['userconfig']);
-        $this->assertSame($expected['usergroups'], $relationParameters->usergroups);
-        $this->assertSame($expected['usergroups'], $relationParametersArray['usergroups']);
-        $this->assertSame($expected['users'], $relationParameters->users);
-        $this->assertSame($expected['users'], $relationParametersArray['users']);
+        $this->assertSame(
+            $relationParameters->relationFeature->relation,
+            $relationParameters->displayFeature->relation
+        );
+
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'db',
+            'column_info' => 'column_info',
+            'relation' => 'relation',
+            'table_info' => 'table_info',
+            'mimework' => false,
+            'commwork' => true,
+            'displaywork' => true,
+            'relwork' => false,
+        ]);
+        $this->assertNull($relationParameters->browserTransformationFeature);
+        $this->assertNotNull($relationParameters->columnCommentsFeature);
+        $this->assertNotNull($relationParameters->displayFeature);
+        $this->assertNull($relationParameters->relationFeature);
+    }
+
+    public function testFeaturesHaveSameDatabase(): void
+    {
+        $relationParameters = RelationParameters::fromArray([
+            'db' => 'db',
+            'bookmark' => 'bookmark',
+            'central_columns' => 'central_columns',
+            'column_info' => 'column_info',
+            'designer_settings' => 'designer_settings',
+            'export_templates' => 'export_templates',
+            'favorite' => 'favorite',
+            'history' => 'history',
+            'navigationhiding' => 'navigationhiding',
+            'pdf_pages' => 'pdf_pages',
+            'recent' => 'recent',
+            'relation' => 'relation',
+            'savedsearches' => 'savedsearches',
+            'table_coords' => 'table_coords',
+            'table_info' => 'table_info',
+            'table_uiprefs' => 'table_uiprefs',
+            'tracking' => 'tracking',
+            'userconfig' => 'userconfig',
+            'usergroups' => 'usergroups',
+            'users' => 'users',
+            'bookmarkwork' => true,
+            'mimework' => true,
+            'centralcolumnswork' => true,
+            'commwork' => true,
+            'menuswork' => true,
+            'designersettingswork' => true,
+            'displaywork' => true,
+            'exporttemplateswork' => true,
+            'favoritework' => true,
+            'navwork' => true,
+            'pdfwork' => true,
+            'recentwork' => true,
+            'relwork' => true,
+            'savedsearcheswork' => true,
+            'historywork' => true,
+            'trackingwork' => true,
+            'uiprefswork' => true,
+            'userconfigwork' => true,
+        ]);
+        $this->assertInstanceOf(DatabaseName::class, $relationParameters->db);
+        $this->assertEquals('db', $relationParameters->db->getName());
+        $this->assertNotNull($relationParameters->bookmarkFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->bookmarkFeature->database);
+        $this->assertNotNull($relationParameters->browserTransformationFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->browserTransformationFeature->database);
+        $this->assertNotNull($relationParameters->centralColumnsFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->centralColumnsFeature->database);
+        $this->assertNotNull($relationParameters->columnCommentsFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->columnCommentsFeature->database);
+        $this->assertNotNull($relationParameters->configurableMenusFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->configurableMenusFeature->database);
+        $this->assertNotNull($relationParameters->databaseDesignerSettingsFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->databaseDesignerSettingsFeature->database);
+        $this->assertNotNull($relationParameters->displayFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->displayFeature->database);
+        $this->assertNotNull($relationParameters->exportTemplatesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->exportTemplatesFeature->database);
+        $this->assertNotNull($relationParameters->favoriteTablesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->favoriteTablesFeature->database);
+        $this->assertNotNull($relationParameters->navigationItemsHidingFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->navigationItemsHidingFeature->database);
+        $this->assertNotNull($relationParameters->pdfFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->pdfFeature->database);
+        $this->assertNotNull($relationParameters->recentlyUsedTablesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->recentlyUsedTablesFeature->database);
+        $this->assertNotNull($relationParameters->relationFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->relationFeature->database);
+        $this->assertNotNull($relationParameters->savedQueryByExampleSearchesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->savedQueryByExampleSearchesFeature->database);
+        $this->assertNotNull($relationParameters->sqlHistoryFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->sqlHistoryFeature->database);
+        $this->assertNotNull($relationParameters->trackingFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->trackingFeature->database);
+        $this->assertNotNull($relationParameters->uiPreferencesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->uiPreferencesFeature->database);
+        $this->assertNotNull($relationParameters->userPreferencesFeature);
+        $this->assertSame($relationParameters->db, $relationParameters->userPreferencesFeature->database);
+    }
+
+    public function testHasAllFeatures(): void
+    {
+        $params = [
+            'db' => 'db',
+            'bookmark' => 'bookmark',
+            'central_columns' => 'central_columns',
+            'column_info' => 'column_info',
+            'designer_settings' => 'designer_settings',
+            'export_templates' => 'export_templates',
+            'favorite' => 'favorite',
+            'history' => 'history',
+            'navigationhiding' => 'navigationhiding',
+            'pdf_pages' => 'pdf_pages',
+            'recent' => 'recent',
+            'relation' => 'relation',
+            'savedsearches' => 'savedsearches',
+            'table_coords' => 'table_coords',
+            'table_info' => 'table_info',
+            'table_uiprefs' => 'table_uiprefs',
+            'tracking' => 'tracking',
+            'userconfig' => 'userconfig',
+            'usergroups' => 'usergroups',
+            'users' => 'users',
+            'bookmarkwork' => true,
+            'mimework' => true,
+            'centralcolumnswork' => true,
+            'commwork' => true,
+            'menuswork' => true,
+            'designersettingswork' => true,
+            'displaywork' => true,
+            'exporttemplateswork' => true,
+            'favoritework' => true,
+            'navwork' => true,
+            'pdfwork' => true,
+            'recentwork' => true,
+            'relwork' => true,
+            'savedsearcheswork' => true,
+            'historywork' => true,
+            'trackingwork' => true,
+            'uiprefswork' => true,
+            'userconfigwork' => true,
+        ];
+        $this->assertFalse(RelationParameters::fromArray([])->hasAllFeatures());
+        $this->assertTrue(RelationParameters::fromArray($params)->hasAllFeatures());
+        $params['bookmarkwork'] = false;
+        $this->assertFalse(RelationParameters::fromArray($params)->hasAllFeatures());
     }
 
     /**
-     * @return array[][]
+     * @param mixed[] $params
+     * @param mixed[] $expected
+     *
+     * @dataProvider providerForTestToArray
      */
-    public function providerForTestRelationParameters(): array
+    public function testToArray(array $params, array $expected): void
+    {
+        $this->assertSame($expected, RelationParameters::fromArray($params)->toArray());
+    }
+
+    /**
+     * @return array<string, array<int, array<string, mixed>>>
+     */
+    public function providerForTestToArray(): array
     {
         return [
             'default values' => [
                 [],
                 [
                     'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
-                    'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
-                    'centralcolumnswork' => false,
-                    'designersettingswork' => false,
-                    'exporttemplateswork' => false,
-                    'allworks' => false,
                     'user' => null,
                     'db' => null,
                     'bookmark' => null,
@@ -161,11 +285,29 @@ class RelationParametersTest extends TestCase
                     'userconfig' => null,
                     'usergroups' => null,
                     'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
                 ],
             ],
             'default values 2' => [
                 [
-                    'version' => Version::VERSION,
                     'relwork' => false,
                     'displaywork' => false,
                     'bookmarkwork' => false,
@@ -209,25 +351,6 @@ class RelationParametersTest extends TestCase
                 ],
                 [
                     'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
-                    'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
-                    'centralcolumnswork' => false,
-                    'designersettingswork' => false,
-                    'exporttemplateswork' => false,
-                    'allworks' => false,
                     'user' => null,
                     'db' => null,
                     'bookmark' => null,
@@ -249,11 +372,29 @@ class RelationParametersTest extends TestCase
                     'userconfig' => null,
                     'usergroups' => null,
                     'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
                 ],
             ],
             'valid values' => [
                 [
-                    'version' => '5.2.0',
                     'relwork' => true,
                     'displaywork' => true,
                     'bookmarkwork' => true,
@@ -296,26 +437,7 @@ class RelationParametersTest extends TestCase
                     'users' => 'users',
                 ],
                 [
-                    'version' => '5.2.0',
-                    'relwork' => true,
-                    'displaywork' => true,
-                    'bookmarkwork' => true,
-                    'pdfwork' => true,
-                    'commwork' => true,
-                    'mimework' => true,
-                    'historywork' => true,
-                    'recentwork' => true,
-                    'favoritework' => true,
-                    'uiprefswork' => true,
-                    'trackingwork' => true,
-                    'userconfigwork' => true,
-                    'menuswork' => true,
-                    'navwork' => true,
-                    'savedsearcheswork' => true,
-                    'centralcolumnswork' => true,
-                    'designersettingswork' => true,
-                    'exporttemplateswork' => true,
-                    'allworks' => true,
+                    'version' => Version::VERSION,
                     'user' => 'user',
                     'db' => 'db',
                     'bookmark' => 'bookmark',
@@ -337,77 +459,85 @@ class RelationParametersTest extends TestCase
                     'userconfig' => 'userconfig',
                     'usergroups' => 'usergroups',
                     'users' => 'users',
+                    'bookmarkwork' => true,
+                    'mimework' => true,
+                    'centralcolumnswork' => true,
+                    'commwork' => true,
+                    'menuswork' => true,
+                    'designersettingswork' => true,
+                    'displaywork' => true,
+                    'exporttemplateswork' => true,
+                    'favoritework' => true,
+                    'navwork' => true,
+                    'pdfwork' => true,
+                    'recentwork' => true,
+                    'relwork' => true,
+                    'savedsearcheswork' => true,
+                    'historywork' => true,
+                    'trackingwork' => true,
+                    'uiprefswork' => true,
+                    'userconfigwork' => true,
+                    'allworks' => true,
                 ],
             ],
             'valid values 2' => [
                 [
-                    'bookmark' => '',
-                    'central_columns' => '',
-                    'column_info' => '',
-                    'designer_settings' => '',
-                    'export_templates' => '',
-                    'favorite' => '',
-                    'history' => '',
-                    'navigationhiding' => '',
-                    'pdf_pages' => '',
-                    'recent' => '',
-                    'relation' => '',
-                    'savedsearches' => '',
-                    'table_coords' => '',
-                    'table_info' => '',
-                    'table_uiprefs' => '',
-                    'tracking' => '',
-                    'userconfig' => '',
-                    'usergroups' => '',
-                    'users' => '',
+                    'user' => 'user',
+                    'db' => 'db',
+                    'column_info' => 'column_info',
+                    'relation' => 'relation',
+                    'table_info' => 'table_info',
+                    'relwork' => false,
+                    'displaywork' => true,
+                    'commwork' => false,
+                    'mimework' => true,
                 ],
                 [
                     'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
+                    'user' => 'user',
+                    'db' => 'db',
+                    'bookmark' => null,
+                    'central_columns' => null,
+                    'column_info' => 'column_info',
+                    'designer_settings' => null,
+                    'export_templates' => null,
+                    'favorite' => null,
+                    'history' => null,
+                    'navigationhiding' => null,
+                    'pdf_pages' => null,
+                    'recent' => null,
+                    'relation' => 'relation',
+                    'savedsearches' => null,
+                    'table_coords' => null,
+                    'table_info' => 'table_info',
+                    'table_uiprefs' => null,
+                    'tracking' => null,
+                    'userconfig' => null,
+                    'usergroups' => null,
+                    'users' => null,
                     'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
+                    'mimework' => true,
                     'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
                     'designersettingswork' => false,
+                    'displaywork' => true,
                     'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
                     'allworks' => false,
-                    'user' => null,
-                    'db' => null,
-                    'bookmark' => '',
-                    'central_columns' => '',
-                    'column_info' => '',
-                    'designer_settings' => '',
-                    'export_templates' => '',
-                    'favorite' => '',
-                    'history' => '',
-                    'navigationhiding' => '',
-                    'pdf_pages' => '',
-                    'recent' => '',
-                    'relation' => '',
-                    'savedsearches' => '',
-                    'table_coords' => '',
-                    'table_info' => '',
-                    'table_uiprefs' => '',
-                    'tracking' => '',
-                    'userconfig' => '',
-                    'usergroups' => '',
-                    'users' => '',
                 ],
             ],
             'invalid values' => [
                 [
-                    'version' => 1,
                     'relwork' => 1,
                     'displaywork' => 1,
                     'bookmarkwork' => 1,
@@ -451,25 +581,6 @@ class RelationParametersTest extends TestCase
                 ],
                 [
                     'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
-                    'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
-                    'centralcolumnswork' => false,
-                    'designersettingswork' => false,
-                    'exporttemplateswork' => false,
-                    'allworks' => false,
                     'user' => null,
                     'db' => null,
                     'bookmark' => null,
@@ -491,35 +602,153 @@ class RelationParametersTest extends TestCase
                     'userconfig' => null,
                     'usergroups' => null,
                     'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
                 ],
             ],
             'invalid values 2' => [
                 [
-                    'version' => '',
+                    'user' => '',
+                    'db' => 'db',
+                    'bookmark' => '',
+                    'central_columns' => '',
+                    'column_info' => '',
+                    'designer_settings' => '',
+                    'export_templates' => '',
+                    'favorite' => '',
+                    'history' => '',
+                    'navigationhiding' => '',
+                    'pdf_pages' => '',
+                    'recent' => '',
+                    'relation' => '',
+                    'savedsearches' => '',
+                    'table_coords' => '',
+                    'table_info' => '',
+                    'table_uiprefs' => '',
+                    'tracking' => '',
+                    'userconfig' => '',
+                    'usergroups' => '',
+                    'users' => '',
+                ],
+                [
+                    'version' => Version::VERSION,
+                    'user' => null,
+                    'db' => 'db',
+                    'bookmark' => null,
+                    'central_columns' => null,
+                    'column_info' => null,
+                    'designer_settings' => null,
+                    'export_templates' => null,
+                    'favorite' => null,
+                    'history' => null,
+                    'navigationhiding' => null,
+                    'pdf_pages' => null,
+                    'recent' => null,
+                    'relation' => null,
+                    'savedsearches' => null,
+                    'table_coords' => null,
+                    'table_info' => null,
+                    'table_uiprefs' => null,
+                    'tracking' => null,
+                    'userconfig' => null,
+                    'usergroups' => null,
+                    'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
+                ],
+            ],
+            'invalid values 3' => [
+                [
+                    'user' => '',
+                    'db' => 'db',
+                    'bookmarkwork' => true,
+                    'bookmark' => ' invalid name ',
+                ],
+                [
+                    'version' => Version::VERSION,
+                    'user' => null,
+                    'db' => 'db',
+                    'bookmark' => null,
+                    'central_columns' => null,
+                    'column_info' => null,
+                    'designer_settings' => null,
+                    'export_templates' => null,
+                    'favorite' => null,
+                    'history' => null,
+                    'navigationhiding' => null,
+                    'pdf_pages' => null,
+                    'recent' => null,
+                    'relation' => null,
+                    'savedsearches' => null,
+                    'table_coords' => null,
+                    'table_info' => null,
+                    'table_uiprefs' => null,
+                    'tracking' => null,
+                    'userconfig' => null,
+                    'usergroups' => null,
+                    'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
+                ],
+            ],
+            'invalid values 4' => [
+                [
                     'user' => '',
                     'db' => '',
                 ],
                 [
                     'version' => Version::VERSION,
-                    'relwork' => false,
-                    'displaywork' => false,
-                    'bookmarkwork' => false,
-                    'pdfwork' => false,
-                    'commwork' => false,
-                    'mimework' => false,
-                    'historywork' => false,
-                    'recentwork' => false,
-                    'favoritework' => false,
-                    'uiprefswork' => false,
-                    'trackingwork' => false,
-                    'userconfigwork' => false,
-                    'menuswork' => false,
-                    'navwork' => false,
-                    'savedsearcheswork' => false,
-                    'centralcolumnswork' => false,
-                    'designersettingswork' => false,
-                    'exporttemplateswork' => false,
-                    'allworks' => false,
                     'user' => null,
                     'db' => null,
                     'bookmark' => null,
@@ -541,6 +770,25 @@ class RelationParametersTest extends TestCase
                     'userconfig' => null,
                     'usergroups' => null,
                     'users' => null,
+                    'bookmarkwork' => false,
+                    'mimework' => false,
+                    'centralcolumnswork' => false,
+                    'commwork' => false,
+                    'menuswork' => false,
+                    'designersettingswork' => false,
+                    'displaywork' => false,
+                    'exporttemplateswork' => false,
+                    'favoritework' => false,
+                    'navwork' => false,
+                    'pdfwork' => false,
+                    'recentwork' => false,
+                    'relwork' => false,
+                    'savedsearcheswork' => false,
+                    'historywork' => false,
+                    'trackingwork' => false,
+                    'uiprefswork' => false,
+                    'userconfigwork' => false,
+                    'allworks' => false,
                 ],
             ],
         ];

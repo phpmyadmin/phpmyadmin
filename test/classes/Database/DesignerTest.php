@@ -39,10 +39,11 @@ class DesignerTest extends AbstractTestCase
 
         $_SESSION = [
             'relation' => [
-                '1' => [
+                1 => [
                     'version' => Version::VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
+                    'table_coords' => 'table_coords',
                     'pdfwork' => true,
                 ],
             ],

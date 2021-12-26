@@ -268,13 +268,13 @@ class Pdf extends PdfLib
             return;
         }
 
-        if ($this->offline || $this->pageNumber == -1) {
+        $pdfFeature = $this->relation->getRelationParameters()->pdfFeature;
+        if ($this->offline || $this->pageNumber == -1 || $pdfFeature === null) {
             $pg_name = __('PDF export page');
         } else {
-            $relationParameters = $this->relation->getRelationParameters();
             $test_query = 'SELECT * FROM '
-                . Util::backquote($relationParameters->db) . '.'
-                . Util::backquote($relationParameters->pdfPages)
+                . Util::backquote($pdfFeature->database) . '.'
+                . Util::backquote($pdfFeature->pdfPages)
                 . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $this->relation->queryAsControlUser($test_query);

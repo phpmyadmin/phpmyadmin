@@ -35,7 +35,11 @@ class NodeDatabaseChildTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray(['navwork' => true])->toArray();
+        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
+            'db' => 'pmadb',
+            'navwork' => true,
+            'navigationhiding' => 'navigationhiding',
+        ])->toArray();
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
             ['child']

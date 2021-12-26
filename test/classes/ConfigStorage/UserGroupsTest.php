@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\ConfigStorage;
 
-use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
@@ -17,6 +19,9 @@ use function htmlspecialchars;
  */
 class UserGroupsTest extends AbstractTestCase
 {
+    /** @var ConfigurableMenusFeature */
+    private $configurableMenusFeature;
+
     /**
      * Prepares environment for the test.
      */
@@ -26,13 +31,11 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
 
-        $GLOBALS['server'] = 1;
-        $_SESSION['relation'] = [];
-        $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
-            'db' => 'pmadb',
-            'users' => 'users',
-            'usergroups' => 'usergroups',
-        ])->toArray();
+        $this->configurableMenusFeature = new ConfigurableMenusFeature(
+            DatabaseName::fromValue('pmadb'),
+            TableName::fromValue('usergroups'),
+            TableName::fromValue('users')
+        );
     }
 
     /**
@@ -59,7 +62,7 @@ class UserGroupsTest extends AbstractTestCase
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
 
-        $html = UserGroups::getHtmlForUserGroupsTable();
+        $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
         $this->assertStringNotContainsString('<table id="userGroupsTable">', $html);
         $url_tag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $this->assertStringContainsString($url_tag, $html);
@@ -70,7 +73,7 @@ class UserGroupsTest extends AbstractTestCase
      */
     public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
-        $html = UserGroups::getHtmlForUserGroupsTable();
+        $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
         $this->assertStringContainsString('<td>usergroup</td>', $html);
         $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(['viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')], '');
@@ -105,7 +108,7 @@ class UserGroupsTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        UserGroups::delete('ug');
+        UserGroups::delete($this->configurableMenusFeature, 'ug');
     }
 
     /**
@@ -114,7 +117,7 @@ class UserGroupsTest extends AbstractTestCase
     public function testGetHtmlToEditUserGroup(): void
     {
         // adding a user group
-        $html = UserGroups::getHtmlToEditUserGroup();
+        $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature);
         $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="text" name="userGroup"', $html);
 
@@ -145,7 +148,7 @@ class UserGroupsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         // editing a user group
-        $html = UserGroups::getHtmlToEditUserGroup('ug');
+        $html = UserGroups::getHtmlToEditUserGroup($this->configurableMenusFeature, 'ug');
         $this->assertStringContainsString('<input type="hidden" name="userGroup" value="ug"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
