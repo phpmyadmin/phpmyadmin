@@ -357,7 +357,7 @@ fi
 
 if [ $do_daily -eq 1 ] ; then
     echo '* setting the version suffix for the snapshot'
-    sed -i "s/'VERSION_SUFFIX', '.*'/'VERSION_SUFFIX', '+$today_date.$git_head_short'/" libraries/vendor_config.php
+    sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" libraries/vendor_config.php
     php -l libraries/vendor_config.php
 fi
 
