@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #17171 Remove the printview.css file from themes
 - issue #17203 Redesign the export and the import pages
 - issue #16197 Replace the master/slave terminology
+- issue #17257 Replace libraries/vendor_config.php constants with an array
 
 5.1.2 (not yet released)
 - issue        Replaced MySQL documentation redirected links
