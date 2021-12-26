@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="v4.15.0@a1b5e489e6fcebe40cb804793d964e99fc347820">
+<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
   <file src="index.php">
     <InvalidGlobal occurrences="1">
       <code>global $route, $containerBuilder, $request;</code>
@@ -249,12 +249,8 @@
       <code>$replace[0]</code>
       <code>$replace[1]</code>
     </MixedArrayAccess>
-    <MixedArrayOffset occurrences="1">
-      <code>$replacements[$filename]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$cacheLine</code>
-      <code>$filename</code>
       <code>$replace</code>
       <code>$result</code>
     </MixedAssignment>
@@ -822,13 +818,12 @@
       <code>$validators[$field]</code>
       <code>$validators[$field]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="16">
+    <MixedAssignment occurrences="15">
       <code>$arguments[$k2]</code>
       <code>$errorList</code>
       <code>$field</code>
       <code>$ip</code>
       <code>$password</code>
-      <code>$r</code>
       <code>$uv</code>
       <code>$uvList</code>
       <code>$uv[$i]</code>
@@ -928,10 +923,9 @@
       <code>$foreign[$key]</code>
       <code>$one_key['ref_index_list'][$column_index]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="39">
+    <MixedAssignment occurrences="38">
       <code>$child_references</code>
       <code>$column</code>
-      <code>$column_index</code>
       <code>$columns</code>
       <code>$com_rs</code>
       <code>$com_rs</code>
@@ -1015,6 +1009,11 @@
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])</code>
       <code>is_scalar($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])</code>
     </RedundantCondition>
+  </file>
+  <file src="libraries/classes/ConfigStorage/RelationParameters.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$version</code>
+    </ArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/ConfigStorage/UserGroups.php">
     <MixedArgument occurrences="9">
@@ -5911,9 +5910,6 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
-    <TooFewArguments occurrences="1">
-      <code>mysqli_get_client_info()</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <DocblockTypeContradiction occurrences="5">
@@ -7512,15 +7508,13 @@
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
       <code>$row[$this-&gt;settings['spatialColumn']]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="16">
       <code>$label</code>
       <code>$modified_result</code>
       <code>$pdf</code>
       <code>$plot_height</code>
       <code>$plot_width</code>
       <code>$ratio</code>
-      <code>$ref_data</code>
-      <code>$ref_data</code>
       <code>$row</code>
       <code>$row</code>
       <code>$row</code>
@@ -9587,7 +9581,9 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="3">
+      <code>$length == 1</code>
+      <code>$length == 1</code>
       <code>$resp == null</code>
     </DocblockTypeContradiction>
     <InvalidScalarArgument occurrences="1">
@@ -9653,6 +9649,10 @@
       <code>(int) $GLOBALS['cfg']['LoginCookieStore']</code>
       <code>(string) $conn_error</code>
     </RedundantCast>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>substr($secret, 0, -1)</code>
+      <code>substr($secret, 1)</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
     <MixedArgument occurrences="3">
@@ -13141,13 +13141,15 @@
       <code>mb_strrpos($currentUserName, '@')</code>
       <code>mb_strrpos($exportUser, ';')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="4">
+    <PossiblyInvalidArgument occurrences="5">
       <code>$GLOBALS[$currentGrant[0]]</code>
       <code>$GLOBALS[$currentGrant[0]]</code>
+      <code>$dbRightsRow['Db']</code>
       <code>$dbname</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="1">
+    <PossiblyInvalidCast occurrences="2">
+      <code>$dbRightsRow['Db']</code>
       <code>$dbname</code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument occurrences="5">
@@ -17185,6 +17187,11 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>testGetLatestCompatibleVersionWithNewPHPVersion</code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="test/classes/VersionTest.php">
+    <RedundantCondition occurrences="1">
+      <code>assertIsString</code>
+    </RedundantCondition>
   </file>
   <file src="test/classes/ZipExtensionTest.php">
     <MixedInferredReturnType occurrences="2">
