@@ -36,7 +36,7 @@ use const VERSION_SUFFIX;
  */
 final class Version
 {
-    // The VERSION_SUFFIX constant is defined at libraries/vendor_config.php
+    // The VERSION_SUFFIX constant is defined at libraries/constants.php
     public const VERSION = '%1$u.%2$u.%3$u%4$s' . VERSION_SUFFIX;
     public const SERIES = '%1$u.%2$u';
     public const MAJOR = %1$u;

@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once ROOT_PATH . 'libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/constants.php';
 
 /**
  * Activate autoloader

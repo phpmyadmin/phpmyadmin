@@ -28,7 +28,7 @@ header('Content-Type: text/html; charset=utf-8');
 define('PHPMYADMIN', true);
 // phpcs:enable
 
-require ROOT_PATH . 'libraries/vendor_config.php';
+require ROOT_PATH . 'libraries/constants.php';
 
 // issue #16256 - This only works with php 8.0+
 if (function_exists('error_reporting')) {
