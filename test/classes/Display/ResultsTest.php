@@ -59,16 +59,10 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $this->object = new DisplayResults('as', '', 0, '', '');
+        $this->object = new DisplayResults($this->dbi, 'as', '', 0, '', '');
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -156,63 +150,6 @@ class ResultsTest extends AbstractTestCase
                 'SELECT * FROM `pma_bookmark` WHERE 1',
             ],
         ];
-    }
-
-    /**
-     * Data provider for testGetClassesForColumn
-     *
-     * @return array parameters and output
-     */
-    public function dataProviderForTestGetClassesForColumn(): array
-    {
-        return [
-            [
-                'grid_edit',
-                'not_null',
-                '',
-                '',
-                '',
-                'data grid_edit not_null   ',
-            ],
-        ];
-    }
-
-    /**
-     * @param string $grid_edit_class  the class for all editable columns
-     * @param string $not_null_class   the class for not null columns
-     * @param string $relation_class   the class for relations in a column
-     * @param string $hide_class       the class for visibility of a column
-     * @param string $field_type_class the class related to type of the field
-     * @param string $output           output of__getResettedClassForInlineEdit
-     *
-     * @dataProvider dataProviderForTestGetClassesForColumn
-     */
-    public function testGetClassesForColumn(
-        string $grid_edit_class,
-        string $not_null_class,
-        string $relation_class,
-        string $hide_class,
-        string $field_type_class,
-        string $output
-    ): void {
-        $GLOBALS['cfg']['BrowsePointerEnable'] = true;
-        $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
-
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getClassesForColumn',
-                [
-                    $grid_edit_class,
-                    $not_null_class,
-                    $relation_class,
-                    $hide_class,
-                    $field_type_class,
-                ]
-            )
-        );
     }
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
@@ -750,10 +687,7 @@ class ResultsTest extends AbstractTestCase
      *   bool,
      *   TransformationsPlugin|null,
      *   array,
-     *   bool,
      *   array,
-     *   int,
-     *   int|string,
      *   string
      * }}
      */
@@ -804,10 +738,7 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 ['https://www.example.com/'],
-                false,
                 [],
-                0,
-                'binary',
                 'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
@@ -821,11 +752,8 @@ class ResultsTest extends AbstractTestCase
                 false,
                 $transformation_plugin,
                 [],
-                false,
                 [],
-                0,
-                'binary',
-                '<td class="text-start grid_edit  transformed hex">'
+                '<td class="text-start grid_edit transformed hex">'
                 . '1001'
                 . '</td>' . "\n",
             ],
@@ -839,14 +767,10 @@ class ResultsTest extends AbstractTestCase
                 false,
                 $transformation_plugin,
                 [],
-                false,
                 [],
-                0,
-                '',
-                '<td ' . "\n"
-                . '    data-decimals="0"' . "\n"
+                '<td data-decimals="0"' . "\n"
                 . '    data-type="string"' . "\n"
-                . '        class="grid_edit  null">' . "\n"
+                . '        class="grid_edit null">' . "\n"
                 . '    <em>NULL</em>' . "\n"
                 . '</td>' . "\n",
             ],
@@ -860,10 +784,7 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                false,
                 [],
-                0,
-                '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
                 . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
@@ -878,10 +799,7 @@ class ResultsTest extends AbstractTestCase
                 false,
                 $transformation_plugin_external,
                 [],
-                false,
                 [],
-                0,
-                '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
                 . 'class="grid_edit text-nowrap transformed">foo bar baz</td>' . "\n",
@@ -896,10 +814,7 @@ class ResultsTest extends AbstractTestCase
                 false,
                 null,
                 [],
-                false,
                 [],
-                0,
-                '',
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
                 . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
@@ -916,10 +831,7 @@ class ResultsTest extends AbstractTestCase
      * @param array       $_url_params          the parameters for generate url
      * @param bool        $condition_field      the column should highlighted or not
      * @param array       $transform_options    the transformation parameters
-     * @param bool        $is_field_truncated   is data truncated due to LimitChars
      * @param array       $analyzed_sql_results the analyzed query
-     * @param int         $dt_result            the link id associated to the query which results have to be displayed
-     * @param int|string  $col_index            the column index
      * @param string      $output               the output of this function
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
@@ -934,10 +846,7 @@ class ResultsTest extends AbstractTestCase
         bool $condition_field,
         ?TransformationsPlugin $transformation_plugin,
         array $transform_options,
-        bool $is_field_truncated,
         array $analyzed_sql_results,
-        int $dt_result,
-        $col_index,
         string $output
     ): void {
         $_SESSION['tmpval']['display_binary'] = true;
@@ -960,10 +869,7 @@ class ResultsTest extends AbstractTestCase
                     $condition_field,
                     $transformation_plugin,
                     $transform_options,
-                    $is_field_truncated,
                     $analyzed_sql_results,
-                    &$dt_result,
-                    $col_index,
                 ]
             )
         );
@@ -1242,7 +1148,7 @@ class ResultsTest extends AbstractTestCase
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable();
 
         $this->assertArrayHasKey('tmpval', $_SESSION);
@@ -1458,17 +1364,15 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetTable(): void
     {
-        global $db, $table, $dbi;
+        global $db, $table;
 
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
-
-        $dbi = $this->dbi;
 
         $db = 'test_db';
         $table = 'test_table';
         $query = 'SELECT * FROM `test_db`.`test_table`;';
 
-        $object = new DisplayResults($db, $table, 1, '', $query);
+        $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->properties['unique_id'] = 1234567890;
 
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
@@ -1678,28 +1582,28 @@ class ResultsTest extends AbstractTestCase
                 'has_bulk_actions_form' => false,
                 'button' => '<thead class="table-light"><tr>' . "\n",
                 'table_headers_for_columns' => $tableHeadersForColumns,
-                'column_at_right_side' => "\n" . '<td class="d-print-none" ></td>',
+                'column_at_right_side' => "\n" . '<td class="d-print-none"></td>',
             ],
-            'body' => '<tr   ><td data-decimals="0" data-type="real" class="'
-                . 'text-end data  not_null     text-nowrap">1</td>' . "\n"
+            'body' => '<tr><td data-decimals="0" data-type="real" class="'
+                . 'text-end data not_null text-nowrap">1</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data  not_null   text pre_wrap">abcd</td>' . "\n"
+                . 'data not_null text pre_wrap">abcd</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data  not_null   datetimefield text-nowrap">2011-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap">2011-01-20 02:00:02</td>' . "\n"
                 . '</tr>' . "\n"
-                . '<tr   ><td data-decimals="0" data-type="real" class="'
-                . 'text-end data  not_null     text-nowrap">2</td>' . "\n"
+                . '<tr><td data-decimals="0" data-type="real" class="'
+                . 'text-end data not_null text-nowrap">2</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
-                . 'data  not_null   text pre_wrap">foo</td>' . "\n"
+                . 'data not_null text pre_wrap">foo</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data  not_null   datetimefield text-nowrap">2010-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap">2010-01-20 02:00:02</td>' . "\n"
                 . '</tr>' . "\n"
-                . '<tr   ><td data-decimals="0" data-type="real" class="'
-                . 'text-end data  not_null     text-nowrap">3</td>' . "\n"
+                . '<tr><td data-decimals="0" data-type="real" class="'
+                . 'text-end data not_null text-nowrap">3</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data  not_null   text pre_wrap">Abcd</td>' . "\n"
+                . 'data not_null text pre_wrap">Abcd</td>' . "\n"
                 . '<td data-decimals="0" data-type="datetime" data-originallength="19" class="'
-                . 'data  not_null   datetimefield text-nowrap">2012-01-20 02:00:02</td>' . "\n"
+                . 'data not_null datetimefield text-nowrap">2012-01-20 02:00:02</td>' . "\n"
                 . '</tr>' . "\n",
             'bulk_links' => [],
             'operations' => [

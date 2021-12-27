@@ -3201,17 +3201,17 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
+			message: "#^Cannot access offset int on mixed\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getBulkLinks\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getBulkLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getClassForNumericColumnType\\(\\) has parameter \\$thClass with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3226,22 +3226,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getColumnParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getCommentForRow\\(\\) has parameter \\$commentsMap with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3261,11 +3251,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) has parameter \\$transformOptions with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3277,11 +3262,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3301,37 +3281,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDeleteAndKillLinks\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDeleteAndKillLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDraggableClassForNonSortableColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getFieldVisibilityParams\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getFieldVisibilityParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getFromForeign\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getHtmlPageSelector\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3351,42 +3301,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) has parameter \\$sortExpressionNoDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getPartialText\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRepeatingHeaders\\(\\) has parameter \\$displayParams with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getResultsOperations\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getResultsOperations\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3406,11 +3326,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowInfoForSpecialLinks\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -3426,32 +3341,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSingleAndMultiSortUrls\\(\\) has parameter \\$sortDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSingleAndMultiSortUrls\\(\\) has parameter \\$sortExpression with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSingleAndMultiSortUrls\\(\\) has parameter \\$sortExpressionNoDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSingleAndMultiSortUrls\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3462,21 +3357,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortByKeyDropDown\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortOrderHiddenInputs\\(\\) has parameter \\$multipleUrlParams with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) has parameter \\$sortDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3502,11 +3387,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableBody\\(\\) has parameter \\$displayParts with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableBody\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3541,13 +3421,8 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) has parameter \\$sortExpressionNoDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -3571,32 +3446,12 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) has parameter \\$sortExpressionNoDirection with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableNavigation\\(\\) has parameter \\$sortByKeyData with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableNavigation\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getUnsortedSqlAndSortByKeyDropDown\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getUnsortedSqlAndSortByKeyDropDown\\(\\) has parameter \\$sortExpression with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getUnsortedSqlAndSortByKeyDropDown\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3691,27 +3546,32 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setParamForLinkForeignKeyRelatedTables\\(\\) has parameter \\$map with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:setParamForLinkForeignKeyRelatedTables\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<int\\|string, array\\>\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$offset of method PhpMyAdmin\\\\DatabaseInterface\\:\\:dataSeek\\(\\) expects int, float\\|int given\\.$#"
+			count: 2
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#3 \\$colOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) expects array\\|false, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#3 \\$value of method PhpMyAdmin\\\\Display\\\\Results\\:\\:buildValueDisplay\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#4 \\$sortExpressionNoDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#6 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowValues\\(\\) expects array\\|bool\\|string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#7 \\$displayedData of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#8 \\$colVisib of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects bool, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Display/Results.php
+
+		-
+			message: "#^Parameter \\#9 \\$colVisibElement of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOrderLinkAndSortedHeaderHtml\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -3721,22 +3581,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$decimals \\(int\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$internalMediaType \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$name \\(string\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\FieldMetadata\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -8616,6 +8461,16 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, object\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Parameter \\#1 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8623,6 +8478,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$numberOfLine of method PhpMyAdmin\\\\Sql\\:\\:getStartPosToDisplayRow\\(\\) expects int, mixed given\\.$#"
 			count: 2
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|object\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Sql.php
 
 		-
@@ -10371,11 +10231,6 @@ parameters:
 			path: test/classes/Dbal/DbiDummyTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetClassesForColumn\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:dataProviderForTestGetDataCellForNonNumericColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 4
 			path: test/classes/Display/ResultsTest.php
@@ -10512,6 +10367,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Display\\\\ResultsTest\\:\\:testSetHighlightedColumnGlobalField\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Display/ResultsTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 

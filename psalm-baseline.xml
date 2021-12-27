@@ -5907,34 +5907,14 @@
     </MoreSpecificImplementedParamType>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <DocblockTypeContradiction occurrences="5">
+    <DocblockTypeContradiction occurrences="2">
       <code>$displayParts['nav_bar'] == '1' &amp;&amp; $statement !== null &amp;&amp; empty($statement-&gt;limit)</code>
-      <code>''</code>
-      <code>'-1'</code>
-      <code>-1</code>
       <code>[]</code>
     </DocblockTypeContradiction>
-    <FalseOperand occurrences="1">
-      <code>! $rowNumber</code>
-    </FalseOperand>
-    <InvalidArgument occurrences="9">
+    <InvalidArgument occurrences="1">
       <code>$added[$orgFullTableName]</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
-      <code>$dtResult</code>
     </InvalidArgument>
-    <InvalidOperand occurrences="1">
-      <code>$index</code>
-    </InvalidOperand>
-    <InvalidScalarArgument occurrences="1">
-      <code>$originalLength</code>
-    </InvalidScalarArgument>
-    <MixedArgument occurrences="84">
+    <MixedArgument occurrences="55">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5953,84 +5933,54 @@
       <code>$colOrder</code>
       <code>$colVisib</code>
       <code>$colVisib</code>
-      <code>$colVisib</code>
       <code>$colVisibCurrent</code>
-      <code>$colVisibCurrent</code>
-      <code>$colspan</code>
-      <code>$column</code>
-      <code>$column</code>
+      <code>$displayParams['desc']</code>
+      <code>$displayParams['emptyafter']</code>
+      <code>$displayParams['emptypre']</code>
       <code>$displayParts</code>
       <code>$displayParts['del_lnk']</code>
       <code>$displayParts['del_lnk']</code>
-      <code>$displayedColumn</code>
-      <code>$displayedColumn</code>
-      <code>$displayedColumn</code>
-      <code>$displayedColumn</code>
-      <code>$dispresult</code>
-      <code>$dispresult</code>
-      <code>$dispresult</code>
+      <code>$displayParts['pview_lnk']</code>
       <code>$expr-&gt;alias</code>
       <code>$field-&gt;table</code>
-      <code>$geometryText</code>
-      <code>$isFieldTruncated</code>
-      <code>$isFieldTruncated</code>
-      <code>$isFieldTruncated</code>
-      <code>$isFieldTruncated</code>
-      <code>$map[$meta-&gt;name][0]</code>
-      <code>$map[$meta-&gt;name][0]</code>
-      <code>$map[$meta-&gt;name][1]</code>
-      <code>$map[$meta-&gt;name][1]</code>
-      <code>$map[$meta-&gt;name][2]</code>
-      <code>$map[$meta-&gt;name][3]</code>
-      <code>$map[$meta-&gt;name][3]</code>
       <code>$mediaTypeMap[$orgFullColName]['mimetype']</code>
       <code>$mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''</code>
       <code>$mediaTypeMap[$orgFullColName]['transformation_options'] ?? ''</code>
       <code>$multipleUrlParams['sql_query']</code>
       <code>$multipleUrlParams['sql_query']</code>
-      <code>$nameToUseInSort</code>
       <code>$newSortExpressionNoDirection</code>
       <code>$oneKey['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$oneKey['ref_table_name']</code>
-      <code>$orderImg</code>
-      <code>$originalLength</code>
       <code>$rel['foreign_db']</code>
       <code>$rel['foreign_table']</code>
+      <code>$row ? $row[$sortedColumnIndex] : ''</code>
+      <code>$row ? $row[$sortedColumnIndex] : ''</code>
       <code>$row[$i]</code>
       <code>$row[$i]</code>
-      <code>$row[$sortedColumnIndex]</code>
-      <code>$row[$sortedColumnIndex]</code>
       <code>$sessionMaxRows</code>
-      <code>$sortByKeyData</code>
-      <code>$sortDirection[$index]</code>
-      <code>$sortDirection[$index]</code>
-      <code>$sortDirection[$index]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
       <code>$this-&gt;properties['unlim_num_rows'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$total</code>
-      <code>$unsortedSqlQuery</code>
       <code>$urlParams['where_clause']</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
-      <code>$wkbval</code>
       <code>empty($field-&gt;database) ? $this-&gt;properties['db'] : $field-&gt;database</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="9">
+    <MixedArgumentTypeCoercion occurrences="8">
       <code>$analyzedSqlResults</code>
-      <code>$index</code>
-      <code>$index</code>
       <code>$linkingUrlParams</code>
       <code>$row</code>
       <code>$row</code>
       <code>$row</code>
+      <code>$sortDirection</code>
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="76">
+    <MixedArrayAccess occurrences="68">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6072,20 +6022,12 @@
       <code>$_SESSION['tmpval']['relational_display']</code>
       <code>$_SESSION['tmpval']['repeat_cells']</code>
       <code>$colOrder[$j]</code>
+      <code>$colVisib[$j]</code>
       <code>$displayParams['data'][$rowNumber]</code>
       <code>$displayParts['nav_bar']</code>
       <code>$displayParts['nav_bar']</code>
       <code>$displayParts['nav_bar']</code>
       <code>$displayParts['sort_lnk']</code>
-      <code>$map[$meta-&gt;name][0]</code>
-      <code>$map[$meta-&gt;name][0]</code>
-      <code>$map[$meta-&gt;name][0]</code>
-      <code>$map[$meta-&gt;name][1]</code>
-      <code>$map[$meta-&gt;name][1]</code>
-      <code>$map[$meta-&gt;name][2]</code>
-      <code>$map[$meta-&gt;name][3]</code>
-      <code>$map[$meta-&gt;name][3]</code>
-      <code>$map[$meta-&gt;name][3]</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_db_name']</code>
       <code>$oneKey['ref_db_name']</code>
@@ -6179,7 +6121,7 @@
       <code>$row[$i]</code>
       <code>$row[$m]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="64">
+    <MixedAssignment occurrences="52">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6192,21 +6134,14 @@
       <code>$colVisib</code>
       <code>$colVisibCurrent</code>
       <code>$columnForFirstRow</code>
-      <code>$columnForFirstRow</code>
       <code>$columnForLastRow</code>
-      <code>$columnForLastRow</code>
-      <code>$columns[]</code>
-      <code>$displayedColumn</code>
-      <code>$dispresult</code>
       <code>$expr</code>
       <code>$expr</code>
-      <code>$expression</code>
       <code>$field</code>
       <code>$file</code>
       <code>$firstShownRec</code>
       <code>$firstShownRec</code>
       <code>$firstShownRec</code>
-      <code>$geometryText</code>
       <code>$hiddenFields['session_max_rows']</code>
       <code>$i</code>
       <code>$i</code>
@@ -6214,17 +6149,14 @@
       <code>$index</code>
       <code>$lastShownRec</code>
       <code>$lastShownRec</code>
-      <code>$linkingUrlParams[$urlParameterName]</code>
+      <code>$linkingUrlParams[$new_param['param_info']]</code>
       <code>$m</code>
       <code>$meta-&gt;name</code>
       <code>$multipleUrlParams['sql_query']</code>
       <code>$multipleUrlParams['sql_query']</code>
-      <code>$nameToUseInSort</code>
       <code>$newSortExpressionNoDirection</code>
       <code>$oneField</code>
       <code>$oneKey</code>
-      <code>$posNext</code>
-      <code>$posPrev</code>
       <code>$query</code>
       <code>$query['geoOption']</code>
       <code>$query['pftext']</code>
@@ -6239,43 +6171,28 @@
       <code>$sqlQueryAdd</code>
       <code>$tableCreateTime</code>
       <code>$theTotal</code>
-      <code>$val</code>
       <code>$value</code>
       <code>$whereClauseMap[$rowNumber][$meta-&gt;orgtable]</code>
       <code>$whereClauseMap[$rowNumber][$this-&gt;properties['table']]</code>
-      <code>$wkbval</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>string|null</code>
-    </MixedInferredReturnType>
     <MixedMethodCall occurrences="2">
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="23">
+    <MixedOperand occurrences="13">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
       <code>$_SESSION['tmpval']['pos']</code>
-      <code>$displayParams['emptyafter']</code>
-      <code>$displayParams['emptypre']</code>
+      <code>$_SESSION['tmpval']['repeat_cells']</code>
       <code>$displayParams['rowdata'][$i][$rowNumber]</code>
       <code>$displaySize[0]</code>
       <code>$displaySize[1]</code>
       <code>$file</code>
       <code>$firstShownRec</code>
       <code>$firstShownRec</code>
-      <code>$multiSortOrder</code>
-      <code>$multiSortOrder</code>
-      <code>$orderImg</code>
-      <code>$orderLink</code>
-      <code>$result</code>
-      <code>$singleSortOrder</code>
-      <code>$singleSortOrder</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
-      <code>$sortOrder</code>
-      <code>$val</code>
     </MixedOperand>
     <MixedPropertyFetch occurrences="16">
       <code>$analyzedSqlResults['parser']-&gt;list</code>
@@ -6295,30 +6212,19 @@
       <code>$field-&gt;database</code>
       <code>$field-&gt;table</code>
     </MixedPropertyFetch>
-    <MixedReturnStatement occurrences="1">
-      <code>$dispval</code>
-    </MixedReturnStatement>
-    <MixedReturnTypeCoercion occurrences="2">
+    <MixedReturnTypeCoercion occurrences="6">
+      <code>$map</code>
+      <code>array&lt;string, string[]&gt;</code>
       <code>int[]</code>
+      <code>string[]</code>
     </MixedReturnTypeCoercion>
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$colVisib</code>
-      <code>$colVisib</code>
-      <code>$sortExpressionNoDirection</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
       <code>$this-&gt;properties['num_rows'] &gt; 0 ? $this-&gt;properties['num_rows'] - 1 : 0</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="4">
+    <PossiblyNullArgument occurrences="1">
       <code>$colVisibCurrent</code>
-      <code>$colVisibCurrent</code>
-      <code>$isFieldTruncated</code>
-      <code>$isFieldTruncated</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="3">
-      <code>$dispval</code>
-      <code>$row[$sortedColumnIndex]</code>
-      <code>$row[$sortedColumnIndex]</code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="2">
       <code>$dispval</code>
       <code>$this-&gt;getSortedColumnMessage($dtResult, $sortExpressionNoDirection[$i])</code>
@@ -6333,12 +6239,8 @@
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
       <code>(string) $fieldsMeta[$i]-&gt;name</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="6">
-      <code>$fieldsMeta-&gt;name</code>
+    <RedundantConditionGivenDocblockType occurrences="2">
       <code>$firstStatement-&gt;order</code>
-      <code>$meta-&gt;decimals</code>
-      <code>$meta-&gt;decimals</code>
-      <code>isset($fieldsMeta-&gt;table)</code>
       <code>isset($meta-&gt;internalMediaType)</code>
     </RedundantConditionGivenDocblockType>
   </file>
@@ -13527,10 +13429,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Sql.php">
-    <InvalidArgument occurrences="2">
-      <code>$result</code>
-      <code>$result</code>
-    </InvalidArgument>
     <InvalidScalarArgument occurrences="2">
       <code>$error</code>
       <code>''</code>
@@ -13702,12 +13600,13 @@
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="12">
+    <PossiblyNullArgument occurrences="13">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
       <code>$extraData ?? null</code>
       <code>$messageToShow ?? null</code>
+      <code>$result</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
       <code>$sqlData ?? null</code>
@@ -15867,8 +15766,7 @@
       <code>$output</code>
       <code>$output</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="8">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="7">
       <code>array</code>
       <code>array</code>
       <code>array</code>
