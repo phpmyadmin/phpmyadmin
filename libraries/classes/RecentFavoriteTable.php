@@ -166,9 +166,7 @@ class RecentFavoriteTable
 
             $message = Message::error($error_msg);
             $message->addMessage(
-                Message::rawError(
-                    $dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                ),
+                Message::rawError($dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
                 '<br><br>'
             );
 

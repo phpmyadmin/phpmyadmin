@@ -68,7 +68,7 @@ final class DropColumnController extends AbstractController
             $result = $this->dbi->tryQuery($statement);
 
             if (! $result) {
-                $message = Message::error((string) $this->dbi->getError());
+                $message = Message::error($this->dbi->getError());
             }
         } else {
             $message = Message::success(__('No change'));

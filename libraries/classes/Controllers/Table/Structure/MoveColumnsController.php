@@ -19,7 +19,6 @@ use function count;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function str_replace;
@@ -162,7 +161,7 @@ final class MoveColumnsController extends AbstractController
 
         $this->dbi->tryQuery($sql_query);
         $tmp_error = $this->dbi->getError();
-        if (is_string($tmp_error)) {
+        if ($tmp_error !== '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error($tmp_error));
 

@@ -80,6 +80,7 @@ class Utilities
      * @param string $error_message Error message as returned by server
      *
      * @return string HML text with error details
+     * @psalm-return non-empty-string
      */
     public static function formatError(int $error_number, string $error_message): string
     {

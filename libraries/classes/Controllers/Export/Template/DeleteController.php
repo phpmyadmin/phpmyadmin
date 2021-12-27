@@ -11,8 +11,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-use function is_string;
-
 final class DeleteController extends AbstractController
 {
     /** @var TemplateModel */
@@ -50,7 +48,7 @@ final class DeleteController extends AbstractController
             $templateId
         );
 
-        if (is_string($result)) {
+        if ($result !== '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 

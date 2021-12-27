@@ -590,9 +590,7 @@ class Normalization
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
-                    Message::rawError(
-                        (string) $this->dbi->getError()
-                    ),
+                    Message::rawError($this->dbi->getError()),
                     '<br><br>'
                 );
                 $error = true;
@@ -765,9 +763,7 @@ class Normalization
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
-                    Message::rawError(
-                        (string) $this->dbi->getError()
-                    ),
+                    Message::rawError($this->dbi->getError()),
                     '<br><br>'
                 );
                 $error = true;
@@ -845,9 +841,7 @@ class Normalization
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
-                    Message::rawError(
-                        (string) $this->dbi->getError()
-                    ),
+                    Message::rawError($this->dbi->getError()),
                     '<br><br>'
                 );
                 $error = true;

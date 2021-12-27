@@ -77,7 +77,7 @@ final class CreateController extends AbstractController
             // avoid displaying the not-created db name in header or navi panel
             $db = '';
 
-            $message = Message::rawError((string) $this->dbi->getError());
+            $message = Message::rawError($this->dbi->getError());
             $json = ['message' => $message];
 
             $this->response->setRequestStatus(false);

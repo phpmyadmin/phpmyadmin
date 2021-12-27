@@ -62,7 +62,7 @@ final class SpatialController extends AbstractController
         $result = $this->dbi->tryQuery($sql_query);
 
         if (! $result) {
-            $message = Message::error((string) $this->dbi->getError());
+            $message = Message::error($this->dbi->getError());
         }
 
         if (empty($message)) {

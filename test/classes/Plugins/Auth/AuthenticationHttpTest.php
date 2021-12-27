@@ -367,7 +367,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->exactly(3))
             ->method('getError')
-            ->will($this->onConsecutiveCalls('error 123', 'error 321', null));
+            ->will($this->onConsecutiveCalls('error 123', 'error 321', ''));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 31;

@@ -8501,11 +8501,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#2 \\$foreign_field of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:foreignDropdown\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php

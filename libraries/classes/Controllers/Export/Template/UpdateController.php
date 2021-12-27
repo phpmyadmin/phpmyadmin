@@ -12,8 +12,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
-use function is_string;
-
 final class UpdateController extends AbstractController
 {
     /** @var TemplateModel */
@@ -57,7 +55,7 @@ final class UpdateController extends AbstractController
             $template
         );
 
-        if (is_string($result)) {
+        if ($result !== '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 

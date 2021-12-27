@@ -263,7 +263,7 @@ class CheckUserPrivileges
                         $dbNameToTest
                     )
                 )
-                || mb_substr((string) $this->dbi->getError(), 1, 4) == 1044)
+                || mb_substr($this->dbi->getError(), 1, 4) == 1044)
             ) {
                 continue;
             }

@@ -336,13 +336,11 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param mysqli|false|null $link mysql link
-     *
-     * @return string|bool error or false
      */
-    public function getError($link)
+    public function getError($link): string
     {
         $GLOBALS['errno'] = 0;
 
@@ -355,7 +353,7 @@ class DbiMysqli implements DbiExtension
         }
 
         if ($error_number === 0 || $error_message === '') {
-            return false;
+            return '';
         }
 
         // keep the error number for further check after

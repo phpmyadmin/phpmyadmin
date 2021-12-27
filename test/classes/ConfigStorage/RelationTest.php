@@ -161,7 +161,7 @@ class RelationTest extends AbstractTestCase
             ->will($this->returnValue(0));
         $dbi->expects($this->any())
             ->method('getError')
-            ->will($this->onConsecutiveCalls(true, false));
+            ->will($this->onConsecutiveCalls('Error', ''));
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 
@@ -956,7 +956,6 @@ class RelationTest extends AbstractTestCase
         $this->relation = new Relation($this->dbi);
 
         $this->dummyDbi->removeDefaultResults();
-        $this->dummyDbi->addErrorCode(false);
         $this->dummyDbi->addResult(
             'CREATE DATABASE IF NOT EXISTS `phpmyadmin`',
             []

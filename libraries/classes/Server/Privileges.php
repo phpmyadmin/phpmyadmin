@@ -3391,10 +3391,10 @@ class Privileges
     ): array {
         if ($error || (! empty($realSqlQuery) && ! $this->dbi->tryQuery($realSqlQuery))) {
             $createDb1 = $createDb2 = $createDb3 = false;
-            $message = Message::rawError((string) $this->dbi->getError());
+            $message = Message::rawError($this->dbi->getError());
         } elseif ($alterRealSqlQuery !== '' && ! $this->dbi->tryQuery($alterRealSqlQuery)) {
             $createDb1 = $createDb2 = $createDb3 = false;
-            $message = Message::rawError((string) $this->dbi->getError());
+            $message = Message::rawError($this->dbi->getError());
         } else {
             $sqlQuery .= $alterSqlQuery;
             $message = Message::success(__('You have added a new user.'));
@@ -3408,7 +3408,7 @@ class Privileges
                 ) . ';';
             $sqlQuery .= $query;
             if (! $this->dbi->tryQuery($query)) {
-                $message = Message::rawError((string) $this->dbi->getError());
+                $message = Message::rawError($this->dbi->getError());
             }
 
             /**
@@ -3427,7 +3427,7 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sqlQuery .= $query;
             if (! $this->dbi->tryQuery($query)) {
-                $message = Message::rawError((string) $this->dbi->getError());
+                $message = Message::rawError($this->dbi->getError());
             }
         }
 
@@ -3443,7 +3443,7 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sqlQuery .= $query;
             if (! $this->dbi->tryQuery($query)) {
-                $message = Message::rawError((string) $this->dbi->getError());
+                $message = Message::rawError($this->dbi->getError());
             }
         }
 
@@ -3455,7 +3455,7 @@ class Privileges
             . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sqlQuery .= $query;
             if (! $this->dbi->tryQuery($query)) {
-                $message = Message::rawError((string) $this->dbi->getError());
+                $message = Message::rawError($this->dbi->getError());
             }
         }
 

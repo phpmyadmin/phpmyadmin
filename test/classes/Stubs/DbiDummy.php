@@ -86,7 +86,10 @@ class DbiDummy implements DbiExtension
      */
     private $dummyQueries = [];
 
-    /** @var array<int,string|false> */
+    /**
+     * @var string[]
+     * @psalm-var non-empty-string[]
+     */
     private $fifoErrorCodes = [];
 
     public const OFFSET_GLOBAL = 1000;
@@ -412,13 +415,11 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param object $link connection link
-     *
-     * @return string|bool error or false
      */
-    public function getError($link)
+    public function getError($link): string
     {
         foreach ($this->fifoErrorCodes as $i => $code) {
             unset($this->fifoErrorCodes[$i]);
@@ -426,7 +427,7 @@ class DbiDummy implements DbiExtension
             return $code;
         }
 
-        return false;
+        return '';
     }
 
     /**
@@ -567,11 +568,11 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * Adds an error or false as no error to the stack
+     * Adds an error or null as no error to the stack
      *
-     * @param string|false $code
+     * @psalm-param non-empty-string $code
      */
-    public function addErrorCode($code): void
+    public function addErrorCode(string $code): void
     {
         $this->fifoErrorCodes[] = $code;
     }

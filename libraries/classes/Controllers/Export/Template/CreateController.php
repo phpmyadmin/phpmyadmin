@@ -13,7 +13,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
 use function is_array;
-use function is_string;
 
 final class CreateController extends AbstractController
 {
@@ -64,7 +63,7 @@ final class CreateController extends AbstractController
             $template
         );
 
-        if (is_string($result)) {
+        if ($result !== '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 

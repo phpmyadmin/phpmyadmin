@@ -113,7 +113,7 @@ final class DropTableController extends AbstractController
         }
 
         if (! $result) {
-            $message = Message::error((string) $this->dbi->getError());
+            $message = Message::error($this->dbi->getError());
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);

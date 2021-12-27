@@ -366,9 +366,7 @@ class CentralColumns
                 if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
                     $message = Message::error(__('Could not add columns!'));
                     $message->addMessage(
-                        Message::rawError(
-                            (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                        )
+                        Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
                     );
                     break;
                 }
@@ -466,9 +464,7 @@ class CentralColumns
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
-                Message::rawError(
-                    (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                )
+                Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL))
             );
         }
 
@@ -535,11 +531,9 @@ class CentralColumns
             }
 
             if ($message === true) {
-                $message = Message::error(
-                    (string) $this->dbi->getError()
-                );
+                $message = Message::error($this->dbi->getError());
             } else {
-                $message->addText((string) $this->dbi->getError(), '<br>');
+                $message->addText($this->dbi->getError(), '<br>');
             }
         }
 
@@ -649,9 +643,7 @@ class CentralColumns
         }
 
         if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
-            return Message::error(
-                (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-            );
+            return Message::error($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL));
         }
 
         return true;

@@ -143,13 +143,11 @@ interface DbiExtension
     public function getClientInfo();
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param object $link connection link
-     *
-     * @return string|bool error or false
      */
-    public function getError($link);
+    public function getError($link): string;
 
     /**
      * returns the number of rows returned by last query

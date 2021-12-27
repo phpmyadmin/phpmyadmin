@@ -1797,9 +1797,7 @@ class Table implements Stringable
                 __('Could not save table UI preferences!')
             );
             $message->addMessage(
-                Message::rawError(
-                    (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                ),
+                Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
                 '<br><br>'
             );
 
@@ -1828,9 +1826,7 @@ class Table implements Stringable
                     )
                 );
                 $message->addMessage(
-                    Message::rawError(
-                        (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                    ),
+                    Message::rawError($this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
                     '<br><br>'
                 );
 
@@ -2393,7 +2389,6 @@ class Table implements Stringable
                 $drop = true;
             }
 
-            $tmpErrorDrop = false;
             if ($drop) {
                 $dropQuery = 'ALTER TABLE ' . Util::backquote($table)
                     . ' DROP FOREIGN KEY '
@@ -2405,7 +2400,7 @@ class Table implements Stringable
                     $this->dbi->tryQuery($dropQuery);
                     $tmpErrorDrop = $this->dbi->getError();
 
-                    if (! empty($tmpErrorDrop)) {
+                    if ($tmpErrorDrop !== '') {
                         $seenError = true;
                         $htmlOutput .= Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false);
                         continue;
@@ -2434,7 +2429,7 @@ class Table implements Stringable
             if (! isset($_POST['preview_sql'])) {
                 $displayQuery .= $createQuery . "\n";
                 $this->dbi->tryQuery($createQuery);
-                $tmpErrorCreate = (string) $this->dbi->getError();
+                $tmpErrorCreate = $this->dbi->getError();
                 if (! empty($tmpErrorCreate)) {
                     $seenError = true;
 
@@ -2458,7 +2453,7 @@ class Table implements Stringable
 
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
-            if (! $drop || ! empty($tmpErrorDrop) || empty($tmpErrorCreate)) {
+            if (! $drop || empty($tmpErrorCreate)) {
                 continue;
             }
 

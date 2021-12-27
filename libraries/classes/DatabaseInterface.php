@@ -224,7 +224,7 @@ class DatabaseInterface implements DbalInterface
             $errorMessage = $this->getError($link);
             Utilities::debugLogQueryIntoSession(
                 $query,
-                is_string($errorMessage) ? $errorMessage : null,
+                $errorMessage !== '' ? $errorMessage : null,
                 $result,
                 $time
             );
@@ -2057,16 +2057,14 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param int $link link type
-     *
-     * @return string|bool error or false
      */
-    public function getError($link = self::CONNECT_USER)
+    public function getError($link = self::CONNECT_USER): string
     {
         if (! isset($this->links[$link])) {
-            return false;
+            return '';
         }
 
         return $this->extension->getError($this->links[$link]);

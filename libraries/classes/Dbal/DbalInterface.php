@@ -620,13 +620,11 @@ interface DbalInterface
     public function getClientInfo(): string;
 
     /**
-     * returns last error message or false if no errors occurred
+     * Returns last error message or an empty string if no errors occurred.
      *
      * @param int $link link type
-     *
-     * @return string|bool error or false
      */
-    public function getError($link = DatabaseInterface::CONNECT_USER);
+    public function getError($link = DatabaseInterface::CONNECT_USER): string;
 
     /**
      * returns the number of rows returned by last query

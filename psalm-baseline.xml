@@ -6545,10 +6545,7 @@
       <code>$result</code>
       <code>$result</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
-      <code>$result</code>
-      <code>$result</code>
-      <code>$result</code>
+    <MixedAssignment occurrences="2">
       <code>$result</code>
       <code>$result</code>
     </MixedAssignment>
@@ -7851,9 +7848,7 @@
       <code>strpos($lastCumulativeSize, ',')</code>
       <code>strpos($lastCumulativeSize, ',')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="7">
-      <code>$error</code>
-      <code>$error</code>
+    <PossiblyInvalidArgument occurrences="5">
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
       <code>$lastCumulativeSize</code>
@@ -9545,9 +9540,6 @@
       <code>$this-&gt;password</code>
       <code>$this-&gt;user</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$error</code>
-    </PossiblyInvalidArgument>
     <RedundantCondition occurrences="1">
       <code>isset($this-&gt;user)</code>
     </RedundantCondition>
@@ -9595,9 +9587,6 @@
     <MixedMethodCall occurrences="1">
       <code>issetCookie</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$dbi_error</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportCodegen.php">
     <MixedArgument occurrences="6">
@@ -12377,8 +12366,7 @@
     <MixedReturnStatement occurrences="1">
       <code>$return</code>
     </MixedReturnStatement>
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
+    <PossiblyInvalidArgument occurrences="1">
       <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyNullOperand occurrences="2">
@@ -13411,8 +13399,7 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Sql.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$error</code>
+    <InvalidScalarArgument occurrences="1">
       <code>''</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="62">
@@ -13728,9 +13715,7 @@
     </MixedReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
-    <DocblockTypeContradiction occurrences="5">
-      <code>! $drop || ! empty($tmpErrorDrop)</code>
-      <code>! empty($tmpErrorDrop)</code>
+    <DocblockTypeContradiction occurrences="3">
       <code>isset($this-&gt;uiprefs)</code>
       <code>isset($this-&gt;uiprefs)</code>
       <code>isset($this-&gt;uiprefs)</code>
@@ -14648,9 +14633,6 @@
       <code>$prefs['config_data'][$path]</code>
       <code>$value</code>
     </MixedAssignment>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$dbi-&gt;getError(DatabaseInterface::CONNECT_CONTROL)</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullOperand occurrences="1">
       <code>$hash</code>
     </PossiblyNullOperand>

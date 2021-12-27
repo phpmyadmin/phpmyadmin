@@ -166,9 +166,7 @@ class UserPreferences
         if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
-                Message::rawError(
-                    $dbi->getError(DatabaseInterface::CONNECT_CONTROL)
-                ),
+                Message::rawError($dbi->getError(DatabaseInterface::CONNECT_CONTROL)),
                 '<br><br>'
             );
 

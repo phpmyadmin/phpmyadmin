@@ -1350,7 +1350,7 @@ class Import
         global $dbi;
 
         $response = ResponseRenderer::getInstance();
-        $error = false;
+        $error = '';
         $errorMsg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         $sqlDelimiter = $_POST['sql_delimiter'];
         $sqlData = [];
@@ -1394,7 +1394,7 @@ class Import
             $result = $this->getMatchedRows($analyzedSqlResults);
             $error = $dbi->getError();
 
-            if ($error !== false) {
+            if ($error !== '') {
                 break;
             }
 

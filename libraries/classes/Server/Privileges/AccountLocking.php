@@ -39,7 +39,7 @@ final class AccountLocking
             return;
         }
 
-        throw new Exception((string) $this->dbi->getError());
+        throw new Exception($this->dbi->getError());
     }
 
     /**
@@ -60,6 +60,6 @@ final class AccountLocking
             return;
         }
 
-        throw new Exception((string) $this->dbi->getError());
+        throw new Exception($this->dbi->getError());
     }
 }

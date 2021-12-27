@@ -793,13 +793,11 @@ class Generator
      * Displays a MySQL error message in the main panel when $exit is true.
      * Returns the error message otherwise.
      *
-     * @param string|bool $serverMessage Server's error message.
-     * @param string      $sqlQuery      The SQL query that failed.
-     * @param bool        $isModifyLink  Whether to show a "modify" link or not.
-     * @param string      $backUrl       URL for the "back" link (full path is
-     *                                    not required).
-     * @param bool        $exit          Whether execution should be stopped or
-     *                                   the error message should be returned.
+     * @param string $serverMessage Server's error message.
+     * @param string $sqlQuery      The SQL query that failed.
+     * @param bool   $isModifyLink  Whether to show a "modify" link or not.
+     * @param string $backUrl       URL for the "back" link (full path is not required).
+     * @param bool   $exit          Whether execution should be stopped or the error message should be returned.
      *
      * @global string $table The current table.
      * @global string $db    The current database.
@@ -815,14 +813,12 @@ class Generator
 
         /**
          * Error message to be built.
-         *
-         * @var string $errorMessage
          */
         $errorMessage = '';
 
         // Checking for any server errors.
         if (empty($serverMessage)) {
-            $serverMessage = (string) $dbi->getError();
+            $serverMessage = $dbi->getError();
         }
 
         // Finding the query that failed, if not specified.
@@ -923,8 +919,8 @@ class Generator
         }
 
         // Display server's error.
-        if (! empty($serverMessage)) {
-            $serverMessage = (string) preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", (string) $serverMessage);
+        if ($serverMessage !== '') {
+            $serverMessage = (string) preg_replace("@((\015\012)|(\015)|(\012)){3,}@", "\n\n", $serverMessage);
 
             // Adds a link to MySQL documentation.
             $errorMessage .= '<p>' . "\n"

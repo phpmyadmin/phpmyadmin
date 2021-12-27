@@ -857,7 +857,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(''));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 42;
@@ -884,7 +884,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(''));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;
