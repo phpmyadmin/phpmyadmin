@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers;
+namespace PhpMyAdmin\Tests\Controllers\Import;
 
-use PhpMyAdmin\Controllers\ImportController;
+use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * @covers \PhpMyAdmin\Controllers\ImportController
+ * @covers \PhpMyAdmin\Controllers\Import\ImportController
  */
 class ImportControllerTest extends AbstractTestCase
 {

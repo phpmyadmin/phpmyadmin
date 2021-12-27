@@ -1293,17 +1293,17 @@ parameters:
 		-
 			message: "#^If condition is always false\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/ImportController.php
+			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
 			message: "#^Left side of && is always false\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/ImportController.php
+			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/ImportController.php
+			path: libraries/classes/Controllers/Import/ImportController.php
 
 		-
 			message: "#^Parameter \\#1 \\$dependencies of method PhpMyAdmin\\\\Normalization\\:\\:getHtmlForNewTables3NF\\(\\) expects object, mixed given\\.$#"

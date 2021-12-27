@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Import\Ajax;
@@ -20,7 +20,7 @@ use function usleep;
 /**
  * Import progress bar backend
  */
-class ImportStatusController
+class StatusController
 {
     /** @var Template */
     private $template;

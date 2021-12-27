@@ -2066,7 +2066,7 @@
       <code>$collationsList</code>
     </UnusedVariable>
   </file>
-  <file src="libraries/classes/Controllers/ImportController.php">
+  <file src="libraries/classes/Controllers/Import/ImportController.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
@@ -2201,7 +2201,7 @@
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/ImportStatusController.php">
+  <file src="libraries/classes/Controllers/Import/StatusController.php">
     <MixedArgument occurrences="2">
       <code>$_GET['id']</code>
       <code>$_SESSION['Import_message']['message'] ?? ''</code>

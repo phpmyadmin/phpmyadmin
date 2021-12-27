@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers;
+namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
+use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -329,7 +330,7 @@ final class ImportController extends AbstractController
         $reset_charset = false;
         $msg = 'Sorry an unexpected error happened!';
 
-        /** @var mixed|bool $result */
+        /** @var bool|mixed $result */
         $result = false;
 
         // Bookmark Support: get a query back from bookmark if required
