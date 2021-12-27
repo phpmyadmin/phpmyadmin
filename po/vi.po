@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-26 00:12+0000\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-12-28 12:53+0000\n"
+"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14463,9 +14463,9 @@ msgid "Add user account"
 msgstr "Tạo tài khoản người dùng mới"
 
 #: templates/database/qbe/index.twig:16
-#, php-format
+#, fuzzy, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Chuyển sang %sbộ xây dựng trực quan%s"
+msgstr "Chuyển sang %schế độ trực quan%s"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
