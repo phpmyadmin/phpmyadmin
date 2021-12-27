@@ -119,7 +119,10 @@ return static function (RouteCollector $routes): void {
     });
     $routes->addRoute(['GET', 'POST'], '/gis-data-editor', GisDataEditorController::class);
     $routes->addRoute(['GET', 'POST'], '/git-revision', GitInfoController::class);
-    $routes->addRoute(['GET', 'POST'], '/import', Import\ImportController::class);
+    $routes->addGroup('/import', static function (RouteCollector $routes): void {
+        $routes->addRoute(['GET', 'POST'], '', Import\ImportController::class);
+        $routes->post('/simulate-dml', Import\SimulateDmlController::class);
+    });
     $routes->addRoute(['GET', 'POST'], '/import-status', Import\StatusController::class);
     $routes->get('/license', LicenseController::class);
     $routes->addRoute(['GET', 'POST'], '/lint', LintController::class);

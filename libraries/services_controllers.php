@@ -580,6 +580,14 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        Import\SimulateDmlController::class => [
+            'class' => Import\SimulateDmlController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$simulateDml' => '@import_simulate_dml',
+            ],
+        ],
         Import\StatusController::class => [
             'class' => Import\StatusController::class,
             'arguments' => ['$template' => '@template'],

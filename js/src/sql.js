@@ -744,12 +744,11 @@ AJAX.registerOnload('sql.js', function () {
         var $msgbox = Functions.ajaxShowMessage();
         $.ajax({
             type: 'POST',
-            url: $form.attr('action'),
+            url: 'index.php?route=/import/simulate-dml',
             data: {
                 'server': CommonParams.get('server'),
                 'db': dbName,
                 'ajax_request': '1',
-                'simulate_dml': '1',
                 'sql_query': query,
                 'sql_delimiter': delimiter
             },

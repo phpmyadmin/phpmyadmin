@@ -96,6 +96,10 @@ return [
         'import' => [
             'class' => PhpMyAdmin\Import::class,
         ],
+        'import_simulate_dml' => [
+            'class' => PhpMyAdmin\Import\SimulateDml::class,
+            'arguments' => ['@dbi'],
+        ],
         'insert_edit' => [
             'class' => PhpMyAdmin\InsertEdit::class,
             'arguments' => ['@dbi'],

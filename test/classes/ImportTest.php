@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
-use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\Url;
 
 use function time;
 
@@ -478,64 +474,6 @@ class ImportTest extends AbstractTestCase
         }
 
         return $data;
-    }
-
-    /**
-     * Test for getMatchedRows.
-     */
-    public function testPMAGetMatchedRows(): void
-    {
-        $GLOBALS['db'] = 'PMA';
-
-        $updateQuery = 'UPDATE `table_1` SET `id` = 20 WHERE `id` > 10';
-        $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
-
-        $deleteQuery = 'DELETE FROM `table_1` WHERE `id` > 10';
-        $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
-
-        $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
-        $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
-    }
-
-    /**
-     * Tests simulated UPDATE/DELETE query.
-     *
-     * @param string $sqlQuery       SQL query
-     * @param string $simulatedQuery Simulated query
-     */
-    public function simulatedQueryTest(string $sqlQuery, string $simulatedQuery): void
-    {
-        $parser = new Parser($sqlQuery);
-        $analyzed_sql_results = [
-            'query' => $sqlQuery,
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-        ];
-
-        $this->dummyDbi->addSelectDb('PMA');
-
-        $simulated_data = $this->import->getMatchedRows($analyzed_sql_results);
-
-        $this->assertAllSelectsConsumed();
-
-        // URL to matched rows.
-        $_url_params = [
-            'db' => 'PMA',
-            'sql_query' => $simulatedQuery,
-            'sql_signature' => Core::signSqlQuery($simulatedQuery),
-        ];
-        $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
-
-        $this->assertEquals(
-            [
-                'sql_query' => Generator::formatSql(
-                    $analyzed_sql_results['query']
-                ),
-                'matched_rows' => 2,
-                'matched_rows_url' => $matched_rows_url,
-            ],
-            $simulated_data
-        );
     }
 
     /**

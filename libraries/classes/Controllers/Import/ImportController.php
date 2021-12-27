@@ -92,13 +92,6 @@ final class ImportController extends AbstractController
         $local_import_file = $_POST['local_import_file'] ?? null;
         $show_as_php = $_POST['show_as_php'] ?? null;
 
-        // If there is a request to 'Simulate DML'.
-        if (isset($_POST['simulate_dml'])) {
-            $this->import->handleSimulateDmlRequest();
-
-            return;
-        }
-
         // If it's a refresh console bookmarks request
         if (isset($_GET['console_bookmark_refresh'])) {
             $this->response->addJSON(

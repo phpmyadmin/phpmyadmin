@@ -4791,26 +4791,6 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:getMatchedRows\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:getMatchedRows\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:getSimulatedDeleteQuery\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Import\\:\\:getSimulatedUpdateQuery\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Import\\:\\:lookForUse\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
@@ -4846,14 +4826,24 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statement, object given\\.$#"
-			count: 4
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Import\\\\Ajax\\:\\:uploadProgressSetup\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Import/Ajax.php
+
+		-
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Import/SimulateDml.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Import/SimulateDml.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: libraries/classes/Import/SimulateDml.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Index\\:\\:__construct\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"

@@ -7641,32 +7641,11 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Import.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$result</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>int</code>
-    </InvalidReturnType>
-    <MixedArgument occurrences="61">
+    <MixedArgument occurrences="42">
       <code>$active</code>
       <code>$additionalSql[$i]</code>
       <code>$additionalSql[$i]</code>
       <code>$additionalSql[$i]</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['query']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
-      <code>$analyzedSqlResults['statement']</code>
       <code>$charset_of_file</code>
       <code>$db</code>
       <code>$fulls[$i]</code>
@@ -7680,14 +7659,10 @@
       <code>$reload</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$result</code>
-      <code>$set-&gt;value</code>
       <code>$size</code>
       <code>$size</code>
       <code>$size</code>
       <code>$sqlDelimiter</code>
-      <code>$sqlDelimiter</code>
-      <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sql_query</code>
       <code>$table</code>
@@ -7710,11 +7685,6 @@
       <code>$tables[$i][self::TBL_NAME]</code>
       <code>$tables[$n][self::TBL_NAME]</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
-      <code>$columns</code>
-      <code>$tableReferences</code>
-      <code>$tableReferences</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="27">
       <code>$analyses[$i][self::FORMATTEDSQL][$colCount]</code>
       <code>$analyses[$i][self::SIZES]</code>
@@ -7753,13 +7723,12 @@
     <MixedArrayOffset occurrences="1">
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="38">
+    <MixedAssignment occurrences="31">
       <code>$GLOBALS['offset']</code>
       <code>$active</code>
       <code>$cellValue</code>
       <code>$charset</code>
       <code>$collation</code>
-      <code>$columns[]</code>
       <code>$complete_query</code>
       <code>$count</code>
       <code>$createDb</code>
@@ -7770,13 +7739,10 @@
       <code>$max_sql_len</code>
       <code>$queries</code>
       <code>$queries</code>
-      <code>$queries</code>
       <code>$read_multiply</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
-      <code>$result</code>
-      <code>$set</code>
       <code>$size</code>
       <code>$size</code>
       <code>$skip_queries</code>
@@ -7785,11 +7751,8 @@
       <code>$sqlData['valid_queries']</code>
       <code>$sqlData['valid_sql'][]</code>
       <code>$sqlDelimiter</code>
-      <code>$sqlDelimiter</code>
-      <code>$sqlQuery</code>
       <code>$sqlQuery</code>
       <code>$sql_query</code>
-      <code>$statement</code>
       <code>$table</code>
       <code>$table</code>
     </MixedAssignment>
@@ -7800,7 +7763,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="25">
+    <MixedOperand occurrences="24">
       <code>$charset</code>
       <code>$charset</code>
       <code>$collation</code>
@@ -7813,7 +7776,6 @@
       <code>$msg</code>
       <code>$read_multiply</code>
       <code>$read_multiply</code>
-      <code>$set-&gt;column</code>
       <code>$size</code>
       <code>$size</code>
       <code>$size[self::D]</code>
@@ -7827,17 +7789,6 @@
       <code>$sql_query</code>
       <code>$timestamp</code>
     </MixedOperand>
-    <MixedPropertyFetch occurrences="9">
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['parser']-&gt;list</code>
-      <code>$analyzedSqlResults['statement']-&gt;limit</code>
-      <code>$analyzedSqlResults['statement']-&gt;limit</code>
-      <code>$analyzedSqlResults['statement']-&gt;order</code>
-      <code>$analyzedSqlResults['statement']-&gt;order</code>
-      <code>$analyzedSqlResults['statement']-&gt;set</code>
-      <code>$set-&gt;column</code>
-      <code>$set-&gt;value</code>
-    </MixedPropertyFetch>
     <MixedReturnStatement occurrences="3">
       <code>$size[self::FULL]</code>
       <code>$size[self::FULL]</code>
@@ -7875,6 +7826,18 @@
     <MixedMethodCall occurrences="1">
       <code>$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)</code>
     </MixedMethodCall>
+  </file>
+  <file src="libraries/classes/Import/SimulateDml.php">
+    <MixedArgument occurrences="1">
+      <code>$result</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$tableReferences</code>
+      <code>$tableReferences</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$result</code>
+    </MixedAssignment>
   </file>
   <file src="libraries/classes/Index.php">
     <DocblockTypeContradiction occurrences="1">
