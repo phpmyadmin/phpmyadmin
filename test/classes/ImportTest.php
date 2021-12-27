@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
@@ -27,6 +28,7 @@ class ImportTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $this->import = new Import();
     }
 
@@ -518,6 +520,7 @@ class ImportTest extends AbstractTestCase
         $_url_params = [
             'db'        => 'PMA',
             'sql_query' => $simulatedQuery,
+            'sql_signature' => Core::signSqlQuery($simulatedQuery),
         ];
         $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
 
