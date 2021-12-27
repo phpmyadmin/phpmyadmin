@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Display\Results as DisplayResults;
@@ -571,6 +572,7 @@ class Sql
      * @param bool   $bookmarkReplace     whether to replace existing bookmarks
      */
     public function storeTheQueryAsBookmark(
+        ?BookmarkFeature $bookmarkFeature,
         $db,
         $bookmarkUser,
         $sqlQueryForBookmark,
@@ -585,8 +587,8 @@ class Sql
         ];
 
         // Should we replace bookmark?
-        if ($bookmarkReplace) {
-            $bookmarks = Bookmark::getList($this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
+        if ($bookmarkReplace && $bookmarkFeature !== null) {
+            $bookmarks = Bookmark::getList($bookmarkFeature, $this->dbi, $GLOBALS['cfg']['Server']['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() != $bookmarkLabel) {
                     continue;
@@ -598,7 +600,6 @@ class Sql
 
         $bookmark = Bookmark::createBookmark(
             $this->dbi,
-            $GLOBALS['cfg']['Server']['user'],
             $bfields,
             isset($_POST['bkm_all_users'])
         );
@@ -850,10 +851,11 @@ class Sql
             // If there are no errors and bookmarklabel was given,
             // store the query as a bookmark
             if (! empty($_POST['bkm_label']) && ! empty($sqlQueryForBookmark)) {
-                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+                $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
                 $this->storeTheQueryAsBookmark(
+                    $bookmarkFeature,
                     $db,
-                    is_array($cfgBookmark) ? $cfgBookmark['user'] : '',
+                    $bookmarkFeature !== null ? $GLOBALS['cfg']['Server']['user'] : '',
                     $sqlQueryForBookmark,
                     $_POST['bkm_label'],
                     isset($_POST['bkm_replace'])
@@ -1110,11 +1112,11 @@ class Sql
         }
 
         $bookmark = '';
-        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
-            is_array($cfgBookmark)
+            $bookmarkFeature !== null
             && $displayParts['bkm_form'] == '1'
-            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && empty($_GET['id_bookmark'])
             && ! empty($sqlQuery)
         ) {
             $bookmark = $this->template->render('sql/bookmark', [
@@ -1125,7 +1127,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $cfgBookmark['user'],
+                'user' => $GLOBALS['cfg']['Server']['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
             ]);
         }
@@ -1539,12 +1541,12 @@ class Sql
             $analyzedSqlResults
         );
 
-        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
+        $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
         if (
-            is_array($cfgBookmark)
+            $bookmarkFeature !== null
             && $displayParts['bkm_form'] == '1'
-            && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
+            && empty($_GET['id_bookmark'])
             && ! empty($sqlQuery)
         ) {
             $bookmarkSupportHtml = $this->template->render('sql/bookmark', [
@@ -1555,7 +1557,7 @@ class Sql
                     'sql_query' => $sqlQuery,
                     'id_bookmark' => 1,
                 ]),
-                'user' => $cfgBookmark['user'],
+                'user' => $GLOBALS['cfg']['Server']['user'],
                 'sql_query' => $completeQuery ?? $sqlQuery,
             ]);
         }

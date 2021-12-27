@@ -77,19 +77,9 @@
     </UnusedClosureParam>
   </file>
   <file src="libraries/classes/Bookmark.php">
-    <MixedArgument occurrences="14">
+    <MixedArgument occurrences="4">
       <code>$bkm_fields['bkm_label']</code>
       <code>$bkm_fields['bkm_sql_query']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['db']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['table']</code>
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
       <code>$row</code>
       <code>$variables[$i]</code>
     </MixedArgument>
@@ -105,12 +95,6 @@
       <code>$bookmark-&gt;query</code>
       <code>$row</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="1">
-      <code>array|false</code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement occurrences="1">
-      <code>Cache::get($cacheKey)</code>
-    </MixedReturnStatement>
     <PropertyNotSetInConstructor occurrences="5">
       <code>$currentUser</code>
       <code>$database</code>
@@ -2086,7 +2070,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$import_plugin == null</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="41">
+    <MixedArgument occurrences="39">
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['bookmark_variable']</code>
@@ -2094,8 +2078,6 @@
       <code>$_POST['sql_query']</code>
       <code>$_SESSION['Import_message']['go_back_url']</code>
       <code>$analyzed_sql_results</code>
-      <code>$cfgBookmark['user']</code>
-      <code>$cfgBookmark['user']</code>
       <code>$cfg['MemoryLimit']</code>
       <code>$collation_connection</code>
       <code>$db</code>
@@ -13433,7 +13415,7 @@
       <code>$error</code>
       <code>''</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="63">
+    <MixedArgument occurrences="62">
       <code>$_POST[$requestIndex]</code>
       <code>$_POST['bkm_label']</code>
       <code>$_POST['dropped_column'] ?? null</code>
@@ -13496,7 +13478,6 @@
       <code>$unlimNumRows</code>
       <code>$unlimNumRows</code>
       <code>Message::sanitize($warning)</code>
-      <code>is_array($cfgBookmark) ? $cfgBookmark['user'] : ''</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="3">
       <code>$analyzedSqlResults</code>

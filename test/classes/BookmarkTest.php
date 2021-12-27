@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
-use PhpMyAdmin\Cache;
+use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
+use PhpMyAdmin\Dbal\DatabaseName;
+use PhpMyAdmin\Dbal\TableName;
 
 /**
  * @covers \PhpMyAdmin\Bookmark
@@ -28,50 +30,23 @@ class BookmarkTest extends AbstractTestCase
     }
 
     /**
-     * Tests for Bookmark:getParams()
-     */
-    public function testGetParams(): void
-    {
-        $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->assertFalse(
-            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
-        );
-        $this->assertAllSelectsConsumed();
-    }
-
-    /**
-     * Tests for Bookmark:getParams()
-     */
-    public function testGetParamsFromCache(): void
-    {
-        $this->assertTrue(Cache::remove('Bookmark.params'), 'The cache needs to be clean');
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->assertFalse(
-            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
-        );
-        $this->assertAllSelectsConsumed();
-        $this->assertTrue(Cache::set('Bookmark.params', ['cacheworks' => true]), 'The cache should to be filled');
-        $this->assertSame(
-            ['cacheworks' => true],
-            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
-        );
-    }
-
-    /**
      * Tests for Bookmark::getList()
      */
     public function testGetList(): void
     {
-        $this->dummyDbi->addSelectDb('phpmyadmin');
-        $this->assertEquals(
-            [],
-            Bookmark::getList(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin'
-            )
+        $this->dummyDbi->addResult(
+            'SELECT * FROM `phpmyadmin`.`pma_bookmark` WHERE ( `user` = \'\' OR `user` = \'root\' )'
+                . ' AND dbase = \'sakila\' ORDER BY label ASC',
+            [['1', 'sakila', 'root', 'label', 'SELECT * FROM `actor` WHERE `actor_id` < 10;']],
+            ['id', 'dbase', 'user', 'label', 'query']
         );
+        $actual = Bookmark::getList(
+            new BookmarkFeature(DatabaseName::fromValue('phpmyadmin'), TableName::fromValue('pma_bookmark')),
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            'sakila'
+        );
+        $this->assertContainsOnlyInstancesOf(Bookmark::class, $actual);
         $this->assertAllSelectsConsumed();
     }
 
@@ -104,7 +79,7 @@ class BookmarkTest extends AbstractTestCase
             'bkm_label' => 'bookmark1',
         ];
 
-        $bookmark = Bookmark::createBookmark($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'], $bookmarkData);
+        $bookmark = Bookmark::createBookmark($GLOBALS['dbi'], $bookmarkData);
         $this->assertNotFalse($bookmark);
         $this->dummyDbi->addSelectDb('phpmyadmin');
         $this->assertFalse($bookmark->save());

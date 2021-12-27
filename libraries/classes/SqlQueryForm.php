@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -91,21 +92,20 @@ class SqlQueryForm
             [$legend, $query, $columns_list] = $this->init($query);
         }
 
-        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+        $relation = new Relation($dbi);
+        $bookmarkFeature = $relation->getRelationParameters()->bookmarkFeature;
 
         $bookmarks = [];
-        if ($display_tab === 'full') {
-            if ($cfgBookmark) {
-                $bookmark_list = Bookmark::getList($dbi, $GLOBALS['cfg']['Server']['user'], $db);
+        if ($display_tab === 'full' && $bookmarkFeature !== null) {
+            $bookmark_list = Bookmark::getList($bookmarkFeature, $dbi, $GLOBALS['cfg']['Server']['user'], $db);
 
-                foreach ($bookmark_list as $bookmarkItem) {
-                    $bookmarks[] = [
-                        'id' => $bookmarkItem->getId(),
-                        'variable_count' => $bookmarkItem->getVariableCount(),
-                        'label' => $bookmarkItem->getLabel(),
-                        'is_shared' => empty($bookmarkItem->getUser()),
-                    ];
-                }
+            foreach ($bookmark_list as $bookmarkItem) {
+                $bookmarks[] = [
+                    'id' => $bookmarkItem->getId(),
+                    'variable_count' => $bookmarkItem->getVariableCount(),
+                    'label' => $bookmarkItem->getLabel(),
+                    'is_shared' => empty($bookmarkItem->getUser()),
+                ];
             }
         }
 
@@ -116,7 +116,7 @@ class SqlQueryForm
             'textarea_auto_select' => $GLOBALS['cfg']['TextareaAutoSelect'],
             'columns_list' => $columns_list ?? [],
             'codemirror_enable' => $GLOBALS['cfg']['CodemirrorEnable'],
-            'has_bookmark' => $cfgBookmark,
+            'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
             'retain_query_box' => $GLOBALS['cfg']['RetainQueryBox'] !== false,
             'is_upload' => $GLOBALS['config']->get('enable_upload'),

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -115,20 +116,14 @@ final class ImportController extends AbstractController
                 return;
             }
 
-            $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
-
-            if (! is_array($cfgBookmark)) {
-                $cfgBookmark = [];
-            }
-
             $bookmarkFields = [
                 'bkm_database' => $_POST['db'],
-                'bkm_user' => $cfgBookmark['user'],
+                'bkm_user' => $cfg['Server']['user'],
                 'bkm_sql_query' => $_POST['bookmark_query'],
                 'bkm_label' => $_POST['label'],
             ];
             $isShared = ($_POST['shared'] === 'true');
-            $bookmark = Bookmark::createBookmark($this->dbi, $cfg['Server']['user'], $bookmarkFields, $isShared);
+            $bookmark = Bookmark::createBookmark($this->dbi, $bookmarkFields, $isShared);
             if ($bookmark !== false && $bookmark->save()) {
                 $this->response->addJSON('message', __('Succeeded'));
                 $this->response->addJSON('data', $bookmarkFields);
@@ -768,15 +763,12 @@ final class ImportController extends AbstractController
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
-
-                if (! is_array($cfgBookmark)) {
-                    $cfgBookmark = [];
-                }
+                $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
+                    $relation->getRelationParameters()->bookmarkFeature,
                     $db,
-                    $cfgBookmark['user'],
+                    $cfg['Server']['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
                     isset($_POST['bkm_replace'])
@@ -792,15 +784,12 @@ final class ImportController extends AbstractController
         if ($result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
-                $cfgBookmark = Bookmark::getParams($cfg['Server']['user']);
-
-                if (! is_array($cfgBookmark)) {
-                    $cfgBookmark = [];
-                }
+                $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
+                    $relation->getRelationParameters()->bookmarkFeature,
                     $db,
-                    $cfgBookmark['user'],
+                    $cfg['Server']['user'],
                     $_POST['sql_query'],
                     $_POST['bkm_label'],
                     isset($_POST['bkm_replace'])

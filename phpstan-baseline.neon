@@ -71,16 +71,6 @@ parameters:
 			path: libraries/classes/Bookmark.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:getParams\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:getParams\\(\\) should return array\\|false but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\BrowseForeigners\\:\\:getDescriptionAndTitle\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/BrowseForeigners.php
@@ -8456,11 +8446,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8507,6 +8492,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#2 \\$db of method PhpMyAdmin\\\\Sql\\:\\:storeTheQueryAsBookmark\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

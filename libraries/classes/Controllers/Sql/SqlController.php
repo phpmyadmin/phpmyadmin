@@ -215,11 +215,8 @@ class SqlController extends AbstractController
 
     private function addBookmark(string $goto): void
     {
-        global $cfg;
-
         $bookmark = Bookmark::createBookmark(
             $this->dbi,
-            $cfg['Server']['user'],
             $_POST['bkm_fields'],
             isset($_POST['bkm_all_users']) && $_POST['bkm_all_users'] === 'true'
         );
