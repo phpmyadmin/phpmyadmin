@@ -1435,6 +1435,7 @@ class Import
         $urlParams = [
             'db' => $GLOBALS['db'],
             'sql_query' => $matchedRowQuery,
+            'sql_signature' => Core::signSqlQuery($matchedRowQuery),
         ];
         $matchedRowsUrl = Url::getFromRoute('/sql', $urlParams);
 

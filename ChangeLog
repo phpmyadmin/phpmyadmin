@@ -141,6 +141,7 @@ phpMyAdmin - ChangeLog
 - issue #16746 Replace samyoul/u2f-php-server by code-lts/u2f-php-server
 - issue #16005 Performance improvement on the Import and Export pages
 - issue #17247 Fix triple HTML encoding
+- issue #17259 Fix broken link in the Simulate DML query modal
 
 5.1.1 (2021-06-04)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
