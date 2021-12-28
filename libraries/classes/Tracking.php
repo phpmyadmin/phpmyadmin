@@ -206,7 +206,7 @@ class Tracking
             "' " .
             ' ORDER BY db_name, table_name';
 
-        return $this->relation->queryAsControlUser($sql_query);
+        return $this->dbi->queryAsControlUser($sql_query);
     }
 
     /**
@@ -1105,7 +1105,6 @@ class Tracking
         array $urlParams,
         string $textDir
     ) {
-        $relation = $this->relation;
         $trackingFeature = $this->relation->getRelationParameters()->trackingFeature;
         if ($trackingFeature === null) {
             return '';
@@ -1120,7 +1119,7 @@ class Tracking
             ' GROUP BY table_name' .
             ' ORDER BY table_name ASC';
 
-        $allTablesResult = $relation->queryAsControlUser($allTablesQuery);
+        $allTablesResult = $this->dbi->queryAsControlUser($allTablesQuery);
         $untrackedTables = $this->getUntrackedTables($db);
 
         // If a HEAD version exists
@@ -1136,7 +1135,7 @@ class Tracking
                 . $this->dbi->escapeString($tableName)
                 . '\' AND `version` = \'' . $versionNumber . '\'';
 
-            $versions[] = $relation->queryAsControlUser($tableQuery)->fetchAssoc();
+            $versions[] = $this->dbi->queryAsControlUser($tableQuery)->fetchAssoc();
         }
 
         return $this->template->render('database/tracking/tables', [

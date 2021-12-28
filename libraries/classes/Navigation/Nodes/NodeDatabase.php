@@ -396,7 +396,7 @@ class NodeDatabase extends Node
             . " AND `item_type`='" . $type
             . "' AND `db_name`='" . $dbi->escapeString($db)
             . "'";
-        $result = $this->relation->queryAsControlUser($sqlQuery, false);
+        $result = $dbi->tryQueryAsControlUser($sqlQuery);
         if ($result) {
             return $result->fetchAllColumn();
         }

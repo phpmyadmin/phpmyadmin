@@ -335,12 +335,12 @@ class Common
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
-        $this->relation->queryAsControlUser($query);
+        $this->dbi->queryAsControlUser($query);
 
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-        $this->relation->queryAsControlUser($query);
+        $this->dbi->queryAsControlUser($query);
 
         return true;
     }
@@ -480,7 +480,7 @@ class Common
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
-        $this->relation->queryAsControlUser($query);
+        $this->dbi->queryAsControlUser($query);
 
         foreach ($_POST['t_h'] as $key => $value) {
             $DB = $_POST['t_db'][$key];
@@ -500,7 +500,7 @@ class Common
                 . "'" . $this->dbi->escapeString($_POST['t_x'][$key]) . "', "
                 . "'" . $this->dbi->escapeString($_POST['t_y'][$key]) . "')";
 
-            $this->relation->queryAsControlUser($query);
+            $this->dbi->queryAsControlUser($query);
         }
 
         return true;
@@ -666,7 +666,7 @@ class Common
             . "'" . $this->dbi->escapeString($T1) . "', "
             . "'" . $this->dbi->escapeString($F1) . "')";
 
-        if ($this->relation->queryAsControlUser($q, false)) {
+        if ($this->dbi->tryQueryAsControlUser($q)) {
             return [
                 true,
                 __('Internal relationship has been added.'),
@@ -739,7 +739,7 @@ class Common
             . " AND foreign_table = '" . $this->dbi->escapeString($T1) . "'"
             . " AND foreign_field = '" . $this->dbi->escapeString($F1) . "'";
 
-        $result = $this->relation->queryAsControlUser($delete_query, false);
+        $result = $this->dbi->tryQueryAsControlUser($delete_query);
 
         if (! $result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
@@ -765,7 +765,6 @@ class Common
     public function saveSetting($index, $value): bool
     {
         $databaseDesignerSettingsFeature = $this->relation->getRelationParameters()->databaseDesignerSettingsFeature;
-        $success = true;
         if ($databaseDesignerSettingsFeature !== null) {
             $cfgDesigner = [
                 'user' => $GLOBALS['cfg']['Server']['user'],
@@ -797,7 +796,7 @@ class Common
                     . " WHERE username = '"
                     . $this->dbi->escapeString($cfgDesigner['user']) . "';";
 
-                $success = $this->relation->queryAsControlUser($save_query);
+                $this->dbi->queryAsControlUser($save_query);
             } else {
                 $save_data = [$index => $value];
 
@@ -808,10 +807,10 @@ class Common
                     . " VALUES('" . $this->dbi->escapeString($cfgDesigner['user'])
                     . "', '" . json_encode($save_data) . "');";
 
-                $success = $this->relation->queryAsControlUser($query);
+                $this->dbi->queryAsControlUser($query);
             }
         }
 
-        return (bool) $success;
+        return true;
     }
 }

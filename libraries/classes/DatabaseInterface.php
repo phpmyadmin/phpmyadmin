@@ -280,6 +280,40 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * Executes a query as controluser.
+     * The result is always buffered and never cached
+     *
+     * @param string $sql the query to execute
+     *
+     * @return ResultInterface the result set
+     */
+    public function queryAsControlUser(string $sql): ResultInterface
+    {
+        // Avoid caching of the number of rows affected; for example, this function
+        // is called for tracking purposes but we want to display the correct number
+        // of rows affected by the original query, not by the query generated for
+        // tracking.
+        return $this->query($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
+    }
+
+    /**
+     * Executes a query as controluser.
+     * The result is always buffered and never cached
+     *
+     * @param string $sql the query to execute
+     *
+     * @return ResultInterface|false the result set, or false if the query failed
+     */
+    public function tryQueryAsControlUser(string $sql)
+    {
+        // Avoid caching of the number of rows affected; for example, this function
+        // is called for tracking purposes but we want to display the correct number
+        // of rows affected by the original query, not by the query generated for
+        // tracking.
+        return $this->tryQuery($sql, self::CONNECT_CONTROL, self::QUERY_BUFFERED, false);
+    }
+
+    /**
      * returns array with table names for given db
      *
      * @param string $database name of database

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\DatabaseList;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
@@ -478,5 +479,25 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $actual = $this->dbi->getTablesFull('test_db');
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Test for queryAsControlUser
+     */
+    public function testQueryAsControlUser(): void
+    {
+        $sql = 'insert into PMA_bookmark A,B values(1, 2)';
+        $this->dummyDbi->addResult($sql, [true]);
+        $this->dummyDbi->addResult($sql, [true]);
+
+        $this->assertInstanceOf(
+            ResultInterface::class,
+            $this->dbi->queryAsControlUser($sql)
+        );
+        $this->assertInstanceOf(
+            ResultInterface::class,
+            $this->dbi->tryQueryAsControlUser($sql)
+        );
+        $this->assertFalse($this->dbi->tryQueryAsControlUser('Invalid query'));
     }
 }

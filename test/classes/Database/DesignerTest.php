@@ -66,12 +66,10 @@ class DesignerTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->with(
                 'SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`'
-                . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
-                DatabaseInterface::CONNECT_CONTROL,
-                false
+                . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`"
             )
             ->will($this->returnValue($resultStub));
 

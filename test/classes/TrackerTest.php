@@ -273,7 +273,7 @@ class TrackerTest extends AbstractTestCase
             . " AND `table_name` = 'testtable'";
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
+            ->method('queryAsControlUser')
             ->with($sql_query)
             ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
@@ -305,8 +305,8 @@ class TrackerTest extends AbstractTestCase
             . '\', \'CREATE DATABASE,ALTER DATABASE,DROP DATABASE\')';
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
-            ->with($this->matches($expectedMainQuery), DatabaseInterface::CONNECT_CONTROL, 0, false)
+            ->method('queryAsControlUser')
+            ->with($this->matches($expectedMainQuery))
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -346,8 +346,8 @@ class TrackerTest extends AbstractTestCase
         " AND `version` = '" . $version . "'";
 
         $dbi->expects($this->exactly(1))
-            ->method('query')
-            ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
+            ->method('queryAsControlUser')
+            ->with($sql_query)
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -491,7 +491,7 @@ class TrackerTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects($this->once())
-            ->method('query')
+            ->method('queryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->once())

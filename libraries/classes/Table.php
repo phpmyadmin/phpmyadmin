@@ -932,7 +932,7 @@ class Table implements Stringable
 
         // must use DatabaseInterface::QUERY_BUFFERED here, since we execute
         // another query inside the loop
-        $tableCopyRs = $relation->queryAsControlUser($tableCopyQuery);
+        $tableCopyRs = $dbi->queryAsControlUser($tableCopyQuery);
 
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
@@ -952,7 +952,7 @@ class Table implements Stringable
                 . implode('\', \'', $valueParts) . '\', \''
                 . implode('\', \'', $newValueParts) . '\')';
 
-            $relation->queryAsControlUser($newTableQuery);
+            $dbi->queryAsControlUser($newTableQuery);
             $lastId = $dbi->insertId();
         }
 
@@ -1320,7 +1320,7 @@ class Table implements Stringable
 
         if ($relationParameters->columnCommentsFeature !== null) {
             // Get all comments and MIME-Types for current table
-            $commentsCopyRs = $relation->queryAsControlUser(
+            $commentsCopyRs = $dbi->queryAsControlUser(
                 'SELECT column_name, comment'
                 . ($relationParameters->browserTransformationFeature !== null
                 ? ', mimetype, transformation, transformation_options'
@@ -1359,7 +1359,7 @@ class Table implements Stringable
                         . '\''
                         : '')
                     . ')';
-                $relation->queryAsControlUser($newCommentQuery);
+                $dbi->queryAsControlUser($newCommentQuery);
             }
 
             unset($commentsCopyRs);
@@ -1759,7 +1759,7 @@ class Table implements Stringable
             $this->dbi->escapeString($this->name)
         );
 
-        $value = $this->relation->queryAsControlUser($sqlQuery)->fetchValue();
+        $value = $this->dbi->queryAsControlUser($sqlQuery)->fetchValue();
         if (is_string($value)) {
             return json_decode($value, true);
         }

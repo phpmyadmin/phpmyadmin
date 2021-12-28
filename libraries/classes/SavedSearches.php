@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature;
-use PhpMyAdmin\ConfigStorage\Relation;
 
 use function __;
 use function count;
@@ -58,14 +57,6 @@ class SavedSearches
      * @var array
      */
     private $criterias = null;
-
-    /** @var Relation */
-    private $relation;
-
-    public function __construct(Relation $relation)
-    {
-        $this->relation = $relation;
-    }
 
     /**
      * Setter of id
@@ -300,10 +291,7 @@ class SavedSearches
                 . "'" . $dbi->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
-            $result = (bool) $this->relation->queryAsControlUser($sqlQuery);
-            if (! $result) {
-                return false;
-            }
+            $dbi->queryAsControlUser($sqlQuery);
 
             $this->setId($dbi->insertId());
 
@@ -335,7 +323,7 @@ class SavedSearches
             . $dbi->escapeString(json_encode($this->getCriterias())) . "' "
             . 'WHERE id = ' . $this->getId();
 
-        return (bool) $this->relation->queryAsControlUser($sqlQuery);
+        return (bool) $dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -362,7 +350,7 @@ class SavedSearches
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
 
-        return (bool) $this->relation->queryAsControlUser($sqlQuery);
+        return (bool) $dbi->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -390,7 +378,7 @@ class SavedSearches
             . 'FROM ' . $savedSearchesTbl . ' '
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
 
-        $resList = $this->relation->queryAsControlUser($sqlQuery);
+        $resList = $dbi->queryAsControlUser($sqlQuery);
         $oneResult = $resList->fetchAssoc();
 
         if ($oneResult === []) {
@@ -438,7 +426,7 @@ class SavedSearches
 
         $sqlQuery .= 'order by search_name ASC ';
 
-        $resList = $this->relation->queryAsControlUser($sqlQuery);
+        $resList = $dbi->queryAsControlUser($sqlQuery);
 
         return $resList->fetchAllKeyPair();
     }

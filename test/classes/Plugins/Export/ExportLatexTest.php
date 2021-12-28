@@ -588,7 +588,7 @@ class ExportLatexTest extends AbstractTestCase
             ->will($this->returnValue($columns));
 
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())
@@ -693,7 +693,7 @@ class ExportLatexTest extends AbstractTestCase
             ->will($this->returnValue($columns));
 
         $dbi->expects($this->once())
-            ->method('tryQuery')
+            ->method('tryQueryAsControlUser')
             ->will($this->returnValue($resultStub));
 
         $resultStub->expects($this->once())

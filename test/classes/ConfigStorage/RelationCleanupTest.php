@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -21,6 +22,9 @@ class RelationCleanupTest extends AbstractTestCase
     /** @var RelationCleanup */
     private $relationCleanup;
 
+    /** @var DatabaseInterface&MockObject */
+    protected $dbi;
+
     /**
      * Prepares environment for the test.
      */
@@ -31,9 +35,13 @@ class RelationCleanupTest extends AbstractTestCase
 
         $this->relation = $this->getMockBuilder(Relation::class)
             ->disableOriginalConstructor()
+            ->onlyMethods([])
+            ->getMock();
+        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
             ->onlyMethods(['queryAsControlUser'])
             ->getMock();
-        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
+        $this->relationCleanup = new RelationCleanup($this->dbi, $this->relation);
     }
 
     /**
@@ -41,7 +49,7 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testColumnWithoutRelations(): void
     {
-        $this->relation->expects($this->never())
+        $this->dbi->expects($this->never())
             ->method('queryAsControlUser');
 
         $this->relationCleanup->column('database', 'table', 'column');
@@ -64,7 +72,7 @@ class RelationCleanupTest extends AbstractTestCase
             'column_info' => 'column_info',
         ])->toArray();
 
-        $this->relation->expects($this->exactly(4))
+        $this->dbi->expects($this->exactly(4))
             ->method('queryAsControlUser')
             ->withConsecutive(
                 [
@@ -101,7 +109,7 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testTableWithoutRelations(): void
     {
-        $this->relation->expects($this->never())
+        $this->dbi->expects($this->never())
             ->method('queryAsControlUser');
 
         $this->relationCleanup->table('database', 'table');
@@ -131,7 +139,7 @@ class RelationCleanupTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ])->toArray();
 
-        $this->relation->expects($this->exactly(7))
+        $this->dbi->expects($this->exactly(7))
             ->method('queryAsControlUser')
             ->withConsecutive(
                 [
@@ -180,7 +188,7 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testDatabaseWithoutRelations(): void
     {
-        $this->relation->expects($this->never())
+        $this->dbi->expects($this->never())
             ->method('queryAsControlUser');
 
         $this->relationCleanup->database('database');
@@ -216,7 +224,7 @@ class RelationCleanupTest extends AbstractTestCase
             'central_columns' => 'central_columns',
         ])->toArray();
 
-        $this->relation->expects($this->exactly(11))
+        $this->dbi->expects($this->exactly(11))
             ->method('queryAsControlUser')
             ->withConsecutive(
                 [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database'")],
@@ -240,7 +248,7 @@ class RelationCleanupTest extends AbstractTestCase
      */
     public function testUserWithoutRelations(): void
     {
-        $this->relation->expects($this->never())
+        $this->dbi->expects($this->never())
             ->method('queryAsControlUser');
 
         $this->relationCleanup->user('user');
@@ -278,7 +286,7 @@ class RelationCleanupTest extends AbstractTestCase
             'designer_settings' => 'designer_settings',
         ])->toArray();
 
-        $this->relation->expects($this->exactly(10))
+        $this->dbi->expects($this->exactly(10))
             ->method('queryAsControlUser')
             ->withConsecutive(
                 [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE `user`  = 'user'")],

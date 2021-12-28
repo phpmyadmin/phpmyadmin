@@ -137,7 +137,7 @@ class Menu
                 . $userTable . " WHERE `username` = '"
                 . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 
-            $result = $this->relation->queryAsControlUser($sqlQuery, false);
+            $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             if ($result) {
                 while ($row = $this->dbi->fetchAssoc($result)) {
                     $tab = (string) $row['tab'];

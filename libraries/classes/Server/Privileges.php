@@ -581,7 +581,7 @@ class Privileges
             return;
         }
 
-        $this->relation->queryAsControlUser($updQuery);
+        $this->dbi->queryAsControlUser($updQuery);
     }
 
     /**
@@ -2009,7 +2009,7 @@ class Privileges
         if ($configurableMenusFeature !== null) {
             $sqlQuery = 'SELECT * FROM ' . Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->users);
-            $result = $this->relation->queryAsControlUser($sqlQuery, false);
+            $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
             $groupAssignment = [];
             if ($result) {
                 while ($row = $result->fetchAssoc()) {
