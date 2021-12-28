@@ -35,7 +35,7 @@ final class AccountLocking
             $this->dbi->escapeString($user),
             $this->dbi->escapeString($host)
         );
-        if ($this->dbi->tryQuery($statement) === true) {
+        if ($this->dbi->tryQuery($statement) !== false) {
             return;
         }
 
@@ -56,7 +56,7 @@ final class AccountLocking
             $this->dbi->escapeString($user),
             $this->dbi->escapeString($host)
         );
-        if ($this->dbi->tryQuery($statement) === true) {
+        if ($this->dbi->tryQuery($statement) !== false) {
             return;
         }
 

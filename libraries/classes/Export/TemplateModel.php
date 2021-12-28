@@ -76,11 +76,9 @@ final class TemplateModel
         }
 
         $data = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $data = $row;
         }
-
-        $this->dbi->freeResult($result);
 
         return Template::fromArray([
             'id' => (int) $data['id'],
@@ -127,7 +125,7 @@ final class TemplateModel
         }
 
         $templates = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $templates[] = Template::fromArray([
                 'id' => (int) $row['id'],
                 'username' => $row['username'],
@@ -136,8 +134,6 @@ final class TemplateModel
                 'data' => $row['template_data'],
             ]);
         }
-
-        $this->dbi->freeResult($result);
 
         return $templates;
     }

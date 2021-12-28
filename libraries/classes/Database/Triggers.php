@@ -132,7 +132,9 @@ class Triggers
                             // new one. Try to restore the backup query.
                             $result = $this->dbi->tryQuery($create_item);
 
-                            $errors = $this->checkResult($result, $create_item, $errors);
+                            if (! $result) {
+                                $errors = $this->checkResult($create_item, $errors);
+                            }
                         } else {
                             $message = Message::success(
                                 __('Trigger %1$s has been modified.')
@@ -417,18 +419,13 @@ class Triggers
     }
 
     /**
-     * @param resource|bool $result          Query result
-     * @param string        $createStatement Query
-     * @param array         $errors          Errors
+     * @param string $createStatement Query
+     * @param array  $errors          Errors
      *
      * @return array
      */
-    private function checkResult($result, $createStatement, array $errors)
+    private function checkResult($createStatement, array $errors)
     {
-        if ($result) {
-            return $errors;
-        }
-
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
         // and now even the backup query does not execute!

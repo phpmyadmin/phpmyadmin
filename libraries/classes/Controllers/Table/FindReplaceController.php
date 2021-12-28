@@ -56,7 +56,7 @@ class FindReplaceController extends AbstractController
         $this->columnNames = [];
         $this->columnTypes = [];
         $this->loadTableInfo();
-        $this->connectionCharSet = $this->dbi->fetchValue('SELECT @@character_set_connection');
+        $this->connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
     }
 
     public function __invoke(): void

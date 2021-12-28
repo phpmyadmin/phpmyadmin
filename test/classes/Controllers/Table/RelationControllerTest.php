@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use Generator;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use stdClass;
 
@@ -146,25 +148,22 @@ class RelationControllerTest extends AbstractTestCase
      */
     public function testGetDropdownValueForDbActionOne(): void
     {
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchArray')
-            ->will(
-                $this->returnCallback(
-                    static function () {
-                        static $count = 0;
-                        if ($count == 0) {
-                            $count++;
+        $resultStub = $this->createMock(DummyResult::class);
 
-                            return [
-                                'Engine' => 'InnoDB',
-                                'Name' => 'table',
-                            ];
-                        }
+        $GLOBALS['dbi']->expects($this->exactly(1))
+            ->method('query')
+            ->will($this->returnValue($resultStub));
 
-                        return null;
-                    }
-                )
-            );
+        $resultStub->expects($this->any())
+            ->method('getIterator')
+            ->will($this->returnCallback(static function (): Generator {
+                yield from [
+                    [
+                        'Engine' => 'InnoDB',
+                        'Name' => 'table',
+                    ],
+                ];
+            }));
 
         $ctrl = new RelationController(
             $this->response,
@@ -191,22 +190,15 @@ class RelationControllerTest extends AbstractTestCase
      */
     public function testGetDropdownValueForDbActionTwo(): void
     {
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchArray')
-            ->will(
-                $this->returnCallback(
-                    static function () {
-                        static $count = 0;
-                        if ($count == 0) {
-                            $count++;
+        $resultStub = $this->createMock(DummyResult::class);
 
-                            return ['table'];
-                        }
+        $GLOBALS['dbi']->expects($this->exactly(1))
+            ->method('query')
+            ->will($this->returnValue($resultStub));
 
-                        return null;
-                    }
-                )
-            );
+        $resultStub->expects($this->any())
+            ->method('fetchAllColumn')
+            ->will($this->returnValue(['table']));
 
         $ctrl = new RelationController(
             $this->response,

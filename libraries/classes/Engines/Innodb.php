@@ -290,7 +290,7 @@ class Innodb extends StorageEngine
     {
         global $dbi;
 
-        return $dbi->fetchValue('SELECT @@innodb_version;');
+        return $dbi->fetchValue('SELECT @@innodb_version;') ?: '';
     }
 
     /**

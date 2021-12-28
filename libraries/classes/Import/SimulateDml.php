@@ -81,10 +81,12 @@ final class SimulateDml
         $this->dbi->selectDb($GLOBALS['db']);
         // Execute the query.
         $result = $this->dbi->tryQuery($matchedRowQuery);
-        // Count the number of rows in the result set.
-        $result = $this->dbi->numRows($result);
+        if (! $result) {
+            return 0;
+        }
 
-        return $result;
+        // Count the number of rows in the result set.
+        return $result->numRows();
     }
 
     /**

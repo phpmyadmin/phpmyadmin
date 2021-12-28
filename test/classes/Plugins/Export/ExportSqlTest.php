@@ -20,6 +20,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 use stdClass;
 
@@ -764,20 +765,21 @@ class ExportSqlTest extends AbstractTestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue('res'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->never())
             ->method('fetchSingleRow');
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numRows')
-            ->with('res')
             ->will($this->returnValue(1));
 
         $dbi->expects($this->any())
@@ -791,9 +793,8 @@ class ExportSqlTest extends AbstractTestCase
             'Check_time' => '2000-01-02 13:00:00',
         ];
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->with('res')
             ->will($this->returnValue($tmpres));
 
         $dbi->expects($this->exactly(3))
@@ -803,7 +804,7 @@ class ExportSqlTest extends AbstractTestCase
                 ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
-            ->willReturnOnConsecutiveCalls('res', 'res', 'res');
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
 
         $row = [
             '',
@@ -828,18 +829,10 @@ class ExportSqlTest extends AbstractTestCase
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 
-        $dbi->expects($this->exactly(1))
+        $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        [
-                            'res',
-                            $row,
-                        ],
-                    ]
-                )
-            );
+            ->will($this->returnValue($row));
+
         $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
@@ -896,20 +889,21 @@ class ExportSqlTest extends AbstractTestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue('res'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->never())
             ->method('fetchSingleRow');
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numRows')
-            ->with('res')
             ->will($this->returnValue(2));
 
         $dbi->expects($this->any())
@@ -923,9 +917,8 @@ class ExportSqlTest extends AbstractTestCase
             'Check_time' => '2000-01-02 13:00:00',
         ];
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->with('res')
             ->will($this->returnValue($tmpres));
 
         $dbi->expects($this->exactly(3))
@@ -935,7 +928,7 @@ class ExportSqlTest extends AbstractTestCase
                 ['USE `db`'],
                 ['SHOW CREATE TABLE `db`.`table`']
             )
-            ->willReturnOnConsecutiveCalls('res', 'res', 'res');
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
 
         $dbi->expects($this->once())
             ->method('getError')
@@ -1175,22 +1168,23 @@ class ExportSqlTest extends AbstractTestCase
         $a->charsetnr = 63;
         $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $a);
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with('res')
+            ->with($resultStub)
             ->will($this->returnValue($flags));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue('res'));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numFields')
-            ->with('res')
             ->will($this->returnValue(5));
 
-        $dbi->expects($this->exactly(2))
+        $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
                 [
@@ -1200,7 +1194,7 @@ class ExportSqlTest extends AbstractTestCase
                     '6',
                     "\x00\x0a\x0d\x1a",
                 ],
-                null
+                []
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -1280,29 +1274,30 @@ class ExportSqlTest extends AbstractTestCase
         $a->length = 2;
         $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_UNIQUE_KEY_FLAG, $a);
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with('res')
+            ->with($resultStub)
             ->will($this->returnValue($flags));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue('res'));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numFields')
-            ->with('res')
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->exactly(2))
+        $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
                 [
                     null,
                     null,
                 ],
-                null
+                []
             );
 
         $_table = $this->getMockBuilder(Table::class)

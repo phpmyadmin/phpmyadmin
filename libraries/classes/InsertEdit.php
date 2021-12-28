@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
@@ -203,11 +204,11 @@ class InsertEdit
     /**
      * Show message for empty result or set the unique_condition
      *
-     * @param array  $rows             MySQL returned rows
-     * @param string $keyId            ID in current key
-     * @param array  $whereClauseArray array of where clauses
-     * @param string $localQuery       query performed
-     * @param array  $result           MySQL result handle
+     * @param array             $rows             MySQL returned rows
+     * @param string            $keyId            ID in current key
+     * @param array             $whereClauseArray array of where clauses
+     * @param string            $localQuery       query performed
+     * @param ResultInterface[] $result           MySQL result handle
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
@@ -233,7 +234,7 @@ class InsertEdit
             return false;
         }
 
-        $meta = $this->dbi->getFieldsMeta($result[$keyId]) ?? [];
+        $meta = $this->dbi->getFieldsMeta($result[$keyId]);
 
         [$uniqueCondition] = Util::getUniqueCondition(
             count($meta),
@@ -1200,8 +1201,8 @@ class InsertEdit
             . str_replace('` =', '` >', $oneWhereClause) . ' LIMIT 1;';
 
         $res = $this->dbi->query($localQuery);
-        $row = $this->dbi->fetchRow($res) ?? [];
-        $meta = $this->dbi->getFieldsMeta($res) ?? [];
+        $row = $res->fetchRow();
+        $meta = $this->dbi->getFieldsMeta($res);
         // must find a unique condition based on unique key,
         // not a combination of all fields
         [$uniqueCondition] = Util::getUniqueCondition(
@@ -1364,8 +1365,6 @@ class InsertEdit
                     $lastMessage->addParam($insertId);
                     $lastMessages[] = $lastMessage;
                 }
-
-                $this->dbi->freeResult($result);
             }
 
             $warningMessages = $this->getWarningMessages();
@@ -1430,17 +1429,9 @@ class InsertEdit
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            if ($dispresult && $this->dbi->numRows($dispresult) > 0) {
-                [$dispval] = $this->dbi->fetchRow($dispresult);
-            } else {
-                $dispval = '';
+            if ($dispresult && $dispresult->numRows() > 0) {
+                return (string) $dispresult->fetchValue();
             }
-
-            if ($dispresult) {
-                $this->dbi->freeResult($dispresult);
-            }
-
-            return $dispval;
         }
 
         return '';
@@ -1609,7 +1600,7 @@ class InsertEdit
 
         if ($multiEditFuncs[$key] === 'UUID') {
             /* This way user will know what UUID new row has */
-            $uuid = $this->dbi->fetchValue('SELECT UUID()');
+            $uuid = (string) $this->dbi->fetchValue('SELECT UUID()');
 
             return "'" . $uuid . "'";
         }
@@ -1871,23 +1862,27 @@ class InsertEdit
             . ' WHERE ' . $_POST['where_clause'][0];
 
         $result = $this->dbi->tryQuery($sqlForRealValue);
-        $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
-        $meta = $fieldsMeta[0];
-        $row = $this->dbi->fetchRow($result);
 
-        if ($row) {
-            $newValue = $row[0];
-            if ($meta->isTimeType()) {
-                $newValue = Util::addMicroseconds($newValue);
-            } elseif ($meta->isBinary()) {
-                $newValue = '0x' . bin2hex($newValue);
-            }
-
-            $extraData['isNeedToRecheck'] = true;
-            $extraData['truncatableFieldValue'] = $newValue;
+        if (! $result) {
+            return;
         }
 
-        $this->dbi->freeResult($result);
+        $fieldsMeta = $this->dbi->getFieldsMeta($result);
+        $meta = $fieldsMeta[0];
+        $newValue = $result->fetchValue();
+
+        if ($newValue === false) {
+            return;
+        }
+
+        if ($meta->isTimeType()) {
+            $newValue = Util::addMicroseconds($newValue);
+        } elseif ($meta->isBinary()) {
+            $newValue = '0x' . bin2hex($newValue);
+        }
+
+        $extraData['isNeedToRecheck'] = true;
+        $extraData['truncatableFieldValue'] = $newValue;
     }
 
     /**
@@ -2036,31 +2031,31 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param array  $column             column
-     * @param int    $columnNumber       column index in table_columns
-     * @param array  $commentsMap        comments map
-     * @param bool   $timestampSeen      whether timestamp seen
-     * @param object $currentResult      current result
-     * @param string $chgEvtHandler      javascript change event handler
-     * @param string $jsvkey             javascript validation key
-     * @param string $vkey               validation key
-     * @param bool   $insertMode         whether insert mode
-     * @param array  $currentRow         current row
-     * @param int    $oRows              row offset
-     * @param int    $tabindex           tab index
-     * @param int    $columnsCnt         columns count
-     * @param bool   $isUpload           whether upload
-     * @param array  $foreigners         foreigners
-     * @param int    $tabindexForValue   tab index offset for value
-     * @param string $table              table
-     * @param string $db                 database
-     * @param int    $rowId              row id
-     * @param int    $biggestMaxFileSize biggest max file size
-     * @param string $defaultCharEditing default char editing mode which is stored in the config.inc.php script
-     * @param string $textDir            text direction
-     * @param array  $repopulate         the data to be repopulated
-     * @param array  $columnMime         the mime information of column
-     * @param string $whereClause        the where clause
+     * @param array           $column             column
+     * @param int             $columnNumber       column index in table_columns
+     * @param array           $commentsMap        comments map
+     * @param bool            $timestampSeen      whether timestamp seen
+     * @param ResultInterface $currentResult      current result
+     * @param string          $chgEvtHandler      javascript change event handler
+     * @param string          $jsvkey             javascript validation key
+     * @param string          $vkey               validation key
+     * @param bool            $insertMode         whether insert mode
+     * @param array           $currentRow         current row
+     * @param int             $oRows              row offset
+     * @param int             $tabindex           tab index
+     * @param int             $columnsCnt         columns count
+     * @param bool            $isUpload           whether upload
+     * @param array           $foreigners         foreigners
+     * @param int             $tabindexForValue   tab index offset for value
+     * @param string          $table              table
+     * @param string          $db                 database
+     * @param int             $rowId              row id
+     * @param int             $biggestMaxFileSize biggest max file size
+     * @param string          $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param string          $textDir            text direction
+     * @param array           $repopulate         the data to be repopulated
+     * @param array           $columnMime         the mime information of column
+     * @param string          $whereClause        the where clause
      *
      * @return string
      */
@@ -2108,7 +2103,7 @@ class InsertEdit
         $extractedColumnspec = Util::extractColumnSpec($column['Type']);
 
         if ($column['len'] === -1) {
-            $column['len'] = $this->dbi->fieldLen($currentResult, $columnNumber);
+            $column['len'] = $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length;
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
             if ($column['len'] === -1) {
@@ -2419,29 +2414,29 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param array   $urlParams          url parameters
-     * @param array[] $tableColumns       table columns
-     * @param array   $commentsMap        comments map
-     * @param bool    $timestampSeen      whether timestamp seen
-     * @param object  $currentResult      current result
-     * @param string  $chgEvtHandler      javascript change event handler
-     * @param string  $jsvkey             javascript validation key
-     * @param string  $vkey               validation key
-     * @param bool    $insertMode         whether insert mode
-     * @param array   $currentRow         current row
-     * @param int     $oRows              row offset
-     * @param int     $tabindex           tab index
-     * @param int     $columnsCnt         columns count
-     * @param bool    $isUpload           whether upload
-     * @param array   $foreigners         foreigners
-     * @param int     $tabindexForValue   tab index offset for value
-     * @param string  $table              table
-     * @param string  $db                 database
-     * @param int     $rowId              row id
-     * @param int     $biggestMaxFileSize biggest max file size
-     * @param string  $textDir            text direction
-     * @param array   $repopulate         the data to be repopulated
-     * @param array   $whereClauseArray   the array of where clauses
+     * @param array           $urlParams          url parameters
+     * @param array[]         $tableColumns       table columns
+     * @param array           $commentsMap        comments map
+     * @param bool            $timestampSeen      whether timestamp seen
+     * @param ResultInterface $currentResult      current result
+     * @param string          $chgEvtHandler      javascript change event handler
+     * @param string          $jsvkey             javascript validation key
+     * @param string          $vkey               validation key
+     * @param bool            $insertMode         whether insert mode
+     * @param array           $currentRow         current row
+     * @param int             $oRows              row offset
+     * @param int             $tabindex           tab index
+     * @param int             $columnsCnt         columns count
+     * @param bool            $isUpload           whether upload
+     * @param array           $foreigners         foreigners
+     * @param int             $tabindexForValue   tab index offset for value
+     * @param string          $table              table
+     * @param string          $db                 database
+     * @param int             $rowId              row id
+     * @param int             $biggestMaxFileSize biggest max file size
+     * @param string          $textDir            text direction
+     * @param array           $repopulate         the data to be repopulated
+     * @param array           $whereClauseArray   the array of where clauses
      *
      * @return string
      */

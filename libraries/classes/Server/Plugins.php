@@ -35,11 +35,9 @@ class Plugins
 
         $result = $this->dbi->query($sql);
         $plugins = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $plugins[] = $this->mapRowToPlugin($row);
         }
-
-        $this->dbi->freeResult($result);
 
         return $plugins;
     }

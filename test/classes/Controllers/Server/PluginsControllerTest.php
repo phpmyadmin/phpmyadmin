@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /**
@@ -51,18 +52,17 @@ class PluginsControllerTest extends AbstractTestCase
             'PLUGIN_STATUS' => 'ACTIVE',
         ];
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->exactly(2))
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->will($this->onConsecutiveCalls($row, null));
-        $dbi->expects($this->once())
-            ->method('freeResult')
-            ->will($this->returnValue(true));
+            ->will($this->onConsecutiveCalls($row, []));
 
         $response = new ResponseRenderer();
 

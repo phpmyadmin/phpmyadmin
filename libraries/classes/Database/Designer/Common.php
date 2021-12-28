@@ -138,19 +138,21 @@ class Common
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        while ($val = @$this->dbi->fetchRow($alltab_rs)) {
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'internal');
+        while ($val = $alltab_rs->fetchRow()) {
+            $val = (string) $val[0];
+
+            $row = $this->relation->getForeigners($GLOBALS['db'], $val, '', 'internal');
 
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val);
                 $con['DCN'][$i] = rawurlencode((string) $field);
                 $con['STN'][$i] = rawurlencode($value['foreign_db'] . '.' . $value['foreign_table']);
                 $con['SCN'][$i] = rawurlencode($value['foreign_field']);
                 $i++;
             }
 
-            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
+            $row = $this->relation->getForeigners($GLOBALS['db'], $val, '', 'foreign');
 
             // We do not have access to the foreign keys if the user has partial access to the columns
             if (! isset($row['foreign_keys_data'])) {
@@ -160,7 +162,7 @@ class Common
             foreach ($row['foreign_keys_data'] as $one_key) {
                 foreach ($one_key['index_list'] as $index => $one_field) {
                     $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
-                    $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
+                    $con['DTN'][$i] = rawurlencode($GLOBALS['db'] . '.' . $val);
                     $con['DCN'][$i] = rawurlencode($one_field);
                     $con['STN'][$i] = rawurlencode(
                         ($one_key['ref_db_name'] ?? $GLOBALS['db'])
@@ -341,16 +343,14 @@ class Common
         $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . ' WHERE ' . Util::backquote('pdf_page_number') . ' = ' . intval($pg);
-        $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
-        if ($success) {
-            $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
-                . '.' . Util::backquote($pdfFeature->pdfPages)
-                . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
-            $success = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
-        }
+        $query = 'DELETE FROM ' . Util::backquote($pdfFeature->database)
+            . '.' . Util::backquote($pdfFeature->pdfPages)
+            . ' WHERE ' . Util::backquote('page_nr') . ' = ' . intval($pg);
+        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
-        return (bool) $success;
+        return true;
     }
 
     /**
@@ -469,9 +469,7 @@ class Common
             return null;
         }
 
-        $page = $this->relation->createPage($pageName, $pdfFeature, $db);
-
-        return $page !== false ? $page : null;
+        return $this->relation->createPage($pageName, $pdfFeature, $db);
     }
 
     /**
@@ -493,11 +491,7 @@ class Common
             . '.' . Util::backquote($pdfFeature->tableCoords)
             . " WHERE `pdf_page_number` = '" . $pageId . "'";
 
-        $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
-
-        if (! $res) {
-            return (bool) $res;
-        }
+        $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
 
         foreach ($_POST['t_h'] as $key => $value) {
             $DB = $_POST['t_db'][$key];
@@ -517,10 +511,10 @@ class Common
                 . "'" . $this->dbi->escapeString($_POST['t_x'][$key]) . "', "
                 . "'" . $this->dbi->escapeString($_POST['t_y'][$key]) . "')";
 
-            $res = $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
+            $this->relation->queryAsControlUser($query, true, DatabaseInterface::QUERY_STORE);
         }
 
-        return (bool) $res;
+        return true;
     }
 
     /**
@@ -601,11 +595,9 @@ class Common
 
             // will be use to emphasis prim. keys in the table view
             $index_array1 = [];
-            while ($row = $this->dbi->fetchAssoc($result)) {
+            while ($row = $result->fetchAssoc()) {
                 $index_array1[$row['Column_name']] = 1;
             }
-
-            $this->dbi->freeResult($result);
 
             $result = $this->dbi->query(
                 'SHOW INDEX FROM ' . Util::backquote($DB2)
@@ -613,11 +605,11 @@ class Common
             );
             // will be used to emphasis prim. keys in the table view
             $index_array2 = [];
-            while ($row = $this->dbi->fetchAssoc($result)) {
+            while ($row = $result->fetchAssoc()) {
                 $index_array2[$row['Column_name']] = 1;
             }
 
-            $this->dbi->freeResult($result);
+            unset($result);
 
             if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
                 $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
@@ -730,19 +722,11 @@ class Common
                 $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
                     . '.' . Util::backquote($T2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
-                if ($this->dbi->query($upd_query)) {
-                    return [
-                        true,
-                        __('FOREIGN KEY relationship has been removed.'),
-                    ];
-                }
-
-                $error = $this->dbi->getError();
+                $this->dbi->query($upd_query);
 
                 return [
-                    false,
-                    __('Error: FOREIGN KEY relationship could not be removed!')
-                    . '<br>' . $error,
+                    true,
+                    __('FOREIGN KEY relationship has been removed.'),
                 ];
             }
         }

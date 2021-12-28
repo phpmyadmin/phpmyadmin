@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -612,6 +613,7 @@ class Sql
      * @param string $fullSqlQuery the full sql query
      *
      * @return array ($result, $querytime)
+     * @psalm-return array{ResultInterface|false, int|float}
      */
     private function executeQueryAndMeasureTime($fullSqlQuery)
     {
@@ -640,8 +642,8 @@ class Sql
     /**
      * Function to get the affected or changed number of rows after executing a query
      *
-     * @param bool  $isAffected whether the query affected a table
-     * @param mixed $result     results of executing the query
+     * @param bool                  $isAffected whether the query affected a table
+     * @param ResultInterface|false $result     results of executing the query
      *
      * @return int|string number of rows affected or changed
      * @psalm-return int|numeric-string
@@ -652,8 +654,8 @@ class Sql
             return @$this->dbi->affectedRows();
         }
 
-        if (isset($result)) {
-            return @$this->dbi->numRows($result);
+        if ($result) {
+            return $result->numRows();
         }
 
         return 0;
@@ -954,7 +956,7 @@ class Sql
             }
 
             $insertId = $this->dbi->insertId();
-            if ($insertId !== false && $insertId != 0) {
+            if ($insertId !== 0) {
                 // insert_id is id of FIRST record inserted in one insert,
                 // so if we inserted multiple rows, we had to increment this
                 $message->addText('[br]');
@@ -1015,17 +1017,17 @@ class Sql
      * 6-> When searching using the SEARCH tab which returns zero results
      * 7-> When changing the structure of the table except change operation
      *
-     * @param array          $analyzedSqlResults   analyzed sql results
-     * @param string         $db                   current database
-     * @param string|null    $table                current table
-     * @param string|null    $messageToShow        message to show
-     * @param int            $numRows              number of rows
-     * @param DisplayResults $displayResultsObject DisplayResult instance
-     * @param array|null     $extraData            extra data
-     * @param array|null     $profilingResults     profiling results
-     * @param object         $result               executed query results
-     * @param string         $sqlQuery             sql query
-     * @param string|null    $completeQuery        complete sql query
+     * @param array                      $analyzedSqlResults   analyzed sql results
+     * @param string                     $db                   current database
+     * @param string|null                $table                current table
+     * @param string|null                $messageToShow        message to show
+     * @param int                        $numRows              number of rows
+     * @param DisplayResults             $displayResultsObject DisplayResult instance
+     * @param array|null                 $extraData            extra data
+     * @param array|null                 $profilingResults     profiling results
+     * @param ResultInterface|false|null $result               executed query results
+     * @param string                     $sqlQuery             sql query
+     * @param string|null                $completeQuery        complete sql query
      *
      * @return string html
      */
@@ -1147,14 +1149,14 @@ class Sql
     /**
      * Function to send response for ajax grid edit
      *
-     * @param object $result result of the executed query
+     * @param ResultInterface $result result of the executed query
      */
-    private function getResponseForGridEdit($result): void
+    private function getResponseForGridEdit(ResultInterface $result): void
     {
-        $row = $this->dbi->fetchRow($result);
+        $row = $result->fetchRow();
         $fieldsMeta = $this->dbi->getFieldsMeta($result);
 
-        if ($fieldsMeta !== null && isset($fieldsMeta[0]) && $fieldsMeta[0]->isBinary()) {
+        if (isset($fieldsMeta[0]) && $fieldsMeta[0]->isBinary()) {
             $row[0] = bin2hex($row[0]);
         }
 
@@ -1183,16 +1185,16 @@ class Sql
     /**
      * Function to get html for the sql query results table
      *
-     * @param DisplayResults   $displayResultsObject instance of DisplayResult
-     * @param array            $displayParts         the parts to display
-     * @param bool             $editable             whether the result table is
-     *                                               editable or not
-     * @param int              $unlimNumRows         unlimited number of rows
-     * @param int              $numRows              number of rows
-     * @param array|null       $showTable            table definitions
-     * @param object|bool|null $result               result of the executed query
-     * @param array            $analyzedSqlResults   analyzed sql results
-     * @param bool             $isLimitedDisplay     Show only limited operations or not
+     * @param DisplayResults             $displayResultsObject instance of DisplayResult
+     * @param array                      $displayParts         the parts to display
+     * @param bool                       $editable             whether the result table is
+     *                                                         editable or not
+     * @param int                        $unlimNumRows         unlimited number of rows
+     * @param int                        $numRows              number of rows
+     * @param array|null                 $showTable            table definitions
+     * @param ResultInterface|false|null $result               result of the executed query
+     * @param array                      $analyzedSqlResults   analyzed sql results
+     * @param bool                       $isLimitedDisplay     Show only limited operations or not
      *
      * @return string
      */
@@ -1213,14 +1215,19 @@ class Sql
 
         if ($analyzedSqlResults['is_procedure']) {
             do {
-                if (! isset($result)) {
+                if ($result === null) {
                     $result = $this->dbi->storeResult();
                 }
 
-                $numRows = $this->dbi->numRows($result);
+                if ($result === false) {
+                    $result = null;
+                    continue;
+                }
 
-                if ($result !== false && $numRows > 0) {
-                    $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
+                $numRows = $result->numRows();
+
+                if ($numRows > 0) {
+                    $fieldsMeta = $this->dbi->getFieldsMeta($result);
                     $fieldsCount = count($fieldsMeta);
 
                     $displayResultsObject->setProperties(
@@ -1261,12 +1268,12 @@ class Sql
                     );
                 }
 
-                $this->dbi->freeResult($result);
+                $result = null;
             } while ($this->dbi->moreResults() && $this->dbi->nextResult());
         } else {
             $fieldsMeta = [];
             if (isset($result) && ! is_bool($result)) {
-                $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
+                $fieldsMeta = $this->dbi->getFieldsMeta($result);
             }
 
             $fieldsCount = count($fieldsMeta);
@@ -1299,8 +1306,6 @@ class Sql
                     $isLimitedDisplay
                 );
             }
-
-            $this->dbi->freeResult($result);
         }
 
         return $tableHtml;
@@ -1376,19 +1381,19 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param object|bool|null    $result               executed query results
-     * @param array               $analyzedSqlResults   analysed sql results
-     * @param string              $db                   current database
-     * @param string|null         $table                current table
-     * @param array|null          $sqlData              sql data
-     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
-     * @param int                 $unlimNumRows         unlimited number of rows
-     * @param int                 $numRows              number of rows
-     * @param string|null         $dispQuery            display query
-     * @param Message|string|null $dispMessage          display message
-     * @param array|null          $profilingResults     profiling results
-     * @param string              $sqlQuery             sql query
-     * @param string|null         $completeQuery        complete sql query
+     * @param ResultInterface|false|null $result               executed query results
+     * @param array                      $analyzedSqlResults   analysed sql results
+     * @param string                     $db                   current database
+     * @param string|null                $table                current table
+     * @param array|null                 $sqlData              sql data
+     * @param DisplayResults             $displayResultsObject Instance of DisplayResults
+     * @param int                        $unlimNumRows         unlimited number of rows
+     * @param int                        $numRows              number of rows
+     * @param string|null                $dispQuery            display query
+     * @param Message|string|null        $dispMessage          display message
+     * @param array|null                 $profilingResults     profiling results
+     * @param string                     $sqlQuery             sql query
+     * @param string|null                $completeQuery        complete sql query
      *
      * @return string html
      */
@@ -1417,10 +1422,9 @@ class Sql
         }
 
         // Gets the list of fields properties
+        $fieldsMeta = [];
         if (isset($result) && ! is_bool($result)) {
-            $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
-        } else {
-            $fieldsMeta = [];
+            $fieldsMeta = $this->dbi->getFieldsMeta($result);
         }
 
         // Should be initialized these parameters before parsing
@@ -1749,14 +1753,14 @@ class Sql
                 $displayResultsObject,
                 $extraData,
                 $profilingResults,
-                $result ?? null,
+                $result,
                 $sqlQuery,
                 $completeQuery ?? null
             );
         } else {
             // At least one row is returned -> displays a table with results
             $htmlOutput = $this->getQueryResponseForResultsReturned(
-                $result ?? null,
+                $result,
                 $analyzedSqlResults,
                 $db ?? '',
                 $table,

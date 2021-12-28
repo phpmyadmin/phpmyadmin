@@ -138,7 +138,7 @@ class Import
                 return;
             }
         } else {
-            $aNumRows = (int) @$dbi->numRows($result);
+            $aNumRows = (int) $result->numRows();
             $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
                 $msg .= __('Rows') . ': ' . $aNumRows;
@@ -1478,7 +1478,7 @@ class Import
 
         $result = $dbi->tryQuery($checkQuery);
 
-        return $dbi->numRows($result) == 1;
+        return $result && $result->numRows() == 1;
     }
 
     /** @return string[] */

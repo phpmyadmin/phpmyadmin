@@ -1429,6 +1429,7 @@ class ResultsTest extends AbstractTestCase
             'text_btn' => '0',
             'pview_lnk' => '1',
         ];
+        $this->assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
 
         $template = new Template();

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 
 /**
  * @covers \PhpMyAdmin\SystemDatabase
@@ -98,8 +99,10 @@ class SystemDatabaseTest extends AbstractTestCase
         ];
         $view_name = 'view_name';
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $ret = $this->sysDb->getNewTransformationDataSql(
-            (object) [],
+            $resultStub,
             $column_map,
             $view_name,
             $db

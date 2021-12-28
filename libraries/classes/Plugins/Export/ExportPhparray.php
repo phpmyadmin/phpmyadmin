@@ -168,10 +168,9 @@ class ExportPhparray extends ExportPlugin
 
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
-        $columns_cnt = $dbi->numFields($result);
+        $columns_cnt = $result->numFields();
         $columns = [];
-        for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $dbi->fieldName($result, $i);
+        foreach ($result->getFieldNames() as $i => $col_as) {
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -207,7 +206,7 @@ class ExportPhparray extends ExportPlugin
 
         // Reset the buffer
         $buffer = '';
-        while ($record = $dbi->fetchRow($result)) {
+        while ($record = $result->fetchRow()) {
             $record_cnt++;
 
             if ($record_cnt == 1) {
@@ -232,13 +231,8 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (! $this->export->outputHandler($buffer)) {
-            return false;
-        }
 
-        $dbi->freeResult($result);
-
-        return true;
+        return $this->export->outputHandler($buffer);
     }
 
     /**

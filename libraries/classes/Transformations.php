@@ -392,9 +392,8 @@ class Transformations
 
         $test_rs = $relation->queryAsControlUser($test_qry, true, DatabaseInterface::QUERY_STORE);
 
-        if ($test_rs && $dbi->numRows($test_rs) > 0) {
-            $row = @$dbi->fetchAssoc($test_rs);
-            $dbi->freeResult($test_rs);
+        if ($test_rs->numRows() > 0) {
+            $row = $test_rs->fetchAssoc();
 
             if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE '

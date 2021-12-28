@@ -160,7 +160,6 @@ class Search
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
      * PMA_backquote
-     * DatabaseInterface::freeResult
      * DatabaseInterface::fetchAssoc
      * $GLOBALS['db']
      * explode

@@ -102,9 +102,7 @@ class NodeTable extends NodeDatabaseChild
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
                     $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
-                    $retval = (int) $dbi->numRows(
-                        $dbi->tryQuery($query)
-                    );
+                    $retval = (int) $dbi->queryAndGetNumRows($query);
                 }
 
                 break;
@@ -112,9 +110,7 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $retval = (int) $dbi->numRows(
-                    $dbi->tryQuery($query)
-                );
+                $retval = (int) $dbi->queryAndGetNumRows($query);
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -131,9 +127,7 @@ class NodeTable extends NodeDatabaseChild
                     $db = Util::backquote($db);
                     $table = $dbi->escapeString($table);
                     $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                    $retval = (int) $dbi->numRows(
-                        $dbi->tryQuery($query)
-                    );
+                    $retval = (int) $dbi->queryAndGetNumRows($query);
                 }
 
                 break;
@@ -192,8 +186,8 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -220,7 +214,7 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                while ($arr = $dbi->fetchArray($handle)) {
+                foreach ($handle as $arr) {
                     if (in_array($arr['Key_name'], $retval)) {
                         continue;
                     }
@@ -259,8 +253,8 @@ class NodeTable extends NodeDatabaseChild
                 }
 
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }

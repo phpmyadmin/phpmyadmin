@@ -94,11 +94,9 @@ class Charsets
         $res = $dbi->query($sql);
 
         self::$charsets = [];
-        while ($row = $dbi->fetchAssoc($res)) {
+        foreach ($res as $row) {
             self::$charsets[$row['Charset']] = Charset::fromServer($row);
         }
-
-        $dbi->freeResult($res);
 
         ksort(self::$charsets, SORT_STRING);
     }
@@ -131,11 +129,9 @@ class Charsets
         $res = $dbi->query($sql);
 
         self::$collations = [];
-        while ($row = $dbi->fetchAssoc($res)) {
+        foreach ($res as $row) {
             self::$collations[$row['Charset']][$row['Collation']] = Collation::fromServer($row);
         }
-
-        $dbi->freeResult($res);
 
         foreach (array_keys(self::$collations) as $charset) {
             ksort(self::$collations[$charset], SORT_STRING);

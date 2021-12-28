@@ -90,12 +90,10 @@ final class UserGroupsFormController extends AbstractController
         $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
         if ($result) {
-            while ($row = $this->dbi->fetchRow($result)) {
+            while ($row = $result->fetchRow()) {
                 $allUserGroups[$row[0]] = $row[0];
             }
         }
-
-        $this->dbi->freeResult($result);
 
         return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,

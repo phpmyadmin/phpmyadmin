@@ -101,27 +101,17 @@ parameters:
 			path: libraries/classes/BrowseForeigners.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Charset\\:\\:fromServer\\(\\) expects array\\{Charset\\?\\: string, Description\\?\\: string, Default collation\\?\\: string, Maxlen\\?\\: string\\}, array\\<string, string\\|null\\> given\\.$#"
+			count: 1
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$state of static method PhpMyAdmin\\\\Charsets\\\\Collation\\:\\:fromServer\\(\\) expects array\\<string\\>, array\\<string, string\\|null\\> given\\.$#"
+			count: 1
 			path: libraries/classes/Charsets.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\CheckUserPrivileges\\:\\:getItemsFromShowGrantsRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/CheckUserPrivileges.php
 
@@ -906,6 +896,11 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeignData\\(\\) should return array\\{foreign_link\\: bool, the_total\\: mixed, foreign_display\\: string, disp_row\\: array\\<int, non\\-empty\\-array\\>\\|null, foreign_field\\: mixed\\} but returns array\\{foreign_link\\: bool, the_total\\: mixed, foreign_display\\: string, disp_row\\: array\\<int, array\\<string, string\\|null\\>\\>\\|null, foreign_field\\: mixed\\}\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:getForeigners\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -936,11 +931,6 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
-			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\ConfigStorage\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -948,26 +938,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 4
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
@@ -983,6 +953,16 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\ConfigStorage\\\\UserGroups\\:\\:getTabList\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
 			count: 1
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
+			count: 3
+			path: libraries/classes/ConfigStorage/UserGroups.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
+			count: 3
 			path: libraries/classes/ConfigStorage/UserGroups.php
 
 		-
@@ -1346,16 +1326,6 @@ parameters:
 			path: libraries/classes/Controllers/Preferences/ManageController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/BinlogController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/BinlogController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Server\\\\BinlogController\\:\\:\\$binaryLogs type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/BinlogController.php
@@ -1406,11 +1376,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/Processes/KillController.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/StatusController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\StatusController\\:\\:getConnectionsInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -1429,16 +1394,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Status\\\\VariablesController\\:\\:getDescriptions\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Status/VariablesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/UserGroupsFormController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/UserGroupsFormController.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Server\\\\Variables\\\\GetVariableController\\:\\:__invoke\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
@@ -1476,12 +1431,7 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/VariablesController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$value of method PhpMyAdmin\\\\Controllers\\\\Server\\\\VariablesController\\:\\:formatVariable\\(\\) expects int\\|string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
@@ -1526,16 +1476,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChangeController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
@@ -1554,16 +1494,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:\\$columnTypes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\Controllers\\\\Table\\\\FindReplaceController\\:\\:\\$connectionCharSet \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
@@ -1601,12 +1531,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#2 \\$callback of function uksort expects callable\\(int\\|string, int\\|string\\)\\: int, 'strnatcasecmp' given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of function uksort expects callable\\(int\\|string, int\\|string\\)\\: int, 'strnatcasecmp' given\\.$#"
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(string\\|null, string\\|null\\)\\: int, 'strnatcasecmp' given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/RelationController.php
 
@@ -1627,16 +1557,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnProperties\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
@@ -1699,16 +1619,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\) on left side of \\?\\? is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/Structure/PrimaryController.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
@@ -1821,16 +1731,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
@@ -1866,8 +1766,13 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$data of static method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:fromString\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Transformation/WrapperController.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Controllers/Transformation/WrapperController.php
 
 		-
@@ -2091,11 +1996,6 @@ parameters:
 			path: libraries/classes/Database/Designer.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
-
-		-
 			message: "#^Cannot access offset string on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php
@@ -2156,26 +2056,6 @@ parameters:
 			path: libraries/classes/Database/Designer/Common.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Database/Designer/Common.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Events\\:\\:checkResult\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/Events.php
@@ -2211,19 +2091,9 @@ parameters:
 			path: libraries/classes/Database/Events.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Database\\\\Events\\:\\:checkResult\\(\\) expects bool\\|resource, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Events.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Database\\\\MultiTableQuery\\:\\:\\$tables type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Database/MultiTableQuery.php
-
-		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:__construct\\(\\) has parameter \\$savedSearchList with no value type specified in iterable type array\\.$#"
@@ -2366,22 +2236,12 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getSortOrderSelectCell\\(\\) expects int, null given\\.$#"
+			count: 1
+			path: libraries/classes/Database/Qbe.php
+
+		-
+			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumns\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Qbe.php
 
@@ -2601,37 +2461,7 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#1 \\$flushPrivileges of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:flushPrivileges\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:checkResult\\(\\) expects bool\\|resource, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
 
@@ -2716,13 +2546,8 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Database\\\\Triggers\\:\\:checkResult\\(\\) expects bool\\|resource, mixed given\\.$#"
+			message: "#^Binary operation \"\\+\" between string\\|null and string\\|null results in an error\\.$#"
 			count: 1
-			path: libraries/classes/Database/Triggers.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 4
 			path: libraries/classes/DatabaseInterface.php
 
 		-
@@ -2742,11 +2567,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2812,7 +2632,12 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentUser\\(\\) should return string but returns mixed\\.$#"
-			count: 2
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getCurrentUser\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
 		-
@@ -2832,11 +2657,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getLowerCaseNames\\(\\) should return bool\\|string but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2881,11 +2701,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:insertId\\(\\) should return int\\|false but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^PHPDoc tag @var for variable \\$fields has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: libraries/classes/DatabaseInterface.php
@@ -2901,42 +2716,12 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchByMode\\(\\) expects object, mixed given\\.$#"
-			count: 5
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numFields\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
 		-
 			message: "#^Parameter \\#3 \\$link of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchValue\\(\\) expects int, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#3 \\$result of static method PhpMyAdmin\\\\Query\\\\Utilities\\:\\:debugLogQueryIntoSession\\(\\) expects bool\\|object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -2966,17 +2751,7 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\DatabaseInterface\\:\\:\\$lowerCaseTableNames \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbalInterface.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbalInterface\\:\\:fetchArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbalInterface.php
 
@@ -3096,99 +2871,24 @@ parameters:
 			path: libraries/classes/Dbal/DbiExtension.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:fetchArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiExtension.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiExtension.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiExtension\\:\\:fetchRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiExtension.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:connect\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:dataSeek\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:__construct\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
 			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
+			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchArray\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:fetchAllKeyPair\\(\\) should return array\\<string, string\\|null\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
+			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Dbal\\\\MysqliResult\\:\\:\\$result type has no value type specified in iterable type mysqli_result\\.$#"
 			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchAssoc\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchRow\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fetchRow\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fieldLen\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:fieldName\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:freeResult\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:getFieldsMeta\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numFields\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) has parameter \\$result with no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:realQuery\\(\\) return type has no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:storeResult\\(\\) return type has no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
+			path: libraries/classes/Dbal/MysqliResult.php
 
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
@@ -3198,11 +2898,6 @@ parameters:
 		-
 			message: "#^Cannot access offset int on mixed\\.$#"
 			count: 2
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -3546,7 +3241,7 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\$offset of method PhpMyAdmin\\\\DatabaseInterface\\:\\:dataSeek\\(\\) expects int, float\\|int given\\.$#"
+			message: "#^Parameter \\#1 \\$offset of method PhpMyAdmin\\\\Dbal\\\\ResultInterface\\:\\:seek\\(\\) expects int, float\\|int given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
@@ -3736,11 +3431,6 @@ parameters:
 			path: libraries/classes/ErrorReport.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Export\\:\\:compress\\(\\) has parameter \\$dumpBuffer with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
@@ -3869,16 +3559,6 @@ parameters:
 			message: "#^Parameter \\#5 \\$data of class PhpMyAdmin\\\\Export\\\\Template constructor expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Export/Template.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Export/TemplateModel.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Export/TemplateModel.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\FieldMetadata\\:\\:getTypeMap\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -4836,11 +4516,6 @@ parameters:
 			path: libraries/classes/Import/Ajax.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Import/SimulateDml.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: libraries/classes/Import/SimulateDml.php
@@ -4899,11 +4574,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\IndexColumn\\:\\:set\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/IndexColumn.php
-
-		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
@@ -5311,11 +4981,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:showEmptyResultMessageOrSetUniqueCondition\\(\\) has parameter \\$result with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\InsertEdit\\:\\:showEmptyResultMessageOrSetUniqueCondition\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
@@ -5371,32 +5036,17 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 3
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
 		-
 			message: "#^Parameter \\#1 \\$str of function stripslashes expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of static method PhpMyAdmin\\\\Util\\:\\:addMicroseconds\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
 
@@ -5551,11 +5201,6 @@ parameters:
 			path: libraries/classes/Menu.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Menu.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 2
 			path: libraries/classes/Message.php
@@ -5616,21 +5261,6 @@ parameters:
 			path: libraries/classes/Navigation/Navigation.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/NavigationTree.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Navigation\\\\NavigationTree\\:\\:addDbContainers\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
@@ -5666,8 +5296,13 @@ parameters:
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, mixed given\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$haystack of function strstr expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/NavigationTree.php
+
+		-
+			message: "#^Parameter \\#1 \\$str1 of function strcasecmp expects string, string\\|null given\\.$#"
+			count: 1
 			path: libraries/classes/Navigation/NavigationTree.php
 
 		-
@@ -6182,31 +5817,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fieldName\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numFields\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
 
@@ -7546,6 +7156,16 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
+			message: "#^Cannot call method fetchAllKeyPair\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/SavedSearches.php
+
+		-
+			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/SavedSearches.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SavedSearches\\:\\:getCriterias\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
@@ -7567,6 +7187,16 @@ parameters:
 
 		-
 			message: "#^Offset non\\-empty\\-string does not exist on array\\|string\\.$#"
+			count: 1
+			path: libraries/classes/SavedSearches.php
+
+		-
+			message: "#^Parameter \\#1 \\$criterias of method PhpMyAdmin\\\\SavedSearches\\:\\:setCriterias\\(\\) expects array\\|string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/SavedSearches.php
+
+		-
+			message: "#^Parameter \\#1 \\$searchName of method PhpMyAdmin\\\\SavedSearches\\:\\:setSearchName\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/SavedSearches.php
 
@@ -7594,26 +7224,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Plugins\\:\\:mapRowToPlugin\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Server/Plugins.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Plugins.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Plugins.php
-
-		-
-			message: "#^Cannot cast mixed to int\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUser\\(\\) has parameter \\$dbname with no value type specified in iterable type array\\.$#"
@@ -7831,52 +7441,37 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strrpos expects string, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$privs of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Util\\:\\:escapeMysqlWildcards\\(\\) expects string, array\\<int, string\\>\\|string\\|true\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 10
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchRow\\(\\) expects object, mixed given\\.$#"
-			count: 6
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$privs of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:parseProcPriv\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 11
+			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
+			count: 3
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:getUsersOverview\\(\\) expects object, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Server/Privileges.php
 
 		-
 			message: "#^Parameter \\#6 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, array\\|string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|null\\.$#"
+			count: 1
+			path: libraries/classes/Server/Privileges.php
+
+		-
+			message: "#^Possibly invalid array key type array\\<int, string\\>\\|string\\|true\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
@@ -8091,18 +7686,8 @@ parameters:
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 4
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 1
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false given\\.$#"
+			count: 2
 			path: libraries/classes/Server/Status/Monitor.php
 
 		-
@@ -8127,11 +7712,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Server\\\\Status\\\\Processes\\:\\:getSortableColumnsForProcessList\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Processes.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchAssoc\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Status/Processes.php
 
@@ -8276,11 +7856,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndMeasureTime\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:executeQueryAndSendQueryResponse\\(\\) has parameter \\$analyzedSqlResults with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -8421,17 +7996,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, object\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects PhpMyAdmin\\\\Dbal\\\\ResultInterface, PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -8442,26 +8012,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$numberOfLine of method PhpMyAdmin\\\\Sql\\:\\:getStartPosToDisplayRow\\(\\) expects int, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, bool\\|object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -8581,22 +8131,17 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getExistingTransformationData\\(\\) return type has no value type specified in iterable type mysqli_result\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getExistingTransformationData\\(\\) should return mysqli_result\\|false but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) has parameter \\$columnMap with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SystemDatabase.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
+			message: "#^Argument of an invalid type PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: libraries/classes/Table.php
+
+		-
+			message: "#^Cannot call method fetchValue\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -8796,28 +8341,13 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: libraries/classes/Table.php
+
+		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getFieldsMeta\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
-			count: 2
 			path: libraries/classes/Table.php
 
 		-
@@ -9041,6 +8571,16 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
+			message: "#^Cannot call method fetchRow\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:createTrackingForMultipleTables\\(\\) has parameter \\$selected with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
@@ -9067,16 +8607,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:exportAsSqlExecution\\(\\) has parameter \\$entries with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:exportAsSqlExecution\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:exportAsSqlExecution\\(\\) should return array but returns mixed\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
@@ -9241,11 +8771,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getListOfVersionsOfTable\\(\\) should return object\\|false but returns mixed\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tracking\\:\\:getUntrackedTables\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
@@ -9261,6 +8786,11 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Parameter \\#1 \\$dbName of static method PhpMyAdmin\\\\Tracker\\:\\:isTracked\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strstr expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Tracking.php
@@ -9271,12 +8801,7 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:fetchArray\\(\\) expects object, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Tracking.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:numRows\\(\\) expects bool\\|object, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Tracking.php
 
@@ -9291,6 +8816,21 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
+			message: "#^Parameter \\#2 \\$tableName of static method PhpMyAdmin\\\\Tracker\\:\\:isTracked\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Tracking.php
+
+		-
+			message: "#^Cannot call method fetchAssoc\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
+			message: "#^Cannot call method numRows\\(\\) on PhpMyAdmin\\\\Dbal\\\\ResultInterface\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getAvailableMimeTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
@@ -9302,6 +8842,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Transformations\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Transformations.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Transformations.php
 
@@ -10351,11 +9896,6 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$dtResult of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTable\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
@@ -11311,11 +10851,6 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Stubs\\\\DbiDummy\\:\\:fetchAssoc\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
@@ -11424,11 +10959,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TrackerTest\\:\\:testGetTrackedData\\(\\) has parameter \\$fetchArrayReturn with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TrackerTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$sql_result of method PhpMyAdmin\\\\Tracking\\:\\:getTableLastVersionNumber\\(\\) expects object, mixed given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TransformationsTest\\:\\:fixupData\\(\\) return type has no value type specified in iterable type array\\.$#"

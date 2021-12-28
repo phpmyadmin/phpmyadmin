@@ -117,15 +117,14 @@ class ChartController extends AbstractController
             }
         }
 
-        $data = [];
-
         $result = $this->dbi->tryQuery($sql_query);
-        $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $data[] = $row;
+        $fields_meta = $row = [];
+        if ($result !== false) {
+            $fields_meta = $this->dbi->getFieldsMeta($result);
+            $row = $result->fetchAssoc();
         }
 
-        $keys = array_keys($data[0]);
+        $keys = array_keys($row);
         $numericColumnFound = false;
         foreach (array_keys($keys) as $idx) {
             if (
@@ -198,13 +197,13 @@ class ChartController extends AbstractController
 
         $sql_with_limit = $statement->build();
 
-        $data = [];
         $result = $this->dbi->tryQuery($sql_with_limit);
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $data[] = $row;
+        $data = [];
+        if ($result !== false) {
+            $data = $result->fetchAllAssoc();
         }
 
-        if (empty($data)) {
+        if ($data === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No data to display'));
 

@@ -175,9 +175,7 @@ final class RelationController extends AbstractController
      */
     private function updateForDisplayField(Table $table, DisplayFeature $displayFeature): void
     {
-        if (! $table->updateDisplayField($_POST['display_field'], $displayFeature)) {
-            return;
-        }
+        $table->updateDisplayField($_POST['display_field'], $displayFeature);
 
         $this->response->addHTML(
             Generator::getMessage(
@@ -326,7 +324,7 @@ final class RelationController extends AbstractController
                 . Util::backquote($_POST['foreignDb']);
             $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
 
-            while ($row = $this->dbi->fetchArray($tables_rs)) {
+            foreach ($tables_rs as $row) {
                 if (! isset($row['Engine']) || mb_strtoupper($row['Engine']) != $storageEngine) {
                     continue;
                 }
@@ -337,9 +335,7 @@ final class RelationController extends AbstractController
             $query = 'SHOW TABLES FROM '
                 . Util::backquote($_POST['foreignDb']);
             $tables_rs = $this->dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
-            while ($row = $this->dbi->fetchArray($tables_rs)) {
-                $tables[] = $row[0];
-            }
+            $tables = $tables_rs->fetchAllColumn();
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {

@@ -220,7 +220,7 @@ class Monitor
 
             case 'proc':
                 $result = $this->dbi->query('SHOW PROCESSLIST');
-                $ret['value'] = $this->dbi->numRows($result);
+                $ret['value'] = $result->numRows();
                 break;
 
             case 'cpu':
@@ -282,6 +282,7 @@ class Monitor
         $query .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
         $result = $this->dbi->tryQuery($query);
+        // TODO: check for false
 
         $return = [
             'rows' => [],
@@ -330,8 +331,6 @@ class Monitor
         $return['sum']['TOTAL'] = array_sum($return['sum']);
         $return['numRows'] = count($return['rows']);
 
-        $this->dbi->freeResult($result);
-
         return $return;
     }
 
@@ -365,6 +364,7 @@ class Monitor
         $query .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
         $result = $this->dbi->tryQuery($query);
+        // TODO: check for false
 
         $return = [
             'rows' => [],
@@ -445,8 +445,6 @@ class Monitor
 
         $return['sum']['TOTAL'] = array_sum($return['sum']);
         $return['numRows'] = count($return['rows']);
-
-        $this->dbi->freeResult($result);
 
         return $return;
     }
@@ -529,25 +527,21 @@ class Monitor
         $return['affectedRows'] = $cached_affected_rows;
 
         $result = $this->dbi->tryQuery('EXPLAIN ' . $sqlQuery);
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $return['explain'][] = $row;
+        if ($result !== false) {
+            $return['explain'] = $result->fetchAllAssoc();
         }
 
         // In case an error happened
         $return['error'] = $this->dbi->getError();
-
-        $this->dbi->freeResult($result);
 
         if ($profiling) {
             $return['profiling'] = [];
             $result = $this->dbi->tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq'
             );
-            while ($row = $this->dbi->fetchAssoc($result)) {
-                $return['profiling'][] = $row;
+            if ($result !== false) {
+                $return['profiling'] = $result->fetchAllAssoc();
             }
-
-            $this->dbi->freeResult($result);
         }
 
         return $return;

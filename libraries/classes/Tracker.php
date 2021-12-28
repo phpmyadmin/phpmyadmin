@@ -22,6 +22,7 @@ use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use function array_values;
 use function count;
 use function explode;
+use function intval;
 use function is_array;
 use function mb_strpos;
 use function mb_strstr;
@@ -274,14 +275,10 @@ class Tracker
             $dbi->escapeString($trackingSet)
         );
 
-        $result = (bool) $relation->queryAsControlUser($sqlQuery);
+        $relation->queryAsControlUser($sqlQuery);
 
-        if ($result) {
-            // Deactivate previous version
-            self::deactivateTracking($dbName, $tableName, (int) $version - 1);
-        }
-
-        return $result;
+        // Deactivate previous version
+        return self::deactivateTracking($dbName, $tableName, (int) $version - 1);
     }
 
     /**
@@ -537,9 +534,9 @@ class Tracker
             return -1;
         }
 
-        $row = $dbi->fetchArray($result);
+        $row = $result->fetchRow();
 
-        return $row[0] ?? -1;
+        return intval($row[0] ?? -1);
     }
 
     /**
@@ -581,7 +578,7 @@ class Tracker
         $mixed = $dbi->fetchAssoc($relation->queryAsControlUser($sqlQuery));
 
         // PHP 7.4 fix for accessing array offset on null
-        if (! is_array($mixed)) {
+        if ($mixed === []) {
             $mixed = [
                 'schema_sql' => null,
                 'data_sql' => null,

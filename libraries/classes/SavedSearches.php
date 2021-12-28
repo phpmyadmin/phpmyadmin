@@ -391,9 +391,9 @@ class SavedSearches
             . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
-        $oneResult = $dbi->fetchArray($resList);
+        $oneResult = $resList->fetchAssoc();
 
-        if ($oneResult === false) {
+        if ($oneResult === []) {
             $message = Message::error(__('Error while loading the search.'));
             $response = ResponseRenderer::getInstance();
             $response->setRequestStatus($message->isSuccess());
@@ -440,11 +440,6 @@ class SavedSearches
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
 
-        $list = [];
-        while ($oneResult = $dbi->fetchArray($resList)) {
-            $list[$oneResult['id']] = $oneResult['search_name'];
-        }
-
-        return $list;
+        return $resList->fetchAllKeyPair();
     }
 }

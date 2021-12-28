@@ -12,6 +12,8 @@ use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\MysqliResult;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
@@ -619,7 +621,7 @@ class Privileges
                 $sqlQuery = 'SHOW COLUMNS FROM `mysql`.' . ($db === '*' ? '`user`' : '`db`') . ';';
 
                 $res = $this->dbi->query($sqlQuery);
-                while ($row1 = $this->dbi->fetchRow($res)) {
+                while ($row1 = $res->fetchRow()) {
                     if (mb_substr($row1[0], 0, 4) === 'max_') {
                         $row[$row1[0]] = 0;
                     } elseif (mb_substr($row1[0], 0, 5) === 'x509_' || mb_substr($row1[0], 0, 4) === 'ssl_') {
@@ -628,8 +630,6 @@ class Privileges
                         $row[$row1[0]] = 'N';
                     }
                 }
-
-                $this->dbi->freeResult($res);
             } elseif ($table === '*') {
                 $row = [];
             } else {
@@ -650,7 +650,7 @@ class Privileges
             );
             $columns = [];
             if ($res) {
-                while ($row1 = $this->dbi->fetchRow($res)) {
+                while ($row1 = $res->fetchRow()) {
                     $columns[$row1[0]] = [
                         'Select' => false,
                         'Insert' => false,
@@ -658,8 +658,6 @@ class Privileges
                         'References' => false,
                     ];
                 }
-
-                $this->dbi->freeResult($res);
             }
         }
 
@@ -679,14 +677,12 @@ class Privileges
                 . ' = \'' . $this->dbi->escapeString($table) . '\';'
             );
 
-            while ($row1 = $this->dbi->fetchRow($res)) {
+            while ($row1 = $res->fetchRow()) {
                 $row1[1] = explode(',', $row1[1]);
                 foreach ($row1[1] as $current) {
                     $columns[$row1[0]][$current] = true;
                 }
             }
-
-            $this->dbi->freeResult($res);
         }
 
         return $this->template->render('server/privileges/privileges_table', [
@@ -1379,16 +1375,8 @@ class Privileges
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC;
         ';
         $result = $this->dbi->query($query);
-        if ($result === false) {
-            return [];
-        }
 
-        $privileges = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[] = $row;
-        }
-
-        return $privileges;
+        return $result->fetchAllAssoc();
     }
 
     /**
@@ -1414,18 +1402,9 @@ class Privileges
             return [];
         }
 
-        $result = $statement->get_result();
-        $statement->close();
-        if ($result === false) {
-            return [];
-        }
+        $result = new MysqliResult($statement->get_result());
 
-        $privileges = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[] = $row;
-        }
-
-        return $privileges;
+        return $result->fetchAllAssoc();
     }
 
     /**
@@ -1441,16 +1420,8 @@ class Privileges
             WHERE Db = \'' . $this->dbi->escapeString($db) . '\';
         ';
         $result = $this->dbi->query($query);
-        if ($result === false) {
-            return [];
-        }
 
-        $privileges = [];
-        while ($row = $this->dbi->fetchAssoc($result)) {
-            $privileges[] = $row;
-        }
-
-        return $privileges;
+        return $result->fetchAllAssoc();
     }
 
     /**
@@ -1670,7 +1641,7 @@ class Privileges
                 . $this->dbi->escapeString($_GET['username']) . "';";
             $res = $this->dbi->query($sqlQuery);
             $row = $this->dbi->fetchRow($res);
-            if (empty($row)) {
+            if ($row === []) {
                 $extraData['user_exists'] = false;
             } else {
                 $extraData['user_exists'] = true;
@@ -1748,7 +1719,7 @@ class Privileges
 
         $dbRightsResult = $this->dbi->query($dbRightsSql);
 
-        while ($dbRightsRow = $this->dbi->fetchAssoc($dbRightsResult)) {
+        while ($dbRightsRow = $dbRightsResult->fetchAssoc()) {
             $dbRightsRow = array_merge($userDefaults, $dbRightsRow);
             if ($type === 'database') {
                 // only Db names in the table `mysql`.`db` uses wildcards
@@ -1759,8 +1730,6 @@ class Privileges
 
             $dbRights[$dbRightsRow[$dbOrTableName]] = $dbRightsRow;
         }
-
-        $this->dbi->freeResult($dbRightsResult);
 
         if ($type === 'database') {
             $sqlQuery = 'SELECT * FROM `mysql`.`db`'
@@ -1782,7 +1751,7 @@ class Privileges
 
         $result = $this->dbi->query($sqlQuery);
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             if (isset($dbRights[$row[$dbOrTableName]])) {
                 $dbRights[$row[$dbOrTableName]] = array_merge($dbRights[$row[$dbOrTableName]], $row);
             } else {
@@ -1797,8 +1766,6 @@ class Privileges
             // so we can drop this db rights
             $dbRights[$row['Db']]['can_delete'] = true;
         }
-
-        $this->dbi->freeResult($result);
 
         return $dbRights;
     }
@@ -1985,7 +1952,7 @@ class Privileges
             $data['databases'] = $databases;
             $data['escaped_databases'] = $escapedDatabases;
         } elseif ($type === 'table') {
-            $result = @$this->dbi->tryQuery(
+            $result = $this->dbi->tryQuery(
                 'SHOW TABLES FROM ' . Util::backquote($dbname),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
@@ -1993,15 +1960,13 @@ class Privileges
 
             $tables = [];
             if ($result) {
-                while ($row = $this->dbi->fetchRow($result)) {
+                while ($row = $result->fetchRow()) {
                     if (in_array($row[0], $foundRows)) {
                         continue;
                     }
 
                     $tables[] = $row[0];
                 }
-
-                $this->dbi->freeResult($result);
             }
 
             $data['tables'] = $tables;
@@ -2027,22 +1992,22 @@ class Privileges
      * Get HTML for display the users overview
      * (if less than 50 users, display them immediately)
      *
-     * @param object $result   ran sql query
-     * @param array  $dbRights user's database rights array
-     * @param string $textDir  text directory
+     * @param ResultInterface $result   ran sql query
+     * @param array           $dbRights user's database rights array
+     * @param string          $textDir  text directory
      *
      * @return string HTML snippet
      */
-    public function getUsersOverview($result, array $dbRights, $textDir)
+    public function getUsersOverview(ResultInterface $result, array $dbRights, $textDir)
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
 
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $row['privs'] = $this->extractPrivInfo($row, true);
             $dbRights[$row['User']][$row['Host']] = $row;
         }
 
-        $this->dbi->freeResult($result);
+        unset($result);
 
         $userGroupCount = 0;
         if ($configurableMenusFeature !== null) {
@@ -2051,12 +2016,12 @@ class Privileges
             $result = $this->relation->queryAsControlUser($sqlQuery, false);
             $groupAssignment = [];
             if ($result) {
-                while ($row = $this->dbi->fetchAssoc($result)) {
+                while ($row = $result->fetchAssoc()) {
                     $groupAssignment[$row['username']] = $row['usergroup'];
                 }
             }
 
-            $this->dbi->freeResult($result);
+            unset($result);
 
             $userGroupCount = $this->getUserGroupCount($configurableMenusFeature);
         }
@@ -2127,8 +2092,8 @@ class Privileges
             DatabaseInterface::QUERY_STORE
         );
         if ($initials) {
-            while ([$tmpInitial] = $this->dbi->fetchRow($initials)) {
-                $arrayInitials[$tmpInitial] = true;
+            while ($tmpInitial = $this->dbi->fetchRow($initials)) {
+                $arrayInitials[$tmpInitial[0]] = true;
             }
         }
 
@@ -2192,12 +2157,11 @@ class Privileges
 
         $dbRightsResult = $this->dbi->query($dbRightsSql);
 
-        while ($dbRightsRow = $this->dbi->fetchAssoc($dbRightsResult)) {
+        while ($dbRightsRow = $dbRightsResult->fetchAssoc()) {
             $dbRightsRow = array_merge($userDefaults, $dbRightsRow);
             $dbRights[$dbRightsRow['User']][$dbRightsRow['Host']] = $dbRightsRow;
         }
 
-        $this->dbi->freeResult($dbRightsResult);
         ksort($dbRights);
 
         return $dbRights;
@@ -2616,7 +2580,7 @@ class Privileges
                 break;
             case 'thishost':
                 $currentUserName = $this->dbi->fetchValue('SELECT USER()');
-                if ($currentUserName !== false) {
+                if (is_string($currentUserName)) {
                     $hostname = mb_substr($currentUserName, mb_strrpos($currentUserName, '@') + 1);
                     unset($currentUserName);
                 }
@@ -2997,8 +2961,7 @@ class Privileges
             // - the privilege tables use a structure of an earlier version.
             // so let's try a more simple query
 
-            $this->dbi->freeResult($res);
-            $this->dbi->freeResult($resAll);
+            unset($resAll);
             $sqlQuery = 'SELECT * FROM `mysql`.`user`';
             $res = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
 
@@ -3016,7 +2979,7 @@ class Privileges
                 $errorMessages .= Message::rawError($raw)->getDisplay();
             }
 
-            $this->dbi->freeResult($res);
+            unset($res);
         } else {
             $dbRights = $this->getDbRightsForUserOverview();
             // for all initials, even non A-Z
@@ -3043,7 +3006,7 @@ class Privileges
              * Displays the initials
              * Also not necessary if there is less than 20 privileges
              */
-            if ($this->dbi->numRows($resAll) > 20) {
+            if ($resAll && $resAll->numRows() > 20) {
                 $initials = $this->getHtmlForInitials($arrayInitials);
             }
 
@@ -3051,7 +3014,7 @@ class Privileges
             * Display the user overview
             * (if less than 50 users, display them immediately)
             */
-            if (isset($_GET['initial']) || isset($_GET['showall']) || $this->dbi->numRows($res) < 50) {
+            if (isset($_GET['initial']) || isset($_GET['showall']) || $res->numRows() < 50) {
                 $usersOverview = $this->getUsersOverview($res, $dbRights, $textDir);
                 $usersOverview .= $this->template->render('export_modal');
             }
@@ -3135,7 +3098,7 @@ class Privileges
             . " WHERE `User` = '" . $this->dbi->escapeString($username) . "'"
             . " AND `Host` = '" . $this->dbi->escapeString($hostname) . "';";
 
-        $userDoesNotExists = (bool) ! $this->dbi->fetchValue($sql);
+        $userDoesNotExists = ! $this->dbi->fetchValue($sql);
 
         $loginInformationFields = '';
         if ($userDoesNotExists) {
@@ -3348,15 +3311,13 @@ class Privileges
 
         $res = $this->dbi->query('SELECT * FROM `mysql`.`db`' . $userHostCondition);
 
-        while ($row = $this->dbi->fetchAssoc($res)) {
+        while ($row = $res->fetchAssoc()) {
             $queries[] = 'GRANT ' . implode(', ', $this->extractPrivInfo($row))
                 . ' ON ' . Util::backquote($row['Db']) . '.*'
                 . ' TO \'' . $this->dbi->escapeString($username)
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\''
                 . ($row['Grant_priv'] === 'Y' ? ' WITH GRANT OPTION;' : ';');
         }
-
-        $this->dbi->freeResult($res);
 
         return $this->getTablePrivsQueriesForChangeOrCopyUser($userHostCondition, $queries, $username, $hostname);
     }
@@ -3811,16 +3772,10 @@ class Privileges
             return null;
         }
 
-        $result = $statement->get_result();
-        $statement->close();
-        if ($result === false) {
-            return null;
-        }
-
+        $result = new MysqliResult($statement->get_result());
         /** @var array<string, string|null>|null $userPrivileges */
-        $userPrivileges = $this->dbi->fetchAssoc($result);
-        $this->dbi->freeResult($result);
-        if ($userPrivileges === null) {
+        $userPrivileges = $result->fetchAssoc();
+        if ($userPrivileges === []) {
             return null;
         }
 
@@ -3837,16 +3792,10 @@ class Privileges
             return $userPrivileges;
         }
 
-        $result = $statement->get_result();
-        $statement->close();
-        if ($result === false) {
-            return $userPrivileges;
-        }
-
+        $result = new MysqliResult($statement->get_result());
         /** @var array<string, string|null>|null $globalPrivileges */
-        $globalPrivileges = $this->dbi->fetchAssoc($result);
-        $this->dbi->freeResult($result);
-        if ($globalPrivileges === null) {
+        $globalPrivileges = $result->fetchAssoc();
+        if ($globalPrivileges === []) {
             return $userPrivileges;
         }
 

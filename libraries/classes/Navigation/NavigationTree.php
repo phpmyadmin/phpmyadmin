@@ -251,14 +251,14 @@ class NavigationTree
         if ($GLOBALS['dbs_to_test'] === false) {
             $handle = $this->dbi->tryQuery('SHOW DATABASES');
             if ($handle !== false) {
-                while ($arr = $this->dbi->fetchArray($handle)) {
-                    if (strcasecmp($arr[0], $GLOBALS['db']) >= 0) {
+                while ($database = $handle->fetchValue()) {
+                    if (strcasecmp($database, $GLOBALS['db']) >= 0) {
                         break;
                     }
 
-                    $prefix = strstr($arr[0], $GLOBALS['cfg']['NavigationTreeDbSeparator'], true);
+                    $prefix = strstr($database, $GLOBALS['cfg']['NavigationTreeDbSeparator'], true);
                     if ($prefix === false) {
-                        $prefix = $arr[0];
+                        $prefix = $database;
                     }
 
                     $prefixMap[$prefix] = 1;
@@ -273,9 +273,7 @@ class NavigationTree
                     continue;
                 }
 
-                while ($arr = $this->dbi->fetchArray($handle)) {
-                    $databases[] = $arr[0];
-                }
+                $databases = array_merge($databases, $handle->fetchAllColumn());
             }
 
             sort($databases);

@@ -118,7 +118,9 @@ class Events
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
-                            $errors = $this->checkResult($result, $create_item, $errors);
+                            if (! $result) {
+                                $errors = $this->checkResult($create_item, $errors);
+                            }
                         } else {
                             $message = Message::success(
                                 __('Event %1$s has been modified.')
@@ -485,18 +487,13 @@ class Events
     }
 
     /**
-     * @param resource|bool $result          Query result
-     * @param string|null   $createStatement Query
-     * @param array         $errors          Errors
+     * @param string|null $createStatement Query
+     * @param array       $errors          Errors
      *
      * @return array
      */
-    private function checkResult($result, $createStatement, array $errors)
+    private function checkResult($createStatement, array $errors)
     {
-        if ($result) {
-            return $errors;
-        }
-
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
         // and now even the backup query does not execute!

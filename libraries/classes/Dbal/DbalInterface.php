@@ -17,7 +17,6 @@ interface DbalInterface
 {
     public const FETCH_NUM = 'NUM';
     public const FETCH_ASSOC = 'ASSOC';
-    public const FETCH_BOTH = 'BOTH';
 
     /**
      * runs a query
@@ -26,15 +25,13 @@ interface DbalInterface
      * @param mixed  $link                optional database link to use
      * @param int    $options             optional query options
      * @param bool   $cache_affected_rows whether to cache affected rows
-     *
-     * @return mixed
      */
     public function query(
         string $query,
         $link = DatabaseInterface::CONNECT_USER,
         int $options = 0,
         bool $cache_affected_rows = true
-    );
+    ): ResultInterface;
 
     /**
      * runs a query and returns the result
@@ -308,7 +305,7 @@ interface DbalInterface
      *                          default
      * @param int        $link  link type
      *
-     * @return mixed value of first field in first row from result
+     * @return string|false|null value of first field in first row from result
      *               or false if not found
      */
     public function fetchValue(
@@ -328,10 +325,10 @@ interface DbalInterface
      * </code>
      *
      * @param string $query The query to execute
-     * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
+     * @param string $type  NUM|ASSOC returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
-     * @psalm-param  self::FETCH_NUM|self::FETCH_ASSOC|self::FETCH_BOTH $type
+     * @psalm-param  self::FETCH_NUM|self::FETCH_ASSOC $type
      */
     public function fetchSingleRow(
         string $query,
@@ -511,7 +508,7 @@ interface DbalInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string|bool
+     * @return string
      */
     public function getLowerCaseNames();
 
@@ -536,40 +533,26 @@ interface DbalInterface
     public function selectDb($dbname, $link = DatabaseInterface::CONNECT_USER): bool;
 
     /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchArray($result): ?array;
-
-    /**
      * returns array of rows with associative keys from $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      */
-    public function fetchAssoc($result): ?array;
+    public function fetchAssoc(ResultInterface $result): array;
 
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      */
-    public function fetchRow($result): ?array;
+    public function fetchRow(ResultInterface $result): array;
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object $result database result
-     * @param int    $offset offset to seek
+     * @param ResultInterface $result database result
+     * @param int             $offset offset to seek
      */
-    public function dataSeek($result, int $offset): bool;
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     */
-    public function freeResult($result): void;
+    public function dataSeek(ResultInterface $result, int $offset): bool;
 
     /**
      * Check if there are any more query results from a multi query
@@ -628,13 +611,14 @@ interface DbalInterface
 
     /**
      * returns the number of rows returned by last query
+     * used with tryQuery as it accepts false
      *
-     * @param object|bool $result result set identifier
+     * @param string $query query to run
      *
      * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows($result);
+    public function queryAndGetNumRows(string $query);
 
     /**
      * returns last inserted auto_increment id for given $link
@@ -642,7 +626,7 @@ interface DbalInterface
      *
      * @param int $link link type
      *
-     * @return int|bool
+     * @return int
      */
     public function insertId($link = DatabaseInterface::CONNECT_USER);
 
@@ -660,40 +644,20 @@ interface DbalInterface
     /**
      * returns metainfo for fields in $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      *
-     * @return FieldMetadata[]|null meta info for fields in $result
+     * @return FieldMetadata[] meta info for fields in $result
      */
-    public function getFieldsMeta($result): ?array;
+    public function getFieldsMeta(ResultInterface $result): array;
 
     /**
      * return number of fields in given $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      *
      * @return int field count
      */
-    public function numFields($result): int;
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, int $i);
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, int $i): string;
+    public function numFields(ResultInterface $result): int;
 
     /**
      * returns properly escaped string for use in MySQL queries

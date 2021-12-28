@@ -284,8 +284,6 @@ class CheckUserPrivileges
              //break;
         }
 
-        $this->dbi->freeResult($showGrantsResult);
-
         // must also cacheUnset() them in
         // PhpMyAdmin\Plugins\Auth\AuthenticationCookie
         SessionCache::set('is_create_db_priv', $GLOBALS['is_create_db_priv']);

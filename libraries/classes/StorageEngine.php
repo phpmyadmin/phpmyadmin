@@ -415,7 +415,7 @@ class StorageEngine
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = $dbi->query($sql_query);
-        while ($row = $dbi->fetchAssoc($res)) {
+        foreach ($res as $row) {
             if (isset($variables[$row['Variable_name']])) {
                 $mysql_vars[$row['Variable_name']] = $variables[$row['Variable_name']];
             } elseif (! $like && mb_stripos($row['Variable_name'], $this->engine) !== 0) {
@@ -434,8 +434,6 @@ class StorageEngine
 
             $mysql_vars[$row['Variable_name']]['type'] = self::DETAILS_TYPE_PLAINTEXT;
         }
-
-        $dbi->freeResult($res);
 
         return $mysql_vars;
     }

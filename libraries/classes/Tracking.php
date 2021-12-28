@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 
 use function __;
@@ -19,9 +20,7 @@ use function date;
 use function htmlspecialchars;
 use function in_array;
 use function ini_set;
-use function intval;
 use function is_array;
-use function is_object;
 use function mb_strstr;
 use function preg_replace;
 use function rtrim;
@@ -103,7 +102,7 @@ class Tracking
     /**
      * Function to get the list versions of the table
      *
-     * @return object|false
+     * @return ResultInterface|false
      */
     public function getListOfVersionsOfTable(string $db, string $table)
     {
@@ -143,12 +142,15 @@ class Tracking
 
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables($db);
         $selectableTablesEntries = [];
-        while ($entry = $this->dbi->fetchArray($selectableTablesSqlResult)) {
-            $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
-            $selectableTablesEntries[] = $entry;
-        }
+        $selectableTablesNumRows = 0;
+        if ($selectableTablesSqlResult !== false) {
+            foreach ($selectableTablesSqlResult as $entry) {
+                $entry['is_tracked'] = Tracker::isTracked($entry['db_name'], $entry['table_name']);
+                $selectableTablesEntries[] = $entry;
+            }
 
-        $selectableTablesNumRows = $this->dbi->numRows($selectableTablesSqlResult);
+            $selectableTablesNumRows = $selectableTablesSqlResult->numRows();
+        }
 
         $versionSqlResult = $this->getListOfVersionsOfTable($db, $table);
         if ($lastVersion === null && $versionSqlResult !== false) {
@@ -157,10 +159,7 @@ class Tracking
 
         $versions = [];
         if ($versionSqlResult !== false) {
-            $this->dbi->dataSeek($versionSqlResult, 0);
-            while ($version = $this->dbi->fetchArray($versionSqlResult)) {
-                $versions[] = $version;
-            }
+            $versions = $versionSqlResult->fetchAllAssoc();
         }
 
         $type = $this->dbi->getTable($db, $table)->isView() ? 'view' : 'table';
@@ -182,22 +181,16 @@ class Tracking
 
     /**
      * Function to get the last version number of a table
-     *
-     * @param object $sql_result sql result
-     *
-     * @return int
      */
-    public function getTableLastVersionNumber($sql_result)
+    public function getTableLastVersionNumber(ResultInterface $result): int
     {
-        $maxversion = $this->dbi->fetchArray($sql_result);
-
-        return intval(is_array($maxversion) ? $maxversion['version'] : null);
+        return (int) $result->fetchValue('version');
     }
 
     /**
      * Function to get sql results for selectable tables
      *
-     * @return mixed
+     * @return ResultInterface|false
      */
     public function getSqlResultForSelectableTables(string $db)
     {
@@ -829,17 +822,12 @@ class Tracking
      * Function to export as sql execution
      *
      * @param array $entries entries
-     *
-     * @return array
      */
-    public function exportAsSqlExecution(array $entries)
+    public function exportAsSqlExecution(array $entries): void
     {
-        $sql_result = [];
         foreach ($entries as $entry) {
-            $sql_result = $this->dbi->query("/*NOTRACK*/\n" . $entry['statement']);
+            $this->dbi->query("/*NOTRACK*/\n" . $entry['statement']);
         }
-
-        return $sql_result;
     }
 
     /**
@@ -1137,28 +1125,23 @@ class Tracking
 
         // If a HEAD version exists
         $versions = [];
-        $headVersionExists = is_object($allTablesResult)
-            && $this->dbi->numRows($allTablesResult) > 0;
-        if ($headVersionExists) {
-            while ($oneResult = $this->dbi->fetchArray($allTablesResult)) {
-                [$tableName, $versionNumber] = $oneResult;
-                $tableQuery = ' SELECT * FROM ' .
-                     Util::backquote($trackingFeature->database) . '.' .
-                     Util::backquote($trackingFeature->tracking) .
-                     ' WHERE `db_name` = \''
-                     . $this->dbi->escapeString($db)
-                     . '\' AND `table_name`  = \''
-                     . $this->dbi->escapeString($tableName)
-                     . '\' AND `version` = \'' . $versionNumber . '\'';
+        while ($oneResult = $allTablesResult->fetchRow()) {
+            [$tableName, $versionNumber] = $oneResult;
+            $tableQuery = ' SELECT * FROM ' .
+                Util::backquote($trackingFeature->database) . '.' .
+                Util::backquote($trackingFeature->tracking) .
+                ' WHERE `db_name` = \''
+                . $this->dbi->escapeString($db)
+                . '\' AND `table_name`  = \''
+                . $this->dbi->escapeString($tableName)
+                . '\' AND `version` = \'' . $versionNumber . '\'';
 
-                $tableResult = $relation->queryAsControlUser($tableQuery);
-                $versions[] = $this->dbi->fetchArray($tableResult);
-            }
+            $versions[] = $relation->queryAsControlUser($tableQuery)->fetchAssoc();
         }
 
         return $this->template->render('database/tracking/tables', [
             'db' => $db,
-            'head_version_exists' => $headVersionExists,
+            'head_version_exists' => $versions !== [],
             'untracked_tables_exists' => count($untrackedTables) > 0,
             'versions' => $versions,
             'url_params' => $urlParams,

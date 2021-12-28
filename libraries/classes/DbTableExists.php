@@ -89,8 +89,7 @@ final class DbTableExists
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $is_table = @$dbi->numRows($result);
-            $dbi->freeResult($result);
+            $is_table = $result && $result->numRows();
         }
 
         if ($is_table) {
@@ -111,8 +110,7 @@ final class DbTableExists
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $is_table = ($result && @$dbi->numRows($result));
-            $dbi->freeResult($result);
+            $is_table = $result && $result->numRows();
         }
 
         if ($is_table) {

@@ -361,16 +361,13 @@ class Data
 
         // get status from server
         $server_status_result = $dbi->tryQuery('SHOW GLOBAL STATUS');
-        $server_status = [];
         if ($server_status_result === false) {
+            $server_status = [];
             $this->dataLoaded = false;
         } else {
             $this->dataLoaded = true;
-            while ($arr = $dbi->fetchRow($server_status_result)) {
-                $server_status[$arr[0]] = $arr[1];
-            }
-
-            $dbi->freeResult($server_status_result);
+            $server_status = $server_status_result->fetchAllKeyPair();
+            unset($server_status_result);
         }
 
         // for some calculations we require also some server settings

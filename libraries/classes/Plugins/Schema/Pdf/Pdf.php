@@ -14,7 +14,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function count;
 use function getcwd;
-use function is_array;
 use function max;
 use function mb_ord;
 use function str_replace;
@@ -280,7 +279,7 @@ class Pdf extends PdfLib
             $test_rs = $this->relation->queryAsControlUser($test_query);
             $pageDesc = '';
             $pages = $dbi->fetchAssoc($test_rs);
-            if (is_array($pages)) {
+            if ($pages !== []) {
                 $pageDesc = (string) $pages['page_descr'];
             }
 

@@ -51,20 +51,15 @@ class UserGroups
             . "'";
         $result = $relation->queryAsControlUser($sql_query, false);
         if ($result) {
-            $numRows = $dbi->numRows($result);
-            if ($numRows != 0) {
-                $i = 0;
-                while ($row = $dbi->fetchRow($result)) {
-                    $i++;
-                    $user = [];
-                    $user['count'] = $i;
-                    $user['user'] = $row[0];
-                    $users[] = $user;
-                }
+            $i = 0;
+            while ($row = $result->fetchRow()) {
+                $users[] = [
+                    'count' => ++$i,
+                    'user' => $row[0],
+                ];
             }
         }
 
-        $dbi->freeResult($result);
         $template = new Template();
 
         return $template->render('server/user_groups/user_listings', [
@@ -88,14 +83,13 @@ class UserGroups
             . '.' . Util::backquote($configurableMenusFeature->userGroups);
         $sql_query = 'SELECT * FROM ' . $groupTable . ' ORDER BY `usergroup` ASC';
         $result = $relation->queryAsControlUser($sql_query, false);
-        $numRows = $dbi->numRows($result);
         $userGroups = [];
         $userGroupsValues = [];
         $action = Url::getFromRoute('/server/privileges');
         $hidden_inputs = null;
-        if ($result && $numRows) {
+        if ($result && $result->numRows()) {
             $hidden_inputs = Url::getHiddenInputs();
-            while ($row = $dbi->fetchAssoc($result)) {
+            foreach ($result as $row) {
                 $groupName = $row['usergroup'];
                 if (! isset($userGroups[$groupName])) {
                     $userGroups[$groupName] = [];
@@ -134,14 +128,12 @@ class UserGroups
 
         $addUserUrl = Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $addUserIcon = Generator::getIcon('b_usradd');
-        $dbi->freeResult($result);
         $template = new Template();
 
         return $template->render('server/user_groups/user_groups', [
             'action' => $action,
             'hidden_inputs' => $hidden_inputs ?? '',
-            'result' => $result,
-            'has_rows' => $numRows,
+            'has_rows' => $userGroups !== [],
             'user_groups_values' => $userGroupsValues,
             'add_user_url' => $addUserUrl,
             'add_user_icon' => $addUserIcon,
@@ -237,7 +229,7 @@ class UserGroups
                 . "'";
             $result = $relation->queryAsControlUser($sql_query, false);
             if ($result) {
-                while ($row = $dbi->fetchAssoc($result)) {
+                foreach ($result as $row) {
                     $key = $row['tab'];
                     $value = $row['allowed'];
                     if (substr($key, 0, 7) === 'server_' && $value === 'Y') {
@@ -250,7 +242,7 @@ class UserGroups
                 }
             }
 
-            $dbi->freeResult($result);
+            unset($result);
         }
 
         $tabList = self::getTabList(
