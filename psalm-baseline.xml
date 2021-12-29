@@ -9289,10 +9289,6 @@
     </MixedOperand>
   </file>
   <file src="libraries/classes/Pdf.php">
-    <InvalidScalarArgument occurrences="2">
-      <code>$pdfa</code>
-      <code>[self::PMA_PDF_FONT, '', 14]</code>
-    </InvalidScalarArgument>
     <MixedArgument occurrences="4">
       <code>$pdfData</code>
       <code>$this-&gt;CurrentFont</code>

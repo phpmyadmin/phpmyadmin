@@ -396,6 +396,11 @@ parameters:
 			path: libraries/classes/Config/Form.php
 
 		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 2
+			path: libraries/classes/Config/Form.php
+
+		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -6041,16 +6046,6 @@ parameters:
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php
 
 		-
-			message: "#^Parameter \\#1 \\$font of method TCPDF\\:\\:setFooterFont\\(\\) expects array\\<int, string\\>, array\\<int, int\\|string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Parameter \\#7 \\$pdfa of method TCPDF\\:\\:__construct\\(\\) expects int, bool given\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Pdf\\:\\:\\$alias type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Pdf.php
@@ -8941,6 +8936,16 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: libraries/classes/Theme.php
+
+		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\ThemeManager\\:\\:getThemesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -8953,6 +8958,11 @@ parameters:
 		-
 			message: "#^Static property PhpMyAdmin\\\\ThemeManager\\:\\:\\$instance \\(PhpMyAdmin\\\\ThemeManager\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
+			path: libraries/classes/ThemeManager.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 2
 			path: libraries/classes/ThemeManager.php
 
 		-
