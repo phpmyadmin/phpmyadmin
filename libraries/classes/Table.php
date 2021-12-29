@@ -796,9 +796,7 @@ class Table implements Stringable
                 $result = $this->dbi->tryQuery(
                     'SELECT 1 FROM ' . Util::backquote($db) . '.'
                     . Util::backquote($table) . ' LIMIT '
-                    . $GLOBALS['cfg']['MaxExactCountViews'],
-                    DatabaseInterface::CONNECT_USER,
-                    DatabaseInterface::QUERY_STORE
+                    . $GLOBALS['cfg']['MaxExactCountViews']
                 );
                 if ($result) {
                     $rowCount = $result->numRows();
@@ -932,9 +930,9 @@ class Table implements Stringable
               . Util::backquote((string) $relationParams[$table]) . '
              WHERE ' . implode(' AND ', $whereParts);
 
-        // must use DatabaseInterface::QUERY_STORE here, since we execute
+        // must use DatabaseInterface::QUERY_BUFFERED here, since we execute
         // another query inside the loop
-        $tableCopyRs = $relation->queryAsControlUser($tableCopyQuery, true, DatabaseInterface::QUERY_STORE);
+        $tableCopyRs = $relation->queryAsControlUser($tableCopyQuery);
 
         foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];

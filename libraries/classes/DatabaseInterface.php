@@ -77,9 +77,9 @@ class DatabaseInterface implements DbalInterface
     /**
      * Force STORE_RESULT method, ignored by classic MySQL.
      */
-    public const QUERY_STORE = 1;
+    public const QUERY_BUFFERED = 0;
     /**
-     * Do not read whole query.
+     * Do not read all rows immediately.
      */
     public const QUERY_UNBUFFERED = 2;
     /**
@@ -167,7 +167,7 @@ class DatabaseInterface implements DbalInterface
     public function query(
         string $query,
         $link = self::CONNECT_USER,
-        int $options = 0,
+        int $options = self::QUERY_BUFFERED,
         bool $cache_affected_rows = true
     ): ResultInterface {
         $result = $this->tryQuery($query, $link, $options, $cache_affected_rows);
@@ -192,7 +192,9 @@ class DatabaseInterface implements DbalInterface
      *
      * @param string $query               query to run
      * @param mixed  $link                link type
-     * @param int    $options             query options
+     * @param int    $options             if DatabaseInterface::QUERY_UNBUFFERED
+     *                                    is provided, it will instruct the extension
+     *                                    to use unbuffered mode
      * @param bool   $cache_affected_rows whether to cache affected row
      *
      * @return ResultInterface|false
@@ -200,7 +202,7 @@ class DatabaseInterface implements DbalInterface
     public function tryQuery(
         string $query,
         $link = self::CONNECT_USER,
-        int $options = 0,
+        int $options = self::QUERY_BUFFERED,
         bool $cache_affected_rows = true
     ) {
         $debug = isset($GLOBALS['cfg']['DBG']) ? $GLOBALS['cfg']['DBG']['sql'] : false;
@@ -229,11 +231,9 @@ class DatabaseInterface implements DbalInterface
                 $time
             );
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
-                $warningsCount = '';
-                if (($options & self::QUERY_STORE) == self::QUERY_STORE) {
-                    if (isset($this->links[$link]->warning_count)) {
-                        $warningsCount = $this->links[$link]->warning_count;
-                    }
+                $warningsCount = 0;
+                if (isset($this->links[$link]->warning_count)) {
+                    $warningsCount = $this->links[$link]->warning_count;
                 }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
@@ -241,7 +241,7 @@ class DatabaseInterface implements DbalInterface
                 syslog(
                     LOG_INFO,
                     sprintf(
-                        'SQL[%s?route=%s]: %0.3f(W:%s,C:%s,L:0x%02X) > %s',
+                        'SQL[%s?route=%s]: %0.3f(W:%d,C:%s,L:0x%02X) > %s',
                         basename($_SERVER['SCRIPT_NAME']),
                         Routing::getCurrentRoute(),
                         $time,
@@ -293,8 +293,7 @@ class DatabaseInterface implements DbalInterface
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
             null,
             0,
-            $link,
-            self::QUERY_STORE
+            $link
         );
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
@@ -1081,16 +1080,12 @@ class DatabaseInterface implements DbalInterface
 
         $GLOBALS['collation_connection'] = $default_collation;
         $GLOBALS['charset_connection'] = $default_charset;
-        $this->query(
-            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $default_charset, $default_collation),
-            self::CONNECT_USER,
-            self::QUERY_STORE
-        );
+        $this->query(sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $default_charset, $default_collation));
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
         if ($locale) {
-            $this->query("SET lc_messages = '" . $locale . "';", self::CONNECT_USER, self::QUERY_STORE);
+            $this->query("SET lc_messages = '" . $locale . "';");
         }
 
         // Set timezone for the session, if required.
@@ -1142,10 +1137,8 @@ class DatabaseInterface implements DbalInterface
 
         $result = $this->tryQuery(
             "SET collation_connection = '"
-            . $this->escapeString($collation, self::CONNECT_USER)
-            . "';",
-            self::CONNECT_USER,
-            self::QUERY_STORE
+            . $this->escapeString($collation)
+            . "';"
         );
 
         if ($result === false) {
@@ -1204,7 +1197,7 @@ class DatabaseInterface implements DbalInterface
         $field = 0,
         $link = self::CONNECT_USER
     ) {
-        $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
         if ($result === false) {
             return false;
         }
@@ -1233,7 +1226,7 @@ class DatabaseInterface implements DbalInterface
         string $type = DbalInterface::FETCH_ASSOC,
         $link = self::CONNECT_USER
     ): ?array {
-        $result = $this->tryQuery($query, $link, self::QUERY_STORE, false);
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
         if ($result === false) {
             return null;
         }
@@ -1328,7 +1321,7 @@ class DatabaseInterface implements DbalInterface
         $key = null,
         $value = null,
         $link = self::CONNECT_USER,
-        int $options = 0
+        int $options = self::QUERY_BUFFERED
     ): array {
         $resultrows = [];
 
@@ -1690,7 +1683,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        $result = $this->tryQuery('SELECT 1 FROM mysql.user LIMIT 1', self::CONNECT_USER, self::QUERY_STORE);
+        $result = $this->tryQuery('SELECT 1 FROM mysql.user LIMIT 1');
         $isSuperUser = false;
 
         if ($result) {
@@ -1733,7 +1726,7 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
-        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
+        $result = $this->tryQuery($query);
 
         if ($result) {
             $hasGrantPrivilege = (bool) $result->numRows();
@@ -1775,7 +1768,7 @@ class DatabaseInterface implements DbalInterface
 
         [$user, $host] = $this->getCurrentUserAndHost();
         $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
-        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
+        $result = $this->tryQuery($query);
 
         if ($result) {
             $hasCreatePrivilege = (bool) $result->numRows();
@@ -1793,7 +1786,7 @@ class DatabaseInterface implements DbalInterface
 
     private function getCurrentUserGrants(): array
     {
-        return $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();', null, null, self::CONNECT_USER, self::QUERY_STORE);
+        return $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
     }
 
     /**

@@ -171,11 +171,7 @@ class InsertEdit
                 . Util::backquote($db) . '.'
                 . Util::backquote($table)
                 . ' WHERE ' . $whereClause . ';';
-            $result[$keyId] = $this->dbi->query(
-                $localQuery,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $result[$keyId] = $this->dbi->query($localQuery);
             $rows[$keyId] = $this->dbi->fetchAssoc($result[$keyId]);
 
             $whereClauses[$keyId] = str_replace('\\', '\\\\', $whereClause);
@@ -258,9 +254,7 @@ class InsertEdit
     {
         $result = $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
-            . '.' . Util::backquote($table) . ' LIMIT 1;',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
+            . '.' . Util::backquote($table) . ' LIMIT 1;'
         );
         // Can be a string on some old configuration storage settings
         $rows = array_fill(0, (int) $GLOBALS['cfg']['InsertRows'], false);
@@ -1424,11 +1418,7 @@ class InsertEdit
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
                 . $whereComparison;
-            $dispresult = $this->dbi->tryQuery(
-                $dispsql,
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $dispresult = $this->dbi->tryQuery($dispsql);
             if ($dispresult && $dispresult->numRows() > 0) {
                 return (string) $dispresult->fetchValue();
             }

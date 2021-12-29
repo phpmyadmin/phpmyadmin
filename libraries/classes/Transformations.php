@@ -390,7 +390,7 @@ class Transformations
                 AND `table_name`  = \'' . $dbi->escapeString($table) . '\'
                 AND `column_name` = \'' . $dbi->escapeString($key) . '\'';
 
-        $test_rs = $relation->queryAsControlUser($test_qry, true, DatabaseInterface::QUERY_STORE);
+        $test_rs = $relation->queryAsControlUser($test_qry);
 
         if ($test_rs->numRows() > 0) {
             $row = $test_rs->fetchAssoc();

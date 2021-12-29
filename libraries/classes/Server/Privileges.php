@@ -1952,11 +1952,7 @@ class Privileges
             $data['databases'] = $databases;
             $data['escaped_databases'] = $escapedDatabases;
         } elseif ($type === 'table') {
-            $result = $this->dbi->tryQuery(
-                'SHOW TABLES FROM ' . Util::backquote($dbname),
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
-            );
+            $result = $this->dbi->tryQuery('SHOW TABLES FROM ' . Util::backquote($dbname));
 
             $tables = [];
             if ($result) {
@@ -2087,9 +2083,7 @@ class Privileges
         }
 
         $initials = $this->dbi->tryQuery(
-            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
+            'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY UPPER(LEFT(`User`,1)) ASC'
         );
         if ($initials) {
             while ($tmpInitial = $this->dbi->fetchRow($initials)) {
@@ -2951,8 +2945,8 @@ class Privileges
         $sqlQuery .= ' ORDER BY `User` ASC, `Host` ASC;';
         $sqlQueryAll .= ' ;';
 
-        $res = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
-        $resAll = $this->dbi->tryQuery($sqlQueryAll, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+        $res = $this->dbi->tryQuery($sqlQuery);
+        $resAll = $this->dbi->tryQuery($sqlQueryAll);
 
         $errorMessages = '';
         if (! $res) {
@@ -2963,7 +2957,7 @@ class Privileges
 
             unset($resAll);
             $sqlQuery = 'SELECT * FROM `mysql`.`user`';
-            $res = $this->dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+            $res = $this->dbi->tryQuery($sqlQuery);
 
             if (! $res) {
                 $errorMessages .= $this->getHtmlForViewUsersError();
@@ -3211,9 +3205,7 @@ class Privileges
     ) {
         $res = $this->dbi->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
-            . $userHostCondition,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
+            . $userHostCondition
         );
         while ($row = $this->dbi->fetchAssoc($res)) {
             $res2 = $this->dbi->query(
@@ -3227,9 +3219,7 @@ class Privileges
                 . ' = \'' . $this->dbi->escapeString($row['Db']) . "'"
                 . ' AND `Table_name`'
                 . ' = \'' . $this->dbi->escapeString($row['Table_name']) . "'"
-                . ';',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                . ';'
             );
 
             $tmpPrivs1 = $this->extractPrivInfo($row);

@@ -355,9 +355,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('query')
             ->with(
-                'SELECT * FROM `db`.`table` LIMIT 1;',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                'SELECT * FROM `db`.`table` LIMIT 1;'
             )
             ->will($this->returnValue($resultStub));
 
@@ -1821,9 +1819,7 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1',
-                DatabaseInterface::CONNECT_USER,
-                DatabaseInterface::QUERY_STORE
+                'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1'
             )
             ->will($this->returnValue($resultStub));
 

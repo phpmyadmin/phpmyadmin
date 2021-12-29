@@ -71,7 +71,6 @@ class DesignerTest extends AbstractTestCase
                 'SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 DatabaseInterface::CONNECT_CONTROL,
-                DatabaseInterface::QUERY_STORE,
                 false
             )
             ->will($this->returnValue($resultStub));

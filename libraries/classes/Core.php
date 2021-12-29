@@ -225,11 +225,7 @@ class Core
     {
         global $dbi;
 
-        $tables = $dbi->tryQuery(
-            'SHOW TABLES FROM ' . Util::backquote($db) . ';',
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $tables = $dbi->tryQuery('SHOW TABLES FROM ' . Util::backquote($db) . ';');
 
         if ($tables) {
             return $tables->numRows();

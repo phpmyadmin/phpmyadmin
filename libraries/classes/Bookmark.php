@@ -259,8 +259,7 @@ class Bookmark
             $query,
             null,
             null,
-            DatabaseInterface::CONNECT_CONTROL,
-            DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         if (! empty($result)) {

@@ -331,13 +331,7 @@ class Sql
     {
         $fieldInfoQuery = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
-        $fieldInfoResult = $this->dbi->fetchResult(
-            $fieldInfoQuery,
-            null,
-            null,
-            DatabaseInterface::CONNECT_USER,
-            DatabaseInterface::QUERY_STORE
-        );
+        $fieldInfoResult = $this->dbi->fetchResult($fieldInfoQuery);
 
         if (! isset($fieldInfoResult[0])) {
             return null;
@@ -625,7 +619,7 @@ class Sql
         // Measure query time.
         $queryTimeBefore = array_sum(explode(' ', microtime()));
 
-        $result = @$this->dbi->tryQuery($fullSqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
+        $result = $this->dbi->tryQuery($fullSqlQuery);
         $queryTimeAfter = array_sum(explode(' ', microtime()));
 
         if (! defined('TESTSUITE')) {
