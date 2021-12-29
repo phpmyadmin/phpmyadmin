@@ -33,14 +33,13 @@ class Pdf extends TCPDF
     /**
      * Constructs PDF and configures standard parameters.
      *
-     * @param string $orientation page orientation
-     * @param string $unit        unit
-     * @param string $format      the format used for pages
-     * @param bool   $unicode     true means that the input text is unicode
-     * @param string $encoding    charset encoding; default is UTF-8.
-     * @param bool   $diskcache   if true reduce the RAM memory usage by caching
-     *                            temporary data on filesystem (slower).
-     * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
+     * @param string    $orientation page orientation
+     * @param string    $unit        unit
+     * @param string    $format      the format used for pages
+     * @param bool      $unicode     true means that the input text is unicode
+     * @param string    $encoding    charset encoding; default is UTF-8.
+     * @param bool      $diskcache   DEPRECATED TCPDF FEATURE
+     * @param false|int $pdfa        If not false, set the document to PDF/A mode and the good version (1 or 3)
      *
      * @throws Exception
      *
