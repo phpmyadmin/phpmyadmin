@@ -1291,16 +1291,6 @@ parameters:
 			path: libraries/classes/OutputBuffering.php
 
 		-
-			message: "#^Parameter \\#1 \\$font of method TCPDF\\:\\:setFooterFont\\(\\) expects array\\<int, string\\>, array\\<int, int\\|string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
-			message: "#^Parameter \\#7 \\$pdfa of method TCPDF\\:\\:__construct\\(\\) expects int, bool given\\.$#"
-			count: 1
-			path: libraries/classes/Pdf.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:getProperties\\(\\)\\.$#"
 			count: 3
 			path: libraries/classes/Plugins.php
