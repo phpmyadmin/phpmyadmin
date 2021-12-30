@@ -1305,14 +1305,13 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string                $query   query to execute
-     * @param string|int|array|null $key     field-name or offset
-     *                                       used as key for array
-     *                                       or array of those
-     * @param string|int|null       $value   value-name or offset
-     *                                       used as value for array
-     * @param int                   $link    link type
-     * @param int                   $options query options
+     * @param string                $query query to execute
+     * @param string|int|array|null $key   field-name or offset
+     *                                     used as key for array
+     *                                     or array of those
+     * @param string|int|null       $value value-name or offset
+     *                                     used as value for array
+     * @param int                   $link  link type
      *
      * @return array resultrows or values indexed by $key
      */
@@ -1320,12 +1319,11 @@ class DatabaseInterface implements DbalInterface
         string $query,
         $key = null,
         $value = null,
-        $link = self::CONNECT_USER,
-        int $options = self::QUERY_BUFFERED
+        $link = self::CONNECT_USER
     ): array {
         $resultrows = [];
 
-        $result = $this->tryQuery($query, $link, $options, false);
+        $result = $this->tryQuery($query, $link, self::QUERY_BUFFERED, false);
 
         // return empty array if result is empty or false
         if ($result === false) {
