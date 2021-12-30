@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-26 00:12+0000\n"
-"PO-Revision-Date: 2021-12-12 20:03+0000\n"
+"PO-Revision-Date: 2021-12-31 14:51+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -288,23 +288,15 @@ msgid "Suboptimal caching method."
 msgstr "準最適キャッシュ方式です。"
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"MySQL のクエリキャッシュをかなりトラフィックの高いデータベースに対して使用し"
-"ています。 MySQL のクエリキャッシュの代わりに <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/ja/ha-memcached.html\">memcached</a> の使用を検討する価値"
-"があると思われます。これは、マルチスレーブを使用している場合は、特に推奨しま"
-"す。"
+"MySQL のクエリキャッシュをかなりトラフィックの高いデータベースに対して使用しています。 MySQL のクエリキャッシュの代わりに <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/ja/ha-memcached.html\">memcached</a> "
+"の使用を検討する価値があると思われます。これは、複数のレプリカを使用している場合は、特に推奨します。"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -5520,10 +5512,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "パーティションを削除してもよろしいですか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "選択されたユーザー「%s」を本当に無効にしますか？"
+msgstr "本当にレプリカをリセット (RESET REPLICA) しますか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -8128,30 +8118,19 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "最初のテーブルを全スキャンした結合の数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr "スレーブの SQL スレッドが現在開いている一時テーブルの数。"
+msgstr "レプリカの SQL スレッドが現在開いている一時テーブルの数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
-msgstr ""
-"レプリケーションスレーブの SQL スレッドがトランザクションを再試行した回数(起"
-"動時からの合計)。"
+msgstr "レプリケーションレプリカの SQL スレッドがトランザクションを再試行した回数(起動時からの合計)。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "このサーバがマスタに接続するスレーブである場合は ON になります。"
+msgstr "このサーバがプライマリに接続するレプリカである場合は ON になります。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -11903,31 +11882,23 @@ msgid "Unknown error"
 msgstr "不明なエラーです"
 
 #: libraries/classes/ReplicationGui.php:520
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "マスタ %s に接続していません。"
+msgstr "プライマリ %s に接続していません。"
 
 #: libraries/classes/ReplicationGui.php:530
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
-msgstr ""
-"マスタのログの位置が読み込めません。マスタ上の権限の問題の可能性があります。"
+msgstr "プライマリのログの位置が読み込めません。プライマリ上の権限の問題の可能性があります。"
 
 #: libraries/classes/ReplicationGui.php:548
-#, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
-msgstr "マスタを切り替えることができません!"
+msgstr "プライマリを切り替えることができません!"
 
 #: libraries/classes/ReplicationGui.php:552
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s."
+#, php-format
 msgid "Primary server changed successfully to %s."
-msgstr "マスタサーバを %s へ切り替えるのに成功しました。"
+msgstr "プライマリサーバを %s へ切り替えるのに成功しました。"
 
 #: libraries/classes/Routing.php:104
 #, php-format
@@ -12177,18 +12148,14 @@ msgstr "現在のスレッドのテーブルロックを許可する。"
 #: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "レプリケーションスレーブでは有効にする必要があります。"
+msgstr "レプリケーションレプリカでは必要です。"
 
 #: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "スレーブ/マスタの照会を許可する。"
+msgstr "プライマリ/レプリカの照会を許可する。"
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:524
@@ -12425,23 +12392,17 @@ msgid "Show open tables"
 msgstr "開いているテーブルを表示する"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "スレーブホストを表示する"
+msgstr "レプリカホストを表示する"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "マスタステータスの表示"
+msgstr "プライマリのステータスの表示"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "スレーブの状態を表示する"
+msgstr "レプリカの状態を表示する"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -16612,17 +16573,13 @@ msgstr "データベースを作成する権限がありません"
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Master replication"
 msgid "Primary replication"
-msgstr "マスタレプリケーション"
+msgstr "プライマリのレプリケーション"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Slave replication"
 msgid "Replica replication"
-msgstr "スレーブレプリケーション"
+msgstr "レプリカのレプリケーション"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -17114,17 +17071,13 @@ msgid "Save changes"
 msgstr "変更の保存"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "スレーブの設定"
+msgstr "レプリカの設定"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "マスタサーバの変更または再設定"
+msgstr "プリライマリサーバの変更または再設定"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17139,16 +17092,11 @@ msgid "Port:"
 msgstr "ポート:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"このサーバのレプリケーションプロセスには、マスタが設定されていません。%s設"
-"定%sを行いますか?"
+msgstr "このサーバのレプリケーションプロセスには、プライマリが設定されていません。%s設定%sを行いますか?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -17156,10 +17104,8 @@ msgstr "権限がありません"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "スレーブレプリケーションのユーザ追加"
+msgstr "レプリカのレプリケーションユーザを追加"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17172,19 +17118,10 @@ msgid "Generate password:"
 msgstr "パスワードを生成する:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "サーバ設定"
+msgstr "プライマリの設定"
 
 #: templates/server/replication/primary_configuration.twig:4
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as a master server in a replication "
-#| "process. You can choose from either replicating all databases and "
-#| "ignoring some of them (useful if you want to replicate a majority of the "
-#| "databases) or you can choose to ignore all databases by default and allow "
-#| "only certain databases to be replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -17192,12 +17129,9 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"このサーバは、レプリケーションプロセスのマスタサーバとして構成されていませ"
-"ん。以下のいずれかを選択できます。１つは、いくつかのデータベースを無視して残"
-"り全てのデータベースをレプリケーションするモード（データベースの大部分をレプ"
-"リケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベー"
-"スを無視して、特定のデータベースだけのレプリケーションを許可するモード。以下"
-"よりいずれかのモードを選択してください。"
+"このサーバは、レプリケーションプロセスのプライマリサーバとして構成されていません。以下のいずれかを選択できます。１つは、いくつかのデータベースを無視して残"
+"り全てのデータベースをレプリケーションするモード（データベースの大部分をレプリケーションする場合に便利です。）。もう１つは、デフォルトで全てのデータベース"
+"を無視して、特定のデータベースだけのレプリケーションを許可するモード。以下よりいずれかのモードを選択してください。"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -17220,89 +17154,56 @@ msgstr ""
 "再起動してください。"
 
 #: templates/server/replication/primary_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <strong>is</"
-#| "strong> configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、こ"
-"のサーバ<strong>が</strong>マスタとして設定されていることを知らせるメッセージ"
-"が表示されます。"
+"MySQL サーバが再起動したら、「実行」ボタンをクリックしてください。その後、このサーバ<strong>が</strong>プライマリとして設定されてい"
+"ることを知らせるメッセージが表示されます。"
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "このサーバのレプリケーションプロセスに、マスタが設定されています。"
+msgstr "このサーバのレプリケーションプロセスに、プライマリが設定されています。"
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "接続しているスレーブの表示"
+msgstr "接続しているレプリカを表示"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
-msgstr ""
-"--report-host=host_name オプションで起動したスレーブだけが、このリストに表示"
-"されます。"
+msgstr "--report-host=host_name オプションで起動したレプリカだけが、このリストに表示されます。"
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Server connection:"
 msgid "Primary connection:"
-msgstr "サーバの接続："
+msgstr "プライマリの接続："
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "スレーブの SQL スレッドが実行していません！"
+msgstr "レプリカの SQL スレッドが動作していません！"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "スレーブの IO スレッドが実行していません！"
+msgstr "レプリカの IO スレッドが動作していません！"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
-msgstr ""
-"サーバはレプリケーションプロセスではスレーブとして設定されています。どのよう"
-"にしたいですか:"
+msgstr "サーバはレプリケーションプロセスではレプリカとして設定されています。どのようにしたいですか:"
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "See slave status table"
 msgid "See replica status table"
-msgstr "スレーブのステータステーブルを閲覧する"
+msgstr "レプリカのステータステーブルを閲覧する"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "スレーブの操作："
+msgstr "レプリカの操作："
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "レプリケーションしていない"
+msgstr "レプリカをリセット"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17325,11 +17226,8 @@ msgid "Error management:"
 msgstr "管理エラー:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
-msgstr ""
-"エラーのスキップは、マスタとスレーブの同期を切ることになるかもしれません！"
+msgstr "エラーをスキップすると、プライマリとレプリカの同期を切ることになるかもしれません！"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17341,28 +17239,19 @@ msgid "Skip next %s errors."
 msgstr "次の %s エラーをスキップします。"
 
 #: templates/server/replication/replica_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to %sconfigure%s it?"
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
-msgstr ""
-"このサーバのレプリケーションプロセスには、スレーブが設定されていません。%s設"
-"定%sを行いますか?"
+msgstr "このサーバのレプリケーションプロセスには、レプリカが設定されていません。%s設定%sを行いますか?"
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
-msgstr "インポートの状態"
+msgstr "プライマリの状態"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
-msgstr "レプリケーションステータス"
+msgstr "レプリカの状態"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17743,36 +17632,20 @@ msgstr ""
 "が報告してくる統計は不正確なことがあります。"
 
 #: templates/server/status/status/index.twig:59
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
-msgstr ""
-"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>と<b>ス"
-"レーブ</b>として動作しています。"
+msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>プライマリ</b>と<b>レプリカ</b>として動作しています。"
 
 #: templates/server/status/status/index.twig:61
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
-msgstr ""
-"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>マスタ</b>として動作"
-"しています。"
+msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>プライマリ</b>として動作しています。"
 
 #: templates/server/status/status/index.twig:63
-#, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
-msgstr ""
-"この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>スレーブ</b>として動"
-"作しています。"
+msgstr "この MySQL サーバは、<b>レプリケーション</b>プロセスの<b>レプリカ</b>として動作しています。"
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
