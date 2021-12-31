@@ -92,7 +92,7 @@ interface DbalInterface
      * @param bool|int     $limit_count  number of tables to return
      * @param string       $sort_by      table attribute to sort by
      * @param string       $sort_order   direction to sort (ASC or DESC)
-     * @param string       $table_type   whether table or view
+     * @param string|null  $table_type   whether table or view
      * @param mixed        $link         link type
      *
      * @return array           list of tables in given db(s)
@@ -123,15 +123,14 @@ interface DbalInterface
     /**
      * returns array with databases containing extended infos about them
      *
-     * @param string   $database     database
-     * @param bool     $force_stats  retrieve stats also for MySQL < 5
-     * @param int      $link         link type
-     * @param string   $sort_by      column to order by
-     * @param string   $sort_order   ASC or DESC
-     * @param int      $limit_offset starting offset for LIMIT
-     * @param bool|int $limit_count  row count for LIMIT or true
-     *                               for
-     *                               $GLOBALS['cfg']['MaxDbList']
+     * @param string|null $database     database
+     * @param bool        $force_stats  retrieve stats also for MySQL < 5
+     * @param int         $link         link type
+     * @param string      $sort_by      column to order by
+     * @param string      $sort_order   ASC or DESC
+     * @param int         $limit_offset starting offset for LIMIT
+     * @param bool|int    $limit_count  row count for LIMIT or true
+     *                                  for $GLOBALS['cfg']['MaxDbList']
      *
      * @return array
      *
@@ -161,10 +160,10 @@ interface DbalInterface
      * returns detailed array with all columns for given table in database,
      * or all tables/databases
      *
-     * @param string $database name of database
-     * @param string $table    name of table to retrieve columns from
-     * @param string $column   name of specific column
-     * @param mixed  $link     mysql link resource
+     * @param string|null $database name of database
+     * @param string|null $table    name of table to retrieve columns from
+     * @param string|null $column   name of specific column
+     * @param mixed       $link     mysql link resource
      *
      * @return array
      */
@@ -449,9 +448,9 @@ interface DbalInterface
      * returns details about the PROCEDUREs or FUNCTIONs for a specific database
      * or details about a specific routine
      *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION or null for both
-     * @param string $name  name of the routine (to fetch a specific routine)
+     * @param string      $db    db name
+     * @param string|null $which PROCEDURE | FUNCTION or null for both
+     * @param string      $name  name of the routine (to fetch a specific routine)
      *
      * @return array information about ROCEDUREs or FUNCTIONs
      */
@@ -516,7 +515,7 @@ interface DbalInterface
      * @param int        $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
      *                           or CONNECT_AUXILIARY.
      * @param array|null $server Server information like host/port/socket/persistent
-     * @param int        $target How to store connection link, defaults to $mode
+     * @param int|null   $target How to store connection link, defaults to $mode
      *
      * @return mixed false on error or a connection object on success
      */
