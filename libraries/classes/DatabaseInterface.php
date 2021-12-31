@@ -205,7 +205,7 @@ class DatabaseInterface implements DbalInterface
         int $options = self::QUERY_BUFFERED,
         bool $cache_affected_rows = true
     ) {
-        $debug = isset($GLOBALS['cfg']['DBG']) ? $GLOBALS['cfg']['DBG']['sql'] : false;
+        $debug = isset($GLOBALS['cfg']['DBG']) && $GLOBALS['cfg']['DBG']['sql'];
         if (! isset($this->links[$link])) {
             return false;
         }
