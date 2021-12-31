@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-26 00:12+0000\n"
-"PO-Revision-Date: 2021-12-18 06:51+0000\n"
+"PO-Revision-Date: 2022-01-01 16:54+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4364,7 +4364,7 @@ msgstr "Ignorar tabelas bloqueadas"
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:479
 msgid "Edit"
-msgstr "Edita"
+msgstr "Editar"
 
 #: libraries/classes/Config/Descriptions.php:950
 #: libraries/classes/Html/Generator.php:633
@@ -6392,7 +6392,7 @@ msgstr "Total:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Loading logs"
-msgstr "Carregando registos"
+msgstr "A carregar registos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:296
 msgid "Monitor refresh failed"
@@ -6501,7 +6501,7 @@ msgstr "Aplicar"
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
-msgstr "Carregando…"
+msgstr "A carregar…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Request aborted!!"
@@ -15961,7 +15961,7 @@ msgstr "O ficheiro está a ser processado, por favor aguarde."
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
-msgstr "Carregando o seu ficheiro importado…"
+msgstr "A carregar o seu ficheiro importado…"
 
 #: templates/import/javascript.twig:152
 msgid ""
