@@ -446,11 +446,10 @@ class DatabaseInterface implements DbalInterface
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
         // this is why we fall back to SHOW TABLE STATUS even for MySQL >= 50002
-        if (empty($tables)) {
+        if ($tables === []) {
+            $sql = 'SHOW TABLE STATUS FROM ' . Util::backquote($database);
             if ($table || ($tbl_is_group === true) || $table_type) {
-                $sql = 'SHOW TABLE STATUS FROM '
-                    . Util::backquote($database)
-                    . ' WHERE';
+                $sql .= ' WHERE';
                 $needAnd = false;
                 if ($table || ($tbl_is_group === true)) {
                     if (is_array($table)) {
@@ -488,9 +487,6 @@ class DatabaseInterface implements DbalInterface
                         $sql .= " `Comment` != 'VIEW'";
                     }
                 }
-            } else {
-                $sql = 'SHOW TABLE STATUS FROM '
-                    . Util::backquote($database);
             }
 
             $each_tables = $this->fetchResult($sql, 'Name', null, $link);
