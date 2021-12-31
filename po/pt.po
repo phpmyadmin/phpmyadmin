@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2021-12-18 06:50+0000\n"
+"PO-Revision-Date: 2022-01-01 16:54+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4314,7 +4314,7 @@ msgstr "Ignorar tabelas bloqueadas"
 #: templates/server/variables/index.twig:44 templates/setup/home/index.twig:57
 #: templates/table/structure/display_structure.twig:436
 msgid "Edit"
-msgstr "Edita"
+msgstr "Editar"
 
 #: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Html/Generator.php:657
@@ -4502,7 +4502,7 @@ msgstr "Mostrar consulta de navegação atual"
 #: libraries/classes/Config/Descriptions.php:989
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Executa os queries carregando em Enter e insere uma nova linha com Shift + "
+"Executa os queries carregando no Enter e insere uma nova linha com Shift + "
 "Enter"
 
 #: libraries/classes/Config/Descriptions.php:990
@@ -6317,7 +6317,7 @@ msgstr "Total:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 msgid "Loading logs"
-msgstr "Carregando registos"
+msgstr "A carregar registos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Monitor refresh failed"
@@ -6413,7 +6413,7 @@ msgstr "Aplicar"
 #: templates/navigation/main.twig:58
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
-msgstr "Carregando…"
+msgstr "A carregar…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
@@ -15961,7 +15961,7 @@ msgstr "O ficheiro está a ser processado, por favor aguarde."
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
-msgstr "Carregando o seu ficheiro importado…"
+msgstr "A carregar o seu ficheiro importado…"
 
 #: templates/import/javascript.twig:153
 msgid ""
