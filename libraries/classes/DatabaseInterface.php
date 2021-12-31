@@ -1047,11 +1047,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function postConnect(): void
     {
-        $version = $this->fetchSingleRow(
-            'SELECT @@version, @@version_comment',
-            DbalInterface::FETCH_ASSOC,
-            self::CONNECT_USER
-        );
+        $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
         if (is_array($version)) {
             $this->versionString = $version['@@version'] ?? '';
