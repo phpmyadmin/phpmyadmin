@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-12-17 23:52+0000\n"
+"PO-Revision-Date: 2022-01-01 16:53+0000\n"
 "Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1639,7 +1639,7 @@ msgstr "Total:"
 
 #: js/messages.php:313
 msgid "Loading logs"
-msgstr "Carregando registos"
+msgstr "A carregar registos"
 
 #: js/messages.php:314
 msgid "Monitor refresh failed"
@@ -1764,7 +1764,7 @@ msgstr "Aplicar"
 #: js/messages.php:362 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 msgid "Loading…"
-msgstr "Carregando…"
+msgstr "A carregar…"
 
 #: js/messages.php:363
 msgid "Request aborted!!"
@@ -1953,7 +1953,7 @@ msgstr "Mostrar Caixa do query"
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
 msgid "Edit"
-msgstr "Edita"
+msgstr "Editar"
 
 #: js/messages.php:423 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
@@ -6220,7 +6220,7 @@ msgstr "Mostrar consulta de navegação atual"
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Executa os queries carregando em Enter e insere uma nova linha com Shift + "
+"Executa os queries carregando no Enter e insere uma nova linha com Shift + "
 "Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
@@ -15537,7 +15537,7 @@ msgstr "O ficheiro está a ser processado, por favor aguarde."
 
 #: templates/display/import/javascript.twig:36
 msgid "Uploading your import file…"
-msgstr "Carregando o seu ficheiro importado…"
+msgstr "A carregar o seu ficheiro importado…"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
