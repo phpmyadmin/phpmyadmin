@@ -184,7 +184,7 @@ class Pdf extends PdfLib
         // as this can lead to infinite recursion as auto generated page
         // will want header as well causing another page break
         // FIXME: Better approach might be to try to compact the content
-        $this->SetAutoPageBreak(false);
+        $this->setAutoPageBreak(false);
         // Check if header for this page already exists
         // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         if (! isset($this->headerset[$this->page])) {
@@ -231,7 +231,7 @@ class Pdf extends PdfLib
         // phpcs:enable
 
         $this->dataY = $maxY;
-        $this->SetAutoPageBreak(true);
+        $this->setAutoPageBreak(true);
     }
 
     /**

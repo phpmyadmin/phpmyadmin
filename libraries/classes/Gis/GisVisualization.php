@@ -484,7 +484,7 @@ class GisVisualization
         $pdf->setPrintFooter(false);
 
         //set auto page breaks
-        $pdf->SetAutoPageBreak(false);
+        $pdf->setAutoPageBreak(false);
 
         // add a page
         $pdf->AddPage();

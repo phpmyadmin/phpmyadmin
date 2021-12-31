@@ -138,7 +138,7 @@ class PdfRelationSchema extends ExportRelationSchema
         );
         $this->diagram->setCMargin(0);
         $this->diagram->Open();
-        $this->diagram->SetAutoPageBreak('auto');
+        $this->diagram->setAutoPageBreak(true);
         $this->diagram->setOffline($this->offline);
 
         $alltables = $this->getTablesFromRequest();
@@ -149,10 +149,10 @@ class PdfRelationSchema extends ExportRelationSchema
         }
 
         if ($this->withDoc) {
-            $this->diagram->SetAutoPageBreak('auto', 15);
+            $this->diagram->setAutoPageBreak(true, 15);
             $this->diagram->setCMargin(1);
             $this->dataDictionaryDoc($alltables);
-            $this->diagram->SetAutoPageBreak('auto');
+            $this->diagram->setAutoPageBreak(true);
             $this->diagram->setCMargin(0);
         }
 
@@ -548,7 +548,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $z = 0;
         foreach ($alltables as $table) {
             $z++;
-            $this->diagram->SetAutoPageBreak(true, 15);
+            $this->diagram->setAutoPageBreak(true, 15);
             $this->diagram->AddPage($this->orientation);
             $this->diagram->Bookmark($table);
             $this->diagram->setAlias(

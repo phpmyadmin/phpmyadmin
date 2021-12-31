@@ -71,7 +71,7 @@
     "conflict": {
         "bacon/bacon-qr-code": "<2.0",
         "pragmarx/google2fa-qrcode": "<2.1",
-        "tecnickcom/tcpdf": "<6.2"
+        "tecnickcom/tcpdf": "<6.4.4"
     },
     "suggest": {
         "ext-curl": "Updates checking",
@@ -100,7 +100,7 @@
         "roave/security-advisories": "dev-latest",
         "code-lts/u2f-php-server": "^1.2",
         "symfony/console": "^5.2.3",
-        "tecnickcom/tcpdf": "^6.4.3",
+        "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^4.15.0"
     },
     "extra": {

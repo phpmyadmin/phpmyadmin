@@ -11397,12 +11397,9 @@
       <code>$this-&gt;tables[$foreignTable]</code>
       <code>$this-&gt;tables[$masterTable]</code>
     </InvalidCast>
-    <InvalidScalarArgument occurrences="5">
+    <InvalidScalarArgument occurrences="2">
       <code>$this-&gt;diagram-&gt;PageNo()</code>
       <code>$this-&gt;diagram-&gt;PageNo()</code>
-      <code>'auto'</code>
-      <code>'auto'</code>
-      <code>'auto'</code>
     </InvalidScalarArgument>
     <MixedArgument occurrences="25">
       <code>$_REQUEST['pdf_table_order']</code>
@@ -11534,9 +11531,6 @@
       <code>Cell</code>
       <code>Open</code>
       <code>PageNo</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetAutoPageBreak</code>
-      <code>SetAutoPageBreak</code>
       <code>SetDrawColor</code>
       <code>SetFontSize</code>
       <code>SetLink</code>
