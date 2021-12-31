@@ -475,7 +475,7 @@ interface DbalInterface
      *
      * @return array information about triggers (may be empty)
      */
-    public function getTriggers(string $db, string $table = '', $delimiter = '//');
+    public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array;
 
     /**
      * gets the current user with host

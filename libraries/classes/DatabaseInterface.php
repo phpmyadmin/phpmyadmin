@@ -1584,7 +1584,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return array information about triggers (may be empty)
      */
-    public function getTriggers(string $db, string $table = '', $delimiter = '//')
+    public function getTriggers(string $db, string $table = '', string $delimiter = '//'): array
     {
         $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
