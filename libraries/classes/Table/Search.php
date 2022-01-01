@@ -26,10 +26,7 @@ final class Search
     /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @param DatabaseInterface $dbi A DatabaseInterface instance.
-     */
-    public function __construct($dbi)
+    public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
     }
