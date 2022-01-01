@@ -788,12 +788,7 @@ class Results
                     'pos',
                     $_SESSION['tmpval']['max_rows'],
                     $pageNow,
-                    $nbTotalPage,
-                    200,
-                    5,
-                    5,
-                    20,
-                    10
+                    $nbTotalPage
                 ),
             ]);
         }
