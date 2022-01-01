@@ -716,7 +716,6 @@ class Results
      * @param bool   $back            whether 'begin' or 'previous'
      * @param string $onsubmit        optional onsubmit clause
      * @param string $inputForRealEnd optional hidden field for special treatment
-     * @param string $onclick         optional onclick clause
      *
      * @return string                     html content
      */
@@ -727,8 +726,7 @@ class Results
         $htmlSqlQuery,
         $back,
         $onsubmit = '',
-        $inputForRealEnd = '',
-        $onclick = ''
+        $inputForRealEnd = ''
     ): string {
         $captionOutput = '';
         if ($back) {
@@ -760,7 +758,6 @@ class Results
             'caption_output' => $captionOutput,
             'title' => $title,
             'onsubmit' => $onsubmit,
-            'onclick' => $onclick,
         ]);
     }
 
