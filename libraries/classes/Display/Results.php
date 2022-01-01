@@ -3350,7 +3350,7 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif ($meta->isBinary() && ! ($isAnalyse === true)) {
+        } elseif ($meta->isBinary() && $isAnalyse !== true) {
             // we show the BINARY or BLOB message and field's size
             // (or maybe use a transformation)
             $binaryOrBlob = 'BLOB';
@@ -3647,7 +3647,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if (($displayParts['nav_bar'] == '1')) {
+        if ($displayParts['nav_bar'] == '1') {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $analyzedSqlResults,
