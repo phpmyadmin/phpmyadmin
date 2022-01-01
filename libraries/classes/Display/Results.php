@@ -1907,7 +1907,7 @@ class Results
         $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
 
         $urlRemoveOrder = Url::getFromRoute('/sql', $multipleUrlParams);
-        if ($numberOfClausesFound !== null && $numberOfClausesFound === 0) {
+        if ($numberOfClausesFound === 0) {
             $urlRemoveOrder .= '&discard_remembered_sort=1';
         }
 
