@@ -106,8 +106,12 @@ class Designer
             . ' ORDER BY `page_descr`';
         $page_rs = $this->relation->queryAsControlUser($page_query, false, DatabaseInterface::QUERY_STORE);
 
+        if (! $page_rs) {
+            return [];
+        }
+
         $result = [];
-        while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
+        while ($curr_page = $page_rs->fetchAssoc()) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
 

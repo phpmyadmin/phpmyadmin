@@ -8,32 +8,24 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Dbal;
 
 use mysqli;
-use mysqli_result;
 use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
-use function is_bool;
-use function is_object;
 use function mysqli_connect_errno;
 use function mysqli_connect_error;
 use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
-use function property_exists;
 use function stripos;
 use function trigger_error;
 
 use const E_USER_WARNING;
-use const MYSQLI_ASSOC;
-use const MYSQLI_BOTH;
 use const MYSQLI_CLIENT_COMPRESS;
 use const MYSQLI_CLIENT_SSL;
 use const MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
-use const MYSQLI_NUM;
 use const MYSQLI_OPT_LOCAL_INFILE;
 use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
 use const MYSQLI_REPORT_OFF;
@@ -177,16 +169,21 @@ class DbiMysqli implements DbiExtension
      * @param mysqli $link    mysqli object
      * @param int    $options query options
      *
-     * @return mysqli_result|bool
+     * @return MysqliResult|false
      */
-    public function realQuery($query, $link, $options)
+    public function realQuery(string $query, $link, int $options)
     {
         $method = MYSQLI_STORE_RESULT;
         if ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             $method = MYSQLI_USE_RESULT;
         }
 
-        return $link->query($query, $method);
+        $result = $link->query($query, $method);
+        if ($result === false) {
+            return false;
+        }
+
+        return new MysqliResult($result);
     }
 
     /**
@@ -198,73 +195,6 @@ class DbiMysqli implements DbiExtension
     public function realMultiQuery($link, $query): bool
     {
         return $link->multi_query($query);
-    }
-
-    /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param mysqli_result $result result set identifier
-     */
-    public function fetchArray($result): ?array
-    {
-        if (! $result instanceof mysqli_result) {
-            return null;
-        }
-
-        return $result->fetch_array(MYSQLI_BOTH);
-    }
-
-    /**
-     * returns array of rows with associative keys from $result
-     *
-     * @param mysqli_result $result result set identifier
-     */
-    public function fetchAssoc($result): ?array
-    {
-        if (! $result instanceof mysqli_result) {
-            return null;
-        }
-
-        return $result->fetch_array(MYSQLI_ASSOC);
-    }
-
-    /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param mysqli_result $result result set identifier
-     */
-    public function fetchRow($result): ?array
-    {
-        if (! $result instanceof mysqli_result) {
-            return null;
-        }
-
-        return $result->fetch_array(MYSQLI_NUM);
-    }
-
-    /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param mysqli_result $result database result
-     * @param int           $offset offset to seek
-     */
-    public function dataSeek($result, $offset): bool
-    {
-        return $result->data_seek($offset);
-    }
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param mysqli_result $result database result
-     */
-    public function freeResult($result): void
-    {
-        if (! ($result instanceof mysqli_result)) {
-            return;
-        }
-
-        $result->close();
     }
 
     /**
@@ -292,11 +222,13 @@ class DbiMysqli implements DbiExtension
      *
      * @param mysqli $link the mysqli object
      *
-     * @return mysqli_result|bool false when empty results / result set when not empty
+     * @return MysqliResult|false false when empty results / result set when not empty
      */
     public function storeResult($link)
     {
-        return $link->store_result();
+        $result = $link->store_result();
+
+        return $result === false ? false : new MysqliResult($result);
     }
 
     /**
@@ -364,25 +296,6 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * returns the number of rows returned by last query
-     *
-     * @param mysqli_result|bool $result result set identifier
-     *
-     * @return string|int
-     * @psalm-return int|numeric-string
-     */
-    public function numRows($result)
-    {
-        // see the note for tryQuery();
-        if (is_bool($result)) {
-            return 0;
-        }
-
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $result->num_rows;
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param mysqli $link the mysqli object
@@ -394,84 +307,6 @@ class DbiMysqli implements DbiExtension
     {
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         return $link->affected_rows;
-    }
-
-    /**
-     * returns meta info for fields in $result
-     *
-     * @param mysqli_result $result result set identifier
-     *
-     * @return FieldMetadata[]|null meta info for fields in $result
-     */
-    public function getFieldsMeta($result): ?array
-    {
-        if (! $result instanceof mysqli_result) {
-            return null;
-        }
-
-        $fields = [];
-        foreach ($result->fetch_fields() as $k => $field) {
-            $fields[$k] = new FieldMetadata($field->type, $field->flags, $field);
-        }
-
-        return $fields;
-    }
-
-    /**
-     * return number of fields in given $result
-     *
-     * @param mysqli_result $result result set identifier
-     *
-     * @return int field count
-     */
-    public function numFields($result)
-    {
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $result->field_count;
-    }
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param mysqli_result $result result set identifier
-     * @param int           $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, $i)
-    {
-        if ($i >= $this->numFields($result)) {
-            return false;
-        }
-
-        $fieldDefinition = $result->fetch_field_direct($i);
-        if (is_object($fieldDefinition) && property_exists($fieldDefinition, 'length')) {
-            return (int) $fieldDefinition->length;
-        }
-
-        return false;
-    }
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param mysqli_result $result result set identifier
-     * @param int           $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, $i)
-    {
-        if ($i >= $this->numFields($result)) {
-            return '';
-        }
-
-        $fieldDefinition = $result->fetch_field_direct($i);
-        if (is_object($fieldDefinition) && property_exists($fieldDefinition, 'name')) {
-            return (string) $fieldDefinition->name;
-        }
-
-        return '';
     }
 
     /**

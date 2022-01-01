@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Utilities;
@@ -2195,10 +2196,8 @@ class Util
             );
 
             // Blending out tables in use
-            if ($dbInfoResult && $dbi->numRows($dbInfoResult) > 0) {
+            if ($dbInfoResult->numRows() > 0) {
                 $tables = self::getTablesWhenOpen($db, $dbInfoResult);
-            } elseif ($dbInfoResult) {
-                $dbi->freeResult($dbInfoResult);
             }
         }
 
@@ -2319,23 +2318,21 @@ class Util
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @param string $db           database name
-     * @param object $dbInfoResult result set
+     * @param string          $db           database name
+     * @param ResultInterface $dbInfoResult result set
      *
      * @return array list of tables
      */
-    public static function getTablesWhenOpen($db, $dbInfoResult): array
+    public static function getTablesWhenOpen($db, ResultInterface $dbInfoResult): array
     {
         global $dbi;
 
         $sotCache = [];
         $tables = [];
 
-        while ($tmp = $dbi->fetchAssoc($dbInfoResult)) {
+        foreach ($dbInfoResult as $tmp) {
             $sotCache[$tmp['Table']] = true;
         }
-
-        $dbi->freeResult($dbInfoResult);
 
         // is there at least one "in use" table?
         if (count($sotCache) > 0) {
@@ -2376,9 +2373,9 @@ class Util
             );
             unset($tblGroupSql, $whereAdded);
 
-            if ($dbInfoResult && $dbi->numRows($dbInfoResult) > 0) {
+            if ($dbInfoResult->numRows() > 0) {
                 $names = [];
-                while ($tmp = $dbi->fetchRow($dbInfoResult)) {
+                while ($tmp = $dbInfoResult->fetchRow()) {
                     if (! isset($sotCache[$tmp[0]])) {
                         $names[] = $tmp[0];
                     } else { // table in use
@@ -2402,8 +2399,6 @@ class Util
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
-            } elseif ($dbInfoResult) {
-                $dbi->freeResult($dbInfoResult);
             }
 
             unset($sotCache);

@@ -184,13 +184,12 @@ class ExportTexytext extends ExportPlugin
 
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $fields_cnt = $dbi->numFields($result);
+        $fields_cnt = $result->numFields();
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
             $text_output = "|------\n";
-            for ($i = 0; $i < $fields_cnt; $i++) {
-                $col_as = $dbi->fieldName($result, $i);
+            foreach ($result->getFieldNames() as $col_as) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
@@ -206,7 +205,7 @@ class ExportTexytext extends ExportPlugin
         }
 
         // Format the data
-        while ($row = $dbi->fetchRow($result)) {
+        while ($row = $result->fetchRow()) {
             $text_output = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j])) {
@@ -230,8 +229,6 @@ class ExportTexytext extends ExportPlugin
                 return false;
             }
         }
-
-        $dbi->freeResult($result);
 
         return true;
     }

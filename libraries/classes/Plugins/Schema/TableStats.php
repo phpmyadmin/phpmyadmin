@@ -132,7 +132,7 @@ abstract class TableStats
 
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
         $result = $dbi->tryQuery($sql, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE);
-        if (! $result || ! $dbi->numRows($result)) {
+        if (! $result || ! $result->numRows()) {
             $this->showMissingTableError();
         }
 
@@ -201,11 +201,11 @@ abstract class TableStats
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        if ($dbi->numRows($result) <= 0) {
+        if ($result->numRows() <= 0) {
             return;
         }
 
-        while ($row = $dbi->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
             }

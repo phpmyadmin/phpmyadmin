@@ -6,6 +6,7 @@ namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\PdfFeature;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\InternalRelations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -29,7 +30,6 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_bool;
 use function is_scalar;
 use function is_string;
 use function ksort;
@@ -69,8 +69,12 @@ class Relation
      * @param string $sql        the query to execute
      * @param bool   $show_error whether to display SQL error messages or not
      * @param int    $options    query options
+     * @psalm-param T $show_error
      *
-     * @return mixed|bool the result set, or false if no result set
+     * @return ResultInterface|false the result set, or false if no result set
+     * @psalm-return (T is true ? ResultInterface : ResultInterface|false)
+     *
+     * @template T as bool
      */
     public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
@@ -78,19 +82,11 @@ class Relation
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
-        $cache_affected_rows = false;
-
         if ($show_error) {
-            $result = $this->dbi->query($sql, DatabaseInterface::CONNECT_CONTROL, $options, $cache_affected_rows);
-        } else {
-            $result = @$this->dbi->tryQuery($sql, DatabaseInterface::CONNECT_CONTROL, $options, $cache_affected_rows);
+            return $this->dbi->query($sql, DatabaseInterface::CONNECT_CONTROL, $options, false);
         }
 
-        if ($result) {
-            return $result;
-        }
-
-        return false;
+        return $this->dbi->tryQuery($sql, DatabaseInterface::CONNECT_CONTROL, $options, false);
     }
 
     public function getRelationParameters(): RelationParameters
@@ -194,11 +190,11 @@ class Relation
         $tabQuery = 'SHOW TABLES FROM '
         . Util::backquote($GLOBALS['cfg']['Server']['pmadb']);
         $tableRes = $this->queryAsControlUser($tabQuery, false, DatabaseInterface::QUERY_STORE);
-        if (is_bool($tableRes)) {
+        if ($tableRes === false) {
             return null;
         }
 
-        while ($currTable = @$this->dbi->fetchRow($tableRes)) {
+        while ($currTable = $tableRes->fetchRow()) {
             if ($currTable[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
                 $relationParams['bookmark'] = (string) $currTable[0];
             } elseif ($currTable[0] == $GLOBALS['cfg']['Server']['relation']) {
@@ -239,8 +235,6 @@ class Relation
                 $relationParams['export_templates'] = (string) $currTable[0];
             }
         }
-
-        $this->dbi->freeResult($tableRes);
 
         return $relationParams;
     }
@@ -395,8 +389,8 @@ class Relation
             . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
         $result = $this->queryAsControlUser($query, false, DatabaseInterface::QUERY_STORE);
         if ($result) {
-            $rows = $this->dbi->numRows($result);
-            $this->dbi->freeResult($result);
+            $rows = $result->numRows();
+            unset($result);
             // input transformations are present
             // no need to upgrade
             if ($rows === 2) {
@@ -620,8 +614,8 @@ class Relation
                     . ' AND column_name = \'(db_comment)\'';
             $com_rs = $this->queryAsControlUser($com_qry, false, DatabaseInterface::QUERY_STORE);
 
-            if ($com_rs && $this->dbi->numRows($com_rs) > 0) {
-                $row = $this->dbi->fetchAssoc($com_rs);
+            if ($com_rs && $com_rs->numRows() > 0) {
+                $row = $com_rs->fetchAssoc();
 
                 return (string) $row['comment'];
             }
@@ -638,7 +632,6 @@ class Relation
     public function getDbComments()
     {
         $columnCommentsFeature = $this->getRelationParameters()->columnCommentsFeature;
-        $comments = [];
 
         if ($columnCommentsFeature !== null) {
             // pmadb internal db comment
@@ -648,16 +641,12 @@ class Relation
                     . ' WHERE `column_name` = \'(db_comment)\'';
             $com_rs = $this->queryAsControlUser($com_qry, false, DatabaseInterface::QUERY_STORE);
 
-            if ($com_rs && $this->dbi->numRows($com_rs) > 0) {
-                while ($row = $this->dbi->fetchAssoc($com_rs)) {
-                    $comments[$row['db_name']] = $row['comment'];
-                }
+            if ($com_rs && $com_rs->numRows() > 0) {
+                return $com_rs->fetchAllKeyPair();
             }
-
-            $this->dbi->freeResult($com_rs);
         }
 
-        return $comments;
+        return [];
     }
 
     /**
@@ -1119,17 +1108,12 @@ class Relation
                     $f_query_main . $f_query_from . $f_query_filter
                     . $f_query_order . $f_query_limit
                 );
-                if ($disp && $this->dbi->numRows($disp) > 0) {
+                if ($disp && $disp->numRows() > 0) {
                     // If a resultset has been created, pre-cache it in the $disp_row
                     // array. This helps us from not needing to use mysql_data_seek by
                     // accessing a pre-cached PHP array. Usually those resultsets are
                     // not that big, so a performance hit should not be expected.
-                    $disp_row = [];
-                    while ($single_disp_row = @$this->dbi->fetchAssoc($disp)) {
-                        $disp_row[] = $single_disp_row;
-                    }
-
-                    @$this->dbi->freeResult($disp);
+                    $disp_row = $disp->fetchAllAssoc();
                 } else {
                     // Either no data in the foreign table or
                     // user does not have select permission to foreign table/field
@@ -1388,10 +1372,8 @@ class Relation
      *
      * @param string|null $newpage name of the new PDF page
      * @param string      $db      database name
-     *
-     * @return int|false
      */
-    public function createPage(?string $newpage, PdfFeature $pdfFeature, $db)
+    public function createPage(?string $newpage, PdfFeature $pdfFeature, $db): int
     {
         $ins_query = 'INSERT INTO '
             . Util::backquote($pdfFeature->database) . '.'

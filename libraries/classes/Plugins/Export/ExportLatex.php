@@ -300,8 +300,8 @@ class ExportLatex extends ExportPlugin
         $columns_cnt = $dbi->numFields($result);
         $columns = [];
         $columns_alias = [];
-        for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = $col_as = $dbi->fieldName($result, $i);
+        foreach ($result->getFieldNames() as $i => $col_as) {
+            $columns[$i] = $col_as;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -393,7 +393,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = $dbi->fetchAssoc($result)) {
+        while ($record = $result->fetchAssoc()) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -420,13 +420,8 @@ class ExportLatex extends ExportPlugin
         }
 
         $buffer = ' \\end{longtable}' . $crlf;
-        if (! $this->export->outputHandler($buffer)) {
-            return false;
-        }
 
-        $dbi->freeResult($result);
-
-        return true;
+        return $this->export->outputHandler($buffer);
     }
 
     /**

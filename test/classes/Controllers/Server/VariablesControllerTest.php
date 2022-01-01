@@ -12,7 +12,9 @@ use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProv
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
 use function __;
@@ -85,7 +87,16 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $controller = new VariablesController($response, new Template(), $GLOBALS['dbi']);
+        $resultStub = $this->createMock(DummyResult::class);
+
+        /** @var MockObject&DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->with('SHOW SESSION VARIABLES;')
+            ->willReturn($resultStub);
+
+        $controller = new VariablesController($response, new Template(), $dbi);
 
         $controller();
         $html = $response->getHTMLResult();

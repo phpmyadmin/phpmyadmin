@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
 
 use function sprintf;
@@ -119,13 +120,15 @@ class CommonTest extends AbstractTestCase
     {
         $pg = 1;
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->exactly(2))
             ->method('query')
-            ->willReturnOnConsecutiveCalls(true, true);
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub);
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

@@ -143,9 +143,10 @@ class TrackingTest extends AbstractTestCase
     public function testGetTableLastVersionNumber(): void
     {
         $sql_result = $this->tracking->getSqlResultForSelectableTables('PMA_db');
-        $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
+        $this->assertNotFalse($sql_result);
 
-        $this->assertEquals('10', $last_version);
+        $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
+        $this->assertSame(10, $last_version);
     }
 
     /**

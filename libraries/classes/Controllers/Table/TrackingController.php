@@ -41,7 +41,7 @@ final class TrackingController extends AbstractController
     {
         global $text_dir, $urlParams, $msg, $errorUrl;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
-        global $selection_data, $selection_both, $sql_result, $db, $table, $cfg;
+        global $selection_data, $selection_both, $db, $table, $cfg;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
@@ -170,7 +170,7 @@ final class TrackingController extends AbstractController
         // Export as SQL execution
         $message = '';
         if (isset($_POST['report_export']) && $_POST['export_type'] === 'execution') {
-            $sql_result = $this->tracking->exportAsSqlExecution($entries);
+            $this->tracking->exportAsSqlExecution($entries);
             $msg = Message::success(__('SQL statements executed.'));
             $message = $msg->getDisplay();
         }

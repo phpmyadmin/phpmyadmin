@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\ResultInterface;
+
 use function explode;
 use function mb_strtoupper;
 
@@ -43,7 +45,7 @@ class Replication
      *                             SQL_THREAD and IO_THREAD
      * @param int         $link    mysql link
      *
-     * @return mixed|int output of DatabaseInterface::tryQuery
+     * @return ResultInterface|false|int output of DatabaseInterface::tryQuery
      */
     public function replicaControl(string $action, ?string $control, int $link)
     {
@@ -75,7 +77,7 @@ class Replication
      * @param bool   $start    shall we start replica?
      * @param int    $link     mysql link
      *
-     * @return string output of CHANGE MASTER mysql command
+     * @return ResultInterface|false output of CHANGE MASTER mysql command
      */
     public function replicaChangePrimary(
         $user,

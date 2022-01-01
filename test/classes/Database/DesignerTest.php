@@ -9,6 +9,7 @@ use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
 use ReflectionMethod;
 
@@ -58,6 +59,8 @@ class DesignerTest extends AbstractTestCase
      */
     private function mockDatabaseInteraction(string $db): void
     {
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -71,9 +74,9 @@ class DesignerTest extends AbstractTestCase
                 DatabaseInterface::QUERY_STORE,
                 false
             )
-            ->will($this->returnValue('dummyRS'));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->exactly(3))
+        $resultStub->expects($this->exactly(3))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
                 [
@@ -84,7 +87,7 @@ class DesignerTest extends AbstractTestCase
                     'page_nr' => '2',
                     'page_descr' => 'page2',
                 ],
-                null
+                []
             );
 
         $dbi->expects($this->any())

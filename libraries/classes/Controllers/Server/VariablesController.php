@@ -52,12 +52,9 @@ class VariablesController extends AbstractController
         $variables = [];
         $serverVarsResult = $this->dbi->tryQuery('SHOW SESSION VARIABLES;');
         if ($serverVarsResult !== false) {
-            $serverVarsSession = [];
-            while ($arr = $this->dbi->fetchRow($serverVarsResult)) {
-                $serverVarsSession[$arr[0]] = $arr[1];
-            }
+            $serverVarsSession = $serverVarsResult->fetchAllKeyPair();
 
-            $this->dbi->freeResult($serverVarsResult);
+            unset($serverVarsResult);
 
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 

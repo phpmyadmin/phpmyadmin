@@ -412,17 +412,13 @@ class Node
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
 
-                return $dbi->numRows(
-                    $dbi->tryQuery($query)
-                );
+                return (int) $dbi->queryAndGetNumRows($query);
             }
 
             $retval = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $retval += $dbi->numRows(
-                    $dbi->tryQuery($query)
-                );
+                $retval += (int) $dbi->queryAndGetNumRows($query);
             }
 
             return $retval;
@@ -451,7 +447,7 @@ class Node
                     continue;
                 }
 
-                while ($arr = $dbi->fetchArray($handle)) {
+                while ($arr = $handle->fetchRow()) {
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
@@ -473,7 +469,7 @@ class Node
         $query .= $this->getWhereClause('Database', $searchClause);
         $handle = $dbi->tryQuery($query);
         if ($handle !== false) {
-            while ($arr = $dbi->fetchArray($handle)) {
+            while ($arr = $handle->fetchRow()) {
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
@@ -723,7 +719,7 @@ class Node
                 return $retval;
             }
 
-            while ($arr = $dbi->fetchArray($handle)) {
+            while ($arr = $handle->fetchRow()) {
                 if ($count >= $maxItems) {
                     break;
                 }
@@ -744,7 +740,7 @@ class Node
         if ($handle !== false) {
             $prefixMap = [];
             $total = $pos + $maxItems;
-            while ($arr = $dbi->fetchArray($handle)) {
+            while ($arr = $handle->fetchRow()) {
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
@@ -797,7 +793,7 @@ class Node
                     continue;
                 }
 
-                while ($arr = $dbi->fetchArray($handle)) {
+                while ($arr = $handle->fetchRow()) {
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
@@ -830,7 +826,7 @@ class Node
                 continue;
             }
 
-            while ($arr = $dbi->fetchArray($handle)) {
+            while ($arr = $handle->fetchRow()) {
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }
@@ -855,7 +851,7 @@ class Node
                 continue;
             }
 
-            while ($arr = $dbi->fetchArray($handle)) {
+            while ($arr = $handle->fetchRow()) {
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }

@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -381,6 +382,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 1
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -409,23 +412,18 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('numRows')
             ->will($this->returnValue(1));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['fieldname' => 'testComment'],
-                    ]
-                )
-            );
+            ->will($this->returnValue(['comment' => 'testComment']));
+
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -463,6 +461,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -497,23 +497,18 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->once())
+            ->method('tryQuery')
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('numRows')
             ->will($this->returnValue(1));
 
-        $dbi->expects($this->any())
+        $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['field' => 'testComment'],
-                    ]
-                )
-            );
+            ->will($this->returnValue(['comment' => 'testComment']));
+
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -536,7 +531,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
 
-         // case 3
+        // case 3
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -554,23 +549,9 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with('database', '')
             ->will($this->returnValue([$columns]));
 
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
+        $dbi->expects($this->never())
+            ->method('tryQuery');
 
-        $dbi->expects($this->any())
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'comment' => ['field' => 'testComment'],
-                    ]
-                )
-            );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

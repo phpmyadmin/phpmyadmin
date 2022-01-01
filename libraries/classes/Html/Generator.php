@@ -463,33 +463,31 @@ class Generator
 
         $ret = '';
         $result = $dbi->query($sqlQuery);
-        if ($result) {
-            $devider = '+';
-            $columnNames = '|';
-            $fieldsMeta = $dbi->getFieldsMeta($result);
-            foreach ($fieldsMeta as $meta) {
-                $devider .= '---+';
-                $columnNames .= ' ' . $meta->name . ' |';
-            }
+        $devider = '+';
+        $columnNames = '|';
+        $fieldsMeta = $dbi->getFieldsMeta($result);
+        foreach ($fieldsMeta as $meta) {
+            $devider .= '---+';
+            $columnNames .= ' ' . $meta->name . ' |';
+        }
 
-            $devider .= "\n";
+        $devider .= "\n";
 
-            $ret .= $devider . $columnNames . "\n" . $devider;
-            while ($row = $dbi->fetchRow($result)) {
-                $values = '|';
-                foreach ($row as $value) {
-                    if ($value === null) {
-                        $value = 'NULL';
-                    }
-
-                    $values .= ' ' . $value . ' |';
+        $ret .= $devider . $columnNames . "\n" . $devider;
+        while ($row = $dbi->fetchRow($result)) {
+            $values = '|';
+            foreach ($row as $value) {
+                if ($value === null) {
+                    $value = 'NULL';
                 }
 
-                $ret .= $values . "\n";
+                $values .= ' ' . $value . ' |';
             }
 
-            $ret .= $devider;
+            $ret .= $values . "\n";
         }
+
+        $ret .= $devider;
 
         return $ret;
     }

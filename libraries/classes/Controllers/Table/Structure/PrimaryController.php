@@ -121,7 +121,7 @@ final class PrimaryController extends AbstractController
             'SHOW KEYS FROM ' . Util::backquote($this->table) . ';'
         );
         $primary = '';
-        while ($row = $this->dbi->fetchAssoc($result)) {
+        foreach ($result as $row) {
             // Backups the list of primary keys
             if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
@@ -129,8 +129,6 @@ final class PrimaryController extends AbstractController
 
             $primary .= $row['Column_name'] . ', ';
         }
-
-        $this->dbi->freeResult($result);
 
         return $primary;
     }

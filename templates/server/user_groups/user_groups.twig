@@ -1,5 +1,5 @@
 <div class="row"><h2>{% trans 'User groups' %}</h2></div>
-{% if  has_rows > 0 %}
+{% if  has_rows %}
     <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
         {{ hidden_inputs|raw  }}
         <table class="table table-light table-striped table-hover">

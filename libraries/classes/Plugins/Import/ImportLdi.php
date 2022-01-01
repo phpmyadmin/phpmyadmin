@@ -197,13 +197,15 @@ class ImportLdi extends AbstractImportCsv
         $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
         $result = $dbi->tryQuery('SELECT @@local_infile;');
 
-        if ($result != false && $dbi->numRows($result) > 0) {
-            $tmp = $dbi->fetchRow($result);
-            if ($tmp[0] === 'ON' || $tmp[0] === '1') {
-                $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
-            }
+        if ($result === false || $result->numRows() <= 0) {
+            return;
         }
 
-        $dbi->freeResult($result);
+        $tmp = $result->fetchValue();
+        if ($tmp !== 'ON' && $tmp !== '1') {
+            return;
+        }
+
+        $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
     }
 }

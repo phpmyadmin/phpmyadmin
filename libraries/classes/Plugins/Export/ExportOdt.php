@@ -235,9 +235,9 @@ class ExportOdt extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $fields_cnt = $dbi->numFields($result);
-        /** @var FieldMetadata[] $fields_meta */
-        $fields_meta = $dbi->getFieldsMeta($result);
+        $fields_cnt = $result->numFields();
+        /** @var FieldMetadata[] $fieldsMeta */
+        $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
             . ' text:is-list-header="true">';
@@ -253,8 +253,8 @@ class ExportOdt extends ExportPlugin
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
-            for ($i = 0; $i < $fields_cnt; $i++) {
-                $col_as = $dbi->fieldName($result, $i);
+            foreach ($fieldsMeta as $field) {
+                $col_as = $field->name;
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
@@ -272,10 +272,10 @@ class ExportOdt extends ExportPlugin
         }
 
         // Format the data
-        while ($row = $dbi->fetchRow($result)) {
+        while ($row = $result->fetchRow()) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if ($fields_meta[$j]->isMappedTypeGeometry) {
+                if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
@@ -286,15 +286,15 @@ class ExportOdt extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->isBinary && $fields_meta[$j]->isBlob) {
+                } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
                     // ignore BLOB
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 } elseif (
-                    $fields_meta[$j]->isNumeric
-                    && ! $fields_meta[$j]->isMappedTypeTimestamp
-                    && ! $fields_meta[$j]->isBlob
+                    $fieldsMeta[$j]->isNumeric
+                    && ! $fieldsMeta[$j]->isMappedTypeTimestamp
+                    && ! $fieldsMeta[$j]->isBlob
                 ) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
@@ -313,8 +313,6 @@ class ExportOdt extends ExportPlugin
 
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
-
-        $dbi->freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 

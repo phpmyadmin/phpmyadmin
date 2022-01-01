@@ -135,9 +135,7 @@ class NodeDatabase extends Node
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Tables_in_' . $db);
             }
 
-            $retval = $dbi->numRows(
-                $dbi->tryQuery($query)
-            );
+            $retval = $dbi->queryAndGetNumRows($query);
         }
 
         return $retval;
@@ -207,9 +205,7 @@ class NodeDatabase extends Node
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
-            $retval = $dbi->numRows(
-                $dbi->tryQuery($query)
-            );
+            $retval = $dbi->queryAndGetNumRows($query);
         }
 
         return $retval;
@@ -249,9 +245,7 @@ class NodeDatabase extends Node
                 $query .= 'AND ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
-            $retval = $dbi->numRows(
-                $dbi->tryQuery($query)
-            );
+            $retval = $dbi->queryAndGetNumRows($query);
         }
 
         return $retval;
@@ -290,9 +284,7 @@ class NodeDatabase extends Node
                 $query .= 'WHERE ' . $this->getWhereClauseForSearch($searchClause, $singleItem, 'Name');
             }
 
-            $retval = $dbi->numRows(
-                $dbi->tryQuery($query)
-            );
+            $retval = $dbi->queryAndGetNumRows($query);
         }
 
         return $retval;
@@ -405,16 +397,11 @@ class NodeDatabase extends Node
             . "' AND `db_name`='" . $dbi->escapeString($db)
             . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
-        $hiddenItems = [];
         if ($result) {
-            while ($row = $dbi->fetchArray($result)) {
-                $hiddenItems[] = $row[0];
-            }
+            return $result->fetchAllColumn();
         }
 
-        $dbi->freeResult($result);
-
-        return $hiddenItems;
+        return [];
     }
 
     /**
@@ -468,7 +455,7 @@ class NodeDatabase extends Node
             if ($handle !== false) {
                 $count = 0;
                 if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                    while ($arr = $handle->fetchRow()) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -553,8 +540,8 @@ class NodeDatabase extends Node
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -637,8 +624,8 @@ class NodeDatabase extends Node
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
-                if ($dbi->dataSeek($handle, $pos)) {
-                    while ($arr = $dbi->fetchArray($handle)) {
+                if ($handle->seek($pos)) {
+                    while ($arr = $handle->fetchAssoc()) {
                         if ($count >= $maxItems) {
                             break;
                         }

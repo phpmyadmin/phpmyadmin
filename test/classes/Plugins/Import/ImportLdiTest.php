@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function __;
@@ -104,16 +105,17 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
+
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())->method('numRows')
+            ->will($this->returnValue($resultStub));
+
+        $resultStub->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = ['ON'];
-        $dbi->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue($fetchRowResult));
-
-        $GLOBALS['dbi'] = $dbi;
+        $resultStub->expects($this->any())->method('fetchValue')
+            ->will($this->returnValue('ON'));
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();

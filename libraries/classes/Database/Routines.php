@@ -354,7 +354,9 @@ class Routines
             // but were unable to create the new one
             // Try to restore the backup query
             $result = $this->dbi->tryQuery($create_routine);
-            $errors = $this->checkResult($result, $create_routine, $errors);
+            if (! $result) {
+                $errors = $this->checkResult($create_routine, $errors);
+            }
 
             return [
                 $errors,
@@ -379,7 +381,8 @@ class Routines
                     . $priv[5] . '", "'
                     . $priv[6] . '", "'
                     . $priv[7] . '");';
-                $resultAdjust = $this->dbi->query($adjustProcPrivilege);
+                $this->dbi->query($adjustProcPrivilege);
+                $resultAdjust = true;
             }
         }
 
@@ -1185,33 +1188,31 @@ class Routines
 
             do {
                 $result = $this->dbi->storeResult();
-                $num_rows = $this->dbi->numRows($result);
 
-                if (($result !== false) && ($num_rows > 0)) {
+                if ($result !== false && $result->numRows() > 0) {
                     $output .= '<table class="table table-light table-striped w-auto"><tr>';
-                    $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
-                    foreach ($fieldsMeta as $field) {
+                    foreach ($result->getFieldNames() as $field) {
                         $output .= '<th>';
-                        $output .= htmlspecialchars($field->name);
+                        $output .= htmlspecialchars($field);
                         $output .= '</th>';
                     }
 
                     $output .= '</tr>';
 
-                    while ($row = $this->dbi->fetchAssoc($result)) {
+                    foreach ($result as $row) {
                         $output .= '<tr>' . $this->browseRow($row) . '</tr>';
                     }
 
                     $output .= '</table>';
                     $nbResultsetToDisplay++;
-                    $affected = $num_rows;
+                    $affected = $result->numRows();
                 }
 
                 if (! $this->dbi->moreResults()) {
                     break;
                 }
 
-                $this->dbi->freeResult($result);
+                unset($result);
 
                 $outcome = $this->dbi->nextResult();
             } while ($outcome);
@@ -1521,18 +1522,13 @@ class Routines
     }
 
     /**
-     * @param resource|bool $result          Query result
-     * @param string        $createStatement Query
-     * @param array         $errors          Errors
+     * @param string $createStatement Query
+     * @param array  $errors          Errors
      *
      * @return array
      */
-    private function checkResult($result, $createStatement, array $errors)
+    private function checkResult($createStatement, array $errors)
     {
-        if ($result) {
-            return $errors;
-        }
-
         // OMG, this is really bad! We dropped the query,
         // failed to create a new one
         // and now even the backup query does not execute!

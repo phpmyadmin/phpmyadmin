@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Cache;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use ReflectionMethod;
@@ -195,6 +196,8 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -239,32 +242,10 @@ class TrackerTest extends AbstractTestCase
                 ['USE `pma_test`'],
                 ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
             )
-            ->willReturnOnConsecutiveCalls('res', 'res', 'res');
-
-        $date = Util::date('Y-m-d H:i:s');
-
-        $expectedMainQuery = '/*NOTRACK*/' . "\n" . 'INSERT INTO `pmadb`.`tracking` (db_name, table_name, version,'
-            . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
-            . ' values (\'pma_test\', \'pma_tbl\', \'1\', \'' . $date . '\', \'' . $date
-            . '\', \'a:2:{s:7:"COLUMNS";a:2:{i:0;a:3:{s:5:"Field";s:6:"field1";s:4:"Type";s:7:"int(11)";'
-            . 's:3:"Key";s:3:"PRI";}i:1;a:3:{s:5:"Field";s:6:"field2";s:4:"Type";s:4:"text";s:3:"Key";s:0:"";}}'
-            . 's:7:"INDEXES";a:1:{i:0;a:3:{s:5:"Table";s:7:"pma_tbl";s:5:"Field";s:6:"field1";'
-            . 's:3:"Key";s:7:"PRIMARY";}}}\', \'# log ' . $date . ' pma_test_user'
-            . "\n" . 'DROP VIEW IF EXISTS `pma_tbl`;' . "\n" . '# log ' . $date . ' pma_test_user'
-            . "\n\n" . ';' . "\n" . '\', \'' . "\n" . '\', \'11\')';
-
-        $queryResults = [
-            [
-                $expectedMainQuery,
-                DatabaseInterface::CONNECT_CONTROL,
-                0,
-                false,
-                'executed',
-            ],
-        ];
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
 
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValueMap($queryResults));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -280,6 +261,8 @@ class TrackerTest extends AbstractTestCase
      */
     public function testDeleteTracking(): void
     {
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -292,7 +275,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('query')
             ->with($sql_query)
-            ->will($this->returnValue('executed'));
+            ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -309,6 +292,8 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -322,7 +307,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('query')
             ->with($this->matches($expectedMainQuery), DatabaseInterface::CONNECT_CONTROL, 0, false)
-            ->will($this->returnValue('executed'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
@@ -352,6 +337,8 @@ class TrackerTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $sql_query = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' .
         "'" . $new_state . "'" .
         " WHERE `db_name` = '" . $dbname . "'" .
@@ -361,26 +348,24 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->exactly(1))
             ->method('query')
             ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
-            ->will($this->returnValue('executed'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = null;
-
         if ($type === null) {
             $method = new ReflectionMethod(Tracker::class, 'changeTracking');
             $method->setAccessible(true);
-            $result = $method->invoke(null, $dbname, $tablename, $version, $new_state);
+            $method->invoke(null, $dbname, $tablename, $version, $new_state);
         } elseif ($type === 'activate') {
-            $result = Tracker::activateTracking($dbname, $tablename, $version);
+            Tracker::activateTracking($dbname, $tablename, $version);
         } elseif ($type === 'deactivate') {
-            $result = Tracker::deactivateTracking($dbname, $tablename, $version);
+            Tracker::deactivateTracking($dbname, $tablename, $version);
         }
 
-        $this->assertTrue($result);
+        // What's the success criteria? What is the expected result?
     }
 
     /**
@@ -422,6 +407,9 @@ class TrackerTest extends AbstractTestCase
         " AND `table_name` = 'pma_table'" .
         " AND `version` = '1.0'";
 
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
+
         $dbi->method('query')
             ->will(
                 $this->returnValueMap(
@@ -431,14 +419,14 @@ class TrackerTest extends AbstractTestCase
                             DatabaseInterface::CONNECT_CONTROL,
                             0,
                             false,
-                            'executed_1',
+                            $resultStub1,
                         ],
                         [
                             $sql_query_2,
                             DatabaseInterface::CONNECT_CONTROL,
                             0,
                             false,
-                            'executed_2',
+                            $resultStub2,
                         ],
                     ]
                 )
@@ -496,17 +484,19 @@ class TrackerTest extends AbstractTestCase
      */
     public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
     {
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue('executed_1'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->once())
             ->method('fetchAssoc')
-            ->with('executed_1')
+            ->with($resultStub)
             ->will($this->returnValue($fetchArrayReturn));
 
         $dbi->expects($this->any())

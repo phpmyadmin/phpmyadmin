@@ -457,13 +457,11 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents']) && $GLOBALS['xml_export_contents']) {
             $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
 
-            $columns_cnt = $dbi->numFields($result);
+            $columns_cnt = $result->numFields();
             $columns = [];
-            for ($i = 0; $i < $columns_cnt; $i++) {
-                $columns[$i] = stripslashes($dbi->fieldName($result, $i));
+            foreach ($result->getFieldNames() as $column) {
+                $columns[] = stripslashes($column);
             }
-
-            unset($i);
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;
@@ -471,7 +469,7 @@ class ExportXml extends ExportPlugin
                 return false;
             }
 
-            while ($record = $dbi->fetchRow($result)) {
+            while ($record = $result->fetchRow()) {
                 $buffer = '        <table name="'
                     . htmlspecialchars($table_alias) . '">' . $crlf;
                 for ($i = 0; $i < $columns_cnt; $i++) {
@@ -498,8 +496,6 @@ class ExportXml extends ExportPlugin
                     return false;
                 }
             }
-
-            $dbi->freeResult($result);
         }
 
         return true;

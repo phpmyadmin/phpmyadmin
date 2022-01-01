@@ -321,14 +321,14 @@ class Qbe
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $allTablesCount = $this->dbi->numRows($allTables);
+        $allTablesCount = $allTables->numRows();
         if ($allTablesCount == 0) {
             echo Message::error(__('No tables found in database.'))->getDisplay();
             exit;
         }
 
         // The tables list gets from MySQL
-        while ([$table] = $this->dbi->fetchRow($allTables)) {
+        foreach ($allTables->fetchAllColumn() as $table) {
             $columns = $this->dbi->getColumns($this->db, $table);
 
             if (empty($this->criteriaTables[$table]) && ! empty($_POST['TableList'])) {
@@ -355,8 +355,6 @@ class Qbe
                 );
             }
         }
-
-        $this->dbi->freeResult($allTables);
 
         // sets the largest width found
         $this->realwidth = $this->formColumnWidth . 'ex';

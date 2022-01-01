@@ -722,8 +722,8 @@ class Pdf extends PdfLib
          * Pass 1 for column widths
          */
         $this->results = $dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $this->numFields = $dbi->numFields($this->results);
-        $this->fields = $dbi->getFieldsMeta($this->results) ?? [];
+        $this->numFields = $this->results->numFields();
+        $this->fields = $dbi->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -848,8 +848,6 @@ class Pdf extends PdfLib
 
         ksort($this->tablewidths);
 
-        $dbi->freeResult($this->results);
-
         // Pass 2
 
         $this->results = $dbi->query($query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
@@ -858,7 +856,6 @@ class Pdf extends PdfLib
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
         $this->morepagestable($this->FontSizePt);
-        $dbi->freeResult($this->results);
     }
 
     public function setTitleFontSize(int $titleFontSize): void

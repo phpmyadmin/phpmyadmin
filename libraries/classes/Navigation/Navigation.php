@@ -270,7 +270,7 @@ class Navigation
 
         $hidden = [];
         if ($result) {
-            while ($row = $this->dbi->fetchArray($result)) {
+            foreach ($result as $row) {
                 $type = $row['item_type'];
                 if (! isset($hidden[$type])) {
                     $hidden[$type] = [];
@@ -279,8 +279,6 @@ class Navigation
                 $hidden[$type][] = $row['item_name'];
             }
         }
-
-        $this->dbi->freeResult($result);
 
         return $hidden;
     }

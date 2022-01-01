@@ -14,6 +14,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -232,22 +233,23 @@ class ExportOdsTest extends AbstractTestCase
 
         $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []);
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with(true)
+            ->with($resultStub)
             ->will($this->returnValue($flags));
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numFields')
-            ->with(true)
             ->will($this->returnValue(8));
 
-        $dbi->expects($this->exactly(2))
+        $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
                 [
@@ -259,7 +261,8 @@ class ExportOdsTest extends AbstractTestCase
                     't>s',
                     'a&b',
                     '<',
-                ]
+                ],
+                []
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -315,33 +318,25 @@ class ExportOdsTest extends AbstractTestCase
         $b->length = 20;
         $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $b);
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with(true)
+            ->with($resultStub)
             ->will($this->returnValue($flags));
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numFields')
-            ->with(true)
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->exactly(2))
-            ->method('fieldName')
-            ->willReturnOnConsecutiveCalls('fna\"me', 'fnam/<e2');
-
-        $dbi->expects($this->exactly(1))
+        $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    null
-                )
-            );
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
@@ -376,29 +371,25 @@ class ExportOdsTest extends AbstractTestCase
 
         $flags = [];
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with(true)
+            ->with($resultStub)
             ->will($this->returnValue($flags));
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
+            ->will($this->returnValue($resultStub));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('numFields')
-            ->with(true)
             ->will($this->returnValue(0));
 
-        $dbi->expects($this->once())
+        $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    null
-                )
-            );
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;

@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 
 use function implode;
 
@@ -45,28 +46,31 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMAQueryAsControlUser(): void
     {
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue('executeResult1'));
+            ->will($this->returnValue($resultStub1));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->will($this->returnValue('executeResult2'));
+            ->will($this->returnValue($resultStub2));
 
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 
         $sql = 'insert into PMA_bookmark A,B values(1, 2)';
-        $this->assertEquals(
-            'executeResult1',
+        $this->assertSame(
+            $resultStub1,
             $this->relation->queryAsControlUser($sql)
         );
-        $this->assertEquals(
-            'executeResult2',
+        $this->assertSame(
+            $resultStub2,
             $this->relation->queryAsControlUser($sql, false)
         );
     }
@@ -150,13 +154,15 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMATryUpgradeTransformations(): void
     {
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->any())
             ->method('numRows')
             ->will($this->returnValue(0));
         $dbi->expects($this->any())

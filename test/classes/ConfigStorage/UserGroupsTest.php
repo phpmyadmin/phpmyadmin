@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\ConfigStorage;
 
+use Generator;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 
 use function htmlspecialchars;
@@ -47,19 +49,18 @@ class UserGroupsTest extends AbstractTestCase
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery)
-            ->will($this->returnValue(true));
-        $dbi->expects($this->once())
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->once())
             ->method('numRows')
-            ->withAnyParameters()
             ->will($this->returnValue(0));
-        $dbi->expects($this->once())
-            ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
@@ -121,6 +122,8 @@ class UserGroupsTest extends AbstractTestCase
         $this->assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
         $this->assertStringContainsString('<input type="text" name="userGroup"', $html);
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -128,19 +131,18 @@ class UserGroupsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($expectedQuery)
-            ->will($this->returnValue(true));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchAssoc')
-            ->willReturnOnConsecutiveCalls(
-                [
-                    'usergroup' => 'ug',
-                    'tab' => 'server_sql',
-                    'allowed' => 'Y',
-                ],
-                null
-            );
-        $dbi->expects($this->once())
-            ->method('freeResult');
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->exactly(1))
+            ->method('getIterator')
+            ->will($this->returnCallback(static function (): Generator {
+                yield from [
+                    [
+                        'usergroup' => 'ug',
+                        'tab' => 'server_sql',
+                        'allowed' => 'Y',
+                    ],
+                ];
+            }));
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));

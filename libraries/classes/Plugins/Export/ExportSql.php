@@ -1429,8 +1429,6 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PhpMyAdmin\DatabaseInterface::QUERY_STORE
-        // with $dbi->numRows() in mysqli
         $result = $dbi->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
             . ' WHERE Name = \'' . $dbi->escapeString((string) $table) . '\'',
@@ -1438,8 +1436,8 @@ class ExportSql extends ExportPlugin
             DatabaseInterface::QUERY_STORE
         );
         if ($result != false) {
-            if ($dbi->numRows($result) > 0) {
-                $tmpres = $dbi->fetchAssoc($result);
+            if ($result->numRows() > 0) {
+                $tmpres = $result->fetchAssoc();
 
                 if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
                     $schemaCreate .= $this->exportComment(
@@ -1471,8 +1469,6 @@ class ExportSql extends ExportPlugin
                     $newCrlf = $this->exportComment() . $crlf;
                 }
             }
-
-            $dbi->freeResult($result);
         }
 
         $schemaCreate .= $newCrlf;
@@ -1532,7 +1528,7 @@ class ExportSql extends ExportPlugin
 
         $row = null;
         if ($result !== false) {
-            $row = $dbi->fetchRow($result);
+            $row = $result->fetchRow();
         }
 
         if ($row) {
@@ -1853,8 +1849,6 @@ class ExportSql extends ExportPlugin
 
             $schemaCreate .= $createQuery;
         }
-
-        $dbi->freeResult($result);
 
         // Restoring old mode.
         Context::$MODE = $oldMode;
@@ -2237,13 +2231,11 @@ class ExportSql extends ExportPlugin
             );
         }
 
-        if ($result == false) {
-            $dbi->freeResult($result);// This makes no sense
-
+        if ($result === false) {
             return true;
         }
 
-        $fieldsCnt = $dbi->numFields($result);
+        $fieldsCnt = $result->numFields();
 
         // Get field information
         /** @var FieldMetadata[] $fieldsMeta */
@@ -2333,7 +2325,7 @@ class ExportSql extends ExportPlugin
             $separator = ';';
         }
 
-        while ($row = $dbi->fetchRow($result)) {
+        while ($row = $result->fetchRow()) {
             if ($current_row == 0) {
                 $head = $this->possibleCRLF()
                     . $this->exportComment()
@@ -2501,8 +2493,6 @@ class ExportSql extends ExportPlugin
                 return false;
             }
         }
-
-        $dbi->freeResult($result);
 
         return true;
     }

@@ -10,6 +10,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use stdClass;
 
 /**
@@ -208,6 +209,8 @@ class TableTest extends AbstractTestCase
             ],
         ];
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -241,11 +244,12 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTablesFull')
             ->will($this->returnValue($databases));
 
-        $dbi->expects($this->any())->method('numRows')
+        $resultStub->expects($this->any())
+            ->method('numRows')
             ->will($this->returnValue(20));
 
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(10));
+            ->will($this->returnValue($resultStub));
 
         $triggers = [
             [
@@ -265,11 +269,8 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->any())->method('getTriggers')
             ->will($this->returnValue($triggers));
 
-        $create_sql = 'CREATE TABLE `PMA`.`PMA_BookMark_2` (
-                    `id` int(11) NOT NULL AUTO_INCREMENT,
-                    `username` text NOT NULL';
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue($create_sql));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->any())->method('insertId')
             ->will($this->returnValue(10));
@@ -1133,14 +1134,16 @@ class TableTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT * FROM `db`.`table` LIMIT 1')
-            ->will($this->returnValue('v1'));
+            ->will($this->returnValue($resultStub));
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
-            ->with('v1')
+            ->with($resultStub)
             ->will($this->returnValue(['aNonValidExampleToRefactor']));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1279,13 +1282,16 @@ class TableTest extends AbstractTestCase
     public function testCheckIfMinRecordsExist(): void
     {
         $old_dbi = $GLOBALS['dbi'];
+
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue('res'));
-        $dbi->expects($this->any())
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->any())
             ->method('numRows')
             ->willReturnOnConsecutiveCalls(0, 10, 200);
         $dbi->expects($this->any())

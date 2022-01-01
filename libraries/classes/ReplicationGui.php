@@ -572,7 +572,7 @@ class ReplicationGui
             $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
 
             $result = $qStop !== false && $qStop !== -1 &&
-                $qReset !== false && $qReset !== -1 &&
+                $qReset !== false &&
                 $qStart !== false && $qStart !== -1;
         } else {
             $qControl = $this->replication->replicaControl(
@@ -601,7 +601,7 @@ class ReplicationGui
         $qStart = $this->replication->replicaControl('START', null, DatabaseInterface::CONNECT_USER);
 
         return $qStop !== false && $qStop !== -1 &&
-            $qSkip !== false && $qSkip !== -1 &&
+            $qSkip !== false &&
             $qStart !== false && $qStart !== -1;
     }
 }

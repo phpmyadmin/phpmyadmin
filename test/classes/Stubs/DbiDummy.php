@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 
 use function addslashes;
@@ -211,14 +212,18 @@ class DbiDummy implements DbiExtension
      * @param object $link    mysql link resource
      * @param int    $options query options
      *
-     * @return mixed
+     * @return DummyResult|false
      */
-    public function realQuery($query, $link = null, $options = 0)
+    public function realQuery(string $query, $link, int $options)
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $filoQuery = $this->findFiloQuery($query);
+        if ($filoQuery === false) {
+            return false;
+        }
+
         if ($filoQuery !== null) {// Found a matching query
-            return $filoQuery;
+            return new DummyResult($this, $filoQuery);
         }
 
         for ($i = 0, $nb = count($this->dummyQueries); $i < $nb; $i++) {
@@ -231,7 +236,7 @@ class DbiDummy implements DbiExtension
                 return false;
             }
 
-            return $i + self::OFFSET_GLOBAL;
+            return new DummyResult($this, $i + self::OFFSET_GLOBAL);
         }
 
         echo 'Not supported query: ' . $query . "\n";
@@ -255,7 +260,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns result data from $result
      *
-     * @param object $result MySQL result
+     * @param int $result MySQL result
      */
     public function fetchAny($result): ?array
     {
@@ -271,34 +276,14 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result  MySQL result
-     */
-    public function fetchArray($result): ?array
-    {
-        $query_data = &$this->getQueryData($result);
-        $data = $this->fetchAny($result);
-        if (! is_array($data) || ! isset($query_data['columns'])) {
-            return $data;
-        }
-
-        foreach ($data as $key => $val) {
-            $data[$query_data['columns'][$key]] = $val;
-        }
-
-        return $data;
-    }
-
-    /**
      * returns array of rows with associative keys from $result
      *
-     * @param object $result MySQL result
+     * @param int $result MySQL result
      */
     public function fetchAssoc($result): ?array
     {
         $data = $this->fetchAny($result);
-        $query_data = &$this->getQueryData($result);
+        $query_data = $this->getQueryData($result);
         if (! is_array($data) || ! isset($query_data['columns'])) {
             return $data;
         }
@@ -314,7 +299,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param object $result MySQL result
+     * @param int $result MySQL result
      */
     public function fetchRow($result): ?array
     {
@@ -324,8 +309,8 @@ class DbiDummy implements DbiExtension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object $result database result
-     * @param int    $offset offset to seek
+     * @param int $result database result
+     * @param int $offset offset to seek
      */
     public function dataSeek($result, $offset): bool
     {
@@ -337,15 +322,6 @@ class DbiDummy implements DbiExtension
         $query_data['pos'] = $offset;
 
         return true;
-    }
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     */
-    public function freeResult($result): void
-    {
     }
 
     /**
@@ -373,7 +349,7 @@ class DbiDummy implements DbiExtension
      *
      * @param object $link the connection object
      *
-     * @return mixed false when empty results / result set when not empty
+     * @return ResultInterface|false false when empty results / result set when not empty
      */
     public function storeResult($link)
     {
@@ -433,7 +409,7 @@ class DbiDummy implements DbiExtension
     /**
      * returns the number of rows returned by last query
      *
-     * @param object|bool $result MySQL result
+     * @param int|bool $result MySQL result
      *
      * @return string|int
      * @psalm-return int|numeric-string
@@ -444,7 +420,7 @@ class DbiDummy implements DbiExtension
             return 0;
         }
 
-        $query_data = &$this->getQueryData($result);
+        $query_data = $this->getQueryData($result);
 
         return count($query_data['result']);
     }
@@ -468,66 +444,43 @@ class DbiDummy implements DbiExtension
     /**
      * returns metainfo for fields in $result
      *
-     * @param object $result result set identifier
+     * @param int $result result set identifier
      *
-     * @return FieldMetadata[]|null meta info for fields in $result
+     * @return FieldMetadata[] meta info for fields in $result
      */
-    public function getFieldsMeta($result): ?array
+    public function getFieldsMeta($result): array
     {
-        $query_data = &$this->getQueryData($result);
-        if (! isset($query_data['metadata'])) {
-            return [];
+        $query_data = $this->getQueryData($result);
+        /** @var FieldMetadata[] $metadata */
+        $metadata = $query_data['metadata'] ?? [];
+
+        if (isset($query_data['columns'])) {
+            /** @var string[] $columns */
+            $columns = $query_data['columns'];
+            foreach ($columns as $i => $column) {
+                if (isset($metadata[$i])) {
+                    $metadata[$i]->name = $column;
+                } else {
+                    $metadata[$i] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['name' => $column]);
+                }
+            }
         }
 
-        return $query_data['metadata'];
+        return $metadata;
     }
 
     /**
      * return number of fields in given $result
      *
-     * @param object $result MySQL result
+     * @param int $result MySQL result
      *
      * @return int  field count
      */
     public function numFields($result)
     {
-        $query_data = &$this->getQueryData($result);
-        if (! isset($query_data['columns'])) {
-            return 0;
-        }
+        $query_data = $this->getQueryData($result);
 
-        return count($query_data['columns']);
-    }
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int length of field
-     */
-    public function fieldLen($result, $i)
-    {
-        return -1;
-    }
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, $i)
-    {
-        $query_data = &$this->getQueryData($result);
-        if (! isset($query_data['columns'])) {
-            return '';
-        }
-
-        return $query_data['columns'][$i];
+        return count($query_data['columns'] ?? []);
     }
 
     /**
@@ -2710,12 +2663,12 @@ class DbiDummy implements DbiExtension
                     [
                         'sss s s  ',
                         '…z',
-                        1,
+                        '1',
                     ],
                     [
                         'zzff s sf',
                         '…zff',
-                        2,
+                        '2',
                     ],
                 ],
             ],

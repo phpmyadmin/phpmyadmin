@@ -232,10 +232,7 @@ class Core
         );
 
         if ($tables) {
-            $numTables = $dbi->numRows($tables);
-            $dbi->freeResult($tables);
-
-            return $numTables;
+            return $tables->numRows();
         }
 
         return 0;

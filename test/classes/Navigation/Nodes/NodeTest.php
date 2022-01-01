@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
 use ReflectionMethod;
 
 /**
@@ -388,19 +389,21 @@ class NodeTest extends AbstractTestCase
 
         $node = NodeFactory::getInstance();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
-            ->will($this->returnValue(true));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchArray')
+            ->will($this->returnValue($resultStub));
+        $resultStub->expects($this->exactly(3))
+            ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
                 ['0' => 'db'],
                 ['0' => 'aa_db'],
-                null
+                []
             );
 
         $dbi->expects($this->once())
@@ -484,13 +487,16 @@ class NodeTest extends AbstractTestCase
 
         $node = NodeFactory::getInstance();
 
+        $resultStub = $this->createMock(DummyResult::class);
+
         // test with no search clause
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with('SHOW DATABASES WHERE TRUE ');
+            ->with('SHOW DATABASES WHERE TRUE ')
+            ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
@@ -503,7 +509,8 @@ class NodeTest extends AbstractTestCase
             ->getMock();
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ");
+            ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
+            ->will($this->returnValue($resultStub));
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 

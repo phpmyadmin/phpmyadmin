@@ -13,6 +13,7 @@ use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Query\Cache;
@@ -162,21 +163,20 @@ class DatabaseInterface implements DbalInterface
      * @param mixed  $link                optional database link to use
      * @param int    $options             optional query options
      * @param bool   $cache_affected_rows whether to cache affected rows
-     *
-     * @return mixed
      */
     public function query(
         string $query,
         $link = self::CONNECT_USER,
         int $options = 0,
         bool $cache_affected_rows = true
-    ) {
+    ): ResultInterface {
         $result = $this->tryQuery($query, $link, $options, $cache_affected_rows);
 
         if (! $result) {
+            // The following statement will exit
             Generator::mysqlDie($this->getError($link), $query);
 
-            return false;
+            exit;
         }
 
         return $result;
@@ -195,7 +195,7 @@ class DatabaseInterface implements DbalInterface
      * @param int    $options             query options
      * @param bool   $cache_affected_rows whether to cache affected row
      *
-     * @return mixed
+     * @return ResultInterface|false
      */
     public function tryQuery(
         string $query,
@@ -708,12 +708,7 @@ class DatabaseInterface implements DbalInterface
                     . Util::backquote($database_name) . ';'
                 );
 
-                if ($res === false) {
-                    unset($res);
-                    continue;
-                }
-
-                while ($row = $this->fetchAssoc($res)) {
+                while ($row = $res->fetchAssoc()) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
                     $databases[$database_name]['SCHEMA_TABLE_ROWS'] += $row['Rows'];
                     $databases[$database_name]['SCHEMA_DATA_LENGTH'] += $row['Data_length'];
@@ -774,9 +769,6 @@ class DatabaseInterface implements DbalInterface
         }
 
         $meta = $this->getFieldsMeta($result);
-        if ($meta === null) {
-            return [];
-        }
 
         $column_map = [];
         $nbColumns = count($view_columns);
@@ -1205,7 +1197,7 @@ class DatabaseInterface implements DbalInterface
      *                          starting at 0, with 0 being default
      * @param int        $link  link type
      *
-     * @return mixed|false value of first field in first row from result or false if not found
+     * @return string|false|null value of first field in first row from result or false if not found
      */
     public function fetchValue(
         string $query,
@@ -1217,11 +1209,7 @@ class DatabaseInterface implements DbalInterface
             return false;
         }
 
-        // get requested row
-        $row = $this->fetchByMode($result, is_int($field) ? self::FETCH_NUM : self::FETCH_ASSOC);
-
-        // return requested field
-        return $row[$field] ?? false;
+        return $result->fetchValue($field);
     }
 
     /**
@@ -1238,7 +1226,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric
      *                      associative or both
      * @param int    $link  link type
-     * @psalm-param  DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC|DatabaseInterface::FETCH_BOTH $type
+     * @psalm-param  DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
      */
     public function fetchSingleRow(
         string $query,
@@ -1250,7 +1238,7 @@ class DatabaseInterface implements DbalInterface
             return null;
         }
 
-        return $this->fetchByMode($result, $type);
+        return $this->fetchByMode($result, $type) ?: null;
     }
 
     /**
@@ -1269,21 +1257,17 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns array of rows with numeric or associative keys
      *
-     * @param object $result result set identifier
-     * @param string $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
-     * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC|self::FETCH_BOTH $mode
+     * @param ResultInterface $result result set identifier
+     * @param string          $mode   either self::FETCH_NUM, self::FETCH_ASSOC or self::FETCH_BOTH
+     * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $mode
      */
-    private function fetchByMode($result, string $mode): ?array
+    private function fetchByMode(ResultInterface $result, string $mode): array
     {
         if ($mode === self::FETCH_NUM) {
-            return $this->extension->fetchRow($result);
+            return $result->fetchRow();
         }
 
-        if ($mode === self::FETCH_ASSOC) {
-            return $this->extension->fetchAssoc($result);
-        }
-
-        return $this->extension->fetchArray($result);
+        return $result->fetchAssoc();
     }
 
     /**
@@ -1359,7 +1343,7 @@ class DatabaseInterface implements DbalInterface
 
         if ($key === null) {
             // no nested array if only one field is in result
-            if ($this->numFields($result) === 1) {
+            if ($result->numFields() === 1) {
                 $value = 0;
                 $fetch_function = self::FETCH_NUM;
             }
@@ -1431,14 +1415,13 @@ class DatabaseInterface implements DbalInterface
      */
     public function getWarnings($link = self::CONNECT_USER): array
     {
-        /** @var object|false $result */
         $result = $this->tryQuery('SHOW WARNINGS', $link, 0, false);
         if ($result === false) {
             return [];
         }
 
         $warnings = [];
-        while ($row = $this->fetchAssoc($result)) {
+        while ($row = $result->fetchAssoc()) {
             $warnings[] = Warning::fromArray($row);
         }
 
@@ -1711,7 +1694,7 @@ class DatabaseInterface implements DbalInterface
         $isSuperUser = false;
 
         if ($result) {
-            $isSuperUser = (bool) $this->numRows($result);
+            $isSuperUser = (bool) $result->numRows();
         }
 
         SessionCache::set('is_superuser', $isSuperUser);
@@ -1753,7 +1736,7 @@ class DatabaseInterface implements DbalInterface
         $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
 
         if ($result) {
-            $hasGrantPrivilege = (bool) $this->numRows($result);
+            $hasGrantPrivilege = (bool) $result->numRows();
         }
 
         SessionCache::set('is_grantuser', $hasGrantPrivilege);
@@ -1795,7 +1778,7 @@ class DatabaseInterface implements DbalInterface
         $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
 
         if ($result) {
-            $hasCreatePrivilege = (bool) $this->numRows($result);
+            $hasCreatePrivilege = (bool) $result->numRows();
         }
 
         SessionCache::set('is_createuser', $hasCreatePrivilege);
@@ -1831,12 +1814,12 @@ class DatabaseInterface implements DbalInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string|bool
+     * @return string
      */
     public function getLowerCaseNames()
     {
         if ($this->lowerCaseTableNames === null) {
-            $this->lowerCaseTableNames = $this->fetchValue('SELECT @@lower_case_table_names');
+            $this->lowerCaseTableNames = $this->fetchValue('SELECT @@lower_case_table_names') ?: '';
         }
 
         return $this->lowerCaseTableNames;
@@ -1920,54 +1903,34 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchArray($result): ?array
-    {
-        return $this->extension->fetchArray($result);
-    }
-
-    /**
      * returns array of rows with associative keys from $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      */
-    public function fetchAssoc($result): ?array
+    public function fetchAssoc(ResultInterface $result): array
     {
-        return $this->extension->fetchAssoc($result);
+        return $result->fetchAssoc();
     }
 
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      */
-    public function fetchRow($result): ?array
+    public function fetchRow(ResultInterface $result): array
     {
-        return $this->extension->fetchRow($result);
+        return $result->fetchRow();
     }
 
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object $result database result
-     * @param int    $offset offset to seek
+     * @param ResultInterface $result database result
+     * @param int             $offset offset to seek
      */
-    public function dataSeek($result, int $offset): bool
+    public function dataSeek(ResultInterface $result, int $offset): bool
     {
-        return $this->extension->dataSeek($result, $offset);
-    }
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     */
-    public function freeResult($result): void
-    {
-        $this->extension->freeResult($result);
+        return $result->seek($offset);
     }
 
     /**
@@ -2003,7 +1966,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @param int $link link type
      *
-     * @return mixed false when empty results / result set when not empty
+     * @return ResultInterface|false false when empty results / result set when not empty
      */
     public function storeResult($link = self::CONNECT_USER)
     {
@@ -2072,15 +2035,22 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * returns the number of rows returned by last query
+     * used with tryQuery as it accepts false
      *
-     * @param object|bool $result result set identifier
+     * @param string $query query to run
      *
      * @return string|int
      * @psalm-return int|numeric-string
      */
-    public function numRows($result)
+    public function queryAndGetNumRows(string $query)
     {
-        return $this->extension->numRows($result);
+        $result = $this->tryQuery($query);
+
+        if (! $result) {
+            return 0;
+        }
+
+        return $result->numRows();
     }
 
     /**
@@ -2088,10 +2058,8 @@ class DatabaseInterface implements DbalInterface
      * or $GLOBALS['userlink']
      *
      * @param int $link link type
-     *
-     * @return int|false
      */
-    public function insertId($link = self::CONNECT_USER)
+    public function insertId($link = self::CONNECT_USER): int
     {
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
@@ -2101,7 +2069,7 @@ class DatabaseInterface implements DbalInterface
         // When no controluser is defined, using mysqli_insert_id($link)
         // does not always return the last insert id due to a mixup with
         // the tracking mechanism, but this works:
-        return $this->fetchValue('SELECT LAST_INSERT_ID();', 0, $link);
+        return (int) $this->fetchValue('SELECT LAST_INSERT_ID();', 0, $link);
     }
 
     /**
@@ -2131,15 +2099,15 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns metainfo for fields in $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      *
-     * @return FieldMetadata[]|null meta info for fields in $result
+     * @return FieldMetadata[] meta info for fields in $result
      */
-    public function getFieldsMeta($result): ?array
+    public function getFieldsMeta(ResultInterface $result): array
     {
-        $result = $this->extension->getFieldsMeta($result);
+        $fields = $result->getFieldsMeta();
 
-        if ($result !== null && $this->getLowerCaseNames() === '2') {
+        if ($this->getLowerCaseNames() === '2') {
             /**
              * Fixup orgtable for lower_case_table_names = 2
              *
@@ -2147,7 +2115,7 @@ class DatabaseInterface implements DbalInterface
              * but we still need to operate on original case to properly
              * match existing strings
              */
-            foreach ($result as $value) {
+            foreach ($fields as $value) {
                 if (
                     strlen($value->orgtable) === 0 ||
                         mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
@@ -2159,45 +2127,19 @@ class DatabaseInterface implements DbalInterface
             }
         }
 
-        return $result;
+        return $fields;
     }
 
     /**
      * return number of fields in given $result
      *
-     * @param object $result result set identifier
+     * @param ResultInterface $result result set identifier
      *
      * @return int field count
      */
-    public function numFields($result): int
+    public function numFields(ResultInterface $result): int
     {
-        return $this->extension->numFields($result);
-    }
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, int $i)
-    {
-        return $this->extension->fieldLen($result, $i);
-    }
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, int $i): string
-    {
-        return $this->extension->fieldName($result, $i);
+        return $result->numFields();
     }
 
     /**

@@ -45,15 +45,17 @@ final class Gis
         }
 
         $wktresult = $dbi->tryQuery($wktsql);
-        $wktarr = $dbi->fetchRow($wktresult);
+        $wktarr = [];
+        if ($wktresult) {
+            $wktarr = $wktresult->fetchRow();
+        }
+
         $wktval = $wktarr[0] ?? '';
 
         if ($includeSRID) {
             $srid = $wktarr[1] ?? null;
             $wktval = "'" . $wktval . "'," . $srid;
         }
-
-        @$dbi->freeResult($wktresult);
 
         return $wktval;
     }

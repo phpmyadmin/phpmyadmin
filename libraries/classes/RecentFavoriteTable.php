@@ -16,6 +16,7 @@ use function array_pop;
 use function array_unique;
 use function array_unshift;
 use function count;
+use function is_string;
 use function json_decode;
 use function json_encode;
 use function max;
@@ -122,16 +123,15 @@ class RecentFavoriteTable
         $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
             " WHERE `username` = '" . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
-        $return = [];
         $result = $this->relation->queryAsControlUser($sql_query, false);
         if ($result) {
-            $row = $dbi->fetchArray($result);
-            if (isset($row[0])) {
-                $return = json_decode($row[0], true);
+            $value = $result->fetchValue();
+            if (is_string($value)) {
+                return json_decode($value, true);
             }
         }
 
-        return $return;
+        return [];
     }
 
     /**

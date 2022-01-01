@@ -75,10 +75,7 @@ class BinlogController extends AbstractController
         $sqlQuery = $this->getSqlQuery($params['log'] ?? '', $position, (int) $cfg['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
-        $numRows = 0;
-        if (isset($result) && $result) {
-            $numRows = $this->dbi->numRows($result);
-        }
+        $numRows = $result->numRows();
 
         $previousParams = $urlParams;
         $fullQueriesParams = $urlParams;
@@ -99,10 +96,7 @@ class BinlogController extends AbstractController
             $nextParams['pos'] = $position + $cfg['MaxRows'];
         }
 
-        $values = [];
-        while ($value = $this->dbi->fetchAssoc($result)) {
-            $values[] = $value;
-        }
+        $values = $result->fetchAllAssoc();
 
         $this->render('server/binlog/index', [
             'url_params' => $urlParams,

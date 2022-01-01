@@ -27,7 +27,7 @@ final class ForeignKey
 
         if ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
             $ndbver = strtolower(
-                $dbi->fetchValue('SELECT @@ndb_version_string')
+                $dbi->fetchValue('SELECT @@ndb_version_string') ?: ''
             );
             if (substr($ndbver, 0, 4) === 'ndb-') {
                 $ndbver = substr($ndbver, 4);

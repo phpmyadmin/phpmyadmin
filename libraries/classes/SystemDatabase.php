@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use mysqli_result;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\ResultInterface;
 
 use function count;
 use function sprintf;
@@ -35,7 +35,7 @@ class SystemDatabase
      *
      * @param string $db Database name looking for
      *
-     * @return mysqli_result|false Result of executed SQL query
+     * @return ResultInterface|false Result of executed SQL query
      */
     public function getExistingTransformationData($db)
     {
@@ -59,10 +59,10 @@ class SystemDatabase
     /**
      * Get SQL query for store new transformation details of a VIEW
      *
-     * @param object $transformationData Result set of SQL execution
-     * @param array  $columnMap          Details of VIEW columns
-     * @param string $viewName           Name of the VIEW
-     * @param string $db                 Database name of the VIEW
+     * @param ResultInterface $transformationData Result set of SQL execution
+     * @param array           $columnMap          Details of VIEW columns
+     * @param string          $viewName           Name of the VIEW
+     * @param string          $db                 Database name of the VIEW
      *
      * @return string SQL query for new transformations
      */

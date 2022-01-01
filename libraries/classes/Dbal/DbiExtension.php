@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
-use PhpMyAdmin\FieldMetadata;
-
 /**
  * Contract for every database extension supported by phpMyAdmin
  */
@@ -44,9 +42,9 @@ interface DbiExtension
      * @param object $link    connection object
      * @param int    $options query options
      *
-     * @return mixed result
+     * @return ResultInterface|false result
      */
-    public function realQuery($query, $link, $options);
+    public function realQuery(string $query, $link, int $options);
 
     /**
      * Run the multi query and output the results
@@ -57,42 +55,6 @@ interface DbiExtension
      * @return bool
      */
     public function realMultiQuery($link, $query);
-
-    /**
-     * returns array of rows with associative and numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchArray($result): ?array;
-
-    /**
-     * returns array of rows with associative keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchAssoc($result): ?array;
-
-    /**
-     * returns array of rows with numeric keys from $result
-     *
-     * @param object $result result set identifier
-     */
-    public function fetchRow($result): ?array;
-
-    /**
-     * Adjusts the result pointer to an arbitrary row in the result
-     *
-     * @param object $result database result
-     * @param int    $offset offset to seek
-     */
-    public function dataSeek($result, $offset): bool;
-
-    /**
-     * Frees memory associated with the result
-     *
-     * @param object $result database result
-     */
-    public function freeResult($result): void;
 
     /**
      * Check if there are any more query results from a multi query
@@ -113,7 +75,7 @@ interface DbiExtension
      *
      * @param object $link mysql link
      *
-     * @return mixed false when empty results / result set when not empty
+     * @return ResultInterface|false false when empty results / result set when not empty
      */
     public function storeResult($link);
 
@@ -150,16 +112,6 @@ interface DbiExtension
     public function getError($link): string;
 
     /**
-     * returns the number of rows returned by last query
-     *
-     * @param object|bool $result result set identifier
-     *
-     * @return string|int
-     * @psalm-return int|numeric-string
-     */
-    public function numRows($result);
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param object $link the connection object
@@ -168,44 +120,6 @@ interface DbiExtension
      * @psalm-return int|numeric-string
      */
     public function affectedRows($link);
-
-    /**
-     * returns metainfo for fields in $result
-     *
-     * @param object $result result set identifier
-     *
-     * @return FieldMetadata[]|null meta info for fields in $result
-     */
-    public function getFieldsMeta($result): ?array;
-
-    /**
-     * return number of fields in given $result
-     *
-     * @param object $result result set identifier
-     *
-     * @return int field count
-     */
-    public function numFields($result);
-
-    /**
-     * returns the length of the given field $i in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return int|bool length of field
-     */
-    public function fieldLen($result, $i);
-
-    /**
-     * returns name of $i. field in $result
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string name of $i. field in $result
-     */
-    public function fieldName($result, $i);
 
     /**
      * returns properly escaped string for use in MySQL queries

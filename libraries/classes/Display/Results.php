@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
@@ -2135,8 +2136,8 @@ class Results
      *
      * @see     getTable()
      *
-     * @param object                  $dtResult           the link id associated to the query
-     *                                                    which results have to be displayed
+     * @param ResultInterface         $dtResult           the link id associated to the query
+     *                                                                      which results have to be displayed
      * @param array                   $displayParts       which elements to display
      * @param array<string, string[]> $map                the list of relations
      * @param array                   $analyzedSqlResults analyzed sql results
@@ -2147,7 +2148,7 @@ class Results
      * @global array  $row                  current row data
      */
     private function getTableBody(
-        $dtResult,
+        ResultInterface $dtResult,
         array $displayParts,
         array $map,
         array $analyzedSqlResults,
@@ -2209,7 +2210,7 @@ class Results
         // delete/edit options correctly for tables without keys.
 
         $whereClauseMap = $this->properties['whereClauseMap'];
-        while ($row = $this->dbi->fetchRow($dtResult)) {
+        while ($row = $dtResult->fetchRow()) {
             // add repeating headers
             if (
                 ($rowNumber !== 0) && ($_SESSION['tmpval']['repeat_cells'] > 0)
@@ -3555,16 +3556,16 @@ class Results
     /**
      * Prepare a table of results returned by a SQL query.
      *
-     * @param object $dtResult           the link id associated to the query
+     * @param ResultInterface $dtResult           the link id associated to the query
      *                                   which results have to be displayed
-     * @param array  $displayParts       the parts to display
-     * @param array  $analyzedSqlResults analyzed sql results
-     * @param bool   $isLimitedDisplay   With limited operations or not
+     * @param array           $displayParts       the parts to display
+     * @param array           $analyzedSqlResults analyzed sql results
+     * @param bool            $isLimitedDisplay   With limited operations or not
      *
      * @return string   Generated HTML content for resulted table
      */
     public function getTable(
-        $dtResult,
+        ResultInterface $dtResult,
         array &$displayParts,
         array $analyzedSqlResults,
         $isLimitedDisplay = false
@@ -3797,15 +3798,15 @@ class Results
      *
      * @see     getTable()
      *
-     * @param object $dtResult                  the link id associated to the
-     *                                           query which results have to
-     *                                           be displayed
-     * @param string $sortExpressionNoDirection sort expression without direction
+     * @param ResultInterface $dtResult                  the link id associated to the
+     *                                        query which results have to
+     *                                        be displayed
+     * @param string          $sortExpressionNoDirection sort expression without direction
      *
      * @return string|null html content, null if not found sorted column
      */
     private function getSortedColumnMessage(
-        $dtResult,
+        ResultInterface $dtResult,
         $sortExpressionNoDirection
     ) {
         $fieldsMeta = $this->properties['fields_meta']; // To use array indexes
@@ -3840,7 +3841,7 @@ class Results
         }
 
         // fetch first row of the result set
-        $row = $this->dbi->fetchRow($dtResult);
+        $row = $dtResult->fetchRow();
 
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
@@ -3857,7 +3858,7 @@ class Results
                 $meta
             );
         } else {
-            $columnForFirstRow = $row !== null ? $row[$sortedColumnIndex] : '';
+            $columnForFirstRow = $row !== [] ? $row[$sortedColumnIndex] : '';
         }
 
         $columnForFirstRow = mb_strtoupper(
@@ -3869,8 +3870,8 @@ class Results
         );
 
         // fetch last row of the result set
-        $this->dbi->dataSeek($dtResult, $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0);
-        $row = $this->dbi->fetchRow($dtResult);
+        $dtResult->seek($this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0);
+        $row = $dtResult->fetchRow();
 
         // check for non printable sorted row data
         $meta = $fieldsMeta[$sortedColumnIndex];
@@ -3883,7 +3884,7 @@ class Results
                 $meta
             );
         } else {
-            $columnForLastRow = $row !== null ? $row[$sortedColumnIndex] : '';
+            $columnForLastRow = $row !== [] ? $row[$sortedColumnIndex] : '';
         }
 
         $columnForLastRow = mb_strtoupper(
@@ -3895,7 +3896,7 @@ class Results
         );
 
         // reset to first row for the loop in getTableBody()
-        $this->dbi->dataSeek($dtResult, 0);
+        $dtResult->seek(0);
 
         // we could also use here $sort_expression_nodirection
         return ' [' . htmlspecialchars($sortColumn)
@@ -4065,15 +4066,15 @@ class Results
      *
      * @see     getTable()
      *
-     * @param object $dtResult           the link id associated to the query which
+     * @param ResultInterface $dtResult           the link id associated to the query which
      *                                    results have to be displayed
-     * @param array  $analyzedSqlResults analyzed sql results
-     * @param string $deleteLink         the display element - 'del_link'
+     * @param array           $analyzedSqlResults analyzed sql results
+     * @param string          $deleteLink         the display element - 'del_link'
      *
      * @psalm-return array{has_export_button:bool, clause_is_unique:mixed}|array<empty, empty>
      */
     private function getBulkLinks(
-        $dtResult,
+        ResultInterface $dtResult,
         array $analyzedSqlResults,
         $deleteLink
     ): array {
@@ -4082,8 +4083,8 @@ class Results
         }
 
         // fetch last row of the result set
-        $this->dbi->dataSeek($dtResult, $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0);
-        $row = $this->dbi->fetchRow($dtResult) ?? [];
+        $dtResult->seek($this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0);
+        $row = $dtResult->fetchRow();
 
         $expressions = [];
 
@@ -4105,7 +4106,7 @@ class Results
         );
 
         // reset to first row for the loop in getTableBody()
-        $this->dbi->dataSeek($dtResult, 0);
+        $dtResult->seek(0);
 
         return [
             'has_export_button' => $analyzedSqlResults['querytype'] === 'SELECT',
@@ -4321,12 +4322,12 @@ class Results
             . Util::backquote($fieldInfo[1])
             . $whereComparison;
 
-        $dispval = $this->dbi->fetchSingleRow($dispsql, DatabaseInterface::FETCH_NUM);
-        if ($dispval === null) {
+        $dispval = $this->dbi->fetchValue($dispsql);
+        if ($dispval === false) {
             return __('Link not found!');
         }
 
-        return $dispval[0] === null ? null : (string) $dispval[0];
+        return $dispval;
     }
 
     /**

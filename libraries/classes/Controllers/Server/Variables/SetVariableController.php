@@ -72,10 +72,8 @@ final class SetVariableController extends AbstractController
         }
 
         $json = [];
-        if (
-            ! preg_match('/[^a-zA-Z0-9_]+/', $variableName)
-            && $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value)
-        ) {
+        if (! preg_match('/[^a-zA-Z0-9_]+/', $variableName)) {
+            $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value);
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'

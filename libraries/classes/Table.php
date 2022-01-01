@@ -35,6 +35,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_stripos;
@@ -707,7 +708,7 @@ class Table implements Stringable
         $res = $this->dbi->tryQuery($checkQuery);
 
         if ($res !== false) {
-            $numRecords = $this->dbi->numRows($res);
+            $numRecords = $res->numRows();
             if ($numRecords >= $minRecords) {
                 return true;
             }
@@ -799,9 +800,8 @@ class Table implements Stringable
                     DatabaseInterface::CONNECT_USER,
                     DatabaseInterface::QUERY_STORE
                 );
-                if (! $this->dbi->getError()) {
-                    $rowCount = $this->dbi->numRows($result);
-                    $this->dbi->freeResult($result);
+                if ($result) {
+                    $rowCount = $result->numRows();
                 }
             }
         }
@@ -936,7 +936,7 @@ class Table implements Stringable
         // another query inside the loop
         $tableCopyRs = $relation->queryAsControlUser($tableCopyQuery, true, DatabaseInterface::QUERY_STORE);
 
-        while ($tableCopyRow = @$dbi->fetchAssoc($tableCopyRs)) {
+        foreach ($tableCopyRs as $tableCopyRow) {
             $valueParts = [];
             foreach ($tableCopyRow as $key => $val) {
                 if (! isset($rowFields[$key]) || $rowFields[$key] != 'cc') {
@@ -957,8 +957,6 @@ class Table implements Stringable
             $relation->queryAsControlUser($newTableQuery);
             $lastId = $dbi->insertId();
         }
-
-        $dbi->freeResult($tableCopyRs);
 
         return $lastId;
     }
@@ -1342,7 +1340,7 @@ class Table implements Stringable
             );
 
             // Write every comment as new copied entry. [MIME]
-            while ($commentsCopyRow = $dbi->fetchAssoc($commentsCopyRs)) {
+            foreach ($commentsCopyRs as $commentsCopyRow) {
                 $newCommentQuery = 'REPLACE INTO '
                     . Util::backquote($relationParameters->columnCommentsFeature->database)
                     . '.' . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
@@ -1366,7 +1364,6 @@ class Table implements Stringable
                 $relation->queryAsControlUser($newCommentQuery);
             }
 
-            $dbi->freeResult($commentsCopyRs);
             unset($commentsCopyRs);
         }
 
@@ -1523,6 +1520,7 @@ class Table implements Stringable
                   TO ' . $newTable->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
         if (! $this->dbi->query($GLOBALS['sql_query'])) {
+            // TODO: this is dead code, should it be removed?
             // Restore triggers in the old database
             if ($handleTriggers) {
                 $this->dbi->selectDb($this->getDbName());
@@ -1688,9 +1686,9 @@ class Table implements Stringable
     /**
      * Get meta info for fields in table
      *
-     * @return mixed
+     * @return FieldMetadata[]
      */
-    public function getColumnsMeta()
+    public function getColumnsMeta(): array
     {
         $moveColumnsSqlQuery = sprintf(
             'SELECT * FROM %s.%s LIMIT 1',
@@ -1763,9 +1761,9 @@ class Table implements Stringable
             $this->dbi->escapeString($this->name)
         );
 
-        $row = $this->dbi->fetchArray($this->relation->queryAsControlUser($sqlQuery));
-        if (isset($row[0])) {
-            return json_decode($row[0], true);
+        $value = $this->relation->queryAsControlUser($sqlQuery)->fetchValue();
+        if (is_string($value)) {
+            return json_decode($value, true);
         }
 
         return [];
@@ -2189,7 +2187,7 @@ class Table implements Stringable
      *
      * @param string $displayField display field
      */
-    public function updateDisplayField($displayField, DisplayFeature $displayFeature): bool
+    public function updateDisplayField($displayField, DisplayFeature $displayFeature): void
     {
         if ($displayField == '') {
             $updQuery = 'DELETE FROM '
@@ -2209,7 +2207,7 @@ class Table implements Stringable
                 . '\'' . $this->dbi->escapeString($displayField) . '\')';
         }
 
-        return $this->dbi->query($updQuery, DatabaseInterface::CONNECT_CONTROL, 0, false) === true;
+        $this->dbi->query($updQuery, DatabaseInterface::CONNECT_CONTROL, 0, false);
     }
 
     /**

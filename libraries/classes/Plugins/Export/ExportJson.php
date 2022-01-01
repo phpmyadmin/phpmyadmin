@@ -250,12 +250,12 @@ class ExportJson extends ExportPlugin
         }
 
         $result = $dbi->query($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
-        $columns_cnt = $dbi->numFields($result);
-        $fieldsMeta = $dbi->getFieldsMeta($result) ?? [];
+        $columns_cnt = $result->numFields();
+        $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $columns = [];
-        for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $dbi->fieldName($result, $i);
+        foreach ($fieldsMeta as $i => $field) {
+            $col_as = $field->name;
             if (
                 $db !== null && $table !== null && $aliases !== null
                 && ! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
@@ -267,7 +267,7 @@ class ExportJson extends ExportPlugin
         }
 
         $record_cnt = 0;
-        while ($record = $dbi->fetchRow($result)) {
+        while ($record = $result->fetchRow()) {
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
@@ -314,13 +314,7 @@ class ExportJson extends ExportPlugin
             }
         }
 
-        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
-            return false;
-        }
-
-        $dbi->freeResult($result);
-
-        return true;
+        return $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf);
     }
 
     /**
