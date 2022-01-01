@@ -2060,7 +2060,7 @@ class InsertEdit
         $vkey,
         $insertMode,
         array $currentRow,
-        &$oRows,
+        $oRows,
         &$tabindex,
         $columnsCnt,
         $isUpload,
