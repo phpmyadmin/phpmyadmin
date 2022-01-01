@@ -321,11 +321,7 @@ final class ExportController extends AbstractController
         } elseif ($export_type === 'database' && strlen($db) > 0) {
             $errorUrl = Url::getFromRoute('/database/export', ['db' => $db]);
             // Check if we have something to export
-            if (isset($table_select)) {
-                $tables = $table_select;
-            } else {
-                $tables = [];
-            }
+            $tables = $table_select ?? [];
         } elseif ($export_type === 'table' && strlen($db) > 0 && strlen($table) > 0) {
             $errorUrl = Url::getFromRoute('/table/export', [
                 'db' => $db,
