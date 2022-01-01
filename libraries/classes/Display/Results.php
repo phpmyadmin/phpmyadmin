@@ -1434,10 +1434,9 @@ class Results
         if (
             isset($_SESSION['tmpval']['possible_as_geometry'])
             && $_SESSION['tmpval']['possible_as_geometry'] == false
+            && $_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM
         ) {
-            if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
-                $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
-            }
+            $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
         }
 
         return [
@@ -2349,30 +2348,27 @@ class Results
 
             // 3. Displays the modify/delete links on the right if required
             if (
-                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
+                    || $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             ) {
-                if (
-                    ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
-                    || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-                ) {
-                    $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
-                        'position' => self::POSITION_RIGHT,
-                        'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
-                        'edit' => [
-                            'url' => $editUrl,
-                            'string' => $editString,
-                            'clause_is_unique' => $clauseIsUnique ?? true,
-                        ],
-                        'copy' => ['url' => $copyUrl, 'string' => $copyString],
-                        'delete' => ['url' => $deleteUrl, 'string' => $deleteString],
-                        'row_number' => $rowNumber,
-                        'where_clause' => $whereClause ?? '',
-                        'condition' => json_encode($conditionArray ?? []),
-                        'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
-                        'js_conf' => $jsConf ?? '',
-                    ]);
-                }
+                $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
+                    'position' => self::POSITION_RIGHT,
+                    'has_checkbox' => $deleteUrl && $displayParts['del_lnk'] !== self::KILL_PROCESS,
+                    'edit' => [
+                        'url' => $editUrl,
+                        'string' => $editString,
+                        'clause_is_unique' => $clauseIsUnique ?? true,
+                    ],
+                    'copy' => ['url' => $copyUrl, 'string' => $copyString],
+                    'delete' => ['url' => $deleteUrl, 'string' => $deleteString],
+                    'row_number' => $rowNumber,
+                    'where_clause' => $whereClause ?? '',
+                    'condition' => json_encode($conditionArray ?? []),
+                    'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
+                    'js_conf' => $jsConf ?? '',
+                ]);
             }
 
             $tableBodyHtml .= '</tr>';
