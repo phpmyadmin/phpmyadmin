@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-29 02:26+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2022-01-03 16:55+0000\n"
+"Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -16821,6 +16821,13 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Acest lucru indică, de obicei, scanări frecvente ale indexului complet. "
+"Scanările indexului complet sunt mai rapide decât scanările tabelelor, dar "
+"necesită multe cicluri CPU în tabelele mari, dacă acele tabele care au sau "
+"au avut volume mari de UPDATE-uri și DELETE-uri, rularea 'OPTIMIZE TABLE' ar "
+"putea reduce cantitatea și/sau accelera scanările indexului complet. În "
+"afară de aceasta, scanările indexului complet pot fi reduse doar prin "
+"rescrierea interogărilor."
 
 #: libraries/advisory_rules_generic.txt:188
 #, php-format
@@ -16843,6 +16850,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Acest lucru indică faptul că multe interogări trebuie să sorteze rezultatele "
+"și/sau să efectueze o scanare completă a tabelului, inclusiv interogările de "
+"tip join care nu utilizează indexuri. Adăugați indexuri, dacă este cazul."
 
 #: libraries/advisory_rules_generic.txt:195
 #, php-format
@@ -16892,6 +16902,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Dacă ați modificat în mod deliberat unul dintre aceste elemente: Serverul "
+"utilizează valoarea cea mai mică a oricăreia dintre ele pentru a determina "
+"dimensiunea maximă a tabelelor în memorie. Prin urmare, dacă doriți să "
+"măriți limita tabelelor în memorie, va trebui să măriți și cealaltă valoare."
 
 #: libraries/advisory_rules_generic.txt:210
 #, php-format
@@ -16920,6 +16934,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Mărirea {max_heap_table_size} și {tmp_table_size} ar putea fi de ajutor. Cu "
+"toate acestea, unele tabele temporare sunt întotdeauna scrise pe disc, "
+"indiferent de valoarea acestor variabile.Pentru a le elimina, va trebui să "
+"vă rescrieți interogările pentru a evita aceste condiții (Într-un tabel "
+"temporar: Prezența unei coloane BLOB sau TEXT sau prezența unei coloane mai "
+"mare de 512 octeți) așa cum este menționat la începutul unui <a href=\"https "
+"://www.facebook.com/note.php?note_id=10150111255065841&comments\">Articol de "
+"la Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.txt:217
 #, php-format
