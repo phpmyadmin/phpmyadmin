@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-08-27 17:07+0200\n"
-"PO-Revision-Date: 2022-01-02 14:55+0000\n"
+"PO-Revision-Date: 2022-01-03 16:54+0000\n"
 "Last-Translator: Emanuel <emanuel12m@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
@@ -1877,10 +1877,14 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Introduzca el parámetro de solicitud utilizado por su API compatible con "
+"reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Introduzca el parámetro de respuesta utilizado por su API compatible con "
+"reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -4542,15 +4546,15 @@ msgstr "URL para la API de reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "El snippet de Content-Security-Policy para la API de reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parámetro de solicitud para la API de reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parámetro de respuesta para la API de reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -7150,6 +7154,8 @@ msgstr "Borrar página"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"Algunas tablas guardadas en esta página pueden haber sido renombradas o "
+"eliminadas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -7580,7 +7586,7 @@ msgstr "Error desconocido"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "El cliente no soporta la clave de seguridad."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
@@ -11675,7 +11681,7 @@ msgstr "Valor %s"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "Usar la exportación de vista simple"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -12246,6 +12252,10 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Está utilizando el campo de opciones de línea de comandos de la "
+"transformación externa, que ha quedado obsoleto por motivos de seguridad. "
+"Añada todas las opciones de línea de comandos directamente a la definición "
+"en %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -12719,6 +12729,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"El caché de enrutamiento no pudo ser escrito, necesita ajustar los permisos "
+"en la carpeta/archivo \"%s\""
 
 #: libraries/classes/Routing.php:165
 #, php-format
@@ -16587,7 +16599,7 @@ msgstr "Ingrese una entrada HEX válida"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Esta columna no puede contener un valor de 32 caracteres"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16595,6 +16607,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Estas funciones están pensadas para devolver un resultado binario; para "
+"evitar resultados inconsistentes, debe almacenarlo en una columna BINARY, "
+"VARBINARY o BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -17462,7 +17477,7 @@ msgstr "Permite crear el almacenamiento de rutinas."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "No se usa en MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
 #, fuzzy
